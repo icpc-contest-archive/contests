@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/icpc-contest-archive/contests/schema/catalogue.schema.json",
+  "title": "ICPC contest catalogue — per-series file",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["series", "contests"],
+  "$defs": {
+    "contestId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*-[0-9]{4}$" },
+    "seriesId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "refValue": {
+      "description": "absent = not yet researched; null = confirmed none; string or list = the reference(s)",
+      "oneOf": [
+        { "type": "null" },
+        { "$ref": "#/$defs/contestId" },
+        { "type": "array", "minItems": 2, "items": { "$ref": "#/$defs/contestId" } }
+      ]
+    },
+    "url": { "type": "string", "pattern": "^https?://" },
+    "urlOrList": {
+      "oneOf": [
+        { "$ref": "#/$defs/url" },
+        { "type": "array", "minItems": 2, "items": { "$ref": "#/$defs/url" } }
+      ]
+    },
+    "resultEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["url"],
+      "properties": {
+        "url": { "$ref": "#/$defs/url" },
+        "archived": { "type": "string", "description": "archive reference: <contest-id>/<artifact>/<fetch-date>" },
+        "wayback": { "$ref": "#/$defs/url" },
+        "fetched": { "type": "string", "format": "date-time" },
+        "note": { "type": "string" }
+      }
+    },
+    "resultList": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/resultEntry" } },
+    "contest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id"],
+      "properties": {
+        "id": { "$ref": "#/$defs/contestId" },
+        "status": { "enum": ["upcoming"] },
+        "season": { "type": "integer", "minimum": 1970, "maximum": 2100 },
+        "name": { "type": "string" },
+        "date": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+        "location": { "type": "string" },
+        "venue": { "type": "string" },
+        "cms_ids": { "type": "array", "items": { "type": "integer", "minimum": 1 } },
+        "cms_status": { "enum": ["pre-cms"] },
+        "parent": { "$ref": "#/$defs/refValue" },
+        "next": { "$ref": "#/$defs/refValue" },
+        "subset_of": { "$ref": "#/$defs/contestId" },
+        "web": { "$ref": "#/$defs/urlOrList" },
+        "results": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "scoreboard": { "$ref": "#/$defs/resultList" },
+            "frozen_scoreboard": { "$ref": "#/$defs/resultList" },
+            "standings": { "$ref": "#/$defs/resultList" },
+            "rankings": { "$ref": "#/$defs/resultList" }
+          }
+        },
+        "icpc_standings": { "$ref": "#/$defs/url" },
+        "problems": { "type": "string", "description": "icpc-problem-archive repo reference" },
+        "sources": { "type": "array", "items": { "type": "string" } },
+        "notes": { "type": "string" },
+        "reason": { "type": "string", "description": "non-mainline registry only" }
+      }
+    }
+  },
+  "properties": {
+    "series": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id"],
+      "properties": {
+        "id": { "$ref": "#/$defs/seriesId" },
+        "name": { "type": "string" },
+        "tier": { "enum": ["championship"] },
+        "region": { "type": "string" },
+        "rotating_host": { "type": "boolean" },
+        "aliases": { "type": "array", "items": { "$ref": "#/$defs/seriesId" } },
+        "lineage": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "series", "year"],
+            "properties": {
+              "type": { "enum": ["continues-as", "continues-from"] },
+              "series": { "$ref": "#/$defs/seriesId" },
+              "year": { "type": "integer" },
+              "note": { "type": "string" }
+            }
+          }
+        },
+        "notes": { "type": "string" }
+      }
+    },
+    "contests": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/contest" } }
+  }
+}
