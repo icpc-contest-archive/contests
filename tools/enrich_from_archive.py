@@ -21,7 +21,9 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
-ART_KEY = {"scoreboard": "scoreboard", "external-standings": "standings"}
+ART_KEY = {"scoreboard": "scoreboard", "frozen_scoreboard": "frozen_scoreboard",
+           "standings": "standings", "rankings": "rankings",
+           "external-standings": "standings"}
 
 
 class Dumper(yaml.SafeDumper):
@@ -37,6 +39,20 @@ def norm(u: str) -> str:
     return re.sub(r"^https?://", "", (u or "").strip()).rstrip("/")
 
 
+def keyset(*urls) -> set:
+    """Match keys for a set of URLs: each normalized, plus the raw origin URL
+    embedded in any wayback link among them."""
+    out = set()
+    for u in urls:
+        if not u:
+            continue
+        out.add(norm(u))
+        m = re.match(r"^https?://web\.archive\.org/web/\d{4,14}[a-z_]{0,3}/(.*)$", u)
+        if m:
+            out.add(norm(m.group(1)))
+    return out
+
+
 def main() -> int:
     index = json.loads((ROOT / "data" / "archive-index.json").read_text())
     by_contest: dict[str, list[dict]] = {}
@@ -49,6 +65,9 @@ def main() -> int:
         changed = False
         for c in doc["contests"]:
             for cap in by_contest.get(c["id"], []):
+                if cap.get("content_caveat"):
+                    stats["skipped (content caveat)"] += 1
+                    continue
                 key = ART_KEY.get(cap["artifact"])
                 if key is None:
                     stats[f"skipped artifact {cap['artifact']}"] += 1
@@ -56,10 +75,10 @@ def main() -> int:
                 res = c.setdefault("results", {})
                 target = None
                 if cap.get("url"):
-                    want = norm(cap["url"])
+                    want = keyset(cap["url"], cap.get("wayback_url"))
                     for lst in res.values():
                         for e in lst:
-                            if norm(e["url"]) == want:
+                            if keyset(e["url"], e.get("wayback")) & want:
                                 target = e
                                 break
                         if target:
