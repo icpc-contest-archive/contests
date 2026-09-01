@@ -20,6 +20,34 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 REPLAY_BASE = os.environ.get("REPLAY_BASE", "https://icpc-contest-archive.github.io/replay")
 
+CHAMPIONSHIPS = {"nac", "awc", "euc", "apc", "lac", "aec", "nadc"}
+REGION_GROUPS = {
+    "North America": ["socal","naq","nena","nena-atlantic","nena-central","nena-east","nena-north",
+        "nena-west","ecna","scusa","rmc","lethbridge","gny","mcpc","seusa","mausa","pacnw","east-na",
+        "south-na","alberta","ncna","east-central-na","north-central-na"],
+    "Europe & Northern Eurasia": ["poland","hungary","slovenia","turkey","ukraine","cerc","swerc",
+        "nwerc","bapc","bapc-prelims","germany","croatia","romania","bulgaria","greece","cyprus",
+        "nordic","sweden","norway","ukiepc","ctuo","neerc","nerc","south-russia","central-russia",
+        "north-russia","west-siberia","east-siberia","far-east-russia","urals","moscow","taurida",
+        "west-neerc","armenia","azerbaijan","georgia","kazakhstan","kyrgyzstan","uzbekistan",
+        "erc","werc","mcerc","seerc"],
+    "Asia East & Pacific": ["japan","korea","taiwan","hong-kong","singapore","manila","jakarta",
+        "kuala-lumpur","thailand","vietnam","south-pacific","south-pacific-west",
+        "south-pacific-central","south-pacific-east","south-pacific-division","nzpc","australia",
+        "beijing","shanghai","chengdu","hangzhou","xian","harbin","wuhan","fuzhou","hefei","nanjing",
+        "dalian","changchun","changsha","jinan","jinhua","jiaozuo","kunming","macau","mudanjiang",
+        "nanchang","nanning","ningbo","qingdao","shenyang","tianjin","urumqi","xuzhou","yinchuan",
+        "anshan","guangzhou","yangon","pyongyang"],
+    "Latin America, Africa & West Asia": ["brazil","mexico","caribbean","central-america",
+        "south-america","south-america-north","south-america-south","cuba","acpc","egypt","jordan",
+        "syria","lebanon","kuwait","bahrain","oman","qatar","saudi-arabia","palestine","morocco",
+        "tunisia","algeria","sudan","south-africa","angola","benin","burkina-faso","ethiopia",
+        "ivory-coast","nigeria","senegal","togo","tehran","pakistan","kabul","dhaka","kanpur",
+        "amritapuri","kharagpur","kolkata","gwalior","chennai","coimbatore","bombay","mathura",
+        "india","gwalior-kanpur","kolkata-kanpur","kolkata-roorkee","gwalior-pune"],
+}
+SERIES_REGION = {s: g for g, ss in REGION_GROUPS.items() for s in ss}
+
 CSS = """
 :root { --fg:#1a1a1a; --muted:#666; --line:#ddd; --accent:#0b5cad; --bg:#fff; --chip:#f0f4f8; }
 @media (prefers-color-scheme: dark) {
@@ -41,6 +69,23 @@ td.wrap { white-space:normal; }
 nav.top { border-bottom:1px solid var(--line); }
 nav.top div { max-width:64rem; margin:0 auto; padding:.55rem 1.2rem; }
 nav.top a { margin-right:1.1rem; }
+.grid td, .grid th { border:none; padding:1px; }
+.grid .lbl { position:sticky; left:0; background:var(--bg); white-space:nowrap;
+  padding-right:.6rem; font-size:.82em; z-index:2; }
+.grid .grp td { padding-top:.9rem; font-weight:600; color:var(--muted); }
+.cell { display:block; width:15px; height:15px; border-radius:3px; }
+.c-sb { background:var(--accent); }
+.c-res { background:color-mix(in srgb, var(--accent) 55%, var(--bg)); }
+.c-ist { background:color-mix(in srgb, var(--accent) 28%, var(--bg)); }
+.c-none { background:transparent; box-shadow:inset 0 0 0 1px var(--line); }
+.c-up { background:transparent; box-shadow:inset 0 0 0 1px var(--accent); opacity:.6; }
+.c-lin { color:var(--muted); font-size:.8em; text-align:center; display:block; width:15px; }
+.grid thead th { position:sticky; top:0; background:var(--bg); font-size:.7em;
+  writing-mode:vertical-rl; transform:rotate(180deg); padding:2px 1px; z-index:1; }
+.tree details { margin-left:1.1rem; } .tree > details { margin-left:0; }
+.tree .leaf { margin-left:2.35rem; padding:.06rem 0; }
+.tree summary { cursor:pointer; padding:.06rem 0; }
+.tree .meta { color:var(--muted); font-size:.85em; margin-left:.5rem; }
 dl.fields dt { float:left; clear:left; width:9.5rem; color:var(--muted); }
 dl.fields dd { margin:0 0 .3rem 10.5rem; }
 input#q { width:100%; max-width:28rem; padding:.45rem .6rem; font-size:1rem;
@@ -78,8 +123,8 @@ def page(title: str, body: str, rel: str) -> str:
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(title)}</title><style>{CSS}</style></head><body>
 <nav class="top"><div><a href="{rel}index.html">ICPC contest archive</a>
-<a href="{rel}series/index.html">series</a> <a href="{rel}seasons.html">seasons</a>
-<a href="{rel}coverage.html">coverage</a></div></nav>
+<a href="{rel}grid.html">grid</a> <a href="{rel}series/index.html">series</a>
+<a href="{rel}seasons.html">seasons</a> <a href="{rel}coverage.html">coverage</a></div></nav>
 <main>{body}</main></body></html>"""
 
 
@@ -264,23 +309,141 @@ def build(out: Path):
         "<tr><th>series</th><th>editions</th><th>years</th><th>name</th></tr>"
         + "\n".join(rows) + "</table></div>", rel))
 
-    # ---- seasons ----
-    rel = ""
+    # ---- helpers shared by seasons/grid ----
+    def marks_for(c):
+        res = c.get("results", {})
+        marks = []
+        for key, letter in (("scoreboard", "S"), ("frozen_scoreboard", "F"),
+                            ("standings", "St"), ("rankings", "R")):
+            if key in res:
+                marks.append(f'<a href="{esc(res[key][0]["url"])}" '
+                             f'title="{key.replace("_", " ")}">{letter}</a>')
+        if c.get("icpc_standings"):
+            marks.append(f'<a href="{esc(c["icpc_standings"])}" title="ICPC standings">I</a>')
+        return " ".join(marks)
+
+    # ---- season tree pages ----
+    (out / "season").mkdir(exist_ok=True)
     by_season = defaultdict(list)
     for cid, c in contests.items():
         if c.get("season"):
             by_season[c["season"]].append(cid)
+    for season, members in by_season.items():
+        rel = "../"
+        mset = set(members)
+        seen: set = set()
+
+        def node(cid):
+            seen.add(cid)
+            c = contests[cid]
+            kids = sorted(k for k in children.get(cid, []) if k in mset and k not in seen)
+            label = (link_contest(cid, rel)
+                     + f'<span class="meta">{esc(c.get("date", ""))} {marks_for(c)}</span>')
+            if not kids:
+                return f'<div class="leaf">{label}</div>'
+            inner = "\n".join(node(k) for k in kids)
+            return f"<details open><summary>{label}</summary>{inner}</details>"
+
+        wf_id = f"wf-{season}"
+        body = [f"<h1>Season {season - 1}–{season}</h1>"]
+        if wf_id in contests:
+            body.append(f'<div class="tree">{node(wf_id)}</div>')
+        unplaced = sorted(m for m in mset if m not in seen)
+        if unplaced:
+            body.append(f'<h2>Not yet placed in the tree ({len(unplaced)})</h2><p class="small">'
+                        + ", ".join(link_contest(x, rel) for x in unplaced) + "</p>")
+        (out / "season" / f"{season}.html").write_text(
+            page(f"Season {season - 1}–{season}", "\n".join(body), rel))
+
+    # ---- seasons index ----
+    rel = ""
     rows = []
     for season in sorted(by_season, reverse=True):
         ids = by_season[season]
         wf = [x for x in ids if x.startswith("wf-")]
-        rows.append(f"<tr><td>{season - 1}–{season}</td>"
+        rows.append(f'<tr><td><a href="season/{season}.html">{season - 1}–{season}</a></td>'
                     "<td>" + ", ".join(link_contest(x, rel) for x in sorted(wf)) + "</td>"
                     f"<td>{len(ids)}</td></tr>")
     (out / "seasons.html").write_text(page(
-        "Seasons", "<h1>Seasons</h1><div class='tablewrap'><table>"
+        "Seasons", "<h1>Seasons</h1><p class='muted'>Each season links to its full "
+        "advancement tree.</p><div class='tablewrap'><table>"
         "<tr><th>season</th><th>World Finals</th><th>contests</th></tr>"
         + "\n".join(rows) + "</table></div>", rel))
+
+    # ---- the grid ----
+    rel = ""
+    years_all = [int(cid.rsplit("-", 1)[1]) for cid in contests]
+    y0, y1 = min(years_all), max(years_all)
+    by_sy = {(cid.rsplit("-", 1)[0], int(cid.rsplit("-", 1)[1])): cid for cid in contests}
+    lineage_at = defaultdict(list)
+    for sid, doc in series_docs.items():
+        for ev in doc["series"].get("lineage", []):
+            if ev["type"] == "continues-as":
+                lineage_at[(sid, ev["year"])].append(ev["series"])
+
+    def cell_class(c):
+        if c.get("status") == "upcoming":
+            return "c-up", "upcoming"
+        res = c.get("results", {})
+        if "scoreboard" in res or "frozen_scoreboard" in res:
+            return "c-sb", "scoreboard"
+        if res:
+            return "c-res", "standings/rankings only"
+        if c.get("icpc_standings"):
+            return "c-ist", "ICPC standings only"
+        return "c-none", "no results yet"
+
+    def region_rows(sids):
+        return sorted(sids, key=lambda s: (min(int(c["id"].rsplit("-", 1)[1])
+                                               for c in series_docs[s]["contests"]), s))
+
+    groups = [("World Finals", ["wf"]),
+              ("Championships", region_rows([s for s in series_docs if s in CHAMPIONSHIPS]))]
+    for gname in REGION_GROUPS:
+        groups.append((gname, region_rows([s for s in series_docs
+                                           if SERIES_REGION.get(s) == gname])))
+    leftover = [s for s in series_docs
+                if s != "wf" and s not in CHAMPIONSHIPS and s not in SERIES_REGION]
+    if leftover:
+        groups.append(("Other", region_rows(leftover)))
+        print("grid: unassigned series in 'Other':", leftover)
+
+    g = ['<div class="tablewrap"><table class="grid"><thead><tr><th class="lbl"></th>']
+    g += [f"<th>{y}</th>" for y in range(y0, y1 + 1)]
+    g.append("</tr></thead>")
+    ncols = y1 - y0 + 2
+    for gname, sids in groups:
+        if not sids:
+            continue
+        g.append(f'<tr class="grp"><td class="lbl" colspan="{ncols}">{esc(gname)}</td></tr>')
+        for sid in sids:
+            g.append(f'<tr><td class="lbl"><a href="series/{esc(sid)}.html">{esc(sid)}</a></td>')
+            for y in range(y0, y1 + 1):
+                cid = by_sy.get((sid, y))
+                if cid:
+                    cls, why = cell_class(contests[cid])
+                    g.append(f'<td><a class="cell {cls}" href="contest/{esc(cid)}.html" '
+                             f'title="{esc(cid)} — {why}"></a></td>')
+                elif lineage_at.get((sid, y)):
+                    tgt = lineage_at[(sid, y)][0]
+                    g.append(f'<td><a class="c-lin" href="series/{esc(tgt)}.html" '
+                             f'title="continues as {esc(tgt)} ({y})">→</a></td>')
+                else:
+                    g.append("<td></td>")
+            g.append("</tr>")
+    g.append("</table></div>")
+    legend = ('<p class="small"><span class="chip">legend</span> '
+              '<span class="cell c-sb" style="display:inline-block;vertical-align:middle"></span> scoreboard · '
+              '<span class="cell c-res" style="display:inline-block;vertical-align:middle"></span> standings/rankings · '
+              '<span class="cell c-ist" style="display:inline-block;vertical-align:middle"></span> ICPC standings only · '
+              '<span class="cell c-none" style="display:inline-block;vertical-align:middle"></span> no results yet · '
+              '<span class="cell c-up" style="display:inline-block;vertical-align:middle"></span> upcoming · '
+              '→ series continues under a new name</p>')
+    (out / "grid.html").write_text(page(
+        "The grid", "<h1>Every ICPC contest, one screen</h1>"
+        "<p class='muted'>Rows are series, grouped by level and region; columns are years; "
+        "color shows how much of the results we hold. Click any cell.</p>"
+        + legend + "".join(g), rel))
 
     # ---- coverage ----
     eras = [("pre-1999", 0, 1998), ("1999–2007", 1999, 2007),
