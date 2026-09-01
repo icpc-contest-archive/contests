@@ -86,6 +86,12 @@ nav.top a { margin-right:1.1rem; }
 .tree .leaf { margin-left:2.35rem; padding:.06rem 0; }
 .tree summary { cursor:pointer; padding:.06rem 0; }
 .tree .meta { color:var(--muted); font-size:.85em; margin-left:.5rem; }
+.mark { display:inline-block; min-width:1.2em; text-align:center; padding:0 .28em;
+  margin-right:.22em; border-radius:.35em; font-size:.82em; line-height:1.45; }
+.m-arch { background:var(--accent); color:var(--bg); }
+.m-arch:hover { text-decoration:none; opacity:.85; }
+.m-live { box-shadow:inset 0 0 0 1px var(--accent); }
+.m-ist { box-shadow:inset 0 0 0 1px var(--line); color:var(--muted); }
 dl.fields dt { float:left; clear:left; width:9.5rem; color:var(--muted); }
 dl.fields dd { margin:0 0 .3rem 10.5rem; }
 input#q { width:100%; max-width:28rem; padding:.45rem .6rem; font-size:1rem;
@@ -130,6 +136,36 @@ def page(title: str, body: str, rel: str) -> str:
 
 def link_contest(cid: str, rel: str) -> str:
     return f'<a href="{rel}contest/{esc(cid)}.html">{esc(cid)}</a>'
+
+
+TIERS = (("scoreboard", "S"), ("frozen_scoreboard", "F"),
+         ("standings", "St"), ("rankings", "R"))
+MARK_LEGEND = ('<p class="small muted"><b>S</b> scoreboard · <b>F</b> frozen scoreboard · '
+               '<b>St</b> standings · <b>R</b> rankings · <b>I</b> ICPC standings — '
+               '<span class="mark m-arch">filled</span> = archived copy held, '
+               '<span class="mark m-live">outlined</span> = live link only (not yet archived)</p>')
+
+
+def tier_marks(c):
+    """One styled marker per artifact tier; preservation state = style, not a letter."""
+    res = c.get("results", {})
+    out = []
+    for key, letter in TIERS:
+        entries = res.get(key)
+        if not entries:
+            continue
+        arch = next((e for e in entries if e.get("archived")), None)
+        kind = key.replace("_", " ")
+        if arch:
+            out.append(f'<a class="mark m-arch" href="{REPLAY_BASE}/a/{esc(arch["archived"])}" '
+                       f'title="{kind} — archived copy">{letter}</a>')
+        else:
+            out.append(f'<a class="mark m-live" href="{esc(entries[0]["url"])}" '
+                       f'title="{kind} — live link only, not yet archived">{letter}</a>')
+    if c.get("icpc_standings"):
+        out.append(f'<a class="mark m-ist" href="{esc(c["icpc_standings"])}" '
+                   f'title="ICPC standings (CMS data; archived via the API dump)">I</a>')
+    return "".join(out)
 
 
 def load():
@@ -269,28 +305,15 @@ def build(out: Path):
                          f'<a href="{esc(ev["series"])}.html">{esc(ev["series"])}</a> ({ev["year"]})</span>')
         if chips:
             b.append("<p>" + " ".join(chips) + "</p>")
+        b.append(MARK_LEGEND)
         b.append('<div class="tablewrap"><table><tr><th>contest</th><th>date</th>'
                  "<th>advances to</th><th>results</th></tr>")
         for c in reversed(doc["contests"]):  # latest first
-            res = c.get("results", {})
-            marks = []
-            for key, letter in (("scoreboard", "S"), ("frozen_scoreboard", "F"),
-                                ("standings", "St"), ("rankings", "R")):
-                if key in res:
-                    marks.append(f'<a href="{esc(res[key][0]["url"])}" '
-                                 f'title="{key.replace("_", " ")}">{letter}</a>')
-            arch = [("a/" + e["archived"]) for lst in res.values() for e in lst if e.get("archived")]
-            if not arch:
-                arch = [p["path"] for p in replay_by_contest.get(c["id"], [])]
-            if arch:
-                marks.append(f'<a href="{REPLAY_BASE}/{esc(arch[0])}" title="archived copy">A</a>')
-            if c.get("icpc_standings"):
-                marks.append(f'<a href="{esc(c["icpc_standings"])}" title="ICPC standings">I</a>')
             b.append(
                 "<tr><td>" + link_contest(c["id"], rel) + "</td>"
                 f"<td>{esc(c.get('date', ''))}</td>"
                 "<td>" + ", ".join(link_contest(p, rel) for p in refs(c.get("parent"))) + "</td>"
-                f"<td>{' '.join(marks)}</td></tr>"
+                f"<td>{tier_marks(c)}</td></tr>"
             )
         b.append("</table></div>")
         (out / "series" / f"{sid}.html").write_text(page(sid, "\n".join(b), rel))
@@ -309,19 +332,6 @@ def build(out: Path):
         "<tr><th>series</th><th>editions</th><th>years</th><th>name</th></tr>"
         + "\n".join(rows) + "</table></div>", rel))
 
-    # ---- helpers shared by seasons/grid ----
-    def marks_for(c):
-        res = c.get("results", {})
-        marks = []
-        for key, letter in (("scoreboard", "S"), ("frozen_scoreboard", "F"),
-                            ("standings", "St"), ("rankings", "R")):
-            if key in res:
-                marks.append(f'<a href="{esc(res[key][0]["url"])}" '
-                             f'title="{key.replace("_", " ")}">{letter}</a>')
-        if c.get("icpc_standings"):
-            marks.append(f'<a href="{esc(c["icpc_standings"])}" title="ICPC standings">I</a>')
-        return " ".join(marks)
-
     # ---- season tree pages ----
     (out / "season").mkdir(exist_ok=True)
     by_season = defaultdict(list)
@@ -338,14 +348,14 @@ def build(out: Path):
             c = contests[cid]
             kids = sorted(k for k in children.get(cid, []) if k in mset and k not in seen)
             label = (link_contest(cid, rel)
-                     + f'<span class="meta">{esc(c.get("date", ""))} {marks_for(c)}</span>')
+                     + f'<span class="meta">{esc(c.get("date", ""))} {tier_marks(c)}</span>')
             if not kids:
                 return f'<div class="leaf">{label}</div>'
             inner = "\n".join(node(k) for k in kids)
             return f"<details open><summary>{label}</summary>{inner}</details>"
 
         wf_id = f"wf-{season}"
-        body = [f"<h1>Season {season - 1}–{season}</h1>"]
+        body = [f"<h1>Season {season - 1}–{season}</h1>", MARK_LEGEND]
         if wf_id in contests:
             body.append(f'<div class="tree">{node(wf_id)}</div>')
         unplaced = sorted(m for m in mset if m not in seen)
