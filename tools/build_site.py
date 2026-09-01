@@ -21,30 +21,35 @@ ROOT = Path(__file__).resolve().parent.parent
 REPLAY_BASE = os.environ.get("REPLAY_BASE", "https://icpc-contest-archive.github.io/replay")
 
 CHAMPIONSHIPS = {"nac", "awc", "euc", "apc", "lac", "aec", "nadc"}
+# World regions: the top level of the modern ICPC hierarchy (finals + championships
+# get their own bucket). Historical series are filed under today's closest region;
+# judgment calls: ukraine + turkey under Europe (EUC/SEERC lineage).
 REGION_GROUPS = {
+    "World Finals & championships": ["wf", "nac", "euc", "apc", "aec", "awc", "lac", "nadc"],
     "North America": ["socal","naq","nena","nena-atlantic","nena-central","nena-east","nena-north",
         "nena-west","ecna","scusa","rmc","lethbridge","gny","mcpc","seusa","mausa","pacnw","east-na",
-        "south-na","alberta","ncna","east-central-na","north-central-na"],
-    "Europe & Northern Eurasia": ["poland","hungary","slovenia","turkey","ukraine","cerc","swerc",
-        "nwerc","bapc","bapc-prelims","germany","croatia","romania","bulgaria","greece","cyprus",
-        "nordic","sweden","norway","ukiepc","ctuo","neerc","nerc","south-russia","central-russia",
-        "north-russia","west-siberia","east-siberia","far-east-russia","urals","moscow","taurida",
-        "west-neerc","armenia","azerbaijan","georgia","kazakhstan","kyrgyzstan","uzbekistan",
-        "erc","werc","mcerc","seerc"],
-    "Asia East & Pacific": ["japan","korea","taiwan","hong-kong","singapore","manila","jakarta",
-        "kuala-lumpur","thailand","vietnam","south-pacific","south-pacific-west",
-        "south-pacific-central","south-pacific-east","south-pacific-division","nzpc","australia",
-        "beijing","shanghai","chengdu","hangzhou","xian","harbin","wuhan","fuzhou","hefei","nanjing",
-        "dalian","changchun","changsha","jinan","jinhua","jiaozuo","kunming","macau","mudanjiang",
-        "nanchang","nanning","ningbo","qingdao","shenyang","tianjin","urumqi","xuzhou","yinchuan",
-        "anshan","guangzhou","yangon","pyongyang"],
-    "Latin America, Africa & West Asia": ["brazil","mexico","caribbean","central-america",
-        "south-america","south-america-north","south-america-south","cuba","acpc","egypt","jordan",
-        "syria","lebanon","kuwait","bahrain","oman","qatar","saudi-arabia","palestine","morocco",
-        "tunisia","algeria","sudan","south-africa","angola","benin","burkina-faso","ethiopia",
-        "ivory-coast","nigeria","senegal","togo","tehran","pakistan","kabul","dhaka","kanpur",
-        "amritapuri","kharagpur","kolkata","gwalior","chennai","coimbatore","bombay","mathura",
-        "india","gwalior-kanpur","kolkata-kanpur","kolkata-roorkee","gwalior-pune"],
+        "south-na","alberta","ncna"],
+    "Latin America": ["brazil","mexico","caribbean","central-america","south-america",
+        "south-america-north","south-america-south","cuba"],
+    "Europe": ["poland","hungary","slovenia","turkey","ukraine","cerc","swerc","nwerc","bapc",
+        "bapc-prelims","germany","croatia","romania","bulgaria","greece","cyprus","nordic","sweden",
+        "norway","ukiepc","ctuo","erc","werc","mcerc","seerc"],
+    "Northern Eurasia": ["neerc","nerc","south-russia","central-russia","north-russia",
+        "west-siberia","east-siberia","far-east-russia","urals","moscow","taurida","west-neerc",
+        "armenia","azerbaijan","georgia","kazakhstan","kyrgyzstan","uzbekistan"],
+    "Africa & Arab": ["acpc","egypt","jordan","syria","lebanon","kuwait","bahrain","oman","qatar",
+        "saudi-arabia","palestine","morocco","tunisia","algeria","sudan","south-africa","angola",
+        "benin","burkina-faso","ethiopia","ivory-coast","nigeria","senegal","togo"],
+    "Asia West": ["tehran","pakistan","kabul","dhaka","kanpur","amritapuri","kharagpur","kolkata",
+        "gwalior","chennai","coimbatore","bombay","mathura","india","gwalior-kanpur",
+        "kolkata-kanpur","kolkata-roorkee","gwalior-pune"],
+    "Asia Pacific": ["japan","korea","taiwan","singapore","manila","jakarta","kuala-lumpur",
+        "thailand","vietnam","yangon","south-pacific","south-pacific-west","south-pacific-central",
+        "south-pacific-east","south-pacific-division","nzpc","australia"],
+    "Asia East": ["hong-kong","macau","pyongyang","beijing","shanghai","chengdu","hangzhou","xian",
+        "harbin","wuhan","fuzhou","hefei","nanjing","dalian","changchun","changsha","jinan","jinhua",
+        "jiaozuo","kunming","mudanjiang","nanchang","nanning","ningbo","qingdao","shenyang",
+        "tianjin","urumqi","xuzhou","yinchuan","anshan","guangzhou"],
 }
 SERIES_REGION = {s: g for g, ss in REGION_GROUPS.items() for s in ss}
 
@@ -96,6 +101,11 @@ dl.fields dt { float:left; clear:left; width:9.5rem; color:var(--muted); }
 dl.fields dd { margin:0 0 .3rem 10.5rem; }
 input#q { width:100%; max-width:28rem; padding:.45rem .6rem; font-size:1rem;
   border:1px solid var(--line); border-radius:.4rem; background:var(--bg); color:var(--fg); }
+td.num, th.num { text-align:right; }
+.bar { display:inline-block; width:3.6rem; height:.5em; margin-left:.45em; border-radius:.25em;
+  background:var(--chip); overflow:hidden; vertical-align:baseline; }
+.bar i { display:block; height:100%; background:var(--accent); }
+h2.rgn { margin-top:1.6rem; }
 """
 
 SEARCH_JS = """
@@ -130,7 +140,8 @@ def page(title: str, body: str, rel: str) -> str:
 <title>{esc(title)}</title><style>{CSS}</style></head><body>
 <nav class="top"><div><a href="{rel}index.html">ICPC contest archive</a>
 <a href="{rel}grid.html">grid</a> <a href="{rel}series/index.html">series</a>
-<a href="{rel}seasons.html">seasons</a> <a href="{rel}coverage.html">coverage</a></div></nav>
+<a href="{rel}seasons.html">seasons</a> <a href="{rel}coverage.html">coverage</a>
+<a href="{rel}urls/index.html">urls</a> <a href="{rel}wanted.html">wanted</a></div></nav>
 <main>{body}</main></body></html>"""
 
 
@@ -455,31 +466,191 @@ def build(out: Path):
         "color shows how much of the results we hold. Click any cell.</p>"
         + legend + "".join(g), rel))
 
-    # ---- coverage ----
-    eras = [("pre-1999", 0, 1998), ("1999–2007", 1999, 2007),
-            ("2008–2015", 2008, 2015), ("2016+", 2016, 9999)]
-    tab = {label: defaultdict(int) for label, *_ in eras}
+    # ---- coverage (era / season / series / world region) ----
+    def cov_flags(c):
+        res = c.get("results", {})
+        return {"n": 1, "date": bool(c.get("date")),
+                "sb": ("scoreboard" in res or "frozen_scoreboard" in res),
+                "res": bool(res),
+                "any": bool(res) or bool(c.get("icpc_standings")),
+                "arch": any(e.get("archived") for lst in res.values() for e in lst),
+                "web": bool(c.get("web"))}
+
+    ran_rows = []  # (year, series, region, flags)
     for cid, c in contests.items():
         if c.get("status") == "upcoming":
             continue
-        y = int(cid.rsplit("-", 1)[1])
-        for label, lo, hi in eras:
-            if lo <= y <= hi:
-                t = tab[label]
-                t["n"] += 1
-                res = c.get("results", {})
-                t["date"] += bool(c.get("date"))
-                t["sb"] += ("scoreboard" in res or "frozen_scoreboard" in res)
-                t["any"] += bool(res) or bool(c.get("icpc_standings"))
-                t["web"] += bool(c.get("web"))
-    rows = [f"<tr><td>{label}</td><td>{t['n']}</td><td>{t['date']}</td>"
-            f"<td>{t['sb']}</td><td>{t['any']}</td><td>{t['web']}</td></tr>"
-            for label, t in ((l, tab[l]) for l, *_ in eras)]
-    (out / "coverage.html").write_text(page(
-        "Coverage", "<h1>Collection coverage</h1><p class='muted'>Contests that ran, by era.</p>"
-        "<div class='tablewrap'><table><tr><th>era</th><th>contests</th><th>dated</th>"
-        "<th>scoreboard</th><th>any result</th><th>web url</th></tr>"
-        + "\n".join(rows) + "</table></div>", ""))
+        s = series_of[cid]
+        ran_rows.append((int(cid.rsplit("-", 1)[1]), s,
+                         SERIES_REGION.get(s, "Other"), cov_flags(c)))
+    missing_regions = sorted({s for _, s, r, _ in ran_rows if r == "Other"})
+    if missing_regions:
+        print(f"  warn: series without a world region: {missing_regions}")
+
+    def agg(flag_iter):
+        t = defaultdict(int)
+        for f in flag_iter:
+            for k, v in f.items():
+                t[k] += int(v)
+        return t
+
+    def pcell(part, total):
+        if not total:
+            return '<td class="num muted">–</td>'
+        p = round(100 * part / total)
+        return f'<td class="num">{p}%<span class="bar"><i style="width:{p}%"></i></span></td>'
+
+    COV_HDR = ('<tr><th>{}</th><th class="num">contests</th><th class="num">any result</th>'
+               '<th class="num">scoreboard</th><th class="num">archived</th>'
+               '<th class="num">web</th><th class="num">dated</th><th class="num">missing</th></tr>')
+
+    def cov_row(label, t):
+        return (f'<tr><td class="wrap">{label}</td><td class="num">{t["n"]}</td>'
+                + pcell(t["any"], t["n"]) + pcell(t["sb"], t["n"]) + pcell(t["arch"], t["n"])
+                + pcell(t["web"], t["n"]) + pcell(t["date"], t["n"])
+                + f'<td class="num">{t["n"] - t["any"]}</td></tr>')
+
+    tot = agg(f for *_x, f in ran_rows)
+    cov = ["<h1>Collection coverage</h1>",
+           f'<p class="muted">{tot["n"]} contests that ran. '
+           f'{tot["any"]} ({round(100 * tot["any"] / tot["n"])}%) have at least one result link, '
+           f'{tot["sb"]} a full scoreboard, {tot["arch"]} an archived copy in this project, '
+           f'{tot["web"]} a contest-website link. '
+           f'{tot["n"] - tot["any"]} are still dark — see the <a href="wanted.html">wanted list</a>.</p>',
+           '<p class="small muted">jump to: <a href="#era">era</a> · <a href="#season">year</a> · '
+           '<a href="#region">world region</a> · <a href="#series">series</a> — '
+           '"any result" counts a result link of any tier or ICPC standings; "archived" means '
+           'this project holds a captured copy; "missing" = contests with no result link at all.</p>']
+
+    eras = [("1970–1998", 0, 1998), ("1999–2007", 1999, 2007),
+            ("2008–2015", 2008, 2015), ("2016–present", 2016, 9999)]
+    cov.append('<h2 id="era">By era</h2><div class="tablewrap"><table>' + COV_HDR.format("era"))
+    for label, lo, hi in eras:
+        cov.append(cov_row(label, agg(f for y, *_x, f in ran_rows if lo <= y <= hi)))
+    cov.append("</table></div>")
+
+    cov.append('<h2 id="season">By year</h2><p class="small muted">Regionals are listed under '
+               'the year they ran (season start); finals and championships under their own year. '
+               'Season trees live under <a href="seasons.html">seasons</a>.</p>'
+               '<div class="tablewrap"><table>' + COV_HDR.format("year"))
+    for y in sorted({y for y, *_x in ran_rows}, reverse=True):
+        cov.append(cov_row(str(y), agg(f for yy, *_x, f in ran_rows if yy == y)))
+    cov.append("</table></div>")
+
+    region_names = list(REGION_GROUPS) + (["Other"] if missing_regions else [])
+    cov.append('<h2 id="region">By world region</h2><div class="tablewrap"><table>'
+               + COV_HDR.format("world region"))
+    for g in region_names:
+        cov.append(cov_row(g, agg(f for _y, _s, r, f in ran_rows if r == g)))
+    cov.append("</table></div>")
+
+    per_series = defaultdict(list)
+    for y, s, _r, f in ran_rows:
+        per_series[s].append((y, f))
+    cov.append('<h2 id="series">By series</h2><p class="small muted">Sorted by missing count — '
+               'the top of this table is the hunting worklist.</p>'
+               '<div class="tablewrap"><table>'
+               + COV_HDR.format("series").replace("<th>series</th>",
+                                                  "<th>series</th><th>region</th><th>years</th>"))
+    srows = []
+    for s, lst in per_series.items():
+        t = agg(f for _y, f in lst)
+        ys = [y for y, _f in lst]
+        label = (f'<a href="series/{esc(s)}.html">{esc(s)}</a></td>'
+                 f'<td class="small muted">{esc(SERIES_REGION.get(s, "Other"))}</td>'
+                 f'<td class="small">{min(ys)}–{max(ys)}')
+        srows.append((t["n"] - t["any"], t["n"], s, cov_row(label, t)))
+    for _m, _n, _s, r in sorted(srows, key=lambda x: (-x[0], -x[1], x[2])):
+        cov.append(r)
+    cov.append("</table></div>")
+    (out / "coverage.html").write_text(page("Coverage", "\n".join(cov), ""))
+
+    # ---- URL indexes per artifact ----
+    (out / "urls").mkdir(exist_ok=True)
+
+    def wb_href(e):
+        w = e.get("wayback")
+        if not w:
+            return None
+        return w if str(w).startswith("http") else f"https://web.archive.org/web/{w}/{e['url']}"
+
+    url_tables = {k: [] for k, _ in TIERS}
+    url_tables["icpc_standings"] = []
+    url_tables["web"] = []
+    for cid in sorted(contests):
+        c = contests[cid]
+        for k, _l in TIERS:
+            for e in c.get("results", {}).get(k, []):
+                url_tables[k].append((cid, e))
+        if c.get("icpc_standings"):
+            url_tables["icpc_standings"].append((cid, {"url": c["icpc_standings"]}))
+        for w in refs(c.get("web")):
+            url_tables["web"].append((cid, {"url": w}))
+    art_order = ["scoreboard", "frozen_scoreboard", "standings", "rankings",
+                 "icpc_standings", "web"]
+    counts = {k: len(url_tables[k]) for k in art_order}
+    for k in art_order:
+        nav_line = " · ".join(
+            (f'<b>{kk.replace("_", " ")} ({counts[kk]})</b>' if kk == k else
+             f'<a href="{kk}.html">{kk.replace("_", " ")} ({counts[kk]})</a>')
+            for kk in art_order)
+        rows_h = []
+        for cid, e in url_tables[k]:
+            extras = []
+            if e.get("url_state"):
+                extras.append(f'<span class="chip">{esc(e["url_state"])}</span>')
+            wb = wb_href(e)
+            if wb:
+                extras.append(f'<a class="small" href="{esc(wb)}">wayback</a>')
+            if e.get("archived"):
+                extras.append(f'<a class="small" href="{REPLAY_BASE}/a/{esc(e["archived"])}">'
+                              'archived</a>')
+            rows_h.append(f'<tr><td>{link_contest(cid, "../")}</td>'
+                          f'<td class="wrap"><a href="{esc(e["url"])}">{esc(e["url"][:110])}</a></td>'
+                          f'<td>{" ".join(extras)}</td></tr>')
+        body = (f'<h1>{k.replace("_", " ")} URLs</h1><p class="small muted">{nav_line}</p>'
+                '<div class="tablewrap"><table><tr><th>contest</th><th>url</th><th></th></tr>'
+                + "\n".join(rows_h) + "</table></div>")
+        (out / "urls" / f"{k}.html").write_text(page(f"{k.replace('_', ' ')} URLs", body, "../"))
+    (out / "urls" / "index.html").write_text(page("URL indexes", (
+        "<h1>Every URL in the catalogue, by artifact</h1><ul>"
+        + "".join(f'<li><a href="{k}.html">{k.replace("_", " ")}</a> — {counts[k]} links</li>'
+                  for k in art_order)
+        + "</ul><p class='small muted'>Chips show the last live-check verdict where one has "
+        "been recorded; wayback/archived links point at the pinned snapshot and this "
+        "project's own captured copy.</p>"), "../"))
+
+    # ---- wanted list ----
+    wl = ["<h1>Most wanted</h1>",
+          '<p class="muted">Contests with no result link at all (<b>dark</b>) and contests '
+          'where the only trace is the ICPC standings system (<b>ICPC-only</b>). '
+          "Know where any of these results live? "
+          '<a href="https://github.com/icpc-contest-archive/contests">Open an issue.</a></p>']
+    for g in region_names:
+        sec = []
+        for s in sorted(per_series):
+            if SERIES_REGION.get(s, "Other") != g:
+                continue
+            dark, fonly = [], []
+            for c in series_docs[s]["contests"]:
+                if c.get("status") == "upcoming" or c.get("results"):
+                    continue
+                (fonly if c.get("icpc_standings") else dark).append(c["id"])
+            if dark or fonly:
+                sec.append(f'<tr><td><a href="series/{esc(s)}.html">{esc(s)}</a></td>'
+                           f'<td class="wrap">{" ".join(link_contest(x, "") for x in dark)}</td>'
+                           f'<td class="wrap">{" ".join(link_contest(x, "") for x in fonly)}</td></tr>')
+        if sec:
+            wl.append(f'<h2 class="rgn">{g}</h2><div class="tablewrap"><table>'
+                      '<tr><th>series</th><th>dark</th><th>ICPC-only</th></tr>'
+                      + "\n".join(sec) + "</table></div>")
+    (out / "wanted.html").write_text(page("Most wanted", "\n".join(wl), ""))
+
+    # ---- machine-readable dump ----
+    import datetime
+    (out / "catalogue.json").write_text(json.dumps(
+        {"generated": datetime.date.today().isoformat(), "series": series_docs},
+        ensure_ascii=False))
 
     # ---- search + landing ----
     search = [{"id": cid, "name": c.get("name"), "date": c.get("date")}
@@ -497,7 +668,8 @@ and in this project's own archive.</p>
 <h2>Start somewhere</h2>
 <p>{link_contest('wf-2025', '')} · <a href="series/wf.html">World Finals series</a> ·
 <a href="series/index.html">all series</a> · <a href="seasons.html">seasons</a> ·
-<a href="coverage.html">collection coverage</a></p>
+<a href="coverage.html">collection coverage</a> · <a href="urls/index.html">all URLs</a> ·
+<a href="wanted.html">most wanted</a> · <a href="catalogue.json">catalogue.json</a></p>
 <p class="small muted">Data: <a href="https://github.com/icpc-contest-archive/contests">
 icpc-contest-archive/contests</a>. Corrections welcome.</p>
 <script>const REL='';{SEARCH_JS}</script>"""
