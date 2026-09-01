@@ -118,7 +118,7 @@ def result_links(cid, key, entries, replay_lookup, rel, matched_paths):
         parts = [f'<a href="{esc(url)}">live</a>']
         wb = e.get("wayback") or f"https://web.archive.org/web/*/{url}"
         parts.append(f'<a href="{esc(wb)}">wayback</a>')
-        baked = replay_lookup.get((cid, url))
+        baked = ("a/" + e["archived"]) if e.get("archived") else replay_lookup.get((cid, url))
         if baked:
             matched_paths.add(baked)
             parts.append(f'<a href="{REPLAY_BASE}/{esc(baked)}">archived</a>')
@@ -226,14 +226,26 @@ def build(out: Path):
             b.append("<p>" + " ".join(chips) + "</p>")
         b.append('<div class="tablewrap"><table><tr><th>contest</th><th>date</th>'
                  "<th>advances to</th><th>results</th></tr>")
-        for c in doc["contests"]:
+        for c in reversed(doc["contests"]):  # latest first
             res = c.get("results", {})
-            have = [k[0].upper() for k in ("scoreboard", "frozen_scoreboard", "standings", "rankings") if k in res]
+            marks = []
+            for key, letter in (("scoreboard", "S"), ("frozen_scoreboard", "F"),
+                                ("standings", "St"), ("rankings", "R")):
+                if key in res:
+                    marks.append(f'<a href="{esc(res[key][0]["url"])}" '
+                                 f'title="{key.replace("_", " ")}">{letter}</a>')
+            arch = [("a/" + e["archived"]) for lst in res.values() for e in lst if e.get("archived")]
+            if not arch:
+                arch = [p["path"] for p in replay_by_contest.get(c["id"], [])]
+            if arch:
+                marks.append(f'<a href="{REPLAY_BASE}/{esc(arch[0])}" title="archived copy">A</a>')
+            if c.get("icpc_standings"):
+                marks.append(f'<a href="{esc(c["icpc_standings"])}" title="ICPC standings">I</a>')
             b.append(
                 "<tr><td>" + link_contest(c["id"], rel) + "</td>"
                 f"<td>{esc(c.get('date', ''))}</td>"
                 "<td>" + ", ".join(link_contest(p, rel) for p in refs(c.get("parent"))) + "</td>"
-                f"<td>{'/'.join(have)}</td></tr>"
+                f"<td>{' '.join(marks)}</td></tr>"
             )
         b.append("</table></div>")
         (out / "series" / f"{sid}.html").write_text(page(sid, "\n".join(b), rel))
