@@ -180,7 +180,14 @@ def tier_marks(c):
     return "".join(out)
 
 
+CMS_SLUGS: dict = {}
+
+
 def load():
+    global CMS_SLUGS
+    p = ROOT / "data" / "cms-shortnames.json"
+    if p.exists():
+        CMS_SLUGS = {int(k): v for k, v in json.loads(p.read_text()).items()}
     series_docs = {}
     for f in sorted((ROOT / "series").glob("*.yaml")):
         series_docs[f.stem] = yaml.safe_load(f.read_text())
@@ -272,7 +279,15 @@ def build(out: Path):
             d.append('<dt>advances to</dt><dd class="muted">— (top of hierarchy)</dd>')
         ids = c.get("cms_ids")
         if ids:
-            d.append("<dt>CMS ids</dt><dd>" + ", ".join(map(str, ids)) + "</dd>")
+            parts = []
+            for i in ids:
+                lk = [f'<a href="https://icpc.global/private/contest/{i}/" '
+                      f'title="CMS admin page (login required)">admin</a>']
+                slug = CMS_SLUGS.get(int(i))
+                if slug:
+                    lk.append(f'<a href="https://icpc.global/regionals/finder/{esc(slug)}">finder</a>')
+                parts.append(f'{i} <span class="small">({" · ".join(lk)})</span>')
+            d.append("<dt>CMS ids</dt><dd>" + ", ".join(parts) + "</dd>")
         elif ids == []:
             d.append("<dt>CMS ids</dt><dd class='muted'>"
                      + ("pre-CMS era" if c.get("cms_status") == "pre-cms" else "none") + "</dd>")
@@ -682,12 +697,18 @@ def build(out: Path):
               'why (cancelled, camp, challenge, junk, minor, structural). <b>proposed</b> = '
               'auto-classified, awaiting review. <b>unreviewed</b> = a CMS id nobody has judged yet.</p>',
               '<div class="tablewrap"><table><tr><th class="num">cms id</th><th>contest</th>'
-              '<th>status</th><th>CMS name</th></tr>']
+              '<th>status</th><th>CMS name</th><th>CMS links</th></tr>']
     for i in sorted(cms_rows):
         st, link, name = cms_rows[i]
+        lk = [f'<a href="https://icpc.global/private/contest/{i}/" '
+              f'title="CMS admin page (login required)">admin</a>']
+        slug = CMS_SLUGS.get(i)
+        if slug:
+            lk.append(f'<a href="https://icpc.global/regionals/finder/{esc(slug)}">finder</a>')
         ledger.append(f'<tr><td class="num">{i}</td><td>{link}</td>'
                       f'<td><span class="chip">{esc(st)}</span></td>'
-                      f'<td class="wrap small">{name}</td></tr>')
+                      f'<td class="wrap small">{name}</td>'
+                      f'<td class="small">{" · ".join(lk)}</td></tr>')
     ledger.append("</table></div>")
     (out / "cms.html").write_text(page("CMS id ledger", "\n".join(ledger), ""))
 
