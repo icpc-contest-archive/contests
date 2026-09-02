@@ -141,7 +141,8 @@ def page(title: str, body: str, rel: str) -> str:
 <nav class="top"><div><a href="{rel}index.html">ICPC contest archive</a>
 <a href="{rel}grid.html">grid</a> <a href="{rel}series/index.html">series</a>
 <a href="{rel}seasons.html">seasons</a> <a href="{rel}coverage.html">coverage</a>
-<a href="{rel}urls/index.html">urls</a> <a href="{rel}wanted.html">wanted</a></div></nav>
+<a href="{rel}urls/index.html">urls</a> <a href="{rel}wanted.html">wanted</a>
+<a href="{rel}cms.html">cms ids</a></div></nav>
 <main>{body}</main></body></html>"""
 
 
@@ -645,6 +646,50 @@ def build(out: Path):
                       '<tr><th>series</th><th>dark</th><th>ICPC-only</th></tr>'
                       + "\n".join(sec) + "</table></div>")
     (out / "wanted.html").write_text(page("Most wanted", "\n".join(wl), ""))
+
+    # ---- CMS id ledger ----
+    cms_rows = {}
+    for cid, c in contests.items():
+        for i in (c.get("cms_ids") or []):
+            cms_rows[int(i)] = ("mainline", link_contest(cid, ""), esc(c.get("name") or ""))
+    tri = yaml.safe_load((ROOT / "registry" / "cms-triage.yaml").read_text())
+    for e in (tri.get("excluded") or []):
+        cms_rows.setdefault(int(e["cms_id"]),
+                            (f'excluded: {e.get("reason")}', "", esc(str(e.get("name") or ""))))
+    prop_p = ROOT / "registry" / "cms-triage-proposed.yaml"
+    if prop_p.exists():
+        for e in (yaml.safe_load(prop_p.read_text()).get("proposed") or []):
+            cms_rows.setdefault(int(e["cms_id"]),
+                                (f'proposed: {e.get("reason")}', "", esc(str(e.get("name") or ""))))
+    wl_p = ROOT / "data" / "reconciliation-worklist.json"
+    if wl_p.exists():
+        for e in json.loads(wl_p.read_text()):
+            try:
+                i = int(e.get("Contest ID"))
+            except (TypeError, ValueError):
+                continue
+            cms_rows.setdefault(i, ("unreviewed", "", esc(str(e.get("Full name") or ""))))
+    counts_cms = defaultdict(int)
+    for st, _l, _n in cms_rows.values():
+        counts_cms[st.split(":")[0]] += 1
+    ledger = ["<h1>CMS id ledger</h1>",
+              f'<p class="muted">Every CMS contest id this project knows about: '
+              f'{len(cms_rows)} ids — {counts_cms["mainline"]} in the mainline catalogue, '
+              f'{counts_cms["excluded"]} excluded with a reason, {counts_cms["proposed"]} with a '
+              f'proposed (unreviewed) triage class, {counts_cms["unreviewed"]} not yet judged.</p>',
+              '<p class="small muted"><b>mainline</b> = a real contest in the advancement hierarchy '
+              '(linked). <b>excluded</b> = judged not part of the mainline catalogue — the reason says '
+              'why (cancelled, camp, challenge, junk, minor, structural). <b>proposed</b> = '
+              'auto-classified, awaiting review. <b>unreviewed</b> = a CMS id nobody has judged yet.</p>',
+              '<div class="tablewrap"><table><tr><th class="num">cms id</th><th>contest</th>'
+              '<th>status</th><th>CMS name</th></tr>']
+    for i in sorted(cms_rows):
+        st, link, name = cms_rows[i]
+        ledger.append(f'<tr><td class="num">{i}</td><td>{link}</td>'
+                      f'<td><span class="chip">{esc(st)}</span></td>'
+                      f'<td class="wrap small">{name}</td></tr>')
+    ledger.append("</table></div>")
+    (out / "cms.html").write_text(page("CMS id ledger", "\n".join(ledger), ""))
 
     # ---- machine-readable dump ----
     import datetime
