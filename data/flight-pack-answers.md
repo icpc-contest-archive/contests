@@ -40,6 +40,17 @@ its own; sub-regional vs preliminary is not a clean tier distinction.
 - D3d thailand: national→mainline, group rounds→registry; pending qualification-edge confirm.
 - D3e taiwan: advice owed after dossier (TOPC online status + tech/private-univ qualification role).
 
+## Wave-8 research banked (both tranches; 542 candidates in data/*wave8*.json)
+Tranche 2 highlights: t2-ukraine STRUCTURAL FINDING — the existing ukraine-<year> rows are
+Stage-II-dated, so the 81 region worklist rows merge into EXISTING entries (no
+ukraine-stage2-* stubs); the missing layer is the Stage III FINALS; canonical unified
+Stage-II standings live at acmallukrainian.ho.ua (2017-2024). t2-dark unlocked 8 more
+contests (incl. poland-2025, nena-north-2019, bulgaria-2010); 119 remain dark, documented.
+t2-seerc: official SEERC standings 2018-2024; icpcarchive.github.io = problemsets only
+(36 series, zero standings). t2-asia: Vietnam 2016-2025 scoreboards via icpcvn.github.io,
+Myanmar complete via UCSY; the icpc.global finder (JS) is the canonical source for most
+Asia nationals — a headless/API pass would unlock hundreds of standings project-wide.
+
 ## Queued for reconnect (laptop offline)
 1. Verify/complete the D5b commit (above).
 2. Commit container-side changes: tools/apply_misclass_fixes.py note→notes fix (already
