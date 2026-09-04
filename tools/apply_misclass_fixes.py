@@ -174,7 +174,7 @@ def main() -> int:
                 bits.append(f"web candidate: {u}")
             if a.get("note"):
                 bits.append(a["note"])
-            entry["note"] = "; ".join(bits)
+            entry["notes"] = "; ".join(bits)
         else:
             season, parent = SHELL_META[aid]
             year = aid.rsplit("-", 1)[1]
@@ -182,7 +182,7 @@ def main() -> int:
             entry = {"id": aid, "season": season, "name": f"{year} {sname}",
                      "cms_ids": shells[aid]["cms_ids"], "parent": parent,
                      "status": "upcoming",
-                     "note": "upcoming shell from misclass audit 2026-09-02"}
+                     "notes": "upcoming shell from misclass audit 2026-09-02"}
         sdoc.setdefault("contests", []).append(entry)
         index[aid] = (sf, entry)
         touched.add(sf)
