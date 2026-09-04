@@ -1,0 +1,58 @@
+{
+  "generated": "2026-09-02",
+  "source": "reports/misclassification-audit-2026-09-02.md",
+  "note": "Apply only after ratification. 'edits' patch existing entries; 'adds' are new entries (stubs in the report).",
+  "edits": [
+    {"id": "uzbekistan-2019", "field": "cms_ids", "from": [4194], "to": [4191],
+     "reason": "4194 is an empty East Siberian shell (adjacent-row slip); 4191 is the real 2019 Uzbekistan Regional (74 teams/148 results, date matches)",
+     "confidence": "confirmed"},
+    {"id": "kuwait-2010", "field": "season", "from": 2012, "to": 2011, "also": {"parent": {"from": "acpc-2011", "to": "acpc-2010"}},
+     "reason": "CMS icpc_year 2011; contest Oct 2010; kuwait-2014+ pattern is name+1; no 2013 edition exists", "confidence": "confirmed"},
+    {"id": "kuwait-2011", "field": "season", "from": 2013, "to": 2012, "also": {"parent": {"from": "acpc-2012", "to": "acpc-2011"}},
+     "reason": "CMS icpc_year 2012", "confidence": "confirmed"},
+    {"id": "kuwait-2012", "field": "season", "from": 2014, "to": 2013, "also": {"parent": {"from": "acpc-2013", "to": "acpc-2012"}},
+     "reason": "CMS icpc_year 2013", "confidence": "confirmed"},
+    {"id": "kanpur-2022", "field": "date", "from": "2023-10-04", "to": "2023-04-09",
+     "reason": "organizer archive: onsite round 08-09 Apr 2023 (kanpurarchive2022.indiaicpc.in, gla.ac.in/icpc/Dates.html); CMS 2023-03-03 also wrong",
+     "confidence": "confirmed (day 9 vs 8 = main-round assumption)"},
+    {"id": "south-america-south-2021", "field": "date", "from": "2023-03-17", "to": "2022-04-02",
+     "reason": "CMS 4711 wrongly carries sas-2022's date; siblings SA-North-2021=2022-04-02, Brazil-2021=2022-04-01",
+     "confidence": "high — confirm exact day via icpclatam/scorelatam"},
+    {"id": "kuala-lumpur-2014", "field": "cms_ids", "from": [2607], "to": [2607, 2710],
+     "reason": "2710 'Asia Kuala Lumpur Onsite Regional Contest' holds the data (54 teams/53 results); 2607 is the 0-team canonical shell",
+     "confidence": "confirmed"},
+    {"id": "nena-2026", "field": "status", "from": null, "to": "upcoming",
+     "reason": "all division siblings (gny/ecna/mausa/scusa/seusa-2026) have it", "confidence": "confirmed"}
+  ],
+  "adds": [
+    {"id": "wuhan-2025", "series": "wuhan", "season": 2026, "date": "2025-11-01", "parent": "wf-2026",
+     "cms_ids": [9483], "finder": "ICPC-Asia-Wuhan-2026", "teams": 446, "results": 446,
+     "scoreboard_candidate": "https://board.xcpcio.com/icpc/50th/wuhan",
+     "note": "also set wuhan-2009 next: wuhan-2025; xcpcio board is an archived copy (usual provenance note applies)"},
+    {"id": "peradeniya-2025", "series": "peradeniya (new)", "season": 2026, "date": "2026-01-25", "parent": "awc-2025",
+     "cms_ids": [9238], "finder": "Asia-Peradeniya-2026", "teams": 23, "results": 23,
+     "web_candidates": ["https://icpc.ieee.lk/", "https://eng.pdn.ac.lk/blog/the-icpc-sri-lanka-2025-26-regional-onsite-round/"],
+     "note": "2024 edition cancelled (CMS 9091) - correctly absent; prelim 9831 is feeder layer. Onsite ran Sun 2026-01-25 per University of Peradeniya's own post-event blog; CMS's 2025-11-08 on 9238 duplicates the preliminary's date (9831) - another CMS date bug"},
+    {"id": "tajikistan-2023", "series": "tajikistan (new)", "season": 2024, "date": "2023-11-19", "parent": "nerc-2023",
+     "cms_ids": [8567], "finder": "TjRC-2024", "teams": 8, "results": 7},
+    {"id": "tajikistan-2024", "series": "tajikistan", "season": 2025, "date": "2024-11-24", "parent": "nerc-2024",
+     "cms_ids": [8896], "finder": "TjRC-2025", "teams": 20, "results": 16},
+    {"id": "tajikistan-2025", "series": "tajikistan", "season": 2026, "date": "2025-11-15", "parent": "nerc-2025",
+     "cms_ids": [9169], "finder": "TjRC-2026", "teams": 14, "results": 10},
+    {"id": "turkmenistan-2025", "series": "turkmenistan (new)", "season": 2026, "date": "2025-11-15", "parent": "nerc-2025",
+     "cms_ids": [9485], "finder": "Turkmenistan-2026", "teams": 39, "results": 34,
+     "standings_candidate": "https://clist.by/standings/icpc-2025-2026-turkmenistan-regional-contest-64020895/",
+     "note": "clist is an aggregator copy - eyeball before adopting"}
+  ],
+  "upcoming_2027_shells": [
+    {"id": "wuhan-2026", "cms_ids": [9648]}, {"id": "nanchang-2026", "cms_ids": [9851]},
+    {"id": "hefei-2026", "cms_ids": [9606]}, {"id": "jinan-2026", "cms_ids": [9607]},
+    {"id": "kunming-2026", "cms_ids": [9612]}, {"id": "peradeniya-2026", "cms_ids": [9662]},
+    {"id": "tajikistan-2026", "cms_ids": [9796]}, {"id": "turkmenistan-2026", "cms_ids": [9787]}
+  ],
+  "triage_new_rows": [
+    {"cms_id": 9850, "name": "The 2026 ICPC ASU Collegiate Programming Contest", "suggest": "minor (Ain Shams / ACPC feeder)"},
+    {"cms_id": 9852, "name": "The 2026 ICPC Asia Regionals Online Contest I", "suggest": "first-round"},
+    {"cms_id": 9854, "name": "The 2026 ICPC Asia Regionals Online Contest II", "suggest": "first-round"}
+  ]
+}
