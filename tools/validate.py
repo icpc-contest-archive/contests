@@ -151,7 +151,8 @@ def main() -> int:
     for n in sorted(both):
         err(f"cms id {n} present in both catalogue ({owner[n]}) and triage")
     for e in triage["excluded"]:
-        if e["reason"] not in {"cancelled", "camp", "challenge", "junk", "minor", "structural"}:
+        if e["reason"] not in {"cancelled", "camp", "challenge", "junk", "minor", "structural",
+                                "preliminary", "non-mainline", "special"}:
             err(f"triage {e['cms_id']}: unknown reason {e['reason']!r}")
 
     # ---- non-mainline sanity ----
