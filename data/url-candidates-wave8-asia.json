@@ -1,0 +1,535 @@
+{
+ "generated": "2026-09-04",
+ "wave": "wave8-asia",
+ "sources": [
+  "icpcvn.github.io (VN 2016-2025)",
+  "UCSY .jsp standings (Myanmar complete)",
+  "NTNU/NSYSU NCPC hubs",
+  "NUM news (Mongolia)",
+  "IIUM (Malaysia)",
+  "kateb.edu.af",
+  "BAPS OJ (BD 2023)",
+  "cpfed.kz",
+  "icpc.global finder (JS)"
+ ],
+ "followups": [
+  "ALL pre-stub family-year slugs pending the family ruling",
+  "finder standings = canonical for most families but JS-only: headless/API pass needed",
+  "thailand 2017-2023 looks like a genuine hiatus; penoy.admu.edu.ph (Philippines archives) DNS-dead -> wayback",
+  "esep.cpfed.kz (Kazakhstan 2024 ranking) now redirects - standings gone from live web, CLIST mirrors",
+  "THAILAND: best sources are icpc.global finder slugs (thai-nat-on-site-2015=2014, Thai-Nat-On-site-2016=2015, bangkok-nat-on-site-2017=2016, Thailand-2026=2025, Thailand-2027=2026; all JS-only) plus host sites (Mahidol 2015 archive page verified; Chul",
+  "VIETNAM: solved end-to-end for 2016-2025 via icpcvn.github.io (Vietnam ICPC Archives — per-year scoreboards for national + northern/central/southern + Asia regional; 2016 and 2025 national scoreboards fetch-verified, hosts/winners extracted; 2017-202",
+  "TAIWAN NCPC: the two rotating host sites are the hubs — ncpc.ntnu.edu.tw (problem archive files.html spans ROC 91-115 = 2002-2026, i.e. the series predates the CMS rows; award.html + scoreboard.html exist but populate via JS) and ncpc.nsysu.edu.tw (h",
+  "MONGOLIA: NUM news is the record — numbering anchored (7th=Apr 11 2015 fetch-verified with top-3, 8th=Apr 2016 dossier-verified, 9th=2017, 10th=2018, 12th=May 2022 fetch-verified), so CMS rows 2013/2014 = 5th/6th editions, which are NOT indexed anywh",
+  "MYANMAR MCPC: complete. UCSY per-edition .jsp pages: mcpc2017.jsp (Oct 26 2017, finder myanmar-national-2017), mcpc2018.jsp + sb-mcpc2018.html (Aug 11/18 2018, 71 teams, full standings fetch-verified), mcpc2019 pages + sb-mcpc2019.jsp (Oct 18 2019, 8",
+  "BANGLADESH NCPC: per-edition trail = 2016 finder uap-ncpc-2017/standings (UAP host; JS), 2018 UITS news (IUBAT, 149 teams; no standings), 2020 ISPR gov report (MIST, Feb 22 2020, 302->152 teams; fetch-verified), 2023 BAPS OJ standings (prelim + onsit",
+  "AFGHANISTAN: kateb.edu.af/acm-icpc/ (fetch-verified) covers the Sep 22 2019 national (winners Kabul U / Kateb / Polytechnic) and states Kateb hosted 'the third consecutive year' => 2017, 2018, 2019 nationals all existed; 2017 has finder slug afghanis",
+  "MALAYSIA: IIUM is the archive — per-year paths iium.edu.my/acmicpc/<year>/: 2016 final scoreboard page fetch-verified (with PDF), 2019 site fetch-verified (Apr 26-27 2019, finder MalaysiaNational-2019 = the 'Asia KL national on-site' row; its scorebo"
+ ],
+ "candidates": [
+  {
+   "contest": "thailand-national-2013",
+   "pre_stub": true,
+   "kind": "news-report-dead",
+   "url": "https://www.eng.psu.ac.th/old-website/8-information/365-5-acm-icpc-thailand-2013",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "DEAD (404). Search-indexed title: PSU CoE students took 5th at 'ACM-ICPC Thailand 2013' — evidences the 2013 national edition; wayback-recovery target."
+  },
+  {
+   "contest": "thailand-national-2014",
+   "pre_stub": true,
+   "kind": "finder-page",
+   "url": "https://icpc.global/regionals/finder/thai-nat-on-site-2015",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "'Asia Thailand National On-site Programming Contest', season-2015 slug = calendar 2014. JS-only page; append /standings for the standings view."
+  },
+  {
+   "contest": "thailand-national-2015",
+   "pre_stub": true,
+   "kind": "official-per-year-page",
+   "url": "https://museum.li.mahidol.ac.th/acm-icpc-thailand-national-contest-2015/",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "FETCH-VERIFIED. Mahidol University archives page: national contest Oct 22-23 2015 at Salaya; top 10 advanced to Asia regional (PSU Phuket Nov 19-20 2015). No standings table."
+  },
+  {
+   "contest": "thailand-national-2015",
+   "pre_stub": true,
+   "kind": "finder-standings",
+   "url": "https://icpc.global/regionals/finder/Thai-Nat-On-site-2016/standings",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "Season-2016 slug = calendar 2015 national (Mahidol). JS-only."
+  },
+  {
+   "contest": "thailand-national-2016",
+   "pre_stub": true,
+   "kind": "finder-standings",
+   "url": "https://icpc.global/regionals/finder/bangkok-nat-on-site-2017/standings",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "'Asia Bangkok - Thailand National On-site Programming Contest' (calendar 2016). JS-only (fetch returns app shell; title verified via search)."
+  },
+  {
+   "contest": "thailand-national-2016",
+   "pre_stub": true,
+   "kind": "group-round-standings",
+   "url": "https://icpc.global/regionals/finder/Thailand-Southern-2017/standings",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "Southern group round of the 2016 season (SKRU host, see dossier skru.ac.th page which names the four group rounds feeding the national). JS-only."
+  },
+  {
+   "contest": "thailand-national-2024",
+   "pre_stub": true,
+   "kind": "official-per-year-page",
+   "url": "https://icpc-2024.cp.eng.chula.ac.th/2024/",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "FETCH-VERIFIED. Chulalongkorn official site, contest Sep 7-8 2024, 57 teams / 16 universities (per techtalkthai). Landing page has no results link — standings live in the CF gym."
+  },
+  {
+   "contest": "thailand-national-2024",
+   "pre_stub": true,
+   "kind": "standings",
+   "url": "https://codeforces.com/gym/105335/standings",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "'ICPC Thailand National Competition 2024' gym standings. codeforces gyms 403 to our fetcher; title verified via search."
+  },
+  {
+   "contest": "thailand-national-2025",
+   "pre_stub": true,
+   "kind": "official-per-year-page",
+   "url": "https://icpc2025.science.kmitl.ac.th/",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "Official 2025 site at KMITL (Bangkok). UNFETCHABLE here: TLS cert hostname mismatch; existence verified via search + KMITL faculty pages."
+  },
+  {
+   "contest": "thailand-national-2025",
+   "pre_stub": true,
+   "kind": "finder-standings",
+   "url": "https://icpc.global/regionals/finder/Thailand-2026/standings",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "'The 2025 ICPC Thailand National Contest' standings (season-2026 slug). JS-only."
+  },
+  {
+   "contest": "thailand-national-2025",
+   "pre_stub": true,
+   "kind": "standings",
+   "url": "https://codeforces.com/gym/106069/standings",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "'ICPC Thailand National Contest 2025 (Partial)' gym standings. CF 403 to fetcher."
+  },
+  {
+   "contest": "thailand-national-2026",
+   "pre_stub": true,
+   "kind": "finder-page",
+   "url": "https://icpc.global/regionals/finder/Thailand-2027",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "'The 2026 ICPC Thailand National Contest' (upcoming edition). JS-only."
+  },
+  {
+   "contest": "vietnam-national-2014",
+   "pre_stub": true,
+   "kind": "mention",
+   "url": "https://www.comp.nus.edu.sg/~acmicpc/2015/rcdreport-preliminarycontest.pdf",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "Singapore RCD report citing 'Vietnam National Round 2014' as recognized feeder (dossier-verified). No standings URL found; olp.vn pre-2016 news URLs are dead (404)."
+  },
+  {
+   "contest": "vietnam-national-2016",
+   "pre_stub": true,
+   "kind": "scoreboard",
+   "url": "https://icpcvn.github.io/2016/national/scoreboard.html",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "FETCH-VERIFIED. 'The 2016 ACM-ICPC Vietnam National Online Contest Hosted by Nha Trang University'; 55+ teams; winner BK.Juniors (HUST, 8 solved)."
+  },
+  {
+   "contest": "vietnam-national-2017",
+   "pre_stub": true,
+   "kind": "scoreboard",
+   "url": "https://vietnam-national17.kattis.com",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "Kattis contest subdomain, linked as the 2017 national scoreboard from the icpcvn.github.io archive index. Not fetch-verified (provenance-blocked)."
+  },
+  {
+   "contest": "vietnam-national-2018",
+   "pre_stub": true,
+   "kind": "scoreboard",
+   "url": "https://vietnam-national18.kattis.com",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "Kattis subdomain for the 2018 national, per icpcvn archive index."
+  },
+  {
+   "contest": "vietnam-national-2019",
+   "pre_stub": true,
+   "kind": "scoreboard",
+   "url": "https://vietnam-national19.kattis.com",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "Kattis subdomain for the 2019 national (3 Nov 2019). Open mirror https://open.kattis.com/contests/vietnam-national19open was fetch-verified during the structure pass."
+  },
+  {
+   "contest": "vietnam-national-2020",
+   "pre_stub": true,
+   "kind": "scoreboard",
+   "url": "https://vietnam-national20.kattis.com",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "Kattis subdomain for the 2020 national, per icpcvn archive index."
+  },
+  {
+   "contest": "vietnam-national-2021",
+   "pre_stub": true,
+   "kind": "scoreboard",
+   "url": "https://icpcvn.github.io/2021/national/scoreboard.html",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "From icpcvn.github.io archive index (Vietnam ICPC Archives, community-official, covers 2016-2025 with regional+national+Asia rounds per year)."
+  },
+  {
+   "contest": "vietnam-national-2022",
+   "pre_stub": true,
+   "kind": "scoreboard",
+   "url": "https://icpcvn.github.io/2022/national/scoreboard.html",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "From icpcvn archive index."
+  },
+  {
+   "contest": "vietnam-national-2023",
+   "pre_stub": true,
+   "kind": "scoreboard",
+   "url": "https://icpcvn.github.io/2023/national/scoreboard.html",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "From icpcvn archive index."
+  },
+  {
+   "contest": "vietnam-national-2024",
+   "pre_stub": true,
+   "kind": "scoreboard",
+   "url": "https://icpcvn.github.io/2024/national/scoreboard.html",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "From icpcvn archive index (VNOJ mirror; the VNOJ original oj.vnoi.info/contest/icpc24_national 403s)."
+  },
+  {
+   "contest": "vietnam-national-2025",
+   "pre_stub": true,
+   "kind": "scoreboard",
+   "url": "https://icpcvn.github.io/2025/national/scoreboard.html",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "FETCH-VERIFIED. 'The 2025 ICPC Vietnam National Programming Contest'; top 3: HCMUS-AleaJactaEst (10 solved), ChatGPT (HSGS-VNU), milliard (VNU-UET)."
+  },
+  {
+   "contest": "vietnam-national-2025",
+   "pre_stub": true,
+   "kind": "results-hub",
+   "url": "https://www.olp.vn/icpc-asia-vi%E1%BB%87t-nam/k%E1%BA%BFt-qu%E1%BA%A3-icpc",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "FETCH-VERIFIED. VAIP official 'Kết quả ICPC' page: 2025 national + Asia HCMC result XLSX/PDF attachments and link out to icpcvn.github.io as the archive of record."
+  },
+  {
+   "contest": "taiwan-ncpc-2012",
+   "pre_stub": true,
+   "kind": "official-rules-pdf",
+   "url": "https://www.nchu.edu.tw/_run.php?work=down2&file=95f66ea7cb80e50500b08bfd3a039f3c8c0e1c6a.pdf&name=%E3%80%8C101%E5%B9%B4%E5%BA%A6%E5%85%A8%E5%9C%8B%E5%A4%A7%E5%B0%88%E9%9B%BB%E8%85%A6%E8%BB%9F%E9%AB%94%E8%A8%AD%E8%A8%88%E7%AB%B6%E8%B3%BD%E3%80%8D.pdf",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "101年度 (2012) rules PDF (dossier-verified): NTNU north + NSYSU south (=Kaohsiung) sites, groups 甲/乙/丙, onsite 2012-10-20/21, top A+B teams recommended to Asia Taiwan regional. No 2012 results found online."
+  },
+  {
+   "contest": "taiwan-ncpc-2019",
+   "pre_stub": true,
+   "kind": "official-rules-pdf",
+   "url": "https://ncpc.ntnu.edu.tw/ncpc2019/file/108%E5%B9%B4%E5%BA%A6%E5%85%A8%E5%9C%8B%E5%A4%A7%E5%B0%88%E9%9B%BB%E8%85%A6%E8%BB%9F%E9%AB%94%E8%A8%AD%E8%A8%88%E7%AB%B6%E8%B3%BD%E4%BD%9C%E6%A5%AD%E9%A0%88%E7%9F%A5.pdf",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "108年度 (2019) operating rules; evidences per-year archive dirs ncpc.ntnu.edu.tw/ncpcYYYY/. Community record of the 2019 final: codingcontest-mcu.blogspot.com/2019/10/108.html (fetch loops on redirect)."
+  },
+  {
+   "contest": "taiwan-ncpc-2023",
+   "pre_stub": true,
+   "kind": "award-list-pdf",
+   "url": "https://ncpc.nsysu.edu.tw/static/file/62/1062/img/423785078.pdf",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "112年度 (2023) NCPC award list PDF, linked from NSYSU honor-roll page."
+  },
+  {
+   "contest": "taiwan-ncpc-2024",
+   "pre_stub": true,
+   "kind": "award-list-pdf",
+   "url": "https://ncpc.nsysu.edu.tw/static/file/62/1062/img/751867279.pdf",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "FETCH-VERIFIED. 113年度 (2024) award list: champion fruit_advantages (NTU, NT$100k), ~71 awarded teams incl. 佳作 ranks to 71."
+  },
+  {
+   "contest": "taiwan-ncpc-2025",
+   "pre_stub": true,
+   "kind": "scoreboard-pdf",
+   "url": "https://ncpc.nsysu.edu.tw/static/file/62/1062/img/ScoreboardNCPC2025_FINAL-DOMjudge.pdf",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "114年度 (2025) final-round DOMjudge scoreboard PDF, linked from NSYSU 計分看板 page."
+  },
+  {
+   "contest": "taiwan-ncpc-2025",
+   "pre_stub": true,
+   "kind": "award-list-page",
+   "url": "https://ncpc.nsysu.edu.tw/p/406-1062-364450,r1640.php?Lang=zh-tw",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "114年度 (2025) award-winners announcement (2025-10-15) on NSYSU NCPC site."
+  },
+  {
+   "contest": "taiwan-ncpc-hub",
+   "pre_stub": true,
+   "kind": "archive-hub",
+   "url": "https://ncpc.ntnu.edu.tw/files.html",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "FETCH-VERIFIED. NTNU NCPC problem archive covering ROC years 91-115 (2002-2026); groups 甲/乙/丙 through 107 (2018), 初賽+決賽 format from 108 (2019). Companion award.html / scoreboard.html load their listings via JS — verify in a browser; NSYSU twin honor roll: https://ncpc.nsysu.edu.tw/p/412-1062-25782.php"
+  },
+  {
+   "contest": "mongolia-national-2015",
+   "pre_stub": true,
+   "kind": "results-news",
+   "url": "https://news.num.edu.mn/?p=25305",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "FETCH-VERIFIED. 7th National Student Programming Olympiad, Apr 11 2015, 14 teams / 8 universities; top 3 all NUM-SAS (winner Muihar_Hucheer_Dairagch, 9 solved); framed as the 39th-ICPC-season national round."
+  },
+  {
+   "contest": "mongolia-national-2016",
+   "pre_stub": true,
+   "kind": "results-news",
+   "url": "https://news.num.edu.mn/?p=33895",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "Dossier-verified. 8th edition, Apr 2016, NUM, 15 teams / 9 universities, top 2 advance to Asia regional. Mirror: https://student.num.edu.mn/?p=2612"
+  },
+  {
+   "contest": "mongolia-national-2017",
+   "pre_stub": true,
+   "kind": "results-news",
+   "url": "https://news.num.edu.mn/?p=42916",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "9th edition results post ('дүнгээ гаргав') — bonus year beyond CMS rows; title verified via search."
+  },
+  {
+   "contest": "mongolia-national-2018",
+   "pre_stub": true,
+   "kind": "results-news",
+   "url": "https://news.num.edu.mn/?p=49855",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "10th edition post — bonus year; title verified via search."
+  },
+  {
+   "contest": "mongolia-national-2022",
+   "pre_stub": true,
+   "kind": "results-news",
+   "url": "https://news.num.edu.mn/?p=89481",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "FETCH-VERIFIED. 12th edition, May 21 2022 at NUM: student winners SEAS (NUM, 7 solved), plus a professional division — useful continuity anchor."
+  },
+  {
+   "contest": "myanmar-mcpc-2017",
+   "pre_stub": true,
+   "kind": "official-per-year-page",
+   "url": "https://www.ucsy.edu.mm/ucsy/pages/mcpc2017.jsp",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "FETCH-VERIFIED. MCPC 2017 at UCSY, contest Oct 26 2017 (rehearsal Oct 25); PC^2 judging; finder slug myanmar-national-2017. Problems: /ucsy/pages/q-mcpc2017.pdf. No scoreboard link on page (sb-mcpc2017.* not confirmed)."
+  },
+  {
+   "contest": "myanmar-mcpc-2018",
+   "pre_stub": true,
+   "kind": "scoreboard",
+   "url": "http://www.ucsy.edu.mm/ucsy/pages/sb-mcpc2018.html",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "FETCH-VERIFIED full standings: 71 teams, winner Team18_nah (8 solved), UCSM teams 2nd/3rd. Event page (also verified): https://www.ucsy.edu.mm/ucsy/pages/mcpc2018.jsp — Aug 11 2018, finder myanmar-national-2018, problems q-mcpc2018.pdf."
+  },
+  {
+   "contest": "myanmar-mcpc-2019",
+   "pre_stub": true,
+   "kind": "scoreboard",
+   "url": "https://www.ucsy.edu.mm/ucsy/pages/sb-mcpc2019.jsp",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "FETCH-VERIFIED full standings: Oct 18 2019, 85 teams; top 3 CoCo, CodeCipher, UCSM_Enochian. Event page: https://www.ucsy.edu.mm/pages/mcpc2019.jsp; MIIT participant report: https://www.miit.edu.mm/news/myanmar-collegiate-programming-contest-2019"
+  },
+  {
+   "contest": "bangladesh-ncpc-2016",
+   "pre_stub": true,
+   "kind": "finder-standings",
+   "url": "https://icpc.global/regionals/finder/uap-ncpc-2017/standings",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "'The 2016 ACM-ICPC Bangladesh National Collegiate Programming Contest' (UAP host, season-2017 slug). JS-only; title verified via search. UIU news page for NCPC 2016 is dead (404)."
+  },
+  {
+   "contest": "bangladesh-ncpc-2018",
+   "pre_stub": true,
+   "kind": "news-report",
+   "url": "https://uits.edu.bd/achievement/glorious-achievement-in-the-national-collegiate-programming-contest-ncpc-2018/",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "Dossier-verified: NCPC 2018 onsite at IUBAT, 149 teams, ICT Division + BCC. No standings URL found."
+  },
+  {
+   "contest": "bangladesh-ncpc-2020",
+   "pre_stub": true,
+   "kind": "results-news",
+   "url": "https://ispr.gov.bd/en/national-collegiate-programming-contest-ncpc-2020-concludes-at-mist/",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "FETCH-VERIFIED (gov ISPR): NCPC 2020 final Feb 22 2020 at MIST; 302 teams / 77 universities in prelim, 152 in final; BCC patronage, BAPS problem setters. WARNING: ncpc.mist.ac.bd is now domain-squatted (gambling spam) — do not cite."
+  },
+  {
+   "contest": "bangladesh-ncpc-2023",
+   "pre_stub": true,
+   "kind": "standings",
+   "url": "https://bapsoj.org/contests/ncpc-onsite-2023-hosted-by-ju/standings",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "NCPC 2023 onsite standings on BAPS OJ (via therealbcs.com/iupc national-contest catalogue). bapsoj.org is a JS app — table needs a browser. Final held Mar 9 2024 at Jahangirnagar U; champion DU 'Ascending' per https://www.du.ac.bd/student-achievements-details/627 (fetch-verified)."
+  },
+  {
+   "contest": "bangladesh-ncpc-2023",
+   "pre_stub": true,
+   "kind": "standings",
+   "url": "https://bapsoj.org/contests/ncpc-preliminary-ju-2023/standings",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "NCPC 2023 preliminary standings (JS app). Prelim problems PDF: https://bapsoj.org/NCPC-JU-Preli-2023-3721x.pdf; JU CSE contest platform: https://pc.cse.juniv.edu/contest; CF top-50 blog https://codeforces.com/blog/entry/126967 (403 to fetcher)."
+  },
+  {
+   "contest": "afghanistan-national-2017",
+   "pre_stub": true,
+   "kind": "finder-page",
+   "url": "https://icpc.global/regionals/finder/afghanistan-national-2017",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "Finder slug for the 2017 Afghanistan national (JS-only; indexed via icpc.baylor.edu alias). Context: Nov 10 2017 Kabul regional had 10 teams / 6 universities (ICPC News FB video)."
+  },
+  {
+   "contest": "afghanistan-national-2019",
+   "pre_stub": true,
+   "kind": "results-news",
+   "url": "https://kateb.edu.af/acm-icpc/",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "FETCH-VERIFIED. National round Sep 22 2019 at Polytechnic U gymnasium; winners: 1. Kabul University, 2. Kateb University, 3. Polytechnic University; Kateb 'third consecutive year' hosting => 2018 national also existed. Kabul regional Nov 6 2019 at Kateb; also finder AsiaKabulFirstRound-2020 (2019 Kabul First Round Online) and AsiaKabul-2020."
+  },
+  {
+   "contest": "malaysia-national-2014",
+   "pre_stub": true,
+   "kind": "news-report-dead",
+   "url": "https://fik.unisza.edu.my/index.php?option=com_content&view=article&id=579:acm-icpc-malaysia-al-khawarizmi-national-programming-contest-2014&catid=47&lang=en&Itemid=657",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "DEAD (DNS gone). Search-indexed UniSZA article on al-Khawarizmi National 2014 (IIUM host) — wayback target. No live 2014 results URL found; IIUM per-year path pattern suggests iium.edu.my/acmicpc/2014/ existed."
+  },
+  {
+   "contest": "malaysia-national-2016",
+   "pre_stub": true,
+   "kind": "scoreboard",
+   "url": "https://www.iium.edu.my/acmicpc/2016/scoreboard.html",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "FETCH-VERIFIED: 'Final Scoreboard for the ACM ICPC al-Khawarizmi National Programming Contest 2016' page with PDF download of the full scoreboard. Problems mirrored on Baekjoon: https://www.acmicpc.net/category/detail/1739"
+  },
+  {
+   "contest": "malaysia-national-2018",
+   "pre_stub": true,
+   "kind": "official-per-year-page",
+   "url": "http://www.iium.edu.my/acmicpc/2018",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "Linked as 'past edition' from the 2019 site; al-Khawarizmi 2018 (May 2018, IIUM, 13 universities per UTAR news https://news.utar.edu.my/awards/2018/29/29.html). Not fetch-verified."
+  },
+  {
+   "contest": "malaysia-national-2019",
+   "pre_stub": true,
+   "kind": "official-per-year-page",
+   "url": "https://www.iium.edu.my/acmicpc/2019/",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "FETCH-VERIFIED. 'ICPC Malaysia al-Khawarizmi National Programming Contest 2019', Apr 26-27 2019 at IIUM KL; finder slug MalaysiaNational-2019 (the 'Asia KL national onsite' row). Site's scoreboard.html now 404s."
+  },
+  {
+   "contest": "malaysia-national-2019",
+   "pre_stub": true,
+   "kind": "contest-data",
+   "url": "https://github.com/Sohieb/2019-icpc-malaysia-national-contest",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "GitHub repo with the 2019 ICPC Malaysia National contest data (results recoverable); CF gym standings mirror: https://codeforces.com/gym/102219/standings (403 to fetcher). KL Regional 2019 scoreboard for context: https://www.iium.edu.my/acmicpc/2019/regional/scoreboard.html"
+  },
+  {
+   "contest": "philippines-national-2014",
+   "pre_stub": true,
+   "kind": "mention",
+   "url": "https://www.comp.nus.edu.sg/~acmicpc/2015/rcdreport-preliminarycontest.pdf",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "Singapore RCD report citing 'Philippines National Round 2014' as a recognized feeder (dossier-verified). No standings URL found anywhere."
+  },
+  {
+   "contest": "philippines-national-2019",
+   "pre_stub": true,
+   "kind": "finder-standings",
+   "url": "https://icpc.global/regionals/finder/Philippines-National-2020/standings",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "'The 2019 ICPC Philippines National Programming Contest' standings (season-2020 slug). JS-only; the only per-edition PH results URL found. Manila regional archive host penoy.admu.edu.ph (incl. /icpcmanila/archive/2016/ and 2022 site) is DNS-dead — wayback targets."
+  },
+  {
+   "contest": "kazakhstan-octafinal-2024",
+   "pre_stub": true,
+   "kind": "finder-standings",
+   "url": "https://icpc.global/regionals/finder/kaz-icpc-qual-two-2025/standings",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "'The 2024 ICPC Kazakhstan Octafinal' standings (season-2025 slug). JS-only. Former live ranking https://esep.cpfed.kz/contest/8icpc24/ranking/ now 302s to cpfed.kz (judge retired) — search-indexed, wayback target."
+  },
+  {
+   "contest": "kazakhstan-octafinal-2025",
+   "pre_stub": true,
+   "kind": "official-page",
+   "url": "https://cpfed.kz/projects/tournaments/icpc-1-8",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "FETCH-VERIFIED. CPFED ICPC 1/8-final (Octafinal) page: Oct 26 2025 offline at universities -> quarterfinal Nov 15 2025 -> semifinal (Almaty, Dec 15-17 2025); registration via icpc.global site 38055. Finder chain for the season: https://icpc.global/regionals/finder/kaz-icpc-qual-two (octafinal), Kazakhstan-Q-2026 (qualification)."
+  },
+  {
+   "contest": "kazakhstan-octafinal-2024",
+   "pre_stub": true,
+   "kind": "finder-standings",
+   "url": "https://icpc.global/regionals/finder/Kazakhstan-Q-2025/standings",
+   "method": "t2-asia-agent",
+   "status": "candidate",
+   "note": "Sibling stage: 'The 2024 ICPC Kazakhstan Qualification' standings (JS-only) — include if the catalogue tracks the qualification stage beside the octafinal; regional standings mirror on CLIST: https://clist.by/standings/icpc-2025-2026-kazakhstan-regional-contest-64020891/"
+  }
+ ]
+}
