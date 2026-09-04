@@ -1,0 +1,311 @@
+{
+  "families": [
+    {
+      "family": "Taiwan / ICPC Asia Taiwan Online Programming Contest (TOPC)",
+      "facts": {
+        "participants": "Open entry, all Taiwanese universities (international teams admitted for a 1000 NTD fee; domestic free); one coach + 3 contestants + 1 reserve. Runs annually since 2015 (NTU e-paper: 'since 2015 an online contest (TOPC) has been held before the regional'). 2020s editions documented on topc.icpc.tw (2020-2026).",
+        "problemset": "Own new problemset each year, >=7 English problems, 3h, at least 1/3 solvable in Python 3 (e.g. 2023-TOPC.pdf published on its own site). Not shared with any sibling.",
+        "qualification": "THE official online preliminary for the Taiwan-hosted ICPC Asia regional (Taipei 2018 @NTU, Taipei-Hsinchu 2020-21, Taoyuan 2023, Taichung 2024-25). Official four-tier domestic priority for the regional: Tier 1 = best team per school (2 for host) ordered by TOPC rank, capped at 30 teams; Tier 2 = top 40 of NCPC (MOE national contest) finals; Tier 3 = up to 10 CPE-recommended teams; Tier 4 = rest by TOPC rank. Priority scheme suspended in any year the lists cannot be fixed 34 days before the regional.",
+        "format": "ONLINE always (it is in the name); never onsite. 3 hours.",
+        "host": "Taiwan Association of Programming Contests and Certification (contest manager at NYCU, mzshieh@nycu.edu.tw); regional itself hosted by rotating universities (NTU 2018, NTUB/Taoyuan 2023...)."
+      },
+      "for": [
+        "R3 pass: explicitly gates seats/priority at the Taiwan Asia regional (Tier 1 of the official priority list)",
+        "R2 pass: unique new problems each year",
+        "R1 pass: nationwide multi-university (plus foreign entrants)"
+      ],
+      "against": [
+        "R4 fail: online every year by design, no COVID excuse",
+        "Identity lens: same geography as the parent regional (Taiwan), exists only to seed it, run by the same ICPC-Taiwan apparatus (icpc.tw domain family)"
+      ],
+      "proposal": "part-of-parent",
+      "confidence": "high",
+      "evidence": [
+        "https://topc.icpc.tw/ (format, eligibility, four-tier priority text, organizer)",
+        "https://www.cc.ntu.edu.tw/chinese/epaper/0047/20181220_4703.html (TOPC since 2015 as pre-regional online round; 2018 Asia Taipei regional at NTU; Taiwan hosted 1997/2004/2010/2013/2014 previously)",
+        "https://hackmd.io/@jakao/collegiateCompetitionsProgramming (TOPC top ~40 to Taiwan regional; unrestricted entry)",
+        "https://topc2023.icpc.tw/2023-TOPC.pdf (own problemset)"
+      ]
+    },
+    {
+      "family": "Taiwan / NCPC = MOE National Collegiate Programming Contest (covers the 'Kaohsiung Group-A/B/C 2012' rows; 'Chia-Yi' rows probably earlier editions)",
+      "facts": {
+        "participants": "All Taiwanese universities; Group A (甲組) open to all majors, Group B (乙組) restricted to non-CS majors, Group C (丙組) open-source application track. Two simultaneous onsite sites: north = NTNU (Taipei), south = NSYSU (Kaohsiung) — hence CMS rows located 'Kaohsiung' with Group-A/B/C in 2012.",
+        "problemset": "Own MOE problemsets per year; Groups A/B 5h, Group C 4h. Not shared with TOPC/regional.",
+        "qualification": "2012 rules: up to 15 best Group A+B teams recommended to the 'ACM ICPC Asia Taiwan regional' with MOE travel subsidies (up to NT$300k for top 2). Current rules: NCPC finals top 40 = Tier 2 of the official priority list for the Taiwan Asia regional. So it has continuously fed the regional.",
+        "format": "ONSITE (single-day, two parallel physical sites), no online round in 2012 rules; later years added a preliminary (初賽) + final per community docs.",
+        "host": "Organizer: Taiwan Ministry of Education (教育部); host sites NTNU + NSYSU (rotating lead: NSYSU 2025 '114年度', NTNU 2026 '115年度'). Government contest, not ICPC-branded, but registered in ICPC CMS."
+      },
+      "for": [
+        "R1/R2/R3/R4 all pass: nationwide multi-university, own problems, onsite, and it gates recommendations + Tier-2 priority into the Taiwan Asia regional",
+        "Long continuous history (annual MOE event), independent identity distinct from the ICPC regional"
+      ],
+      "against": [
+        "It is a Ministry-of-Education championship first; ICPC gating is a side function (recommendation/priority, not the sole path)",
+        "Groups B (non-CS majors) and C (open-source) are sector/track-restricted side divisions with no ICPC relevance",
+        "'Chia-Yi' rows unverified: most plausibly NCPC editions hosted in Chia-Yi (National Chung Cheng University area) in early years (CMS 2007+), but no online confirmation found — needs-info on those specific rows"
+      ],
+      "proposal": "mainline",
+      "confidence": "medium",
+      "evidence": [
+        "https://www.nchu.edu.tw/_run.php?... 101年度全國大專電腦軟體設計競賽競賽要點 PDF (2012 rules: MOE organizer, NTNU/NSYSU sites, Groups 甲/乙/丙 definitions, onsite dates 2012-10-20/21, '擇優推薦甲及乙組最多15隊，報名參加ACM國際大學程式競賽亞洲區臺灣賽區')",
+        "https://topc.icpc.tw/ (current Tier 2 = 全國大專電腦軟體設計競賽 top 40)",
+        "https://ncpc.nsysu.edu.tw/ and https://ncpc.ntnu.edu.tw/ (current rotating hosts)",
+        "https://hackmd.io/@jakao/collegiateCompetitionsProgramming (NCPC prelim+final structure; finals top-40 to regional)"
+      ]
+    },
+    {
+      "family": "Taiwan / sector contests: TUPC (Technology Universities) & PUPC/NCPU (Private Universities)",
+      "facts": {
+        "participants": "Sector-restricted by charter: TUPC = 技專校院 (technological/vocational universities) only, CMS name 'Taiwan National Contest for Technology Universities' 2016-2021, continuing as 'ICPC Taiwan Technology University Programming Contest' (finder editions 2023, 2024, 2026). PUPC/NCPU = private universities/colleges only (全國私立大專校院程式競賽), 15th edition 2025, so running since ~2011; CMS 2021 row = 'The 2021 ICPC-Taiwan National Contest for Private Universities' (slug ICPC-TAIPEI-NCPU-2022).",
+        "problemset": "Own problemsets per event (ICPC-style, teams of 3, ICPC eligibility rules applied).",
+        "qualification": "NO place in the current official four-tier priority for the Taiwan Asia regional (that list = TOPC / NCPC / CPE only). A community source (HackMD) records that the technology-university and private-university contests each historically supplied ~10 priority teams to the Taiwan regional, so at most an intermittent, minor feeder role; winners get 'ICPC official certificates' and cash, nothing on the WF path today. R3 essentially fails.",
+        "format": "ONSITE, single-site, annual; PUPC rotates among private hosts (YZU 2024, Providence University Taichung 2025); TUPC hosted in Taipei in the CMS 2016-2021 years (CMS attributes 'NCTU').",
+        "host": "PUPC: rotating private university + Taiwan Association of Computer Programming Contest (TCPC) as co-organizer; TUPC: technology-university host (CMS-era Taipei), same ICPC-Taiwan orbit."
+      },
+      "for": [
+        "Independent identity, own problems, onsite — real contests, properly documented",
+        "ICPC-registered with ICPC certificates and eligibility rules"
+      ],
+      "against": [
+        "R1-flavored restriction: closed to a sector subset of universities (not a general national round)",
+        "R3 fail (current): no documented gate onto the WF path; regional priority today runs only through TOPC/NCPC/CPE; the historical ~10-slot claim is community-sourced only"
+      ],
+      "proposal": "registry",
+      "confidence": "medium-high",
+      "evidence": [
+        "https://sites.google.com/gm.pu.edu.tw/pupc2025/競賽資訊 (private-only eligibility, 15th edition, Providence U host, TCPC co-org, ICPC certificates/eligibility rules)",
+        "https://topc.icpc.tw/ (current priority tiers exclude TUPC/PUPC)",
+        "https://hackmd.io/@jakao/collegiateCompetitionsProgramming ('NCTU & NCPU provide 10 teams each to ICPC regional' - historical, community doc)",
+        "icpc.global finder slugs: ICPC-TAIPEI-NCPU-2022, AsiaTaiwanPUPC(-2024/-2025), Asia-Taiwan-TUPC-2024/2025/2027 (JS-only pages; names from search snippets)"
+      ]
+    },
+    {
+      "family": "Thailand National On-site Programming Contest + Northern/Northeastern/Southern/Central group rounds",
+      "facts": {
+        "participants": "Nationwide. Universities compete first in 4 sector-geographic group rounds — North (Chiang Mai U CS dept, 'first regional round' branding revived 2026), South (PSU/Songkhla Rajabhat 2016), Northeast, Central — then the best advance to the Thailand National round. 2024 national: free registration, teams of 3, at Chulalongkorn.",
+        "problemset": "Each round has its own problemset (different hosts/dates); no evidence of problem sharing across the four group rounds (unverified — document per R2 if rows are merged).",
+        "qualification": "Chain confirmed: group rounds -> National round -> international/Asia level. SKRU 2016: 'competitions are organized by universities representing the regions: North, South, Northeast, Central' and winners 'advance to the national level and subsequently to international competition'. CMU 2026: regional round exists 'to select top teams to advance to the national level'. National top teams have historically been funded (SIPA/DEPA & sponsors) into ICPC Asia regionals — Thailand itself hosts them periodically (Phuket 2009/2011, Bangkok 2014, 2016, Nakhon Pathom 2018, Bangkok 2025 @ Chula, onsite 1-2 Nov 2025); PSU Phuket hosted the 2016 World Finals.",
+        "format": "National round is ONSITE by name and in practice ('Thailand National On-site Programming Contest'; 2024: 'Onsite event for every team', Faculty of Engineering, Chulalongkorn, 7-8 Sep 2024). Group rounds are onsite at the regional host universities.",
+        "host": "Rotating Thai universities per round (Chula ran both the 2024 National and the 2025 Asia Bangkok regional); national coordination with government software agency (SIPA/DEPA) and ICPC Thailand."
+      },
+      "for": [
+        "National round: R1 pass (nationwide), R3 pass (feeds Thai representation at Asia regionals incl. home Bangkok regional), R4 pass (onsite, explicitly named on-site)",
+        "Group rounds have no identity beyond their compass-point geography -> identity lens folds them into the national event as its qualifying stages"
+      ],
+      "against": [
+        "The precise seat mechanics (how many national teams get Asia regional slots) not found in writing — advancement wording is 'advance to national then international' plus funding, not a published slot table",
+        "Group-round problemset independence unverified"
+      ],
+      "proposal": "mainline",
+      "confidence": "medium-high",
+      "evidence": [
+        "https://icpc-2024.cp.eng.chula.ac.th/2024/ (national = onsite at Chula, free, Sep 2024)",
+        "https://www.skru.ac.th/acmicpc2016/index.php?p=about (four regional groups; winners advance to national then international; WF2016 at PSU Phuket)",
+        "https://www.cs.science.cmu.ac.th/2026/07/01/... (2026 Northern round at CMU selects teams 'ไปลุยต่อในระดับประเทศ')",
+        "https://icpc.cp.eng.chula.ac.th/2025/ (Asia Bangkok Regional, onsite 1-2 Nov 2025)",
+        "icpc.global finder slug Thai-Nat-On-site-2016 ('Asia Thailand National On-site Programming Contest')"
+      ]
+    },
+    {
+      "family": "Korea National First Round (ICPC Asia Korea National First Round Programming Contest)",
+      "facts": {
+        "participants": "All Korean universities; median ~466 teams (CMS 2013-2027). Official finder name 'The 20xx ICPC Asia Korea National First Round Programming Contest' (slugs Seoul-First-Round-*).",
+        "problemset": "Own problemset each year (separate from the Seoul Regional onsite set); icpckorea.org publishes separate preliminary problems/standings.",
+        "qualification": "Gates the ICPC Seoul Regional (onsite, Nov): the preliminary ('예선/Internet Preliminary') produces the '본선 진출팀' (list of teams advancing to the Seoul Regional). Existed well before its 2013 CMS debut — the Seoul regional has used an internet preliminary throughout.",
+        "format": "ONLINE always ('Online Preliminary Contest: 2025.10.10-10.11'; teams compete over the internet). Never onsite; not COVID-related.",
+        "host": "ICPC Korea Regional committee (icpckorea.org), with ICPC Foundation/Huawei/JetBrains/Jane Street sponsorship and Korean government agencies (NIA, MSIT)."
+      },
+      "for": [
+        "R3 pass: sole gate into the Seoul Regional for Korean teams",
+        "R2 pass: own problems",
+        "R1 pass: nationwide"
+      ],
+      "against": [
+        "R4 fail: online by design every year",
+        "Identity lens: named and run as the Seoul Regional's first round ('2024 ICPC Seoul Regional 예선'), same organizer, same geography — no independent identity"
+      ],
+      "proposal": "part-of-parent",
+      "confidence": "high",
+      "evidence": [
+        "https://icpckorea.org/2025-seoul/preliminary (online preliminary dates, advancing-team list link, organizer/sponsors)",
+        "https://icpckorea.org/archives/3293 ('2025 ICPC 서울 지역 대회 예선 ... 2025 ICPC Korea National First Round' — same event, two names)",
+        "icpc.global finder slugs Seoul-First-Round-2024/2026/2027"
+      ]
+    },
+    {
+      "family": "Japan Online First-Round (国内予選, ICPC Japan domestic qualifier)",
+      "facts": {
+        "participants": "All Japanese universities; grew 28 teams (1998) to ~300+ (2023); median ~355 in CMS (2017-2027 rows, but the round itself has run every year since 1998 — CMS start is registration lag, not first edition).",
+        "problemset": "Own problemset every year (domestic set, distinct from the Asia regional set; archives with judge data on icpc.jp since 2003).",
+        "qualification": "Gates the Asia regional held in Japan: Yokohama 2018-2025 (earlier Tsukuba 2015-17, Aizu 2008/2013, Tokyo, Hakodate, Kanazawa, Kyoto, Fukuoka, Ehime...). 2025 selection rule set by the Japanese ICPC Board: ~49 teams via tiered per-university caps (top 10 all; ranks 11-25 max 3/univ; 26-40 max 2; 41-49 max 1; then one-per-new-university fill).",
+        "format": "ONLINE for its entire life (1998-present): teams compete from their own campuses under local supervision; never had an onsite era. COVID changed nothing structurally.",
+        "host": "ICPC Japanese steering committee (ICPC 運営委員会) / icpc.jp; JAG (Japanese Alumni Group) supports judging and archives."
+      },
+      "for": [
+        "R3 pass: sole domestic gate into Yokohama (etc.)",
+        "R2 pass: own problems",
+        "R1 pass: nationwide, biggest-name universities to small colleges"
+      ],
+      "against": [
+        "R4 fail: online since 1998 by design — under the 'mainline = not online' rule it can never be mainline",
+        "Identity lens: literally the Yokohama regional's first round, same committee, same geography"
+      ],
+      "proposal": "part-of-parent",
+      "confidence": "high",
+      "evidence": [
+        "https://icpc.jp/2025/domestic/selection/ (49-team tiered selection into Yokohama; rules by the ICPC Board; event name 'Japan Online First-round Contest', 2025-07-04)",
+        "https://icpc.jp/about/history/ (round every year since 1998; 28->300+ teams; regional venues by year; online format throughout incl. 2020-21)",
+        "https://icpc.jp/archive/1998/regional/ (1998 Asia Tokyo regional archive)"
+      ]
+    },
+    {
+      "family": "Jakarta - Indonesia National Contest (INC)",
+      "facts": {
+        "participants": "Indonesian universities nationwide; median ~600 teams (CMS 2012-2025) — the largest online national round in SE Asia.",
+        "problemset": "Own problemset each year (BINUS-run jury; separate from the Jakarta Regional onsite set).",
+        "qualification": "Gates local slots at the ICPC Asia Jakarta Regional: 'Top 40 teams and 5 Golden Tickets in INC 2024 will advance to the 2024 ICPC Asia Jakarta Regional Contest', and INC results 'determine additional teams to make 55-60 local teams' at the regional. Foreign teams register directly with the regional; Indonesian teams come through INC.",
+        "format": "ONLINE ('the online preliminary round for Indonesian teams'). The Jakarta Regional itself is onsite (Jakarta-2026 finder: 'Jakarta Onsite Regional').",
+        "host": "BINUS University (organizes both INC and the Asia Jakarta Regional; competition.binus.ac.id)."
+      },
+      "for": [
+        "R3 pass: explicit slot table into the Jakarta Regional (top 40 + golden tickets + fill to 55-60)",
+        "R2 pass: own problems",
+        "R1 pass: nationwide"
+      ],
+      "against": [
+        "R4 fail: online preliminary by design",
+        "Identity lens: same organizer (BINUS) and same geography as the parent Jakarta Regional; INC exists to seed it"
+      ],
+      "proposal": "part-of-parent",
+      "confidence": "high",
+      "evidence": [
+        "https://competition.binus.ac.id/icpc2024/index/aboutinc (online preliminary; top-40 + 5 golden tickets; 55-60 local teams; BINUS)",
+        "https://competition.binus.ac.id/icpc2023/index/rundowninc and .../icpc2021/index/aboutinc (continuity of format)"
+      ]
+    },
+    {
+      "family": "Vietnam National Programming Contest (ICPC Vietnam vòng Quốc gia)",
+      "facts": {
+        "participants": "Nationwide, all Vietnamese universities (plus a high-school division in recent years); CMS median ~262 teams (2014-2025); 2024 national drew 713 teams / 2,139 contestants including non-ICPC divisions. Upstream feeders: North/Central/South rounds (vòng Khu vực Bắc-Trung-Nam) each October at centralized onsite sites (2026 hosts: HUST Hanoi, HCMUS HCMC, Hue University of Science); 824 teams at the 2025 Southern round alone.",
+        "problemset": "Own problemset per round; National round run on an online judge (Kattis 2018-2019 with public mirrors, VNOJ 2024). Regional (Bắc/Trung/Nam) rounds have their own sets.",
+        "qualification": "Gates the ICPC Asia regional hosted in Vietnam: 'only teams solving at least 1 problem in the ICPC National round are considered for selection into the ICPC Asia Vietnam regional'. The Asia regional is the WF-path event, onsite, co-located with the OLP week (rotating city/host: Hanoi 2006 VNU-UET, Danang 2019, Can Tho 2020, Hanoi/FPT 2021, HCMC/HCMUTE 2022, Hue 2023, Hanoi/HaUI 2024 + Asia-Pacific Championship @ VNU-UET 2024, HCMC/HUTECH 2025). National runs ~1 month before (e.g. 3 Nov 2019; 7-8 Nov 2026), NOT co-located with OLP; OLP itself is a separate individual olympiad by the same organizer.",
+        "format": "Distributed/hybrid: online judge with teams at multiple centralized, proctored sites nationwide (2026 wording: national round 'at multiple centralized locations'; regional rounds 'thi tập trung' with fees — 550k VND regional, 1.1M VND national). Not a single onsite venue; not a pure at-home online round either.",
+        "host": "VAIP (Vietnam Association for Information Processing, office@vaip.vn) with rotating host universities; same body runs OLP and the Asia Vietnam regional."
+      },
+      "for": [
+        "R3 pass: explicit written gate into the Asia Vietnam regional (>=1 solved problem requirement + selection)",
+        "R1 pass: nationwide, hundreds of teams, dozens of universities",
+        "R2 pass: own problems each year",
+        "Has its own identity: national championship titles awarded; structured pyramid (regional rounds -> national) beneath it"
+      ],
+      "against": [
+        "R4 borderline: delivered on an online judge across distributed proctored sites (Kattis/VNOJ), not a single onsite hall — under a strict 'not online' reading it flips to part-of-parent/registry; under 'proctored multi-site = onsite-equivalent' it stays mainline",
+        "Same organizer and geography as the parent Asia Vietnam regional (VAIP), which pulls toward part-of-parent"
+      ],
+      "proposal": "mainline",
+      "confidence": "medium",
+      "evidence": [
+        "https://www.olp.vn/icpc-asia-vi%E1%BB%87t-nam/th%C3%B4ng-tin-quy-%C4%91%E1%BB%8Bnh (since 2012: Bắc-Trung-Nam + national rounds before Asia; >=1 problem rule; 'thi tập trung' fees)",
+        "https://www.olp.vn/icpc-asia-vi%E1%BB%87t-nam/v%C3%B2ng-khu-v%E1%BB%B1c-qu%E1%BB%91c-gia (2026 schedule/hosts/fees; 2024: 713 teams; national at multiple centralized locations)",
+        "https://www.olp.vn/gi%E1%BB%9Bi-thi%E1%BB%87u/15-n%C4%83m-icpc-vietnam (regional host cities by year; VAIP)",
+        "https://open.kattis.com/contests/vietnam-national19open (2019 national on Kattis, 3 Nov 2019, open mirror)",
+        "https://oj.vnoi.info/contest/icpc24_national (2024 national on VNOJ - 403 to fetch, existence via search)"
+      ]
+    },
+    {
+      "family": "asia-nationals-misc (Mongolia, Myanmar, Bangladesh, Malaysia, Pakistan, Philippines, Afghanistan, D.P.R. Korea)",
+      "facts": {
+        "participants": "Per country: MONGOLIA - National Student Programming Olympiad, ~15 teams from 9 universities (2016, 8th ICPC-era edition; olympiad lineage claimed to 1976). MYANMAR - MCPC, national, UCSY + other computer universities (UCSM, MIIT...). BANGLADESH - NCPC, 149 teams from universities across the country (2018). MALAYSIA - al-Khawarizmi National, 13 universities (2018: UTAR, UM, IIUM, Taylor's...). PAKISTAN - national event at FAST-NUCES Lahore, Nov 2014 ('first time in Pakistan'). PHILIPPINES - Philippines National Programming Contest, multi-university (19 PH teams/multiple unis visible at the 2015 Singapore online prelim); some editions in Davao. AFGHANISTAN - national round with only ~3-6 Kabul universities (Kabul U, Kateb U, Polytechnic U; 2017 Kabul regional: 10 teams from 6 universities) - R1 borderline. DPRK - domestic selection among KISU/Kim Chaek UT etc., details unreachable (.kp blocked).",
+        "problemset": "Each national sets its own problems (no sibling sharing observed).",
+        "qualification": "MONGOLIA: top 2 teams advance to the Asia regional (explicit, 2016) - R3 PASS. MYANMAR: 'winner teams of MCPC are eligible to participate in the Asia-Yangon Regional' (UCSY-hosted, 2016-2019) - R3 PASS while Yangon existed; both died together after 2019. AFGHANISTAN: national (Sep) precedes and feeds the Asia Kabul Regional (Nov, Kateb-hosted 2017-2019; plus a 2019 Kabul First Round Online) - R3 pass, R1 weak. BANGLADESH: standalone national championship (ICT Division + BCC + rotating host); NO gate into the Dhaka Regional, which runs its own open online preliminary - R3 FAIL. MALAYSIA: al-Khawarizmi (IIUM annual) had no documented gate 2014/2016; the separate 2018 'ICPC Malaysia National' and 2019 'Asia KL Malaysia National On-site' sat in the KL-regional season (IIUM hosted both national and the 2019 KL Regional) - gating plausible, undocumented. PAKISTAN 2014: nothing downstream existed yet in-country (Lahore online round + finals only from 2016 at UMT; Topi/GIKI regional with 141-team online prelim -> 47 onsite from 2019/2021) - R3 FAIL for the 2014 row. PHILIPPINES: 'Philippines National Round 2014' cited by the Singapore RCD as a recognized feeder; Manila Regional (Ateneo, 2017-2019, 2022) was the domestic WF path it fed - partial R3, mechanics undocumented. DPRK: presumably selected teams for Asia regionals incl. the ACM-ICPC Asia Pyongyang Regional (ran 2015 and 2016 seasons; KISU announced 'the 41th ACM-ICPC Asia Pyongyang Regional'; KISU 'RNS' reached WF2016 Phuket) - year of the CMS national row unresolved.",
+        "format": "All ONSITE where documented: Ulaanbaatar/NUM (Apr 2016); UCSY Yangon single-stage (Aug 2018); IUBAT Dhaka (Aug 2018, single onsite day); IIUM Kuala Lumpur (May 2018, 5h, 10 problems); FAST-NUCES Lahore (Nov 2014); Kabul Polytechnic gymnasium (Sep 2019); Philippines editions onsite (incl. Davao). DPRK unknown (presumed onsite Pyongyang).",
+        "host": "MONGOLIA: Programming Olympiad Committee + NUM. MYANMAR: UCSY (also RCD of Asia-Yangon). BANGLADESH: rotating university (IUBAT 2018; also JU/Daffodil-era editions) + ICT Division + Bangladesh Computer Council. MALAYSIA: IIUM Kulliyyah of ICT (also hosted KL Regionals 2014 pipeline-era and 2019). PAKISTAN: FAST-NUCES Lahore (2014-15), UMT (2016+), later GIKI. PHILIPPINES: CSP-orbit rotating hosts; Ateneo de Manila ran the Manila Regional. AFGHANISTAN: Kateb University ('the only representative in Afghanistan based on its agreement with ACM'). DPRK: Kim Il Sung University."
+      },
+      "for": [
+        "Mongolia, Myanmar, Afghanistan: genuine multi-university onsite nationals that explicitly gated an Asia regional (R1(-ish)/R2/R3/R4 pass) - the strongest mainline cases in this bucket",
+        "All documented rows are onsite (R4 pass across the bucket)"
+      ],
+      "against": [
+        "Bangladesh NCPC and Pakistan 2014: no gate onto the WF path (R3 fail) - registry",
+        "Malaysia and Philippines: gating plausible but never found in writing (needs-info on the gate; registry until shown)",
+        "Afghanistan: effectively a Kabul-only affair (R1 borderline: very few local universities)",
+        "DPRK: nothing verifiable (year, venue, gating) - .kp unreachable, no third-party record of the national row"
+      ],
+      "proposal": "registry",
+      "confidence": "medium",
+      "evidence": [
+        "https://news.num.edu.mn/?p=33895 (Mongolia: 8th national olympiad, Apr 2016, NUM, 15 teams/9 unis, top-2 to Asia regional, ICPC national round)",
+        "https://mc-pc.github.io/ (MCPC 2018: UCSY host, Aug 11 2018, winners eligible for Asia-Yangon Regional; UCSY hosting 'the third' Yangon regional)",
+        "https://uits.edu.bd/achievement/glorious-achievement-in-the-national-collegiate-programming-contest-ncpc-2018/ (NCPC 2018: onsite IUBAT, 149 teams, ICT Division + BCC, standalone)",
+        "https://news.utar.edu.my/awards/2018/29/29.html (al-Khawarizmi 2018: IIUM onsite, 13 universities, no advancement mentioned)",
+        "https://sites.google.com/site/farooq1us/event-gallery (Pakistan: Nov 2014 at FAST-NUCES Lahore 'first time in Pakistan'; 2016 UMT; Topi/GIKI prelim 141 -> 47 onsite)",
+        "https://www.comp.nus.edu.sg/~acmicpc/2015/rcdreport-preliminarycontest.pdf ('Philippines National Round 2014' and 'Vietnam National Round 2014' as recognized feeders; 19 PH teams online)",
+        "https://kateb.edu.af/acm-icpc/ (Afghanistan national Sep 22 2019 at Polytechnic gym; regional Nov 6 at Kateb; Kateb = ACM's Afghan representative)",
+        "http://www.ryongnamsan.edu.kp/... (KISU announcing '41th ACM-ICPC Asia Pyongyang Regional' - unreachable, title via search) + https://www.nknews.org/2016/01/n-korean-university-reaches-finals-of-intl-programming-contest/ (KISU 'RNS' to WF2016)",
+        "https://en.wikipedia.org/wiki/ACM_ICPC_Dhaka_Site (Dhaka regional hosts; no NCPC linkage)"
+      ]
+    },
+    {
+      "family": "China provincial/metropolitan opens (Shanghai Metropolitan 2015, Inner Mongolia 2013/14, Dalian Metropolitan 2013, Shandong Province 2022, Shaanxi National 2026)",
+      "facts": {
+        "participants": "Open multi-university fields, typically province/metro-wide with invited outside teams; the modern 全国邀请赛 (national invitationals) draw universities nationwide.",
+        "problemset": "Each event sets its own problems (invitationals/provincials have independent juries).",
+        "qualification": "Two eras. MODERN (relevant to Shaanxi National 2026, Shandong 2022): ICPC Asia (Beijing HQ, icpc.pku.edu.cn) formally approves 省赛 (2025: Guizhou, Shaanxi/Xidian, Jiangxi, Sichuan, Zhejiang, Xinjiang) and 全国邀请赛 (2025: Wuhan/HUST Apr, Xi'an/NWPU May, Nanchang May, Yinchuan Jun). The 50th Xi'an regional (Oct 2025) slot allocation: 230 slots by online-preliminary school rank (ranks 1-80: 2 slots, 81-150: 1), 120 slots = top-120 schools of the May Shaanxi National Invitational (1 each), 46 contribution slots, plus committee-recommended slots for provincial-contest winners and regional-balance discretion, with per-school caps (WF alumni schools <=4, others <=3). So the National Invitational IS one of the parallel official gates into a regional; provincial contests gate only via discretionary recommendation. HISTORIC rows (Shanghai Metropolitan 2015, Inner Mongolia 2013/14, Dalian Metropolitan 2013): that era's Chinese regionals used open registration/per-school balancing with no provincial gating - independent opens, R3 fail.",
+        "format": "ONSITE events (provincials/invitationals are weekend onsite contests at the host university; the gate that IS online in China is the separate 网络预选赛 online preliminary, not these).",
+        "host": "Host universities under ICPC Asia (China) HQ at PKU: e.g. Xidian (Shaanxi provincial), NWPU Xi'an (Silk Road / Shaanxi National Invitational), Shandong hosts for the 2022 provincial; 2013-15 metros by local universities (Shanghai league; Inner Mongolia U; Dalian)."
+      },
+      "for": [
+        "Shaanxi 'National Invitational' line: explicit 120-slot table into the Xi'an regional (partial R3 pass) - if any China row graduates from registry, it is this one",
+        "All onsite (R4 pass), own problems (R2 pass), multi-university (R1 pass)"
+      ],
+      "against": [
+        "Shanghai Metropolitan 2015 / Inner Mongolia 2013-14 / Dalian 2013: no qualification function at all in that era - independent opens (R3 fail) -> registry",
+        "Provincial contests (incl. Shandong 2022): only discretionary 'committee recommendation' slots, not a published gate - R3 weak",
+        "Even the invitational gate is one of five parallel pathways (online preliminary dominates with 230 slots) - these events do not sit ON the WF path so much as beside it"
+      ],
+      "proposal": "registry",
+      "confidence": "medium-high",
+      "evidence": [
+        "https://icpc.pku.edu.cn/docs/2025-09/63d703576fef48b3840a1685777a2de1.pdf (50th Xi'an regional slot allocation: 230 online-prelim / 120 Shaanxi National Invitational / 46 contribution / provincial recommendations / caps)",
+        "https://icpc.pku.edu.cn/tzgg/1119_icpcbjzb_164509.htm (2025 approved provincial contests and national invitationals with hosts/dates)",
+        "icpc.global finder slugs ChinaShaanxiNational, China-Shaanxi-National-2024, ChinaNationalInvitational-2026 (Silk Road) - JS-only, names via search"
+      ]
+    },
+    {
+      "family": "Kharagpur 'North India Area' Programming Contest (2012, 467 teams)",
+      "facts": {
+        "participants": "467 teams, India-wide entry (the 'North India Area' label reflects ICPC-India's 2012 split of coverage between the new Kharagpur site and Amritapuri, not a residency restriction).",
+        "problemset": "Own online-round problemset (hosted on CodeChef: contest code ACMKGP13, 'ACM-ICPC Asia-Kharagpur Site First Round Online').",
+        "qualification": "It was the online First Round gating the onsite ACM-ICPC Asia Kharagpur Regional at IIT Kharagpur - IIT KGP's first year as an Asia regional site (onsite Dec 2012, WF2013 season; the site then ran annually with a CodeChef online round through the late 2010s). So it gated a real WF-path regional that ran AFTER it - R3 pass in the correct direction.",
+        "format": "ONLINE (CodeChef-hosted), one-off under the 'North India Area' name; subsequent years were branded 'Kharagpur Site Online/First Round'.",
+        "host": "IIT Kharagpur (regional host) with CodeChef as the online platform."
+      },
+      "for": [
+        "R3 pass: gated the Kharagpur onsite regional (Dec 2012)",
+        "Large field (467 teams), own problems"
+      ],
+      "against": [
+        "R4 fail: online round",
+        "Identity lens: it is the Kharagpur regional's first round wearing a one-season area label - no identity of its own; the name never recurred"
+      ],
+      "proposal": "part-of-parent",
+      "confidence": "medium-high",
+      "evidence": [
+        "icpc.global finder slug Kharagpur-North-India-2013 ('Asia Kharagpur - North India Area Programming Contest')",
+        "https://www.codechef.com/ACMKGP13 ('ACM-ICPC Asia-Kharagpur Site First Round Online' - robots-blocked, title via search)",
+        "http://acm.iitkgp.ac.in/ (ICPC - Asia Kharagpur site; unreachable, redirect loop)",
+        "https://codeforces.com/blog/entry/63610 (Kharagpur onsite regional still running 2018 - 403, title via search)"
+      ]
+    }
+  ],
+  "notes": [
+    "R4 FLIP LIST - families whose proposal flips if 'mainline = not online' were relaxed: Taiwan TOPC, Korea National First Round, Japan Online First-Round, Indonesia INC, and Kharagpur North India Area 2012 are all pure-online rounds that otherwise pass R1/R2/R3 with large fields; under a permissive R4 each would be a mainline national/area preliminary, under strict R4 they are part-of-parent regardless of size. Vietnam National is the borderline case: online judge (Kattis/VNOJ) but proctored multi-site 'thi tập trung' delivery - it flips between mainline and part-of-parent depending on how R4 treats proctored distributed rounds. Everything else evaluated here (Thailand national, Taiwan NCPC, all misc nationals, China provincials/invitationals) is onsite where documented, so R4 does not move them.",
+    "Direction-of-gating check (R3 'beware events running AFTER what they'd feed'): all confirmed gates here run BEFORE their parent (TOPC Sep -> regional Nov; Korea prelim Oct -> Seoul Nov; Japan Jul -> Yokohama Nov-Dec; INC Oct -> Jakarta Nov-Dec; Vietnam national Nov -> Asia Dec; Thailand groups -> national Sep -> Bangkok Nov; MCPC Aug -> Yangon regional autumn; Afghanistan national Sep -> Kabul regional Nov; Mongolia national Apr -> Asia regional autumn; Shaanxi invitational May -> Xi'an regional Oct). No after-the-fact gating claims were found.",
+    "Problemset sharing (R2 documentation): no problemset sharing across siblings was found anywhere in these families - Thailand's four group rounds and Vietnam's three Khu vực rounds are run by different hosts on different dates and appear to set independent problems, but this is inferred, not verified; if those rows are merged into their national parents, mark problem-sharing status 'unverified' rather than 'unique'.",
+    "Taiwan row accounting: the 39 CMS rows most plausibly decompose into TOPC annuals (2015+), MOE-NCPC site/group rows (Kaohsiung Group-A/B/C 2012 = NCPC south site at NSYSU with its three statutory groups; north site NTNU the same day), TUPC 2016-2021(+2023-2026) and PUPC/NCPU rows. The 'Chia-Yi' rows remain the one unresolved identity - hypothesis: NCPC editions hosted in Chia-Yi (National Chung Cheng University), consistent with the 2007+ date range, but unconfirmed (needs-info).",
+    "Taiwan regional context for the archive: Taiwan-hosted Asia regionals per NTU e-paper: 1997, 2004, 2010, 2013, 2014, then annually-ish 2015?-2018 (NTU 2018), 2020-21 Taipei-Hsinchu, Taoyuan 2023, Taichung 2024-25 - the TOPC rows should attach to whichever of these is the archive's parent series.",
+    "Tooling caveats hit during research: icpc.global finder pages are JS-only and its JSON API guesses 404 - CMS row names were cross-checked via search-result titles only; zh.wikipedia is cache-only (unfetchable); .kp (Kim Il Sung University) unreachable; ncpc.mist.ac.bd is domain-squatted with gambling spam (dead-link hazard if the archive cites it); codeforces.com and codechef.com refuse fetches (403/robots); penoy.admu.edu.ph (Manila regional archive) DNS-dead.",
+    "Request budget: ~97 web requests used (41 searches, ~56 fetches) of the 100 allowed."
+  ]
+}

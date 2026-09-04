@@ -1,0 +1,182 @@
+{
+  "families": [
+    {
+      "family": "Tehran Internet / Online rounds (incl. 2014/2015 per-university 'Iran-Internet-PC-*' rows)",
+      "facts": {
+        "participants": "National (Iran-wide) field, med ~394 teams per maintainer CMS; drawn from all major Iranian universities (the onsite regional it feeds had teams from 58 different universities in 2018). Foreign teams may also enter via the same route (fee waived).",
+        "problemset": "Own fresh problemset each year, prepared by the Sharif/Tehran-site scientific committee; it is a numbered national series ('14th Iran Internet Contest' on 24 Nov 2016, i.e. the series predates the maintainer's 2013+ rows, first edition ~2003). Problemset is distinct from the onsite Tehran regional's set.",
+        "qualification": "Explicit gate on the WF path: registration for the Tehran onsite regional is a two-step process — step 1 is the Internet Contest ('register your team on the ICPC site under Asia Tehran – Internet Programming Contest'), and 'only teams with at least one problem solved in the Internet Contest are eligible to proceed' to the onsite Tehran regional (75-team site cap, per-institution quotas). Tehran regional advances champions to the ICPC World Finals.",
+        "format": "Online by definition and for its entire life — it is the 'Internet Contest'; never had an onsite era of its own. In the mid-2010s teams sat the round at proctored university venues; the parent onsite regional is a separate December event at Sharif University of Technology.",
+        "host": "Sharif University of Technology (ICPC Asia Tehran site committee, icpc.sharif.edu / icpc.ir); judged on the site's own systems."
+      },
+      "for": [
+        "Passes R1: genuinely national multi-university field (~394 teams median, all major Iranian universities).",
+        "Passes R2: own annual problemset, own numbered identity ('Nth Iran Internet Contest') distinct from the onsite regional.",
+        "Passes R3: hard gate — solving >=1 problem in it is a formal precondition for the Tehran onsite regional, which sends teams to WF."
+      ],
+      "against": [
+        "Fails R4 (only R4): it is an online preliminary by construction — exactly the class the 'mainline = not online' rule excludes.",
+        "Identity lens on the 2014/2015 'Iran-Internet-PC-Sharif/SBU/AUT/IUST/Shiraz/Fanni/IU' rows: these are best read as proctored SITES of the one simultaneous internet round, not seven contests — same 'Iran-Internet-PC' naming stem, the roster is exactly Iran's major CS schools, the contest is a single numbered national series, and in every other year (incl. today) it is a single CMS row ('Asia Tehran – Internet Programming Contest'). They should be collapsed into one contest per year (part-of-parent of the internet round, which is itself the qualifier of the Tehran regional)."
+      ],
+      "proposal": "registry",
+      "confidence": "high (family characterization); medium (per-university rows = sites of one round — Iranian hosts icpc.ir/icpc.sharif.edu were unreachable from this environment, so same-date proof of all 2014/2015 site rows could not be pulled; based on naming stem, single numbered series, and single-row structure in all other years)",
+      "evidence": [
+        "https://icpc.sharif.edu/2023/registration — two-step registration; Internet Contest solve>=1 gate; 75-team onsite cap; 'Asia Tehran – Internet Programming Contest' as the single CMS row",
+        "https://icpc.sharif.edu/2016/ — '14th Iran Internet Contest, 24 November 2016' (numbered single national series) alongside the December onsite regional",
+        "https://icpc.global/regionals/finder/Sharif-ONC-2016 and https://icpc.global/regionals/finder/Shiraz-IPC-2016 — per-university 'Iran-Internet-PC-*' rows exist as finder slugs in the mid-2010s seasons",
+        "https://medium.com/@mehdi.kazemi8/icpc-tehran-site-analysis-85359193d754 — onsite regional ~80 teams/yr, 58 universities in 2018 (multi-university scale of the pipeline)",
+        "https://icpc.ir/2024/docs/Report.pdf — official 2024 Tehran regional report exists (host icpc.ir unreachable from this environment; not fetched)"
+      ]
+    },
+    {
+      "family": "Oman sub-region contests (2025-2026: Capital / Coastline / Midland / Southern / Oriental + Seniors row)",
+      "facts": {
+        "participants": "~20-80 teams per sub-region (maintainer CMS); nationally the OCPC system drew 65 teams / 194 contestants from 21 universities and colleges across the governorates in 2025. Each sub-region groups the institutions of several governorates (2025: Muscat governorate = Capital; Sohar for North+South Al Batinah = Coastline; Nizwa for Ad Dakhiliyah + Ash Sharqiyah = Midland; the 2026 rows add Southern (Dhofar/Salalah area) and Oriental (Ash Sharqiyah), splitting the map five ways).",
+        "problemset": "Not verified who sets the sub-region problemsets or whether the simultaneous sub-region rounds share one problemset (R2 sibling-sharing question is OPEN); the national final is a classic single 5-hour ICPC-style round, one problemset for all teams.",
+        "qualification": "Sub-region contests qualify teams to the OCPC national final (e.g. OCMT 'Codebreakers qualify for OCPC 2025 Finals'); the OCPC final (Sultan Qaboos University, 8-10 Apr 2025) selected 3 teams 'to represent Oman in the regional contest to be held in the Arab Republic of Egypt' = the ACPC (Africa & Arab Collegiate Programming Championship), which is the ICPC super-regional championship on the WF path (Oman is among the 15 countries at ACPC 2023, Luxor).",
+        "format": "Onsite events: 2025 was the FIRST year with regional qualifying contests, 'held in Sohar, Nizwa and Muscat' (physical venues); national final onsite at SQU. The 2026-season CMS rows (e.g. 'The 2025 ICPC Oman Capital Sub-region Collegiate Programming Contest', slug OCPCCap-2026) are the second edition with five sub-regions.",
+        "host": "Organized by Oman's Ministry of Transport, Communications and Information Technology (MTCIT) with academic partner Sultan Qaboos University, the University of Technology and Applied Sciences (UTAS), the Programming Academy, and technical partner OQ; sanctioned rows in the ICPC CMS (icpc.global finder: OCPC, OCPCCap-2026)."
+      },
+      "for": [
+        "Passes R1: each sub-region is a multi-university grouping of governorates (21 institutions across the system; UTAS branches, SQU, private universities/colleges), not a single-campus qualifier.",
+        "Passes R3: real gate on the WF path — sub-region -> OCPC national final -> 3 Oman teams to ACPC -> ICPC WF chain.",
+        "Passes R4: onsite contests at physical venues (Sohar/Nizwa/Muscat 2025; five venues in the 2026 season), unlike the online-preliminary families in this batch.",
+        "Own identity: named geographic sub-regions with own venues and CMS rows, below an already-catalogued national final."
+      ],
+      "against": [
+        "R2 open: could not verify unique problemsets per sub-region — if the five sub-region rounds run simultaneously on one shared problemset, they are siblings sharing a set (flag, per maintainer's R2 note), or arguably five sites of one qualifier.",
+        "Structure is brand new (first edition April 2025) — little track record; row naming/season mapping (April-2025 events vs '2026' rows) needs one-time reconciliation in the CMS.",
+        "The 'Seniors' row: no press or CMS evidence found of what it is; MTCIT's description of OCPC 2025 covers collegiate teams only. If it is a graduates/professionals division it gates nothing on the WF path (fails R3) and should not be mainline."
+      ],
+      "proposal": "mainline",
+      "confidence": "medium-high (structure, organizers, onsite format and ACPC gate are well evidenced; R2 problemset-sharing across sub-regions and the Seniors row are unresolved — Seniors itself: needs-info, lean registry/exclude)",
+      "evidence": [
+        "https://mtcit.gov.om/media-4/news-announcements-11/news-85/oman-programming-contest-2025-concludes-with-strong-competition-150 — first-ever regional qualifiers in Sohar/Nizwa/Muscat with governorate mapping; 65 teams/21 institutions; organizers MTCIT+SQU+UTAS+Programming Academy+OQ; 3 teams to the regional contest in Egypt",
+        "https://mtcit.gov.om/media-4/news-announcements-11/news-85/194-students-from-21-institutions-compete-in-oman-collegiate-programming-contest-148 — OCPC 2025 final at SQU, 8-10 Apr 2025, single 5-hour session format",
+        "https://icpc.global/regionals/finder/OCPCCap-2026 — 'The 2025 ICPC Oman Capital Sub-region Collegiate Programming Contest' row in ICPC CMS; https://icpc.global/regionals/finder/OCPC — national OCPC row (2022-2026 seasons)",
+        "https://ocmt.odoo.com/blog/news-and-activities-1/the-codebreakers-qualify-for-ocpc-2025-finals-387 — a college qualifying through to OCPC finals (gate works)",
+        "https://www.aast.edu/en/news/news-details.php?language=1&unit_id=411&news_id=486103154&event_type_id=1 — ACPC 2023 in Luxor with 15 Africa+Arab countries including Oman"
+      ]
+    },
+    {
+      "family": "Dhaka regional online preliminaries (2017-2025)",
+      "facts": {
+        "participants": "Mass national online fields: 'no cap on the number of teams participating in the preliminary contest' (host FAQ); 2100+ teams in the 2025 preliminary (BUBT), up to ~2600 in peak years per maintainer CMS; essentially every Bangladeshi university, vs ~150-300 team onsite regional.",
+        "problemset": "Own fresh problemset each year (9 problems in the preliminary vs 11 onsite, per host FAQ), set by the Bangladeshi ICPC community; problems+editorials for 'ICPC Dhaka Regional AND Preliminary' are published per year as separate sets, and per-problem solution blogs exist for preliminary problems — the preliminary is not a reuse of the regional set.",
+        "qualification": "Gates the onsite ICPC Asia Dhaka Regional (WF path, Dhaka regional running since 1997): teams advance from the preliminary by rank subject to per-university slot caps ('limited number of slots allocated to each university'). Entry fee ~300 BDT in 2020.",
+        "format": "Online every year by design — that is the family's function. Platforms: Toph in most years; the 2020-cycle preliminary ran on CodeMarshal (host: CSE, University of Dhaka). COVID note for the PARENT row: the 2020-cycle Dhaka REGIONAL itself was run online — 'ICPC Dhaka Regional 2020 Main Round — Hosted by CSE, DU' on CodeMarshal, with two online mock rounds, delayed to ~July 2022 ('Thank you all the participants...' FB post 07/07/2022) — i.e. the regional row has a legitimate COVID-online exception; every other era the regional is onsite (rotating hosts: NSU, BUET, UAP, DIU, SEU, BUBT, GUB, etc.).",
+        "host": "The year's Dhaka regional host university runs the preliminary as part of its regional (CSE DU 2020, GUB 2022, DIU 2024, BUBT 2025...); a distinct 'ICPC Asia Dhaka Regional Site Online Preliminary Contest' row exists in the ICPC CMS each season (finder slugs Dhaka-Preliminary-2020 ... Dhaka-Preliminary-2026)."
+      },
+      "for": [
+        "Passes R1: the widest multi-university field in Bangladesh (thousands of teams).",
+        "Passes R2: unique yearly problemsets, separate from the onsite regional's.",
+        "Passes R3: the only route into the onsite Dhaka regional -> WF."
+      ],
+      "against": [
+        "Fails R4 (only R4): a pure online preliminary — the type case for the 'mainline = not online' rule; its whole identity is 'the online round of the Dhaka regional' (parent's geography, function-defined name), so under the identity lens it is machinery of the parent contest.",
+        "CMS prelim rows start 2017; whether earlier informal prelims existed (2015/2016) is unverified — does not change the verdict."
+      ],
+      "proposal": "registry",
+      "confidence": "high",
+      "evidence": [
+        "https://icpc.green.edu.bd/faq — uncapped online preliminary, 9 vs 11 problems, per-university onsite slots (2022 cycle host GUB)",
+        "https://icpc.global/regionals/finder/Dhaka-Preliminary-2020 (+ -2024/-2025/-2026 slugs) — 'ICPC Asia Dhaka Regional Site Online Preliminary Contest' CMS rows",
+        "https://www.facebook.com/ICPCDhakaRegional2025BUBT/posts/807353912072887 — 'Among 2100+ competing teams' in the 2025 online preliminary",
+        "https://algo.codemarshal.org/contests/icpc-dhaka-20 and .../icpc-dhaka-20-mock/standings — 'ICPC Dhaka Regional 2020 Main Round – Hosted by CSE, DU' + online mocks on CodeMarshal (COVID-cycle regional itself online; site now defunct, titles via search index)",
+        "https://groups.google.com/g/icpcdhaka-announcements/c/VN0DnQrC6Q4 — 2020-cycle host CSE DU, 300 BDT preliminary fee",
+        "https://codeforces.com/blog/entry/111795 — 'ICPC Dhaka Regional and Preliminary Problemset and Editorials' (separate published sets; codeforces returns 403 to this environment, title verified via search)",
+        "https://en.wikipedia.org/wiki/ACM_ICPC_Dhaka_Site — regional since 1997, rotating hosts"
+      ]
+    },
+    {
+      "family": "Amritapuri / India online preliminaries (2012-2027)",
+      "facts": {
+        "participants": "India-wide online fields up to ~3000 teams (maintainer CMS); teams compete remotely 'generally from their respective colleges'; onsite Amritapuri capacity 230 teams (220 general + 10 women-only slots, 2024 rules); Rs.1500/team fee (2026 season).",
+        "problemset": "Own fresh problemsets (CodeChef-/CodeDrills-hosted with credited setters), distinct from the onsite regionals' sets. In unified years there is literally ONE shared online contest whose single problemset serves multiple sibling regionals, each drawing its own rank list.",
+        "qualification": "Gates the onsite Indian regional(s) (WF path): 'Selection is based on performance in the preliminary round and the applicable ICPC regional selection rules' — rank-based advancement with per-institution caps (max 4/college in top-15 phase, K<=4 overall, min-solve threshold N).",
+        "format": "Online every year by design. Sharing timeline: separate per-regional online rounds ~2012-2017 (Amritapuri's round on CodeChef from 2012); ONE common online round for all India regionals 2018-19 and 2019-20 (CodeChef); 2020-21 COVID cycle — the Amritapuri REGIONAL itself was held online (preliminary 16 May 2021, 'regional' 30 May 2021); 2021-22 and 2022-23 — only 2 regionals ran, each with its own separate qualifier (CodeDrills era); 2023-24 — 'Amritapuri First Round' online contest (own row, finder slug Asia-Amritapuri-First-Round-2024); 2024-25 — 'a single Preliminary Online Contest for all three Regional Sites in India (Kanpur, Amritapuri, and Chennai)' (16 Nov 2024) with a separate rank list per site; 2026-27 — 'ICPC India Preliminary Online contest' 3 Oct 2026 feeding the Amritapuri onsite (itself multi-venue: Kollam/Bengaluru/Coimbatore/Mysuru, 1-2 Jan 2027, same problems at all venues).",
+        "host": "Amrita (Amritapuri site committee, amritaicpc.in) with platform partners CodeChef (2012-2020), CodeDrills (2021-2023), later seasons again CodeChef/CodeDrills; the unified rounds are run jointly for the participating regional sites."
+      },
+      "for": [
+        "Passes R1: the largest multi-university field in India (~3000 teams).",
+        "Passes R2 with a caveat to note: fresh problems, but in 2018-2020 and 2024+ one contest's problemset is SHARED across 2-3 sibling regionals (one contest, multiple parents' rank lists).",
+        "Passes R3: sole gate into the Indian onsite regionals -> WF."
+      ],
+      "against": [
+        "Fails R4 (only R4): online preliminary by design; name and identity are purely functional ('India Preliminary Online', 'First Round') under the parent regionals' geography — machinery of the parents.",
+        "Cataloguing wrinkle: in unified years one row serves multiple regionals — it cannot be attributed to a single parent; treat as one contest with multiple parent links, not duplicated per regional."
+      ],
+      "proposal": "registry",
+      "confidence": "high",
+      "evidence": [
+        "https://amritaicpc.in/data/Amritapuri%20Site%20Team%20Selection%20Process.pdf — 'a single Preliminary Online Contest for all three Regional Sites in India (Kanpur, Amritapuri, Chennai)' (16 Nov 2024); per-site rank lists; 230-team onsite; selection phases/caps",
+        "https://amritaicpc.in/?page_id=31 — 'ICPC India Preliminary Online contest' 3 Oct 2026; remote participation from colleges; onsite 1-2 Jan 2027 at four venues",
+        "https://github.com/m-e-r-l-i-n/icpc-india — per-year history: separate rounds pre-2018, common online round from 2018-19 (CodeChef), 2020-21 online formats, 2021-23 two regionals with separate qualifiers, CodeChef->CodeDrills platform shift",
+        "https://discuss.codechef.com/t/icpc-2021-amritapuri/85795 — COVID cycle: preliminary 16 May 2021, regional 30 May 2021 (held online)",
+        "https://icpc.global/regionals/finder/Asia-Amritapuri-First-Round-2024 — 'The 2023 ICPC Asia Amritapuri First Round Online Programming Contest' row",
+        "https://internshala.com/competitions/icpc-amritapuri-regional-contest-2026-registration-eligibility/ — onsite multisite regional, 'same contest with the same problems' at all venues"
+      ]
+    },
+    {
+      "family": "'Asia Regionals Online Contest I/II' (2026 CMS rows) + 'Asia Jakarta New Online Contest' (2014)",
+      "facts": {
+        "participants": "Asia Regionals Online Contest (I)/(II): thousands of teams from hundreds of mainland-Chinese (+ Hong Kong) universities; despite the pan-Asia name it is the ICPC Asia EAST CONTINENT (China) online preliminary series (Chinese: 网络预选赛). Jakarta 2014 online contest: 307 teams across Indonesia.",
+        "problemset": "Fresh problemsets per round (two independent rounds, I and II, each its own set) on the PTA/Pintia judge; boards archived by XCPCIO (e.g. 'The 49th ICPC Asia Regionals Online Contest (II)'). Jakarta 2014: own national qualifier set (report: 'National Preparation Contest').",
+        "qualification": "China: results are 'an important reference condition for advancing to the regional sites' — the 2024 notice names Chengdu, Nanjing, Hangzhou, Shanghai, Shenyang, Kunming, Hong Kong, Xi'an; universities wanting onsite Asia-regional slots must enter; the chain continues onsite regionals -> Asia-EC Final (quota allocation published by the same HQ) -> WF. Jakarta 2014: top 50 of the national online contest got a free pass to the Asia Jakarta onsite regional; identity-wise it is the ancestor of today's 'Jakarta - Indonesia National Contest' rows (finder slugs Jakarta-National-2025/2026).",
+        "format": "Online. China: two 5-hour online rounds each September (2024: Sept 15 and Sept 21; 2025 edition = the '2026' CMS rows, registration notices Aug 2025), CNY 100/team/round, on PTA (pintia.cn); series in this unified form since ~2020/2021 (PTA archive from 2021), successor of the per-regional Chinese online preliminaries of 2015-2019. Jakarta 2014: one national online round (9 Nov 2014); the 'New' in the CMS name is not explained by the official regional report (possibly a re-run; unresolved).",
+        "host": "China: ICPC Asia-EC Online Preliminary Organizing Committee under ICPC Beijing headquarters at Peking University (icpc.pku.edu.cn), platform PTA/Pintia. Jakarta 2014: BINUS University (Asia Jakarta regional host)."
+      },
+      "for": [
+        "Passes R1: broadest multi-university events in the archive (all Chinese ICPC universities; all Indonesia respectively).",
+        "Passes R2: own fresh problemsets (I and II are two distinct contests, not one contest at two sites).",
+        "Passes R3: hard gate — Chinese universities' slots at ALL mainland (+HK) onsite Asia regionals flow from these results; the regionals feed EC Final and WF. Jakarta 2014 online gated free passes into the Jakarta onsite regional."
+      ],
+      "against": [
+        "Fails R4 (only R4): both are online preliminaries; that is their entire identity.",
+        "Naming trap: 'Asia Regionals Online Contest' is NOT a pan-Asia round — it gates only the East-Continent (China) regional system; catalogue it under Asia-EC, not as an Asia-wide round.",
+        "Identity lens: the Jakarta 2014 online contest has its parent's geography (Indonesia national qualifier of the Jakarta regional) and a purely functional name — part of the parent's machinery; its modern descendant already exists as the 'Indonesia National Contest' rows."
+      ],
+      "proposal": "registry",
+      "confidence": "high (China series: organizer, dates, fee, gating all from the official PKU HQ notices); medium (Jakarta 2014 'New' naming specifics unresolved)",
+      "evidence": [
+        "https://icpc.pku.edu.cn/tzgg/160737.htm — official 2024 EC online-preliminary notice: rounds Sept 15/21 2024, PTA platform, CNY100/team/round, results gate advancement to Chengdu/Nanjing/Hangzhou/Shanghai/Shenyang/Kunming/Hong Kong/Xi'an onsite regionals",
+        "https://icpc.pku.edu.cn/tzgg/index2.htm — PKU ICPC HQ index: 2025 EC online-preliminary registration notices (Aug 2025 = the '2026' season rows), EC-Final quota-allocation method, WF teams from EC",
+        "https://pintia.cn/market/item/1439765428045058048 — 'The 2021 ICPC Asia Regionals Online Contest (I)' on PTA (series archive from 2021)",
+        "https://www.scribd.com/document/809962988/The-49th-ICPC-Asia-Regionals-Online-Contest-II-Board-XCPCIO — 49th (2024) edition board via XCPCIO",
+        "https://competition.binus.ac.id/icpc2014/ACM_ICPC_Asia_Jakarta_2014_Report.pdf — official Jakarta 2014 report: national online contest 9 Nov 2014, 307 teams across Indonesia, top 50 free pass to the onsite regional (69 teams onsite)",
+        "https://icpc.global/regionals/finder/Jakarta-National-2025 — modern 'ICPC Asia Jakarta - Indonesia National Contest' rows (descendant layer)"
+      ]
+    },
+    {
+      "family": "ACPC feeder structure (context check)",
+      "facts": {
+        "participants": "ACPC 2023 (Luxor, Egypt): 150+ teams from 15 African and Arab countries (Egypt, Tunisia, Syria, Lebanon, Palestine, Ethiopia, Angola, Qatar, Algeria, Kuwait, Oman, Jordan, Iraq, ...).",
+        "problemset": "Each layer runs its own contests; ACPC is the championship layer (own problemset).",
+        "qualification": "Three-tier chain confirmed: university CPCs -> national CPCs (ECPC Egypt, JCPC Jordan, LCPC Lebanon, SCPC Syria, TCPC Tunisia, KCPC Kuwait, OCPC Oman, etc.) -> ACPC 'Africa & Arab Collegiate Programming Championship' -> ICPC World Finals. E.g. Wikipedia on SCPC: 'Winners of the SCPC qualify to the ACPC Finals', SCPC 'operates ... under the auspices of the ICPC Foundation in accordance with the ACPC Policies and Procedures'; OCPC 2025 sent 3 teams 'to the regional contest held in the Arab Republic of Egypt'.",
+        "format": "Nationals and ACPC are onsite championships; ACPC appears in the ICPC CMS as e.g. 'The 2023 ICPC Africa & Arab Collegiate Programming Championship' (finder slug ACPC-2024, current row ACPC).",
+        "host": "ACPC organized from Egypt (AASTMT / Regional Informatics Center, Alexandria; 2023 edition in Luxor)."
+      },
+      "for": [
+        "The national CPC layer (ECPC/JCPC/LCPC/SCPC/TCPC/KCPC/OCPC/...) is exactly the layer already catalogued, and it is the correct mainline layer: multi-university national championships gating ACPC -> WF.",
+        "The university CPCs below them (single-institution qualifiers) are precisely R1 locals — exclude."
+      ],
+      "against": [],
+      "proposal": "mainline",
+      "confidence": "high",
+      "evidence": [
+        "https://en.wikipedia.org/wiki/Syrian_Collegiate_Programming_Contest — national -> ACPC chain under ICPC Foundation auspices/ACPC Policies",
+        "https://www.aast.edu/en/news/news-details.php?language=1&unit_id=411&news_id=486103154&event_type_id=1 — ACPC 2023: 15 Africa+Arab countries, Luxor",
+        "https://icpc.global/regionals/finder/ACPC and /ACPC-2024 — ACPC as ICPC CMS championship rows ('The 2026 ICPC Africa & Arab Collegiate Programming Championship')",
+        "https://mtcit.gov.om/media-4/news-announcements-11/news-85/oman-programming-contest-2025-concludes-with-strong-competition-150 — OCPC winners to the Egypt-hosted championship (Oman's national -> ACPC link)"
+      ]
+    }
+  ],
+  "notes": [
+    "R4 split requested by maintainer: families failing ONLY R4 (online) and passing R1-R3 = Tehran Internet rounds, Dhaka online preliminaries, Amritapuri/India online preliminaries, and the Chinese 'Asia Regionals Online Contest I/II' (+ Jakarta 2014 online). None of them fails R1 (all are mass multi-university), none fails R2 outright (all have fresh problemsets, with SHARING caveats: India's unified rounds 2018-2020 and 2024+ are one contest shared by 2-3 sibling regionals; Oman sub-regions' sharing unknown), and all satisfy R3 (each is a hard gate on a WF-path onsite contest). Oman sub-regions are the only family in this batch that PASSES R4 (onsite).",
+    "Identity-lens collapses recommended: (a) 2014/2015 'Iran-Internet-PC-<University>' rows -> sites of the single annual Iran Internet Contest (one contest/year); (b) 'Asia Jakarta New Online Contest 2014' -> Indonesia national online qualifier of the Jakarta regional (ancestor of the 'Jakarta - Indonesia National Contest' rows); (c) Dhaka/India preliminary rows carry their parents' geography and functional names — registry entries linked to parents, not standalone mainline contests.",
+    "False leads to avoid: ocpc.camp is 'OCPC LLC, Dover, Delaware' — a training-camp business, NOT Oman's OCPC; TUM's 'Amirkabir 2015' history entry (57 teams, Tehran+Munich, 20 Nov 2015) is AUT's separate open contest, not the Iran-Internet-PC-AUT row.",
+    "Unresolved/needs-info: (1) Oman 'Seniors' row — no press/CMS evidence found; MTCIT describes the collegiate contest only; if a graduates/professionals division it fails R3 -> keep out of mainline (registry) until OCPC clarifies. (2) Whether Oman's five sub-region rounds share one problemset. (3) Tehran regional's COVID-year (2020/2021) format — Iranian hosts (icpc.ir, icpc.sharif.edu/.ir) were unreachable from this environment (timeouts), so unverified; does not affect the internet-round family's verdict. (4) Dhaka preliminary rows before 2017 (any 2015/2016 prelim) unverified. (5) Jakarta 2014: why the CMS row says 'New' Online Contest (official report calls it 'National Preparation Contest', 9 Nov 2014) — possibly a re-run; unresolved.",
+    "Environment caveats: codeforces.com returns 403 here (titles cited via search index; mirror cf.nytdoj.com is dead); algo.codemarshal.org is defunct (titles via search index); icpc.global finder pages are an Angular SPA that serves only a shell to fetchers — row names/slugs verified via search-indexed titles.",
+    "Request budget: ~81 of 90 web requests used."
+  ]
+}
