@@ -106,8 +106,8 @@ def main() -> int:
             print(f"  edit {e['id']:24} {e['field']}: {e['from']} -> {e['to']}"
                   f"   [{e.get('confidence', '?')}]")
         for a in doc["adds"]:
-            print(f"  add  {a['id']:24} season {a['season']}, {a['date']}, parent {a['parent']}, "
-                  f"cms {a['cms_ids']}, {a.get('teams', '?')} teams")
+            print(f"  add  {a['id']:24} season {a['season']}, {a.get('date', 'date?')}, "
+                  f"parent {a['parent']}, cms {a.get('cms_ids', [])}, {a.get('teams', '?')} teams")
         for s in shells:
             print(f"  shell {s}")
         for t in doc.get("triage_new_rows", []):
