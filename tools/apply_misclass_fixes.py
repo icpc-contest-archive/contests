@@ -159,12 +159,22 @@ def main() -> int:
                 "series_name", f"ICPC {sid.title()} Regional Contest")}, "contests": []}
             files[sf] = sdoc
         if aid in adds:
-            a, meta = adds[aid], ADD_META[aid]
+            a = adds[aid]
+            # meta may live in ADD_META (the 2026-09-02 audit set) or inline in the
+            # fixes file itself (later packs pass name/series_name per entry).
+            meta = ADD_META.get(aid) or {"name": a.get("name"),
+                                         "series_name": a.get("series_name")}
+            if not meta.get("name"):
+                raise SystemExit(f"{aid}: no name in ADD_META or fixes file")
             entry = {"id": aid, "season": a["season"], "name": meta["name"],
-                     "date": a["date"], "cms_ids": a["cms_ids"], "parent": a["parent"]}
+                     "cms_ids": a.get("cms_ids") or [], "parent": a["parent"]}
+            if a.get("date"):
+                entry["date"] = a["date"]
             if a.get("finder"):
                 entry["icpc_standings"] = (
                     f"https://icpc.global/regionals/finder/{a['finder']}/standings")
+            if a.get("pred"):
+                ADD_META.setdefault(aid, {})["pred"] = a["pred"]
             bits = [f"added from misclass audit 2026-09-02 ({a.get('teams')} teams, "
                     f"{a.get('results')} results in CMS)"]
             for k in ("scoreboard_candidate", "standings_candidate"):
