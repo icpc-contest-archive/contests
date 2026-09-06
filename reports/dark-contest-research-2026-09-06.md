@@ -76,6 +76,38 @@ unidentified), Kharagpur (self-hosts on an unreachable domain), gny-1995/96, mau
 scusa-1989..94 (second problem-archive source corroborates the negatives), romania-2020,
 and the Oman finder prefixes.
 
+## Deep round (same day, the 86 needs-more)
+
+Four agents went deep on fewer targets. **Round totals now: 199 found-urls · 87
+likely-nothing-ever-online · 42 needs-more.** 242 further candidates in
+`data/url-candidates-round9b.json` (supplement — verify separately from round9).
+
+- **Turkey solved, with a structural surprise: no Turkish regional site existed
+  2010–2018.** Three independent primary sources (incl. inzva's own "first official
+  Turkish programming contest ever organized", Sept 2019) show Turkish teams simply
+  traveled to SEERC sites abroad. The catalogue's turkey-2010..2018 rows likely record
+  SEERC participation, not standalone contests — **needs a Fredrik ruling** (echoes the
+  D1 identity lens). 2020–2023 = inzva-organized, scoreboards recovered on algotester
+  (2020) and algoleague (2021–23).
+- **The built-in browser renders what WebFetch can't**: the icpc.global finder SPA
+  renders fully in a real browser (host/city/dates/team counts per contest), and
+  syria-2024's `acpcsb.acpc.global/SCPC2024/all.html` scoreboard is LIVE behind its
+  bot-wall — a complete 25-team frozen grid. ~17 targets resolved this way; the
+  browser pass is now a first-class tool for JS shells and bot-walled hosts.
+- **Bolivia 2009–2014 fully resolved** (host cities, sponsors, dates; slug convention
+  `bolivia-preliminary-<season>`); lebanon-2009 got a primary-source correction (LAU
+  hosted, not BAU); romania-2020 pinned to the COVID-delayed May 2021 event at UPB.
+- **Tunisia 2024/25 upgraded**: the host school's own dated event pages
+  (polytecsousse.tn) match catalogue dates; Oman 2025 preliminaries mapped to real
+  governorate sites (Sohar/Nizwa/Muscat) via an MTCIT recap.
+- **far-east-russia-1998**: `imcs.dvgu.ru/acm` documented as hosting results "since
+  1998" in academic citations; domain dead, successor archives only reach 2003 —
+  the pre-2003 Russian digitization gap is now corroborated across four subregions.
+- **KRSU (Kyrgyzstan) is a site-wide HTTP 401 wall** — browser-pass target, not dead.
+- Daily Bruin microfilm reels for socal-1990..94 are keyword-searchable on archive.org
+  (item pages wayback-side); Rice Thresher fully digitized at texashistory.unt.edu
+  (JS search — browser pass).
+
 ## Next steps
 
 1. CDX-probe the 322 wayback targets from the Mac (existing verify pipeline).
