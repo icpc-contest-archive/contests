@@ -1,12 +1,13 @@
-# Dark-contest research round 9 — 2026-09-06
+# Dark-contest research round 9 — 2026-09-06 (follow-up pass merged)
 
 Scope: the 7 sites that failed capture twice, plus every real catalogue contest with
 **nothing archived**: 242 with no URLs on file, 79 whose known URLs all proved dead or
 snapshot-less. 328 targets total, researched by 6 agents (breadth-first, findings in
 `data/research-round9-findings.json`).
 
-**Verdicts: 144 found-urls · 142 needs-more · 42 likely-nothing-ever-online.**
-321 new URL candidates + 322 wayback-probe targets recorded.
+**Verdicts after the same-day follow-up pass: 172 found-urls · 86 needs-more ·
+70 likely-nothing-ever-online.** 381 URL candidates + 347 wayback-probe targets recorded.
+(First pass: 144/142/42; the follow-up covered the 105 zero-search targets.)
 
 ## The 7 failed sites
 
@@ -39,13 +40,41 @@ snapshot-less. 328 targets total, researched by 6 agents (breadth-first, finding
 - **Usenet vein for the pre-web era**: three recoverable message-ids (ecna-1989, erc-1990,
   wf-1991) via Utzoo/Wiseman; the GNY negative (official repo starts 1997) is well corroborated.
 
-## Honest gaps (shared search budget ran out at 200 calls)
+## Follow-up pass (same day, 105 zero-search targets)
 
-Zero-search targets to re-run when budget refreshes: **turkey-2010..2023 (13)**,
-**ukraine-2023..2025 (3)**, **India cluster: amritapuri/chennai/gwalior/kharagpur (5)**,
-**saudi/sudan/togo/tunisia (9)**, **bolivia-national-2009..14 + colombia-maraton-2008..14 +
-tap-2012/13 (15)**, **Oman sub-region finder prefixes (7)**. All are marked needs-more with
-their leads recorded.
+Access requests were frontloaded (~25 constructed-URL prompts raised in one batch;
+several hosts confirmed live in the process), then three agents re-ran the gap clusters:
+
+- **karrels.org holds a complete East-Central 1992–1997 problem archive plus a Western
+  European 1994 set — seven contests (ecna-1992..1997, werc-1994) from one HTTP-only
+  host.** Needs Mac/wayback capture (the host fights HTTPS); recorded as candidates
+  pending that verification.
+- **Timus Online Judge carries the central-russia-2000 and -2002 problem sets**, labeled
+  as NEERC Central Subregional (Rybinsk).
+- **Ukraine 2024/2025 live on algotester**: per-stage scoreboards incl. a dedicated
+  icpc2025.algotester.com with Stage 1 (635 teams) / Stage 2 (252) / Stage 3. JS-rendered
+  → browser pass.
+- **amritapuri-2025 has a full official archive at amritaicpc.in** (ranklists, winners,
+  problem PDFs); **chennai-2023** scoreboard on CodeDrills; **nena-north-2019 is a live
+  Kattis contest site** (mcgill19.kattis.com + open mirror).
+- **shanghai-2023 identified as the 2023 EC-Final**, fully mirrored by Universal Cup
+  (Stage 23) — the ucup ecosystem mirrors essentially all 2023 China regionals, a
+  reusable pattern.
+- **PCPC organizer page resolves Palestine 2012–2020** with hosts per edition.
+- **Russian quarterfinals 1998–2002: 18 evidence-backed negatives** — organizer paper
+  identifies all six subregion hosts, and both neerc.ifmo.ru and contest.sgu.ru archives
+  are confirmed blank for those years. Web presence likely never existed.
+- **CORRECTION to the first pass:** socalcontest.org's /history/ tree reportedly starts
+  at 1995 — per-year result pages for 1979–1994 are NOT there (404s), contradicting the
+  first pass's optimistic guess. socal-1989 problems recovered via the ETH/NTHU problem-
+  archive mirror instead; the rest of the early SoCal cluster moves to wayback probes.
+- **ACPC scoreboard hosts actively purge**: a URL search-indexed months ago now 404s.
+  The Tunisia/Gulf candidates there are at risk — wayback capture is urgent, not optional.
+
+Still needs-more after both passes: 86 — mostly Turkey 2010–2023 (organizer domain still
+unidentified), Kharagpur (self-hosts on an unreachable domain), gny-1995/96, mausa-1997,
+scusa-1989..94 (second problem-archive source corroborates the negatives), romania-2020,
+and the Oman finder prefixes.
 
 ## Next steps
 
