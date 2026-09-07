@@ -47,7 +47,24 @@ MAINLINE = {
     "torneo-chileno": ("Torneo Chileno de Programación",
                        r"Torneo Chileno", None),
     "caribbean-national": ("ICPC Caribbean National Contests",
-                           r"Caribbean National", (2010, 2019)),
+                           # Q6 (2026-09-07): 2020-21 CFQ/Eliminatoria editions are
+                           # mainline (force majeure); 2022+ go to the registry.
+                           r"Caribbean National|Caribbean.*(Qualifier|Eliminatoria|CFQ)",
+                           (2010, 2021)),
+    # Q3 (2026-09-07): own SBC problemset, 42-54 onsite sites, published vaga
+    # rules gate the Fase Nacional - passes R1-R4.
+    "brazil-first-phase": ("ICPC Brazil Sub-Regional (Primeira Fase)",
+                           r"Primeira Fase|Sub-?[Rr]egional Bra[sz]il|Brazil.*First Phase|First Phase.*Brazil",
+                           None),
+    # Q4 (2026-09-07): gates the Asia Vietnam regional in writing; proctored
+    # multi-site venues (online JUDGE, not an online CONTEST - Fredrik's words).
+    "vietnam-national": ("Vietnam National Programming Contest (VAIP)",
+                         r"Vietnam.*National|National.*Vietnam", None),
+    # Q8 (2026-09-07): real dated nationals with 32-60 teams in CMS.
+    "malaysia-national": ("ICPC Malaysia National Programming Contest (al-Khawarizmi)",
+                          r"Malaysia.*(National|Khawarizmi)|Khawarizmi", None),
+    "philippines-national": ("ICPC Philippines National Programming Contest",
+                             r"Philippines?.*National(?!.*Invitational)", None),
     "thailand-national": ("ICPC Thailand National On-site Programming Contest",
                           r"Thailand National", None),
     "mongolia-national": ("ICPC Mongolia National Programming Contest",
@@ -85,19 +102,38 @@ LEDGER_REASON = {
     # specials (no WF path by design)
     "girls-special": "special", "seniors-masters": "special",
     "kickoff-individual": "special",
+    # Q5 (2026-09-07): NERC-family ONLINE qualification rounds (octafinal /
+    # "1/8 finala" / Moscow qual) - online by design, no venue, no identity;
+    # the onsite quarterfinals are untouched.
+    "kazakhstan-octafinal": "preliminary",
+    # Q2 (2026-09-07): oblast rows are venue-slices of the single Stage II
+    # contest (one set, one server, merged ranking) - structure, not contests.
+    "ukraine-oblasts": "structural",
+    # Q7 (2026-09-07): "these are not mainline contests" - and no evidence any
+    # ran (CMS shells; note the Q1 epistemic rule: absence of evidence, not
+    # proof of absence).
+    "afghanistan": "non-mainline",
+    # Q8 (2026-09-07): what remains of this family after the malaysia-national
+    # and philippines-national MAINLINE splits = provincial invitationals and
+    # similar feeders.
+    "asia-nationals-misc": "preliminary",
+    # Q6 (2026-09-07): CFQ rows outside the mainline 2010-2021 window (i.e.
+    # 2022+ online-by-design Eliminatorias) - real gate, off the R4 line.
+    "caribbean": "non-mainline",
 }
 # Families whose rows become MAINLINE editions get no ledger entry (their cms_ids
 # land in the series files). Held families are skipped entirely.
-HELD = {"ukraine-oblasts", "brazil-first-phase", "vietnam-national",
-        "kazakhstan-octafinal", "afghanistan", "asia-nationals-misc",
-        "taiwan-rounds", "thailand-rounds", "caribbean", "future-shells",
+# Q-rulings 2026-09-07 released ukraine-oblasts, brazil-first-phase,
+# vietnam-national, kazakhstan-octafinal, afghanistan, asia-nationals-misc
+# and caribbean from the held set.
+HELD = {"taiwan-rounds", "thailand-rounds", "future-shells",
         "handled-elsewhere", "unmatched", "tajikistan-dupe", "dhaka-secondary",
         "kharagpur-2012"}
 # (taiwan-rounds/thailand-rounds/caribbean worklist rows mix mainline+prelim
 #  sub-cases; their mainline halves come from master_contests below, and the
 #  remainder is settled with the six held calls — so their LEDGER rows wait.)
 
-HEADER = "# Maintained in-repo; last bulk edit: tools/generate_family_stubs.py (family ruling 2026-09-04).\n"
+HEADER = "# Maintained in-repo; last bulk edit: tools/generate_family_stubs.py (family ruling 2026-09-04 + Q-rulings 2026-09-07).\n"
 
 
 class Dumper(yaml.SafeDumper):
@@ -160,8 +196,14 @@ def build_stubs():
     return out
 
 
-def build_ledger():
+def build_ledger(catalogue_cms=None):
+    """catalogue_cms: cms ids already owned by catalogue entries (incl. stubs
+    being written this run) - a row both in the catalogue and the ledger is a
+    validate error, so mixed families (e.g. asia-nationals-misc after the
+    malaysia/philippines mainline split, caribbean after the 2010-21 window)
+    only ledger their NON-catalogue remainder."""
     fam = json.loads((CONTESTS / "data" / "triage-families.json").read_text())["families"]
+    catalogue_cms = catalogue_cms or set()
     adds = []
     for fname, fdata in fam.items():
         reason = LEDGER_REASON.get(fname)
@@ -170,6 +212,8 @@ def build_ledger():
         for r in fdata["rows"]:
             cid = r.get("cms_id")
             if not cid or not str(cid).isdigit():
+                continue
+            if int(cid) in catalogue_cms:
                 continue
             a = {"cms_id": int(cid), "reason": reason,
                  "name": (r.get("name") or "")[:110],
@@ -206,7 +250,16 @@ def main() -> int:
                                             allow_unicode=True, width=100))
     print(f"= {total} new mainline editions across {len(stubs)} series")
 
-    adds = build_ledger()
+    # cms ids owned by the catalogue = every existing entry's + this run's stubs
+    cat_cms = set()
+    for f in (CONTESTS / "series").glob("*.yaml"):
+        for c in (yaml.safe_load(f.read_text()) or {}).get("contests") or []:
+            cat_cms.update(int(x) for x in (c.get("cms_ids") or []) if str(x).isdigit())
+    for sid, (sname, entries) in stubs.items():
+        for e in entries:
+            cat_cms.update(e.get("cms_ids") or [])
+
+    adds = build_ledger(cat_cms)
     trg = CONTESTS / "registry" / "cms-triage.yaml"
     doc = yaml.safe_load(trg.read_text())
     known = {e["cms_id"] for e in doc.get("excluded") or []}
