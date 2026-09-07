@@ -60,6 +60,25 @@ def main() -> int:
                         else:
                             stats["cdx pick needed"] += 1
                     queue.append(item)
+            # Q11 (2026-09-07): problemset + mirrors are first-class capture
+            # targets - single-page URL captures like the result tiers.
+            extra = []
+            if c.get("problemset"):
+                extra.append(("problemset", c["problemset"]))
+            for m in c.get("mirrors") or []:
+                if m.get("url"):
+                    extra.append(("web-mirror", m["url"]))
+            for kind, url in extra:
+                item = {"contest": c["id"], "kind": kind, "url": url, "pivot": pivot}
+                m2 = WB.match(url)
+                if m2:
+                    item["raw_url"], item["pinned_ts"] = m2.group(2), m2.group(1)
+                    stats["wayback-link entry"] += 1
+                else:
+                    item["raw_url"] = url
+                    stats["cdx pick needed"] += 1
+                stats[f"{kind} item"] += 1
+                queue.append(item)
     out = ROOT.parent / "archive" / f"capture-queue-{datetime.date.today().isoformat()}.json"
     out.write_text(json.dumps({"generated": datetime.date.today().isoformat(),
                                "queue": queue}, indent=1))

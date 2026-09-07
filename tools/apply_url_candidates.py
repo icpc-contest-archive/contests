@@ -65,9 +65,24 @@ def main() -> int:
                     c["icpc_standings"] = url
                 elif art == "web":
                     if c.get("web"):
-                        stats["skipped (web present)"] += 1
+                        # Q11 (2026-09-07): a verified replacement/mirror for an
+                        # entry whose canonical era-URL is taken goes to mirrors:
+                        # instead of being dropped - era URL stays canonical, the
+                        # mirror still reaches the capture queue.
+                        mirrors = c.setdefault("mirrors", [])
+                        if url == c["web"] or any(m.get("url") == url for m in mirrors):
+                            stats["skipped (web present)"] += 1
+                            continue
+                        mirrors.append({"url": url, "note": note})
+                        stats["applied mirror"] += 1
+                        changed = True
                         continue
                     c["web"] = url
+                elif art == "problemset":
+                    if c.get("problemset"):
+                        stats["skipped (problemset present)"] += 1
+                        continue
+                    c["problemset"] = url
                 elif art in RES_KEYS:
                     res = c.setdefault("results", {})
                     existing = {x["url"] for lst in res.values() for x in lst}
