@@ -101,6 +101,14 @@ innermost URL and timestamp. `validate.py` rejects wrapper URLs in locator field
 Other archives with a recoverable inner URL (arquivo.pt, LoC, Stanford SWAP, UKWA) get
 the same treatment; archive.today short links don't carry the URL and stay a `via`.
 
+**Identifiers.** A locator's id is the first 12 hex digits of sha256 over its match key
+(`norm_key`: scheme-, www-, default-port-, case- and trailing-slash-insensitive), so it
+survives the usual URL drift; a resource's id is `<locator id>@<ts>`. The site has a page per
+locator (`locator/<id>/`: url, health, references, its resources) and per resource
+(`locator/<id>/<ts>.html`: captures with hashes and provenance, website crawl and page
+list, status). `tools/build_resources.py` joins catalogue, archive index, website index,
+live-check verdicts and replay index into `data/resources.json`, which those pages render from.
+
 **Presentation.** A resource displays as **`url (time)`** at the precision known —
 `2011-01-02 18:36`, `2026-04-15`, `2011`; a bare locator displays as the URL. Link
 vocabulary on a result row: *live* = the locator as is; *wayback* = pinned to `as_of`

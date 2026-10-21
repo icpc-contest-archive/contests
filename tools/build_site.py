@@ -26,6 +26,9 @@ ROOT = Path(__file__).resolve().parent.parent
 import sys  # noqa: E402
 sys.path.insert(0, str(ROOT / "tools"))
 from resources import fmt_time, label as res_label, unwrap, wayback_link  # noqa: E402
+import site_resources  # noqa: E402
+
+RES = site_resources.Resources(ROOT)  # locator/resource page lookups (data/resources.json)
 REPLAY_BASE = os.environ.get("REPLAY_BASE", "https://icpc-contest-archive.github.io/replay")
 LOCAL_BASE = os.environ.get("LOCAL_ARCHIVE_BASE", "http://127.0.0.1:8123")
 STATE_TITLE = {
@@ -268,7 +271,7 @@ def result_links(cid, key, entries, replay_lookup, rel, matched_paths):
             parts.append(local_link("archive/" + e["archived"], "raw"))
         rows.append(
             f'<div class="small"><span class="chip">{esc(key.replace("_", " "))}</span> '
-            + " · ".join(parts) + f' <span class="muted">{esc(res_label(url, as_of))}</span></div>'
+            + " · ".join(parts) + f' <span class="muted">{RES.label_link(url, as_of or cap_time(cap), rel, esc(res_label(url, as_of)))}</span></div>'
         )
     return rows
 
@@ -401,7 +404,9 @@ def build(out: Path):
                          + esc(fmt_time(site.get("wayback_timestamp")) if site.get("wayback_timestamp")
                                else str(site.get("fetched", ""))[:10]) + ")</span>")
             d.append(f'<dt>web</dt><dd><a href="{esc(w)}">{esc(res_label(w, as_of, 80))}</a> · '
-                     f'<a href="{esc(wayback_link(w, wb_ts))}">wayback</a>{extra}</dd>')
+                     f'<a href="{esc(wayback_link(w, wb_ts))}">wayback</a>{extra}'
+                     + (f' · {RES.label_link(w, wb_ts, rel, "resource")}' if RES.locator_href(w, rel) else "")
+                     + "</dd>")
         if c.get("icpc_standings"):
             d.append(f'<dt>ICPC standings</dt><dd><a href="{esc(c["icpc_standings"])}">finder page</a></dd>')
         if c.get("notes"):
@@ -760,7 +765,8 @@ def build(out: Path):
                 extras.append(f'<a class="small" href="{REPLAY_BASE}/a/{esc(e["archived"])}">'
                               'archived</a>')
             rows_h.append(f'<tr><td>{link_contest(cid, "../")}</td>'
-                          f'<td class="wrap"><a href="{esc(e["url"])}">{esc(res_label(e["url"], e.get("as_of"), 110))}</a></td>'
+                          f'<td class="wrap">{RES.label_link(e["url"], e.get("as_of"), "../", esc(res_label(e["url"], e.get("as_of"), 110)))}'
+                          f' <a class="small" href="{esc(e["url"])}">live</a></td>'
                           f'<td>{" ".join(extras)}</td></tr>')
         legend = " · ".join(f'<span class="chip" title="{esc(v)}">{k}</span>' for k, v in STATE_TITLE.items())
         body = (f'<h1>{k.replace("_", " ")} resources</h1><p class="small muted">{nav_line}</p>'
@@ -965,6 +971,11 @@ captures held of them. Full definitions in
 <p class="small muted">When the archive gets a public home the only change is the host these
 links point at (<code>LOCAL_ARCHIVE_BASE</code> in <code>tools/build_site.py</code>).</p>"""
     (out / "local.html").write_text(page("Local archive", local, ""))
+
+    # ---- locator + resource pages ----
+    if RES.locs:
+        nres = site_resources.build(out, RES, page, link_contest, local_link, REPLAY_BASE, contests)
+        print(f"  {nres} locator/resource pages")
 
     n = len(list(out.rglob("*.html")))
     print(f"site: {n} pages -> {out}")
