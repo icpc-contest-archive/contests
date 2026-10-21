@@ -79,14 +79,22 @@ def load_site(contest: str, capture: str | None = None):
     return cdir, m, lookup
 
 
-@functools.lru_cache(maxsize=1)
+_index_cache: dict = {"mtime": None, "data": {}}
+
+
 def website_index() -> dict:
+    """data/website-index.json, reloaded whenever the file changes on disk (a long-
+    running server must not keep serving an index from before a re-crawl)."""
     p = ROOT / "data" / "website-index.json"
-    out: dict[str, list] = {}
-    if p.exists():
-        for e in json.loads(p.read_text())["sites"]:
-            out.setdefault(e["contest"], []).append(e)
-    return out
+    mtime = p.stat().st_mtime if p.exists() else None
+    if mtime != _index_cache["mtime"]:
+        out: dict[str, list] = {}
+        if p.exists():
+            for e in json.loads(p.read_text())["sites"]:
+                out.setdefault(e["contest"], []).append(e)
+        _index_cache.update(mtime=mtime, data=out)
+        load_site.cache_clear()
+    return _index_cache["data"]
 
 
 _ATTR_RE = re.compile(
