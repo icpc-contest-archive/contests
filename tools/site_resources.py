@@ -97,6 +97,13 @@ def build(out: Path, R: Resources, page, link_contest, local_link, replay_base: 
                      + "</dd>")
         else:
             b.append('<dt>health</dt><dd class="muted">never live-checked</dd>')
+        wb = L.get("wayback")
+        if wb:
+            WB_HELP = {"ok": "a snapshot is served", "none": "no snapshot exists",
+                       "excluded": "the Wayback Machine refuses to serve this URL (domain excluded by policy) — snapshots may exist but are blocked"}
+            b.append(f'<dt>wayback status</dt><dd><span class="chip" title="{esc(WB_HELP.get(wb["state"], ""))}">{esc(wb["state"])}</span>'
+                     + (f' checked {esc(wb["checked"])}' if wb.get("checked") else "")
+                     + (f' <span class="muted small">— {esc(wb["evidence"])}</span>' if wb.get("evidence") else "") + "</dd>")
         refs = L.get("refs") or []
         if refs:
             seen = set()
@@ -110,11 +117,17 @@ def build(out: Path, R: Resources, page, link_contest, local_link, replay_base: 
                 items.append(f'{link_contest(r["contest"], rel)} <span class="chip">{esc(r["field"].replace("_", " "))}</span>{extra}')
             b.append(f'<dt>referenced by</dt><dd class="wrap">{" · ".join(items)}</dd>')
         b.append("</dl>")
+        held_res = {t: Rr for t, Rr in L["resources"].items() if Rr.get("held")}
+        decl_res = {t: Rr for t, Rr in L["resources"].items() if not Rr.get("held")}
         b.append("<h2>Resources</h2>")
-        b.append('<p class="small muted">A resource is this locator at a point in time; one row per time we know of.</p>')
+        if not held_res and not decl_res:
+            b.append('<p class="muted">No resource: nothing has ever been observed at this address by this project. '
+                     'See the checks below for what was tried.</p>')
+        else:
+            b.append('<p class="small muted">A resource is this locator at a point in time with content observed; one row per time.</p>')
         b.append('<div class="tablewrap"><table><tr><th>time</th><th>via</th><th>held</th>'
                  '<th>captures</th><th>website crawl</th><th>referenced by</th></tr>')
-        for ts, Rr in L["resources"].items():
+        for ts, Rr in list(held_res.items()) + list(decl_res.items()):
             caps = Rr.get("captures") or []
             site = Rr.get("website")
             shas = {c.get("sha256") for c in caps if c.get("sha256")}
@@ -124,9 +137,25 @@ def build(out: Path, R: Resources, page, link_contest, local_link, replay_base: 
             refc = ", ".join(sorted({link_contest(r["contest"], rel) for r in (Rr.get("refs") or [])}
                                     | {link_contest(c["contest"], rel) for c in caps}))
             b.append(f'<tr><td><a href="{esc(ts)}.html">{esc(fmt_time(ts) if ts != "unknown" else "unknown")}</a></td>'
-                     f'<td>{esc(Rr.get("via") or "")}</td><td>{"yes" if Rr.get("held") else "no"}</td>'
+                     f'<td>{esc(Rr.get("via") or "")}</td><td>{"yes" if Rr.get("held") else "no — declared in the catalogue (as_of), not held"}</td>'
                      f'<td>{capcell}</td><td>{sitecell}</td><td class="wrap">{refc}</td></tr>')
         b.append("</table></div>")
+        probes = L.get("probes") or []
+        if probes:
+            b.append(f"<h2>Checks ({len(probes)})</h2>")
+            b.append('<p class="small muted">Every time this address was looked at and what came back. '
+                     'A check that found no content is a record of the attempt, not a resource.</p>')
+            b.append('<div class="tablewrap"><table><tr><th>when</th><th>via</th><th>outcome</th><th>evidence</th></tr>')
+            OUT_HELP = {"content": "something was served", "absent": "nothing there",
+                        "blocked": "could not look (access refused)", "undetermined": "answered, but nothing to judge by"}
+            for pr in probes:
+                extra = ""
+                if pr.get("dir"):
+                    extra = f' <span class="muted small">({link_contest(pr["contest"], rel)} crawl {esc(pr["dir"].rsplit("/", 1)[-1])})</span>'
+                b.append(f'<tr><td>{esc(fmt_time(pr.get("ts")) if pr.get("ts") else "")}</td><td>{esc(pr.get("via") or "")}</td>'
+                         f'<td><span class="chip" title="{esc(OUT_HELP.get(pr.get("outcome"), ""))}">{esc(pr.get("outcome") or "")}</span></td>'
+                         f'<td class="wrap">{esc(pr.get("evidence") or "")}{extra}</td></tr>')
+            b.append("</table></div>")
         (d / "index.html").write_text(page(url[:80], "\n".join(b), rel))
         n += 1
         # ---- resource pages ----
