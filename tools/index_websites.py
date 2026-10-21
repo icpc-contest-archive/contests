@@ -46,6 +46,7 @@ def main() -> int:
         html_pages = sum(1 for p in pages.values()
                          if str(p.get("ctype", "")).startswith("text/html"))
         entry = {
+            "empty": not any(pg.get("file") for pg in pages.values()),  # crawl found nothing
             "contest": m["contest"],
             "dir": str(mf.parent.relative_to(archive)),
             "mode": m.get("mode"),
@@ -74,7 +75,7 @@ def main() -> int:
     for cid, entries in sorted(by_contest.items()):
         # primary = a real-url capture over a wrapper-seeded one (pre-resource-model
         # crawls hold Wayback's toolbar-wrapped pages), then most html pages, then latest
-        best = max(entries, key=lambda e: (not e.get("seed_raw"), e["html_pages"],
+        best = max(entries, key=lambda e: (not e["empty"], not e.get("seed_raw"), e["html_pages"],
                                            e["pages"], e["fetched"] or ""))
         for e in entries:
             e["primary"] = e is best

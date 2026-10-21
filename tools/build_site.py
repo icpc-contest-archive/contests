@@ -350,7 +350,7 @@ def build(out: Path):
     website_of.clear()  # contest -> primary website capture entry
     if aux["website-index"]:
         for e in aux["website-index"]["sites"]:
-            if e.get("primary"):
+            if e.get("primary") and not e.get("empty"):  # an empty crawl is a probe, not an archive
                 website_of[e["contest"]] = e
 
     # ---- contest pages ----

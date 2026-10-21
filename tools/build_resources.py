@@ -62,6 +62,8 @@ def main() -> int:
     reports = (sorted((ARCHIVE / "reports").glob("url-states-*-merged.json"))
                + sorted((ARCHIVE / "reports").glob("url-health-*.json"))) if ARCHIVE.exists() else []
     # lane files (url-health-<date>-Lkk.json) sort after the date; all are read, newest wins
+    probes_by: dict[str, list] = defaultdict(list)   # locator id -> probe rows
+    wb_state: dict[str, dict] = {}                   # locator id -> wayback probe
     for rp in sorted(reports, key=lambda p: re.search(r"(\d{4}-\d{2}-\d{2})", p.name).group(1)):
         for s in json.loads(rp.read_text()):
             if s.get("state") in ("live", "changed", "replaced", "dead", "unknown"):
@@ -69,6 +71,18 @@ def main() -> int:
                 cur = states.get(k)
                 if not cur or (s.get("checked") or "") >= (cur.get("checked") or ""):
                     states[k] = s
+                probes_by[k].append({"ts": ts_from(s.get("checked")), "via": "live",
+                                     "outcome": "content" if s["state"] in ("live", "changed", "replaced") else
+                                                ("absent" if s["state"] == "dead" else "undetermined"),
+                                     "evidence": f'{s["state"]}: {s.get("evidence") or ""}'.strip(": ")})
+                if s.get("wayback_state"):
+                    cur = wb_state.get(k)
+                    if not cur or (s.get("checked") or "") >= (cur.get("checked") or ""):
+                        wb_state[k] = {"state": s["wayback_state"], "evidence": s.get("wayback_evidence"),
+                                       "checked": s.get("checked")}
+                    probes_by[k].append({"ts": ts_from(s.get("checked")), "via": "wayback",
+                                         "outcome": {"ok": "content", "none": "absent", "excluded": "blocked"}.get(s["wayback_state"], "undetermined"),
+                                         "evidence": f'{s["wayback_state"]}: {s.get("wayback_evidence") or ""}'.strip(": ")})
 
     locs: dict[str, dict] = {}
 
@@ -85,6 +99,11 @@ def main() -> int:
         if via and not R.get("via"):
             R["via"] = via
         return R
+
+    def probe(L: dict, ts: str | None, via: str, outcome: str, evidence: str, **extra) -> None:
+        """A check that found no content (or could not look): recorded, never a resource."""
+        L.setdefault("probes", []).append({"ts": ts, "via": via, "outcome": outcome,
+                                           "evidence": evidence, **extra})
 
     # ---- catalogue references ----
     for f in sorted((ROOT / "series").glob("*.yaml")):
@@ -160,6 +179,12 @@ def main() -> int:
         ts = w.get("wayback_timestamp") or ts_from(w.get("fetched"))
         via = "wayback" if w.get("mode") == "wayback" else "live"
         L = loc(seed)
+        if w.get("empty"):
+            probe(L, ts_from(w.get("fetched")), via, "absent",
+                  ("site crawl found nothing: no Wayback captures in scope (CDX empty — also what an "
+                   "excluded domain returns)" if via == "wayback" else "site crawl fetched no pages"),
+                  contest=w["contest"], dir=w["dir"])
+            continue
         R = res(L, ts, via)
         R["held"] = True
         site = {"contest": w["contest"], "dir": w["dir"], "mode": w.get("mode"),
@@ -184,6 +209,24 @@ def main() -> int:
 
     # ---- verdicts ----
     for k, L in locs.items():
+        for pr in probes_by.get(k, []):
+            probe(L, pr["ts"], pr["via"], pr["outcome"], pr["evidence"])
+        if k in wb_state:
+            L["wayback"] = wb_state[k]
+        # a resource needs observed content; an entry with neither capture file nor crawled
+        # page is only a declaration (as_of in the catalogue) and is shown as such
+        for ts, R in list(L["resources"].items()):
+            has_cap = any(c.get("sha256") for c in R["captures"])
+            has_site = bool(R["website"] and (R["website"].get("pages") or 0) > 0)
+            R["held"] = has_cap or has_site
+        if L.get("probes"):
+            seen, uniq = set(), []
+            for pr in L["probes"]:
+                key = (pr.get("ts"), pr.get("via"), pr.get("evidence"))
+                if key not in seen:
+                    seen.add(key)
+                    uniq.append(pr)
+            L["probes"] = sorted(uniq, key=lambda p: p.get("ts") or "")
         s = states.get(k)
         if s:
             L["health"] = {"state": s["state"], "checked": s.get("checked"),
