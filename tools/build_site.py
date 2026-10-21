@@ -4,6 +4,11 @@
 Optional inputs, used when present:
   data/archive-index.json  — captures held by the (private) archive repo
   data/replay-index.json   — pages baked into the public replay shard(s)
+  data/website-index.json  — archived contest websites (tools/index_websites.py)
+
+"local" links point at the local archive server (tools/serve.py, 127.0.0.1:8123)
+and only work while it is running; LOCAL_ARCHIVE_BASE overrides the host (serve.py
+sets it to "" so the links are same-origin when browsing locally).
 """
 from __future__ import annotations
 
@@ -19,6 +24,8 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 REPLAY_BASE = os.environ.get("REPLAY_BASE", "https://icpc-contest-archive.github.io/replay")
+LOCAL_BASE = os.environ.get("LOCAL_ARCHIVE_BASE", "http://127.0.0.1:8123")
+LOCAL_TITLE = "local archive server — works only while tools/serve.py is running on this machine"
 
 CHAMPIONSHIPS = {"nac", "awc", "euc", "apc", "lac", "aec", "nadc"}
 # World regions: the top level of the modern ICPC hierarchy (finals + championships
@@ -97,6 +104,9 @@ nav.top a { margin-right:1.1rem; }
 .m-arch:hover { text-decoration:none; opacity:.85; }
 .m-live { box-shadow:inset 0 0 0 1px var(--accent); }
 .m-ist { box-shadow:inset 0 0 0 1px var(--line); color:var(--muted); }
+a.local { border-bottom:1px dashed var(--accent); }
+a.local::after { content:"local"; font-size:.7em; margin-left:.25em; padding:0 .35em;
+  border-radius:.5em; background:var(--chip); color:var(--muted); vertical-align:.15em; }
 dl.fields dt { float:left; clear:left; width:9.5rem; color:var(--muted); }
 dl.fields dd { margin:0 0 .3rem 10.5rem; }
 input#q { width:100%; max-width:28rem; padding:.45rem .6rem; font-size:1rem;
@@ -205,10 +215,14 @@ def load():
         if c.get("subset_of"):
             subsets[c["subset_of"]].append(cid)
     aux = {}
-    for name in ("archive-index", "replay-index"):
+    for name in ("archive-index", "replay-index", "website-index"):
         p = ROOT / "data" / f"{name}.json"
         aux[name] = json.loads(p.read_text()) if p.exists() else None
     return series_docs, contests, series_of, prev, children, subsets, aux
+
+
+def local_link(path: str, label: str = "local") -> str:
+    return f'<a class="local" href="{LOCAL_BASE}/{esc(path)}" title="{LOCAL_TITLE}">{label}</a>'
 
 
 def result_links(cid, key, entries, replay_lookup, rel, matched_paths):
@@ -222,6 +236,8 @@ def result_links(cid, key, entries, replay_lookup, rel, matched_paths):
         if baked:
             matched_paths.add(baked)
             parts.append(f'<a href="{REPLAY_BASE}/{esc(baked)}">archived</a>')
+        if e.get("archived"):
+            parts.append(local_link("archive/" + e["archived"], "raw"))
         rows.append(
             f'<div class="small"><span class="chip">{esc(key.replace("_", " "))}</span> '
             + " · ".join(parts) + f' <span class="muted">{esc(url[:90])}</span></div>'
@@ -246,6 +262,11 @@ def build(out: Path):
     if aux["archive-index"]:
         for e in aux["archive-index"]["captures"]:
             archived_by_contest[e["contest"]].append(e)
+    website_of = {}  # contest -> primary website capture entry
+    if aux["website-index"]:
+        for e in aux["website-index"]["sites"]:
+            if e.get("primary"):
+                website_of[e["contest"]] = e
 
     # ---- contest pages ----
     for cid, c in contests.items():
@@ -291,9 +312,20 @@ def build(out: Path):
         elif ids == []:
             d.append("<dt>CMS ids</dt><dd class='muted'>"
                      + ("pre-CMS era" if c.get("cms_status") == "pre-cms" else "none") + "</dd>")
-        for w in refs(c.get("web", [])):
+        site = website_of.get(cid)
+        for n_w, w in enumerate(refs(c.get("web", []))):
+            wb = f"https://web.archive.org/web/*/{w}"
+            extra = ""
+            if site and n_w == 0:
+                if site.get("wayback_url"):
+                    wb = site["wayback_url"]  # the snapshot the crawl actually used
+                npages = site.get("html_pages") or site.get("pages") or 0
+                extra = (" · " + local_link(f"site/{cid}/", "archived site")
+                         + f' <span class="muted">({npages} pages, '
+                         + ("wayback snapshot" if site.get("mode") == "wayback" else "live crawl")
+                         + f' {str(site.get("fetched", ""))[:10]})</span>')
             d.append(f'<dt>web</dt><dd><a href="{esc(w)}">{esc(w[:80])}</a> · '
-                     f'<a href="https://web.archive.org/web/*/{esc(w)}">wayback</a></dd>')
+                     f'<a href="{esc(wb)}">wayback</a>{extra}</dd>')
         if c.get("icpc_standings"):
             d.append(f'<dt>ICPC standings</dt><dd><a href="{esc(c["icpc_standings"])}">finder page</a></dd>')
         if c.get("notes"):
@@ -314,7 +346,8 @@ def build(out: Path):
                          f'<span class="muted">{esc((e.get("url") or "")[:90])}</span></div>')
         caps = archived_by_contest.get(cid)
         if caps:
-            b.append(f'<p class="small muted">{len(caps)} raw capture(s) in the archive repo.</p>')
+            b.append(f'<p class="small muted">{len(caps)} raw capture(s) in the archive repo '
+                     f'({local_link(f"archive/{series_of[cid]}/{cid}/", "browse")}).</p>')
         (out / "contest" / f"{cid}.html").write_text(page(cid, "\n".join(b), rel))
 
     # ---- series pages ----
