@@ -946,7 +946,7 @@ They work only if you have the <code>archive</code> repository checked out next 
 <code>contests</code> and the server running; for everyone else they give
 "unable to connect". Nothing is probed in the background — a link is just a link.</p>
 <h2>Running it</h2>
-<pre><code>cd ~/Claude/icpc-contests/contests
+<pre><code># in your checkout of the contests repo (archive checked out alongside it)
 python3 tools/index_websites.py     # after new site crawls
 python3 tools/serve.py              # rebuilds the site with local links, serves on 127.0.0.1:8123</code></pre>
 <p>Then browse the catalogue at <code>http://127.0.0.1:8123/</code> — the same pages as the
