@@ -274,6 +274,44 @@ def result_links(cid, key, entries, replay_lookup, rel, matched_paths):
 
 
 capture_info: dict = {}  # archive path -> capture entry (from data/archive-index.json)
+website_of: dict = {}    # contest -> primary website capture (from data/website-index.json)
+
+
+def cms_links(i) -> str:
+    """`<id> (admin · finder)` for one CMS id."""
+    lk = [f'<a href="https://icpc.global/private/contest/{i}/" '
+          f'title="CMS admin page (login required)">admin</a>']
+    slug = CMS_SLUGS.get(int(i))
+    if slug:
+        lk.append(f'<a href="https://icpc.global/regionals/finder/{esc(slug)}" '
+                  f'title="public finder page">finder</a>')
+    return f'{i} <span class="small">({" · ".join(lk)})</span>'
+
+
+def cms_cell(c) -> str:
+    ids = c.get("cms_ids")
+    if ids:
+        return ", ".join(cms_links(i) for i in ids)
+    if ids == []:
+        return '<span class="muted small">' + ("pre-CMS" if c.get("cms_status") == "pre-cms" else "none") + "</span>"
+    return ""
+
+
+def web_cell(c, cid: str) -> str:
+    """Website links: host as label (full url in the tooltip), pinned wayback, and the
+    local archived-site link when a crawl is held."""
+    parts = []
+    site = website_of.get(cid)
+    for n, (w, as_of) in enumerate(locators(c.get("web"))):
+        host = re.sub(r"^https?://(www\.)?", "", w).rstrip("/")
+        host = host if len(host) <= 40 else host[:39] + "…"
+        wb_ts = (site.get("wayback_timestamp") if site and n == 0 else None) or as_of
+        bit = (f'<a href="{esc(w)}" title="{esc(res_label(w, as_of, 200))}">{esc(host)}</a> '
+               f'<a class="small" href="{esc(wayback_link(w, wb_ts))}">wb</a>')
+        if site and n == 0:
+            bit += " " + local_link(f"site/{cid}/", "archived")
+        parts.append(bit)
+    return " · ".join(parts)
 
 
 def cap_time(cap: dict):
@@ -306,7 +344,7 @@ def build(out: Path):
         for e in aux["archive-index"]["captures"]:
             archived_by_contest[e["contest"]].append(e)
             capture_info[e["path"]] = e
-    website_of = {}  # contest -> primary website capture entry
+    website_of.clear()  # contest -> primary website capture entry
     if aux["website-index"]:
         for e in aux["website-index"]["sites"]:
             if e.get("primary"):
@@ -344,15 +382,7 @@ def build(out: Path):
             d.append('<dt>advances to</dt><dd class="muted">— (top of hierarchy)</dd>')
         ids = c.get("cms_ids")
         if ids:
-            parts = []
-            for i in ids:
-                lk = [f'<a href="https://icpc.global/private/contest/{i}/" '
-                      f'title="CMS admin page (login required)">admin</a>']
-                slug = CMS_SLUGS.get(int(i))
-                if slug:
-                    lk.append(f'<a href="https://icpc.global/regionals/finder/{esc(slug)}">finder</a>')
-                parts.append(f'{i} <span class="small">({" · ".join(lk)})</span>')
-            d.append("<dt>CMS ids</dt><dd>" + ", ".join(parts) + "</dd>")
+            d.append("<dt>CMS ids</dt><dd>" + ", ".join(cms_links(i) for i in ids) + "</dd>")
         elif ids == []:
             d.append("<dt>CMS ids</dt><dd class='muted'>"
                      + ("pre-CMS era" if c.get("cms_status") == "pre-cms" else "none") + "</dd>")
@@ -413,13 +443,14 @@ def build(out: Path):
             b.append("<p>" + " ".join(chips) + "</p>")
         b.append(MARK_LEGEND)
         b.append('<div class="tablewrap"><table><tr><th>contest</th><th>date</th>'
-                 "<th>advances to</th><th>results</th></tr>")
+                 "<th>advances to</th><th>results</th><th>CMS id</th><th>website</th></tr>")
         for c in reversed(doc["contests"]):  # latest first
             b.append(
                 "<tr><td>" + link_contest(c["id"], rel) + "</td>"
                 f"<td>{esc(c.get('date', ''))}</td>"
                 "<td>" + ", ".join(link_contest(p, rel) for p in refs(c.get("parent"))) + "</td>"
-                f"<td>{tier_marks(c)}</td></tr>"
+                f"<td>{tier_marks(c)}</td><td>{cms_cell(c)}</td>"
+                f'<td class="wrap">{web_cell(c, c["id"])}</td></tr>'
             )
         b.append("</table></div>")
         (out / "series" / f"{sid}.html").write_text(page(sid, "\n".join(b), rel))
@@ -453,8 +484,10 @@ def build(out: Path):
             seen.add(cid)
             c = contests[cid]
             kids = sorted(k for k in children.get(cid, []) if k in mset and k not in seen)
+            extra = " · ".join(x for x in (cms_cell(c), web_cell(c, cid)) if x)
             label = (link_contest(cid, rel)
-                     + f'<span class="meta">{esc(c.get("date", ""))} {tier_marks(c)}</span>')
+                     + f'<span class="meta">{esc(c.get("date", ""))} {tier_marks(c)}'
+                     + (f' <span class="small">{extra}</span>' if extra else "") + "</span>")
             if not kids:
                 return f'<div class="leaf">{label}</div>'
             inner = "\n".join(node(k) for k in kids)
@@ -477,13 +510,17 @@ def build(out: Path):
     for season in sorted(by_season, reverse=True):
         ids = by_season[season]
         wf = [x for x in ids if x.startswith("wf-")]
+        wfc = [contests[x] for x in sorted(wf)]
         rows.append(f'<tr><td><a href="season/{season}.html">{season - 1}–{season}</a></td>'
                     "<td>" + ", ".join(link_contest(x, rel) for x in sorted(wf)) + "</td>"
+                    "<td>" + ", ".join(esc(c.get("date", "")) for c in wfc) + "</td>"
+                    "<td>" + "; ".join(cms_cell(c) for c in wfc if cms_cell(c)) + "</td>"
+                    '<td class="wrap">' + " · ".join(web_cell(c, c["id"]) for c in wfc if web_cell(c, c["id"])) + "</td>"
                     f"<td>{len(ids)}</td></tr>")
     (out / "seasons.html").write_text(page(
         "Seasons", "<h1>Seasons</h1><p class='muted'>Each season links to its full "
         "advancement tree.</p><div class='tablewrap'><table>"
-        "<tr><th>season</th><th>World Finals</th><th>contests</th></tr>"
+        "<tr><th>season</th><th>World Finals</th><th>date</th><th>CMS id</th><th>website</th><th>contests</th></tr>"
         + "\n".join(rows) + "</table></div>", rel))
 
     # ---- the grid ----
@@ -743,29 +780,71 @@ def build(out: Path):
         "snapshot and this project's own captured copy.</p>"), "../"))
 
     # ---- wanted list ----
-    wl = ["<h1>Most wanted</h1>",
-          '<p class="muted">Contests with no result link at all (<b>dark</b>) and contests '
-          'where the only trace is the ICPC standings system (<b>ICPC-only</b>). '
-          "Know where any of these results live? "
-          '<a href="https://github.com/icpc-contest-archive/contests">Open an issue.</a></p>']
+    def best_tier(c):
+        res = c.get("results", {})
+        for k in ("scoreboard", "frozen_scoreboard", "standings", "rankings"):
+            if res.get(k):
+                return k
+        return "icpc" if c.get("icpc_standings") else "none"
+
+    WANT_COLS = [  # (best tier held, column title, what is wanted)
+        ("none", "nothing", "no result of any kind, not even in the ICPC standings system"),
+        ("icpc", "ICPC standings only", "only the CMS's own result data (formally official, often "
+                 "wrong in practice) — the published scoreboard is wanted"),
+        ("rankings", "rankings only", "order of teams only — standings or scoreboard wanted"),
+        ("standings", "standings only", "totals per team — the per-problem scoreboard wanted"),
+        ("frozen_scoreboard", "frozen only", "frozen scoreboard — the final scoreboard wanted"),
+    ]
+    WEB_COLS = [("nolink", "no website link"), ("noarch", "website not archived")]
+
+    def site_mark(cid):
+        return (" " + local_link(f"site/{cid}/", "site")) if cid in website_of else ""
+
+    wl_tot = defaultdict(int)
+    sections = []
     for g in region_names:
         sec = []
-        for s in sorted(per_series):
-            if SERIES_REGION.get(s, "Other") != g:
+        for sname in sorted(per_series):
+            if SERIES_REGION.get(sname, "Other") != g:
                 continue
-            dark, fonly = [], []
-            for c in series_docs[s]["contests"]:
-                if c.get("status") == "upcoming" or c.get("results"):
+            cells = defaultdict(list)
+            for c in series_docs[sname]["contests"]:
+                if c.get("status") == "upcoming":
                     continue
-                (fonly if c.get("icpc_standings") else dark).append(c["id"])
-            if dark or fonly:
-                sec.append(f'<tr><td><a href="series/{esc(s)}.html">{esc(s)}</a></td>'
-                           f'<td class="wrap">{" ".join(link_contest(x, "") for x in dark)}</td>'
-                           f'<td class="wrap">{" ".join(link_contest(x, "") for x in fonly)}</td></tr>')
+                cid = c["id"]
+                bt = best_tier(c)
+                if bt != "scoreboard":
+                    cells[bt].append(link_contest(cid, "") + site_mark(cid))
+                    wl_tot[bt] += 1
+                if not c.get("web"):
+                    cells["nolink"].append(link_contest(cid, ""))
+                    wl_tot["nolink"] += 1
+                elif cid not in website_of:
+                    cells["noarch"].append(link_contest(cid, ""))
+                    wl_tot["noarch"] += 1
+            if cells:
+                sec.append(f'<tr><td><a href="series/{esc(sname)}.html">{esc(sname)}</a></td>'
+                           + "".join(f'<td class="wrap">{" ".join(cells[k])}</td>'
+                                     for k, *_ in WANT_COLS + WEB_COLS) + "</tr>")
         if sec:
-            wl.append(f'<h2 class="rgn">{g}</h2><div class="tablewrap"><table>'
-                      '<tr><th>series</th><th>dark</th><th>ICPC-only</th></tr>'
-                      + "\n".join(sec) + "</table></div>")
+            hdr = ("<tr><th>series</th>" + "".join(
+                f'<th title="{esc(w)}">{t}</th>' for _k, t, w in WANT_COLS)
+                + "".join(f"<th>{t}</th>" for _k, t in WEB_COLS) + "</tr>")
+            sections.append(f'<h2 class="rgn">{g}</h2><div class="tablewrap"><table>'
+                            + hdr + "\n".join(sec) + "</table></div>")
+    wl = ["<h1>Most wanted</h1>",
+          '<p class="muted">Every contest that ran, filed under the <b>best result tier we hold</b>, '
+          "from nothing at all up to a frozen scoreboard; anything better than that is wanted "
+          "(a contest with a full scoreboard is not listed). The two right-hand columns track the "
+          "contest <b>website</b>: no link known, or a link we have not yet archived. Hover a column "
+          "header for the definition. Know where any of these live? "
+          '<a href="https://github.com/icpc-contest-archive/contests">Open an issue.</a></p>',
+          '<p class="small muted">Totals: ' + " · ".join(
+              f"<b>{wl_tot[k]}</b> {t}" for k, t, _w in WANT_COLS) + " · " + " · ".join(
+              f"<b>{wl_tot[k]}</b> {t}" for k, t in WEB_COLS)
+          + '. A <span class="local-ex">site</span> mark after a contest means its website is '
+          "archived here — often the place to start looking for the missing results.</p>"]
+    wl += sections
     (out / "wanted.html").write_text(page("Most wanted", "\n".join(wl), ""))
 
     # ---- CMS id ledger ----
