@@ -72,8 +72,10 @@ def main() -> int:
 
     sites = []
     for cid, entries in sorted(by_contest.items()):
-        # primary = most html pages captured, then most pages, then latest fetch
-        best = max(entries, key=lambda e: (e["html_pages"], e["pages"], e["fetched"] or ""))
+        # primary = a real-url capture over a wrapper-seeded one (pre-resource-model
+        # crawls hold Wayback's toolbar-wrapped pages), then most html pages, then latest
+        best = max(entries, key=lambda e: (not e.get("seed_raw"), e["html_pages"],
+                                           e["pages"], e["fetched"] or ""))
         for e in entries:
             e["primary"] = e is best
             sites.append(e)

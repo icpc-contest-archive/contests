@@ -28,6 +28,13 @@ sys.path.insert(0, str(ROOT / "tools"))
 from resources import fmt_time, label as res_label, unwrap, wayback_link  # noqa: E402
 REPLAY_BASE = os.environ.get("REPLAY_BASE", "https://icpc-contest-archive.github.io/replay")
 LOCAL_BASE = os.environ.get("LOCAL_ARCHIVE_BASE", "http://127.0.0.1:8123")
+STATE_TITLE = {
+    "live": "live: the address still serves the contest-era content (identical or ≥75% similar to the near-contest snapshot, or mentions the contest year)",
+    "changed": "changed: same place, drifted content (30–75% similar to the snapshot, never mentions the year, or a JS shell / login wall)",
+    "replaced": "replaced: something else lives there now (redirects off-host, or <30% similar to the snapshot) — use wayback/archived",
+    "dead": "dead: the live fetch failed (connection error, 404, over size cap) — use wayback/archived",
+    "unknown": "unknown: fetched but nothing to judge against (no snapshot and no year signal) — not yet re-verified",
+}
 LOCAL_TITLE = "local archive server — works only while tools/serve.py is running on this machine"
 
 CHAMPIONSHIPS = {"nac", "awc", "euc", "apc", "lac", "aec", "nadc"}
@@ -71,18 +78,21 @@ CSS = """
 * { box-sizing: border-box; }
 body { margin:0; background:var(--bg); color:var(--fg);
   font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif; }
-main { max-width:64rem; margin:0 auto; padding:1.2rem; }
+main { margin:0; padding:1.2rem 1.6rem; }  /* full width: the links are the content */
 a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
 h1 { font-size:1.5rem; margin:.4rem 0 .8rem; } h2 { font-size:1.15rem; margin:1.4rem 0 .5rem; }
 table { border-collapse:collapse; width:100%; } .tablewrap { overflow-x:auto; }
 th,td { text-align:left; padding:.28rem .55rem; border-bottom:1px solid var(--line);
   vertical-align:top; white-space:nowrap; }
-td.wrap { white-space:normal; }
+td.wrap { white-space:normal; word-break:break-all; }
+th.grp { text-align:center; font-weight:500; color:var(--muted); border-bottom:none; }
+td:last-child { white-space:nowrap; }
+dl.fields dd { word-break:break-all; }
 .muted { color:var(--muted); } .small { font-size:.85em; }
 .chip { background:var(--chip); border-radius:.6em; padding:.05em .55em; font-size:.85em;
   display:inline-block; margin:0 .15em .15em 0; }
 nav.top { border-bottom:1px solid var(--line); }
-nav.top div { max-width:64rem; margin:0 auto; padding:.55rem 1.2rem; }
+nav.top div { margin:0; padding:.55rem 1.6rem; }
 nav.top a { margin-right:1.1rem; }
 .grid td, .grid th { border:none; padding:1px; }
 .grid .lbl { position:sticky; left:0; background:var(--bg); white-space:nowrap;
@@ -166,7 +176,7 @@ def page(title: str, body: str, rel: str) -> str:
 <nav class="top"><div><a href="{rel}index.html">ICPC contest archive</a>
 <a href="{rel}grid.html">grid</a> <a href="{rel}series/index.html">series</a>
 <a href="{rel}seasons.html">seasons</a> <a href="{rel}coverage.html">coverage</a>
-<a href="{rel}urls/index.html">urls</a> <a href="{rel}wanted.html">wanted</a>
+<a href="{rel}urls/index.html">resources</a> <a href="{rel}wanted.html">wanted</a>
 <a href="{rel}cms.html">cms ids</a></div></nav>
 <main>{body}</main></body></html>"""
 
@@ -553,13 +563,21 @@ def build(out: Path):
 
     # ---- coverage (era / season / series / world region) ----
     def cov_flags(c):
+        """Result coverage is measured per tier, cumulatively down the information
+        order scoreboard > frozen scoreboard > standings > rankings > ICPC standings:
+        each flag means "holds this tier or a better one". Web coverage separately:
+        a site link, and an archived crawl of it."""
         res = c.get("results", {})
+        sb = "scoreboard" in res
+        fr = sb or "frozen_scoreboard" in res
+        st = fr or "standings" in res
+        rk = st or "rankings" in res
+        any_ = rk or bool(c.get("icpc_standings"))
         return {"n": 1, "date": bool(c.get("date")),
-                "sb": ("scoreboard" in res or "frozen_scoreboard" in res),
-                "res": bool(res),
-                "any": bool(res) or bool(c.get("icpc_standings")),
+                "sb": sb, "fr": fr, "st": st, "rk": rk, "any": any_,
                 "arch": any(e.get("archived") for lst in res.values() for e in lst),
-                "web": bool(c.get("web"))}
+                "web": bool(c.get("web")),
+                "web_arch": c["id"] in website_of}
 
     ran_rows = []  # (year, series, region, flags)
     for cid, c in contests.items():
@@ -585,27 +603,42 @@ def build(out: Path):
         p = round(100 * part / total)
         return f'<td class="num">{p}%<span class="bar"><i style="width:{p}%"></i></span></td>'
 
-    COV_HDR = ('<tr><th>{}</th><th class="num">contests</th><th class="num">any result</th>'
-               '<th class="num">scoreboard</th><th class="num">archived</th>'
-               '<th class="num">web</th><th class="num">dated</th><th class="num">missing</th></tr>')
+    COV_HDR = ('<tr><th rowspan="2">{}</th><th rowspan="2" class="num">contests</th>'
+               '<th colspan="5" class="grp">results — holds this tier or better</th>'
+               '<th rowspan="2" class="num" title="a result capture held in this project">archived<br>result</th>'
+               '<th colspan="2" class="grp">website</th>'
+               '<th rowspan="2" class="num">dated</th>'
+               '<th rowspan="2" class="num" title="no result link of any tier">missing</th></tr>'
+               '<tr><th class="num" title="full per-problem scoreboard">scoreboard</th>'
+               '<th class="num" title="frozen scoreboard or better">≥ frozen</th>'
+               '<th class="num" title="standings (totals) or better">≥ standings</th>'
+               '<th class="num" title="rankings (order only) or better">≥ rankings</th>'
+               '<th class="num" title="any result link incl. the ICPC standings system">≥ ICPC</th>'
+               '<th class="num" title="a contest-website link">link</th>'
+               '<th class="num" title="an archived crawl of the website">archived</th></tr>')
 
     def cov_row(label, t):
         return (f'<tr><td class="wrap">{label}</td><td class="num">{t["n"]}</td>'
-                + pcell(t["any"], t["n"]) + pcell(t["sb"], t["n"]) + pcell(t["arch"], t["n"])
-                + pcell(t["web"], t["n"]) + pcell(t["date"], t["n"])
+                + pcell(t["sb"], t["n"]) + pcell(t["fr"], t["n"]) + pcell(t["st"], t["n"])
+                + pcell(t["rk"], t["n"]) + pcell(t["any"], t["n"]) + pcell(t["arch"], t["n"])
+                + pcell(t["web"], t["n"]) + pcell(t["web_arch"], t["n"]) + pcell(t["date"], t["n"])
                 + f'<td class="num">{t["n"] - t["any"]}</td></tr>')
 
     tot = agg(f for *_x, f in ran_rows)
     cov = ["<h1>Collection coverage</h1>",
            f'<p class="muted">{tot["n"]} contests that ran. '
-           f'{tot["any"]} ({round(100 * tot["any"] / tot["n"])}%) have at least one result link, '
-           f'{tot["sb"]} a full scoreboard, {tot["arch"]} an archived copy in this project, '
-           f'{tot["web"]} a contest-website link. '
-           f'{tot["n"] - tot["any"]} are still dark — see the <a href="wanted.html">wanted list</a>.</p>',
+           f'Results, by best tier held: {tot["sb"]} ({round(100 * tot["sb"] / tot["n"])}%) a full '
+           f'scoreboard, {tot["fr"]} at least a frozen scoreboard, {tot["st"]} at least standings, '
+           f'{tot["rk"]} at least rankings, {tot["any"]} ({round(100 * tot["any"] / tot["n"])}%) '
+           f'any result at all (counting the ICPC standings system); {tot["arch"]} have a result '
+           f'capture in this project. Websites: {tot["web"]} have a link, {tot["web_arch"]} an '
+           f'archived crawl. {tot["n"] - tot["any"]} are still dark — see the '
+           f'<a href="wanted.html">wanted list</a>.</p>',
            '<p class="small muted">jump to: <a href="#era">era</a> · <a href="#season">year</a> · '
-           '<a href="#region">world region</a> · <a href="#series">series</a> — '
-           '"any result" counts a result link of any tier or ICPC standings; "archived" means '
-           'this project holds a captured copy; "missing" = contests with no result link at all.</p>']
+           '<a href="#region">world region</a> · <a href="#series">series</a> — result columns are '
+           'cumulative down the information order scoreboard &gt; frozen scoreboard &gt; standings '
+           '&gt; rankings &gt; ICPC standings ("≥ standings" = standings or better); hover a '
+           'column header for its definition.</p>']
 
     eras = [("1970–1998", 0, 1998), ("1999–2007", 1999, 2007),
             ("2008–2015", 2008, 2015), ("2016–present", 2016, 9999)]
@@ -680,7 +713,9 @@ def build(out: Path):
         for cid, e in url_tables[k]:
             extras = []
             if e.get("url_state"):
-                extras.append(f'<span class="chip">{esc(e["url_state"])}</span>')
+                t = STATE_TITLE.get(e["url_state"], "") + (
+                    f" (checked {e['url_checked']})" if e.get("url_checked") else "")
+                extras.append(f'<span class="chip" title="{esc(t)}">{esc(e["url_state"])}</span>')
             wb = wb_href(e)
             if wb:
                 extras.append(f'<a class="small" href="{esc(wb)}">wayback</a>')
@@ -690,17 +725,22 @@ def build(out: Path):
             rows_h.append(f'<tr><td>{link_contest(cid, "../")}</td>'
                           f'<td class="wrap"><a href="{esc(e["url"])}">{esc(res_label(e["url"], e.get("as_of"), 110))}</a></td>'
                           f'<td>{" ".join(extras)}</td></tr>')
-        body = (f'<h1>{k.replace("_", " ")} URLs</h1><p class="small muted">{nav_line}</p>'
-                '<div class="tablewrap"><table><tr><th>contest</th><th>url</th><th></th></tr>'
+        legend = " · ".join(f'<span class="chip" title="{esc(v)}">{k}</span>' for k, v in STATE_TITLE.items())
+        body = (f'<h1>{k.replace("_", " ")} resources</h1><p class="small muted">{nav_line}</p>'
+                f'<p class="small muted">A resource is a URL at a time — <code>url (time)</code> when the '
+                f'content meant is a dated snapshot (see <a href="../local.html">definitions</a>). '
+                f'Chips are the locator\'s health at the last live check (hover for the rule): {legend}</p>'
+                '<div class="tablewrap"><table><tr><th>contest</th><th>resource</th><th></th></tr>'
                 + "\n".join(rows_h) + "</table></div>")
-        (out / "urls" / f"{k}.html").write_text(page(f"{k.replace('_', ' ')} URLs", body, "../"))
-    (out / "urls" / "index.html").write_text(page("URL indexes", (
-        "<h1>Every URL in the catalogue, by artifact</h1><ul>"
-        + "".join(f'<li><a href="{k}.html">{k.replace("_", " ")}</a> — {counts[k]} links</li>'
+        (out / "urls" / f"{k}.html").write_text(page(f"{k.replace('_', ' ')} resources", body, "../"))
+    (out / "urls" / "index.html").write_text(page("Resources", (
+        "<h1>Every resource in the catalogue, by artifact</h1><ul>"
+        + "".join(f'<li><a href="{k}.html">{k.replace("_", " ")}</a> — {counts[k]} resources</li>'
                   for k in art_order)
-        + "</ul><p class='small muted'>Chips show the last live-check verdict where one has "
-        "been recorded; wayback/archived links point at the pinned snapshot and this "
-        "project's own captured copy.</p>"), "../"))
+        + "</ul><p class='small muted'>A resource is a URL at a time; a bare URL is a locator "
+        "whose live content is what is meant. Chips show the last live-check verdict where one has "
+        "been recorded (hover a chip for the rule); wayback/archived links point at the pinned "
+        "snapshot and this project's own captured copy.</p>"), "../"))
 
     # ---- wanted list ----
     wl = ["<h1>Most wanted</h1>",
@@ -800,7 +840,7 @@ and in this project's own archive.</p>
 <h2>Start somewhere</h2>
 <p>{link_contest('wf-2025', '')} · <a href="series/wf.html">World Finals series</a> ·
 <a href="series/index.html">all series</a> · <a href="seasons.html">seasons</a> ·
-<a href="coverage.html">collection coverage</a> · <a href="urls/index.html">all URLs</a> ·
+<a href="coverage.html">collection coverage</a> · <a href="urls/index.html">all resources</a> ·
 <a href="wanted.html">most wanted</a> · <a href="catalogue.json">catalogue.json</a></p>
 <p class="small muted">Data: <a href="https://github.com/icpc-contest-archive/contests">
 icpc-contest-archive/contests</a>. Corrections welcome.</p>
