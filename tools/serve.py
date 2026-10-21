@@ -95,6 +95,26 @@ _SRCSET_RE = re.compile(r"""(?i)(\bsrcset\s*=\s*)(["'])(.*?)(\2)""", re.S)
 _CSS_URL_RE = re.compile(r"""(?i)url\(\s*(["']?)([^"')]+)(\1)\s*\)""")
 _META_REFRESH_RE = re.compile(r"""(?i)(content\s*=\s*["']\s*\d+\s*;\s*url=)([^"']+)""")
 _BASE_RE = re.compile(r"(?is)<base\b[^>]*>")
+# Wayback's own additions to a page served through its wrapper (not id_): the
+# toolbar block, its scripts/stylesheets, the wombat init and the trailing
+# "FILE ARCHIVED ON ..." comment.  Legacy captures (seeded with a wrapper URL
+# before the resource model) stored pages like that; strip at playback.
+_WB_JUNK = [
+    re.compile(r"(?is)<!--\s*BEGIN WAYBACK TOOLBAR INSERT\s*-->.*?<!--\s*END WAYBACK TOOLBAR INSERT\s*-->"),
+    re.compile(r"(?is)<script[^>]*(?:web-static\.archive\.org|archive\.org/_static/|/_static/js/)[^>]*>\s*</script>"),
+    re.compile(r"(?is)<link[^>]*(?:web-static\.archive\.org|archive\.org/_static/|/_static/css/)[^>]*>"),
+    re.compile(r"(?is)<script[^>]*>(?:(?!</script>).)*?(?:__wm\.(?:init|wombat|bt|rw)|wombat\.js|wbinfo\s*=)(?:(?!</script>).)*?</script>"),
+    re.compile(r"(?is)<!--\s*playback timings.*?-->"),
+    re.compile(r"(?is)<!--\s*FILE ARCHIVED ON .*?-->"),
+    re.compile(r"(?is)<!--\s*End Wayback Rewrite JS Include\s*-->|<!--\s*Wayback Rewrite JS Include\s*-->"),
+]
+
+
+def strip_wayback_wrapper(text: str) -> tuple[str, bool]:
+    before = text
+    for rx in _WB_JUNK:
+        text = rx.sub("", text)
+    return text, text != before
 
 
 def _local_site_url(contest: str, capture: str, url: str) -> str:
@@ -163,6 +183,7 @@ def rewrite_html(body: bytes, contest: str, capture: str, page_url: str, m: dict
         return mo.group(0) if t is None else f"{mo.group(1)}{html.escape(t, quote=True)}"
 
     text = _BASE_RE.sub("", text)
+    text, legacy = strip_wayback_wrapper(text) if page_via else (text, False)
     text = _ATTR_RE.sub(attr, text)
     text = _SRCSET_RE.sub(srcset, text)
     text = _CSS_URL_RE.sub(cssurl, text)
@@ -171,6 +192,9 @@ def rewrite_html(body: bytes, contest: str, capture: str, page_url: str, m: dict
     wb = wayback_link(raw_url, page_ts or (pivot if mode == "wayback" else None))
     if page_ts:
         src = f"Wayback snapshot {fmt_time(page_ts)}"
+        if page_via:
+            src += (" — legacy capture fetched through the Wayback wrapper; its toolbar and "
+                    "scripts are stripped at playback, a clean re-crawl replaces it")
     else:
         src = f"live crawl {str(m.get('fetched', ''))[:10]}"
     shown = f"{raw_url} ({fmt_time(page_ts)})" if page_ts else raw_url
