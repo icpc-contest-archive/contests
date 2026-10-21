@@ -177,7 +177,7 @@ def page(title: str, body: str, rel: str) -> str:
 <a href="{rel}grid.html">grid</a> <a href="{rel}series/index.html">series</a>
 <a href="{rel}seasons.html">seasons</a> <a href="{rel}coverage.html">coverage</a>
 <a href="{rel}urls/index.html">resources</a> <a href="{rel}wanted.html">wanted</a>
-<a href="{rel}cms.html">cms ids</a></div></nav>
+<a href="{rel}cms.html">cms ids</a> <a href="{rel}local.html">local</a></div></nav>
 <main>{body}</main></body></html>"""
 
 
@@ -423,7 +423,7 @@ def build(out: Path):
         caps = archived_by_contest.get(cid)
         if caps:
             b.append(f'<p class="small muted">{len(caps)} raw capture(s) in the archive repo '
-                     f'({local_link(f"archive/{series_of[cid]}/{cid}/", "browse")}).</p>')
+                     f'({local_link(f"archive/{series_of[cid]}/{cid}/", "raw files")}).</p>')
         (out / "contest" / f"{cid}.html").write_text(page(cid, "\n".join(b), rel))
 
     # ---- series pages ----
@@ -920,11 +920,51 @@ and in this project's own archive.</p>
 <p>{link_contest('wf-2025', '')} · <a href="series/wf.html">World Finals series</a> ·
 <a href="series/index.html">all series</a> · <a href="seasons.html">seasons</a> ·
 <a href="coverage.html">collection coverage</a> · <a href="urls/index.html">all resources</a> ·
-<a href="wanted.html">most wanted</a> · <a href="catalogue.json">catalogue.json</a></p>
+<a href="wanted.html">most wanted</a> · <a href="catalogue.json">catalogue.json</a> ·
+<a href="local.html">local archive</a></p>
 <p class="small muted">Data: <a href="https://github.com/icpc-contest-archive/contests">
 icpc-contest-archive/contests</a>. Corrections welcome.</p>
 <script>const REL='';{SEARCH_JS}</script>"""
     (out / "index.html").write_text(page("ICPC contest archive", landing, ""))
+
+    n_sites = len(website_of)
+    n_raw = len(archived_by_contest)
+    local = f"""<h1>Local archive</h1>
+<p>Besides the result pages published on the replay site, this project holds a much larger
+private archive: raw captures of every result page and full crawls of
+<b>{n_sites}</b> contest websites ({n_raw} contests with raw captures in all). That is far too
+big for GitHub Pages, so it is not published yet.</p>
+<p>Links marked <a class="local" href="{LOCAL_BASE}/" title="{LOCAL_TITLE}">like this</a>
+point at a small server on <b>your own machine</b> (<code>{LOCAL_BASE or "this host"}</code>).
+They work only if you have the <code>archive</code> repository checked out next to
+<code>contests</code> and the server running; for everyone else they give
+"unable to connect". Nothing is probed in the background — a link is just a link.</p>
+<h2>Running it</h2>
+<pre><code>cd ~/Claude/icpc-contests/contests
+python3 tools/index_websites.py     # after new site crawls
+python3 tools/serve.py              # rebuilds the site with local links, serves on 127.0.0.1:8123</code></pre>
+<p>Then browse the catalogue at <code>http://127.0.0.1:8123/</code> — the same pages as the
+public site, with every local link live. The public site's local links point at the same
+address, so they work in any browser while the server is up.</p>
+<h2>What the links are</h2>
+<ul>
+<li><b>archived site</b> (on a contest's <i>web</i> line): the crawled website, played back
+page by page from the capture with in-site links kept inside the capture. Links to pages that
+were not captured go to the Wayback Machine (for crawls taken from a snapshot) or to the live
+site. The <i>wayback</i> link next to it is pinned to the exact snapshot the crawl used.</li>
+<li><b>raw</b> (on a result row): the captured file exactly as fetched, no banner, no rewriting.</li>
+<li><b>raw files</b>: the contest's folder in the archive repository — every capture as stored
+(hashed filenames, manifests), results and website alike; for inspection, not for reading.</li>
+</ul>
+<h2>Resources</h2>
+<p>A <b>resource</b> is a URL at a time, shown as <code>url (time)</code> when the content
+meant is a dated snapshot rather than whatever the address serves today; a bare URL is a
+<b>locator</b>. Archive captures are resources; the catalogue holds locators and points at the
+captures held of them. Full definitions in
+<a href="https://github.com/icpc-contest-archive/contests/blob/main/DEFINITIONS.md#resources">DEFINITIONS.md</a>.</p>
+<p class="small muted">When the archive gets a public home the only change is the host these
+links point at (<code>LOCAL_ARCHIVE_BASE</code> in <code>tools/build_site.py</code>).</p>"""
+    (out / "local.html").write_text(page("Local archive", local, ""))
 
     n = len(list(out.rglob("*.html")))
     print(f"site: {n} pages -> {out}")
