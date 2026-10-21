@@ -321,6 +321,19 @@ class Handler(SimpleHTTPRequestHandler):
                 self._redirect(raw_u)
             return
         page = m["pages"][key]
+        if not page.get("file"):
+            # the crawl recorded this page but could not fetch it (404/error at crawl time)
+            raw_u, ts, _ = unwrap(key)
+            ts = page.get("wayback_timestamp") or ts
+            note = (f"This page is in the capture manifest but was not fetched "
+                    f"(status at crawl time: {page.get('status')}).")
+            body = (f'<!doctype html><meta charset="utf-8"><title>not captured</title>'
+                    f'<div style="{BANNER_CSS}"><b>ICPC contest archive</b> — {html.escape(note)} '
+                    f'<a href="{html.escape(wayback_link(raw_u, ts))}">try the Wayback Machine</a> · '
+                    f'<a href="{html.escape(raw_u)}">live</a> · '
+                    f'<a href="/contest/{html.escape(contest)}.html">catalogue: {html.escape(contest)}</a></div>')
+            self._send(404, body.encode("utf-8"), "text/html; charset=utf-8")
+            return
         f = cdir / "files" / page["file"]
         if not f.exists():
             self._send(404, b"captured file missing on disk", "text/plain")
