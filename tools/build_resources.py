@@ -23,6 +23,7 @@ from __future__ import annotations
 import datetime
 import hashlib
 import json
+import re
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -58,7 +59,10 @@ def main() -> int:
     if p.exists():
         websites = json.loads(p.read_text())["sites"]
     states: dict[str, dict] = {}
-    for rp in sorted((ARCHIVE / "reports").glob("url-states-*-merged.json")) if ARCHIVE.exists() else []:
+    reports = (sorted((ARCHIVE / "reports").glob("url-states-*-merged.json"))
+               + sorted((ARCHIVE / "reports").glob("url-health-*.json"))) if ARCHIVE.exists() else []
+    # lane files (url-health-<date>-Lkk.json) sort after the date; all are read, newest wins
+    for rp in sorted(reports, key=lambda p: re.search(r"(\d{4}-\d{2}-\d{2})", p.name).group(1)):
         for s in json.loads(rp.read_text()):
             if s.get("state") in ("live", "changed", "replaced", "dead", "unknown"):
                 k = lid(s["raw_url"])
