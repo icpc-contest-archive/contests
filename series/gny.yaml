@@ -1,4 +1,4 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; resource model migration (tools/migrate_resources.py).
 series:
   id: gny
   name: ICPC North America Greater New York Regional Contest
@@ -52,15 +52,15 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_GreatNY/1998/index.html
+      as_of: '20090713043553'
       archived: gny/gny-1998/scoreboard/2026-04-16-archive/1998-greater-new-york-programming-contest-1998.html
       note: from archived capture (scoreboard)
-      wayback: https://web.archive.org/web/20090713043553/http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_GreatNY/1998/index.html
       url_state: unknown
       url_checked: '2026-09-07'
     standings:
     - url: http://icpc.baylor.edu:80/past/icpc99/Regionals/GNY98/standings.htm
+      as_of: '20030718184617'
       note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      wayback: https://web.archive.org/web/20030718184617/http://icpc.baylor.edu:80/past/icpc99/Regionals/GNY98/standings.htm
       url_state: unknown
       url_checked: '2026-09-07'
 - id: gny-1999
@@ -84,9 +84,9 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_GreatNY/1999/index.html
+      as_of: '20090713053109'
       archived: gny/gny-1999/scoreboard/2026-04-16-archive/1999-greater-new-york-programming-contest-1999.html
       note: from archived capture (scoreboard)
-      wayback: https://web.archive.org/web/20090713053109/http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_GreatNY/1999/index.html
       url_state: unknown
       url_checked: '2026-09-07'
     standings:
@@ -94,8 +94,8 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: http://icpc.baylor.edu:80/past/icpc2000/regionals/GNY99/Standings.html
+      as_of: '20020225104717'
       note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      wayback: https://web.archive.org/web/20020225104717/http://icpc.baylor.edu:80/past/icpc2000/regionals/GNY99/Standings.html
       url_state: unknown
       url_checked: '2026-09-07'
 - id: gny-2000
@@ -115,15 +115,15 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: http://icpc.baylor.edu:80/past/icpc2001/Regionals/ViewRegionalStandings.asp?ContestID=434
+      as_of: '20020520073833'
       note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      wayback: https://web.archive.org/web/20020520073833/http://icpc.baylor.edu:80/past/icpc2001/Regionals/ViewRegionalStandings.asp?ContestID=434
       url_state: unknown
       url_checked: '2026-09-07'
     scoreboard:
     - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_GreatNY/2000/index.html
+      as_of: '20090713044454'
       archived: gny/gny-2000/scoreboard/2026-04-16-archive/2000-greater-new-york-programming-contest-2000.html
       note: from archived capture (scoreboard)
-      wayback: https://web.archive.org/web/20090713044454/http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_GreatNY/2000/index.html
       url_state: unknown
       url_checked: '2026-09-07'
 - id: gny-2001
@@ -143,20 +143,20 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: http://icpc.baylor.edu:80/past/icpc2002/regionals/GNY01/standings.html
+      as_of: '20020827194256'
       note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      wayback: https://web.archive.org/web/20020827194256/http://icpc.baylor.edu:80/past/icpc2002/regionals/GNY01/standings.html
       url_state: unknown
       url_checked: '2026-09-07'
     - url: http://icpc.baylor.edu:80/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=499
+      as_of: '20020619095635'
       note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      wayback: https://web.archive.org/web/20020619095635/http://icpc.baylor.edu:80/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=499
       url_state: unknown
       url_checked: '2026-09-07'
     scoreboard:
     - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_GreatNY/2001/index.html
+      as_of: '20090713062954'
       archived: gny/gny-2001/scoreboard/2026-04-16-archive/2001-greater-new-york-programming-contest-2001.html
       note: from archived capture (scoreboard)
-      wayback: https://web.archive.org/web/20090713062954/http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_GreatNY/2001/index.html
       url_state: unknown
       url_checked: '2026-09-07'
 - id: gny-2002
@@ -177,14 +177,14 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: http://icpc.baylor.edu:80/past/icpc2003/Regionals/Reports/www.acmgnyr.org/year2002/standings.html
+      as_of: '20030513042428'
       note: added by url-hunt 2026-09-01 (cdx-baylor-mirror)
-      wayback: https://web.archive.org/web/20030513042428/http://icpc.baylor.edu:80/past/icpc2003/Regionals/Reports/www.acmgnyr.org/year2002/standings.html
       url_state: unknown
       url_checked: '2026-09-07'
       archived: gny/gny-2002/standings/20030513-wayback-1b873361/standings.html
     - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandingsfc44.html?ContestID=567
+      as_of: '20060901121322'
       note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      wayback: https://web.archive.org/web/20060901121322/http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandingsfc44.html?ContestID=567
       url_state: unknown
       url_checked: '2026-09-07'
 - id: gny-2003
@@ -205,13 +205,13 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: http://icpc.baylor.edu:80/past/icpc2004/RegReport/www.acmgnyr.org/year2003/standings.html
+      as_of: '20050414193434'
       note: added by url-hunt 2026-09-01 (cdx-baylor-regreport)
-      wayback: https://web.archive.org/web/20050414193434/http://icpc.baylor.edu:80/past/icpc2004/RegReport/www.acmgnyr.org/year2003/standings.html
       url_state: unknown
       url_checked: '2026-09-07'
     - url: http://icpc.baylor.edu:80/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandingsd756.html?ContestID=641
+      as_of: '20051213102729'
       note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      wayback: https://web.archive.org/web/20051213102729/http://icpc.baylor.edu:80/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandingsd756.html?ContestID=641
       url_state: unknown
       url_checked: '2026-09-07'
 - id: gny-2004

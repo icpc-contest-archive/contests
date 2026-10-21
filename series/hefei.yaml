@@ -1,4 +1,4 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; resource model migration (tools/migrate_resources.py).
 series:
   id: hefei
   name: ICPC Asia Hefei Regional Contest
@@ -15,20 +15,20 @@ contests:
   results:
     scoreboard:
     - url: http://board.acmicpc.info/icpc2008/ustc_online.php#
+      as_of: '20121108112848'
       archived: hefei/hefei-2008/scoreboard/2026-09-01-wayback-935453de/page.html
-      wayback: https://web.archive.org/web/20121108112848/http://board.acmicpc.info/icpc2008/ustc_online.php#
       url_state: unknown
       url_checked: '2026-09-07'
     - url: http://acm.ustc.edu.cn/standing.html
+      as_of: '20090405174803'
       archived: hefei/hefei-2008/scoreboard/2026-09-01-wayback-0ab79624/standing.html
-      wayback: https://web.archive.org/web/20090405174803/http://acm.ustc.edu.cn/standing.html
       url_state: unknown
       url_checked: '2026-09-07'
     standings:
     - url: http://acm.ustc.edu.cn/standing.html
+      as_of: '20090405174803'
       archived: hefei/hefei-2008/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20090405174803/http://acm.ustc.edu.cn:80/standing.html
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Hefei-2009/standings
@@ -60,22 +60,24 @@ contests:
   - 2928
   parent: wf-2016
   next: hefei-2022
-  web: https://web.archive.org/web/20150913000753/http://acm.ustc.edu.cn/icpc2015/
+  web:
+    url: http://acm.ustc.edu.cn/icpc2015/
+    as_of: '20150913000753'
   results:
     scoreboard:
     - url: http://board.acmicpc.cn/
+      as_of: '20151110063227'
       archived: hefei/hefei-2015/scoreboard/2026-09-01-wayback-d885ea97/page.html
-      wayback: https://web.archive.org/web/20151110063227/http://board.acmicpc.cn/
       url_state: unknown
       url_checked: '2026-09-07'
     - url: http://board.acmicpc.info/icpc2015/ustc_onsite.php
+      as_of: '20160315102018'
       archived: hefei/hefei-2015/scoreboard/2026-09-01-wayback-d2ceb955/page.html
-      wayback: https://web.archive.org/web/20160315102018/http://board.acmicpc.info/icpc2015/ustc_onsite.php
       url_state: unknown
       url_checked: '2026-09-07'
     - url: http://board.acmicpc.info/icpc2015/ustc_onsite.php
+      as_of: '20160315102018'
       note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
-      wayback: https://web.archive.org/web/20160315102018/http://board.acmicpc.info/icpc2015/ustc_onsite.php
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Hefei-2016/standings
@@ -92,8 +94,8 @@ contests:
   results:
     scoreboard:
     - url: https://board.xcpcio.com/icpc/47th/hefei
+      as_of: '20230830025400'
       note: added by url-hunt 2026-09-01 (wave3-xcpcio)
-      wayback: https://web.archive.org/web/20230830025400/https://board.xcpcio.com/icpc/47th/hefei
       url_state: replaced
       url_checked: '2026-09-07'
       archived: hefei/hefei-2022/scoreboard/20230830-wayback-dc26d0ee/page.html
@@ -113,8 +115,8 @@ contests:
       url_state: replaced
       url_checked: '2026-09-07'
     - url: https://board.xcpcio.com/icpc/48th/hefei
+      as_of: '20240918113413'
       note: added by url-hunt 2026-09-01 (xcpcio-data-agent)
-      wayback: https://web.archive.org/web/20240918113413/https://board.xcpcio.com/icpc/48th/hefei
       url_state: unknown
       url_checked: '2026-09-07'
 - id: hefei-2026

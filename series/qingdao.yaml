@@ -1,4 +1,4 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; resource model migration (tools/migrate_resources.py).
 series:
   id: qingdao
   name: ICPC Asia QingDao Regional Contest
@@ -30,24 +30,26 @@ contests:
   - 3372
   parent: wf-2018
   next: qingdao-2018
-  web: https://web.archive.org/web/20180111232000/http://acm.upc.edu.cn/
+  web:
+    url: http://acm.upc.edu.cn/
+    as_of: '20180111232000'
   results:
     scoreboard:
     - url: http://board.acmicpc.info/ccpc2017/upc_onsite.php
+      as_of: '20171228135315'
       archived: qingdao/qingdao-2017/scoreboard/2026-09-01-wayback-cd4606ed/page.html
-      wayback: https://web.archive.org/web/20171228135315/http://board.acmicpc.info/ccpc2017/upc_onsite.php
       url_state: unknown
       url_checked: '2026-09-07'
     - url: http://exam.upc.edu.cn/rank/
+      as_of: '20180110224101'
       archived: qingdao/qingdao-2017/scoreboard/2026-09-01-wayback-a7bffa9e/page.html
-      wayback: https://web.archive.org/web/20180110224101/http://exam.upc.edu.cn/rank/
       url_state: unknown
       url_checked: '2026-09-07'
     standings:
     - url: http://acm.upc.edu.cn/icpc/
+      as_of: '20170916105016'
       archived: qingdao/qingdao-2017/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20170916105016/http://acm.upc.edu.cn:80/icpc/
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/QingDao-2018/standings

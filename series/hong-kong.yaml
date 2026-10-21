@@ -1,4 +1,4 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; resource model migration (tools/migrate_resources.py).
 series:
   id: hong-kong
   name: ICPC Asia Hong Kong Regional Contest
@@ -12,18 +12,20 @@ contests:
   - 991
   parent: wf-2001
   next: hong-kong-2016
-  web: https://web.archive.org/web/20010714110745/http://www.cintec.cuhk.edu.hk/icpc2000/
+  web:
+    url: http://www.cintec.cuhk.edu.hk/icpc2000/
+    as_of: '20010714110745'
   results:
     rankings:
     - url: http://icpc.baylor.edu/past/icpc2001/Regionals/ViewRegionalStandings.asp?ContestID=460
+      as_of: '20070816110012'
       archived: hong-kong/hong-kong-2000/rankings/2026-09-01-wayback-bc480b17/page.html
-      wayback: https://web.archive.org/web/20070816110012/http://icpc.baylor.edu/past/icpc2001/Regionals/ViewRegionalStandings.asp?ContestID=460
       url_state: unknown
       url_checked: '2026-09-07'
     standings:
     - url: http://icpc.baylor.edu:80/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=460
+      as_of: '20011224102139'
       note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      wayback: https://web.archive.org/web/20011224102139/http://icpc.baylor.edu:80/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=460
       url_state: unknown
       url_checked: '2026-09-07'
 - id: hong-kong-2016
@@ -38,8 +40,8 @@ contests:
   results:
     scoreboard:
     - url: http://board.acmicpc.info/icpc2016/cuhk_onsite.php
+      as_of: '20161117232335'
       archived: hong-kong/hong-kong-2016/scoreboard/2026-09-01-wayback-1bc69fa6/page.html
-      wayback: https://web.archive.org/web/20161117232335/http://board.acmicpc.info/icpc2016/cuhk_onsite.php
       url_state: unknown
       url_checked: '2026-09-07'
     - url: https://asiahk16.kattis.com/contests/asiahk16/standings
@@ -47,8 +49,8 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: http://board.acmicpc.info:80/icpc2016/cuhk_onsite.php
+      as_of: '20161117232335'
       note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
-      wayback: https://web.archive.org/web/20161117232335/http://board.acmicpc.info:80/icpc2016/cuhk_onsite.php
       url_state: unknown
       url_checked: '2026-09-07'
     standings:
@@ -91,7 +93,9 @@ contests:
   - 3720
   parent: wf-2019
   next: hong-kong-2019
-  web: https://web.archive.org/web/20181206132844/http://acmhk.cs.cityu.edu.hk/icpc
+  web:
+    url: http://acmhk.cs.cityu.edu.hk/icpc
+    as_of: '20181206132844'
   icpc_standings: https://icpc.global/regionals/finder/Hong-Kong-City-2019/standings
   results:
     standings:
@@ -132,8 +136,8 @@ contests:
       url_checked: '2026-09-07'
     scoreboard:
     - url: https://board.xcpcio.com/icpc/47th/hongkong
+      as_of: '20240406020322'
       note: added by url-hunt 2026-09-01 (xcpcio-data-agent)
-      wayback: https://web.archive.org/web/20240406020322/https://board.xcpcio.com/icpc/47th/hongkong
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/HongKong-City-2023/standings
@@ -151,8 +155,8 @@ contests:
   results:
     scoreboard:
     - url: https://board.xcpcio.com/icpc/49th/hongkong
+      as_of: '20251019114545'
       note: added by url-hunt 2026-09-01 (wave3-xcpcio)
-      wayback: https://web.archive.org/web/20251019114545/https://board.xcpcio.com/icpc/49th/hongkong
       url_state: replaced
       url_checked: '2026-09-07'
       archived: hong-kong/hong-kong-2024/scoreboard/20251019-wayback-420d3d8e/page.html
@@ -169,8 +173,8 @@ contests:
   results:
     scoreboard:
     - url: https://board.xcpcio.com/icpc/50th/hongkong
+      as_of: '20251213063010'
       note: added by url-hunt 2026-09-01 (wave3-xcpcio)
-      wayback: https://web.archive.org/web/20251213063010/https://board.xcpcio.com/icpc/50th/hongkong
       url_state: replaced
       url_checked: '2026-09-07'
       archived: hong-kong/hong-kong-2025/scoreboard/20251213-wayback-4cecdf3f/page.html

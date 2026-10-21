@@ -22,6 +22,9 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
+import sys  # noqa: E402
+sys.path.insert(0, str(ROOT / "tools"))
+from resources import unwrap  # noqa: E402
 RES_KEYS = {"scoreboard", "frozen_scoreboard", "standings", "rankings"}
 
 
@@ -58,6 +61,10 @@ def main() -> int:
             for e in wanted.get(c["id"], []):
                 art, url = e["artifact"], e["url"]
                 note = f"added by url-hunt 2026-09-01 ({e['method']})"
+                # resource model: a wrapper URL is a locator + as_of, never stored as-is
+                url, as_of, _via = unwrap(url)
+                loc = {"url": url, "as_of": as_of} if as_of else url
+                web_url = c["web"]["url"] if isinstance(c.get("web"), dict) else c.get("web")
                 if art == "icpc_standings":
                     if c.get("icpc_standings"):
                         stats["skipped (icpc_standings present)"] += 1
@@ -70,26 +77,27 @@ def main() -> int:
                         # instead of being dropped - era URL stays canonical, the
                         # mirror still reaches the capture queue.
                         mirrors = c.setdefault("mirrors", [])
-                        if url == c["web"] or any(m.get("url") == url for m in mirrors):
+                        if url == web_url or any(m.get("url") == url for m in mirrors):
                             stats["skipped (web present)"] += 1
                             continue
-                        mirrors.append({"url": url, "note": note})
+                        mirrors.append({"url": url, **({"as_of": as_of} if as_of else {}), "note": note})
                         stats["applied mirror"] += 1
                         changed = True
                         continue
-                    c["web"] = url
+                    c["web"] = loc
                 elif art == "problemset":
                     if c.get("problemset"):
                         stats["skipped (problemset present)"] += 1
                         continue
-                    c["problemset"] = url
+                    c["problemset"] = loc
                 elif art in RES_KEYS:
                     res = c.setdefault("results", {})
                     existing = {x["url"] for lst in res.values() for x in lst}
                     if url in existing:
                         stats["skipped (url present)"] += 1
                         continue
-                    res.setdefault(art, []).append({"url": url, "note": note})
+                    res.setdefault(art, []).append(
+                        {"url": url, **({"as_of": as_of} if as_of else {}), "note": note})
                 else:
                     stats[f"skipped (artifact {art})"] += 1
                     continue

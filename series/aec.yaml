@@ -1,4 +1,4 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; resource model migration (tools/migrate_resources.py).
 series:
   id: aec
   name: ICPC Asia East Continent Final Contest
@@ -16,12 +16,12 @@ contests:
   results:
     scoreboard:
     - url: http://board.acmicpc.cn/
-      wayback: https://web.archive.org/web/20160716130645/http://board.acmicpc.cn/
+      as_of: '20160716130645'
       url_state: unknown
       url_checked: '2026-09-07'
       archived: aec/aec-2015/scoreboard/2026-09-01-wayback-1633aa93/page.html
     - url: http://board.acmicpc.info/icpc2015/shu_onsite.php
-      wayback: https://web.archive.org/web/20160315092830/http://board.acmicpc.info/icpc2015/shu_onsite.php
+      as_of: '20160315092830'
       url_state: unknown
       url_checked: '2026-09-07'
       archived: aec/aec-2015/scoreboard/2026-09-01-wayback-09ed4706/page.html
@@ -36,11 +36,13 @@ contests:
   - 3098
   parent: wf-2017
   next: aec-2017
-  web: https://web.archive.org/web/20180512190124/http://icpc.shu.edu.cn/Default.aspx?tabid=34079
+  web:
+    url: http://icpc.shu.edu.cn/Default.aspx?tabid=34079
+    as_of: '20180512190124'
   results:
     scoreboard:
     - url: http://board.acmicpc.cn/
-      wayback: https://web.archive.org/web/20170913043737/http://board.acmicpc.cn/
+      as_of: '20170913043737'
       url_state: unknown
       url_checked: '2026-09-07'
       archived: aec/aec-2016/scoreboard/2026-09-01-wayback-9f951d56/page.html
@@ -54,11 +56,13 @@ contests:
   - 3378
   parent: wf-2018
   next: aec-2018
-  web: https://web.archive.org/web/20200808231611/http://icpc.shu.edu.cn/
+  web:
+    url: http://icpc.shu.edu.cn/
+    as_of: '20200808231611'
   results:
     scoreboard:
     - url: http://board.acmicpc.cn/
-      wayback: https://web.archive.org/web/20180308071522/http://board.acmicpc.cn/
+      as_of: '20180308071522'
       url_state: unknown
       url_checked: '2026-09-07'
       archived: aec/aec-2017/scoreboard/2026-09-01-wayback-1c057899/page.html
@@ -80,9 +84,9 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: http://acm.nwpu.edu.cn
+      as_of: '20190917014928'
       archived: aec/aec-2018/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20190917014928/http://acm.nwpu.edu.cn:80/
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Asia-EC-League-Final-2019/standings
@@ -99,15 +103,15 @@ contests:
   results:
     scoreboard:
     - url: http://icpc.nwpu.edu.cn/home/scoreboard/
-      wayback: https://web.archive.org/web/20200206051643/http://icpc.nwpu.edu.cn/home/scoreboard/
+      as_of: '20200206051643'
       url_state: unknown
       url_checked: '2026-09-07'
       archived: aec/aec-2019/external-standings/2026-04-15-external/content.html
     standings:
     - url: http://icpc.nwpu.edu.cn/home/scoreboard/
+      as_of: '20200206051643'
       archived: aec/aec-2019/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20200206051643/http://icpc.nwpu.edu.cn:80/home/scoreboard/
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Asia-EC-League-Final-2020/standings
@@ -125,9 +129,9 @@ contests:
   results:
     standings:
     - url: http://icpc.nwpu.edu.cn
+      as_of: '20200204013939'
       archived: aec/aec-2020/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20200204013939/http://icpc.nwpu.edu.cn:80/
       url_state: unknown
       url_checked: '2026-09-07'
   web: http://icpc.nwpu.edu.cn
@@ -148,9 +152,9 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: http://icpc.nwpu.edu.cn/
+      as_of: '20200204013939'
       archived: aec/aec-2021/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20200204013939/http://icpc.nwpu.edu.cn:80/
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Asia-EC-League-Final-2022/standings
@@ -167,8 +171,8 @@ contests:
   results:
     scoreboard:
     - url: https://board.xcpcio.com/icpc/47th/ec-final
+      as_of: '20231202044147'
       note: added by url-hunt 2026-09-01 (wave3-xcpcio)
-      wayback: https://web.archive.org/web/20231202044147/https://board.xcpcio.com/icpc/47th/ec-final
       url_state: changed
       url_checked: '2026-09-07'
       archived: aec/aec-2022/scoreboard/20231202-wayback-606e710e/page.html
@@ -200,9 +204,9 @@ contests:
   results:
     standings:
     - url: http://http:/icpc.nwpu.edu.cn
+      as_of: '20200204013939'
       archived: aec/aec-2024/external-standings/2026-04-15-external/content.cn
-      note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20200204013939/http://icpc.nwpu.edu.cn:80/
+      note: 'from archived capture (external-standings); snapshot verified at a different locator: http://icpc.nwpu.edu.cn/'
       url_state: unknown
       url_checked: '2026-09-07'
   web: http://http:/icpc.nwpu.edu.cn
@@ -218,8 +222,8 @@ contests:
   results:
     scoreboard:
     - url: https://board.xcpcio.com/icpc/50th/ecfinal
+      as_of: '20260201123847'
       note: added by url-hunt 2026-09-01 (wave3-xcpcio)
-      wayback: https://web.archive.org/web/20260201123847/https://board.xcpcio.com/icpc/50th/ecfinal
       url_state: replaced
       url_checked: '2026-09-07'
       archived: aec/aec-2025/scoreboard/20260201-wayback-4a6983fe/page.html

@@ -2,9 +2,9 @@
 """Apply the capture run's url-state verdicts to the catalogue.
 
 Reads the newest archive/reports/url-states-*.json and, per matching result entry:
-  - normalizes wayback-link entries: url -> raw origin URL, the snapshot link
-    moves into `wayback` (kept if already set)
-  - records the snapshot used (`wayback`) when the entry had none
+  - normalizes wayback-link entries: url -> raw origin URL, the snapshot
+    timestamp moves into `as_of` (kept if already set)
+  - records the snapshot used (`as_of`) when the entry had none
   - sets url_state (live|changed|replaced|dead|unknown) + url_checked
 
 Run from the contests repo root; validate afterwards.
@@ -18,6 +18,9 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
+import sys  # noqa: E402
+sys.path.insert(0, str(ROOT / "tools"))
+from resources import unwrap  # noqa: E402
 
 
 class Dumper(yaml.SafeDumper):
@@ -50,13 +53,15 @@ def main() -> int:
                         continue
                     if s["catalogue_url"] != s["raw_url"]:
                         # wayback-link entry: url becomes the raw origin URL
-                        if not e.get("wayback"):
-                            e["wayback"] = s["catalogue_url"]
+                        _, ts, _ = unwrap(s["catalogue_url"])
+                        if ts and not e.get("as_of"):
+                            e["as_of"] = ts
                         e["url"] = s["raw_url"]
                         stats["normalized wayback-link entry"] += 1
-                    if s.get("wayback_url") and not e.get("wayback"):
-                        e["wayback"] = s["wayback_url"]
-                        stats["wayback snapshot recorded"] += 1
+                    ts = s.get("wayback_timestamp") or unwrap(s.get("wayback_url") or "")[1]
+                    if ts and not e.get("as_of"):
+                        e["as_of"] = ts
+                        stats["wayback snapshot recorded (as_of)"] += 1
                     if e.get("url_state") != s["state"]:
                         stats[f"state -> {s['state']}"] += 1
                     e["url_state"], e["url_checked"] = s["state"], s["checked"]

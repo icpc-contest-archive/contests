@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_candidates.py (url-hunt 2026-09-01).
+# Maintained in-repo; resource model migration (tools/migrate_resources.py).
 series:
   id: seusa
   name: ICPC North America Southeast Regional Contest
@@ -12,8 +12,8 @@ contests:
   results:
     rankings:
     - url: https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc
+      as_of: '20140630180351'
       note: added by url-hunt 2026-09-01 (early-na-agent)
-      wayback: https://web.archive.org/web/20140630180351/https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc
       url_state: unknown
       url_checked: '2026-09-07'
   location: (rotating host)
@@ -27,8 +27,8 @@ contests:
   results:
     rankings:
     - url: https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc
+      as_of: '20140630180351'
       note: added by url-hunt 2026-09-01 (early-na-agent)
-      wayback: https://web.archive.org/web/20140630180351/https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc
       url_state: unknown
       url_checked: '2026-09-07'
   location: Auburn
@@ -47,8 +47,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc
+      as_of: '20140630180351'
       note: added by url-hunt 2026-09-01 (round9-research)
-      wayback: https://web.archive.org/web/20140630180351/https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc
       url_state: unknown
       url_checked: '2026-09-07'
   web: https://usenetarchives.com/view.php?id=comp.org.acm&mid=PDJidjg5cCQ3bjZAc3VudGFuLmVuZy51c2YuZWR1Pg
@@ -75,7 +75,7 @@ contests:
   location: Mercer Univ
   web: https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc
   mirrors:
-  - url: https://web.archive.org/web/*/https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc
+  - url: https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc
     note: added by url-hunt 2026-09-01 (round9-wayback-probe)
 - id: seusa-1996
   season: 1997
@@ -88,8 +88,8 @@ contests:
   results:
     rankings:
     - url: https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc
+      as_of: '20140630180351'
       note: added by url-hunt 2026-09-01 (round9-research)
-      wayback: https://web.archive.org/web/20140630180351/https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc
       url_state: unknown
       url_checked: '2026-09-07'
 - id: seusa-1998
@@ -100,18 +100,20 @@ contests:
   - 1201
   parent: wf-1999
   next: seusa-1999
-  web: https://web.archive.org/web/19990203192926/http://www.cise.ufl.edu/%7Eacm/SER98/
+  web:
+    url: http://www.cise.ufl.edu/%7Eacm/SER98/
+    as_of: '19990203192926'
   results:
     scoreboard:
     - url: http://www.cise.ufl.edu/~acm/SER98/problems/SCORE.OUT
+      as_of: '20091106125308'
       archived: seusa/seusa-1998/scoreboard/2026-09-01-wayback-f9501063/page.txt
-      wayback: https://web.archive.org/web/20091106125308/http://www.cise.ufl.edu/~acm/SER98/problems/SCORE.OUT
       url_state: unknown
       url_checked: '2026-09-07'
     standings:
     - url: http://icpc.baylor.edu:80/past/icpc99/Regionals/SEUSA98/Standings.txt
+      as_of: '20030523120028'
       note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      wayback: https://web.archive.org/web/20030523120028/http://icpc.baylor.edu:80/past/icpc99/Regionals/SEUSA98/Standings.txt
       url_state: unknown
       url_checked: '2026-09-07'
 - id: seusa-1999
@@ -126,20 +128,20 @@ contests:
   results:
     standings:
     - url: http://icpc.baylor.edu/past/icpc2000/regionals/SEUSA99/Standings.html
+      as_of: '20020112032511'
       archived: seusa/seusa-1999/standings/2026-09-01-wayback-e5ad67c8/Standings.html
-      wayback: https://web.archive.org/web/20020112032511/http://icpc.baylor.edu/past/icpc2000/regionals/SEUSA99/Standings.html
       url_state: unknown
       url_checked: '2026-09-07'
     - url: http://icpc.baylor.edu:80/past/icpc2000/regionals/SEUSA99/Standings.html
+      as_of: '20020112032511'
       note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      wayback: https://web.archive.org/web/20020112032511/http://icpc.baylor.edu:80/past/icpc2000/regionals/SEUSA99/Standings.html
       url_state: unknown
       url_checked: '2026-09-07'
     scoreboard:
     - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_US_SouthEas/1999/index.html
+      as_of: '20020728082418'
       archived: seusa/seusa-1999/scoreboard/2026-04-16-archive/1999-southeast-usa-programming-contest-1999.html
       note: from archived capture (scoreboard)
-      wayback: https://web.archive.org/web/20020728082418/http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_US_SouthEas/1999/index.html
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2000/standings
@@ -153,18 +155,20 @@ contests:
   - 1026
   parent: wf-2001
   next: seusa-2001
-  web: http://web.archive.org/web/20001020163800/http://turing.gcsu.edu/~gadkins/contest.html
+  web:
+    url: http://turing.gcsu.edu/~gadkins/contest.html
+    as_of: '20001020163800'
   results:
     scoreboard:
     - url: http://turing.gcsu.edu/~gadkins/overallStandings.html
+      as_of: '20010211004229'
       archived: seusa/seusa-2000/scoreboard/2026-09-01-wayback-6679f762/overallStandings.html
-      wayback: http://web.archive.org/web/20010211004229/http://turing.gcsu.edu/~gadkins/overallStandings.html
       url_state: unknown
       url_checked: '2026-09-07'
     standings:
     - url: http://icpc.baylor.edu:80/past/icpc2001/Regionals/ViewRegionalStandings.asp?ContestID=443
+      as_of: '20020220195042'
       note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      wayback: https://web.archive.org/web/20020220195042/http://icpc.baylor.edu:80/past/icpc2001/Regionals/ViewRegionalStandings.asp?ContestID=443
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2001/standings
@@ -177,24 +181,26 @@ contests:
   - 1146
   parent: wf-2002
   next: seusa-2002
-  web: http://web.archive.org/web/20011211105216/http://turing.gcsu.edu/~gadkins/contest.html
+  web:
+    url: http://turing.gcsu.edu/~gadkins/contest.html
+    as_of: '20011211105216'
   results:
     scoreboard:
     - url: http://turing.gcsu.edu/~gadkins/final.htm
+      as_of: '20011018155908'
       archived: seusa/seusa-2001/scoreboard/2026-09-01-wayback-041ad5d2/final.htm
-      wayback: http://web.archive.org/web/20011018155908/http://turing.gcsu.edu/~gadkins/final.htm
       url_state: unknown
       url_checked: '2026-09-07'
     - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_US_SouthEas/2001/index.html
+      as_of: '20020728082547'
       archived: seusa/seusa-2001/scoreboard/2026-04-16-archive/2001-southeast-usa-programming-contest-2001.html
       note: from archived capture (scoreboard)
-      wayback: https://web.archive.org/web/20020728082547/http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_US_SouthEas/2001/index.html
       url_state: unknown
       url_checked: '2026-09-07'
     standings:
     - url: http://icpc.baylor.edu:80/past/icpc2002/regionals/ViewRegionalStandings.asp?ContestID=508
+      as_of: '20020701110729'
       note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      wayback: https://web.archive.org/web/20020701110729/http://icpc.baylor.edu:80/past/icpc2002/regionals/ViewRegionalStandings.asp?ContestID=508
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2002/standings
@@ -207,24 +213,26 @@ contests:
   - 1089
   parent: wf-2003
   next: seusa-2003
-  web: https://web.archive.org/web/20021017124350/http://faculty.erau.edu/collinsj/
+  web:
+    url: http://faculty.erau.edu/collinsj/
+    as_of: '20021017124350'
   results:
     scoreboard:
     - url: http://faculty.erau.edu/collinsj/score.html
+      as_of: '20021026224930'
       archived: seusa/seusa-2002/scoreboard/2026-09-01-wayback-412f970a/score.html
-      wayback: https://web.archive.org/web/20021026224930/http://faculty.erau.edu/collinsj/score.html
       url_state: replaced
       url_checked: '2026-09-07'
     standings:
     - url: http://icpc.baylor.edu:80/past/icpc2003/Regionals/Reports/faculty.erau.edu/collinsj/Results.html
+      as_of: '20030505042119'
       note: added by url-hunt 2026-09-01 (cdx-baylor-mirror)
-      wayback: https://web.archive.org/web/20030505042119/http://icpc.baylor.edu:80/past/icpc2003/Regionals/Reports/faculty.erau.edu/collinsj/Results.html
       url_state: unknown
       url_checked: '2026-09-07'
       archived: seusa/seusa-2002/standings/20030505-wayback-7252775e/Results.html
     - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings3f5c.html?ContestID=576
+      as_of: '20060901121118'
       note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      wayback: https://web.archive.org/web/20060901121118/http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings3f5c.html?ContestID=576
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2003/standings
@@ -240,18 +248,18 @@ contests:
   results:
     standings:
     - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=650
+      as_of: '20071012205933'
       archived: seusa/seusa-2003/standings/2026-09-01-wayback-5e0be77f/page.html
-      wayback: https://web.archive.org/web/20071012205933/http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=650
       url_state: unknown
       url_checked: '2026-09-07'
     - url: http://icpc.baylor.edu:80/past/icpc2004/RegReport/faculty.db.erau.edu/lehr/score.htm
+      as_of: '20050904110115'
       note: added by url-hunt 2026-09-01 (cdx-baylor-regreport)
-      wayback: https://web.archive.org/web/20050904110115/http://icpc.baylor.edu:80/past/icpc2004/RegReport/faculty.db.erau.edu/lehr/score.htm
       url_state: unknown
       url_checked: '2026-09-07'
     - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandings22e1.html?ContestID=650
+      as_of: '20060901143758'
       note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      wayback: https://web.archive.org/web/20060901143758/http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandings22e1.html?ContestID=650
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2004/standings
@@ -265,12 +273,14 @@ contests:
   - 1150
   parent: wf-2005
   next: seusa-2005
-  web: https://web.archive.org/web/20140928160905/http://ser.cs.fit.edu/ser2004/index.html
+  web:
+    url: http://ser.cs.fit.edu/ser2004/index.html
+    as_of: '20140928160905'
   results:
     scoreboard:
     - url: http://acm.fit.edu:80/SER2004/standings.txt
+      as_of: '20041212162856'
       archived: seusa/seusa-2004/scoreboard/2026-09-01-wayback-e5cc1577/standings.txt
-      wayback: https://web.archive.org/web/20041212162856/http://acm.fit.edu:80/SER2004/standings.txt
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2005/standings
@@ -283,18 +293,20 @@ contests:
   - 1275
   parent: wf-2006
   next: seusa-2006
-  web: https://web.archive.org/web/20060116024607/http://acm.fit.edu/icpc/ser2005/
+  web:
+    url: http://acm.fit.edu/icpc/ser2005/
+    as_of: '20060116024607'
   results:
     standings:
     - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=726
+      as_of: '20071011223739'
       archived: seusa/seusa-2005/standings/2026-09-01-wayback-fd2fb4c5/page.html
-      wayback: https://web.archive.org/web/20071011223739/http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=726
       url_state: unknown
       url_checked: '2026-09-07'
     - url: http://acm.fit.edu/ser2005/standings.html
+      as_of: '20060907063430'
       archived: seusa/seusa-2005/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20060907063430/http://acm.fit.edu/ser2005/standings.html
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2006/standings
@@ -307,19 +319,21 @@ contests:
   - 1165
   parent: wf-2007
   next: seusa-2007
-  web: https://web.archive.org/web/20070217224355/http://jharris2.mat.georgiasouthern.edu/Progcontest/contest.htm
+  web:
+    url: http://jharris2.mat.georgiasouthern.edu/Progcontest/contest.htm
+    as_of: '20070217224355'
   results:
     scoreboard:
     - url: http://jharris2.mat.georgiasouthern.edu:80/Progcontest/summary.html
+      as_of: '20061118000031'
       archived: seusa/seusa-2006/scoreboard/2026-09-01-wayback-ac6d6116/summary.html
-      wayback: https://web.archive.org/web/20061118000031/http://jharris2.mat.georgiasouthern.edu:80/Progcontest/summary.html
       url_state: unknown
       url_checked: '2026-09-07'
     standings:
     - url: http://jharris2.mat.georgiasouthern.edu/Progcontest/summary.html
+      as_of: '20080821105344'
       archived: seusa/seusa-2006/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20080821105344/http://jharris2.mat.georgiasouthern.edu/Progcontest/summary.html
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2007/standings
@@ -332,12 +346,14 @@ contests:
   - 1298
   parent: wf-2008
   next: seusa-2008
-  web: https://web.archive.org/web/20071120193859/http://jharris2.mat.georgiasouthern.edu/Progcontest/contest.htm
+  web:
+    url: http://jharris2.mat.georgiasouthern.edu/Progcontest/contest.htm
+    as_of: '20071120193859'
   results:
     standings:
     - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=851
+      as_of: '20080915032337'
       archived: seusa/seusa-2007/standings/2026-09-01-wayback-d60203ac/page.html
-      wayback: https://web.archive.org/web/20080915032337/http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=851
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2008/standings
@@ -350,19 +366,21 @@ contests:
   - 41
   parent: wf-2009
   next: seusa-2009
-  web: https://web.archive.org/web/20140928103245/http://ser.cs.fit.edu/ser2008/index.html
+  web:
+    url: http://ser.cs.fit.edu/ser2008/index.html
+    as_of: '20140928103245'
   results:
     scoreboard:
     - url: http://ser.cs.fit.edu/ser2008/standings.html
+      as_of: '20140621232556'
       archived: seusa/seusa-2008/scoreboard/2026-09-01-wayback-edb8cbb8/standings.html
-      wayback: https://web.archive.org/web/20140621232556/http://ser.cs.fit.edu/ser2008/standings.html
       url_state: unknown
       url_checked: '2026-09-07'
     standings:
     - url: http://ser.cs.fit.edu/ser2008/standings.html
+      as_of: '20140621232556'
       archived: seusa/seusa-2008/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20140621232556/http://ser.cs.fit.edu:80/ser2008/standings.html
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2009/standings
@@ -375,19 +393,21 @@ contests:
   - 559
   parent: wf-2010
   next: seusa-2010
-  web: https://web.archive.org/web/20140928103251/http://ser.cs.fit.edu/ser2009/index.html
+  web:
+    url: http://ser.cs.fit.edu/ser2009/index.html
+    as_of: '20140928103251'
   results:
     scoreboard:
     - url: http://ser.cs.fit.edu/ser2009/standings.html
+      as_of: '20120604023654'
       archived: seusa/seusa-2009/scoreboard/2026-09-01-wayback-e04e4a89/standings.html
-      wayback: https://web.archive.org/web/20120604023654/http://ser.cs.fit.edu/ser2009/standings.html
       url_state: unknown
       url_checked: '2026-09-07'
     standings:
     - url: http://ser.cs.fit.edu/ser2009/standings.html
+      as_of: '20120604023654'
       archived: seusa/seusa-2009/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20120604023654/http://ser.cs.fit.edu:80/ser2009/standings.html
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2010/standings
@@ -400,7 +420,9 @@ contests:
   - 654
   parent: wf-2011
   next: seusa-2011
-  web: https://web.archive.org/web/20140928103256/http://ser.cs.fit.edu/ser2010/index.html
+  web:
+    url: http://ser.cs.fit.edu/ser2010/index.html
+    as_of: '20140928103256'
   icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2011/standings
   results:
     standings:
@@ -416,24 +438,26 @@ contests:
   - 874
   parent: wf-2012
   next: seusa-2012
-  web: https://web.archive.org/web/20140928103302/http://ser.cs.fit.edu/ser2011/index.html
+  web:
+    url: http://ser.cs.fit.edu/ser2011/index.html
+    as_of: '20140928103302'
   results:
     scoreboard:
     - url: http://ser.cs.fit.edu/ser2011/ser2011_final_standings.pdf
+      as_of: '20120127173410'
       archived: seusa/seusa-2011/scoreboard/2026-09-01-wayback-207446af/ser2011_final_standings.pdf
-      wayback: https://web.archive.org/web/20120127173410/http://ser.cs.fit.edu/ser2011/ser2011_final_standings.pdf
       url_state: unknown
       url_checked: '2026-09-07'
     - url: http://163.118.133.14/domjudge/public/
+      as_of: '20120113100357'
       archived: seusa/seusa-2011/scoreboard/2026-09-01-wayback-93f61cdc/page.html
-      wayback: https://web.archive.org/web/20120113100357/http://163.118.133.14/domjudge/public/
       url_state: unknown
       url_checked: '2026-09-07'
     standings:
     - url: http://ser.cs.fit.edu/ser2011/replay2011/
+      as_of: '20120709001206'
       archived: seusa/seusa-2011/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20120709001206/http://ser.cs.fit.edu:80/ser2011/replay2011/
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2012/standings
@@ -446,19 +470,21 @@ contests:
   - 1388
   parent: wf-2013
   next: seusa-2013
-  web: https://web.archive.org/web/20121217025515/http://cs.fit.edu/~ryan/icpc/ser2012/
+  web:
+    url: http://cs.fit.edu/~ryan/icpc/ser2012/
+    as_of: '20121217025515'
   results:
     scoreboard:
     - url: http://cs.fit.edu/~ryan/icpc/ser2012/ser2012_scoreboard.pdf
+      as_of: '20140513234640'
       archived: seusa/seusa-2012/scoreboard/2026-09-01-wayback-e8bbe770/ser2012_scoreboard.pdf
-      wayback: https://web.archive.org/web/20140513234640/http://cs.fit.edu/~ryan/icpc/ser2012/ser2012_scoreboard.pdf
       url_state: unknown
       url_checked: '2026-09-07'
     standings:
     - url: http://cs.fit.edu/~ryan/icpc/ser2012/ser2012_scoreboard.pdf
+      as_of: '20140513234640'
       archived: seusa/seusa-2012/external-standings/2026-04-15-external/content.pdf
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20140513234640/http://cs.fit.edu:80/~ryan/icpc/ser2012/ser2012_scoreboard.pdf
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2013/standings
@@ -471,12 +497,14 @@ contests:
   - 1972
   parent: wf-2014
   next: seusa-2014
-  web: https://web.archive.org/web/20140313013831/http://ser.cs.fit.edu/ser2013/
+  web:
+    url: http://ser.cs.fit.edu/ser2013/
+    as_of: '20140313013831'
   results:
     scoreboard:
     - url: http://ser.cs.fit.edu/ser2013/ser2013_final_standings.pdf
+      as_of: '20140327052651'
       archived: seusa/seusa-2013/scoreboard/2026-09-01-wayback-062d83ce/ser2013_final_standings.pdf
-      wayback: https://web.archive.org/web/20140327052651/http://ser.cs.fit.edu/ser2013/ser2013_final_standings.pdf
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2014/standings
@@ -489,17 +517,19 @@ contests:
   - 2415
   parent: wf-2015
   next: seusa-2015
-  web: https://web.archive.org/web/20160604045936/https://ser.cs.fit.edu/ser2014/
+  web:
+    url: https://ser.cs.fit.edu/ser2014/
+    as_of: '20160604045936'
   results:
     scoreboard:
     - url: http://dj.cs.fit.edu/ser2014/d1/public/
+      as_of: '20150727064552'
       archived: seusa/seusa-2014/scoreboard/2026-09-01-wayback-fdb765ab/page.html
-      wayback: https://web.archive.org/web/20150727064552/http://dj.cs.fit.edu/ser2014/d1/public/
       url_state: unknown
       url_checked: '2026-09-07'
     - url: http://dj.cs.fit.edu/ser2014/d2/public/
+      as_of: '20150727051318'
       archived: seusa/seusa-2014/scoreboard/2026-09-01-wayback-676b7180/page.html
-      wayback: https://web.archive.org/web/20150727051318/http://dj.cs.fit.edu/ser2014/d2/public/
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2015/standings
@@ -532,7 +562,9 @@ contests:
   - 3202
   parent: wf-2017
   next: seusa-2017
-  web: https://web.archive.org/web/20191214051456/https://ser.cs.fit.edu/ser2016/
+  web:
+    url: https://ser.cs.fit.edu/ser2016/
+    as_of: '20191214051456'
   results:
     scoreboard:
     - url: http://ser2016.cloudcontest.org/SER2016D1.html
@@ -576,7 +608,9 @@ contests:
   - 3545
   parent: wf-2019
   next: seusa-2019
-  web: http://web.archive.org/web/20190822112803/https://ser.cs.fit.edu/ser2018/
+  web:
+    url: https://ser.cs.fit.edu/ser2018/
+    as_of: '20190822112803'
   icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2019/standings
   results:
     standings:
@@ -593,7 +627,9 @@ contests:
   - 4064
   parent: nac-2020
   next: seusa-2020
-  web: http://web.archive.org/web/20191116213512/https://ser.cs.fit.edu/ser2019/
+  web:
+    url: https://ser.cs.fit.edu/ser2019/
+    as_of: '20191116213512'
   results:
     scoreboard:
     - url: http://ser2019.cloudcontest.org/SER2019D1.html

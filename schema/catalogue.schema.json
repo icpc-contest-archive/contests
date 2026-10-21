@@ -37,18 +37,19 @@
   },
   "url": {
    "type": "string",
-   "pattern": "^https?://"
+   "pattern": "^https?://",
+   "description": "a locator: a bare URL, never an archive wrapper (web.archive.org/web/<ts>/...) — ingest unwraps those into url + as_of; enforced by validate.py"
   },
   "urlOrList": {
    "oneOf": [
     {
-     "$ref": "#/$defs/url"
+     "$ref": "#/$defs/urlOrLocator"
     },
     {
      "type": "array",
      "minItems": 2,
      "items": {
-      "$ref": "#/$defs/url"
+      "$ref": "#/$defs/urlOrLocator"
      }
     }
    ]
@@ -63,12 +64,12 @@
     "url": {
      "$ref": "#/$defs/url"
     },
+    "as_of": {
+     "$ref": "#/$defs/asOf"
+    },
     "archived": {
      "type": "string",
      "description": "archive reference: <contest-id>/<artifact>/<fetch-date>"
-    },
-    "wayback": {
-     "$ref": "#/$defs/url"
     },
     "fetched": {
      "type": "string",
@@ -196,8 +197,7 @@
      "description": "non-mainline registry only"
     },
     "problemset": {
-     "type": "string",
-     "format": "uri",
+     "$ref": "#/$defs/urlOrLocator",
      "description": "Q11 2026-09-07: problem-set URL (first-class capture target)"
     },
     "mirrors": {
@@ -211,16 +211,51 @@
       ],
       "properties": {
        "url": {
-        "type": "string",
-        "format": "uri"
+        "$ref": "#/$defs/url"
        },
        "note": {
         "type": "string"
+       },
+       "as_of": {
+        "$ref": "#/$defs/asOf"
        }
       }
      }
     }
    }
+  },
+  "asOf": {
+   "type": "string",
+   "pattern": "^[0-9]{4,14}$",
+   "description": "Wayback-style timestamp, 4-14 digits at the precision known (2011, 20110102, 20110102183612): the content meant is what the locator served at this time (live address dead/repurposed). Derivable wayback link: web.archive.org/web/<as_of>/<url>"
+  },
+  "locator": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "url"
+   ],
+   "properties": {
+    "url": {
+     "$ref": "#/$defs/url"
+    },
+    "as_of": {
+     "$ref": "#/$defs/asOf"
+    },
+    "note": {
+     "type": "string"
+    }
+   }
+  },
+  "urlOrLocator": {
+   "oneOf": [
+    {
+     "$ref": "#/$defs/url"
+    },
+    {
+     "$ref": "#/$defs/locator"
+    }
+   ]
   }
  },
  "properties": {

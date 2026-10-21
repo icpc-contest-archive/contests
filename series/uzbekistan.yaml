@@ -1,4 +1,4 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; resource model migration (tools/migrate_resources.py).
 series:
   id: uzbekistan
   name: ICPC Uzbekistan Regional Contest
@@ -24,13 +24,13 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: http://neerc.ifmo.ru/online/Information/results.jsp?id=365
+      as_of: '20040803172257'
       archived: uzbekistan/uzbekistan-2003/standings/2026-09-01-live-0bd48d9d/page.html
-      wayback: https://web.archive.org/web/20040803172257fw_/http://neerc.ifmo.ru/online/Information/results.jsp?id=365
       url_state: live
       url_checked: '2026-09-07'
     - url: https://neerc.ifmo.ru/archive/2003/uzbekistan/standings.html
+      as_of: '20161105003123'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161105003123/https://neerc.ifmo.ru/archive/2003/uzbekistan/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/uzbekistan.html
@@ -43,13 +43,13 @@ contests:
   results:
     standings:
     - url: https://nerc.itmo.ru/archive/2004/uzbekistan/standings.html
+      as_of: '20260613055436'
       url_state: live
       url_checked: '2026-09-07'
       archived: uzbekistan/uzbekistan-2004/standings/20260613-wayback-431865ef/standings.html
-      wayback: https://web.archive.org/web/20260613055436/https://nerc.itmo.ru/archive/2004/uzbekistan/standings.html
     - url: https://neerc.ifmo.ru/archive/2004/uzbekistan/standings.html
+      as_of: '20161105010631'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161105010631/https://neerc.ifmo.ru/archive/2004/uzbekistan/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/uzbekistan.html
@@ -62,14 +62,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2005/uzbekistan/standings.html
+      as_of: '20220122062722'
       url_state: live
       url_checked: '2026-09-07'
       archived: uzbekistan/uzbekistan-2005/scoreboard/20220122-wayback-8e28d579/standings.html
-      wayback: https://web.archive.org/web/20220122062722/https://nerc.itmo.ru/archive/2005/uzbekistan/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2005/uzbekistan/standings.html
+      as_of: '20161105003129'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161105003129/https://neerc.ifmo.ru/archive/2005/uzbekistan/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/uzbekistan.html
@@ -82,14 +82,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2006/uzbekistan/standings.html
+      as_of: '20230322040338'
       url_state: live
       url_checked: '2026-09-07'
       archived: uzbekistan/uzbekistan-2006/scoreboard/20230322-wayback-66d7b0cb/standings.html
-      wayback: https://web.archive.org/web/20230322040338/https://nerc.itmo.ru/archive/2006/uzbekistan/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2006/uzbekistan/standings.html
+      as_of: '20161105003134'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161105003134/https://neerc.ifmo.ru/archive/2006/uzbekistan/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/uzbekistan.html
@@ -102,14 +102,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2007/uzbekistan/standings.html
+      as_of: '20260610221526'
       url_state: live
       url_checked: '2026-09-07'
       archived: uzbekistan/uzbekistan-2007/scoreboard/20260610-wayback-86a46f93/standings.html
-      wayback: https://web.archive.org/web/20260610221526/https://nerc.itmo.ru/archive/2007/uzbekistan/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2007/uzbekistan/standings.html
+      as_of: '20161105010636'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161105010636/https://neerc.ifmo.ru/archive/2007/uzbekistan/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/uzbekistan.html
@@ -125,14 +125,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2008/uzbekistan/standings.html
+      as_of: '20260610213316'
       url_state: live
       url_checked: '2026-09-07'
       archived: uzbekistan/uzbekistan-2008/scoreboard/20260610-wayback-99354adc/standings.html
-      wayback: https://web.archive.org/web/20260610213316/https://nerc.itmo.ru/archive/2008/uzbekistan/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2008/uzbekistan/standings.html
+      as_of: '20161105003139'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161105003139/https://neerc.ifmo.ru/archive/2008/uzbekistan/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Uzbekistan-Subregional-2009/standings
@@ -154,8 +154,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2009/uzbekistan/standings.html
+      as_of: '20161105010641'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161105010641/https://neerc.ifmo.ru/archive/2009/uzbekistan/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/uzbekistan.html
@@ -176,8 +176,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2010/uzbekistan/standings.html
+      as_of: '20161105010646'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161105010646/https://neerc.ifmo.ru/archive/2010/uzbekistan/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: http://neerc.ifmo.ru/
@@ -198,8 +198,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2011/uzbekistan/standings.html
+      as_of: '20161105010652'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161105010652/https://neerc.ifmo.ru/archive/2011/uzbekistan/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Uzbekistan-Subregional-2012/standings
@@ -216,14 +216,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2012/uzbekistan/standings.html
+      as_of: '20260613055742'
       url_state: live
       url_checked: '2026-09-07'
       archived: uzbekistan/uzbekistan-2012/scoreboard/20260613-wayback-42b5b46f/standings.html
-      wayback: https://web.archive.org/web/20260613055742/https://nerc.itmo.ru/archive/2012/uzbekistan/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2012/uzbekistan/standings.html
+      as_of: '20161031082542'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161031082542/https://neerc.ifmo.ru/archive/2012/uzbekistan/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Uzbekistan-Subregional-2013/standings
@@ -240,14 +240,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2013/uzbekistan/standings.html
+      as_of: '20260610221315'
       url_state: live
       url_checked: '2026-09-07'
       archived: uzbekistan/uzbekistan-2013/scoreboard/20260610-wayback-46d281ab/standings.html
-      wayback: https://web.archive.org/web/20260610221315/https://nerc.itmo.ru/archive/2013/uzbekistan/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2013/uzbekistan/standings.html
+      as_of: '20161031215028'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161031215028/https://neerc.ifmo.ru/archive/2013/uzbekistan/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/uzbekistan.html
@@ -263,14 +263,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2014/uzbekistan/standings.html
+      as_of: '20220122053239'
       url_state: live
       url_checked: '2026-09-07'
       archived: uzbekistan/uzbekistan-2014/scoreboard/20220122-wayback-5b3ba711/standings.html
-      wayback: https://web.archive.org/web/20220122053239/https://nerc.itmo.ru/archive/2014/uzbekistan/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2014/uzbekistan/standings.html
+      as_of: '20161031082612'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161031082612/https://neerc.ifmo.ru/archive/2014/uzbekistan/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Uzbekistan-Subregional-2015/standings
@@ -287,14 +287,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2015/uzbekistan/standings.html
+      as_of: '20260610160341'
       url_state: live
       url_checked: '2026-09-07'
       archived: uzbekistan/uzbekistan-2015/scoreboard/20260610-wayback-2982f087/standings.html
-      wayback: https://web.archive.org/web/20260610160341/https://nerc.itmo.ru/archive/2015/uzbekistan/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2015/uzbekistan/standings.html
+      as_of: '20161031080421'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161031080421/https://neerc.ifmo.ru/archive/2015/uzbekistan/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Uzbekistan-Subregional-2016/standings
@@ -316,8 +316,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2016/uzbekistan/standings.html
+      as_of: '20170925000139'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20170925000139/https://neerc.ifmo.ru/archive/2016/uzbekistan/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Uzbekistan-Subregional-2017/standings
@@ -333,14 +333,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2017/uzbekistan/standings.html
+      as_of: '20260613065040'
       url_state: live
       url_checked: '2026-09-07'
       archived: uzbekistan/uzbekistan-2017/scoreboard/20260613-wayback-1ce54e05/standings.html
-      wayback: https://web.archive.org/web/20260613065040/https://nerc.itmo.ru/archive/2017/uzbekistan/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2017/uzbekistan/standings.html
+      as_of: '20180920232617'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20180920232617/https://neerc.ifmo.ru/archive/2017/uzbekistan/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Uzbekistan-Subregional-2018/standings
@@ -357,18 +357,18 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2018/uzbekistan/standings.html
+      as_of: '20260610213916'
       url_state: live
       url_checked: '2026-09-07'
       archived: uzbekistan/uzbekistan-2018/scoreboard/20260610-wayback-9fc36934/standings.html
-      wayback: https://web.archive.org/web/20260610213916/https://nerc.itmo.ru/archive/2018/uzbekistan/standings.html
     - url: http://opentrains.mipt.ru/~ejudge/uzbekistan2018finals.html
       archived: uzbekistan/uzbekistan-2018/scoreboard/2026-09-01-live-d7c9ddcb/uzbekistan2018finals.html
       url_state: live
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2018/uzbekistan/standings.html
+      as_of: '20240811155904'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20240811155904/https://neerc.ifmo.ru/archive/2018/uzbekistan/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Uzbekistan-Subregional-2019/standings
@@ -385,14 +385,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2019/uzbekistan/standings.html
+      as_of: '20260613065617'
       url_state: live
       url_checked: '2026-09-07'
       archived: uzbekistan/uzbekistan-2019/scoreboard/20260613-wayback-987752c3/standings.html
-      wayback: https://web.archive.org/web/20260613065617/https://nerc.itmo.ru/archive/2019/uzbekistan/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2019/uzbekistan/standings.html
+      as_of: '20230331165934'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20230331165934/https://neerc.ifmo.ru/archive/2019/uzbekistan/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/uzbekistan.html
@@ -408,10 +408,10 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2020/uzbekistan/standings.html
+      as_of: '20260613055956'
       url_state: live
       url_checked: '2026-09-07'
       archived: uzbekistan/uzbekistan-2020/scoreboard/20260613-wayback-dac69576/standings.html
-      wayback: https://web.archive.org/web/20260613055956/https://nerc.itmo.ru/archive/2020/uzbekistan/standings.html
     standings:
     - url: https://official.contest.yandex.ru/uz2020/contest/23207/standings
       archived: uzbekistan/uzbekistan-2020/external-standings/2026-04-15-external/content.html
@@ -419,8 +419,8 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: https://neerc.ifmo.ru/archive/2020/uzbekistan/standings.html
+      as_of: '20240229082102'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20240229082102/https://neerc.ifmo.ru/archive/2020/uzbekistan/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Uzbekistan-Regional-2021/standings
@@ -437,14 +437,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2021/uzbekistan/standings.html
+      as_of: '20260613064331'
       url_state: live
       url_checked: '2026-09-07'
       archived: uzbekistan/uzbekistan-2021/scoreboard/20260613-wayback-ff476835/standings.html
-      wayback: https://web.archive.org/web/20260613064331/https://nerc.itmo.ru/archive/2021/uzbekistan/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2021/uzbekistan/standings.html
+      as_of: '20240811152609'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20240811152609/https://neerc.ifmo.ru/archive/2021/uzbekistan/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Uzbekistan-Regional-2022/standings
@@ -461,14 +461,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2022/uzbekistan/standings.html
+      as_of: '20230322025217'
       url_state: live
       url_checked: '2026-09-07'
       archived: uzbekistan/uzbekistan-2022/scoreboard/20230322-wayback-0e489213/standings.html
-      wayback: https://web.archive.org/web/20230322025217/https://nerc.itmo.ru/archive/2022/uzbekistan/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2022/uzbekistan/standings.html
+      as_of: '20230324101202'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20230324101202/https://neerc.ifmo.ru/archive/2022/uzbekistan/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Uzbekistan-Regional-2023/standings

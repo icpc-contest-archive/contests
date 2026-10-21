@@ -1,4 +1,4 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; resource model migration (tools/migrate_resources.py).
 series:
   id: south-pacific
   name: ICPC South Pacific Independent Regional Contest
@@ -43,8 +43,8 @@ contests:
       url_state: changed
       url_checked: '2026-09-07'
     - url: https://sppcontests.org/archive/1993-icpc-results/
+      as_of: '20250709002444'
       note: added by url-hunt 2026-09-01 (wave5-boards)
-      wayback: https://web.archive.org/web/20250709002444/https://sppcontests.org/archive/1993-icpc-results/
       url_state: live
       url_checked: '2026-09-07'
   web: https://sppcontests.org/archive/1993-icpc-results/
@@ -128,13 +128,13 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: https://sppcontests.org/archive/1998-icpc-results/
+      as_of: '20250708230347'
       note: added by url-hunt 2026-09-01 (wave5-boards)
-      wayback: https://web.archive.org/web/20250708230347/https://sppcontests.org/archive/1998-icpc-results/
       url_state: live
       url_checked: '2026-09-07'
     - url: http://icpc.baylor.edu:80/past/icpc99/Regionals/Aus98/Standings.htm
+      as_of: '20021125231107'
       note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      wayback: https://web.archive.org/web/20021125231107/http://icpc.baylor.edu:80/past/icpc99/Regionals/Aus98/Standings.htm
       url_state: unknown
       url_checked: '2026-09-07'
   web: http://elena.ait.ac.nz/homepages/acm_contest
@@ -154,15 +154,15 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: http://icpc.baylor.edu:80/past/icpc2000/regionals/SPacific99/Standings.html
+      as_of: '20020112001919'
       note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      wayback: https://web.archive.org/web/20020112001919/http://icpc.baylor.edu:80/past/icpc2000/regionals/SPacific99/Standings.html
       url_state: unknown
       url_checked: '2026-09-07'
     scoreboard:
     - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_VV_SouthPac/1999/index.html
+      as_of: '20020728080448'
       archived: south-pacific/south-pacific-1999/scoreboard/2026-04-16-archive/1999-south-pacific-programming-contest-1999.html
       note: from archived capture (scoreboard)
-      wayback: https://web.archive.org/web/20020728080448/http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_VV_SouthPac/1999/index.html
       url_state: unknown
       url_checked: '2026-09-07'
   web: http://elena.aut.ac.nz/homepages/acm_contest
@@ -183,11 +183,13 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: http://icpc.baylor.edu:80/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=430
+      as_of: '20011222225621'
       note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      wayback: https://web.archive.org/web/20011222225621/http://icpc.baylor.edu:80/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=430
       url_state: unknown
       url_checked: '2026-09-07'
-  web: https://web.archive.org/web/20020112114103/http://icpc.baylor.edu:80/past/icpc2001/Regionals/SPacific00/Default.asp
+  web:
+    url: http://icpc.baylor.edu/past/icpc2001/Regionals/SPacific00/Default.asp
+    as_of: '20020112114103'
 - id: south-pacific-2001
   season: 2002
   name: 2001 ACM South Pacific Programming Contest
@@ -205,11 +207,13 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: http://icpc.baylor.edu:80/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=495
+      as_of: '20020619095133'
       note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      wayback: https://web.archive.org/web/20020619095133/http://icpc.baylor.edu:80/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=495
       url_state: unknown
       url_checked: '2026-09-07'
-  web: https://web.archive.org/web/20020619092722/http://icpc.baylor.edu:80/past/icpc2002/Regionals/SPacific01/default.asp
+  web:
+    url: http://icpc.baylor.edu/past/icpc2002/Regionals/SPacific01/default.asp
+    as_of: '20020619092722'
 - id: south-pacific-2002
   season: 2003
   name: 2002 ACM South Pacific Programming Contest
@@ -228,8 +232,8 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings118d.html?ContestID=563
+      as_of: '20060901121955'
       note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      wayback: https://web.archive.org/web/20060901121955/http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings118d.html?ContestID=563
       url_state: unknown
       url_checked: '2026-09-07'
   web: http://www.SPPContest.org
@@ -251,8 +255,8 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandingsc7e6.html?ContestID=637
+      as_of: '20060901143723'
       note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      wayback: https://web.archive.org/web/20060901143723/http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandingsc7e6.html?ContestID=637
       url_state: unknown
       url_checked: '2026-09-07'
   web: http://www.SPPContest.org
@@ -289,8 +293,8 @@ contests:
   results:
     scoreboard:
     - url: http://public.webdev.aut.ac.nz:80/ACM/Scoreboards/2005/scoreboard.html
+      as_of: '20161018092821'
       archived: south-pacific/south-pacific-2005/scoreboard/2026-09-01-wayback-ce555d62/scoreboard.html
-      wayback: http://web.archive.org/web/20161018092821/http://public.webdev.aut.ac.nz:80/ACM/Scoreboards/2005/scoreboard.html
       url_state: unknown
       url_checked: '2026-09-07'
     standings:
@@ -299,9 +303,9 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=713
+      as_of: '20111113175942'
       archived: south-pacific/south-pacific-2005/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20111113175942/http://icpc.baylor.edu:80/icpc/regionals/ViewRegionalStandings.asp?ContestID=713
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/South-Pacific-2006/standings
@@ -325,9 +329,9 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=755
+      as_of: '20191210010449'
       archived: south-pacific/south-pacific-2006/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20191210010449/https://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=755
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/South-Pacific-2007/standings
@@ -462,8 +466,8 @@ contests:
   results:
     scoreboard:
     - url: http://public.webdev.aut.ac.nz:80/ACM/Scoreboards/2012/Scoreboard.html
+      as_of: '20161018092108'
       archived: south-pacific/south-pacific-2012/scoreboard/2026-09-01-wayback-6c9289d3/Scoreboard.html
-      wayback: http://web.archive.org/web/20161018092108/http://public.webdev.aut.ac.nz:80/ACM/Scoreboards/2012/Scoreboard.html
       url_state: unknown
       url_checked: '2026-09-07'
     - url: https://sppcontests.org/archive/2012-icpc-results/
@@ -492,8 +496,8 @@ contests:
   results:
     scoreboard:
     - url: http://public.webdev.aut.ac.nz:80/ACM/Scoreboards/2013/Scoreboard.html
+      as_of: '20161018092634'
       archived: south-pacific/south-pacific-2013/scoreboard/2026-09-01-wayback-5abbd9fe/Scoreboard.html
-      wayback: http://web.archive.org/web/20161018092634/http://public.webdev.aut.ac.nz:80/ACM/Scoreboards/2013/Scoreboard.html
       url_state: unknown
       url_checked: '2026-09-07'
     - url: https://sppcontests.org/archive/2013-icpc-results/
@@ -513,7 +517,7 @@ contests:
   results:
     scoreboard:
     - url: http://public.webdev.aut.ac.nz:80/ACM/Scoreboards/2014/Regional/Scoreboard.html
-      wayback: http://web.archive.org/web/20150313002543/http://public.webdev.aut.ac.nz:80/ACM/Scoreboards/2014/Regional/Scoreboard.html
+      as_of: '20150313002543'
       url_state: unknown
       url_checked: '2026-09-07'
       archived: south-pacific/south-pacific-2014/external-standings/2026-04-15-external/content.html
@@ -523,9 +527,9 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: http://public.webdev.aut.ac.nz/ACM/Scoreboards/2014/Regional/Scoreboard.html
+      as_of: '20160822211629'
       archived: south-pacific/south-pacific-2014/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20160822211629/http://public.webdev.aut.ac.nz:80/ACM/Scoreboards/2014/Regional/Scoreboard.html
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/South-Pacific-Finals-2015/standings
@@ -542,7 +546,7 @@ contests:
   results:
     scoreboard:
     - url: http://public.webdev.aut.ac.nz:80/ACM/Scoreboards/2015/Regional/Scoreboard.htm
-      wayback: http://web.archive.org/web/20160130135149/http://public.webdev.aut.ac.nz:80/ACM/Scoreboards/2015/Regional/Scoreboard.htm
+      as_of: '20160130135149'
       url_state: unknown
       url_checked: '2026-09-07'
       archived: south-pacific/south-pacific-2015/external-standings/2026-04-15-external/content.html
@@ -552,9 +556,9 @@ contests:
       url_state: changed
       url_checked: '2026-09-07'
     - url: http://public.webdev.aut.ac.nz/ACM/Scoreboards/2015/Regional/Scoreboard.htm
+      as_of: '20160830135628'
       archived: south-pacific/south-pacific-2015/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20160830135628/http://public.webdev.aut.ac.nz:80/ACM/Scoreboards/2015/Regional/Scoreboard.htm
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/South-Pacific-Finals-2016/standings
@@ -568,7 +572,9 @@ contests:
   - 3100
   parent: wf-2017
   next: south-pacific-2017
-  web: http://web.archive.org/web/20180321024125/https://acmicpc.unisa.edu.au/index.php/regional-contest-current/55-regional-contests/2016-regional-contests/143-2016-south-pacific-region-contests
+  web:
+    url: https://acmicpc.unisa.edu.au/index.php/regional-contest-current/55-regional-contests/2016-regional-contests/143-2016-south-pacific-region-contests
+    as_of: '20180321024125'
   results:
     scoreboard:
     - url: https://sppcontests.org/archive/2016-icpc-results/
@@ -577,9 +583,9 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: http://acmicpc.unisa.edu.au/index.php/regional-contest-current/55-regional-contests/2016-regional-contests/149-2016-regional-final
+      as_of: '20180321035440'
       archived: south-pacific/south-pacific-2016/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20180321035440/https://acmicpc.unisa.edu.au/index.php/regional-contest-current/55-regional-contests/2016-regional-contests/149-2016-regional-final
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/South-Pacific-Finals-2017/standings
@@ -595,7 +601,7 @@ contests:
   results:
     scoreboard:
     - url: http://public.webdev.aut.ac.nz:80/ACM/Scoreboards/2017/Regional/FinalScoreboard.htm
-      wayback: http://web.archive.org/web/20180202021142/http://public.webdev.aut.ac.nz:80/ACM/Scoreboards/2017/Regional/FinalScoreboard.htm
+      as_of: '20180202021142'
       url_state: unknown
       url_checked: '2026-09-07'
       archived: south-pacific/south-pacific-2017/scoreboard/2026-09-01-wayback-a2b57fae/FinalScoreboard.htm
@@ -605,9 +611,9 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://acmicpc.unisa.edu.au/index.php/regional-contest-current/56-regional-contests/2017-regional-contests/157-2017-regional-final
+      as_of: '20180321034925'
       archived: south-pacific/south-pacific-2017/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20180321034925/https://acmicpc.unisa.edu.au/index.php/regional-contest-current/56-regional-contests/2017-regional-contests/157-2017-regional-final
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/South-Pacific-Final-2018/standings
@@ -641,7 +647,7 @@ contests:
   results:
     scoreboard:
     - url: http://public.webdev.aut.ac.nz/ACM/Scoreboards/2019/Regional/Regional2019.html
-      wayback: http://web.archive.org/web/20200209084849/http://public.webdev.aut.ac.nz/ACM/Scoreboards/2019/Regional/Regional2019.html
+      as_of: '20200209084849'
       url_state: unknown
       url_checked: '2026-09-07'
       archived: south-pacific/south-pacific-2019/scoreboard/2026-09-01-wayback-049436f1/Regional2019.html
@@ -651,8 +657,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://sppcontests.org/archive/2019-icpc-results/
+      as_of: '20241005093614'
       note: added by url-hunt 2026-09-01 (wave5-boards)
-      wayback: https://web.archive.org/web/20241005093614/https://sppcontests.org/archive/2019-icpc-results/
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/South-Pacific-Final-2020/standings
@@ -678,8 +684,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://sppcontests.org/archive/2020-icpc-results/
+      as_of: '20250119172305'
       note: added by url-hunt 2026-09-01 (wave5-boards)
-      wayback: https://web.archive.org/web/20250119172305/https://sppcontests.org/archive/2020-icpc-results/
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/SouthPacific-2021/standings
@@ -701,8 +707,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://sppcontests.org/archive/2021-icpc-results/
+      as_of: '20250119160652'
       note: added by url-hunt 2026-09-01 (wave5-boards)
-      wayback: https://web.archive.org/web/20250119160652/https://sppcontests.org/archive/2021-icpc-results/
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/SouthPacific-2022/standings
@@ -724,8 +730,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://sppcontests.org/archive/2022-icpc-results/
+      as_of: '20241005101423'
       note: added by url-hunt 2026-09-01 (wave5-boards)
-      wayback: https://web.archive.org/web/20241005101423/https://sppcontests.org/archive/2022-icpc-results/
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/SouthPacific-2023/standings
@@ -747,8 +753,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://sppcontests.org/archive/2023-icpc-results/
+      as_of: '20241113030159'
       note: added by url-hunt 2026-09-01 (wave5-boards)
-      wayback: https://web.archive.org/web/20241113030159/https://sppcontests.org/archive/2023-icpc-results/
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/SouthPacific-2024/standings

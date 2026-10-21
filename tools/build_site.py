@@ -23,6 +23,9 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
+import sys  # noqa: E402
+sys.path.insert(0, str(ROOT / "tools"))
+from resources import fmt_time, label as res_label, unwrap, wayback_link  # noqa: E402
 REPLAY_BASE = os.environ.get("REPLAY_BASE", "https://icpc-contest-archive.github.io/replay")
 LOCAL_BASE = os.environ.get("LOCAL_ARCHIVE_BASE", "http://127.0.0.1:8123")
 LOCAL_TITLE = "local archive server — works only while tools/serve.py is running on this machine"
@@ -144,6 +147,18 @@ def refs(v):
     return v if isinstance(v, list) else [v]
 
 
+def locators(v):
+    """`web`/`problemset`-style fields: string or {url, as_of} or a list of either
+    -> list of (url, as_of|None)."""
+    out = []
+    for w in refs(v):
+        if isinstance(w, dict):
+            out.append((w["url"], w.get("as_of")))
+        else:
+            out.append((w, None))
+    return out
+
+
 def page(title: str, body: str, rel: str) -> str:
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -229,20 +244,38 @@ def result_links(cid, key, entries, replay_lookup, rel, matched_paths):
     rows = []
     for i, e in enumerate(entries):
         url = e["url"]
+        as_of = e.get("as_of")
         parts = [f'<a href="{esc(url)}">live</a>']
-        wb = e.get("wayback") or f"https://web.archive.org/web/*/{url}"
-        parts.append(f'<a href="{esc(wb)}">wayback</a>')
+        parts.append(f'<a href="{esc(wayback_link(url, as_of))}">wayback</a>')
         baked = ("a/" + e["archived"]) if e.get("archived") else replay_lookup.get((cid, url))
+        cap = capture_info.get(e.get("archived") or "")
+        when = fmt_time(cap_time(cap)) if cap else ""
         if baked:
             matched_paths.add(baked)
-            parts.append(f'<a href="{REPLAY_BASE}/{esc(baked)}">archived</a>')
+            parts.append(f'<a href="{REPLAY_BASE}/{esc(baked)}" title="our copy of this resource">'
+                         f'archived{" (" + when + ")" if when else ""}</a>')
         if e.get("archived"):
             parts.append(local_link("archive/" + e["archived"], "raw"))
         rows.append(
             f'<div class="small"><span class="chip">{esc(key.replace("_", " "))}</span> '
-            + " · ".join(parts) + f' <span class="muted">{esc(url[:90])}</span></div>'
+            + " · ".join(parts) + f' <span class="muted">{esc(res_label(url, as_of))}</span></div>'
         )
     return rows
+
+
+capture_info: dict = {}  # archive path -> capture entry (from data/archive-index.json)
+
+
+def cap_time(cap: dict):
+    """The resource time of a capture: the served Wayback snapshot for wayback-sourced
+    captures, else our own fetch time."""
+    if not cap:
+        return None
+    ts = cap.get("wayback_timestamp") or unwrap(cap.get("wayback_url") or "")[1]
+    if ts:
+        return ts
+    f = cap.get("fetched") or ""
+    return re.sub(r"[^0-9]", "", f.split("+")[0].replace("Z", ""))[:14] or None
 
 
 def build(out: Path):
@@ -262,6 +295,7 @@ def build(out: Path):
     if aux["archive-index"]:
         for e in aux["archive-index"]["captures"]:
             archived_by_contest[e["contest"]].append(e)
+            capture_info[e["path"]] = e
     website_of = {}  # contest -> primary website capture entry
     if aux["website-index"]:
         for e in aux["website-index"]["sites"]:
@@ -313,19 +347,21 @@ def build(out: Path):
             d.append("<dt>CMS ids</dt><dd class='muted'>"
                      + ("pre-CMS era" if c.get("cms_status") == "pre-cms" else "none") + "</dd>")
         site = website_of.get(cid)
-        for n_w, w in enumerate(refs(c.get("web", []))):
-            wb = f"https://web.archive.org/web/*/{w}"
+        for n_w, (w, as_of) in enumerate(locators(c.get("web"))):
+            wb_ts = as_of
             extra = ""
             if site and n_w == 0:
-                if site.get("wayback_url"):
-                    wb = site["wayback_url"]  # the snapshot the crawl actually used
+                if site.get("wayback_timestamp"):
+                    wb_ts = site["wayback_timestamp"]  # the snapshot the crawl actually used
                 npages = site.get("html_pages") or site.get("pages") or 0
+                when = site.get("wayback_timestamp") or site.get("fetched", "")
                 extra = (" · " + local_link(f"site/{cid}/", "archived site")
                          + f' <span class="muted">({npages} pages, '
-                         + ("wayback snapshot" if site.get("mode") == "wayback" else "live crawl")
-                         + f' {str(site.get("fetched", ""))[:10]})</span>')
-            d.append(f'<dt>web</dt><dd><a href="{esc(w)}">{esc(w[:80])}</a> · '
-                     f'<a href="{esc(wb)}">wayback</a>{extra}</dd>')
+                         + ("snapshot " if site.get("mode") == "wayback" else "live crawl ")
+                         + esc(fmt_time(site.get("wayback_timestamp")) if site.get("wayback_timestamp")
+                               else str(site.get("fetched", ""))[:10]) + ")</span>")
+            d.append(f'<dt>web</dt><dd><a href="{esc(w)}">{esc(res_label(w, as_of, 80))}</a> · '
+                     f'<a href="{esc(wayback_link(w, wb_ts))}">wayback</a>{extra}</dd>')
         if c.get("icpc_standings"):
             d.append(f'<dt>ICPC standings</dt><dd><a href="{esc(c["icpc_standings"])}">finder page</a></dd>')
         if c.get("notes"):
@@ -618,10 +654,7 @@ def build(out: Path):
     (out / "urls").mkdir(exist_ok=True)
 
     def wb_href(e):
-        w = e.get("wayback")
-        if not w:
-            return None
-        return w if str(w).startswith("http") else f"https://web.archive.org/web/{w}/{e['url']}"
+        return wayback_link(e["url"], e["as_of"]) if e.get("as_of") else None
 
     url_tables = {k: [] for k, _ in TIERS}
     url_tables["icpc_standings"] = []
@@ -633,8 +666,8 @@ def build(out: Path):
                 url_tables[k].append((cid, e))
         if c.get("icpc_standings"):
             url_tables["icpc_standings"].append((cid, {"url": c["icpc_standings"]}))
-        for w in refs(c.get("web")):
-            url_tables["web"].append((cid, {"url": w}))
+        for w, as_of in locators(c.get("web")):
+            url_tables["web"].append((cid, {"url": w, "as_of": as_of}))
     art_order = ["scoreboard", "frozen_scoreboard", "standings", "rankings",
                  "icpc_standings", "web"]
     counts = {k: len(url_tables[k]) for k in art_order}
@@ -655,7 +688,7 @@ def build(out: Path):
                 extras.append(f'<a class="small" href="{REPLAY_BASE}/a/{esc(e["archived"])}">'
                               'archived</a>')
             rows_h.append(f'<tr><td>{link_contest(cid, "../")}</td>'
-                          f'<td class="wrap"><a href="{esc(e["url"])}">{esc(e["url"][:110])}</a></td>'
+                          f'<td class="wrap"><a href="{esc(e["url"])}">{esc(res_label(e["url"], e.get("as_of"), 110))}</a></td>'
                           f'<td>{" ".join(extras)}</td></tr>')
         body = (f'<h1>{k.replace("_", " ")} URLs</h1><p class="small muted">{nav_line}</p>'
                 '<div class="tablewrap"><table><tr><th>contest</th><th>url</th><th></th></tr>'

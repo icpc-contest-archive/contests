@@ -3,7 +3,7 @@
 
 For every capture in data/archive-index.json:
   - if its source URL matches an existing result entry (scheme/trailing-slash
-    insensitive) -> set that entry's `archived` (and `wayback` if known)
+    insensitive) -> set that entry's `archived` (and `as_of` from the snapshot if known)
   - else, if the capture has a source URL -> append a new result entry
     {url, archived, note} (artifact scoreboard -> scoreboard;
     external-standings -> standings)
@@ -21,6 +21,9 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
+import sys  # noqa: E402
+sys.path.insert(0, str(ROOT / "tools"))
+from resources import norm_key, unwrap  # noqa: E402
 ART_KEY = {"scoreboard": "scoreboard", "frozen_scoreboard": "frozen_scoreboard",
            "standings": "standings", "rankings": "rankings",
            "external-standings": "standings"}
@@ -35,22 +38,13 @@ Dumper.add_representer(
 )
 
 
-def norm(u: str) -> str:
-    return re.sub(r"^https?://", "", (u or "").strip()).rstrip("/")
-
-
 def keyset(*urls) -> set:
-    """Match keys for a set of URLs: each normalized, plus the raw origin URL
-    embedded in any wayback link among them."""
-    out = set()
-    for u in urls:
-        if not u:
-            continue
-        out.add(norm(u))
-        m = re.match(r"^https?://web\.archive\.org/web/\d{4,14}[a-z_]{0,3}/(.*)$", u)
-        if m:
-            out.add(norm(m.group(1)))
-    return out
+    """Match keys for a set of URLs: each as a locator key (wrappers unwrapped)."""
+    return {norm_key(u) for u in urls if u}
+
+
+def cap_ts(cap: dict):
+    return cap.get("wayback_timestamp") or unwrap(cap.get("wayback_url") or "")[1]
 
 
 def main() -> int:
@@ -78,7 +72,7 @@ def main() -> int:
                     want = keyset(cap["url"], cap.get("wayback_url"))
                     for lst in res.values():
                         for e in lst:
-                            if keyset(e["url"], e.get("wayback")) & want:
+                            if keyset(e["url"]) & want:
                                 target = e
                                 break
                         if target:
@@ -88,15 +82,15 @@ def main() -> int:
                         stats["already enriched"] += 1
                         continue
                     target["archived"] = cap["path"]
-                    if cap.get("wayback_url") and not target.get("wayback"):
-                        target["wayback"] = cap["wayback_url"]
+                    if cap_ts(cap) and not target.get("as_of"):
+                        target["as_of"] = cap_ts(cap)
                     stats["archived added to existing entry"] += 1
                     changed = True
                 elif cap.get("url"):
-                    entry = {"url": cap["url"], "archived": cap["path"],
+                    entry = {"url": unwrap(cap["url"])[0], "archived": cap["path"],
                              "note": f"from archived capture ({cap['artifact']})"}
-                    if cap.get("wayback_url"):
-                        entry["wayback"] = cap["wayback_url"]
+                    if cap_ts(cap):
+                        entry = {"url": entry["url"], "as_of": cap_ts(cap), **{k: v for k, v in entry.items() if k != "url"}}
                     res.setdefault(key, []).append(entry)
                     stats[f"new {key} entry from capture"] += 1
                     changed = True

@@ -15,6 +15,9 @@ from pathlib import Path
 
 import yaml
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from resources import is_wrapper  # noqa: E402
+
 try:
     from jsonschema import Draft202012Validator
 except ImportError:  # older jsonschema (e.g. distro packages)
@@ -61,6 +64,25 @@ def main() -> int:
 
     non_mainline = yaml.safe_load((ROOT / "registry" / "non-mainline.yaml").read_text())
     triage = yaml.safe_load((ROOT / "registry" / "cms-triage.yaml").read_text())
+
+    # ---- locators are bare URLs, never archive wrappers (DEFINITIONS.md, Resources) ----
+    def check_locator(where: str, v):
+        if isinstance(v, dict):
+            v = v.get("url")
+        if isinstance(v, str) and is_wrapper(v):
+            err(f"{where}: archive wrapper URL used as locator — unwrap into url + as_of "
+                f"(tools/migrate_resources.py): {v[:100]}")
+
+    for sid, doc in series_docs.items():
+        for c in doc["contests"]:
+            for w in refs(c.get("web")):
+                check_locator(f"{c['id']}.web", w)
+            check_locator(f"{c['id']}.problemset", c.get("problemset"))
+            for m in c.get("mirrors") or []:
+                check_locator(f"{c['id']}.mirrors", m)
+            for kind, lst in (c.get("results") or {}).items():
+                for e in lst:
+                    check_locator(f"{c['id']}.results.{kind}", e)
 
     # ---- index all mainline contests ----
     contests: dict[str, dict] = {}

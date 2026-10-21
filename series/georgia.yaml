@@ -1,4 +1,4 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; resource model migration (tools/migrate_resources.py).
 series:
   id: georgia
   name: ICPC Georgia Regional Contest
@@ -16,8 +16,8 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: https://neerc.ifmo.ru/archive/2004/georgia/standings.html
+      as_of: '20171009205402'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20171009205402/https://neerc.ifmo.ru/archive/2004/georgia/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/georgia.html
@@ -35,8 +35,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2005/georgia/standings.html
+      as_of: '20161208235346'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161208235346/https://neerc.ifmo.ru/archive/2005/georgia/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/georgia.html
@@ -54,8 +54,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2006/georgia/standings.html
+      as_of: '20171009205412'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20171009205412/https://neerc.ifmo.ru/archive/2006/georgia/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/georgia.html
@@ -73,8 +73,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2007/georgia/standings.html
+      as_of: '20171009205417'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20171009205417/https://neerc.ifmo.ru/archive/2007/georgia/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/georgia.html
@@ -95,8 +95,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2008/georgia/standings.html
+      as_of: '20171009205422'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20171009205422/https://neerc.ifmo.ru/archive/2008/georgia/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Georgia-Subregional-2009/standings
@@ -118,8 +118,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2009/georgia/standings.html
+      as_of: '20171009205427'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20171009205427/https://neerc.ifmo.ru/archive/2009/georgia/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/georgia.html
@@ -140,8 +140,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2010/georgia/standings.html
+      as_of: '20171009205432'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20171009205432/https://neerc.ifmo.ru/archive/2010/georgia/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: http://neerc.ifmo.ru/
@@ -162,8 +162,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2011/georgia/standings.html
+      as_of: '20171009205437'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20171009205437/https://neerc.ifmo.ru/archive/2011/georgia/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Georgia-Subregional-2012/standings
@@ -185,8 +185,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2012/georgia/standings.html
+      as_of: '20161031082537'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161031082537/https://neerc.ifmo.ru/archive/2012/georgia/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Georgia-Subregional-2013/standings
@@ -203,14 +203,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2013/georgia/standings.html
+      as_of: '20260613063102'
       url_state: live
       url_checked: '2026-09-07'
       archived: georgia/georgia-2013/scoreboard/20260613-wayback-4ab4ff9b/standings.html
-      wayback: https://web.archive.org/web/20260613063102/https://nerc.itmo.ru/archive/2013/georgia/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2013/georgia/standings.html
+      as_of: '20191102005621'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20191102005621/https://neerc.ifmo.ru/archive/2013/georgia/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/georgia.html
@@ -231,8 +231,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2014/georgia/standings.html
+      as_of: '20161031081828'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161031081828/https://neerc.ifmo.ru/archive/2014/georgia/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Georgia-Subregional-2015/standings
@@ -254,8 +254,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2015/georgia/standings.html
+      as_of: '20161031081848'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161031081848/https://neerc.ifmo.ru/archive/2015/georgia/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Georgia-Subregional-2016/standings
@@ -277,8 +277,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2016/georgia/standings.html
+      as_of: '20171009205457'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20171009205457/https://neerc.ifmo.ru/archive/2016/georgia/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Georgia-Subregional-2017/standings
@@ -295,14 +295,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2017/georgia/standings.html
+      as_of: '20260613064252'
       url_state: live
       url_checked: '2026-09-07'
       archived: georgia/georgia-2017/scoreboard/20260613-wayback-a5b16a8e/standings.html
-      wayback: https://web.archive.org/web/20260613064252/https://nerc.itmo.ru/archive/2017/georgia/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2017/georgia/standings.html
+      as_of: '20171107063728'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20171107063728/https://neerc.ifmo.ru/archive/2017/georgia/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Georgia-Subregional-2018/standings
@@ -319,14 +319,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2018/georgia/standings.html
+      as_of: '20260610213058'
       url_state: live
       url_checked: '2026-09-07'
       archived: georgia/georgia-2018/scoreboard/20260610-wayback-e3a2a1d7/standings.html
-      wayback: https://web.archive.org/web/20260610213058/https://nerc.itmo.ru/archive/2018/georgia/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2018/georgia/standings.html
+      as_of: '20181028191953'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20181028191953/https://neerc.ifmo.ru/archive/2018/georgia/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Georgia-Subregional-2019/standings
@@ -343,14 +343,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2019/georgia/standings.html
+      as_of: '20260610160448'
       url_state: live
       url_checked: '2026-09-07'
       archived: georgia/georgia-2019/scoreboard/20260610-wayback-f1d0f48a/standings.html
-      wayback: https://web.archive.org/web/20260610160448/https://nerc.itmo.ru/archive/2019/georgia/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2019/georgia/standings.html
+      as_of: '20230321213338'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20230321213338/https://neerc.ifmo.ru/archive/2019/georgia/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Georgia-Regional-2020/standings
@@ -367,10 +367,10 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2020/georgia/standings.html
+      as_of: '20260610211719'
       url_state: live
       url_checked: '2026-09-07'
       archived: georgia/georgia-2020/scoreboard/20260610-wayback-5bcf071d/standings.html
-      wayback: https://web.archive.org/web/20260610211719/https://nerc.itmo.ru/archive/2020/georgia/standings.html
     standings:
     - url: https://official.contest.yandex.ru/geo2020/contest/23213/standings
       archived: georgia/georgia-2020/external-standings/2026-04-15-external/content.html
@@ -378,8 +378,8 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: https://neerc.ifmo.ru/archive/2020/georgia/standings.html
+      as_of: '20230326180635'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20230326180635/https://neerc.ifmo.ru/archive/2020/georgia/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Georgia-Regional-2021/standings
@@ -401,8 +401,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2021/georgia/standings.html
+      as_of: '20230326183612'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20230326183612/https://neerc.ifmo.ru/archive/2021/georgia/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Georgia-Regional-2022/standings
@@ -419,14 +419,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2022/georgia/standings.html
+      as_of: '20230322024035'
       url_state: live
       url_checked: '2026-09-07'
       archived: georgia/georgia-2022/scoreboard/20230322-wayback-74a6e76e/standings.html
-      wayback: https://web.archive.org/web/20230322024035/https://nerc.itmo.ru/archive/2022/georgia/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2022/georgia/standings.html
+      as_of: '20230324095732'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20230324095732/https://neerc.ifmo.ru/archive/2022/georgia/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Georgia-Regional-2023/standings
@@ -478,8 +478,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2025/georgia/standings.html
+      as_of: '20251217123238'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20251217123238/https://neerc.ifmo.ru/archive/2025/georgia/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Georgia-Regional-2026/standings
