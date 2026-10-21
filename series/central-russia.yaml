@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_candidates.py (url-hunt 2026-09-01).
+# Maintained in-repo; resource model migration (tools/migrate_resources.py).
 series:
   id: central-russia
   name: ICPC Central Russia Regional Contest
@@ -29,7 +29,7 @@ contests:
   cms_ids: []
   parent: neerc-2000
   next: central-russia-2001
-  web: https://web.archive.org/web/*/neerc.ifmo.ru/*
+  web: http://neerc.ifmo.ru/*
   problemset: https://acm.timus.ru/problemset.aspx?space=1&tag=qf
   mirrors: []
 - id: central-russia-2001
@@ -40,9 +40,9 @@ contests:
   next: central-russia-2002
   web: https://www.kgeorgiy.info/papers/Vasilev_VN__Kazakov_MA__Korneev_GA__Parfenov_VG__Stankevich_AS_--_NEERC_2001.pdf
   mirrors:
-  - url: https://web.archive.org/web/*/rsatu.ru/acm/*
+  - url: http://rsatu.ru/acm/*
     note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: https://web.archive.org/web/*/rgata.ru/*
+  - url: http://rgata.ru/*
     note: added by url-hunt 2026-09-01 (round9-wayback-probe)
 - id: central-russia-2002
   season: 2003
@@ -53,7 +53,7 @@ contests:
   web: http://old.rsatu.ru/acm/
   problemset: https://acm.timus.ru/problemset.aspx?space=37
   mirrors:
-  - url: https://web.archive.org/web/*/rsatu.ru/acm/*
+  - url: http://rsatu.ru/acm/*
     note: added by url-hunt 2026-09-01 (round9-wayback-probe)
 - id: central-russia-2003
   season: 2004
@@ -68,8 +68,8 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: https://neerc.ifmo.ru/archive/2003/central/standings.html
+      as_of: '20171011161713'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20171011161713/https://neerc.ifmo.ru/archive/2003/central/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/central.html
@@ -86,8 +86,8 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: https://neerc.ifmo.ru/archive/2004/central/standings.html
+      as_of: '20171011160755'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20171011160755/https://neerc.ifmo.ru/archive/2004/central/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/central.html
@@ -104,8 +104,8 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: https://neerc.ifmo.ru/archive/2005/central/standings.html
+      as_of: '20161209013556'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161209013556/https://neerc.ifmo.ru/archive/2005/central/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/central.html
@@ -122,8 +122,8 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: https://neerc.ifmo.ru/archive/2006/central/standings.html
+      as_of: '20171011160815'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20171011160815/https://neerc.ifmo.ru/archive/2006/central/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/central.html
@@ -140,8 +140,8 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: https://neerc.ifmo.ru/archive/2007/central/standings.html
+      as_of: '20171011161733'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20171011161733/https://neerc.ifmo.ru/archive/2007/central/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/central.html
@@ -161,8 +161,8 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: https://neerc.ifmo.ru/archive/2008/central/standings.html
+      as_of: '20171011160835'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20171011160835/https://neerc.ifmo.ru/archive/2008/central/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Central-Subregional-2009/standings
@@ -183,8 +183,8 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: https://neerc.ifmo.ru/archive/2009/central/standings.html
+      as_of: '20171011160840'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20171011160840/https://neerc.ifmo.ru/archive/2009/central/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/central.html
@@ -204,8 +204,8 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: https://neerc.ifmo.ru/archive/2010/central/standings.html
+      as_of: '20171011160850'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20171011160850/https://neerc.ifmo.ru/archive/2010/central/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: http://rgata.ru
@@ -226,8 +226,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2011/central/standings.html
+      as_of: '20171011160900'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20171011160900/https://neerc.ifmo.ru/archive/2011/central/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Central-Subregional-2012/standings
@@ -249,8 +249,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2012/central/standings.html
+      as_of: '20161031081806'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161031081806/https://neerc.ifmo.ru/archive/2012/central/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Central-Subregional-2013/standings
@@ -272,8 +272,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2013/central/standings.html
+      as_of: '20161031215135'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161031215135/https://neerc.ifmo.ru/archive/2013/central/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/central.html
@@ -294,8 +294,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2014/central/standings.html
+      as_of: '20161031081017'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161031081017/https://neerc.ifmo.ru/archive/2014/central/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Central-Subregional-2015/standings
@@ -317,8 +317,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2015/central/standings.html
+      as_of: '20161031080409'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161031080409/https://neerc.ifmo.ru/archive/2015/central/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Central-Subregional-2016/standings
@@ -357,8 +357,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2017/central/standings.html
+      as_of: '20180920232548'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20180920232548/https://neerc.ifmo.ru/archive/2017/central/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Central-Subregional-2018/standings
@@ -395,8 +395,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2019/central/standings.html
+      as_of: '20230331164933'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20230331164933/https://neerc.ifmo.ru/archive/2019/central/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Central-Regional-2020/standings

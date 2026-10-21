@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_candidates.py (url-hunt 2026-09-01).
+# Maintained in-repo; resource model migration (tools/migrate_resources.py).
 series:
   id: far-east-russia
   name: ICPC Far Eastern Russia Regional Contest
@@ -11,9 +11,9 @@ contests:
   next: far-east-russia-1999
   web: https://ikit.sfu-kras.ru/acm
   mirrors:
-  - url: https://web.archive.org/web/*/neerc.ifmo.ru/*
+  - url: http://neerc.ifmo.ru/*
     note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: https://web.archive.org/web/*/dvfu.ru/*
+  - url: http://dvfu.ru/*
     note: added by url-hunt 2026-09-01 (round9-wayback-probe)
   - url: https://imcs.dvfu.ru/cats/wiki?name=icpc
     note: added by url-hunt 2026-09-01 (round9-deep-D4)
@@ -43,7 +43,7 @@ contests:
   next: far-east-russia-2002
   web: https://www.kgeorgiy.info/papers/Vasilev_VN__Kazakov_MA__Korneev_GA__Parfenov_VG__Stankevich_AS_--_NEERC_2001.pdf
   mirrors:
-  - url: https://web.archive.org/web/*/dvfu.ru/*
+  - url: http://dvfu.ru/*
     note: added by url-hunt 2026-09-01 (round9-wayback-probe)
 - id: far-east-russia-2002
   season: 2003
@@ -71,8 +71,8 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: https://neerc.ifmo.ru/archive/2003/far-eastern/standings.html
+      as_of: '20170728114144'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20170728114144/https://neerc.ifmo.ru/archive/2003/far-eastern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/far-eastern.html
@@ -94,8 +94,8 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: https://neerc.ifmo.ru/archive/2004/far-eastern/standings.html
+      as_of: '20170728112540'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20170728112540/https://neerc.ifmo.ru/archive/2004/far-eastern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/far-eastern.html
@@ -117,8 +117,8 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: https://neerc.ifmo.ru/archive/2005/far-eastern/standings.html
+      as_of: '20161208235341'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161208235341/https://neerc.ifmo.ru/archive/2005/far-eastern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/far-eastern.html
@@ -140,8 +140,8 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: https://neerc.ifmo.ru/archive/2006/far-eastern/standings.html
+      as_of: '20170728112814'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20170728112814/https://neerc.ifmo.ru/archive/2006/far-eastern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/far-eastern.html
@@ -163,8 +163,8 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: https://neerc.ifmo.ru/archive/2007/far-eastern/standings.html
+      as_of: '20170728114154'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20170728114154/https://neerc.ifmo.ru/archive/2007/far-eastern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/far-eastern.html
@@ -189,8 +189,8 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: https://neerc.ifmo.ru/archive/2008/far-eastern/standings.html
+      as_of: '20170728114320'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20170728114320/https://neerc.ifmo.ru/archive/2008/far-eastern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Far-Eastern-Subregional-2009/standings
@@ -216,8 +216,8 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: https://neerc.ifmo.ru/archive/2009/far-eastern/standings.html
+      as_of: '20170728114325'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20170728114325/https://neerc.ifmo.ru/archive/2009/far-eastern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/far-eastern.html
@@ -242,8 +242,8 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: https://neerc.ifmo.ru/archive/2010/far-eastern/standings.html
+      as_of: '20170728114159'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20170728114159/https://neerc.ifmo.ru/archive/2010/far-eastern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: http://imcs.dvgu.ru/acm/
@@ -268,8 +268,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2011/far-eastern/standings.html
+      as_of: '20170728112545'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20170728112545/https://neerc.ifmo.ru/archive/2011/far-eastern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Far-Eastern-Subregional-2012/standings
@@ -295,8 +295,8 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: https://neerc.ifmo.ru/archive/2012/far-eastern/standings.html
+      as_of: '20161031080404'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161031080404/https://neerc.ifmo.ru/archive/2012/far-eastern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Far-Eastern-Subregional-2013/standings
@@ -322,8 +322,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2013/far-eastern/standings.html
+      as_of: '20161031215152'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161031215152/https://neerc.ifmo.ru/archive/2013/far-eastern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/far-eastern.html
@@ -369,8 +369,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2015/far-eastern/standings.html
+      as_of: '20161031081843'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161031081843/https://neerc.ifmo.ru/archive/2015/far-eastern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Far-Eastern-Subregional-2016/standings
@@ -396,8 +396,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2016/far-eastern/standings.html
+      as_of: '20171025201621'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20171025201621/https://neerc.ifmo.ru/archive/2016/far-eastern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Far-Eastern-Subregional-2017/standings
@@ -423,8 +423,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2017/far-eastern/standings.html
+      as_of: '20180920232556'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20180920232556/https://neerc.ifmo.ru/archive/2017/far-eastern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Far-Eastern-Subregional-2018/standings
@@ -465,8 +465,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2019/far-eastern/standings.html
+      as_of: '20230331153450'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20230331153450/https://neerc.ifmo.ru/archive/2019/far-eastern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Far-Eastern-Regional-2020/standings

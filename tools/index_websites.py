@@ -20,6 +20,9 @@ from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+import sys  # noqa: E402
+sys.path.insert(0, str(ROOT / "tools"))
+from resources import unwrap  # noqa: E402
 
 
 def main() -> int:
@@ -56,6 +59,15 @@ def main() -> int:
         if seed_page and seed_page.get("wayback_timestamp"):
             entry["wayback_timestamp"] = seed_page["wayback_timestamp"]
             entry["wayback_url"] = seed_page.get("wayback_url")
+        # a crawl seeded with a Wayback wrapper URL (pre-resource-model catalogue) is a
+        # snapshot crawl whatever the manifest's mode says: unwrap -> (url, ts)
+        raw, ts, via = unwrap(seed or "")
+        if via:
+            entry["seed_raw"] = raw
+            if ts and not entry.get("wayback_timestamp"):
+                entry["wayback_timestamp"] = ts
+                entry["wayback_url"] = f"https://web.archive.org/web/{ts}/{raw}"
+            entry["mode"] = "wayback"
         by_contest[m["contest"]].append(entry)
 
     sites = []

@@ -1,4 +1,4 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; resource model migration (tools/migrate_resources.py).
 series:
   id: kolkata-roorkee
   name: ACM Asia Programming Contest - Kolkata-Roorkee
@@ -19,16 +19,18 @@ contests:
   - 988
   parent: wf-2004
   next: kanpur-2004
-  web: https://web.archive.org/web/20031129205902/http://www.cse.iitk.ac.in/users/acm/report.htm
+  web:
+    url: http://www.cse.iitk.ac.in/users/acm/report.htm
+    as_of: '20031129205902'
   results:
     standings:
     - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=668
+      as_of: '20071012210106'
       archived: kolkata-roorkee/kolkata-roorkee-2003/standings/2026-09-01-wayback-0cb05c45/page.html
-      wayback: https://web.archive.org/web/20071012210106/http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=668
       url_state: unknown
       url_checked: '2026-09-07'
     - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandings760b.html?ContestID=668
+      as_of: '20060901142429'
       note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      wayback: https://web.archive.org/web/20060901142429/http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandings760b.html?ContestID=668
       url_state: unknown
       url_checked: '2026-09-07'

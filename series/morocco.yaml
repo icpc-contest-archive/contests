@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_candidates.py (url-hunt 2026-09-01).
+# Maintained in-repo; resource model migration (tools/migrate_resources.py).
 series:
   id: morocco
   name: ICPC Moroccan Collegiate Programming Contest
@@ -12,7 +12,9 @@ contests:
   - 1551
   parent: acpc-2012
   next: morocco-2013
-  web: https://web.archive.org/web/20131126132008/http://morocco.acmacpc.org/
+  web:
+    url: http://morocco.acmacpc.org/
+    as_of: '20131126132008'
   icpc_standings: https://icpc.global/regionals/finder/MCPC-2013/standings
 - id: morocco-2013
   season: 2014
@@ -192,10 +194,10 @@ contests:
   results:
     frozen_scoreboard:
     - url: https://scoreboard.acpc.global/mcpc2025/
+      as_of: '20260810134433'
       url_state: unknown
       url_checked: '2026-09-07'
       archived: morocco/morocco-2025/frozen_scoreboard/20260810-wayback-ef02f4da/page.html
-      wayback: https://web.archive.org/web/20260810134433/https://scoreboard.acpc.global/mcpc2025/
   icpc_standings: https://icpc.global/regionals/finder/MCPC-2026/standings
 - id: morocco-2026
   status: upcoming

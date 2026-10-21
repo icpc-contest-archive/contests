@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_candidates.py (url-hunt 2026-09-01).
+# Maintained in-repo; resource model migration (tools/migrate_resources.py).
 series:
   id: north-russia
   name: ICPC Northwestern Russia Regional Contest
@@ -35,9 +35,9 @@ contests:
   next: north-russia-2002
   web: https://www.kgeorgiy.info/papers/Vasilev_VN__Kazakov_MA__Korneev_GA__Parfenov_VG__Stankevich_AS_--_NEERC_2001.pdf
   mirrors:
-  - url: https://web.archive.org/web/*/ifmo.ru/*
+  - url: http://ifmo.ru/*
     note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: https://web.archive.org/web/*/is.ifmo.ru/*
+  - url: http://is.ifmo.ru/*
     note: added by url-hunt 2026-09-01 (round9-wayback-probe)
 - id: north-russia-2002
   season: 2003
@@ -62,8 +62,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2003/northern/standings.html
+      as_of: '20161028234832'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161028234832/https://neerc.ifmo.ru/archive/2003/northern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/northern.html
@@ -81,8 +81,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2004/northern/standings.html
+      as_of: '20161028234834'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161028234834/https://neerc.ifmo.ru/archive/2004/northern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/northern.html
@@ -95,14 +95,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2005/northern/standings.html
+      as_of: '20211206235003'
       url_state: live
       url_checked: '2026-09-07'
       archived: north-russia/north-russia-2005/scoreboard/20211206-wayback-4b2009d9/standings.html
-      wayback: https://web.archive.org/web/20211206235003/https://nerc.itmo.ru/archive/2005/northern/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2005/northern/standings.html
+      as_of: '20161028234840'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161028234840/https://neerc.ifmo.ru/archive/2005/northern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/northern.html
@@ -115,14 +115,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2006/northern/standings.html
+      as_of: '20211206224923'
       url_state: live
       url_checked: '2026-09-07'
       archived: north-russia/north-russia-2006/scoreboard/20211206-wayback-93efb26f/standings.html
-      wayback: https://web.archive.org/web/20211206224923/https://nerc.itmo.ru/archive/2006/northern/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2006/northern/standings.html
+      as_of: '20161028234847'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161028234847/https://neerc.ifmo.ru/archive/2006/northern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/northern.html
@@ -135,14 +135,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2007/northern/standings.html
+      as_of: '20211206235744'
       url_state: live
       url_checked: '2026-09-07'
       archived: north-russia/north-russia-2007/scoreboard/20211206-wayback-0b68f917/standings.html
-      wayback: https://web.archive.org/web/20211206235744/https://nerc.itmo.ru/archive/2007/northern/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2007/northern/standings.html
+      as_of: '20161028234851'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161028234851/https://neerc.ifmo.ru/archive/2007/northern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/northern.html
@@ -163,8 +163,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2008/northern/standings.html
+      as_of: '20161028234857'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161028234857/https://neerc.ifmo.ru/archive/2008/northern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Northern-Subregional-2009/standings
@@ -186,8 +186,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2009/northern/standings.html
+      as_of: '20161028234901'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161028234901/https://neerc.ifmo.ru/archive/2009/northern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: http://nerc.itmo.ru/subregions/northern.html
@@ -208,8 +208,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2010/northern/standings.html
+      as_of: '20161028234906'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161028234906/https://neerc.ifmo.ru/archive/2010/northern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: http://nerc.itmo.ru/subregions/northern.html
@@ -225,14 +225,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2011/northern/standings.html
+      as_of: '20211206234406'
       url_state: live
       url_checked: '2026-09-07'
       archived: north-russia/north-russia-2011/scoreboard/20211206-wayback-dc344ce3/standings.html
-      wayback: https://web.archive.org/web/20211206234406/https://nerc.itmo.ru/archive/2011/northern/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2011/northern/standings.html
+      as_of: '20161028234911'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161028234911/https://neerc.ifmo.ru/archive/2011/northern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Northern-Subregional-2012/standings
@@ -249,14 +249,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2012/northern/standings.html
+      as_of: '20211207004829'
       url_state: live
       url_checked: '2026-09-07'
       archived: north-russia/north-russia-2012/scoreboard/20211207-wayback-4e2595f0/standings.html
-      wayback: https://web.archive.org/web/20211207004829/https://nerc.itmo.ru/archive/2012/northern/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2012/northern/standings.html
+      as_of: '20161028234921'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161028234921/https://neerc.ifmo.ru/archive/2012/northern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Northern-Subregional-2013/standings
@@ -273,14 +273,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2013/northern/standings.html
+      as_of: '20211206235157'
       url_state: live
       url_checked: '2026-09-07'
       archived: north-russia/north-russia-2013/scoreboard/20211206-wayback-dee3d6b2/standings.html
-      wayback: https://web.archive.org/web/20211206235157/https://nerc.itmo.ru/archive/2013/northern/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2013/northern/standings.html
+      as_of: '20161028234931'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161028234931/https://neerc.ifmo.ru/archive/2013/northern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   web: https://neerc.ifmo.ru/subregions/northern.html
@@ -296,14 +296,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2014/northern/standings.html
+      as_of: '20211206225049'
       url_state: live
       url_checked: '2026-09-07'
       archived: north-russia/north-russia-2014/scoreboard/20211206-wayback-bf9c70f3/standings.html
-      wayback: https://web.archive.org/web/20211206225049/https://nerc.itmo.ru/archive/2014/northern/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2014/northern/standings.html
+      as_of: '20161028234936'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161028234936/https://neerc.ifmo.ru/archive/2014/northern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Northern-Subregional-2015/standings
@@ -320,14 +320,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2015/northern/standings.html
+      as_of: '20211207000056'
       url_state: live
       url_checked: '2026-09-07'
       archived: north-russia/north-russia-2015/scoreboard/20211207-wayback-cc4925f8/standings.html
-      wayback: https://web.archive.org/web/20211207000056/https://nerc.itmo.ru/archive/2015/northern/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2015/northern/standings.html
+      as_of: '20161028234944'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161028234944/https://neerc.ifmo.ru/archive/2015/northern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Northern-Subregional-2016/standings
@@ -344,14 +344,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2016/northern/standings.html
+      as_of: '20191207212809'
       url_state: live
       url_checked: '2026-09-07'
       archived: north-russia/north-russia-2016/scoreboard/20191207-wayback-5d2e9771/standings.html
-      wayback: https://web.archive.org/web/20191207212809/https://nerc.itmo.ru/archive/2016/northern/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2016/northern/standings.html
+      as_of: '20161025230254'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20161025230254/https://neerc.ifmo.ru/archive/2016/northern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Northern-Subregional-2017/standings
@@ -368,14 +368,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2017/northern/standings.html
+      as_of: '20211207000812'
       url_state: live
       url_checked: '2026-09-07'
       archived: north-russia/north-russia-2017/scoreboard/20211207-wayback-4444f4ff/standings.html
-      wayback: https://web.archive.org/web/20211207000812/https://nerc.itmo.ru/archive/2017/northern/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2017/northern/standings.html
+      as_of: '20171106190710'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20171106190710/https://neerc.ifmo.ru/archive/2017/northern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Northern-Subregional-2018/standings
@@ -392,14 +392,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2018/northern/standings.html
+      as_of: '20211206230552'
       url_state: live
       url_checked: '2026-09-07'
       archived: north-russia/north-russia-2018/scoreboard/20211206-wayback-947e5345/standings.html
-      wayback: https://web.archive.org/web/20211206230552/https://nerc.itmo.ru/archive/2018/northern/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2018/northern/standings.html
+      as_of: '20181028192231'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20181028192231/https://neerc.ifmo.ru/archive/2018/northern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Northern-Subregional-2019/standings
@@ -421,8 +421,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2019/northern/standings.html
+      as_of: '20191105155340'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20191105155340/https://neerc.ifmo.ru/archive/2019/northern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Northwestern-Russia-Regional-2020/standings
@@ -439,14 +439,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2020/northern/standings.html
+      as_of: '20201201093421'
       url_state: live
       url_checked: '2026-09-07'
       archived: north-russia/north-russia-2020/scoreboard/20201201-wayback-b1916b43/standings.html
-      wayback: https://web.archive.org/web/20201201093421/https://nerc.itmo.ru/archive/2020/northern/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2020/northern/standings.html
+      as_of: '20201128002036'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20201128002036/https://neerc.ifmo.ru/archive/2020/northern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Northwestern-Russia-Regional-2021/standings
@@ -468,8 +468,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2021/northern/standings.html
+      as_of: '20220120070722'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20220120070722/https://neerc.ifmo.ru/archive/2021/northern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Northwestern-Russia-Regional-2022/standings
@@ -486,14 +486,14 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2022/northern/standings.html
+      as_of: '20221105225756'
       url_state: live
       url_checked: '2026-09-07'
       archived: north-russia/north-russia-2022/scoreboard/20221105-wayback-2281b78b/standings.html
-      wayback: https://web.archive.org/web/20221105225756/https://nerc.itmo.ru/archive/2022/northern/standings.html
     standings:
     - url: https://neerc.ifmo.ru/archive/2022/northern/standings.html
+      as_of: '20221201133252'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20221201133252/https://neerc.ifmo.ru/archive/2022/northern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Northwestern-Russia-Regional-2023/standings
@@ -515,8 +515,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2023/northern/standings.html
+      as_of: '20231209184712'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20231209184712/https://neerc.ifmo.ru/archive/2023/northern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Northwestern-Russia-Regional-2024/standings
@@ -538,8 +538,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2024/northern/standings.html
+      as_of: '20250113234233'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20250113234233/https://neerc.ifmo.ru/archive/2024/northern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Northwestern-Russia-Regional-2025/standings
@@ -556,18 +556,18 @@ contests:
   results:
     scoreboard:
     - url: https://nerc.itmo.ru/archive/2025/northern/standings.html
+      as_of: '20251121170932'
       url_state: live
       url_checked: '2026-09-07'
       archived: north-russia/north-russia-2025/scoreboard/20251121-wayback-d3806ca3/standings.html
-      wayback: https://web.archive.org/web/20251121170932/https://nerc.itmo.ru/archive/2025/northern/standings.html
     - url: https://codeforces.com/gym/106193/standings
       archived: north-russia/north-russia-2025/scoreboard/2026-09-01-live-b810e5b4/page.html
       url_state: live
       url_checked: '2026-09-07'
     standings:
     - url: https://neerc.ifmo.ru/archive/2025/northern/standings.html
+      as_of: '20251217115628'
       note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      wayback: https://web.archive.org/web/20251217115628/https://neerc.ifmo.ru/archive/2025/northern/standings.html
       url_state: live
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Northwestern-Russia-Regional-2026/standings

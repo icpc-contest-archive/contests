@@ -1,4 +1,4 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; resource model migration (tools/migrate_resources.py).
 series:
   id: chengdu
   name: ICPC Asia Chengdu Regional Contest
@@ -15,14 +15,14 @@ contests:
   results:
     standings:
     - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=745
+      as_of: '20071011194551'
       archived: chengdu/chengdu-2005/standings/2026-09-01-wayback-1f9a90ac/page.html
-      wayback: https://web.archive.org/web/20071011194551/http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=745
       url_state: unknown
       url_checked: '2026-09-07'
     - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=745
+      as_of: '20110103172738'
       archived: chengdu/chengdu-2005/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20110103172738/http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=745
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Chengdu-2006/standings
@@ -40,14 +40,14 @@ contests:
   results:
     standings:
     - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=878
+      as_of: '20080915032508'
       archived: chengdu/chengdu-2007/standings/2026-09-01-wayback-c7e6836b/page.html
-      wayback: https://web.archive.org/web/20080915032508/http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=878
       url_state: unknown
       url_checked: '2026-09-07'
     - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=878
+      as_of: '20110924030910'
       archived: chengdu/chengdu-2007/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20110924030910/http://icpc.baylor.edu:80/icpc/regionals/ViewRegionalStandings.asp?ContestID=878
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Chengdu-2008/standings
@@ -62,13 +62,15 @@ contests:
   - 9
   parent: wf-2009
   next: chengdu-2010
-  web: https://web.archive.org/web/20090119193831/http://acm.swun.edu.cn/
+  web:
+    url: http://acm.swun.edu.cn/
+    as_of: '20090119193831'
   results:
     standings:
     - url: http://acm.swun.edu.cn/viewnews.php?id=33
+      as_of: '20081021050334'
       archived: chengdu/chengdu-2008/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20081021050334/http://acm.swun.edu.cn:80/viewnews.php?
+      note: 'from archived capture (external-standings); snapshot verified at a different locator: http://acm.swun.edu.cn/viewnews.php'
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Chengdu-2009/standings
@@ -84,13 +86,13 @@ contests:
   results:
     scoreboard:
     - url: http://board.acmicpc.info/icpc2010/scu_onsite.php
+      as_of: '20121108180240'
       archived: chengdu/chengdu-2010/scoreboard/2026-09-01-wayback-d30984f6/page.html
-      wayback: https://web.archive.org/web/20121108180240/http://board.acmicpc.info/icpc2010/scu_onsite.php
       url_state: unknown
       url_checked: '2026-09-07'
     - url: http://board.acmicpc.info:80/icpc2010/scu_onsite.php
+      as_of: '20121108180240'
       note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
-      wayback: https://web.archive.org/web/20121108180240/http://board.acmicpc.info:80/icpc2010/scu_onsite.php
       url_state: unknown
       url_checked: '2026-09-07'
       archived: chengdu/chengdu-2010/scoreboard/20121108-wayback-96a47fc4/page.html
@@ -114,13 +116,13 @@ contests:
   results:
     scoreboard:
     - url: http://board.acmicpc.info/icpc2011/ccniit_onsite.php
+      as_of: '20121018082912'
       archived: chengdu/chengdu-2011/scoreboard/2026-09-01-wayback-f4e70f68/page.html
-      wayback: https://web.archive.org/web/20121018082912/http://board.acmicpc.info/icpc2011/ccniit_onsite.php
       url_state: unknown
       url_checked: '2026-09-07'
     - url: http://board.acmicpc.info:80/icpc2011/ccniit_onsite.php
+      as_of: '20121018082912'
       note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
-      wayback: https://web.archive.org/web/20121018082912/http://board.acmicpc.info:80/icpc2011/ccniit_onsite.php
       url_state: unknown
       url_checked: '2026-09-07'
       archived: chengdu/chengdu-2011/scoreboard/20121018-wayback-5bbf9c18/page.html
@@ -138,21 +140,21 @@ contests:
   results:
     scoreboard:
     - url: http://board.acmicpc.info/icpc2012/nsu_onsite.php
+      as_of: '20121113210625'
       archived: chengdu/chengdu-2012/scoreboard/2026-09-01-wayback-74be7097/page.html
-      wayback: https://web.archive.org/web/20121113210625/http://board.acmicpc.info/icpc2012/nsu_onsite.php
       url_state: unknown
       url_checked: '2026-09-07'
     - url: http://board.acmicpc.info:80/icpc2012/nsu_onsite.php
+      as_of: '20121113210625'
       note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
-      wayback: https://web.archive.org/web/20121113210625/http://board.acmicpc.info:80/icpc2012/nsu_onsite.php
       url_state: unknown
       url_checked: '2026-09-07'
       archived: chengdu/chengdu-2012/scoreboard/20121113-wayback-139dfa7b/page.html
     standings:
     - url: http://icpc.baylor.edu/public/standings/1360
+      as_of: '20121211014910'
       archived: chengdu/chengdu-2012/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20121211014910/http://icpc.baylor.edu:80/public/standings/1360
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Chengdu-2013/standings
@@ -169,13 +171,13 @@ contests:
   results:
     scoreboard:
     - url: http://board.acmicpc.info/icpc2013/uestc_onsite.php
+      as_of: '20131022024903'
       archived: chengdu/chengdu-2013/scoreboard/2026-09-01-wayback-b2aebc98/page.html
-      wayback: https://web.archive.org/web/20131022024903/http://board.acmicpc.info/icpc2013/uestc_onsite.php
       url_state: unknown
       url_checked: '2026-09-07'
     - url: http://board.acmicpc.info:80/icpc2013/uestc_onsite.php
+      as_of: '20131022024903'
       note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
-      wayback: https://web.archive.org/web/20131022024903/http://board.acmicpc.info:80/icpc2013/uestc_onsite.php
       url_state: unknown
       url_checked: '2026-09-07'
       archived: chengdu/chengdu-2013/scoreboard/20131022-wayback-c410463d/page.html

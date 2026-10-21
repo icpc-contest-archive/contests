@@ -1,4 +1,4 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; resource model migration (tools/migrate_resources.py).
 series:
   id: awc
   name: ICPC Asia West Continent Championship Contest
@@ -16,8 +16,8 @@ contests:
   results:
     scoreboard:
     - url: https://algo.codemarshal.org/contests/awf-19/standings
+      as_of: '20230926052823'
       archived: awc/awc-2019/scoreboard/2026-09-01-wayback-2a3df938/page.html
-      wayback: http://web.archive.org/web/20230926052823/https://algo.codemarshal.org/contests/awf-19/standings
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/ICPCKolkataKanpur-2020/standings
@@ -35,8 +35,8 @@ contests:
   results:
     scoreboard:
     - url: https://icpc.codedrills.io/contests/icpc-asia-west-continent-finals-2021/scoreboard
+      as_of: '20250814041710'
       archived: awc/awc-2021/scoreboard/2026-09-01-wayback-5112373a/page.html
-      wayback: http://web.archive.org/web/20250814041710/https://icpc.codedrills.io/contests/icpc-asia-west-continent-finals-2021/scoreboard
       url_state: unknown
       url_checked: '2026-09-07'
 - id: awc-2022
@@ -52,8 +52,8 @@ contests:
   results:
     scoreboard:
     - url: https://algo.codemarshal.org/contests/dhaka-22/standings
+      as_of: '20230531214941'
       archived: awc/awc-2022/scoreboard/2026-09-01-wayback-904b2ddf/page.html
-      wayback: http://web.archive.org/web/20230531214941/https://algo.codemarshal.org/contests/dhaka-22/standings
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/ICPCKolkataKanpur-2023/standings
@@ -66,7 +66,9 @@ contests:
   - 7470
   parent: wf-2024
   next: awc-2024
-  web: http://web.archive.org/web/20240419050828/https://discuss.codedrills.io/t/icpc-asia-west-continent-final-contest-2023/4435
+  web:
+    url: https://discuss.codedrills.io/t/icpc-asia-west-continent-final-contest-2023/4435
+    as_of: '20240419050828'
   icpc_standings: https://icpc.global/regionals/finder/ICPCKolkataKanpur-2024/standings
   results:
     standings:

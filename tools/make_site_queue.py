@@ -42,8 +42,16 @@ def main() -> int:
             year = int(c["id"].rsplit("-", 1)[1])
             pivot = (c.get("date") or "").replace("-", "") or (
                 f"{year}0701" if c.get("season") == year + 1 else f"{year}0101")
-            seeds = c["web"] if isinstance(c["web"], list) else [c["web"]]
-            seeds = [s for s in seeds if s.startswith("http")]
+            seeds = []
+            for w in (c["web"] if isinstance(c["web"], list) else [c["web"]]):
+                # resource model: {url, as_of} = "the site as it was at as_of" -> crawl
+                # that Wayback snapshot (capture_site treats a wayback seed as
+                # crawl-within-one-snapshot); a bare url is crawled live
+                if isinstance(w, dict):
+                    seeds.append(f"https://web.archive.org/web/{w['as_of']}/{w['url']}"
+                                 if w.get("as_of") else w["url"])
+                elif isinstance(w, str) and w.startswith("http"):
+                    seeds.append(w)
             item = {"contest": c["id"], "seeds": seeds, "pivot": pivot,
                     "scopes": [scope_for(s, year) for s in seeds]}
             queue.append(item)

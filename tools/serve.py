@@ -29,6 +29,9 @@ from pathlib import Path
 from urllib.parse import quote, unquote, urljoin, urlsplit
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
+from resources import fmt_time, unwrap, wayback_link  # noqa: E402
+
 ARCHIVE = ROOT.parent / "archive"
 REPLAY = ROOT.parent / "replay"
 
@@ -39,7 +42,10 @@ BANNER_CSS = ("position:sticky;top:0;z-index:2147483647;font:13px/1.4 system-ui,
 
 # ---------------------------------------------------------------- site playback
 def _norm(url: str) -> str:
-    """Scheme-insensitive, trailing-slash-insensitive key for manifest lookup."""
+    """Scheme-insensitive, trailing-slash-insensitive key for manifest lookup.
+    Archive wrappers unwrap first: a crawl seeded with a Wayback URL keys its pages
+    by the wrapper, and links inside those pages resolve to wrappers too."""
+    url = unwrap(url)[0]
     s = urlsplit(url)
     host = (s.hostname or "").lower()
     if s.port and s.port not in (80, 443):
@@ -107,6 +113,9 @@ def rewrite_html(body: bytes, contest: str, capture: str, page_url: str, m: dict
         enc = "latin-1"
     mode = m.get("mode")
     pivot = m.get("pivot") or ""
+    page = m.get("pages", {}).get(page_url, {})
+    raw_url, page_ts, page_via = unwrap(page_url)
+    page_ts = page.get("wayback_timestamp") or page_ts  # the served snapshot wins
 
     def target(raw: str) -> str | None:
         raw = raw.strip()
@@ -120,8 +129,13 @@ def rewrite_html(body: bytes, contest: str, capture: str, page_url: str, m: dict
         key = lookup.get(_norm(absu))
         if key:
             return _local_site_url(contest, capture, key) + frag
-        if mode == "wayback" and pivot and absu.startswith(("http://", "https://")):
-            return f"https://web.archive.org/web/{pivot}/{absu}{frag}"
+        raw_u, ts, via = unwrap(absu)
+        if via:  # a wrapper link not in the capture: keep it pinned, never re-wrap
+            if not raw_u.startswith(("http://", "https://")):
+                return raw_u + frag  # mailto: etc. that Wayback had wrapped
+            return (wayback_link(raw_u, ts) if ts else absu) + frag
+        if (mode == "wayback" or page_ts) and absu.startswith(("http://", "https://")):
+            return f"https://web.archive.org/web/{page_ts or pivot}/{absu}{frag}"
         return absu + frag  # live: leave absolute
 
     def attr(mo):
@@ -154,20 +168,20 @@ def rewrite_html(body: bytes, contest: str, capture: str, page_url: str, m: dict
     text = _CSS_URL_RE.sub(cssurl, text)
     text = _META_REFRESH_RE.sub(refresh, text)
 
-    page = m.get("pages", {}).get(page_url, {})
-    wb = page.get("wayback_url") or (
-        f"https://web.archive.org/web/{pivot}/{page_url}" if pivot else
-        f"https://web.archive.org/web/*/{page_url}")
-    src = (f"Wayback snapshot {page.get('wayback_timestamp', pivot)}" if mode == "wayback"
-           else f"live crawl {str(m.get('fetched', ''))[:10]}")
+    wb = wayback_link(raw_url, page_ts or (pivot if mode == "wayback" else None))
+    if page_ts:
+        src = f"Wayback snapshot {fmt_time(page_ts)}"
+    else:
+        src = f"live crawl {str(m.get('fetched', ''))[:10]}"
+    shown = f"{raw_url} ({fmt_time(page_ts)})" if page_ts else raw_url
     banner = (
         f'<div id="icpc-archive-banner" style="{BANNER_CSS}">'
         f'<b>ICPC contest archive</b> — local copy of '
-        f'<a href="{html.escape(page_url, quote=True)}">{html.escape(page_url[:100])}</a> '
+        f'<a href="{html.escape(raw_url, quote=True)}">{html.escape(shown[:120])}</a> '
         f'({html.escape(src)}; {len(m.get("pages", {}))} pages in capture) · '
         f'<a href="/contest/{html.escape(contest)}.html">catalogue: {html.escape(contest)}</a> · '
         f'<a href="{html.escape(wb, quote=True)}">wayback</a> · '
-        f'<a href="{html.escape(page_url, quote=True)}">live</a>'
+        f'<a href="{html.escape(raw_url, quote=True)}">live</a>'
         f'</div>')
     mo = re.search(r"(?i)<body\b[^>]*>", text)
     text = text[:mo.end()] + banner + text[mo.end():] if mo else banner + text
@@ -188,6 +202,9 @@ def rewrite_css(body: bytes, contest: str, capture: str, page_url: str, m: dict,
         key = lookup.get(_norm(absu))
         if key:
             return f"url({mo.group(1)}{_local_site_url(contest, capture, key)}{mo.group(3)})"
+        raw_u, ts, via = unwrap(absu)
+        if via:
+            return f"url({mo.group(1)}{wayback_link(raw_u, ts, 'im_') if ts else absu}{mo.group(3)})"
         if m.get("mode") == "wayback" and m.get("pivot"):
             return f"url({mo.group(1)}https://web.archive.org/web/{m['pivot']}im_/{absu}{mo.group(3)})"
         return f"url({mo.group(1)}{absu}{mo.group(3)})"
@@ -264,11 +281,12 @@ class Handler(SimpleHTTPRequestHandler):
             return
         key = lookup.get(_norm(url))
         if key is None:
-            # not captured: hand off to wayback (pivot) or live
-            if m.get("mode") == "wayback" and m.get("pivot"):
-                self._redirect(f"https://web.archive.org/web/{m['pivot']}/{url}")
+            # not captured: hand off to wayback (pinned ts / pivot) or live
+            raw_u, ts, via = unwrap(url)
+            if ts or (m.get("mode") == "wayback" and m.get("pivot")):
+                self._redirect(wayback_link(raw_u, ts or m["pivot"]))
             else:
-                self._redirect(url)
+                self._redirect(raw_u)
             return
         page = m["pages"][key]
         f = cdir / "files" / page["file"]

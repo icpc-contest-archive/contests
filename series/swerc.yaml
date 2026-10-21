@@ -1,4 +1,4 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; resource model migration (tools/migrate_resources.py).
 series:
   id: swerc
   name: ICPC Southwestern Europe Regional Contest
@@ -27,19 +27,23 @@ contests:
   cms_status: pre-cms
   parent: wf-1996
   next: swerc-1996
-  web: https://web.archive.org/web/20030224200857/http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SWERC/1995/
+  web:
+    url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SWERC/1995/
+    as_of: '20030224200857'
 - id: swerc-1996
   season: 1997
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1997
   next: swerc-1997
-  web: https://web.archive.org/web/20090713080232/http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SWERC/1996/problems96.html
+  web:
+    url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SWERC/1996/problems96.html
+    as_of: '20090713080232'
   results:
     scoreboard:
     - url: http://www.acm.inf.ethz.ch/Ranklist.html
+      as_of: '20020625200248'
       archived: swerc/swerc-1996/scoreboard/2026-09-01-wayback-2325a27d/Ranklist.html
-      wayback: https://web.archive.org/web/20020625200248/http://www.acm.inf.ethz.ch/Ranklist.html
       url_state: unknown
       url_checked: '2026-09-07'
 - id: swerc-1997
@@ -72,8 +76,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: http://icpc.baylor.edu:80/past/icpc99/Regionals/SWERC98/Standings.htm
+      as_of: '20030517124615'
       note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      wayback: https://web.archive.org/web/20030517124615/http://icpc.baylor.edu:80/past/icpc99/Regionals/SWERC98/Standings.htm
       url_state: unknown
       url_checked: '2026-09-07'
   web: http://www.informatik.uni-ulm.de/acm/
@@ -93,8 +97,8 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: http://icpc.baylor.edu:80/past/icpc2000/regionals/SWERC99/Standings.html
+      as_of: '20020112031150'
       note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      wayback: https://web.archive.org/web/20020112031150/http://icpc.baylor.edu:80/past/icpc2000/regionals/SWERC99/Standings.html
       url_state: unknown
       url_checked: '2026-09-07'
   web: http://acm.fi.uva.es/swerc99
@@ -113,7 +117,9 @@ contests:
       archived: swerc/swerc-2000/standings/2026-09-01-live-ca270f7f/page.html
       url_state: live
       url_checked: '2026-09-07'
-  web: https://web.archive.org/web/20020112115557/http://icpc.baylor.edu:80/past/icpc2001/Regionals/SWERC00/Default.asp
+  web:
+    url: http://icpc.baylor.edu/past/icpc2001/Regionals/SWERC00/Default.asp
+    as_of: '20020112115557'
 - id: swerc-2001
   season: 2002
   name: 2001 ACM Southwestern Europe Programming Contest
@@ -131,11 +137,13 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: http://icpc.baylor.edu:80/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=516
+      as_of: '20020619092309'
       note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      wayback: https://web.archive.org/web/20020619092309/http://icpc.baylor.edu:80/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=516
       url_state: unknown
       url_checked: '2026-09-07'
-  web: https://web.archive.org/web/20020619093638/http://icpc.baylor.edu:80/past/icpc2002/Regionals/SWERC01/default.asp
+  web:
+    url: http://icpc.baylor.edu/past/icpc2002/Regionals/SWERC01/default.asp
+    as_of: '20020619093638'
 - id: swerc-2002
   season: 2003
   name: 2002 ACM Southwestern Europe Programming Contest
@@ -153,8 +161,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings89dd.html?ContestID=584
+      as_of: '20060901122336'
       note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      wayback: https://web.archive.org/web/20060901122336/http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings89dd.html?ContestID=584
       url_state: unknown
       url_checked: '2026-09-07'
   web: http://swerc.up.pt/2002/
@@ -175,8 +183,8 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandings5df0.html?ContestID=657
+      as_of: '20060901141910'
       note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      wayback: https://web.archive.org/web/20060901141910/http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandings5df0.html?ContestID=657
       url_state: unknown
       url_checked: '2026-09-07'
   web: http://www.polytechnique.edu/icpc2003/
@@ -213,9 +221,9 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: http://www.polytechnique.edu/icpc2005/2005/ranking.html
+      as_of: '20090715212807'
       archived: swerc/swerc-2005/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20090715212807/http://www.polytechnique.edu/icpc2005/2005/ranking.html
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Southwestern-Europe-2006/standings
@@ -229,7 +237,9 @@ contests:
   - 1170
   parent: wf-2007
   next: swerc-2007
-  web: https://web.archive.org/web/20201008081619/https://sites.google.com/site/swerc2006/swerc2006results
+  web:
+    url: https://sites.google.com/site/swerc2006/swerc2006results
+    as_of: '20201008081619'
   results:
     scoreboard:
     - url: https://swerc.eu/2023/theme/cached/2006/
@@ -237,9 +247,9 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: https://sites.google.com/site/swerc2006/swerc2006results
+      as_of: '20201008081619'
       archived: swerc/swerc-2006/scoreboard/2026-04-16-archive/2006-southwestern-europe-programming-contest-2006.html
       note: from archived capture (scoreboard)
-      wayback: https://web.archive.org/web/20201008081619/https://sites.google.com/site/swerc2006/swerc2006results
       url_state: replaced
       url_checked: '2026-09-07'
     standings:
@@ -295,9 +305,9 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: http://icpc.informatik.uni-erlangen.de/swerc2008/results.php
+      as_of: '20190219060444'
       archived: swerc/swerc-2008/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20190219060444/http://icpc.informatik.uni-erlangen.de:80/swerc2008/results.php
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Southwestern-Europe-2009/standings
@@ -310,7 +320,9 @@ contests:
   - 542
   parent: wf-2010
   next: swerc-2010
-  web: https://web.archive.org/web/20200113031403/http://pc.fdi.ucm.es/swerc/swerc09/problems.php
+  web:
+    url: http://pc.fdi.ucm.es/swerc/swerc09/problems.php
+    as_of: '20200113031403'
   results:
     scoreboard:
     - url: https://swerc.eu/2023/theme/cached/2009/
@@ -318,9 +330,9 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: http://pc.fdi.ucm.es/swerc/swerc09/problems.php
+      as_of: '20200113031403'
       archived: swerc/swerc-2009/scoreboard/2026-04-16-archive/2009-southwestern-europe-regional-contest-2009.html
       note: from archived capture (scoreboard)
-      wayback: https://web.archive.org/web/20200113031403/http://pc.fdi.ucm.es/swerc/swerc09/problems.php
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Southwestern-Europe-2010/standings
@@ -333,7 +345,9 @@ contests:
   - 633
   parent: wf-2011
   next: swerc-2011
-  web: https://web.archive.org/web/20190908081634/http://pc.fdi.ucm.es/swerc/swerc10/problems.php
+  web:
+    url: http://pc.fdi.ucm.es/swerc/swerc10/problems.php
+    as_of: '20190908081634'
   results:
     scoreboard:
     - url: https://swerc.eu/2023/theme/cached/2010/
@@ -341,9 +355,9 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: http://pc.fdi.ucm.es/swerc/swerc10/problems.php
+      as_of: '20190908081634'
       archived: swerc/swerc-2010/scoreboard/2026-04-16-archive/2010-southwestern-europe-regional-contest-2010.html
       note: from archived capture (scoreboard)
-      wayback: https://web.archive.org/web/20190908081634/http://pc.fdi.ucm.es/swerc/swerc10/problems.php
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Southwestern-Europe-2011/standings
@@ -356,7 +370,9 @@ contests:
   - 787
   parent: wf-2012
   next: swerc-2012
-  web: https://web.archive.org/web/20121128040137/http://pc.fdi.ucm.es/swerc/problems.php
+  web:
+    url: http://pc.fdi.ucm.es/swerc/problems.php
+    as_of: '20121128040137'
   results:
     scoreboard:
     - url: https://swerc.eu/2023/theme/cached/2011/
@@ -364,9 +380,9 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: http://pc.fdi.ucm.es/swerc/problems.php
+      as_of: '20121128040137'
       archived: swerc/swerc-2011/scoreboard/2026-04-16-archive/2011-southwestern-europe-regional-contest-2011.html
       note: from archived capture (scoreboard)
-      wayback: https://web.archive.org/web/20121128040137/http://pc.fdi.ucm.es/swerc/problems.php
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Southwestern-Europe-2012/standings
@@ -379,7 +395,9 @@ contests:
   - 1345
   parent: wf-2013
   next: swerc-2013
-  web: https://web.archive.org/web/20190105190437/http://users.dsic.upv.es/swerc_12/problems.php
+  web:
+    url: http://users.dsic.upv.es/swerc_12/problems.php
+    as_of: '20190105190437'
   results:
     scoreboard:
     - url: https://swerc.eu/2023/theme/cached/2012/
@@ -387,16 +405,16 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: http://users.dsic.upv.es/swerc_12/problems.php
+      as_of: '20190105190437'
       archived: swerc/swerc-2012/scoreboard/2026-04-16-archive/2012-southwestern-europe-regional-contest-2012.html
       note: from archived capture (scoreboard)
-      wayback: https://web.archive.org/web/20190105190437/http://users.dsic.upv.es/swerc_12/problems.php
       url_state: unknown
       url_checked: '2026-09-07'
     standings:
     - url: http://swerc.dsic.upv.es/resultados2012/public/index.html
+      as_of: '20131027100501'
       archived: swerc/swerc-2012/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20131027100501/http://swerc.dsic.upv.es:80/resultados2012/public/index.html
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Southwestern-Europe-2013/standings
@@ -409,7 +427,9 @@ contests:
   - 2023
   parent: wf-2014
   next: swerc-2014
-  web: https://web.archive.org/web/20190210153149/http://users.dsic.upv.es/swerc/index.php
+  web:
+    url: http://users.dsic.upv.es/swerc/index.php
+    as_of: '20190210153149'
   results:
     scoreboard:
     - url: https://swerc.eu/2023/theme/cached/2013/
@@ -417,9 +437,9 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: http://users.dsic.upv.es/swerc/problems.php
+      as_of: '20190216234925'
       archived: swerc/swerc-2013/scoreboard/2026-04-16-archive/2013-southwestern-europe-regional-contest-2013.html
       note: from archived capture (scoreboard)
-      wayback: https://web.archive.org/web/20190216234925/http://users.dsic.upv.es/swerc/problems.php
       url_state: unknown
       url_checked: '2026-09-07'
 - id: swerc-2014
@@ -431,7 +451,9 @@ contests:
   - 2670
   parent: wf-2015
   next: swerc-2015
-  web: https://web.archive.org/web/20171108204001/http://swerc.up.pt/2014/
+  web:
+    url: http://swerc.up.pt/2014/
+    as_of: '20171108204001'
   results:
     scoreboard:
     - url: https://swerc.eu/2023/theme/cached/2014/
@@ -439,16 +461,16 @@ contests:
       url_state: changed
       url_checked: '2026-09-07'
     - url: http://swerc.up.pt/2014/
+      as_of: '20171108204001'
       archived: swerc/swerc-2014/scoreboard/2026-04-16-archive/2014-southwestern-europe-regional-contest-2014.html
       note: from archived capture (scoreboard)
-      wayback: https://web.archive.org/web/20171108204001/http://swerc.up.pt/2014/
       url_state: unknown
       url_checked: '2026-09-07'
     standings:
     - url: http://swerc.up.pt/2014/reports/ranking.html
+      as_of: '20180412201241'
       archived: swerc/swerc-2014/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20180412201241/http://swerc.up.pt/2014/reports/ranking.html
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/SWERC-2015/standings
@@ -461,7 +483,9 @@ contests:
   - 2769
   parent: wf-2016
   next: swerc-2016
-  web: https://web.archive.org/web/20180205225559/http://swerc.up.pt/2015/
+  web:
+    url: http://swerc.up.pt/2015/
+    as_of: '20180205225559'
   results:
     scoreboard:
     - url: https://swerc.eu/2023/theme/cached/2015/
@@ -469,16 +493,16 @@ contests:
       url_state: changed
       url_checked: '2026-09-07'
     - url: http://swerc.up.pt/2015/
+      as_of: '20180205225559'
       archived: swerc/swerc-2015/scoreboard/2026-04-16-archive/2015-southwestern-europe-regional-contest-2015.html
       note: from archived capture (scoreboard)
-      wayback: https://web.archive.org/web/20180205225559/http://swerc.up.pt/2015/
       url_state: unknown
       url_checked: '2026-09-07'
     standings:
     - url: http://swerc.up.pt/2015/reports/ranking.html
+      as_of: '20180512052112'
       archived: swerc/swerc-2015/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20180512052112/http://swerc.up.pt:80/2015/reports/ranking.html
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/SWERC-2016/standings
@@ -491,25 +515,27 @@ contests:
   - 3121
   parent: wf-2017
   next: swerc-2017
-  web: https://web.archive.org/web/20180211101200/http://swerc.up.pt/2016/
+  web:
+    url: http://swerc.up.pt/2016/
+    as_of: '20180211101200'
   results:
     scoreboard:
     - url: http://swerc.up.pt/2016/reports/ranking.html
+      as_of: '20171213122047'
       archived: swerc/swerc-2016/scoreboard/2026-09-01-wayback-6eaf3348/ranking.html
-      wayback: https://web.archive.org/web/20171213122047/http://swerc.up.pt/2016/reports/ranking.html
       url_state: unknown
       url_checked: '2026-09-07'
     - url: http://swerc.up.pt/2016/
+      as_of: '20180211101200'
       archived: swerc/swerc-2016/scoreboard/2026-04-16-archive/2016-southwestern-europe-regional-contest-2016.html
       note: from archived capture (scoreboard)
-      wayback: https://web.archive.org/web/20180211101200/http://swerc.up.pt/2016/
       url_state: unknown
       url_checked: '2026-09-07'
     standings:
     - url: http://swerc.up.pt/2016/reports/ranking.html
+      as_of: '20180412200103'
       archived: swerc/swerc-2016/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20180412200103/http://swerc.up.pt/2016/reports/ranking.html
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/SWERC-2017/standings
@@ -531,9 +557,9 @@ contests:
       url_checked: '2026-09-07'
     standings:
     - url: https://swerc.eu/theme/results/official/public/
+      as_of: '20171223220352'
       archived: swerc/swerc-2017/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20171223220352/https://swerc.eu/theme/results/official/public/
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/SWERC-2018/standings

@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_candidates.py (url-hunt 2026-09-01).
+# Maintained in-repo; resource model migration (tools/migrate_resources.py).
 series:
   id: slovenia
   name: ICPC Slovenian Programming Contest
@@ -60,8 +60,8 @@ contests:
   results:
     standings:
     - url: https://tekmovanja.acm.si/?q=upm/zgodovina/2013/rezultati
+      as_of: '20220815104009'
       note: added by url-hunt 2026-09-01 (dark-hunt-agent)
-      wayback: https://web.archive.org/web/20220815104009/https://tekmovanja.acm.si/?q=upm/zgodovina/2013/rezultati
       url_state: unknown
       url_checked: '2026-09-07'
 - id: slovenia-2014
@@ -75,11 +75,11 @@ contests:
   results:
     standings:
     - url: https://tekmovanja.acm.si/?q=upm/rezultati-2014
+      as_of: '20230323055623'
       note: added by url-hunt 2026-09-01 (wave2-europe)
       url_state: live
       url_checked: '2026-09-07'
       archived: slovenia/slovenia-2014/standings/20230323-wayback-52f760a6/page.html
-      wayback: https://web.archive.org/web/20230323055623/https://tekmovanja.acm.si/?q=upm/rezultati-2014
 - id: slovenia-2015
   season: 2016
   name: 2015 Slovenian Programming Contest
@@ -91,11 +91,11 @@ contests:
   results:
     standings:
     - url: https://tekmovanja.acm.si/?q=upm/rezultati-2015
+      as_of: '20230323043901'
       note: added by url-hunt 2026-09-01 (wave2-europe)
       url_state: live
       url_checked: '2026-09-07'
       archived: slovenia/slovenia-2015/standings/20230323-wayback-8b4ee439/page.html
-      wayback: https://web.archive.org/web/20230323043901/https://tekmovanja.acm.si/?q=upm/rezultati-2015
 - id: slovenia-2016
   season: 2017
   name: 2016 Slovenian Programming Contest
@@ -107,11 +107,11 @@ contests:
   results:
     standings:
     - url: https://tekmovanja.acm.si/?q=upm/rezultati-2016
+      as_of: '20230323054138'
       note: added by url-hunt 2026-09-01 (wave2-europe)
       url_state: live
       url_checked: '2026-09-07'
       archived: slovenia/slovenia-2016/standings/20230323-wayback-b6503c7d/page.html
-      wayback: https://web.archive.org/web/20230323054138/https://tekmovanja.acm.si/?q=upm/rezultati-2016
 - id: slovenia-2017
   season: 2018
   name: 2017 Slovenian Programming Contest
@@ -123,11 +123,11 @@ contests:
   results:
     standings:
     - url: https://tekmovanja.acm.si/?q=upm/rezultati-2017
+      as_of: '20230323042756'
       note: added by url-hunt 2026-09-01 (wave2-europe)
       url_state: live
       url_checked: '2026-09-07'
       archived: slovenia/slovenia-2017/standings/20230323-wayback-3ffe48c5/page.html
-      wayback: https://web.archive.org/web/20230323042756/https://tekmovanja.acm.si/?q=upm/rezultati-2017
 - id: slovenia-2018
   season: 2019
   name: 2018 Slovenian Programming Contest
@@ -139,11 +139,11 @@ contests:
   results:
     standings:
     - url: https://tekmovanja.acm.si/?q=upm/rezultati-2018
+      as_of: '20190822105140'
       note: added by url-hunt 2026-09-01 (wave2-europe)
       url_state: live
       url_checked: '2026-09-07'
       archived: slovenia/slovenia-2018/standings/20190822-wayback-899c87c9/page.html
-      wayback: https://web.archive.org/web/20190822105140/https://tekmovanja.acm.si/?q=upm/rezultati-2018
 - id: slovenia-2019
   season: 2020
   name: 2019 Slovenian Programming Contest
@@ -155,8 +155,8 @@ contests:
   results:
     standings:
     - url: https://tekmovanja.acm.si/?q=rezultati-2019
+      as_of: '20220630103245'
       note: added by url-hunt 2026-09-01 (wave2-europe)
-      wayback: https://web.archive.org/web/20220630103245/https://tekmovanja.acm.si/?q=rezultati-2019
       url_state: live
       url_checked: '2026-09-07'
       archived: slovenia/slovenia-2019/standings/20220630-wayback-d7822a89/page.html
@@ -171,8 +171,8 @@ contests:
   results:
     standings:
     - url: https://tekmovanja.acm.si/?q=node/639
+      as_of: '20230323043942'
       note: added by url-hunt 2026-09-01 (dark-hunt-agent)
-      wayback: https://web.archive.org/web/20230323043942/https://tekmovanja.acm.si/?q=node/639
       url_state: unknown
       url_checked: '2026-09-07'
 - id: slovenia-2021
@@ -186,8 +186,8 @@ contests:
   results:
     standings:
     - url: https://tekmovanja.acm.si/?q=node/688
+      as_of: '20220815100640'
       note: added by url-hunt 2026-09-01 (dark-hunt-agent)
-      wayback: https://web.archive.org/web/20220815100640/https://tekmovanja.acm.si/?q=node/688
       url_state: unknown
       url_checked: '2026-09-07'
 - id: slovenia-2022
@@ -201,8 +201,8 @@ contests:
   results:
     standings:
     - url: https://tekmovanja.acm.si/?q=node/732
+      as_of: '20240811052254'
       note: added by url-hunt 2026-09-01 (dark-hunt-agent)
-      wayback: https://web.archive.org/web/20240811052254/https://tekmovanja.acm.si/?q=node/732
       url_state: unknown
       url_checked: '2026-09-07'
 - id: slovenia-2023
@@ -216,8 +216,8 @@ contests:
   results:
     standings:
     - url: https://tekmovanja.acm.si/?q=node/787
+      as_of: '20260311075238'
       note: added by url-hunt 2026-09-01 (wave2-europe)
-      wayback: https://web.archive.org/web/20260311075238/https://tekmovanja.acm.si/?q=node/787
       url_state: live
       url_checked: '2026-09-07'
       archived: slovenia/slovenia-2023/standings/20260311-wayback-dd7908c1/page.html

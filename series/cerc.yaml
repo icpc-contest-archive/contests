@@ -1,4 +1,4 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; resource model migration (tools/migrate_resources.py).
 series:
   id: cerc
   name: ICPC Central Europe Regional Contest
@@ -9,21 +9,27 @@ contests:
   cms_status: pre-cms
   parent: wf-1996
   next: cerc-1996
-  web: https://web.archive.org/web/20090713045219/http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_CERC/1995/index.html
+  web:
+    url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_CERC/1995/index.html
+    as_of: '20090713045219'
 - id: cerc-1996
   season: 1997
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1997
   next: cerc-1997
-  web: https://web.archive.org/web/20090713044510/http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_CERC/1996/index.html
+  web:
+    url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_CERC/1996/index.html
+    as_of: '20090713044510'
 - id: cerc-1997
   season: 1998
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1998
   next: cerc-1998
-  web: https://web.archive.org/web/20090713062231/http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_CERC/1997/index.html
+  web:
+    url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_CERC/1997/index.html
+    as_of: '20090713062231'
 - id: cerc-1998
   season: 1999
   name: 1998 ACM Central Europe Programming Contest
@@ -40,8 +46,8 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: http://icpc.baylor.edu:80/past/icpc99/Regionals/CERC98/Standings.htm
+      as_of: '20020701110238'
       note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      wayback: https://web.archive.org/web/20020701110238/http://icpc.baylor.edu:80/past/icpc99/Regionals/CERC98/Standings.htm
       url_state: unknown
       url_checked: '2026-09-07'
 - id: cerc-1999
@@ -61,8 +67,8 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: http://icpc.baylor.edu:80/past/icpc2000/regionals/CERC99/Standings.html
+      as_of: '20020111100929'
       note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      wayback: https://web.archive.org/web/20020111100929/http://icpc.baylor.edu:80/past/icpc2000/regionals/CERC99/Standings.html
       url_state: unknown
       url_checked: '2026-09-07'
 - id: cerc-2000
@@ -82,8 +88,8 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: http://icpc.baylor.edu:80/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=452
+      as_of: '20011222221938'
       note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      wayback: https://web.archive.org/web/20011222221938/http://icpc.baylor.edu:80/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=452
       url_state: unknown
       url_checked: '2026-09-07'
 - id: cerc-2001
@@ -95,24 +101,26 @@ contests:
   - 1216
   parent: wf-2002
   next: cerc-2002
-  web: https://web.archive.org/web/20011219042830/http://cepc.mimuw.edu.pl:8002/
+  web:
+    url: http://cepc.mimuw.edu.pl:8002/
+    as_of: '20011219042830'
   results:
     standings:
     - url: http://cepc.mimuw.edu.pl:8002/results.htm
+      as_of: '20020207005607'
       archived: cerc/cerc-2001/standings/2026-09-01-wayback-a6f2d178/results.htm
-      wayback: https://web.archive.org/web/20020207005607/http://cepc.mimuw.edu.pl:8002/results.htm
       url_state: unknown
       url_checked: '2026-09-07'
     - url: http://icpc.baylor.edu:80/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=517
+      as_of: '20020619092621'
       note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      wayback: https://web.archive.org/web/20020619092621/http://icpc.baylor.edu:80/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=517
       url_state: unknown
       url_checked: '2026-09-07'
     scoreboard:
     - url: http://cepc.mimuw.edu.pl:8002/problems.htm
+      as_of: '20020203072533'
       archived: cerc/cerc-2001/scoreboard/2026-04-16-archive/2001-central-europe-programming-contest-2001.html
       note: from archived capture (scoreboard)
-      wayback: https://web.archive.org/web/20020203072533/http://cepc.mimuw.edu.pl:8002/problems.htm
       url_state: unknown
       url_checked: '2026-09-07'
 - id: cerc-2002
@@ -124,30 +132,32 @@ contests:
   - 1177
   parent: wf-2003
   next: cerc-2003
-  web: https://web.archive.org/web/20030327162528/http://cepc.mimuw.edu.pl/
+  web:
+    url: http://cepc.mimuw.edu.pl/
+    as_of: '20030327162528'
   results:
     standings:
     - url: http://cepc.mimuw.edu.pl/pages/standings.html
+      as_of: '20030208043715'
       archived: cerc/cerc-2002/standings/2026-09-01-wayback-354f6b3b/standings.html
-      wayback: https://web.archive.org/web/20030208043715/http://cepc.mimuw.edu.pl/pages/standings.html
       url_state: unknown
       url_checked: '2026-09-07'
     - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/cepc.mimuw.edu.pl/pages/standings.html
+      as_of: '20060901161430'
       note: added by url-hunt 2026-09-01 (cdx-baylor-mirror)
-      wayback: https://web.archive.org/web/20060901161430/http://icpc.baylor.edu/past/icpc2003/regionals/Reports/cepc.mimuw.edu.pl/pages/standings.html
       url_state: unknown
       url_checked: '2026-09-07'
       archived: cerc/cerc-2002/standings/20060901-wayback-a9105bea/standings.html
     - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings8c26.html?ContestID=585
+      as_of: '20060901121152'
       note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      wayback: https://web.archive.org/web/20060901121152/http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings8c26.html?ContestID=585
       url_state: unknown
       url_checked: '2026-09-07'
     scoreboard:
     - url: http://cepc.mimuw.edu.pl/
+      as_of: '20030327162528'
       archived: cerc/cerc-2002/scoreboard/2026-04-16-archive/2002-central-europe-programming-contest-2002.html
       note: from archived capture (scoreboard)
-      wayback: https://web.archive.org/web/20030327162528/http://cepc.mimuw.edu.pl/
       url_state: replaced
       url_checked: '2026-09-07'
 - id: cerc-2003
@@ -159,24 +169,26 @@ contests:
   - 1171
   parent: wf-2004
   next: cerc-2004
-  web: https://web.archive.org/web/20040402131539/http://cepc.mimuw.edu.pl/
+  web:
+    url: http://cepc.mimuw.edu.pl/
+    as_of: '20040402131539'
   results:
     standings:
     - url: http://cepc.mimuw.edu.pl/pages/standings.html
+      as_of: '20040404130112'
       archived: cerc/cerc-2003/standings/2026-09-01-wayback-b4b31251/standings.html
-      wayback: https://web.archive.org/web/20040404130112/http://cepc.mimuw.edu.pl/pages/standings.html
       url_state: unknown
       url_checked: '2026-09-07'
     - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandingsb3a9.html?ContestID=658
+      as_of: '20060901142315'
       note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      wayback: https://web.archive.org/web/20060901142315/http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandingsb3a9.html?ContestID=658
       url_state: unknown
       url_checked: '2026-09-07'
     scoreboard:
     - url: http://cepc.mimuw.edu.pl/
+      as_of: '20040402131539'
       archived: cerc/cerc-2003/scoreboard/2026-04-16-archive/2003-central-europe-programming-contest-2003.html
       note: from archived capture (scoreboard)
-      wayback: https://web.archive.org/web/20040402131539/http://cepc.mimuw.edu.pl/
       url_state: replaced
       url_checked: '2026-09-07'
 - id: cerc-2004
@@ -188,19 +200,21 @@ contests:
   - 1154
   parent: wf-2005
   next: cerc-2005
-  web: https://web.archive.org/web/20090225181625/http://icpc.cs.bme.hu/main.php?p=1
+  web:
+    url: http://icpc.cs.bme.hu/main.php?p=1
+    as_of: '20090225181625'
   results:
     standings:
     - url: http://icpc.cs.bme.hu/main.php?p=12
-      wayback: https://web.archive.org/web/20090225181630/http://icpc.cs.bme.hu/main.php?p=12
+      as_of: '20090225181630'
       url_state: unknown
       url_checked: '2026-09-07'
       archived: cerc/cerc-2004/standings/2026-09-01-wayback-562409ad/page.html
     scoreboard:
     - url: http://icpc.cs.bme.hu/main.php?p=2
+      as_of: '20090428015213'
       archived: cerc/cerc-2004/scoreboard/2026-04-16-archive/2004-central-europe-programming-contest-2004.html
       note: from archived capture (scoreboard)
-      wayback: https://web.archive.org/web/20090428015213/http://icpc.cs.bme.hu/main.php?p=2
       url_state: unknown
       url_checked: '2026-09-07'
 - id: cerc-2005
@@ -212,25 +226,27 @@ contests:
   - 1235
   parent: wf-2006
   next: cerc-2006
-  web: https://web.archive.org/web/20090225181625/http://icpc.cs.bme.hu/main.php?p=1
+  web:
+    url: http://icpc.cs.bme.hu/main.php?p=1
+    as_of: '20090225181625'
   results:
     standings:
     - url: http://icpc.cs.bme.hu/main.php?p=12
-      wayback: https://web.archive.org/web/20090225181630/http://icpc.cs.bme.hu/main.php?p=12
+      as_of: '20090225181630'
       url_state: unknown
       url_checked: '2026-09-07'
       archived: cerc/cerc-2005/external-standings/2026-04-15-external/content.html
     - url: http://icpc.cs.bme.hu/main.php?p=12
+      as_of: '20091109080853'
       archived: cerc/cerc-2005/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20091109080853/http://icpc.cs.bme.hu:80/main.php?p=12
       url_state: unknown
       url_checked: '2026-09-07'
     scoreboard:
     - url: http://icpc.cs.bme.hu/main.php?p=2
+      as_of: '20090428015213'
       archived: cerc/cerc-2005/scoreboard/2026-04-16-archive/2005-central-europe-programming-contest-2005.html
       note: from archived capture (scoreboard)
-      wayback: https://web.archive.org/web/20090428015213/http://icpc.cs.bme.hu/main.php?p=2
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Central-Europe-2006/standings
@@ -243,25 +259,27 @@ contests:
   - 1111
   parent: wf-2007
   next: cerc-2007
-  web: https://web.archive.org/web/20090225181625/http://icpc.cs.bme.hu/main.php?p=1
+  web:
+    url: http://icpc.cs.bme.hu/main.php?p=1
+    as_of: '20090225181625'
   results:
     standings:
     - url: http://icpc.cs.bme.hu/main.php?p=12
-      wayback: https://web.archive.org/web/20090225181630/http://icpc.cs.bme.hu/main.php?p=12
+      as_of: '20090225181630'
       url_state: unknown
       url_checked: '2026-09-07'
       archived: cerc/cerc-2006/external-standings/2026-04-15-external/content.html
     - url: http://icpc.cs.bme.hu/main.php?p=12
+      as_of: '20091109080853'
       archived: cerc/cerc-2006/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: https://web.archive.org/web/20091109080853/http://icpc.cs.bme.hu:80/main.php?p=12
       url_state: unknown
       url_checked: '2026-09-07'
     scoreboard:
     - url: http://icpc.cs.bme.hu/main.php?p=2
+      as_of: '20090428015213'
       archived: cerc/cerc-2006/scoreboard/2026-04-16-archive/2006-central-europe-programming-contest-2006.html
       note: from archived capture (scoreboard)
-      wayback: https://web.archive.org/web/20090428015213/http://icpc.cs.bme.hu/main.php?p=2
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Central-Europe-2007/standings
@@ -295,10 +313,10 @@ contests:
   results:
     standings:
     - url: http://cepc08.ii.uni.wroc.pl/standings.html
+      as_of: '20090211123610'
       url_state: unknown
       url_checked: '2026-09-07'
       archived: cerc/cerc-2008/standings/20090211-wayback-b4f0e8d8/standings.html
-      wayback: https://web.archive.org/web/20090211123610/http://cepc08.ii.uni.wroc.pl/standings.html
     scoreboard:
     - url: http://cepc08.ii.uni.wroc.pl/problems.html
       archived: cerc/cerc-2008/scoreboard/2026-04-16-cepc/2008-central-europe-contest-2008.html
@@ -319,14 +337,14 @@ contests:
   results:
     standings:
     - url: http://informatyka.wroc.pl:80/node/309
+      as_of: '20091112131006'
       archived: cerc/cerc-2009/standings/2026-09-01-wayback-1d15f8b0/page.html
-      wayback: https://web.archive.org/web/20091112131006/http://informatyka.wroc.pl:80/node/309
       url_state: unknown
       url_checked: '2026-09-07'
     - url: http://informatyka.wroc.pl/node/309
+      as_of: '20111210121203'
       archived: cerc/cerc-2009/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings)
-      wayback: http://web.archive.org/web/20111210121203/http://informatyka.wroc.pl:80/node/309
       url_state: unknown
       url_checked: '2026-09-07'
     scoreboard:
@@ -345,19 +363,21 @@ contests:
   - 635
   parent: wf-2011
   next: cerc-2011
-  web: https://web.archive.org/web/20110925153432/http://cepc10.ii.uni.wroc.pl/index.html
+  web:
+    url: http://cepc10.ii.uni.wroc.pl/index.html
+    as_of: '20110925153432'
   results:
     standings:
     - url: http://cepc10.ii.uni.wroc.pl/standings.html
-      wayback: https://web.archive.org/web/20110926214641/http://cepc10.ii.uni.wroc.pl/standings.html
+      as_of: '20110926214641'
       url_state: unknown
       url_checked: '2026-09-07'
       archived: cerc/cerc-2010/standings/2026-09-01-wayback-d1dfbb0d/standings.html
     scoreboard:
     - url: http://cepc10.ii.uni.wroc.pl/problems.html
+      as_of: '20110924060559'
       archived: cerc/cerc-2010/scoreboard/2026-04-16-archive/2010-central-europe-regional-contest-2010.html
       note: from archived capture (scoreboard)
-      wayback: https://web.archive.org/web/20110924060559/http://cepc10.ii.uni.wroc.pl/problems.html
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Central-Europe-2011/standings
@@ -443,10 +463,10 @@ contests:
       url_state: live
       url_checked: '2026-09-07'
     - url: http://cerc.tcs.uj.edu.pl/ranking
+      as_of: '20150417084919'
       archived: cerc/cerc-2014/external-standings/2026-04-15-external/content.html
       note: from archived capture (external-standings) | retiered standings->scoreboard (full board, eyeballed
         2026-09-01)
-      wayback: https://web.archive.org/web/20150417084919/http://cerc.tcs.uj.edu.pl:80/ranking/
       url_state: unknown
       url_checked: '2026-09-07'
   icpc_standings: https://icpc.global/regionals/finder/Central-Europe-2015/standings
@@ -657,10 +677,10 @@ contests:
   results:
     scoreboard:
     - url: https://cerc24.ii.uni.wroc.pl/results.html
+      as_of: '20250309211905'
       url_state: unknown
       url_checked: '2026-09-07'
       archived: cerc/cerc-2024/scoreboard/20250309-wayback-e069cf95/results.html
-      wayback: https://web.archive.org/web/20250309211905/https://cerc24.ii.uni.wroc.pl/results.html
   icpc_standings: https://icpc.global/regionals/finder/Central-Europe-2025/standings
 - id: cerc-2025
   season: 2026
@@ -674,10 +694,10 @@ contests:
   results:
     scoreboard:
     - url: https://cerc25.ii.uni.wroc.pl/results.html
+      as_of: '20260218211315'
       url_state: unknown
       url_checked: '2026-09-07'
       archived: cerc/cerc-2025/scoreboard/20260218-wayback-99cf1604/results.html
-      wayback: https://web.archive.org/web/20260218211315/https://cerc25.ii.uni.wroc.pl/results.html
   icpc_standings: https://icpc.global/regionals/finder/Central-Europe-2026/standings
 - id: cerc-2026
   status: upcoming

@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_misclass_fixes.py (audit 2026-09-02).
+# Maintained in-repo; resource model migration (tools/migrate_resources.py).
 series:
   id: nzpc
   name: New Zealand Programming Contest
@@ -11,13 +11,13 @@ contests:
   results:
     standings:
     - url: http://icpc.baylor.edu/past/icpc99/Regionals/NZ98/Standings.htm
-      wayback: https://web.archive.org/web/20100710010615/http://icpc.baylor.edu/past/icpc99/Regionals/NZ98/Standings.htm
+      as_of: '20100710010615'
       url_state: unknown
       url_checked: '2026-09-07'
       archived: nzpc/nzpc-1998/standings/2026-09-01-wayback-52d46490/Standings.htm
     - url: http://icpc.baylor.edu:80/past/icpc99/Regionals/NZ98/Standings.htm
+      as_of: '20020527172144'
       note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      wayback: https://web.archive.org/web/20020527172144/http://icpc.baylor.edu:80/past/icpc99/Regionals/NZ98/Standings.htm
       url_state: unknown
       url_checked: '2026-09-07'
 - id: nzpc-2002
@@ -26,8 +26,8 @@ contests:
   results:
     standings:
     - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz02results.pdf
+      as_of: '20081018021235'
       note: added by url-hunt 2026-09-01 (wave3-nzpc)
-      wayback: https://web.archive.org/web/20081018021235/https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz02results.pdf
       url_state: live
       url_checked: '2026-09-07'
       archived: nzpc/nzpc-2002/standings/20081018-wayback-55e9108b/nz02results.pdf
@@ -37,8 +37,8 @@ contests:
   results:
     standings:
     - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz04resultsFull.html
+      as_of: '20081018020838'
       note: added by url-hunt 2026-09-01 (wave3-nzpc)
-      wayback: https://web.archive.org/web/20081018020838/https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz04resultsFull.html
       url_state: live
       url_checked: '2026-09-07'
       archived: nzpc/nzpc-2004/standings/20081018-wayback-4b30f86c/nz04resultsFull.html
@@ -48,8 +48,8 @@ contests:
   results:
     standings:
     - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz05results.pdf
+      as_of: '20081018020914'
       note: added by url-hunt 2026-09-01 (wave3-nzpc)
-      wayback: https://web.archive.org/web/20081018020914/https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz05results.pdf
       url_state: live
       url_checked: '2026-09-07'
       archived: nzpc/nzpc-2005/standings/20081018-wayback-54248cae/nz05results.pdf
@@ -59,8 +59,8 @@ contests:
   results:
     standings:
     - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz06results.pdf
+      as_of: '20081018021213'
       note: added by url-hunt 2026-09-01 (wave3-nzpc)
-      wayback: https://web.archive.org/web/20081018021213/https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz06results.pdf
       url_state: live
       url_checked: '2026-09-07'
       archived: nzpc/nzpc-2006/standings/20081018-wayback-4c61081e/nz06results.pdf
@@ -70,8 +70,8 @@ contests:
   results:
     standings:
     - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz07results.pdf
+      as_of: '20081018021157'
       note: added by url-hunt 2026-09-01 (wave3-nzpc)
-      wayback: https://web.archive.org/web/20081018021157/https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz07results.pdf
       url_state: live
       url_checked: '2026-09-07'
       archived: nzpc/nzpc-2007/standings/20081018-wayback-d2dd8ee1/nz07results.pdf
@@ -81,8 +81,8 @@ contests:
   results:
     standings:
     - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz08results.pdf
+      as_of: '20081018021107'
       note: added by url-hunt 2026-09-01 (wave3-nzpc)
-      wayback: https://web.archive.org/web/20081018021107/https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz08results.pdf
       url_state: live
       url_checked: '2026-09-07'
       archived: nzpc/nzpc-2008/standings/20081018-wayback-c6280629/nz08results.pdf
@@ -92,8 +92,8 @@ contests:
   results:
     standings:
     - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz09results.pdf
+      as_of: '20100514230710'
       note: added by url-hunt 2026-09-01 (wave3-nzpc)
-      wayback: https://web.archive.org/web/20100514230710/https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz09results.pdf
       url_state: live
       url_checked: '2026-09-07'
       archived: nzpc/nzpc-2009/standings/20100514-wayback-94982c62/nz09results.pdf
@@ -103,8 +103,8 @@ contests:
   results:
     standings:
     - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz10results.pdf
+      as_of: '20160212094157'
       note: added by url-hunt 2026-09-01 (wave3-nzpc)
-      wayback: https://web.archive.org/web/20160212094157/https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz10results.pdf
       url_state: live
       url_checked: '2026-09-07'
       archived: nzpc/nzpc-2010/standings/20160212-wayback-faf409c3/nz10results.pdf
@@ -114,8 +114,8 @@ contests:
   results:
     standings:
     - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz11results.pdf
+      as_of: '20160212094206'
       note: added by url-hunt 2026-09-01 (wave3-nzpc)
-      wayback: https://web.archive.org/web/20160212094206/https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz11results.pdf
       url_state: live
       url_checked: '2026-09-07'
       archived: nzpc/nzpc-2011/standings/20160212-wayback-0ec42f43/nz11results.pdf
@@ -131,8 +131,8 @@ contests:
   results:
     standings:
     - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz12results.pdf
+      as_of: '20160212094233'
       note: added by url-hunt 2026-09-01 (wave3-nzpc)
-      wayback: https://web.archive.org/web/20160212094233/https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz12results.pdf
       url_state: live
       url_checked: '2026-09-07'
       archived: nzpc/nzpc-2012/standings/20160212-wayback-db9865a2/nz12results.pdf
@@ -147,8 +147,8 @@ contests:
   results:
     standings:
     - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz13results.pdf
+      as_of: '20160212094241'
       note: added by url-hunt 2026-09-01 (wave3-nzpc)
-      wayback: https://web.archive.org/web/20160212094241/https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz13results.pdf
       url_state: live
       url_checked: '2026-09-07'
       archived: nzpc/nzpc-2013/standings/20160212-wayback-40218c92/nz13results.pdf
