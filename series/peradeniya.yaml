@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/import_locations.py.
+# Maintained in-repo; finder pages moved to the icpc_standings tier (tools/migrate_finder_tier.py).
 series:
   id: peradeniya
   name: ICPC Asia Peradeniya Regional Contest
@@ -11,17 +11,15 @@ contests:
   cms_ids:
   - 9238
   parent: awc-2025
-  icpc_standings: https://icpc.global/regionals/finder/Asia-Peradeniya-2026/standings
+  icpc_standings:
+    url: https://icpc.global/regionals/finder/Asia-Peradeniya-2026/standings
+    archived: peradeniya/peradeniya-2025/standings/api-20260904/standings.html
+    note: rendered from the icpc.global API standings archive (cms 9238, 23 teams, DB fetch 2026-04-26)
   notes: 'added from misclass audit 2026-09-02 (23 teams, 23 results in CMS); web candidate: https://icpc.ieee.lk/;
     web candidate: https://eng.pdn.ac.lk/blog/the-icpc-sri-lanka-2025-26-regional-onsite-round/; 2024
     edition cancelled (CMS 9091) - correctly absent; prelim 9831 is feeder layer. Onsite ran Sun 2026-01-25
     per University of Peradeniya''s own post-event blog; CMS''s 2025-11-08 on 9238 duplicates the preliminary''s
     date (9831) - another CMS date bug'
-  results:
-    standings:
-    - url: https://icpc.global/regionals/finder/Asia-Peradeniya-2026/standings
-      archived: peradeniya/peradeniya-2025/standings/api-20260904/standings.html
-      note: rendered from the icpc.global API standings archive (cms 9238, 23 teams, DB fetch 2026-04-26)
 - id: peradeniya-2026
   season: 2027
   name: 2026 Asia Peradeniya Regional Contest

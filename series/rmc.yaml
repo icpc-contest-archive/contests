@@ -1,4 +1,4 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; finder pages moved to the icpc_standings tier (tools/migrate_finder_tier.py).
 series:
   id: rmc
   name: ICPC North America Rocky Mountain Regional Contest
@@ -681,12 +681,12 @@ contests:
   - 5381
   parent: nac-2023
   next: rmc-2023
-  icpc_standings: https://icpc.global/regionals/finder/Rocky-Mountain-2023/standings
+  icpc_standings:
+    url: https://icpc.global/regionals/finder/Rocky-Mountain-2023/standings
+    note: API-dump capture was filed under https://icpc.global/regionals/finder/Rocky-Mountain-2022/standings;
+      from archived capture (external-standings)
+    archived: rmc/rmc-2022/external-standings/2026-04-15-external/content.html
   results:
-    standings:
-    - url: https://icpc.global/regionals/finder/Rocky-Mountain-2022/standings
-      archived: rmc/rmc-2022/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
     scoreboard:
     - url: https://rmc23.kattis.com/contests/rmc23/standings
       note: added by url-hunt 2026-09-01 (agent-na)
@@ -721,13 +721,11 @@ contests:
   - 8929
   parent: nac-2025
   next: rmc-2025
-  icpc_standings: https://icpc.global/regionals/finder/Rocky-Mountain-2025/standings
+  icpc_standings:
+    url: https://icpc.global/regionals/finder/Rocky-Mountain-2025/standings
+    archived: rmc/rmc-2024/standings/api-20260904/standings.html
+    note: rendered from the icpc.global API standings archive (cms 8929, 54 teams, DB fetch 2026-04-26)
   web: https://rm.na.icpc.global/
-  results:
-    standings:
-    - url: https://icpc.global/regionals/finder/Rocky-Mountain-2025/standings
-      archived: rmc/rmc-2024/standings/api-20260904/standings.html
-      note: rendered from the icpc.global API standings archive (cms 8929, 54 teams, DB fetch 2026-04-26)
 - id: rmc-2025
   season: 2026
   name: 2025 ICPC North America Rocky Mountain Regional Contest

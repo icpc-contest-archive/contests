@@ -1,4 +1,4 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; finder pages moved to the icpc_standings tier (tools/migrate_finder_tier.py).
 series:
   id: harbin
   name: ACM-ICPC Asia Harbin Regional Contest
@@ -48,12 +48,12 @@ contests:
   web:
     url: http://acm.hit.edu.cn/icpc-regional-2009/page.php?id=5
     as_of: '20150308015017'
-  icpc_standings: https://icpc.global/regionals/finder/Harbin-2010/standings
+  icpc_standings:
+    url: https://icpc.global/regionals/finder/Harbin-2010/standings
+    archived: harbin/harbin-2009/standings/api-20260904/standings.html
+    note: rendered from the icpc.global API standings archive (cms 495, 988 teams, DB fetch 2026-04-26)
   results:
     standings:
-    - url: https://icpc.global/regionals/finder/Harbin-2010/standings
-      archived: harbin/harbin-2009/standings/api-20260904/standings.html
-      note: rendered from the icpc.global API standings archive (cms 495, 988 teams, DB fetch 2026-04-26)
     - url: http://board.acmicpc.info/icpc2010/hrbeu_onsite.php
       as_of: '20121108180228'
       note: added by url-hunt 2026-09-01 (round9-research)

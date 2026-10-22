@@ -1,4 +1,4 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; finder pages moved to the icpc_standings tier (tools/migrate_finder_tier.py).
 series:
   id: mausa
   name: ICPC North America Mid-Atlantic Regional Contest
@@ -758,13 +758,11 @@ contests:
   parent: nac-2026
   next: mausa-2026
   subset_of: south-na-2025
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2026/standings
+  icpc_standings:
+    url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2026/standings
+    archived: mausa/mausa-2025/standings/api-20260904/standings.html
+    note: rendered from the icpc.global API standings archive (cms 9332, 111 teams, DB fetch 2026-04-26)
   web: https://ma.na.icpc.global/
-  results:
-    standings:
-    - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2026/standings
-      archived: mausa/mausa-2025/standings/api-20260904/standings.html
-      note: rendered from the icpc.global API standings archive (cms 9332, 111 teams, DB fetch 2026-04-26)
 - id: mausa-2026
   status: upcoming
   season: 2027

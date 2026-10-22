@@ -1,4 +1,4 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; finder pages moved to the icpc_standings tier (tools/migrate_finder_tier.py).
 series:
   id: gwalior
   name: ICPC Asia Gwalior Regional Contest
@@ -44,13 +44,11 @@ contests:
   - 3446
   parent: wf-2018
   next: gwalior-pune-2018
-  icpc_standings: https://icpc.global/regionals/finder/ICPC-Gwalior-2018/standings
+  icpc_standings:
+    url: https://icpc.global/regionals/finder/ICPC-Gwalior-2018/standings
+    archived: gwalior/gwalior-2017/standings/api-20260904/standings.html
+    note: rendered from the icpc.global API standings archive (cms 3446, 93 teams, DB fetch 2026-04-26)
   web: http://icpc-iiitm.com
-  results:
-    standings:
-    - url: https://icpc.global/regionals/finder/ICPC-Gwalior-2018/standings
-      archived: gwalior/gwalior-2017/standings/api-20260904/standings.html
-      note: rendered from the icpc.global API standings archive (cms 3446, 93 teams, DB fetch 2026-04-26)
 - id: gwalior-2022
   season: 2023
   name: 2022 ICPC Asia Gwalior Regional Contest

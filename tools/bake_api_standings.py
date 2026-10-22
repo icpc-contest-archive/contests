@@ -119,7 +119,7 @@ def main() -> int:
                  "abbr": entry.get("abbr"), "year": entry.get("year"),
                  "standings": entry["standings"]}, indent=1, ensure_ascii=False))
             man = {"schema_version": 1, "contest": cid, "artifact": "standings",
-                   "cms_id": best, "url": c.get("icpc_standings"),
+                   "cms_id": best, "url": (c["icpc_standings"]["url"] if isinstance(c.get("icpc_standings"), dict) else c.get("icpc_standings")),
                    "source": "icpc-api-archive", "fetched": FETCHED,
                    "baked": datetime.date.today().isoformat(),
                    "content_file": "standings.html",
@@ -130,11 +130,14 @@ def main() -> int:
             tmp = dest / "manifest.json.tmp"
             tmp.write_text(json.dumps(man, indent=1, ensure_ascii=False))
             tmp.replace(dest / "manifest.json")
-            res.setdefault("standings", []).append({
-                "url": c.get("icpc_standings"),
-                "archived": rel + "/standings.html",
-                "note": f"rendered from the icpc.global API standings archive "
-                        f"(cms {best}, {len(entry['standings'])} teams, DB fetch {FETCHED})"})
+            # the finder page is the ICPC-standings TIER (migrate_finder_tier.py, 2026-10-22):
+            # the capture pointer lives on icpc_standings itself, never in a results tier
+            cur = c.get("icpc_standings")
+            obj = dict(cur) if isinstance(cur, dict) else {"url": cur}
+            obj["archived"] = rel + "/standings.html"
+            obj["note"] = (f"rendered from the icpc.global API standings archive "
+                           f"(cms {best}, {len(entry['standings'])} teams, DB fetch {FETCHED})")
+            c["icpc_standings"] = obj
             touched.add(f)
         done += 1
     print(f"baked: {done} | already had api- entry: {skipped} | no rows found: {missing}"
