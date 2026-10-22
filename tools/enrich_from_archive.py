@@ -62,6 +62,18 @@ def main() -> int:
                 if cap.get("content_caveat"):
                     stats["skipped (content caveat)"] += 1
                     continue
+                if cap.get("source") == "icpc-api-archive" or re.match(r"^https?://icpc\.global/regionals/finder/", cap.get("url") or ""):
+                    # the ICPC-standings tier lives on icpc_standings (see migrate_finder_tier.py)
+                    cur = c.get("icpc_standings")
+                    obj = dict(cur) if isinstance(cur, dict) else ({"url": cur} if cur else {"url": cap["url"]})
+                    if not obj.get("archived"):
+                        obj["archived"] = cap["path"]
+                        c["icpc_standings"] = obj
+                        stats["icpc_standings archived set"] += 1
+                        changed = True
+                    else:
+                        stats["icpc_standings already archived"] += 1
+                    continue
                 key = ART_KEY.get(cap["artifact"])
                 if key is None:
                     stats[f"skipped artifact {cap['artifact']}"] += 1

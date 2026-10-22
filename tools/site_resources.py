@@ -33,6 +33,10 @@ class Resources:
         p = root / "data" / "resources.json"
         self.locs = json.loads(p.read_text())["locators"] if p.exists() else {}
 
+    def health(self, url: str) -> dict | None:
+        L = self.locs.get(lid(url))
+        return (L or {}).get("health")
+
     def locator_href(self, url: str, rel: str) -> str | None:
         k = lid(url)
         return f"{rel}locator/{k}/index.html" if k in self.locs else None
@@ -114,7 +118,7 @@ def build(out: Path, R: Resources, page, link_contest, local_link, replay_base: 
                     continue
                 seen.add(key)
                 extra = f' <span class="muted small">as of {fmt_time(r["as_of"])}</span>' if r.get("as_of") else ""
-                items.append(f'{link_contest(r["contest"], rel)} <span class="chip">{esc(r["field"].replace("_", " "))}</span>{extra}')
+                items.append(f'{link_contest(r["contest"], rel)} <span class="chip">{esc(r["field"].replace("_", " ").replace("icpc standings", "ICPC standings"))}</span>{extra}')
             b.append(f'<dt>referenced by</dt><dd class="wrap">{" · ".join(items)}</dd>')
         b.append("</dl>")
         held_res = {t: Rr for t, Rr in L["resources"].items() if Rr.get("held")}

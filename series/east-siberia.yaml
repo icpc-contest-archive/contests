@@ -1,4 +1,4 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; finder pages moved to the icpc_standings tier (tools/migrate_finder_tier.py).
 series:
   id: east-siberia
   name: ICPC East Siberian Regional Contest
@@ -497,13 +497,11 @@ contests:
   - 9181
   parent: nerc-2025
   next: east-siberia-2026
-  icpc_standings: https://icpc.global/regionals/finder/East-Siberian-Regional-2026/standings
+  icpc_standings:
+    url: https://icpc.global/regionals/finder/East-Siberian-Regional-2026/standings
+    archived: east-siberia/east-siberia-2025/standings/api-20260904/standings.html
+    note: rendered from the icpc.global API standings archive (cms 9181, 45 teams, DB fetch 2026-04-26)
   web: https://ikit.sfu-kras.ru/olimp/icpc
-  results:
-    standings:
-    - url: https://icpc.global/regionals/finder/East-Siberian-Regional-2026/standings
-      archived: east-siberia/east-siberia-2025/standings/api-20260904/standings.html
-      note: rendered from the icpc.global API standings archive (cms 9181, 45 teams, DB fetch 2026-04-26)
 - id: east-siberia-2026
   status: upcoming
   season: 2027

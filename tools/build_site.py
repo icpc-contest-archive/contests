@@ -153,6 +153,7 @@ nav.top a { margin-right:1.1rem; }
 .m-arch:hover { text-decoration:none; opacity:.85; }
 .m-live { box-shadow:inset 0 0 0 1px var(--accent); }
 .m-ist { box-shadow:inset 0 0 0 1px var(--line); color:var(--muted); }
+.m-arch.m-ist { background:var(--muted); color:var(--bg); box-shadow:none; }
 a.local { border-bottom:1px dashed var(--accent); }
 a.local::after { content:"local"; font-size:.7em; margin-left:.25em; padding:0 .35em;
   border-radius:.5em; background:var(--chip); color:var(--muted); vertical-align:.15em; }
@@ -217,14 +218,49 @@ def page(title: str, body: str, rel: str) -> str:
 <main>{body}</main></body></html>"""
 
 
-def link_contest(cid: str, rel: str) -> str:
-    return f'<a href="{rel}contest/{esc(cid)}.html">{esc(cid)}</a>'
+CONTESTS: dict = {}  # filled by load(); lets every link carry the same tooltip
+
+
+def link_contest(cid: str, rel: str, chip: bool = False) -> str:
+    """The one way a contest is rendered as a link: id, with name · date on hover and an
+    'upcoming' chip where the context lists contests that ran (chip=True)."""
+    c = CONTESTS.get(cid) or {}
+    tip = " · ".join(x for x in (c.get("name"), c.get("date")) if x)
+    out = f'<a href="{rel}contest/{esc(cid)}.html"' + (f' title="{esc(tip)}"' if tip else "") + f'>{esc(cid)}</a>'
+    if chip and c.get("status") == "upcoming":
+        out += ' <span class="chip" title="has not run yet">upcoming</span>'
+    return out
+
+
+def ist_locator(c):
+    """icpc_standings as (url, entry-dict) whether it is a bare url or a locator object."""
+    v = c.get("icpc_standings")
+    if not v:
+        return None, None
+    return (v["url"], v) if isinstance(v, dict) else (v, {"url": v})
+
+
+def best_tier(c) -> str:
+    """The ONE tier ladder used by the grid, coverage, wanted list and marks:
+    scoreboard > frozen_scoreboard > standings > rankings > icpc > none."""
+    res = c.get("results", {})
+    for k in ("scoreboard", "frozen_scoreboard", "standings", "rankings"):
+        if res.get(k):
+            return k
+    return "icpc" if c.get("icpc_standings") else "none"
+
+
+def web_state(c) -> str:
+    """'link' (a website locator), 'none' (confirmed none: web: null), 'unknown' (not researched)."""
+    if c.get("web"):
+        return "link"
+    return "none" if "web" in c else "unknown"
 
 
 TIERS = (("scoreboard", "S"), ("frozen_scoreboard", "F"),
          ("standings", "St"), ("rankings", "R"))
 MARK_LEGEND = ('<p class="small muted"><b>S</b> scoreboard · <b>F</b> frozen scoreboard · '
-               '<b>St</b> standings · <b>R</b> rankings · <b>I</b> ICPC standings — '
+               '<b>St</b> standings · <b>R</b> rankings · <b>I</b> ICPC standings (lowest tier) — '
                '<span class="mark m-arch">filled</span> = archived copy held, '
                '<span class="mark m-live">outlined</span> = live link only (not yet archived)</p>')
 
@@ -246,9 +282,14 @@ def tier_marks(c):
         else:
             out.append(f'<a class="mark m-live" href="{esc(entries[0]["url"])}" '
                        f'title="{kind} — live link only, not yet archived">{letter}</a>')
-    if c.get("icpc_standings"):
-        out.append(f'<a class="mark m-ist" href="{esc(c["icpc_standings"])}" '
-                   f'title="ICPC standings (CMS data; archived via the API dump)">I</a>')
+    url, e = ist_locator(c)
+    if url:
+        if e.get("archived") and not (capture_info.get(e["archived"]) or {}).get("content_caveat"):
+            out.append(f'<a class="mark m-arch m-ist" href="{REPLAY_BASE}/a/{esc(e["archived"])}" '
+                       f'title="ICPC standings — archived copy (rendered from the API dump)">I</a>')
+        else:
+            out.append(f'<a class="mark m-ist" href="{esc(url)}" '
+                       f'title="ICPC standings (CMS data) — live link only">I</a>')
     return "".join(out)
 
 
@@ -268,6 +309,8 @@ def load():
         for c in doc["contests"]:
             contests[c["id"]] = c
             series_of[c["id"]] = sid
+    CONTESTS.clear()
+    CONTESTS.update(contests)
     prev, children, subsets = defaultdict(list), defaultdict(list), defaultdict(list)
     for cid, c in contests.items():
         for n in refs(c.get("next")):
@@ -281,6 +324,22 @@ def load():
         p = ROOT / "data" / f"{name}.json"
         aux[name] = json.loads(p.read_text()) if p.exists() else None
     return series_docs, contests, series_of, prev, children, subsets, aux
+
+
+def health_chip(url: str, e: dict | None = None, rel: str = "") -> str:
+    """The locator's health, one way everywhere: catalogue url_state if the entry has one,
+    else the resource graph's verdict (web/mirror/icpc locators have no field for it)."""
+    st, when = None, None
+    if e and e.get("url_state"):
+        st, when = e["url_state"], e.get("url_checked")
+    else:
+        h = RES.health(url)
+        if h:
+            st, when = h.get("state"), h.get("checked")
+    if not st:
+        return ""
+    t = STATE_TITLE.get(st, "") + (f" (checked {when})" if when else "")
+    return f' <span class="chip" title="{esc(t)}">{esc(st)}</span>'
 
 
 def local_link(path: str, label: str = "local") -> str:
@@ -304,8 +363,8 @@ def result_links(cid, key, entries, replay_lookup, rel, matched_paths):
         if e.get("archived"):
             parts.append(local_link("archive/" + e["archived"], "raw"))
         rows.append(
-            f'<div class="small"><span class="chip">{esc(key.replace("_", " "))}</span> '
-            + " · ".join(parts) + f' <span class="muted">{RES.label_link(url, as_of or cap_time(cap), rel, esc(res_label(url, as_of)))}</span></div>'
+            f'<div class="small"><span class="chip">{esc(key.replace("_", " ")) if key != "icpc_standings" else "ICPC standings"}</span> '
+            + " · ".join(parts) + f' <span class="muted">{RES.label_link(url, as_of or cap_time(cap), rel, esc(res_label(url, as_of)))}</span>{health_chip(url, e)}</div>'
         )
     return rows
 
@@ -339,12 +398,16 @@ def web_cell(c, cid: str) -> str:
     local archived-site link when a crawl is held."""
     parts = []
     site = website_of.get(cid)
+    if web_state(c) == "none":
+        return '<span class="muted small">confirmed none</span>'
     for n, (w, as_of) in enumerate(locators(c.get("web"))):
         host = re.sub(r"^https?://(www\.)?", "", w).rstrip("/")
         host = host if len(host) <= 40 else host[:39] + "…"
         wb_ts = (site.get("wayback_timestamp") if site and n == 0 else None) or as_of
-        bit = (f'<a href="{esc(w)}" title="{esc(res_label(w, as_of, 200))}">{esc(host)}</a> '
+        bit = (f'<a href="{esc(w)}" title="{esc(res_label(w, as_of, 200))}">{esc(host)}</a>{health_chip(w)} '
                f'<a class="small" href="{esc(wayback_link(w, wb_ts))}">wb</a>')
+        if RES.locator_href(w, "../"):
+            bit += f' <a class="small" href="{RES.locator_href(w, "../")}" title="resource page">res</a>'
         if site and n == 0:
             bit += " " + local_link(f"site/{cid}/", "archived")
         parts.append(bit)
@@ -441,25 +504,30 @@ def build(out: Path):
             d.append(f'<dt>web</dt><dd><a href="{esc(w)}">{esc(res_label(w, as_of, 80))}</a> · '
                      f'<a href="{esc(wayback_link(w, wb_ts))}">wayback</a>{extra}'
                      + (f' · {RES.label_link(w, wb_ts, rel, "resource")}' if RES.locator_href(w, rel) else "")
-                     + "</dd>")
-        if c.get("icpc_standings"):
-            d.append(f'<dt>ICPC standings</dt><dd><a href="{esc(c["icpc_standings"])}">finder page</a></dd>')
+                     + health_chip(w) + "</dd>")
+        if web_state(c) == "none":
+            d.append('<dt>web</dt><dd class="muted">confirmed none (see notes)</dd>')
         if c.get("notes"):
             d.append(f'<dt>notes</dt><dd class="wrap">{esc(c["notes"])}</dd>')
         d.append("</dl>")
         b += d
         res = c.get("results", {})
-        if res or replay_by_contest.get(cid):
+        if res or replay_by_contest.get(cid) or c.get("icpc_standings"):
             b.append("<h2>Results</h2>")
             matched_paths: set = set()
             for key in ("scoreboard", "frozen_scoreboard", "standings", "rankings"):
                 if key in res:
                     b += result_links(cid, key, res[key], replay_lookup, rel, matched_paths)
+            url, e = ist_locator(c)
+            if url:  # the ICPC-standings tier, rendered like any other result row
+                b += result_links(cid, "icpc_standings", [e], replay_lookup, rel, matched_paths)
             extra = [e for e in replay_by_contest.get(cid, []) if e["path"] not in matched_paths]
             for e in extra:
+                u = e.get("url") or ""
                 b.append(f'<div class="small"><span class="chip">{esc(e["artifact"])}</span> '
-                         f'<a href="{REPLAY_BASE}/{esc(e["path"])}">archived copy</a> '
-                         f'<span class="muted">{esc((e.get("url") or "")[:90])}</span></div>')
+                         + (f'<a href="{esc(u)}">live</a>{health_chip(u)} · <a href="{esc(wayback_link(u))}">wayback</a> · ' if u else "")
+                         + f'<a href="{REPLAY_BASE}/{esc(e["path"])}">archived</a> '
+                         + f'<span class="muted">{RES.label_link(u, None, rel, esc(u[:90])) if u else ""}</span></div>')
         caps = archived_by_contest.get(cid)
         if caps:
             b.append(f'<p class="small muted">{len(caps)} raw capture(s) in the archive repo '
@@ -486,7 +554,7 @@ def build(out: Path):
                  "<th>advances to</th><th>results</th><th>CMS id</th><th>website</th></tr>")
         for c in reversed(doc["contests"]):  # latest first
             b.append(
-                "<tr><td>" + link_contest(c["id"], rel) + "</td>"
+                "<tr><td>" + link_contest(c["id"], rel, chip=True) + "</td>"
                 f"<td>{esc(c.get('date', ''))}</td>"
                 "<td>" + ", ".join(link_contest(p, rel) for p in refs(c.get("parent"))) + "</td>"
                 f"<td>{tier_marks(c)}</td><td>{cms_cell(c)}</td>"
@@ -501,12 +569,15 @@ def build(out: Path):
     for sid in sorted(series_docs):
         doc = series_docs[sid]
         years = [int(c["id"].rsplit("-", 1)[1]) for c in doc["contests"]]
+        tier = doc["series"].get("tier") or ("World Finals" if sid == "wf" else "")
         rows.append(f'<tr><td><a href="{esc(sid)}.html">{esc(sid)}</a></td>'
                     f"<td>{len(years)}</td><td>{min(years)}–{max(years)}</td>"
+                    f'<td class="small muted">{esc(SERIES_REGION.get(sid, "Other"))}</td>'
+                    f'<td>{("<span class=chip>" + esc(tier) + "</span>") if tier else ""}</td>'
                     f'<td class="wrap">{esc(doc["series"].get("name", ""))}</td></tr>')
     (out / "series" / "index.html").write_text(page(
         "Series", "<h1>Series</h1><div class='tablewrap'><table>"
-        "<tr><th>series</th><th>editions</th><th>years</th><th>name</th></tr>"
+        "<tr><th>series</th><th>editions</th><th>years</th><th>region</th><th>tier</th><th>name</th></tr>"
         + "\n".join(rows) + "</table></div>", rel))
 
     # ---- season tree pages ----
@@ -525,7 +596,7 @@ def build(out: Path):
             c = contests[cid]
             kids = sorted(k for k in children.get(cid, []) if k in mset and k not in seen)
             extra = " · ".join(x for x in (cms_cell(c), web_cell(c, cid)) if x)
-            label = (link_contest(cid, rel)
+            label = (link_contest(cid, rel, chip=True)
                      + f'<span class="meta">{esc(c.get("date", ""))} {tier_marks(c)}'
                      + (f' <span class="small">{extra}</span>' if extra else "") + "</span>")
             if not kids:
@@ -577,14 +648,10 @@ def build(out: Path):
     def cell_class(c):
         if c.get("status") == "upcoming":
             return "c-up", "upcoming"
-        res = c.get("results", {})
-        if "scoreboard" in res or "frozen_scoreboard" in res:
-            return "c-sb", "scoreboard"
-        if res:
-            return "c-res", "standings/rankings only"
-        if c.get("icpc_standings"):
-            return "c-ist", "ICPC standings only"
-        return "c-none", "no results yet"
+        bt = best_tier(c)
+        return {"scoreboard": ("c-sb", "scoreboard"), "frozen_scoreboard": ("c-sb", "frozen scoreboard"),
+                "standings": ("c-res", "standings only"), "rankings": ("c-res", "rankings only"),
+                "icpc": ("c-ist", "ICPC standings only"), "none": ("c-none", "no results yet")}[bt]
 
     def region_rows(sids):
         return sorted(sids, key=lambda s: (min(int(c["id"].rsplit("-", 1)[1])
@@ -615,8 +682,9 @@ def build(out: Path):
                 cid = by_sy.get((sid, y))
                 if cid:
                     cls, why = cell_class(contests[cid])
+                    cc = contests[cid]
                     g.append(f'<td><a class="cell {cls}" href="contest/{esc(cid)}.html" '
-                             f'title="{esc(cid)} — {why}"></a></td>')
+                             f'title="{esc(cid)}{" · " + esc(cc["date"]) if cc.get("date") else ""} — {why}"></a></td>')
                 elif lineage_at.get((sid, y)):
                     tgt = lineage_at[(sid, y)][0]
                     g.append(f'<td><a class="c-lin" href="series/{esc(tgt)}.html" '
@@ -654,7 +722,8 @@ def build(out: Path):
                 "sb": sb, "fr": fr, "st": st, "rk": rk, "any": any_,
                 "arch": any(e.get("archived") and not (capture_info.get(e["archived"]) or {}).get("content_caveat")
                             for lst in res.values() for e in lst),
-                "web": bool(c.get("web")),
+                "web": web_state(c) == "link",
+                "web_none": web_state(c) == "none",
                 "web_arch": c["id"] in website_of}
 
     ran_rows = []  # (year, series, region, flags)
@@ -744,7 +813,8 @@ def build(out: Path):
     for y, s, _r, f in ran_rows:
         per_series[s].append((y, f))
     cov.append('<h2 id="series">By series</h2><p class="small muted">Sorted by missing count — '
-               'the top of this table is the hunting worklist.</p>'
+               'the top of this table is the hunting worklist. "website link" excludes contests '
+               'whose website is confirmed none.</p>'
                '<div class="tablewrap"><table>'
                + COV_HDR.format("series").replace("<th>series</th>",
                                                   "<th>series</th><th>region</th><th>years</th>"))
@@ -768,19 +838,24 @@ def build(out: Path):
         return wayback_link(e["url"], e["as_of"]) if e.get("as_of") else None
 
     url_tables = {k: [] for k, _ in TIERS}
-    url_tables["icpc_standings"] = []
-    url_tables["web"] = []
+    for k in ("icpc_standings", "web", "mirror", "problemset"):
+        url_tables[k] = []
     for cid in sorted(contests):
         c = contests[cid]
         for k, _l in TIERS:
             for e in c.get("results", {}).get(k, []):
                 url_tables[k].append((cid, e))
-        if c.get("icpc_standings"):
-            url_tables["icpc_standings"].append((cid, {"url": c["icpc_standings"]}))
+        url, e = ist_locator(c)
+        if url:
+            url_tables["icpc_standings"].append((cid, e))
         for w, as_of in locators(c.get("web")):
             url_tables["web"].append((cid, {"url": w, "as_of": as_of}))
+        for m in c.get("mirrors") or []:
+            url_tables["mirror"].append((cid, m))
+        for w, as_of in locators(c.get("problemset")):
+            url_tables["problemset"].append((cid, {"url": w, "as_of": as_of}))
     art_order = ["scoreboard", "frozen_scoreboard", "standings", "rankings",
-                 "icpc_standings", "web"]
+                 "icpc_standings", "web", "mirror", "problemset"]
     counts = {k: len(url_tables[k]) for k in art_order}
     for k in art_order:
         nav_line = " · ".join(
@@ -790,10 +865,9 @@ def build(out: Path):
         rows_h = []
         for cid, e in url_tables[k]:
             extras = []
-            if e.get("url_state"):
-                t = STATE_TITLE.get(e["url_state"], "") + (
-                    f" (checked {e['url_checked']})" if e.get("url_checked") else "")
-                extras.append(f'<span class="chip" title="{esc(t)}">{esc(e["url_state"])}</span>')
+            hc = health_chip(e["url"], e)
+            if hc:
+                extras.append(hc.strip())
             wb = wb_href(e)
             if wb:
                 extras.append(f'<a class="small" href="{esc(wb)}">wayback</a>')
@@ -822,13 +896,6 @@ def build(out: Path):
         "snapshot and this project's own captured copy.</p>"), "../"))
 
     # ---- wanted list ----
-    def best_tier(c):
-        res = c.get("results", {})
-        for k in ("scoreboard", "frozen_scoreboard", "standings", "rankings"):
-            if res.get(k):
-                return k
-        return "icpc" if c.get("icpc_standings") else "none"
-
     WANT_COLS = [  # (best tier held, column title, what is wanted)
         ("none", "nothing", "no result of any kind, not even in the ICPC standings system"),
         ("icpc", "ICPC standings only", "only the CMS's own result data (formally official, often "
@@ -837,7 +904,7 @@ def build(out: Path):
         ("standings", "standings only", "totals per team — the per-problem scoreboard wanted"),
         ("frozen_scoreboard", "frozen only", "frozen scoreboard — the final scoreboard wanted"),
     ]
-    WEB_COLS = [("nolink", "no website link"), ("noarch", "website not archived")]
+    WEB_COLS = [("nolink", "no website link"), ("noarch", "website not archived")]  # confirmed-none sites are not wanted
 
     def site_mark(cid):
         return (" " + local_link(f"site/{cid}/", "site")) if cid in website_of else ""
@@ -858,10 +925,11 @@ def build(out: Path):
                 if bt != "scoreboard":
                     cells[bt].append(link_contest(cid, "") + site_mark(cid))
                     wl_tot[bt] += 1
-                if not c.get("web"):
+                ws = web_state(c)
+                if ws == "unknown":
                     cells["nolink"].append(link_contest(cid, ""))
                     wl_tot["nolink"] += 1
-                elif cid not in website_of:
+                elif ws == "link" and cid not in website_of:
                     cells["noarch"].append(link_contest(cid, ""))
                     wl_tot["noarch"] += 1
             if cells:
@@ -927,15 +995,10 @@ def build(out: Path):
               '<th>status</th><th>CMS name</th><th>CMS links</th></tr>']
     for i in sorted(cms_rows):
         st, link, name = cms_rows[i]
-        lk = [f'<a href="https://icpc.global/private/contest/{i}/" '
-              f'title="CMS admin page (login required)">admin</a>']
-        slug = CMS_SLUGS.get(i)
-        if slug:
-            lk.append(f'<a href="https://icpc.global/regionals/finder/{esc(slug)}">finder</a>')
         ledger.append(f'<tr><td class="num">{i}</td><td>{link}</td>'
                       f'<td><span class="chip">{esc(st)}</span></td>'
                       f'<td class="wrap small">{name}</td>'
-                      f'<td class="small">{" · ".join(lk)}</td></tr>')
+                      f'<td class="small">{cms_links(i).split(" ", 1)[1]}</td></tr>')
     ledger.append("</table></div>")
     (out / "cms.html").write_text(page("CMS id ledger", "\n".join(ledger), ""))
 

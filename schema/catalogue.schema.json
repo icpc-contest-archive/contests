@@ -181,7 +181,46 @@
      }
     },
     "icpc_standings": {
-     "$ref": "#/$defs/url"
+     "description": "the ICPC standings system (CMS finder) page for this contest: the lowest result tier (official data, often less accurate than the published scoreboard). A url, or {url, as_of?, archived?, note?} when a capture of the API dump is held.",
+     "oneOf": [
+      {
+       "$ref": "#/$defs/url"
+      },
+      {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "url"
+       ],
+       "properties": {
+        "url": {
+         "$ref": "#/$defs/url"
+        },
+        "as_of": {
+         "$ref": "#/$defs/asOf"
+        },
+        "archived": {
+         "type": "string"
+        },
+        "note": {
+         "type": "string"
+        },
+        "url_state": {
+         "enum": [
+          "live",
+          "changed",
+          "replaced",
+          "dead",
+          "unknown"
+         ]
+        },
+        "url_checked": {
+         "type": "string",
+         "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        }
+       }
+      }
+     ]
     },
     "problems": {
      "type": "string",

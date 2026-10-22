@@ -139,8 +139,11 @@ def main() -> int:
                 ref(ps["url"], "problemset", ps, ps.get("as_of"))
             elif ps:
                 ref(ps, "problemset")
-            if c.get("icpc_standings"):
-                ref(c["icpc_standings"], "icpc_standings")
+            ist = c.get("icpc_standings")
+            if isinstance(ist, dict):
+                ref(ist["url"], "icpc_standings", ist, ist.get("as_of"))
+            elif ist:
+                ref(ist, "icpc_standings")
 
     # ---- captures ----
     for cap in captures:
