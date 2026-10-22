@@ -206,12 +206,14 @@ def rewrite_html(body: bytes, contest: str, capture: str, page_url: str, m: dict
     else:
         src = f"live crawl {str(m.get('fetched', ''))[:10]}"
     shown = f"{raw_url} ({fmt_time(page_ts)})" if page_ts else raw_url
+    # Same shape as the replay bake's banner (replay/tools/bake.py):
+    #   ICPC contest archive — archived copy of <url (time)> (<provenance>) · catalogue: <contest> · wayback · live
     banner = (
         f'<div id="icpc-archive-banner" style="{BANNER_CSS}">'
-        f'<b>ICPC contest archive</b> — local copy of '
+        f'<b><a href="/">ICPC contest archive</a></b> — archived copy of '
         f'<a href="{html.escape(raw_url, quote=True)}">{html.escape(shown[:120])}</a> '
-        f'({html.escape(src)}; {len(m.get("pages", {}))} pages in capture) · '
-        f'<a href="/contest/{html.escape(contest)}.html">catalogue: {html.escape(contest)}</a> · '
+        f'({html.escape(src)}; site crawl, {len(m.get("pages", {}))} pages; local playback) · '
+        f'catalogue: <a href="/contest/{html.escape(contest)}.html">{html.escape(contest)}</a> · '
         f'<a href="{html.escape(wb, quote=True)}">wayback</a> · '
         f'<a href="{html.escape(raw_url, quote=True)}">live</a>'
         f'</div>')

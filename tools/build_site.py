@@ -125,6 +125,10 @@ th.grp { text-align:center; font-weight:500; color:var(--muted); border-bottom:n
 td:last-child { white-space:nowrap; }
 dl.fields dd { word-break:break-all; }
 .muted { color:var(--muted); } .small { font-size:.85em; }
+th.sorted { text-decoration:underline; }
+input.tfilter { width:100%; max-width:22rem; padding:.3rem .5rem; margin:.3rem 0; font-size:.9rem;
+  border:1px solid var(--line); border-radius:.4rem; background:var(--bg); color:var(--fg); }
+.state { margin:.2rem 0 .8rem; }
 .chip { background:var(--chip); border-radius:.6em; padding:.05em .55em; font-size:.85em;
   display:inline-block; margin:0 .15em .15em 0; }
 nav.top { border-bottom:1px solid var(--line); }
@@ -168,6 +172,43 @@ td.num, th.num { text-align:right; }
 h2.rgn { margin-top:1.6rem; }
 """
 
+TABLE_JS = r"""
+(function(){
+  const num = s => { const t = s.replace(/[%,\s]/g,''); return t !== '' && !isNaN(t) ? parseFloat(t) : null; };
+  document.querySelectorAll('table').forEach(tbl => {
+    if (tbl.classList.contains('grid') || tbl.id === 'hits') return;
+    const rows = Array.from(tbl.querySelectorAll('tr')).filter(r => r.querySelector('td'));
+    const heads = Array.from(tbl.querySelectorAll('tr')).filter(r => r.querySelector('th') && !r.querySelector('td'));
+    if (rows.length < 2 || !heads.length) return;
+    const hdr = heads[heads.length - 1];
+    const ths = Array.from(hdr.children);
+    ths.forEach((th, i) => {
+      if (th.getAttribute('colspan')) return;
+      th.style.cursor = 'pointer'; th.title = (th.title ? th.title + ' — ' : '') + 'click to sort';
+      let asc = true;
+      th.addEventListener('click', () => {
+        const idx = Array.from(hdr.children).indexOf(th);
+        const key = r => { const c = r.children[idx]; return c ? c.textContent.trim() : ''; };
+        const allNum = rows.every(r => key(r) === '' || num(key(r)) !== null);
+        rows.sort((a, b) => { const x = key(a), y = key(b);
+          if (allNum) { const nx = num(x), ny = num(y); return (nx === null) - (ny === null) || (nx ?? 0) - (ny ?? 0); }
+          return x.localeCompare(y, undefined, {numeric: true}); });
+        if (!asc) rows.reverse(); asc = !asc;
+        ths.forEach(t => t.classList.remove('sorted')); th.classList.add('sorted');
+        rows.forEach(r => r.parentNode.appendChild(r));
+      });
+    });
+    if (rows.length >= 30) {
+      const box = document.createElement('input');
+      box.placeholder = 'filter ' + rows.length + ' rows…'; box.className = 'tfilter'; box.autocomplete = 'off';
+      tbl.parentNode.insertBefore(box, tbl);
+      box.addEventListener('input', () => { const q = box.value.toLowerCase();
+        rows.forEach(r => { r.style.display = !q || r.textContent.toLowerCase().includes(q) ? '' : 'none'; }); });
+    }
+  });
+})();
+"""
+
 SEARCH_JS = """
 const idx = fetch(REL + 'search.json').then(r => r.json());
 const q = document.getElementById('q'), out = document.getElementById('hits');
@@ -176,10 +217,13 @@ q.addEventListener('input', async () => {
   if (term.length < 2) { out.innerHTML = ''; return; }
   const data = await idx;
   const hits = data.filter(c => c.id.includes(term) ||
-    (c.name && c.name.toLowerCase().includes(term))).slice(0, 40);
+    (c.name && c.name.toLowerCase().includes(term)) || c.series.includes(term) ||
+    (c.cms || []).some(x => x === term) || (c.hosts || []).some(h => h.includes(term)) ||
+    (c.region && c.region.toLowerCase().includes(term))).slice(0, 60);
   out.innerHTML = hits.map(c =>
     `<tr><td><a href="${REL}contest/${c.id}.html">${c.id}</a></td>` +
-    `<td class="wrap">${c.name || ''}</td><td>${c.date || ''}</td></tr>`).join('');
+    `<td class="wrap">${c.name || ''}</td><td>${c.date || ''}</td>` +
+    `<td class="small muted">${(c.cms || []).join(', ')}</td><td class="small muted wrap">${(c.hosts || []).slice(0, 3).join(' ')}</td></tr>`).join('');
 });
 """
 
@@ -213,9 +257,10 @@ def page(title: str, body: str, rel: str) -> str:
 <nav class="top"><div><a href="{rel}index.html">ICPC contest archive</a>
 <a href="{rel}grid.html">grid</a> <a href="{rel}series/index.html">series</a>
 <a href="{rel}seasons.html">seasons</a> <a href="{rel}coverage.html">coverage</a>
-<a href="{rel}urls/index.html">resources</a> <a href="{rel}wanted.html">wanted</a>
+<a href="{rel}resources/index.html">resources</a> <a href="{rel}wanted.html">wanted</a>
 <a href="{rel}cms.html">cms ids</a> <a href="{rel}local.html">local</a></div></nav>
-<main>{body}</main></body></html>"""
+<main>{body}</main>
+<script>{TABLE_JS}</script></body></html>"""
 
 
 CONTESTS: dict = {}  # filled by load(); lets every link carry the same tooltip
@@ -342,6 +387,64 @@ def health_chip(url: str, e: dict | None = None, rel: str = "") -> str:
     return f' <span class="chip" title="{esc(t)}">{esc(st)}</span>'
 
 
+TIER_LABEL = {"scoreboard": "scoreboard", "frozen_scoreboard": "frozen scoreboard", "standings": "standings",
+              "rankings": "rankings", "icpc": "ICPC standings only", "none": "no result"}
+
+
+def lost_locators(c) -> list:
+    """Result/web locators of this contest that are dead live AND have no Wayback snapshot:
+    whatever we hold is the only copy; if we hold nothing, the material is lost."""
+    out = []
+    urls = [e["url"] for lst in (c.get("results") or {}).values() for e in lst]
+    urls += [w for w, _ in locators(c.get("web"))]
+    for u in urls:
+        L = RES.locs.get(site_resources.lid(u))
+        if not L:
+            continue
+        h, wb = L.get("health") or {}, L.get("wayback") or {}
+        if h.get("state") == "dead" and wb.get("state") in ("none", "excluded"):
+            held = any(R.get("held") for R in L["resources"].values())
+            out.append((u, wb["state"], held))
+    return out
+
+
+def state_line(c, cid: str) -> str:
+    """One line per contest, same vocabulary everywhere: best tier held, archived or not,
+    website state, and whether anything is lost (dead live + no snapshot + not held)."""
+    bt = best_tier(c)
+    bits = []
+    if c.get("status") == "upcoming":
+        bits.append('<span class="chip">upcoming</span>')
+    tier = TIER_LABEL[bt]
+    res = c.get("results") or {}
+    held = any(e.get("archived") and not (capture_info.get(e["archived"]) or {}).get("content_caveat")
+               for lst in res.values() for e in lst)
+    _u, ie = ist_locator(c)
+    ist_held = bool(ie and ie.get("archived") and not (capture_info.get(ie["archived"]) or {}).get("content_caveat"))
+    if bt == "none":
+        bits.append('<span class="chip" title="no result link of any tier">dark</span>')
+    else:
+        bits.append(f'<span class="chip">{esc(tier)}</span>'
+                    + (" archived" if (held or (bt == "icpc" and ist_held)) else " <span class=\"muted\">live link only</span>"))
+    ws = web_state(c)
+    if ws == "link":
+        bits.append("website archived" if cid in website_of else '<span class="muted">website not archived</span>')
+    elif ws == "none":
+        bits.append('<span class="muted">no website (confirmed)</span>')
+    else:
+        bits.append('<span class="muted">website unknown</span>')
+    lost = lost_locators(c)
+    if lost:
+        gone = [u for u, _w, held in lost if not held]
+        if gone:
+            bits.append(f'<span class="chip" title="{esc("; ".join(gone))}">{len(gone)} lost</span>'
+                        ' <span class="muted small">dead live, no snapshot, nothing held</span>')
+        else:
+            bits.append(f'<span class="chip" title="{esc("; ".join(u for u, *_ in lost))}">{len(lost)} only here</span>'
+                        ' <span class="muted small">dead live, no snapshot — our copy is the only one</span>')
+    return '<p class="state small">' + " · ".join(bits) + "</p>"
+
+
 def local_link(path: str, label: str = "local") -> str:
     return f'<a class="local" href="{LOCAL_BASE}/{esc(path)}" title="{LOCAL_TITLE}">{label}</a>'
 
@@ -458,6 +561,7 @@ def build(out: Path):
         b = [f"<h1>{esc(cid)}</h1>"]
         if c.get("name"):
             b.append(f'<p class="muted">{esc(c["name"])}</p>')
+        b.append(state_line(c, cid))
         d = ['<dl class="fields">']
         if c.get("status") == "upcoming":
             d.append("<dt>status</dt><dd>upcoming</dd>")
@@ -549,6 +653,20 @@ def build(out: Path):
                          f'<a href="{esc(ev["series"])}.html">{esc(ev["series"])}</a> ({ev["year"]})</span>')
         if chips:
             b.append("<p>" + " ".join(chips) + "</p>")
+        ran = [c for c in doc["contests"] if c.get("status") != "upcoming"]
+        if ran:
+            tiers = defaultdict(int)
+            for c in ran:
+                tiers[best_tier(c)] += 1
+            n_arch = sum(1 for c in ran if any(e.get("archived") and not (capture_info.get(e["archived"]) or {}).get("content_caveat")
+                                               for lst in (c.get("results") or {}).values() for e in lst))
+            n_site = sum(1 for c in ran if c["id"] in website_of)
+            n_lost = sum(1 for c in ran if any(not held for _u, _w, held in lost_locators(c)))
+            parts = [f'{tiers[k]} {TIER_LABEL[k]}' for k in ("scoreboard", "frozen_scoreboard", "standings", "rankings", "icpc", "none") if tiers[k]]
+            b.append(f'<p class="state small">{len(ran)} editions ran'
+                     + (f' (+{len(doc["contests"]) - len(ran)} upcoming)' if len(doc["contests"]) > len(ran) else "")
+                     + ": " + ", ".join(parts) + f" · {n_arch} with an archived result · {n_site} websites archived"
+                     + (f' · <span class="chip">{n_lost} lost</span>' if n_lost else "") + "</p>")
         b.append(MARK_LEGEND)
         b.append('<div class="tablewrap"><table><tr><th>contest</th><th>date</th>'
                  "<th>advances to</th><th>results</th><th>CMS id</th><th>website</th></tr>")
@@ -832,7 +950,7 @@ def build(out: Path):
     (out / "coverage.html").write_text(page("Coverage", "\n".join(cov), ""))
 
     # ---- URL indexes per artifact ----
-    (out / "urls").mkdir(exist_ok=True)
+    (out / "resources").mkdir(exist_ok=True)
 
     def wb_href(e):
         return wayback_link(e["url"], e["as_of"]) if e.get("as_of") else None
@@ -885,8 +1003,14 @@ def build(out: Path):
                 f'Chips are the locator\'s health at the last live check (hover for the rule): {legend}</p>'
                 '<div class="tablewrap"><table><tr><th>contest</th><th>resource</th><th></th></tr>'
                 + "\n".join(rows_h) + "</table></div>")
-        (out / "urls" / f"{k}.html").write_text(page(f"{k.replace('_', ' ')} resources", body, "../"))
-    (out / "urls" / "index.html").write_text(page("Resources", (
+        (out / "resources" / f"{k}.html").write_text(page(f"{k.replace('_', ' ')} resources", body, "../"))
+    # old address: a redirect stub per page so bookmarks keep working
+    (out / "urls").mkdir(exist_ok=True)
+    for k in art_order + ["index"]:
+        (out / "urls" / f"{k}.html").write_text(
+            f'<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=../resources/{k}.html">'
+            f'<title>moved</title><p>Moved to <a href="../resources/{k}.html">resources/{k}.html</a>.</p>')
+    (out / "resources" / "index.html").write_text(page("Resources", (
         "<h1>Every resource in the catalogue, by artifact</h1><ul>"
         + "".join(f'<li><a href="{k}.html">{k.replace("_", " ")}</a> — {counts[k]} resources</li>'
                   for k in art_order)
@@ -904,7 +1028,8 @@ def build(out: Path):
         ("standings", "standings only", "totals per team — the per-problem scoreboard wanted"),
         ("frozen_scoreboard", "frozen only", "frozen scoreboard — the final scoreboard wanted"),
     ]
-    WEB_COLS = [("nolink", "no website link"), ("noarch", "website not archived")]  # confirmed-none sites are not wanted
+    WEB_COLS = [("nolink", "no website link"), ("noarch", "website not archived"),
+                ("lost", "lost")]  # confirmed-none sites are not wanted; lost = dead live, no snapshot, nothing held
 
     def site_mark(cid):
         return (" " + local_link(f"site/{cid}/", "site")) if cid in website_of else ""
@@ -932,6 +1057,10 @@ def build(out: Path):
                 elif ws == "link" and cid not in website_of:
                     cells["noarch"].append(link_contest(cid, ""))
                     wl_tot["noarch"] += 1
+                gone = [u for u, _w, held in lost_locators(c) if not held]
+                if gone:
+                    cells["lost"].append(link_contest(cid, "") + f'<span class="small muted" title="{esc("; ".join(gone))}"> ×{len(gone)}</span>')
+                    wl_tot["lost"] += 1
             if cells:
                 sec.append(f'<tr><td><a href="series/{esc(sname)}.html">{esc(sname)}</a></td>'
                            + "".join(f'<td class="wrap">{" ".join(cells[k])}</td>'
@@ -939,14 +1068,16 @@ def build(out: Path):
         if sec:
             hdr = ("<tr><th>series</th>" + "".join(
                 f'<th title="{esc(w)}">{t}</th>' for _k, t, w in WANT_COLS)
-                + "".join(f"<th>{t}</th>" for _k, t in WEB_COLS) + "</tr>")
+                + "".join(f'<th title="{"dead live, no Wayback snapshot, nothing held here: the material is gone unless someone kept a copy" if _k == "lost" else ""}">{t}</th>' for _k, t in WEB_COLS) + "</tr>")
             sections.append(f'<h2 class="rgn">{g}</h2><div class="tablewrap"><table>'
                             + hdr + "\n".join(sec) + "</table></div>")
     wl = ["<h1>Most wanted</h1>",
           '<p class="muted">Every contest that ran, filed under the <b>best result tier we hold</b>, '
           "from nothing at all up to a frozen scoreboard; anything better than that is wanted "
           "(a contest with a full scoreboard is not listed). The two right-hand columns track the "
-          "contest <b>website</b>: no link known, or a link we have not yet archived. Hover a column "
+          "contest <b>website</b>: no link known, or a link we have not yet archived; <b>lost</b> lists contests "
+          "with a result/web locator that is dead live, has no Wayback snapshot and nothing held here — "
+          "only a private copy can recover those. Hover a column "
           "header for the definition. Know where any of these live? "
           '<a href="https://github.com/icpc-contest-archive/contests">Open an issue.</a></p>',
           '<p class="small muted">Totals: ' + " · ".join(
@@ -1004,12 +1135,28 @@ def build(out: Path):
 
     # ---- machine-readable dump ----
     import datetime
+    dump = {}
+    for sid, doc in series_docs.items():
+        d2 = dict(doc)
+        d2["series"] = {**doc["series"], "region": SERIES_REGION.get(sid, "Other")}
+        dump[sid] = d2
     (out / "catalogue.json").write_text(json.dumps(
-        {"generated": datetime.date.today().isoformat(), "series": series_docs},
+        {"generated": datetime.date.today().isoformat(), "series": dump},
         ensure_ascii=False))
 
     # ---- search + landing ----
-    search = [{"id": cid, "name": c.get("name"), "date": c.get("date")}
+    def hosts_of(c):
+        hs = set()
+        for w, _ in locators(c.get("web")):
+            hs.add(re.sub(r"^https?://(www\.)?", "", w).split("/")[0])
+        for lst in (c.get("results") or {}).values():
+            for e in lst:
+                hs.add(re.sub(r"^https?://(www\.)?", "", e["url"]).split("/")[0])
+        return sorted(hs)
+
+    search = [{"id": cid, "name": c.get("name"), "date": c.get("date"), "series": series_of[cid],
+               "cms": [str(i) for i in (c.get("cms_ids") or [])], "hosts": hosts_of(c),
+               "region": SERIES_REGION.get(series_of[cid], "")}
               for cid, c in sorted(contests.items())]
     (out / "search.json").write_text(json.dumps(search, ensure_ascii=False))
     ran = sum(1 for c in contests.values() if c.get("status") != "upcoming")
@@ -1018,13 +1165,13 @@ def build(out: Path):
 <b>{ran}</b> contests that ran (plus {len(contests) - ran} upcoming) across
 <b>{len(series_docs)}</b> series, with links to results — live, on the Wayback Machine,
 and in this project's own archive.</p>
-<p><input id="q" placeholder="search contests… (e.g. nwerc, world finals, 1994)"
+<p><input id="q" placeholder="search contests… (id, name, series, host, CMS id, region)"
    autocomplete="off"></p>
 <div class="tablewrap"><table id="hits"></table></div>
 <h2>Start somewhere</h2>
 <p>{link_contest('wf-2025', '')} · <a href="series/wf.html">World Finals series</a> ·
 <a href="series/index.html">all series</a> · <a href="seasons.html">seasons</a> ·
-<a href="coverage.html">collection coverage</a> · <a href="urls/index.html">all resources</a> ·
+<a href="coverage.html">collection coverage</a> · <a href="resources/index.html">all resources</a> ·
 <a href="wanted.html">most wanted</a> · <a href="catalogue.json">catalogue.json</a> ·
 <a href="local.html">local archive</a></p>
 <p class="small muted">Data: <a href="https://github.com/icpc-contest-archive/contests">
