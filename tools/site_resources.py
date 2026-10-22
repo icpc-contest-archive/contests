@@ -147,11 +147,15 @@ def build(out: Path, R: Resources, page, link_contest, local_link, replay_base: 
                      'A check that found no content is a record of the attempt, not a resource.</p>')
             b.append('<div class="tablewrap"><table><tr><th>when</th><th>via</th><th>outcome</th><th>evidence</th></tr>')
             OUT_HELP = {"content": "something was served", "absent": "nothing there",
+                        "junk": "something was served, but it is not this resource (error page, app shell, hub page, login wall…)",
                         "blocked": "could not look (access refused)", "undetermined": "answered, but nothing to judge by"}
             for pr in probes:
                 extra = ""
                 if pr.get("dir"):
                     extra = f' <span class="muted small">({link_contest(pr["contest"], rel)} crawl {esc(pr["dir"].rsplit("/", 1)[-1])})</span>'
+                elif pr.get("path"):
+                    extra = (f' <span class="muted small">({link_contest(pr["contest"], rel)} {esc(pr.get("artifact") or "")} · '
+                             f'{local_link("archive/" + pr["path"], "raw")})</span>')
                 b.append(f'<tr><td>{esc(fmt_time(pr.get("ts")) if pr.get("ts") else "")}</td><td>{esc(pr.get("via") or "")}</td>'
                          f'<td><span class="chip" title="{esc(OUT_HELP.get(pr.get("outcome"), ""))}">{esc(pr.get("outcome") or "")}</span></td>'
                          f'<td class="wrap">{esc(pr.get("evidence") or "")}{extra}</td></tr>')
