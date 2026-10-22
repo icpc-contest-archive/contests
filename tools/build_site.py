@@ -63,7 +63,8 @@ REGION_GROUPS = {
     "Asia West": ["tehran","pakistan","kabul","dhaka","kanpur","amritapuri","kharagpur","kolkata",
         "gwalior","chennai","coimbatore","bombay","mathura","india","gwalior-kanpur",
         "kolkata-kanpur","kolkata-roorkee","gwalior-pune"],
-    "Asia Pacific": ["japan","korea","taiwan","singapore","manila","jakarta","kuala-lumpur",
+    "Asia Pacific": ["mongolia-national","philippines-national",  # feeders with unlinked parents
+        "japan","korea","taiwan","singapore","manila","jakarta","kuala-lumpur",
         "thailand","vietnam","yangon","south-pacific","south-pacific-west","south-pacific-central",
         "south-pacific-east","south-pacific-division","nzpc","australia"],
     "Asia East": ["hong-kong","macau","pyongyang","beijing","shanghai","chengdu","hangzhou","xian",
@@ -72,6 +73,38 @@ REGION_GROUPS = {
         "tianjin","urumqi","xuzhou","yinchuan","anshan","guangzhou"],
 }
 SERIES_REGION = {s: g for g, ss in REGION_GROUPS.items() for s in ss}
+# a feeder whose parent is a championship belongs to that championship's region
+CHAMPIONSHIP_REGION = {"nac": "North America", "nadc": "North America", "euc": "Europe",
+                       "apc": "Asia Pacific", "awc": "Asia West", "aec": "Asia East",
+                       "lac": "Latin America"}
+
+
+def derive_regions(series_docs: dict, contests: dict) -> None:
+    """Series not in REGION_GROUPS take the region of the series they advance into
+    (walking parent chains from their latest contest); the table stays the override.
+    Feeder layers (national/first-phase/sub-regional series) then follow their regional
+    automatically instead of needing a table entry each."""
+    for _round in range(6):
+        changed = False
+        for sid, doc in series_docs.items():
+            if sid in SERIES_REGION:
+                continue
+            for c in reversed(doc["contests"]):
+                parents = c.get("parent") if isinstance(c.get("parent"), list) else [c.get("parent")]
+                for pid in parents:
+                    pc = contests.get(pid) if pid else None
+                    if not pc:
+                        continue
+                    pser = pid.rsplit("-", 1)[0]
+                    reg = CHAMPIONSHIP_REGION.get(pser) or SERIES_REGION.get(pser)
+                    if reg and pser != "wf" and reg != "World Finals & championships":
+                        SERIES_REGION[sid] = reg
+                        changed = True
+                        break
+                if sid in SERIES_REGION:
+                    break
+        if not changed:
+            break
 
 CSS = """
 :root { --fg:#1a1a1a; --muted:#666; --line:#ddd; --accent:#0b5cad; --bg:#fff; --chip:#f0f4f8; }
@@ -332,6 +365,7 @@ def cap_time(cap: dict):
 
 def build(out: Path):
     series_docs, contests, series_of, prev, children, subsets, aux = load()
+    derive_regions(series_docs, contests)
     out.mkdir(parents=True, exist_ok=True)
     (out / "contest").mkdir(exist_ok=True)
     (out / "series").mkdir(exist_ok=True)
