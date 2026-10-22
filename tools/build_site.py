@@ -204,7 +204,8 @@ def tier_marks(c):
         entries = res.get(key)
         if not entries:
             continue
-        arch = next((e for e in entries if e.get("archived")), None)
+        arch = next((e for e in entries if e.get("archived")
+                     and not (capture_info.get(e["archived"]) or {}).get("content_caveat")), None)
         kind = key.replace("_", " ")
         if arch:
             out.append(f'<a class="mark m-arch" href="{REPLAY_BASE}/a/{esc(arch["archived"])}" '
@@ -350,7 +351,7 @@ def build(out: Path):
     website_of.clear()  # contest -> primary website capture entry
     if aux["website-index"]:
         for e in aux["website-index"]["sites"]:
-            if e.get("primary") and not e.get("empty"):  # an empty crawl is a probe, not an archive
+            if e.get("primary") and not e.get("empty") and not e.get("shell"):  # empty/shell crawls are checks, not archives
                 website_of[e["contest"]] = e
 
     # ---- contest pages ----
@@ -617,7 +618,8 @@ def build(out: Path):
         any_ = rk or bool(c.get("icpc_standings"))
         return {"n": 1, "date": bool(c.get("date")),
                 "sb": sb, "fr": fr, "st": st, "rk": rk, "any": any_,
-                "arch": any(e.get("archived") for lst in res.values() for e in lst),
+                "arch": any(e.get("archived") and not (capture_info.get(e["archived"]) or {}).get("content_caveat")
+                            for lst in res.values() for e in lst),
                 "web": bool(c.get("web")),
                 "web_arch": c["id"] in website_of}
 

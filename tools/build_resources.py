@@ -159,6 +159,11 @@ def main() -> int:
             via = "live" if src == "live" else src
             ts = ts or ts_from(cap.get("fetched"))
         L = loc(raw)
+        if cap.get("content_caveat"):
+            # content was served but it is not the resource (error page, shell, hub page…)
+            probe(L, ts, via, "junk", cap["content_caveat"][:220], contest=cap["contest"],
+                  artifact=cap["artifact"], path=cap["path"])
+            continue
         R = res(L, ts, via)
         R["held"] = True
         R["captures"].append({
@@ -179,6 +184,10 @@ def main() -> int:
         ts = w.get("wayback_timestamp") or ts_from(w.get("fetched"))
         via = "wayback" if w.get("mode") == "wayback" else "live"
         L = loc(seed)
+        if w.get("shell"):
+            probe(L, ts, via, "junk", "site crawl front page is not the site: " + w["shell"],
+                  contest=w["contest"], dir=w["dir"])
+            continue
         if w.get("empty"):
             probe(L, ts_from(w.get("fetched")), via, "absent",
                   ("site crawl found nothing: no Wayback captures in scope (CDX empty — also what an "

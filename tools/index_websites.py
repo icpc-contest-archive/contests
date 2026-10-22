@@ -34,6 +34,16 @@ def main() -> int:
         print(f"no archive checkout at {archive}")
         return 1
 
+    # the not-there audit flags crawls whose front page is a shell/error/login page
+    shells: dict[str, str] = {}
+    audits = sorted(archive.glob("reports/not-there-audit-*.json"))
+    if audits:
+        for f in json.loads(audits[-1].read_text())["findings"]:
+            if f.get("what") == "site" and set(r.replace("(title)", "") for r in f["reasons"]) & {
+                    "husk", "redirect-stub", "login-wall", "parked-domain", "not-found", "forbidden",
+                    "http-error-page", "bot-challenge", "under-construction", "placeholder",
+                    "seed-not-fetched", "file-missing", "wayback-not-archived", "type-mismatch"}:
+                shells[f["path"]] = ", ".join(f["reasons"]) + " — " + f["evidence"][:120]
     by_contest: dict[str, list] = defaultdict(list)
     for mf in sorted(archive.glob("*/*/website/*/site-manifest.json")):
         m = json.loads(mf.read_text())
@@ -45,8 +55,10 @@ def main() -> int:
             seed_page = pages[seed]
         html_pages = sum(1 for p in pages.values()
                          if str(p.get("ctype", "")).startswith("text/html"))
+        rel = str(mf.parent.relative_to(archive))
         entry = {
             "empty": not any(pg.get("file") for pg in pages.values()),  # crawl found nothing
+            "shell": shells.get(rel),  # front page is a shell/error/login page (audit), not the site
             "contest": m["contest"],
             "dir": str(mf.parent.relative_to(archive)),
             "mode": m.get("mode"),
@@ -75,7 +87,7 @@ def main() -> int:
     for cid, entries in sorted(by_contest.items()):
         # primary = a real-url capture over a wrapper-seeded one (pre-resource-model
         # crawls hold Wayback's toolbar-wrapped pages), then most html pages, then latest
-        best = max(entries, key=lambda e: (not e["empty"], not e.get("seed_raw"), e["html_pages"],
+        best = max(entries, key=lambda e: (not e["empty"], not e.get("shell"), not e.get("seed_raw"), e["html_pages"],
                                            e["pages"], e["fetched"] or ""))
         for e in entries:
             e["primary"] = e is best
