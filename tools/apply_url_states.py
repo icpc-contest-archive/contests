@@ -12,6 +12,7 @@ Run from the contests repo root; validate afterwards.
 from __future__ import annotations
 
 import json
+import re
 from collections import Counter
 from pathlib import Path
 
@@ -37,6 +38,11 @@ def main() -> int:
     if not reports:
         print("no url-states report found")
         return 1
+    # the newest day's merged report (reconcile_states.py) beats that day's single-lane file
+    day = re.search(r"url-states-(\d{4}-\d{2}-\d{2})", reports[-1].name).group(1)
+    merged = reports[-1].with_name(f"url-states-{day}-merged.json")
+    if merged.exists():
+        reports[-1] = merged
     states = json.loads(reports[-1].read_text())
     by_key = {(s["contest"], s["kind"], s["catalogue_url"]): s for s in states}
     print(f"applying {len(by_key)} verdicts from {reports[-1].name}")
