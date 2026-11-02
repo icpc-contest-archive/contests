@@ -24,6 +24,22 @@
    "items": {
     "$ref": "#/$defs/problem"
    }
+  },
+  "sources": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "letters": {
+   "enum": [
+    "unknown"
+   ],
+   "description": "the letters are not known (list came from an online judge); letter may then be absent on the problems"
+  },
+  "complete": {
+   "type": "boolean",
+   "description": "false = the list is known to be missing problems (fewer than the contest's count, or the count is unknown)"
   }
  },
  "$defs": {
@@ -31,14 +47,13 @@
    "type": "object",
    "additionalProperties": false,
    "required": [
-    "letter",
     "name"
    ],
    "properties": {
     "letter": {
      "type": "string",
      "pattern": "^[A-Z][0-9]?$|^[0-9]{1,2}$",
-     "description": "the problem's label in this contest"
+     "description": "the problem's label in this contest; absent only when the file says letters: unknown"
     },
     "name": {
      "type": "string"
