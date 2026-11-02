@@ -20,7 +20,10 @@ and baked replay of already-captured scoreboards. Deliberately deferred:
   `problem.yaml` files to fill `uuid`, `short_name` and per-problem `have` for all 900+
   contests, and judge-link discovery via the Kattis / Codeforces APIs; the public
   all-statements repo.
-- **Additional replay shards** as the archive grows past ~1GB per Pages repo.
+- **Additional replay shards** as the archive grows past ~1GB per Pages repo. 2026-11-02:
+  the 1,564 problem-set captures (1.7 GB of PDFs) are deliberately NOT baked
+  (`replay/tools/bake.py --exclude-artifacts problemset`); the site links them as local
+  `archived` links. Publishing them needs a non-Pages host or two more shards.
 - **Pre-1999 backfill** — the big cataloguing gap: 37 contests recorded before 1990
   against a hierarchy that existed from 1977.
 - **Data/enrichment passes** — locations (only WFs have them), venues (none),

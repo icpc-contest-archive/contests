@@ -29,6 +29,13 @@ WB = re.compile(r"^https?://web\.archive\.org/web/(\d{4,14})[a-z_]{0,3}/(.*)$")
 
 
 def main() -> int:
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--fresh-days", type=int, default=0,
+                    help="leave out result entries that already have an archived copy AND were live-checked "
+                         "within this many days (0 = include everything; the capture tool still dedupes)")
+    args = ap.parse_args()
+    cutoff = (datetime.date.today() - datetime.timedelta(days=args.fresh_days)).isoformat() if args.fresh_days else None
     queue, stats = [], Counter()
     for f in sorted((ROOT / "series").glob("*.yaml")):
         for c in yaml.safe_load(f.read_text())["contests"]:
@@ -44,6 +51,9 @@ def main() -> int:
             for kind in TIERS:
                 for e in c.get("results", {}).get(kind, []):
                     url = e["url"]
+                    if cutoff and e.get("archived") and (e.get("url_checked") or "") >= cutoff:
+                        stats[f"left out: archived + checked within {args.fresh_days}d"] += 1
+                        continue
                     item = {"contest": c["id"], "kind": kind, "url": url, "pivot": pivot}
                     raw, ts, via = unwrap(url)
                     item["raw_url"] = raw

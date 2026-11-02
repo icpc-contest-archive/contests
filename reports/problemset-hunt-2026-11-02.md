@@ -1,0 +1,1050 @@
+# Problem-set hunt — 2026-11-02
+
+Twelve research agents (one per region brief) + scripted veins; everything verified from the Mac before applying. See data/problemset-candidates-*-2026-11-02.json for every candidate with its verdict.
+
+## Agent finds by brief and method
+
+- africa-arab-a: github 11
+- africa-arab-a: judge-page 23
+- africa-arab-a: other 6
+- africa-arab-b: github 3
+- africa-arab-b: judge-page 15
+- africa-arab-b: university-host 8
+- asia-east: archive-index 3
+- asia-east: github 8
+- asia-east: judge-page 49
+- asia-east: regional-site 1
+- asia-pacific: archive-index 15
+- asia-pacific: github 2
+- asia-pacific: judge-page 17
+- asia-pacific: other 1
+- asia-pacific: regional-site 47
+- asia-pacific: university-host 26
+- asia-west: github 2
+- asia-west: judge-page 39
+- asia-west: other 1
+- asia-west: regional-site 3
+- asia-west: university-host 6
+- europe: archive-index 15
+- europe: github 1
+- europe: judge-page 27
+- europe: other 1
+- europe: regional-site 69
+- europe: university-host 15
+- europe: wayback 2
+- latin-america: judge-page 16
+- latin-america: other 54
+- latin-america: regional-site 23
+- latin-america: university-host 13
+- north-america-a: judge-page 85
+- north-america-a: other 8
+- north-america-a: regional-site 51
+- north-america-a: university-host 18
+- north-america-a: wayback 21
+- north-america-b: archive-index 39
+- north-america-b: github 2
+- north-america-b: judge-page 24
+- north-america-b: other 13
+- north-america-b: regional-site 23
+- north-america-b: university-host 6
+- northern-eurasia-a: judge-page 56
+- northern-eurasia-b: archive-index 63
+- northern-eurasia-b: judge-page 33
+- northern-eurasia-b: other 1
+- northern-eurasia-b: regional-site 29
+- world-finals-championships: archive-index 25
+- world-finals-championships: github 5
+- world-finals-championships: judge-page 10
+- world-finals-championships: regional-site 9
+
+## Veins worth remembering
+
+- [africa-arab-a] https://github.com/kitihounel/competitive-programming-africa (clone it; branch master) - PDFs for ACPC 2018+2020, Angola 2020/2021 (+2 problems of 2017), Benin 2008/2009/2013/2016/2020/2021, Burkina 2016, West-Africa joint 2017, Niger 2016, Togo 2014/2016, South Africa 2013-2019; also acpc/2018/problems.pdf = ACPC 2018 (Sharm, gym 101991) which is missing from this brief.
+- [africa-arab-a] https://codeforces.com/api/contest.list?gym=true - public gym list (fetchable from the sandbox even though gym pages are not); Africa/Arab hits: 100155 ACPC 2012, 100283 ECPC 2013, 100814 ECPC 2015, 101147 ECPC 2016, 101840/101856 ECPC 2017, 101991 ACPC 2018, 101992 ECPC 2018, 101608 JCPC 2017, 104147 JCPC 2022, 101350/100676/101972/102263 Arabella CPC (Jordan, not JCPC), 102267 Univ. of Jordan CPC 2019, 102881 ECPC 2019 Kickoff, 103158/105862 ACPC Kickoff 2021/2025.
+- [africa-arab-a] https://groups.google.com/g/acm-egypt - acm-egypt Google Group; thread t6Iy9jKhkCo carries ENC 2009 problem set + analysis PDFs as attachments; other 2008-2011 threads link now-dead hosts.
+- [africa-arab-a] https://github.com/AhmedOS/Competitive-Programming (ACM-ACPC-2017/Problemset, ACM-ECPC-2017/Problemset READMEs) - Google Drive scans of ACPC 2017 and ECPC 2017 qualification+final sets.
+- [africa-arab-a] Scribd uploads: anarc2002 (512318515), ACM-ACPC-2013 (249155102), Exercicios-AOCPC-2022 (754400532); also unverified 'problemset' uploads 869422098 / 681381260 / 750127356 that may be recent ACPC sets (Scribd JS challenge blocked reading).
+- [africa-arab-a] Dead/useless: scoreboard.acpc.global and acpcsb.acpc.global hold scoreboards only (no problem PDFs); acpc.global has no archive; icpc-anarc.org, acm-acpc.org, acmacpc.org (+jordan/egypt/lebanon subdomains), acm.kuniv.edu, acm.fci-cu.edu.eg, lcpc/jcpc/ecpc/kcpc.icpc.global, icpcethiopia.org all unreachable - Wayback is the only route for them.
+- [africa-arab-b] https://acm.cs.up.ac.za/Previous/<year>/ — UP-hosted South African regional archive (frames; 2002-2006 have Problems.html / Problems<year>.html with PDFs; 2018 is a snapshot of the 2018 front page); front page + Files<year>/icpc<year>.pdf for 2016, 2017, 2019
+- [africa-arab-b] https://www.cs.up.ac.za/cs/acm/<year>/ — older mirror of the same archive (2001-2003; 2001/ProblemSet.pdf exists — 2001 not in this brief)
+- [africa-arab-b] https://codeforces.com/api/contest.list?gym=true — public Codeforces API works from the sandbox (gym pages themselves are Cloudflare-blocked); lists public gyms by name (found SCPC 2014/2015/2018, TCPC 2022; most ACPC-family nationals are private gyms)
+- [africa-arab-b] https://acpcsb.acpc.global/<CONTEST><year>/ — ACPC scoreboard folders (scoreboards only, no PDFs)
+- [africa-arab-b] https://icpcarchive.github.io/ — PDF archive; Africa & Arab section only has ACPC (no nationals)
+- [africa-arab-b] git clone of github.com works from the sandbox even where WebFetch is robots-blocked — participant repos (karygauss03/TCPC2021, Vvoox/MCPC_2015, Vvoox/MCPC_2016) carry statements
+- [asia-east] https://qoj.ac/category/21 (mirror https://jiang.ly/category/21) -- QOJ 'ICPC > Regionals > Asia East Continent': per-year sub-categories 2015-2026 (ids 467..458, 576, 763) and per-city ones; lists every EC regional 2015+ with QOJ contest ids (contest pages need login)
+- [asia-east] https://codeforces.com/api/contest.list?gym=true -- Codeforces API dump of all gyms (works from sandbox); mirror.codeforces.com/gym/<id>/problems renders statements/PDF list without 403
+- [asia-east] https://github.com/xcpcio/upload-file -> served at https://xcpcio.github.io/upload-file/icpc/<year|46th|47th|49th>/... -- official statement PDFs for Beijing 2015, Qingdao 2018 (+online), Yinchuan 2019/2020, HK 2019, Jinan/Shanghai/Nanjing/Kunming/Macau 2020, Jinan/Nanjing/Shanghai/Shenyang/Macau 2021, Kunming 2022, EC-Finals 2015/2019/2020, Wuhan Invitational 2024; indexed by https://github.com/xcpcio/docs (docs/info/icpc/*.md)
+- [asia-east] https://icpcarchive.github.io/ -- 'ICPC Archives' GitHub Pages: Asia East Continent pages Hangzhou(2022,2023) Hefei(2023) Hongkong(2019,2023) Jinan(2022,2023) Macau Nanjing(2021-2023) Shanghai(2021) Shenyang(2020-2023) Yinchuan, each with problems.pdf + solution.pdf
+- [asia-east] https://onlinejudge.org/contests/ -- UVa/Live-Archive hosted contest directories (207 dirs 168..388, 2007-2026) each with an index listing problems + often problemset.pdf; Asia-East hits: 242 (Wuhan 2009), 286 (Shanghai 2011); also 358 (CCPC 2015), 266/283/308/324/337/350 (Hunan provincial), 375-381 (Guangzhou Summer Series 2017)
+- [asia-east] http://poj.org/searchproblem?field=source&key=<City YYYY> -- POJ source search for PKU-hosted Beijing 2002-2008 and Shanghai/Xi'an/Guangzhou 2002-2006 sets (POJ was 502 for most of this session; only Beijing 2004/2005 and Shanghai 2004 confirmed)
+- [asia-east] https://icpc.pku.edu.cn/ssxx/index.htm -- ICPC Beijing HQ contest pages 2023+ (logistics/quota only, NO statements -- dead end for problem sets)
+- [asia-east] Kattis per-contest hosts, e.g. https://asiahk16.kattis.com/contests/asiahk16/problems (HK 2016)
+- [asia-pacific] https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/ — M. Dinneen (Auckland) archive: SPPC1991..SPPC2014, SPPC2015east/final, SPPC2016div, NZPC1990..2023 PDFs
+- [asia-pacific] https://sppcontests.org/archive/ — South Pacific results pages 1991-2024; from 2014 on they link problem-set PDFs under /wp-content/uploads/2024/07/<year>_archive/ and /problem_pdfs/2023/
+- [asia-pacific] https://icpc.jp/about/history/ — ICPC Japan: every Asia regional 1998-2025 with 問題 links; per-year dirs https://fileserv.icpc.jp/regionalYYYY/ -> storage.googleapis.com/files.icpc.jp/regionalYYYY/YYYYregional.pdf (also domestic rounds)
+- [asia-pacific] https://icpckorea.org/history/ — ICPC Korea Contest Archive 2001-2026; each regional page links /problems/YYYY/problemset.{zip,pdf} (2001-2014) or /YYYY/REGIONAL|regional/problemset-YYYY.pdf (2015+)
+- [asia-pacific] https://icpcvn.github.io/ — ICPC Vietnam archive 2015-2026: problems.pdf/zip for regional, national, northern/central/southern rounds
+- [asia-pacific] https://icpcarchive.github.io/ — 'ICPC Archives' problems+solutions PDFs: Japan 2012-2023, Korea 2020-22, Taiwan 2020-23, Indonesia 2017-23, Philippines 2016-22, Vietnam 2016-23, Singapore 2015/18, plus China sites, Europe, NA, LatAm
+- [asia-pacific] https://onlinejudge.org/contests/ — UVa hosted-contest pages with full PDFs: Malaysia 2008 (208-99c30e3b), Malaysia 2010 (261-2902f278), Phuket 2011 (287-2bf3db67), Hatyai 2012 (309-2f118707), Phuket 2013 (326-5520b6fe), Bangkok 2014 (344-a5c80d1b), Thailand National 2010 (255-4ab6775a)
+- [asia-pacific] https://ntuj.csie.org/problemdata/ — NTU judge file host (no listing): phuket_2011.pdf, contestPbAsiaPK-2013.pdf, 2017Daejeon.pdf
+- [asia-pacific] https://codeforces.com/api/contest.list?gym=true — gym titles usable to locate Asia-Pacific regionals (Taipei-Hsinchu 2019 102460, Bangkok 2016 101161, Nakhon Pathom 2018 102091, Manila 2022 104118 / 2025 106262, Bangkok 2025 106164, Daejeon 2017 101667, Seoul 2018 101987 / 2020 102920, Jakarta 2018 102001, SPPC 2016 101177)
+- [asia-pacific] https://github.com/felix-halim/competitive-programming/tree/master/icpc — Jakarta 2010 problems.pdf, Singapore 2007 problemset.pdf, Jakarta 2012/13 single problems
+- [asia-pacific] https://www.ucsy.edu.mm/ucsy/pages/ — UCSY Myanmar: q-ARYangon2016/2017/2018.pdf, q-mcpc2017/2018.pdf
+- [asia-pacific] https://tlx.toki.id/problems/icpc-jakarta-YYYY — TLX problem archives for Jakarta 2020, 2023, 2024, 2025 (api.tlx.toki.id/v2/problemsets/slug/...)
+- [asia-west] https://www.cse.iitk.ac.in/users/acm/archive/acm2008/Archive.html -- IIT Kanpur ACM archive index: per-year sites acm2001..acm2013 under cse.iitk.ac.in/users/acm/archive/acm<year>/ (2008-2013 live with problem PDFs; 2001-2007 now 404 -> Wayback targets)
+- [asia-west] https://www.codechef.com/api/contests/<CODE> -- CodeChef JSON API; India regional codes found: ACM15AMR, ACM15CHN, CHN15ROL, AMR15MOS, ACM16KGP, ACM16CHN, ACM16KOL, ACM16INF, AMR16MOS/KGP16MOS/CHN16MOS/KOL16MOS, AMR17ROL, KGP17ROL, CHN17ROL, GWR17ROL, KOL17ROL, AMR18ROL, KOL18ROL, GWR18ROL, ICPCAMROS24, ICPCCHNOS24, ICPCAMROS25, ICPCKANOS25, ICPCCHNOS25, ICPCAMRRP25/ICPCCHNRP25/ICPCKANRP25 (replays); restricted: ACM16AMR, ACM17AMR/KGP/CHN/GWR/KOL, ACM18AMR/KOL/GWR, ICPCKANOS24. Prelims: AMR14ROL, KGP14ROL, ACMKGP14, ACMAMR14, ACMIND16
+- [asia-west] https://icpc.bubt.edu.bd/resources.php -- BUBT 'Asia Regional Contest Problems' box, points to CF blog https://codeforces.com/blog/entry/136296 which indexes Dhaka preliminary+regional problemsets 2015-2025 (link targets not extractable by the fetcher -- worth opening in a browser)
+- [asia-west] https://lightoj.com/problems/category/icpc-dhaka -- LightOJ ICPC Dhaka category with per-year subcategories icpc-dhaka-2021/2022/2023
+- [asia-west] https://api.bapsoj.org/api/judge/contests/?limit=50&search=icpc -- BAPS OJ contest list (Dhaka 2023 regional, 2024 regional + preliminaries, 2025 regional + preliminary, 2026 preliminary)
+- [asia-west] https://github.com/baps-problemset-archive -- BAPS problemset archive org: icpc-2024-onsite (problem_set.pdf + editorial.pdf) and contests-archive/icpc-2025-onsite, icpc-2025-preli
+- [asia-west] https://icpc.sharif.edu/2024/archive (and /2019/archive, /2018/archive, /2017/archive, /2015/archive, /2010/archive, /2012/archive.htm, /2008/archive.html) -- 'Past Tehran Regional Contests' index pages per search titles; host unreachable from this session, needs a session that can reach Iranian hosts or Wayback
+- [asia-west] https://icpc.sharif.edu/2009/ -- search title 'Final Ranking and Problems - 2009 Contest' (unverified)
+- [asia-west] https://kanpurarchive2022.indiaicpc.in/ -- archived 2022 Mathura-Kanpur site with problems_2022.pdf; kanpur.indiaicpc.in/<year>/ (2025 has problem2025.pdf) sits behind a JS cookie wall
+- [asia-west] https://discuss.codechef.com/t/acm-icpc-2017-india-regionals-onsite-solutions-slides-links/18016 -- 2017 India regionals solutions/slides index
+- [asia-west] http://icpc.amrita.ac.in/2013/wp-content/uploads/2013/12/ProblemsSets2013Asia-Amritapuri.pdf -- pattern for Amritapuri WordPress-era problem PDFs (host blocks fetches; 2013 not in brief)
+- [asia-west] https://www.hackerrank.com/amrita-icpc-onsite-2013-practice -- HackerRank practice set of Amritapuri 2013 onsite (not in brief)
+- [asia-west] https://icpc.bubt.edu.bd/2014/?icpcpg=prblmSet -- Dhaka 2014 problem-set index (PDF targets currently dead)
+- [europe] https://chipcie.wisv.ch/archive/ - DKP/DAPC (Benelux preliminaries) rows link /archive/YYYY/dkp|dapc/problemset.pdf (1992-2026), BAPC, NWERC, EUC, FPC (already covered as index)
+- [europe] https://hsin.hr/studentiYYYY/ - Croatian student contest 2007-2025, each with zadaci/zadaci.pdf + test data + solutions
+- [europe] http://acmallukrainian.ho.ua/ - All-Ukrainian ICPC stages 2014-2025: statements/editorials/standings per stage (YYYY/N/statements_eng.pdf)
+- [europe] https://putka-upm.acm.si/tasks/ - Slovenian UPM task archive 2008-2026 (finale = ICPC Slovenian contest), also CERC 2015 group
+- [europe] https://people.inf.elte.hu/bzsr/acm/ - Hungarian ACM contest 2007-2014 problem sets (acmYYYY.pdf) and results
+- [europe] https://seerc.icpc.global/YYYY/problems.htm - SEERC problem pages 1999-2018, 2024 (2024/past.htm lists past years); Cloudflare blocks curl, WebFetch works
+- [europe] https://swerc.eu/2023/past-editions/ - SWERC history 1994-2022 with cached standings pages (theme/cached/YYYY/) and historical_db.xml; 1999/2000 cached pages link Wayback problem sets
+- [europe] https://contest.felk.cvut.cz/ - CTU Open 1995-2026 and CERC 1998/99/00/07/11/18/19/20 archives (YYprg/solved.html has problem PDFs)
+- [europe] https://szkopul.edu.pl/task_archive/amppz/ - AMPPZ 2011-2014 tasks with statements
+- [europe] https://amppz.ii.uni.wroc.pl/files/amppz_problemset_{en,pl}_YYYY.pdf - AMPPZ 2015-2018; http://amppz.tcs.uj.edu.pl/YYYY/data/amppz{-en}.pdf - AMPPZ 2019(?), 2021, 2022
+- [europe] https://bcpc.eu/ - Bulgarian RSOP archive: per-year sites XXIII-XXXVIII (?page=problems) and backup/YYYY.zip 2000-2024
+- [europe] https://grcpc.upatras.gr/ - GRCPC 2023-2025 (2023 PDF, 2024/2025 via Codeforces gyms 105453/106151; 2025 shared with Cyprus)
+- [europe] https://nordic.icpc.io/ncpcYYYY/ - NCPC archive (problem PDFs on github.com/icpc/ncpc-web releases), relevant for UKIEPC years sharing the NCPC set
+- [europe] https://ukiepc.info/YYYY/ - UKIEPC 2013-2026; 2024/2025 materials via bit.ly/UKIEPC{YY}Downloads Google Drive folders
+- [europe] https://2025.gcpc.nwerc.eu/materials and https://2026.gcpc.nwerc.eu/materials - GCPC problem sets (2026 via wcm.cpulm.org)
+- [latin-america] https://www.icpccaribe.org/icpc-caribe/ejercicios-en-los-concursos-icpc-en-el-caribe — ICPC Caribe archive: Google-Drive PDFs of every Latin American Regional (CRL) problem set 2009-2024 + Caribbean qualifier sets 2020-2024 + CLC/CNC 2019 (matcomgrader)
+- [latin-america] https://scorelatam.naquadah.com.br/ — official LatAm BOCA report index: latam-2019..2025 (contest.pdf from 2022), subbr-2020..2026 (Brazil first phase, maratona.pdf), subch-2024..2026 (Torneo Chileno), pda24..26, fzero-2025
+- [latin-america] https://academicos.azc.uam.mx/franz/acm/2013/ — UAM Azcapotzalco (F. Zaragoza) Mexico & Central America regional problem sets 1997-2014 at /franz/acm/problemsYYYY.pdf (1997-2008 are the pre-unification Mexico/CA sets)
+- [latin-america] https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=13 — UVa past contests: Colombian Maratón Nacional 2008-2018 and 2023-2026, Latin America Regional 2011-2015, Brazil Sub-Regional 2012-2015 (hashed /contests/NNN-xxxx pages carry full problem PDFs)
+- [latin-america] https://moj.naquadah.com.br/relatorio/cl-tcp/ — MOJ report for the current TCP with HTML statements (statements/A.html...); TCP 2026 used the Brazilian first-phase 2026 set
+- [latin-america] https://eventos.iteso.mx/acm/ — ITESO ICPC Mexico site: Gran Premio de Mexico dates/results per year, but no problem archive
+- [latin-america] Blocked from this sandbox (for the record): maratona.sbc.org.br & maratona.ime.usp.br/hist (robots + reset), web.archive.org (SITE_BLOCKED), coj.uci.cu, livearchive.onlinejudge.org, acmicpc.net, acis.org.co, cidi.uaq.mx, clist.by
+- [north-america-a] https://www.cs.rit.edu/~icpc/questions/ - RIT-hosted NENA archive: NENA finals 2003-2018 PDFs plus every NENA preliminary site set (WNEC/WNE, BOSPRE, McGill, Oswego, Clarkson, APICS/Atlantic, Acadia, Breton, Potsdam, Fredonia) 2005-2015; RIT_1998-2003 site sets
+- [north-america-a] https://ne.na.icpc.global/archives/ - official NENA archive table (links to RIT PDFs and nena/naeast Kattis problem pages)
+- [north-america-a] https://nc.na.icpc.global/ (Archive section) - NCNA archive table 2012-2025 (unl.edu PDFs 2012/2013/2017/2018, Kattis pages, na.icpc.global ncna_all.pdf for 2022)
+- [north-america-a] https://pages.cs.wisc.edu/~dieter/ICPC/<season>/problem_sets/ - UW-Madison training site with NCNA regional PDFs 2004, 2006-2010 and 2002 zip
+- [north-america-a] https://mc.na.icpc.global/archive/ - Mid-Central archive (migration in progress): sdsmt.edu PDFs 2017-2019; older years empty
+- [north-america-a] http://web.archive.org/web/2016*/http://www.icpc-midcentral.us/archives/<year>/ - Wayback copies of the Mid-Central archive 1998-2015 (status 200 per availability API; not viewable from sandbox)
+- [north-america-a] https://ma.na.icpc.global/archives/ - Mid-Atlantic archive table (Kattis pages 2017-2023 only)
+- [north-america-a] http://serjudging.vanb.org/ - NA judges' blog: NAQ 2022-2026 PDFs, South Division (SE/SC/Mid-Atlantic) Div1/Div2 PDFs 2021-2025, categories per year
+- [north-america-a] https://na.icpc.global/naq/ - NAQ page with 2022-23 and 2024 problem-set PDFs
+- [north-america-a] https://cs.baylor.edu/~hamerly/icpc/qualifier_<year>/ - NAQ 2012-2019 pages with official problem-set PDFs
+- [north-america-a] https://gny.na.icpc.global/archive/ and http://acmgnyr.org/year<YYYY>/problems.shtml - GNY problems pages 1997-2024
+- [north-america-a] https://scienceatlantic.ca/divisions/computer-science/acpc/ - Atlantic Canadian prelim archive 1998-2026 (PDF/zip/Kattis per year)
+- [north-america-a] https://onlinejudge.org/contests/ - UVa OJ contest mirrors incl. ACPC 2007-2012 with full statements/PDF zips
+- [north-america-a] https://icpcarchive.github.io/ - third-party archive with Mid-Atlantic 2021-2022 and NCNA 2017-2022 problems.pdf
+- [north-america-a] https://ec.na.icpc.global/archives/ + https://github.com/icpc/na-ecna-archive - ECNA 2019-2024 problem PDFs and per-problem zips
+- [north-america-a] https://open.kattis.com/problem-sources (8 pages) - full list of Kattis problem sources; NA regionals/NAQ/ACPC/Atlantic entries
+- [north-america-a] https://www.cs.uleth.ca/~cheng/LCPC/<year>/ - Lethbridge contest pages (div1/div2 PDFs 2013-2014)
+- [north-america-a] http://web.archive.org/web/20140814060415/http://csalpha.ist.unomaha.edu:80/acmregn/problems.html - NCNA region problems page (Omaha era, ~2003-2011), Wayback only
+- [north-america-a] http://web.archive.org/web/20110930000146/http://midatl.radford.edu:80/docs/pastProblems/ - Mid-Atlantic past problems directory, Wayback only
+- [north-america-b] http://socalcontest.org/current/index.shtml — SoCal year table with 'Problem Set' links for every year 2001-2024 (PDF 2009+, zip 2003-2008, per-problem PDF index 2001-2002); files live under http://www.socalcontest.org/history/<year>/
+- [north-america-b] https://pnw.na.icpc.global/archives/ — official Pacific Northwest archive table 1994-2025 with Problems/Solutions/Standings links into http://acmicpc-pacnw.org/ProblemSet/<year>/ (acmicpc-pacnw.org itself has an expired TLS cert and blocks fetchers)
+- [north-america-b] https://pnw.na.icpc.global/problems/2025/solutions/index-1.html and index-2.html — PacNW 2025 per-problem statement PDFs + data + solutions
+- [north-america-b] http://serjudging.vanb.org/ (pages ?paged=2..5) — SE USA chief-judge blog with full problem-set PDFs for SER 2008-2025 (D1+D2), NAQ 2022-2026, NAC 2020-2025, NAIPC 2014-2019, NADC 2021, UChicago Invitational 2012-2013; older files under http://vanb.org/ser20XX/
+- [north-america-b] http://seusa.vanb.org/ — SE USA regional index 2003-2026 (year pages carry standings only, not problems)
+- [north-america-b] https://org.coloradomesa.edu/~wmacevoy/rmrc/<year>/ — Rocky Mountain 2000-2013 archive; problems.zip (2004-2013) / problem index pages (2001-2003)
+- [north-america-b] https://rm.na.icpc.global/archives/ — Rocky Mountain 2015-2024 Kattis contest problem/standings links (rmcNN.kattis.com) and GitHub repos github.com/icpc/na-rocky-mountain-<season>-public (2022-23, 2023-24, 2024-25, 2025-26) containing problems.pdf
+- [north-america-b] https://icpcarchive.github.io/Rocky_Mountain_Regional_Contest.html — mirror with problems.pdf + solution.pdf for RMC 2014-2022 (site also covers NAC, Mid-Atlantic, North Central, WF, European and Asian regionals)
+- [north-america-b] https://sc.na.icpc.global/archives/ — South Central 2005-2024 archive table with 'problems' links into acm20XX.scusa.lsu.edu / ld20XX.scusa.lsu.edu (LSU hosts were down at check time) and nasouthNN.kattis.com
+- [north-america-b] https://ne.na.icpc.global/archives/ and https://www.cs.rit.edu/~icpc/prob.html — Northeast NA regional finals problem sets 1998-2024 (cs.rit.edu/~icpc/questions/<year>, nenaNN/naeastNN.kattis.com)
+- [north-america-b] https://www.cs.mcgill.ca/~acm/ — McGill prelim pages (prelim2005, prelim2006 at /~acm/prelim/, prelim2008) with Questions.pdf
+- [northern-eurasia-a] https://codeforces.com/api/contest.list?gym=true — JSON list of ALL Codeforces gyms (names/season/city/websiteUrl); resolves every NEERC/NERC subregional gym id even though codeforces.com HTML is 403 from the sandbox
+- [northern-eurasia-a] https://codeforces.com/api/blogEntry.view?blogEntryId=<id>&locale=ru — readable copy of CF announcement posts (used to find CATS URL pattern)
+- [northern-eurasia-a] https://imcs.dvfu.ru/cats/main.pl?f=problems;cid=<cid> — DVFU CATS per-contest problem index; cids for every Far East QF 2003-2022,2025 are in the brief's rank_table URLs (host unreachable from sandbox; verify downstream)
+- [northern-eurasia-a] https://moscow.nerc.icpc.global/arch — Moscow Regional archive (2022, 2023 pages: standings/photos only, no statements)
+- [northern-eurasia-a] https://cpfed.kz/projects/tournaments/icpc-quarter — Kazakhstan federation ICPC quarterfinal page (no archive/statements as of now)
+- [northern-eurasia-a] TRAPS: acm.ge = AC Milan fan club; fefudigitalschool.com (FE 2021 web) is now casino spam; icpc.msu.ru/acm.msu.ru 503; web.archive.org, imcs.dvfu.ru, ikit.sfu-kras.ru, olymp.krsu.kg, olympiads.ysu.am, icpc.kz, icpc.az, mrc.msk.ru all unreachable from this sandbox
+- [northern-eurasia-b] https://nerc.itmo.ru/archive/<year>.html — per-year index listing finals + every subregional's statements (Northern 2003-2025, light sets, Ural/Taurida 2024); subregion pages nerc.itmo.ru/subregions/<name>.html list the same
+- [northern-eurasia-b] nerc.itmo.ru standings pages carry problem titles in <th title=...> — lets you prove shared problem sets (Ural/Taurida/Uzbekistan = Northern in 2005-2015 and 2015-2025)
+- [northern-eurasia-b] https://olymp.nstu.ru/contests — West Siberian quarterfinal host; problems PDF at /contests/downloadproblems/<id> for 2005-2025
+- [northern-eurasia-b] https://acm.timus.ru/archive.aspx + problemset.aspx?space=<id> — Eastern/Ural subregional 2006-2014 (spaces 56,65,70,74,82,101,123,169,225) and Ural Championship 2004/2005 (15,20,21)
+- [northern-eurasia-b] https://sp.urfu.ru/qf/<year>/ and /chu/<year>/ — Ural quarterfinal pages with problem PDFs for 2002,2003,2009-2012,2016,2022-2025 (crawler missed them)
+- [northern-eurasia-b] https://codeforces.com/api/contest.list?gym=true — machine-readable list of all gym names/ids (Southern, Western, Eastern, West-Siberian subregionals)
+- [northern-eurasia-b] https://assets.codeforces.com/statements/<contestId>.pdf — statement PDFs for some Codeforces mirrors (589 confirmed)
+- [world-finals-championships] https://icpc.global/worldfinals/problems/<YEAR>-ICPC-World-Finals/<YEAR>.pdf (1978-1989) and /icpc<YEAR>.pdf (2012-2024): official WF PDFs; the HTML page is a JS app with no index, 1977 and 1990-2011 do not follow these patterns
+- [world-finals-championships] https://nghia03092004.github.io/competitive-programming/icpc : GitHub Pages mirror of WF 2008-2025 problem PDFs (competitive-programming-assets/icpc/<YEAR>/contest_problems.pdf)
+- [world-finals-championships] https://icpc.jp/apac/ : Asia Pacific Championship seasons 2023-24..2025-26 with problem set, analysis, data on fileserv.icpc.jp/championship<YEAR>/
+- [world-finals-championships] https://nac.icpc.global/problems/<YEAR>/ : NAC problem sets (2024 file nac2024_problemset.pdf, 2025 nac2025_problemset.pdf, 2026 nac/ProblemSet.pdf + per-problem PDFs)
+- [world-finals-championships] https://scorelatam.naquadah.com.br/ : BOCA scoreboards for LAC (pda24/25/26), Latin America regional (latam-2019..2025) and Brazil subregional, each with contest.pdf problem set and contest-packages.tar
+- [world-finals-championships] https://euc.icpc.global/problems/<YEAR>/ : EUC problem sets (2026 -> EUC2026-problems.pdf; 2025 directory also exists)
+- [world-finals-championships] https://qoj.ac/category/21 (mirror https://jiang.ly/category/21): QOJ index of all EC-Final 2015-2025 contests (contest pages need login)
+- [world-finals-championships] http://seusa.vanb.org/finals_archive/ : 'ICPC World Finals Problem Index' 1988-2019 per-problem table, but all PDF links 404
+- [world-finals-championships] http://seusa.vanb.org/ : Southeast USA regional archive 2004-2026 (not in this brief)
+
+## Nothing found (per agent, with what was tried)
+
+- acpc-1999 [africa-arab-a]: acpc.global (home, /events, /acpc2024, /contests-of-acpc, event pages) has no problem material; scoreboard.acpc.global root lists only acpc2022/ and jcpc/ (empt
+- acpc-2019 [africa-arab-a]: acpc.global (home, /events, /acpc2024, /contests-of-acpc, event pages) has no problem material; scoreboard.acpc.global root lists only acpc2022/ and jcpc/ (empt
+- acpc-2021 [africa-arab-a]: acpc.global (home, /events, /acpc2024, /contests-of-acpc, event pages) has no problem material; scoreboard.acpc.global root lists only acpc2022/ and jcpc/ (empt
+- acpc-2022 [africa-arab-a]: acpc.global (home, /events, /acpc2024, /contests-of-acpc, event pages) has no problem material; scoreboard.acpc.global root lists only acpc2022/ and jcpc/ (empt
+- acpc-2023 [africa-arab-a]: acpc.global (home, /events, /acpc2024, /contests-of-acpc, event pages) has no problem material; scoreboard.acpc.global root lists only acpc2022/ and jcpc/ (empt
+- acpc-2024 [africa-arab-a]: acpc.global (home, /events, /acpc2024, /contests-of-acpc, event pages) has no problem material; scoreboard.acpc.global root lists only acpc2022/ and jcpc/ (empt
+- acpc-2025 [africa-arab-a]: acpc.global (home, /events, /acpc2024, /contests-of-acpc, event pages) has no problem material; scoreboard.acpc.global root lists only acpc2022/ and jcpc/ (empt
+- algeria-2014 [africa-arab-a]: No PDF/gym found; red0xff.github.io alcpc18 and facebook pages are the only traces; CF public gym list has no ALCPC gym; scoreboard.acpc.global/alcpc2023 404.
+- algeria-2018 [africa-arab-a]: No PDF/gym found; red0xff.github.io alcpc18 and facebook pages are the only traces; CF public gym list has no ALCPC gym; scoreboard.acpc.global/alcpc2023 404.
+- algeria-2021 [africa-arab-a]: No PDF/gym found; red0xff.github.io alcpc18 and facebook pages are the only traces; CF public gym list has no ALCPC gym; scoreboard.acpc.global/alcpc2023 404.
+- algeria-2022 [africa-arab-a]: No PDF/gym found; red0xff.github.io alcpc18 and facebook pages are the only traces; CF public gym list has no ALCPC gym; scoreboard.acpc.global/alcpc2023 404.
+- algeria-2023 [africa-arab-a]: No PDF/gym found; red0xff.github.io alcpc18 and facebook pages are the only traces; CF public gym list has no ALCPC gym; scoreboard.acpc.global/alcpc2023 404.
+- algeria-2024 [africa-arab-a]: No PDF/gym found; red0xff.github.io alcpc18 and facebook pages are the only traces; CF public gym list has no ALCPC gym; scoreboard.acpc.global/alcpc2023 404.
+- algeria-2025 [africa-arab-a]: No PDF/gym found; red0xff.github.io alcpc18 and facebook pages are the only traces; CF public gym list has no ALCPC gym; scoreboard.acpc.global/alcpc2023 404.
+- angola-2017 [africa-arab-a]: icpcangola.wordpress.com has only registration PDFs; kitihounel repo has only 2 problems (A,H) for 2017 and nothing for this year; acpc.global/event/aolcpc2024 
+- angola-2018 [africa-arab-a]: icpcangola.wordpress.com has only registration PDFs; kitihounel repo has only 2 problems (A,H) for 2017 and nothing for this year; acpc.global/event/aolcpc2024 
+- angola-2019 [africa-arab-a]: icpcangola.wordpress.com has only registration PDFs; kitihounel repo has only 2 problems (A,H) for 2017 and nothing for this year; acpc.global/event/aolcpc2024 
+- angola-2023 [africa-arab-a]: icpcangola.wordpress.com has only registration PDFs; kitihounel repo has only 2 problems (A,H) for 2017 and nothing for this year; acpc.global/event/aolcpc2024 
+- angola-2024 [africa-arab-a]: icpcangola.wordpress.com has only registration PDFs; kitihounel repo has only 2 problems (A,H) for 2017 and nothing for this year; acpc.global/event/aolcpc2024 
+- angola-2025 [africa-arab-a]: icpcangola.wordpress.com has only registration PDFs; kitihounel repo has only 2 problems (A,H) for 2017 and nothing for this year; acpc.global/event/aolcpc2024 
+- bahrain-2019 [africa-arab-a]: Only facebook page; searches for 'Bahrain Collegiate Programming Contest problems' return nothing relevant; no public CF gym.
+- bahrain-2020 [africa-arab-a]: Only facebook page; searches for 'Bahrain Collegiate Programming Contest problems' return nothing relevant; no public CF gym.
+- bahrain-2021 [africa-arab-a]: Only facebook page; searches for 'Bahrain Collegiate Programming Contest problems' return nothing relevant; no public CF gym.
+- bahrain-2022 [africa-arab-a]: Only facebook page; searches for 'Bahrain Collegiate Programming Contest problems' return nothing relevant; no public CF gym.
+- bahrain-2023 [africa-arab-a]: Only facebook page; searches for 'Bahrain Collegiate Programming Contest problems' return nothing relevant; no public CF gym.
+- benin-2019 [africa-arab-a]: kitihounel repo covers 2008/2009/2013/2016/2017/2020/2021 only; facebook/uac.bj pages have nothing.
+- benin-2022 [africa-arab-a]: kitihounel repo covers 2008/2009/2013/2016/2017/2020/2021 only; facebook/uac.bj pages have nothing.
+- benin-2023 [africa-arab-a]: kitihounel repo covers 2008/2009/2013/2016/2017/2020/2021 only; facebook/uac.bj pages have nothing.
+- egypt-2008 [africa-arab-a]: acm.fci-cu.edu.eg DNS-dead; acm-egypt Google Group has ENC 2009 PDF only (2010 scan was on 4shared, now 404; 2008 print page acm.thunder-power.com dead); no pub
+- egypt-2010 [africa-arab-a]: acm.fci-cu.edu.eg DNS-dead; acm-egypt Google Group has ENC 2009 PDF only (2010 scan was on 4shared, now 404; 2008 print page acm.thunder-power.com dead); no pub
+- egypt-2011 [africa-arab-a]: acm.fci-cu.edu.eg DNS-dead; acm-egypt Google Group has ENC 2009 PDF only (2010 scan was on 4shared, now 404; 2008 print page acm.thunder-power.com dead); no pub
+- egypt-2012 [africa-arab-a]: acm.fci-cu.edu.eg DNS-dead; acm-egypt Google Group has ENC 2009 PDF only (2010 scan was on 4shared, now 404; 2008 print page acm.thunder-power.com dead); no pub
+- egypt-2014 [africa-arab-a]: acm.fci-cu.edu.eg DNS-dead; acm-egypt Google Group has ENC 2009 PDF only (2010 scan was on 4shared, now 404; 2008 print page acm.thunder-power.com dead); no pub
+- egypt-2019 [africa-arab-a]: acm.fci-cu.edu.eg DNS-dead; acm-egypt Google Group has ENC 2009 PDF only (2010 scan was on 4shared, now 404; 2008 print page acm.thunder-power.com dead); no pub
+- egypt-2020 [africa-arab-a]: acm.fci-cu.edu.eg DNS-dead; acm-egypt Google Group has ENC 2009 PDF only (2010 scan was on 4shared, now 404; 2008 print page acm.thunder-power.com dead); no pub
+- egypt-2021 [africa-arab-a]: acm.fci-cu.edu.eg DNS-dead; acm-egypt Google Group has ENC 2009 PDF only (2010 scan was on 4shared, now 404; 2008 print page acm.thunder-power.com dead); no pub
+- egypt-2022 [africa-arab-a]: acm.fci-cu.edu.eg DNS-dead; acm-egypt Google Group has ENC 2009 PDF only (2010 scan was on 4shared, now 404; 2008 print page acm.thunder-power.com dead); no pub
+- egypt-2023 [africa-arab-a]: acm.fci-cu.edu.eg DNS-dead; acm-egypt Google Group has ENC 2009 PDF only (2010 scan was on 4shared, now 404; 2008 print page acm.thunder-power.com dead); no pub
+- egypt-2024 [africa-arab-a]: acm.fci-cu.edu.eg DNS-dead; acm-egypt Google Group has ENC 2009 PDF only (2010 scan was on 4shared, now 404; 2008 print page acm.thunder-power.com dead); no pub
+- egypt-2025 [africa-arab-a]: acm.fci-cu.edu.eg DNS-dead; acm-egypt Google Group has ENC 2009 PDF only (2010 scan was on 4shared, now 404; 2008 print page acm.thunder-power.com dead); no pub
+- ethiopia-2016 [africa-arab-a]: contest.icpcethiopia.org / icpcethiopia.org unreachable (502); searches found no problem set or gym.
+- ethiopia-2017 [africa-arab-a]: contest.icpcethiopia.org / icpcethiopia.org unreachable (502); searches found no problem set or gym.
+- ethiopia-2018 [africa-arab-a]: contest.icpcethiopia.org / icpcethiopia.org unreachable (502); searches found no problem set or gym.
+- ethiopia-2019 [africa-arab-a]: contest.icpcethiopia.org / icpcethiopia.org unreachable (502); searches found no problem set or gym.
+- ethiopia-2020 [africa-arab-a]: contest.icpcethiopia.org / icpcethiopia.org unreachable (502); searches found no problem set or gym.
+- ethiopia-2021 [africa-arab-a]: contest.icpcethiopia.org / icpcethiopia.org unreachable (502); searches found no problem set or gym.
+- ethiopia-2022 [africa-arab-a]: contest.icpcethiopia.org / icpcethiopia.org unreachable (502); searches found no problem set or gym.
+- ethiopia-2023 [africa-arab-a]: contest.icpcethiopia.org / icpcethiopia.org unreachable (502); searches found no problem set or gym.
+- ethiopia-2024 [africa-arab-a]: contest.icpcethiopia.org / icpcethiopia.org unreachable (502); searches found no problem set or gym.
+- ethiopia-2025 [africa-arab-a]: contest.icpcethiopia.org / icpcethiopia.org unreachable (502); searches found no problem set or gym.
+- jordan-2011 [africa-arab-a]: acmacpc.org/jordan and jordan.acmacpc.org DNS-dead; only public CF gyms are 2017 (101608) and 2022 (104147); 'University of Jordan CPC 2019' gym 102267 and 'Ara
+- jordan-2012 [africa-arab-a]: acmacpc.org/jordan and jordan.acmacpc.org DNS-dead; only public CF gyms are 2017 (101608) and 2022 (104147); 'University of Jordan CPC 2019' gym 102267 and 'Ara
+- jordan-2013 [africa-arab-a]: acmacpc.org/jordan and jordan.acmacpc.org DNS-dead; only public CF gyms are 2017 (101608) and 2022 (104147); 'University of Jordan CPC 2019' gym 102267 and 'Ara
+- jordan-2014 [africa-arab-a]: acmacpc.org/jordan and jordan.acmacpc.org DNS-dead; only public CF gyms are 2017 (101608) and 2022 (104147); 'University of Jordan CPC 2019' gym 102267 and 'Ara
+- jordan-2015 [africa-arab-a]: acmacpc.org/jordan and jordan.acmacpc.org DNS-dead; only public CF gyms are 2017 (101608) and 2022 (104147); 'University of Jordan CPC 2019' gym 102267 and 'Ara
+- jordan-2016 [africa-arab-a]: acmacpc.org/jordan and jordan.acmacpc.org DNS-dead; only public CF gyms are 2017 (101608) and 2022 (104147); 'University of Jordan CPC 2019' gym 102267 and 'Ara
+- jordan-2018 [africa-arab-a]: acmacpc.org/jordan and jordan.acmacpc.org DNS-dead; only public CF gyms are 2017 (101608) and 2022 (104147); 'University of Jordan CPC 2019' gym 102267 and 'Ara
+- jordan-2019 [africa-arab-a]: acmacpc.org/jordan and jordan.acmacpc.org DNS-dead; only public CF gyms are 2017 (101608) and 2022 (104147); 'University of Jordan CPC 2019' gym 102267 and 'Ara
+- jordan-2020 [africa-arab-a]: acmacpc.org/jordan and jordan.acmacpc.org DNS-dead; only public CF gyms are 2017 (101608) and 2022 (104147); 'University of Jordan CPC 2019' gym 102267 and 'Ara
+- jordan-2021 [africa-arab-a]: acmacpc.org/jordan and jordan.acmacpc.org DNS-dead; only public CF gyms are 2017 (101608) and 2022 (104147); 'University of Jordan CPC 2019' gym 102267 and 'Ara
+- jordan-2023 [africa-arab-a]: acmacpc.org/jordan and jordan.acmacpc.org DNS-dead; only public CF gyms are 2017 (101608) and 2022 (104147); 'University of Jordan CPC 2019' gym 102267 and 'Ara
+- jordan-2024 [africa-arab-a]: acmacpc.org/jordan and jordan.acmacpc.org DNS-dead; only public CF gyms are 2017 (101608) and 2022 (104147); 'University of Jordan CPC 2019' gym 102267 and 'Ara
+- jordan-2025 [africa-arab-a]: acmacpc.org/jordan and jordan.acmacpc.org DNS-dead; only public CF gyms are 2017 (101608) and 2022 (104147); 'University of Jordan CPC 2019' gym 102267 and 'Ara
+- kuwait-2010 [africa-arab-a]: acm.kuniv.edu DNS-dead; kcpc2018.wordpress.com returns no problem links; aou.edu.kw/KCPC2015 is the brief's web; no public CF gym; searches found only news item
+- kuwait-2011 [africa-arab-a]: acm.kuniv.edu DNS-dead; kcpc2018.wordpress.com returns no problem links; aou.edu.kw/KCPC2015 is the brief's web; no public CF gym; searches found only news item
+- kuwait-2012 [africa-arab-a]: acm.kuniv.edu DNS-dead; kcpc2018.wordpress.com returns no problem links; aou.edu.kw/KCPC2015 is the brief's web; no public CF gym; searches found only news item
+- kuwait-2014 [africa-arab-a]: acm.kuniv.edu DNS-dead; kcpc2018.wordpress.com returns no problem links; aou.edu.kw/KCPC2015 is the brief's web; no public CF gym; searches found only news item
+- kuwait-2015 [africa-arab-a]: acm.kuniv.edu DNS-dead; kcpc2018.wordpress.com returns no problem links; aou.edu.kw/KCPC2015 is the brief's web; no public CF gym; searches found only news item
+- kuwait-2016 [africa-arab-a]: acm.kuniv.edu DNS-dead; kcpc2018.wordpress.com returns no problem links; aou.edu.kw/KCPC2015 is the brief's web; no public CF gym; searches found only news item
+- kuwait-2017 [africa-arab-a]: acm.kuniv.edu DNS-dead; kcpc2018.wordpress.com returns no problem links; aou.edu.kw/KCPC2015 is the brief's web; no public CF gym; searches found only news item
+- kuwait-2018 [africa-arab-a]: acm.kuniv.edu DNS-dead; kcpc2018.wordpress.com returns no problem links; aou.edu.kw/KCPC2015 is the brief's web; no public CF gym; searches found only news item
+- kuwait-2019 [africa-arab-a]: acm.kuniv.edu DNS-dead; kcpc2018.wordpress.com returns no problem links; aou.edu.kw/KCPC2015 is the brief's web; no public CF gym; searches found only news item
+- kuwait-2020 [africa-arab-a]: acm.kuniv.edu DNS-dead; kcpc2018.wordpress.com returns no problem links; aou.edu.kw/KCPC2015 is the brief's web; no public CF gym; searches found only news item
+- kuwait-2021 [africa-arab-a]: acm.kuniv.edu DNS-dead; kcpc2018.wordpress.com returns no problem links; aou.edu.kw/KCPC2015 is the brief's web; no public CF gym; searches found only news item
+- kuwait-2022 [africa-arab-a]: acm.kuniv.edu DNS-dead; kcpc2018.wordpress.com returns no problem links; aou.edu.kw/KCPC2015 is the brief's web; no public CF gym; searches found only news item
+- kuwait-2023 [africa-arab-a]: acm.kuniv.edu DNS-dead; kcpc2018.wordpress.com returns no problem links; aou.edu.kw/KCPC2015 is the brief's web; no public CF gym; searches found only news item
+- kuwait-2024 [africa-arab-a]: acm.kuniv.edu DNS-dead; kcpc2018.wordpress.com returns no problem links; aou.edu.kw/KCPC2015 is the brief's web; no public CF gym; searches found only news item
+- kuwait-2025 [africa-arab-a]: acm.kuniv.edu DNS-dead; kcpc2018.wordpress.com returns no problem links; aou.edu.kw/KCPC2015 is the brief's web; no public CF gym; searches found only news item
+- lebanon-2009 [africa-arab-a]: lcpc.lau.edu.lb / lcpc.icpc.global unreachable (502); csm.lau.edu.lb, aust.edu.lb, cs.aub.edu.lb, aou.edu.lb are brief web hosts; searches on lau/aub/bau domain
+- lebanon-2010 [africa-arab-a]: lcpc.lau.edu.lb / lcpc.icpc.global unreachable (502); csm.lau.edu.lb, aust.edu.lb, cs.aub.edu.lb, aou.edu.lb are brief web hosts; searches on lau/aub/bau domain
+- lebanon-2011 [africa-arab-a]: lcpc.lau.edu.lb / lcpc.icpc.global unreachable (502); csm.lau.edu.lb, aust.edu.lb, cs.aub.edu.lb, aou.edu.lb are brief web hosts; searches on lau/aub/bau domain
+- lebanon-2012 [africa-arab-a]: lcpc.lau.edu.lb / lcpc.icpc.global unreachable (502); csm.lau.edu.lb, aust.edu.lb, cs.aub.edu.lb, aou.edu.lb are brief web hosts; searches on lau/aub/bau domain
+- lebanon-2013 [africa-arab-a]: lcpc.lau.edu.lb / lcpc.icpc.global unreachable (502); csm.lau.edu.lb, aust.edu.lb, cs.aub.edu.lb, aou.edu.lb are brief web hosts; searches on lau/aub/bau domain
+- lebanon-2014 [africa-arab-a]: lcpc.lau.edu.lb / lcpc.icpc.global unreachable (502); csm.lau.edu.lb, aust.edu.lb, cs.aub.edu.lb, aou.edu.lb are brief web hosts; searches on lau/aub/bau domain
+- lebanon-2015 [africa-arab-a]: lcpc.lau.edu.lb / lcpc.icpc.global unreachable (502); csm.lau.edu.lb, aust.edu.lb, cs.aub.edu.lb, aou.edu.lb are brief web hosts; searches on lau/aub/bau domain
+- lebanon-2016 [africa-arab-a]: lcpc.lau.edu.lb / lcpc.icpc.global unreachable (502); csm.lau.edu.lb, aust.edu.lb, cs.aub.edu.lb, aou.edu.lb are brief web hosts; searches on lau/aub/bau domain
+- lebanon-2017 [africa-arab-a]: lcpc.lau.edu.lb / lcpc.icpc.global unreachable (502); csm.lau.edu.lb, aust.edu.lb, cs.aub.edu.lb, aou.edu.lb are brief web hosts; searches on lau/aub/bau domain
+- lebanon-2018 [africa-arab-a]: lcpc.lau.edu.lb / lcpc.icpc.global unreachable (502); csm.lau.edu.lb, aust.edu.lb, cs.aub.edu.lb, aou.edu.lb are brief web hosts; searches on lau/aub/bau domain
+- lebanon-2019 [africa-arab-a]: lcpc.lau.edu.lb / lcpc.icpc.global unreachable (502); csm.lau.edu.lb, aust.edu.lb, cs.aub.edu.lb, aou.edu.lb are brief web hosts; searches on lau/aub/bau domain
+- lebanon-2020 [africa-arab-a]: lcpc.lau.edu.lb / lcpc.icpc.global unreachable (502); csm.lau.edu.lb, aust.edu.lb, cs.aub.edu.lb, aou.edu.lb are brief web hosts; searches on lau/aub/bau domain
+- lebanon-2021 [africa-arab-a]: lcpc.lau.edu.lb / lcpc.icpc.global unreachable (502); csm.lau.edu.lb, aust.edu.lb, cs.aub.edu.lb, aou.edu.lb are brief web hosts; searches on lau/aub/bau domain
+- lebanon-2022 [africa-arab-a]: lcpc.lau.edu.lb / lcpc.icpc.global unreachable (502); csm.lau.edu.lb, aust.edu.lb, cs.aub.edu.lb, aou.edu.lb are brief web hosts; searches on lau/aub/bau domain
+- lebanon-2023 [africa-arab-a]: lcpc.lau.edu.lb / lcpc.icpc.global unreachable (502); csm.lau.edu.lb, aust.edu.lb, cs.aub.edu.lb, aou.edu.lb are brief web hosts; searches on lau/aub/bau domain
+- lebanon-2024 [africa-arab-a]: lcpc.lau.edu.lb / lcpc.icpc.global unreachable (502); csm.lau.edu.lb, aust.edu.lb, cs.aub.edu.lb, aou.edu.lb are brief web hosts; searches on lau/aub/bau domain
+- lebanon-2025 [africa-arab-a]: lcpc.lau.edu.lb / lcpc.icpc.global unreachable (502); csm.lau.edu.lb, aust.edu.lb, cs.aub.edu.lb, aou.edu.lb are brief web hosts; searches on lau/aub/bau domain
+- morocco-2012 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- morocco-2013 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- morocco-2014 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- morocco-2017 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- morocco-2018 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- morocco-2019 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- morocco-2020 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- morocco-2021 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- morocco-2022 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- morocco-2023 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- morocco-2025 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- nigeria-2016 [africa-arab-b]: Searched; only CF recruitment posts (blog 125902, topic 126527) with no gym/problem links; mapcom-group.com / nmcabuja.org are the brief's web hosts
+- nigeria-2017 [africa-arab-b]: Searched; only CF recruitment posts (blog 125902, topic 126527) with no gym/problem links; mapcom-group.com / nmcabuja.org are the brief's web hosts
+- nigeria-2019 [africa-arab-b]: Searched; only CF recruitment posts (blog 125902, topic 126527) with no gym/problem links; mapcom-group.com / nmcabuja.org are the brief's web hosts
+- nigeria-2020 [africa-arab-b]: Searched; only CF recruitment posts (blog 125902, topic 126527) with no gym/problem links; mapcom-group.com / nmcabuja.org are the brief's web hosts
+- nigeria-2021 [africa-arab-b]: Searched; only CF recruitment posts (blog 125902, topic 126527) with no gym/problem links; mapcom-group.com / nmcabuja.org are the brief's web hosts
+- nigeria-2022 [africa-arab-b]: Searched; only CF recruitment posts (blog 125902, topic 126527) with no gym/problem links; mapcom-group.com / nmcabuja.org are the brief's web hosts
+- nigeria-2023 [africa-arab-b]: Searched; only CF recruitment posts (blog 125902, topic 126527) with no gym/problem links; mapcom-group.com / nmcabuja.org are the brief's web hosts
+- oman-2013 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- oman-2014 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- oman-2016 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- oman-2017 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- oman-2018 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- oman-2019 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- oman-2020 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- oman-2021 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- oman-2022 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- oman-2023 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- oman-2024 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- oman-2025 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- oman-capital-2025 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- oman-capital-2026 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- oman-coastline-2025 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- oman-coastline-2026 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- oman-midland-2025 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- oman-midland-2026 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- oman-oriental-2026 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- oman-southern-2025 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- palestine-2012 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- palestine-2013 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- palestine-2014 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- palestine-2015 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- palestine-2016 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- palestine-2017 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- palestine-2018 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- palestine-2019 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- palestine-2020 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- palestine-2021 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- palestine-2022 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- palestine-2023 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- palestine-2024 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- palestine-2025 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- qatar-2020 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- qatar-2021 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- qatar-2022 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- qatar-2023 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- qatar-2024 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- qatar-2025 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- saudi-arabia-2022 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- saudi-arabia-2024 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- saudi-arabia-2025 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- senegal-2017 [africa-arab-b]: Searched EN/FR ('Senegalese Collegiate Programming Contest', sujets); nothing
+- south-africa-2018 [africa-arab-b]: Known-dead URL https://acm.cs.up.ac.za/Files2018/icpc2018.pdf (linked as '2018 contest problems' from https://acm.cs.up.ac.za/Previous/2018/index.html, now 404;
+- sudan-2020 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- sudan-2021 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- sudan-2022 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- sudan-2023 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- sudan-2024 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- syria-2011 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- syria-2012 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- syria-2013 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- syria-2016 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- syria-2017 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- syria-2019 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- syria-2020 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- syria-2021 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- syria-2022 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- syria-2023 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- syria-2024 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- syria-2025 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- togo-2016 [africa-arab-b]: Searched EN/FR; only scribd.com/document/557514016/TogoCPC-P ('2021 Togolese Programming Contest Problems', 3 problems A-C — looks like a practice set, not the 
+- togo-2017 [africa-arab-b]: Searched EN/FR; only scribd.com/document/557514016/TogoCPC-P ('2021 Togolese Programming Contest Problems', 3 problems A-C — looks like a practice set, not the 
+- togo-2019 [africa-arab-b]: Searched EN/FR; only scribd.com/document/557514016/TogoCPC-P ('2021 Togolese Programming Contest Problems', 3 problems A-C — looks like a practice set, not the 
+- togo-2020 [africa-arab-b]: Searched EN/FR; only scribd.com/document/557514016/TogoCPC-P ('2021 Togolese Programming Contest Problems', 3 problems A-C — looks like a practice set, not the 
+- togo-2021 [africa-arab-b]: Searched EN/FR; only scribd.com/document/557514016/TogoCPC-P ('2021 Togolese Programming Contest Problems', 3 problems A-C — looks like a practice set, not the 
+- togo-2023 [africa-arab-b]: Searched EN/FR; only scribd.com/document/557514016/TogoCPC-P ('2021 Togolese Programming Contest Problems', 3 problems A-C — looks like a practice set, not the 
+- tunisia-2013 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- tunisia-2014 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- tunisia-2015 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- tunisia-2016 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- tunisia-2017 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- tunisia-2018 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- tunisia-2019 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- tunisia-2020 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- tunisia-2023 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- tunisia-2024 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- tunisia-2025 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- tunisia-2026 [africa-arab-b]: Searched '<name> problems pdf/gym/github' (EN) + ACPC family; acpc.global has no problem archive; acpcsb.acpc.global/<contest> folders hold only scoreboard HTML
+- anshan-2014 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- beijing-2002 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- beijing-2006 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- beijing-2007 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- beijing-2008 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- beijing-2011 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- beijing-2014 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- beijing-2016 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- changchun-2007 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- changchun-2012 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- changchun-2013 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- changsha-2013 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- chengdu-2007 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- chengdu-2008 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- chengdu-2010 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- chengdu-2011 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- chengdu-2012 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- chengdu-2013 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- dalian-2011 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- dalian-2016 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- fuzhou-2010 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- fuzhou-2011 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- guangzhou-2003 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- guangzhou-2014 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- hangzhou-2008 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- hangzhou-2010 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- hangzhou-2012 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- hangzhou-2013 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- harbin-2008 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- harbin-2009 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- harbin-2010 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- hefei-2008 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- hefei-2009 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- hefei-2015 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- jinhua-2012 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- nanjing-2007 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- nanjing-2013 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- ningbo-2009 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- shanghai-2014 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- shanghai-2015 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- tianjin-2010 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- tianjin-2012 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- xian-2002 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- xian-2006 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- hong-kong-2018 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- hefei-2022 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- shenyang-2019 [asia-east]: Host OJ dead/unreachable (probed); HDU problem search is login-only and acm.hdu.edu.cn robots-blocked for WebFetch; POJ source search returned 0 hits / 502; ZOJ
+- south-pacific-central-2017 [asia-pacific]: sppcontests.org 2017 archive page (links 2018 files by mistake), Dinneen archive (no 2017 file), guessed sppcontests upload paths 404
+- south-pacific-east-2017 [asia-pacific]: sppcontests.org 2017 archive page (links 2018 files by mistake), Dinneen archive (no 2017 file), guessed sppcontests upload paths 404
+- south-pacific-west-2017 [asia-pacific]: sppcontests.org 2017 archive page (links 2018 files by mistake), Dinneen archive (no 2017 file), guessed sppcontests upload paths 404
+- south-pacific-2025 [asia-pacific]: sppcontests.org has no 2025 archive page yet (/archive/2025-icpc-results/, /problem_pdfs/2025/*.pdf 404); icpc-2026 page has no problem links; UNSW cs4128 25t3 
+- south-pacific-division-2025 [asia-pacific]: same as south-pacific-2025: no 2025 material on sppcontests.org yet; UNSW cs4128 25t2 prelims page only links the 2024 prelim PDFs
+- australia-1998 [asia-pacific]: Dinneen archive has SPPC1998.pdf (South Pacific 1998) but no separate Australian set; web search for 1998 Australian contest problems gave nothing
+- australia-2013 [asia-pacific]: web search for 2013 Australian Programming Contest / AuPC problem set (elgindyh UNSW host) gave nothing; sppcontests.org 2013 archive page has no problem links
+- vietnam-2006 [asia-pacific]: itweek.org.vn site dead; icpcvn.github.io archive starts 2015; web search (Vietnamese + English) gave news only
+- vietnam-2007 [asia-pacific]: itweek.org.vn site dead; icpcvn.github.io archive starts 2015; web search (Vietnamese + English) gave news only
+- vietnam-2008 [asia-pacific]: itweek.org.vn site dead; icpcvn.github.io archive starts 2015; web search (Vietnamese + English) gave news only
+- vietnam-2010 [asia-pacific]: acm-icpc.olp.vn has no problem links; icpcvn.github.io archive starts 2015; web search (đề thi / problems) gave news only
+- vietnam-2012 [asia-pacific]: acm-icpc.olp.vn has no problem links; icpcvn.github.io archive starts 2015; web search (đề thi / problems) gave news only
+- vietnam-2013 [asia-pacific]: acm-icpc.olp.vn has no problem links; icpcvn.github.io archive starts 2015; web search (đề thi / problems) gave news only
+- vietnam-national-2012 [asia-pacific]: icpcvn.github.io archive has National rounds only from 2016 (2015 has regional only); Codeforces gym has 2014 Vietnam National rounds only; web search gave noth
+- vietnam-national-2013 [asia-pacific]: icpcvn.github.io archive has National rounds only from 2016 (2015 has regional only); Codeforces gym has 2014 Vietnam National rounds only; web search gave noth
+- vietnam-national-2015 [asia-pacific]: icpcvn.github.io archive has National rounds only from 2016 (2015 has regional only); Codeforces gym has 2014 Vietnam National rounds only; web search gave noth
+- vietnam-national-2026 [asia-pacific]: icpcvn.github.io 2026 lists Northern/Southern/Central only; /2026/national/problems.pdf 404 (contest apparently not yet held)
+- jakarta-2008 [asia-pacific]: competition.binus.ac.id/icpc2008/ is a JS menu with no problem links; TLX has no icpc-jakarta-2008; felix-halim GitHub archive has jakarta10/12/13 only; web sea
+- thailand-2009 [asia-pacific]: acmicpc-thailand.org dead; no UVa contest for 2009 Phuket; ntuj.csie.org problemdata has only phuket_2011 and PK-2013; web search
+- thailand-2015 [asia-pacific]: acmicpc-thailand.org dead; not in UVa contests, Codeforces gym list or icpcarchive.github.io; web search
+- thailand-2017 [asia-pacific]: ict.mahidol.ac.th/acmicpc2017 404; not in Codeforces gym list (2018 is); web search gave only opening-ceremony news
+- thailand-2019 [asia-pacific]: acm-icpc.eng.chula.ac.th SPA has no archive; icpc-chula.github.io scoreboard-archive starts 2024; not in gym list; web search
+- thailand-national-2012 [asia-pacific]: no Thai national-round material found: acmicpc-thailand.org dead, UVa only has the 2010 national (255-4ab6775a), icpc.global finder pages have no problems
+- thailand-national-2013 [asia-pacific]: no Thai national-round material found: acmicpc-thailand.org dead, UVa only has the 2010 national (255-4ab6775a), icpc.global finder pages have no problems
+- thailand-national-2014 [asia-pacific]: no Thai national-round material found: acmicpc-thailand.org dead, UVa only has the 2010 national (255-4ab6775a), icpc.global finder pages have no problems
+- thailand-national-2015 [asia-pacific]: no Thai national-round material found: acmicpc-thailand.org dead, UVa only has the 2010 national (255-4ab6775a), icpc.global finder pages have no problems
+- thailand-national-2016 [asia-pacific]: no Thai national-round material found: acmicpc-thailand.org dead, UVa only has the 2010 national (255-4ab6775a), icpc.global finder pages have no problems
+- thailand-national-2025 [asia-pacific]: Codeforces gym 106069 'ICPC Thailand National Contest 2025 (Partial)' holds only problems D,E,F,G,H,L — incomplete, so not returned; icpc2025.science.kmitl.ac.t
+- kuala-lumpur-2011 [asia-pacific]: iium.edu.my/acmicpc pages all 404 now; no UVa contest for 2011 KL; web search
+- malaysia-national-2013 [asia-pacific]: iium.edu.my/acmicpc/* (incl. 2016/config.html, 2018/config.html 'Scores, Problem Sets') now 404; Wayback unreachable from this sandbox; Scribd 'Acm I CPC 2014 A
+- malaysia-national-2014 [asia-pacific]: iium.edu.my/acmicpc/* (incl. 2016/config.html, 2018/config.html 'Scores, Problem Sets') now 404; Wayback unreachable from this sandbox; Scribd 'Acm I CPC 2014 A
+- malaysia-national-2016 [asia-pacific]: iium.edu.my/acmicpc/* (incl. 2016/config.html, 2018/config.html 'Scores, Problem Sets') now 404; Wayback unreachable from this sandbox; Scribd 'Acm I CPC 2014 A
+- malaysia-national-2018 [asia-pacific]: iium.edu.my/acmicpc/* (incl. 2016/config.html, 2018/config.html 'Scores, Problem Sets') now 404; Wayback unreachable from this sandbox; Scribd 'Acm I CPC 2014 A
+- manila-2002 [asia-pacific]: iits.uap.edu.ph / myuap.net dead; felix-halim GitHub archive manila03/04/05 folders hold only diary pages; web search
+- manila-2003 [asia-pacific]: iits.uap.edu.ph / myuap.net dead; felix-halim GitHub archive manila03/04/05 folders hold only diary pages; web search
+- manila-2004 [asia-pacific]: iits.uap.edu.ph / myuap.net dead; felix-halim GitHub archive manila03/04/05 folders hold only diary pages; web search
+- manila-2005 [asia-pacific]: acm.ateneo.edu dead; felix-halim archive manila05 has no statements; web search
+- manila-2009 [asia-pacific]: math.admu.edu.ph dead; Raffy Saldana blog 2009 posts have no problem links; web search
+- manila-2011 [asia-pacific]: Raffy Saldana blog post (raffysaldana.blogspot.com/2011/12/acn-icpc-asia-manila-2011-summary.html) lists problems A-J but links statement scans at math.admu.edu
+- philippines-national-2014 [asia-pacific]: no web presence found; icpcarchive.github.io Philippines page has regionals only (2016/17/19/22); web search
+- philippines-national-2015 [asia-pacific]: no web presence found; icpcarchive.github.io Philippines page has regionals only (2016/17/19/22); web search
+- philippines-national-2019 [asia-pacific]: no web presence found; icpcarchive.github.io Philippines page has regionals only (2016/17/19/22); web search
+- taiwan-1993 [asia-pacific]: pre-2002 regional: left to the separately mined ETH ProblemSetArchive (acm.ntnu.edu.tw mirror); no other host found
+- taiwan-1994 [asia-pacific]: pre-2002 regional: left to the separately mined ETH ProblemSetArchive (acm.ntnu.edu.tw mirror); no other host found
+- taiwan-1996 [asia-pacific]: pre-2002 regional: left to the separately mined ETH ProblemSetArchive (acm.ntnu.edu.tw mirror); no other host found
+- taiwan-1997 [asia-pacific]: pre-2002 regional: left to the separately mined ETH ProblemSetArchive (acm.ntnu.edu.tw mirror); no other host found
+- taiwan-1999 [asia-pacific]: pre-2002 regional: left to the separately mined ETH ProblemSetArchive (acm.ntnu.edu.tw mirror); no other host found
+- taiwan-2002 [asia-pacific]: icpc.tw is a client-rendered app with no archive routes; icpcarchive.github.io Taiwan starts 2020; not in Codeforces gym list; ntuj.csie.org guesses 404; Baekjo
+- taiwan-2003 [asia-pacific]: icpc.tw is a client-rendered app with no archive routes; icpcarchive.github.io Taiwan starts 2020; not in Codeforces gym list; ntuj.csie.org guesses 404; Baekjo
+- taiwan-2004 [asia-pacific]: icpc.tw is a client-rendered app with no archive routes; icpcarchive.github.io Taiwan starts 2020; not in Codeforces gym list; ntuj.csie.org guesses 404; Baekjo
+- taiwan-2006 [asia-pacific]: icpc.tw is a client-rendered app with no archive routes; icpcarchive.github.io Taiwan starts 2020; not in Codeforces gym list; ntuj.csie.org guesses 404; Baekjo
+- taiwan-2007 [asia-pacific]: icpc.tw is a client-rendered app with no archive routes; icpcarchive.github.io Taiwan starts 2020; not in Codeforces gym list; ntuj.csie.org guesses 404; Baekjo
+- taiwan-2008 [asia-pacific]: icpc.tw is a client-rendered app with no archive routes; icpcarchive.github.io Taiwan starts 2020; not in Codeforces gym list; ntuj.csie.org guesses 404; Baekjo
+- taiwan-2009 [asia-pacific]: icpc.tw is a client-rendered app with no archive routes; icpcarchive.github.io Taiwan starts 2020; not in Codeforces gym list; ntuj.csie.org guesses 404; Baekjo
+- taiwan-2010 [asia-pacific]: icpc.tw is a client-rendered app with no archive routes; icpcarchive.github.io Taiwan starts 2020; not in Codeforces gym list; ntuj.csie.org guesses 404; Baekjo
+- taiwan-2012 [asia-pacific]: icpc.tw is a client-rendered app with no archive routes; icpcarchive.github.io Taiwan starts 2020; not in Codeforces gym list; ntuj.csie.org guesses 404; Baekjo
+- taiwan-2013 [asia-pacific]: icpc.tw is a client-rendered app with no archive routes; icpcarchive.github.io Taiwan starts 2020; not in Codeforces gym list; ntuj.csie.org guesses 404; Baekjo
+- taiwan-2014 [asia-pacific]: icpc.tw is a client-rendered app with no archive routes; icpcarchive.github.io Taiwan starts 2020; not in Codeforces gym list; ntuj.csie.org guesses 404; Baekjo
+- taiwan-2015 [asia-pacific]: icpc.tw is a client-rendered app with no archive routes; icpcarchive.github.io Taiwan starts 2020; not in Codeforces gym list; ntuj.csie.org guesses 404; Baekjo
+- taiwan-2017 [asia-pacific]: icpc.tw is a client-rendered app with no archive routes; icpcarchive.github.io Taiwan starts 2020; not in Codeforces gym list; ntuj.csie.org guesses 404; Baekjo
+- taiwan-ncpc-2014 [asia-pacific]: ncpc.ntnu.edu.tw/files.html is the crawled web; no other host; web search
+- taiwan-ncpc-2016 [asia-pacific]: no web presence found; web search
+- mongolia-national-2013 [asia-pacific]: news.num.edu.mn posts are news only; Mongolian/English web search found no problem sets
+- mongolia-national-2014 [asia-pacific]: news.num.edu.mn posts are news only; Mongolian/English web search found no problem sets
+- mongolia-national-2015 [asia-pacific]: news.num.edu.mn posts are news only; Mongolian/English web search found no problem sets
+- mongolia-national-2016 [asia-pacific]: news.num.edu.mn posts are news only; Mongolian/English web search found no problem sets
+- mongolia-national-2017 [asia-pacific]: news.num.edu.mn posts are news only; Mongolian/English web search found no problem sets
+- mongolia-national-2018 [asia-pacific]: news.num.edu.mn posts are news only; Mongolian/English web search found no problem sets
+- mongolia-national-2019 [asia-pacific]: news.num.edu.mn posts are news only; Mongolian/English web search found no problem sets
+- myanmar-mcpc-2019 [asia-pacific]: ucsy.edu.mm/pages/mcpc2019.jsp has scoreboard only (its problem link points at the 2017 Yangon set); q-mcpc2019.pdf 404
+- amritapuri-2007 [asia-west]: icpc.amrita.ac.in / amrita.edu block fetches (403, robots); site: searches found no PDFs; CodeChef API probes (ACM1xAMR, AMR1xROL/MOS) -> no contest for this ye
+- amritapuri-2008 [asia-west]: icpc.amrita.ac.in / amrita.edu block fetches (403, robots); site: searches found no PDFs; CodeChef API probes (ACM1xAMR, AMR1xROL/MOS) -> no contest for this ye
+- amritapuri-2009 [asia-west]: icpc.amrita.ac.in / amrita.edu block fetches (403, robots); site: searches found no PDFs; CodeChef API probes (ACM1xAMR, AMR1xROL/MOS) -> no contest for this ye
+- amritapuri-2010 [asia-west]: icpc.amrita.ac.in / amrita.edu block fetches (403, robots); site: searches found no PDFs; CodeChef API probes (ACM1xAMR, AMR1xROL/MOS) -> no contest for this ye
+- amritapuri-2011 [asia-west]: icpc.amrita.ac.in / amrita.edu block fetches (403, robots); site: searches found no PDFs; CodeChef API probes (ACM1xAMR, AMR1xROL/MOS) -> no contest for this ye
+- amritapuri-2012 [asia-west]: icpc.amrita.ac.in / amrita.edu block fetches (403, robots); site: searches found no PDFs; CodeChef API probes (ACM1xAMR, AMR1xROL/MOS) -> no contest for this ye
+- amritapuri-2019 [asia-west]: CodeChef API probes (ACM19AMR, AMR19ROL, ICPC19AMR, AMR19MOS) -> no such contest; 2019-20 India onsite mirrors were on CodeChef under unknown codes; icpc.amrita
+- amritapuri-2020 [asia-west]: Ran on CodeDrills (CF topic 94432 confirms, 14 Aug 2021) but the post carries no URL and CodeDrills blocks fetches; URL not guessed.
+- amritapuri-2021 [asia-west]: Announcement CF blog 105000 unreadable (client_error on all mirrors); CodeDrills slug not confirmed; CodeChef probes negative.
+- bombay-2003 [asia-west]: cse.iitb.ac.in/acm pages gone; web search for Bombay 2003/2004 problem set found nothing; Wayback unreachable.
+- bombay-2004 [asia-west]: cse.iitb.ac.in/acm pages gone; web search for Bombay 2003/2004 problem set found nothing; Wayback unreachable.
+- chennai-2023 [asia-west]: Brief web URL is the CodeDrills contest page itself (login-walled, blocked); no PDF or mirror found in search.
+- coimbatore-2005 [asia-west]: amrita.edu/icpc hosts blocked (403/robots); searches found only news posts; Wayback unreachable.
+- coimbatore-2006 [asia-west]: amrita.edu/icpc hosts blocked (403/robots); searches found only news posts; Wayback unreachable.
+- dhaka-1997 [asia-west]: BUET/northsouth.edu pages gone; ETH ProblemSetArchive covers this era (excluded); Wayback unreachable.
+- dhaka-1999 [asia-west]: BUET/northsouth.edu pages gone; ETH ProblemSetArchive covers this era (excluded); Wayback unreachable.
+- dhaka-2019 [asia-west]: icpc.bubt.edu.bd/2019 redirects to current home; LightOJ has no icpc-dhaka-2019 category; CF blog 136296 (Dhaka 2015-2025 problemset index) hides its link targe
+- dhaka-2020 [asia-west]: Held Aug 2021; no BUBT subsite, no LightOJ category, no mirror found; CF blog 136296 index unreadable (link targets hidden).
+- gwalior-2022 [asia-west]: icpc-iiitm.com / iiitmg-iiitp-icpc.com unreachable; CodeChef probes (ACM19GWR, GWR19/20/21/22ROL) negative; 2020-2022 ran on CodeDrills (CF topic 94595) with no
+- gwalior-pune-2019 [asia-west]: icpc-iiitm.com / iiitmg-iiitp-icpc.com unreachable; CodeChef probes (ACM19GWR, GWR19/20/21/22ROL) negative; 2020-2022 ran on CodeDrills (CF topic 94595) with no
+- gwalior-pune-2020 [asia-west]: icpc-iiitm.com / iiitmg-iiitp-icpc.com unreachable; CodeChef probes (ACM19GWR, GWR19/20/21/22ROL) negative; 2020-2022 ran on CodeDrills (CF topic 94595) with no
+- gwalior-pune-2021 [asia-west]: icpc-iiitm.com / iiitmg-iiitp-icpc.com unreachable; CodeChef probes (ACM19GWR, GWR19/20/21/22ROL) negative; 2020-2022 ran on CodeDrills (CF topic 94595) with no
+- kabul-2017 [asia-west]: icpc.kateb.edu.af returns HTTP 500 to fetches; kateb.edu.af news/blog posts (2018, 2024, 2025) carry no problem links; no judge mirror found.
+- kabul-2018 [asia-west]: icpc.kateb.edu.af returns HTTP 500 to fetches; kateb.edu.af news/blog posts (2018, 2024, 2025) carry no problem links; no judge mirror found.
+- kabul-2019 [asia-west]: icpc.kateb.edu.af returns HTTP 500 to fetches; kateb.edu.af news/blog posts (2018, 2024, 2025) carry no problem links; no judge mirror found.
+- kabul-2020 [asia-west]: icpc.kateb.edu.af returns HTTP 500 to fetches; kateb.edu.af news/blog posts (2018, 2024, 2025) carry no problem links; no judge mirror found.
+- kabul-2023 [asia-west]: icpc.kateb.edu.af returns HTTP 500 to fetches; kateb.edu.af news/blog posts (2018, 2024, 2025) carry no problem links; no judge mirror found.
+- kabul-2024 [asia-west]: icpc.kateb.edu.af returns HTTP 500 to fetches; kateb.edu.af news/blog posts (2018, 2024, 2025) carry no problem links; no judge mirror found.
+- kabul-2025 [asia-west]: icpc.kateb.edu.af returns HTTP 500 to fetches; kateb.edu.af news/blog posts (2018, 2024, 2025) carry no problem links; no judge mirror found.
+- kanpur-2002 [asia-west]: IITK archive index (acm2008/Archive.html) links acm2001-acm2007 but those directories return 404/403 now; Wayback unreachable from this session; ETH archive cov
+- kanpur-2004 [asia-west]: IITK archive index (acm2008/Archive.html) links acm2001-acm2007 but those directories return 404/403 now; Wayback unreachable from this session; ETH archive cov
+- kanpur-2006 [asia-west]: IITK archive index (acm2008/Archive.html) links acm2001-acm2007 but those directories return 404/403 now; Wayback unreachable from this session; ETH archive cov
+- kanpur-2007 [asia-west]: IITK archive index (acm2008/Archive.html) links acm2001-acm2007 but those directories return 404/403 now; Wayback unreachable from this session; ETH archive cov
+- kanpur-2019 [asia-west]: kanpur.indiaicpc.in has a bot-cookie wall and client_error on WebFetch; CodeChef probes (ACM19KAN, KAN19ROL, ICPC19KAN) negative.
+- kanpur-2020 [asia-west]: kanpur.indiaicpc.in blocked; CodeChef KAN20ROL negative; likely CodeDrills, no URL confirmed.
+- kanpur-2021 [asia-west]: kanpur.indiaicpc.in blocked; CodeChef KAN21ROL negative; likely CodeDrills, no URL confirmed.
+- kanpur-2023 [asia-west]: kanpur.indiaicpc.in blocked (cookie wall); problems_2023.pdf probe returned the wall page; CodeChef ICPCKANOS23 negative.
+- kanpur-2024 [asia-west]: CodeChef ICPCKANOS24 exists but is access-restricted (no public problem list); kanpur.indiaicpc.in/2025 'Results 2024' page blocked by cookie wall; CF blog 1377
+- kharagpur-2012 [asia-west]: acm.iitkgp.ac.in has no problem links (DNS fails for curl); CodeChef probes (ACM12/13/14KGP, KGP13/14ROL only the prelim) negative; search found only prelim/edi
+- kharagpur-2013 [asia-west]: acm.iitkgp.ac.in has no problem links (DNS fails for curl); CodeChef probes (ACM12/13/14KGP, KGP13/14ROL only the prelim) negative; search found only prelim/edi
+- kharagpur-2014 [asia-west]: acm.iitkgp.ac.in has no problem links (DNS fails for curl); CodeChef probes (ACM12/13/14KGP, KGP13/14ROL only the prelim) negative; search found only prelim/edi
+- kharagpur-2019 [asia-west]: CF topic 72612 says Kharagpur 2019 had a CodeChef mirror but gives no code; probes (KGP19ROL/MOS, ICPC19KGP) negative; 2020/2021 likely CodeDrills, no URL.
+- kharagpur-2020 [asia-west]: CF topic 72612 says Kharagpur 2019 had a CodeChef mirror but gives no code; probes (KGP19ROL/MOS, ICPC19KGP) negative; 2020/2021 likely CodeDrills, no URL.
+- kharagpur-2021 [asia-west]: CF topic 72612 says Kharagpur 2019 had a CodeChef mirror but gives no code; probes (KGP19ROL/MOS, ICPC19KGP) negative; 2020/2021 likely CodeDrills, no URL.
+- kolkata-2005 [asia-west]: Hosted via IITK (cse.iitk.ac.in/users/acm) whose pre-2008 archive directories are gone; Wayback unreachable.
+- kolkata-roorkee-2003 [asia-west]: IITK-run; archive directory gone (acm2003 -> 404); Wayback unreachable.
+- pakistan-2014 [asia-west]: lhr.nu.edu.pk/icpc 404; sites.google.com/site/icpclahore requires login; sst.umt.edu.pk only standings; acmgiki.com unreachable; giki.edu.pk/icpc has only event
+- pakistan-2015 [asia-west]: lhr.nu.edu.pk/icpc 404; sites.google.com/site/icpclahore requires login; sst.umt.edu.pk only standings; acmgiki.com unreachable; giki.edu.pk/icpc has only event
+- pakistan-2016 [asia-west]: lhr.nu.edu.pk/icpc 404; sites.google.com/site/icpclahore requires login; sst.umt.edu.pk only standings; acmgiki.com unreachable; giki.edu.pk/icpc has only event
+- pakistan-2017 [asia-west]: lhr.nu.edu.pk/icpc 404; sites.google.com/site/icpclahore requires login; sst.umt.edu.pk only standings; acmgiki.com unreachable; giki.edu.pk/icpc has only event
+- pakistan-2018 [asia-west]: lhr.nu.edu.pk/icpc 404; sites.google.com/site/icpclahore requires login; sst.umt.edu.pk only standings; acmgiki.com unreachable; giki.edu.pk/icpc has only event
+- pakistan-2019 [asia-west]: lhr.nu.edu.pk/icpc 404; sites.google.com/site/icpclahore requires login; sst.umt.edu.pk only standings; acmgiki.com unreachable; giki.edu.pk/icpc has only event
+- pakistan-2020 [asia-west]: lhr.nu.edu.pk/icpc 404; sites.google.com/site/icpclahore requires login; sst.umt.edu.pk only standings; acmgiki.com unreachable; giki.edu.pk/icpc has only event
+- pakistan-2021 [asia-west]: lhr.nu.edu.pk/icpc 404; sites.google.com/site/icpclahore requires login; sst.umt.edu.pk only standings; acmgiki.com unreachable; giki.edu.pk/icpc has only event
+- pakistan-2022 [asia-west]: lhr.nu.edu.pk/icpc 404; sites.google.com/site/icpclahore requires login; sst.umt.edu.pk only standings; acmgiki.com unreachable; giki.edu.pk/icpc has only event
+- pakistan-2023 [asia-west]: lhr.nu.edu.pk/icpc 404; sites.google.com/site/icpclahore requires login; sst.umt.edu.pk only standings; acmgiki.com unreachable; giki.edu.pk/icpc has only event
+- pakistan-2024 [asia-west]: lhr.nu.edu.pk/icpc 404; sites.google.com/site/icpclahore requires login; sst.umt.edu.pk only standings; acmgiki.com unreachable; giki.edu.pk/icpc has only event
+- pakistan-2025 [asia-west]: lhr.nu.edu.pk/icpc 404; sites.google.com/site/icpclahore requires login; sst.umt.edu.pk only standings; acmgiki.com unreachable; giki.edu.pk/icpc has only event
+- peradeniya-2025 [asia-west]: eng.pdn.ac.lk post and icpc.ieee.lk carry no problem links (only winners/qualified teams); searched Jan 2026; nothing on gyms found.
+- tehran-1999 [asia-west]: icpc.sharif.edu, icpc.ir and ce.sharif.ir all reset the connection from this session (WebFetch robots-blocked too); Wayback unreachable; search titles show per-
+- tehran-2004 [asia-west]: icpc.sharif.edu, icpc.ir and ce.sharif.ir all reset the connection from this session (WebFetch robots-blocked too); Wayback unreachable; search titles show per-
+- tehran-2005 [asia-west]: icpc.sharif.edu, icpc.ir and ce.sharif.ir all reset the connection from this session (WebFetch robots-blocked too); Wayback unreachable; search titles show per-
+- tehran-2006 [asia-west]: icpc.sharif.edu, icpc.ir and ce.sharif.ir all reset the connection from this session (WebFetch robots-blocked too); Wayback unreachable; search titles show per-
+- tehran-2007 [asia-west]: icpc.sharif.edu, icpc.ir and ce.sharif.ir all reset the connection from this session (WebFetch robots-blocked too); Wayback unreachable; search titles show per-
+- tehran-2008 [asia-west]: icpc.sharif.edu, icpc.ir and ce.sharif.ir all reset the connection from this session (WebFetch robots-blocked too); Wayback unreachable; search titles show per-
+- tehran-2009 [asia-west]: icpc.sharif.edu, icpc.ir and ce.sharif.ir all reset the connection from this session (WebFetch robots-blocked too); Wayback unreachable; search titles show per-
+- tehran-2010 [asia-west]: icpc.sharif.edu, icpc.ir and ce.sharif.ir all reset the connection from this session (WebFetch robots-blocked too); Wayback unreachable; search titles show per-
+- tehran-2011 [asia-west]: icpc.sharif.edu, icpc.ir and ce.sharif.ir all reset the connection from this session (WebFetch robots-blocked too); Wayback unreachable; search titles show per-
+- tehran-2015 [asia-west]: icpc.sharif.edu, icpc.ir and ce.sharif.ir all reset the connection from this session (WebFetch robots-blocked too); Wayback unreachable; search titles show per-
+- tehran-2017 [asia-west]: icpc.sharif.edu, icpc.ir and ce.sharif.ir all reset the connection from this session (WebFetch robots-blocked too); Wayback unreachable; search titles show per-
+- tehran-2018 [asia-west]: icpc.sharif.edu, icpc.ir and ce.sharif.ir all reset the connection from this session (WebFetch robots-blocked too); Wayback unreachable; search titles show per-
+- tehran-2019 [asia-west]: icpc.sharif.edu, icpc.ir and ce.sharif.ir all reset the connection from this session (WebFetch robots-blocked too); Wayback unreachable; search titles show per-
+- tehran-2020 [asia-west]: icpc.sharif.edu, icpc.ir and ce.sharif.ir all reset the connection from this session (WebFetch robots-blocked too); Wayback unreachable; search titles show per-
+- tehran-2022 [asia-west]: icpc.sharif.edu, icpc.ir and ce.sharif.ir all reset the connection from this session (WebFetch robots-blocked too); Wayback unreachable; search titles show per-
+- tehran-2023 [asia-west]: icpc.sharif.edu, icpc.ir and ce.sharif.ir all reset the connection from this session (WebFetch robots-blocked too); Wayback unreachable; search titles show per-
+- tehran-2024 [asia-west]: icpc.sharif.edu, icpc.ir and ce.sharif.ir all reset the connection from this session (WebFetch robots-blocked too); Wayback unreachable; search titles show per-
+- tehran-2025 [asia-west]: icpc.sharif.edu, icpc.ir and ce.sharif.ir all reset the connection from this session (WebFetch robots-blocked too); Wayback unreachable; search titles show per-
+- erc-1983 [europe]: No web/results in brief; pre-web contest, ETH archive (covered separately) starts 1984; no search spent
+- erc-1984 [europe]: No web/results in brief; pre-web contest, ETH archive (covered separately) starts 1984; no search spent
+- erc-1985 [europe]: No web/results in brief; pre-web contest, ETH archive (covered separately) starts 1984; no search spent
+- erc-1986 [europe]: No web/results in brief; pre-web contest, ETH archive (covered separately) starts 1984; no search spent
+- erc-1987 [europe]: No web/results in brief; pre-web contest, ETH archive (covered separately) starts 1984; no search spent
+- cerc-2002 [europe]: cepc.mimuw.edu.pl returns 403 from this environment; Wayback blocked; one web search found nothing (hint: Live Archive 'CEPC 2002' category probably exists)
+- cerc-2003 [europe]: cepc.mimuw.edu.pl 403; Wayback blocked; search found nothing (hint: Live Archive 'CEPC 2003' category)
+- cerc-2024 [europe]: cerc24.ii.uni.wroc.pl has no problems link (results/previous only); probed problems.pdf/problems/ etc = 404; putka-upm has no CERC 2024 group; search found noth
+- cerc-2025 [europe]: cerc25.ii.uni.wroc.pl has no problems link; probed candidate paths = 404; solve.edu.pl ranking only (hint: check solve.edu.pl contest page / QOJ)
+- bulgaria-2010 [europe]: bcpc.eu archive points to rsop2010.ami.uni-ruse.bg (503/dead); Wayback blocked; bcpc.eu/backup/2010.zip exists but not inspected (may contain the site incl. pro
+- cyprus-2018 [europe]: icpc-cyprus.com/icpc2018 'Past problems' section shows only 3 sample problems inline; acm.cs.ucy.ac.cy unreachable (502)
+- cyprus-2019 [europe]: icpc-cyprus.com/icpc2019 same 3 sample problems only; acm.cs.ucy.ac.cy unreachable
+- hungary-2010 [europe]: Only pointer is dead acmicpc-live-archive.uva.es problems.php?c=283 (ELTE bzsr page); not on people.inf.elte.hu/bzsr/acm/
+- hungary-2015 [europe]: versenyek.inf.elte.hu year/post pages and site search (acm, icpc, feladat) show only announcements/results (ACM_2019.pdf is a call for participation); icpc-hung
+- hungary-2017 [europe]: versenyek.inf.elte.hu year/post pages and site search (acm, icpc, feladat) show only announcements/results (ACM_2019.pdf is a call for participation); icpc-hung
+- hungary-2018 [europe]: versenyek.inf.elte.hu year/post pages and site search (acm, icpc, feladat) show only announcements/results (ACM_2019.pdf is a call for participation); icpc-hung
+- hungary-2019 [europe]: versenyek.inf.elte.hu year/post pages and site search (acm, icpc, feladat) show only announcements/results (ACM_2019.pdf is a call for participation); icpc-hung
+- hungary-2020 [europe]: versenyek.inf.elte.hu year/post pages and site search (acm, icpc, feladat) show only announcements/results (ACM_2019.pdf is a call for participation); icpc-hung
+- hungary-2021 [europe]: versenyek.inf.elte.hu year/post pages and site search (acm, icpc, feladat) show only announcements/results (ACM_2019.pdf is a call for participation); icpc-hung
+- hungary-2023 [europe]: versenyek.inf.elte.hu year/post pages and site search (acm, icpc, feladat) show only announcements/results (ACM_2019.pdf is a call for participation); icpc-hung
+- hungary-2024 [europe]: versenyek.inf.elte.hu year/post pages and site search (acm, icpc, feladat) show only announcements/results (ACM_2019.pdf is a call for participation); icpc-hung
+- hungary-2025 [europe]: versenyek.inf.elte.hu year/post pages and site search (acm, icpc, feladat) show only announcements/results (ACM_2019.pdf is a call for participation); icpc-hung
+- norway-2000 [europe]: ifi.uio.no/~db/nm-i-programmering/nm2000/ now 404 (folk.universitetetioslo.no); Wayback blocked from this environment
+- norway-2001 [europe]: heim.ifi.uio.no/~db/nm-i-programmering/nm2001/ 404; Wayback blocked
+- sweden-1996 [europe]: fileadmin.cs.lth.se/contest/c96/ is a results/report page with no problem links; no search spent
+- sweden-1997 [europe]: fileadmin.cs.lth.se/contest/c97/ is a results/report page with no problem links; no search spent
+- sweden-1998 [europe]: fileadmin.cs.lth.se/contest/c98/ is a results/report page with no problem links; no search spent
+- sweden-1999 [europe]: fileadmin.cs.lth.se/contest/c99/ is a results/report page with no problem links; no search spent
+- sweden-2001 [europe]: fileadmin.cs.lth.se/contest/c01/ is a results/report page with no problem links; no search spent
+- poland-1996 [europe]: mimuw.edu.pl osiagniecia pages are results only; amppz.mimuw.edu.pl / amppz.edu.pl 403/reset; amppz.wmi.amu.edu.pl 503; amppz.cs.put.poznan.pl redirects to wond
+- poland-1997 [europe]: mimuw.edu.pl osiagniecia pages are results only; amppz.mimuw.edu.pl / amppz.edu.pl 403/reset; amppz.wmi.amu.edu.pl 503; amppz.cs.put.poznan.pl redirects to wond
+- poland-1998 [europe]: mimuw.edu.pl osiagniecia pages are results only; amppz.mimuw.edu.pl / amppz.edu.pl 403/reset; amppz.wmi.amu.edu.pl 503; amppz.cs.put.poznan.pl redirects to wond
+- poland-1999 [europe]: mimuw.edu.pl osiagniecia pages are results only; amppz.mimuw.edu.pl / amppz.edu.pl 403/reset; amppz.wmi.amu.edu.pl 503; amppz.cs.put.poznan.pl redirects to wond
+- poland-2000 [europe]: mimuw.edu.pl osiagniecia pages are results only; amppz.mimuw.edu.pl / amppz.edu.pl 403/reset; amppz.wmi.amu.edu.pl 503; amppz.cs.put.poznan.pl redirects to wond
+- poland-2001 [europe]: mimuw.edu.pl osiagniecia pages are results only; amppz.mimuw.edu.pl / amppz.edu.pl 403/reset; amppz.wmi.amu.edu.pl 503; amppz.cs.put.poznan.pl redirects to wond
+- poland-2002 [europe]: mimuw.edu.pl osiagniecia pages are results only; amppz.mimuw.edu.pl / amppz.edu.pl 403/reset; amppz.wmi.amu.edu.pl 503; amppz.cs.put.poznan.pl redirects to wond
+- poland-2003 [europe]: mimuw.edu.pl osiagniecia pages are results only; amppz.mimuw.edu.pl / amppz.edu.pl 403/reset; amppz.wmi.amu.edu.pl 503; amppz.cs.put.poznan.pl redirects to wond
+- poland-2004 [europe]: mimuw.edu.pl osiagniecia pages are results only; amppz.mimuw.edu.pl / amppz.edu.pl 403/reset; amppz.wmi.amu.edu.pl 503; amppz.cs.put.poznan.pl redirects to wond
+- poland-2006 [europe]: mimuw.edu.pl osiagniecia pages are results only; amppz.mimuw.edu.pl / amppz.edu.pl 403/reset; amppz.wmi.amu.edu.pl 503; amppz.cs.put.poznan.pl redirects to wond
+- poland-2009 [europe]: mimuw.edu.pl osiagniecia pages are results only; amppz.mimuw.edu.pl / amppz.edu.pl 403/reset; amppz.wmi.amu.edu.pl 503; amppz.cs.put.poznan.pl redirects to wond
+- poland-2024 [europe]: amppz.edu.pl (official site) resets connection / WebFetch client_error; mimuw.edu.pl news pages link only ranking.amppz.edu.pl; solve.edu.pl hosts regulamin onl
+- poland-2025 [europe]: amppz.edu.pl (official site) resets connection / WebFetch client_error; mimuw.edu.pl news pages link only ranking.amppz.edu.pl; solve.edu.pl hosts regulamin onl
+- romania-2010 [europe]: acm.ro blocked (curl 502, WebFetch robots_disallowed); infoarena onis-2014 runda-4 is an April qualifier not the May national; Wayback blocked
+- romania-2011 [europe]: acm.ro blocked (curl 502, WebFetch robots_disallowed); infoarena onis-2014 runda-4 is an April qualifier not the May national; Wayback blocked
+- romania-2012 [europe]: acm.ro blocked (curl 502, WebFetch robots_disallowed); infoarena onis-2014 runda-4 is an April qualifier not the May national; Wayback blocked
+- romania-2014 [europe]: acm.ro blocked (curl 502, WebFetch robots_disallowed); infoarena onis-2014 runda-4 is an April qualifier not the May national; Wayback blocked
+- romania-2015 [europe]: acm.ro blocked (curl 502, WebFetch robots_disallowed); infoarena onis-2014 runda-4 is an April qualifier not the May national; Wayback blocked
+- romania-2020 [europe]: Only icpc.global finder page; acm.ro blocked; no infoarena round found
+- romania-2021 [europe]: vjudge.net/contest/465385 (brief web) is behind Cloudflare JS from here; events.info.uaic.ro page has no problem links (hint: the vjudge contest page is the jud
+- romania-2022 [europe]: vjudge.net/contest/530536 (brief web) is behind Cloudflare JS from here; events.info.uaic.ro page has no problem links (hint: the vjudge contest page is the jud
+- romania-2024 [europe]: vjudge.net/contest/659259 (brief web) is behind Cloudflare JS from here; events.info.uaic.ro page has no problem links (hint: the vjudge contest page is the jud
+- romania-2025 [europe]: events.info.uaic.ro/romanian-collegiate-programming-contest/ links only schedule.html; no problem set link
+- turkey-2010 [europe]: Only icpc finder page; one search found no materials
+- turkey-2020 [europe]: inzva.com contest pages point to algoleague.com (JS app, not rendered here); algotester scoreboard has no problem links; github.com/orgs/inzva 403; 1 search fou
+- turkey-2021 [europe]: inzva.com contest pages point to algoleague.com (JS app, not rendered here); algotester scoreboard has no problem links; github.com/orgs/inzva 403; 1 search fou
+- turkey-2022 [europe]: inzva.com contest pages point to algoleague.com (JS app, not rendered here); algotester scoreboard has no problem links; github.com/orgs/inzva 403; 1 search fou
+- turkey-2023 [europe]: inzva.com contest pages point to algoleague.com (JS app, not rendered here); algotester scoreboard has no problem links; github.com/orgs/inzva 403; 1 search fou
+- ukraine-2010 [europe]: acmallukrainian.ho.ua archive starts 2014 and lacks stage-2 sets before 2017; pc-ua.com.ua / sumdu / vntu pages not re-crawled; brief has Baekjoon category 900 
+- ukraine-2011 [europe]: acmallukrainian.ho.ua archive starts 2014 and lacks stage-2 sets before 2017; pc-ua.com.ua / sumdu / vntu pages not re-crawled
+- ukraine-2012 [europe]: acmallukrainian.ho.ua archive starts 2014 and lacks stage-2 sets before 2017; pc-ua.com.ua / sumdu / vntu pages not re-crawled
+- ukraine-2013 [europe]: acmallukrainian.ho.ua archive starts 2014 and lacks stage-2 sets before 2017; pc-ua.com.ua / sumdu / vntu pages not re-crawled
+- ukraine-2014 [europe]: acmallukrainian.ho.ua archive starts 2014 and lacks stage-2 sets before 2017; pc-ua.com.ua / sumdu / vntu pages not re-crawled (acmallukrainian.ho.ua has only t
+- ukraine-2015 [europe]: acmallukrainian.ho.ua archive starts 2014 and lacks stage-2 sets before 2017; pc-ua.com.ua / sumdu / vntu pages not re-crawled (acmallukrainian.ho.ua has only t
+- ukraine-2016 [europe]: acmallukrainian.ho.ua archive starts 2014 and lacks stage-2 sets before 2017; pc-ua.com.ua / sumdu / vntu pages not re-crawled (acmallukrainian.ho.ua has only t
+- bolivia-national-2009 [latin-america]: icpc-bolivia.edu.bo crawled; searched 'Competencia Boliviana de Programación'/'Bolivia Preliminary' problemas; SPOJ BOL2012 contest (results in brief) exists bu
+- bolivia-national-2010 [latin-america]: icpc-bolivia.edu.bo crawled; searched 'Competencia Boliviana de Programación'/'Bolivia Preliminary' problemas; SPOJ BOL2012 contest (results in brief) exists bu
+- bolivia-national-2011 [latin-america]: icpc-bolivia.edu.bo crawled; searched 'Competencia Boliviana de Programación'/'Bolivia Preliminary' problemas; SPOJ BOL2012 contest (results in brief) exists bu
+- bolivia-national-2012 [latin-america]: icpc-bolivia.edu.bo crawled; searched 'Competencia Boliviana de Programación'/'Bolivia Preliminary' problemas; SPOJ BOL2012 contest (results in brief) exists bu
+- bolivia-national-2013 [latin-america]: icpc-bolivia.edu.bo crawled; searched 'Competencia Boliviana de Programación'/'Bolivia Preliminary' problemas; SPOJ BOL2012 contest (results in brief) exists bu
+- bolivia-national-2014 [latin-america]: icpc-bolivia.edu.bo crawled; searched 'Competencia Boliviana de Programación'/'Bolivia Preliminary' problemas; SPOJ BOL2012 contest (results in brief) exists bu
+- bolivia-national-2015 [latin-america]: icpc-bolivia.edu.bo crawled; searched 'Competencia Boliviana de Programación'/'Bolivia Preliminary' problemas; SPOJ BOL2012 contest (results in brief) exists bu
+- bolivia-national-2016 [latin-america]: icpc-bolivia.edu.bo crawled; searched 'Competencia Boliviana de Programación'/'Bolivia Preliminary' problemas; SPOJ BOL2012 contest (results in brief) exists bu
+- bolivia-national-2017 [latin-america]: icpc-bolivia.edu.bo crawled; searched 'Competencia Boliviana de Programación'/'Bolivia Preliminary' problemas; SPOJ BOL2012 contest (results in brief) exists bu
+- bolivia-national-2018 [latin-america]: icpc-bolivia.edu.bo crawled; searched 'Competencia Boliviana de Programación'/'Bolivia Preliminary' problemas; SPOJ BOL2012 contest (results in brief) exists bu
+- bolivia-national-2019 [latin-america]: icpc-bolivia.edu.bo crawled; searched 'Competencia Boliviana de Programación'/'Bolivia Preliminary' problemas; SPOJ BOL2012 contest (results in brief) exists bu
+- bolivia-national-2020 [latin-america]: icpc-bolivia.edu.bo crawled; searched 'Competencia Boliviana de Programación'/'Bolivia Preliminary' problemas; SPOJ BOL2012 contest (results in brief) exists bu
+- bolivia-national-2021 [latin-america]: icpc-bolivia.edu.bo crawled; searched 'Competencia Boliviana de Programación'/'Bolivia Preliminary' problemas; SPOJ BOL2012 contest (results in brief) exists bu
+- bolivia-national-2022 [latin-america]: icpc-bolivia.edu.bo crawled; searched 'Competencia Boliviana de Programación'/'Bolivia Preliminary' problemas; SPOJ BOL2012 contest (results in brief) exists bu
+- bolivia-national-2023 [latin-america]: icpc-bolivia.edu.bo crawled; searched 'Competencia Boliviana de Programación'/'Bolivia Preliminary' problemas; SPOJ BOL2012 contest (results in brief) exists bu
+- bolivia-national-2025 [latin-america]: icpc-bolivia.edu.bo crawled; searched 'Competencia Boliviana de Programación'/'Bolivia Preliminary' problemas; SPOJ BOL2012 contest (results in brief) exists bu
+- bolivia-national-2026 [latin-america]: icpc-bolivia.edu.bo crawled; searched 'Competencia Boliviana de Programación'/'Bolivia Preliminary' problemas; SPOJ BOL2012 contest (results in brief) exists bu
+- brazil-2006 [latin-america]: maratona.sbc.org.br and maratona.ime.usp.br/hist/<year>/ are robots-blocked for WebFetch and connection-reset for curl; Wayback blocked in this sandbox; searche
+- brazil-2007 [latin-america]: maratona.sbc.org.br and maratona.ime.usp.br/hist/<year>/ are robots-blocked for WebFetch and connection-reset for curl; Wayback blocked in this sandbox; searche
+- brazil-2008 [latin-america]: maratona.sbc.org.br and maratona.ime.usp.br/hist/<year>/ are robots-blocked for WebFetch and connection-reset for curl; Wayback blocked in this sandbox; searche
+- caribbean-national-2013 [latin-america]: COJ (coj.uci.cu) unreachable (robots + proxy 502); icpccaribe.org Ejercicios page lists CLC/CNC 2010-2018 problemsets without links; search for 'Caribbean Natio
+- caribbean-national-2014 [latin-america]: COJ (coj.uci.cu) unreachable (robots + proxy 502); icpccaribe.org Ejercicios page lists CLC/CNC 2010-2018 problemsets without links; search for 'Caribbean Natio
+- caribbean-national-2015 [latin-america]: COJ (coj.uci.cu) unreachable (robots + proxy 502); icpccaribe.org Ejercicios page lists CLC/CNC 2010-2018 problemsets without links; search for 'Caribbean Natio
+- caribbean-national-2016 [latin-america]: COJ (coj.uci.cu) unreachable (robots + proxy 502); icpccaribe.org Ejercicios page lists CLC/CNC 2010-2018 problemsets without links; search for 'Caribbean Natio
+- caribbean-national-2017 [latin-america]: COJ (coj.uci.cu) unreachable (robots + proxy 502); icpccaribe.org Ejercicios page lists CLC/CNC 2010-2018 problemsets without links; search for 'Caribbean Natio
+- caribbean-national-2018 [latin-america]: COJ (coj.uci.cu) unreachable (robots + proxy 502); icpccaribe.org Ejercicios page lists CLC/CNC 2010-2018 problemsets without links; search for 'Caribbean Natio
+- colombia-maraton-2019 [latin-america]: UVa past-contest list shows the contest hosted there (385=XXXVII 2023, 386=XXXVIII 2024, 387=XXXIX 2025, 388=XL 2026) but the hashed /contests/NNN-xxxx URL is n
+- colombia-maraton-2020 [latin-america]: UVa past-contest list shows the contest hosted there (385=XXXVII 2023, 386=XXXVIII 2024, 387=XXXIX 2025, 388=XL 2026) but the hashed /contests/NNN-xxxx URL is n
+- colombia-maraton-2021 [latin-america]: UVa past-contest list shows the contest hosted there (385=XXXVII 2023, 386=XXXVIII 2024, 387=XXXIX 2025, 388=XL 2026) but the hashed /contests/NNN-xxxx URL is n
+- colombia-maraton-2022 [latin-america]: UVa past-contest list shows the contest hosted there (385=XXXVII 2023, 386=XXXVIII 2024, 387=XXXIX 2025, 388=XL 2026) but the hashed /contests/NNN-xxxx URL is n
+- colombia-maraton-2023 [latin-america]: UVa past-contest list shows the contest hosted there (385=XXXVII 2023, 386=XXXVIII 2024, 387=XXXIX 2025, 388=XL 2026) but the hashed /contests/NNN-xxxx URL is n
+- colombia-maraton-2024 [latin-america]: UVa past-contest list shows the contest hosted there (385=XXXVII 2023, 386=XXXVIII 2024, 387=XXXIX 2025, 388=XL 2026) but the hashed /contests/NNN-xxxx URL is n
+- colombia-maraton-2025 [latin-america]: UVa past-contest list shows the contest hosted there (385=XXXVII 2023, 386=XXXVIII 2024, 387=XXXIX 2025, 388=XL 2026) but the hashed /contests/NNN-xxxx URL is n
+- colombia-maraton-2026 [latin-america]: UVa past-contest list shows the contest hosted there (385=XXXVII 2023, 386=XXXVIII 2024, 387=XXXIX 2025, 388=XL 2026) but the hashed /contests/NNN-xxxx URL is n
+- cuba-2010 [latin-america]: COJ unreachable from sandbox; no other host found
+- gran-premio-centroamerica-2018 [latin-america]: icpccentroamerica.org has only rules/results; searches (omegaUp/Codeforces/pdf) found nothing; GP CA is a multi-date qualifier series on BOCA
+- gran-premio-centroamerica-2019 [latin-america]: icpccentroamerica.org has only rules/results; searches (omegaUp/Codeforces/pdf) found nothing; GP CA is a multi-date qualifier series on BOCA
+- gran-premio-centroamerica-2020 [latin-america]: icpccentroamerica.org has only rules/results; searches (omegaUp/Codeforces/pdf) found nothing; GP CA is a multi-date qualifier series on BOCA
+- gran-premio-centroamerica-2021 [latin-america]: icpccentroamerica.org has only rules/results; searches (omegaUp/Codeforces/pdf) found nothing; GP CA is a multi-date qualifier series on BOCA
+- gran-premio-centroamerica-2022 [latin-america]: icpccentroamerica.org has only rules/results; searches (omegaUp/Codeforces/pdf) found nothing; GP CA is a multi-date qualifier series on BOCA
+- gran-premio-centroamerica-2023 [latin-america]: icpccentroamerica.org has only rules/results; searches (omegaUp/Codeforces/pdf) found nothing; GP CA is a multi-date qualifier series on BOCA
+- gran-premio-centroamerica-2024 [latin-america]: icpccentroamerica.org has only rules/results; searches (omegaUp/Codeforces/pdf) found nothing; GP CA is a multi-date qualifier series on BOCA
+- gran-premio-centroamerica-2025 [latin-america]: icpccentroamerica.org has only rules/results; searches (omegaUp/Codeforces/pdf) found nothing; GP CA is a multi-date qualifier series on BOCA
+- gran-premio-centroamerica-2026 [latin-america]: icpccentroamerica.org has only rules/results; searches (omegaUp/Codeforces/pdf) found nothing; GP CA is a multi-date qualifier series on BOCA
+- gran-premio-mexico-2015 [latin-america]: eventos.iteso.mx 'Sobre los concursos' pages for 2019 and 2024 list the dates (BOCA) but link no problems; 'Problemas del Concurso' category empty; omegaUp sear
+- gran-premio-mexico-2016 [latin-america]: eventos.iteso.mx 'Sobre los concursos' pages for 2019 and 2024 list the dates (BOCA) but link no problems; 'Problemas del Concurso' category empty; omegaUp sear
+- gran-premio-mexico-2017 [latin-america]: eventos.iteso.mx 'Sobre los concursos' pages for 2019 and 2024 list the dates (BOCA) but link no problems; 'Problemas del Concurso' category empty; omegaUp sear
+- gran-premio-mexico-2018 [latin-america]: eventos.iteso.mx 'Sobre los concursos' pages for 2019 and 2024 list the dates (BOCA) but link no problems; 'Problemas del Concurso' category empty; omegaUp sear
+- gran-premio-mexico-2019 [latin-america]: eventos.iteso.mx 'Sobre los concursos' pages for 2019 and 2024 list the dates (BOCA) but link no problems; 'Problemas del Concurso' category empty; omegaUp sear
+- gran-premio-mexico-2020 [latin-america]: eventos.iteso.mx 'Sobre los concursos' pages for 2019 and 2024 list the dates (BOCA) but link no problems; 'Problemas del Concurso' category empty; omegaUp sear
+- gran-premio-mexico-2021 [latin-america]: eventos.iteso.mx 'Sobre los concursos' pages for 2019 and 2024 list the dates (BOCA) but link no problems; 'Problemas del Concurso' category empty; omegaUp sear
+- gran-premio-mexico-2024 [latin-america]: eventos.iteso.mx 'Sobre los concursos' pages for 2019 and 2024 list the dates (BOCA) but link no problems; 'Problemas del Concurso' category empty; omegaUp sear
+- gran-premio-mexico-2025 [latin-america]: eventos.iteso.mx 'Sobre los concursos' pages for 2019 and 2024 list the dates (BOCA) but link no problems; 'Problemas del Concurso' category empty; omegaUp sear
+- south-america-1998 [latin-america]: ETH archive covers to 2001 and baylor mining 2002-2003; for 2006/2007 unicamp acmcntst site crawled, maratona hist blocked, Live Archive unreachable, search fou
+- south-america-2002 [latin-america]: ETH archive covers to 2001 and baylor mining 2002-2003; for 2006/2007 unicamp acmcntst site crawled, maratona hist blocked, Live Archive unreachable, search fou
+- south-america-2003 [latin-america]: ETH archive covers to 2001 and baylor mining 2002-2003; for 2006/2007 unicamp acmcntst site crawled, maratona hist blocked, Live Archive unreachable, search fou
+- south-america-2006 [latin-america]: ETH archive covers to 2001 and baylor mining 2002-2003; for 2006/2007 unicamp acmcntst site crawled, maratona hist blocked, Live Archive unreachable, search fou
+- south-america-2007 [latin-america]: ETH archive covers to 2001 and baylor mining 2002-2003; for 2006/2007 unicamp acmcntst site crawled, maratona hist blocked, Live Archive unreachable, search fou
+- south-america-north-2008 [latin-america]: 2008 pre-unification set: acis.org.co robots-blocked, Live Archive unreachable, no mirror found
+- south-america-south-2026 [latin-america]: 2026: contest after scorelatam index capture? icpc.cl lists only 2026 TCP; no problem set located (scorelatam has no latam-2026 yet)
+- tap-2012 [latin-america]: torneoprogramacion.com.ar is now a casino spam domain; dc.uba.ar/events/icpc/download/problems/*.pdf (e.g. taip2012-problems.pdf, cited on SPOJ) now 404; TAP 20
+- tap-2013 [latin-america]: torneoprogramacion.com.ar is now a casino spam domain; dc.uba.ar/events/icpc/download/problems/*.pdf (e.g. taip2012-problems.pdf, cited on SPOJ) now 404; TAP 20
+- tap-2014 [latin-america]: torneoprogramacion.com.ar is now a casino spam domain; dc.uba.ar/events/icpc/download/problems/*.pdf (e.g. taip2012-problems.pdf, cited on SPOJ) now 404; TAP 20
+- tap-2015 [latin-america]: torneoprogramacion.com.ar is now a casino spam domain; dc.uba.ar/events/icpc/download/problems/*.pdf (e.g. taip2012-problems.pdf, cited on SPOJ) now 404; TAP 20
+- tap-2026 [latin-america]: torneoprogramacion.com.ar is now a casino spam domain; dc.uba.ar/events/icpc/download/problems/*.pdf (e.g. taip2012-problems.pdf, cited on SPOJ) now 404; TAP 20
+- torneo-chileno-2017 [latin-america]: progcomp.cl and icpc.cl carry no past TCP editions; scorelatam has subch-2024/2025/2026 only; searches in Spanish found nothing for 2017-2019, 2023
+- torneo-chileno-2018 [latin-america]: progcomp.cl and icpc.cl carry no past TCP editions; scorelatam has subch-2024/2025/2026 only; searches in Spanish found nothing for 2017-2019, 2023
+- torneo-chileno-2019 [latin-america]: progcomp.cl and icpc.cl carry no past TCP editions; scorelatam has subch-2024/2025/2026 only; searches in Spanish found nothing for 2017-2019, 2023
+- torneo-chileno-2023 [latin-america]: progcomp.cl and icpc.cl carry no past TCP editions; scorelatam has subch-2024/2025/2026 only; searches in Spanish found nothing for 2017-2019, 2023
+- alberta-2003 [north-america-a]: webdocs.cs.ualberta.ca/~acpc/<year>/ now redirects to apps.ualberta.ca (410/404); not on onlinejudge.org/contests, not in Kattis problem-sources; Wayback snapsh
+- alberta-2004 [north-america-a]: webdocs.cs.ualberta.ca/~acpc/<year>/ now redirects to apps.ualberta.ca (410/404); not on onlinejudge.org/contests, not in Kattis problem-sources; Wayback snapsh
+- alberta-2005 [north-america-a]: webdocs.cs.ualberta.ca/~acpc/<year>/ now redirects to apps.ualberta.ca (410/404); not on onlinejudge.org/contests, not in Kattis problem-sources; Wayback snapsh
+- alberta-2013 [north-america-a]: psc.cpsc.ucalgary.ca returns 503; cpc.cpsc.ucalgary.ca resets curl connections and WebFetch strips link URLs; not on onlinejudge.org/contests (list ends 2012) n
+- alberta-2014 [north-america-a]: psc.cpsc.ucalgary.ca returns 503; cpc.cpsc.ucalgary.ca resets curl connections and WebFetch strips link URLs; not on onlinejudge.org/contests (list ends 2012) n
+- alberta-2015 [north-america-a]: psc.cpsc.ucalgary.ca returns 503; cpc.cpsc.ucalgary.ca resets curl connections and WebFetch strips link URLs; not on onlinejudge.org/contests (list ends 2012) n
+- alberta-2019 [north-america-a]: cpc.cpsc.ucalgary.ca/contests/acpc/2019/ fetched via WebFetch: no problem-set link; acpc19.kattis.com/contests/acpc19/problems says 'contest has not yet started
+- gny-1993 [north-america-a]: acmgnyr.org archive (and gny.na.icpc.global/archive/) starts at year1997; acmgnyr.org/year1996/ is 404
+- gny-1994 [north-america-a]: acmgnyr.org archive (and gny.na.icpc.global/archive/) starts at year1997; acmgnyr.org/year1996/ is 404
+- gny-1995 [north-america-a]: acmgnyr.org archive (and gny.na.icpc.global/archive/) starts at year1997; acmgnyr.org/year1996/ is 404
+- gny-1996 [north-america-a]: acmgnyr.org archive (and gny.na.icpc.global/archive/) starts at year1997; acmgnyr.org/year1996/ is 404
+- lethbridge-2015 [north-america-a]: cs.uleth.ca/~cheng/LCPC/2015/ fetched: only DOMjudge standings snapshots (div1/div2 html), no statements; no Kattis source
+- lethbridge-2016 [north-america-a]: cs.uleth.ca/~cheng/LCPC/2016/ fetched: only DOMjudge standings snapshots (div1/div2 html), no statements; no Kattis source
+- lethbridge-2017 [north-america-a]: cs.uleth.ca/~cheng/LCPC/2017/ fetched: only DOMjudge standings snapshots (div1/div2 html), no statements; no Kattis source
+- lethbridge-2018 [north-america-a]: cs.uleth.ca/~cheng/LCPC/2018/ fetched: only DOMjudge standings snapshots (div1/div2 html), no statements; no Kattis source
+- mausa-1994 [north-america-a]: eecis.udel.edu/~saunders/regional95/ has no index (403), only standings/rules files; probed common problem filenames (404); likely covered by ETH ProblemSetArch
+- mausa-1995 [north-america-a]: eecis.udel.edu/~saunders/regional95/rules.html fetched, no problem links; directory listing 403; likely covered by ETH ProblemSetArchive
+- mausa-2013 [north-america-a]: midatl.radford.edu 503, sites.radford.edu/~acm/midatl/problem-set-links.html unreadable (bad TLS chain; WebFetch strips URLs), cs.odu.edu/~zeil/icpc/ 404, ma.na
+- mausa-2014 [north-america-a]: midatl.radford.edu 503, sites.radford.edu/~acm/midatl/problem-set-links.html unreadable (bad TLS chain; WebFetch strips URLs), cs.odu.edu/~zeil/icpc/ 404, ma.na
+- mausa-2015 [north-america-a]: midatl.radford.edu 503, sites.radford.edu/~acm/midatl/problem-set-links.html unreadable (bad TLS chain; WebFetch strips URLs), cs.odu.edu/~zeil/icpc/ 404, ma.na
+- mcpc-1992 [north-america-a]: no archive year page: Wayback availability API finds icpc-midcentral.us/archives/<year>/ only for 1998-2015; onlinejudge.org/contests has no MCPC; Kattis has no
+- mcpc-1994 [north-america-a]: Wayback has no icpc-midcentral.us/archives/1994/ or mcicpc.cs.atu.edu copy; catsofwywop.com unreachable (connect rejected) and not in Wayback
+- ncna-1999 [north-america-a]: cs.unomaha.edu/~acmregn 403 and not in Wayback; only ETH archive (covered separately) and icpc.baylor.edu past pages
+- ncna-2011 [north-america-a]: pages.cs.wisc.edu/~dieter/ICPC seasons 11-12/12-13 carry only the 2010 set; cs.unomaha.edu/~acmregn dead (403, not in Wayback); nc.na.icpc.global archive table 
+- ncna-2015 [north-america-a]: nc.na.icpc.global archive table has empty rows for 2014-2016; ncna-region.unl.edu unreachable and no known PDF name; pages.cs.wisc.edu/~dieter/ICPC seasons 15-1
+- ncna-2016 [north-america-a]: nc.na.icpc.global archive table has empty rows for 2014-2016; ncna-region.unl.edu unreachable and no known PDF name; pages.cs.wisc.edu/~dieter/ICPC seasons 15-1
+- nena-1997 [north-america-a]: cs.wsc.ma.edu (Westfield State host) dead; ne.na.icpc.global/archives/ lists nothing before 1998; cs.rit.edu/~icpc/questions/ has no 1997 file
+- nena-central-2016 [north-america-a]: cs.hamilton.edu/acm-icpc/ now 404 (Wayback snapshot 2024 exists but Wayback blocked from sandbox); RIT questions/2016-2018 directories contain only the NENA fin
+- nena-central-2017 [north-america-a]: cs.hamilton.edu/acm-icpc/ now 404 (Wayback snapshot 2024 exists but Wayback blocked from sandbox); RIT questions/2016-2018 directories contain only the NENA fin
+- nena-central-2018 [north-america-a]: cs.hamilton.edu/acm-icpc/ now 404 (Wayback snapshot 2024 exists but Wayback blocked from sandbox); RIT questions/2016-2018 directories contain only the NENA fin
+- nena-central-2019 [north-america-a]: cs.hamilton.edu/acm-icpc/ now 404 (Wayback snapshot 2024 exists but Wayback blocked from sandbox); RIT questions/2016-2018 directories contain only the NENA fin
+- socal-1979 [north-america-b]: socalcontest.org/current/index.shtml year table has no 'Problem Set' column for 1995-2000 and nothing before 1995; history/<y>/details-*.shtml fetched, no probl
+- socal-1980 [north-america-b]: socalcontest.org/current/index.shtml year table has no 'Problem Set' column for 1995-2000 and nothing before 1995; history/<y>/details-*.shtml fetched, no probl
+- socal-1981 [north-america-b]: socalcontest.org/current/index.shtml year table has no 'Problem Set' column for 1995-2000 and nothing before 1995; history/<y>/details-*.shtml fetched, no probl
+- socal-1982 [north-america-b]: socalcontest.org/current/index.shtml year table has no 'Problem Set' column for 1995-2000 and nothing before 1995; history/<y>/details-*.shtml fetched, no probl
+- socal-1983 [north-america-b]: socalcontest.org/current/index.shtml year table has no 'Problem Set' column for 1995-2000 and nothing before 1995; history/<y>/details-*.shtml fetched, no probl
+- socal-1984 [north-america-b]: socalcontest.org/current/index.shtml year table has no 'Problem Set' column for 1995-2000 and nothing before 1995; history/<y>/details-*.shtml fetched, no probl
+- socal-1985 [north-america-b]: socalcontest.org/current/index.shtml year table has no 'Problem Set' column for 1995-2000 and nothing before 1995; history/<y>/details-*.shtml fetched, no probl
+- socal-1986 [north-america-b]: socalcontest.org/current/index.shtml year table has no 'Problem Set' column for 1995-2000 and nothing before 1995; history/<y>/details-*.shtml fetched, no probl
+- socal-1987 [north-america-b]: socalcontest.org/current/index.shtml year table has no 'Problem Set' column for 1995-2000 and nothing before 1995; history/<y>/details-*.shtml fetched, no probl
+- socal-1988 [north-america-b]: socalcontest.org/current/index.shtml year table has no 'Problem Set' column for 1995-2000 and nothing before 1995; history/<y>/details-*.shtml fetched, no probl
+- socal-1990 [north-america-b]: socalcontest.org/current/index.shtml year table has no 'Problem Set' column for 1995-2000 and nothing before 1995; history/<y>/details-*.shtml fetched, no probl
+- socal-1991 [north-america-b]: socalcontest.org/current/index.shtml year table has no 'Problem Set' column for 1995-2000 and nothing before 1995; history/<y>/details-*.shtml fetched, no probl
+- socal-1992 [north-america-b]: socalcontest.org/current/index.shtml year table has no 'Problem Set' column for 1995-2000 and nothing before 1995; history/<y>/details-*.shtml fetched, no probl
+- socal-1993 [north-america-b]: socalcontest.org/current/index.shtml year table has no 'Problem Set' column for 1995-2000 and nothing before 1995; history/<y>/details-*.shtml fetched, no probl
+- socal-1994 [north-america-b]: socalcontest.org/current/index.shtml year table has no 'Problem Set' column for 1995-2000 and nothing before 1995; history/<y>/details-*.shtml fetched, no probl
+- socal-1995 [north-america-b]: socalcontest.org/current/index.shtml year table has no 'Problem Set' column for 1995-2000 and nothing before 1995; history/<y>/details-*.shtml fetched, no probl
+- socal-1996 [north-america-b]: socalcontest.org/current/index.shtml year table has no 'Problem Set' column for 1995-2000 and nothing before 1995; history/<y>/details-*.shtml fetched, no probl
+- socal-1997 [north-america-b]: socalcontest.org/current/index.shtml year table has no 'Problem Set' column for 1995-2000 and nothing before 1995; history/<y>/details-*.shtml fetched, no probl
+- socal-1998 [north-america-b]: socalcontest.org/current/index.shtml year table has no 'Problem Set' column for 1995-2000 and nothing before 1995; history/<y>/details-*.shtml fetched, no probl
+- socal-1999 [north-america-b]: socalcontest.org/current/index.shtml year table has no 'Problem Set' column for 1995-2000 and nothing before 1995; history/<y>/details-*.shtml fetched, no probl
+- pacnw-1994 [north-america-b]: pnw.na.icpc.global/archives/ lists only Standings (no Problems) for 1994-1997; acmicpc-pacnw.org unreachable (expired TLS cert). ETH ProblemSetArchive range (al
+- pacnw-1995 [north-america-b]: pnw.na.icpc.global/archives/ lists only Standings (no Problems) for 1994-1997; acmicpc-pacnw.org unreachable (expired TLS cert). ETH ProblemSetArchive range (al
+- pacnw-1996 [north-america-b]: pnw.na.icpc.global/archives/ lists only Standings (no Problems) for 1994-1997; acmicpc-pacnw.org unreachable (expired TLS cert). ETH ProblemSetArchive range (al
+- seusa-1998 [north-america-b]: seusa.vanb.org index links only 2003+; cise.ufl.edu/~acm/SER98 404; ETH ProblemSetArchive range (already covered)
+- seusa-1993 [north-america-b]: no archive site covers it; ETH ProblemSetArchive range (already covered)
+- seusa-1994 [north-america-b]: seusa.vanb.org has no pre-2003 pages; ETH ProblemSetArchive range (already covered)
+- seusa-1995 [north-america-b]: seusa.vanb.org has no pre-2003 pages; ETH ProblemSetArchive range (already covered)
+- rmc-1989 [north-america-b]: org.coloradomesa.edu/~wmacevoy/rmrc/ index starts at 2000; no other RM archive found; ETH ProblemSetArchive range (already covered)
+- rmc-1991 [north-america-b]: org.coloradomesa.edu/~wmacevoy/rmrc/ index starts at 2000; no other RM archive found; ETH ProblemSetArchive range (already covered)
+- rmc-1992 [north-america-b]: org.coloradomesa.edu/~wmacevoy/rmrc/ index starts at 2000; no other RM archive found; ETH ProblemSetArchive range (already covered)
+- rmc-1993 [north-america-b]: org.coloradomesa.edu/~wmacevoy/rmrc/ index starts at 2000; no other RM archive found; ETH ProblemSetArchive range (already covered)
+- rmc-1994 [north-america-b]: org.coloradomesa.edu/~wmacevoy/rmrc/ index starts at 2000; no other RM archive found; ETH ProblemSetArchive range (already covered)
+- rmc-1995 [north-america-b]: org.coloradomesa.edu/~wmacevoy/rmrc/ index starts at 2000; no other RM archive found; ETH ProblemSetArchive range (already covered)
+- rmc-1996 [north-america-b]: org.coloradomesa.edu/~wmacevoy/rmrc/ index starts at 2000; no other RM archive found; ETH ProblemSetArchive range (already covered)
+- rmc-1997 [north-america-b]: org.coloradomesa.edu/~wmacevoy/rmrc/ index starts at 2000; no other RM archive found; ETH ProblemSetArchive range (already covered)
+- rmc-1998 [north-america-b]: clem.mscd.edu/~howerton host gone; rmrc archive starts 2000; ETH ProblemSetArchive range (already covered)
+- rmc-1999 [north-america-b]: mesastate.edu/acm/pc/RM99Home.html gone; rmrc archive starts 2000; ETH ProblemSetArchive range (already covered)
+- scusa-1989 [north-america-b]: no regional archive before 2005 (sc.na.icpc.global/archives/); texashistory.unt.edu collection is not a problem set host
+- scusa-1994 [north-america-b]: no regional archive before 2005 (sc.na.icpc.global/archives/); ETH ProblemSetArchive range (already covered)
+- nena-east-2008 [north-america-b]: hc3.seas.harvard.edu/hc3/bospre/<year> is live and each year page has a 'problems(pdf)' link, but the fetcher strips hrefs and curl to hc3.seas.harvard.edu is b
+- nena-east-2009 [north-america-b]: hc3.seas.harvard.edu/hc3/bospre/<year> is live and each year page has a 'problems(pdf)' link, but the fetcher strips hrefs and curl to hc3.seas.harvard.edu is b
+- nena-east-2010 [north-america-b]: hc3.seas.harvard.edu/hc3/bospre/<year> is live and each year page has a 'problems(pdf)' link, but the fetcher strips hrefs and curl to hc3.seas.harvard.edu is b
+- nena-east-2011 [north-america-b]: hc3.seas.harvard.edu/hc3/bospre/<year> is live and each year page has a 'problems(pdf)' link, but the fetcher strips hrefs and curl to hc3.seas.harvard.edu is b
+- nena-east-2012 [north-america-b]: hc3.seas.harvard.edu/hc3/bospre/<year> is live and each year page has a 'problems(pdf)' link, but the fetcher strips hrefs and curl to hc3.seas.harvard.edu is b
+- nena-east-2013 [north-america-b]: hc3.seas.harvard.edu/hc3/bospre/<year> is live and each year page has a 'problems(pdf)' link, but the fetcher strips hrefs and curl to hc3.seas.harvard.edu is b
+- nena-east-2014 [north-america-b]: hc3.seas.harvard.edu/hc3/bospre/<year> is live and each year page has a 'problems(pdf)' link, but the fetcher strips hrefs and curl to hc3.seas.harvard.edu is b
+- nena-east-2016 [north-america-b]: hc3.seas.harvard.edu/hc3/bospre/<year> is live and each year page has a 'problems(pdf)' link, but the fetcher strips hrefs and curl to hc3.seas.harvard.edu is b
+- nena-east-2017 [north-america-b]: hc3.seas.harvard.edu/hc3/bospre/<year> is live and each year page has a 'problems(pdf)' link, but the fetcher strips hrefs and curl to hc3.seas.harvard.edu is b
+- nena-west-2008 [north-america-b]: cs.oswego.edu/~mohammad/contest/ returns 403 to curl and robots-blocked to the fetcher; cs.rit.edu/~icpc/prob.html points to it as the home of western-prelim pr
+- nena-west-2011 [north-america-b]: cs.oswego.edu/~mohammad/contest/ returns 403 to curl and robots-blocked to the fetcher; cs.rit.edu/~icpc/prob.html points to it as the home of western-prelim pr
+- nena-west-2012 [north-america-b]: cs.oswego.edu/~mohammad/contest/ returns 403 to curl and robots-blocked to the fetcher; cs.rit.edu/~icpc/prob.html points to it as the home of western-prelim pr
+- nena-west-2013 [north-america-b]: cs.oswego.edu/~mohammad/contest/ returns 403 to curl and robots-blocked to the fetcher; cs.rit.edu/~icpc/prob.html points to it as the home of western-prelim pr
+- nena-west-2014 [north-america-b]: cs.oswego.edu/~mohammad/contest/ returns 403 to curl and robots-blocked to the fetcher; cs.rit.edu/~icpc/prob.html points to it as the home of western-prelim pr
+- nena-west-2015 [north-america-b]: cs.oswego.edu/~mohammad/contest/ returns 403 to curl and robots-blocked to the fetcher; cs.rit.edu/~icpc/prob.html points to it as the home of western-prelim pr
+- nena-west-2016 [north-america-b]: cs.oswego.edu/~mohammad/contest/ returns 403 to curl and robots-blocked to the fetcher; cs.rit.edu/~icpc/prob.html points to it as the home of western-prelim pr
+- nena-west-2017 [north-america-b]: cs.oswego.edu/~mohammad/contest/ returns 403 to curl and robots-blocked to the fetcher; cs.rit.edu/~icpc/prob.html points to it as the home of western-prelim pr
+- nena-west-2018 [north-america-b]: cs.oswego.edu/~mohammad/contest/ returns 403 to curl and robots-blocked to the fetcher; cs.rit.edu/~icpc/prob.html points to it as the home of western-prelim pr
+- nena-west-2009 [north-america-b]: cs.fredonia.edu/acm/ 404; no mirror found by search
+- nena-west-2010 [north-america-b]: brief web is cs.rit.edu/~icpc/ (NENA regional site, frameset); its prob.html lists RIT prelims only for 1998-2003 and regional finals 2003-2021, nothing for a 2
+- nena-west-2019 [north-america-b]: cse.buffalo.edu/icpc/ fetched: info page only, no problem links; no mirror found
+- nena-north-2011 [north-america-b]: people.clarkson.edu/clubs/acm/ returns 403; clarkson.edu/clubs/acm 404; web search found no mirror
+- nena-north-2012 [north-america-b]: people.clarkson.edu/clubs/acm/ returns 403; clarkson.edu/clubs/acm 404; web search found no mirror
+- nena-north-2013 [north-america-b]: people.clarkson.edu/clubs/acm/ returns 403; clarkson.edu/clubs/acm 404; web search found no mirror
+- nena-north-2014 [north-america-b]: people.clarkson.edu/clubs/acm/ returns 403; clarkson.edu/clubs/acm 404; web search found no mirror
+- nena-north-2015 [north-america-b]: people.clarkson.edu/clubs/acm/ returns 403; clarkson.edu/clubs/acm 404; web search found no mirror
+- nena-north-2016 [north-america-b]: people.clarkson.edu/clubs/acm/ returns 403; clarkson.edu/clubs/acm 404; web search found no mirror
+- nena-north-2017 [north-america-b]: people.clarkson.edu/clubs/acm/ returns 403; clarkson.edu/clubs/acm 404; web search found no mirror
+- nena-north-2018 [north-america-b]: people.clarkson.edu/clubs/acm/ returns 403; clarkson.edu/clubs/acm 404; web search found no mirror
+- nena-north-2009 [north-america-b]: cs.potsdam.edu/CS/ICPC-2009-Potsdam 404; web search found nothing
+- armenia-2004 [northern-eurasia-a]: neerc subregions/armenia page (results only); olympiads.ysu.am and icpc.am unreachable; CF gym API list has no Armenia contest; web search (EN) found only YSU n
+- armenia-2005 [northern-eurasia-a]: neerc subregions/armenia page (results only); olympiads.ysu.am and icpc.am unreachable; CF gym API list has no Armenia contest; web search (EN) found only YSU n
+- armenia-2006 [northern-eurasia-a]: neerc subregions/armenia page (results only); olympiads.ysu.am and icpc.am unreachable; CF gym API list has no Armenia contest; web search (EN) found only YSU n
+- armenia-2007 [northern-eurasia-a]: neerc subregions/armenia page (results only); olympiads.ysu.am and icpc.am unreachable; CF gym API list has no Armenia contest; web search (EN) found only YSU n
+- armenia-2008 [northern-eurasia-a]: neerc subregions/armenia page (results only); olympiads.ysu.am and icpc.am unreachable; CF gym API list has no Armenia contest; web search (EN) found only YSU n
+- armenia-2009 [northern-eurasia-a]: neerc subregions/armenia page (results only); olympiads.ysu.am and icpc.am unreachable; CF gym API list has no Armenia contest; web search (EN) found only YSU n
+- armenia-2010 [northern-eurasia-a]: neerc subregions/armenia page (results only); olympiads.ysu.am and icpc.am unreachable; CF gym API list has no Armenia contest; web search (EN) found only YSU n
+- armenia-2011 [northern-eurasia-a]: neerc subregions/armenia page (results only); olympiads.ysu.am and icpc.am unreachable; CF gym API list has no Armenia contest; web search (EN) found only YSU n
+- armenia-2012 [northern-eurasia-a]: neerc subregions/armenia page (results only); olympiads.ysu.am and icpc.am unreachable; CF gym API list has no Armenia contest; web search (EN) found only YSU n
+- armenia-2013 [northern-eurasia-a]: neerc subregions/armenia page (results only); olympiads.ysu.am and icpc.am unreachable; CF gym API list has no Armenia contest; web search (EN) found only YSU n
+- armenia-2014 [northern-eurasia-a]: neerc subregions/armenia page (results only); olympiads.ysu.am and icpc.am unreachable; CF gym API list has no Armenia contest; web search (EN) found only YSU n
+- armenia-2015 [northern-eurasia-a]: neerc subregions/armenia page (results only); olympiads.ysu.am and icpc.am unreachable; CF gym API list has no Armenia contest; web search (EN) found only YSU n
+- armenia-2016 [northern-eurasia-a]: neerc subregions/armenia page (results only); olympiads.ysu.am and icpc.am unreachable; CF gym API list has no Armenia contest; web search (EN) found only YSU n
+- armenia-2017 [northern-eurasia-a]: neerc subregions/armenia page (results only); olympiads.ysu.am and icpc.am unreachable; CF gym API list has no Armenia contest; web search (EN) found only YSU n
+- armenia-2018 [northern-eurasia-a]: neerc subregions/armenia page (results only); olympiads.ysu.am and icpc.am unreachable; CF gym API list has no Armenia contest; web search (EN) found only YSU n
+- armenia-2019 [northern-eurasia-a]: neerc subregions/armenia page (results only); olympiads.ysu.am and icpc.am unreachable; CF gym API list has no Armenia contest; web search (EN) found only YSU n
+- armenia-2020 [northern-eurasia-a]: neerc subregions/armenia page (results only); olympiads.ysu.am and icpc.am unreachable; CF gym API list has no Armenia contest; web search (EN) found only YSU n
+- armenia-2021 [northern-eurasia-a]: neerc subregions/armenia page (results only); olympiads.ysu.am and icpc.am unreachable; CF gym API list has no Armenia contest; web search (EN) found only YSU n
+- armenia-2022 [northern-eurasia-a]: neerc subregions/armenia page (results only); olympiads.ysu.am and icpc.am unreachable; CF gym API list has no Armenia contest; web search (EN) found only YSU n
+- armenia-2023 [northern-eurasia-a]: neerc subregions/armenia page (results only); olympiads.ysu.am and icpc.am unreachable; CF gym API list has no Armenia contest; web search (EN) found only YSU n
+- armenia-2024 [northern-eurasia-a]: neerc subregions/armenia page (results only); olympiads.ysu.am and icpc.am unreachable; CF gym API list has no Armenia contest; web search (EN) found only YSU n
+- armenia-2025 [northern-eurasia-a]: neerc subregions/armenia page (results only); olympiads.ysu.am and icpc.am unreachable; CF gym API list has no Armenia contest; web search (EN) found only YSU n
+- azerbaijan-2005 [northern-eurasia-a]: neerc subregions page (results only); icpc.az unreachable; CF gym API has no Azerbaijan subregional; e-olymp search found only user profiles/news
+- azerbaijan-2006 [northern-eurasia-a]: neerc subregions page (results only); icpc.az unreachable; CF gym API has no Azerbaijan subregional; e-olymp search found only user profiles/news
+- azerbaijan-2007 [northern-eurasia-a]: neerc subregions page (results only); icpc.az unreachable; CF gym API has no Azerbaijan subregional; e-olymp search found only user profiles/news
+- azerbaijan-2008 [northern-eurasia-a]: neerc subregions page (results only); icpc.az unreachable; CF gym API has no Azerbaijan subregional; e-olymp search found only user profiles/news
+- azerbaijan-2009 [northern-eurasia-a]: neerc subregions page (results only); icpc.az unreachable; CF gym API has no Azerbaijan subregional; e-olymp search found only user profiles/news
+- azerbaijan-2010 [northern-eurasia-a]: neerc subregions page (results only); icpc.az unreachable; CF gym API has no Azerbaijan subregional; e-olymp search found only user profiles/news
+- azerbaijan-2011 [northern-eurasia-a]: neerc subregions page (results only); icpc.az unreachable; CF gym API has no Azerbaijan subregional; e-olymp search found only user profiles/news
+- azerbaijan-2012 [northern-eurasia-a]: neerc subregions page (results only); icpc.az unreachable; CF gym API has no Azerbaijan subregional; e-olymp search found only user profiles/news
+- azerbaijan-2013 [northern-eurasia-a]: neerc subregions page (results only); icpc.az unreachable; CF gym API has no Azerbaijan subregional; e-olymp search found only user profiles/news
+- azerbaijan-2014 [northern-eurasia-a]: neerc subregions page (results only); icpc.az unreachable; CF gym API has no Azerbaijan subregional; e-olymp search found only user profiles/news
+- azerbaijan-2015 [northern-eurasia-a]: neerc subregions page (results only); icpc.az unreachable; CF gym API has no Azerbaijan subregional; e-olymp search found only user profiles/news
+- azerbaijan-2016 [northern-eurasia-a]: neerc subregions page (results only); icpc.az unreachable; CF gym API has no Azerbaijan subregional; e-olymp search found only user profiles/news
+- azerbaijan-2017 [northern-eurasia-a]: neerc subregions page (results only); icpc.az unreachable; CF gym API has no Azerbaijan subregional; e-olymp search found only user profiles/news
+- azerbaijan-2018 [northern-eurasia-a]: neerc subregions page (results only); icpc.az unreachable; CF gym API has no Azerbaijan subregional; e-olymp search found only user profiles/news
+- azerbaijan-2019 [northern-eurasia-a]: neerc subregions page (results only); icpc.az unreachable; CF gym API has no Azerbaijan subregional; e-olymp search found only user profiles/news
+- azerbaijan-2020 [northern-eurasia-a]: neerc subregions page (results only); icpc.az unreachable; CF gym API has no Azerbaijan subregional; e-olymp search found only user profiles/news
+- azerbaijan-2021 [northern-eurasia-a]: neerc subregions page (results only); icpc.az unreachable; CF gym API has no Azerbaijan subregional; e-olymp search found only user profiles/news
+- azerbaijan-2022 [northern-eurasia-a]: neerc subregions page (results only); icpc.az unreachable; CF gym API has no Azerbaijan subregional; e-olymp search found only user profiles/news
+- azerbaijan-2023 [northern-eurasia-a]: neerc subregions page (results only); icpc.az unreachable; CF gym API has no Azerbaijan subregional; e-olymp search found only user profiles/news
+- azerbaijan-2024 [northern-eurasia-a]: neerc subregions page (results only); icpc.az unreachable; CF gym API has no Azerbaijan subregional; e-olymp search found only user profiles/news
+- azerbaijan-2025 [northern-eurasia-a]: neerc subregions page (results only); icpc.az unreachable; CF gym API has no Azerbaijan subregional; e-olymp search found only user profiles/news
+- central-russia-1998 [northern-eurasia-a]: acm.uniyar.ac.ru root 404 / robots; rgata.ru not reachable; neerc central page lists only the (already mined) 2012 problems.pdf; no gym in CF API for this year
+- central-russia-1999 [northern-eurasia-a]: acm.uniyar.ac.ru root 404 / robots; rgata.ru not reachable; neerc central page lists only the (already mined) 2012 problems.pdf; no gym in CF API for this year
+- central-russia-2001 [northern-eurasia-a]: acm.uniyar.ac.ru root 404 / robots; rgata.ru not reachable; neerc central page lists only the (already mined) 2012 problems.pdf; no gym in CF API for this year
+- central-russia-2003 [northern-eurasia-a]: acm.uniyar.ac.ru root 404 / robots; rgata.ru not reachable; neerc central page lists only the (already mined) 2012 problems.pdf; no gym in CF API for this year
+- central-russia-2004 [northern-eurasia-a]: acm.uniyar.ac.ru root 404 / robots; rgata.ru not reachable; neerc central page lists only the (already mined) 2012 problems.pdf; no gym in CF API for this year
+- central-russia-2005 [northern-eurasia-a]: acm.uniyar.ac.ru root 404 / robots; rgata.ru not reachable; neerc central page lists only the (already mined) 2012 problems.pdf; no gym in CF API for this year
+- central-russia-2006 [northern-eurasia-a]: acm.uniyar.ac.ru root 404 / robots; rgata.ru not reachable; neerc central page lists only the (already mined) 2012 problems.pdf; no gym in CF API for this year
+- central-russia-2007 [northern-eurasia-a]: acm.uniyar.ac.ru root 404 / robots; rgata.ru not reachable; neerc central page lists only the (already mined) 2012 problems.pdf; no gym in CF API for this year
+- central-russia-2008 [northern-eurasia-a]: acm.uniyar.ac.ru root 404 / robots; rgata.ru not reachable; neerc central page lists only the (already mined) 2012 problems.pdf; no gym in CF API for this year
+- central-russia-2009 [northern-eurasia-a]: acm.uniyar.ac.ru root 404 / robots; rgata.ru not reachable; neerc central page lists only the (already mined) 2012 problems.pdf; no gym in CF API for this year
+- central-russia-2010 [northern-eurasia-a]: acm.uniyar.ac.ru root 404 / robots; rgata.ru not reachable; neerc central page lists only the (already mined) 2012 problems.pdf; no gym in CF API for this year
+- central-russia-2011 [northern-eurasia-a]: acm.uniyar.ac.ru root 404 / robots; rgata.ru not reachable; neerc central page lists only the (already mined) 2012 problems.pdf; no gym in CF API for this year
+- central-russia-2013 [northern-eurasia-a]: acm.uniyar.ac.ru root 404 / robots; rgata.ru not reachable; neerc central page lists only the (already mined) 2012 problems.pdf; no gym in CF API for this year
+- central-russia-2014 [northern-eurasia-a]: acm.uniyar.ac.ru root 404 / robots; rgata.ru not reachable; neerc central page lists only the (already mined) 2012 problems.pdf; no gym in CF API for this year
+- central-russia-2015 [northern-eurasia-a]: acm.uniyar.ac.ru root 404 / robots; rgata.ru not reachable; neerc central page lists only the (already mined) 2012 problems.pdf; no gym in CF API for this year
+- east-siberia-2000 [northern-eurasia-a]: ikit.sfu-kras.ru (own site) unreachable/robots; contest.yandex.ru problem pages need login; no gym in CF API for this year; RU search found only news
+- east-siberia-2001 [northern-eurasia-a]: ikit.sfu-kras.ru (own site) unreachable/robots; contest.yandex.ru problem pages need login; no gym in CF API for this year; RU search found only news
+- east-siberia-2002 [northern-eurasia-a]: ikit.sfu-kras.ru (own site) unreachable/robots; contest.yandex.ru problem pages need login; no gym in CF API for this year; RU search found only news
+- east-siberia-2003 [northern-eurasia-a]: ikit.sfu-kras.ru (own site) unreachable/robots; contest.yandex.ru problem pages need login; no gym in CF API for this year; RU search found only news
+- east-siberia-2004 [northern-eurasia-a]: ikit.sfu-kras.ru (own site) unreachable/robots; contest.yandex.ru problem pages need login; no gym in CF API for this year; RU search found only news
+- east-siberia-2005 [northern-eurasia-a]: ikit.sfu-kras.ru (own site) unreachable/robots; contest.yandex.ru problem pages need login; no gym in CF API for this year; RU search found only news
+- east-siberia-2006 [northern-eurasia-a]: ikit.sfu-kras.ru (own site) unreachable/robots; contest.yandex.ru problem pages need login; no gym in CF API for this year; RU search found only news
+- east-siberia-2007 [northern-eurasia-a]: ikit.sfu-kras.ru (own site) unreachable/robots; contest.yandex.ru problem pages need login; no gym in CF API for this year; RU search found only news
+- east-siberia-2008 [northern-eurasia-a]: ikit.sfu-kras.ru (own site) unreachable/robots; contest.yandex.ru problem pages need login; no gym in CF API for this year; RU search found only news
+- east-siberia-2009 [northern-eurasia-a]: ikit.sfu-kras.ru (own site) unreachable/robots; contest.yandex.ru problem pages need login; no gym in CF API for this year; RU search found only news
+- east-siberia-2010 [northern-eurasia-a]: ikit.sfu-kras.ru (own site) unreachable/robots; contest.yandex.ru problem pages need login; no gym in CF API for this year; RU search found only news
+- east-siberia-2011 [northern-eurasia-a]: ikit.sfu-kras.ru (own site) unreachable/robots; contest.yandex.ru problem pages need login; no gym in CF API for this year; RU search found only news
+- east-siberia-2012 [northern-eurasia-a]: ikit.sfu-kras.ru (own site) unreachable/robots; contest.yandex.ru problem pages need login; no gym in CF API for this year; RU search found only news
+- east-siberia-2013 [northern-eurasia-a]: ikit.sfu-kras.ru (own site) unreachable/robots; contest.yandex.ru problem pages need login; no gym in CF API for this year; RU search found only news
+- east-siberia-2015 [northern-eurasia-a]: ikit.sfu-kras.ru (own site) unreachable/robots; contest.yandex.ru problem pages need login; no gym in CF API for this year; RU search found only news
+- east-siberia-2019 [northern-eurasia-a]: ikit.sfu-kras.ru (own site) unreachable/robots; contest.yandex.ru problem pages need login; no gym in CF API for this year; RU search found only news
+- east-siberia-2021 [northern-eurasia-a]: ikit.sfu-kras.ru (own site) unreachable/robots; contest.yandex.ru problem pages need login; no gym in CF API for this year; RU search found only news
+- east-siberia-2022 [northern-eurasia-a]: ikit.sfu-kras.ru (own site) unreachable/robots; contest.yandex.ru problem pages need login; no gym in CF API for this year; RU search found only news
+- east-siberia-2023 [northern-eurasia-a]: ikit.sfu-kras.ru (own site) unreachable/robots; contest.yandex.ru problem pages need login; no gym in CF API for this year; RU search found only news
+- east-siberia-2024 [northern-eurasia-a]: ikit.sfu-kras.ru (own site) unreachable/robots; contest.yandex.ru problem pages need login; no gym in CF API for this year; RU search found only news
+- east-siberia-2025 [northern-eurasia-a]: ikit.sfu-kras.ru (own site) unreachable/robots; contest.yandex.ru problem pages need login; no gym in CF API for this year; RU search found only news
+- far-east-russia-1998 [northern-eurasia-a]: imcs.dvfu.ru/cats unreachable from sandbox; no cid known for this year in the brief so no CATS URL could be formed; no gym in CF API; RU search found only news
+- far-east-russia-1999 [northern-eurasia-a]: imcs.dvfu.ru/cats unreachable from sandbox; no cid known for this year in the brief so no CATS URL could be formed; no gym in CF API; RU search found only news
+- far-east-russia-2000 [northern-eurasia-a]: imcs.dvfu.ru/cats unreachable from sandbox; no cid known for this year in the brief so no CATS URL could be formed; no gym in CF API; RU search found only news
+- far-east-russia-2001 [northern-eurasia-a]: imcs.dvfu.ru/cats unreachable from sandbox; no cid known for this year in the brief so no CATS URL could be formed; no gym in CF API; RU search found only news
+- far-east-russia-2002 [northern-eurasia-a]: imcs.dvfu.ru/cats unreachable from sandbox; no cid known for this year in the brief so no CATS URL could be formed; no gym in CF API; RU search found only news
+- far-east-russia-2023 [northern-eurasia-a]: imcs.dvfu.ru/cats unreachable from sandbox; no cid known for this year in the brief so no CATS URL could be formed; no gym in CF API; RU search found only news
+- far-east-russia-2024 [northern-eurasia-a]: imcs.dvfu.ru/cats unreachable from sandbox; no cid known for this year in the brief so no CATS URL could be formed; no gym in CF API; RU search found only news
+- georgia-2004 [northern-eurasia-a]: neerc subregions page; acm.ge is an AC Milan fan site (trap); CF gym API has no Georgia contest; EN/Georgian web search found only news
+- georgia-2005 [northern-eurasia-a]: neerc subregions page; acm.ge is an AC Milan fan site (trap); CF gym API has no Georgia contest; EN/Georgian web search found only news
+- georgia-2006 [northern-eurasia-a]: neerc subregions page; acm.ge is an AC Milan fan site (trap); CF gym API has no Georgia contest; EN/Georgian web search found only news
+- georgia-2007 [northern-eurasia-a]: neerc subregions page; acm.ge is an AC Milan fan site (trap); CF gym API has no Georgia contest; EN/Georgian web search found only news
+- georgia-2008 [northern-eurasia-a]: neerc subregions page; acm.ge is an AC Milan fan site (trap); CF gym API has no Georgia contest; EN/Georgian web search found only news
+- georgia-2009 [northern-eurasia-a]: neerc subregions page; acm.ge is an AC Milan fan site (trap); CF gym API has no Georgia contest; EN/Georgian web search found only news
+- georgia-2010 [northern-eurasia-a]: neerc subregions page; acm.ge is an AC Milan fan site (trap); CF gym API has no Georgia contest; EN/Georgian web search found only news
+- georgia-2011 [northern-eurasia-a]: neerc subregions page; acm.ge is an AC Milan fan site (trap); CF gym API has no Georgia contest; EN/Georgian web search found only news
+- georgia-2012 [northern-eurasia-a]: neerc subregions page; acm.ge is an AC Milan fan site (trap); CF gym API has no Georgia contest; EN/Georgian web search found only news
+- georgia-2013 [northern-eurasia-a]: neerc subregions page; acm.ge is an AC Milan fan site (trap); CF gym API has no Georgia contest; EN/Georgian web search found only news
+- georgia-2014 [northern-eurasia-a]: neerc subregions page; acm.ge is an AC Milan fan site (trap); CF gym API has no Georgia contest; EN/Georgian web search found only news
+- georgia-2015 [northern-eurasia-a]: neerc subregions page; acm.ge is an AC Milan fan site (trap); CF gym API has no Georgia contest; EN/Georgian web search found only news
+- georgia-2016 [northern-eurasia-a]: neerc subregions page; acm.ge is an AC Milan fan site (trap); CF gym API has no Georgia contest; EN/Georgian web search found only news
+- georgia-2017 [northern-eurasia-a]: neerc subregions page; acm.ge is an AC Milan fan site (trap); CF gym API has no Georgia contest; EN/Georgian web search found only news
+- georgia-2018 [northern-eurasia-a]: neerc subregions page; acm.ge is an AC Milan fan site (trap); CF gym API has no Georgia contest; EN/Georgian web search found only news
+- georgia-2019 [northern-eurasia-a]: neerc subregions page; acm.ge is an AC Milan fan site (trap); CF gym API has no Georgia contest; EN/Georgian web search found only news
+- georgia-2020 [northern-eurasia-a]: neerc subregions page; acm.ge is an AC Milan fan site (trap); CF gym API has no Georgia contest; EN/Georgian web search found only news
+- georgia-2021 [northern-eurasia-a]: neerc subregions page; acm.ge is an AC Milan fan site (trap); CF gym API has no Georgia contest; EN/Georgian web search found only news
+- georgia-2022 [northern-eurasia-a]: neerc subregions page; acm.ge is an AC Milan fan site (trap); CF gym API has no Georgia contest; EN/Georgian web search found only news
+- georgia-2023 [northern-eurasia-a]: neerc subregions page; acm.ge is an AC Milan fan site (trap); CF gym API has no Georgia contest; EN/Georgian web search found only news
+- georgia-2024 [northern-eurasia-a]: neerc subregions page; acm.ge is an AC Milan fan site (trap); CF gym API has no Georgia contest; EN/Georgian web search found only news
+- georgia-2025 [northern-eurasia-a]: neerc subregions page; acm.ge is an AC Milan fan site (trap); CF gym API has no Georgia contest; EN/Georgian web search found only news
+- kazakhstan-2003 [northern-eurasia-a]: neerc subregions page; cpfed.kz tournaments/icpc-quarter + contest.cpfed.kz (no archive, no statements); icpc.kz unreachable; CF gym API has no Kazakhstan regio
+- kazakhstan-2004 [northern-eurasia-a]: neerc subregions page; cpfed.kz tournaments/icpc-quarter + contest.cpfed.kz (no archive, no statements); icpc.kz unreachable; CF gym API has no Kazakhstan regio
+- kazakhstan-2005 [northern-eurasia-a]: neerc subregions page; cpfed.kz tournaments/icpc-quarter + contest.cpfed.kz (no archive, no statements); icpc.kz unreachable; CF gym API has no Kazakhstan regio
+- kazakhstan-2006 [northern-eurasia-a]: neerc subregions page; cpfed.kz tournaments/icpc-quarter + contest.cpfed.kz (no archive, no statements); icpc.kz unreachable; CF gym API has no Kazakhstan regio
+- kazakhstan-2007 [northern-eurasia-a]: neerc subregions page; cpfed.kz tournaments/icpc-quarter + contest.cpfed.kz (no archive, no statements); icpc.kz unreachable; CF gym API has no Kazakhstan regio
+- kazakhstan-2008 [northern-eurasia-a]: neerc subregions page; cpfed.kz tournaments/icpc-quarter + contest.cpfed.kz (no archive, no statements); icpc.kz unreachable; CF gym API has no Kazakhstan regio
+- kazakhstan-2009 [northern-eurasia-a]: neerc subregions page; cpfed.kz tournaments/icpc-quarter + contest.cpfed.kz (no archive, no statements); icpc.kz unreachable; CF gym API has no Kazakhstan regio
+- kazakhstan-2010 [northern-eurasia-a]: neerc subregions page; cpfed.kz tournaments/icpc-quarter + contest.cpfed.kz (no archive, no statements); icpc.kz unreachable; CF gym API has no Kazakhstan regio
+- kazakhstan-2011 [northern-eurasia-a]: neerc subregions page; cpfed.kz tournaments/icpc-quarter + contest.cpfed.kz (no archive, no statements); icpc.kz unreachable; CF gym API has no Kazakhstan regio
+- kazakhstan-2012 [northern-eurasia-a]: neerc subregions page; cpfed.kz tournaments/icpc-quarter + contest.cpfed.kz (no archive, no statements); icpc.kz unreachable; CF gym API has no Kazakhstan regio
+- kazakhstan-2013 [northern-eurasia-a]: neerc subregions page; cpfed.kz tournaments/icpc-quarter + contest.cpfed.kz (no archive, no statements); icpc.kz unreachable; CF gym API has no Kazakhstan regio
+- kazakhstan-2014 [northern-eurasia-a]: neerc subregions page; cpfed.kz tournaments/icpc-quarter + contest.cpfed.kz (no archive, no statements); icpc.kz unreachable; CF gym API has no Kazakhstan regio
+- kazakhstan-2015 [northern-eurasia-a]: neerc subregions page; cpfed.kz tournaments/icpc-quarter + contest.cpfed.kz (no archive, no statements); icpc.kz unreachable; CF gym API has no Kazakhstan regio
+- kazakhstan-2016 [northern-eurasia-a]: neerc subregions page; cpfed.kz tournaments/icpc-quarter + contest.cpfed.kz (no archive, no statements); icpc.kz unreachable; CF gym API has no Kazakhstan regio
+- kazakhstan-2017 [northern-eurasia-a]: neerc subregions page; cpfed.kz tournaments/icpc-quarter + contest.cpfed.kz (no archive, no statements); icpc.kz unreachable; CF gym API has no Kazakhstan regio
+- kazakhstan-2018 [northern-eurasia-a]: neerc subregions page; cpfed.kz tournaments/icpc-quarter + contest.cpfed.kz (no archive, no statements); icpc.kz unreachable; CF gym API has no Kazakhstan regio
+- kazakhstan-2019 [northern-eurasia-a]: neerc subregions page; cpfed.kz tournaments/icpc-quarter + contest.cpfed.kz (no archive, no statements); icpc.kz unreachable; CF gym API has no Kazakhstan regio
+- kazakhstan-2020 [northern-eurasia-a]: neerc subregions page; cpfed.kz tournaments/icpc-quarter + contest.cpfed.kz (no archive, no statements); icpc.kz unreachable; CF gym API has no Kazakhstan regio
+- kazakhstan-2021 [northern-eurasia-a]: neerc subregions page; cpfed.kz tournaments/icpc-quarter + contest.cpfed.kz (no archive, no statements); icpc.kz unreachable; CF gym API has no Kazakhstan regio
+- kazakhstan-2022 [northern-eurasia-a]: neerc subregions page; cpfed.kz tournaments/icpc-quarter + contest.cpfed.kz (no archive, no statements); icpc.kz unreachable; CF gym API has no Kazakhstan regio
+- kazakhstan-2023 [northern-eurasia-a]: neerc subregions page; cpfed.kz tournaments/icpc-quarter + contest.cpfed.kz (no archive, no statements); icpc.kz unreachable; CF gym API has no Kazakhstan regio
+- kazakhstan-2024 [northern-eurasia-a]: neerc subregions page; cpfed.kz tournaments/icpc-quarter + contest.cpfed.kz (no archive, no statements); icpc.kz unreachable; CF gym API has no Kazakhstan regio
+- kazakhstan-2025 [northern-eurasia-a]: neerc subregions page; cpfed.kz tournaments/icpc-quarter + contest.cpfed.kz (no archive, no statements); icpc.kz unreachable; CF gym API has no Kazakhstan regio
+- kyrgyzstan-2004 [northern-eurasia-a]: olymp.krsu.kg / olymp.krsu.edu.kg unreachable (conteststandings ids known but no problems page seen); CF gym API only has 2022-2025 regionals; krsu.kg news page
+- kyrgyzstan-2005 [northern-eurasia-a]: olymp.krsu.kg / olymp.krsu.edu.kg unreachable (conteststandings ids known but no problems page seen); CF gym API only has 2022-2025 regionals; krsu.kg news page
+- kyrgyzstan-2006 [northern-eurasia-a]: olymp.krsu.kg / olymp.krsu.edu.kg unreachable (conteststandings ids known but no problems page seen); CF gym API only has 2022-2025 regionals; krsu.kg news page
+- kyrgyzstan-2007 [northern-eurasia-a]: olymp.krsu.kg / olymp.krsu.edu.kg unreachable (conteststandings ids known but no problems page seen); CF gym API only has 2022-2025 regionals; krsu.kg news page
+- kyrgyzstan-2008 [northern-eurasia-a]: olymp.krsu.kg / olymp.krsu.edu.kg unreachable (conteststandings ids known but no problems page seen); CF gym API only has 2022-2025 regionals; krsu.kg news page
+- kyrgyzstan-2009 [northern-eurasia-a]: olymp.krsu.kg / olymp.krsu.edu.kg unreachable (conteststandings ids known but no problems page seen); CF gym API only has 2022-2025 regionals; krsu.kg news page
+- kyrgyzstan-2010 [northern-eurasia-a]: olymp.krsu.kg / olymp.krsu.edu.kg unreachable (conteststandings ids known but no problems page seen); CF gym API only has 2022-2025 regionals; krsu.kg news page
+- kyrgyzstan-2011 [northern-eurasia-a]: olymp.krsu.kg / olymp.krsu.edu.kg unreachable (conteststandings ids known but no problems page seen); CF gym API only has 2022-2025 regionals; krsu.kg news page
+- kyrgyzstan-2012 [northern-eurasia-a]: olymp.krsu.kg / olymp.krsu.edu.kg unreachable (conteststandings ids known but no problems page seen); CF gym API only has 2022-2025 regionals; krsu.kg news page
+- kyrgyzstan-2013 [northern-eurasia-a]: olymp.krsu.kg / olymp.krsu.edu.kg unreachable (conteststandings ids known but no problems page seen); CF gym API only has 2022-2025 regionals; krsu.kg news page
+- kyrgyzstan-2014 [northern-eurasia-a]: olymp.krsu.kg / olymp.krsu.edu.kg unreachable (conteststandings ids known but no problems page seen); CF gym API only has 2022-2025 regionals; krsu.kg news page
+- kyrgyzstan-2015 [northern-eurasia-a]: olymp.krsu.kg / olymp.krsu.edu.kg unreachable (conteststandings ids known but no problems page seen); CF gym API only has 2022-2025 regionals; krsu.kg news page
+- kyrgyzstan-2016 [northern-eurasia-a]: olymp.krsu.kg / olymp.krsu.edu.kg unreachable (conteststandings ids known but no problems page seen); CF gym API only has 2022-2025 regionals; krsu.kg news page
+- kyrgyzstan-2017 [northern-eurasia-a]: olymp.krsu.kg / olymp.krsu.edu.kg unreachable (conteststandings ids known but no problems page seen); CF gym API only has 2022-2025 regionals; krsu.kg news page
+- kyrgyzstan-2018 [northern-eurasia-a]: olymp.krsu.kg / olymp.krsu.edu.kg unreachable (conteststandings ids known but no problems page seen); CF gym API only has 2022-2025 regionals; krsu.kg news page
+- kyrgyzstan-2019 [northern-eurasia-a]: olymp.krsu.kg / olymp.krsu.edu.kg unreachable (conteststandings ids known but no problems page seen); CF gym API only has 2022-2025 regionals; krsu.kg news page
+- kyrgyzstan-2020 [northern-eurasia-a]: olymp.krsu.kg / olymp.krsu.edu.kg unreachable (conteststandings ids known but no problems page seen); CF gym API only has 2022-2025 regionals; krsu.kg news page
+- kyrgyzstan-2021 [northern-eurasia-a]: olymp.krsu.kg / olymp.krsu.edu.kg unreachable (conteststandings ids known but no problems page seen); CF gym API only has 2022-2025 regionals; krsu.kg news page
+- moscow-2003 [northern-eurasia-a]: acm.msu.ru / icpc.msu.ru return 503; moscow.nerc.icpc.global/arch (2022,2023) has results only; mrc.msk.ru unreachable; ejudge.cs.msu.ru has qf standings only; 
+- moscow-2006 [northern-eurasia-a]: acm.msu.ru / icpc.msu.ru return 503; moscow.nerc.icpc.global/arch (2022,2023) has results only; mrc.msk.ru unreachable; ejudge.cs.msu.ru has qf standings only; 
+- moscow-2018 [northern-eurasia-a]: acm.msu.ru / icpc.msu.ru return 503; moscow.nerc.icpc.global/arch (2022,2023) has results only; mrc.msk.ru unreachable; ejudge.cs.msu.ru has qf standings only; 
+- moscow-2022 [northern-eurasia-a]: acm.msu.ru / icpc.msu.ru return 503; moscow.nerc.icpc.global/arch (2022,2023) has results only; mrc.msk.ru unreachable; ejudge.cs.msu.ru has qf standings only; 
+- moscow-2023 [northern-eurasia-a]: acm.msu.ru / icpc.msu.ru return 503; moscow.nerc.icpc.global/arch (2022,2023) has results only; mrc.msk.ru unreachable; ejudge.cs.msu.ru has qf standings only; 
+- moscow-2024 [northern-eurasia-a]: acm.msu.ru / icpc.msu.ru return 503; moscow.nerc.icpc.global/arch (2022,2023) has results only; mrc.msk.ru unreachable; ejudge.cs.msu.ru has qf standings only; 
+- moscow-2025 [northern-eurasia-a]: acm.msu.ru / icpc.msu.ru return 503; moscow.nerc.icpc.global/arch (2022,2023) has results only; mrc.msk.ru unreachable; ejudge.cs.msu.ru has qf standings only; 
+- north-russia-1998 [northern-eurasia-b]: nerc.itmo.ru/archive/<year>.html has no Northern subregional section before 2003; subregions/northern.html archive starts 2003; RU web search for Северный четве
+- north-russia-1999 [northern-eurasia-b]: nerc.itmo.ru/archive/<year>.html has no Northern subregional section before 2003; subregions/northern.html archive starts 2003; RU web search for Северный четве
+- north-russia-2000 [northern-eurasia-b]: nerc.itmo.ru/archive/<year>.html has no Northern subregional section before 2003; subregions/northern.html archive starts 2003; RU web search for Северный четве
+- north-russia-2001 [northern-eurasia-b]: nerc.itmo.ru/archive/<year>.html has no Northern subregional section before 2003; subregions/northern.html archive starts 2003; RU web search for Северный четве
+- north-russia-2002 [northern-eurasia-b]: nerc.itmo.ru/archive/<year>.html has no Northern subregional section before 2003; subregions/northern.html archive starts 2003; RU web search for Северный четве
+- urals-1998 [northern-eurasia-b]: Quarterfinal = Ural Championship (sp.urfu.ru/chu/<year>/): pages fetched, no problem files linked; Timus spaces scanned (USU Championship spaces are different c
+- urals-1999 [northern-eurasia-b]: Quarterfinal = Ural Championship (sp.urfu.ru/chu/<year>/): pages fetched, no problem files linked; Timus spaces scanned (USU Championship spaces are different c
+- urals-2000 [northern-eurasia-b]: Quarterfinal = Ural Championship (sp.urfu.ru/chu/<year>/): pages fetched, no problem files linked; Timus spaces scanned (USU Championship spaces are different c
+- urals-2001 [northern-eurasia-b]: Quarterfinal = Ural Championship (sp.urfu.ru/chu/<year>/): pages fetched, no problem files linked; Timus spaces scanned (USU Championship spaces are different c
+- uzbekistan-2002 [northern-eurasia-b]: nerc.itmo.ru subregion/year pages list standings only; standings pages carry no problem titles so no match to Northern set could be made
+- uzbekistan-2003 [northern-eurasia-b]: nerc.itmo.ru subregion/year pages list standings only; standings pages carry no problem titles so no match to Northern set could be made
+- uzbekistan-2004 [northern-eurasia-b]: nerc.itmo.ru subregion/year pages list standings only; standings pages carry no problem titles so no match to Northern set could be made
+- uzbekistan-2016 [northern-eurasia-b]: nerc.itmo.ru pages: standings only (own set, titles differ from Northern); Codeforces API contest list has no Uzbekistan regional gym; web search found nothing.
+- uzbekistan-2017 [northern-eurasia-b]: nerc.itmo.ru pages: standings only (own set, titles differ from Northern); Codeforces API contest list has no Uzbekistan regional gym; web search found nothing.
+- uzbekistan-2018 [northern-eurasia-b]: nerc.itmo.ru pages: standings only (own set, titles differ from Northern); Codeforces API contest list has no Uzbekistan regional gym; web search found nothing.
+- uzbekistan-2019 [northern-eurasia-b]: nerc.itmo.ru pages: standings only (own set, titles differ from Northern); Codeforces API contest list has no Uzbekistan regional gym; web search found nothing.
+- uzbekistan-2020 [northern-eurasia-b]: nerc.itmo.ru pages: standings only (own set, titles differ from Northern); Codeforces API contest list has no Uzbekistan regional gym; web search found nothing.
+- uzbekistan-2021 [northern-eurasia-b]: nerc.itmo.ru pages: standings only (own set, titles differ from Northern); Codeforces API contest list has no Uzbekistan regional gym; web search found nothing.
+- uzbekistan-2022 [northern-eurasia-b]: nerc.itmo.ru pages: standings only (own set, titles differ from Northern); Codeforces API contest list has no Uzbekistan regional gym; web search found nothing.
+- uzbekistan-2023 [northern-eurasia-b]: nerc.itmo.ru pages: standings only (own set, titles differ from Northern); Codeforces API contest list has no Uzbekistan regional gym; web search found nothing.
+- uzbekistan-2024 [northern-eurasia-b]: nerc.itmo.ru pages: standings only (own set, titles differ from Northern); Codeforces API contest list has no Uzbekistan regional gym; web search found nothing.
+- uzbekistan-2025 [northern-eurasia-b]: nerc.itmo.ru pages: standings only (own set, titles differ from Northern); Codeforces API contest list has no Uzbekistan regional gym; web search found nothing.
+- south-russia-1998 [northern-eurasia-b]: contest.sgu.ru archive (page/24) has standings only (2010+); nerc.itmo.ru has standings only; no Codeforces gym for this year in API list (2005 and 2007+ exist)
+- south-russia-1999 [northern-eurasia-b]: contest.sgu.ru archive (page/24) has standings only (2010+); nerc.itmo.ru has standings only; no Codeforces gym for this year in API list (2005 and 2007+ exist)
+- south-russia-2000 [northern-eurasia-b]: contest.sgu.ru archive (page/24) has standings only (2010+); nerc.itmo.ru has standings only; no Codeforces gym for this year in API list (2005 and 2007+ exist)
+- south-russia-2001 [northern-eurasia-b]: contest.sgu.ru archive (page/24) has standings only (2010+); nerc.itmo.ru has standings only; no Codeforces gym for this year in API list (2005 and 2007+ exist)
+- south-russia-2002 [northern-eurasia-b]: contest.sgu.ru archive (page/24) has standings only (2010+); nerc.itmo.ru has standings only; no Codeforces gym for this year in API list (2005 and 2007+ exist)
+- south-russia-2003 [northern-eurasia-b]: contest.sgu.ru archive (page/24) has standings only (2010+); nerc.itmo.ru has standings only; no Codeforces gym for this year in API list (2005 and 2007+ exist)
+- south-russia-2004 [northern-eurasia-b]: contest.sgu.ru archive (page/24) has standings only (2010+); nerc.itmo.ru has standings only; no Codeforces gym for this year in API list (2005 and 2007+ exist)
+- south-russia-2006 [northern-eurasia-b]: contest.sgu.ru archive (page/24) has standings only (2010+); nerc.itmo.ru has standings only; no Codeforces gym for this year in API list (2005 and 2007+ exist)
+- west-neerc-1998 [northern-eurasia-b]: acm.bsu.by (iRunner) exposes standings only, /problems/ is 403 without login, /wiki/ 500; icpc.bsu.by TLS error; nerc.itmo.ru western pages: standings only; CF 
+- west-neerc-1999 [northern-eurasia-b]: acm.bsu.by (iRunner) exposes standings only, /problems/ is 403 without login, /wiki/ 500; icpc.bsu.by TLS error; nerc.itmo.ru western pages: standings only; CF 
+- west-neerc-2000 [northern-eurasia-b]: acm.bsu.by (iRunner) exposes standings only, /problems/ is 403 without login, /wiki/ 500; icpc.bsu.by TLS error; nerc.itmo.ru western pages: standings only; CF 
+- west-neerc-2001 [northern-eurasia-b]: acm.bsu.by (iRunner) exposes standings only, /problems/ is 403 without login, /wiki/ 500; icpc.bsu.by TLS error; nerc.itmo.ru western pages: standings only; CF 
+- west-neerc-2002 [northern-eurasia-b]: acm.bsu.by (iRunner) exposes standings only, /problems/ is 403 without login, /wiki/ 500; icpc.bsu.by TLS error; nerc.itmo.ru western pages: standings only; CF 
+- west-neerc-2003 [northern-eurasia-b]: acm.bsu.by (iRunner) exposes standings only, /problems/ is 403 without login, /wiki/ 500; icpc.bsu.by TLS error; nerc.itmo.ru western pages: standings only; CF 
+- west-neerc-2004 [northern-eurasia-b]: acm.bsu.by (iRunner) exposes standings only, /problems/ is 403 without login, /wiki/ 500; icpc.bsu.by TLS error; nerc.itmo.ru western pages: standings only; CF 
+- west-neerc-2005 [northern-eurasia-b]: acm.bsu.by (iRunner) exposes standings only, /problems/ is 403 without login, /wiki/ 500; icpc.bsu.by TLS error; nerc.itmo.ru western pages: standings only; CF 
+- west-neerc-2006 [northern-eurasia-b]: acm.bsu.by (iRunner) exposes standings only, /problems/ is 403 without login, /wiki/ 500; icpc.bsu.by TLS error; nerc.itmo.ru western pages: standings only; CF 
+- west-neerc-2007 [northern-eurasia-b]: acm.bsu.by (iRunner) exposes standings only, /problems/ is 403 without login, /wiki/ 500; icpc.bsu.by TLS error; nerc.itmo.ru western pages: standings only; CF 
+- west-neerc-2008 [northern-eurasia-b]: acm.bsu.by (iRunner) exposes standings only, /problems/ is 403 without login, /wiki/ 500; icpc.bsu.by TLS error; nerc.itmo.ru western pages: standings only; CF 
+- west-neerc-2013 [northern-eurasia-b]: acm.bsu.by (iRunner) exposes standings only, /problems/ is 403 without login, /wiki/ 500; icpc.bsu.by TLS error; nerc.itmo.ru western pages: standings only; CF 
+- west-neerc-2014 [northern-eurasia-b]: acm.bsu.by (iRunner) exposes standings only, /problems/ is 403 without login, /wiki/ 500; icpc.bsu.by TLS error; nerc.itmo.ru western pages: standings only; CF 
+- west-neerc-2015 [northern-eurasia-b]: acm.bsu.by (iRunner) exposes standings only, /problems/ is 403 without login, /wiki/ 500; icpc.bsu.by TLS error; nerc.itmo.ru western pages: standings only; CF 
+- west-neerc-2016 [northern-eurasia-b]: acm.bsu.by (iRunner) exposes standings only, /problems/ is 403 without login, /wiki/ 500; icpc.bsu.by TLS error; nerc.itmo.ru western pages: standings only; CF 
+- west-neerc-2017 [northern-eurasia-b]: acm.bsu.by (iRunner) exposes standings only, /problems/ is 403 without login, /wiki/ 500; icpc.bsu.by TLS error; nerc.itmo.ru western pages: standings only; CF 
+- west-neerc-2018 [northern-eurasia-b]: acm.bsu.by (iRunner) exposes standings only, /problems/ is 403 without login, /wiki/ 500; icpc.bsu.by TLS error; nerc.itmo.ru western pages: standings only; CF 
+- west-neerc-2019 [northern-eurasia-b]: acm.bsu.by (iRunner) exposes standings only, /problems/ is 403 without login, /wiki/ 500; icpc.bsu.by TLS error; nerc.itmo.ru western pages: standings only; CF 
+- west-neerc-2020 [northern-eurasia-b]: acm.bsu.by (iRunner) exposes standings only, /problems/ is 403 without login, /wiki/ 500; icpc.bsu.by TLS error; nerc.itmo.ru western pages: standings only; CF 
+- west-neerc-2021 [northern-eurasia-b]: acm.bsu.by (iRunner) exposes standings only, /problems/ is 403 without login, /wiki/ 500; icpc.bsu.by TLS error; nerc.itmo.ru western pages: standings only; CF 
+- west-neerc-2022 [northern-eurasia-b]: acm.bsu.by (iRunner) exposes standings only, /problems/ is 403 without login, /wiki/ 500; icpc.bsu.by TLS error; nerc.itmo.ru western pages: standings only; CF 
+- west-neerc-2023 [northern-eurasia-b]: acm.bsu.by (iRunner) exposes standings only, /problems/ is 403 without login, /wiki/ 500; icpc.bsu.by TLS error; nerc.itmo.ru western pages: standings only; CF 
+- west-neerc-2025 [northern-eurasia-b]: acm.bsu.by (iRunner) exposes standings only, /problems/ is 403 without login, /wiki/ 500; icpc.bsu.by TLS error; nerc.itmo.ru western pages: standings only; CF 
+- west-siberia-1999 [northern-eurasia-b]: olymp.nstu.ru/contests lists no ACM contest for this year (archive starts 2005, 2007 absent); ikit.sfu-kras.ru/ACM has no links; nerc.itmo.ru standings only; RU
+- west-siberia-2000 [northern-eurasia-b]: olymp.nstu.ru/contests lists no ACM contest for this year (archive starts 2005, 2007 absent); ikit.sfu-kras.ru/ACM has no links; nerc.itmo.ru standings only; RU
+- west-siberia-2001 [northern-eurasia-b]: olymp.nstu.ru/contests lists no ACM contest for this year (archive starts 2005, 2007 absent); ikit.sfu-kras.ru/ACM has no links; nerc.itmo.ru standings only; RU
+- west-siberia-2002 [northern-eurasia-b]: olymp.nstu.ru/contests lists no ACM contest for this year (archive starts 2005, 2007 absent); ikit.sfu-kras.ru/ACM has no links; nerc.itmo.ru standings only; RU
+- west-siberia-2003 [northern-eurasia-b]: olymp.nstu.ru/contests lists no ACM contest for this year (archive starts 2005, 2007 absent); ikit.sfu-kras.ru/ACM has no links; nerc.itmo.ru standings only; RU
+- west-siberia-2004 [northern-eurasia-b]: olymp.nstu.ru/contests lists no ACM contest for this year (archive starts 2005, 2007 absent); ikit.sfu-kras.ru/ACM has no links; nerc.itmo.ru standings only; RU
+- west-siberia-2007 [northern-eurasia-b]: olymp.nstu.ru/contests lists no ACM contest for this year (archive starts 2005, 2007 absent); ikit.sfu-kras.ru/ACM has no links; nerc.itmo.ru standings only; RU
+- tajikistan-2023 [northern-eurasia-b]: nerc.itmo.ru subregion page has no archive entries; Codeforces API has no matching gym; web search found nothing
+- tajikistan-2024 [northern-eurasia-b]: nerc.itmo.ru subregion page has no archive entries; Codeforces API has no matching gym; web search found nothing
+- tajikistan-2025 [northern-eurasia-b]: nerc.itmo.ru subregion page has no archive entries; Codeforces API has no matching gym; web search found nothing
+- turkmenistan-2025 [northern-eurasia-b]: nerc.itmo.ru subregion page has no archive entries; Codeforces API has no matching gym; web search found nothing
+- wf-1990 [world-finals-championships]: Probed icpc.global/worldfinals/problems with ~60 dir/filename patterns (1990-ICPC-World-Finals/1990.pdf, icpc1990.pdf, ...) - only 1978-1989 and 2012-2024 exist
+- wf-1991 [world-finals-championships]: Probed icpc.global/worldfinals/problems with ~60 dir/filename patterns (1991-ICPC-World-Finals/1991.pdf, icpc1991.pdf, ...) - only 1978-1989 and 2012-2024 exist
+- wf-1992 [world-finals-championships]: Probed icpc.global/worldfinals/problems with ~60 dir/filename patterns (1992-ICPC-World-Finals/1992.pdf, icpc1992.pdf, ...) - only 1978-1989 and 2012-2024 exist
+- wf-1993 [world-finals-championships]: Probed icpc.global/worldfinals/problems with ~60 dir/filename patterns (1993-ICPC-World-Finals/1993.pdf, icpc1993.pdf, ...) - only 1978-1989 and 2012-2024 exist
+- wf-1994 [world-finals-championships]: Probed icpc.global/worldfinals/problems with ~60 dir/filename patterns (1994-ICPC-World-Finals/1994.pdf, icpc1994.pdf, ...) - only 1978-1989 and 2012-2024 exist
+- wf-1995 [world-finals-championships]: Probed icpc.global/worldfinals/problems with ~60 dir/filename patterns (1995-ICPC-World-Finals/1995.pdf, icpc1995.pdf, ...) - only 1978-1989 and 2012-2024 exist
+- wf-1996 [world-finals-championships]: Probed icpc.global/worldfinals/problems with ~60 dir/filename patterns (1996-ICPC-World-Finals/1996.pdf, icpc1996.pdf, ...) - only 1978-1989 and 2012-2024 exist
+- wf-1997 [world-finals-championships]: Probed icpc.global/worldfinals/problems with ~60 dir/filename patterns (1997-ICPC-World-Finals/1997.pdf, icpc1997.pdf, ...) - only 1978-1989 and 2012-2024 exist
+- wf-1998 [world-finals-championships]: Probed icpc.global/worldfinals/problems with ~60 dir/filename patterns (1998-ICPC-World-Finals/1998.pdf, icpc1998.pdf, ...) - only 1978-1989 and 2012-2024 exist
+- wf-1999 [world-finals-championships]: Probed icpc.global/worldfinals/problems with ~60 dir/filename patterns (1999-ICPC-World-Finals/1999.pdf, icpc1999.pdf, ...) - only 1978-1989 and 2012-2024 exist
+- wf-2000 [world-finals-championships]: Probed icpc.global/worldfinals/problems with ~60 dir/filename patterns (2000-ICPC-World-Finals/2000.pdf, icpc2000.pdf, ...) - only 1978-1989 and 2012-2024 exist
+- wf-2001 [world-finals-championships]: Probed icpc.global/worldfinals/problems with ~60 dir/filename patterns (2001-ICPC-World-Finals/2001.pdf, icpc2001.pdf, ...) - only 1978-1989 and 2012-2024 exist
+- wf-2002 [world-finals-championships]: Probed icpc.global/worldfinals/problems with ~60 dir/filename patterns (2002-ICPC-World-Finals/2002.pdf, icpc2002.pdf, ...) - only 1978-1989 and 2012-2024 exist
+- wf-2003 [world-finals-championships]: Probed icpc.global/worldfinals/problems with ~60 dir/filename patterns (2003-ICPC-World-Finals/2003.pdf, icpc2003.pdf, ...) - only 1978-1989 and 2012-2024 exist
+- wf-2004 [world-finals-championships]: Probed icpc.global/worldfinals/problems with ~60 dir/filename patterns (2004-ICPC-World-Finals/2004.pdf, icpc2004.pdf, ...) - only 1978-1989 and 2012-2024 exist
+- wf-2005 [world-finals-championships]: Probed icpc.global/worldfinals/problems with ~60 dir/filename patterns (2005-ICPC-World-Finals/2005.pdf, icpc2005.pdf, ...) - only 1978-1989 and 2012-2024 exist
+- wf-2006 [world-finals-championships]: Probed icpc.global/worldfinals/problems with ~60 dir/filename patterns (2006-ICPC-World-Finals/2006.pdf, icpc2006.pdf, ...) - only 1978-1989 and 2012-2024 exist
+- wf-2007 [world-finals-championships]: Probed icpc.global/worldfinals/problems with ~60 dir/filename patterns (2007-ICPC-World-Finals/2007.pdf, icpc2007.pdf, ...) - only 1978-1989 and 2012-2024 exist
+- wf-1977 [world-finals-championships]: icpc.global pattern /worldfinals/problems/1977-ICPC-World-Finals/1977.pdf and variants not present (1978-1989 are); no other host found
+- aec-2022 [world-finals-championships]: QOJ lists it as qoj.ac/contest/1197 (seen in category index qoj.ac/category/21 via mirror jiang.ly) but contest pages require login; no Codeforces gym found by 
+- aec-2024 [world-finals-championships]: QOJ lists it as qoj.ac/contest/1894 (seen in category index qoj.ac/category/21 via mirror jiang.ly) but contest pages require login; no Codeforces gym found by 
+- aec-2025 [world-finals-championships]: QOJ lists it as qoj.ac/contest/3295 (seen in category index qoj.ac/category/21 via mirror jiang.ly) but contest pages require login; no Codeforces gym found by 
+- awc-2021 [world-finals-championships]: GIKI event-report page and icpc.codedrills.io contest (robots-blocked) only; Codeforces announcement posts contain no links; no PDF found
+- awc-2022 [world-finals-championships]: Green University site / codemarshal scoreboard; Codeforces blog entry 116604 has only the CodeDrills scoreboard link; no PDF found
+- awc-2023 [world-finals-championships]: discuss.codedrills.io thread unreachable (502); wc.indiaicpc.in is now a parked domain; no PDF found
+- awc-2024 [world-finals-championships]: icpcasiawest.vercel.app has only about/committee/results/teams pages; no problems page; no PDF found
+- awc-2025 [world-finals-championships]: wc.indiaicpc.in parked; icpcasiawest.vercel.app has no problems page; no PDF found
