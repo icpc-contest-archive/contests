@@ -227,17 +227,24 @@ def main() -> int:
         if c.get("status") == "upcoming" or ((d := parse_date(c.get("date"))) and d > TODAY):
             err(f"problems/{f.name}: per-problem data for a contest that has not run yet — not publishable")
         probs = doc.get("problems") or []
-        letters = [p.get("letter") for p in probs]
+        letters = [p.get("letter") for p in probs if p.get("letter")]
         if len(set(letters)) != len(letters):
             err(f"problems/{f.name}: duplicate letters {sorted(l for l in letters if letters.count(l) > 1)}")
+        if len(letters) < len(probs) and doc.get("letters") != "unknown":
+            err(f"problems/{f.name}: {len(probs) - len(letters)} problem(s) without a letter — set letters: unknown or add them")
         pb = c.get("problems") or {}
-        if pb.get("count") is None:
-            err(f"problems/{f.name}: contest {cid} has no problems.count (set it to {len(probs)})")
+        if doc.get("complete") is False:
+            if pb.get("count") is not None and len(probs) > pb["count"]:
+                err(f"problems/{f.name}: {len(probs)} problems listed but {cid} says count {pb['count']}")
+            elif pb.get("count") is not None and len(probs) == pb["count"] and all(p.get("letter") for p in probs):
+                warn(f"problems/{f.name}: marked incomplete but lists all {pb['count']} problems with letters — drop complete: false")
+        elif pb.get("count") is None:
+            err(f"problems/{f.name}: contest {cid} has no problems.count (set it to {len(probs)}, or mark the file complete: false)")
         elif pb["count"] != len(probs):
             err(f"problems/{f.name}: {len(probs)} problems listed but {cid} says count {pb['count']}")
         for kind, key in (("statement", "statement"), ("data", "data"), ("solutions", "solutions"), ("package", "package")):
-            if pb.get(kind) is None:
-                continue
+            if pb.get(kind) is None or not all("have" in p for p in probs):
+                continue  # holdings per problem not recorded (judge-derived list): nothing to compare
             n = sum(1 for p in probs if key in (p.get("have") or []))
             implied = "full" if n == len(probs) else ("none" if n == 0 else "partial")
             if implied != pb[kind]:

@@ -599,6 +599,8 @@ def judge_links(j: dict | None, sep: str = " · ") -> str:
 
 
 def problem_have_marks(p: dict) -> str:
+    if "have" not in p:
+        return '<span class="small muted" title="what the archive holds for this problem is not recorded yet">—</span>'
     have = set(p.get("have") or [])
     out = []
     for key, letter, what in (("statement", "St", "statement"), ("data", "D", "test data"),
@@ -647,6 +649,13 @@ def problems_section(cid: str, c: dict, rel: str) -> list[str]:
         b.append(f'<dt>source</dt><dd class="small muted">{esc(pb["source"])}</dd>')
     b.append("</dl>")
     if pf:
+        notes = []
+        if pf.get("letters") == "unknown":
+            notes.append("letters not known yet")
+        if pf.get("complete") is False:
+            notes.append(f"{len(pf['problems'])} of {pb.get('count') or '?'} problems listed")
+        if notes:
+            b.append('<p class="small muted">' + " · ".join(notes) + "</p>")
         b.append('<div class="tablewrap"><table><tr><th>#</th><th>problem</th><th>held</th><th>solve online</th><th>notes</th></tr>')
         for p in pf["problems"]:
             nm = esc(p["name"]) + (f' <span class="small muted">{esc(p["short_name"])}</span>' if p.get("short_name") else "")
@@ -654,7 +663,7 @@ def problems_section(cid: str, c: dict, rel: str) -> list[str]:
                 nm += ' <span class="chip" title="kept private after the contest; name and uuid are public">private</span>'
             if p.get("uuid"):
                 nm += f' <span class="small muted" title="problem package uuid">{esc(p["uuid"])}</span>'
-            b.append(f'<tr><td class="letter">{esc(p["letter"])}</td><td class="wrap">{nm}</td>'
+            b.append(f'<tr><td class="letter">{esc(p.get("letter") or "?")}</td><td class="wrap">{nm}</td>'
                      f'<td>{problem_have_marks(p)}</td><td>{judge_links(p.get("judges"))}</td>'
                      f'<td class="wrap small muted">{esc(p.get("notes", ""))}</td></tr>')
         b.append("</table></div>")
@@ -1391,7 +1400,7 @@ def build(out: Path):
             if p.get("status") == "private":
                 nm += ' <span class="chip">private</span>'
             link = link_contest(cid, rel) if cid in contests else esc(cid)
-            plist.append(f'<tr><td>{link}</td><td class="letter">{esc(p["letter"])}</td><td class="wrap">{nm}</td>'
+            plist.append(f'<tr><td>{link}</td><td class="letter">{esc(p.get("letter") or "?")}</td><td class="wrap">{nm}</td>'
                          f'<td>{problem_have_marks(p)}</td><td class="small">{judge_links(p.get("judges"))}</td>'
                          f'<td class="wrap small muted">{esc(p.get("notes", ""))}</td></tr>')
     plist.append("</table></div>")
