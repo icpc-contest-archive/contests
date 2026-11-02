@@ -585,7 +585,10 @@ def held_marks(pb: dict) -> str:
     return "".join(out)
 
 
-def judge_links(j: dict | None, sep: str = " · ") -> str:
+JUDGE_CAPS: dict = {}  # (contest, url) -> archive path of a held judge-page capture (private, like problem sets)
+
+
+def judge_links(j: dict | None, sep: str = " · ", cid: str | None = None) -> str:
     parts = []
     for key, v in (j or {}).items():
         locs = v if isinstance(v, list) else [v]
@@ -594,8 +597,11 @@ def judge_links(j: dict | None, sep: str = " · ") -> str:
             url = loc["url"] if isinstance(loc, dict) else loc
             as_of = loc.get("as_of") if isinstance(loc, dict) else None
             href = wayback_link(url, as_of) if as_of else url
-            parts.append(f'<a href="{esc(href)}" title="{esc(res_label(url, as_of, 200))}">{esc(lab)}'
-                         + (f" {i + 1}" if len(locs) > 1 else "") + ("</a> <span class=\"small muted\">(wayback)</span>" if as_of else "</a>"))
+            bit = (f'<a href="{esc(href)}" title="{esc(res_label(url, as_of, 200))}">{esc(lab)}'
+                   + (f" {i + 1}" if len(locs) > 1 else "") + ("</a> <span class=\"small muted\">(wayback)</span>" if as_of else "</a>"))
+            if cid and (cid, url) in JUDGE_CAPS:
+                bit += " " + local_link("archive/" + JUDGE_CAPS[(cid, url)], "archived")
+            parts.append(bit)
     return sep.join(parts)
 
 
@@ -645,7 +651,7 @@ def problems_section(cid: str, c: dict, rel: str) -> list[str]:
             parts.append(RES.label_link(w, as_of, rel, "resource"))
         b.append("<dt>problem set</dt><dd>" + " · ".join(parts) + health_chip(w) + "</dd>")
     if pb.get("judges"):
-        b.append("<dt>solve online</dt><dd>" + judge_links(pb["judges"]) + "</dd>")
+        b.append("<dt>solve online</dt><dd>" + judge_links(pb["judges"], cid=cid) + "</dd>")
     if pb.get("notes"):
         b.append(f'<dt>notes</dt><dd class="wrap">{esc(pb["notes"])}</dd>')
     if pb.get("source"):
@@ -694,12 +700,15 @@ def build(out: Path):
             replay_by_contest[e["contest"]].append(e)
     archived_by_contest = defaultdict(list)
     PROBLEMSET_CAPS.clear()
+    JUDGE_CAPS.clear()
     if aux["archive-index"]:
         for e in aux["archive-index"]["captures"]:
             archived_by_contest[e["contest"]].append(e)
             capture_info[e["path"]] = e
             if e.get("artifact") == "problemset" and e.get("url") and not e.get("content_caveat"):
                 PROBLEMSET_CAPS.setdefault((e["contest"], e["url"]), e["path"])
+            if str(e.get("artifact", "")).startswith("judge-") and e.get("url") and not e.get("content_caveat"):
+                JUDGE_CAPS.setdefault((e["contest"], e["url"]), e["path"])
     website_of.clear()  # contest -> primary website capture entry
     if aux["website-index"]:
         for e in aux["website-index"]["sites"]:
