@@ -60,9 +60,9 @@ def main() -> int:
             # targets - single-page URL captures like the result tiers.
             extra = []
             ps = c.get("problemset")
-            if ps:
-                extra.append(("problemset", ps["url"], ps.get("as_of")) if isinstance(ps, dict)
-                             else ("problemset", ps, None))
+            for p in (ps if isinstance(ps, list) else [ps]) if ps else []:  # a list since 2026-11-01
+                extra.append(("problemset", p["url"], p.get("as_of")) if isinstance(p, dict)
+                             else ("problemset", p, None))
             for m in c.get("mirrors") or []:
                 if m.get("url"):
                     extra.append(("web-mirror", m["url"], m.get("as_of")))

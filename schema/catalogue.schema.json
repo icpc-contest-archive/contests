@@ -224,8 +224,7 @@
      ]
     },
     "problems": {
-     "type": "string",
-     "description": "icpc-problem-archive repo reference"
+     "$ref": "#/$defs/problemsBlock"
     },
     "sources": {
      "type": "array",
@@ -241,8 +240,8 @@
      "description": "non-mainline registry only"
     },
     "problemset": {
-     "$ref": "#/$defs/urlOrLocator",
-     "description": "Q11 2026-09-07: problem-set URL (first-class capture target)"
+     "$ref": "#/$defs/urlOrList",
+     "description": "Q11 2026-09-07: problem-set URL(s) (first-class capture target); several when the set is published in more than one place"
     },
     "mirrors": {
      "type": "array",
@@ -300,6 +299,85 @@
      "$ref": "#/$defs/locator"
     }
    ]
+  },
+  "heldState": {
+   "enum": [
+    "full",
+    "partial",
+    "none"
+   ],
+   "description": "how much of this kind of material the problem archive holds for the contest: all problems, some, or none"
+  },
+  "judgeLinks": {
+   "type": "object",
+   "additionalProperties": {
+    "$ref": "#/$defs/urlOrList"
+   },
+   "description": "where the problems can be solved online, keyed by judge: kattis, livearchive (ICPC Live Archive, onlinejudge.org), baekjoon (acmicpc.net), codeforces, … — open map, add keys as sources appear; values are locators (one, or a list)",
+   "propertyNames": {
+    "pattern": "^[a-z][a-z0-9-]*$"
+   }
+  },
+  "problemsBlock": {
+   "type": "object",
+   "additionalProperties": false,
+   "description": "the ICPC Problem Archive's holdings for this contest (DEFINITIONS.md, Problems). Per-problem detail lives in problems/<contest-id>.yaml",
+   "properties": {
+    "repo": {
+     "type": "string",
+     "pattern": "^icpc-problem-archive/[a-z0-9][a-z0-9-]*$",
+     "description": "GitHub repo holding the material: icpc-problem-archive/<contest-id> (name may differ from the catalogue id) or icpc-problem-archive/statement-only"
+    },
+    "count": {
+     "type": "integer",
+     "minimum": 1,
+     "description": "number of problems in the contest (derived from problems/<id>.yaml when that file exists)"
+    },
+    "statement": {
+     "$ref": "#/$defs/heldState"
+    },
+    "data": {
+     "$ref": "#/$defs/heldState"
+    },
+    "solutions": {
+     "$ref": "#/$defs/heldState"
+    },
+    "package": {
+     "$ref": "#/$defs/heldState"
+    },
+    "counts": {
+     "type": "object",
+     "additionalProperties": false,
+     "description": "exact number of problems held, for kinds marked partial",
+     "properties": {
+      "statement": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "data": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "solutions": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "package": {
+       "type": "integer",
+       "minimum": 0
+      }
+     }
+    },
+    "judges": {
+     "$ref": "#/$defs/judgeLinks"
+    },
+    "notes": {
+     "type": "string"
+    },
+    "source": {
+     "type": "string"
+    }
+   }
   }
  },
  "properties": {

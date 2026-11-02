@@ -135,10 +135,11 @@ def main() -> int:
             for m in c.get("mirrors") or []:
                 ref(m["url"], "mirror", m, m.get("as_of"))
             ps = c.get("problemset")
-            if isinstance(ps, dict):
-                ref(ps["url"], "problemset", ps, ps.get("as_of"))
-            elif ps:
-                ref(ps, "problemset")
+            for x in (ps if isinstance(ps, list) else [ps]) if ps else []:  # a list since 2026-11-01
+                if isinstance(x, dict):
+                    ref(x["url"], "problemset", x, x.get("as_of"))
+                else:
+                    ref(x, "problemset")
             ist = c.get("icpc_standings")
             if isinstance(ist, dict):
                 ref(ist["url"], "icpc_standings", ist, ist.get("as_of"))
