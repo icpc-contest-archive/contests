@@ -76,6 +76,12 @@ def main() -> int:
             for m in c.get("mirrors") or []:
                 if m.get("url"):
                     extra.append(("web-mirror", m["url"], m.get("as_of")))
+            # 2026-11-02: online-judge category pages (Baekjoon closed 2026-04-28, Live Archive
+            # long dead) are captured too, as judge-<name> artifacts
+            for jname, jv in ((c.get("problems") or {}).get("judges") or {}).items():
+                for loc in (jv if isinstance(jv, list) else [jv]):
+                    extra.append((f"judge-{jname}", loc["url"] if isinstance(loc, dict) else loc,
+                                  loc.get("as_of") if isinstance(loc, dict) else None))
             for kind, url, as_of in extra:
                 item = {"contest": c["id"], "kind": kind, "url": url, "pivot": pivot}
                 raw, ts, via = unwrap(url)

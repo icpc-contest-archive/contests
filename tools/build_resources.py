@@ -140,6 +140,12 @@ def main() -> int:
                     ref(x["url"], "problemset", x, x.get("as_of"))
                 else:
                     ref(x, "problemset")
+            for jname, jv in ((c.get("problems") or {}).get("judges") or {}).items():  # 2026-11-02
+                for x in (jv if isinstance(jv, list) else [jv]):
+                    if isinstance(x, dict):
+                        ref(x["url"], f"judge-{jname}", x, x.get("as_of"))
+                    else:
+                        ref(x, f"judge-{jname}")
             ist = c.get("icpc_standings")
             if isinstance(ist, dict):
                 ref(ist["url"], "icpc_standings", ist, ist.get("as_of"))
