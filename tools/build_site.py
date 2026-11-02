@@ -539,6 +539,7 @@ def cap_time(cap: dict):
 # ---- problems (DEFINITIONS.md, Problems) ----
 PROBLEM_FILES: dict = {}  # contest id -> parsed problems/<id>.yaml
 REPLAY_LOOKUP: dict = {}  # (contest, url) -> baked replay path, filled by build()
+PROBLEMSET_CAPS: dict = {}  # (contest, url) -> archive path of a held problem-set capture (not published)
 HELD_KINDS = (("statement", "St", "statements"), ("data", "D", "test data"),
               ("solutions", "So", "solutions"), ("package", "P", "complete packages"))
 JUDGE_LABEL = {"kattis": "Kattis", "livearchive": "Live Archive", "baekjoon": "Baekjoon",
@@ -638,6 +639,8 @@ def problems_section(cid: str, c: dict, rel: str) -> list[str]:
         baked = REPLAY_LOOKUP.get((cid, w))
         if baked:
             parts.append(f'<a href="{REPLAY_BASE}/{esc(baked)}" title="our copy of this resource">archived</a>')
+        elif (cid, w) in PROBLEMSET_CAPS:  # 2026-11-02: problem-set captures stay in the private archive
+            parts.append(local_link("archive/" + PROBLEMSET_CAPS[(cid, w)], "archived"))
         if RES.locator_href(w, rel):
             parts.append(RES.label_link(w, as_of, rel, "resource"))
         b.append("<dt>problem set</dt><dd>" + " · ".join(parts) + health_chip(w) + "</dd>")
@@ -690,10 +693,13 @@ def build(out: Path):
                 replay_lookup[(e["contest"], e["url"])] = e["path"]
             replay_by_contest[e["contest"]].append(e)
     archived_by_contest = defaultdict(list)
+    PROBLEMSET_CAPS.clear()
     if aux["archive-index"]:
         for e in aux["archive-index"]["captures"]:
             archived_by_contest[e["contest"]].append(e)
             capture_info[e["path"]] = e
+            if e.get("artifact") == "problemset" and e.get("url") and not e.get("content_caveat"):
+                PROBLEMSET_CAPS.setdefault((e["contest"], e["url"]), e["path"])
     website_of.clear()  # contest -> primary website capture entry
     if aux["website-index"]:
         for e in aux["website-index"]["sites"]:

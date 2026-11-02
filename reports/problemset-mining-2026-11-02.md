@@ -1,0 +1,186 @@
+# Problem-set locators mined from our own site crawls — 2026-11-02
+
+169 candidates for contests that had no `problemset:`; 8 URLs dropped because they fit several contests (another contest's set on a shared host).
+
+## Applied candidates
+
+- alberta-2006: http://webdocs.cs.ualberta.ca/~acpc/2006/problems/ (snapshot 20210125)
+- amritapuri-2013: http://icpc.amrita.ac.in/2013/wp-content/uploads/2013/12/ProblemsSets2013Asia-Amritapuri.pdf (snapshot 20140629)
+- amritapuri-2016: http://icpc.amrita.ac.in/problems/ (snapshot 20170702)
+- awc-2019: http://wc.indiaicpc.in/problem_sets.pdf (snapshot 20240205)
+- bapc-2005: https://2005.bapc.eu/problems/bapc.tar.gz
+- bapc-2010: http://bapc.eu/problems/ (snapshot 20151102)
+- bapc-2012: http://2012.bapc.eu/oudeopgaven/Finals.zip (snapshot 20201230)
+- bapc-2014: https://2014.bapc.eu/problemset.zip (snapshot 20201230)
+- bapc-2015: http://2015.bapc.eu/problems/bapc2015.pdf (snapshot 20200929)
+- bapc-2017: https://2017.bapc.eu/problems
+- bapc-2018: https://2018.bapc.eu/problems.html
+- bapc-2019: https://2019.bapc.eu/problems.html
+- bapc-2023: https://2023.bapc.eu/problems
+- bapc-2024: https://2024.bapc.eu/bapc/problemset.pdf
+- bapc-prelims-2021: https://2021.bapc.eu/prelims2021-problems.pdf (snapshot 20211206)
+- beijing-2003: http://www.acm.tsinghua.edu.cn/ProblemSet_ICPC2003BJ.pdf (snapshot 20031228)
+- brazil-2004: http://maratona.ime.usp.br/hist/2004/problem_set2004_f_v6.pdf (snapshot 20070622)
+- brazil-2005: https://maratona.sbc.org.br/hist/2005/primeira-fase/problem_set2005.pdf
+- bulgaria-2012: http://bcpc.eu/XXIV/files/tasks.pdf (snapshot 20201230)
+- bulgaria-2013: http://bcpc.eu/XXV/TrainingTasks.pdf (snapshot 20201230)
+- central-america-2005: http://khalo.qro.itesm.mx/~acm/Problems.html (snapshot 20050827)
+- central-america-2007: http://cidi.uaq.mx/acm/problems.html (snapshot 20071206)
+- cerc-1998: https://contest.felk.cvut.cz/98cerc/problems.html
+- cerc-1999: https://contest.felk.cvut.cz/99cerc/problems.html
+- cerc-2022: https://cerc2022.acm.si/res/CERC22-tasks.pdf
+- changchun-2015: http://acm.nenu.edu.cn/regional-2015/files/2015/10/problemset_20151015.pdf (snapshot 20151223)
+- chengdu-2005: http://acm.scu.edu.cn/icpc/problems.htm (snapshot 20060225)
+- ctuo-2024: https://contest.felk.cvut.cz/24prg/solved/ctu-open-problems.pdf (snapshot 20250207)
+- dhaka-2001: http://www.buet.ac.bd/acm/problems/problems.html (snapshot 20021102)
+- dhaka-2003: http://www.buet.ac.bd/acmicpc/problemset.html (snapshot 20050501)
+- dhaka-2008: http://www.northsouth.edu/acm/Problem_Set_with_Analysis_Dhaka2008.pdf (snapshot 20100609)
+- dhaka-2025: https://icpc.bubt.edu.bd/assets/files/problem_set_2025_dhaka_site.pdf
+- ecna-2013: https://icpc-ecna.ysu.edu/PastResults/2013/Problem-Set/Problems/ecna2013.pdf
+- ecna-2015: https://icpc-ecna.ysu.edu/PastResults/2015/problemset.html
+- ecna-2016: https://icpc-ecna.ysu.edu/PastResults/2016/problemset.html
+- ecna-2017: https://icpc-ecna.ysu.edu/PastResults/2017/problemset.html
+- ecna-2018: https://icpc-ecna.ysu.edu/PastResults/2018/problemset.html
+- ecna-2019: https://icpc-ecna.ysu.edu/PastResults/2019/problemset.html
+- ecna-2020: https://icpc-ecna.ysu.edu/PastResults/2020/problemset.html
+- ecna-2021: http://icpc-ecna.ysu.edu/PastResults/2021/problemset.html (snapshot 20220524)
+- germany-2010: https://2010.gcpc.nwerc.eu/problemset_2010.pdf
+- germany-2011: https://2011.gcpc.nwerc.eu/problemset_2011.pdf
+- germany-2012: https://2012.gcpc.nwerc.eu/problemset_2012.pdf
+- germany-2013: https://2013.gcpc.nwerc.eu/problemset_2013.pdf
+- germany-2014: https://2014.gcpc.nwerc.eu/problemset_2014.pdf
+- germany-2015: https://2015.gcpc.nwerc.eu/problemset_2015.pdf
+- germany-2016: https://2016.gcpc.nwerc.eu/problemset_2016.pdf
+- germany-2017: https://2017.gcpc.nwerc.eu/problemset_2017.pdf
+- germany-2018: https://2018.gcpc.nwerc.eu/problemset_2018.pdf
+- germany-2019: https://2019.gcpc.nwerc.eu/problemset_2019.pdf
+- germany-2020: https://2020.gcpc.nwerc.eu/problemset_2020.pdf
+- germany-2021: https://2021.gcpc.nwerc.eu/problemset_2021.pdf
+- germany-2022: https://2022.gcpc.nwerc.eu/problemset.pdf
+- germany-2023: https://2023.gcpc.nwerc.eu/problemset.pdf
+- gny-2002: http://acmgnyr.org/year2002/problems.shtml
+- gny-2003: http://acmgnyr.org/year2003/problems.shtml
+- gny-2004: http://acmgnyr.org/year2004/problems.shtml
+- gny-2005: http://acmgnyr.org/year2005/problems.shtml
+- gny-2006: http://acmgnyr.org/year2006/problems.shtml
+- gny-2009: http://acmgnyr.org/year2009/problems.shtml
+- gny-2011: http://acmgnyr.org/year2011/problems.shtml
+- gny-2012: http://acmgnyr.org/year2012/problems.shtml
+- gny-2014: http://acmgnyr.org/year2014/problems.shtml
+- gny-2015: http://acmgnyr.org/year2015/problems.shtml
+- gny-2016: http://acmgnyr.org/year2016/problems.shtml
+- gny-2017: http://acmgnyr.org/year2017/problems.shtml
+- gny-2018: http://acmgnyr.org/year2018/problems.shtml
+- gny-2019: http://acmgnyr.org/year2019/problems.shtml
+- gny-2023: http://acmgnyr.org/year2023/problems.shtml
+- gny-2025: http://acmgnyr.org/year2025/problems.shtml
+- gwalior-2014: http://www.icpcgwalior.org/doc/OnsiteProblem.pdf (snapshot 20141222)
+- hangzhou-2005: http://acm.zju.edu.cn/icpc2005/Problemset.pdf (snapshot 20070207)
+- jakarta-2010: https://competition.binus.ac.id/icpc2010/icpc10jak-problemset.pdf
+- jakarta-2012: https://competition.binus.ac.id/icpc2012/index/problemset
+- jakarta-2013: https://competition.binus.ac.id/icpc2013/index/problemset
+- jakarta-2014: https://competition.binus.ac.id/icpc2014/index/problemset
+- jakarta-2015: https://competition.binus.ac.id/icpc2015/index.php/problemset
+- japan-2001: http://www.fun.ac.jp/icpc/Problems.html (snapshot 20090103)
+- japan-2004: http://www.ehime-u.ac.jp/ICPC/problems/regional/r2004.pdf (snapshot 20061003)
+- japan-2005: http://www.teu.ac.jp/icpc/regional/problems.html (snapshot 20080415)
+- japan-2006: http://www.acm-japan.org/icpc2006/domestic/problem.html (snapshot 20080618)
+- japan-2010: http://icpc2010.honiden.nii.ac.jp/domestic-contest/problems (snapshot 20101127)
+- japan-2011: http://icpc2011.ait.kyushu-u.ac.jp/domestic-contest/problems (snapshot 20121104)
+- japan-2012: http://www.cs.titech.ac.jp/icpc2012/regional-contest/problem.html
+- japan-2013: http://sparth.u-aizu.ac.jp/icpc2013/results/2013AizuAllProblems.pdf (snapshot 20210127)
+- japan-2014: https://icpc.jp/2014/domestic/problems/
+- kanpur-2025: http://kanpur.indiaicpc.in/2025/docs/problems_2022.pdf
+- kharagpur-2018: http://acm.iitkgp.ac.in/KGP2018PROBLEMS.pdf (snapshot 20181222)
+- kolkata-2015: http://icpckolkata.in/2015/ONSITEProblemSet2015.pdf (snapshot 20161231)
+- korea-2001: http://icpc.baylor.edu/past/icpc2002/regionals/Taejon01/problems_2001.zip (snapshot 20060118)
+- kuala-lumpur-2014: http://www.iium.edu.my/acmicpc/2014/files/Problemset-Regional-KL-2014-v1.6-final.pdf (snapshot 20150514)
+- kuala-lumpur-2019: https://www.iium.edu.my/acmicpc/2019/regional/files/problemset.pdf
+- manila-2006: http://www.math.admu.edu.ph/~raf/acm/problems2006.pdf (snapshot 20080828)
+- mausa-2003: http://midatl.cs.vt.edu/problems/ (snapshot 20040109)
+- mausa-2005: http://midatl.cs.vt.edu/archive/2005/problems/MidAtlantic2005.pdf (snapshot 20051124)
+- moscow-2021: https://nerc.icpc.global/archive/2021/nerc-2021-statement.pdf (snapshot 20220511)
+- ncna-2005: http://csalpha.ist.unomaha.edu/antdoc/problems.html (snapshot 20060902)
+- ncna-2010: http://cs.unomaha.edu/acmregn/problems10/problems.html (snapshot 20110728)
+- neerc-2010: http://nerc.itmo.ru/archive/2010/neerc-2010-problems.pdf (snapshot 20241013)
+- neerc-2013: http://nerc.itmo.ru/archive/2013/neerc-2013-problems.pdf (snapshot 20241013)
+- neerc-2014: http://nerc.itmo.ru/archive/2014/neerc-2014-statements.pdf (snapshot 20241013)
+- neerc-2016: http://nerc.itmo.ru/archive/2016/neerc-2016-statement.pdf (snapshot 20241013)
+- nena-east-2015: http://hc3.seas.harvard.edu/hc3/bospre/2015/problems (snapshot 20170923)
+- nena-east-2018: https://hc3.seas.harvard.edu/hc3/bospre/2018/bospre2018_problems.pdf (snapshot 20240708)
+- nena-east-2019: https://hc3.seas.harvard.edu/hc3/bospre/bospre2019_problems.pdf (snapshot 20221224)
+- nena-north-2019: https://mcgill19.kattis.com/contests/mcgill19/problems
+- nerc-2018: http://nerc.itmo.ru/archive/2018/neerc-2018-statement.pdf (snapshot 20241013)
+- nerc-2019: http://nerc.itmo.ru/archive/2019/nerc-2019-statement.pdf (snapshot 20220127)
+- nerc-2020: http://nerc.itmo.ru/archive/2020/nerc-2020-online-statement.pdf (snapshot 20240618)
+- nerc-2023: https://nerc.icpc.global/archive/2023/nef-2023-statement.pdf (snapshot 20240303)
+- nerc-2024: http://nerc.itmo.ru/archive/2024/nef-2024-statement.pdf (snapshot 20250422)
+- north-russia-2019: http://nerc.itmo.ru/archive/2019/northern/nwq-2019-statements.pdf (snapshot 20211207)
+- north-russia-2020: http://nerc.itmo.ru/archive/2020/northern/statements.pdf (snapshot 20211206)
+- north-russia-2025: https://nerc.itmo.ru/archive/2025/northern/statements.pdf
+- nwerc-2001: http://icpc.tu-darmstadt.de/problemset (snapshot 20031207)
+- nwerc-2004: http://fileadmin.cs.lth.se/contest/nwerc/Problemset_NWERC2004.pdf (snapshot 20180304)
+- nwerc-2010: http://2010.nwerc.eu/results/nwerc2010-problemset.pdf (snapshot 20160320)
+- nwerc-2011: http://2011.nwerc.eu/results/nwerc2011-problemset_2.pdf (snapshot 20160321)
+- nwerc-2014: http://2014.nwerc.eu/nwerc2014problems.pdf
+- nwerc-2015: http://2015.nwerc.eu/contest/nwerc2015problems.pdf
+- nwerc-2016: https://people.bath.ac.uk/masjhd/2016.NWERC/nwerc2016problems.pdf (snapshot 20190923)
+- nwerc-2018: http://2018.nwerc.eu/files/nwerc2018problems.pdf (snapshot 20201230)
+- nwerc-2019: http://2019.nwerc.eu/files/nwerc2019problems.pdf (snapshot 20201231)
+- nwerc-2020: https://2020.nwerc.eu/files/nwerc2020problems.pdf
+- nwerc-2021: https://2021.nwerc.eu/files/nwerc2021problems.pdf
+- poland-2011: http://amppz.mimuw.edu.pl/2011/amppz2011-problemset.pdf (snapshot 20121018)
+- rmc-2001: https://org.coloradomesa.edu/~wmacevoy/rmrc/2001/problems
+- rmc-2002: https://org.coloradomesa.edu/~wmacevoy/rmrc/2002/contest/problems.html
+- rmc-2003: https://org.coloradomesa.edu/~wmacevoy/rmrc/2003/problems/prob1/statement.pdf
+- romania-2013: http://acm.ro/Romania/2013/problems.htm (snapshot 20131005)
+- romania-2016: http://acm.ro/2016/problems.htm (snapshot 20180710)
+- scusa-2020: http://acm2020.scusa.lsu.edu/problems/ (snapshot 20220117)
+- seerc-2025: https://seerc.euc.icpc.global/wp-content/uploads/2025/12/seerc2025-statements.pdf
+- seusa-2000: http://turing.gcsu.edu/~gadkins/problems.html (snapshot 20001020)
+- shanghai-2001: http://acm.shu.edu.cn/Pastyears/2001/problemset.html (snapshot 20020208)
+- shanghai-2006: http://acm.shu.edu.cn/ProblemSet.pdf (snapshot 20160331)
+- shanghai-2009: http://acm.dhu.edu.cn/files/problemset.pdf (snapshot 20090901)
+- singapore-2001: http://icpc.baylor.edu/past/icpc2002/Regionals/Singapor01/ProblemSets2001.pdf (snapshot 20030512)
+- socal-2025: http://socalcontest.org/history/2024/SCICPC-2024-2025-ProblemSet.pdf
+- south-america-2004: http://www.dcc.unicamp.br/~acmcntst/problems/warmup2004.pdf (snapshot 20050212)
+- south-america-2005: http://www.ic.unicamp.br/~acmcntst/Welcome_files/SAmerica2005_problems.pdf (snapshot 20060714)
+- south-america-south-2008: http://www.dc.uba.ar/events/icpc/2008/problems.html (snapshot 20140401)
+- south-pacific-2011: http://www.sppcontest.org/2011/Problems/ (snapshot 20120422)
+- south-pacific-division-2021: https://sppcontests.org/wp-content/uploads/2024/07/2021_archive/2021_Regional_Problemset.pdf (snapshot 20250513)
+- south-pacific-east-2014: https://acmicpc.unisa.edu.au/images/Problem_PDF/2014/problemseteast.pdf (snapshot 20180508)
+- sweden-2000: https://fileadmin.cs.lth.se/contest/c00/ProblemSet.pdf
+- swerc-1998: http://www.informatik.uni-ulm.de/acm/Locals/1998/problemset.html (snapshot 20060925)
+- swerc-2001: http://icpc.baylor.edu/past/icpc2002/Regionals/SWERC01/swerc2001_problemset.pdf (snapshot 20030929)
+- swerc-2002: http://swerc.up.pt/2002/Data/swerc2002_problemset.pdf (snapshot 20070709)
+- swerc-2007: http://ctp.di.fct.unl.pt/~amd/cpn/2007swerc/official/Swerc2007Problems.html.tgz
+- swerc-2009: http://pc.fdi.ucm.es/swerc/swerc09/swerc09-problem-set.rar (snapshot 20130614)
+- swerc-2014: http://swerc.up.pt/2014/reports/problemset.pdf (snapshot 20180128)
+- swerc-2015: http://swerc.up.pt/2015/reports/problemset.pdf (snapshot 20180412)
+- swerc-2016: http://swerc.up.pt/2016/reports/problemset.pdf (snapshot 20180412)
+- swerc-2025: https://swerc.eu/2025/statements.pdf
+- taiwan-2005: http://acm.ntnu.edu.tw/2005_ACM_ICPC_Taipei_Problem_Set.pdf (snapshot 20060206)
+- taiwan-2011: http://icpc2011.chu.edu.tw/files/allproblem.pdf (snapshot 20131204)
+- taiwan-2018: http://icpc2018.ntu.edu.tw/problem.html (snapshot 20181116)
+- taiwan-2023: https://icpc2023.ntub.edu.tw/wp-content/uploads/2023/10/ICPC2023-ProblemSet.pdf
+- tehran-2000: https://icpc.sharif.edu/2000/problems.html (snapshot 20251016)
+- tehran-2001: https://icpc.sharif.edu/2001/problems.html (snapshot 20250430)
+- tehran-2002: https://icpc.sharif.edu/2002/problems.html (snapshot 20240820)
+- tehran-2003: https://icpc.sharif.edu/2003/problems.html (snapshot 20250717)
+- tehran-2012: https://icpc.ir/2012/problems/TD.zip (snapshot 20250630)
+- tehran-2013: https://icpc.ir/2013/problems/TD.zip (snapshot 20250630)
+- tehran-2014: http://icpc.sharif.edu/2014/problems/TD.zip (snapshot 20240729)
+- thailand-2012: http://acm-icpc.coe.psu.ac.th/contest-problem/contest-acm-asia-hy-2012-final.pdf (snapshot 20150906)
+- thailand-2013: http://www.acmicpc-thailand.org/asia/2013/ProblemSetPK2013/contest2013/contestPbAsiaPK-2013.pdf (snapshot 20140912)
+- ukiepc-2014: https://ukiepc.info/2014/2014/ncpc2014problems.pdf
+
+## Dropped as shared
+
+- http://acm-icpc.olp.vn/results/problems <- ['vietnam-2013', 'vietnam-2015', 'vietnam-2016', 'vietnam-2017', 'vietnam-2018', 'vietnam-2019']
+- http://acm.cs.up.ac.za/Problems.html <- ['south-africa-2007', 'south-africa-2009', 'south-africa-2011', 'south-africa-2012']
+- http://acm.cs.up.ac.za/Problems/ <- ['south-africa-2007', 'south-africa-2011']
+- http://acm.iitkgp.ac.in/KharagpurOnsiteProblemSet.pdf <- ['kharagpur-2017', 'kharagpur-2018']
+- http://acm.iitkgp.ac.in/onsite_problems.pdf <- ['kharagpur-2013', 'kharagpur-2014', 'kharagpur-2017', 'kharagpur-2018']
+- https://kanpur.indiaicpc.in/problems_2022.pdf <- ['kanpur-2021', 'kanpur-2022']
+- https://na.icpc.global/wp-content/uploads/2023/02/NAQ-Problems.pdf <- ['mcpc-2022', 'mcpc-2023', 'ncna-2022', 'ncna-2023']
+- https://na.icpc.global/wp-content/uploads/2023/02/mc_2022_problem_set-1.pdf <- ['mcpc-2021', 'mcpc-2022', 'mcpc-2023', 'naq-2021', 'ncna-2022', 'ncna-2023']

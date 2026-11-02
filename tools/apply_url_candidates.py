@@ -24,7 +24,7 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 import sys  # noqa: E402
 sys.path.insert(0, str(ROOT / "tools"))
-from resources import unwrap  # noqa: E402
+from resources import norm_key, unwrap  # noqa: E402
 RES_KEYS = {"scoreboard", "frozen_scoreboard", "standings", "rankings"}
 
 
@@ -43,6 +43,8 @@ def main() -> int:
     ap.add_argument("--statuses", default="verified,wayback")
     ap.add_argument("--methods", default="", help="comma list; empty = all")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--append-problemset", action="store_true",
+                    help="add a problemset URL as an additional locator when the contest already has a different one")
     args = ap.parse_args()
     statuses = set(args.statuses.split(","))
     methods = set(args.methods.split(",")) if args.methods else None
@@ -87,7 +89,16 @@ def main() -> int:
                     c["web"] = loc
                 elif art == "problemset":
                     if c.get("problemset"):
-                        stats["skipped (problemset present)"] += 1
+                        if not args.append_problemset:
+                            stats["skipped (problemset present)"] += 1
+                            continue
+                        cur = c["problemset"] if isinstance(c["problemset"], list) else [c["problemset"]]
+                        if norm_key(url) in {norm_key(x["url"] if isinstance(x, dict) else x) for x in cur}:
+                            stats["skipped (problemset url present)"] += 1
+                            continue
+                        c["problemset"] = cur + [loc]  # a second place the set is published (list since 2026-11-01)
+                        stats["applied problemset (additional)"] += 1
+                        changed = True
                         continue
                     c["problemset"] = loc
                 elif art in RES_KEYS:
