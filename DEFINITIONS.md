@@ -116,6 +116,38 @@ vocabulary on a result row: *live* = the locator as is; *wayback* = pinned to `a
 capture; *raw* = the capture file untouched. Nothing ever links to a Wayback URL of a
 Wayback URL.
 
+## Problems
+
+The ICPC Problem Archive (the private `icpc-problem-archive` GitHub org) holds the
+problem material; this catalogue tracks *what* it holds and where the problems can be
+solved online. Two levels:
+
+- **Per contest**, `problems:` on the contest entry: `repo` (the archive repo —
+  `icpc-problem-archive/<name>`; the name usually equals the contest id but need not, e.g.
+  `benelux-2022` for `bapc-2022`, and `statement-only` for contests with statements only),
+  `count` (number of problems), and one of `full` / `partial` / `none` for each kind of
+  material: `statement`, `data`, `solutions`, `package`. `counts:` gives the exact number
+  held for kinds marked partial (full and none are implied by `count`). `judges:` is an
+  open map of judge → locator(s): `kattis`, `livearchive` (ICPC Live Archive, formerly
+  icpcarchive.ecs.baylor.edu, now onlinejudge.org), `baekjoon` (acmicpc.net), `codeforces`;
+  add keys as sources appear. `notes` and `source` as elsewhere.
+- **Per problem**, `problems/<contest-id>.yaml`: `letter` (the label in this contest),
+  `name`, optional `short_name` (package / Kattis short name), `uuid` (the package's
+  `problem.yaml` uuid — the same across contests that reuse the problem), `have` (subset
+  of statement, data, input_validator, output_validator, solutions, package), `judges`,
+  `status: private` for problems kept private after the contest (name and uuid are still
+  public), `notes`. When this file exists it is authoritative: `count` and the four
+  full/partial/none states on the contest must agree with it (validate.py checks).
+
+**Publication rule.** Nothing about a contest's problems — not the names, not the count —
+is public before the contest has run. `validate.py` fails the build when a contest that is
+upcoming or dated in the future carries problem data; in practice the material only
+reaches the archive afterwards, so this is a guard, not a workflow. Problems kept private
+*after* the contest may have their names and uuids listed.
+
+`problemset:` (above) is different: it is a locator for the published problem set on the
+web, a capture target, not a statement about the archive's holdings.
+
 ## Levels
 
 Tier labels drift across eras (NWERC moved under the EUC in season 2024 unchanged; ACPC
@@ -127,7 +159,9 @@ national contests under the South Africa regional (2016–2019).
 ## Provenance
 
 The initial import came from the "ICPC contest list / Main list" sheet
-(`data/import/`, mechanical fixes logged in `CONVERSION-FIXES.md`). From this import on,
+(`data/import/`, mechanical fixes logged in `CONVERSION-FIXES.md`); the problem-archive
+holdings came from the "ICPC Problem Archive progress" sheet (`data/import/`,
+`tools/import_problem_archive.py`, disagreements in `reports/problem-archive-import-*.md`). From this import on,
 **this repo is the source of truth**; edits happen here, with git history as the audit
 trail. `sources:` and `notes:` on a contest record where facts came from;
 `reports/open-warnings.md` tracks the judgment calls still open.

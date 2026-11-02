@@ -1,0 +1,156 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://github.com/icpc-contest-archive/contests/schema/problems.schema.json",
+ "title": "ICPC contest catalogue — per-contest problem list (problems/<contest-id>.yaml)",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "contest",
+  "problems"
+ ],
+ "properties": {
+  "contest": {
+   "$ref": "#/$defs/contestId"
+  },
+  "source": {
+   "type": "string"
+  },
+  "notes": {
+   "type": "string"
+  },
+  "problems": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "$ref": "#/$defs/problem"
+   }
+  }
+ },
+ "$defs": {
+  "problem": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "letter",
+    "name"
+   ],
+   "properties": {
+    "letter": {
+     "type": "string",
+     "pattern": "^[A-Z][0-9]?$|^[0-9]{1,2}$",
+     "description": "the problem's label in this contest"
+    },
+    "name": {
+     "type": "string"
+    },
+    "short_name": {
+     "type": "string",
+     "pattern": "^[a-z0-9_-]+$",
+     "description": "package / Kattis short name"
+    },
+    "uuid": {
+     "type": "string",
+     "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+     "description": "the problem package's uuid (problem.yaml); the same across contests that reuse the problem"
+    },
+    "status": {
+     "enum": [
+      "private"
+     ],
+     "description": "the problem is kept private after the contest; name and uuid are still public"
+    },
+    "have": {
+     "type": "array",
+     "uniqueItems": true,
+     "items": {
+      "enum": [
+       "statement",
+       "data",
+       "input_validator",
+       "output_validator",
+       "solutions",
+       "package"
+      ]
+     },
+     "description": "what the problem archive holds for this problem"
+    },
+    "judges": {
+     "$ref": "#/$defs/judgeLinks"
+    },
+    "notes": {
+     "type": "string"
+    }
+   }
+  },
+  "contestId": {
+   "type": "string",
+   "pattern": "^[a-z0-9][a-z0-9-]*-[0-9]{4}$"
+  },
+  "judgeLinks": {
+   "type": "object",
+   "additionalProperties": {
+    "$ref": "#/$defs/urlOrList"
+   },
+   "description": "where the problems can be solved online, keyed by judge: kattis, livearchive (ICPC Live Archive, onlinejudge.org), baekjoon (acmicpc.net), codeforces, … — open map, add keys as sources appear; values are locators (one, or a list)",
+   "propertyNames": {
+    "pattern": "^[a-z][a-z0-9-]*$"
+   }
+  },
+  "urlOrList": {
+   "oneOf": [
+    {
+     "type": "null",
+     "description": "confirmed none (absent = not researched)"
+    },
+    {
+     "$ref": "#/$defs/urlOrLocator"
+    },
+    {
+     "type": "array",
+     "minItems": 2,
+     "items": {
+      "$ref": "#/$defs/urlOrLocator"
+     }
+    }
+   ]
+  },
+  "urlOrLocator": {
+   "oneOf": [
+    {
+     "$ref": "#/$defs/url"
+    },
+    {
+     "$ref": "#/$defs/locator"
+    }
+   ]
+  },
+  "url": {
+   "type": "string",
+   "pattern": "^https?://",
+   "description": "a locator: a bare URL, never an archive wrapper (web.archive.org/web/<ts>/...) — ingest unwraps those into url + as_of; enforced by validate.py"
+  },
+  "locator": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "url"
+   ],
+   "properties": {
+    "url": {
+     "$ref": "#/$defs/url"
+    },
+    "as_of": {
+     "$ref": "#/$defs/asOf"
+    },
+    "note": {
+     "type": "string"
+    }
+   }
+  },
+  "asOf": {
+   "type": "string",
+   "pattern": "^[0-9]{4,14}$",
+   "description": "Wayback-style timestamp, 4-14 digits at the precision known (2011, 20110102, 20110102183612): the content meant is what the locator served at this time (live address dead/repurposed). Derivable wayback link: web.archive.org/web/<as_of>/<url>"
+  }
+ }
+}

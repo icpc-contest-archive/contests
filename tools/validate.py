@@ -77,7 +77,8 @@ def main() -> int:
         for c in doc["contests"]:
             for w in refs(c.get("web")):
                 check_locator(f"{c['id']}.web", w)
-            check_locator(f"{c['id']}.problemset", c.get("problemset"))
+            for w in refs(c.get("problemset")):
+                check_locator(f"{c['id']}.problemset", w)
             for m in c.get("mirrors") or []:
                 check_locator(f"{c['id']}.mirrors", m)
             for kind, lst in (c.get("results") or {}).items():
@@ -181,6 +182,80 @@ def main() -> int:
     for c in non_mainline["non_mainline_contests"]:
         if c["id"] in contests:
             err(f"{c['id']} present in both series/ and non-mainline registry")
+
+    # ---- problems: contest blocks + problems/<id>.yaml (DEFINITIONS.md, Problems) ----
+    pschema = json.loads((ROOT / "schema" / "problems.schema.json").read_text())
+    pvalidator = Draft202012Validator(pschema)
+    pblock_schema = {"$ref": "#/$defs/problemsBlock", "$defs": schema["$defs"]}
+    pblock_validator = Draft202012Validator(pblock_schema)
+    all_known = {**{c["id"]: c for c in non_mainline["non_mainline_contests"]}, **contests}
+    for cid, c in all_known.items():
+        pb = c.get("problems")
+        if pb is None:
+            continue
+        if cid not in contests:  # series files are schema-checked above; the registry is not
+            for e in pblock_validator.iter_errors(pb):
+                err(f"non-mainline {cid}: problems: {'/'.join(map(str, e.path))}: {e.message[:140]}")
+        for key in ("judges",):
+            for v in (pb.get(key) or {}).values():
+                for loc in (v if isinstance(v, list) else [v]):
+                    check_locator(f"{cid}.problems.judges", loc)
+        if pb.get("counts"):
+            for k, n in pb["counts"].items():
+                if pb.get(k) != "partial":
+                    err(f"{cid}: problems.counts.{k} given but {k} is {pb.get(k)!r} (counts are for partial kinds only)")
+                if pb.get("count") is not None and not 0 < n < pb["count"]:
+                    err(f"{cid}: problems.counts.{k}={n} is not strictly between 0 and count={pb['count']}")
+        # problem data must never be published before the contest has run
+        d = parse_date(c.get("date"))
+        if c.get("status") == "upcoming" or (d and d > TODAY):
+            if pb.get("count") or any(pb.get(k) not in (None, "none") for k in ("statement", "data", "solutions", "package")) or pb.get("repo"):
+                err(f"{cid}: problem data on a contest that has not run yet (upcoming / dated {c.get('date')}) — not publishable")
+    uuid_owner: dict[str, list[str]] = defaultdict(list)
+    pdir = ROOT / "problems"
+    for f in sorted(pdir.glob("*.yaml")) if pdir.exists() else []:
+        doc = yaml.safe_load(f.read_text())
+        for e in pvalidator.iter_errors(doc):
+            err(f"problems/{f.name}: schema: {'/'.join(map(str, e.path))}: {e.message[:140]}")
+        cid = doc.get("contest")
+        if cid != f.stem:
+            err(f"problems/{f.name}: contest {cid!r} != filename")
+        c = all_known.get(cid)
+        if c is None:
+            err(f"problems/{f.name}: contest {cid!r} is not in the catalogue or the non-mainline registry")
+            continue
+        if c.get("status") == "upcoming" or ((d := parse_date(c.get("date"))) and d > TODAY):
+            err(f"problems/{f.name}: per-problem data for a contest that has not run yet — not publishable")
+        probs = doc.get("problems") or []
+        letters = [p.get("letter") for p in probs]
+        if len(set(letters)) != len(letters):
+            err(f"problems/{f.name}: duplicate letters {sorted(l for l in letters if letters.count(l) > 1)}")
+        pb = c.get("problems") or {}
+        if pb.get("count") is None:
+            err(f"problems/{f.name}: contest {cid} has no problems.count (set it to {len(probs)})")
+        elif pb["count"] != len(probs):
+            err(f"problems/{f.name}: {len(probs)} problems listed but {cid} says count {pb['count']}")
+        for kind, key in (("statement", "statement"), ("data", "data"), ("solutions", "solutions"), ("package", "package")):
+            if pb.get(kind) is None:
+                continue
+            n = sum(1 for p in probs if key in (p.get("have") or []))
+            implied = "full" if n == len(probs) else ("none" if n == 0 else "partial")
+            if implied != pb[kind]:
+                err(f"problems/{f.name}: {kind} is {pb[kind]} on the contest but the problem rows say {implied} ({n}/{len(probs)})")
+        for p in probs:
+            if p.get("uuid"):
+                uuid_owner[p["uuid"]].append(f"{cid}/{p.get('letter')}")
+            for v in (p.get("judges") or {}).values():
+                for loc in (v if isinstance(v, list) else [v]):
+                    check_locator(f"problems/{f.name} {p.get('letter')}.judges", loc)
+    # a uuid may legitimately recur (the same problem reused in another contest) but never twice in one contest
+    for u, owners in uuid_owner.items():
+        by_contest = defaultdict(list)
+        for o in owners:
+            by_contest[o.split("/")[0]].append(o)
+        for cid, os_ in by_contest.items():
+            if len(os_) > 1:
+                err(f"uuid {u} appears twice in {cid}: {os_}")
 
     # ---- lineage symmetry ----
     for sid, doc in series_docs.items():

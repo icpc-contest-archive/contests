@@ -15,8 +15,11 @@ and baked replay of already-captured scoreboards. Deliberately deferred:
   (share tiers, takedown exclusions).
 - **Normalized standings** — extract clean per-contest rank/team/solved tables from the
   captured scoreboards and the API standings dump; verification workflow.
-- **Problemset links** — `problems:` references into the icpc-problem-archive org; the
-  public all-statements repo.
+- **Problem archive sync** — `problems:` blocks and `problems/<id>.yaml` were seeded from
+  the progress sheet (2026-11-01); next: a sync tool that reads each archive repo's
+  `problem.yaml` files to fill `uuid`, `short_name` and per-problem `have` for all 900+
+  contests, and judge-link discovery via the Kattis / Codeforces APIs; the public
+  all-statements repo.
 - **Additional replay shards** as the archive grows past ~1GB per Pages repo.
 - **Pre-1999 backfill** — the big cataloguing gap: 37 contests recorded before 1990
   against a hierarchy that existed from 1977.
