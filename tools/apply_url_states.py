@@ -15,6 +15,7 @@ Run from the contests repo root; validate afterwards.
 """
 from __future__ import annotations
 
+VERDICTS = {"live", "changed", "replaced", "dead", "unknown"}
 import json
 import re
 from collections import Counter
@@ -79,6 +80,11 @@ def main() -> int:
                     e["as_of"] = ts
                     stats["wayback snapshot recorded (as_of)"] += 1
                     changed = True
+                if s["state"] not in VERDICTS:
+                    # reconcile_states' provisional "captured-unverdicted" rows (manifest but no
+                    # verdict): the capture is already in the index; the as_of above is all we take
+                    stats[f"provisional row skipped ({s['state']})"] += 1
+                    continue
                 if e.get("url_state") != s["state"]:
                     stats[f"state -> {s['state']}"] += 1
                 if (e.get("url_state"), e.get("url_checked")) != (s["state"], s["checked"]):
