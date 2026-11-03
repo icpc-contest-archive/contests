@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
+# Maintained in-repo; last bulk edit: tools/migrate_locations.py (sites, 2026-11-02).
 series:
   id: seusa
   name: ICPC North America Southeast Regional Contest
@@ -42,6 +42,8 @@ contests:
 - id: seusa-1990
   season: 1991
   location: Auburn
+  sites:
+  - location: us-auburn
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1991
@@ -114,6 +116,8 @@ contests:
 - id: seusa-1995
   season: 1996
   location: Mercer Univ
+  sites:
+  - location: us-macon-mercer
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1996
@@ -169,6 +173,9 @@ contests:
   season: 1999
   name: 1998 ACM Southeast USA Programming Contest
   date: '1998-10-24'
+  sites:
+  - type: administrative
+    name: Host Site
   cms_ids:
   - 1201
   parent: wf-1999
@@ -213,6 +220,8 @@ contests:
   name: 1999 ACM Southeast USA Programming Contest
   date: '1999-10-30'
   location: Auburn University
+  sites:
+  - location: us-auburn-university
   cms_ids:
   - 1127
   parent: wf-2000
@@ -271,6 +280,9 @@ contests:
   name: 2000 ACM Southeast USA Programming Contest
   date: '2000-09-30'
   location: Milledgeville, GA
+  sites:
+  - location: us-milledgeville-georgia
+    date: '2000-09-29'
   cms_ids:
   - 1026
   parent: wf-2001
@@ -333,6 +345,9 @@ contests:
   name: 2001 ACM Southeast USA Programming Contest
   date: '2001-10-16'
   location: Milledgeville, GA
+  sites:
+  - location: us-milledgeville-georgia
+    date: '2001-10-06'
   cms_ids:
   - 1146
   parent: wf-2002
@@ -405,6 +420,8 @@ contests:
   name: 2002 ACM Southeast USA Programming Contest
   date: '2002-10-12'
   location: Daytona Beach, FL
+  sites:
+  - location: us-daytona-beach-embry-riddle
   cms_ids:
   - 1089
   parent: wf-2003
@@ -463,6 +480,8 @@ contests:
   name: 2003 ACM Southeast USA Programming Contest
   date: '2003-10-25'
   location: Daytona Beach, FL
+  sites:
+  - location: us-daytona-beach-embry-riddle-aeronautical
   cms_ids:
   - 1093
   parent: wf-2004
@@ -516,6 +535,8 @@ contests:
   name: 2004 ACM Southeast USA Programming Contest
   date: '2004-10-23'
   location: Melbourne, Florida
+  sites:
+  - location: us-melbourne-florida
   cms_ids:
   - 1150
   parent: wf-2005
@@ -552,6 +573,8 @@ contests:
   name: 2005 ACM Southeast USA Programming Contest
   date: '2005-10-15'
   location: Melbourne, Florida
+  sites:
+  - location: us-melbourne-florida
   cms_ids:
   - 1275
   parent: wf-2006
@@ -596,6 +619,9 @@ contests:
   name: 2006 ACM Southeast USA Programming Contest
   date: '2006-10-28'
   location: Statesboro, GA; Mobile, AL
+  sites:
+  - location: us-mobile-south-alabama
+  - location: us-statesboro-georgia-southern
   cms_ids:
   - 1165
   parent: wf-2007
@@ -636,6 +662,11 @@ contests:
   name: 2007 ACM Southeast USA Programming Contest
   date: '2007-10-13'
   location: Melbourne, FL; Statesboro, GA; Mobile, AL
+  sites:
+  - location: us-mobile-south-alabama
+  - location: us-melbourne-florida
+  - location: us-statesboro-georgia-southern
+  - type: administrative
   cms_ids:
   - 1298
   parent: wf-2008
@@ -671,6 +702,13 @@ contests:
   name: 2008 Southeast USA Programming Contest
   date: '2008-10-25'
   location: Savannah, Georgia; Mobile, Alabma; Melbourne, Florida
+  sites:
+  - location: us-melbourne-florida
+  - location: us-savannah-armstrong-atlantic
+  - location: us-melbourne
+    name: Administrative Site
+    type: administrative
+  - location: us-mobile-south-alabama
   cms_ids:
   - 41
   parent: wf-2009
@@ -721,6 +759,11 @@ contests:
   name: 2009 Southeast USA Programming Contest
   date: '2009-11-07'
   location: Administrative Site Location; Melbourne, Florida; Savannah, Georgia; Mobile, Alabma
+  sites:
+  - location: us-savannah-armstrong-atlantic
+  - location: us-melbourne-florida
+  - location: us-mobile-south-alabama
+  - type: administrative
   cms_ids:
   - 559
   parent: wf-2010
@@ -771,6 +814,11 @@ contests:
   name: 2010 Southeast USA Regional Contest
   date: '2010-11-06'
   location: Savannah, Georgia; Pensacola, Florida; Administrative Site Location; Melbourne, Florida
+  sites:
+  - location: us-savannah-armstrong-atlantic
+  - location: us-melbourne-florida
+  - location: us-pensacola-uwf
+  - type: administrative
   cms_ids:
   - 654
   parent: wf-2011
@@ -813,6 +861,11 @@ contests:
   name: 2011 Southeast USA Regional Contest
   date: '2011-10-29'
   location: Melbourne, Florida; Administrative Site Location; Statesboro, Georgia; Pensacola, Florida
+  sites:
+  - location: us-melbourne-florida
+  - location: us-pensacola-uwf
+  - location: us-statesboro-georgia-southern
+  - type: administrative
   cms_ids:
   - 874
   parent: wf-2012
@@ -877,6 +930,11 @@ contests:
   name: 2012 Southeast USA Regional Contest
   date: '2012-11-10'
   location: Pensacola, Florida; Administrative Site Location; Atlanta, Georgia; Melbourne, Florida
+  sites:
+  - location: us-melbourne-florida
+  - location: us-atlanta-georgia
+  - type: administrative
+  - location: us-pensacola-uwf
   cms_ids:
   - 1388
   parent: wf-2013
@@ -927,6 +985,11 @@ contests:
   name: 2013 Southeast USA Regional Contest
   date: '2013-11-02'
   location: Atlanta, Georgia; Administrative Site Location; Melbourne, Florida; Pensacola, Florida
+  sites:
+  - location: us-melbourne-florida
+  - location: us-atlanta-georgia
+  - location: us-pensacola-uwf
+  - type: administrative
   cms_ids:
   - 1972
   parent: wf-2014
@@ -974,6 +1037,11 @@ contests:
   name: 2014 Southeast USA Regional Contest
   date: '2014-11-15'
   location: Atlanta, Georgia; Melbourne, Florida; Pensacola, Florida; Administrative Site Location
+  sites:
+  - location: us-atlanta-georgia
+  - location: us-melbourne-florida
+  - location: us-pensacola-uwf
+  - type: administrative
   cms_ids:
   - 2415
   parent: wf-2015
@@ -1037,6 +1105,12 @@ contests:
   date: '2015-11-14'
   location: Charleston, South Carolina; Pensacola, Florida; Melbourne, Florida; Atlanta, Georgia; Administrative
     Site Location
+  sites:
+  - location: us-melbourne-florida
+  - location: us-atlanta-georgia
+  - location: us-charleston-college
+  - location: us-pensacola-uwf
+  - type: administrative
   cms_ids:
   - 2827
   parent: wf-2016
@@ -1087,6 +1161,12 @@ contests:
   date: '2016-11-05'
   location: Charleston, South Carolina; Melbourne, Florida; Administrative Site Location; Pensacola, Florida;
     Marietta, Georgia
+  sites:
+  - type: administrative
+  - location: us-melbourne-florida
+  - location: us-pensacola-uwf
+  - location: us-charleston-college
+  - location: us-marietta-kennesaw
   cms_ids:
   - 3202
   parent: wf-2017
@@ -1145,6 +1225,12 @@ contests:
   date: '2017-11-11'
   location: Charleston, South Carolina; Administrative Site Location; Pensacola, Florida; Marietta, Georgia;
     Miami, Florida
+  sites:
+  - location: us-miami-fiu
+  - type: administrative
+  - location: us-marietta-kennesaw
+  - location: us-charleston-college
+  - location: us-pensacola-uwf
   cms_ids:
   - 3263
   parent: wf-2018
@@ -1201,6 +1287,14 @@ contests:
   date: '2018-11-03'
   location: Miami, Florida; Marietta, Georgia; Charleston, South Carolina; Administrative Site Location;
     Purgatory; Pensacola, Florida
+  sites:
+  - location: us-miami-fiu
+  - location: us-pensacola-uwf
+  - location: us-marietta-kennesaw
+  - type: administrative
+  - location: us-charleston-college
+  - type: administrative
+    name: Purgatory
   cms_ids:
   - 3545
   parent: wf-2019
@@ -1236,6 +1330,14 @@ contests:
   date: '2019-11-09'
   location: Pensacola, Florida; Charleston, South Carolina; Marietta, Georgia; Purgatory; Administrative
     Site Location; Miami, Florida
+  sites:
+  - type: administrative
+  - location: us-miami-fiu
+  - location: us-marietta-kennesaw
+  - type: administrative
+    name: Purgatory
+  - location: us-pensacola-uwf
+  - location: us-charleston-college
   cms_ids:
   - 4064
   parent: nac-2020
@@ -1287,6 +1389,24 @@ contests:
   date: '2021-03-06'
   location: Pensacola, Florida; Administrative Site Location; Online; Marietta, Georgia; Miami, Florida;
     Purgatory; Charleston, South Carolina
+  sites:
+  - type: administrative
+  - location: us-miami-fiu
+  - type: administrative
+    name: Purgatory
+  - location: us-charleston-college
+  - location: us-pensacola-uwf
+  - location: us-marietta-kennesaw
+  - name: Dijkstra
+    type: online
+  - name: Lovelace
+    type: online
+  - name: Knuth
+    type: online
+  - name: Hopper
+    type: online
+  - name: Turing
+    type: online
   cms_ids:
   - 4346
   parent: nac-2021
@@ -1336,6 +1456,32 @@ contests:
   location: Marietta, Georgia; Purgatory; Florida International University; Samford University; Online;
     Pensacola, Florida; College of Charleston; Administrative Site Location; Mercer University; University
     of West Florida; Charleston, South Carolina; Miami, Florida
+  sites:
+  - type: administrative
+  - location: us-miami-fiu
+  - type: administrative
+    name: Purgatory
+  - location: us-charleston-college
+  - location: us-pensacola-uwf
+  - location: us-marietta-kennesaw
+  - name: Dijkstra
+    type: online
+  - name: Lovelace
+    type: online
+  - name: Knuth
+    type: online
+  - name: Hopper
+    type: online
+  - name: Turing
+    type: online
+  - location: us-birmingham-samford
+    name: Samford D2
+  - location: us-macon-mercer
+    name: Mercer D1
+  - location: us-birmingham-samford
+    name: Samford D1
+  - location: us-macon-mercer
+    name: Mercer D2
   cms_ids:
   - 4692
   parent: nac-2022
@@ -1386,6 +1532,29 @@ contests:
   location: Florida International University; Hidden Teams; Augusta University; College of Charleston;
     University of West Florida; Mercer University; Purgatory; Samford University; Administrative Site
     Location
+  sites:
+  - type: administrative
+  - location: us-macon-mercer
+    name: Mercer D2
+  - location: us-macon-mercer
+    name: Mercer D1
+  - type: administrative
+    name: Purgatory
+  - location: us-pensacola-uwf
+  - location: us-birmingham-samford
+    name: Samford D1
+  - location: us-birmingham-samford
+    name: Samford D2
+  - location: us-charleston-college
+  - location: us-miami-fiu
+  - location: us-augusta-university
+    name: Augusta D1
+  - location: us-augusta-university
+    name: Augusta D2
+  - type: administrative
+    name: Hidden D1
+  - type: administrative
+    name: Hidden D2
   cms_ids:
   - 5377
   parent: nac-2023
@@ -1425,6 +1594,30 @@ contests:
   date: '2024-02-24'
   location: Mercer University; FSU; University of West Florida; Hidden Teams; Purgatory; Florida International
     University; Samford University; Augusta University; College of Charleston; Administrative Site Location
+  sites:
+  - type: administrative
+  - type: administrative
+    name: Hidden D2
+  - type: administrative
+    name: Hidden D1
+  - location: us-augusta-university
+    name: Augusta D2
+  - location: us-augusta-university
+    name: Augusta D1
+  - type: administrative
+    name: Purgatory
+  - location: us-macon-mercer
+    name: Mercer D1
+  - location: us-macon-mercer
+    name: Mercer D2
+  - location: us-birmingham-samford
+    name: Samford D2
+  - location: us-charleston-college
+  - location: us-miami-fiu
+  - location: us-pensacola-uwf
+  - location: us-tallahassee-fsu
+  - location: us-birmingham-samford
+    name: Samford D1
   cms_ids:
   - 7450
   parent: nac-2024
@@ -1463,6 +1656,32 @@ contests:
   location: Florida International University; Administrative Site Location; College of Charleston; Purgatory;
     FSU; Mercer University; University of West Florida; Hidden Teams; Middle Georgia State Unversity;
     University of North Georgia; Augusta University; Samford University
+  sites:
+  - type: administrative
+  - type: administrative
+    name: Hidden D2
+  - type: administrative
+    name: Hidden D1
+  - location: us-augusta-university
+    name: Augusta D2
+  - location: us-augusta-university
+    name: Augusta D1
+  - type: administrative
+    name: Purgatory
+  - location: us-birmingham-samford
+    name: Samford D2
+  - location: us-macon-mercer
+    name: Mercer D1
+  - location: us-macon-mercer
+    name: Mercer D2
+  - location: us-charleston-college
+  - location: us-miami-fiu
+  - location: us-pensacola-uwf
+  - location: us-tallahassee-fsu
+  - location: us-birmingham-samford
+    name: Samford D1
+  - location: us-macon-mgsu
+  - location: us-dahlonega-ung
   cms_ids:
   - 8918
   parent: nac-2025
@@ -1501,6 +1720,36 @@ contests:
   location: FSU; College of Charleston; Hidden Teams; Florida International University; Samford University;
     University of North Georgia; Middle Georgia State University; Middle Georgia State Unversity; Mercer
     University; Administrative Site Location; Purgatory; Augusta University
+  sites:
+  - type: administrative
+  - type: administrative
+    name: Hidden D2
+  - type: administrative
+    name: Hidden D1
+  - location: us-augusta-university
+    name: Augusta D2
+  - location: us-augusta-university
+    name: Augusta D1
+  - type: administrative
+    name: Purgatory
+  - location: us-birmingham-samford
+    name: Samford D2
+  - location: us-macon-mercer
+    name: Mercer D1
+  - location: us-macon-mercer
+    name: Mercer D2
+  - location: us-charleston-college
+  - location: us-miami-fiu
+  - location: us-pensacola-uwf
+  - location: us-tallahassee-fsu
+  - location: us-birmingham-samford
+    name: Samford D1
+  - location: us-macon-mgsu
+  - location: us-dahlonega-ung
+  - location: us-atlanta-georgia
+    name: GaTech D1
+  - location: us-atlanta-georgia
+    name: GaTech D2
   cms_ids:
   - 9328
   parent: nac-2026
@@ -1538,6 +1787,45 @@ contests:
   status: upcoming
   season: 2027
   name: 2026 ICPC North America Southeast Regional Contest
+  sites:
+  - type: administrative
+  - type: administrative
+    name: Hidden D2
+  - type: administrative
+    name: Hidden D1
+  - location: us-augusta-university
+    name: Augusta D2
+  - location: us-augusta-university
+    name: Augusta D1
+  - type: administrative
+    name: Purgatory
+  - location: us-birmingham-samford
+    name: Samford D2
+    date: '2026-11-07'
+  - location: us-macon-mercer
+    name: Mercer D1
+  - location: us-macon-mercer
+    name: Mercer D2
+  - location: us-charleston-college
+    date: '2026-11-07'
+  - location: us-miami-fiu
+    date: '2026-11-07'
+  - location: us-pensacola-uwf
+    date: '2026-11-07'
+  - location: us-tallahassee-fsu
+    date: '2026-11-07'
+  - location: us-birmingham-samford
+    name: Samford D1
+    date: '2026-11-07'
+  - location: us-macon-mgsu
+  - location: us-dahlonega-ung
+    date: '2026-11-07'
+  - location: us-atlanta-georgia
+    name: GaTech D1
+    date: '2026-11-07'
+  - location: us-atlanta-georgia
+    name: GaTech D2
+    date: '2026-11-07'
   cms_ids:
   - 9767
   parent: nac-2027

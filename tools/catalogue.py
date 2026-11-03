@@ -76,6 +76,44 @@ def load_judges() -> dict[str, dict]:
     return {j["id"]: j for j in (yaml.safe_load(p.read_text()) or {}).get("judges") or []}
 
 
+def load_locations() -> dict[str, dict]:
+    """{node id: node} from locations.yaml, the one location tree (DEFINITIONS.md, Locations)."""
+    p = ROOT / "locations.yaml"
+    if not p.exists():
+        return {}
+    return {n["id"]: n for n in (yaml.safe_load(p.read_text()) or {}).get("locations") or []}
+
+
+def location_chain(nodes: dict[str, dict], lid: str) -> list[dict]:
+    """[node, its parent, ..., country] for a location id; [] when the id is unknown."""
+    out, seen = [], set()
+    while lid and lid in nodes and lid not in seen:
+        seen.add(lid)
+        out.append(nodes[lid])
+        lid = nodes[lid].get("parent")
+    return out
+
+
+def load_non_mainline() -> list[dict]:
+    """The registry of real contests outside the hierarchy (registry/non-mainline.yaml)."""
+    p = ROOT / "registry" / "non-mainline.yaml"
+    if not p.exists():
+        return []
+    return (yaml.safe_load(p.read_text()) or {}).get("non_mainline_contests") or []
+
+
+def set_kind_count(doc: dict, kind: str) -> int:
+    """How many problems of a set have material of `kind` (statement/data/solutions/package):
+    the set's count for `full`, the recorded number for `partial`, 0 otherwise."""
+    st = doc.get(kind)
+    cnt = doc.get("count") or len(doc.get("problems") or [])
+    if st == "full":
+        return cnt
+    if st == "partial":
+        return (doc.get("counts") or {}).get(kind) or 0
+    return 0
+
+
 def set_id_of(c: dict) -> str | None:
     """The id of the problem set a contest used (`problems: {set: ...}`), or None."""
     return (c.get("problems") or {}).get("set")
@@ -208,7 +246,7 @@ def normalise_source(s: dict) -> dict:
 
 
 CONTEST_KEY_ORDER = ("id", "status", "season", "name", "date", "location", "venue", "cms_ids",
-                     "cms_status", "parent", "next", "subset_of", "sources", "none", "problems",
+                     "cms_status", "sites", "parent", "next", "subset_of", "sources", "none", "problems",
                      "provenance", "notes", "reason")
 
 

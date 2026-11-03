@@ -312,6 +312,91 @@ def main() -> int:
         if len(ids_) > 1:
             err(f"uuid {u} appears under two problem ids {sorted(ids_)} — merge them (aliases)")
 
+    # ---- locations: locations.yaml tree + contest sites (DEFINITIONS.md, Locations) ----
+    loc_path = ROOT / "locations.yaml"
+    nodes: dict[str, dict] = {}
+    if loc_path.exists():
+        lschema = json.loads((ROOT / "schema" / "locations.schema.json").read_text())
+        ldoc = yaml.safe_load(loc_path.read_text()) or {}
+        for e in Draft202012Validator(lschema).iter_errors(ldoc):
+            err(f"locations.yaml: schema: {'/'.join(map(str, e.path))}: {e.message[:140]}")
+        for n in ldoc.get("locations") or []:
+            if n["id"] in nodes:
+                err(f"locations.yaml: duplicate id {n['id']}")
+            nodes[n["id"]] = n
+        allowed_parent = {"region": {"country"}, "city": {"region", "country"}, "institution": {"city"}}
+        alias_owner: dict[str, str] = {}
+        name_owner: dict[tuple, str] = {}
+        for nid, n in nodes.items():
+            t = n["type"]
+            if t == "country":
+                if n.get("parent"):
+                    err(f"locations.yaml: country {nid} has a parent")
+                if nid != n.get("iso", "").lower():
+                    err(f"locations.yaml: country id {nid} is not its ISO code in lowercase ({n.get('iso')})")
+            else:
+                p = n.get("parent")
+                if p not in nodes:
+                    err(f"locations.yaml: {nid}: parent {p!r} does not resolve")
+                else:
+                    pt = nodes[p]["type"]
+                    if pt not in allowed_parent[t]:
+                        err(f"locations.yaml: {nid} ({t}) hangs under {p} ({pt}); allowed: {sorted(allowed_parent[t])}")
+                    # id carries the country, and the parent's id for institutions
+                    anc, seen = n, set()
+                    while anc.get("parent") and anc["parent"] in nodes and anc["id"] not in seen:
+                        seen.add(anc["id"])
+                        anc = nodes[anc["parent"]]
+                    if anc["type"] != "country":
+                        err(f"locations.yaml: {nid}: parent chain does not end at a country")
+                    elif not nid.startswith(anc["id"] + "-"):
+                        err(f"locations.yaml: {nid}: id does not start with its country's id {anc['id']}-")
+                    if t == "institution" and not nid.startswith(p + "-"):
+                        err(f"locations.yaml: institution {nid}: id does not start with its city's id {p}-")
+                    if t in ("region", "city") and (nid.startswith(p + "-") is False) and nodes[p]["type"] == "region":
+                        pass  # cities under a region keep <country>-<city> ids (regions are optional)
+            key = (t, n.get("parent"), n["name"].casefold())
+            if key in name_owner:
+                err(f"locations.yaml: {nid} and {name_owner[key]} are two {t} nodes named {n['name']!r} under the same parent — merge (aliases)")
+            name_owner[key] = nid
+            for a in n.get("aliases") or []:
+                k = a.casefold()
+                if k == n["name"].casefold():
+                    err(f"locations.yaml: {nid}: alias {a!r} repeats the node's name")
+                # aliases are unique across nodes; an acronym (UCI, ASU) may recur in another country only
+                acronym = len(a) <= 6 and " " not in a
+                owner_id = alias_owner.get(k)
+                if owner_id and owner_id != nid and (not acronym or owner_id.split("-")[0] == nid.split("-")[0]):
+                    err(f"locations.yaml: alias {a!r} on both {owner_id} and {nid} — aliases must be unique across nodes")
+                alias_owner[k] = nid
+        if not nodes:
+            warn("locations.yaml holds no nodes")
+    else:
+        warn("locations.yaml missing — contest sites cannot be resolved (tools/migrate_locations.py)")
+    n_sites = n_located_contests = 0
+    for cid, c in contests.items():
+        sites = c.get("sites")
+        if sites is None:
+            continue
+        seen_sites = set()
+        located = False
+        for i, st in enumerate(sites):
+            n_sites += 1
+            loc = st.get("location")
+            if loc is not None:
+                if loc not in nodes:
+                    err(f"{cid}: sites[{i}].location {loc!r} does not resolve (locations.yaml)")
+                else:
+                    located = True
+            if not (loc or st.get("name") or st.get("type")):
+                err(f"{cid}: sites[{i}] is empty")
+            k = (st.get("type"), loc, st.get("name"))
+            if k in seen_sites:
+                err(f"{cid}: sites[{i}] duplicates an earlier site entry {k}")
+            seen_sites.add(k)
+        if located:
+            n_located_contests += 1
+
     # ---- lineage symmetry ----
     for sid, doc in series_docs.items():
         for ev in doc["series"].get("lineage", []):
@@ -343,6 +428,9 @@ def main() -> int:
         "non_mainline": len(non_mainline["non_mainline_contests"]),
         "triage_ids": len(triage_ids),
         "cms_ids_in_catalogue": len(owner),
+        "location_nodes": len(nodes),
+        "sites": n_sites,
+        "contests_with_located_site": n_located_contests,
     }
     print("stats:", json.dumps(stats))
     print(f"warnings: {len(warnings)} (reports/open-warnings.md)")

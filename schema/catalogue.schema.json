@@ -69,10 +69,20 @@
      "description": "contest date at the precision known: YYYY, YYYY-MM or YYYY-MM-DD"
     },
     "location": {
-     "type": "string"
+     "type": "string",
+     "description": "free-text place(s) as imported (sheet / CMS site labels joined by '; '); kept until `sites` covers everything, then dropped"
     },
     "venue": {
-     "type": "string"
+     "type": "string",
+     "description": "unused (reserved); the venue is the institution node in `sites`"
+    },
+    "sites": {
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "$ref": "#/$defs/site"
+     },
+     "description": "where the contest was held, one entry per site: a node of locations.yaml (institution, city, region or country) plus the site's own label when it is not simply the institution. `location` (free text) stays alongside until sites cover every contest; `venue` is unused. DEFINITIONS.md, Locations"
     },
     "cms_ids": {
      "type": "array",
@@ -279,6 +289,59 @@
     "url_checked": {
      "type": "string",
      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "note": {
+     "type": "string"
+    }
+   }
+  },
+  "locationId": {
+   "type": "string",
+   "pattern": "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+   "description": "id of a node in locations.yaml (schema/locations.schema.json); resolution checked by validate.py"
+  },
+  "site": {
+   "type": "object",
+   "additionalProperties": false,
+   "anyOf": [
+    {
+     "required": [
+      "location"
+     ]
+    },
+    {
+     "required": [
+      "name"
+     ]
+    },
+    {
+     "required": [
+      "type"
+     ]
+    }
+   ],
+   "description": "one site of a contest. {type: administrative} alone is the CMS's bookkeeping site (no place); {type: online} is a remote site, with a location when the organiser is known; an entry with `name` but no `location` is a site the tool could not place (listed in data/locations-review-*.md)",
+   "properties": {
+    "location": {
+     "$ref": "#/$defs/locationId",
+     "description": "the most specific node known: institution when known, else city, region or country"
+    },
+    "name": {
+     "type": "string",
+     "minLength": 1,
+     "description": "the site's label as the CMS gives it, kept when it is not just the institution's or city's name (division labels, 'Perth Schools', team groups)"
+    },
+    "date": {
+     "type": "string",
+     "pattern": "^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$",
+     "description": "the site's own date when it differs from the contest date (multi-day or staggered sites)"
+    },
+    "type": {
+     "enum": [
+      "administrative",
+      "online"
+     ],
+     "description": "administrative: the CMS's non-physical bookkeeping site (staff, hidden teams, 'Administrative Site Location'); online: teams competed remotely"
     },
     "note": {
      "type": "string"

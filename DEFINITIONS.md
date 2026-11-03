@@ -66,6 +66,9 @@ not the calendar date.
 - `archived` is a **list**: one address is often captured under several roles or in
   several runs, and every capture pointer is kept. `also_at` entries are a bare URL or
   `{url, as_of}` when the mirror itself is a Wayback-era address.
+- `sites` — where the contest was held: `[{location: <locations.yaml node id>, name?, date?,
+  type?: administrative|online}]`, one entry per site (see *Locations*). The free-text
+  `location` string stays alongside until `sites` covers every contest.
 - `provenance` — free-text lines recording where the entry's facts came from.
 - Series headers carry `tier` (`world-finals` | `championship` | `regional` |
   `subregional` — championships are the continental layer skipped when deriving
@@ -127,9 +130,8 @@ the same treatment; archive.today short links don't carry the URL and stay a `vi
 **Identifiers.** A locator's id is the first 12 hex digits of sha256 over its match key
 (`norm_key`: scheme-, www-, default-port-, case- and trailing-slash-insensitive), so it
 survives the usual URL drift; a resource's id is `<locator id>@<ts>`. The site has a page per
-locator (`locator/<id>/`: url, health, references, its resources) and per resource
-(`locator/<id>/<ts>.html`: captures with hashes and provenance, website crawl and page
-list, status). `tools/build_resources.py` joins catalogue, archive index, website index,
+source (`source/<id>/`: url, roles, health, references, its snapshot timeline with every capture;
+the old `locator/<id>/` and `locator/<id>/<ts>.html` paths redirect there). `tools/build_resources.py` joins catalogue, archive index, website index,
 live-check verdicts and replay index into `data/resources.json`, which those pages render from.
 
 **Presentation.** A resource displays as **`url (time)`** at the precision known —
@@ -169,7 +171,7 @@ several contests: NCPC + UKIEPC 2013, shared North American sets):
 
 The site renders a page per set (`problemset/<set-id>.html`), per problem
 (`problem/<pid>.html`, aggregating every appearance), the set index
-(`problemsets/index.html`) and the judge registry (`judges/index.html`); the contest
+(`problemset/`) and the judge registry (`judge/`); the contest
 page's Problems section shows the set's holdings with this contest's letters.
 
 **Publication rule.** Nothing about a contest's problems — not the names, not the count —
@@ -180,6 +182,61 @@ reaches the archive afterwards, so this is a guard, not a workflow. Problems kep
 
 `problemset:` (above) is different: it is a locator for the published problem set on the
 web, a capture target, not a statement about the archive's holdings.
+
+## Locations
+
+Where a contest was held is a reference into one tree, `locations.yaml`
+(`schema/locations.schema.json`), not a string. The tree has four node types, strictly
+nested: **country** › **region** (state/province; optional, kept for the US, Canada and
+Australia) › **city** › **institution** (a university or other venue). Every node has
+
+- `id` — a slug, globally unique: countries are the ISO 3166-1 alpha-2 code in lowercase
+  (`us`, `se`); everything below is `<country>-<slug>` (`us-co`, `us-boulder`,
+  `us-boulder-cu-boulder`). A city keeps `<country>-<city>` whether or not it hangs under a
+  region; an institution's id starts with its city's id. Ids are permanent page keys.
+- `name` — the display name: the gazetteer's primary name for cities (`Saint Petersburg`,
+  `Århus`), the institution's own name.
+- `type`, `parent` (every node but a country), `iso` (country), `code` (region: the
+  postal code), `geonameid` (city: the GeoNames populated place it was matched to, absent
+  when the node was made from text alone — a village or a town the gazetteer lacks),
+  `aliases` (other spellings seen in the sources: `Ekaterinburg`, `Univ. of Colorado,
+  Boulder`; unique across nodes, except that an acronym like `UCI` may recur in another
+  country), optional `notes`.
+
+**Per contest**, `sites: [{location, name?, date?, type?}]`, one entry per site:
+
+- `location` — the most specific node known: the institution when it is known, else the
+  city, else the region or country. It must resolve (validate.py).
+- `name` — the site's label as the CMS calls it, kept only when it says more than the
+  node's name (`Perth Schools`, a division label, an unplaced institution).
+- `date` — the site's own date when it differs from the contest's (staggered sites).
+- `type` — `administrative` for the CMS's non-physical bookkeeping sites (its
+  "Administrative Site Location", staff, hidden teams: recorded as `{type: administrative}`
+  with no location) or `online` for teams competing remotely (with a location when the
+  organising site is known).
+- An entry with `name` but no `location` is a site the migration could not place; the
+  open ones are listed in `data/locations-review-<date>.md`.
+
+The free-text `location` string stays on the contest for now (it is what the sheet and the
+CMS gave us, multi-site strings joined by `; `); the redesign drops it once `sites` covers
+everything. `venue` is in the schema but unused — the venue is the institution node.
+
+**Where it came from.** `tools/migrate_locations.py` built the tree (2026-11-02) from the
+CMS site records (`data/cms-sites.json`: ~13k sites, only ~8% with a structured city and
+country) and the free-text strings, resolving country (CMS country › a country name in the
+text › a city lookup constrained to the series' region › the CMS geographic area), city
+(CMS city › the text › the city embedded in the institution's name, "University of X" /
+"X University" / "Campus X") and institution (a name with an institution word or a known
+acronym) against the offline GeoNames gazetteer (`geonamescache`) and a hand table of
+~670 institutions whose city is not in their name (`KNOWN_INSTITUTIONS` in the tool —
+extend it there, re-run, and the tree picks the additions up; ids of existing nodes never
+change). The tool is deterministic and idempotent: re-running on the committed state
+rewrites nothing. Everything it was unsure about — unresolved labels, ambiguous city picks,
+cities inferred from institution names, possible duplicate institutions, Israel-in-Europe —
+is in `data/locations-review-2026-11-02.md`; fix by editing `locations.yaml` and the
+`sites:` by hand (merge two institutions by moving one name into the other's `aliases`
+and re-pointing its sites), and validate.py keeps the invariants (resolution, parent
+chains, type order, unique ids and aliases).
 
 ## Levels
 
