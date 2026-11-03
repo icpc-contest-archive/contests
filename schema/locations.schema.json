@@ -1,0 +1,153 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://github.com/icpc-contest-archive/contests/schema/locations.schema.json",
+ "title": "ICPC location tree — locations.yaml",
+ "description": "Where contests happen, as a tree: country > region (state/province, optional) > city > institution (university or venue). Each node has a globally unique slug id; contests point at nodes through sites[].location (DEFINITIONS.md, Locations). Cross-node rules (parent chains, type ordering, alias uniqueness) are checked by tools/validate.py.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "locations"
+ ],
+ "$defs": {
+  "locationId": {
+   "type": "string",
+   "pattern": "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+   "description": "slug: countries are the ISO 3166-1 alpha-2 code in lowercase (us); everything below is <country>-<slug> (us-boulder, us-boulder-cu-boulder)"
+  },
+  "node": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "id",
+    "name",
+    "type"
+   ],
+   "properties": {
+    "id": {
+     "$ref": "#/$defs/locationId"
+    },
+    "name": {
+     "type": "string",
+     "minLength": 1,
+     "description": "display name (the gazetteer's primary name for cities, the institution's own name)"
+    },
+    "type": {
+     "enum": [
+      "country",
+      "region",
+      "city",
+      "institution"
+     ]
+    },
+    "parent": {
+     "$ref": "#/$defs/locationId",
+     "description": "required on every node but a country; a region or city hangs under a country, a city may hang under a region, an institution hangs under a city"
+    },
+    "iso": {
+     "type": "string",
+     "pattern": "^[A-Z]{2}$",
+     "description": "country only: ISO 3166-1 alpha-2"
+    },
+    "code": {
+     "type": "string",
+     "pattern": "^[A-Z]{2,3}$",
+     "description": "region only: the state/province postal code (US states, Canadian provinces, Australian states)"
+    },
+    "geonameid": {
+     "type": "integer",
+     "minimum": 1,
+     "description": "city only: GeoNames id of the populated place, when the node was matched to the gazetteer"
+    },
+    "aliases": {
+     "type": "array",
+     "minItems": 1,
+     "uniqueItems": true,
+     "items": {
+      "type": "string",
+      "minLength": 1
+     },
+     "description": "other spellings seen in the sources (CMS labels, sheet text); unique across all nodes"
+    },
+    "notes": {
+     "type": "string"
+    }
+   },
+   "allOf": [
+    {
+     "if": {
+      "properties": {
+       "type": {
+        "const": "country"
+       }
+      }
+     },
+     "then": {
+      "required": [
+       "iso"
+      ],
+      "not": {
+       "required": [
+        "parent"
+       ]
+      }
+     },
+     "else": {
+      "required": [
+       "parent"
+      ],
+      "not": {
+       "required": [
+        "iso"
+       ]
+      }
+     }
+    },
+    {
+     "if": {
+      "properties": {
+       "type": {
+        "const": "region"
+       }
+      }
+     },
+     "then": {
+      "required": [
+       "code"
+      ]
+     },
+     "else": {
+      "not": {
+       "required": [
+        "code"
+       ]
+      }
+     }
+    },
+    {
+     "if": {
+      "properties": {
+       "type": {
+        "const": "city"
+       }
+      }
+     },
+     "else": {
+      "not": {
+       "required": [
+        "geonameid"
+       ]
+      }
+     }
+    }
+   ]
+  }
+ },
+ "properties": {
+  "locations": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/node"
+   }
+  }
+ }
+}

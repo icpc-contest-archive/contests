@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
+# Maintained in-repo; last bulk edit: tools/migrate_locations.py (sites, 2026-11-02).
 series:
   id: caribbean
   name: ICPC Caribbean Finals
@@ -39,6 +39,10 @@ contests:
   name: 2010 Caribbean Finals of the ACM-ICPC
   date: '2010-10-23'
   location: UCI
+  sites:
+  - location: cu-havana-uci
+    name: Caribbean Finals
+    type: administrative
   cms_ids:
   - 676
   parent: wf-2011
@@ -88,6 +92,13 @@ contests:
   name: 2011 Caribbean Finals of the ACM-ICPC
   date: '2011-11-05'
   location: UCI
+  sites:
+  - location: cu-havana-uci
+    name: Caribbean Finals
+    type: administrative
+  - location: cu-havana-uci
+    name: Administrative
+    type: administrative
   cms_ids:
   - 890
   parent: wf-2012
@@ -135,6 +146,16 @@ contests:
   name: 2012 Caribbean Finals of the ACM-ICPC
   date: '2012-11-10'
   location: UCI; Administrative Site Location; INTEC
+  sites:
+  - location: do-santo-domingo-intec
+    name: Dominican Site (Guests)
+  - location: cu-havana-uci
+    name: Cuban Site
+  - location: do-santo-domingo-intec
+    name: Dominican Site
+  - location: cu-havana-uci
+    name: Cuban Site (Guests)
+  - type: administrative
   cms_ids:
   - 1433
   parent: wf-2013
@@ -174,6 +195,16 @@ contests:
   name: 2013 ACM-ICPC Caribbean Finals
   date: '2013-11-09'
   location: INTEC; UCI; Administrative Site Location
+  sites:
+  - location: do-santo-domingo-intec
+    name: Dominican Site (Guests)
+  - location: cu-havana-uci
+    name: Cuban Site (Guests)
+  - location: cu-havana-uci
+    name: Cuban Site
+  - location: do-santo-domingo-intec
+    name: Dominican Site
+  - type: administrative
   cms_ids:
   - 1864
   parent: wf-2014
@@ -208,6 +239,15 @@ contests:
   name: 2014 ACM-ICPC Caribbean Finals
   date: '2014-11-08'
   location: UCI; PUCMM
+  sites:
+  - location: do-santiago-de-los-caballeros-pucmm
+    name: Dominican Site (Guests)
+  - location: cu-havana-uci
+    name: Cuban Site (Guests)
+  - location: cu-havana-uci
+    name: Cuban Site
+  - location: do-santiago-de-los-caballeros-pucmm
+    name: Dominican Site
   cms_ids:
   - 2533
   parent: wf-2015
@@ -249,6 +289,16 @@ contests:
   name: 2015 ACM-ICPC Caribbean Finals
   date: '2015-11-14'
   location: Administrative Site Location; INTEC; UCI
+  sites:
+  - location: do-santo-domingo-intec
+    name: Dominican Site
+  - location: cu-havana-uci
+    name: Cuban Site (Guests)
+  - location: do-santo-domingo-intec
+    name: Dominican Site (Guests)
+  - type: administrative
+  - location: cu-havana-uci
+    name: Cuban Site
   cms_ids:
   - 2802
   parent: wf-2016
@@ -288,6 +338,17 @@ contests:
   name: 2016 ACM-ICPC Caribbean Finals
   date: '2016-11-12'
   location: PUCMM; UCI
+  sites:
+  - location: cu-havana-uci
+    name: Cuban Site
+  - location: do-santiago-de-los-caballeros-pucmm
+    name: Dominican Site (Guests)
+    type: administrative
+  - location: cu-havana-uci
+    name: Cuban Site (Guests)
+    type: administrative
+  - location: do-santiago-de-los-caballeros-pucmm
+    name: Dominican Site
   cms_ids:
   - 3020
   parent: wf-2017
@@ -327,6 +388,20 @@ contests:
   name: 2017 ACM-ICPC Caribbean Finals
   date: '2017-11-11'
   location: PUCMM; TBD; UCLV
+  sites:
+  - location: do-santiago-de-los-caballeros-pucmm
+    name: Dominican Site (Guests)
+    type: administrative
+  - location: do-santiago-de-los-caballeros-pucmm
+    name: Dominican Site
+  - name: PuertoRican Site (Guests)
+    type: administrative
+  - name: PuertoRican Site
+  - location: cu-santa-clara-uclv
+    name: Cuban Site
+  - location: cu-santa-clara-uclv
+    name: Cuban Site (Guests)
+    type: administrative
   cms_ids:
   - 3460
   parent: wf-2018
@@ -366,6 +441,17 @@ contests:
   name: 2018 ICPC Caribbean Finals
   date: '2018-11-10'
   location: UCI; PUCMM; UCNE
+  sites:
+  - location: do-san-francisco-de-macoris-ucne
+    name: Dominican Site
+  - location: cu-havana-uci
+    name: Cuban Site
+  - location: do-santiago-de-los-caballeros-pucmm
+    name: Dominican Site (Guests)
+    type: administrative
+  - location: cu-havana-uci
+    name: Cuban Site (Guests)
+    type: administrative
   cms_ids:
   - 3619
   parent: wf-2019
@@ -410,6 +496,17 @@ contests:
   date: '2019-11-09'
   location: UO; GUEST_TEAMS; Pontificia Universidad Católica Madre y Maestra - Campus Santiago de los
     Caballeros (PUCMM-CSTI); PUCMM-CSTI; Universidad de Oriente (UO)
+  sites:
+  - location: cu-santiago-de-cuba-oriente-cuba
+    name: Cuban Site
+  - location: do-santiago-de-los-caballeros-pucmm
+    name: Dominican Site
+  - name: GUEST_TEAMS
+  - location: cu-santiago-de-cuba-oriente-cuba
+    name: Cuban Site (Guests)
+    type: administrative
+  - name: Dominican Site (Guests)
+    type: administrative
   cms_ids:
   - 4244
   parent: wf-2020
@@ -460,6 +557,25 @@ contests:
   name: 2020 ICPC Caribbean Finals
   date: '2021-07-10'
   location: Trinidad and Tobago; Jamaica; Cuba; Dominican Republic; Caribbean region; Puerto Rico
+  sites:
+  - location: cu
+    name: Cuba (Regional Site)
+    type: online
+  - location: do
+    name: Dominican Republic (Regional Site)
+    type: online
+  - name: Administrative Site
+    date: '2021-03-13'
+    type: administrative
+  - location: pr
+    name: Puerto Rico (Regional Site)
+    type: online
+  - location: jm
+    name: Jamaica (Regional Site)
+    type: online
+  - location: tt
+    name: Trinidad and Tobago (Regional Site)
+    type: online
   cms_ids:
   - 4468
   parent: wf-2021
@@ -501,6 +617,12 @@ contests:
   name: 2021 ICPC Caribbean Finals
   date: '2022-04-02'
   location: Dominican Republic; Administrative Site Location; Cuba
+  sites:
+  - location: do
+    name: Dominican Republic (Regional Site)
+  - location: cu
+    name: Cuba (Regional Site)
+  - type: administrative
   cms_ids:
   - 4698
   parent: wf-2022
@@ -542,6 +664,14 @@ contests:
   name: 2022 ICPC Caribbean Finals
   date: '2023-03-18'
   location: Administrative Site Location; Puerto Rico; Dominican Republic; Cuba
+  sites:
+  - location: pr
+    name: Puerto Rico (Regional Site)
+  - location: cu
+    name: Cuba (Regional Site)
+  - location: do
+    name: Dominican Republic (Regional Site)
+  - type: administrative
   cms_ids:
   - 5534
   parent: wf-2023
@@ -585,6 +715,18 @@ contests:
   date: '2023-10-21'
   location: Antigua & Barbuda; Administrative Site Location; Cuba; Trinidad & Tobago; Dominican Republic;
     Puerto Rico
+  sites:
+  - location: cu
+    name: Cuba (Regional Site)
+  - location: pr
+    name: Puerto Rico (Regional Site)
+  - location: do
+    name: Dominican Republic (Regional Site)
+  - type: administrative
+  - location: tt
+    name: Trinidad & Tobago (Regional Site)
+  - location: ag
+    name: Antigua & Barbuda (Regional Site)
   cms_ids:
   - 7555
   parent: lac-2024
@@ -635,6 +777,17 @@ contests:
   name: 2024 ICPC Caribbean Finals
   date: '2024-11-09'
   location: Trinidad & Tobago; Dominican Republic; Cuba; Antigua & Barbuda; Puerto Rico
+  sites:
+  - location: cu
+    name: Cuba (Regional Site)
+  - location: ag
+    name: Antigua & Barbuda (Regional Site)
+  - location: tt
+    name: Trinidad & Tobago (Regional Site)
+  - location: do
+    name: Dominican Republic (Regional Site)
+  - location: pr
+    name: Puerto Rico (Regional Site)
   cms_ids:
   - 8949
   parent: lac-2025
@@ -684,6 +837,18 @@ contests:
   date: '2025-11-08'
   location: Cuba; Dominican Republic; Administrative Site Location; Puerto Rico; Trinidad & Tobago; Antigua
     & Barbuda
+  sites:
+  - type: administrative
+  - location: cu
+    name: Cuba (Regional Site)
+  - location: pr
+    name: Puerto Rico (Regional Site)
+  - location: do
+    name: Dominican Republic (Regional Site)
+  - location: tt
+    name: Trinidad & Tobago (Regional Site)
+  - location: ag
+    name: Antigua & Barbuda (Regional Site)
   cms_ids:
   - 9401
   parent: lac-2026
@@ -721,6 +886,18 @@ contests:
   status: upcoming
   season: 2027
   name: 2026 ICPC Caribbean Finals
+  sites:
+  - type: administrative
+  - location: cu
+    name: Cuba (Regional Site)
+  - location: pr
+    name: Puerto Rico (Regional Site)
+  - location: do
+    name: Dominican Republic (Regional Site)
+  - location: tt
+    name: Trinidad & Tobago (Regional Site)
+  - location: ag
+    name: Antigua & Barbuda (Regional Site)
   cms_ids:
   - 9827
   parent: lac-2027
