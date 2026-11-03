@@ -47,3 +47,178 @@ judges:
   status: active
   statements: true
   submissions: true
+- id: aoj
+  name: Aizu Online Judge (AOJ)
+  url: https://onlinejudge.u-aizu.ac.jp/
+  problem_url: https://onlinejudge.u-aizu.ac.jp/problems/{id}
+  contest_url: https://onlinejudge.u-aizu.ac.jp/challenges/sources/ICPC/Regional/{id}
+  status: active
+  statements: true
+  submissions: true
+  notes: Hosts every ICPC Asia Japan regional 1998-2024 (one 'challenge day' per year, ids 49-325) plus
+    Japan Domestic qualifiers (ICPC/Prelim, not catalogue) and JAG practice contests (not catalogue).
+    Old judgeapi.u-aizu.ac.jp returns 410 Gone; the live JSON API is https://onlinejudge.u-aizu.ac.jp/api/
+    (e.g. /api/challenges, /api/challenges/cl/ICPC/Regional, /api/problems?page=0&size=N). 2025 Yokohama
+    regional not yet listed as of 2026-11-03.
+- id: beecrowd
+  name: beecrowd (ex URI Online Judge)
+  url: https://judge.beecrowd.com/
+  problem_url: https://judge.beecrowd.com/en/problems/view/{id}
+  contest_url: https://judge.beecrowd.com/en/contests/{id}
+  status: active
+  statements: true
+  submissions: true
+  notes: 'BLOCKED: every page (contests, problems) returns a Cloudflare "Just a moment" JS challenge (HTTP
+    403) to curl and to WebFetch; not bypassed per rules. Known to host Maratona de Programacao (brazil-first-phase
+    / brazil) problem sets as problems 1xxx-3xxx with a "Maratona" source and past-contest pages, but
+    nothing could be enumerated this run.'
+- id: codechef
+  name: CodeChef
+  url: https://www.codechef.com/
+  problem_url: https://www.codechef.com/problems/{id}
+  contest_url: https://www.codechef.com/{id}
+  status: active
+  statements: true
+  submissions: true
+  notes: 'Hosts ICPC India (Asia West) regionals: online first rounds / preliminaries 2010-2016 and onsite
+    mirror/replay contests 2012-2019 and 2025. Public APIs: past list https://www.codechef.com/api/list/contests/past?sort_by=START&sorting_order=desc&offset=N&mode=all
+    (20/page, 2198 contests back to 2009; no search param) and per-contest https://www.codechef.com/api/contests/{code}
+    (problems with names). 2020-2024 ICPC India rounds were NOT found in the past-contest API (codes unknown;
+    probably not in the public list). Replay/mirror contests contain the official onsite problem set.'
+- id: dmoj
+  name: DMOJ
+  url: https://dmoj.ca/
+  problem_url: https://dmoj.ca/problem/{id}
+  contest_url: https://dmoj.ca/problems/?search={id}
+  status: active
+  statements: true
+  submissions: true
+  notes: 'Canadian judge. HTML is behind Cloudflare for curl but the public API works: https://dmoj.ca/api/v2/problems?page=N
+    (5275 problems) and /api/v2/contests (506 contests, no ICPC mirrors). Problem group "ICPC" + name
+    prefix "ICPC <contest> <letter> - <title>" gives complete sets for ECNA 2016, NAQ 2016, PACNW 2016,
+    SWERC 2017, ECNA 2005, CTU Open 2017/2018, partial ECNA 2000, NEERC 2010 and singles. No contest pages;
+    the "contest_url" is a problem-list search.'
+- id: eolymp
+  name: Eolymp (ex e-olymp)
+  url: https://eolymp.com/
+  problem_url: https://eolymp.com/problems/{id}
+  contest_url: https://eolymp.com/contests/{id}
+  status: active
+  statements: true
+  submissions: true
+  notes: 'Public REST API https://api.eolymp.com/spaces/00000000-0000-0000-0000-000000000000/contests?size=100&offset=N
+    lists 1317 public contests (name, startsAt, problemCount). Contest problem lists and statements require
+    sign-in (API /contests/{id}/problems -> unauthenticated), so matches are by contest name/date only.
+    Hosts the Ukrainian ICPC chain: UCPC Stage I (1/8 final, Sept/Oct), Stage II (1/4 final = catalogue
+    ukraine-YYYY), Stage III (1/2 final, Dec) 2020-2026, plus 2012-2014-era mirrors of many regionals
+    (GNY/ECNA/MCPC/NCNA/RMC/SCUSA/NAQ 2013, NWERC 2013, BAPC 2013, CTU Open 2013, NCPC 2013, SEERC 2003/2009/2013,
+    NEERC 2006/2011, Latin America 2012/2013, Tokyo 2012, Aizu 2013, Tehran 2007, Maratona 2010) and NERC
+    2019/2022, SWERC 2011/2020. Azerbaijan contests on eolymp are school olympiads/qualifications, not
+    the ICPC regional.'
+- id: hdu
+  name: HDU Online Judge (acm.hdu.edu.cn)
+  url: https://acm.hdu.edu.cn/
+  problem_url: https://acm.hdu.edu.cn/showproblem.php?pid={id}
+  contest_url: https://acm.hdu.edu.cn/contests/contest_show.php?cid={id}
+  status: active
+  statements: true
+  submissions: true
+  notes: GBK-encoded. STD contest list https://acm.hdu.edu.cn/contests/contest_list.php?page=N&type= (36
+    pages, 618 contests). Public 重现赛/题目重现 re-runs of China regionals 2013-2017 (Hangzhou/Chengdu/Nanjing
+    2013, Anshan/Beijing/Guangzhou 2014, Shenyang/Changchun/Hefei/Shanghai 2015, Shenyang/Dalian/Qingdao
+    2016, Shenyang 2017); 'Online' preliminaries are Private (login). contest_show.php lists problems
+    for ended public contests without login; /contest/problems?cid= redirects. Regional sets also live
+    in the main archive (problems 4xxx-6xxx, Source field) but source search returned nothing. Server
+    flaky (connection resets).
+- id: luogu
+  name: Luogu 洛谷 (Luògǔ)
+  url: https://www.luogu.com.cn/
+  problem_url: https://www.luogu.com.cn/problem/{id}
+  contest_url: https://www.luogu.com.cn/contest/{id}
+  status: active
+  statements: true
+  submissions: true
+  notes: Official-team (洛谷官方团队) 重现赛 (chóngxiànsài, replay) mirrors of ICPC China regionals / EC-Final
+    with original data (credit 计蒜客 Jisuanke), run 2023-2026 and ongoing (new one roughly weekly). Contest
+    list JSON is embedded in <script id=lentille-context> on /contest/list?page=N (1404 contests, 71 pages);
+    contest pages embed contestProblems with pid (P1xxxx) and titles. Some mirrors (Nanjing 2022-24, Jinan
+    2023, Kunming inv.) carry Chinese-translated titles. Statements viewable without login; submitting
+    needs account.
+- id: nowcoder
+  name: NowCoder 牛客竞赛 (Niúkè, 'cow guest')
+  url: https://ac.nowcoder.com/
+  problem_url: https://ac.nowcoder.com/acm/contest/{id}
+  contest_url: https://ac.nowcoder.com/acm/contest/{id}
+  status: active
+  statements: true
+  submissions: true
+  notes: 'Official judge for the 45th/46th ICPC China regionals (2020 Jinan, Nanjing, Shanghai, Kunming;
+    2021 Shenyang, Shanghai, Kunming) and 重现赛 mirrors of 2018 EC-Final, 2019 EC-Final/Shanghai, 2020 Shenyang.
+    Problem list JSON: https://ac.nowcoder.com/acm/contest/problem-list?id={id} (public, no login). Contest
+    search https://ac.nowcoder.com/acm-heavy/acm/contest/search?searchName=... is capped at ~10-15 hits;
+    ended-contest list /acm/contest/vip-end-index?topCategoryFilter=13&categoryFilter=22 (比赛真题 ''real
+    past contests'') is mostly provincial contests. Problem statements need login? -> statements render
+    for anonymous users on /acm/contest/{id}/{letter}.'
+- id: omegaup
+  name: omegaUp
+  url: https://omegaup.com/
+  problem_url: https://omegaup.com/arena/problem/{id}/
+  contest_url: https://omegaup.com/arena/{id}/
+  status: active
+  statements: true
+  submissions: true
+  notes: 'Mexican judge used by ICPC Mexico. /api/contest/list/ returns only current contests to anonymous
+    callers (no past list), /api/contest/problems/ needs login; /api/contest/publicDetails/?contest_alias=X
+    works for public contests. /api/problem/list/?tag[]=problemTagICPC lists 41 public problems incl.
+    the full ICPCMX2021 set (alias prefix ICPCMX2021-). Contest "Concurso Regional #ICPCMX2021" (alias
+    ICPCMX2021, 2022-04-02) confirmed. Other years'' aliases not guessable; TCMM/Gran Premio contests
+    not found.'
+- id: pintia
+  name: PTA 拼题A (Pīntí A, 'puzzle-piece problem A', pintia.cn)
+  url: https://pintia.cn/
+  problem_url: https://pintia.cn/problem-sets/{id}/exam/problems/type/7
+  contest_url: https://pintia.cn/problem-sets/{id}
+  status: active
+  statements: false
+  submissions: true
+  notes: 'BLOCKER: problem-set listing (/api/problem-sets, ListVisibleProblemSets) and problem-set metadata
+    (/api/problem-sets/{id}) return 401 USER_NOT_LOGGED_IN; only /api/problem-sets/always-available (23
+    textbook sets) and /api/competitions/public (46 XCPC scoreboard objects, 2024-2026, mostly CCPC/provincial
+    + ICPC EC online prelims) are public. Front-end API table recovered from static.pintia.cn/sparkling-daydream
+    chunks. No ICPC regional problem-set ids could be confirmed from public pages, so no candidates recorded.'
+- id: timus
+  name: Timus Online Judge
+  url: https://acm.timus.ru/
+  problem_url: https://acm.timus.ru/problem.aspx?space=1&num={id}
+  contest_url: https://acm.timus.ru/problemset.aspx?space={id}
+  status: active
+  statements: true
+  submissions: true
+  notes: 'Ural FU judge. Past-contest archive at /archive.aspx (110 contests, each with a problem "space");
+    the main problem set (/problemset.aspx?space=1&page=all, 1243 problems) has a Source column naming
+    the origin contest (NEERC 2000-2002 finals, NEERC Central/Northern/Eastern subregionals). ICPC-relevant:
+    NEERC Eastern (Ural) subregional 2006-2014 live online versions, Central subregional (Rybinsk) 2001-2003,
+    plus NEERC 2000-2002 and Central 2000 / Northern 2001 problems in the main set. Since 2015 Timus only
+    hosts the Ural *qualifier* rounds, not the regional itself.'
+- id: ucup
+  name: Universal Cup judge (contest.ucup.ac, UOJ-based)
+  url: https://contest.ucup.ac/contests
+  problem_url: https://contest.ucup.ac/contest/{contest_id}/problem/{problem_id}
+  contest_url: https://contest.ucup.ac/contest/{id}
+  status: active
+  statements: true
+  submissions: true
+  notes: 'Reachable (200). Lists only Universal Cup stages (''The Nth Universal Cup. Stage K: Grand Prix
+    of X''); these are Open-Cup-style rounds that often reuse ICPC regional sets (e.g. Stage 6 ''Grand
+    Prix of Shenyang'' = 2025 Shenyang regional) but per brief are not catalogue contests, so no candidates
+    recorded. The ICPC-named mirrors live on qoj.ac, not here.'
+- id: vjudge
+  name: Virtual Judge (vjudge.net)
+  url: https://vjudge.net/contest
+  problem_url: https://vjudge.net/contest/{contest_id}#problem/{letter}
+  contest_url: https://vjudge.net/contest/{id}
+  status: active
+  statements: true
+  submissions: true
+  notes: 'BLOCKED: vjudge.net (/, /contest, /contest/data API) returns 403 Cloudflare challenge to curl
+    and WebFetch from this network. Not bypassed. No candidates recorded.'

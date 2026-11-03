@@ -80,6 +80,7 @@ from resources import norm_key  # noqa: E402
 SET_DIR = ROOT / "problemsets"
 SET_HEADER = "# Problem set (DEFINITIONS.md, Problems): holdings, member contests with letter maps, problems.\n"
 HELD_KINDS = ("statement", "data", "solutions", "package")
+TODAY = __import__("datetime").date.today().isoformat()
 SET_KEYS = ("id", "name", "repo", "count", "complete", "letters", *HELD_KINDS, "counts",
             "contests", "problems", "provenance", "notes")
 PROB_KEYS = ("id", "uuid", "aliases", "name", "short_name", "have", "status", "judges", "notes")
@@ -356,7 +357,10 @@ def main() -> int:
         print(f"archive root not found: {archive}", file=sys.stderr)
         return 2
     frozen_path = ROOT / "data" / "import" / f"judge-pages-{args.date}.json"
-    frozen = json.loads(frozen_path.read_text()) if frozen_path.exists() and not args.reparse else {}
+    frozen = json.loads(frozen_path.read_text()) if frozen_path.exists() else {}
+    if args.reparse:  # parse every capture again, but keep the pages injected without a capture
+        # (tools/apply_judge_candidates.py: capture "hunt:<brief>", captures [])
+        frozen = {"pages": {k: v for k, v in (frozen.get("pages") or {}).items() if not v.get("captures")}}
     stats: Counter = Counter()
     report: dict[str, list[str]] = defaultdict(list)
 
@@ -367,6 +371,8 @@ def main() -> int:
     sets = load_sets()
     judges = load_judges()
     set_text = {sid: (SET_DIR / f"{sid}.yaml").read_text() for sid in sets}
+    new_sets: list[str] = []          # sets opened from a judge page this run
+    dirty_contests: set[str] = set()  # contests that got problems: {set: ...}
 
     # ---- 1. captures -> frozen extraction ----
     groups = list_captures(archive)
@@ -404,10 +410,25 @@ def main() -> int:
                 f"{rec['contest']}: {rec['url']} -> {rec['capture']} (skipped: " + "; ".join(rec["tried"]) + ")")
         sid = set_id_of(c)
         if not sid or sid not in sets:
-            report["contest has no problem set (page not applied)"].append(f"{rec['contest']}: {rec['url']}")
-            continue
+            # no set yet: a judge page listing the contest's problems is enough to open one
+            # (DEFINITIONS.md, Problems) — unless the contest has not run (nothing publishable)
+            d = c.get("date")
+            if c.get("status") == "upcoming" or (d and str(d)[:10] > TODAY):
+                report["contest has not run yet (page not applied)"].append(f"{rec['contest']}: {rec['url']}")
+                continue
+            sid = rec["contest"]
+            if sid not in sets:
+                sets[sid] = {"id": sid, "contests": [{"contest": sid}],
+                             "provenance": [f"problem list from the {rec['judge']} judge page ({rec['url']}); "
+                                            f"count taken from that page (tools/mine_judge_links.py)"]}
+                set_text[sid] = ""
+                new_sets.append(sid)
+            c["problems"] = {"set": sid}
+            dirty_contests.add(rec["contest"])
+            report["problem set opened from a judge page"].append(f"{rec['contest']}: {rec['url']}")
         by_set[sid].append(rec)
 
+    new_sets_set = set(new_sets)
     created_sets: list[str] = []
     for sid in sorted(by_set):
         s = sets[sid]
@@ -587,6 +608,8 @@ def main() -> int:
         else:
             s["letters"] = "unknown"
         if created_here:
+            if sid in new_sets_set and count is None:
+                s["count"] = count = len(probs)  # the page is the whole contest: it sets the count
             if count is None or len(probs) < count:
                 s["complete"] = False
             elif len(probs) == count:
@@ -602,6 +625,27 @@ def main() -> int:
     if not args.dry_run:
         for sid in changed:
             (SET_DIR / f"{sid}.yaml").write_text(dump_set(sets[sid]))
+        if dirty_contests:  # contests that got a `problems: {set}` link
+            from catalogue import dump_series, load_series
+            series = load_series()
+            touched = set()
+            for sid_, doc in series.items():
+                for c in doc["contests"]:
+                    if c["id"] in dirty_contests and c.get("problems") != contests[c["id"]].get("problems"):
+                        c["problems"] = contests[c["id"]]["problems"]
+                        touched.add(sid_)
+            for sid_ in touched:
+                dump_series(sid_, series[sid_], f"mine_judge_links.py (problem sets opened from judge pages, {args.date})")
+            reg = ROOT / "registry" / "non-mainline.yaml"
+            rdoc = yaml.safe_load(reg.read_text())
+            rt = False
+            for c in rdoc["non_mainline_contests"]:
+                if c["id"] in dirty_contests and c.get("problems") != contests[c["id"]].get("problems"):
+                    c["problems"] = contests[c["id"]]["problems"]
+                    rt = True
+            if rt:
+                head = "".join(l for l in reg.read_text().splitlines(True)[:2] if l.startswith("#"))
+                reg.write_text(head + yaml.dump(rdoc, Dumper=Dumper, sort_keys=False, allow_unicode=True, width=100))
         frozen_path.parent.mkdir(parents=True, exist_ok=True)
         frozen_path.write_text(json.dumps(frozen, indent=1, ensure_ascii=False, sort_keys=True) + "\n")
 
