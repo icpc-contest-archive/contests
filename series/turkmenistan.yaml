@@ -1,7 +1,10 @@
-# Maintained in-repo; finder pages moved to the icpc_standings tier (tools/migrate_finder_tier.py).
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: turkmenistan
   name: ICPC Turkmenistan Regional Contest
+  tier: subregional
+  region: Northern Eurasia
+  naming: season-start
 contests:
 - id: turkmenistan-2025
   season: 2026
@@ -11,17 +14,20 @@ contests:
   cms_ids:
   - 9485
   parent: nerc-2025
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Turkmenistan-2026/standings
-    archived: turkmenistan/turkmenistan-2025/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/Turkmenistan-2026/standings
+    roles:
+    - icpc_standings
+    archived:
+    - turkmenistan/turkmenistan-2025/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 9485, 34 teams, DB fetch 2026-04-26)
   notes: 'added from misclass audit 2026-09-02 (39 teams, 34 results in CMS); standings_candidate: https://clist.by/standings/icpc-2025-2026-turkmenistan-regional-contest-64020895/;
     clist is an aggregator copy - eyeball before adopting'
 - id: turkmenistan-2026
+  status: upcoming
   season: 2027
   name: 2026 Turkmenistan Regional Contest
   cms_ids:
   - 9787
   parent: nerc-2026
-  status: upcoming
   notes: upcoming shell from misclass audit 2026-09-02

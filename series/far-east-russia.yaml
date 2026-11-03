@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: far-east-russia
   name: ICPC Far Eastern Russia Regional Contest
+  tier: subregional
+  region: Northern Eurasia
+  naming: season-start
 contests:
 - id: far-east-russia-1998
   season: 1999
@@ -9,44 +12,48 @@ contests:
   cms_ids: []
   parent: neerc-1998
   next: far-east-russia-1999
-  web: https://ikit.sfu-kras.ru/acm
-  mirrors:
-  - url: http://neerc.ifmo.ru/*
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: http://dvfu.ru/*
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: https://imcs.dvfu.ru/cats/wiki?name=icpc
-    note: added by url-hunt 2026-09-01 (round9-deep-D4)
-  - url: https://neerc.ifmo.ru/subregions/far-eastern.html
-    note: added by url-hunt 2026-09-01 (round9-deep-probe)
+  sources:
+  - url: https://ikit.sfu-kras.ru/acm
+    roles:
+    - web
+    also_at:
+    - http://neerc.ifmo.ru/*
+    - http://dvfu.ru/*
+    - https://imcs.dvfu.ru/cats/wiki?name=icpc
+    - https://neerc.ifmo.ru/subregions/far-eastern.html
 - id: far-east-russia-1999
   season: 2000
   name: 1999 Far Eastern Subregional Contest
   cms_ids: []
   parent: neerc-1999
   next: far-east-russia-2000
-  web: https://neerc.ifmo.ru/subregions/far-eastern.html
-  mirrors: []
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/far-eastern.html
+    roles:
+    - web
 - id: far-east-russia-2000
   season: 2001
   name: 2000 Far Eastern Subregional Contest
   cms_ids: []
   parent: neerc-2000
   next: far-east-russia-2001
-  web: https://neerc.ifmo.ru/subregions/far-eastern.html
-  mirrors: []
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/949
-        as_of: '20201022092912'
-        note: NEERC Far-Eastern Subregional 2000
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/949
-    as_of: '20201022092912'
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: https://neerc.ifmo.ru/subregions/far-eastern.html
+    roles:
+    - web
+  - url: https://www.acmicpc.net/category/detail/949
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20201022092912'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      NEERC Far-Eastern Subregional 2000
+  problems:
+    set: far-east-russia-2000
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - id: far-east-russia-2001
   season: 2002
@@ -54,30 +61,35 @@ contests:
   cms_ids: []
   parent: neerc-2001
   next: far-east-russia-2002
-  web: https://www.kgeorgiy.info/papers/Vasilev_VN__Kazakov_MA__Korneev_GA__Parfenov_VG__Stankevich_AS_--_NEERC_2001.pdf
-  mirrors:
-  - url: http://dvfu.ru/*
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
+  sources:
+  - url: https://www.kgeorgiy.info/papers/Vasilev_VN__Kazakov_MA__Korneev_GA__Parfenov_VG__Stankevich_AS_--_NEERC_2001.pdf
+    roles:
+    - web
+    also_at:
+    - http://dvfu.ru/*
 - id: far-east-russia-2002
   season: 2003
   name: 2002 Far Eastern Subregional Contest
   cms_ids: []
   parent: neerc-2002
   next: far-east-russia-2003
-  web: https://neerc.ifmo.ru/subregions/far-eastern.html
-  mirrors: []
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/948
-        as_of: '20201029053357'
-        note: NEERC Far-Eastern Subregional 2002
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/948
-    as_of: '20201029053357'
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: https://neerc.ifmo.ru/subregions/far-eastern.html
+    roles:
+    - web
+  - url: https://www.acmicpc.net/category/detail/948
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20201029053357'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      NEERC Far-Eastern Subregional 2002
+  problems:
+    set: far-east-russia-2002
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - id: far-east-russia-2003
   season: 2004
@@ -85,36 +97,49 @@ contests:
   cms_ids: []
   parent: neerc-2003
   next: far-east-russia-2004
-  results:
-    scoreboard:
-    - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=3991;clist=3991;hide_ooc=1;hide_virtual=1;sid=
-      archived: far-east-russia/far-east-russia-2003/scoreboard/2026-09-01-live-f4527914/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nerc.itmo.ru/archive/2003/far-eastern/standings.html
-      archived: far-east-russia/far-east-russia-2003/standings/2026-09-01-live-847a793d/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2003/far-eastern/standings.html
-      as_of: '20170728114144'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: far-east-russia/far-east-russia-2003/standings/20170728-wayback-dad61eea/standings.html
-  web: https://neerc.ifmo.ru/subregions/far-eastern.html
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/947
-        as_of: '20201025142313'
-        note: NEERC Far-Eastern Subregional 2003
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/947
-    as_of: '20201025142313'
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: https://neerc.ifmo.ru/subregions/far-eastern.html
+    roles:
+    - web
+  - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=3991;clist=3991;hide_ooc=1;hide_virtual=1;sid=
+    roles:
+    - scoreboard
+    archived:
+    - far-east-russia/far-east-russia-2003/scoreboard/2026-09-01-live-f4527914/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2003/far-eastern/standings.html
+    roles:
+    - standings
+    as_of: '20220122063855'
+    archived:
+    - far-east-russia/far-east-russia-2003/standings/2026-09-01-live-847a793d/standings.html
+    - far-east-russia/far-east-russia-2003/standings/20220122-wayback-2f27d338/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2003/far-eastern/standings.html
+    roles:
+    - standings
+    as_of: '20170728114144'
+    archived:
+    - far-east-russia/far-east-russia-2003/standings/20170728-wayback-dad61eea/standings.html
+    - far-east-russia/far-east-russia-2003/standings/20260904-live-3cdbbc33/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://www.acmicpc.net/category/detail/947
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20201025142313'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      NEERC Far-Eastern Subregional 2003
+  problems:
+    set: far-east-russia-2003
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - id: far-east-russia-2004
   season: 2005
@@ -122,36 +147,49 @@ contests:
   cms_ids: []
   parent: neerc-2004
   next: far-east-russia-2005
-  results:
-    scoreboard:
-    - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=509770;clist=509770;hide_ooc=1;hide_virtual=1;sid=
-      archived: far-east-russia/far-east-russia-2004/scoreboard/2026-09-01-live-5bac3cf5/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nerc.itmo.ru/archive/2004/far-eastern/standings.html
-      archived: far-east-russia/far-east-russia-2004/standings/2026-09-01-live-0b4e43d4/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2004/far-eastern/standings.html
-      as_of: '20170728112540'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: far-east-russia/far-east-russia-2004/standings/20170728-wayback-779e6aff/standings.html
-  web: https://neerc.ifmo.ru/subregions/far-eastern.html
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/946
-        as_of: '20201031230547'
-        note: NEERC Far-Eastern Subregional 2004
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/946
-    as_of: '20201031230547'
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: https://neerc.ifmo.ru/subregions/far-eastern.html
+    roles:
+    - web
+  - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=509770;clist=509770;hide_ooc=1;hide_virtual=1;sid=
+    roles:
+    - scoreboard
+    archived:
+    - far-east-russia/far-east-russia-2004/scoreboard/2026-09-01-live-5bac3cf5/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2004/far-eastern/standings.html
+    roles:
+    - standings
+    as_of: '20220122053803'
+    archived:
+    - far-east-russia/far-east-russia-2004/standings/2026-09-01-live-0b4e43d4/standings.html
+    - far-east-russia/far-east-russia-2004/standings/20220122-wayback-d5d66cab/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2004/far-eastern/standings.html
+    roles:
+    - standings
+    as_of: '20170728112540'
+    archived:
+    - far-east-russia/far-east-russia-2004/standings/20170728-wayback-779e6aff/standings.html
+    - far-east-russia/far-east-russia-2004/standings/20260904-live-12856115/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://www.acmicpc.net/category/detail/946
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20201031230547'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      NEERC Far-Eastern Subregional 2004
+  problems:
+    set: far-east-russia-2004
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - id: far-east-russia-2005
   season: 2006
@@ -159,36 +197,49 @@ contests:
   cms_ids: []
   parent: neerc-2005
   next: far-east-russia-2006
-  results:
-    scoreboard:
-    - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=537878;clist=537878;hide_ooc=1;hide_virtual=1;sid=
-      archived: far-east-russia/far-east-russia-2005/scoreboard/2026-09-01-live-9ea09364/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nerc.itmo.ru/archive/2005/far-eastern/standings.html
-      archived: far-east-russia/far-east-russia-2005/standings/2026-09-01-live-4f30822c/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2005/far-eastern/standings.html
-      as_of: '20161208235341'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: far-east-russia/far-east-russia-2005/standings/20161208-wayback-39be9c4b/standings.html
-  web: https://neerc.ifmo.ru/subregions/far-eastern.html
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/945
-        as_of: '20201025114937'
-        note: NEERC Far-Eastern Subregional 2005
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/945
-    as_of: '20201025114937'
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: https://neerc.ifmo.ru/subregions/far-eastern.html
+    roles:
+    - web
+  - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=537878;clist=537878;hide_ooc=1;hide_virtual=1;sid=
+    roles:
+    - scoreboard
+    archived:
+    - far-east-russia/far-east-russia-2005/scoreboard/2026-09-01-live-9ea09364/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2005/far-eastern/standings.html
+    roles:
+    - standings
+    as_of: '20260610222736'
+    archived:
+    - far-east-russia/far-east-russia-2005/standings/2026-09-01-live-4f30822c/standings.html
+    - far-east-russia/far-east-russia-2005/standings/20260610-wayback-02e99f8a/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2005/far-eastern/standings.html
+    roles:
+    - standings
+    as_of: '20161208235341'
+    archived:
+    - far-east-russia/far-east-russia-2005/standings/20161208-wayback-39be9c4b/standings.html
+    - far-east-russia/far-east-russia-2005/standings/20260904-live-8eb5d035/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://www.acmicpc.net/category/detail/945
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20201025114937'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      NEERC Far-Eastern Subregional 2005
+  problems:
+    set: far-east-russia-2005
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - id: far-east-russia-2006
   season: 2007
@@ -196,48 +247,72 @@ contests:
   cms_ids: []
   parent: neerc-2006
   next: far-east-russia-2007
-  results:
-    scoreboard:
-    - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=565452;clist=565452;hide_ooc=1;hide_virtual=1;sid=
-      archived: far-east-russia/far-east-russia-2006/scoreboard/2026-09-01-live-d8a2765e/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nerc.itmo.ru/archive/2006/far-eastern/standings.html
-      archived: far-east-russia/far-east-russia-2006/standings/2026-09-01-live-592439b5/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2006/far-eastern/standings.html
-      as_of: '20170728112814'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: far-east-russia/far-east-russia-2006/standings/20170728-wayback-5873042c/standings.html
-  web: https://neerc.ifmo.ru/subregions/far-eastern.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/far-eastern.html
+    roles:
+    - web
+  - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=565452;clist=565452;hide_ooc=1;hide_virtual=1;sid=
+    roles:
+    - scoreboard
+    archived:
+    - far-east-russia/far-east-russia-2006/scoreboard/2026-09-01-live-d8a2765e/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2006/far-eastern/standings.html
+    roles:
+    - standings
+    as_of: '20220122054453'
+    archived:
+    - far-east-russia/far-east-russia-2006/standings/2026-09-01-live-592439b5/standings.html
+    - far-east-russia/far-east-russia-2006/standings/20220122-wayback-918f2a0d/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2006/far-eastern/standings.html
+    roles:
+    - standings
+    as_of: '20170728112814'
+    archived:
+    - far-east-russia/far-east-russia-2006/standings/20170728-wayback-5873042c/standings.html
+    - far-east-russia/far-east-russia-2006/standings/20260904-live-8b364ff9/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: far-east-russia-2007
   season: 2008
   name: 2007 Far Eastern Subregional Contest
   cms_ids: []
   parent: neerc-2007
   next: far-east-russia-2008
-  results:
-    scoreboard:
-    - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=608547;clist=608547;hide_ooc=1;hide_virtual=1;sid=
-      archived: far-east-russia/far-east-russia-2007/scoreboard/2026-09-01-live-3c75236e/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nerc.itmo.ru/archive/2007/far-eastern/standings.html
-      archived: far-east-russia/far-east-russia-2007/standings/2026-09-01-live-8c2478e9/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2007/far-eastern/standings.html
-      as_of: '20170728114154'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: far-east-russia/far-east-russia-2007/standings/20170728-wayback-f529c6bb/standings.html
-  web: https://neerc.ifmo.ru/subregions/far-eastern.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/far-eastern.html
+    roles:
+    - web
+  - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=608547;clist=608547;hide_ooc=1;hide_virtual=1;sid=
+    roles:
+    - scoreboard
+    archived:
+    - far-east-russia/far-east-russia-2007/scoreboard/2026-09-01-live-3c75236e/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2007/far-eastern/standings.html
+    roles:
+    - standings
+    as_of: '20220122044651'
+    archived:
+    - far-east-russia/far-east-russia-2007/standings/2026-09-01-live-8c2478e9/standings.html
+    - far-east-russia/far-east-russia-2007/standings/20220122-wayback-6fbc4469/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2007/far-eastern/standings.html
+    roles:
+    - standings
+    as_of: '20170728114154'
+    archived:
+    - far-east-russia/far-east-russia-2007/standings/20170728-wayback-f529c6bb/standings.html
+    - far-east-russia/far-east-russia-2007/standings/20260904-live-a8e07f6b/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: far-east-russia-2008
   season: 2009
   name: 2008 Far Eastern Subregional Contest
@@ -247,25 +322,39 @@ contests:
   - 72
   parent: neerc-2008
   next: far-east-russia-2009
-  results:
-    scoreboard:
-    - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=651996;clist=651996;hide_ooc=1;hide_virtual=1;sid=
-      archived: far-east-russia/far-east-russia-2008/scoreboard/2026-09-01-live-a3f249de/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nerc.itmo.ru/archive/2008/far-eastern/standings.html
-      archived: far-east-russia/far-east-russia-2008/standings/2026-09-01-live-71cfef0d/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2008/far-eastern/standings.html
-      as_of: '20170728114320'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: far-east-russia/far-east-russia-2008/standings/20170728-wayback-2c7f0c5e/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Far-Eastern-Subregional-2009/standings
-  web: http://imcs.dvgu.ru/acm/
+  sources:
+  - url: http://imcs.dvgu.ru/acm/
+    roles:
+    - web
+  - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=651996;clist=651996;hide_ooc=1;hide_virtual=1;sid=
+    roles:
+    - scoreboard
+    archived:
+    - far-east-russia/far-east-russia-2008/scoreboard/2026-09-01-live-a3f249de/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2008/far-eastern/standings.html
+    roles:
+    - standings
+    as_of: '20260610215321'
+    archived:
+    - far-east-russia/far-east-russia-2008/standings/2026-09-01-live-71cfef0d/standings.html
+    - far-east-russia/far-east-russia-2008/standings/20260610-wayback-e2f11294/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2008/far-eastern/standings.html
+    roles:
+    - standings
+    as_of: '20170728114320'
+    archived:
+    - far-east-russia/far-east-russia-2008/standings/20170728-wayback-2c7f0c5e/standings.html
+    - far-east-russia/far-east-russia-2008/standings/20260904-live-00b7cbc9/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Far-Eastern-Subregional-2009/standings
+    roles:
+    - icpc_standings
 - id: far-east-russia-2009
   season: 2010
   name: 2009 Far Eastern Subregional Contest
@@ -275,24 +364,36 @@ contests:
   - 526
   parent: neerc-2009
   next: far-east-russia-2010
-  results:
-    scoreboard:
-    - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=706495;clist=706495;hide_ooc=1;hide_virtual=1;sid=
-      archived: far-east-russia/far-east-russia-2009/scoreboard/2026-09-01-live-0c61b066/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nerc.itmo.ru/archive/2009/far-eastern/standings.html
-      archived: far-east-russia/far-east-russia-2009/standings/2026-09-01-live-01fc413a/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2009/far-eastern/standings.html
-      as_of: '20170728114325'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: far-east-russia/far-east-russia-2009/standings/20170728-wayback-c99986c3/standings.html
-  web: https://neerc.ifmo.ru/subregions/far-eastern.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/far-eastern.html
+    roles:
+    - web
+  - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=706495;clist=706495;hide_ooc=1;hide_virtual=1;sid=
+    roles:
+    - scoreboard
+    archived:
+    - far-east-russia/far-east-russia-2009/scoreboard/2026-09-01-live-0c61b066/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2009/far-eastern/standings.html
+    roles:
+    - standings
+    as_of: '20220122045934'
+    archived:
+    - far-east-russia/far-east-russia-2009/standings/2026-09-01-live-01fc413a/standings.html
+    - far-east-russia/far-east-russia-2009/standings/20220122-wayback-168e6162/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2009/far-eastern/standings.html
+    roles:
+    - standings
+    as_of: '20170728114325'
+    archived:
+    - far-east-russia/far-east-russia-2009/standings/20170728-wayback-c99986c3/standings.html
+    - far-east-russia/far-east-russia-2009/standings/20260904-live-1e0d466c/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: far-east-russia-2010
   season: 2011
   name: 2010 Far Eastern Subregional Contest
@@ -302,24 +403,36 @@ contests:
   - 619
   parent: neerc-2010
   next: far-east-russia-2011
-  results:
-    scoreboard:
-    - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=758557;clist=758557;hide_ooc=1;hide_virtual=1;sid=
-      archived: far-east-russia/far-east-russia-2010/scoreboard/2026-09-01-live-e2a2c7a5/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nerc.itmo.ru/archive/2010/far-eastern/standings.html
-      archived: far-east-russia/far-east-russia-2010/standings/2026-09-01-live-0342298a/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2010/far-eastern/standings.html
-      as_of: '20170728114159'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: far-east-russia/far-east-russia-2010/standings/20170728-wayback-5f9ee387/standings.html
-  web: http://imcs.dvgu.ru/acm/
+  sources:
+  - url: http://imcs.dvgu.ru/acm/
+    roles:
+    - web
+  - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=758557;clist=758557;hide_ooc=1;hide_virtual=1;sid=
+    roles:
+    - scoreboard
+    archived:
+    - far-east-russia/far-east-russia-2010/scoreboard/2026-09-01-live-e2a2c7a5/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2010/far-eastern/standings.html
+    roles:
+    - standings
+    as_of: '20230322020608'
+    archived:
+    - far-east-russia/far-east-russia-2010/standings/2026-09-01-live-0342298a/standings.html
+    - far-east-russia/far-east-russia-2010/standings/20230322-wayback-76130010/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2010/far-eastern/standings.html
+    roles:
+    - standings
+    as_of: '20170728114159'
+    archived:
+    - far-east-russia/far-east-russia-2010/standings/20170728-wayback-5f9ee387/standings.html
+    - far-east-russia/far-east-russia-2010/standings/20260904-live-06a79c29/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: far-east-russia-2011
   season: 2012
   name: 2011 Far Eastern Subregional Contest
@@ -329,25 +442,39 @@ contests:
   - 754
   parent: neerc-2011
   next: far-east-russia-2012
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2011/far-eastern/standings.html
-      archived: far-east-russia/far-east-russia-2011/scoreboard/2026-09-01-live-ca863e7d/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=806900;clist=806900;hide_ooc=1;hide_virtual=1;sid=
-      archived: far-east-russia/far-east-russia-2011/scoreboard/2026-09-01-live-3a826844/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2011/far-eastern/standings.html
-      as_of: '20170728112545'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: far-east-russia/far-east-russia-2011/standings/20170728-wayback-0768b2d7/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Far-Eastern-Subregional-2012/standings
-  web: https://neerc.ifmo.ru/subregions/far-eastern.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/far-eastern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2011/far-eastern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20220122064116'
+    archived:
+    - far-east-russia/far-east-russia-2011/scoreboard/2026-09-01-live-ca863e7d/standings.html
+    - far-east-russia/far-east-russia-2011/scoreboard/20220122-wayback-2fd25547/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=806900;clist=806900;hide_ooc=1;hide_virtual=1;sid=
+    roles:
+    - scoreboard
+    archived:
+    - far-east-russia/far-east-russia-2011/scoreboard/2026-09-01-live-3a826844/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2011/far-eastern/standings.html
+    roles:
+    - standings
+    as_of: '20170728112545'
+    archived:
+    - far-east-russia/far-east-russia-2011/standings/20170728-wayback-0768b2d7/standings.html
+    - far-east-russia/far-east-russia-2011/standings/20260904-live-140fd6a1/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Far-Eastern-Subregional-2012/standings
+    roles:
+    - icpc_standings
 - id: far-east-russia-2012
   season: 2013
   name: 2012 Far Eastern Subregional Contest
@@ -357,25 +484,39 @@ contests:
   - 1313
   parent: neerc-2012
   next: far-east-russia-2013
-  results:
-    scoreboard:
-    - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=869774;clist=869774;hide_ooc=1;hide_virtual=1;sid=
-      archived: far-east-russia/far-east-russia-2012/scoreboard/2026-09-01-live-4e5af7aa/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nerc.itmo.ru/archive/2012/far-eastern/standings.html
-      archived: far-east-russia/far-east-russia-2012/standings/2026-09-01-live-4e6774ce/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2012/far-eastern/standings.html
-      as_of: '20161031080404'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: far-east-russia/far-east-russia-2012/standings/20161031-wayback-98bdd531/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Far-Eastern-Subregional-2013/standings
-  web: https://neerc.ifmo.ru/subregions/far-eastern.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/far-eastern.html
+    roles:
+    - web
+  - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=869774;clist=869774;hide_ooc=1;hide_virtual=1;sid=
+    roles:
+    - scoreboard
+    archived:
+    - far-east-russia/far-east-russia-2012/scoreboard/2026-09-01-live-4e5af7aa/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2012/far-eastern/standings.html
+    roles:
+    - standings
+    as_of: '20220122054009'
+    archived:
+    - far-east-russia/far-east-russia-2012/standings/2026-09-01-live-4e6774ce/standings.html
+    - far-east-russia/far-east-russia-2012/standings/20220122-wayback-88a511be/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2012/far-eastern/standings.html
+    roles:
+    - standings
+    as_of: '20161031080404'
+    archived:
+    - far-east-russia/far-east-russia-2012/standings/20161031-wayback-98bdd531/standings.html
+    - far-east-russia/far-east-russia-2012/standings/20260904-live-182cb7ea/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Far-Eastern-Subregional-2013/standings
+    roles:
+    - icpc_standings
 - id: far-east-russia-2013
   season: 2014
   name: 2013 Far Eastern Subregional Contest
@@ -385,24 +526,38 @@ contests:
   - 2027
   parent: neerc-2013
   next: far-east-russia-2014
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2013/far-eastern/standings.html
-      archived: far-east-russia/far-east-russia-2013/scoreboard/2026-09-01-live-8519ac95/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=904847;clist=904847;hide_ooc=1;hide_virtual=1;sid=
-      archived: far-east-russia/far-east-russia-2013/scoreboard/2026-09-01-live-fc413639/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2013/far-eastern/standings.html
-      as_of: '20161031215152'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: far-east-russia/far-east-russia-2013/standings/20161031-wayback-8d4752c3/standings.html
-  web: https://neerc.ifmo.ru/subregions/far-eastern.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/far-eastern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2013/far-eastern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20220122043606'
+    archived:
+    - far-east-russia/far-east-russia-2013/scoreboard/2026-09-01-live-8519ac95/standings.html
+    - far-east-russia/far-east-russia-2013/scoreboard/20220122-wayback-f48e7973/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=904847;clist=904847;hide_ooc=1;hide_virtual=1;sid=
+    roles:
+    - scoreboard
+    as_of: '20230330030725'
+    archived:
+    - far-east-russia/far-east-russia-2013/scoreboard/2026-09-01-live-fc413639/page.html
+    - far-east-russia/far-east-russia-2013/scoreboard/20230330-wayback-63bdea8c/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2013/far-eastern/standings.html
+    roles:
+    - standings
+    as_of: '20161031215152'
+    archived:
+    - far-east-russia/far-east-russia-2013/standings/20161031-wayback-8d4752c3/standings.html
+    - far-east-russia/far-east-russia-2013/standings/20260904-live-f71f4c87/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: far-east-russia-2014
   season: 2015
   name: 2014 Far Eastern Subregional Contest
@@ -412,18 +567,29 @@ contests:
   - 2686
   parent: neerc-2014
   next: far-east-russia-2015
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2014/far-eastern/standings.html
-      archived: far-east-russia/far-east-russia-2014/scoreboard/2026-09-01-live-73e09653/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=958810;clist=958810;hide_ooc=1;hide_virtual=1;sid=
-      archived: far-east-russia/far-east-russia-2014/scoreboard/2026-09-01-live-bbaaacee/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Far-Eastern-Subregional-2015/standings
-  web: http://imcs.dvfu.ru/acm/about.html
+  sources:
+  - url: http://imcs.dvfu.ru/acm/about.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2014/far-eastern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260610153241'
+    archived:
+    - far-east-russia/far-east-russia-2014/scoreboard/2026-09-01-live-73e09653/standings.html
+    - far-east-russia/far-east-russia-2014/scoreboard/20260610-wayback-7977f421/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=958810;clist=958810;hide_ooc=1;hide_virtual=1;sid=
+    roles:
+    - scoreboard
+    archived:
+    - far-east-russia/far-east-russia-2014/scoreboard/2026-09-01-live-bbaaacee/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Far-Eastern-Subregional-2015/standings
+    roles:
+    - icpc_standings
 - id: far-east-russia-2015
   season: 2016
   name: 2015 Far Eastern Subregional Contest
@@ -433,25 +599,39 @@ contests:
   - 2755
   parent: neerc-2015
   next: far-east-russia-2016
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2015/far-eastern/standings.html
-      archived: far-east-russia/far-east-russia-2015/scoreboard/2026-09-01-live-144a02e8/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=1013317;clist=1013317;hide_ooc=1;hide_virtual=1;sid=
-      archived: far-east-russia/far-east-russia-2015/scoreboard/2026-09-01-live-b9e10f8b/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2015/far-eastern/standings.html
-      as_of: '20161031081843'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: far-east-russia/far-east-russia-2015/standings/20161031-wayback-de7ce9f0/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Far-Eastern-Subregional-2016/standings
-  web: https://neerc.ifmo.ru/subregions/far-eastern.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/far-eastern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2015/far-eastern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20220122045002'
+    archived:
+    - far-east-russia/far-east-russia-2015/scoreboard/2026-09-01-live-144a02e8/standings.html
+    - far-east-russia/far-east-russia-2015/scoreboard/20220122-wayback-50851619/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=1013317;clist=1013317;hide_ooc=1;hide_virtual=1;sid=
+    roles:
+    - scoreboard
+    archived:
+    - far-east-russia/far-east-russia-2015/scoreboard/2026-09-01-live-b9e10f8b/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2015/far-eastern/standings.html
+    roles:
+    - standings
+    as_of: '20161031081843'
+    archived:
+    - far-east-russia/far-east-russia-2015/standings/20161031-wayback-de7ce9f0/standings.html
+    - far-east-russia/far-east-russia-2015/standings/20260904-live-d6338920/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Far-Eastern-Subregional-2016/standings
+    roles:
+    - icpc_standings
 - id: far-east-russia-2016
   season: 2017
   name: 2016 Far Eastern Subregional Contest
@@ -461,25 +641,41 @@ contests:
   - 3152
   parent: neerc-2016
   next: far-east-russia-2017
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2016/far-eastern/standings.html
-      archived: far-east-russia/far-east-russia-2016/scoreboard/2026-09-01-live-bbd6e140/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=1089459;clist=1089459;hide_ooc=1;hide_virtual=1;sid=
-      archived: far-east-russia/far-east-russia-2016/scoreboard/2026-09-01-live-ddebff01/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2016/far-eastern/standings.html
-      as_of: '20171025201621'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: far-east-russia/far-east-russia-2016/standings/20171025-wayback-2e81ddad/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Far-Eastern-Subregional-2017/standings
-  web: https://neerc.ifmo.ru/subregions/far-eastern.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/far-eastern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2016/far-eastern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20191216051915'
+    archived:
+    - far-east-russia/far-east-russia-2016/scoreboard/2026-09-01-live-bbd6e140/standings.html
+    - far-east-russia/far-east-russia-2016/scoreboard/20191216-wayback-0e74fc1a/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=1089459;clist=1089459;hide_ooc=1;hide_virtual=1;sid=
+    roles:
+    - scoreboard
+    as_of: '20250616010916'
+    archived:
+    - far-east-russia/far-east-russia-2016/scoreboard/2026-09-01-live-ddebff01/page.html
+    - far-east-russia/far-east-russia-2016/scoreboard/20250616-wayback-247adbbe/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2016/far-eastern/standings.html
+    roles:
+    - standings
+    as_of: '20171025201621'
+    archived:
+    - far-east-russia/far-east-russia-2016/standings/20171025-wayback-2e81ddad/standings.html
+    - far-east-russia/far-east-russia-2016/standings/20260904-live-eccaefaf/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Far-Eastern-Subregional-2017/standings
+    roles:
+    - icpc_standings
 - id: far-east-russia-2017
   season: 2018
   name: 2017 Far Eastern Subregional Contest
@@ -489,25 +685,39 @@ contests:
   - 3293
   parent: nerc-2017
   next: far-east-russia-2018
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2017/far-eastern/standings.html
-      archived: far-east-russia/far-east-russia-2017/scoreboard/2026-09-01-live-e6745f69/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=1206924;clist=1206924;hide_ooc=1;hide_virtual=1;sid=
-      archived: far-east-russia/far-east-russia-2017/scoreboard/2026-09-01-live-26b0cc15/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2017/far-eastern/standings.html
-      as_of: '20180920232556'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: far-east-russia/far-east-russia-2017/standings/20180920-wayback-0a3ac4fc/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Far-Eastern-Subregional-2018/standings
-  web: https://neerc.ifmo.ru/subregions/far-eastern.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/far-eastern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2017/far-eastern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260613054235'
+    archived:
+    - far-east-russia/far-east-russia-2017/scoreboard/2026-09-01-live-e6745f69/standings.html
+    - far-east-russia/far-east-russia-2017/scoreboard/20260613-wayback-a1b43761/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=1206924;clist=1206924;hide_ooc=1;hide_virtual=1;sid=
+    roles:
+    - scoreboard
+    archived:
+    - far-east-russia/far-east-russia-2017/scoreboard/2026-09-01-live-26b0cc15/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2017/far-eastern/standings.html
+    roles:
+    - standings
+    as_of: '20180920232556'
+    archived:
+    - far-east-russia/far-east-russia-2017/standings/20180920-wayback-0a3ac4fc/standings.html
+    - far-east-russia/far-east-russia-2017/standings/20260904-live-bb76aae5/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Far-Eastern-Subregional-2018/standings
+    roles:
+    - icpc_standings
 - id: far-east-russia-2018
   season: 2019
   name: 2018 Far Eastern Subregional Contest
@@ -517,12 +727,14 @@ contests:
   - 3675
   parent: nerc-2018
   next: far-east-russia-2019
-  results:
-    scoreboard:
-    - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=1821567;clist=1821567;hide_ooc=1;hide_virtual=1;sid=
-      archived: far-east-russia/far-east-russia-2018/scoreboard/2026-09-01-live-33184c22/page.html
-      url_state: live
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=1821567;clist=1821567;hide_ooc=1;hide_virtual=1;sid=
+    roles:
+    - scoreboard
+    archived:
+    - far-east-russia/far-east-russia-2018/scoreboard/2026-09-01-live-33184c22/page.html
+    url_state: live
+    url_checked: '2026-11-02'
 - id: far-east-russia-2019
   season: 2020
   name: 2019 Far Eastern Russia Regional Contest
@@ -532,25 +744,39 @@ contests:
   - 4197
   parent: nerc-2019
   next: far-east-russia-2020
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2019/far-eastern/standings.html
-      archived: far-east-russia/far-east-russia-2019/scoreboard/2026-09-01-live-c388ca1f/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=2626943;clist=2626943;hide_ooc=1;hide_virtual=1;sid=
-      archived: far-east-russia/far-east-russia-2019/scoreboard/2026-09-01-live-4bf7463f/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2019/far-eastern/standings.html
-      as_of: '20230331153450'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: far-east-russia/far-east-russia-2019/standings/20230331-wayback-658fd8a3/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Far-Eastern-Regional-2020/standings
-  web: https://neerc.ifmo.ru/subregions/far-eastern.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/far-eastern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2019/far-eastern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260610150327'
+    archived:
+    - far-east-russia/far-east-russia-2019/scoreboard/2026-09-01-live-c388ca1f/standings.html
+    - far-east-russia/far-east-russia-2019/scoreboard/20260610-wayback-58c43457/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=2626943;clist=2626943;hide_ooc=1;hide_virtual=1;sid=
+    roles:
+    - scoreboard
+    archived:
+    - far-east-russia/far-east-russia-2019/scoreboard/2026-09-01-live-4bf7463f/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2019/far-eastern/standings.html
+    roles:
+    - standings
+    as_of: '20230331153450'
+    archived:
+    - far-east-russia/far-east-russia-2019/standings/20230331-wayback-658fd8a3/standings.html
+    - far-east-russia/far-east-russia-2019/standings/20260904-live-9100fcd2/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Far-Eastern-Regional-2020/standings
+    roles:
+    - icpc_standings
 - id: far-east-russia-2020
   season: 2021
   name: 2020 Far Eastern Russia Regional Contest
@@ -560,13 +786,19 @@ contests:
   - 4559
   parent: nerc-2020
   next: far-east-russia-2021
-  results:
-    scoreboard:
-    - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=4998079;clist=4998079;hide_ooc=1;hide_virtual=1;sid=
-      archived: far-east-russia/far-east-russia-2020/scoreboard/2026-09-01-live-4043a820/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Far-Eastern-Regional-2021/standings
+  sources:
+  - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=4998079;clist=4998079;hide_ooc=1;hide_virtual=1;sid=
+    roles:
+    - scoreboard
+    as_of: '20231130000905'
+    archived:
+    - far-east-russia/far-east-russia-2020/scoreboard/2026-09-01-live-4043a820/page.html
+    - far-east-russia/far-east-russia-2020/scoreboard/20231130-wayback-6e312824/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Far-Eastern-Regional-2021/standings
+    roles:
+    - icpc_standings
 - id: far-east-russia-2021
   season: 2022
   name: 2021 ICPC Far Eastern Russia Regional Contest
@@ -576,14 +808,20 @@ contests:
   - 4934
   parent: nerc-2021
   next: far-east-russia-2022
-  results:
-    scoreboard:
-    - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=5481581;clist=5481581;hide_ooc=1;hide_virtual=1;sid=
-      archived: far-east-russia/far-east-russia-2021/scoreboard/2026-09-01-live-76502426/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Far-Eastern-Regional-2022/standings
-  web: https://fefudigitalschool.com/icpc
+  sources:
+  - url: https://fefudigitalschool.com/icpc
+    roles:
+    - web
+  - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=5481581;clist=5481581;hide_ooc=1;hide_virtual=1;sid=
+    roles:
+    - scoreboard
+    archived:
+    - far-east-russia/far-east-russia-2021/scoreboard/2026-09-01-live-76502426/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Far-Eastern-Regional-2022/standings
+    roles:
+    - icpc_standings
 - id: far-east-russia-2022
   season: 2023
   name: 2022 ICPC Far Eastern Russia Regional Contest
@@ -593,14 +831,19 @@ contests:
   - 5600
   parent: nerc-2022
   next: far-east-russia-2023
-  icpc_standings: https://icpc.global/regionals/finder/Far-Eastern-Regional-2023/standings
-  results:
-    standings:
-    - url: https://imcs.dvfu.ru/cats/rank_table?cid=6143148;hide_ooc=1;lang=en
-      archived: far-east-russia/far-east-russia-2022/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://imcs.dvfu.ru/cats/rank_table?cid=6143148;hide_ooc=1;lang=en
+    roles:
+    - standings
+    archived:
+    - far-east-russia/far-east-russia-2022/external-standings/2026-04-15-external/content.html
+    - far-east-russia/far-east-russia-2022/standings/20260901-live-8074e025/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Far-Eastern-Regional-2023/standings
+    roles:
+    - icpc_standings
 - id: far-east-russia-2023
   season: 2024
   name: 2023 ICPC Far Eastern Russia Regional Contest
@@ -610,9 +853,12 @@ contests:
   - 7725
   parent: nerc-2023
   next: far-east-russia-2024
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Far-Eastern-Regional-2024/standings
-    archived: far-east-russia/far-east-russia-2023/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/Far-Eastern-Regional-2024/standings
+    roles:
+    - icpc_standings
+    archived:
+    - far-east-russia/far-east-russia-2023/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 7725, 33 teams, DB fetch 2026-04-26)
 - id: far-east-russia-2024
   season: 2025
@@ -623,9 +869,12 @@ contests:
   - 8906
   parent: nerc-2024
   next: far-east-russia-2025
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Far-Eastern-Regional-2025/standings
-    archived: far-east-russia/far-east-russia-2024/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/Far-Eastern-Regional-2025/standings
+    roles:
+    - icpc_standings
+    archived:
+    - far-east-russia/far-east-russia-2024/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 8906, 27 teams, DB fetch 2026-04-26)
 - id: far-east-russia-2025
   season: 2026
@@ -636,19 +885,28 @@ contests:
   - 9176
   parent: nerc-2025
   next: far-east-russia-2026
-  results:
-    scoreboard:
-    - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=6466158;clist=6466158;hide_ooc=1;hide_virtual=1;sid=
-      archived: far-east-russia/far-east-russia-2025/scoreboard/2026-09-01-live-918ad9a1/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://imcs.dvfu.ru/cats/rank_table?cache=1;cid=6466158;clist=6466158;hide_ooc=1;hide_virtual=1;sid=
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: far-east-russia/far-east-russia-2025/scoreboard/20260904-live-ffdb4f9e/page.html
-  icpc_standings: https://icpc.global/regionals/finder/Far-Eastern-Regional-2026/standings
-  web: https://imcs.dvfu.ru/cats/wiki?name=icpc
+  sources:
+  - url: https://imcs.dvfu.ru/cats/wiki?name=icpc
+    roles:
+    - web
+  - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=6466158;clist=6466158;hide_ooc=1;hide_virtual=1;sid=
+    roles:
+    - scoreboard
+    archived:
+    - far-east-russia/far-east-russia-2025/scoreboard/2026-09-01-live-918ad9a1/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://imcs.dvfu.ru/cats/rank_table?cache=1;cid=6466158;clist=6466158;hide_ooc=1;hide_virtual=1;sid=
+    roles:
+    - scoreboard
+    archived:
+    - far-east-russia/far-east-russia-2025/scoreboard/20260904-live-ffdb4f9e/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Far-Eastern-Regional-2026/standings
+    roles:
+    - icpc_standings
 - id: far-east-russia-2026
   status: upcoming
   season: 2027

@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: kabul
   name: ICPC Asia Kabul Regional Contest
+  tier: regional
+  region: Asia West
+  naming: season-start
 contests:
 - id: kabul-2017
   season: 2018
@@ -12,23 +15,24 @@ contests:
   - 3485
   parent: wf-2018
   next: kabul-2018
-  web:
-    url: http://kateb.edu.af/icpc_kabul_regional/
+  sources:
+  - url: http://kateb.edu.af/icpc_kabul_regional/
+    roles:
+    - web
     as_of: '20181231143041'
-  results:
-    standings:
-    - url: http://kateb.edu.af/icpc_kabul_regional/result.php
-      as_of: '20181231141516'
-      archived: kabul/kabul-2017/standings/2026-09-01-wayback-28aaf754/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://kateb.edu.af/icpc_kabul_regional/result.php
-      as_of: '20191019093451'
-      archived: kabul/kabul-2017/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/AsiaKabul-2018/standings
+  - url: http://kateb.edu.af/icpc_kabul_regional/result.php
+    roles:
+    - standings
+    as_of: '20181231141516'
+    archived:
+    - kabul/kabul-2017/standings/2026-09-01-wayback-28aaf754/page.html
+    - kabul/kabul-2017/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: as_of 20191019093451 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/AsiaKabul-2018/standings
+    roles:
+    - icpc_standings
 - id: kabul-2018
   season: 2019
   name: 2018 ICPC Asia Kabul Regional Contest
@@ -38,23 +42,29 @@ contests:
   - 3520
   parent: wf-2019
   next: kabul-2019
-  web:
-    url: http://icpc.kateb.edu.af/
-    as_of: '20180710043353'
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/AsiaKabul-2019/standings
-    archived: kabul/kabul-2018/standings/api-20260904/standings.html
-    note: rendered from the icpc.global API standings archive (cms 3520, 41 teams, DB fetch 2026-04-26)
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2159
-        note: Asia-Kabul ICPC Regional Contest 2018
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/2159
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: http://icpc.kateb.edu.af/
+    roles:
+    - web
+    as_of: '20180710043353'
+  - url: https://icpc.global/regionals/finder/AsiaKabul-2019/standings
+    roles:
+    - icpc_standings
+    archived:
+    - kabul/kabul-2018/standings/api-20260904/standings.html
+    note: rendered from the icpc.global API standings archive (cms 3520, 41 teams, DB fetch 2026-04-26)
+  - url: https://www.acmicpc.net/category/detail/2159
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      Asia-Kabul ICPC Regional Contest 2018
+  problems:
+    set: kabul-2018
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - id: kabul-2019
   season: 2020
@@ -65,36 +75,37 @@ contests:
   - 4095
   parent: awc-2019
   next: kabul-2020
-  web:
-    url: https://icpc.kateb.edu.af/
-    as_of: '20191121115134'
-  results:
-    standings:
-    - url: https://kateb.edu.af/icpc/results/results2019.php
-      as_of: '20220213081233'
-      archived: kabul/kabul-2019/standings/2026-09-01-wayback-dcb65575/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: https://kateb.edu.af/icpc/results/results2019.php
-      as_of: '20220213081233'
-      archived: kabul/kabul-2019/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/AsiaKabul-2020/standings
-  problems:
-    notes: No date
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2160
-        as_of: '20210126053610'
-        note: ICPC Asia Kabul Regional Contest 2019
-  problemset:
-    url: https://www.acmicpc.net/category/detail/2160
-    as_of: '20210126053610'
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: https://icpc.kateb.edu.af/
+    roles:
+    - web
+    as_of: '20191121115134'
+  - url: https://kateb.edu.af/icpc/results/results2019.php
+    roles:
+    - standings
+    as_of: '20220213081233'
+    archived:
+    - kabul/kabul-2019/standings/2026-09-01-wayback-dcb65575/page.html
+    - kabul/kabul-2019/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/AsiaKabul-2020/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/2160
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20210126053610'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      ICPC Asia Kabul Regional Contest 2019
+  problems:
+    set: kabul-2019
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - id: kabul-2020
   season: 2021
@@ -105,18 +116,23 @@ contests:
   - 4484
   parent: wf-2021
   next: kabul-2023
-  web:
-    url: https://icpc.kateb.edu.af/
+  sources:
+  - url: https://icpc.kateb.edu.af/
+    roles:
+    - web
+    - standings
     as_of: '20211215174801'
-  results:
-    standings:
-    - url: http://icpc.kateb.edu.af/
-      archived: kabul/kabul-2020/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-      as_of: '20210817011434'
-  icpc_standings: https://icpc.global/regionals/finder/AsiaKabul-2021/standings
+    archived:
+    - kabul/kabul-2020/external-standings/2026-04-15-external/content.html
+    - kabul/kabul-2020/standings/20210817-wayback-01b16b6d/page.html
+    - kabul/kabul-2020/standings/20210817-wayback-20fcd579/page.html
+    - kabul/kabul-2020/standings/20260904-live-9df8a80d/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: as_of 20210817011434 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/AsiaKabul-2021/standings
+    roles:
+    - icpc_standings
 - id: kabul-2023
   season: 2024
   name: 2023 ICPC Asia Kabul Regional Contest
@@ -126,16 +142,25 @@ contests:
   - 8204
   parent: awc-2023
   next: kabul-2024
-  icpc_standings: https://icpc.global/regionals/finder/Asia-Kabul-2024/standings
-  results:
-    standings:
-    - url: http://icpc.kateb.edu.af/
-      archived: kabul/kabul-2023/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-      as_of: '20230930103024'
-  web: https://icpc.global/private/teamRegistration/site/34429
+  sources:
+  - url: https://icpc.global/private/teamRegistration/site/34429
+    roles:
+    - web
+  - url: http://icpc.kateb.edu.af/
+    roles:
+    - standings
+    as_of: '20230930103024'
+    archived:
+    - kabul/kabul-2023/external-standings/2026-04-15-external/content.html
+    - kabul/kabul-2023/standings/20230930-wayback-781abeb0/page.html
+    - kabul/kabul-2023/standings/20230930-wayback-a9a521e6/page.html
+    - kabul/kabul-2023/standings/20260904-live-9df8a80d/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Asia-Kabul-2024/standings
+    roles:
+    - icpc_standings
 - id: kabul-2024
   season: 2025
   name: 2024 ICPC Asia Kabul Regional Contest
@@ -145,16 +170,25 @@ contests:
   - 8873
   parent: awc-2024
   next: kabul-2025
-  icpc_standings: https://icpc.global/regionals/finder/Asia-Kabul-2025/standings
-  results:
-    standings:
-    - url: http://icpc.kateb.edu.af/
-      archived: kabul/kabul-2024/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-      as_of: '20241104184802'
-  web: https://icpc.global/private/teamRegistration/site/34429
+  sources:
+  - url: https://icpc.global/private/teamRegistration/site/34429
+    roles:
+    - web
+  - url: http://icpc.kateb.edu.af/
+    roles:
+    - standings
+    as_of: '20241104184802'
+    archived:
+    - kabul/kabul-2024/external-standings/2026-04-15-external/content.html
+    - kabul/kabul-2024/standings/20241104-wayback-b6e6b51a/page.html
+    - kabul/kabul-2024/standings/20241104-wayback-d922f923/page.html
+    - kabul/kabul-2024/standings/20260904-live-9df8a80d/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Asia-Kabul-2025/standings
+    roles:
+    - icpc_standings
 - id: kabul-2025
   season: 2026
   name: 2025 ICPC Asia Kabul Regional Contest
@@ -164,16 +198,25 @@ contests:
   - 9235
   parent: awc-2025
   next: kabul-2026
-  web: http://icpc.kateb.edu.af/blogs/ICPC_2025%E2%80%932026_Kabul_Regional_Programming_Contest_Report
-  icpc_standings: https://icpc.global/regionals/finder/Asia-Kabul-2026/standings
-  results:
-    standings:
-    - url: http://icpc.kateb.edu.af/
-      archived: kabul/kabul-2025/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-      as_of: '20260215224950'
+  sources:
+  - url: http://icpc.kateb.edu.af/blogs/ICPC_2025%E2%80%932026_Kabul_Regional_Programming_Contest_Report
+    roles:
+    - web
+  - url: http://icpc.kateb.edu.af/
+    roles:
+    - standings
+    as_of: '20260215224950'
+    archived:
+    - kabul/kabul-2025/external-standings/2026-04-15-external/content.html
+    - kabul/kabul-2025/standings/20250124-wayback-19c0c06a/page.html
+    - kabul/kabul-2025/standings/20260215-wayback-fb9e9815/page.html
+    - kabul/kabul-2025/standings/20260904-live-9df8a80d/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Asia-Kabul-2026/standings
+    roles:
+    - icpc_standings
 - id: kabul-2026
   status: upcoming
   season: 2027

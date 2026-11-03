@@ -1,7 +1,10 @@
-# Maintained in-repo; problem-archive data imported by tools/import_problem_archive.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: nigeria
   name: ICPC Nigerian Collegiate Programming Contest
+  tier: subregional
+  region: Africa & Arab
+  naming: season-start
 contests:
 - id: nigeria-2016
   season: 2017
@@ -12,14 +15,18 @@ contests:
   - 3161
   parent: south-africa-2016
   next: nigeria-2017
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/NCPC-SA-2017/standings
-    archived: nigeria/nigeria-2016/standings/api-20260904/standings.html
+  sources:
+  - url: http://www.mapcom-group.com/index.php?menu=cnp
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/NCPC-SA-2017/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nigeria/nigeria-2016/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3161, 24 teams, DB fetch 2026-04-26)
-  web: http://www.mapcom-group.com/index.php?menu=cnp
   problems:
-    notes: Also CMS:3003
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: nigeria-2016
 - id: nigeria-2017
   season: 2018
   name: 2017 Nigerien Collegiate Programming Contest
@@ -29,9 +36,12 @@ contests:
   - 3330
   parent: south-africa-2017
   next: nigeria-2019
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/NCPC-SA-2018/standings
-    archived: nigeria/nigeria-2017/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/NCPC-SA-2018/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nigeria/nigeria-2017/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3330, 17 teams, DB fetch 2026-04-26)
 - id: nigeria-2019
   season: 2020
@@ -42,11 +52,16 @@ contests:
   - 4038
   parent: acpc-2019
   next: nigeria-2020
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/NigeriaCPC-2020/standings
-    archived: nigeria/nigeria-2019/standings/api-20260904/standings.html
+  sources:
+  - url: http://www.nmcabuja.org/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/NigeriaCPC-2020/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nigeria/nigeria-2019/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4038, 16 teams, DB fetch 2026-04-26)
-  web: http://www.nmcabuja.org/
 - id: nigeria-2020
   season: 2021
   name: 2020 Nigerian Collegiate Programming Contest
@@ -56,9 +71,12 @@ contests:
   - 4458
   parent: acpc-2020
   next: nigeria-2021
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/NigeriaCPC-2021/standings
-    archived: nigeria/nigeria-2020/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/NigeriaCPC-2021/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nigeria/nigeria-2020/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4458, 10 teams, DB fetch 2026-04-26)
 - id: nigeria-2021
   season: 2022
@@ -69,9 +87,12 @@ contests:
   - 4825
   parent: acpc-2021
   next: nigeria-2022
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/NigeriaCPC-2022/standings
-    archived: nigeria/nigeria-2021/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/NigeriaCPC-2022/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nigeria/nigeria-2021/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4825, 38 teams, DB fetch 2026-04-26)
 - id: nigeria-2022
   season: 2023
@@ -80,16 +101,16 @@ contests:
   - 5437
   parent: acpc-2022
   next: nigeria-2023
-  web: https://codeforces.com/blog/entry/125902
-  mirrors:
+  sources:
+  - url: https://codeforces.com/blog/entry/125902
+    roles:
+    - web
   - url: https://icpc.global/regionals/finder/NigeriaCPC-2023/standings
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/NigeriaCPC-2023/standings
+    roles:
+    - icpc_standings
     note: added by url-hunt 2026-09-01 (wave2-rest)
   problems:
-    notes: No date
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: nigeria-2022
 - id: nigeria-2023
   season: 2024
   name: 2023 ICPC Nigerian Collegiate Programming Contest
@@ -97,13 +118,13 @@ contests:
   - 7658
   parent: acpc-2023
   next: null
-  web: https://codeforces.com/blog/entry/125902
-  mirrors:
+  sources:
+  - url: https://codeforces.com/blog/entry/125902
+    roles:
+    - web
   - url: https://icpc.global/regionals/finder/NigeriaCPC-2024/standings
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/NigeriaCPC-2024/standings
+    roles:
+    - icpc_standings
     note: added by url-hunt 2026-09-01 (wave2-rest)
   problems:
-    notes: No date, no teams
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: nigeria-2023

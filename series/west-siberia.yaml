@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: west-siberia
   name: ICPC West Siberian Regional Contest
+  tier: subregional
+  region: Northern Eurasia
+  naming: season-start
 contests:
 - id: west-siberia-1999
   season: 2000
@@ -9,153 +12,221 @@ contests:
   cms_ids: []
   parent: neerc-1999
   next: west-siberia-2000
-  web: https://ikit.sfu-kras.ru/acm
-  mirrors:
-  - url: http://nstu.ru/*
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: http://neerc.secna.ru/*
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: https://neerc.ifmo.ru/subregions/west-siberian.html
-    note: added by url-hunt 2026-09-01 (round9-deep-probe)
-  - url: https://olymp.nstu.ru/
-    note: added by url-hunt 2026-09-01 (round9-deep-probe)
+  sources:
+  - url: https://ikit.sfu-kras.ru/acm
+    roles:
+    - web
+    also_at:
+    - http://nstu.ru/*
+    - http://neerc.secna.ru/*
+    - https://neerc.ifmo.ru/subregions/west-siberian.html
+    - https://olymp.nstu.ru/
 - id: west-siberia-2000
   season: 2001
   name: 2000 West Siberian Subregional Contest
   cms_ids: []
   parent: neerc-2000
   next: west-siberia-2001
-  web: https://neerc.ifmo.ru/subregions/west-siberian.html
-  mirrors: []
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/west-siberian.html
+    roles:
+    - web
 - id: west-siberia-2001
   season: 2002
   name: 2001 West Siberian Subregional Contest
   cms_ids: []
   parent: neerc-2001
   next: west-siberia-2002
-  web: https://www.kgeorgiy.info/papers/Vasilev_VN__Kazakov_MA__Korneev_GA__Parfenov_VG__Stankevich_AS_--_NEERC_2001.pdf
-  mirrors:
-  - url: http://nstu.ru/*
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
+  sources:
+  - url: https://www.kgeorgiy.info/papers/Vasilev_VN__Kazakov_MA__Korneev_GA__Parfenov_VG__Stankevich_AS_--_NEERC_2001.pdf
+    roles:
+    - web
+    also_at:
+    - http://nstu.ru/*
 - id: west-siberia-2002
   season: 2003
   name: 2002 West Siberian Subregional Contest
   cms_ids: []
   parent: neerc-2002
   next: west-siberia-2003
-  web: https://neerc.ifmo.ru/subregions/west-siberian.html
-  mirrors: []
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/west-siberian.html
+    roles:
+    - web
 - id: west-siberia-2003
   season: 2004
   name: 2003 West Siberian Subregional Contest
   cms_ids: []
   parent: neerc-2003
   next: west-siberia-2004
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2003/west-siberian/standings.html
-      as_of: '20220122043953'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2003/standings/20220122-wayback-2ae38f58/standings.html
-    - url: https://neerc.ifmo.ru/archive/2003/west-siberian/standings.html
-      as_of: '20171011160750'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2003/standings/20171011-wayback-fb702df4/standings.html
-  web: https://neerc.ifmo.ru/subregions/west-siberian.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/west-siberian.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2003/west-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20220122043953'
+    archived:
+    - west-siberia/west-siberia-2003/standings/20220122-wayback-2ae38f58/standings.html
+    - west-siberia/west-siberia-2003/standings/20260904-live-b7bb1837/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2003/west-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20171011160750'
+    archived:
+    - west-siberia/west-siberia-2003/standings/20171011-wayback-fb702df4/standings.html
+    - west-siberia/west-siberia-2003/standings/20260904-live-05aac52d/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: west-siberia-2004
   season: 2005
   name: 2004 West Siberian Subregional Contest
   cms_ids: []
   parent: neerc-2004
   next: west-siberia-2005
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2004/west-siberian/standings.html
-      archived: west-siberia/west-siberia-2004/standings/2026-09-01-live-a6fb8f13/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2004/west-siberian/standings.html
-      as_of: '20171011160800'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2004/standings/20171011-wayback-1dfc798d/standings.html
-  web: https://neerc.ifmo.ru/subregions/west-siberian.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/west-siberian.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2004/west-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20220122054835'
+    archived:
+    - west-siberia/west-siberia-2004/standings/2026-09-01-live-a6fb8f13/standings.html
+    - west-siberia/west-siberia-2004/standings/20220122-wayback-32e3507c/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2004/west-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20171011160800'
+    archived:
+    - west-siberia/west-siberia-2004/standings/20171011-wayback-1dfc798d/standings.html
+    - west-siberia/west-siberia-2004/standings/20260904-live-77aac85f/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: west-siberia-2005
   season: 2006
   name: 2005 West Siberian Subregional Contest
   cms_ids: []
   parent: neerc-2005
   next: west-siberia-2006
-  results:
-    scoreboard:
-    - url: https://olymp.nstu.ru/contests/standing/6
-      archived: west-siberia/west-siberia-2005/scoreboard/2026-09-01-live-f5f576cc/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nerc.itmo.ru/archive/2005/west-siberian/standings.html
-      as_of: '20220122045308'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2005/standings/20220122-wayback-822c8486/standings.html
-    - url: https://neerc.ifmo.ru/archive/2005/west-siberian/standings.html
-      as_of: '20161209013631'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2005/standings/20161209-wayback-f9361d81/standings.html
-  web: https://neerc.ifmo.ru/subregions/west-siberian.html
-  problemset: https://olymp.nstu.ru/contests/downloadproblems/6
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/west-siberian.html
+    roles:
+    - web
+  - url: https://olymp.nstu.ru/contests/standing/6
+    roles:
+    - scoreboard
+    as_of: '20230324023225'
+    archived:
+    - west-siberia/west-siberia-2005/scoreboard/2026-09-01-live-f5f576cc/page.html
+    - west-siberia/west-siberia-2005/scoreboard/20230324-wayback-f3d92945/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2005/west-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20220122045308'
+    archived:
+    - west-siberia/west-siberia-2005/standings/20220122-wayback-822c8486/standings.html
+    - west-siberia/west-siberia-2005/standings/20260904-live-811ac555/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2005/west-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20161209013631'
+    archived:
+    - west-siberia/west-siberia-2005/standings/20161209-wayback-f9361d81/standings.html
+    - west-siberia/west-siberia-2005/standings/20260904-live-a0ff1114/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://olymp.nstu.ru/contests/downloadproblems/6
+    roles:
+    - problemset
+    as_of: '20230402020029'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: west-siberia-2006
   season: 2007
   name: 2006 West Siberian Subregional Contest
   cms_ids: []
   parent: neerc-2006
   next: west-siberia-2007
-  results:
-    scoreboard:
-    - url: https://olymp.nstu.ru/contests/standing/5
-      archived: west-siberia/west-siberia-2006/scoreboard/2026-09-01-live-c6121e89/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nerc.itmo.ru/archive/2006/west-siberian/standings.html
-      as_of: '20220122060254'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2006/standings/20220122-wayback-0c6e2fa4/standings.html
-    - url: https://neerc.ifmo.ru/archive/2006/west-siberian/standings.html
-      as_of: '20171011161728'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2006/standings/20171011-wayback-0cd002c2/standings.html
-  web: https://neerc.ifmo.ru/subregions/west-siberian.html
-  problemset: https://olymp.nstu.ru/contests/downloadproblems/5
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/west-siberian.html
+    roles:
+    - web
+  - url: https://olymp.nstu.ru/contests/standing/5
+    roles:
+    - scoreboard
+    as_of: '20230324033626'
+    archived:
+    - west-siberia/west-siberia-2006/scoreboard/2026-09-01-live-c6121e89/page.html
+    - west-siberia/west-siberia-2006/scoreboard/20230324-wayback-c568dd3c/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2006/west-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20220122060254'
+    archived:
+    - west-siberia/west-siberia-2006/standings/20220122-wayback-0c6e2fa4/standings.html
+    - west-siberia/west-siberia-2006/standings/20260904-live-5ace6642/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2006/west-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20171011161728'
+    archived:
+    - west-siberia/west-siberia-2006/standings/20171011-wayback-0cd002c2/standings.html
+    - west-siberia/west-siberia-2006/standings/20260904-live-3cb1ce8e/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://olymp.nstu.ru/contests/downloadproblems/5
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: west-siberia-2007
   season: 2008
   name: 2007 West Siberian Subregional Contest
   cms_ids: []
   parent: neerc-2007
   next: west-siberia-2008
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2007/west-siberian/standings.html
-      as_of: '20220122050601'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2007/standings/20220122-wayback-fc6afcb5/standings.html
-    - url: https://neerc.ifmo.ru/archive/2007/west-siberian/standings.html
-      as_of: '20171011160830'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2007/standings/20171011-wayback-05e54870/standings.html
-  web: https://neerc.ifmo.ru/subregions/west-siberian.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/west-siberian.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2007/west-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20220122050601'
+    archived:
+    - west-siberia/west-siberia-2007/standings/20220122-wayback-fc6afcb5/standings.html
+    - west-siberia/west-siberia-2007/standings/20260904-live-4b50d44b/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2007/west-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20171011160830'
+    archived:
+    - west-siberia/west-siberia-2007/standings/20171011-wayback-05e54870/standings.html
+    - west-siberia/west-siberia-2007/standings/20260904-live-e33725a3/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: west-siberia-2008
   season: 2009
   name: 2008 West Siberian Subregional Contest
@@ -165,27 +236,47 @@ contests:
   - 70
   parent: neerc-2008
   next: west-siberia-2009
-  results:
-    scoreboard:
-    - url: https://olymp.nstu.ru/contests/standing/7
-      archived: west-siberia/west-siberia-2008/scoreboard/2026-09-01-live-0b3edf15/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nerc.itmo.ru/archive/2008/west-siberian/standings.html
-      as_of: '20220122061027'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2008/standings/20220122-wayback-cd8ac3f7/standings.html
-    - url: https://neerc.ifmo.ru/archive/2008/west-siberian/standings.html
-      as_of: '20171011161743'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2008/standings/20171011-wayback-5169ad92/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/West-Siberian-Subregional-2009/standings
-  web: http://www.olymp.nstu.ru
-  problemset: https://olymp.nstu.ru/contests/downloadproblems/7
+  sources:
+  - url: http://www.olymp.nstu.ru
+    roles:
+    - web
+  - url: https://olymp.nstu.ru/contests/standing/7
+    roles:
+    - scoreboard
+    as_of: '20230324035114'
+    archived:
+    - west-siberia/west-siberia-2008/scoreboard/2026-09-01-live-0b3edf15/page.html
+    - west-siberia/west-siberia-2008/scoreboard/20230324-wayback-92005df6/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2008/west-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20220122061027'
+    archived:
+    - west-siberia/west-siberia-2008/standings/20220122-wayback-cd8ac3f7/standings.html
+    - west-siberia/west-siberia-2008/standings/20260904-live-fe4c8b6c/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2008/west-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20171011161743'
+    archived:
+    - west-siberia/west-siberia-2008/standings/20171011-wayback-5169ad92/standings.html
+    - west-siberia/west-siberia-2008/standings/20260904-live-bdf9ee5c/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/West-Siberian-Subregional-2009/standings
+    roles:
+    - icpc_standings
+  - url: https://olymp.nstu.ru/contests/downloadproblems/7
+    roles:
+    - problemset
+    as_of: '20230324023537'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: west-siberia-2009
   season: 2010
   name: 2009 West Siberian Subregional Contest
@@ -195,25 +286,44 @@ contests:
   - 535
   parent: neerc-2009
   next: west-siberia-2010
-  results:
-    scoreboard:
-    - url: https://olymp.nstu.ru/contests/standing/8
-      archived: west-siberia/west-siberia-2009/scoreboard/2026-09-01-live-5127a96e/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nerc.itmo.ru/archive/2009/west-siberian/standings.html
-      archived: west-siberia/west-siberia-2009/standings/2026-09-01-live-078c428c/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2009/west-siberian/standings.html
-      as_of: '20171011161748'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2009/standings/20171011-wayback-33164e6c/standings.html
-  web: https://neerc.ifmo.ru/subregions/west-siberian.html
-  problemset: https://olymp.nstu.ru/contests/downloadproblems/8
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/west-siberian.html
+    roles:
+    - web
+  - url: https://olymp.nstu.ru/contests/standing/8
+    roles:
+    - scoreboard
+    as_of: '20230324024534'
+    archived:
+    - west-siberia/west-siberia-2009/scoreboard/2026-09-01-live-5127a96e/page.html
+    - west-siberia/west-siberia-2009/scoreboard/20230324-wayback-c7f80b48/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2009/west-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20220122051446'
+    archived:
+    - west-siberia/west-siberia-2009/standings/2026-09-01-live-078c428c/standings.html
+    - west-siberia/west-siberia-2009/standings/20220122-wayback-4a45c267/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2009/west-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20171011161748'
+    archived:
+    - west-siberia/west-siberia-2009/standings/20171011-wayback-33164e6c/standings.html
+    - west-siberia/west-siberia-2009/standings/20260904-live-6775cf64/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://olymp.nstu.ru/contests/downloadproblems/8
+    roles:
+    - problemset
+    as_of: '20230402015947'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: west-siberia-2010
   season: 2011
   name: 2010 West Siberian Subregional Contest
@@ -222,26 +332,43 @@ contests:
   - 629
   parent: neerc-2010
   next: west-siberia-2011
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2010/west-siberian/standings.html
-      as_of: '20220122054415'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2010/scoreboard/20220122-wayback-25b014ed/standings.html
-    - url: https://olymp.nstu.ru/contests/standing/15?official=true
-      archived: west-siberia/west-siberia-2010/scoreboard/2026-09-01-live-26f05edb/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2010/west-siberian/standings.html
-      as_of: '20171011161753'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2010/standings/20171011-wayback-535bbdd4/standings.html
-  web: http://www.olymp.nstu.ru
-  problemset: https://olymp.nstu.ru/contests/downloadproblems/15
+  sources:
+  - url: http://www.olymp.nstu.ru
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2010/west-siberian/standings.html
+    roles:
+    - scoreboard
+    as_of: '20220122054415'
+    archived:
+    - west-siberia/west-siberia-2010/scoreboard/20220122-wayback-25b014ed/standings.html
+    - west-siberia/west-siberia-2010/scoreboard/20260904-live-5a74f691/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://olymp.nstu.ru/contests/standing/15?official=true
+    roles:
+    - scoreboard
+    as_of: '20230324040732'
+    archived:
+    - west-siberia/west-siberia-2010/scoreboard/2026-09-01-live-26f05edb/page.html
+    - west-siberia/west-siberia-2010/scoreboard/20230324-wayback-531affae/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2010/west-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20171011161753'
+    archived:
+    - west-siberia/west-siberia-2010/standings/20171011-wayback-535bbdd4/standings.html
+    - west-siberia/west-siberia-2010/standings/20260904-live-fe4211eb/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://olymp.nstu.ru/contests/downloadproblems/15
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: west-siberia-2011
   season: 2012
   name: 2011 West Siberian Subregional Contest
@@ -251,27 +378,47 @@ contests:
   - 766
   parent: neerc-2011
   next: west-siberia-2012
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2011/west-siberian/standings.html
-      as_of: '20230322033513'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2011/scoreboard/20230322-wayback-1af3115f/standings.html
-    - url: https://olymp.nstu.ru/contests/standing/19?official=true
-      archived: west-siberia/west-siberia-2011/scoreboard/2026-09-01-live-425249ae/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2011/west-siberian/standings.html
-      as_of: '20171011160911'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2011/standings/20171011-wayback-7205b5a6/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/West-Siberian-Subregional-2012/standings
-  web: https://neerc.ifmo.ru/subregions/west-siberian.html
-  problemset: https://olymp.nstu.ru/contests/downloadproblems/19
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/west-siberian.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2011/west-siberian/standings.html
+    roles:
+    - scoreboard
+    as_of: '20230322033513'
+    archived:
+    - west-siberia/west-siberia-2011/scoreboard/20230322-wayback-1af3115f/standings.html
+    - west-siberia/west-siberia-2011/scoreboard/20260904-live-b44d6a81/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://olymp.nstu.ru/contests/standing/19?official=true
+    roles:
+    - scoreboard
+    as_of: '20230324042853'
+    archived:
+    - west-siberia/west-siberia-2011/scoreboard/2026-09-01-live-425249ae/page.html
+    - west-siberia/west-siberia-2011/scoreboard/20230324-wayback-6cd28358/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2011/west-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20171011160911'
+    archived:
+    - west-siberia/west-siberia-2011/standings/20171011-wayback-7205b5a6/standings.html
+    - west-siberia/west-siberia-2011/standings/20260904-live-5ec72f37/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/West-Siberian-Subregional-2012/standings
+    roles:
+    - icpc_standings
+  - url: https://olymp.nstu.ru/contests/downloadproblems/19
+    roles:
+    - problemset
+    as_of: '20230324025811'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: west-siberia-2012
   season: 2013
   name: 2012 West Siberian Subregional Contest
@@ -281,27 +428,47 @@ contests:
   - 1306
   parent: neerc-2012
   next: west-siberia-2013
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2012/west-siberian/standings.html
-      as_of: '20220122055249'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2012/scoreboard/20220122-wayback-d7592b75/standings.html
-    - url: https://olymp.nstu.ru/contests/standing/24
-      archived: west-siberia/west-siberia-2012/scoreboard/2026-09-01-live-05b220d2/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2012/west-siberian/standings.html
-      as_of: '20161031081005'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2012/standings/20161031-wayback-79456825/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/West-Siberian-Subregional-2013/standings
-  web: https://neerc.ifmo.ru/subregions/west-siberian.html
-  problemset: https://olymp.nstu.ru/contests/downloadproblems/24
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/west-siberian.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2012/west-siberian/standings.html
+    roles:
+    - scoreboard
+    as_of: '20220122055249'
+    archived:
+    - west-siberia/west-siberia-2012/scoreboard/20220122-wayback-d7592b75/standings.html
+    - west-siberia/west-siberia-2012/scoreboard/20260904-live-c9ffd647/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://olymp.nstu.ru/contests/standing/24
+    roles:
+    - scoreboard
+    as_of: '20230324025331'
+    archived:
+    - west-siberia/west-siberia-2012/scoreboard/2026-09-01-live-05b220d2/page.html
+    - west-siberia/west-siberia-2012/scoreboard/20230324-wayback-2f464f27/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2012/west-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20161031081005'
+    archived:
+    - west-siberia/west-siberia-2012/standings/20161031-wayback-79456825/standings.html
+    - west-siberia/west-siberia-2012/standings/20260904-live-d4fb4a9c/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/West-Siberian-Subregional-2013/standings
+    roles:
+    - icpc_standings
+  - url: https://olymp.nstu.ru/contests/downloadproblems/24
+    roles:
+    - problemset
+    as_of: '20230402030151'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: west-siberia-2013
   season: 2014
   name: 2013 West Siberian Subregional Contest
@@ -311,26 +478,44 @@ contests:
   - 2036
   parent: neerc-2013
   next: west-siberia-2014
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2013/west-siberian/standings.html
-      as_of: '20230322033310'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2013/scoreboard/20230322-wayback-e910db34/standings.html
-    - url: https://olymp.nstu.ru/contests/standing/27?official=true
-      archived: west-siberia/west-siberia-2013/scoreboard/2026-09-01-live-9e3eafa3/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2013/west-siberian/standings.html
-      as_of: '20161031215034'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2013/standings/20161031-wayback-4978978d/standings.html
-  web: https://neerc.ifmo.ru/subregions/west-siberian.html
-  problemset: https://olymp.nstu.ru/contests/downloadproblems/27
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/west-siberian.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2013/west-siberian/standings.html
+    roles:
+    - scoreboard
+    as_of: '20230322033310'
+    archived:
+    - west-siberia/west-siberia-2013/scoreboard/20230322-wayback-e910db34/standings.html
+    - west-siberia/west-siberia-2013/scoreboard/20260904-live-1831b061/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://olymp.nstu.ru/contests/standing/27?official=true
+    roles:
+    - scoreboard
+    as_of: '20230324030754'
+    archived:
+    - west-siberia/west-siberia-2013/scoreboard/2026-09-01-live-9e3eafa3/page.html
+    - west-siberia/west-siberia-2013/scoreboard/20230324-wayback-30fc4772/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2013/west-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20161031215034'
+    archived:
+    - west-siberia/west-siberia-2013/standings/20161031-wayback-4978978d/standings.html
+    - west-siberia/west-siberia-2013/standings/20260904-live-aff7cd39/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://olymp.nstu.ru/contests/downloadproblems/27
+    roles:
+    - problemset
+    as_of: '20230324031616'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: west-siberia-2014
   season: 2015
   name: 2014 West Siberian Subregional Contest
@@ -340,27 +525,46 @@ contests:
   - 2687
   parent: neerc-2014
   next: west-siberia-2015
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2014/west-siberian/standings.html
-      as_of: '20220122060502'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2014/scoreboard/20220122-wayback-de165278/standings.html
-    - url: https://olymp.nstu.ru/contests/standing/34?official=true
-      archived: west-siberia/west-siberia-2014/scoreboard/2026-09-01-live-dbed7007/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2014/west-siberian/standings.html
-      as_of: '20161031081833'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2014/standings/20161031-wayback-a2508466/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/West-Siberian-Subregional-2015/standings
-  web: http://www.olymp.nstu.ru
-  problemset: https://olymp.nstu.ru/contests/downloadproblems/34
+  sources:
+  - url: http://www.olymp.nstu.ru
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2014/west-siberian/standings.html
+    roles:
+    - scoreboard
+    as_of: '20220122060502'
+    archived:
+    - west-siberia/west-siberia-2014/scoreboard/20220122-wayback-de165278/standings.html
+    - west-siberia/west-siberia-2014/scoreboard/20260904-live-a05c01d8/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://olymp.nstu.ru/contests/standing/34?official=true
+    roles:
+    - scoreboard
+    as_of: '20230324042209'
+    archived:
+    - west-siberia/west-siberia-2014/scoreboard/2026-09-01-live-dbed7007/page.html
+    - west-siberia/west-siberia-2014/scoreboard/20230324-wayback-384f2362/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2014/west-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20161031081833'
+    archived:
+    - west-siberia/west-siberia-2014/standings/20161031-wayback-a2508466/standings.html
+    - west-siberia/west-siberia-2014/standings/20260904-live-21b0dca9/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/West-Siberian-Subregional-2015/standings
+    roles:
+    - icpc_standings
+  - url: https://olymp.nstu.ru/contests/downloadproblems/34
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: west-siberia-2015
   season: 2016
   name: 2015 West Siberian Subregional Contest
@@ -370,27 +574,47 @@ contests:
   - 2763
   parent: neerc-2015
   next: west-siberia-2016
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2015/west-siberian/standings.html
-      as_of: '20220122050822'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2015/scoreboard/20220122-wayback-c3695df3/standings.html
-    - url: https://olymp.nstu.ru/contests/standing/39?official=true
-      archived: west-siberia/west-siberia-2015/scoreboard/2026-09-01-live-193154b9/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2015/west-siberian/standings.html
-      as_of: '20161031081858'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2015/standings/20161031-wayback-6c9d35a9/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/West-Siberian-Subregional-2016/standings
-  web: https://neerc.ifmo.ru/subregions/west-siberian.html
-  problemset: https://olymp.nstu.ru/contests/downloadproblems/39
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/west-siberian.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2015/west-siberian/standings.html
+    roles:
+    - scoreboard
+    as_of: '20220122050822'
+    archived:
+    - west-siberia/west-siberia-2015/scoreboard/20220122-wayback-c3695df3/standings.html
+    - west-siberia/west-siberia-2015/scoreboard/20260904-live-d89a0a7d/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://olymp.nstu.ru/contests/standing/39?official=true
+    roles:
+    - scoreboard
+    as_of: '20230324021507'
+    archived:
+    - west-siberia/west-siberia-2015/scoreboard/2026-09-01-live-193154b9/page.html
+    - west-siberia/west-siberia-2015/scoreboard/20230324-wayback-5dff1d80/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2015/west-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20161031081858'
+    archived:
+    - west-siberia/west-siberia-2015/standings/20161031-wayback-6c9d35a9/standings.html
+    - west-siberia/west-siberia-2015/standings/20260904-live-b5374d6d/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/West-Siberian-Subregional-2016/standings
+    roles:
+    - icpc_standings
+  - url: https://olymp.nstu.ru/contests/downloadproblems/39
+    roles:
+    - problemset
+    as_of: '20230402022004'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: west-siberia-2016
   season: 2017
   name: 2016 West Siberian Subregional Contest
@@ -400,27 +624,46 @@ contests:
   - 3156
   parent: neerc-2016
   next: west-siberia-2017
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2016/west-siberian/standings.html
-      as_of: '20191216053321'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2016/scoreboard/20191216-wayback-a7d2937b/standings.html
-    - url: https://olymp.nstu.ru/contests/standing/42?official=true
-      archived: west-siberia/west-siberia-2016/scoreboard/2026-09-01-live-b48cd5b5/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2016/west-siberian/standings.html
-      as_of: '20171011161009'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2016/standings/20171011-wayback-a948cb6f/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/West-Siberian-Subregional-2017/standings
-  web: http://olymp.nstu.ru
-  problemset: https://olymp.nstu.ru/contests/downloadproblems/42
+  sources:
+  - url: http://olymp.nstu.ru
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2016/west-siberian/standings.html
+    roles:
+    - scoreboard
+    as_of: '20191216053321'
+    archived:
+    - west-siberia/west-siberia-2016/scoreboard/20191216-wayback-a7d2937b/standings.html
+    - west-siberia/west-siberia-2016/scoreboard/20260904-live-2dfe4780/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://olymp.nstu.ru/contests/standing/42?official=true
+    roles:
+    - scoreboard
+    as_of: '20230324030052'
+    archived:
+    - west-siberia/west-siberia-2016/scoreboard/2026-09-01-live-b48cd5b5/page.html
+    - west-siberia/west-siberia-2016/scoreboard/20230324-wayback-4044a1e0/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2016/west-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20171011161009'
+    archived:
+    - west-siberia/west-siberia-2016/standings/20171011-wayback-a948cb6f/standings.html
+    - west-siberia/west-siberia-2016/standings/20260904-live-d19c25e4/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/West-Siberian-Subregional-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://olymp.nstu.ru/contests/downloadproblems/42
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: west-siberia-2017
   season: 2018
   name: 2017 West Siberian Subregional Contest
@@ -430,27 +673,46 @@ contests:
   - 3296
   parent: nerc-2017
   next: west-siberia-2018
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2017/west-siberian/standings.html
-      as_of: '20230322032840'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2017/scoreboard/20230322-wayback-d15a9154/standings.html
-    - url: https://olymp.nstu.ru/contests/standing/45?official=true
-      archived: west-siberia/west-siberia-2017/scoreboard/2026-09-01-live-b1ec832b/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2017/west-siberian/standings.html
-      as_of: '20180920232622'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2017/standings/20180920-wayback-13fbc1dd/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/West-Siberian-Subregional-2018/standings
-  web: https://neerc.ifmo.ru/subregions/west-siberian.html
-  problemset: https://olymp.nstu.ru/contests/downloadproblems/45
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/west-siberian.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2017/west-siberian/standings.html
+    roles:
+    - scoreboard
+    as_of: '20230322032840'
+    archived:
+    - west-siberia/west-siberia-2017/scoreboard/20230322-wayback-d15a9154/standings.html
+    - west-siberia/west-siberia-2017/scoreboard/20260904-live-ffea3010/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://olymp.nstu.ru/contests/standing/45?official=true
+    roles:
+    - scoreboard
+    as_of: '20230324031545'
+    archived:
+    - west-siberia/west-siberia-2017/scoreboard/2026-09-01-live-b1ec832b/page.html
+    - west-siberia/west-siberia-2017/scoreboard/20230324-wayback-888b18ff/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2017/west-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20180920232622'
+    archived:
+    - west-siberia/west-siberia-2017/standings/20180920-wayback-13fbc1dd/standings.html
+    - west-siberia/west-siberia-2017/standings/20260904-live-de1de350/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/West-Siberian-Subregional-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://olymp.nstu.ru/contests/downloadproblems/45
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: west-siberia-2018
   season: 2019
   name: 2018 West Siberian Subregional Contest
@@ -460,15 +722,28 @@ contests:
   - 3691
   parent: nerc-2018
   next: west-siberia-2019
-  results:
-    scoreboard:
-    - url: https://olymp.nstu.ru/contests/standing/48?official=true
-      archived: west-siberia/west-siberia-2018/scoreboard/2026-09-01-live-8dc04695/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/West-Siberian-Subregional-2019/standings
-  web: http://olymp.nstu.ru
-  problemset: https://olymp.nstu.ru/contests/downloadproblems/48
+  sources:
+  - url: http://olymp.nstu.ru
+    roles:
+    - web
+  - url: https://olymp.nstu.ru/contests/standing/48?official=true
+    roles:
+    - scoreboard
+    as_of: '20230324032650'
+    archived:
+    - west-siberia/west-siberia-2018/scoreboard/2026-09-01-live-8dc04695/page.html
+    - west-siberia/west-siberia-2018/scoreboard/20230324-wayback-1c1ccfba/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/West-Siberian-Subregional-2019/standings
+    roles:
+    - icpc_standings
+  - url: https://olymp.nstu.ru/contests/downloadproblems/48
+    roles:
+    - problemset
+    as_of: '20230402022940'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: west-siberia-2019
   season: 2020
   name: 2019 West Siberian Regional Contest
@@ -478,26 +753,47 @@ contests:
   - 4189
   parent: nerc-2019
   next: west-siberia-2020
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2019/west-siberian/standings.html
-      archived: west-siberia/west-siberia-2019/scoreboard/2026-09-01-live-38942399/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://olymp.nstu.ru/contests/standing/51?official=true
-      archived: west-siberia/west-siberia-2019/scoreboard/2026-09-01-live-a0a2d381/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2019/west-siberian/standings.html
-      as_of: '20230331161258'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-siberia/west-siberia-2019/standings/20230331-wayback-a2f66619/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/West-Siberian-Regional-2020/standings
-  web: https://neerc.ifmo.ru/subregions/west-siberian.html
-  problemset: https://olymp.nstu.ru/contests/downloadproblems/51
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/west-siberian.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2019/west-siberian/standings.html
+    roles:
+    - scoreboard
+    as_of: '20230322032624'
+    archived:
+    - west-siberia/west-siberia-2019/scoreboard/2026-09-01-live-38942399/standings.html
+    - west-siberia/west-siberia-2019/scoreboard/20230322-wayback-59daee08/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://olymp.nstu.ru/contests/standing/51?official=true
+    roles:
+    - scoreboard
+    as_of: '20230402033505'
+    archived:
+    - west-siberia/west-siberia-2019/scoreboard/2026-09-01-live-a0a2d381/page.html
+    - west-siberia/west-siberia-2019/scoreboard/20230402-wayback-a01f8e1e/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2019/west-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20230331161258'
+    archived:
+    - west-siberia/west-siberia-2019/standings/20230331-wayback-a2f66619/standings.html
+    - west-siberia/west-siberia-2019/standings/20260904-live-7693a2a5/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/West-Siberian-Regional-2020/standings
+    roles:
+    - icpc_standings
+  - url: https://olymp.nstu.ru/contests/downloadproblems/51
+    roles:
+    - problemset
+    as_of: '20230402032406'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: west-siberia-2020
   season: 2021
   name: 2020 West Siberian Regional Contest
@@ -507,14 +803,25 @@ contests:
   - 4552
   parent: nerc-2020
   next: west-siberia-2021
-  results:
-    scoreboard:
-    - url: https://olymp.nstu.ru/contests/standing/52?official=true
-      archived: west-siberia/west-siberia-2020/scoreboard/2026-09-01-live-3de48dca/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/West-Siberian-Regional-2021/standings
-  problemset: https://olymp.nstu.ru/contests/downloadproblems/52
+  sources:
+  - url: https://olymp.nstu.ru/contests/standing/52?official=true
+    roles:
+    - scoreboard
+    as_of: '20230324042837'
+    archived:
+    - west-siberia/west-siberia-2020/scoreboard/2026-09-01-live-3de48dca/page.html
+    - west-siberia/west-siberia-2020/scoreboard/20230324-wayback-b0757bbe/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/West-Siberian-Regional-2021/standings
+    roles:
+    - icpc_standings
+  - url: https://olymp.nstu.ru/contests/downloadproblems/52
+    roles:
+    - problemset
+    as_of: '20230324035612'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: west-siberia-2021
   season: 2022
   name: 2021 ICPC West Siberian Regional Contest
@@ -524,14 +831,25 @@ contests:
   - 4959
   parent: nerc-2021
   next: west-siberia-2022
-  results:
-    scoreboard:
-    - url: https://olymp.nstu.ru/contests/standing/55?official=true
-      archived: west-siberia/west-siberia-2021/scoreboard/2026-09-01-live-f2506fc8/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/West-Siberian-Regional-2022/standings
-  problemset: https://olymp.nstu.ru/contests/downloadproblems/55
+  sources:
+  - url: https://olymp.nstu.ru/contests/standing/55?official=true
+    roles:
+    - scoreboard
+    as_of: '20230324021011'
+    archived:
+    - west-siberia/west-siberia-2021/scoreboard/2026-09-01-live-f2506fc8/page.html
+    - west-siberia/west-siberia-2021/scoreboard/20230324-wayback-61b8db16/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/West-Siberian-Regional-2022/standings
+    roles:
+    - icpc_standings
+  - url: https://olymp.nstu.ru/contests/downloadproblems/55
+    roles:
+    - problemset
+    as_of: '20230402025313'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: west-siberia-2022
   season: 2023
   name: 2022 ICPC West Siberian Regional Contest
@@ -541,14 +859,25 @@ contests:
   - 5580
   parent: nerc-2022
   next: west-siberia-2023
-  results:
-    scoreboard:
-    - url: https://olymp.nstu.ru/contests/standing/58?official=true
-      archived: west-siberia/west-siberia-2022/scoreboard/2026-09-01-live-086a575c/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/West-Siberian-Regional-2023/standings
-  problemset: https://olymp.nstu.ru/contests/downloadproblems/58
+  sources:
+  - url: https://olymp.nstu.ru/contests/standing/58?official=true
+    roles:
+    - scoreboard
+    as_of: '20230324022527'
+    archived:
+    - west-siberia/west-siberia-2022/scoreboard/2026-09-01-live-086a575c/page.html
+    - west-siberia/west-siberia-2022/scoreboard/20230324-wayback-699d7bf9/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/West-Siberian-Regional-2023/standings
+    roles:
+    - icpc_standings
+  - url: https://olymp.nstu.ru/contests/downloadproblems/58
+    roles:
+    - problemset
+    as_of: '20230402022811'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: west-siberia-2023
   season: 2024
   name: 2023 ICPC West Siberian Regional Contest
@@ -558,21 +887,38 @@ contests:
   - 7752
   parent: nerc-2023
   next: west-siberia-2024
-  results:
-    scoreboard:
-    - url: https://olymp.nstu.ru/contests/standing/1060?official=true
-      archived: west-siberia/west-siberia-2023/scoreboard/2026-09-01-live-0712c994/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://olymp.nstu.ru/
-      archived: west-siberia/west-siberia-2023/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      as_of: '20231208200403'
-  icpc_standings: https://icpc.global/regionals/finder/West-Siberian-Regional-2024/standings
-  problemset: https://olymp.nstu.ru/contests/downloadproblems/1060
+  sources:
+  - url: https://olymp.nstu.ru/contests/standing/1060?official=true
+    roles:
+    - scoreboard
+    as_of: '20231208184612'
+    archived:
+    - west-siberia/west-siberia-2023/scoreboard/2026-09-01-live-0712c994/page.html
+    - west-siberia/west-siberia-2023/scoreboard/20231208-wayback-9661b108/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://olymp.nstu.ru/
+    roles:
+    - standings
+    as_of: '20231208200403'
+    archived:
+    - west-siberia/west-siberia-2023/external-standings/2026-04-15-external/content.html
+    - west-siberia/west-siberia-2023/standings/20231208-wayback-a057908e/page.html
+    - west-siberia/west-siberia-2023/standings/20231208-wayback-f093e132/page.html
+    - west-siberia/west-siberia-2023/standings/20260901-live-d680726f/page.html
+    - west-siberia/west-siberia-2023/standings/20261023-live-a092a42b/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/West-Siberian-Regional-2024/standings
+    roles:
+    - icpc_standings
+  - url: https://olymp.nstu.ru/contests/downloadproblems/1060
+    roles:
+    - problemset
+    as_of: '20231208181302'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: west-siberia-2024
   season: 2025
   name: 2024 ICPC West Siberian Regional Contest
@@ -582,15 +928,28 @@ contests:
   - 8911
   parent: nerc-2024
   next: west-siberia-2025
-  results:
-    scoreboard:
-    - url: https://olymp.nstu.ru/contests/standing/3061?official=true
-      archived: west-siberia/west-siberia-2024/scoreboard/2026-09-01-live-46cbb824/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/West-Siberian-Regional-2025/standings
-  web: https://neerc.ifmo.ru/subregions/west-siberian.html
-  problemset: https://olymp.nstu.ru/contests/downloadproblems/3061
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/west-siberian.html
+    roles:
+    - web
+  - url: https://olymp.nstu.ru/contests/standing/3061?official=true
+    roles:
+    - scoreboard
+    as_of: '20241221071021'
+    archived:
+    - west-siberia/west-siberia-2024/scoreboard/2026-09-01-live-46cbb824/page.html
+    - west-siberia/west-siberia-2024/scoreboard/20241221-wayback-2a5ac818/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/West-Siberian-Regional-2025/standings
+    roles:
+    - icpc_standings
+  - url: https://olymp.nstu.ru/contests/downloadproblems/3061
+    roles:
+    - problemset
+    as_of: '20250208090125'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: west-siberia-2025
   season: 2026
   name: 2025 ICPC West Siberian Regional Contest
@@ -600,21 +959,38 @@ contests:
   - 9154
   parent: nerc-2025
   next: west-siberia-2026
-  results:
-    scoreboard:
-    - url: https://olymp.nstu.ru/contests/standing/3064?official=true
-      archived: west-siberia/west-siberia-2025/scoreboard/2026-09-01-live-856569c5/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://olymp.nstu.ru/
-      archived: west-siberia/west-siberia-2025/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      as_of: '20251208170939'
-  icpc_standings: https://icpc.global/regionals/finder/West-Siberian-Regional-2026/standings
-  problemset: https://olymp.nstu.ru/contests/downloadproblems/3064
+  sources:
+  - url: https://olymp.nstu.ru/contests/standing/3064?official=true
+    roles:
+    - scoreboard
+    as_of: '20251208162413'
+    archived:
+    - west-siberia/west-siberia-2025/scoreboard/2026-09-01-live-856569c5/page.html
+    - west-siberia/west-siberia-2025/scoreboard/20251208-wayback-d69c418f/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://olymp.nstu.ru/
+    roles:
+    - standings
+    as_of: '20251208170939'
+    archived:
+    - west-siberia/west-siberia-2025/external-standings/2026-04-15-external/content.html
+    - west-siberia/west-siberia-2025/standings/20251208-wayback-710b9d5c/page.html
+    - west-siberia/west-siberia-2025/standings/20251208-wayback-e449ada1/page.html
+    - west-siberia/west-siberia-2025/standings/20260901-live-d680726f/page.html
+    - west-siberia/west-siberia-2025/standings/20261023-live-a092a42b/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/West-Siberian-Regional-2026/standings
+    roles:
+    - icpc_standings
+  - url: https://olymp.nstu.ru/contests/downloadproblems/3064
+    roles:
+    - problemset
+    as_of: '20251208170020'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: west-siberia-2026
   status: upcoming
   season: 2027

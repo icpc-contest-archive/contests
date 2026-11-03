@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: xuzhou
   name: ICPC Asia Xuzhou Regional Programming Contest
+  tier: regional
+  region: Asia East
+  naming: season-start
 contests:
 - id: xuzhou-2018
   season: 2019
@@ -12,21 +15,39 @@ contests:
   - 3712
   parent: wf-2019
   next: xuzhou-2019
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/102012/standings
-      archived: xuzhou/xuzhou-2018/scoreboard/2026-09-01-live-cf63d8c9/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://ctec.cumt.edu.cn/acm201810/board.html
-      archived: xuzhou/xuzhou-2018/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Xuzhou-2019/standings
-  web: http://acm.cumt.edu.cn
-  problemset: https://codeforces.com/gym/102012
+  sources:
+  - url: http://acm.cumt.edu.cn
+    roles:
+    - web
+  - url: https://codeforces.com/gym/102012/standings
+    roles:
+    - scoreboard
+    as_of: '20221020112813'
+    archived:
+    - xuzhou/xuzhou-2018/scoreboard/2026-09-01-live-cf63d8c9/page.html
+    - xuzhou/xuzhou-2018/scoreboard/20221020-wayback-9f6cfa98/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: http://ctec.cumt.edu.cn/acm201810/board.html
+    roles:
+    - standings
+    as_of: '20260429145831'
+    archived:
+    - xuzhou/xuzhou-2018/external-standings/2026-04-15-external/content.html
+    - xuzhou/xuzhou-2018/standings/20260429-wayback-067b5d4d/board.html
+    - xuzhou/xuzhou-2018/standings/20260901-live-56e7ff79/board.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Xuzhou-2019/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/102012
+    roles:
+    - problemset
+    as_of: '20220715141601'
+    url_state: replaced
+    url_checked: '2026-11-02'
 - id: xuzhou-2019
   season: 2020
   name: 2019 ICPC Asia Xuzhou Regional Programming Contest
@@ -36,13 +57,23 @@ contests:
   - 4235
   parent: wf-2020
   next: null
-  icpc_standings: https://icpc.global/regionals/finder/Xuzhou-2020/standings
-  results:
-    standings:
-    - url: http://ctec.cumt.edu.cn/icpc2019/
-      archived: xuzhou/xuzhou-2019/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-  web: http://acm.cumt.edu.cn
-  problemset: https://qoj.ac/contest/1834
+  sources:
+  - url: http://acm.cumt.edu.cn
+    roles:
+    - web
+  - url: http://ctec.cumt.edu.cn/icpc2019/
+    roles:
+    - standings
+    archived:
+    - xuzhou/xuzhou-2019/external-standings/2026-04-15-external/content.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Xuzhou-2020/standings
+    roles:
+    - icpc_standings
+  - url: https://qoj.ac/contest/1834
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'

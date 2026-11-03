@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: dalian
   name: ACM-ICPC Asia Dalian Regional Contest
+  tier: regional
+  region: Asia East
+  naming: season-start
 contests:
 - id: dalian-2011
   season: 2012
@@ -12,28 +15,33 @@ contests:
   - 794
   parent: wf-2012
   next: dalian-2016
-  results:
-    scoreboard:
-    - url: http://board.acmicpc.info/icpc2011/dlut_onsite.php
-      as_of: '20121018075801'
-      archived: dalian/dalian-2011/scoreboard/2026-09-01-wayback-033b95f4/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://board.acmicpc.info/icpc2011/dlut_onsite.php
-      as_of: '20121018075801'
-      note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: dalian/dalian-2011/scoreboard/20121018-wayback-45215e21/page.html
-    standings:
-    - url: http://icpc.dlut.edu.cn/Item/31.aspx
-      as_of: '20111227013622'
-      archived: dalian/dalian-2011/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Dalian-2012/standings
-  web: http://icpc.dlut.edu.cn
+  sources:
+  - url: http://icpc.dlut.edu.cn
+    roles:
+    - web
+  - url: http://board.acmicpc.info/icpc2011/dlut_onsite.php
+    roles:
+    - scoreboard
+    as_of: '20121018075801'
+    archived:
+    - dalian/dalian-2011/scoreboard/2026-09-01-wayback-033b95f4/page.html
+    - dalian/dalian-2011/scoreboard/20121018-wayback-45215e21/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
+  - url: http://icpc.dlut.edu.cn/Item/31.aspx
+    roles:
+    - standings
+    as_of: '20111227013622'
+    archived:
+    - dalian/dalian-2011/external-standings/2026-04-15-external/content.html
+    - dalian/dalian-2011/standings/20111027-wayback-5e8ad504/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Dalian-2012/standings
+    roles:
+    - icpc_standings
 - id: dalian-2016
   season: 2017
   name: 2016 ACM-ICPC Asia Dalian Regional Contest
@@ -43,17 +51,20 @@ contests:
   - 3024
   parent: wf-2017
   next: null
-  results:
-    scoreboard:
-    - url: http://board.acmicpc.info/icpc2016/dlmu_onsite.php
-      as_of: '20161020073432'
-      archived: dalian/dalian-2016/scoreboard/2026-09-01-wayback-6ff8431f/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://board.acmicpc.info/icpc2016/dlmu_onsite.php
-      as_of: '20161020073432'
-      note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Dalian-2017/standings
-  web: http://2016acm.dlmu.edu.cn/
+  sources:
+  - url: http://2016acm.dlmu.edu.cn/
+    roles:
+    - web
+  - url: http://board.acmicpc.info/icpc2016/dlmu_onsite.php
+    roles:
+    - scoreboard
+    as_of: '20161020073432'
+    archived:
+    - dalian/dalian-2016/scoreboard/2026-09-01-wayback-6ff8431f/page.html
+    - dalian/dalian-2016/scoreboard/20161020-wayback-538f01d0/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
+  - url: https://icpc.global/regionals/finder/Dalian-2017/standings
+    roles:
+    - icpc_standings

@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: erc
   name: European Regional Contest
+  tier: regional
+  region: Europe
+  naming: season-start
   lineage:
   - type: continues-as
     series: werc
@@ -14,7 +17,7 @@ contests:
   cms_status: pre-cms
   parent: wf-1984
   next: erc-1984
-  sources:
+  provenance:
   - 'CHipCie (Delft) archive history: first ERC organized 1983; no per-year artifacts survive there before
     1988 — added 2026-09-02 from CHipCie lineage evidence; date/host unknown'
   - 'CHipCie (TU Delft) contest archive (n.d.): Negative: 16 pre-1995 contests listed, earliest is ERC
@@ -27,7 +30,7 @@ contests:
   cms_status: pre-cms
   parent: wf-1985
   next: erc-1985
-  sources:
+  provenance:
   - 'CHipCie (Delft) archive history: first ERC organized 1983; no per-year artifacts survive there before
     1988 — added 2026-09-02 from CHipCie lineage evidence; date/host unknown'
   - 'CHipCie (TU Delft) contest archive (n.d.): Negative: nothing before ERC 1988. — https://chipcie.wisv.ch/archive
@@ -39,7 +42,7 @@ contests:
   cms_status: pre-cms
   parent: wf-1986
   next: erc-1986
-  sources:
+  provenance:
   - 'CHipCie (Delft) archive history: first ERC organized 1983; no per-year artifacts survive there before
     1988 — added 2026-09-02 from CHipCie lineage evidence; date/host unknown'
   - 'CHipCie (TU Delft) contest archive (n.d.): Negative: nothing before ERC 1988. — https://chipcie.wisv.ch/archive
@@ -51,7 +54,7 @@ contests:
   cms_status: pre-cms
   parent: wf-1987
   next: erc-1987
-  sources:
+  provenance:
   - 'CHipCie (Delft) archive history: first ERC organized 1983; no per-year artifacts survive there before
     1988 — added 2026-09-02 from CHipCie lineage evidence; date/host unknown'
   - 'CHipCie (TU Delft) contest archive (n.d.): Negative: nothing before ERC 1988. — https://chipcie.wisv.ch/archive
@@ -63,7 +66,7 @@ contests:
   cms_status: pre-cms
   parent: wf-1988
   next: erc-1988
-  sources:
+  provenance:
   - 'CHipCie (Delft) archive history: first ERC organized 1983; no per-year artifacts survive there before
     1988 — added 2026-09-02 from CHipCie lineage evidence; date/host unknown'
   - 'CHipCie (TU Delft) contest archive (n.d.): Negative: nothing before ERC 1988. — https://chipcie.wisv.ch/archive
@@ -75,11 +78,20 @@ contests:
 - id: erc-1988
   season: 1989
   name: 1988 European Regional Contest
+  date: '1988-11-12'
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1989
   next: erc-1989
   sources:
+  - url: https://chipcie.wisv.ch/archive/1988/nwercpc/ERC88.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  problems:
+    set: erc-1988
+  provenance:
   - 'CHipCie archive — ERC 1988 problem set (scan) (1988): Title page: ''European Regional Finals of the
     1988-89 ACM Scholastic Programming Contest. Held at Eindhoven University of Technology, The Netherlands.
     November 12, 1988. [7 problems A-G on 13 numbered pages]''. — https://chipcie.wisv.ch/archive/1988/nwercpc/ERC88.pdf
@@ -97,16 +109,6 @@ contests:
     and 1990, TU Eindhoven hosted the'' European regional finals with Verhoeff as Regional Contest Director.
     — https://research.tue.nl/nl/prizes/acm-icpc-european-founders-award/ [existence hunt 2026-10-22]'
   - ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://chipcie.wisv.ch/archive/1988/nwercpc/ERC88.pdf
-  problems:
-    repo: icpc-problem-archive/statement-only
-    count: 7
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  date: '1988-11-12'
 - id: erc-1989
   season: 1990
   name: 1989 European Regional Contest
@@ -115,6 +117,21 @@ contests:
   parent: wf-1990
   next: erc-1990
   sources:
+  - url: https://chipcie.wisv.ch/archive/1989/nwercpc/problemset.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=442
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210927104942'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: erc-1989
+  provenance:
   - 'CHipCie archive — ERC 1989 problem set (1989): Header: ''ACM Scholastic Programming Contest, November
     10, 1989'' / ''European Regional Finals''; problems A-D. — https://chipcie.wisv.ch/archive/1989/nwercpc/problemset.pdf
     [existence hunt 2026-10-22]'
@@ -131,19 +148,6 @@ contests:
   - 'TU/e research portal — European Founders Award (2004): TU Eindhoven hosted the European regional
     finals in 1988, 1989 and 1990 with Verhoeff as Regional Contest Director. — https://research.tue.nl/nl/prizes/acm-icpc-european-founders-award/
     [existence hunt 2026-10-22]'
-  problemset: https://chipcie.wisv.ch/archive/1989/nwercpc/problemset.pdf
-  problems:
-    repo: icpc-problem-archive/statement-only
-    count: 4
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=442
-        as_of: '20210927104942'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
 - id: erc-1990
   season: 1991
   name: 1990 European Regional Contest
@@ -152,27 +156,29 @@ contests:
   cms_status: pre-cms
   parent: wf-1991
   next: erc-1991
-  web: https://usenetarchives.com/view.php?id=dnet.general&mid=PDQzNDBAdHVtaW5mbzEubGFuLmluZm9ybWF0aWsudHUtbXVlbmNoZW4uZGJwLmRlPg
-  results:
-    scoreboard:
-    - url: https://chipcie.wisv.ch/archive/1990/nwercpc/scoreboard.pdf
-      archived: erc/erc-1990/scoreboard/2026-09-01-live-ff8a4a73/scoreboard.pdf
-      url_state: live
-      url_checked: '2026-11-02'
-  mirrors:
-  - url: https://nwerc.eu/
-    note: added by url-hunt 2026-09-01 (round9-research)
-  - url: https://chipcie.wisv.ch/archive/
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
+  sources:
+  - url: https://usenetarchives.com/view.php?id=dnet.general&mid=PDQzNDBAdHVtaW5mbzEubGFuLmluZm9ybWF0aWsudHUtbXVlbmNoZW4uZGJwLmRlPg
+    roles:
+    - web
+    also_at:
+    - https://nwerc.eu/
+    - https://chipcie.wisv.ch/archive/
+  - url: https://chipcie.wisv.ch/archive/1990/nwercpc/scoreboard.pdf
+    roles:
+    - scoreboard
+    as_of: '20240413160607'
+    archived:
+    - erc/erc-1990/scoreboard/2026-09-01-live-ff8a4a73/scoreboard.pdf
+    - erc/erc-1990/scoreboard/20240413-wayback-b23b5bf7/scoreboard.pdf
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://chipcie.wisv.ch/archive/1990/nwercpc/ERP90.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://chipcie.wisv.ch/archive/1990/nwercpc/ERP90.pdf
+    set: erc-1990
 - id: erc-1991
   season: 1992
   name: 1991 European Regional Contest
@@ -180,19 +186,20 @@ contests:
   cms_status: pre-cms
   parent: wf-1992
   next: werc-1992
-  web: https://dl.acm.org/doi/10.1145/170791.171152
   sources:
+  - url: https://dl.acm.org/doi/10.1145/170791.171152
+    roles:
+    - web
+  - url: https://chipcie.wisv.ch/archive/1991/nwercpc/ERC91.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  problems:
+    set: erc-1991
+  provenance:
   - 'CHipCie archive — ERC 1991 problem set (scan) (1991): Page 1: ''1991 ACM Scholastic Programming Contest
     / European Regional Final / Problem A : JOKER'' (prizes in BF). — https://chipcie.wisv.ch/archive/1991/nwercpc/ERC91.pdf
     [existence hunt 2026-10-22]'
   - 'CHipCie archive index (n.d.): Lists ''ERC 1991 — Gent'' (no date), between ERC 1990 (Eindhoven, Nov
     3) and WERC 1992 (Gent, November 15). — https://chipcie.wisv.ch/archive [existence hunt 2026-10-22]'
-  problemset: https://chipcie.wisv.ch/archive/1991/nwercpc/ERC91.pdf
-  problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)

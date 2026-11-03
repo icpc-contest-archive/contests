@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: jiaozuo
   name: ICPC Asia Jiaozuo Regional Contest
+  tier: regional
+  region: Asia East
+  naming: season-start
 contests:
 - id: jiaozuo-2018
   season: 2019
@@ -12,14 +15,23 @@ contests:
   - 3716
   parent: wf-2019
   next: null
-  icpc_standings: https://icpc.global/regionals/finder/Asia-jiaozuo-2019/standings
-  results:
-    standings:
-    - url: http://acm.hpu.edu.cn/
-      as_of: '20190706142918'
-      archived: jiaozuo/jiaozuo-2018/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  web: http://acm.hpu.edu.cn/
-  problemset: https://codeforces.com/gym/102028
+  sources:
+  - url: http://acm.hpu.edu.cn/
+    roles:
+    - web
+    - standings
+    as_of: '20190706142918'
+    archived:
+    - jiaozuo/jiaozuo-2018/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Asia-jiaozuo-2019/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/102028
+    roles:
+    - problemset
+    as_of: '20220715044532'
+    url_state: replaced
+    url_checked: '2026-11-02'

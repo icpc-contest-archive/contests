@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: shenyang
   name: ICPC Asia Shenyang Regional Contest
+  tier: regional
+  region: Asia East
+  naming: season-start
 contests:
 - id: shenyang-2015
   season: 2016
@@ -12,21 +15,27 @@ contests:
   - 2947
   parent: wf-2016
   next: shenyang-2016
-  results:
-    scoreboard:
-    - url: http://board.acmicpc.info/icpc2015/neu_onsite.php
-      as_of: '20160315101931'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: shenyang/shenyang-2015/scoreboard/2026-09-01-wayback-03f389ac/page.html
-    - url: http://board.acmicpc.info/icpc2015/neu_onsite.php
-      as_of: '20160315101931'
-      note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Shenyang-2016/standings
-  web: http://acm.neu.edu.cn
-  problemset: https://qoj.ac/contest/2115
+  sources:
+  - url: http://acm.neu.edu.cn
+    roles:
+    - web
+  - url: http://board.acmicpc.info/icpc2015/neu_onsite.php
+    roles:
+    - scoreboard
+    as_of: '20160315101931'
+    archived:
+    - shenyang/shenyang-2015/scoreboard/2026-09-01-wayback-03f389ac/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
+  - url: https://icpc.global/regionals/finder/Shenyang-2016/standings
+    roles:
+    - icpc_standings
+  - url: https://qoj.ac/contest/2115
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: shenyang-2016
   season: 2017
   name: 2016 ACM-ICPC Asia Shenyang Regional Contest
@@ -36,21 +45,28 @@ contests:
   - 3093
   parent: wf-2017
   next: shenyang-2017
-  results:
-    scoreboard:
-    - url: http://board.acmicpc.info/icpc2016/neu_onsite.php
-      as_of: '20161025235944'
-      archived: shenyang/shenyang-2016/scoreboard/2026-09-01-wayback-88b9948c/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://board.acmicpc.info/icpc2016/neu_onsite.php
-      as_of: '20161025235944'
-      note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Shenyang-2017/standings
-  web: http://acm.neu.edu.cn
-  problemset: https://qoj.ac/contest/2540
+  sources:
+  - url: http://acm.neu.edu.cn
+    roles:
+    - web
+  - url: http://board.acmicpc.info/icpc2016/neu_onsite.php
+    roles:
+    - scoreboard
+    as_of: '20161025235944'
+    archived:
+    - shenyang/shenyang-2016/scoreboard/2026-09-01-wayback-88b9948c/page.html
+    - shenyang/shenyang-2016/scoreboard/20161025-wayback-290bcedf/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
+  - url: https://icpc.global/regionals/finder/Shenyang-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://qoj.ac/contest/2540
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: shenyang-2017
   season: 2018
   name: 2017 ACM-ICPC Asia Shenyang Regional Contest
@@ -60,21 +76,28 @@ contests:
   - 3374
   parent: wf-2018
   next: shenyang-2018
-  results:
-    scoreboard:
-    - url: http://board.acmicpc.info/icpc2017/neu_onsite.php
-      as_of: '20171208222644'
-      archived: shenyang/shenyang-2017/scoreboard/2026-09-01-wayback-723ad45b/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://board.acmicpc.info/icpc2017/neu_onsite.php
-      as_of: '20171208222644'
-      note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Shenyang-2018/standings
-  web: http://acm.neu.edu.cn
-  problemset: https://qoj.ac/contest/2109
+  sources:
+  - url: http://acm.neu.edu.cn
+    roles:
+    - web
+  - url: http://board.acmicpc.info/icpc2017/neu_onsite.php
+    roles:
+    - scoreboard
+    as_of: '20171208222644'
+    archived:
+    - shenyang/shenyang-2017/scoreboard/2026-09-01-wayback-723ad45b/page.html
+    - shenyang/shenyang-2017/scoreboard/20171208-wayback-682cc632/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
+  - url: https://icpc.global/regionals/finder/Shenyang-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://qoj.ac/contest/2109
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: shenyang-2018
   season: 2019
   name: 2018 ICPC Asia Shenyang Regional Contest
@@ -84,12 +107,22 @@ contests:
   - 3714
   parent: wf-2019
   next: shenyang-2019
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Shenyang-2019/standings
-    archived: shenyang/shenyang-2018/standings/api-20260904/standings.html
+  sources:
+  - url: http://acm.neu.edu.cn
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Shenyang-2019/standings
+    roles:
+    - icpc_standings
+    archived:
+    - shenyang/shenyang-2018/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3714, 186 teams, DB fetch 2026-04-26)
-  web: http://acm.neu.edu.cn
-  problemset: https://codeforces.com/gym/101955
+  - url: https://codeforces.com/gym/101955
+    roles:
+    - problemset
+    as_of: '20221020112813'
+    url_state: replaced
+    url_checked: '2026-11-02'
 - id: shenyang-2019
   season: 2020
   name: 2019 ICPC Asia Shenyang Regional Contest
@@ -98,14 +131,18 @@ contests:
   - 4227
   parent: wf-2020
   next: shenyang-2020
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Shenyang-2020/standings
-    archived: shenyang/shenyang-2019/standings/api-20260904/standings.html
+  sources:
+  - url: http://xxx.yyy.edu
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Shenyang-2020/standings
+    roles:
+    - icpc_standings
+    archived:
+    - shenyang/shenyang-2019/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4227, 199 teams, DB fetch 2026-04-26)
-  web: http://xxx.yyy.edu
   problems:
-    notes: No date
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: shenyang-2019
 - id: shenyang-2020
   season: 2021
   name: 2020 ICPC Asia Shenyang Regional Contest
@@ -115,14 +152,24 @@ contests:
   - 4393
   parent: wf-2021
   next: shenyang-2021
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/103202/standings
-      archived: shenyang/shenyang-2020/scoreboard/2026-09-01-live-b6c3079c/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Shenyang-2021/standings
-  problemset: https://icpcarchive.github.io/Asia%20East%20Continent%20Contests/Shenyang/2020%20Asia%20Shenyang%20Regional%20Contest/problems.pdf
+  sources:
+  - url: https://codeforces.com/gym/103202/standings
+    roles:
+    - scoreboard
+    as_of: '20221016091659'
+    archived:
+    - shenyang/shenyang-2020/scoreboard/2026-09-01-live-b6c3079c/page.html
+    - shenyang/shenyang-2020/scoreboard/20221016-wayback-14aff920/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Shenyang-2021/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Asia%20East%20Continent%20Contests/Shenyang/2020%20Asia%20Shenyang%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: shenyang-2021
   season: 2022
   name: 2021 ICPC Asia Shenyang Regional Contest
@@ -132,18 +179,30 @@ contests:
   - 4716
   parent: wf-2022
   next: shenyang-2022
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/103427/standings
-      archived: shenyang/shenyang-2021/scoreboard/2026-09-01-live-7ab5e619/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    - url: https://board.xcpcio.com/icpc/46th/shenyang
-      note: added by url-hunt 2026-09-01 (xcpcio-data-agent)
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Shenyang-2022/standings
-  problemset: https://icpcarchive.github.io/Asia%20East%20Continent%20Contests/Shenyang/2021%20Asia%20Shenyang%20Regional%20Contest/problems.pdf
+  sources:
+  - url: https://codeforces.com/gym/103427/standings
+    roles:
+    - scoreboard
+    as_of: '20230325071834'
+    archived:
+    - shenyang/shenyang-2021/scoreboard/2026-09-01-live-7ab5e619/page.html
+    - shenyang/shenyang-2021/scoreboard/20230325-wayback-7483d8d0/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://board.xcpcio.com/icpc/46th/shenyang
+    roles:
+    - scoreboard
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (xcpcio-data-agent)
+  - url: https://icpc.global/regionals/finder/Shenyang-2022/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Asia%20East%20Continent%20Contests/Shenyang/2021%20Asia%20Shenyang%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: shenyang-2022
   season: 2023
   name: 2022 ICPC Asia Shenyang Regional Contest
@@ -153,18 +212,30 @@ contests:
   - 5548
   parent: wf-2023
   next: shenyang-2023
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/104160/standings
-      archived: shenyang/shenyang-2022/scoreboard/2026-09-01-live-bfcbfba4/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    - url: https://board.xcpcio.com/icpc/47th/shenyang
-      note: added by url-hunt 2026-09-01 (xcpcio-data-agent)
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Shenyang-2023/standings
-  problemset: https://icpcarchive.github.io/Asia%20East%20Continent%20Contests/Shenyang/2022%20Asia%20Shenyang%20Regional%20Contest/problems.pdf
+  sources:
+  - url: https://codeforces.com/gym/104160/standings
+    roles:
+    - scoreboard
+    as_of: '20240301014155'
+    archived:
+    - shenyang/shenyang-2022/scoreboard/2026-09-01-live-bfcbfba4/page.html
+    - shenyang/shenyang-2022/scoreboard/20240301-wayback-20a8f189/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://board.xcpcio.com/icpc/47th/shenyang
+    roles:
+    - scoreboard
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (xcpcio-data-agent)
+  - url: https://icpc.global/regionals/finder/Shenyang-2023/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Asia%20East%20Continent%20Contests/Shenyang/2022%20Asia%20Shenyang%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: shenyang-2023
   season: 2024
   name: 2023 ICPC Asia Shenyang Regional Contest
@@ -174,16 +245,24 @@ contests:
   - 7706
   parent: wf-2024
   next: shenyang-2024
-  icpc_standings: https://icpc.global/regionals/finder/Shenyang-2024/standings
-  results:
-    scoreboard:
-    - url: https://board.xcpcio.com/icpc/48th/shenyang
-      as_of: '20231112031249'
-      note: added by url-hunt 2026-09-01 (wave3-xcpcio)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: shenyang/shenyang-2023/scoreboard/20231112-wayback-41bffaf7/page.html
-  problemset: https://icpcarchive.github.io/Asia%20East%20Continent%20Contests/Shenyang/2023%20Asia%20Shenyang%20Regional%20Contest/problems.pdf
+  sources:
+  - url: https://board.xcpcio.com/icpc/48th/shenyang
+    roles:
+    - scoreboard
+    as_of: '20231112031249'
+    archived:
+    - shenyang/shenyang-2023/scoreboard/20231112-wayback-41bffaf7/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-xcpcio)
+  - url: https://icpc.global/regionals/finder/Shenyang-2024/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Asia%20East%20Continent%20Contests/Shenyang/2023%20Asia%20Shenyang%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: shenyang-2024
   season: 2025
   name: 2024 ICPC Asia Shenyang Regional Contest
@@ -193,16 +272,25 @@ contests:
   - 9040
   parent: wf-2025
   next: shenyang-2025
-  icpc_standings: https://icpc.global/regionals/finder/Shenyang-2025/standings
-  results:
-    scoreboard:
-    - url: https://board.xcpcio.com/icpc/49th/shenyang
-      as_of: '20251025050902'
-      note: added by url-hunt 2026-09-01 (wave3-xcpcio)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: shenyang/shenyang-2024/scoreboard/20251025-wayback-10a795c4/page.html
-  problemset: https://codeforces.com/gym/105578
+  sources:
+  - url: https://board.xcpcio.com/icpc/49th/shenyang
+    roles:
+    - scoreboard
+    as_of: '20251025050902'
+    archived:
+    - shenyang/shenyang-2024/scoreboard/20251025-wayback-10a795c4/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-xcpcio)
+  - url: https://icpc.global/regionals/finder/Shenyang-2025/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/105578
+    roles:
+    - problemset
+    as_of: '20250701060754'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: shenyang-2025
   season: 2026
   name: 2025 ICPC Asia Shenyang Regional Contest
@@ -212,14 +300,23 @@ contests:
   - 9187
   parent: wf-2026
   next: shenyang-2026
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/106252/standings
-      archived: shenyang/shenyang-2025/scoreboard/2026-09-01-live-8ed84656/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Shenyang-2026/standings
-  problemset: https://codeforces.com/gym/106252
+  sources:
+  - url: https://codeforces.com/gym/106252/standings
+    roles:
+    - scoreboard
+    archived:
+    - shenyang/shenyang-2025/scoreboard/2026-09-01-live-8ed84656/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Shenyang-2026/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/106252
+    roles:
+    - problemset
+    as_of: '20260505065613'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: shenyang-2026
   status: upcoming
   season: 2027

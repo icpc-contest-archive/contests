@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: south-russia
   name: ICPC Southern and Volga Russia Regional Contest
+  tier: subregional
+  region: Northern Eurasia
+  naming: season-start
 contests:
 - id: south-russia-1998
   season: 1999
@@ -9,153 +12,218 @@ contests:
   cms_ids: []
   parent: neerc-1998
   next: south-russia-1999
-  web: https://neerc.ifmo.ru/subregions/southern.html
-  mirrors:
-  - url: https://contest.sgu.ru/?id=5
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/southern.html
+    roles:
+    - web
+    also_at:
+    - https://contest.sgu.ru/?id=5
 - id: south-russia-1999
   season: 2000
   name: 1999 Southern Subregional Contest
   cms_ids: []
   parent: neerc-1999
   next: south-russia-2000
-  web: https://neerc.ifmo.ru/subregions/southern.html
-  mirrors:
-  - url: https://contest.sgu.ru/?id=5
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/southern.html
+    roles:
+    - web
+    also_at:
+    - https://contest.sgu.ru/?id=5
 - id: south-russia-2000
   season: 2001
   name: 2000 Southern Subregional Contest
   cms_ids: []
   parent: neerc-2000
   next: south-russia-2001
-  web: https://neerc.ifmo.ru/subregions/southern.html
-  mirrors:
-  - url: https://contest.sgu.ru/?id=5
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/southern.html
+    roles:
+    - web
+    also_at:
+    - https://contest.sgu.ru/?id=5
 - id: south-russia-2001
   season: 2002
   name: 2001 Southern Subregional Contest
   cms_ids: []
   parent: neerc-2001
   next: south-russia-2002
-  web: https://www.kgeorgiy.info/papers/Vasilev_VN__Kazakov_MA__Korneev_GA__Parfenov_VG__Stankevich_AS_--_NEERC_2001.pdf
-  mirrors:
-  - url: https://contest.sgu.ru/
-    note: added by url-hunt 2026-09-01 (round9-research)
-  - url: http://contest.sgu.ru/*
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
+  sources:
+  - url: https://www.kgeorgiy.info/papers/Vasilev_VN__Kazakov_MA__Korneev_GA__Parfenov_VG__Stankevich_AS_--_NEERC_2001.pdf
+    roles:
+    - web
+    also_at:
+    - https://contest.sgu.ru/
+    - http://contest.sgu.ru/*
 - id: south-russia-2002
   season: 2003
   name: 2002 Southern Subregional Contest
   cms_ids: []
   parent: neerc-2002
   next: south-russia-2003
-  web: https://contest.sgu.ru/
-  mirrors:
-  - url: https://neerc.ifmo.ru/subregions/southern.html
-    note: added by url-hunt 2026-09-01 (round9-deep-probe)
+  sources:
+  - url: https://contest.sgu.ru/
+    roles:
+    - web
+    also_at:
+    - https://neerc.ifmo.ru/subregions/southern.html
 - id: south-russia-2003
   season: 2004
   name: 2003 Southern Subregional Contest
   cms_ids: []
   parent: neerc-2003
   next: south-russia-2004
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2003/southern/standings.html
-      archived: south-russia/south-russia-2003/standings/2026-09-01-live-4e8b4698/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2003/southern/standings.html
-      as_of: '20161030041829'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2003/standings/20161030-wayback-1435343a/standings.html
-  web: https://neerc.ifmo.ru/subregions/southern.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/southern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2003/southern/standings.html
+    roles:
+    - standings
+    as_of: '20230322035401'
+    archived:
+    - south-russia/south-russia-2003/standings/2026-09-01-live-4e8b4698/standings.html
+    - south-russia/south-russia-2003/standings/20230322-wayback-3bc706ae/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2003/southern/standings.html
+    roles:
+    - standings
+    as_of: '20161030041829'
+    archived:
+    - south-russia/south-russia-2003/standings/20161030-wayback-1435343a/standings.html
+    - south-russia/south-russia-2003/standings/20260904-live-38cf9368/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: south-russia-2004
   season: 2005
   name: 2004 Southern Subregional Contest
   cms_ids: []
   parent: neerc-2004
   next: south-russia-2005
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2004/southern/standings.html
-      as_of: '20260613061509'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2004/standings/20260613-wayback-9be44236/standings.html
-    - url: https://neerc.ifmo.ru/archive/2004/southern/standings.html
-      as_of: '20161030041657'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2004/standings/20161030-wayback-d3716f58/standings.html
-  web: https://neerc.ifmo.ru/subregions/southern.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/southern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2004/southern/standings.html
+    roles:
+    - standings
+    as_of: '20260613061509'
+    archived:
+    - south-russia/south-russia-2004/standings/20260613-wayback-9be44236/standings.html
+    - south-russia/south-russia-2004/standings/20260904-live-5f7e77ab/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2004/southern/standings.html
+    roles:
+    - standings
+    as_of: '20161030041657'
+    archived:
+    - south-russia/south-russia-2004/standings/20161030-wayback-d3716f58/standings.html
+    - south-russia/south-russia-2004/standings/20260904-live-2f39024c/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: south-russia-2005
   season: 2006
   name: 2005 Southern Subregional Contest
   cms_ids: []
   parent: neerc-2005
   next: south-russia-2006
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2005/southern/standings.html
-      as_of: '20260613052506'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2005/standings/20260613-wayback-96425429/standings.html
-    - url: https://neerc.ifmo.ru/archive/2005/southern/standings.html
-      as_of: '20161030041703'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2005/standings/20161030-wayback-ac793a97/standings.html
-  web: https://neerc.ifmo.ru/subregions/southern.html
-  problemset: https://codeforces.com/gym/100765
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/southern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2005/southern/standings.html
+    roles:
+    - standings
+    as_of: '20260613052506'
+    archived:
+    - south-russia/south-russia-2005/standings/20260613-wayback-96425429/standings.html
+    - south-russia/south-russia-2005/standings/20260904-live-e2b8768c/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2005/southern/standings.html
+    roles:
+    - standings
+    as_of: '20161030041703'
+    archived:
+    - south-russia/south-russia-2005/standings/20161030-wayback-ac793a97/standings.html
+    - south-russia/south-russia-2005/standings/20260904-live-9a6893f6/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://codeforces.com/gym/100765
+    roles:
+    - problemset
+    as_of: '20210506182315'
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: south-russia-2006
   season: 2007
   name: 2006 Southern Subregional Contest
   cms_ids: []
   parent: neerc-2006
   next: south-russia-2007
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2006/southern/standings.html
-      as_of: '20230322024612'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2006/standings/20230322-wayback-a2b06b6d/standings.html
-    - url: https://neerc.ifmo.ru/archive/2006/southern/standings.html
-      as_of: '20161030042308'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2006/standings/20161030-wayback-6e7d69e9/standings.html
-  web: https://neerc.ifmo.ru/subregions/southern.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/southern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2006/southern/standings.html
+    roles:
+    - standings
+    as_of: '20230322024612'
+    archived:
+    - south-russia/south-russia-2006/standings/20230322-wayback-a2b06b6d/standings.html
+    - south-russia/south-russia-2006/standings/20260904-live-51ffa028/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2006/southern/standings.html
+    roles:
+    - standings
+    as_of: '20161030042308'
+    archived:
+    - south-russia/south-russia-2006/standings/20161030-wayback-6e7d69e9/standings.html
+    - south-russia/south-russia-2006/standings/20260904-live-66f1f43b/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: south-russia-2007
   season: 2008
   name: 2007 Southern Subregional Contest
   cms_ids: []
   parent: neerc-2007
   next: south-russia-2008
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2007/southern/standings.html
-      as_of: '20260610210511'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2007/standings/20260610-wayback-0e62424c/standings.html
-    - url: https://neerc.ifmo.ru/archive/2007/southern/standings.html
-      as_of: '20161030042239'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2007/standings/20161030-wayback-417b8036/standings.html
-  web: https://neerc.ifmo.ru/subregions/southern.html
-  problemset: https://codeforces.com/gym/101503
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/southern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2007/southern/standings.html
+    roles:
+    - standings
+    as_of: '20260610210511'
+    archived:
+    - south-russia/south-russia-2007/standings/20260610-wayback-0e62424c/standings.html
+    - south-russia/south-russia-2007/standings/20260904-live-2e47590b/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2007/southern/standings.html
+    roles:
+    - standings
+    as_of: '20161030042239'
+    archived:
+    - south-russia/south-russia-2007/standings/20161030-wayback-417b8036/standings.html
+    - south-russia/south-russia-2007/standings/20260904-live-cfcfb07d/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://codeforces.com/gym/101503
+    roles:
+    - problemset
+    as_of: '20190409003631'
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: south-russia-2008
   season: 2009
   name: 2008 Southern Subregional Contest
@@ -165,27 +233,47 @@ contests:
   - 88
   parent: neerc-2008
   next: south-russia-2009
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/101504/standings
-      archived: south-russia/south-russia-2008/scoreboard/2026-09-01-live-6fd67a9d/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nerc.itmo.ru/archive/2008/southern/standings.html
-      as_of: '20260613062240'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2008/standings/20260613-wayback-cf52bd1f/standings.html
-    - url: https://neerc.ifmo.ru/archive/2008/southern/standings.html
-      as_of: '20161030042314'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2008/standings/20161030-wayback-34532680/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Southern-Subregional-2009/standings
-  web: http://contest.sgu.ru
-  problemset: https://codeforces.com/gym/101504
+  sources:
+  - url: http://contest.sgu.ru
+    roles:
+    - web
+  - url: https://codeforces.com/gym/101504/standings
+    roles:
+    - scoreboard
+    as_of: '20190408234944'
+    archived:
+    - south-russia/south-russia-2008/scoreboard/2026-09-01-live-6fd67a9d/page.html
+    - south-russia/south-russia-2008/scoreboard/20190408-wayback-ef16d099/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2008/southern/standings.html
+    roles:
+    - standings
+    as_of: '20260613062240'
+    archived:
+    - south-russia/south-russia-2008/standings/20260613-wayback-cf52bd1f/standings.html
+    - south-russia/south-russia-2008/standings/20260904-live-d20e6f35/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2008/southern/standings.html
+    roles:
+    - standings
+    as_of: '20161030042314'
+    archived:
+    - south-russia/south-russia-2008/standings/20161030-wayback-34532680/standings.html
+    - south-russia/south-russia-2008/standings/20260904-live-f885d740/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Southern-Subregional-2009/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/101504
+    roles:
+    - problemset
+    as_of: '20221217171648'
+    url_state: replaced
+    url_checked: '2026-11-02'
 - id: south-russia-2009
   season: 2010
   name: 2009 Southern Subregional Contest
@@ -195,26 +283,44 @@ contests:
   - 533
   parent: neerc-2009
   next: south-russia-2010
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/101252/standings
-      archived: south-russia/south-russia-2009/scoreboard/2026-09-01-live-c8a90193/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nerc.itmo.ru/archive/2009/southern/standings.html
-      as_of: '20260610145720'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2009/standings/20260610-wayback-8fe86fe6/standings.html
-    - url: https://neerc.ifmo.ru/archive/2009/southern/standings.html
-      as_of: '20161030042244'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2009/standings/20161030-wayback-8656a33a/standings.html
-  web: https://neerc.ifmo.ru/subregions/southern.html
-  problemset: https://codeforces.com/gym/101252
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/southern.html
+    roles:
+    - web
+  - url: https://codeforces.com/gym/101252/standings
+    roles:
+    - scoreboard
+    as_of: '20170706060608'
+    archived:
+    - south-russia/south-russia-2009/scoreboard/2026-09-01-live-c8a90193/page.html
+    - south-russia/south-russia-2009/scoreboard/20170706-wayback-bc204cca/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2009/southern/standings.html
+    roles:
+    - standings
+    as_of: '20260610145720'
+    archived:
+    - south-russia/south-russia-2009/standings/20260610-wayback-8fe86fe6/standings.html
+    - south-russia/south-russia-2009/standings/20260904-live-fe943ecb/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2009/southern/standings.html
+    roles:
+    - standings
+    as_of: '20161030042244'
+    archived:
+    - south-russia/south-russia-2009/standings/20161030-wayback-8656a33a/standings.html
+    - south-russia/south-russia-2009/standings/20260904-live-e7aff5ec/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://codeforces.com/gym/101252
+    roles:
+    - problemset
+    as_of: '20170706052622'
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: south-russia-2010
   season: 2011
   name: 2010 Southern Subregional Contest
@@ -224,21 +330,35 @@ contests:
   - 628
   parent: neerc-2010
   next: south-russia-2011
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2010/southern/standings.html
-      as_of: '20230322040025'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2010/standings/20230322-wayback-f7a9658b/standings.html
-    - url: https://neerc.ifmo.ru/archive/2010/southern/standings.html
-      as_of: '20161030041624'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2010/standings/20161030-wayback-652e8e78/standings.html
-  web: http://contest.sgu.ru
-  problemset: https://codeforces.com/gym/101246
+  sources:
+  - url: http://contest.sgu.ru
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2010/southern/standings.html
+    roles:
+    - standings
+    as_of: '20230322040025'
+    archived:
+    - south-russia/south-russia-2010/standings/20230322-wayback-f7a9658b/standings.html
+    - south-russia/south-russia-2010/standings/20260904-live-c056a085/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2010/southern/standings.html
+    roles:
+    - standings
+    as_of: '20161030041624'
+    archived:
+    - south-russia/south-russia-2010/standings/20161030-wayback-652e8e78/standings.html
+    - south-russia/south-russia-2010/standings/20260904-live-cadcd528/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://codeforces.com/gym/101246
+    roles:
+    - problemset
+    as_of: '20170706032827'
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: south-russia-2011
   season: 2012
   name: 2011 Southern Subregional Contest
@@ -248,23 +368,37 @@ contests:
   - 759
   parent: neerc-2011
   next: south-russia-2012
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2011/southern/standings.html
-      as_of: '20260613065441'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2011/scoreboard/20260613-wayback-1b1a5b38/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2011/southern/standings.html
-      as_of: '20161030042250'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2011/standings/20161030-wayback-ebf9b1bc/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Southern-Subregional-2012/standings
-  web: https://neerc.ifmo.ru/subregions/southern.html
-  problemset: https://codeforces.com/gym/100151
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/southern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2011/southern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260613065441'
+    archived:
+    - south-russia/south-russia-2011/scoreboard/20260613-wayback-1b1a5b38/standings.html
+    - south-russia/south-russia-2011/scoreboard/20260904-live-010fe4ba/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2011/southern/standings.html
+    roles:
+    - standings
+    as_of: '20161030042250'
+    archived:
+    - south-russia/south-russia-2011/standings/20161030-wayback-ebf9b1bc/standings.html
+    - south-russia/south-russia-2011/standings/20260904-live-38150412/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Southern-Subregional-2012/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/100151
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: south-russia-2012
   season: 2013
   name: 2012 Southern Subregional Contest
@@ -274,23 +408,38 @@ contests:
   - 1314
   parent: neerc-2012
   next: south-russia-2013
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2012/southern/standings.html
-      as_of: '20260610152923'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2012/scoreboard/20260610-wayback-d200fb31/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2012/southern/standings.html
-      as_of: '20161030042319'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2012/standings/20161030-wayback-6b0ef67f/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Southern-Subregional-2013/standings
-  web: https://neerc.ifmo.ru/subregions/southern.html
-  problemset: https://codeforces.com/gym/100109
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/southern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2012/southern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260610152923'
+    archived:
+    - south-russia/south-russia-2012/scoreboard/20260610-wayback-d200fb31/standings.html
+    - south-russia/south-russia-2012/scoreboard/20260904-live-ba2b54b1/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2012/southern/standings.html
+    roles:
+    - standings
+    as_of: '20161030042319'
+    archived:
+    - south-russia/south-russia-2012/standings/20161030-wayback-6b0ef67f/standings.html
+    - south-russia/south-russia-2012/standings/20260904-live-61a5f4b8/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Southern-Subregional-2013/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/100109
+    roles:
+    - problemset
+    as_of: '20220823181717'
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: south-russia-2013
   season: 2014
   name: 2013 Southern Subregional Contest
@@ -300,22 +449,34 @@ contests:
   - 2032
   parent: neerc-2013
   next: south-russia-2014
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2013/southern/standings.html
-      as_of: '20260613052954'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2013/scoreboard/20260613-wayback-df0198f9/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2013/southern/standings.html
-      as_of: '20161030041709'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2013/standings/20161030-wayback-25a42711/standings.html
-  web: https://neerc.ifmo.ru/subregions/southern.html
-  problemset: https://codeforces.com/gym/100253
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/southern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2013/southern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260613052954'
+    archived:
+    - south-russia/south-russia-2013/scoreboard/20260613-wayback-df0198f9/standings.html
+    - south-russia/south-russia-2013/scoreboard/20260904-live-7f8ca1e7/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2013/southern/standings.html
+    roles:
+    - standings
+    as_of: '20161030041709'
+    archived:
+    - south-russia/south-russia-2013/standings/20161030-wayback-25a42711/standings.html
+    - south-russia/south-russia-2013/standings/20260904-live-f0685450/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://codeforces.com/gym/100253
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: south-russia-2014
   season: 2015
   name: 2014 Southern Subregional Contest
@@ -325,23 +486,38 @@ contests:
   - 2673
   parent: neerc-2014
   next: south-russia-2015
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2014/southern/standings.html
-      as_of: '20260613061921'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2014/scoreboard/20260613-wayback-39a91f34/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2014/southern/standings.html
-      as_of: '20161030041714'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2014/standings/20161030-wayback-cd3cbf75/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Southern-Subregional-2015/standings
-  web: http://contest.sgu.ru
-  problemset: https://codeforces.com/gym/100513
+  sources:
+  - url: http://contest.sgu.ru
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2014/southern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260613061921'
+    archived:
+    - south-russia/south-russia-2014/scoreboard/20260613-wayback-39a91f34/standings.html
+    - south-russia/south-russia-2014/scoreboard/20260904-live-c688ebf6/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2014/southern/standings.html
+    roles:
+    - standings
+    as_of: '20161030041714'
+    archived:
+    - south-russia/south-russia-2014/standings/20161030-wayback-cd3cbf75/standings.html
+    - south-russia/south-russia-2014/standings/20260904-live-4642012f/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Southern-Subregional-2015/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/100513
+    roles:
+    - problemset
+    as_of: '20170709105408'
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: south-russia-2015
   season: 2016
   name: 2015 Southern Subregional Contest
@@ -351,23 +527,38 @@ contests:
   - 2756
   parent: neerc-2015
   next: south-russia-2016
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2015/southern/standings.html
-      as_of: '20260610145119'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2015/scoreboard/20260610-wayback-cf9042e9/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2015/southern/standings.html
-      as_of: '20161030042255'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2015/standings/20161030-wayback-85c9d9fd/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Southern-Subregional-2016/standings
-  web: https://neerc.ifmo.ru/subregions/southern.html
-  problemset: https://assets.codeforces.com/statements/589.pdf
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/southern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2015/southern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260610145119'
+    archived:
+    - south-russia/south-russia-2015/scoreboard/20260610-wayback-cf9042e9/standings.html
+    - south-russia/south-russia-2015/scoreboard/20260904-live-28c23534/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2015/southern/standings.html
+    roles:
+    - standings
+    as_of: '20161030042255'
+    archived:
+    - south-russia/south-russia-2015/standings/20161030-wayback-85c9d9fd/standings.html
+    - south-russia/south-russia-2015/standings/20260904-live-683a9380/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Southern-Subregional-2016/standings
+    roles:
+    - icpc_standings
+  - url: https://assets.codeforces.com/statements/589.pdf
+    roles:
+    - problemset
+    as_of: '20151106021705'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: south-russia-2016
   season: 2017
   name: 2016 Southern Subregional Contest
@@ -377,23 +568,38 @@ contests:
   - 3146
   parent: neerc-2016
   next: south-russia-2017
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2016/southern/standings.html
-      as_of: '20260613062524'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2016/scoreboard/20260613-wayback-4c47ef23/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2016/southern/standings.html
-      as_of: '20171025174045'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2016/standings/20171025-wayback-208cd89d/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Southern-Subregional-2017/standings
-  web: http://contest.sgu.ru/
-  problemset: https://codeforces.com/contest/730
+  sources:
+  - url: http://contest.sgu.ru/
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2016/southern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260613062524'
+    archived:
+    - south-russia/south-russia-2016/scoreboard/20260613-wayback-4c47ef23/standings.html
+    - south-russia/south-russia-2016/scoreboard/20260904-live-62e02076/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2016/southern/standings.html
+    roles:
+    - standings
+    as_of: '20171025174045'
+    archived:
+    - south-russia/south-russia-2016/standings/20171025-wayback-208cd89d/standings.html
+    - south-russia/south-russia-2016/standings/20260904-live-b27ba248/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Southern-Subregional-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/contest/730
+    roles:
+    - problemset
+    as_of: '20170611135300'
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: south-russia-2017
   season: 2018
   name: 2017 Southern Subregional Contest
@@ -403,23 +609,38 @@ contests:
   - 3298
   parent: nerc-2017
   next: south-russia-2018
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2017/southern/standings.html
-      as_of: '20260610150008'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2017/scoreboard/20260610-wayback-adb3848e/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2017/southern/standings.html
-      as_of: '20180920232612'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2017/standings/20180920-wayback-024851a4/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Southern-Subregional-2018/standings
-  web: https://neerc.ifmo.ru/subregions/southern.html
-  problemset: https://codeforces.com/contest/883
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/southern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2017/southern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260610150008'
+    archived:
+    - south-russia/south-russia-2017/scoreboard/20260610-wayback-adb3848e/standings.html
+    - south-russia/south-russia-2017/scoreboard/20260904-live-4489aa2f/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2017/southern/standings.html
+    roles:
+    - standings
+    as_of: '20180920232612'
+    archived:
+    - south-russia/south-russia-2017/standings/20180920-wayback-024851a4/standings.html
+    - south-russia/south-russia-2017/standings/20260904-live-b7dac103/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Southern-Subregional-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/contest/883
+    roles:
+    - problemset
+    as_of: '20221216111040'
+    url_state: replaced
+    url_checked: '2026-11-02'
 - id: south-russia-2018
   season: 2019
   name: 2018 Southern Subregional Contest
@@ -429,20 +650,35 @@ contests:
   - 3693
   parent: nerc-2018
   next: south-russia-2019
-  results:
-    standings:
-    - url: https://codeforces.com/contest/1070/standings
-      as_of: '20221220183826'
-      note: added by url-hunt 2026-09-01 (dark-hunt-agent)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2018/standings/20221220-wayback-d9920600/page.html
-    - url: https://codeforces.com/gym/101911/standings
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2018/standings/20261023-live-f51e57cd/page.html
   sources:
+  - url: https://codeforces.com/blog/entry/62570
+    roles:
+    - web
+  - url: https://codeforces.com/contest/1070/standings
+    roles:
+    - standings
+    as_of: '20221220183826'
+    archived:
+    - south-russia/south-russia-2018/standings/20221220-wayback-d9920600/page.html
+    - south-russia/south-russia-2018/standings/20261020-live-12b7a724/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (dark-hunt-agent)
+  - url: https://codeforces.com/gym/101911/standings
+    roles:
+    - standings
+    archived:
+    - south-russia/south-russia-2018/standings/20261023-live-f51e57cd/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://codeforces.com/contest/1070
+    roles:
+    - problemset
+    as_of: '20200307114431'
+    url_state: changed
+    url_checked: '2026-11-02'
+  provenance:
   - 'Codeforces blog (MikeMirzayanov) - mirror announcement (2018-10): ''There were 72 teams onsite in
     Saratov, most of them were invited because of their result on'' the qualification stage (linked https://icpc.sgu.ru/);
     the official ACM-ICPC Southern Subregional 2018 ended October 16; onlin — https://codeforces.com/blog/entry/62570
@@ -458,8 +694,6 @@ contests:
   - 'Codeforces Gym 101911 (2018-09): ''2018-2019 ACM-ICPC, NEERC, Southern Subregional Contest, Qualification
     Stage'' standings (123+ rows; top: Togliatti SU B, Innopolis U E, Saratov SU J) - the qualification
     stage, not the main contest. — https://codeforces.com/gym/101911/standings [existence hunt 2026-10-22]'
-  web: https://codeforces.com/blog/entry/62570
-  problemset: https://codeforces.com/contest/1070
 - id: south-russia-2019
   season: 2020
   name: 2019 Southern and Volga Russia Regional Contest
@@ -469,23 +703,38 @@ contests:
   - 4186
   parent: nerc-2019
   next: south-russia-2020
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2019/southern/standings.html
-      as_of: '20260613055048'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2019/scoreboard/20260613-wayback-209bb95f/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2019/southern/standings.html
-      as_of: '20230321215012'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2019/standings/20230321-wayback-b86c4634/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Southern-and-Volga-Russia-Regional-2020/standings
-  web: https://neerc.ifmo.ru/subregions/southern.html
-  problemset: https://codeforces.com/contest/1250
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/southern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2019/southern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260613055048'
+    archived:
+    - south-russia/south-russia-2019/scoreboard/20260613-wayback-209bb95f/standings.html
+    - south-russia/south-russia-2019/scoreboard/20260904-live-30c57b0a/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2019/southern/standings.html
+    roles:
+    - standings
+    as_of: '20230321215012'
+    archived:
+    - south-russia/south-russia-2019/standings/20230321-wayback-b86c4634/standings.html
+    - south-russia/south-russia-2019/standings/20260904-live-c11d290d/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Southern-and-Volga-Russia-Regional-2020/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/contest/1250
+    roles:
+    - problemset
+    as_of: '20210214103248'
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: south-russia-2020
   season: 2021
   name: 2020 Southern and Volga Russia Regional Contest
@@ -494,15 +743,29 @@ contests:
   - 4571
   parent: nerc-2020
   next: south-russia-2021
-  results:
-    standings:
-    - url: https://codeforces.com/contest/1468/standings
-      as_of: '20210107024442'
-      note: added by url-hunt 2026-09-01 (dark-hunt-agent)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: south-russia/south-russia-2020/standings/20210107-wayback-3ebfe344/page.html
   sources:
+  - url: https://codeforces.com/blog/entry/85881
+    roles:
+    - web
+  - url: https://codeforces.com/contest/1468/standings
+    roles:
+    - standings
+    as_of: '20210107024442'
+    archived:
+    - south-russia/south-russia-2020/standings/20210107-wayback-3ebfe344/page.html
+    - south-russia/south-russia-2020/standings/20261020-live-f765d954/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (dark-hunt-agent)
+  - url: https://codeforces.com/contest/1468
+    roles:
+    - problemset
+    as_of: '20201225163846'
+    url_state: changed
+    url_checked: '2026-11-02'
+  problems:
+    set: south-russia-2020
+  provenance:
   - 'Codeforces blog (MikeMirzayanov) - mirror announcement (2020-12): The ICPC Southern and Volga Russian
     Regional Contest 2020 ''has ended on November 15'' and ''took place online'' with 108 teams; author
     served as Chief Judge; mirror https://codeforces.com/contest/1468 starts 25 Dec 2020 14: — https://codeforces.com/blog/entry/85881
@@ -514,11 +777,6 @@ contests:
   - 'NERC 2020 archive (ITMO) (2020): The 2020 ''Regional Contests'' section has a ''Southern and Volga
     Russia'' heading but no standings link (several other subregions do have links). — https://neerc.ifmo.ru/archive/2020.html
     [existence hunt 2026-10-22]'
-  web: https://codeforces.com/blog/entry/85881
-  problems:
-    notes: No date, no teams in CMS
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://codeforces.com/contest/1468
 - id: south-russia-2021
   season: 2022
   name: 2021 ICPC Southern and Volga Russia Regional Contest
@@ -528,11 +786,19 @@ contests:
   - 4939
   parent: nerc-2021
   next: south-russia-2022
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Southern-and-Volga-Russia-Regional-2022/standings
-    archived: south-russia/south-russia-2021/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/Southern-and-Volga-Russia-Regional-2022/standings
+    roles:
+    - icpc_standings
+    archived:
+    - south-russia/south-russia-2021/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4939, 101 teams, DB fetch 2026-04-26)
-  problemset: https://codeforces.com/gym/103430
+  - url: https://codeforces.com/gym/103430
+    roles:
+    - problemset
+    as_of: '20220528112856'
+    url_state: replaced
+    url_checked: '2026-11-02'
 - id: south-russia-2022
   season: 2023
   name: 2022 ICPC Southern and Volga Russia Regional Contest
@@ -542,11 +808,19 @@ contests:
   - 5591
   parent: nerc-2022
   next: south-russia-2023
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Southern-and-Volga-Russia-Regional-2023/standings
-    archived: south-russia/south-russia-2022/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/Southern-and-Volga-Russia-Regional-2023/standings
+    roles:
+    - icpc_standings
+    archived:
+    - south-russia/south-russia-2022/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 5591, 82 teams, DB fetch 2026-04-26)
-  problemset: https://codeforces.com/contest/1765
+  - url: https://codeforces.com/contest/1765
+    roles:
+    - problemset
+    as_of: '20221207022602'
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: south-russia-2023
   season: 2024
   name: 2023 ICPC Southern and Volga Russia Regional Contest
@@ -556,16 +830,29 @@ contests:
   - 7744
   parent: nerc-2023
   next: south-russia-2024
-  icpc_standings: https://icpc.global/regionals/finder/Southern-and-Volga-Russia-Regional-2024/standings
-  results:
-    standings:
-    - url: https://contest.sgu.ru/monitor/1
-      archived: south-russia/south-russia-2023/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  web: https://contest.sgu.ru/
-  problemset: https://codeforces.com/gym/104777
+  sources:
+  - url: https://contest.sgu.ru/
+    roles:
+    - web
+  - url: https://contest.sgu.ru/monitor/1
+    roles:
+    - standings
+    as_of: '20240519164822'
+    archived:
+    - south-russia/south-russia-2023/external-standings/2026-04-15-external/content.html
+    - south-russia/south-russia-2023/standings/20240519-wayback-8715119c/page.html
+    - south-russia/south-russia-2023/standings/20260901-live-83f93338/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Southern-and-Volga-Russia-Regional-2024/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/104777
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: south-russia-2024
   season: 2025
   name: 2024 ICPC Southern and Volga Russia Regional Contest
@@ -575,15 +862,29 @@ contests:
   - 8912
   parent: nerc-2024
   next: south-russia-2025
-  results:
-    scoreboard:
-    - url: https://contest.sgu.ru/monitor/1
-      archived: south-russia/south-russia-2024/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Southern-and-Volga-Russia-Regional-2025/standings
-  web: http://contest.sgu.ru
-  problemset: https://codeforces.com/contest/2038
+  sources:
+  - url: http://contest.sgu.ru
+    roles:
+    - web
+  - url: https://contest.sgu.ru/monitor/1
+    roles:
+    - scoreboard
+    as_of: '20260121222301'
+    archived:
+    - south-russia/south-russia-2024/external-standings/2026-04-15-external/content.html
+    - south-russia/south-russia-2024/scoreboard/20260121-wayback-78dc64bb/page.html
+    - south-russia/south-russia-2024/scoreboard/20260901-live-83f93338/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Southern-and-Volga-Russia-Regional-2025/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/contest/2038
+    roles:
+    - problemset
+    as_of: '20241214112441'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: south-russia-2025
   season: 2026
   name: 2025 ICPC Southern and Volga Russia Regional Contest
@@ -593,21 +894,36 @@ contests:
   - 9156
   parent: nerc-2025
   next: south-russia-2026
-  web: https://contest.sgu.ru/
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/106144/standings
-      archived: south-russia/south-russia-2025/scoreboard/2026-09-01-live-479a99ba/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://contest.sgu.ru/monitor/1
-      archived: south-russia/south-russia-2025/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Southern-and-Volga-Russia-Regional-2026/standings
-  problemset: https://codeforces.com/gym/106144
+  sources:
+  - url: https://contest.sgu.ru/
+    roles:
+    - web
+  - url: https://codeforces.com/gym/106144/standings
+    roles:
+    - scoreboard
+    archived:
+    - south-russia/south-russia-2025/scoreboard/2026-09-01-live-479a99ba/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://contest.sgu.ru/monitor/1
+    roles:
+    - standings
+    as_of: '20260121222301'
+    archived:
+    - south-russia/south-russia-2025/external-standings/2026-04-15-external/content.html
+    - south-russia/south-russia-2025/standings/20260121-wayback-78dc64bb/page.html
+    - south-russia/south-russia-2025/standings/20260901-live-83f93338/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Southern-and-Volga-Russia-Regional-2026/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/106144
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: south-russia-2026
   status: upcoming
   season: 2027

@@ -1,0 +1,238 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://github.com/icpc-contest-archive/contests/schema/problemsets.schema.json",
+ "title": "ICPC problem set — problemsets/<set-id>.yaml",
+ "description": "A problem set is its own object: one set may be used by several contests (NCPC + UKIEPC 2013, the shared North American regional sets, the unified Latin America set). It lists the problems, which contests used it and with which letters, and what the ICPC Problem Archive holds for it. DEFINITIONS.md, Problems.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "id",
+  "contests"
+ ],
+ "$defs": {
+  "contestId": {
+   "type": "string",
+   "pattern": "^[a-z0-9][a-z0-9-]*-[0-9]{4}$"
+  },
+  "setId": {
+   "type": "string",
+   "pattern": "^[a-z0-9][a-z0-9-]*$"
+  },
+  "problemId": {
+   "type": "string",
+   "pattern": "^p-[0-9a-f]{8}$",
+   "description": "internal, permanent problem id (page URL key). Assigned once, never reused; when a UUID arrives later the id stays. Two ids found to be the same problem: one becomes an `aliases` entry of the other."
+  },
+  "uuid": {
+   "type": "string",
+   "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+  },
+  "url": {
+   "type": "string",
+   "pattern": "^https?://"
+  },
+  "heldState": {
+   "enum": [
+    "full",
+    "partial",
+    "none"
+   ]
+  },
+  "judgeLink": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "judge",
+    "url"
+   ],
+   "properties": {
+    "judge": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9-]*$",
+     "description": "id from judges.yaml"
+    },
+    "url": {
+     "$ref": "#/$defs/url"
+    },
+    "id": {
+     "type": "string",
+     "description": "the judge's own id for the problem (Kattis short name, Live Archive number, Baekjoon number, Codeforces gym id + letter)"
+    },
+    "as_of": {
+     "type": "string",
+     "pattern": "^[0-9]{4,14}$"
+    },
+    "note": {
+     "type": "string"
+    }
+   }
+  },
+  "problem": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "id",
+    "name"
+   ],
+   "properties": {
+    "id": {
+     "$ref": "#/$defs/problemId"
+    },
+    "uuid": {
+     "$ref": "#/$defs/uuid",
+     "description": "the package's problem.yaml uuid; the same across sets that reuse the problem"
+    },
+    "aliases": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/problemId"
+     },
+     "description": "other internal ids merged into this one"
+    },
+    "name": {
+     "type": "string"
+    },
+    "short_name": {
+     "type": "string",
+     "description": "package / Kattis short name"
+    },
+    "have": {
+     "type": "array",
+     "uniqueItems": true,
+     "items": {
+      "enum": [
+       "statement",
+       "data",
+       "input_validator",
+       "output_validator",
+       "solutions",
+       "package"
+      ]
+     },
+     "description": "material the archive holds for this problem"
+    },
+    "status": {
+     "enum": [
+      "private"
+     ],
+     "description": "kept private after the contest; name and uuid are still public"
+    },
+    "judges": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/judgeLink"
+     }
+    },
+    "notes": {
+     "type": "string"
+    }
+   }
+  }
+ },
+ "properties": {
+  "id": {
+   "$ref": "#/$defs/setId",
+   "description": "defaults to the contest id when one contest used the set"
+  },
+  "name": {
+   "type": "string",
+   "description": "only when the set has a name of its own (e.g. 'NCPC 2013 / UKIEPC 2013 shared set')"
+  },
+  "repo": {
+   "type": "string",
+   "pattern": "^icpc-problem-archive/[a-z0-9][a-z0-9-]*$",
+   "description": "GitHub repo holding the material (several sets can share a repo, e.g. statement-only)"
+  },
+  "count": {
+   "type": "integer",
+   "minimum": 1,
+   "description": "number of problems in the set; required when `problems` is incomplete"
+  },
+  "complete": {
+   "type": "boolean",
+   "description": "false = `problems` is known to miss some (then count says how many there are, if known)"
+  },
+  "letters": {
+   "enum": [
+    "unknown"
+   ],
+   "description": "no letter map is known for any contest (list came from an online judge)"
+  },
+  "statement": {
+   "$ref": "#/$defs/heldState"
+  },
+  "data": {
+   "$ref": "#/$defs/heldState"
+  },
+  "solutions": {
+   "$ref": "#/$defs/heldState"
+  },
+  "package": {
+   "$ref": "#/$defs/heldState"
+  },
+  "counts": {
+   "type": "object",
+   "additionalProperties": false,
+   "properties": {
+    "statement": {
+     "type": "integer"
+    },
+    "data": {
+     "type": "integer"
+    },
+    "solutions": {
+     "type": "integer"
+    },
+    "package": {
+     "type": "integer"
+    }
+   },
+   "description": "exact numbers held, for kinds marked partial"
+  },
+  "contests": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "contest"
+    ],
+    "properties": {
+     "contest": {
+      "$ref": "#/$defs/contestId"
+     },
+     "letters": {
+      "type": "object",
+      "propertyNames": {
+       "pattern": "^[A-Z][0-9]?$|^[0-9]{1,2}$"
+      },
+      "additionalProperties": {
+       "$ref": "#/$defs/problemId"
+      },
+      "description": "letter -> problem id as used in this contest (letters can differ between contests sharing a set)"
+     },
+     "note": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "problems": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/problem"
+   },
+   "description": "the problems, when known; absent with complete: false when only holdings are known"
+  },
+  "provenance": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "notes": {
+   "type": "string"
+  }
+ }
+}

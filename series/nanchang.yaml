@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: nanchang
   name: ICPC Asia Nanchang Regional Contest
+  tier: regional
+  region: Asia East
+  naming: season-start
 contests:
 - id: nanchang-2019
   season: 2020
@@ -12,21 +15,31 @@ contests:
   - 4231
   parent: wf-2020
   next: null
-  icpc_standings: https://icpc.global/regionals/finder/Asia-Nanchang-2020/standings
-  results:
-    scoreboard:
-    - url: https://board.xcpcio.com/icpc/2019/nanchang
-      note: added by url-hunt 2026-09-01 (wave3-xcpcio)
-      url_state: changed
-      url_checked: '2026-11-02'
-      archived: nanchang/nanchang-2019/scoreboard/20260902-live-be66a4eb/page.html
-  web: https://icpc.jxnu.edu.cn
-  problemset: https://qoj.ac/contest/2825
+  sources:
+  - url: https://icpc.jxnu.edu.cn
+    roles:
+    - web
+  - url: https://board.xcpcio.com/icpc/2019/nanchang
+    roles:
+    - scoreboard
+    archived:
+    - nanchang/nanchang-2019/scoreboard/20260902-live-be66a4eb/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-xcpcio)
+  - url: https://icpc.global/regionals/finder/Asia-Nanchang-2020/standings
+    roles:
+    - icpc_standings
+  - url: https://qoj.ac/contest/2825
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: nanchang-2026
+  status: upcoming
   season: 2027
   name: 2026 Asia Nanchang Regional Contest
   cms_ids:
   - 9851
   parent: wf-2027
-  status: upcoming
   notes: upcoming shell from misclass audit 2026-09-02

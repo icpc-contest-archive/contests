@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: gwalior
   name: ICPC Asia Gwalior Regional Contest
+  tier: regional
+  region: Asia West
+  naming: season-start
   lineage:
   - type: continues-as
     series: gwalior-pune
@@ -19,25 +22,31 @@ contests:
   - 2609
   parent: wf-2015
   next: gwalior-2017
-  results:
-    rankings:
-    - url: http://www.icpcgwalior.org/doc/Final_Result.pdf
-      as_of: '20150701192622'
-      archived: gwalior/gwalior-2014/rankings/2026-09-01-wayback-c0eeb28d/Final_Result.pdf
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpcgwalior.org/doc/Final_Result.pdf
-      as_of: '20150701192622'
-      archived: gwalior/gwalior-2014/external-standings/2026-04-15-external/content.pdf
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Gwalior-2015/standings
-  web: http://www.icpcgwalior.org/
-  problemset:
-    url: http://www.icpcgwalior.org/doc/OnsiteProblem.pdf
+  sources:
+  - url: http://www.icpcgwalior.org/
+    roles:
+    - web
+  - url: http://icpcgwalior.org/doc/Final_Result.pdf
+    roles:
+    - standings
+    - rankings
+    as_of: '20150701192622'
+    archived:
+    - gwalior/gwalior-2014/external-standings/2026-04-15-external/content.pdf
+    - gwalior/gwalior-2014/rankings/2026-09-01-wayback-c0eeb28d/Final_Result.pdf
+    - gwalior/gwalior-2014/standings/20150701-wayback-23af283a/Final_Result.pdf
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Gwalior-2015/standings
+    roles:
+    - icpc_standings
+  - url: http://www.icpcgwalior.org/doc/OnsiteProblem.pdf
+    roles:
+    - problemset
     as_of: '20141222184104'
+    url_state: dead
+    url_checked: '2026-11-02'
 - id: gwalior-2017
   season: 2018
   name: 2017 ACM-ICPC Asia Gwalior Regional Contest
@@ -47,12 +56,22 @@ contests:
   - 3446
   parent: wf-2018
   next: gwalior-pune-2018
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/ICPC-Gwalior-2018/standings
-    archived: gwalior/gwalior-2017/standings/api-20260904/standings.html
+  sources:
+  - url: http://icpc-iiitm.com
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/ICPC-Gwalior-2018/standings
+    roles:
+    - icpc_standings
+    archived:
+    - gwalior/gwalior-2017/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3446, 93 teams, DB fetch 2026-04-26)
-  web: http://icpc-iiitm.com
-  problemset: https://www.codechef.com/GWR17ROL
+  - url: https://www.codechef.com/GWR17ROL
+    roles:
+    - problemset
+    as_of: '20251224233256'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: gwalior-2022
   season: 2023
   name: 2022 ICPC Asia Gwalior Regional Contest
@@ -61,10 +80,11 @@ contests:
   - 5660
   parent: awc-2022
   next: null
-  icpc_standings: https://icpc.global/regionals/finder/ICPC-Gwalior-2023/standings
-  web: https://icpc.global/regionals/finder/ICPC-Gwalior-2023/standings
-  mirrors:
-  - url: https://icpc.global/regionals/finder/Gwalior-First-Round-2023/standings
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: https://icpc.global/regionals/finder/ICPC-Gwalior-2023
-    note: added by url-hunt 2026-09-01 (round9-deep-D4)
+  sources:
+  - url: https://icpc.global/regionals/finder/ICPC-Gwalior-2023/standings
+    roles:
+    - web
+    - icpc_standings
+    also_at:
+    - https://icpc.global/regionals/finder/Gwalior-First-Round-2023/standings
+    - https://icpc.global/regionals/finder/ICPC-Gwalior-2023

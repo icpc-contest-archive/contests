@@ -1,8 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: nadc
   name: ICPC North America Division Championships
   tier: championship
+  region: North America
+  naming: season-end
 contests:
 - id: nadc-2021
   season: 2021
@@ -14,28 +16,38 @@ contests:
   - 4596
   parent: nac-2021
   next: null
-  web:
-    url: https://www.icpc.org/icpc-north-america-division/
+  sources:
+  - url: https://www.icpc.org/icpc-north-america-division/
+    roles:
+    - web
     as_of: '20220118235610'
-  results:
-    scoreboard:
-    - url: https://nadc20.kattis.com/contests/nadc21/standings
-      as_of: '20250624064800'
-      archived: nadc/nadc-2021/scoreboard/2026-09-01-live-859c5401/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/ICPC-NADC-2021/standings
+  - url: https://nadc20.kattis.com/contests/nadc21/standings
+    roles:
+    - scoreboard
+    as_of: '20250624064800'
+    archived:
+    - nadc/nadc-2021/scoreboard/2026-09-01-live-859c5401/page.html
+    - nadc/nadc-2021/scoreboard/20250624-wayback-20dd92e5/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/ICPC-NADC-2021/standings
+    roles:
+    - icpc_standings
+  - url: https://open.kattis.com/problem-sources/2021%20ICPC%20North%20America%20Division%20Championships
+    roles:
+    - problemset
+    - judge_page
+    judge: kattis
+    as_of: '20210725200453'
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2517
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210614142641'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2021 ICPC North America Division Championships
   problems:
-    count: 13
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/2021%20ICPC%20North%20America%20Division%20Championships
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2517
-        as_of: '20210614142641'
-        note: 2021 ICPC North America Division Championships
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://open.kattis.com/problem-sources/2021%20ICPC%20North%20America%20Division%20Championships
+    set: nadc-2021

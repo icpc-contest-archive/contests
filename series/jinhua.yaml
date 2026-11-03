@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: jinhua
   name: ACM-ICPC Asia Jinhua Regional Contest
+  tier: regional
+  region: Asia East
+  naming: season-start
 contests:
 - id: jinhua-2012
   season: 2013
@@ -12,18 +15,20 @@ contests:
   - 1358
   parent: wf-2013
   next: null
-  results:
-    scoreboard:
-    - url: http://board.acmicpc.info/icpc2012/zjnu_onsite.php
-      as_of: '20121030213011'
-      archived: jinhua/jinhua-2012/scoreboard/2026-09-01-wayback-739f9f2e/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://board.acmicpc.info/icpc2012/zjnu_onsite.php
-      as_of: '20121030213011'
-      note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: jinhua/jinhua-2012/scoreboard/20121030-wayback-c2922ba4/page.html
-  icpc_standings: https://icpc.global/regionals/finder/Jinhau-2013/standings
-  web: http://acm.zjnu.edu.cn/
+  sources:
+  - url: http://acm.zjnu.edu.cn/
+    roles:
+    - web
+  - url: http://board.acmicpc.info/icpc2012/zjnu_onsite.php
+    roles:
+    - scoreboard
+    as_of: '20121030213011'
+    archived:
+    - jinhua/jinhua-2012/scoreboard/2026-09-01-wayback-739f9f2e/page.html
+    - jinhua/jinhua-2012/scoreboard/20121030-wayback-c2922ba4/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
+  - url: https://icpc.global/regionals/finder/Jinhau-2013/standings
+    roles:
+    - icpc_standings

@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: mausa
   name: ICPC North America Mid-Atlantic Regional Contest
+  tier: regional
+  region: North America
+  naming: season-start
 contests:
 - id: mausa-1994
   season: 1995
@@ -10,75 +13,106 @@ contests:
   cms_status: pre-cms
   parent: wf-1995
   next: mausa-1995
-  results:
-    standings:
-    - url: https://www.eecis.udel.edu/~saunders/regional95/94region-scores.ps
-      archived: mausa/mausa-1994/standings/2026-09-01-live-b2f2868b/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://usenetarchives.com/view.php?id=comp.org.acm&mid=PDM5OTcxcCRja3NAdHVuYS5jcy5kdWtlLmVkdT4
-      url_state: dead
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://www.eecis.udel.edu/~saunders/regional95/94region-scores.ps
+    roles:
+    - standings
+    as_of: '19990220061543'
+    archived:
+    - mausa/mausa-1994/standings/2026-09-01-live-b2f2868b/page.html
+    - mausa/mausa-1994/standings/19990220-wayback-6874f450/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://usenetarchives.com/view.php?id=comp.org.acm&mid=PDM5OTcxcCRja3NAdHVuYS5jcy5kdWtlLmVkdT4
+    roles:
+    - standings
+    url_state: dead
+    url_checked: '2026-11-02'
 - id: mausa-1995
   season: 1996
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1996
   next: mausa-1996
-  results:
-    standings:
-    - url: https://www.eecis.udel.edu/~saunders/regional95/basestandings
-      archived: mausa/mausa-1995/standings/2026-09-01-live-7beafea3/page.html
-      url_state: live
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://www.eecis.udel.edu/~saunders/regional95/basestandings
+    roles:
+    - standings
+    as_of: '19990220074054'
+    archived:
+    - mausa/mausa-1995/standings/2026-09-01-live-7beafea3/page.html
+    - mausa/mausa-1995/standings/19990220-wayback-cd7cfd0a/page.txt
+    url_state: live
+    url_checked: '2026-11-02'
 - id: mausa-1996
   season: 1997
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1997
   next: mausa-1997
-  results:
-    scoreboard:
-    - url: http://www.csc.vill.edu/%7Emidatl/scores.html
-      as_of: '19990219233930'
-      archived: mausa/mausa-1996/scoreboard/2026-09-01-wayback-256aca4f/scores.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://www.eecis.udel.edu/~saunders/regional96/scores.html
-      archived: mausa/mausa-1996/standings/2026-09-01-live-682fe666/scores.html
-      url_state: live
-      url_checked: '2026-11-02'
-  problemset:
-    url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidAtl/1996/index.html
-    as_of: '20090713051318'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: http://www.csc.vill.edu/%7Emidatl/scores.html
+    roles:
+    - scoreboard
+    as_of: '19990219233930'
+    archived:
+    - mausa/mausa-1996/scoreboard/2026-09-01-wayback-256aca4f/scores.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.eecis.udel.edu/~saunders/regional96/scores.html
+    roles:
+    - standings
+    as_of: '19970606031402'
+    archived:
+    - mausa/mausa-1996/standings/2026-09-01-live-682fe666/scores.html
+    - mausa/mausa-1996/standings/19970606-wayback-aada7eb2/scores.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidAtl/1996/index.html
+    roles:
+    - problemset
+    as_of: '20090713051318'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=473
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211018174757'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/743
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201025002956'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=473
-        as_of: '20211018174757'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/743
-        as_of: '20201025002956'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: mausa-1996
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: mausa-1997
   season: 1998
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1998
   next: mausa-1998
-  web: https://www.cs.drexel.edu/~popyack/ACM/contest.1997.html
-  mirrors:
-  - url: http://www.eecis.udel.edu/~saunders/regional98/UDteams.html
-    note: added by url-hunt 2026-09-01 (round9-deep-probe)
   sources:
+  - url: https://www.cs.drexel.edu/~popyack/ACM/contest.1997.html
+    roles:
+    - web
+    also_at:
+    - http://www.eecis.udel.edu/~saunders/regional98/UDteams.html
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidAtl/1997/index.html
+    roles:
+    - problemset
+    as_of: '20090713053252'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: mausa-1997
+  provenance:
   - 'U Delaware (B. David Saunders) ''Programming Contests'' history page (1990s (live)): 1997-98 season
     entry (22nd Annual ACM Collegiate Programming Contest): ''Professor Keith Decker was the contact person
     for the programming contest in 1997-98. Again this year U. Delaware was a site of the Mid-Atlantic
@@ -92,17 +126,6 @@ contests:
     35th of 101) — no 1997 content. — https://www.eecis.udel.edu/~saunders/regional98/UDteams.html [existence
     hunt 2026-10-22]'
   - ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidAtl/1997/index.html
-    as_of: '20090713053252'
-  problems:
-    repo: icpc-problem-archive/statement-only
-    count: 7
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
 - id: mausa-1998
   season: 1999
   name: 1998 ACM Mid-Atlantic USA Programming Contest
@@ -111,46 +134,53 @@ contests:
   - 952
   parent: wf-1999
   next: mausa-1999
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc99/Regionals/MAUSA98/Standings.htm
-      as_of: '20100710043424'
-      archived: mausa/mausa-1998/standings/2026-09-01-live-f471ca86/Standings.htm
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://midatl.cslab.vt.edu/standings.html
-      as_of: '20000618102448'
-      archived: mausa/mausa-1998/standings/2026-09-01-live-4c7d919d/standings.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc99/Regionals/MAUSA98/Standings.htm
-      as_of: '20020122074924'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: live
-      url_checked: '2026-11-02'
-    scoreboard:
-    - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidAtl/1998/index.html
-      as_of: '20090713053229'
-      archived: mausa/mausa-1998/scoreboard/2026-04-16-archive/1998-mid-atlantic-usa-programming-contest-1998.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Atlantic-USA-1999/standings
-  web: http://midatl.cslab.vt.edu/
-  problemset:
-  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidAtl/1998/index.html
-    as_of: '20090713053229'
-  - url: http://icpc.baylor.edu/past/icpc99/Regionals/MAUSA98/Problems.htm
-    as_of: '20030518162147'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: http://midatl.cslab.vt.edu/
+    roles:
+    - web
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidAtl/1998/index.html
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20090713053229'
+    archived:
+    - mausa/mausa-1998/scoreboard/2026-04-16-archive/1998-mid-atlantic-usa-programming-contest-1998.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://icpc.baylor.edu/past/icpc99/Regionals/MAUSA98/Standings.htm
+    roles:
+    - standings
+    as_of: '20100710043424'
+    archived:
+    - mausa/mausa-1998/standings/2026-09-01-live-f471ca86/Standings.htm
+    - mausa/mausa-1998/standings/20020122-wayback-7d10a2d5/Standings.htm
+    - mausa/mausa-1998/standings/2026-09-01-wayback-f471ca86/Standings.htm
+    url_state: live
+    url_checked: '2026-11-02'
+    note: as_of 20020122074924 for standings; added by url-hunt 2026-09-01 (cdx-baylor-regionals)
+  - url: http://midatl.cslab.vt.edu/standings.html
+    roles:
+    - standings
+    as_of: '20000618102448'
+    archived:
+    - mausa/mausa-1998/standings/2026-09-01-live-4c7d919d/standings.html
+    - mausa/mausa-1998/standings/2026-09-01-wayback-4c7d919d/standings.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-1999/standings
+    roles:
+    - icpc_standings
+  - url: http://icpc.baylor.edu/past/icpc99/Regionals/MAUSA98/Problems.htm
+    roles:
+    - problemset
+    as_of: '20030518162147'
+    url_state: unknown
+    url_checked: '2026-11-02'
   problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: mausa-1998
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: mausa-1999
   season: 2000
   name: 1999 ACM Mid-Atlantic USA Programming Contest
@@ -161,48 +191,53 @@ contests:
   - 1252
   parent: wf-2000
   next: mausa-2000
-  web:
-    url: http://icpc.baylor.edu/past/icpc2000/regionals/MAUSA99/Report.html
-    as_of: '20020111114617'
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2000/regionals/MAUSA99/Standings.html
-      as_of: '20020623052755'
-      archived: mausa/mausa-1999/standings/2026-09-01-wayback-88865294/Standings.html
-      url_state: unknown
-      url_checked: '2026-11-02'
-    - url: https://www.eecis.udel.edu/~saunders/regional99/contest.html
-      archived: mausa/mausa-1999/standings/2026-09-01-live-cb6f6228/contest.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc2000/regionals/MAUSA99/Standings.html
-      as_of: '20020623052755'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: unknown
-      url_checked: '2026-11-02'
-    scoreboard:
-    - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidAtl/1999/index.html
-      as_of: '20090713050602'
-      archived: mausa/mausa-1999/scoreboard/2026-04-16-archive/1999-mid-atlantic-usa-programming-contest-1999.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2000/standings
-  problemset:
-  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidAtl/1999/index.html
-    as_of: '20090713050602'
-  - url: http://icpc.baylor.edu/past/icpc2000/Regionals/MAUSA99/Problems.pdf
-    as_of: '20030925192832'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: http://icpc.baylor.edu/past/icpc2000/regionals/MAUSA99/Report.html
+    roles:
+    - web
+    as_of: '20020111114617'
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidAtl/1999/index.html
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20090713050602'
+    archived:
+    - mausa/mausa-1999/scoreboard/2026-04-16-archive/1999-mid-atlantic-usa-programming-contest-1999.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://icpc.baylor.edu/past/icpc2000/regionals/MAUSA99/Standings.html
+    roles:
+    - standings
+    as_of: '20020623052755'
+    archived:
+    - mausa/mausa-1999/standings/2026-09-01-wayback-88865294/Standings.html
+    - mausa/mausa-1999/standings/20020623-wayback-1acd55dc/Standings.html
+    url_state: unknown
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
+  - url: https://www.eecis.udel.edu/~saunders/regional99/contest.html
+    roles:
+    - standings
+    as_of: '19991109143237'
+    archived:
+    - mausa/mausa-1999/standings/2026-09-01-live-cb6f6228/contest.html
+    - mausa/mausa-1999/standings/19991109-wayback-4c923bc7/contest.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2000/standings
+    roles:
+    - icpc_standings
+  - url: http://icpc.baylor.edu/past/icpc2000/Regionals/MAUSA99/Problems.pdf
+    roles:
+    - problemset
+    as_of: '20030925192832'
+    url_state: unknown
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: mausa-1999
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: mausa-2000
   season: 2001
   name: 2000 ACM Mid-Atlantic USA Programming Contest
@@ -212,49 +247,56 @@ contests:
   - 1225
   parent: wf-2001
   next: mausa-2001
-  web:
-    url: http://midatl.cslab.vt.edu/
-    as_of: '20010201085700'
-  results:
-    rankings:
-    - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=435
-      as_of: '20060901132440'
-      archived: mausa/mausa-2000/rankings/2026-09-01-wayback-8fbfc7a8/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    scoreboard:
-    - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidAtl/2000/index.html
-      as_of: '20090713043714'
-      archived: mausa/mausa-2000/scoreboard/2026-04-16-archive/2000-mid-atlantic-usa-programming-contest-2000.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=435
-      as_of: '20011222220303'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: unknown
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2001/standings
-  problemset:
-  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidAtl/2000/index.html
-    as_of: '20090713043714'
-  - url: http://icpc.baylor.edu/past/icpc2001/regionals/MAUSA00/Problems.pdf
-    as_of: '20030323144208'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: http://midatl.cslab.vt.edu/
+    roles:
+    - web
+    as_of: '20010201085700'
+    also_at:
+    - url: http://midatl.cs.vt.edu/
+      as_of: '20020923031246'
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidAtl/2000/index.html
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20090713043714'
+    archived:
+    - mausa/mausa-2000/scoreboard/2026-04-16-archive/2000-mid-atlantic-usa-programming-contest-2000.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=435
+    roles:
+    - standings
+    - rankings
+    as_of: '20011222220303'
+    archived:
+    - mausa/mausa-2000/rankings/2026-09-01-wayback-8fbfc7a8/page.html
+    - mausa/mausa-2000/standings/20011222-wayback-29194631/page.html
+    - mausa/mausa-2000/standings/20011222-wayback-af925222/page.html
+    url_state: unknown
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings); as_of 20060901132440 for rankings
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2001/standings
+    roles:
+    - icpc_standings
+  - url: http://icpc.baylor.edu/past/icpc2001/regionals/MAUSA00/Problems.pdf
+    roles:
+    - problemset
+    as_of: '20030323144208'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=77
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211026114336'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=77
-        as_of: '20211026114336'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: mausa-2000
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: mausa-2001
   season: 2002
   name: 2001 ACM Mid-Atlantic USA Programming Contest
@@ -265,51 +307,69 @@ contests:
   - 1063
   parent: wf-2002
   next: mausa-2002
-  web:
-    url: http://midatl.cs.vt.edu/
-    as_of: '20020118132406'
-  results:
-    rankings:
-    - url: http://icpc.baylor.edu/Past/icpc2002/regionals/ViewRegionalStandings.asp?ContestID=500
-      as_of: '20090102025355'
-      archived: mausa/mausa-2001/rankings/2026-09-01-wayback-50eab312/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    scoreboard:
-    - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidAtl/2001/index.html
-      as_of: '20090713052112'
-      archived: mausa/mausa-2001/scoreboard/2026-04-16-archive/2001-mid-atlantic-usa-programming-contest-2001.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=500
-      as_of: '20020619095916'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: unknown
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2002/standings
-  problemset:
-  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidAtl/2001/index.html
-    as_of: '20090713052112'
-  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/MAUSA01/problems.pdf
-    as_of: '20030901081107'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: http://midatl.cs.vt.edu/
+    roles:
+    - web
+    as_of: '20020118132406'
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidAtl/2001/index.html
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20090713052112'
+    archived:
+    - mausa/mausa-2001/scoreboard/2026-04-16-archive/2001-mid-atlantic-usa-programming-contest-2001.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=500
+    roles:
+    - standings
+    - rankings
+    as_of: '20020619095916'
+    archived:
+    - mausa/mausa-2001/rankings/2026-09-01-wayback-50eab312/page.html
+    - mausa/mausa-2001/standings/20020619-wayback-6adc7a5e/page.html
+    - mausa/mausa-2001/standings/20020619-wayback-cdcc7bdd/page.html
+    url_state: unknown
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings); as_of 20090102025355 for rankings
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=500
+    roles:
+    - standings
+    as_of: '20020203154046'
+    note: added by url-hunt 2026-09-01 (cms-api)
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2002/standings
+    roles:
+    - icpc_standings
+  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/MAUSA01/problems.pdf
+    roles:
+    - problemset
+    as_of: '20030901081107'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: http://midatl.cs.vt.edu/problems/contest-2001.pdf
+    roles:
+    - problemset
+    as_of: '20040218075909'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=106
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211017095116'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1096
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201019162822'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=106
-        as_of: '20211017095116'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1096
-        as_of: '20201019162822'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: mausa-2001
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: mausa-2002
   season: 2003
   name: 2002 ACM Mid-Atlantic USA Programming Contest
@@ -320,35 +380,48 @@ contests:
   - 1189
   parent: wf-2003
   next: mausa-2003
-  results:
-    rankings:
-    - url: http://icpc.baylor.edu/past/icpc2003/Regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandingsdb5c.html?ContestID=568
-      as_of: '20090307020352'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: mausa/mausa-2002/rankings/2026-09-01-wayback-5459a830/ViewRegionalStandingsdb5c.html
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandingsdb5c.html?ContestID=568
-      as_of: '20060901122207'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: unknown
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2003/standings
-  web: http://midatl.cs.vt.edu
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/168
-        as_of: '20190718063709'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/midatl.cs.vt.edu/2002/problems/index.html
+  sources:
+  - url: http://midatl.cs.vt.edu
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandingsdb5c.html?ContestID=568
+    roles:
+    - standings
+    - rankings
+    as_of: '20060901122207'
+    archived:
+    - mausa/mausa-2002/rankings/2026-09-01-wayback-5459a830/ViewRegionalStandingsdb5c.html
+    - mausa/mausa-2002/standings/20060901-wayback-58fda0a0/ViewRegionalStandingsdb5c.html
+    url_state: unknown
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings); as_of 20090307020352 for rankings
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=568
+    roles:
+    - standings
+    as_of: '20021220072625'
+    note: added by url-hunt 2026-09-01 (cms-api)
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2003/standings
+    roles:
+    - icpc_standings
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/midatl.cs.vt.edu/2002/problems/index.html
+    roles:
+    - problemset
     as_of: '20030709145804'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: http://midatl.cs.vt.edu/2002/problems
+    roles:
+    - problemset
+    as_of: '20030917172700'
+  - url: https://www.acmicpc.net/category/detail/168
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190718063709'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: mausa-2002
 - id: mausa-2003
   season: 2004
   name: 2003 ACM Mid-Atlantic USA Programming Contest
@@ -359,35 +432,50 @@ contests:
   - 976
   parent: wf-2004
   next: mausa-2004
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=642
-      as_of: '20031220094537'
-      archived: mausa/mausa-2003/standings/2026-09-01-wayback-a7e8dffb/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandingse5e8.html?ContestID=642
-      as_of: '20060901143446'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: mausa/mausa-2003/standings/20060901-wayback-1d641f0a/ViewRegionalStandingse5e8.html
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2004/standings
-  web: http://midatl.cs.vt.edu
-  problems:
-    count: 9
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/167
-        as_of: '20201031013134'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://midatl.cs.vt.edu/problems/
+  sources:
+  - url: http://midatl.cs.vt.edu
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=642
+    roles:
+    - standings
+    as_of: '20031220094537'
+    archived:
+    - mausa/mausa-2003/standings/2026-09-01-wayback-a7e8dffb/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandingse5e8.html?ContestID=642
+    roles:
+    - standings
+    as_of: '20060901143446'
+    archived:
+    - mausa/mausa-2003/standings/20060901-wayback-1d641f0a/ViewRegionalStandingse5e8.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: http://icpc.baylor.edu/icpc/NoStandingsURL.html
+    roles:
+    - standings
+    as_of: '20041213070457'
+    note: added by url-hunt 2026-09-01 (cms-api)
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2004/standings
+    roles:
+    - icpc_standings
+  - url: http://midatl.cs.vt.edu/problems/
+    roles:
+    - problemset
     as_of: '20040109182713'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/167
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201031013134'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: mausa-2003
 - id: mausa-2004
   season: 2005
   name: 2004 ACM Mid-Atlantic USA Programming Contest
@@ -398,27 +486,31 @@ contests:
   - 962
   parent: wf-2005
   next: mausa-2005
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=684
-      as_of: '20071012162836'
-      archived: mausa/mausa-2004/standings/2026-09-01-wayback-b4a5b093/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2005/standings
-  web: http://midatl.cs.vt.edu
+  sources:
+  - url: http://midatl.cs.vt.edu
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=684
+    roles:
+    - standings
+    as_of: '20071012162836'
+    archived:
+    - mausa/mausa-2004/standings/2026-09-01-wayback-b4a5b093/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2005/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/166
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20201130112644'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 9
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/166
-        as_of: '20201130112644'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.acmicpc.net/category/detail/166
+    set: mausa-2004
 - id: mausa-2005
   season: 2006
   name: 2005 ACM Mid-Atlantic USA Programming Contest
@@ -429,35 +521,45 @@ contests:
   - 1256
   parent: wf-2006
   next: mausa-2006
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=718
-      as_of: '20071011194528'
-      archived: mausa/mausa-2005/standings/2026-09-01-wayback-51ee4949/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    - url: http://midatl.cs.vt.edu/archive/2005/board/
-      as_of: '20060907060842'
-      archived: mausa/mausa-2005/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2006/standings
-  web: http://midatl.cs.vt.edu
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/165
-        as_of: '20201124182901'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://midatl.cs.vt.edu/archive/2005/problems/MidAtlantic2005.pdf
+  sources:
+  - url: http://midatl.cs.vt.edu
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=718
+    roles:
+    - standings
+    as_of: '20071011194528'
+    archived:
+    - mausa/mausa-2005/standings/2026-09-01-wayback-51ee4949/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://midatl.cs.vt.edu/archive/2005/board/
+    roles:
+    - standings
+    as_of: '20060907060842'
+    archived:
+    - mausa/mausa-2005/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2006/standings
+    roles:
+    - icpc_standings
+  - url: http://midatl.cs.vt.edu/archive/2005/problems/MidAtlantic2005.pdf
+    roles:
+    - problemset
     as_of: '20051124032612'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/165
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201124182901'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: mausa-2005
 - id: mausa-2006
   season: 2007
   name: 2006 ACM Mid-Atlantic USA Programming Contest
@@ -468,39 +570,48 @@ contests:
   - 1122
   parent: wf-2007
   next: mausa-2007
-  results:
-    scoreboard:
-    - url: http://midatl.radford.edu/docs/scoreboard/summary.html
-      as_of: '20061130113745'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: mausa/mausa-2006/scoreboard/2026-09-01-wayback-330493da/summary.html
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=760
-      as_of: '20071011185710'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: mausa/mausa-2006/standings/2026-09-01-wayback-113aa4a6/page.html
-    - url: http://midatl.radford.edu/docs/scoreboard/
-      as_of: '20160513212351'
-      archived: mausa/mausa-2006/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2007/standings
-  web: http://www.radford.edu/~acm/midatl/index.html
+  sources:
+  - url: http://www.radford.edu/~acm/midatl/index.html
+    roles:
+    - web
+  - url: http://midatl.radford.edu/docs/scoreboard/summary.html
+    roles:
+    - scoreboard
+    as_of: '20061130113745'
+    archived:
+    - mausa/mausa-2006/scoreboard/2026-09-01-wayback-330493da/summary.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=760
+    roles:
+    - standings
+    as_of: '20071011185710'
+    archived:
+    - mausa/mausa-2006/standings/2026-09-01-wayback-113aa4a6/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://midatl.radford.edu/docs/scoreboard/
+    roles:
+    - standings
+    as_of: '20160513212351'
+    archived:
+    - mausa/mausa-2006/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2007/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/164
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20201023085938'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 9
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/164
-        as_of: '20201023085938'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.acmicpc.net/category/detail/164
+    set: mausa-2006
 - id: mausa-2007
   season: 2008
   name: 2007 ACM Mid-Atlantic USA Programming Contest
@@ -511,33 +622,39 @@ contests:
   - 1149
   parent: wf-2008
   next: mausa-2008
-  results:
-    scoreboard:
-    - url: http://midatl.radford.edu/docs/scoreboard/summary.html
-      as_of: '20071030093748'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: mausa/mausa-2007/scoreboard/2026-09-01-wayback-e3610118/summary.html
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=843
-      as_of: '20080915032257'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: mausa/mausa-2007/standings/2026-09-01-wayback-88af05a7/page.html
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2008/standings
-  web: http://www.radford.edu/~acm/midatl/index.html
+  sources:
+  - url: http://www.radford.edu/~acm/midatl/index.html
+    roles:
+    - web
+  - url: http://midatl.radford.edu/docs/scoreboard/summary.html
+    roles:
+    - scoreboard
+    as_of: '20071030093748'
+    archived:
+    - mausa/mausa-2007/scoreboard/2026-09-01-wayback-e3610118/summary.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=843
+    roles:
+    - standings
+    as_of: '20080915032257'
+    archived:
+    - mausa/mausa-2007/standings/2026-09-01-wayback-88af05a7/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2008/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/163
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20210126193619'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/163
-        as_of: '20210126193619'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.acmicpc.net/category/detail/163
+    set: mausa-2007
 - id: mausa-2008
   season: 2009
   name: 2008 Mid-Atlantic USA Programming Contest
@@ -548,34 +665,35 @@ contests:
   - 40
   parent: wf-2009
   next: mausa-2009
-  results:
-    scoreboard:
-    - url: http://midatl.radford.edu/docs/scoreboard/summary.html
-      as_of: '20081225225052'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: mausa/mausa-2008/external-standings/2026-04-15-external/content.html
-    standings:
-    - url: http://midatl.radford.edu/docs/scoreboard/summary.html
-      as_of: '20141230043802'
-      archived: mausa/mausa-2008/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2009/standings
-  web: http://www.radford.edu/~acm/midatl/
+  sources:
+  - url: http://www.radford.edu/~acm/midatl/
+    roles:
+    - web
+  - url: http://midatl.radford.edu/docs/scoreboard/summary.html
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20081225225052'
+    archived:
+    - mausa/mausa-2008/external-standings/2026-04-15-external/content.html
+    - mausa/mausa-2008/scoreboard/2026-09-01-wayback-5c3238bc/summary.html
+    - mausa/mausa-2008/standings/20081225-wayback-647f0cfb/summary.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: as_of 20141230043802 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2009/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/162
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20201123171642'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/162
-        as_of: '20201123171642'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.acmicpc.net/category/detail/162
+    set: mausa-2008
 - id: mausa-2009
   season: 2010
   name: 2009 Mid-Atlantic USA Programming Contest
@@ -587,28 +705,32 @@ contests:
   - 557
   parent: wf-2010
   next: mausa-2010
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2010/standings
-  results:
-    standings:
-    - url: http://midatl.radford.edu/docs/scoreboard/
-      as_of: '20160513212351'
-      archived: mausa/mausa-2009/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  web: http://www.radford.edu/~acm/midatl/
+  sources:
+  - url: http://www.radford.edu/~acm/midatl/
+    roles:
+    - web
+  - url: http://midatl.radford.edu/docs/scoreboard/
+    roles:
+    - standings
+    as_of: '20160513212351'
+    archived:
+    - mausa/mausa-2009/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2010/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/161
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20201024012913'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/161
-        as_of: '20201024012913'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.acmicpc.net/category/detail/161
+    set: mausa-2009
 - id: mausa-2010
   season: 2011
   name: 2010 Mid-Atlantic USA Regional Contest
@@ -620,33 +742,33 @@ contests:
   - 645
   parent: wf-2011
   next: mausa-2011
-  results:
-    standings:
-    - url: http://midatl.radford.edu/docs/scoreboard/fullnums.html
-      as_of: '20101110014359'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: mausa/mausa-2010/external-standings/2026-04-15-external/content.html
-    - url: http://midatl.radford.edu/docs/scoreboard/fullnums.html
-      as_of: '20141230165800'
-      archived: mausa/mausa-2010/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2011/standings
-  web: http://www.radford.edu/acm/midatl/index.html
+  sources:
+  - url: http://www.radford.edu/acm/midatl/index.html
+    roles:
+    - web
+  - url: http://midatl.radford.edu/docs/scoreboard/fullnums.html
+    roles:
+    - standings
+    as_of: '20101110014359'
+    archived:
+    - mausa/mausa-2010/external-standings/2026-04-15-external/content.html
+    - mausa/mausa-2010/standings/2026-09-01-wayback-96d14612/fullnums.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: as_of 20141230165800 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2011/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/160
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20201126050321'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 9
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/160
-        as_of: '20201126050321'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.acmicpc.net/category/detail/160
+    set: mausa-2010
 - id: mausa-2011
   season: 2012
   name: 2011 Mid-Atlantic USA Regional Contest
@@ -658,36 +780,36 @@ contests:
   - 875
   parent: wf-2012
   next: mausa-2012
-  web:
-    url: http://midatl.radford.edu/
+  sources:
+  - url: http://midatl.radford.edu/
+    roles:
+    - web
     as_of: '20111214193757'
-  results:
-    scoreboard:
-    - url: http://midatl.radford.edu/docs/scoreboard.acm2011/summary.html
-      as_of: '20130103035601'
-      archived: mausa/mausa-2011/scoreboard/2026-09-01-wayback-39e969c1/summary.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://midatl.radford.edu/docs/scoreboard.acm2011/summary.html
-      as_of: '20130103035601'
-      archived: mausa/mausa-2011/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2012/standings
+  - url: http://midatl.radford.edu/docs/scoreboard.acm2011/summary.html
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20130103035601'
+    archived:
+    - mausa/mausa-2011/scoreboard/2026-09-01-wayback-39e969c1/summary.html
+    - mausa/mausa-2011/external-standings/2026-04-15-external/content.html
+    - mausa/mausa-2011/standings/20130103-wayback-5fc3a34a/summary.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2012/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/159
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20201025213552'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 9
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/159
-        as_of: '20201025213552'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.acmicpc.net/category/detail/159
+    set: mausa-2011
 - id: mausa-2012
   season: 2013
   name: 2012 Mid-Atlantic USA Regional Contest
@@ -699,34 +821,36 @@ contests:
   - 1376
   parent: wf-2013
   next: mausa-2013
-  results:
-    scoreboard:
-    - url: http://midatl.radford.edu/docs/scoreboard/summary.html
-      as_of: '20141028045829'
-      archived: mausa/mausa-2012/scoreboard/2026-09-01-wayback-9df5e162/summary.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://midatl.radford.edu/docs/scoreboard/summary.html
-      as_of: '20141230043802'
-      archived: mausa/mausa-2012/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2013/standings
-  web: http://www.radford.edu/acm/midatl/index.html
+  sources:
+  - url: http://www.radford.edu/acm/midatl/index.html
+    roles:
+    - web
+  - url: http://midatl.radford.edu/docs/scoreboard/summary.html
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20141028045829'
+    archived:
+    - mausa/mausa-2012/scoreboard/2026-09-01-wayback-9df5e162/summary.html
+    - mausa/mausa-2012/external-standings/2026-04-15-external/content.html
+    - mausa/mausa-2012/scoreboard/20141028-wayback-7bc3fb41/summary.html
+    - mausa/mausa-2012/standings/20141028-wayback-7bc3fb41/summary.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: as_of 20141230043802 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2013/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/158
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20201027031419'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 9
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/158
-        as_of: '20201027031419'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.acmicpc.net/category/detail/158
+    set: mausa-2012
 - id: mausa-2013
   season: 2014
   name: 2013 Mid-Atlantic USA Regional Contest
@@ -738,23 +862,24 @@ contests:
   - 1991
   parent: wf-2014
   next: mausa-2014
-  results:
-    scoreboard:
-    - url: http://www.radford.edu/~acm/midatl/2013_scoreboard.html
-      as_of: '20140401093853'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: mausa/mausa-2013/scoreboard/2026-09-01-wayback-30c5aff2/2013_scoreboard.html
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2014/standings
-  web: http://acm-midatl.radford.edu:8080
+  sources:
+  - url: http://acm-midatl.radford.edu:8080
+    roles:
+    - web
+  - url: http://www.radford.edu/~acm/midatl/2013_scoreboard.html
+    roles:
+    - scoreboard
+    as_of: '20140401093853'
+    archived:
+    - mausa/mausa-2013/scoreboard/2026-09-01-wayback-30c5aff2/2013_scoreboard.html
+    - mausa/mausa-2013/scoreboard/20140401-wayback-5ad35509/2013_scoreboard.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2014/standings
+    roles:
+    - icpc_standings
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: mausa-2013
 - id: mausa-2014
   season: 2015
   name: 2014 Mid-Atlantic USA Regional Contest
@@ -766,30 +891,27 @@ contests:
   - 2423
   parent: wf-2015
   next: mausa-2015
-  results:
-    scoreboard:
-    - url: https://www.cs.odu.edu/~zeil/icpc/scoreboard2014.html
-      as_of: '20150519074453'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: mausa/mausa-2014/external-standings/2026-04-15-external/content.html
-    standings:
-    - url: http://www.cs.odu.edu/~zeil/icpc/scoreboard2014.html
-      as_of: '20150519074453'
-      archived: mausa/mausa-2014/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2015/standings
-  web: http://www.radford.edu/acm/midatl
+  sources:
+  - url: http://www.radford.edu/acm/midatl
+    roles:
+    - web
+  - url: https://www.cs.odu.edu/~zeil/icpc/scoreboard2014.html
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20150519074453'
+    archived:
+    - mausa/mausa-2014/external-standings/2026-04-15-external/content.html
+    - mausa/mausa-2014/scoreboard/2026-09-01-wayback-dde551bc/scoreboard2014.html
+    - mausa/mausa-2014/standings/20150503-wayback-61109417/scoreboard2014.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2015/standings
+    roles:
+    - icpc_standings
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: mausa-2014
 - id: mausa-2015
   season: 2016
   name: 2015 Mid-Atlantic USA Regional Contest
@@ -801,37 +923,37 @@ contests:
   - 2835
   parent: wf-2016
   next: mausa-2016
-  results:
-    scoreboard:
-    - url: http://midatl.radford.edu/scoreboard/summary.html
-      as_of: '20160613062448'
-      archived: mausa/mausa-2015/scoreboard/2026-09-01-wayback-c8f89c63/summary.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    standings:
-    - url: http://midatl.radford.edu/scoreboard/summary.html
-      as_of: '20161109015551'
-      archived: mausa/mausa-2015/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2016/standings
-  web: http://www.radford.edu/~acm/midatl/
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4244
-        note: 2015 Mid-Atlantic Regional Programming Contest
-  problemset:
-    url: https://www.acmicpc.net/category/detail/4244
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: http://www.radford.edu/~acm/midatl/
+    roles:
+    - web
+  - url: http://midatl.radford.edu/scoreboard/summary.html
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20160613062448'
+    archived:
+    - mausa/mausa-2015/scoreboard/2026-09-01-wayback-c8f89c63/summary.html
+    - mausa/mausa-2015/external-standings/2026-04-15-external/content.html
+    - mausa/mausa-2015/standings/20151110-wayback-e86a26a3/summary.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: as_of 20161109015551 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2016/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/4244
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      2015 Mid-Atlantic Regional Programming Contest
+  problems:
+    set: mausa-2015
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - id: mausa-2016
   season: 2017
@@ -844,36 +966,40 @@ contests:
   - 3195
   parent: wf-2017
   next: mausa-2017
-  web:
-    url: http://midatl.radford.edu/
+  sources:
+  - url: http://midatl.radford.edu/
+    roles:
+    - web
     as_of: '20161129142559'
-  results:
-    scoreboard:
-    - url: http://midatl.radford.edu/scoreboard/
-      as_of: '20161109005537'
-      archived: mausa/mausa-2016/scoreboard/2026-09-01-wayback-69323ecc/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2017/standings
+  - url: http://midatl.radford.edu/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20161109005537'
+    archived:
+    - mausa/mausa-2016/scoreboard/2026-09-01-wayback-69323ecc/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://open.kattis.com/problem-sources/2016%20Mid-Atlantic%20Regional
+    roles:
+    - problemset
+    - judge_page
+    judge: kattis
+    as_of: '20220124111006'
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4245
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260420002151'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2016 Mid-Atlantic Regional Programming Contest
   problems:
-    count: 8
-    statement: partial
-    data: partial
-    solutions: partial
-    package: partial
-    judges:
-      kattis: https://open.kattis.com/problem-sources/2016%20Mid-Atlantic%20Regional
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4245
-        as_of: '20260420002151'
-        note: 2016 Mid-Atlantic Regional Programming Contest
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    counts:
-      statement: 1
-      data: 1
-      solutions: 1
-      package: 1
-  problemset: https://open.kattis.com/problem-sources/2016%20Mid-Atlantic%20Regional
+    set: mausa-2016
 - id: mausa-2017
   season: 2018
   name: 2017 Mid-Atlantic USA Regional Contest
@@ -885,34 +1011,54 @@ contests:
   - 3260
   parent: wf-2018
   next: mausa-2018
-  results:
-    scoreboard:
-    - url: https://mausa17.kattis.com/contests/mausa17/standings
-      archived: mausa/mausa-2017/scoreboard/2026-09-01-live-27010b7f/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://mausa17.kattis.com/standings?filter=1146
-      archived: mausa/mausa-2017/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2018/standings
-  web: http://www.radford.edu/~acm/midatl/
+  sources:
+  - url: http://www.radford.edu/~acm/midatl/
+    roles:
+    - web
+  - url: https://mausa17.kattis.com/contests/mausa17/standings
+    roles:
+    - scoreboard
+    as_of: '20230608155720'
+    archived:
+    - mausa/mausa-2017/scoreboard/2026-09-01-live-27010b7f/page.html
+    - mausa/mausa-2017/scoreboard/20230608-wayback-f10374aa/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://mausa17.kattis.com/standings?filter=1146
+    roles:
+    - standings
+    archived:
+    - mausa/mausa-2017/external-standings/2026-04-15-external/content.html
+    - mausa/mausa-2017/standings/20260901-live-4cf99495/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://mausa17.kattis.com/contests/mausa17/problems
+    roles:
+    - problemset
+    as_of: '20230608145003'
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/2017%20ICPC%20Mid-Atlantic%20Regional%20Contest
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190718032933'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4246
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260420071055'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2017 Mid-Atlantic USA Regional Contest
   problems:
-    count: 8
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/2017%20ICPC%20Mid-Atlantic%20Regional%20Contest
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4246
-        as_of: '20260420071055'
-        note: 2017 Mid-Atlantic USA Regional Contest
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://mausa17.kattis.com/contests/mausa17/problems
+    set: mausa-2017
 - id: mausa-2018
   season: 2019
   name: 2018 Mid-Atlantic USA Regional Contest
@@ -924,27 +1070,44 @@ contests:
   - 3553
   parent: wf-2019
   next: mausa-2019
-  results:
-    scoreboard:
-    - url: https://mausa18.kattis.com/contests/mausa18/standings
-      archived: mausa/mausa-2018/scoreboard/2026-09-01-live-33cce146/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2019/standings
-  web: https://www.radford.edu/~acm//midatl/
+  sources:
+  - url: https://www.radford.edu/~acm//midatl/
+    roles:
+    - web
+  - url: https://mausa18.kattis.com/contests/mausa18/standings
+    roles:
+    - scoreboard
+    as_of: '20220813023428'
+    archived:
+    - mausa/mausa-2018/scoreboard/2026-09-01-live-33cce146/page.html
+    - mausa/mausa-2018/scoreboard/20220813-wayback-95adfd7f/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2019/standings
+    roles:
+    - icpc_standings
+  - url: https://mausa18.kattis.com/contests/mausa18/problems
+    roles:
+    - problemset
+    as_of: '20220813032956'
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/2018%20ICPC%20Mid-Atlantic%20Regional%20Contest
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190820034006'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4247
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2018 Mid-Atlantic USA Regional Contest
   problems:
-    count: 8
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/2018%20ICPC%20Mid-Atlantic%20Regional%20Contest
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4247
-        note: 2018 Mid-Atlantic USA Regional Contest
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://mausa18.kattis.com/contests/mausa18/problems
+    set: mausa-2018
 - id: mausa-2019
   season: 2020
   name: 2019 Mid-Atlantic USA Regional Contest
@@ -956,25 +1119,32 @@ contests:
   - 4074
   parent: nac-2020
   next: mausa-2020
-  results:
-    scoreboard:
-    - url: https://mausa19.kattis.com/contests/mausa19/standings
-      archived: mausa/mausa-2019/scoreboard/2026-09-01-live-3d9840bb/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2020/standings
-  web: http://www.radford.edu/acm/midatl
+  sources:
+  - url: http://www.radford.edu/acm/midatl
+    roles:
+    - web
+  - url: https://mausa19.kattis.com/contests/mausa19/standings
+    roles:
+    - scoreboard
+    as_of: '20221003204324'
+    archived:
+    - mausa/mausa-2019/scoreboard/2026-09-01-live-3d9840bb/page.html
+    - mausa/mausa-2019/scoreboard/20221003-wayback-65e6b949/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2020/standings
+    roles:
+    - icpc_standings
+  - url: https://mausa19.kattis.com/contests/mausa19/problems
+    roles:
+    - problemset
+    - judge_page
+    judge: kattis
+    as_of: '20221003220618'
+    url_state: changed
+    url_checked: '2026-11-02'
   problems:
-    count: 8
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://mausa19.kattis.com/contests/mausa19/problems
-    notes: Shared?
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://mausa19.kattis.com/contests/mausa19/problems
+    set: mausa-2019
 - id: mausa-2020
   season: 2021
   name: 2020 Mid-Atlantic USA Regional Contest
@@ -986,28 +1156,39 @@ contests:
   - 4358
   parent: nac-2021
   next: mausa-2021
-  results:
-    scoreboard:
-    - url: https://mausa20.kattis.com/contests/mausa20/standings
-      archived: mausa/mausa-2020/scoreboard/2026-09-01-live-5df0a091/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2021/standings
-  web: https://www.radford.edu/~acm/midatl/
+  sources:
+  - url: https://www.radford.edu/~acm/midatl/
+    roles:
+    - web
+  - url: https://mausa20.kattis.com/contests/mausa20/standings
+    roles:
+    - scoreboard
+    as_of: '20220819122004'
+    archived:
+    - mausa/mausa-2020/scoreboard/2026-09-01-live-5df0a091/page.html
+    - mausa/mausa-2020/scoreboard/20220819-wayback-0d97487b/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2021/standings
+    roles:
+    - icpc_standings
+  - url: https://mausa20.kattis.com/contests/mausa20/problems
+    roles:
+    - problemset
+    - judge_page
+    judge: kattis
+    as_of: '20220819112331'
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2462
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210511111555'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 14
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://mausa20.kattis.com/contests/mausa20/problems
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2462
-        as_of: '20210511111555'
-    notes: Shared?
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://mausa20.kattis.com/contests/mausa20/problems
+    set: mausa-2020
 - id: mausa-2021
   season: 2022
   name: 2021 ICPC Mid-Atlantic USA Regional Contest
@@ -1019,28 +1200,43 @@ contests:
   - 4687
   parent: nac-2022
   next: mausa-2022
-  results:
-    scoreboard:
-    - url: https://mausa21.kattis.com/contests/mausa21/standings
-      archived: mausa/mausa-2021/scoreboard/2026-09-01-live-b389855a/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2022/standings
-  web: https://www.radford.edu/acm/midatl
+  sources:
+  - url: https://www.radford.edu/acm/midatl
+    roles:
+    - web
+  - url: https://mausa21.kattis.com/contests/mausa21/standings
+    roles:
+    - scoreboard
+    as_of: '20230224064612'
+    archived:
+    - mausa/mausa-2021/scoreboard/2026-09-01-live-b389855a/page.html
+    - mausa/mausa-2021/scoreboard/20230224-wayback-e89910fb/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2022/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/North%20America%20Contests/Mid-Atlantic%20USA%20Regional%20Contest/2021%20ICPC%20Mid-Atlantic%20USA%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://mausa21.kattis.com/contests/mausa21/problems
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20230224064612'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3036
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20230514152117'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 13
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://mausa21.kattis.com/contests/mausa21/problems
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3036
-        as_of: '20230514152117'
-    notes: No date in CMS. Shared?
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/North%20America%20Contests/Mid-Atlantic%20USA%20Regional%20Contest/2021%20ICPC%20Mid-Atlantic%20USA%20Regional%20Contest/problems.pdf
+    set: mausa-2021
 - id: mausa-2022
   season: 2023
   name: 2022 ICPC Mid-Atlantic USA Regional Contest
@@ -1052,19 +1248,34 @@ contests:
   parent: nac-2023
   next: mausa-2023
   subset_of: south-na-2022
-  results:
-    scoreboard:
-    - url: https://nasouth22d1.kattis.com/contests/nasouth22d1/standings/4984
-      archived: mausa/mausa-2022/scoreboard/2026-09-01-live-351d2009/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://nasouth22d2.kattis.com/contests/nasouth22d2/standings/4948
-      archived: mausa/mausa-2022/scoreboard/2026-09-01-live-de358d72/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2023/standings
-  web: https://www.radford.edu/acm/midatl
-  problemset: http://serjudging.vanb.org/wp-content/uploads/seusad1.pdf
+  sources:
+  - url: https://www.radford.edu/acm/midatl
+    roles:
+    - web
+  - url: https://nasouth22d1.kattis.com/contests/nasouth22d1/standings/4984
+    roles:
+    - scoreboard
+    archived:
+    - mausa/mausa-2022/scoreboard/2026-09-01-live-351d2009/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://nasouth22d2.kattis.com/contests/nasouth22d2/standings/4948
+    roles:
+    - scoreboard
+    as_of: '20250914023847'
+    archived:
+    - mausa/mausa-2022/scoreboard/2026-09-01-live-de358d72/page.html
+    - mausa/mausa-2022/scoreboard/20250914-wayback-1d3a62e7/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2023/standings
+    roles:
+    - icpc_standings
+  - url: http://serjudging.vanb.org/wp-content/uploads/seusad1.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: mausa-2023
   season: 2024
   name: 2023 ICPC Mid-Atlantic USA Regional Contest
@@ -1076,19 +1287,32 @@ contests:
   parent: nac-2024
   next: mausa-2024
   subset_of: south-na-2023
-  results:
-    scoreboard:
-    - url: https://nasouth23.kattis.com/contests/nasouth23d1/standings/5665
-      archived: mausa/mausa-2023/scoreboard/2026-09-01-live-8cd4a129/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://nasouth23.kattis.com/contests/nasouth23d2/standings/5671
-      archived: mausa/mausa-2023/scoreboard/2026-09-01-live-5a49da5c/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2024/standings
-  web: https://sites.radford.edu/~acm/midatl/
-  problemset: http://serjudging.vanb.org/wp-content/uploads/seusad1-1.pdf
+  sources:
+  - url: https://sites.radford.edu/~acm/midatl/
+    roles:
+    - web
+  - url: https://nasouth23.kattis.com/contests/nasouth23d1/standings/5665
+    roles:
+    - scoreboard
+    archived:
+    - mausa/mausa-2023/scoreboard/2026-09-01-live-8cd4a129/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://nasouth23.kattis.com/contests/nasouth23d2/standings/5671
+    roles:
+    - scoreboard
+    archived:
+    - mausa/mausa-2023/scoreboard/2026-09-01-live-5a49da5c/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2024/standings
+    roles:
+    - icpc_standings
+  - url: http://serjudging.vanb.org/wp-content/uploads/seusad1-1.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: mausa-2024
   season: 2025
   name: 2024 ICPC Mid-Atlantic USA Regional Contest
@@ -1100,25 +1324,44 @@ contests:
   parent: nac-2025
   next: mausa-2025
   subset_of: south-na-2024
-  results:
-    scoreboard:
-    - url: https://nasouth24.kattis.com/contests/nasouth24d1/standings/mausa/all
-      archived: mausa/mausa-2024/scoreboard/2026-09-01-live-b5192137/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://nasouth24.kattis.com/contests/nasouth24d2/standings/mausa/all
-      archived: mausa/mausa-2024/scoreboard/2026-09-01-live-dfd170e3/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nasouth24.kattis.com/
-      archived: mausa/mausa-2024/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2025/standings
-  web: https://sites.radford.edu/~acm/midatl/
-  problemset: http://serjudging.vanb.org/wp-content/uploads/seusad1-2.pdf
+  sources:
+  - url: https://sites.radford.edu/~acm/midatl/
+    roles:
+    - web
+  - url: https://nasouth24.kattis.com/contests/nasouth24d1/standings/mausa/all
+    roles:
+    - scoreboard
+    archived:
+    - mausa/mausa-2024/scoreboard/2026-09-01-live-b5192137/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://nasouth24.kattis.com/contests/nasouth24d2/standings/mausa/all
+    roles:
+    - scoreboard
+    as_of: '20250401014235'
+    archived:
+    - mausa/mausa-2024/scoreboard/2026-09-01-live-dfd170e3/page.html
+    - mausa/mausa-2024/scoreboard/20250401-wayback-6a6d29ca/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://nasouth24.kattis.com/
+    roles:
+    - standings
+    archived:
+    - mausa/mausa-2024/external-standings/2026-04-15-external/content.html
+    - mausa/mausa-2024/standings/20260901-live-162a7021/page.html
+    - mausa/mausa-2024/standings/20261023-live-0ea22da4/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2025/standings
+    roles:
+    - icpc_standings
+  - url: http://serjudging.vanb.org/wp-content/uploads/seusad1-2.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: mausa-2025
   season: 2026
   name: 2025 ICPC North America Mid-Atlantic Regional Contest
@@ -1130,12 +1373,21 @@ contests:
   parent: nac-2026
   next: mausa-2026
   subset_of: south-na-2025
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2026/standings
-    archived: mausa/mausa-2025/standings/api-20260904/standings.html
+  sources:
+  - url: https://ma.na.icpc.global/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2026/standings
+    roles:
+    - icpc_standings
+    archived:
+    - mausa/mausa-2025/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 9332, 111 teams, DB fetch 2026-04-26)
-  web: https://ma.na.icpc.global/
-  problemset: http://serjudging.vanb.org/wp-content/uploads/seusad1-3.pdf
+  - url: http://serjudging.vanb.org/wp-content/uploads/seusad1-3.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: mausa-2026
   status: upcoming
   season: 2027
@@ -1144,4 +1396,7 @@ contests:
   - 9777
   parent: nac-2027
   subset_of: south-na-2026
-  web: https://ma.na.icpc.global/
+  sources:
+  - url: https://ma.na.icpc.global/
+    roles:
+    - web

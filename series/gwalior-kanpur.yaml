@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: gwalior-kanpur
   name: ACM-ICPC Asia Gwalior-Kanpur Regional Contest
+  tier: regional
+  region: Asia West
+  naming: season-start
   lineage:
   - type: continues-from
     series: kanpur
@@ -19,20 +22,28 @@ contests:
   - 497
   parent: wf-2010
   next: kanpur-2010
-  results:
-    rankings:
-    - url: http://www.cse.iitk.ac.in/users/acm/result.html
-      as_of: '20091008001047'
-      archived: gwalior-kanpur/gwalior-kanpur-2009/rankings/2026-09-01-wayback-92ef75bc/result.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.cse.iitk.ac.in/users/acm/result.html
-      as_of: '20120628164318'
-      archived: gwalior-kanpur/gwalior-kanpur-2009/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Gwalior-Kanpur-2010/standings
-  web: http://www.cse.iitk.ac.in/users/acm
-  problemset: https://www.cse.iitk.ac.in/users/acm/archive/acm2009/PROBLEMS.pdf
+  sources:
+  - url: http://www.cse.iitk.ac.in/users/acm
+    roles:
+    - web
+  - url: http://www.cse.iitk.ac.in/users/acm/result.html
+    roles:
+    - standings
+    - rankings
+    as_of: '20120628164318'
+    archived:
+    - gwalior-kanpur/gwalior-kanpur-2009/external-standings/2026-04-15-external/content.html
+    - gwalior-kanpur/gwalior-kanpur-2009/rankings/2026-09-01-wayback-92ef75bc/result.html
+    - gwalior-kanpur/gwalior-kanpur-2009/standings/20091008-wayback-e6e5acc3/result.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings); as_of 20091008001047 for rankings
+  - url: https://icpc.global/regionals/finder/Gwalior-Kanpur-2010/standings
+    roles:
+    - icpc_standings
+  - url: https://www.cse.iitk.ac.in/users/acm/archive/acm2009/PROBLEMS.pdf
+    roles:
+    - problemset
+    as_of: '20250707034324'
+    url_state: live
+    url_checked: '2026-11-02'

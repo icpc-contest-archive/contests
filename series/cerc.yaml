@@ -1,7 +1,10 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_candidates.py (url-hunt 2026-09-01).
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: cerc
   name: ICPC Central Europe Regional Contest
+  tier: regional
+  region: Europe
+  naming: season-start
 contests:
 - id: cerc-1995
   season: 1996
@@ -9,84 +12,96 @@ contests:
   cms_status: pre-cms
   parent: wf-1996
   next: cerc-1996
-  web:
-    url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_CERC/1995/index.html
+  sources:
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_CERC/1995/index.html
+    roles:
+    - web
+    - problemset
     as_of: '20090713045219'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: as_of 19980202010931 for problemset
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=459
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211027101906'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/887
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190818023058'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: CERC 1995
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=459
-        as_of: '20211027101906'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/887
-        as_of: '20190818023058'
-        note: CERC 1995
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_CERC/1995/index.html
-    as_of: '19980202010931'
+    set: cerc-1995
 - id: cerc-1996
   season: 1997
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1997
   next: cerc-1997
-  web:
-    url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_CERC/1996/index.html
+  sources:
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_CERC/1996/index.html
+    roles:
+    - web
+    - problemset
     as_of: '20090713044510'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: as_of 19980202011008 for problemset
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=467
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211206013928'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/724
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201027043027'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: CERC 1996
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=467
-        as_of: '20211206013928'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/724
-        as_of: '20201027043027'
-        note: CERC 1996
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_CERC/1996/index.html
-    as_of: '19980202011008'
+    set: cerc-1996
 - id: cerc-1997
   season: 1998
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1998
   next: cerc-1998
-  web:
-    url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_CERC/1997/index.html
+  sources:
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_CERC/1997/index.html
+    roles:
+    - web
+    - problemset
     as_of: '20090713062231'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: as_of 19980202011045 for problemset
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=480
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210728170354'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/723
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201027013113'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: CERC 1997
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=480
-        as_of: '20210728170354'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/723
-        as_of: '20201027013113'
-        note: CERC 1997
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_CERC/1997/index.html
-    as_of: '19980202011045'
+    set: cerc-1997
 - id: cerc-1998
   season: 1999
   name: 1998 ACM Central Europe Programming Contest
@@ -95,41 +110,63 @@ contests:
   - 1263
   parent: wf-1999
   next: cerc-1999
-  web: https://contest.felk.cvut.cz/98cerc/
-  results:
-    standings:
-    - url: https://contest.felk.cvut.cz/98cerc/results.html
-      archived: cerc/cerc-1998/standings/2026-09-01-live-56726a54/results.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc99/Regionals/CERC98/Standings.htm
-      as_of: '20020701110238'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: cerc/cerc-1998/standings/20020701-wayback-dbe6bab7/Standings.htm
-  problems:
-    repo: icpc-problem-archive/cerc-1998
-    count: 9
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=491
-        as_of: '20220123002134'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/41
-        as_of: '20201023090326'
-        note: CERC 1998
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-  - https://contest.felk.cvut.cz/98cerc/problems.html
+  sources:
+  - url: https://contest.felk.cvut.cz/98cerc/
+    roles:
+    - web
+  - url: https://contest.felk.cvut.cz/98cerc/results.html
+    roles:
+    - standings
+    as_of: '19990423173141'
+    archived:
+    - cerc/cerc-1998/standings/2026-09-01-live-56726a54/results.html
+    - cerc/cerc-1998/standings/19990423-wayback-cc3d869b/results.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc99/Regionals/CERC98/Standings.htm
+    roles:
+    - standings
+    as_of: '20020701110238'
+    archived:
+    - cerc/cerc-1998/standings/20020701-wayback-dbe6bab7/Standings.htm
+    - cerc/cerc-1998/standings/20020701-wayback-956970e0/Standings.htm
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
+  - url: https://contest.felk.cvut.cz/98cerc/problems.html
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_CERC/1998/index.html
+    roles:
+    - problemset
     as_of: '20010208234952'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc99/Regionals/CERC98/Problems.htm
+    roles:
+    - problemset
     as_of: '20020313222634'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=491
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20220123002134'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/41
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201023090326'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: CERC 1998
+  problems:
+    set: cerc-1998
 - id: cerc-1999
   season: 2000
   name: 1999 ACM Central Europe Programming Contest
@@ -139,37 +176,56 @@ contests:
   - 1028
   parent: wf-2000
   next: cerc-2000
-  web: https://contest.felk.cvut.cz/99cerc/
-  results:
-    standings:
-    - url: https://contest.felk.cvut.cz/99cerc/results.html
-      archived: cerc/cerc-1999/standings/2026-09-01-live-09e05e27/results.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc2000/regionals/CERC99/Standings.html
-      as_of: '20020111100929'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: cerc/cerc-1999/standings/20020111-wayback-30970f02/Standings.html
-  problems:
-    count: 8
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/40
-        as_of: '20201130114706'
-        note: CERC 1999
-  problemset:
-  - https://contest.felk.cvut.cz/99cerc/problems.html
+  sources:
+  - url: https://contest.felk.cvut.cz/99cerc/
+    roles:
+    - web
+  - url: https://contest.felk.cvut.cz/99cerc/results.html
+    roles:
+    - standings
+    as_of: '20000602120153'
+    archived:
+    - cerc/cerc-1999/standings/2026-09-01-live-09e05e27/results.html
+    - cerc/cerc-1999/standings/20000602-wayback-58c82cde/results.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2000/regionals/CERC99/Standings.html
+    roles:
+    - standings
+    as_of: '20020111100929'
+    archived:
+    - cerc/cerc-1999/standings/20020111-wayback-30970f02/Standings.html
+    - cerc/cerc-1999/standings/20020111-wayback-e5392a94/Standings.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
+  - url: https://contest.felk.cvut.cz/99cerc/problems.html
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_CERC/1999/index.html
+    roles:
+    - problemset
     as_of: '20010215003858'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2000/regionals/CERC99/Problems.html
+    roles:
+    - problemset
     as_of: '20020111164406'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/40
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201130114706'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: CERC 1999
+  problems:
+    set: cerc-1999
 - id: cerc-2000
   season: 2001
   name: 2000 ACM Central Europe Programming Contest
@@ -179,40 +235,58 @@ contests:
   - 1002
   parent: wf-2001
   next: cerc-2001
-  web: https://contest.felk.cvut.cz/00cerc/
-  results:
-    standings:
-    - url: https://contest.felk.cvut.cz/00cerc/results.html
-      archived: cerc/cerc-2000/standings/2026-09-01-live-006e0843/results.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=452
-      as_of: '20011222221938'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: cerc/cerc-2000/standings/20011222-wayback-a4e83196/page.html
-  problems:
-    count: 9
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/39
-        as_of: '20210119055923'
-        note: CERC 2000
-  problemset:
-  - https://contest.felk.cvut.cz/00cerc/solved/
+  sources:
+  - url: https://contest.felk.cvut.cz/00cerc/
+    roles:
+    - web
+    also_at:
+    - http://contest.felk.cvut.cz/
+  - url: https://contest.felk.cvut.cz/00cerc/results.html
+    roles:
+    - standings
+    as_of: '20010302065506'
+    archived:
+    - cerc/cerc-2000/standings/2026-09-01-live-006e0843/results.html
+    - cerc/cerc-2000/standings/20010302-wayback-267de814/results.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=452
+    roles:
+    - standings
+    as_of: '20011222221938'
+    archived:
+    - cerc/cerc-2000/standings/20011222-wayback-a4e83196/page.html
+    - cerc/cerc-2000/standings/20011222-wayback-c6d20689/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: https://contest.felk.cvut.cz/00cerc/solved/
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_CERC/2000/index.html
+    roles:
+    - problemset
     as_of: '20020806014824'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2001/regionals/CERC00/Problems.pdf
+    roles:
+    - problemset
     as_of: '20030323164436'
-  mirrors:
-  - url: http://contest.felk.cvut.cz/
-    note: added by url-hunt 2026-09-01 (cms-api)
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/39
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210119055923'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: CERC 2000
+  problems:
+    set: cerc-2000
 - id: cerc-2001
   season: 2002
   name: 2001 ACM Central Europe Programming Contest
@@ -222,57 +296,77 @@ contests:
   - 1216
   parent: wf-2002
   next: cerc-2002
-  web:
-    url: http://cepc.mimuw.edu.pl:8002/
-    as_of: '20011219042830'
-  results:
-    standings:
-    - url: http://cepc.mimuw.edu.pl:8002/results.htm
-      as_of: '20020207005607'
-      archived: cerc/cerc-2001/standings/2026-09-01-wayback-a6f2d178/results.htm
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=517
-      as_of: '20020619092621'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: cerc/cerc-2001/standings/20020619-wayback-0ee7be3b/page.html
-    scoreboard:
-    - url: http://cepc.mimuw.edu.pl:8002/problems.htm
-      as_of: '20020203072533'
-      archived: cerc/cerc-2001/scoreboard/2026-04-16-archive/2001-central-europe-programming-contest-2001.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-  problemset:
-  - url: http://cepc.mimuw.edu.pl:8002/problems.htm
-    as_of: '20020203072533'
-  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_CERC/2001/index.html
-    as_of: '20020622015842'
-  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/CERC01/problems.html
-    as_of: '20020619093524'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
-  problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=97
-        as_of: '20210919224322'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/38
-        as_of: '20201022152410'
-        note: CERC 2001
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  mirrors:
-  - url: http://cepc.mimuw.edu.pl/
+  - url: http://cepc.mimuw.edu.pl:8002/
+    roles:
+    - web
+    as_of: '20011219042830'
+    also_at:
+    - http://cepc.mimuw.edu.pl/
+  - url: http://cepc.mimuw.edu.pl:8002/problems.htm
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20020203072533'
+    archived:
+    - cerc/cerc-2001/scoreboard/2026-04-16-archive/2001-central-europe-programming-contest-2001.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://cepc.mimuw.edu.pl:8002/results.htm
+    roles:
+    - standings
+    as_of: '20020207005607'
+    archived:
+    - cerc/cerc-2001/standings/2026-09-01-wayback-a6f2d178/results.htm
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=517
+    roles:
+    - standings
+    as_of: '20020619092621'
+    archived:
+    - cerc/cerc-2001/standings/20020619-wayback-0ee7be3b/page.html
+    - cerc/cerc-2001/standings/20020619-wayback-64e3ee5b/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: http://cepc.mimuw.edu.pl:8002/Results/index.html
+    roles:
+    - standings
+    as_of: '20011208182428'
     note: added by url-hunt 2026-09-01 (cms-api)
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_CERC/2001/index.html
+    roles:
+    - problemset
+    as_of: '20020622015842'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/CERC01/problems.html
+    roles:
+    - problemset
+    as_of: '20020619093524'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=97
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210919224322'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/38
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201022152410'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: CERC 2001
+  problems:
+    set: cerc-2001
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: cerc-2002
   season: 2003
   name: 2002 ACM Central Europe Programming Contest
@@ -282,52 +376,64 @@ contests:
   - 1177
   parent: wf-2003
   next: cerc-2003
-  web:
-    url: http://cepc.mimuw.edu.pl/
+  sources:
+  - url: http://cepc.mimuw.edu.pl/
+    roles:
+    - web
+    - scoreboard
     as_of: '20030327162528'
-  results:
-    standings:
-    - url: http://cepc.mimuw.edu.pl/pages/standings.html
-      as_of: '20030208043715'
-      archived: cerc/cerc-2002/standings/2026-09-01-wayback-354f6b3b/standings.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/cepc.mimuw.edu.pl/pages/standings.html
-      as_of: '20060901161430'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-mirror)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: cerc/cerc-2002/standings/20060901-wayback-a9105bea/standings.html
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings8c26.html?ContestID=585
-      as_of: '20060901121152'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: cerc/cerc-2002/standings/20060901-wayback-a01f75cf/ViewRegionalStandings8c26.html
-    scoreboard:
-    - url: http://cepc.mimuw.edu.pl/
-      as_of: '20030327162528'
-      archived: cerc/cerc-2002/scoreboard/2026-04-16-archive/2002-central-europe-programming-contest-2002.html
-      note: from archived capture (scoreboard)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  problems:
-    repo: icpc-problem-archive/cerc-2002
-    count: 8
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2361
-        as_of: '20230514151010'
-        note: CERC 2002
-  problemset:
-    url: http://icpc.baylor.edu/past/icpc2003/Regionals/Reports/cepc.mimuw.edu.pl/pages/problems.html
+    archived:
+    - cerc/cerc-2002/scoreboard/2026-04-16-archive/2002-central-europe-programming-contest-2002.html
+    - cerc/cerc-2002/scoreboard/20260901-live-b4e8894f/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://cepc.mimuw.edu.pl/pages/standings.html
+    roles:
+    - standings
+    as_of: '20030208043715'
+    archived:
+    - cerc/cerc-2002/standings/2026-09-01-wayback-354f6b3b/standings.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/cepc.mimuw.edu.pl/pages/standings.html
+    roles:
+    - standings
+    as_of: '20060901161430'
+    archived:
+    - cerc/cerc-2002/standings/20060901-wayback-a9105bea/standings.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-mirror)
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings8c26.html?ContestID=585
+    roles:
+    - standings
+    as_of: '20060901121152'
+    archived:
+    - cerc/cerc-2002/standings/20060901-wayback-a01f75cf/ViewRegionalStandings8c26.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: http://icpc.baylor.edu/past/icpc2003/Regionals/Reports/cepc.mimuw.edu.pl/pages/problems.html
+    roles:
+    - problemset
     as_of: '20030505042828'
-  mirrors: []
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: http://cepc.mimuw.edu.pl/pages/problems.html
+    roles:
+    - problemset
+    as_of: '20021209200541'
+  - url: https://www.acmicpc.net/category/detail/2361
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20230514151010'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: CERC 2002
+  problems:
+    set: cerc-2002
 - id: cerc-2003
   season: 2004
   name: 2003 ACM Central Europe Programming Contest
@@ -337,49 +443,53 @@ contests:
   - 1171
   parent: wf-2004
   next: cerc-2004
-  web:
-    url: http://cepc.mimuw.edu.pl/
-    as_of: '20040402131539'
-  results:
-    standings:
-    - url: http://cepc.mimuw.edu.pl/pages/standings.html
-      as_of: '20040404130112'
-      archived: cerc/cerc-2003/standings/2026-09-01-wayback-b4b31251/standings.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandingsb3a9.html?ContestID=658
-      as_of: '20060901142315'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: cerc/cerc-2003/standings/20060901-wayback-331efa66/ViewRegionalStandingsb3a9.html
-    scoreboard:
-    - url: http://cepc.mimuw.edu.pl/
-      as_of: '20040402131539'
-      archived: cerc/cerc-2003/scoreboard/2026-04-16-archive/2003-central-europe-programming-contest-2003.html
-      note: from archived capture (scoreboard)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  problems:
-    repo: icpc-problem-archive/cerc-2003
-    count: 9
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/37
-        as_of: '20191115043905'
-        note: CERC 2003
-  problemset:
-    url: https://www.acmicpc.net/category/detail/37
-    as_of: '20191115043905'
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: http://cepc.mimuw.edu.pl/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20040402131539'
+    archived:
+    - cerc/cerc-2003/scoreboard/2026-04-16-archive/2003-central-europe-programming-contest-2003.html
+    - cerc/cerc-2003/scoreboard/20260901-live-b4e8894f/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://cepc.mimuw.edu.pl/pages/standings.html
+    roles:
+    - standings
+    as_of: '20040404130112'
+    archived:
+    - cerc/cerc-2003/standings/2026-09-01-wayback-b4b31251/standings.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandingsb3a9.html?ContestID=658
+    roles:
+    - standings
+    as_of: '20060901142315'
+    archived:
+    - cerc/cerc-2003/standings/20060901-wayback-331efa66/ViewRegionalStandingsb3a9.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: https://www.acmicpc.net/category/detail/37
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20191115043905'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      CERC 2003
+  - url: http://cepc.mimuw.edu.pl/pages/problems.html
+    roles:
+    - problemset
+    as_of: '20021209200541'
+  problems:
+    set: cerc-2003
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  mirrors: []
 - id: cerc-2004
   season: 2005
   name: 2004 ACM Central Europe Programming Contest
@@ -389,41 +499,41 @@ contests:
   - 1154
   parent: wf-2005
   next: cerc-2005
-  web:
-    url: http://icpc.cs.bme.hu/main.php?p=1
-    as_of: '20090225181625'
-  results:
-    standings:
-    - url: http://icpc.cs.bme.hu/main.php?p=12
-      as_of: '20090225181630'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: cerc/cerc-2004/standings/2026-09-01-wayback-562409ad/page.html
-    scoreboard:
-    - url: http://icpc.cs.bme.hu/main.php?p=2
-      as_of: '20090428015213'
-      archived: cerc/cerc-2004/scoreboard/2026-04-16-archive/2004-central-europe-programming-contest-2004.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-  problemset:
-    url: http://icpc.cs.bme.hu/main.php?p=2
-    as_of: '20090428015213'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: http://icpc.cs.bme.hu/main.php?p=1
+    roles:
+    - web
+    as_of: '20090225181625'
+  - url: http://icpc.cs.bme.hu/main.php?p=2
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20090428015213'
+    archived:
+    - cerc/cerc-2004/scoreboard/2026-04-16-archive/2004-central-europe-programming-contest-2004.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://icpc.cs.bme.hu/main.php?p=12
+    roles:
+    - standings
+    as_of: '20090225181630'
+    archived:
+    - cerc/cerc-2004/standings/2026-09-01-wayback-562409ad/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2727
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20211023070807'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: CERC 2004
   problems:
-    repo: icpc-problem-archive/cerc-2004
-    count: 9
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2727
-        as_of: '20211023070807'
-        note: CERC 2004
+    set: cerc-2004
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: cerc-2005
   season: 2006
   name: 2005 ACM Central Europe Programming Contest
@@ -433,47 +543,45 @@ contests:
   - 1235
   parent: wf-2006
   next: cerc-2006
-  web:
-    url: http://icpc.cs.bme.hu/main.php?p=1
-    as_of: '20090225181625'
-  results:
-    standings:
-    - url: http://icpc.cs.bme.hu/main.php?p=12
-      as_of: '20090225181630'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: cerc/cerc-2005/external-standings/2026-04-15-external/content.html
-    - url: http://icpc.cs.bme.hu/main.php?p=12
-      as_of: '20091109080853'
-      archived: cerc/cerc-2005/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-    scoreboard:
-    - url: http://icpc.cs.bme.hu/main.php?p=2
-      as_of: '20090428015213'
-      archived: cerc/cerc-2005/scoreboard/2026-04-16-archive/2005-central-europe-programming-contest-2005.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Central-Europe-2006/standings
-  problemset:
-    url: http://icpc.cs.bme.hu/main.php?p=2
-    as_of: '20090428015213'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: http://icpc.cs.bme.hu/main.php?p=1
+    roles:
+    - web
+    as_of: '20090225181625'
+  - url: http://icpc.cs.bme.hu/main.php?p=2
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20090428015213'
+    archived:
+    - cerc/cerc-2005/scoreboard/2026-04-16-archive/2005-central-europe-programming-contest-2005.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://icpc.cs.bme.hu/main.php?p=12
+    roles:
+    - standings
+    as_of: '20090225181630'
+    archived:
+    - cerc/cerc-2005/external-standings/2026-04-15-external/content.html
+    - cerc/cerc-2005/standings/2026-09-01-wayback-562409ad/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: as_of 20091109080853 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Central-Europe-2006/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/2705
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: CERC 2005
   problems:
-    repo: icpc-problem-archive/cerc-2005
-    count: 10
-    statement: full
-    data: full
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2705
-        note: CERC 2005
+    set: cerc-2005
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: cerc-2006
   season: 2007
   name: 2006 ACM Central Europe Programming Contest
@@ -483,43 +591,38 @@ contests:
   - 1111
   parent: wf-2007
   next: cerc-2007
-  web:
-    url: http://icpc.cs.bme.hu/main.php?p=1
-    as_of: '20090225181625'
-  results:
-    standings:
-    - url: http://icpc.cs.bme.hu/main.php?p=12
-      as_of: '20090225181630'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: cerc/cerc-2006/external-standings/2026-04-15-external/content.html
-    - url: http://icpc.cs.bme.hu/main.php?p=12
-      as_of: '20091109080853'
-      archived: cerc/cerc-2006/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-    scoreboard:
-    - url: http://icpc.cs.bme.hu/main.php?p=2
-      as_of: '20090428015213'
-      archived: cerc/cerc-2006/scoreboard/2026-04-16-archive/2006-central-europe-programming-contest-2006.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Central-Europe-2007/standings
-  problemset:
-    url: http://icpc.cs.bme.hu/main.php?p=2
-    as_of: '20090428015213'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: http://icpc.cs.bme.hu/main.php?p=1
+    roles:
+    - web
+    as_of: '20090225181625'
+  - url: http://icpc.cs.bme.hu/main.php?p=2
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20090428015213'
+    archived:
+    - cerc/cerc-2006/scoreboard/2026-04-16-archive/2006-central-europe-programming-contest-2006.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://icpc.cs.bme.hu/main.php?p=12
+    roles:
+    - standings
+    as_of: '20090225181630'
+    archived:
+    - cerc/cerc-2006/external-standings/2026-04-15-external/content.html
+    - cerc/cerc-2006/standings/2026-09-01-wayback-562409ad/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: as_of 20091109080853 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Central-Europe-2007/standings
+    roles:
+    - icpc_standings
   problems:
-    repo: icpc-problem-archive/cerc-2006
-    count: 11
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: cerc-2006
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: cerc-2007
   season: 2008
   name: 2007 ACM Central Europe Programming Contest
@@ -529,30 +632,40 @@ contests:
   - 993
   parent: wf-2008
   next: cerc-2008
-  web: https://contest.felk.cvut.cz/07cerc/index.html
-  results:
-    standings:
-    - url: https://contest.felk.cvut.cz/07cerc/rank.html
-      archived: cerc/cerc-2007/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Central-Europe-2008/standings
-  problemset: https://contest.felk.cvut.cz/07cerc/contest.html
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: https://contest.felk.cvut.cz/07cerc/index.html
+    roles:
+    - web
+  - url: https://contest.felk.cvut.cz/07cerc/rank.html
+    roles:
+    - standings
+    as_of: '20071114104813'
+    archived:
+    - cerc/cerc-2007/external-standings/2026-04-15-external/content.html
+    - cerc/cerc-2007/standings/20071114-wayback-530cc2aa/rank.html
+    - cerc/cerc-2007/standings/20260901-live-e5782acd/rank.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Central-Europe-2008/standings
+    roles:
+    - icpc_standings
+  - url: https://contest.felk.cvut.cz/07cerc/contest.html
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/36
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201123163744'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: CERC 2007
   problems:
-    repo: icpc-problem-archive/cerc-2007
-    count: 10
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/36
-        as_of: '20201123163744'
-        note: CERC 2007
+    set: cerc-2007
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: cerc-2008
   season: 2009
   name: 2008 Central Europe Contest
@@ -562,37 +675,45 @@ contests:
   - 23
   parent: wf-2009
   next: cerc-2009
-  web: http://cepc08.ii.uni.wroc.pl/index.html
-  results:
-    standings:
-    - url: http://cepc08.ii.uni.wroc.pl/standings.html
-      as_of: '20090211123610'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: cerc/cerc-2008/standings/20090211-wayback-b4f0e8d8/standings.html
-    scoreboard:
-    - url: http://cepc08.ii.uni.wroc.pl/problems.html
-      archived: cerc/cerc-2008/scoreboard/2026-04-16-cepc/2008-central-europe-contest-2008.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Central-Europe-2009/standings
-  problemset: http://cepc08.ii.uni.wroc.pl/problems.html
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: http://cepc08.ii.uni.wroc.pl/index.html
+    roles:
+    - web
+  - url: http://cepc08.ii.uni.wroc.pl/problems.html
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20090808084422'
+    archived:
+    - cerc/cerc-2008/scoreboard/2026-04-16-cepc/2008-central-europe-contest-2008.html
+    - cerc/cerc-2008/scoreboard/20090808-wayback-dbb6fb10/problems.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://cepc08.ii.uni.wroc.pl/standings.html
+    roles:
+    - standings
+    as_of: '20090211123610'
+    archived:
+    - cerc/cerc-2008/standings/20090211-wayback-b4f0e8d8/standings.html
+    - cerc/cerc-2008/standings/20261020-live-e8676abd/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Central-Europe-2009/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/951
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201028113539'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: CERC 2008
   problems:
-    repo: icpc-problem-archive/cerc-2008
-    count: 10
-    statement: full
-    data: full
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/951
-        as_of: '20201028113539'
-        note: CERC 2008
+    set: cerc-2008
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: cerc-2009
   season: 2010
   name: 2009 Central Europe Contest
@@ -602,43 +723,47 @@ contests:
   - 543
   parent: wf-2010
   next: cerc-2010
-  web: http://cepc09.ii.uni.wroc.pl/index.html
-  results:
-    standings:
-    - url: http://informatyka.wroc.pl/node/309
-      as_of: '20091112131006'
-      archived: cerc/cerc-2009/standings/2026-09-01-wayback-1d15f8b0/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://informatyka.wroc.pl/node/309
-      as_of: '20111210121203'
-      archived: cerc/cerc-2009/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-    scoreboard:
-    - url: http://cepc09.ii.uni.wroc.pl/problems.html
-      archived: cerc/cerc-2009/scoreboard/2026-04-16-cepc/2009-central-europe-contest-2009.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Central-Europe-2010/standings
-  problemset: http://cepc09.ii.uni.wroc.pl/problems.html
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: http://cepc09.ii.uni.wroc.pl/index.html
+    roles:
+    - web
+  - url: http://cepc09.ii.uni.wroc.pl/problems.html
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20091113182843'
+    archived:
+    - cerc/cerc-2009/scoreboard/2026-04-16-cepc/2009-central-europe-contest-2009.html
+    - cerc/cerc-2009/scoreboard/20091113-wayback-3d30893f/problems.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://informatyka.wroc.pl/node/309
+    roles:
+    - standings
+    as_of: '20091112131006'
+    archived:
+    - cerc/cerc-2009/standings/2026-09-01-wayback-1d15f8b0/page.html
+    - cerc/cerc-2009/external-standings/2026-04-15-external/content.html
+    - cerc/cerc-2009/standings/20091112-wayback-e0cf8ce7/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: as_of 20111210121203 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Central-Europe-2010/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/950
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20171221120452'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: CERC 2009
   problems:
-    repo: icpc-problem-archive/cerc-2009
-    count: 11
-    statement: full
-    data: full
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/950
-        as_of: '20171221120452'
-        note: CERC 2009
+    set: cerc-2009
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: cerc-2010
   season: 2011
   name: 2010 Central Europe Regional Contest
@@ -648,46 +773,51 @@ contests:
   - 635
   parent: wf-2011
   next: cerc-2011
-  web:
-    url: http://cepc10.ii.uni.wroc.pl/index.html
-    as_of: '20110925153432'
-  results:
-    standings:
-    - url: http://cepc10.ii.uni.wroc.pl/standings.html
-      as_of: '20110926214641'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: cerc/cerc-2010/standings/2026-09-01-wayback-d1dfbb0d/standings.html
-    scoreboard:
-    - url: http://cepc10.ii.uni.wroc.pl/problems.html
-      as_of: '20110924060559'
-      archived: cerc/cerc-2010/scoreboard/2026-04-16-archive/2010-central-europe-regional-contest-2010.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Central-Europe-2011/standings
-  problemset:
-    url: http://cepc10.ii.uni.wroc.pl/problems.html
-    as_of: '20110924060559'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: http://cepc10.ii.uni.wroc.pl/index.html
+    roles:
+    - web
+    as_of: '20110925153432'
+  - url: http://cepc10.ii.uni.wroc.pl/problems.html
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20110924060559'
+    archived:
+    - cerc/cerc-2010/scoreboard/2026-04-16-archive/2010-central-europe-regional-contest-2010.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://cepc10.ii.uni.wroc.pl/standings.html
+    roles:
+    - standings
+    as_of: '20110926214641'
+    archived:
+    - cerc/cerc-2010/standings/2026-09-01-wayback-d1dfbb0d/standings.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Central-Europe-2011/standings
+    roles:
+    - icpc_standings
+  - url: https://open.kattis.com/problem-sources/Central%20Europe%20Regional%20Contest%20%28CERC%29%202010
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20220124103617'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/35
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20200919181013'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: CERC 2010
   problems:
-    repo: icpc-problem-archive/cerc-2010
-    count: 10
-    statement: full
-    data: full
-    solutions: full
-    package: partial
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Central%20Europe%20Regional%20Contest%20%28CERC%29%202010
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/35
-        as_of: '20200919181013'
-        note: CERC 2010
-    notes: Problem C is packaged
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    counts:
-      package: 1
+    set: cerc-2010
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: cerc-2011
   season: 2012
   name: 2011 Central Europe Regional Contest
@@ -697,30 +827,40 @@ contests:
   - 768
   parent: wf-2012
   next: cerc-2012
-  web: https://contest.felk.cvut.cz/11cerc/
-  results:
-    standings:
-    - url: https://contest.felk.cvut.cz/11cerc/rank.html
-      archived: cerc/cerc-2011/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Central-Europe-2012/standings
-  problemset: https://contest.felk.cvut.cz/11cerc/solved.html
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: https://contest.felk.cvut.cz/11cerc/
+    roles:
+    - web
+  - url: https://contest.felk.cvut.cz/11cerc/rank.html
+    roles:
+    - standings
+    as_of: '20111117120547'
+    archived:
+    - cerc/cerc-2011/external-standings/2026-04-15-external/content.html
+    - cerc/cerc-2011/standings/20111117-wayback-a01b7890/rank.html
+    - cerc/cerc-2011/standings/20260901-live-69c440a0/rank.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Central-Europe-2012/standings
+    roles:
+    - icpc_standings
+  - url: https://contest.felk.cvut.cz/11cerc/solved.html
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/34
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201203135352'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: CERC 2011
   problems:
-    repo: icpc-problem-archive/cerc-2011
-    count: 10
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/34
-        as_of: '20201203135352'
-        note: CERC 2011
+    set: cerc-2011
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: cerc-2012
   season: 2013
   name: 2012 Central Europe Regional Contest
@@ -730,39 +870,53 @@ contests:
   - 1317
   parent: wf-2013
   next: cerc-2013
-  web: https://cerc.tcs.uj.edu.pl/2012/index.html
-  results:
-    scoreboard:
-    - url: https://cerc.tcs.uj.edu.pl/2012/ranking.html
-      archived: cerc/cerc-2012/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://cerc.tcs.uj.edu.pl/2012/data.html
-      archived: cerc/cerc-2012/scoreboard/2026-04-16-cerc/2012-central-europe-regional-contest-2012.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Central-Europe-2013/standings
-  problemset: https://cerc.tcs.uj.edu.pl/2012/data.html
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: https://cerc.tcs.uj.edu.pl/2012/index.html
+    roles:
+    - web
+  - url: https://cerc.tcs.uj.edu.pl/2012/data.html
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20150517072348'
+    archived:
+    - cerc/cerc-2012/scoreboard/2026-04-16-cerc/2012-central-europe-regional-contest-2012.html
+    - cerc/cerc-2012/scoreboard/20150517-wayback-3b00e109/data.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://cerc.tcs.uj.edu.pl/2012/ranking.html
+    roles:
+    - scoreboard
+    as_of: '20151114053008'
+    archived:
+    - cerc/cerc-2012/external-standings/2026-04-15-external/content.html
+    - cerc/cerc-2012/scoreboard/20151114-wayback-8b4bce66/ranking.html
+    - cerc/cerc-2012/scoreboard/20260901-live-aa6e2544/ranking.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Central-Europe-2013/standings
+    roles:
+    - icpc_standings
+  - url: https://open.kattis.com/problem-sources/Central%20Europe%20Regional%20Contest%20%28CERC%29%202012
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20191018165702'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/33
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190818023030'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: CERC 2012
   problems:
-    repo: icpc-problem-archive/cerc-2012
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: partial
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Central%20Europe%20Regional%20Contest%20%28CERC%29%202012
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/33
-        as_of: '20190818023030'
-        note: CERC 2012
-    notes: Missing problem F
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    counts:
-      package: 10
+    set: cerc-2012
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: cerc-2013
   season: 2014
   name: 2013 Central Europe Regional Contest
@@ -772,38 +926,49 @@ contests:
   - 2009
   parent: wf-2014
   next: cerc-2014
-  web: https://cerc.tcs.uj.edu.pl/2013/news.html
-  results:
-    scoreboard:
-    - url: https://cerc.tcs.uj.edu.pl/2013/ranking.html
-      archived: cerc/cerc-2013/scoreboard/2026-09-01-live-8b532479/ranking.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://cerc.tcs.uj.edu.pl/2013/data.html
-      archived: cerc/cerc-2013/scoreboard/2026-04-16-cerc/2013-central-europe-regional-contest-2013.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
-  problemset: https://cerc.tcs.uj.edu.pl/2013/data.html
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: https://cerc.tcs.uj.edu.pl/2013/news.html
+    roles:
+    - web
+  - url: https://cerc.tcs.uj.edu.pl/2013/data.html
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20150518005315'
+    archived:
+    - cerc/cerc-2013/scoreboard/2026-04-16-cerc/2013-central-europe-regional-contest-2013.html
+    - cerc/cerc-2013/scoreboard/20150518-wayback-36e340ac/data.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://cerc.tcs.uj.edu.pl/2013/ranking.html
+    roles:
+    - scoreboard
+    as_of: '20160528170228'
+    archived:
+    - cerc/cerc-2013/scoreboard/2026-09-01-live-8b532479/ranking.html
+    - cerc/cerc-2013/scoreboard/20160528-wayback-5ec80bf4/ranking.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Central%20Europe%20Regional%20Contest%20(CERC)%202013
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190723013048'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1176
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201020194822'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: CERC 2013
   problems:
-    repo: icpc-problem-archive/cerc-2013
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: partial
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Central%20Europe%20Regional%20Contest%20(CERC)%202013
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1176
-        as_of: '20201020194822'
-        note: CERC 2013
-    notes: Missing problem G
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    counts:
-      package: 11
+    set: cerc-2013
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: cerc-2014
   season: 2015
   name: 2014 Central Europe Regional Contest
@@ -813,43 +978,64 @@ contests:
   - 2661
   parent: wf-2015
   next: cerc-2015
-  web: https://cerc.tcs.uj.edu.pl/2014/news.html
-  results:
-    scoreboard:
-    - url: https://cerc.tcs.uj.edu.pl/2014/ranking.html
-      archived: cerc/cerc-2014/scoreboard/2026-09-01-live-fa0786a0/ranking.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    - url: https://cerc.tcs.uj.edu.pl/2014/data.html
-      archived: cerc/cerc-2014/scoreboard/2026-04-16-cerc/2014-central-europe-regional-contest-2014.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://cerc.tcs.uj.edu.pl/ranking
-      as_of: '20150417084919'
-      archived: cerc/cerc-2014/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings) | retiered standings->scoreboard (full board, eyeballed
-        2026-09-01)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Central-Europe-2015/standings
-  problemset: https://cerc.tcs.uj.edu.pl/2014/data.html
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: https://cerc.tcs.uj.edu.pl/2014/news.html
+    roles:
+    - web
+  - url: https://cerc.tcs.uj.edu.pl/2014/data.html
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20150517072352'
+    archived:
+    - cerc/cerc-2014/scoreboard/2026-04-16-cerc/2014-central-europe-regional-contest-2014.html
+    - cerc/cerc-2014/scoreboard/20150517-wayback-1ec91c07/data.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://cerc.tcs.uj.edu.pl/2014/ranking.html
+    roles:
+    - scoreboard
+    as_of: '20220331055406'
+    archived:
+    - cerc/cerc-2014/scoreboard/2026-09-01-live-fa0786a0/ranking.html
+    - cerc/cerc-2014/scoreboard/20220331-wayback-6c1444ea/ranking.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: http://cerc.tcs.uj.edu.pl/ranking
+    roles:
+    - scoreboard
+    as_of: '20150417084919'
+    archived:
+    - cerc/cerc-2014/external-standings/2026-04-15-external/content.html
+    - cerc/cerc-2014/scoreboard/20141119-wayback-7065eeed/page.html
+    - cerc/cerc-2014/standings/20141119-wayback-7065eeed/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings) | retiered standings->scoreboard (full board, eyeballed
+      2026-09-01)
+  - url: https://icpc.global/regionals/finder/Central-Europe-2015/standings
+    roles:
+    - icpc_standings
+  - url: https://open.kattis.com/problem-sources/Central%20Europe%20Regional%20Contest%20(CERC)%202014
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190717141912'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1310
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201023111410'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: CERC 2014
   problems:
-    repo: icpc-problem-archive/cerc-2014
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Central%20Europe%20Regional%20Contest%20(CERC)%202014
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1310
-        as_of: '20201023111410'
-        note: CERC 2014
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: cerc-2014
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: cerc-2015
   season: 2016
   name: 2015 Central Europe Regional Contest
@@ -859,44 +1045,63 @@ contests:
   - 2771
   parent: wf-2016
   next: cerc-2016
-  web: https://cerc.hsin.hr/2015/index.php?page=home
-  results:
-    scoreboard:
-    - url: https://cerc.hsin.hr/2015/index.php?page=results
-      archived: cerc/cerc-2015/scoreboard/2026-09-01-live-c190c8ed/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://cerc.hsin.hr/2015/index.php?page=contest_data
-      archived: cerc/cerc-2015/scoreboard/2026-04-16-cerc/2015-central-europe-regional-contest-2015.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://cerc.hsin.hr/index.php?page=results
-      archived: cerc/cerc-2015/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Central-Europe-2016/standings
-  problemset: https://cerc.hsin.hr/2015/index.php?page=contest_data
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: https://cerc.hsin.hr/2015/index.php?page=home
+    roles:
+    - web
+  - url: https://cerc.hsin.hr/2015/index.php?page=contest_data
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20210225073218'
+    archived:
+    - cerc/cerc-2015/scoreboard/2026-04-16-cerc/2015-central-europe-regional-contest-2015.html
+    - cerc/cerc-2015/scoreboard/20210225-wayback-02d5d3fd/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://cerc.hsin.hr/2015/index.php?page=results
+    roles:
+    - scoreboard
+    as_of: '20211208012327'
+    archived:
+    - cerc/cerc-2015/scoreboard/2026-09-01-live-c190c8ed/page.html
+    - cerc/cerc-2015/scoreboard/20211208-wayback-062fba0b/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://cerc.hsin.hr/index.php?page=results
+    roles:
+    - standings
+    as_of: '20160120083908'
+    archived:
+    - cerc/cerc-2015/external-standings/2026-04-15-external/content.html
+    - cerc/cerc-2015/standings/20160120-wayback-beeef303/page.html
+    - cerc/cerc-2015/standings/20260901-live-fd601ed9/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Central-Europe-2016/standings
+    roles:
+    - icpc_standings
+  - url: https://open.kattis.com/problem-sources/Central%20Europe%20Regional%20Contest%20%28CERC%29%202015
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20210125110727'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1426
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201019161835'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: CERC 2015
   problems:
-    repo: icpc-problem-archive/cerc-2015
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: partial
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Central%20Europe%20Regional%20Contest%20%28CERC%29%202015
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1426
-        as_of: '20201019161835'
-        note: CERC 2015
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    counts:
-      package: 2
+    set: cerc-2015
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: cerc-2016
   season: 2017
   name: 2016 Central Europe Regional Contest
@@ -906,44 +1111,61 @@ contests:
   - 3105
   parent: wf-2017
   next: cerc-2017
-  web: https://cerc.hsin.hr/2016/index.php?page=home
-  results:
-    scoreboard:
-    - url: https://cerc.hsin.hr/2016/index.php?page=results
-      archived: cerc/cerc-2016/scoreboard/2026-09-01-live-f88ce08b/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://cerc.hsin.hr/2016/index.php?page=contest_data
-      archived: cerc/cerc-2016/scoreboard/2026-04-16-cerc/2016-central-europe-regional-contest-2016.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://cerc.hsin.hr/index.php?page=results
-      archived: cerc/cerc-2016/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Central-Europe-2017/standings
-  problemset: https://cerc.hsin.hr/2016/index.php?page=contest_data
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: https://cerc.hsin.hr/2016/index.php?page=home
+    roles:
+    - web
+  - url: https://cerc.hsin.hr/2016/index.php?page=contest_data
+    roles:
+    - scoreboard
+    - problemset
+    archived:
+    - cerc/cerc-2016/scoreboard/2026-04-16-cerc/2016-central-europe-regional-contest-2016.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://cerc.hsin.hr/2016/index.php?page=results
+    roles:
+    - scoreboard
+    as_of: '20211208012109'
+    archived:
+    - cerc/cerc-2016/scoreboard/2026-09-01-live-f88ce08b/page.html
+    - cerc/cerc-2016/scoreboard/20211208-wayback-79b2ca76/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://cerc.hsin.hr/index.php?page=results
+    roles:
+    - standings
+    as_of: '20161122065304'
+    archived:
+    - cerc/cerc-2016/external-standings/2026-04-15-external/content.html
+    - cerc/cerc-2016/standings/20161122-wayback-ccb43651/page.html
+    - cerc/cerc-2016/standings/20260901-live-fd601ed9/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Central-Europe-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://open.kattis.com/problem-sources/Central%20Europe%20Regional%20Contest%20%28CERC%29%202016
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20220124104936'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1580
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201027010429'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: CERC 2016
   problems:
-    repo: icpc-problem-archive/cerc-2016
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: partial
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Central%20Europe%20Regional%20Contest%20%28CERC%29%202016
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1580
-        as_of: '20201027010429'
-        note: CERC 2016
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    counts:
-      package: 2
+    set: cerc-2016
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: cerc-2017
   season: 2018
   name: 2017 Central Europe Regional Contest
@@ -953,35 +1175,44 @@ contests:
   - 3317
   parent: wf-2018
   next: cerc-2018
-  web: https://cerc.hsin.hr/index.php?page=home
-  results:
-    scoreboard:
-    - url: https://cerc.hsin.hr/index.php?page=results
-      archived: cerc/cerc-2017/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://cerc.hsin.hr/index.php?page=contest_data
-      archived: cerc/cerc-2017/scoreboard/2026-04-16-cerc/2017-central-europe-regional-contest-2017.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Central-Europe-2018/standings
-  problemset: https://cerc.hsin.hr/index.php?page=contest_data
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: https://cerc.hsin.hr/index.php?page=home
+    roles:
+    - web
+  - url: https://cerc.hsin.hr/index.php?page=contest_data
+    roles:
+    - scoreboard
+    - problemset
+    archived:
+    - cerc/cerc-2017/scoreboard/2026-04-16-cerc/2017-central-europe-regional-contest-2017.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://cerc.hsin.hr/index.php?page=results
+    roles:
+    - scoreboard
+    as_of: '20180111194232'
+    archived:
+    - cerc/cerc-2017/external-standings/2026-04-15-external/content.html
+    - cerc/cerc-2017/scoreboard/20180111-wayback-d214fc0b/page.html
+    - cerc/cerc-2017/scoreboard/20260901-live-9f739ed7/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Central-Europe-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/1808
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191120092350'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: CERC 2017
   problems:
-    repo: icpc-problem-archive/cerc-2017
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1808
-        as_of: '20191120092350'
-        note: CERC 2017
+    set: cerc-2017
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: cerc-2018
   season: 2019
   name: 2018 Central Europe Regional Contest
@@ -991,30 +1222,40 @@ contests:
   - 3661
   parent: wf-2019
   next: cerc-2019
-  web: https://contest.felk.cvut.cz/18cerc/
-  results:
-    scoreboard:
-    - url: https://contest.felk.cvut.cz/18cerc/rank.html
-      archived: cerc/cerc-2018/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Central-Europe-2019/standings
-  problemset: https://contest.felk.cvut.cz/18cerc/solved.html
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: https://contest.felk.cvut.cz/18cerc/
+    roles:
+    - web
+  - url: https://contest.felk.cvut.cz/18cerc/rank.html
+    roles:
+    - scoreboard
+    as_of: '20210427091636'
+    archived:
+    - cerc/cerc-2018/external-standings/2026-04-15-external/content.html
+    - cerc/cerc-2018/scoreboard/20210427-wayback-14425143/rank.html
+    - cerc/cerc-2018/scoreboard/20260901-live-40376a6c/rank.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Central-Europe-2019/standings
+    roles:
+    - icpc_standings
+  - url: https://contest.felk.cvut.cz/18cerc/solved.html
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1978
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190720183801'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: CERC 2018
   problems:
-    repo: icpc-problem-archive/cerc-2018
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1978
-        as_of: '20190720183801'
-        note: CERC 2018
+    set: cerc-2018
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: cerc-2019
   season: 2020
   name: 2019 Central Europe Regional Contest
@@ -1024,30 +1265,40 @@ contests:
   - 4135
   parent: wf-2020
   next: cerc-2020
-  web: https://contest.felk.cvut.cz/20cerc/rank.html
-  results:
-    scoreboard:
-    - url: https://contest.felk.cvut.cz/19cerc/rank.html
-      archived: cerc/cerc-2019/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Central-Europe-2020/standings
-  problemset: https://contest.felk.cvut.cz/19cerc/solved.html
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: https://contest.felk.cvut.cz/20cerc/rank.html
+    roles:
+    - web
+  - url: https://contest.felk.cvut.cz/19cerc/rank.html
+    roles:
+    - scoreboard
+    as_of: '20191215113737'
+    archived:
+    - cerc/cerc-2019/external-standings/2026-04-15-external/content.html
+    - cerc/cerc-2019/scoreboard/20191215-wayback-0144c74e/rank.html
+    - cerc/cerc-2019/scoreboard/20260901-live-b6488c1e/rank.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Central-Europe-2020/standings
+    roles:
+    - icpc_standings
+  - url: https://contest.felk.cvut.cz/19cerc/solved.html
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2133
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210418031406'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: CERC 2019
   problems:
-    repo: icpc-problem-archive/cerc-2019
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2133
-        as_of: '20210418031406'
-        note: CERC 2019
+    set: cerc-2019
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: cerc-2020
   season: 2021
   name: 2020 Central Europe Regional Contest
@@ -1057,29 +1308,40 @@ contests:
   - 4522
   parent: wf-2021
   next: cerc-2021
-  web: https://contest.felk.cvut.cz/20cerc/
-  results:
-    scoreboard:
-    - url: https://contest.felk.cvut.cz/20cerc/rank.html
-      archived: cerc/cerc-2020/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Central-Europe-2021/standings
-  problemset: https://contest.felk.cvut.cz/20cerc/solved.html
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: https://contest.felk.cvut.cz/20cerc/
+    roles:
+    - web
+  - url: https://contest.felk.cvut.cz/20cerc/rank.html
+    roles:
+    - scoreboard
+    as_of: '20210928213605'
+    archived:
+    - cerc/cerc-2020/external-standings/2026-04-15-external/content.html
+    - cerc/cerc-2020/scoreboard/20210928-wayback-4f5b01b1/rank.html
+    - cerc/cerc-2020/scoreboard/20260901-live-0ec41186/rank.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Central-Europe-2021/standings
+    roles:
+    - icpc_standings
+  - url: https://contest.felk.cvut.cz/20cerc/solved.html
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2795
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260618020755'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: CERC 2020
   problems:
-    repo: icpc-problem-archive/cerc-2020
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2795
-        note: CERC 2020
+    set: cerc-2020
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: cerc-2021
   season: 2022
   name: 2021 ICPC Central Europe Regional Contest
@@ -1089,32 +1351,37 @@ contests:
   - 4888
   parent: wf-2022
   next: cerc-2022
-  web: https://cerc2021.acm.si/
-  results:
-    scoreboard:
-    - url: https://cerc2021.acm.si/
-      archived: cerc/cerc-2021/scoreboard/2026-09-01-live-5b662199/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://cerc2021.acm.si/
-      archived: cerc/cerc-2021/scoreboard/2026-04-16-cerc/2021-icpc-central-europe-regional-contest-2022.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Central-Europe-2022/standings
+  sources:
+  - url: https://cerc2021.acm.si/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20220807155220'
+    archived:
+    - cerc/cerc-2021/scoreboard/2026-09-01-live-5b662199/page.html
+    - cerc/cerc-2021/scoreboard/2026-04-16-cerc/2021-icpc-central-europe-regional-contest-2022.html
+    - cerc/cerc-2021/scoreboard/20220807-wayback-73529d01/page.html
+    - cerc/cerc-2021/scoreboard/20220807-wayback-b9c59980/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://icpc.global/regionals/finder/Central-Europe-2022/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Contests/Central%20Europe%20Regional%20Contest%20(CERC)/2021%20Central%20Europe%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3108
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: CERC 2021
   problems:
-    repo: icpc-problem-archive/cerc-2021
-    count: 12
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3108
-        note: CERC 2021
-  problemset: https://icpcarchive.github.io/Europe%20Contests/Central%20Europe%20Regional%20Contest%20(CERC)/2021%20Central%20Europe%20Regional%20Contest/problems.pdf
+    set: cerc-2021
 - id: cerc-2022
   season: 2023
   name: 2022 ICPC Central Europe Regional Contest
@@ -1124,32 +1391,38 @@ contests:
   - 5391
   parent: wf-2023
   next: cerc-2023
-  web: https://cerc2022.acm.si/
-  results:
-    scoreboard:
-    - url: https://cerc2022.acm.si/
-      archived: cerc/cerc-2022/scoreboard/2026-09-01-live-0c9f70c6/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://cerc2022.acm.si/
-      archived: cerc/cerc-2022/scoreboard/2026-04-16-cerc/2022-icpc-central-europe-regional-contest-2022.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Central-Europe-2023/standings
+  sources:
+  - url: https://cerc2022.acm.si/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20221205005252'
+    archived:
+    - cerc/cerc-2022/scoreboard/2026-09-01-live-0c9f70c6/page.html
+    - cerc/cerc-2022/scoreboard/2026-04-16-cerc/2022-icpc-central-europe-regional-contest-2022.html
+    - cerc/cerc-2022/scoreboard/20221205-wayback-4ee1ecd3/page.html
+    - cerc/cerc-2022/scoreboard/20221205-wayback-5d2ed5fd/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://icpc.global/regionals/finder/Central-Europe-2023/standings
+    roles:
+    - icpc_standings
+  - url: https://cerc2022.acm.si/res/CERC22-tasks.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3238
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260618020943'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: CERC 2022
   problems:
-    repo: icpc-problem-archive/cerc-2022
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3238
-        note: CERC 2022
-  problemset: https://cerc2022.acm.si/res/CERC22-tasks.pdf
+    set: cerc-2022
 - id: cerc-2023
   season: 2024
   name: 2023 ICPC Central Europe Regional Contest
@@ -1159,32 +1432,37 @@ contests:
   - 7585
   parent: euc-2024
   next: cerc-2024
-  web: https://cerc2023.acm.si/
-  results:
-    scoreboard:
-    - url: https://cerc2023.acm.si/
-      archived: cerc/cerc-2023/scoreboard/2026-09-01-live-5be72d51/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://cerc2023.acm.si/
-      archived: cerc/cerc-2023/scoreboard/2026-04-16-cerc/2023-icpc-central-europe-regional-contest-2023.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Central-Europe-2024/standings
+  sources:
+  - url: https://cerc2023.acm.si/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20240423070721'
+    archived:
+    - cerc/cerc-2023/scoreboard/2026-09-01-live-5be72d51/page.html
+    - cerc/cerc-2023/scoreboard/2026-04-16-cerc/2023-icpc-central-europe-regional-contest-2023.html
+    - cerc/cerc-2023/scoreboard/20240423-wayback-73b0f458/page.html
+    - cerc/cerc-2023/scoreboard/20240423-wayback-a4fd7e86/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://icpc.global/regionals/finder/Central-Europe-2024/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Contests/Central%20Europe%20Regional%20Contest%20(CERC)/2023%20Central%20Europe%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4073
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: CERC 2023
   problems:
-    repo: icpc-problem-archive/cerc-2023
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4073
-        note: CERC 2023
-  problemset: https://icpcarchive.github.io/Europe%20Contests/Central%20Europe%20Regional%20Contest%20(CERC)/2023%20Central%20Europe%20Regional%20Contest/problems.pdf
+    set: cerc-2023
 - id: cerc-2024
   season: 2025
   name: 2024 ICPC Central Europe Regional Contest
@@ -1193,15 +1471,22 @@ contests:
   - 8979
   parent: euc-2025
   next: cerc-2025
-  web: https://cerc24.ii.uni.wroc.pl/
-  results:
-    scoreboard:
-    - url: https://cerc24.ii.uni.wroc.pl/results.html
-      as_of: '20250309211905'
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: cerc/cerc-2024/scoreboard/20250309-wayback-e069cf95/results.html
-  icpc_standings: https://icpc.global/regionals/finder/Central-Europe-2025/standings
+  sources:
+  - url: https://cerc24.ii.uni.wroc.pl/
+    roles:
+    - web
+  - url: https://cerc24.ii.uni.wroc.pl/results.html
+    roles:
+    - scoreboard
+    as_of: '20250309211905'
+    archived:
+    - cerc/cerc-2024/scoreboard/20250309-wayback-e069cf95/results.html
+    - cerc/cerc-2024/scoreboard/20261020-live-07d86408/results.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Central-Europe-2025/standings
+    roles:
+    - icpc_standings
 - id: cerc-2025
   season: 2026
   name: 2025 ICPC Central Europe Regional Contest
@@ -1210,15 +1495,22 @@ contests:
   - 9356
   parent: euc-2026
   next: cerc-2026
-  web: https://cerc25.ii.uni.wroc.pl/
-  results:
-    scoreboard:
-    - url: https://cerc25.ii.uni.wroc.pl/results.html
-      as_of: '20260218211315'
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: cerc/cerc-2025/scoreboard/20260218-wayback-99cf1604/results.html
-  icpc_standings: https://icpc.global/regionals/finder/Central-Europe-2026/standings
+  sources:
+  - url: https://cerc25.ii.uni.wroc.pl/
+    roles:
+    - web
+  - url: https://cerc25.ii.uni.wroc.pl/results.html
+    roles:
+    - scoreboard
+    as_of: '20260218211315'
+    archived:
+    - cerc/cerc-2025/scoreboard/20260218-wayback-99cf1604/results.html
+    - cerc/cerc-2025/scoreboard/20261020-live-d74c8e2b/results.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Central-Europe-2026/standings
+    roles:
+    - icpc_standings
 - id: cerc-2026
   status: upcoming
   season: 2027

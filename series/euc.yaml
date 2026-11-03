@@ -1,8 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: euc
   name: ICPC Europe Championship
   tier: championship
+  region: Europe
+  naming: season-end
 contests:
 - id: euc-2024
   season: 2024
@@ -13,33 +15,47 @@ contests:
   - 8402
   parent: wf-2024
   next: euc-2025
-  results:
-    scoreboard:
-    - url: https://www.domjudge.org/scoreboard/euc2024/
-      archived: euc/euc-2024/external-standings/2026-04-15-external/content.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    - url: https://chipcie.wisv.ch/archive/2023/euc/scoreboard.html
-      note: added by url-hunt 2026-09-01 (wave5-boards)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: euc/euc-2024/scoreboard/20250709-wayback-b3eec6bd/scoreboard.html
-      as_of: '20250709100239'
-  icpc_standings: https://icpc.global/regionals/finder/EUC-2024/standings
-  web: https://euc.icpc.global/
+  sources:
+  - url: https://euc.icpc.global/
+    roles:
+    - web
+  - url: https://www.domjudge.org/scoreboard/euc2024/
+    roles:
+    - scoreboard
+    as_of: '20240327222108'
+    archived:
+    - euc/euc-2024/external-standings/2026-04-15-external/content.html
+    - euc/euc-2024/scoreboard/20240327-wayback-a79e4357/page.html
+    - euc/euc-2024/scoreboard/20260901-live-4ec8e3a3/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://chipcie.wisv.ch/archive/2023/euc/scoreboard.html
+    roles:
+    - scoreboard
+    as_of: '20250709100239'
+    archived:
+    - euc/euc-2024/scoreboard/20250709-wayback-b3eec6bd/scoreboard.html
+    - euc/euc-2024/scoreboard/20260904-live-46c8646c/scoreboard.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave5-boards)
+  - url: https://icpc.global/regionals/finder/EUC-2024/standings
+    roles:
+    - icpc_standings
+  - url: https://chipcie.wisv.ch/archive/2023/euc/problem-set.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4444
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: The 2024 ICPC European Championship
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 11
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4444
-        note: The 2024 ICPC European Championship
-  problemset: https://chipcie.wisv.ch/archive/2023/euc/problem-set.pdf
+    set: euc-2024
 - id: euc-2025
   season: 2025
   name: 2025 ICPC Europe Championship
@@ -49,27 +65,47 @@ contests:
   - 8960
   parent: wf-2025
   next: euc-2026
-  results:
-    scoreboard:
-    - url: https://www.domjudge.org/scoreboard/euc2025/
-      archived: euc/euc-2025/external-standings/2026-04-15-external/content.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    - url: https://chipcie.wisv.ch/archive/2024/euc/scoreboard.html
-      note: added by url-hunt 2026-09-01 (wave5-boards)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: euc/euc-2025/scoreboard/20260210-wayback-d8d0b3cf/scoreboard.html
-      as_of: '20260210081137'
-  icpc_standings: https://icpc.global/regionals/finder/EUC-2025/standings
-  web: https://euc.icpc.global
-  problemset: https://chipcie.wisv.ch/archive/2024/euc/problem-set.pdf
+  sources:
+  - url: https://euc.icpc.global
+    roles:
+    - web
+  - url: https://www.domjudge.org/scoreboard/euc2025/
+    roles:
+    - scoreboard
+    as_of: '20250321015958'
+    archived:
+    - euc/euc-2025/external-standings/2026-04-15-external/content.html
+    - euc/euc-2025/scoreboard/20250321-wayback-0787c866/page.html
+    - euc/euc-2025/scoreboard/20260901-live-30b7fc30/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://chipcie.wisv.ch/archive/2024/euc/scoreboard.html
+    roles:
+    - scoreboard
+    as_of: '20260210081137'
+    archived:
+    - euc/euc-2025/scoreboard/20260210-wayback-d8d0b3cf/scoreboard.html
+    - euc/euc-2025/scoreboard/20260904-live-84a49f87/scoreboard.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave5-boards)
+  - url: https://icpc.global/regionals/finder/EUC-2025/standings
+    roles:
+    - icpc_standings
+  - url: https://chipcie.wisv.ch/archive/2024/euc/problem-set.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4445
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: The 2025 ICPC European Championship
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4445
-        note: The 2025 ICPC European Championship
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: euc-2025
 - id: euc-2026
   season: 2026
   name: 2026 ICPC Europe Championship
@@ -79,14 +115,22 @@ contests:
   - 9342
   parent: wf-2026
   next: euc-2027
-  results:
-    scoreboard:
-    - url: https://scoreboard.euc.icpc.global/
-      archived: euc/euc-2026/scoreboard/2026-09-01-live-9d4604ba/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-  web: https://euc.icpc.global/
-  problemset: https://euc.icpc.global/problems/2026/EUC2026-problems.pdf
+  sources:
+  - url: https://euc.icpc.global/
+    roles:
+    - web
+  - url: https://scoreboard.euc.icpc.global/
+    roles:
+    - scoreboard
+    archived:
+    - euc/euc-2026/scoreboard/2026-09-01-live-9d4604ba/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://euc.icpc.global/problems/2026/EUC2026-problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: euc-2027
   status: upcoming
   season: 2027

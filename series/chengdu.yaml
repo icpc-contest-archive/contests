@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: chengdu
   name: ICPC Asia Chengdu Regional Contest
+  tier: regional
+  region: Asia East
+  naming: season-start
 contests:
 - id: chengdu-2005
   season: 2006
@@ -12,24 +15,29 @@ contests:
   - 994
   parent: wf-2006
   next: chengdu-2007
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=745
-      as_of: '20071011194551'
-      archived: chengdu/chengdu-2005/standings/2026-09-01-wayback-1f9a90ac/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=745
-      as_of: '20110103172738'
-      archived: chengdu/chengdu-2005/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/regionals/finder/Chengdu-2006/standings
-  web: http://acm.scu.edu.cn
-  problemset:
-    url: http://acm.scu.edu.cn/icpc/problems.htm
+  sources:
+  - url: http://acm.scu.edu.cn
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=745
+    roles:
+    - standings
+    as_of: '20071011194551'
+    archived:
+    - chengdu/chengdu-2005/standings/2026-09-01-wayback-1f9a90ac/page.html
+    - chengdu/chengdu-2005/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: as_of 20110103172738 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Chengdu-2006/standings
+    roles:
+    - icpc_standings
+  - url: http://acm.scu.edu.cn/icpc/problems.htm
+    roles:
+    - problemset
     as_of: '20060225094219'
+    url_state: dead
+    url_checked: '2026-11-02'
 - id: chengdu-2007
   season: 2008
   name: 2007 ACM Asia Programming Contest - Chengdu
@@ -40,21 +48,23 @@ contests:
   - 1151
   parent: wf-2008
   next: chengdu-2008
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=878
-      as_of: '20080915032508'
-      archived: chengdu/chengdu-2007/standings/2026-09-01-wayback-c7e6836b/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=878
-      as_of: '20110924030910'
-      archived: chengdu/chengdu-2007/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/regionals/finder/Chengdu-2008/standings
-  web: http://acm.xhu.edu.cn
+  sources:
+  - url: http://acm.xhu.edu.cn
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=878
+    roles:
+    - standings
+    as_of: '20080915032508'
+    archived:
+    - chengdu/chengdu-2007/standings/2026-09-01-wayback-c7e6836b/page.html
+    - chengdu/chengdu-2007/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: as_of 20110924030910 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Chengdu-2008/standings
+    roles:
+    - icpc_standings
 - id: chengdu-2008
   season: 2009
   name: 2008 Asia Chengdu Contest
@@ -65,18 +75,23 @@ contests:
   - 9
   parent: wf-2009
   next: chengdu-2010
-  web:
-    url: http://acm.swun.edu.cn/
+  sources:
+  - url: http://acm.swun.edu.cn/
+    roles:
+    - web
     as_of: '20090119193831'
-  results:
-    standings:
-    - url: http://acm.swun.edu.cn/viewnews.php?id=33
-      as_of: '20081021050334'
-      archived: chengdu/chengdu-2008/external-standings/2026-04-15-external/content.html
-      note: 'from archived capture (external-standings); snapshot verified at a different locator: http://acm.swun.edu.cn/viewnews.php'
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Chengdu-2009/standings
+  - url: http://acm.swun.edu.cn/viewnews.php?id=33
+    roles:
+    - standings
+    as_of: '20081021050334'
+    archived:
+    - chengdu/chengdu-2008/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 'from archived capture (external-standings); snapshot verified at a different locator: http://acm.swun.edu.cn/viewnews.php'
+  - url: https://icpc.global/regionals/finder/Chengdu-2009/standings
+    roles:
+    - icpc_standings
 - id: chengdu-2010
   season: 2011
   name: 2010 ACM-ICPC Asia Chengdu Regional Contest
@@ -86,27 +101,33 @@ contests:
   - 658
   parent: wf-2011
   next: chengdu-2011
-  results:
-    scoreboard:
-    - url: http://board.acmicpc.info/icpc2010/scu_onsite.php
-      as_of: '20121108180240'
-      archived: chengdu/chengdu-2010/scoreboard/2026-09-01-wayback-d30984f6/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://board.acmicpc.info/icpc2010/scu_onsite.php
-      as_of: '20121108180240'
-      note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: chengdu/chengdu-2010/scoreboard/20121108-wayback-96a47fc4/page.html
-    standings:
-    - url: http://cs.scu.edu.cn/icpc/onsite_result.html
-      archived: chengdu/chengdu-2010/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Chengdu-2011/standings
-  web: http://cs.scu.edu.cn/icpc
+  sources:
+  - url: http://cs.scu.edu.cn/icpc
+    roles:
+    - web
+  - url: http://board.acmicpc.info/icpc2010/scu_onsite.php
+    roles:
+    - scoreboard
+    as_of: '20121108180240'
+    archived:
+    - chengdu/chengdu-2010/scoreboard/2026-09-01-wayback-d30984f6/page.html
+    - chengdu/chengdu-2010/scoreboard/20121108-wayback-96a47fc4/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
+  - url: http://cs.scu.edu.cn/icpc/onsite_result.html
+    roles:
+    - standings
+    as_of: '20110414114515'
+    archived:
+    - chengdu/chengdu-2010/external-standings/2026-04-15-external/content.html
+    - chengdu/chengdu-2010/standings/20110414-wayback-ab7b6801/onsite_result.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Chengdu-2011/standings
+    roles:
+    - icpc_standings
 - id: chengdu-2011
   season: 2012
   name: 2011 ACM-ICPC Asia Chengdu Regional Contest
@@ -116,21 +137,23 @@ contests:
   - 801
   parent: wf-2012
   next: chengdu-2012
-  results:
-    scoreboard:
-    - url: http://board.acmicpc.info/icpc2011/ccniit_onsite.php
-      as_of: '20121018082912'
-      archived: chengdu/chengdu-2011/scoreboard/2026-09-01-wayback-f4e70f68/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://board.acmicpc.info/icpc2011/ccniit_onsite.php
-      as_of: '20121018082912'
-      note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: chengdu/chengdu-2011/scoreboard/20121018-wayback-5bbf9c18/page.html
-  icpc_standings: https://icpc.global/regionals/finder/Chengdu-2012/standings
-  web: http://acm.ccniit.com/a/saishijieguo/2011/1103/23.html
+  sources:
+  - url: http://acm.ccniit.com/a/saishijieguo/2011/1103/23.html
+    roles:
+    - web
+  - url: http://board.acmicpc.info/icpc2011/ccniit_onsite.php
+    roles:
+    - scoreboard
+    as_of: '20121018082912'
+    archived:
+    - chengdu/chengdu-2011/scoreboard/2026-09-01-wayback-f4e70f68/page.html
+    - chengdu/chengdu-2011/scoreboard/20121018-wayback-5bbf9c18/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
+  - url: https://icpc.global/regionals/finder/Chengdu-2012/standings
+    roles:
+    - icpc_standings
 - id: chengdu-2012
   season: 2013
   name: 2012 ACM-ICPC Asia Chengdu Regional Contest
@@ -140,28 +163,33 @@ contests:
   - 1360
   parent: wf-2013
   next: chengdu-2013
-  results:
-    scoreboard:
-    - url: http://board.acmicpc.info/icpc2012/nsu_onsite.php
-      as_of: '20121113210625'
-      archived: chengdu/chengdu-2012/scoreboard/2026-09-01-wayback-74be7097/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://board.acmicpc.info/icpc2012/nsu_onsite.php
-      as_of: '20121113210625'
-      note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: chengdu/chengdu-2012/scoreboard/20121113-wayback-139dfa7b/page.html
-    standings:
-    - url: http://icpc.baylor.edu/public/standings/1360
-      as_of: '20121211014910'
-      archived: chengdu/chengdu-2012/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/regionals/finder/Chengdu-2013/standings
-  web: http://acm.nsu.edu.cn
+  sources:
+  - url: http://acm.nsu.edu.cn
+    roles:
+    - web
+  - url: http://board.acmicpc.info/icpc2012/nsu_onsite.php
+    roles:
+    - scoreboard
+    as_of: '20121113210625'
+    archived:
+    - chengdu/chengdu-2012/scoreboard/2026-09-01-wayback-74be7097/page.html
+    - chengdu/chengdu-2012/scoreboard/20121113-wayback-139dfa7b/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
+  - url: http://icpc.baylor.edu/public/standings/1360
+    roles:
+    - standings
+    as_of: '20121211014910'
+    archived:
+    - chengdu/chengdu-2012/external-standings/2026-04-15-external/content.html
+    - chengdu/chengdu-2012/standings/20121211-wayback-1f924f6c/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Chengdu-2013/standings
+    roles:
+    - icpc_standings
 - id: chengdu-2013
   season: 2014
   name: 2013 ACM-ICPC Asia Chengdu Regional Contest
@@ -171,21 +199,23 @@ contests:
   - 1911
   parent: wf-2014
   next: chengdu-2024
-  results:
-    scoreboard:
-    - url: http://board.acmicpc.info/icpc2013/uestc_onsite.php
-      as_of: '20131022024903'
-      archived: chengdu/chengdu-2013/scoreboard/2026-09-01-wayback-b2aebc98/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://board.acmicpc.info/icpc2013/uestc_onsite.php
-      as_of: '20131022024903'
-      note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: chengdu/chengdu-2013/scoreboard/20131022-wayback-c410463d/page.html
-  icpc_standings: https://icpc.global/regionals/finder/Chengdu-2014/standings
-  web: http://acm.uestc.edu.cn/ContestService/
+  sources:
+  - url: http://acm.uestc.edu.cn/ContestService/
+    roles:
+    - web
+  - url: http://board.acmicpc.info/icpc2013/uestc_onsite.php
+    roles:
+    - scoreboard
+    as_of: '20131022024903'
+    archived:
+    - chengdu/chengdu-2013/scoreboard/2026-09-01-wayback-b2aebc98/page.html
+    - chengdu/chengdu-2013/scoreboard/20131022-wayback-c410463d/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
+  - url: https://icpc.global/regionals/finder/Chengdu-2014/standings
+    roles:
+    - icpc_standings
 - id: chengdu-2024
   season: 2025
   name: 2024 ICPC Asia Chengdu Regional Contest
@@ -195,14 +225,23 @@ contests:
   - 9094
   parent: wf-2025
   next: chengdu-2025
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/105486/standings
-      archived: chengdu/chengdu-2024/scoreboard/2026-09-01-live-60c33c9b/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Chengdu-2025/standings
-  problemset: https://codeforces.com/gym/105486
+  sources:
+  - url: https://codeforces.com/gym/105486/standings
+    roles:
+    - scoreboard
+    archived:
+    - chengdu/chengdu-2024/scoreboard/2026-09-01-live-60c33c9b/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Chengdu-2025/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/105486
+    roles:
+    - problemset
+    as_of: '20250701050042'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: chengdu-2025
   season: 2026
   name: 2025 ICPC Asia Chengdu Regional Contest
@@ -212,14 +251,22 @@ contests:
   - 9226
   parent: wf-2026
   next: chengdu-2026
-  results:
-    standings:
-    - url: https://icpc-iiitdm.vercel.app/Icpc%202025/ICPC%20Chennai%20Onsite%202025-%20Final%20Ranklist.pdf
-      archived: chengdu/chengdu-2025/standings/2026-09-01-live-3ea8bdc5/page.pdf
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Chengdu-2026/standings
-  problemset: https://codeforces.com/gym/106161
+  sources:
+  - url: https://icpc-iiitdm.vercel.app/Icpc%202025/ICPC%20Chennai%20Onsite%202025-%20Final%20Ranklist.pdf
+    roles:
+    - standings
+    archived:
+    - chengdu/chengdu-2025/standings/2026-09-01-live-3ea8bdc5/page.pdf
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Chengdu-2026/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/106161
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: chengdu-2026
   status: upcoming
   season: 2027

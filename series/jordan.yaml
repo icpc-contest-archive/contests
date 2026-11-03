@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: jordan
   name: ICPC Jordanian Collegiate Programming Contest
+  tier: subregional
+  region: Africa & Arab
+  naming: season-start
 contests:
 - id: jordan-2011
   season: 2012
@@ -12,21 +15,26 @@ contests:
   - 929
   parent: acpc-2011
   next: jordan-2012
-  results:
-    scoreboard:
-    - url: http://www.acmacpc.org/jordan/Archive/JCPC2011Resultssummary.html
-      as_of: '20131119235555'
-      archived: jordan/jordan-2011/scoreboard/2026-09-01-wayback-adeddacf/JCPC2011Resultssummary.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.acmacpc.org/jordan
-      as_of: '20141225163133'
-      archived: jordan/jordan-2011/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  web: http://www.acmacpc.org/jordan
+  sources:
+  - url: http://www.acmacpc.org/jordan
+    roles:
+    - web
+    - standings
+    as_of: '20141225163133'
+    archived:
+    - jordan/jordan-2011/external-standings/2026-04-15-external/content.html
+    - jordan/jordan-2011/standings/20121226-wayback-8dd2366e/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: http://www.acmacpc.org/jordan/Archive/JCPC2011Resultssummary.html
+    roles:
+    - scoreboard
+    as_of: '20131119235555'
+    archived:
+    - jordan/jordan-2011/scoreboard/2026-09-01-wayback-adeddacf/JCPC2011Resultssummary.html
+    url_state: dead
+    url_checked: '2026-11-02'
 - id: jordan-2012
   season: 2013
   name: 2012 Jordanian Collegiate Programming Contest
@@ -36,34 +44,44 @@ contests:
   - 1351
   parent: acpc-2012
   next: jordan-2013
-  results:
-    scoreboard:
-    - url: http://www.acmacpc.org/jordan/Archive/JCPC2012Resultssummary.html
-      as_of: '20131118214849'
-      archived: jordan/jordan-2012/scoreboard/2026-09-01-wayback-bcd9e912/JCPC2012Resultssummary.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://jordan.acmacpc.org/Archive/JCPCarchive.html
-      as_of: '20131108050251'
-      archived: jordan/jordan-2012/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/JCPC-2013/standings
-  web: http://jordan.acmacpc.org/
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1158
-        as_of: '20201022012838'
-        note: JCPC 2012
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/1158
-    as_of: '20201022012838'
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: http://jordan.acmacpc.org/
+    roles:
+    - web
+  - url: http://www.acmacpc.org/jordan/Archive/JCPC2012Resultssummary.html
+    roles:
+    - scoreboard
+    as_of: '20131118214849'
+    archived:
+    - jordan/jordan-2012/scoreboard/2026-09-01-wayback-bcd9e912/JCPC2012Resultssummary.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://jordan.acmacpc.org/Archive/JCPCarchive.html
+    roles:
+    - standings
+    as_of: '20131108050251'
+    archived:
+    - jordan/jordan-2012/external-standings/2026-04-15-external/content.html
+    - jordan/jordan-2012/standings/20121128-wayback-87938bfc/JCPCarchive.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/JCPC-2013/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/1158
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20201022012838'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      JCPC 2012
+  problems:
+    set: jordan-2012
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - id: jordan-2013
   season: 2014
@@ -74,12 +92,16 @@ contests:
   - 2053
   parent: acpc-2013
   next: jordan-2014
-  web:
-    url: https://jordan.acmacpc.org/
+  sources:
+  - url: https://jordan.acmacpc.org/
+    roles:
+    - web
     as_of: '20131109042027'
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/JCPC-2014/standings
-    archived: jordan/jordan-2013/standings/api-20260904/standings.html
+  - url: https://icpc.global/regionals/finder/JCPC-2014/standings
+    roles:
+    - icpc_standings
+    archived:
+    - jordan/jordan-2013/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 2053, 79 teams, DB fetch 2026-04-26)
 - id: jordan-2014
   season: 2015
@@ -90,9 +112,12 @@ contests:
   - 2643
   parent: acpc-2014
   next: jordan-2015
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/JCPC-2015/standings
-    archived: jordan/jordan-2014/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/JCPC-2015/standings
+    roles:
+    - icpc_standings
+    archived:
+    - jordan/jordan-2014/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 2643, 96 teams, DB fetch 2026-04-26)
 - id: jordan-2015
   season: 2016
@@ -103,11 +128,16 @@ contests:
   - 2851
   parent: acpc-2015
   next: jordan-2016
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/JCPC-2016/standings
-    archived: jordan/jordan-2015/standings/api-20260904/standings.html
+  sources:
+  - url: http://acmacpc.org/jordan
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/JCPC-2016/standings
+    roles:
+    - icpc_standings
+    archived:
+    - jordan/jordan-2015/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 2851, 92 teams, DB fetch 2026-04-26)
-  web: http://acmacpc.org/jordan
 - id: jordan-2016
   season: 2017
   name: 2016 Jordanian Collegiate Programming Contest
@@ -117,9 +147,12 @@ contests:
   - 3176
   parent: acpc-2016
   next: jordan-2017
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/JCPC-2017/standings
-    archived: jordan/jordan-2016/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/JCPC-2017/standings
+    roles:
+    - icpc_standings
+    archived:
+    - jordan/jordan-2016/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3176, 83 teams, DB fetch 2026-04-26)
 - id: jordan-2017
   season: 2018
@@ -130,14 +163,25 @@ contests:
   - 3355
   parent: acpc-2017
   next: jordan-2018
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/101608/standings
-      archived: jordan/jordan-2017/scoreboard/2026-09-01-live-60aa0390/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/JCPC-2018/standings
-  problemset: https://codeforces.com/gym/101608
+  sources:
+  - url: https://codeforces.com/gym/101608/standings
+    roles:
+    - scoreboard
+    as_of: '20190408211629'
+    archived:
+    - jordan/jordan-2017/scoreboard/2026-09-01-live-60aa0390/page.html
+    - jordan/jordan-2017/scoreboard/20190408-wayback-947b4a61/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/JCPC-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/101608
+    roles:
+    - problemset
+    as_of: '20190409003130'
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: jordan-2018
   season: 2019
   name: 2018 Jordanian Collegiate Programming Contest
@@ -147,9 +191,12 @@ contests:
   - 3610
   parent: acpc-2018
   next: jordan-2019
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/JCPC-2019/standings
-    archived: jordan/jordan-2018/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/JCPC-2019/standings
+    roles:
+    - icpc_standings
+    archived:
+    - jordan/jordan-2018/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3610, 88 teams, DB fetch 2026-04-26)
 - id: jordan-2019
   season: 2020
@@ -160,9 +207,12 @@ contests:
   - 4047
   parent: acpc-2019
   next: jordan-2020
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/JCPC-2020/standings
-    archived: jordan/jordan-2019/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/JCPC-2020/standings
+    roles:
+    - icpc_standings
+    archived:
+    - jordan/jordan-2019/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4047, 50 teams, DB fetch 2026-04-26)
 - id: jordan-2020
   season: 2021
@@ -174,9 +224,12 @@ contests:
   - 4459
   parent: acpc-2020
   next: jordan-2021
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/JCPC-2021/standings
-    archived: jordan/jordan-2020/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/JCPC-2021/standings
+    roles:
+    - icpc_standings
+    archived:
+    - jordan/jordan-2020/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4459, 102 teams, DB fetch 2026-04-26)
 - id: jordan-2021
   season: 2022
@@ -188,9 +241,12 @@ contests:
   - 4816
   parent: acpc-2021
   next: jordan-2022
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/JCPC-2022/standings
-    archived: jordan/jordan-2021/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/JCPC-2022/standings
+    roles:
+    - icpc_standings
+    archived:
+    - jordan/jordan-2021/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4816, 37 teams, DB fetch 2026-04-26)
 - id: jordan-2022
   season: 2023
@@ -202,16 +258,26 @@ contests:
   - 5447
   parent: acpc-2022
   next: jordan-2023
-  icpc_standings: https://icpc.global/regionals/finder/JCPC-2023/standings
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/104147/standings
-      as_of: '20260728140652'
-      note: added by url-hunt 2026-09-01 (wave3-cfgym)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: jordan/jordan-2022/scoreboard/20260728-wayback-1869c3fb/page.html
-  problemset: https://codeforces.com/gym/104147
+  sources:
+  - url: https://codeforces.com/gym/104147/standings
+    roles:
+    - scoreboard
+    as_of: '20260728140652'
+    archived:
+    - jordan/jordan-2022/scoreboard/20260728-wayback-1869c3fb/page.html
+    - jordan/jordan-2022/scoreboard/20260902-live-e3641d6a/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-cfgym)
+  - url: https://icpc.global/regionals/finder/JCPC-2023/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/104147
+    roles:
+    - problemset
+    as_of: '20260728140652'
+    url_state: replaced
+    url_checked: '2026-11-02'
 - id: jordan-2023
   season: 2024
   name: 2023 ICPC Jordanian Collegiate Programming Contest
@@ -221,14 +287,18 @@ contests:
   - 7616
   parent: acpc-2023
   next: jordan-2024
-  results:
-    scoreboard:
-    - url: https://scoreboard.acpc.global/jcpc2023/
-      as_of: '20260810134433'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: jordan/jordan-2023/scoreboard/20260810-wayback-c7f37fed/page.html
-  icpc_standings: https://icpc.global/regionals/finder/JCPC-2024/standings
+  sources:
+  - url: https://scoreboard.acpc.global/jcpc2023/
+    roles:
+    - scoreboard
+    as_of: '20260810134433'
+    archived:
+    - jordan/jordan-2023/scoreboard/20260810-wayback-c7f37fed/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/JCPC-2024/standings
+    roles:
+    - icpc_standings
 - id: jordan-2024
   season: 2025
   name: 2024 ICPC Jordanian Collegiate Programming Contest
@@ -238,14 +308,18 @@ contests:
   - 8787
   parent: acpc-2024
   next: jordan-2025
-  results:
-    frozen_scoreboard:
-    - url: https://scoreboard.acpc.global/jcpc2024/
-      as_of: '20260810134335'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: jordan/jordan-2024/frozen_scoreboard/20260810-wayback-5291d956/page.html
-  icpc_standings: https://icpc.global/regionals/finder/JCPC-2025/standings
+  sources:
+  - url: https://scoreboard.acpc.global/jcpc2024/
+    roles:
+    - frozen_scoreboard
+    as_of: '20260810134335'
+    archived:
+    - jordan/jordan-2024/frozen_scoreboard/20260810-wayback-5291d956/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/JCPC-2025/standings
+    roles:
+    - icpc_standings
 - id: jordan-2025
   season: 2026
   name: 2025 ICPC Jordanian Collegiate Programming Contest
@@ -255,14 +329,18 @@ contests:
   - 9269
   parent: acpc-2025
   next: jordan-2026
-  results:
-    frozen_scoreboard:
-    - url: https://scoreboard.acpc.global/jcpc2025/
-      as_of: '20260810134335'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: jordan/jordan-2025/frozen_scoreboard/20260810-wayback-2dbe55a4/page.html
-  icpc_standings: https://icpc.global/regionals/finder/JCPC-2026/standings
+  sources:
+  - url: https://scoreboard.acpc.global/jcpc2025/
+    roles:
+    - frozen_scoreboard
+    as_of: '20260810134335'
+    archived:
+    - jordan/jordan-2025/frozen_scoreboard/20260810-wayback-2dbe55a4/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/JCPC-2026/standings
+    roles:
+    - icpc_standings
 - id: jordan-2026
   status: upcoming
   season: 2027

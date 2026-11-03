@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: east-na
   name: North America East Division
+  tier: regional
+  region: North America
+  naming: season-start
 contests:
 - id: east-na-2023
   season: 2024
@@ -12,24 +15,32 @@ contests:
   - 7464
   parent: nac-2024
   next: east-na-2024
-  results:
-    scoreboard:
-    - url: https://naeast23.kattis.com/contests/naeast23/standings
-      archived: east-na/east-na-2023/scoreboard/2026-09-01-live-5ef14097/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/East-Central-NA-2024/standings
-  web: http://na.icpc.global/nena
+  sources:
+  - url: http://na.icpc.global/nena
+    roles:
+    - web
+  - url: https://naeast23.kattis.com/contests/naeast23/standings
+    roles:
+    - scoreboard
+    as_of: '20231102034314'
+    archived:
+    - east-na/east-na-2023/scoreboard/2026-09-01-live-5ef14097/page.html
+    - east-na/east-na-2023/scoreboard/20231102-wayback-05ebcccb/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/East-Central-NA-2024/standings
+    roles:
+    - icpc_standings
+  - url: https://naeast23.kattis.com/contests/naeast23/problems
+    roles:
+    - problemset
+    - judge_page
+    judge: kattis
+    as_of: '20240223023315'
+    url_state: replaced
+    url_checked: '2026-11-02'
   problems:
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://naeast23.kattis.com/contests/naeast23/problems
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://naeast23.kattis.com/contests/naeast23/problems
+    set: east-na-2023
 - id: east-na-2024
   season: 2025
   name: 2024 North America East Division
@@ -39,16 +50,27 @@ contests:
   - 8928
   parent: nac-2025
   next: east-na-2025
-  results:
-    scoreboard:
-    - url: https://naeast24.kattis.com/contests/naeast24/standings
-      archived: east-na/east-na-2024/scoreboard/2026-09-01-live-332ca5a3/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northeast-North-America-2025/standings
+  sources:
+  - url: https://naeast24.kattis.com/contests/naeast24/standings
+    roles:
+    - scoreboard
+    as_of: '20241112155458'
+    archived:
+    - east-na/east-na-2024/scoreboard/2026-09-01-live-332ca5a3/page.html
+    - east-na/east-na-2024/scoreboard/20241112-wayback-234c8029/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northeast-North-America-2025/standings
+    roles:
+    - icpc_standings
+  - url: https://naeast24.kattis.com/contests/naeast24/problems
+    roles:
+    - problemset
+    as_of: '20241212022057'
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    source: Kattis problem export (2026-11-01)
-  problemset: https://naeast24.kattis.com/contests/naeast24/problems
+    set: east-na-2024
 - id: east-na-2025
   season: 2026
   name: 2025 North America East Division
@@ -58,17 +80,29 @@ contests:
   - 9340
   parent: nac-2026
   next: east-na-2026
-  results:
-    scoreboard:
-    - url: https://naeast25.kattis.com/contests/naeast25/standings
-      archived: east-na/east-na-2025/scoreboard/2026-09-01-live-65bb35a6/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/East-Central-NA-2026/standings
-  web: https://ne.na.icpc.global/
+  sources:
+  - url: https://ne.na.icpc.global/
+    roles:
+    - web
+  - url: https://naeast25.kattis.com/contests/naeast25/standings
+    roles:
+    - scoreboard
+    as_of: '20251129033306'
+    archived:
+    - east-na/east-na-2025/scoreboard/2026-09-01-live-65bb35a6/page.html
+    - east-na/east-na-2025/scoreboard/20251129-wayback-fade2412/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/East-Central-NA-2026/standings
+    roles:
+    - icpc_standings
+  - url: https://naeast25.kattis.com/contests/naeast25/problems
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    source: Kattis problem export (2026-11-01)
-  problemset: https://naeast25.kattis.com/contests/naeast25/problems
+    set: east-na-2025
 - id: east-na-2026
   status: upcoming
   season: 2027

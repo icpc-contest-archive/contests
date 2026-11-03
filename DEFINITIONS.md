@@ -26,7 +26,10 @@ CMS DB entry remains *considered*.
 used historically: fall regionals carry the season-start year; World Finals and
 championships carry the season-end year. `season` stores the season **end** year
 explicitly (equals the CMS DB's `icpc_year`), so `nwerc-2018` has `season: 2019` and
-feeds `wf-2019`. Dates can drift from the name year (January contests, COVID
+feeds `wf-2019`. Which pattern a series follows is recorded as `naming` on its header
+(`season-start` for fall-named series, `season-end` for the World Finals and
+championships); a delayed or early edition keeps the pattern, so a fall regional moved to
+January 2021 is still `<series>-2020` — successive editions keep successive numbers. Dates can drift from the name year (January contests, COVID
 postponements — `wf-2022` ran in Luxor on 2024-04-19); the name year is the season label,
 not the calendar date.
 
@@ -47,28 +50,48 @@ not the calendar date.
 - `subset_of` — the NA-division double layer: `seusa-2024` is a regional-level view of
   the combined `south-na-2024` division contest, sharing its CMS ids. Both are real;
   counting or coverage tooling must dedupe along this edge.
-- `results` — per-artifact source lists, in decreasing information order:
+- `sources` — every address of the contest, one entry per URL with the **roles** it
+  serves: `{url, roles: [...], as_of?, also_at?, judge?, archived?, fetched?, url_state?,
+  url_checked?, note?}` (see *Resources* below). Roles: `web` (the contest website;
+  `also_at` lists mirrors of it), the result tiers in decreasing information order
   `scoreboard` (full, per-problem) > `frozen_scoreboard` > `standings` (totals only) >
-  `rankings` (order only). Each entry is `{url, as_of?, archived?, fetched?, note?}`
-  (see *Resources* below); `archived` references the (separate) archive repo by
-  `<contest-id>/<artifact>/<fetch-date>`.
-- `web` — the contest website: a URL, or `{url, as_of}` when the live address is gone
-  and the site as of a Wayback snapshot is what is meant; a list for multi-site
-  contests. `mirrors[]` and `problemset` take the same form.
-- `icpc_standings` — the CMS finder page
-  (`https://icpc.global/regionals/finder/<abbrev>-<year>/standings`).
-- Series headers may carry `tier: championship` (nac, awc, euc, apc, lac, aec, nadc —
-  the layer skipped when deriving hierarchy depth), derived `lineage` events
+  `rankings` (order only) > `icpc_standings` (the CMS finder page,
+  `https://icpc.global/regionals/finder/<abbrev>-<year>/standings`), `teams`,
+  `problemset`, `problem`, and `judge_page` (an online judge hosting the problems;
+  `judge: kattis|livearchive|baekjoon|codeforces`). A page that is both the results and
+  the problem set is one source with two roles. `archived` references the (separate)
+  archive repo by `<contest-id>/<artifact>/<fetch-date>`. `none: [role, ...]` lists
+  roles confirmed to have no source; a role in neither is not yet researched.
+  `tools/catalogue.py` is the one reader (`by_role`, `has_role`, `best_result`, …).
+- `archived` is a **list**: one address is often captured under several roles or in
+  several runs, and every capture pointer is kept. `also_at` entries are a bare URL or
+  `{url, as_of}` when the mirror itself is a Wayback-era address.
+- `provenance` — free-text lines recording where the entry's facts came from.
+- Series headers carry `tier` (`world-finals` | `championship` | `regional` |
+  `subregional` — championships are the continental layer skipped when deriving
+  hierarchy depth; subregional = qualifiers, national/site rounds and regional-level
+  views of a division), `region` (one of the eight ICPC super-regions; championships
+  take the region they are the championship of, the World Finals has none), `naming`
+  (`season-start` | `season-end`: which half of the season the id's year names — see
+  *Naming*; validate.py checks every id against it), derived `lineage` events
   (`continues-as` / `continues-from` with the boundary year), `aliases` (old ids), and
   `rotating_host` (Asia host-city series where year gaps are structural).
+
+### Naming the URL layer (2026-11-02 redesign)
+
+The user-facing words are **source** (a catalogued address with roles and health —
+what a contest page lists), **snapshot** (that address at one time: a Wayback
+snapshot, or our live fetch) and **capture** (our stored copy of a snapshot, with
+provenance). The code and the paragraphs below still say *locator* for source and
+*resource* for snapshot; they mean the same things.
 
 ## Resources
 
 Three things used to be called "URL"; they are distinct.
 
 - A **locator** is a URL as an *address*, with no time attached:
-  `http://icpc.baylor.edu/past/EarlyYears.html`. Catalogue fields hold locators only —
-  `results.*[].url`, `web`, `mirrors[].url`, `problemset`. A locator has a *health*
+  `http://icpc.baylor.edu/past/EarlyYears.html`. The catalogue holds locators only —
+  `sources[].url` and `sources[].also_at[]`. A locator has a *health*
   (`url_state` at `url_checked`) but no content of its own; content exists only at a time.
   A locator may carry **`as_of`**, a timestamp meaning "the content we mean is what this
   address served at this time" — recorded when a result was found on the Wayback
@@ -120,24 +143,34 @@ Wayback URL.
 
 The ICPC Problem Archive (the private `icpc-problem-archive` GitHub org) holds the
 problem material; this catalogue tracks *what* it holds and where the problems can be
-solved online. Two levels:
+solved online. Since 2026-11-02 a **problem set is its own object** (one set can serve
+several contests: NCPC + UKIEPC 2013, shared North American sets):
 
-- **Per contest**, `problems:` on the contest entry: `repo` (the archive repo —
-  `icpc-problem-archive/<name>`; the name usually equals the contest id but need not, e.g.
-  `benelux-2022` for `bapc-2022`, and `statement-only` for contests with statements only),
-  `count` (number of problems), and one of `full` / `partial` / `none` for each kind of
-  material: `statement`, `data`, `solutions`, `package`. `counts:` gives the exact number
-  held for kinds marked partial (full and none are implied by `count`). `judges:` is an
-  open map of judge → locator(s): `kattis`, `livearchive` (ICPC Live Archive, formerly
-  icpcarchive.ecs.baylor.edu, now onlinejudge.org), `baekjoon` (acmicpc.net), `codeforces`;
-  add keys as sources appear. `notes` and `source` as elsewhere.
-- **Per problem**, `problems/<contest-id>.yaml`: `letter` (the label in this contest),
-  `name`, optional `short_name` (package / Kattis short name), `uuid` (the package's
-  `problem.yaml` uuid — the same across contests that reuse the problem), `have` (subset
-  of statement, data, input_validator, output_validator, solutions, package), `judges`,
-  `status: private` for problems kept private after the contest (name and uuid are still
-  public), `notes`. When this file exists it is authoritative: `count` and the four
-  full/partial/none states on the contest must agree with it (validate.py checks).
+- **Per contest**, `problems: {set: <set-id>, note?}` — only the link to the set.
+- **Per set**, `problemsets/<set-id>.yaml` (`schema/problemsets.schema.json`): `id`,
+  optional `name`, `repo` (the archive repo — `icpc-problem-archive/<name>`; the name
+  usually equals the contest id but need not, e.g. `benelux-2022` for `bapc-2022`, and
+  `statement-only` for statements only), `count`, `complete`, and one of `full` /
+  `partial` / `none` for each kind of material: `statement`, `data`, `solutions`,
+  `package`, with `counts:` giving the exact number for kinds marked partial.
+  `contests:` lists the contests that used the set, each with its own `letters:` map
+  (letter → problem id; letters can differ between contests sharing a set);
+  `letters: unknown` on the set says no map is known for any contest. `problems:` lists
+  the problems when known (`id` = internal permanent `p-xxxxxxxx` id, the page key;
+  `uuid` = the package's `problem.yaml` uuid, the same across sets that reuse the
+  problem; `name`, `short_name`, `have` (subset of statement, data, input_validator,
+  output_validator, solutions, package), `status: private`, `judges`, `notes`). When the
+  list is present the holdings must agree with it (validate.py checks).
+- **Judges.** `judges.yaml` at the repo root is the registry of online judges (id, name,
+  url, `problem_url` pattern, status, `closed` date — Baekjoon closed 2026-04-28). A
+  contest's judge *pages* are sources with role `judge_page` (+ `judge: <id>`); a
+  problem's judge links are its `judges: [{judge, url, id?, as_of?}]` list. Both refer to
+  the registry by id.
+
+The site renders a page per set (`problemset/<set-id>.html`), per problem
+(`problem/<pid>.html`, aggregating every appearance), the set index
+(`problemsets/index.html`) and the judge registry (`judges/index.html`); the contest
+page's Problems section shows the set's holdings with this contest's letters.
 
 **Publication rule.** Nothing about a contest's problems — not the names, not the count —
 is public before the contest has run. `validate.py` fails the build when a contest that is
@@ -163,5 +196,5 @@ The initial import came from the "ICPC contest list / Main list" sheet
 holdings came from the "ICPC Problem Archive progress" sheet (`data/import/`,
 `tools/import_problem_archive.py`, disagreements in `reports/problem-archive-import-*.md`). From this import on,
 **this repo is the source of truth**; edits happen here, with git history as the audit
-trail. `sources:` and `notes:` on a contest record where facts came from;
+trail. `provenance:` and `notes:` on a contest record where facts came from;
 `reports/open-warnings.md` tracks the judgment calls still open.

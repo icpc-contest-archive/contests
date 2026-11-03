@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: bulgaria
   name: Bulgarian Collegiate Programming Contest
+  tier: subregional
+  region: Europe
+  naming: season-start
 contests:
 - id: bulgaria-2010
   season: 2011
@@ -12,7 +15,10 @@ contests:
   - 667
   parent: seerc-2010
   next: bulgaria-2011
-  web: http://acm.ro/Romania/call_for_participation.htm
+  sources:
+  - url: http://acm.ro/Romania/call_for_participation.htm
+    roles:
+    - web
 - id: bulgaria-2011
   season: 2012
   name: 2011 Bulgarian Collegiate Programming Contest
@@ -22,14 +28,25 @@ contests:
   - 786
   parent: seerc-2011
   next: bulgaria-2012
-  web: https://bcpc.eu/XXIII/
-  results:
-    scoreboard:
-    - url: https://bcpc.eu/XXIII/?page=classification
-      archived: bulgaria/bulgaria-2011/scoreboard/2026-09-01-live-5eac6fcb/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  problemset: https://bcpc.eu/XXIII/?page=problems
+  sources:
+  - url: https://bcpc.eu/XXIII/
+    roles:
+    - web
+  - url: https://bcpc.eu/XXIII/?page=classification
+    roles:
+    - scoreboard
+    as_of: '20121103170604'
+    archived:
+    - bulgaria/bulgaria-2011/scoreboard/2026-09-01-live-5eac6fcb/page.html
+    - bulgaria/bulgaria-2011/scoreboard/20121103-wayback-8171e124/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://bcpc.eu/XXIII/?page=problems
+    roles:
+    - problemset
+    as_of: '20130719235028'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: bulgaria-2012
   season: 2013
   name: 2012 Bulgarian Collegiate Programming Contest
@@ -39,22 +56,36 @@ contests:
   - 1333
   parent: seerc-2012
   next: bulgaria-2013
-  web: https://bcpc.eu/XXIV/
-  results:
-    scoreboard:
-    - url: https://bcpc.eu/XXIV/files/ranking.pdf
-      archived: bulgaria/bulgaria-2012/scoreboard/2026-09-01-live-d2983e2d/ranking.pdf
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://bcpc.eu/XXIV/?page=classification
-      archived: bulgaria/bulgaria-2012/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-  problemset:
-    url: http://bcpc.eu/XXIV/files/tasks.pdf
+  sources:
+  - url: https://bcpc.eu/XXIV/
+    roles:
+    - web
+  - url: https://bcpc.eu/XXIV/files/ranking.pdf
+    roles:
+    - scoreboard
+    as_of: '20201230030625'
+    archived:
+    - bulgaria/bulgaria-2012/scoreboard/2026-09-01-live-d2983e2d/ranking.pdf
+    - bulgaria/bulgaria-2012/scoreboard/20201230-wayback-aa7a4b4e/ranking.pdf
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://bcpc.eu/XXIV/?page=classification
+    roles:
+    - standings
+    as_of: '20220129035231'
+    archived:
+    - bulgaria/bulgaria-2012/external-standings/2026-04-15-external/content.html
+    - bulgaria/bulgaria-2012/standings/20220129-wayback-3ba3c7bf/page.html
+    - bulgaria/bulgaria-2012/standings/20260904-live-fb71a2bb/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: http://bcpc.eu/XXIV/files/tasks.pdf
+    roles:
+    - problemset
     as_of: '20201230030624'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: bulgaria-2013
   season: 2014
   name: 2013 Bulgarian Collegiate Programming Contest
@@ -62,16 +93,24 @@ contests:
   - 2003
   parent: seerc-2013
   next: null
-  web: https://bcpc.eu/XXV/
-  results:
-    scoreboard:
-    - url: https://bcpc.eu/XXV/summary.html
-      archived: bulgaria/bulgaria-2013/scoreboard/2026-09-01-live-a3edfff7/summary.html
-      url_state: live
-      url_checked: '2026-11-02'
-  problems:
-    notes: No date, no teams
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://bcpc.eu/XXV/TrainingTasks.pdf
+  sources:
+  - url: https://bcpc.eu/XXV/
+    roles:
+    - web
+  - url: https://bcpc.eu/XXV/summary.html
+    roles:
+    - scoreboard
+    as_of: '20201230031027'
+    archived:
+    - bulgaria/bulgaria-2013/scoreboard/2026-09-01-live-a3edfff7/summary.html
+    - bulgaria/bulgaria-2013/scoreboard/20201230-wayback-82c9e100/summary.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://bcpc.eu/XXV/TrainingTasks.pdf
+    roles:
+    - problemset
     as_of: '20201230031026'
+    url_state: live
+    url_checked: '2026-11-02'
+  problems:
+    set: bulgaria-2013

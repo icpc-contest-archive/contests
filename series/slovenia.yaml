@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: slovenia
   name: ICPC Slovenian Programming Contest
+  tier: subregional
+  region: Europe
+  naming: season-start
 contests:
 - id: slovenia-2009
   season: 2010
@@ -10,11 +13,20 @@ contests:
   - 573
   parent: cerc-2009
   next: slovenia-2010
-  web: http://upm.fri.uni-lj.si/
-  mirrors:
-  - url: https://tekmovanja.acm.si/?q=upm/zgodovina-upm
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
   sources:
+  - url: http://upm.fri.uni-lj.si/
+    roles:
+    - web
+    also_at:
+    - https://tekmovanja.acm.si/?q=upm/zgodovina-upm
+  - url: https://putka-upm.acm.si/tasks/s/2009/finale/list/
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  problems:
+    set: slovenia-2009
+  provenance:
   - 'UP FAMNIT DIST - seminar ''University programming marathon'' by Nino Bašić (2016-11-26): ''The University
     of Primorska participates in the UPM each year since 2003, and in the CERC since 2005'' - UPM ran
     every year from 2003, which brackets 2009. — https://dist.famnit.upr.si/?p=357 [existence hunt 2026-10-22]'
@@ -24,10 +36,6 @@ contests:
   - 'Gimnazija Vič - UPM 2010 report (2010): Describes the full 2010 cycle (preliminary round, rounds
     1-3, final on 23 Oct 2010) - the series was running in the immediately following year with an established
     format. — https://www.gimvic.org/dogodki/upm_2010/ [existence hunt 2026-10-22]'
-  problems:
-    notes: No date, no teams
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://putka-upm.acm.si/tasks/s/2009/finale/list/
 - id: slovenia-2010
   season: 2011
   name: 2010 Slovenian Programming Contest
@@ -35,11 +43,20 @@ contests:
   - 639
   parent: cerc-2010
   next: slovenia-2011
-  web: http://upm.fri.uni-lj.si/
-  mirrors:
-  - url: https://tekmovanja.acm.si/?q=upm/zgodovina-upm
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
   sources:
+  - url: http://upm.fri.uni-lj.si/
+    roles:
+    - web
+    also_at:
+    - https://tekmovanja.acm.si/?q=upm/zgodovina-upm
+  - url: https://putka-upm.acm.si/tasks/s/2010/finale/list/
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  problems:
+    set: slovenia-2010
+  provenance:
   - 'Gimnazija Vič (high school) event report by participant Jure Slak (2010): ''V soboto, 23.10.2010
     je na fakulteti za matematiko in fiziko v Ljubljani potekal finale'' - the UPM 2010 final was held
     Saturday 23 Oct 2010 at FMF Ljubljana; 23 teams registered (16 Ljubljana, 4 Koper, 3 Maribor); Piton
@@ -50,10 +67,6 @@ contests:
     hosted at UP FAMNIT with ACM Slovenia; ''Results of the competition are available at'' upm.si - shows
     the series and its results site were continuous across 2010-2011. — https://dist.famnit.upr.si/?p=168
     [existence hunt 2026-10-22]'
-  problems:
-    notes: No date, no teams
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://putka-upm.acm.si/tasks/s/2010/finale/list/
 - id: slovenia-2011
   season: 2012
   name: 2011 Slovenian Programming Contest
@@ -62,11 +75,17 @@ contests:
   - 772
   parent: cerc-2011
   next: slovenia-2012
-  web: http://www.upm.si
+  sources:
+  - url: http://www.upm.si
+    roles:
+    - web
+  - url: https://putka-upm.acm.si/tasks/s/2011/finale/list/
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    notes: No date, no teams
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://putka-upm.acm.si/tasks/s/2011/finale/list/
+    set: slovenia-2011
 - id: slovenia-2012
   season: 2013
   name: 2012 Slovenian Programming Contest
@@ -74,18 +93,25 @@ contests:
   - 1322
   parent: cerc-2012
   next: slovenia-2013
-  web: http://tekmovanja.acm.si/upm
-  results:
-    standings:
-    - url: https://tekmovanja.acm.si/?q=upm/rezultati-2012
-      note: added by url-hunt 2026-09-01 (wave3-probe)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: slovenia/slovenia-2012/standings/20260902-live-70e80131/page.html
+  sources:
+  - url: http://tekmovanja.acm.si/upm
+    roles:
+    - web
+  - url: https://tekmovanja.acm.si/?q=upm/rezultati-2012
+    roles:
+    - standings
+    archived:
+    - slovenia/slovenia-2012/standings/20260902-live-70e80131/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-probe)
+  - url: https://putka-upm.acm.si/tasks/s/2012/finale/list/
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    notes: No date, no teams
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://putka-upm.acm.si/tasks/s/2012/finale/list/
+    set: slovenia-2012
 - id: slovenia-2013
   season: 2014
   name: 2013 Slovenian Programming Contest
@@ -93,19 +119,27 @@ contests:
   - 2014
   parent: cerc-2013
   next: slovenia-2014
-  web: https://tekmovanja.acm.si/?q=upm/zgodovina/2013
-  results:
-    standings:
-    - url: https://tekmovanja.acm.si/?q=upm/zgodovina/2013/rezultati
-      as_of: '20220815104009'
-      note: added by url-hunt 2026-09-01 (dark-hunt-agent)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: slovenia/slovenia-2013/standings/20220815-wayback-db8d9540/page.html
+  sources:
+  - url: https://tekmovanja.acm.si/?q=upm/zgodovina/2013
+    roles:
+    - web
+  - url: https://tekmovanja.acm.si/?q=upm/zgodovina/2013/rezultati
+    roles:
+    - standings
+    as_of: '20220815104009'
+    archived:
+    - slovenia/slovenia-2013/standings/20220815-wayback-db8d9540/page.html
+    - slovenia/slovenia-2013/standings/20261020-live-62be67e2/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (dark-hunt-agent)
+  - url: https://putka-upm.acm.si/tasks/s/2013/finale/list/
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    notes: No date, no teams
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://putka-upm.acm.si/tasks/s/2013/finale/list/
+    set: slovenia-2013
 - id: slovenia-2014
   season: 2015
   name: 2014 Slovenian Programming Contest
@@ -113,19 +147,27 @@ contests:
   - 2662
   parent: cerc-2014
   next: slovenia-2015
-  web: https://tekmovanja.acm.si/?q=upm/2014
-  results:
-    standings:
-    - url: https://tekmovanja.acm.si/?q=upm/rezultati-2014
-      as_of: '20230323055623'
-      note: added by url-hunt 2026-09-01 (wave2-europe)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: slovenia/slovenia-2014/standings/20230323-wayback-52f760a6/page.html
+  sources:
+  - url: https://tekmovanja.acm.si/?q=upm/2014
+    roles:
+    - web
+  - url: https://tekmovanja.acm.si/?q=upm/rezultati-2014
+    roles:
+    - standings
+    as_of: '20230323055623'
+    archived:
+    - slovenia/slovenia-2014/standings/20230323-wayback-52f760a6/page.html
+    - slovenia/slovenia-2014/standings/20260901-live-5ed5279c/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave2-europe)
+  - url: https://putka-upm.acm.si/tasks/s/2014/finale/list/
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    notes: No date, no teams
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://putka-upm.acm.si/tasks/s/2014/finale/list/
+    set: slovenia-2014
 - id: slovenia-2015
   season: 2016
   name: 2015 Slovenian Programming Contest
@@ -133,19 +175,27 @@ contests:
   - 2773
   parent: cerc-2015
   next: slovenia-2016
-  web: https://tekmovanja.acm.si/?q=upm/2015
-  results:
-    standings:
-    - url: https://tekmovanja.acm.si/?q=upm/rezultati-2015
-      as_of: '20230323043901'
-      note: added by url-hunt 2026-09-01 (wave2-europe)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: slovenia/slovenia-2015/standings/20230323-wayback-8b4ee439/page.html
+  sources:
+  - url: https://tekmovanja.acm.si/?q=upm/2015
+    roles:
+    - web
+  - url: https://tekmovanja.acm.si/?q=upm/rezultati-2015
+    roles:
+    - standings
+    as_of: '20230323043901'
+    archived:
+    - slovenia/slovenia-2015/standings/20230323-wayback-8b4ee439/page.html
+    - slovenia/slovenia-2015/standings/20260901-live-c5c4bf21/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave2-europe)
+  - url: https://putka-upm.acm.si/tasks/s/2015/finale/list/
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    notes: No date, no teams
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://putka-upm.acm.si/tasks/s/2015/finale/list/
+    set: slovenia-2015
 - id: slovenia-2016
   season: 2017
   name: 2016 Slovenian Programming Contest
@@ -153,19 +203,27 @@ contests:
   - 3107
   parent: cerc-2016
   next: slovenia-2017
-  web: https://tekmovanja.acm.si/?q=upm/2016
-  results:
-    standings:
-    - url: https://tekmovanja.acm.si/?q=upm/rezultati-2016
-      as_of: '20230323054138'
-      note: added by url-hunt 2026-09-01 (wave2-europe)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: slovenia/slovenia-2016/standings/20230323-wayback-b6503c7d/page.html
+  sources:
+  - url: https://tekmovanja.acm.si/?q=upm/2016
+    roles:
+    - web
+  - url: https://tekmovanja.acm.si/?q=upm/rezultati-2016
+    roles:
+    - standings
+    as_of: '20230323054138'
+    archived:
+    - slovenia/slovenia-2016/standings/20230323-wayback-b6503c7d/page.html
+    - slovenia/slovenia-2016/standings/20260901-live-cef961f5/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave2-europe)
+  - url: https://putka-upm.acm.si/tasks/s/2016/finale/list/
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    notes: No date, no teams
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://putka-upm.acm.si/tasks/s/2016/finale/list/
+    set: slovenia-2016
 - id: slovenia-2017
   season: 2018
   name: 2017 Slovenian Programming Contest
@@ -173,19 +231,27 @@ contests:
   - 3318
   parent: cerc-2017
   next: slovenia-2018
-  web: https://tekmovanja.acm.si/?q=upm/2017
-  results:
-    standings:
-    - url: https://tekmovanja.acm.si/?q=upm/rezultati-2017
-      as_of: '20230323042756'
-      note: added by url-hunt 2026-09-01 (wave2-europe)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: slovenia/slovenia-2017/standings/20230323-wayback-3ffe48c5/page.html
+  sources:
+  - url: https://tekmovanja.acm.si/?q=upm/2017
+    roles:
+    - web
+  - url: https://tekmovanja.acm.si/?q=upm/rezultati-2017
+    roles:
+    - standings
+    as_of: '20230323042756'
+    archived:
+    - slovenia/slovenia-2017/standings/20230323-wayback-3ffe48c5/page.html
+    - slovenia/slovenia-2017/standings/20260901-live-10441b40/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave2-europe)
+  - url: https://putka-upm.acm.si/tasks/s/2017/finale/list/
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    notes: No date, no teams
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://putka-upm.acm.si/tasks/s/2017/finale/list/
+    set: slovenia-2017
 - id: slovenia-2018
   season: 2019
   name: 2018 Slovenian Programming Contest
@@ -193,19 +259,27 @@ contests:
   - 3668
   parent: cerc-2018
   next: slovenia-2019
-  web: https://tekmovanja.acm.si/?q=upm/2018
-  results:
-    standings:
-    - url: https://tekmovanja.acm.si/?q=upm/rezultati-2018
-      as_of: '20190822105140'
-      note: added by url-hunt 2026-09-01 (wave2-europe)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: slovenia/slovenia-2018/standings/20190822-wayback-899c87c9/page.html
+  sources:
+  - url: https://tekmovanja.acm.si/?q=upm/2018
+    roles:
+    - web
+  - url: https://tekmovanja.acm.si/?q=upm/rezultati-2018
+    roles:
+    - standings
+    as_of: '20190822105140'
+    archived:
+    - slovenia/slovenia-2018/standings/20190822-wayback-899c87c9/page.html
+    - slovenia/slovenia-2018/standings/20260901-live-4c24439f/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave2-europe)
+  - url: https://putka-upm.acm.si/tasks/s/2018/finale/list/
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    notes: No date, no teams
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://putka-upm.acm.si/tasks/s/2018/finale/list/
+    set: slovenia-2018
 - id: slovenia-2019
   season: 2020
   name: 2019 Slovenian Programming Contest
@@ -213,19 +287,27 @@ contests:
   - 4142
   parent: cerc-2019
   next: slovenia-2020
-  web: https://tekmovanja.acm.si/?q=node/579
-  results:
-    standings:
-    - url: https://tekmovanja.acm.si/?q=rezultati-2019
-      as_of: '20220630103245'
-      note: added by url-hunt 2026-09-01 (wave2-europe)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: slovenia/slovenia-2019/standings/20220630-wayback-d7822a89/page.html
+  sources:
+  - url: https://tekmovanja.acm.si/?q=node/579
+    roles:
+    - web
+  - url: https://tekmovanja.acm.si/?q=rezultati-2019
+    roles:
+    - standings
+    as_of: '20220630103245'
+    archived:
+    - slovenia/slovenia-2019/standings/20220630-wayback-d7822a89/page.html
+    - slovenia/slovenia-2019/standings/20260902-live-ed4abd2e/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave2-europe)
+  - url: https://putka-upm.acm.si/tasks/s/2019/finale/list/
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    notes: No date, no teams
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://putka-upm.acm.si/tasks/s/2019/finale/list/
+    set: slovenia-2019
 - id: slovenia-2020
   season: 2021
   name: 2020 Slovenian Programming Contest
@@ -233,19 +315,28 @@ contests:
   - 4530
   parent: cerc-2020
   next: slovenia-2021
-  web: https://tekmovanja.acm.si/?q=node/638
-  results:
-    standings:
-    - url: https://tekmovanja.acm.si/?q=node/639
-      as_of: '20230323043942'
-      note: added by url-hunt 2026-09-01 (dark-hunt-agent)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: slovenia/slovenia-2020/standings/20230323-wayback-375b9605/page.html
+  sources:
+  - url: https://tekmovanja.acm.si/?q=node/638
+    roles:
+    - web
+  - url: https://tekmovanja.acm.si/?q=node/639
+    roles:
+    - standings
+    as_of: '20230323043942'
+    archived:
+    - slovenia/slovenia-2020/standings/20230323-wayback-375b9605/page.html
+    - slovenia/slovenia-2020/standings/20261020-live-8c959f97/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (dark-hunt-agent)
+  - url: https://putka-upm.acm.si/tasks/s/2020/finale/list/
+    roles:
+    - problemset
+    as_of: '20251010181651'
+    url_state: changed
+    url_checked: '2026-11-02'
   problems:
-    notes: No date, no teams
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://putka-upm.acm.si/tasks/s/2020/finale/list/
+    set: slovenia-2020
 - id: slovenia-2021
   season: 2022
   name: 2021 ICPC Slovenian Programming Contest
@@ -253,19 +344,27 @@ contests:
   - 4890
   parent: cerc-2021
   next: slovenia-2022
-  web: https://tekmovanja.acm.si/?q=node/687
-  results:
-    standings:
-    - url: https://tekmovanja.acm.si/?q=node/688
-      as_of: '20220815100640'
-      note: added by url-hunt 2026-09-01 (dark-hunt-agent)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: slovenia/slovenia-2021/standings/20220815-wayback-f67740b0/page.html
+  sources:
+  - url: https://tekmovanja.acm.si/?q=node/687
+    roles:
+    - web
+  - url: https://tekmovanja.acm.si/?q=node/688
+    roles:
+    - standings
+    as_of: '20220815100640'
+    archived:
+    - slovenia/slovenia-2021/standings/20220815-wayback-f67740b0/page.html
+    - slovenia/slovenia-2021/standings/20261020-live-6d238433/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (dark-hunt-agent)
+  - url: https://putka-upm.acm.si/tasks/s/2021/finale/list/
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    notes: No date, no teams
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://putka-upm.acm.si/tasks/s/2021/finale/list/
+    set: slovenia-2021
 - id: slovenia-2022
   season: 2023
   name: 2022 ICPC Slovenian Programming Contest
@@ -273,19 +372,27 @@ contests:
   - 5393
   parent: cerc-2022
   next: slovenia-2023
-  web: https://tekmovanja.acm.si/?q=node/729
-  results:
-    standings:
-    - url: https://tekmovanja.acm.si/?q=node/732
-      as_of: '20240811052254'
-      note: added by url-hunt 2026-09-01 (dark-hunt-agent)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: slovenia/slovenia-2022/standings/20240811-wayback-8060d7ad/page.html
+  sources:
+  - url: https://tekmovanja.acm.si/?q=node/729
+    roles:
+    - web
+  - url: https://tekmovanja.acm.si/?q=node/732
+    roles:
+    - standings
+    as_of: '20240811052254'
+    archived:
+    - slovenia/slovenia-2022/standings/20240811-wayback-8060d7ad/page.html
+    - slovenia/slovenia-2022/standings/20261020-live-36d3c571/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (dark-hunt-agent)
+  - url: https://putka-upm.acm.si/tasks/s/2022/finale/list/
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    notes: No date, no teams
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://putka-upm.acm.si/tasks/s/2022/finale/list/
+    set: slovenia-2022
 - id: slovenia-2023
   season: 2024
   name: 2023 ICPC Slovenian Programming Contest
@@ -293,16 +400,24 @@ contests:
   - 7588
   parent: cerc-2023
   next: null
-  web: https://tekmovanja.acm.si/?q=node/786
-  results:
-    standings:
-    - url: https://tekmovanja.acm.si/?q=node/787
-      as_of: '20260311075238'
-      note: added by url-hunt 2026-09-01 (wave2-europe)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: slovenia/slovenia-2023/standings/20260311-wayback-dd7908c1/page.html
+  sources:
+  - url: https://tekmovanja.acm.si/?q=node/786
+    roles:
+    - web
+  - url: https://tekmovanja.acm.si/?q=node/787
+    roles:
+    - standings
+    as_of: '20260311075238'
+    archived:
+    - slovenia/slovenia-2023/standings/20260311-wayback-dd7908c1/page.html
+    - slovenia/slovenia-2023/standings/20260902-live-1a41e8ab/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave2-europe)
+  - url: https://putka-upm.acm.si/tasks/s/2023/finale/list/
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    notes: No date, no teams
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://putka-upm.acm.si/tasks/s/2023/finale/list/
+    set: slovenia-2023

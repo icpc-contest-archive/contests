@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: ningbo
   name: ACM-ICPC Asia Ningbo Regional Contest
+  tier: regional
+  region: Asia East
+  naming: season-start
 contests:
 - id: ningbo-2009
   season: 2010
@@ -12,15 +15,19 @@ contests:
   - 506
   parent: wf-2010
   next: null
-  web:
-    url: http://acmasia09.nit.net.cn/
+  sources:
+  - url: http://acmasia09.nit.net.cn/
+    roles:
+    - web
+    - standings
     as_of: '20090830083806'
-  icpc_standings: https://icpc.global/regionals/finder/Ningbo-2010/standings
-  results:
-    standings:
-    - url: http://acmasia09.nit.net.cn/
-      as_of: '20090830083806'
-      archived: ningbo/ningbo-2009/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
+    archived:
+    - ningbo/ningbo-2009/external-standings/2026-04-15-external/content.html
+    - ningbo/ningbo-2009/standings/20090830-wayback-21ff912e/page.html
+    - ningbo/ningbo-2009/standings/20090830-wayback-8af6eba5/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Ningbo-2010/standings
+    roles:
+    - icpc_standings

@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: hefei
   name: ICPC Asia Hefei Regional Contest
+  tier: regional
+  region: Asia East
+  naming: season-start
 contests:
 - id: hefei-2008
   season: 2009
@@ -12,27 +15,34 @@ contests:
   - 13
   parent: wf-2009
   next: hefei-2009
-  results:
-    scoreboard:
-    - url: http://board.acmicpc.info/icpc2008/ustc_online.php
-      as_of: '20121108112848'
-      archived: hefei/hefei-2008/scoreboard/2026-09-01-wayback-935453de/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://acm.ustc.edu.cn/standing.html
-      as_of: '20090405174803'
-      archived: hefei/hefei-2008/scoreboard/2026-09-01-wayback-0ab79624/standing.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://acm.ustc.edu.cn/standing.html
-      as_of: '20090405174803'
-      archived: hefei/hefei-2008/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Hefei-2009/standings
-  web: http://acm.ustc.edu.cn/
+  sources:
+  - url: http://acm.ustc.edu.cn/
+    roles:
+    - web
+  - url: http://board.acmicpc.info/icpc2008/ustc_online.php
+    roles:
+    - scoreboard
+    as_of: '20121108112848'
+    archived:
+    - hefei/hefei-2008/scoreboard/2026-09-01-wayback-935453de/page.html
+    - hefei/hefei-2008/scoreboard/20121108-wayback-de2e32e1/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://acm.ustc.edu.cn/standing.html
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20090405174803'
+    archived:
+    - hefei/hefei-2008/scoreboard/2026-09-01-wayback-0ab79624/standing.html
+    - hefei/hefei-2008/external-standings/2026-04-15-external/content.html
+    - hefei/hefei-2008/standings/20090405-wayback-b11da342/standing.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Hefei-2009/standings
+    roles:
+    - icpc_standings
 - id: hefei-2009
   season: 2010
   name: 2009 ACM-ICPC Asia Hefei Regional Contest
@@ -42,15 +52,21 @@ contests:
   - 496
   parent: wf-2010
   next: hefei-2015
-  icpc_standings: https://icpc.global/regionals/finder/Hefei-2010/standings
-  results:
-    standings:
-    - url: http://icpc.asia/Result/2009HefeiResult.txt
-      archived: hefei/hefei-2009/external-standings/2026-04-15-external/content.txt
-      note: from archived capture (external-standings)
-      url_state: changed
-      url_checked: '2026-11-02'
-  web: http://acm.ustc.edu.cn/icpc2009/
+  sources:
+  - url: http://acm.ustc.edu.cn/icpc2009/
+    roles:
+    - web
+  - url: http://icpc.asia/Result/2009HefeiResult.txt
+    roles:
+    - standings
+    archived:
+    - hefei/hefei-2009/external-standings/2026-04-15-external/content.txt
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Hefei-2010/standings
+    roles:
+    - icpc_standings
 - id: hefei-2015
   season: 2016
   name: 2015 ACM-ICPC Asia Hefei Regional Contest
@@ -60,27 +76,31 @@ contests:
   - 2928
   parent: wf-2016
   next: hefei-2022
-  web:
-    url: http://acm.ustc.edu.cn/icpc2015/
+  sources:
+  - url: http://acm.ustc.edu.cn/icpc2015/
+    roles:
+    - web
     as_of: '20150913000753'
-  results:
-    scoreboard:
-    - url: http://board.acmicpc.cn/
-      as_of: '20151110063227'
-      archived: hefei/hefei-2015/scoreboard/2026-09-01-wayback-d885ea97/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://board.acmicpc.info/icpc2015/ustc_onsite.php
-      as_of: '20160315102018'
-      archived: hefei/hefei-2015/scoreboard/2026-09-01-wayback-d2ceb955/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://board.acmicpc.info/icpc2015/ustc_onsite.php
-      as_of: '20160315102018'
-      note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Hefei-2016/standings
+  - url: http://board.acmicpc.cn/
+    roles:
+    - scoreboard
+    as_of: '20151110063227'
+    archived:
+    - hefei/hefei-2015/scoreboard/2026-09-01-wayback-d885ea97/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://board.acmicpc.info/icpc2015/ustc_onsite.php
+    roles:
+    - scoreboard
+    as_of: '20160315102018'
+    archived:
+    - hefei/hefei-2015/scoreboard/2026-09-01-wayback-d2ceb955/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
+  - url: https://icpc.global/regionals/finder/Hefei-2016/standings
+    roles:
+    - icpc_standings
 - id: hefei-2022
   season: 2023
   name: 2022 ICPC Asia Hefei Regional Contest
@@ -90,15 +110,19 @@ contests:
   - 6159
   parent: wf-2023
   next: hefei-2023
-  icpc_standings: https://icpc.global/regionals/finder/Hefei-2023/standings
-  results:
-    scoreboard:
-    - url: https://board.xcpcio.com/icpc/47th/hefei
-      as_of: '20230830025400'
-      note: added by url-hunt 2026-09-01 (wave3-xcpcio)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: hefei/hefei-2022/scoreboard/20230830-wayback-dc26d0ee/page.html
+  sources:
+  - url: https://board.xcpcio.com/icpc/47th/hefei
+    roles:
+    - scoreboard
+    as_of: '20230830025400'
+    archived:
+    - hefei/hefei-2022/scoreboard/20230830-wayback-dc26d0ee/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-xcpcio)
+  - url: https://icpc.global/regionals/finder/Hefei-2023/standings
+    roles:
+    - icpc_standings
 - id: hefei-2023
   season: 2024
   name: 2023 ICPC Asia Hefei Regional Contest
@@ -108,23 +132,31 @@ contests:
   - 7700
   parent: wf-2024
   next: null
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/104857/standings
-      archived: hefei/hefei-2023/scoreboard/2026-09-01-live-3bcfd688/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    - url: https://board.xcpcio.com/icpc/48th/hefei
-      as_of: '20240918113413'
-      note: added by url-hunt 2026-09-01 (xcpcio-data-agent)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  problemset: https://icpcarchive.github.io/Asia%20East%20Continent%20Contests/Hefei/2023%20Asia%20Hefei%20Regional%20Contest/problems.pdf
+  sources:
+  - url: https://codeforces.com/gym/104857/standings
+    roles:
+    - scoreboard
+    as_of: '20240229234233'
+    archived:
+    - hefei/hefei-2023/scoreboard/2026-09-01-live-3bcfd688/page.html
+    - hefei/hefei-2023/scoreboard/20240229-wayback-314f2211/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://board.xcpcio.com/icpc/48th/hefei
+    roles:
+    - scoreboard
+    as_of: '20240918113413'
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (xcpcio-data-agent)
+  - url: https://icpcarchive.github.io/Asia%20East%20Continent%20Contests/Hefei/2023%20Asia%20Hefei%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: hefei-2026
+  status: upcoming
   season: 2027
   name: 2026 Asia Hefei Regional Contest
-  cms_ids:
-  - 9606
   parent: wf-2027
-  status: upcoming
   notes: upcoming shell from misclass audit 2026-09-02

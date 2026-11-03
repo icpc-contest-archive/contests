@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: jakarta
   name: ICPC Asia Jakarta Onsite Regional Contest
+  tier: regional
+  region: Asia Pacific
+  naming: season-start
 contests:
 - id: jakarta-2008
   season: 2009
@@ -12,26 +15,34 @@ contests:
   - 15
   parent: wf-2009
   next: jakarta-2009
-  web: https://competition.binus.ac.id/icpc2008/
-  results:
-    scoreboard:
-    - url: https://competition.binus.ac.id/result/index.html
-      as_of: '20081025101517'
-      archived: jakarta/jakarta-2008/scoreboard/2026-09-01-wayback-bf074dde/index.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: https://competition.binus.ac.id/icpc2008/result/index.html
-      archived: jakarta/jakarta-2008/scoreboard/2026-09-01-live-2b7f3784/index.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://competition.binus.ac.id/result/index.html
-      as_of: '20091025084325'
-      archived: jakarta/jakarta-2008/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Jakarta-National-2009/standings
+  sources:
+  - url: https://competition.binus.ac.id/icpc2008/
+    roles:
+    - web
+  - url: https://competition.binus.ac.id/result/index.html
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20081025101517'
+    archived:
+    - jakarta/jakarta-2008/scoreboard/2026-09-01-wayback-bf074dde/index.html
+    - jakarta/jakarta-2008/external-standings/2026-04-15-external/content.html
+    - jakarta/jakarta-2008/standings/20081025-wayback-c7324527/index.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: as_of 20091025084325 for standings; from archived capture (external-standings)
+  - url: https://competition.binus.ac.id/icpc2008/result/index.html
+    roles:
+    - scoreboard
+    as_of: '20150426080340'
+    archived:
+    - jakarta/jakarta-2008/scoreboard/2026-09-01-live-2b7f3784/index.html
+    - jakarta/jakarta-2008/scoreboard/20150426-wayback-dc6ffc18/index.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Jakarta-National-2009/standings
+    roles:
+    - icpc_standings
 - id: jakarta-2009
   season: 2010
   name: 2009 ACM-ICPC Asia Jakarta Regional Contest
@@ -41,15 +52,29 @@ contests:
   - 494
   parent: wf-2010
   next: jakarta-2010
-  web: https://competition.binus.ac.id/icpc2009/
-  results:
-    scoreboard:
-    - url: https://competition.binus.ac.id/icpc2009/result/final.html
-      archived: jakarta/jakarta-2009/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Jakarta-2010/standings
-  problemset: https://competition.binus.ac.id/icpc2009/icpc09jak-probs-publish.pdf
+  sources:
+  - url: https://competition.binus.ac.id/icpc2009/
+    roles:
+    - web
+  - url: https://competition.binus.ac.id/icpc2009/result/final.html
+    roles:
+    - scoreboard
+    as_of: '20091025074134'
+    archived:
+    - jakarta/jakarta-2009/external-standings/2026-04-15-external/content.html
+    - jakarta/jakarta-2009/scoreboard/20091025-wayback-1563d3e8/final.html
+    - jakarta/jakarta-2009/scoreboard/20260901-live-db041578/final.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Jakarta-2010/standings
+    roles:
+    - icpc_standings
+  - url: https://competition.binus.ac.id/icpc2009/icpc09jak-probs-publish.pdf
+    roles:
+    - problemset
+    as_of: '20150701170948'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: jakarta-2010
   season: 2011
   name: 2010 ACM-ICPC Asia Jakarta Regional Contest
@@ -59,22 +84,38 @@ contests:
   - 607
   parent: wf-2011
   next: jakarta-2012
-  results:
-    scoreboard:
-    - url: https://competition.binus.ac.id/icpc2010/result/final.html
-      archived: jakarta/jakarta-2010/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Jakarta-2011/standings
-  web: http://competition.binus.ac.id/icpc2010
-  problemset: https://competition.binus.ac.id/icpc2010/icpc10jak-problemset.pdf
+  sources:
+  - url: http://competition.binus.ac.id/icpc2010
+    roles:
+    - web
+  - url: https://competition.binus.ac.id/icpc2010/result/final.html
+    roles:
+    - scoreboard
+    as_of: '20101204120524'
+    archived:
+    - jakarta/jakarta-2010/external-standings/2026-04-15-external/content.html
+    - jakarta/jakarta-2010/scoreboard/20101204-wayback-d0032fb8/final.html
+    - jakarta/jakarta-2010/scoreboard/20260901-live-1d96f36c/final.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Jakarta-2011/standings
+    roles:
+    - icpc_standings
+  - url: https://competition.binus.ac.id/icpc2010/icpc10jak-problemset.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/943
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191207005621'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ACM-ICPC Regional Jakarta 2010
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/943
-        as_of: '20191207005621'
-        note: ACM-ICPC Regional Jakarta 2010
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: jakarta-2010
 - id: jakarta-2012
   season: 2013
   name: 2012 ACM-ICPC Asia Jakarta Regional Contest
@@ -84,21 +125,38 @@ contests:
   - 1366
   parent: wf-2013
   next: jakarta-2013
-  results:
-    scoreboard:
-    - url: https://competition.binus.ac.id/icpc2012/result/final.html
-      archived: jakarta/jakarta-2012/scoreboard/2026-09-01-live-547db6ea/final.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://competition.binus.ac.id/icpc2012/result/final
-      archived: jakarta/jakarta-2012/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Jakarta-2013/standings
-  web: http://competition.binus.ac.id/icpc2012/
-  problemset: https://competition.binus.ac.id/icpc2012/index/problemset
+  sources:
+  - url: http://competition.binus.ac.id/icpc2012/
+    roles:
+    - web
+  - url: https://competition.binus.ac.id/icpc2012/result/final.html
+    roles:
+    - scoreboard
+    as_of: '20130705025723'
+    archived:
+    - jakarta/jakarta-2012/scoreboard/2026-09-01-live-547db6ea/final.html
+    - jakarta/jakarta-2012/scoreboard/20130705-wayback-d0e21b4e/final.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://competition.binus.ac.id/icpc2012/result/final
+    roles:
+    - standings
+    as_of: '20121102205715'
+    archived:
+    - jakarta/jakarta-2012/external-standings/2026-04-15-external/content.html
+    - jakarta/jakarta-2012/standings/20121102-wayback-22aa2f90/page.html
+    - jakarta/jakarta-2012/standings/20260901-live-f5b26c0b/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Jakarta-2013/standings
+    roles:
+    - icpc_standings
+  - url: https://competition.binus.ac.id/icpc2012/index/problemset
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: jakarta-2013
   season: 2014
   name: 2013 ACM-ICPC Asia Jakarta Regional Contest
@@ -108,15 +166,27 @@ contests:
   - 1926
   parent: wf-2014
   next: jakarta-2014
-  results:
-    scoreboard:
-    - url: https://competition.binus.ac.id/icpc2013/result/final.html
-      archived: jakarta/jakarta-2013/scoreboard/2026-09-01-live-3c73b7a9/final.html
-      url_state: live
-      url_checked: '2026-11-02'
-  web: http://competition.binus.ac.id/icpc2013/
-  icpc_standings: https://icpc.global/regionals/finder/Jakarta-2014/standings
-  problemset: https://competition.binus.ac.id/icpc2013/index/problemset
+  sources:
+  - url: http://competition.binus.ac.id/icpc2013/
+    roles:
+    - web
+  - url: https://competition.binus.ac.id/icpc2013/result/final.html
+    roles:
+    - scoreboard
+    as_of: '20160821123510'
+    archived:
+    - jakarta/jakarta-2013/scoreboard/2026-09-01-live-3c73b7a9/final.html
+    - jakarta/jakarta-2013/scoreboard/20160821-wayback-d1698f69/final.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Jakarta-2014/standings
+    roles:
+    - icpc_standings
+  - url: https://competition.binus.ac.id/icpc2013/index/problemset
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: jakarta-2014
   season: 2015
   name: 2014 ACM-ICPC Asia Jakarta Regional Contest
@@ -126,21 +196,38 @@ contests:
   - 2592
   parent: wf-2015
   next: jakarta-2015
-  results:
-    scoreboard:
-    - url: https://competition.binus.ac.id/icpc2014/result/final.html
-      archived: jakarta/jakarta-2014/scoreboard/2026-09-01-live-02447939/final.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://competition.binus.ac.id/icpc2014/result/final
-      archived: jakarta/jakarta-2014/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Jakarta-2015/standings
-  web: http://competition.binus.ac.id/icpc2014
-  problemset: https://competition.binus.ac.id/icpc2014/index/problemset
+  sources:
+  - url: http://competition.binus.ac.id/icpc2014
+    roles:
+    - web
+  - url: https://competition.binus.ac.id/icpc2014/result/final.html
+    roles:
+    - scoreboard
+    as_of: '20160325143125'
+    archived:
+    - jakarta/jakarta-2014/scoreboard/2026-09-01-live-02447939/final.html
+    - jakarta/jakarta-2014/scoreboard/20160325-wayback-83d93ddc/final.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://competition.binus.ac.id/icpc2014/result/final
+    roles:
+    - standings
+    as_of: '20141225205345'
+    archived:
+    - jakarta/jakarta-2014/external-standings/2026-04-15-external/content.html
+    - jakarta/jakarta-2014/standings/20141225-wayback-f5ca4800/page.html
+    - jakarta/jakarta-2014/standings/20260901-live-dd50ee68/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Jakarta-2015/standings
+    roles:
+    - icpc_standings
+  - url: https://competition.binus.ac.id/icpc2014/index/problemset
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: jakarta-2015
   season: 2016
   name: 2015 ACM-ICPC Asia Jakarta Regional Contest
@@ -150,21 +237,38 @@ contests:
   - 2943
   parent: wf-2016
   next: jakarta-2016
-  results:
-    scoreboard:
-    - url: https://competition.binus.ac.id/icpc2015/result/final.html
-      archived: jakarta/jakarta-2015/scoreboard/2026-09-01-live-8c154353/final.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://competition.binus.ac.id/icpc2015/result/final
-      archived: jakarta/jakarta-2015/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Jakarta-2016/standings
-  web: http://competition.binus.ac.id/icpc2015
-  problemset: https://competition.binus.ac.id/icpc2015/index.php/problemset
+  sources:
+  - url: http://competition.binus.ac.id/icpc2015
+    roles:
+    - web
+  - url: https://competition.binus.ac.id/icpc2015/result/final.html
+    roles:
+    - scoreboard
+    as_of: '20160821101244'
+    archived:
+    - jakarta/jakarta-2015/scoreboard/2026-09-01-live-8c154353/final.html
+    - jakarta/jakarta-2015/scoreboard/20160821-wayback-736b6d93/final.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://competition.binus.ac.id/icpc2015/result/final
+    roles:
+    - standings
+    as_of: '20151212233559'
+    archived:
+    - jakarta/jakarta-2015/external-standings/2026-04-15-external/content.html
+    - jakarta/jakarta-2015/standings/20151212-wayback-839451df/page.html
+    - jakarta/jakarta-2015/standings/20260901-live-de5b3b4c/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Jakarta-2016/standings
+    roles:
+    - icpc_standings
+  - url: https://competition.binus.ac.id/icpc2015/index.php/problemset
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: jakarta-2016
   season: 2017
   name: 2016 ACM-ICPC Asia Jakarta Regional Contest
@@ -174,15 +278,28 @@ contests:
   - 3046
   parent: wf-2017
   next: jakarta-2017
-  results:
-    scoreboard:
-    - url: https://competition.binus.ac.id/icpc2016/final.html
-      archived: jakarta/jakarta-2016/scoreboard/2026-09-01-live-3a136889/final.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Jakarta-2017/standings
-  web: http://competition.binus.ac.id/icpc
-  problemset: https://competition.binus.ac.id/icpc2016/index.php/problemset
+  sources:
+  - url: http://competition.binus.ac.id/icpc
+    roles:
+    - web
+  - url: https://competition.binus.ac.id/icpc2016/final.html
+    roles:
+    - scoreboard
+    as_of: '20161110181634'
+    archived:
+    - jakarta/jakarta-2016/scoreboard/2026-09-01-live-3a136889/final.html
+    - jakarta/jakarta-2016/scoreboard/20161110-wayback-96e345e1/final.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Jakarta-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://competition.binus.ac.id/icpc2016/index.php/problemset
+    roles:
+    - problemset
+    as_of: '20161112180138'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: jakarta-2017
   season: 2018
   name: 2017 ACM-ICPC Asia Jakarta Regional Contest
@@ -192,22 +309,38 @@ contests:
   - 3423
   parent: wf-2018
   next: jakarta-2018
-  results:
-    scoreboard:
-    - url: https://competition.binus.ac.id/icpc2017/final.html
-      archived: jakarta/jakarta-2017/external-standings/2026-04-15-external/content.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Jakarta-2018/standings
-  web: https://competition.binus.ac.id/icpc2017
-  problemset: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Indonesia/2017%20Asia%20Jakarta%20Regional%20Contest/problems.pdf
+  sources:
+  - url: https://competition.binus.ac.id/icpc2017
+    roles:
+    - web
+  - url: https://competition.binus.ac.id/icpc2017/final.html
+    roles:
+    - scoreboard
+    as_of: '20200218171443'
+    archived:
+    - jakarta/jakarta-2017/external-standings/2026-04-15-external/content.html
+    - jakarta/jakarta-2017/scoreboard/20200218-wayback-887a8b7a/final.html
+    - jakarta/jakarta-2017/scoreboard/20260901-live-6ecf94a2/final.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Jakarta-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Indonesia/2017%20Asia%20Jakarta%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1884
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191117101505'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ACM-ICPC Regional Contest, Jakarta 2017
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1884
-        as_of: '20191117101505'
-        note: ACM-ICPC Regional Contest, Jakarta 2017
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: jakarta-2017
 - id: jakarta-2018
   season: 2019
   name: 2018 ICPC Asia Jakarta Regional Contest
@@ -217,22 +350,37 @@ contests:
   - 3727
   parent: wf-2019
   next: jakarta-2019
-  results:
-    scoreboard:
-    - url: https://competition.binus.ac.id/icpc2018/final.html
-      archived: jakarta/jakarta-2018/scoreboard/2026-09-01-live-33bde6f1/final.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Jakarta-2019/standings
-  web: http://competition.binus.ac.id/icpc2018
-  problemset: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Indonesia/2018%20Asia%20Jakarta%20Regional%20Contest/problems.pdf
+  sources:
+  - url: http://competition.binus.ac.id/icpc2018
+    roles:
+    - web
+  - url: https://competition.binus.ac.id/icpc2018/final.html
+    roles:
+    - scoreboard
+    as_of: '20190827111536'
+    archived:
+    - jakarta/jakarta-2018/scoreboard/2026-09-01-live-33bde6f1/final.html
+    - jakarta/jakarta-2018/scoreboard/20190827-wayback-d582cbd2/final.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Jakarta-2019/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Indonesia/2018%20Asia%20Jakarta%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1965
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190723114214'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: The 2018 ICPC Asia Jakarta Regional Contest
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1965
-        as_of: '20190723114214'
-        note: The 2018 ICPC Asia Jakarta Regional Contest
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: jakarta-2018
 - id: jakarta-2019
   season: 2020
   name: 2019 ICPC Asia Jakarta Regional Contest
@@ -242,22 +390,37 @@ contests:
   - 4179
   parent: wf-2020
   next: jakarta-2020
-  results:
-    scoreboard:
-    - url: https://competition.binus.ac.id/icpc2019/final.html
-      archived: jakarta/jakarta-2019/scoreboard/2026-09-01-live-53e5bbdd/final.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Jakarta-2020/standings
-  web: http://competition.binus.ac.id/icpc2019
-  problemset: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Indonesia/2019%20Asia%20Jakarta%20Regional%20Contest/problems.pdf
+  sources:
+  - url: http://competition.binus.ac.id/icpc2019
+    roles:
+    - web
+  - url: https://competition.binus.ac.id/icpc2019/final.html
+    roles:
+    - scoreboard
+    as_of: '20200218171450'
+    archived:
+    - jakarta/jakarta-2019/scoreboard/2026-09-01-live-53e5bbdd/final.html
+    - jakarta/jakarta-2019/scoreboard/20200218-wayback-3939af08/final.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Jakarta-2020/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Indonesia/2019%20Asia%20Jakarta%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2235
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20220707162804'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: The 2019 ICPC Asia Jakarta Regional Contest
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2235
-        as_of: '20220707162804'
-        note: The 2019 ICPC Asia Jakarta Regional Contest
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: jakarta-2019
 - id: jakarta-2020
   season: 2021
   name: 2020 ICPC Asia Jakarta Regional Contest
@@ -267,22 +430,37 @@ contests:
   - 4301
   parent: wf-2021
   next: jakarta-2021
-  results:
-    scoreboard:
-    - url: https://competition.binus.ac.id/icpc2020/final.html
-      archived: jakarta/jakarta-2020/scoreboard/2026-09-01-live-4bcb199e/final.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Jakarta-2021/standings
-  web: http://competition.binus.ac.id/icpc2020
-  problemset: https://tlx.toki.id/problems/icpc-jakarta-2020
+  sources:
+  - url: http://competition.binus.ac.id/icpc2020
+    roles:
+    - web
+  - url: https://competition.binus.ac.id/icpc2020/final.html
+    roles:
+    - scoreboard
+    as_of: '20210123070636'
+    archived:
+    - jakarta/jakarta-2020/scoreboard/2026-09-01-live-4bcb199e/final.html
+    - jakarta/jakarta-2020/scoreboard/20210123-wayback-4b00ca05/final.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Jakarta-2021/standings
+    roles:
+    - icpc_standings
+  - url: https://tlx.toki.id/problems/icpc-jakarta-2020
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2396
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20220707013117'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: The 2020 ICPC Asia Jakarta Regional Contest
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2396
-        as_of: '20220707013117'
-        note: The 2020 ICPC Asia Jakarta Regional Contest
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: jakarta-2020
 - id: jakarta-2021
   season: 2022
   name: 2021 ICPC Asia Jakarta Regional Contest
@@ -292,22 +470,37 @@ contests:
   - 4876
   parent: wf-2022
   next: jakarta-2022
-  results:
-    scoreboard:
-    - url: https://competition.binus.ac.id/icpc2021/final.html
-      archived: jakarta/jakarta-2021/scoreboard/2026-09-01-live-dea64564/final.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Jakarta-2022/standings
-  web: http://competition.binus.ac.id/icpc2021
-  problemset: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Indonesia/2021%20Asia%20Jakarta%20Regional%20Contest/problems.pdf
+  sources:
+  - url: http://competition.binus.ac.id/icpc2021
+    roles:
+    - web
+  - url: https://competition.binus.ac.id/icpc2021/final.html
+    roles:
+    - scoreboard
+    as_of: '20211204170023'
+    archived:
+    - jakarta/jakarta-2021/scoreboard/2026-09-01-live-dea64564/final.html
+    - jakarta/jakarta-2021/scoreboard/20211204-wayback-7f69aed5/final.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Jakarta-2022/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Indonesia/2021%20Asia%20Jakarta%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3347
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20230514151950'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: The 2021 ICPC Asia Jakarta Regional Contest
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3347
-        as_of: '20230514151950'
-        note: The 2021 ICPC Asia Jakarta Regional Contest
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: jakarta-2021
 - id: jakarta-2022
   season: 2023
   name: 2022 ICPC Asia Jakarta Onsite Regional Contest
@@ -317,21 +510,36 @@ contests:
   - 5622
   parent: wf-2023
   next: jakarta-2023
-  results:
-    scoreboard:
-    - url: https://competition.binus.ac.id/icpc2022/final.html
-      archived: jakarta/jakarta-2022/scoreboard/2026-09-01-live-b5faee97/final.html
-      url_state: live
-      url_checked: '2026-11-02'
-  web: https://competition.binus.ac.id/icpc2022/
-  icpc_standings: https://icpc.global/regionals/finder/Jakarta-2023/standings
-  problemset: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Indonesia/2022%20Asia%20Jakarta%20Regional%20Contest/problems.pdf
+  sources:
+  - url: https://competition.binus.ac.id/icpc2022/
+    roles:
+    - web
+  - url: https://competition.binus.ac.id/icpc2022/final.html
+    roles:
+    - scoreboard
+    as_of: '20230201002036'
+    archived:
+    - jakarta/jakarta-2022/scoreboard/2026-09-01-live-b5faee97/final.html
+    - jakarta/jakarta-2022/scoreboard/20230201-wayback-672df3c2/final.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Jakarta-2023/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Indonesia/2022%20Asia%20Jakarta%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4254
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: The 2022 ICPC Asia Jakarta Regional Contest
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4254
-        note: The 2022 ICPC Asia Jakarta Regional Contest
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: jakarta-2022
 - id: jakarta-2023
   season: 2024
   name: 2023 ICPC Asia Jakarta Onsite Regional Contest
@@ -341,21 +549,36 @@ contests:
   - 7528
   parent: apc-2024
   next: jakarta-2024
-  results:
-    scoreboard:
-    - url: https://competition.binus.ac.id/icpc2023/final.html
-      archived: jakarta/jakarta-2023/scoreboard/2026-09-01-live-63f61941/final.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Jakarta-2024/standings
-  web: https://competition.binus.ac.id/icpc2023/
-  problemset: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Indonesia/2023%20Asia%20Jakarta%20Regional%20Contest/problems.zip
+  sources:
+  - url: https://competition.binus.ac.id/icpc2023/
+    roles:
+    - web
+  - url: https://competition.binus.ac.id/icpc2023/final.html
+    roles:
+    - scoreboard
+    as_of: '20240210083451'
+    archived:
+    - jakarta/jakarta-2023/scoreboard/2026-09-01-live-63f61941/final.html
+    - jakarta/jakarta-2023/scoreboard/20240210-wayback-4e4805e9/final.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Jakarta-2024/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Indonesia/2023%20Asia%20Jakarta%20Regional%20Contest/problems.zip
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4255
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: The 2023 ICPC Asia Jakarta Regional Contest
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4255
-        note: The 2023 ICPC Asia Jakarta Regional Contest
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: jakarta-2023
 - id: jakarta-2024
   season: 2025
   name: 2024 ICPC Asia Jakarta Onsite Regional Contest
@@ -365,21 +588,37 @@ contests:
   - 8740
   parent: apc-2025
   next: jakarta-2025
-  web: https://competition.binus.ac.id/icpc2024/
-  results:
-    scoreboard:
-    - url: https://competition.binus.ac.id/icpc2024/final.html
-      archived: jakarta/jakarta-2024/scoreboard/2026-09-01-live-f08268f7/final.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Jakarta-2025/standings
-  problemset: https://codeforces.com/contest/2045
+  sources:
+  - url: https://competition.binus.ac.id/icpc2024/
+    roles:
+    - web
+  - url: https://competition.binus.ac.id/icpc2024/final.html
+    roles:
+    - scoreboard
+    as_of: '20241213150928'
+    archived:
+    - jakarta/jakarta-2024/scoreboard/2026-09-01-live-f08268f7/final.html
+    - jakarta/jakarta-2024/scoreboard/20241213-wayback-fbdc8cdc/final.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Jakarta-2025/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/contest/2045
+    roles:
+    - problemset
+    as_of: '20250405180616'
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4385
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: The 2024 ICPC Asia Jakarta Regional Contest
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4385
-        note: The 2024 ICPC Asia Jakarta Regional Contest
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: jakarta-2024
 - id: jakarta-2025
   season: 2026
   name: 2025 ICPC Asia Jakarta Onsite Regional Contest
@@ -389,22 +628,38 @@ contests:
   - 9393
   parent: apc-2026
   next: jakarta-2026
-  web: https://competition.binus.ac.id/icpc2025/
-  results:
-    scoreboard:
-    - url: https://competition.binus.ac.id/icpc2025/final/
-      archived: jakarta/jakarta-2025/scoreboard/2026-09-01-live-1b68d121/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Jakarta-2026/standings
-  problemset: https://tlx.toki.id/problems/icpc-jakarta-2025
+  sources:
+  - url: https://competition.binus.ac.id/icpc2025/
+    roles:
+    - web
+  - url: https://competition.binus.ac.id/icpc2025/final/
+    roles:
+    - scoreboard
+    as_of: '20251129190238'
+    archived:
+    - jakarta/jakarta-2025/scoreboard/2026-09-01-live-1b68d121/page.html
+    - jakarta/jakarta-2025/scoreboard/20251129-wayback-6d5b6996/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Jakarta-2026/standings
+    roles:
+    - icpc_standings
+  - url: https://tlx.toki.id/problems/icpc-jakarta-2025
+    roles:
+    - problemset
+    as_of: '20260421173027'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4648
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260418223307'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: The 2025 ICPC Asia Jakarta Regional Contest
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4648
-        as_of: '20260418223307'
-        note: The 2025 ICPC Asia Jakarta Regional Contest
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: jakarta-2025
 - id: jakarta-2026
   status: upcoming
   season: 2027

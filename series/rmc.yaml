@@ -1,51 +1,56 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: rmc
   name: ICPC North America Rocky Mountain Regional Contest
+  tier: regional
+  region: North America
+  naming: season-start
 contests:
 - id: rmc-1989
   season: 1990
+  location: (UC-Colorado Springs / Weber / Calgary affil.)
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1990
   next: rmc-1990
-  location: (UC-Colorado Springs / Weber / Calgary affil.)
-  sources:
+  provenance:
   - '2001 ACM Rocky Mountain Regional (Warren MacEvoy) (2001): Negative evidence: no history text; past-year
     links go only to rmrc/1999/RM99Home.html and rmrc/2000/index.html. 2001 sites: U Lethbridge, Montana
     State (cs.montana.edu/paxton/contest), U Utah, CU Boulder, U Arizona. — https://org.coloradomesa.edu/~wmacevoy/rmrc/2001/index.html
     [existence hunt 2026-10-22]'
 - id: rmc-1990
   season: 1991
+  location: (UC-Colorado Springs / Weber / Calgary affil.)
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1991
   next: rmc-1991
-  location: (UC-Colorado Springs / Weber / Calgary affil.)
-  problemset:
-    url: http://www.inf.bme.hu/contests/tasks/mountain.txt
-    as_of: '19990128123328'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: http://www.inf.bme.hu/contests/tasks/mountain.txt
+    roles:
+    - problemset
+    as_of: '19990128123328'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=445
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210928103121'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=445
-        as_of: '20210928103121'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: rmc-1990
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: rmc-1991
   season: 1992
+  location: Metro State Denver
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1992
   next: rmc-1992
-  location: Metro State Denver
-  sources:
+  provenance:
   - 'comp.org.acm: Phil Weiss (U Idaho), ''1991 Mountain Region Programming Contesy'' (1991-11-09): ''The
     1991 contest for the Mountain Region is just finished'' — participant complaint about 8 problems (one
     17-page spec), both U Idaho teams; Pete Klammer''s reply thanks Chuck Howerton for the output headers.
@@ -59,20 +64,32 @@ contests:
     [existence hunt 2026-10-22]'
 - id: rmc-1992
   season: 1993
+  location: Metro State Denver
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1993
   next: rmc-1993
-  location: Metro State Denver
-  web: https://ciiwiki.ecs.baylor.edu/index.php/History_-_ICPC_1993
+  sources:
+  - url: https://ciiwiki.ecs.baylor.edu/index.php/History_-_ICPC_1993
+    roles:
+    - web
 - id: rmc-1993
   season: 1994
+  location: Metro State Denver
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1994
   next: rmc-1994
-  location: Metro State Denver
   sources:
+  - url: https://groups.google.com/g/comp.org.acm/c/u8VN_Q-xmZY
+    roles:
+    - scoreboard
+    archived:
+    - rmc/rmc-1993/scoreboard/20261023-live-03081a06/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  provenance:
   - 'comp.org.acm: Charles M. Shub (UCCS), ''Mountain region contest results'' (1993-11-07): ''The contest
     was held in colorado, utah, and alberta this year'' followed by the full 29-team table with per-problem
     times for 8 problems (Colorado 1, BYU, Utah 1, Idaho 2, Montana St 1, Utah State, Alberta 1, Colorado
@@ -81,21 +98,14 @@ contests:
     Young University 3 289'' and ''19 University of Calorado at Boulder 3 487'' [sic] — the Rocky Mountain
     region''s two qualifiers from the fall-1993 regional. — https://plg.uwaterloo.ca/~gvcormac/acmresults/1994.html
     [existence hunt 2026-10-22]'
-  results:
-    scoreboard:
-    - url: https://groups.google.com/g/comp.org.acm/c/u8VN_Q-xmZY
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: rmc/rmc-1993/scoreboard/20261023-live-03081a06/page.html
 - id: rmc-1994
   season: 1995
+  location: Metro State Denver
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1995
   next: rmc-1995
-  location: Metro State Denver
-  sources:
+  provenance:
   - 'comp.org.acm: Charlie Shub, ''Looking for host sites for ACM mountain region programming contest''
     (1994-06-21): Helping RCD Chuck Howerton find host sites for the fall-1994 Mountain regional in Alberta,
     Arizona, Idaho, New Mexico, Saskatchewan or Utah; site coordinators Tom Mourey, Howerton, Shub. —
@@ -112,15 +122,18 @@ contests:
   cms_status: pre-cms
   parent: wf-1996
   next: rmc-1996
-  results:
-    rankings:
-    - url: https://www.cs.uleth.ca/~cheng/icpc.html
-      as_of: '20030814134119'
-      note: added by url-hunt 2026-09-01 (dark-hunt-agent)
-      url_state: changed
-      url_checked: '2026-11-02'
-      archived: rmc/rmc-1995/rankings/20030814-wayback-d04a1d19/icpc.html
   sources:
+  - url: https://www.cs.uleth.ca/~cheng/icpc.html
+    roles:
+    - rankings
+    as_of: '20030814134119'
+    archived:
+    - rmc/rmc-1995/rankings/20030814-wayback-d04a1d19/icpc.html
+    - rmc/rmc-1995/rankings/20261020-live-d570e2f5/icpc.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (dark-hunt-agent)
+  provenance:
   - 'comp.org.acm: Radev regional results digest (1995-12-14): ''ICPC Region: Mountain, Contest Date:
     18 Nov 95'' (no teams listed). — https://groups.google.com/g/comp.org.acm/c/LcxbowMkd-M/m/Bh-L2Iq2hRcJ
     [existence hunt 2026-10-22]'
@@ -130,39 +143,45 @@ contests:
     the Rocky Mountain regiona — https://www.cs.uleth.ca/~cheng/icpc.html [existence hunt 2026-10-22]'
 - id: rmc-1996
   season: 1997
+  location: (Mountain)
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1997
   next: rmc-1997
-  results:
-    rankings:
-    - url: https://www.cs.uleth.ca/~cheng/icpc.html
-      as_of: '20030814134119'
-      note: added by url-hunt 2026-09-01 (dark-hunt-agent)
-      url_state: changed
-      url_checked: '2026-11-02'
-      archived: rmc/rmc-1996/rankings/20030814-wayback-d04a1d19/icpc.html
-  location: (Mountain)
   sources:
+  - url: https://www.cs.uleth.ca/~cheng/icpc.html
+    roles:
+    - rankings
+    as_of: '20030814134119'
+    archived:
+    - rmc/rmc-1996/rankings/20030814-wayback-d04a1d19/icpc.html
+    - rmc/rmc-1996/rankings/20261020-live-d570e2f5/icpc.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (dark-hunt-agent)
+  provenance:
   - 'Howard Cheng (U Lethbridge) personal ICPC history (live (2000s)): 1996: Cheng with Joseph Modayil
     and Denis Papp (University of Alberta) ''finished 4th overall'' at the ACM Regional Contest. — https://www.cs.uleth.ca/~cheng/icpc.html
     [existence hunt 2026-10-22]'
 - id: rmc-1997
   season: 1998
+  location: (Mountain)
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1998
   next: rmc-1998
-  results:
-    rankings:
-    - url: https://www.cs.uleth.ca/~cheng/icpc.html
-      as_of: '20030814134119'
-      note: added by url-hunt 2026-09-01 (dark-hunt-agent)
-      url_state: changed
-      url_checked: '2026-11-02'
-      archived: rmc/rmc-1997/rankings/20030814-wayback-d04a1d19/icpc.html
-  location: (Mountain)
   sources:
+  - url: https://www.cs.uleth.ca/~cheng/icpc.html
+    roles:
+    - rankings
+    as_of: '20030814134119'
+    archived:
+    - rmc/rmc-1997/rankings/20030814-wayback-d04a1d19/icpc.html
+    - rmc/rmc-1997/rankings/20261020-live-d570e2f5/icpc.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (dark-hunt-agent)
+  provenance:
   - 'Howard Cheng (U Lethbridge) personal ICPC history (live (2000s)): 1997: Cheng with Adam Beacham and
     Alan Skelley (University of Alberta) ''finished 1st in the region. We advanced to the World Finals
     at Atlanta.'' — https://www.cs.uleth.ca/~cheng/icpc.html [existence hunt 2026-10-22]'
@@ -174,25 +193,35 @@ contests:
   - 1107
   parent: wf-1999
   next: rmc-1999
-  results:
-    scoreboard:
-    - url: http://icpc.baylor.edu/past/icpc99/Regionals/RM98/Standings.htm
-      as_of: '20100710040129'
-      archived: rmc/rmc-1998/scoreboard/2026-09-01-live-ffc55199/Standings.htm
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc99/Regionals/RM98/Standings.htm
-      as_of: '20040131035216'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: unknown
-      url_checked: '2026-11-02'
-  web: http://clem.mscd.edu/~howerton/ACM/RM98Home.html
-  problemset:
+  sources:
+  - url: http://clem.mscd.edu/~howerton/ACM/RM98Home.html
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/past/icpc99/Regionals/RM98/Standings.htm
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20100710040129'
+    archived:
+    - rmc/rmc-1998/scoreboard/2026-09-01-live-ffc55199/Standings.htm
+    - rmc/rmc-1998/scoreboard/2026-09-01-wayback-ffc55199/Standings.htm
+    - rmc/rmc-1998/standings/20040131-wayback-26057140/Standings.htm
+    - rmc/rmc-1998/standings/20040131-wayback-e454d3ee/Standings.htm
+    url_state: live
+    url_checked: '2026-11-02'
+    note: as_of 20040131035216 for standings; added by url-hunt 2026-09-01 (cdx-baylor-regionals)
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_Rocky/1998/index.html
+    roles:
+    - problemset
     as_of: '20010221120207'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc99/Regionals/RM98/problems.pdf
+    roles:
+    - problemset
     as_of: '20050116100046'
+    url_state: unknown
+    url_checked: '2026-11-02'
 - id: rmc-1999
   season: 2000
   name: 1999 ACM Rocky Mountain Programming Contest
@@ -202,27 +231,41 @@ contests:
   - 1285
   parent: wf-2000
   next: rmc-2000
-  web:
-    url: http://mesastate.edu/acm/pc/RM99Home.html
+  sources:
+  - url: http://mesastate.edu/acm/pc/RM99Home.html
+    roles:
+    - web
     as_of: '20000119052504'
-  results:
-    standings:
-    - url: http://faculty.fortlewis.edu/SZUECS_L/contest/acm99/FinalStandings.htm
-      as_of: '20001212141300'
-      archived: rmc/rmc-1999/standings/2026-09-01-wayback-30bddc8c/FinalStandings.htm
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc2000/regionals/RM99/Standings.html
-      as_of: '20020112020044'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: rmc/rmc-1999/standings/20020112-wayback-a2ad6663/Standings.html
-  problemset:
+  - url: http://faculty.fortlewis.edu/SZUECS_L/contest/acm99/FinalStandings.htm
+    roles:
+    - standings
+    as_of: '20001212141300'
+    archived:
+    - rmc/rmc-1999/standings/2026-09-01-wayback-30bddc8c/FinalStandings.htm
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2000/regionals/RM99/Standings.html
+    roles:
+    - standings
+    as_of: '20020112020044'
+    archived:
+    - rmc/rmc-1999/standings/20020112-wayback-a2ad6663/Standings.html
+    - rmc/rmc-1999/standings/20020112-wayback-28563ec4/Standings.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_Rocky/1999/index.html
+    roles:
+    - problemset
     as_of: '20001003145320'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2000/regionals/RM99/problems.pdf
+    roles:
+    - problemset
     as_of: '20030511124308'
+    url_state: unknown
+    url_checked: '2026-11-02'
 - id: rmc-2000
   season: 2001
   name: 2000 ACM Rocky Mountain Programming Contest
@@ -232,42 +275,60 @@ contests:
   - 974
   parent: wf-2001
   next: rmc-2001
-  web: https://org.coloradomesa.edu/~wmacevoy/rmrc/2000/index.html
-  results:
-    scoreboard:
-    - url: http://www.cs.colorado.edu/users/kena/acmpc/results.html
-      as_of: '20010320060306'
-      archived: rmc/rmc-2000/scoreboard/2026-09-01-wayback-559e33cd/results.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2000/index.html
-      archived: rmc/rmc-2000/scoreboard/2026-04-16-rocky/2000-rocky-mountain-programming-contest-2000.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=437
-      as_of: '20011222221553'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: rmc/rmc-2000/standings/20011222-wayback-3805a390/page.html
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=82
-        as_of: '20211026124646'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  sources:
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2000/index.html
+    roles:
+    - web
+    - scoreboard
+    as_of: '20150109103933'
+    also_at:
+    - url: http://www.mesastate.edu/acm/pc/2000/index.html
+      as_of: '20001022144308'
+    archived:
+    - rmc/rmc-2000/scoreboard/2026-04-16-rocky/2000-rocky-mountain-programming-contest-2000.html
+    - rmc/rmc-2000/scoreboard/20150109-wayback-c9f41faf/index.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://www.cs.colorado.edu/users/kena/acmpc/results.html
+    roles:
+    - scoreboard
+    as_of: '20010320060306'
+    archived:
+    - rmc/rmc-2000/scoreboard/2026-09-01-wayback-559e33cd/results.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=437
+    roles:
+    - standings
+    as_of: '20011222221553'
+    archived:
+    - rmc/rmc-2000/standings/20011222-wayback-3805a390/page.html
+    - rmc/rmc-2000/standings/20011222-wayback-58d1851e/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_Rocky/2000/index.html
+    roles:
+    - problemset
     as_of: '20020514050931'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2001/regionals/RM00/Problems.pdf
+    roles:
+    - problemset
     as_of: '20030323122916'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=82
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211026124646'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: rmc-2000
 - id: rmc-2001
   season: 2002
   name: 2001 ACM Rocky Mountain Programming Contest
@@ -278,38 +339,66 @@ contests:
   - 1082
   parent: wf-2002
   next: rmc-2002
-  web: https://org.coloradomesa.edu/~wmacevoy/rmrc/2001/index.html
-  results:
-    scoreboard:
-    - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2001/scoreboard.html
-      archived: rmc/rmc-2001/scoreboard/2026-09-01-live-f31426ce/scoreboard.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2001/index.html
-      archived: rmc/rmc-2001/scoreboard/2026-04-16-rocky/2001-rocky-mountain-programming-contest-2001.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=502
-      as_of: '20020619100459'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: rmc/rmc-2001/standings/20020619-wayback-cd92ab52/page.html
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-  - https://org.coloradomesa.edu/~wmacevoy/rmrc/2001/problems
+  sources:
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2001/index.html
+    roles:
+    - web
+    - scoreboard
+    as_of: '20150109103937'
+    also_at:
+    - url: http://www.mesastate.edu/acm/pc/2001/index.html
+      as_of: '20020620035643'
+    archived:
+    - rmc/rmc-2001/scoreboard/2026-04-16-rocky/2001-rocky-mountain-programming-contest-2001.html
+    - rmc/rmc-2001/scoreboard/20150109-wayback-8670e2cc/index.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2001/scoreboard.html
+    roles:
+    - scoreboard
+    archived:
+    - rmc/rmc-2001/scoreboard/2026-09-01-live-f31426ce/scoreboard.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=502
+    roles:
+    - standings
+    as_of: '20020619100459'
+    archived:
+    - rmc/rmc-2001/standings/20020619-wayback-cd92ab52/page.html
+    - rmc/rmc-2001/standings/20020619-wayback-690b858c/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: http://www.mesastate.edu/acm/pc/2001/scoreboard.html
+    roles:
+    - standings
+    as_of: '20020109191331'
+    note: added by url-hunt 2026-09-01 (cms-api)
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2001/problems
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_Rocky/2001/index.html
+    roles:
+    - problemset
     as_of: '20020624143951'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2002/Regionals/RM01/problems.html
+    roles:
+    - problemset
     as_of: '20020619090550'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: http://www.mesastate.edu/acm/pc/2001/problems/index.html
+    roles:
+    - problemset
+    as_of: '20020616162557'
+  problems:
+    set: rmc-2001
 - id: rmc-2002
   season: 2003
   name: 2002 ACM Rocky Mountain Programming Contest
@@ -319,33 +408,41 @@ contests:
   - 1039
   parent: wf-2003
   next: rmc-2003
-  web: https://org.coloradomesa.edu/~wmacevoy/rmrc/2002/index.html
-  results:
-    scoreboard:
-    - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2002/contest/scoreboard.html
-      archived: rmc/rmc-2002/scoreboard/2026-09-01-live-6ac73c58/scoreboard.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2002/index.html
-      archived: rmc/rmc-2002/scoreboard/2026-04-16-rocky/2002-rocky-mountain-programming-contest-2002.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandingscc4d.html?ContestID=570
-      as_of: '20060901121755'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: rmc/rmc-2002/standings/20060901-wayback-e880fd87/ViewRegionalStandingscc4d.html
+  sources:
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2002/index.html
+    roles:
+    - web
+    - scoreboard
+    as_of: '20150109104529'
+    archived:
+    - rmc/rmc-2002/scoreboard/2026-04-16-rocky/2002-rocky-mountain-programming-contest-2002.html
+    - rmc/rmc-2002/scoreboard/20150109-wayback-50624648/index.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2002/contest/scoreboard.html
+    roles:
+    - scoreboard
+    archived:
+    - rmc/rmc-2002/scoreboard/2026-09-01-live-6ac73c58/scoreboard.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandingscc4d.html?ContestID=570
+    roles:
+    - standings
+    as_of: '20060901121755'
+    archived:
+    - rmc/rmc-2002/standings/20060901-wayback-e880fd87/ViewRegionalStandingscc4d.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2002/contest/problems.html
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://org.coloradomesa.edu/~wmacevoy/rmrc/2002/contest/problems.html
+    set: rmc-2002
 - id: rmc-2003
   season: 2004
   name: 2003 ACM Rocky Mountain Programming Contest
@@ -356,38 +453,62 @@ contests:
   - 1220
   parent: wf-2004
   next: rmc-2004
-  web: https://org.coloradomesa.edu/~wmacevoy/rmrc/2003/index.html
-  results:
-    scoreboard:
-    - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2003/scoreboard_final.html
-      archived: rmc/rmc-2003/scoreboard/2026-09-01-live-02060762/scoreboard_final.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2003/index.html
-      archived: rmc/rmc-2003/scoreboard/2026-04-16-rocky/2003-rocky-mountain-programming-contest-2003.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandings131e.html?ContestID=644
-      as_of: '20060901143736'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: rmc/rmc-2003/standings/20060901-wayback-5d29c345/ViewRegionalStandings131e.html
+  sources:
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2003/index.html
+    roles:
+    - web
+    - scoreboard
+    as_of: '20150109104534'
+    also_at:
+    - url: http://www.mesastate.edu/acm/rmrc/2003/index.html
+      as_of: '20031123124906'
+    archived:
+    - rmc/rmc-2003/scoreboard/2026-04-16-rocky/2003-rocky-mountain-programming-contest-2003.html
+    - rmc/rmc-2003/scoreboard/20150109-wayback-d05dc7ff/index.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2003/scoreboard_final.html
+    roles:
+    - scoreboard
+    as_of: '20190917052455'
+    archived:
+    - rmc/rmc-2003/scoreboard/2026-09-01-live-02060762/scoreboard_final.html
+    - rmc/rmc-2003/scoreboard/20190917-wayback-b82fda11/scoreboard_final.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandings131e.html?ContestID=644
+    roles:
+    - standings
+    as_of: '20060901143736'
+    archived:
+    - rmc/rmc-2003/standings/20060901-wayback-5d29c345/ViewRegionalStandings131e.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: http://www.mesastate.edu/acm/rmrc/2003/scoreboard_final.html
+    roles:
+    - standings
+    as_of: '20031224222134'
+    note: added by url-hunt 2026-09-01 (cms-api)
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2003/problems/prob1/statement.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.mesastate.edu/acm/rmrc/2003/problems.html
+    roles:
+    - problemset
+    as_of: '20031123130841'
+  - url: https://www.acmicpc.net/category/detail/190
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201020083613'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/rmc-2003
-    count: 8
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/190
-        as_of: '20201020083613'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://org.coloradomesa.edu/~wmacevoy/rmrc/2003/problems/prob1/statement.pdf
+    set: rmc-2003
 - id: rmc-2004
   season: 2005
   name: 2004 ACM Rocky Mountain Programming Contest
@@ -397,25 +518,33 @@ contests:
   - 1096
   parent: wf-2005
   next: rmc-2005
-  web: https://org.coloradomesa.edu/~wmacevoy/rmrc/2004/index.html
-  results:
-    scoreboard:
-    - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2004/scoreboard_byrank.html
-      archived: rmc/rmc-2004/scoreboard/2026-09-01-live-b48e8865/scoreboard_byrank.html
-      url_state: live
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2004/index.html
+    roles:
+    - web
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2004/scoreboard_byrank.html
+    roles:
+    - scoreboard
+    as_of: '20190917052330'
+    archived:
+    - rmc/rmc-2004/scoreboard/2026-09-01-live-b48e8865/scoreboard_byrank.html
+    - rmc/rmc-2004/scoreboard/20190917-wayback-488f2b6f/scoreboard_byrank.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2004/problems.zip
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/189
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201026184301'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/189
-        as_of: '20201026184301'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://org.coloradomesa.edu/~wmacevoy/rmrc/2004/problems.zip
+    set: rmc-2004
 - id: rmc-2005
   season: 2006
   name: 2005 ACM Rocky Mountain Programming Contest
@@ -425,39 +554,54 @@ contests:
   - 1015
   parent: wf-2006
   next: rmc-2006
-  web: https://org.coloradomesa.edu/~wmacevoy/rmrc/2005/index.html
-  results:
-    scoreboard:
-    - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2005/scoreboard_byrank.html
-      archived: rmc/rmc-2005/scoreboard/2026-09-01-live-2f32f6fc/scoreboard_byrank.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2005/index.html
-      archived: rmc/rmc-2005/scoreboard/2026-04-16-rocky/2005-rocky-mountain-programming-contest-2005.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.mesastate.edu/acm/rmrc/2005/scoreboard_byrank.html
-      as_of: '20060909072504'
-      archived: rmc/rmc-2005/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Rocky-Mountain-2006/standings
+  sources:
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2005/index.html
+    roles:
+    - web
+    - scoreboard
+    as_of: '20150109104153'
+    archived:
+    - rmc/rmc-2005/scoreboard/2026-04-16-rocky/2005-rocky-mountain-programming-contest-2005.html
+    - rmc/rmc-2005/scoreboard/20150109-wayback-0540560f/index.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2005/scoreboard_byrank.html
+    roles:
+    - scoreboard
+    as_of: '20190917052427'
+    archived:
+    - rmc/rmc-2005/scoreboard/2026-09-01-live-2f32f6fc/scoreboard_byrank.html
+    - rmc/rmc-2005/scoreboard/20190917-wayback-8851f884/scoreboard_byrank.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.mesastate.edu/acm/rmrc/2005/scoreboard_byrank.html
+    roles:
+    - standings
+    as_of: '20060909072504'
+    archived:
+    - rmc/rmc-2005/external-standings/2026-04-15-external/content.html
+    - rmc/rmc-2005/standings/20060909-wayback-93add513/scoreboard_byrank.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Rocky-Mountain-2006/standings
+    roles:
+    - icpc_standings
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2005/problems.zip
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/188
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201023082224'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/rmc-2005
-    count: 9
-    statement: full
-    data: full
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/188
-        as_of: '20201023082224'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://org.coloradomesa.edu/~wmacevoy/rmrc/2005/problems.zip
+    set: rmc-2005
 - id: rmc-2006
   season: 2007
   name: 2006 ACM Rocky Mountain Programming Contest
@@ -467,39 +611,52 @@ contests:
   - 1008
   parent: wf-2007
   next: rmc-2007
-  web: https://org.coloradomesa.edu/~wmacevoy/rmrc/2006/index.html
-  results:
-    scoreboard:
-    - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2006/scoreboard_byrank.html
-      archived: rmc/rmc-2006/scoreboard/2026-09-01-live-1c227218/scoreboard_byrank.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2006/index.html
-      archived: rmc/rmc-2006/scoreboard/2026-04-16-rocky/2006-rocky-mountain-programming-contest-2006.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.mesastate.edu/acm/rmrc/2006/scoreboard_byrank.html
-      as_of: '20081008012558'
-      archived: rmc/rmc-2006/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Rocky-Mountain-2007/standings
+  sources:
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2006/index.html
+    roles:
+    - web
+    - scoreboard
+    as_of: '20150109105024'
+    archived:
+    - rmc/rmc-2006/scoreboard/2026-04-16-rocky/2006-rocky-mountain-programming-contest-2006.html
+    - rmc/rmc-2006/scoreboard/20150109-wayback-25484449/index.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2006/scoreboard_byrank.html
+    roles:
+    - scoreboard
+    archived:
+    - rmc/rmc-2006/scoreboard/2026-09-01-live-1c227218/scoreboard_byrank.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.mesastate.edu/acm/rmrc/2006/scoreboard_byrank.html
+    roles:
+    - standings
+    as_of: '20081008012558'
+    archived:
+    - rmc/rmc-2006/external-standings/2026-04-15-external/content.html
+    - rmc/rmc-2006/standings/20081008-wayback-5165de28/scoreboard_byrank.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Rocky-Mountain-2007/standings
+    roles:
+    - icpc_standings
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2006/problems.zip
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/187
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201126042203'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/rmc-2006
-    count: 9
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/187
-        as_of: '20201126042203'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://org.coloradomesa.edu/~wmacevoy/rmrc/2006/problems.zip
+    set: rmc-2006
 - id: rmc-2007
   season: 2008
   name: 2007 ACM Rocky Mountain Programming Contest
@@ -509,39 +666,54 @@ contests:
   - 1007
   parent: wf-2008
   next: rmc-2008
-  web: https://org.coloradomesa.edu/~wmacevoy/rmrc/2007/index.html
-  results:
-    scoreboard:
-    - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2007/scoreboard_byrank.html
-      archived: rmc/rmc-2007/scoreboard/2026-09-01-live-c6e032bb/scoreboard_byrank.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2007/index.html
-      archived: rmc/rmc-2007/scoreboard/2026-04-16-rocky/2007-rocky-mountain-programming-contest-2007.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.mesastate.edu/acm/rmrc/2007/index.html
-      as_of: '20081015015220'
-      archived: rmc/rmc-2007/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Rocky-Mountain-2008/standings
+  sources:
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2007/index.html
+    roles:
+    - web
+    - scoreboard
+    as_of: '20150109104158'
+    archived:
+    - rmc/rmc-2007/scoreboard/2026-04-16-rocky/2007-rocky-mountain-programming-contest-2007.html
+    - rmc/rmc-2007/scoreboard/20150109-wayback-f1c54a8d/index.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2007/scoreboard_byrank.html
+    roles:
+    - scoreboard
+    as_of: '20190917052523'
+    archived:
+    - rmc/rmc-2007/scoreboard/2026-09-01-live-c6e032bb/scoreboard_byrank.html
+    - rmc/rmc-2007/scoreboard/20190917-wayback-1e7a2b22/scoreboard_byrank.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.mesastate.edu/acm/rmrc/2007/index.html
+    roles:
+    - standings
+    as_of: '20081015015220'
+    archived:
+    - rmc/rmc-2007/external-standings/2026-04-15-external/content.html
+    - rmc/rmc-2007/standings/20071027-wayback-d6fc21c6/index.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Rocky-Mountain-2008/standings
+    roles:
+    - icpc_standings
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2007/problems.zip
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/186
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191111194710'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/rmc-2007
-    count: 9
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/186
-        as_of: '20191111194710'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://org.coloradomesa.edu/~wmacevoy/rmrc/2007/problems.zip
+    set: rmc-2007
 - id: rmc-2008
   season: 2009
   name: 2008 Rocky Mountain Regional Contest
@@ -552,32 +724,44 @@ contests:
   - 33
   parent: wf-2009
   next: rmc-2009
-  web: https://org.coloradomesa.edu/~wmacevoy/rmrc/2008/index.html
-  results:
-    scoreboard:
-    - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2008/scoreboard_byrank.html
-      archived: rmc/rmc-2008/scoreboard/2026-09-01-live-9770bbc1/scoreboard_byrank.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2008/index.html
-      archived: rmc/rmc-2008/scoreboard/2026-04-16-rocky/2008-rocky-mountain-regional-contest-2008.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Rocky-Mountain-2009/standings
+  sources:
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2008/index.html
+    roles:
+    - web
+    - scoreboard
+    as_of: '20150109104203'
+    archived:
+    - rmc/rmc-2008/scoreboard/2026-04-16-rocky/2008-rocky-mountain-regional-contest-2008.html
+    - rmc/rmc-2008/scoreboard/20150109-wayback-1c73776d/index.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2008/scoreboard_byrank.html
+    roles:
+    - scoreboard
+    as_of: '20190917052306'
+    archived:
+    - rmc/rmc-2008/scoreboard/2026-09-01-live-9770bbc1/scoreboard_byrank.html
+    - rmc/rmc-2008/scoreboard/20190917-wayback-9f47729b/scoreboard_byrank.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Rocky-Mountain-2009/standings
+    roles:
+    - icpc_standings
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2008/problems.zip
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/185
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190718025132'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/rmc-2008
-    count: 8
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/185
-        as_of: '20190718025132'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://org.coloradomesa.edu/~wmacevoy/rmrc/2008/problems.zip
+    set: rmc-2008
 - id: rmc-2009
   season: 2010
   name: 2009 Rocky Mountain Regional Contest
@@ -588,39 +772,52 @@ contests:
   - 561
   parent: wf-2010
   next: rmc-2010
-  web: https://org.coloradomesa.edu/~wmacevoy/rmrc/2009/index.html
-  results:
-    scoreboard:
-    - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2009/scoreboard_byrank.html
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: rmc/rmc-2009/scoreboard/2026-09-01-live-ff48c5a6/scoreboard_byrank.html
-    - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2009/index.html
-      archived: rmc/rmc-2009/scoreboard/2026-04-16-rocky/2009-rocky-mountain-regional-contest-2009.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://org.mesastate.edu/acm/rmrc/2009/index.html
-      as_of: '20111102131312'
-      archived: rmc/rmc-2009/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Rocky-Mountain-2010/standings
+  sources:
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2009/index.html
+    roles:
+    - web
+    - scoreboard
+    as_of: '20150109104209'
+    archived:
+    - rmc/rmc-2009/scoreboard/2026-04-16-rocky/2009-rocky-mountain-regional-contest-2009.html
+    - rmc/rmc-2009/scoreboard/20150109-wayback-7c9810cd/index.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2009/scoreboard_byrank.html
+    roles:
+    - scoreboard
+    archived:
+    - rmc/rmc-2009/scoreboard/2026-09-01-live-ff48c5a6/scoreboard_byrank.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://org.mesastate.edu/acm/rmrc/2009/index.html
+    roles:
+    - standings
+    as_of: '20111102131312'
+    archived:
+    - rmc/rmc-2009/external-standings/2026-04-15-external/content.html
+    - rmc/rmc-2009/standings/20091103-wayback-b4826433/index.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Rocky-Mountain-2010/standings
+    roles:
+    - icpc_standings
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2009/problems.zip
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/184
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201130114840'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/rmc-2009
-    count: 9
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/184
-        as_of: '20201130114840'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://org.coloradomesa.edu/~wmacevoy/rmrc/2009/problems.zip
+    set: rmc-2009
 - id: rmc-2010
   season: 2011
   name: 2010 Rocky Mountain Regional Contest
@@ -629,39 +826,54 @@ contests:
   - 646
   parent: wf-2011
   next: rmc-2011
-  web: https://org.coloradomesa.edu/~wmacevoy/rmrc/2010/index.html
-  results:
-    scoreboard:
-    - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2010/scoreboard_byrank.html
-      archived: rmc/rmc-2010/scoreboard/2026-09-01-live-342393f3/scoreboard_byrank.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2010/index.html
-      archived: rmc/rmc-2010/scoreboard/2026-04-16-rocky/2010-rocky-mountain-regional-contest-2010.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://org.mesastate.edu/acm/rmrc/2010/index.html
-      as_of: '20110823200338'
-      archived: rmc/rmc-2010/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Rocky-Mountain-2011/standings
+  sources:
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2010/index.html
+    roles:
+    - web
+    - scoreboard
+    as_of: '20150109104215'
+    archived:
+    - rmc/rmc-2010/scoreboard/2026-04-16-rocky/2010-rocky-mountain-regional-contest-2010.html
+    - rmc/rmc-2010/scoreboard/20150109-wayback-7c13ca21/index.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2010/scoreboard_byrank.html
+    roles:
+    - scoreboard
+    as_of: '20240419222331'
+    archived:
+    - rmc/rmc-2010/scoreboard/2026-09-01-live-342393f3/scoreboard_byrank.html
+    - rmc/rmc-2010/scoreboard/20240419-wayback-d40a4f9b/scoreboard_byrank.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://org.mesastate.edu/acm/rmrc/2010/index.html
+    roles:
+    - standings
+    as_of: '20110823200338'
+    archived:
+    - rmc/rmc-2010/external-standings/2026-04-15-external/content.html
+    - rmc/rmc-2010/standings/20110823-wayback-720e1af7/index.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Rocky-Mountain-2011/standings
+    roles:
+    - icpc_standings
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2010/problems.zip
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/183
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210118083730'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/rmc-2010
-    count: 9
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/183
-        as_of: '20210118083730'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://org.coloradomesa.edu/~wmacevoy/rmrc/2010/problems.zip
+    set: rmc-2010
 - id: rmc-2011
   season: 2012
   name: 2011 Rocky Mountain Regional Contest
@@ -673,39 +885,52 @@ contests:
   - 878
   parent: wf-2012
   next: rmc-2012
-  web: https://org.coloradomesa.edu/~wmacevoy/rmrc/2011/index.html
-  results:
-    scoreboard:
-    - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2011/scoreboard_byrank.html
-      archived: rmc/rmc-2011/scoreboard/2026-09-01-live-3a7d8aa7/scoreboard_byrank.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2011/index.html
-      archived: rmc/rmc-2011/scoreboard/2026-04-16-rocky/2011-rocky-mountain-regional-contest-2011.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://org.coloradomesa.edu/acm/rmrc/2011/scoreboard_byrank.html
-      as_of: '20130923223050'
-      archived: rmc/rmc-2011/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Rocky-Mountain-2012/standings
+  sources:
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2011/index.html
+    roles:
+    - web
+    - scoreboard
+    as_of: '20150109155029'
+    archived:
+    - rmc/rmc-2011/scoreboard/2026-04-16-rocky/2011-rocky-mountain-regional-contest-2011.html
+    - rmc/rmc-2011/scoreboard/20150109-wayback-6dad1747/index.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2011/scoreboard_byrank.html
+    roles:
+    - scoreboard
+    archived:
+    - rmc/rmc-2011/scoreboard/2026-09-01-live-3a7d8aa7/scoreboard_byrank.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://org.coloradomesa.edu/acm/rmrc/2011/scoreboard_byrank.html
+    roles:
+    - standings
+    as_of: '20130923223050'
+    archived:
+    - rmc/rmc-2011/external-standings/2026-04-15-external/content.html
+    - rmc/rmc-2011/standings/20130923-wayback-43a62767/scoreboard_byrank.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Rocky-Mountain-2012/standings
+    roles:
+    - icpc_standings
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2011/problems.zip
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/182
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201130115350'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/rmc-2011
-    count: 10
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/182
-        as_of: '20201130115350'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://org.coloradomesa.edu/~wmacevoy/rmrc/2011/problems.zip
+    set: rmc-2011
 - id: rmc-2012
   season: 2013
   name: 2012 Rocky Mountain Regional Contest
@@ -717,39 +942,54 @@ contests:
   - 1396
   parent: wf-2013
   next: rmc-2013
-  web: https://org.coloradomesa.edu/~wmacevoy/rmrc/2012/index.html
-  results:
-    scoreboard:
-    - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2012/scoreboard_byrank.html
-      archived: rmc/rmc-2012/scoreboard/2026-09-01-live-8ef37ad5/scoreboard_byrank.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2012/index.html
-      archived: rmc/rmc-2012/scoreboard/2026-04-16-rocky/2012-rocky-mountain-regional-contest-2012.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://org.coloradomesa.edu/acm/rmrc/2012/index.html
-      as_of: '20131031155908'
-      archived: rmc/rmc-2012/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Rocky-Mountain-2013/standings
+  sources:
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2012/index.html
+    roles:
+    - web
+    - scoreboard
+    as_of: '20141201111508'
+    archived:
+    - rmc/rmc-2012/scoreboard/2026-04-16-rocky/2012-rocky-mountain-regional-contest-2012.html
+    - rmc/rmc-2012/scoreboard/20141201-wayback-51547301/index.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2012/scoreboard_byrank.html
+    roles:
+    - scoreboard
+    as_of: '20190917052337'
+    archived:
+    - rmc/rmc-2012/scoreboard/2026-09-01-live-8ef37ad5/scoreboard_byrank.html
+    - rmc/rmc-2012/scoreboard/20190917-wayback-9f84db46/scoreboard_byrank.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://org.coloradomesa.edu/acm/rmrc/2012/index.html
+    roles:
+    - standings
+    as_of: '20131031155908'
+    archived:
+    - rmc/rmc-2012/external-standings/2026-04-15-external/content.html
+    - rmc/rmc-2012/standings/20121104-wayback-794dbd46/index.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Rocky-Mountain-2013/standings
+    roles:
+    - icpc_standings
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2012/problems.zip
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/181
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201025090124'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/rmc-2012
-    count: 10
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/181
-        as_of: '20201025090124'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://org.coloradomesa.edu/~wmacevoy/rmrc/2012/problems.zip
+    set: rmc-2012
 - id: rmc-2013
   season: 2014
   name: 2013 Rocky Mountain Regional Contest
@@ -761,40 +1001,55 @@ contests:
   - 1981
   parent: wf-2014
   next: rmc-2014
-  web: https://org.coloradomesa.edu/~wmacevoy/rmrc/2013/index.html
-  results:
-    scoreboard:
-    - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2013/scoreboard_byrank.html
-      archived: rmc/rmc-2013/scoreboard/2026-09-01-live-08327536/scoreboard_byrank.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2013/index.html
-      archived: rmc/rmc-2013/scoreboard/2026-04-16-rocky/2013-rocky-mountain-regional-contest-2013.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2013/index.html
+    roles:
+    - web
+    - scoreboard
+    as_of: '20141201083942'
+    archived:
+    - rmc/rmc-2013/scoreboard/2026-04-16-rocky/2013-rocky-mountain-regional-contest-2013.html
+    - rmc/rmc-2013/scoreboard/20141201-wayback-9cdbab06/index.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2013/scoreboard_byrank.html
+    roles:
+    - scoreboard
+    as_of: '20231118005015'
+    archived:
+    - rmc/rmc-2013/scoreboard/2026-09-01-live-08327536/scoreboard_byrank.html
+    - rmc/rmc-2013/scoreboard/20231118-wayback-351d09a9/scoreboard_byrank.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2013/problems.zip
+    roles:
+    - problemset
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Rocky%20Mountain%20Regional%20Contest%20%28RMRC%29%202013
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20200815142806'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=623
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210924185148'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1156
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201019212614'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/rmc-2013
-    count: 10
-    statement: full
-    data: partial
-    solutions: partial
-    package: partial
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Rocky%20Mountain%20Regional%20Contest%20%28RMRC%29%202013
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=623
-        as_of: '20210924185148'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1156
-        as_of: '20201019212614'
-    notes: Missing problem H (tables)
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    counts:
-      data: 9
-      solutions: 9
-      package: 9
-  problemset: https://org.coloradomesa.edu/~wmacevoy/rmrc/2013/problems.zip
+    set: rmc-2013
 - id: rmc-2014
   season: 2015
   name: 2014 Rocky Mountain Regional Contest
@@ -806,33 +1061,52 @@ contests:
   - 2436
   parent: wf-2015
   next: rmc-2015
-  web: https://org.coloradomesa.edu/~wmacevoy/rmrc/2014/index.html
-  results:
-    scoreboard:
-    - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2014/scoreboard.html
-      archived: rmc/rmc-2014/scoreboard/2026-09-01-live-fbb3a055/scoreboard.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.coloradomesa.edu/~wmacevoy/rmrc/2014/index.html
-      archived: rmc/rmc-2014/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Rocky-Mountain-2015/standings
+  sources:
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2014/index.html
+    roles:
+    - web
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2014/scoreboard.html
+    roles:
+    - scoreboard
+    as_of: '20231118005038'
+    archived:
+    - rmc/rmc-2014/scoreboard/2026-09-01-live-fbb3a055/scoreboard.html
+    - rmc/rmc-2014/scoreboard/20231118-wayback-a6c8856a/scoreboard.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.coloradomesa.edu/~wmacevoy/rmrc/2014/index.html
+    roles:
+    - standings
+    archived:
+    - rmc/rmc-2014/external-standings/2026-04-15-external/content.html
+    - rmc/rmc-2014/standings/20260901-live-5e19d936/index.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Rocky-Mountain-2015/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/North%20America%20Contests/Rocky%20Mountain%20Regional%20Contest/2014%20Rocky%20Mountain%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Rocky%20Mountain%20Regional%20Contest%20%28RMRC%29%202014
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190822185055'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1298
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190721130147'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Rocky%20Mountain%20Regional%20Contest%20%28RMRC%29%202014
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1298
-        as_of: '20190721130147'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/North%20America%20Contests/Rocky%20Mountain%20Regional%20Contest/2014%20Rocky%20Mountain%20Regional%20Contest/problems.pdf
+    set: rmc-2014
 - id: rmc-2015
   season: 2016
   name: 2015 Rocky Mountain Regional Contest
@@ -844,27 +1118,42 @@ contests:
   - 2829
   parent: wf-2016
   next: rmc-2016
-  web: https://org.coloradomesa.edu/~wmacevoy/rmrc/2015/index.html
-  results:
-    scoreboard:
-    - url: https://rmc15.kattis.com/contests/rmc15/standings
-      archived: rmc/rmc-2015/scoreboard/2026-09-01-live-408eff7b/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Rocky-Mountain-2016/standings
+  sources:
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2015/index.html
+    roles:
+    - web
+  - url: https://rmc15.kattis.com/contests/rmc15/standings
+    roles:
+    - scoreboard
+    as_of: '20231118005421'
+    archived:
+    - rmc/rmc-2015/scoreboard/2026-09-01-live-408eff7b/page.html
+    - rmc/rmc-2015/scoreboard/20231118-wayback-9dbfc013/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Rocky-Mountain-2016/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/North%20America%20Contests/Rocky%20Mountain%20Regional%20Contest/2015%20Rocky%20Mountain%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://rmc15.kattis.com/contests/rmc15/problems
+    roles:
+    - judge_page
+    judge: kattis
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1428
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201027003456'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://rmc15.kattis.com/contests/rmc15/problems
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1428
-        as_of: '20201027003456'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/North%20America%20Contests/Rocky%20Mountain%20Regional%20Contest/2015%20Rocky%20Mountain%20Regional%20Contest/problems.pdf
+    set: rmc-2015
 - id: rmc-2016
   season: 2017
   name: 2016 Rocky Mountain Regional Contest
@@ -876,27 +1165,42 @@ contests:
   - 3204
   parent: wf-2017
   next: rmc-2017
-  web: https://org.coloradomesa.edu/~wmacevoy/rmrc/2016/index.html
-  results:
-    scoreboard:
-    - url: https://rmc16.kattis.com/contests/rmc16/standings
-      archived: rmc/rmc-2016/scoreboard/2026-09-01-live-d7f9f1b4/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Rocky-Mountain-2017/standings
+  sources:
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2016/index.html
+    roles:
+    - web
+  - url: https://rmc16.kattis.com/contests/rmc16/standings
+    roles:
+    - scoreboard
+    as_of: '20231118004956'
+    archived:
+    - rmc/rmc-2016/scoreboard/2026-09-01-live-d7f9f1b4/page.html
+    - rmc/rmc-2016/scoreboard/20231118-wayback-68283be8/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Rocky-Mountain-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/North%20America%20Contests/Rocky%20Mountain%20Regional%20Contest/2016%20Rocky%20Mountain%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://rmc16.kattis.com/contests/rmc16/problems
+    roles:
+    - judge_page
+    judge: kattis
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1761
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191215051946'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 10
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://rmc16.kattis.com/contests/rmc16/problems
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1761
-        as_of: '20191215051946'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/North%20America%20Contests/Rocky%20Mountain%20Regional%20Contest/2016%20Rocky%20Mountain%20Regional%20Contest/problems.pdf
+    set: rmc-2016
 - id: rmc-2017
   season: 2018
   name: 2017 Rocky Mountain Regional Contest
@@ -907,27 +1211,43 @@ contests:
   - 3250
   parent: wf-2018
   next: rmc-2018
-  web: https://org.coloradomesa.edu/~wmacevoy/rmrc/2017/index.html
-  results:
-    scoreboard:
-    - url: https://rmc17.kattis.com/contests/rmc17/standings
-      archived: rmc/rmc-2017/scoreboard/2026-09-01-live-972a3494/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Rocky-Mountain-2018/standings
+  sources:
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2017/index.html
+    roles:
+    - web
+  - url: https://rmc17.kattis.com/contests/rmc17/standings
+    roles:
+    - scoreboard
+    as_of: '20230323011818'
+    archived:
+    - rmc/rmc-2017/scoreboard/2026-09-01-live-972a3494/page.html
+    - rmc/rmc-2017/scoreboard/20230323-wayback-f6490cb9/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Rocky-Mountain-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/North%20America%20Contests/Rocky%20Mountain%20Regional%20Contest/2017%20Rocky%20Mountain%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://rmc17.kattis.com/contests/rmc17/problems
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20230606025249'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1811
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191122120105'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://rmc17.kattis.com/contests/rmc17/problems
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1811
-        as_of: '20191122120105'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/North%20America%20Contests/Rocky%20Mountain%20Regional%20Contest/2017%20Rocky%20Mountain%20Regional%20Contest/problems.pdf
+    set: rmc-2017
 - id: rmc-2018
   season: 2019
   name: 2018 Rocky Mountain Regional Contest
@@ -938,27 +1258,42 @@ contests:
   - 3547
   parent: wf-2019
   next: rmc-2019
-  web: https://org.coloradomesa.edu/~wmacevoy/rmrc/2018/index.html
-  results:
-    scoreboard:
-    - url: https://rmc18.kattis.com/contests/rmc18/standings
-      archived: rmc/rmc-2018/scoreboard/2026-09-01-live-02aba339/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Rocky-Mountain-2019/standings
+  sources:
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2018/index.html
+    roles:
+    - web
+  - url: https://rmc18.kattis.com/contests/rmc18/standings
+    roles:
+    - scoreboard
+    as_of: '20220810131759'
+    archived:
+    - rmc/rmc-2018/scoreboard/2026-09-01-live-02aba339/page.html
+    - rmc/rmc-2018/scoreboard/20220810-wayback-1cb64432/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Rocky-Mountain-2019/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/North%20America%20Contests/Rocky%20Mountain%20Regional%20Contest/2018%20Rocky%20Mountain%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://rmc18.kattis.com/contests/rmc18/problems
+    roles:
+    - judge_page
+    judge: kattis
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2613
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210923201135'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 10
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://rmc18.kattis.com/contests/rmc18/problems
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2613
-        as_of: '20210923201135'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/North%20America%20Contests/Rocky%20Mountain%20Regional%20Contest/2018%20Rocky%20Mountain%20Regional%20Contest/problems.pdf
+    set: rmc-2018
 - id: rmc-2019
   season: 2020
   name: 2019 Rocky Mountain Regional Contest
@@ -969,27 +1304,42 @@ contests:
   - 4075
   parent: nac-2020
   next: rmc-2020
-  results:
-    scoreboard:
-    - url: https://rmc19.kattis.com/contests/rmc19/standings
-      archived: rmc/rmc-2019/scoreboard/2026-09-01-live-e3ab7848/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Rocky-Mountain-2020/standings
-  web: https://rocky.icpc.io
+  sources:
+  - url: https://rocky.icpc.io
+    roles:
+    - web
+  - url: https://rmc19.kattis.com/contests/rmc19/standings
+    roles:
+    - scoreboard
+    as_of: '20220811075943'
+    archived:
+    - rmc/rmc-2019/scoreboard/2026-09-01-live-e3ab7848/page.html
+    - rmc/rmc-2019/scoreboard/20220811-wayback-224faa12/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Rocky-Mountain-2020/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/North%20America%20Contests/Rocky%20Mountain%20Regional%20Contest/2019%20Rocky%20Mountain%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://rmc19.kattis.com/contests/rmc19/problems
+    roles:
+    - judge_page
+    judge: kattis
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2100
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210302173933'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://rmc19.kattis.com/contests/rmc19/problems
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2100
-        as_of: '20210302173933'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/North%20America%20Contests/Rocky%20Mountain%20Regional%20Contest/2019%20Rocky%20Mountain%20Regional%20Contest/problems.pdf
+    set: rmc-2019
 - id: rmc-2020
   season: 2021
   name: 2020 Rocky Mountain Regional Contest
@@ -1000,27 +1350,39 @@ contests:
   - 4343
   parent: nac-2021
   next: rmc-2021
-  results:
-    scoreboard:
-    - url: https://rmc20.kattis.com/contests/rmc20/standings
-      archived: rmc/rmc-2020/scoreboard/2026-09-01-live-8fc0e1fc/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Rocky-Mountain-2021/standings
-  web: https://rocky.icpc.io
+  sources:
+  - url: https://rocky.icpc.io
+    roles:
+    - web
+  - url: https://rmc20.kattis.com/contests/rmc20/standings
+    roles:
+    - scoreboard
+    as_of: '20220704220537'
+    archived:
+    - rmc/rmc-2020/scoreboard/2026-09-01-live-8fc0e1fc/page.html
+    - rmc/rmc-2020/scoreboard/20220704-wayback-94f44b0a/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Rocky-Mountain-2021/standings
+    roles:
+    - icpc_standings
+  - url: https://rmc20.kattis.com/contests/rmc20/problems
+    roles:
+    - problemset
+    - judge_page
+    judge: kattis
+    as_of: '20220704222056'
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2466
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20220529061749'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://rmc20.kattis.com/contests/rmc20/problems
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2466
-        as_of: '20220529061749'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://rmc20.kattis.com/contests/rmc20/problems
+    set: rmc-2020
 - id: rmc-2021
   season: 2022
   name: 2021 ICPC Rocky Mountain Regional Contest
@@ -1031,31 +1393,50 @@ contests:
   - 4680
   parent: nac-2022
   next: rmc-2022
-  results:
-    scoreboard:
-    - url: https://rmc21.kattis.com/contests/rmc21/standings
-      archived: rmc/rmc-2021/scoreboard/2026-09-01-live-71b2cfab/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://rocky.icpc.io/
-      archived: rmc/rmc-2021/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-      as_of: '20240329112337'
-  web: http://rocky.icpc.io
+  sources:
+  - url: http://rocky.icpc.io
+    roles:
+    - web
+    - standings
+    as_of: '20240329112337'
+    archived:
+    - rmc/rmc-2021/external-standings/2026-04-15-external/content.html
+    - rmc/rmc-2021/standings/20240329-wayback-19664cfb/page.html
+    - rmc/rmc-2021/standings/20240329-wayback-9d3ba15f/page.html
+    - rmc/rmc-2021/standings/20260904-live-a00926f1/page.html
+    - rmc/rmc-2021/standings/20261023-live-748e5a8b/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://rmc21.kattis.com/contests/rmc21/standings
+    roles:
+    - scoreboard
+    as_of: '20230326191715'
+    archived:
+    - rmc/rmc-2021/scoreboard/2026-09-01-live-71b2cfab/page.html
+    - rmc/rmc-2021/scoreboard/20230326-wayback-248234e9/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.github.io/North%20America%20Contests/Rocky%20Mountain%20Regional%20Contest/2021%20Rocky%20Mountain%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://rmc21.kattis.com/contests/rmc21/problems
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20230326185659'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3061
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 14
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://rmc21.kattis.com/contests/rmc21/problems
-      baekjoon: https://www.acmicpc.net/category/detail/3061
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/North%20America%20Contests/Rocky%20Mountain%20Regional%20Contest/2021%20Rocky%20Mountain%20Regional%20Contest/problems.pdf
+    set: rmc-2021
 - id: rmc-2022
   season: 2023
   name: 2022 ICPC Rocky Mountain Regional Contest
@@ -1066,28 +1447,37 @@ contests:
   - 5381
   parent: nac-2023
   next: rmc-2023
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Rocky-Mountain-2023/standings
+  sources:
+  - url: https://rmc23.kattis.com/contests/rmc23/standings
+    roles:
+    - scoreboard
+    as_of: '20250714002824'
+    archived:
+    - rmc/rmc-2022/scoreboard/2026-09-01-live-9262ff8f/page.html
+    - rmc/rmc-2022/scoreboard/20250714-wayback-60975acc/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (agent-na)
+  - url: https://icpc.global/regionals/finder/Rocky-Mountain-2023/standings
+    roles:
+    - icpc_standings
+    archived:
+    - rmc/rmc-2022/external-standings/2026-04-15-external/content.html
     note: API-dump capture was filed under https://icpc.global/regionals/finder/Rocky-Mountain-2022/standings;
       from archived capture (external-standings)
-    archived: rmc/rmc-2022/external-standings/2026-04-15-external/content.html
-  results:
-    scoreboard:
-    - url: https://rmc23.kattis.com/contests/rmc23/standings
-      note: added by url-hunt 2026-09-01 (agent-na)
-      archived: rmc/rmc-2022/scoreboard/2026-09-01-live-9262ff8f/page.html
-      url_state: live
-      url_checked: '2026-11-02'
+  - url: https://icpcarchive.github.io/North%20America%20Contests/Rocky%20Mountain%20Regional%20Contest/2022%20Rocky%20Mountain%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3516
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 12
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon: https://www.acmicpc.net/category/detail/3516
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/North%20America%20Contests/Rocky%20Mountain%20Regional%20Contest/2022%20Rocky%20Mountain%20Regional%20Contest/problems.pdf
+    set: rmc-2022
 - id: rmc-2023
   season: 2024
   name: 2023 ICPC Rocky Mountain Regional Contest
@@ -1098,25 +1488,44 @@ contests:
   - 7452
   parent: nac-2024
   next: rmc-2024
-  results:
-    scoreboard:
-    - url: https://rmc23.kattis.com/contests/rmc23/standings
-      archived: rmc/rmc-2023/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Rocky-Mountain-2024/standings
-  web: https://rocky.icpc.io
+  sources:
+  - url: https://rocky.icpc.io
+    roles:
+    - web
+  - url: https://rmc23.kattis.com/contests/rmc23/standings
+    roles:
+    - scoreboard
+    as_of: '20250714002824'
+    archived:
+    - rmc/rmc-2023/external-standings/2026-04-15-external/content.html
+    - rmc/rmc-2023/scoreboard/20250714-wayback-60975acc/page.html
+    - rmc/rmc-2023/scoreboard/20260901-live-40c48c6f/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Rocky-Mountain-2024/standings
+    roles:
+    - icpc_standings
+  - url: https://github.com/icpc/na-rocky-mountain-2023-2024-public
+    roles:
+    - problemset
+    as_of: '20250804203033'
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://rmc23.kattis.com/contests/rmc23/problems
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20240527144836'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4016
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://rmc23.kattis.com/contests/rmc23/problems
-      baekjoon: https://www.acmicpc.net/category/detail/4016
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://github.com/icpc/na-rocky-mountain-2023-2024-public
+    set: rmc-2023
 - id: rmc-2024
   season: 2025
   name: 2024 ICPC Rocky Mountain Regional Contest
@@ -1127,18 +1536,31 @@ contests:
   - 8929
   parent: nac-2025
   next: rmc-2025
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Rocky-Mountain-2025/standings
-    archived: rmc/rmc-2024/standings/api-20260904/standings.html
+  sources:
+  - url: https://rm.na.icpc.global/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Rocky-Mountain-2025/standings
+    roles:
+    - icpc_standings
+    archived:
+    - rmc/rmc-2024/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 8929, 54 teams, DB fetch 2026-04-26)
-  web: https://rm.na.icpc.global/
+  - url: https://rmc24.kattis.com/contests/rmc24/problems
+    roles:
+    - problemset
+    as_of: '20250322064150'
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4331
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2024 Rocky Mountain Regional Contest
   problems:
-    source: Kattis problem export (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4331
-        note: 2024 Rocky Mountain Regional Contest
-  problemset: https://rmc24.kattis.com/contests/rmc24/problems
+    set: rmc-2024
 - id: rmc-2025
   season: 2026
   name: 2025 ICPC North America Rocky Mountain Regional Contest
@@ -1149,23 +1571,36 @@ contests:
   - 9339
   parent: nac-2026
   next: rmc-2026
-  results:
-    scoreboard:
-    - url: https://rmc.kattis.com/contests/rmc24/standings
-      archived: rmc/rmc-2025/scoreboard/2026-09-01-live-58000b79/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://rmc25.kattis.com/contests/rmc25/standings
-      archived: rmc/rmc-2025/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Rocky-Mountain-2026/standings
-  web: https://rm.na.icpc.global
+  sources:
+  - url: https://rm.na.icpc.global
+    roles:
+    - web
+  - url: https://rmc.kattis.com/contests/rmc24/standings
+    roles:
+    - scoreboard
+    archived:
+    - rmc/rmc-2025/scoreboard/2026-09-01-live-58000b79/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://rmc25.kattis.com/contests/rmc25/standings
+    roles:
+    - standings
+    archived:
+    - rmc/rmc-2025/external-standings/2026-04-15-external/content.html
+    - rmc/rmc-2025/standings/20260901-live-e0211f80/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Rocky-Mountain-2026/standings
+    roles:
+    - icpc_standings
+  - url: https://github.com/icpc/na-rocky-mountain-2025-2026-public
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    source: Kattis problem export (2026-11-01)
-  problemset: https://github.com/icpc/na-rocky-mountain-2025-2026-public
+    set: rmc-2025
 - id: rmc-2026
   status: upcoming
   season: 2027
@@ -1174,4 +1609,7 @@ contests:
   cms_ids:
   - 9765
   parent: nac-2027
-  web: https://rm.na.icpc.global/
+  sources:
+  - url: https://rm.na.icpc.global/
+    roles:
+    - web

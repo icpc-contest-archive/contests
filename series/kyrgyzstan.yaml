@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: kyrgyzstan
   name: ICPC Kyrgyzstan Regional Contest
+  tier: subregional
+  region: Northern Eurasia
+  naming: season-start
 contests:
 - id: kyrgyzstan-2004
   season: 2005
@@ -9,19 +12,29 @@ contests:
   cms_ids: []
   parent: neerc-2004
   next: kyrgyzstan-2005
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2004/kyrgyzstan/standings.html
-      archived: kyrgyzstan/kyrgyzstan-2004/standings/2026-09-01-live-6575dc8c/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2004/kyrgyzstan/standings.html
-      as_of: '20180203030205'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kyrgyzstan/kyrgyzstan-2004/standings/20180203-wayback-03e0cb60/standings.html
-  web: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2004/kyrgyzstan/standings.html
+    roles:
+    - standings
+    as_of: '20260610153412'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2004/standings/2026-09-01-live-6575dc8c/standings.html
+    - kyrgyzstan/kyrgyzstan-2004/standings/20260610-wayback-fb09d431/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2004/kyrgyzstan/standings.html
+    roles:
+    - standings
+    as_of: '20180203030205'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2004/standings/20180203-wayback-03e0cb60/standings.html
+    - kyrgyzstan/kyrgyzstan-2004/standings/20260904-live-0829df48/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: kyrgyzstan-2005
   season: 2006
   name: 2005 Kyrgyzstan Subregional Contest
@@ -29,23 +42,34 @@ contests:
   cms_ids: []
   parent: neerc-2005
   next: kyrgyzstan-2006
-  results:
-    scoreboard:
-    - url: https://olymp.krsu.kg/conteststandings/9
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nerc.itmo.ru/archive/2005/kyrgyzstan/standings.html
-      archived: kyrgyzstan/kyrgyzstan-2005/standings/2026-09-01-live-527f4846/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2005/kyrgyzstan/standings.html
-      as_of: '20161208235356'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kyrgyzstan/kyrgyzstan-2005/standings/20161208-wayback-bfc60c2c/standings.html
-  web: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
+    roles:
+    - web
+  - url: https://olymp.krsu.kg/conteststandings/9
+    roles:
+    - scoreboard
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2005/kyrgyzstan/standings.html
+    roles:
+    - standings
+    as_of: '20260613053431'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2005/standings/2026-09-01-live-527f4846/standings.html
+    - kyrgyzstan/kyrgyzstan-2005/standings/20260613-wayback-dbcbc1ab/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2005/kyrgyzstan/standings.html
+    roles:
+    - standings
+    as_of: '20161208235356'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2005/standings/20161208-wayback-bfc60c2c/standings.html
+    - kyrgyzstan/kyrgyzstan-2005/standings/20260904-live-43be551c/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: kyrgyzstan-2006
   season: 2007
   name: 2006 Kyrgyzstan Subregional Contest
@@ -53,23 +77,34 @@ contests:
   cms_ids: []
   parent: neerc-2006
   next: kyrgyzstan-2007
-  results:
-    scoreboard:
-    - url: https://olymp.krsu.kg/conteststandings/26
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nerc.itmo.ru/archive/2006/kyrgyzstan/standings.html
-      archived: kyrgyzstan/kyrgyzstan-2006/standings/2026-09-01-live-ed9749f2/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2006/kyrgyzstan/standings.html
-      as_of: '20191024061336'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kyrgyzstan/kyrgyzstan-2006/standings/20191024-wayback-b3326115/standings.html
-  web: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
+    roles:
+    - web
+  - url: https://olymp.krsu.kg/conteststandings/26
+    roles:
+    - scoreboard
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2006/kyrgyzstan/standings.html
+    roles:
+    - standings
+    as_of: '20230322023821'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2006/standings/2026-09-01-live-ed9749f2/standings.html
+    - kyrgyzstan/kyrgyzstan-2006/standings/20230322-wayback-bc41cb33/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2006/kyrgyzstan/standings.html
+    roles:
+    - standings
+    as_of: '20191024061336'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2006/standings/20191024-wayback-b3326115/standings.html
+    - kyrgyzstan/kyrgyzstan-2006/standings/20260904-live-c41fdfdd/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: kyrgyzstan-2007
   season: 2008
   name: 2007 Kyrgyzstan Subregional Contest
@@ -77,23 +112,34 @@ contests:
   cms_ids: []
   parent: neerc-2007
   next: kyrgyzstan-2008
-  results:
-    scoreboard:
-    - url: https://olymp.krsu.kg/conteststandings/30
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nerc.itmo.ru/archive/2007/kyrgyzstan/standings.html
-      archived: kyrgyzstan/kyrgyzstan-2007/standings/2026-09-01-live-cf34ef76/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2007/kyrgyzstan/standings.html
-      as_of: '20180715064240'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kyrgyzstan/kyrgyzstan-2007/standings/20180715-wayback-c4863699/standings.html
-  web: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
+    roles:
+    - web
+  - url: https://olymp.krsu.kg/conteststandings/30
+    roles:
+    - scoreboard
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2007/kyrgyzstan/standings.html
+    roles:
+    - standings
+    as_of: '20260610211501'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2007/standings/2026-09-01-live-cf34ef76/standings.html
+    - kyrgyzstan/kyrgyzstan-2007/standings/20260610-wayback-2bd3a118/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2007/kyrgyzstan/standings.html
+    roles:
+    - standings
+    as_of: '20180715064240'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2007/standings/20180715-wayback-c4863699/standings.html
+    - kyrgyzstan/kyrgyzstan-2007/standings/20260904-live-9a32543f/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: kyrgyzstan-2008
   season: 2009
   name: 2008 Kyrgyzstan Subregional Contest
@@ -103,24 +149,37 @@ contests:
   - 77
   parent: neerc-2008
   next: kyrgyzstan-2009
-  results:
-    scoreboard:
-    - url: https://olymp.krsu.kg/conteststandings/39
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nerc.itmo.ru/archive/2008/kyrgyzstan/standings.html
-      archived: kyrgyzstan/kyrgyzstan-2008/standings/2026-09-01-live-e07ae146/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2008/kyrgyzstan/standings.html
-      as_of: '20180715064305'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kyrgyzstan/kyrgyzstan-2008/standings/20180715-wayback-88f9513c/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Kyrgyzstan-Subregional-2009/standings
-  web: http://neerc.ifmo.ru/subregions/kyrgyzstan.html
+  sources:
+  - url: http://neerc.ifmo.ru/subregions/kyrgyzstan.html
+    roles:
+    - web
+  - url: https://olymp.krsu.kg/conteststandings/39
+    roles:
+    - scoreboard
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2008/kyrgyzstan/standings.html
+    roles:
+    - standings
+    as_of: '20260610220425'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2008/standings/2026-09-01-live-e07ae146/standings.html
+    - kyrgyzstan/kyrgyzstan-2008/standings/20260610-wayback-271ed509/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2008/kyrgyzstan/standings.html
+    roles:
+    - standings
+    as_of: '20180715064305'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2008/standings/20180715-wayback-88f9513c/standings.html
+    - kyrgyzstan/kyrgyzstan-2008/standings/20260904-live-872f8c20/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Kyrgyzstan-Subregional-2009/standings
+    roles:
+    - icpc_standings
 - id: kyrgyzstan-2009
   season: 2010
   name: 2009 Kyrgyzstan Subregional Contest
@@ -130,23 +189,34 @@ contests:
   - 529
   parent: neerc-2009
   next: kyrgyzstan-2010
-  results:
-    scoreboard:
-    - url: https://olymp.krsu.kg/conteststandings/46
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nerc.itmo.ru/archive/2009/kyrgyzstan/standings.html
-      archived: kyrgyzstan/kyrgyzstan-2009/standings/2026-09-01-live-459080de/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2009/kyrgyzstan/standings.html
-      as_of: '20191026091921'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kyrgyzstan/kyrgyzstan-2009/standings/20191026-wayback-02de48af/standings.html
-  web: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
+    roles:
+    - web
+  - url: https://olymp.krsu.kg/conteststandings/46
+    roles:
+    - scoreboard
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2009/kyrgyzstan/standings.html
+    roles:
+    - standings
+    as_of: '20260610150421'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2009/standings/2026-09-01-live-459080de/standings.html
+    - kyrgyzstan/kyrgyzstan-2009/standings/20260610-wayback-d8e8932a/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2009/kyrgyzstan/standings.html
+    roles:
+    - standings
+    as_of: '20191026091921'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2009/standings/20191026-wayback-02de48af/standings.html
+    - kyrgyzstan/kyrgyzstan-2009/standings/20260904-live-7a97cf3c/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: kyrgyzstan-2010
   season: 2011
   name: 2010 Kyrgyzstan Subregional Contest
@@ -156,15 +226,17 @@ contests:
   - 623
   parent: neerc-2010
   next: kyrgyzstan-2011
-  results:
-    scoreboard:
-    - url: https://olymp.krsu.kg/conteststandings/52
-      url_state: dead
-      url_checked: '2026-11-02'
-  web: http://neerc.ifmo.ru/
+  sources:
+  - url: http://neerc.ifmo.ru/
+    roles:
+    - web
+  - url: https://olymp.krsu.kg/conteststandings/52
+    roles:
+    - scoreboard
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    notes: No date
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: kyrgyzstan-2010
 - id: kyrgyzstan-2011
   season: 2012
   name: 2011 Kyrgyzstan Subregional Contest
@@ -174,24 +246,37 @@ contests:
   - 758
   parent: neerc-2011
   next: kyrgyzstan-2012
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2011/kyrgyzstan/standings.html
-      archived: kyrgyzstan/kyrgyzstan-2011/scoreboard/2026-09-01-live-1ffc0a05/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://olymp.krsu.kg/conteststandings/58
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2011/kyrgyzstan/standings.html
-      as_of: '20191025045617'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kyrgyzstan/kyrgyzstan-2011/standings/20191025-wayback-9866ba5c/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Kyrgyzstan-Subregional-2012/standings
-  web: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2011/kyrgyzstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260613052904'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2011/scoreboard/2026-09-01-live-1ffc0a05/standings.html
+    - kyrgyzstan/kyrgyzstan-2011/scoreboard/20260613-wayback-9b56eae1/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://olymp.krsu.kg/conteststandings/58
+    roles:
+    - scoreboard
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2011/kyrgyzstan/standings.html
+    roles:
+    - standings
+    as_of: '20191025045617'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2011/standings/20191025-wayback-9866ba5c/standings.html
+    - kyrgyzstan/kyrgyzstan-2011/standings/20260904-live-f65e20c7/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Kyrgyzstan-Subregional-2012/standings
+    roles:
+    - icpc_standings
 - id: kyrgyzstan-2012
   season: 2013
   name: 2012 Kyrgyzstan Subregional Contest
@@ -201,23 +286,34 @@ contests:
   - 1312
   parent: neerc-2012
   next: kyrgyzstan-2013
-  results:
-    scoreboard:
-    - url: https://olymp.krsu.kg/conteststandings/62
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nerc.itmo.ru/archive/2012/kyrgyzstan/standings.html
-      archived: kyrgyzstan/kyrgyzstan-2012/standings/2026-09-01-live-234ee1dc/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2012/kyrgyzstan/standings.html
-      as_of: '20161031080955'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kyrgyzstan/kyrgyzstan-2012/standings/20161031-wayback-74dd553c/standings.html
-  web: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
+    roles:
+    - web
+  - url: https://olymp.krsu.kg/conteststandings/62
+    roles:
+    - scoreboard
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2012/kyrgyzstan/standings.html
+    roles:
+    - standings
+    as_of: '20260613061847'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2012/standings/2026-09-01-live-234ee1dc/standings.html
+    - kyrgyzstan/kyrgyzstan-2012/standings/20260613-wayback-d4fe5bbb/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2012/kyrgyzstan/standings.html
+    roles:
+    - standings
+    as_of: '20161031080955'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2012/standings/20161031-wayback-74dd553c/standings.html
+    - kyrgyzstan/kyrgyzstan-2012/standings/20260904-live-67d36dc8/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: kyrgyzstan-2013
   season: 2014
   name: 2013 Kyrgyzstan Subregional Contest
@@ -227,23 +323,34 @@ contests:
   - 2029
   parent: neerc-2013
   next: kyrgyzstan-2014
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2013/kyrgyzstan/standings.html
-      archived: kyrgyzstan/kyrgyzstan-2013/scoreboard/2026-09-01-live-d0a173a0/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://olymp.krsu.kg/conteststandings/67
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2013/kyrgyzstan/standings.html
-      as_of: '20161031215157'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kyrgyzstan/kyrgyzstan-2013/standings/20161031-wayback-ef5cf6cf/standings.html
-  web: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2013/kyrgyzstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260610210903'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2013/scoreboard/2026-09-01-live-d0a173a0/standings.html
+    - kyrgyzstan/kyrgyzstan-2013/scoreboard/20260610-wayback-41cb4133/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://olymp.krsu.kg/conteststandings/67
+    roles:
+    - scoreboard
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2013/kyrgyzstan/standings.html
+    roles:
+    - standings
+    as_of: '20161031215157'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2013/standings/20161031-wayback-ef5cf6cf/standings.html
+    - kyrgyzstan/kyrgyzstan-2013/standings/20260904-live-9c3b66fe/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: kyrgyzstan-2014
   season: 2015
   name: 2014 Kyrgyzstan Subregional Contest
@@ -253,17 +360,27 @@ contests:
   - 2679
   parent: neerc-2014
   next: kyrgyzstan-2015
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2014/kyrgyzstan/standings.html
-      archived: kyrgyzstan/kyrgyzstan-2014/scoreboard/2026-09-01-live-bf9f0ffd/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://olymp.krsu.kg/conteststandings/78
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Kyrgyzstan-Subregional-2015/standings
-  web: http://www.olymp.krsu.edu.kg/
+  sources:
+  - url: http://www.olymp.krsu.edu.kg/
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2014/kyrgyzstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260613062457'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2014/scoreboard/2026-09-01-live-bf9f0ffd/standings.html
+    - kyrgyzstan/kyrgyzstan-2014/scoreboard/20260613-wayback-19896678/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://olymp.krsu.kg/conteststandings/78
+    roles:
+    - scoreboard
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Kyrgyzstan-Subregional-2015/standings
+    roles:
+    - icpc_standings
 - id: kyrgyzstan-2015
   season: 2016
   name: 2015 Kyrgyzstan Subregional Contest
@@ -273,24 +390,37 @@ contests:
   - 2762
   parent: neerc-2015
   next: kyrgyzstan-2016
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2015/kyrgyzstan/standings.html
-      archived: kyrgyzstan/kyrgyzstan-2015/scoreboard/2026-09-01-live-b26cc03c/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://olymp.krsu.kg/conteststandings/99
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2015/kyrgyzstan/standings.html
-      as_of: '20161031080416'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kyrgyzstan/kyrgyzstan-2015/standings/20161031-wayback-bf64bbc3/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Kyrgyzstan-Subregional-2016/standings
-  web: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2015/kyrgyzstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260613054353'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2015/scoreboard/2026-09-01-live-b26cc03c/standings.html
+    - kyrgyzstan/kyrgyzstan-2015/scoreboard/20260613-wayback-11adb9e3/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://olymp.krsu.kg/conteststandings/99
+    roles:
+    - scoreboard
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2015/kyrgyzstan/standings.html
+    roles:
+    - standings
+    as_of: '20161031080416'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2015/standings/20161031-wayback-bf64bbc3/standings.html
+    - kyrgyzstan/kyrgyzstan-2015/standings/20260904-live-329eebac/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Kyrgyzstan-Subregional-2016/standings
+    roles:
+    - icpc_standings
 - id: kyrgyzstan-2016
   season: 2017
   name: 2016 Kyrgyzstan Subregional Contest
@@ -300,24 +430,37 @@ contests:
   - 3155
   parent: neerc-2016
   next: kyrgyzstan-2017
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2016/kyrgyzstan/standings.html
-      archived: kyrgyzstan/kyrgyzstan-2016/scoreboard/2026-09-01-live-1ededbaa/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://olymp.krsu.kg/conteststandings/118
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2016/kyrgyzstan/standings.html
-      as_of: '20171025201046'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kyrgyzstan/kyrgyzstan-2016/standings/20171025-wayback-a5821fab/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Kyrgyzstan-Subregional-2017/standings
-  web: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2016/kyrgyzstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20191206210147'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2016/scoreboard/2026-09-01-live-1ededbaa/standings.html
+    - kyrgyzstan/kyrgyzstan-2016/scoreboard/20191206-wayback-07933790/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://olymp.krsu.kg/conteststandings/118
+    roles:
+    - scoreboard
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2016/kyrgyzstan/standings.html
+    roles:
+    - standings
+    as_of: '20171025201046'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2016/standings/20171025-wayback-a5821fab/standings.html
+    - kyrgyzstan/kyrgyzstan-2016/standings/20260904-live-bc8385db/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Kyrgyzstan-Subregional-2017/standings
+    roles:
+    - icpc_standings
 - id: kyrgyzstan-2017
   season: 2018
   name: 2017 Kyrgyzstan Subregional Contest
@@ -327,24 +470,37 @@ contests:
   - 3287
   parent: nerc-2017
   next: kyrgyzstan-2018
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2017/kyrgyzstan/standings.html
-      archived: kyrgyzstan/kyrgyzstan-2017/scoreboard/2026-09-01-live-9fa2aeda/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://olymp.krsu.kg/conteststandings/135
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2017/kyrgyzstan/standings.html
-      as_of: '20180920232601'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kyrgyzstan/kyrgyzstan-2017/standings/20180920-wayback-1511cb00/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Kyrgyzstan-Subregional-2018/standings
-  web: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2017/kyrgyzstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260613054827'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2017/scoreboard/2026-09-01-live-9fa2aeda/standings.html
+    - kyrgyzstan/kyrgyzstan-2017/scoreboard/20260613-wayback-6cc53c7b/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://olymp.krsu.kg/conteststandings/135
+    roles:
+    - scoreboard
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2017/kyrgyzstan/standings.html
+    roles:
+    - standings
+    as_of: '20180920232601'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2017/standings/20180920-wayback-1511cb00/standings.html
+    - kyrgyzstan/kyrgyzstan-2017/standings/20260904-live-1f89f499/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Kyrgyzstan-Subregional-2018/standings
+    roles:
+    - icpc_standings
 - id: kyrgyzstan-2018
   season: 2019
   name: 2018 Kyrgyzstan Subregional Contest
@@ -354,19 +510,17 @@ contests:
   - 3673
   parent: nerc-2018
   next: kyrgyzstan-2019
-  results:
-    scoreboard:
-    - url: https://olymp.krsu.kg/conteststandings/177
-      url_state: dead
-      url_checked: '2026-11-02'
-  web: https://olymp.krsu.kg/conteststandings/177
-  mirrors:
-  - url: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: https://github.com/iensen/olymp.krsu.edu.kg
-    note: added by url-hunt 2026-09-01 (round9-deep-D1)
-  - url: https://codeforces.com/gym/104018
-    note: added by url-hunt 2026-09-01 (round9-deep-D1)
+  sources:
+  - url: https://olymp.krsu.kg/conteststandings/177
+    roles:
+    - web
+    - scoreboard
+    also_at:
+    - https://neerc.ifmo.ru/subregions/kyrgyzstan.html
+    - https://github.com/iensen/olymp.krsu.edu.kg
+    - https://codeforces.com/gym/104018
+    url_state: dead
+    url_checked: '2026-11-02'
 - id: kyrgyzstan-2019
   season: 2020
   name: 2019 Kyrgyzstan Regional Contest
@@ -376,24 +530,37 @@ contests:
   - 4207
   parent: nerc-2019
   next: kyrgyzstan-2020
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2019/kyrgyzstan/standings.html
-      archived: kyrgyzstan/kyrgyzstan-2019/scoreboard/2026-09-01-live-3b4c1123/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://olymp.krsu.kg/conteststandings/245
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2019/kyrgyzstan/standings.html
-      as_of: '20230331151923'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kyrgyzstan/kyrgyzstan-2019/standings/20230331-wayback-7df21e61/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Kyrgyzstan-Regional-2020/standings
-  web: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2019/kyrgyzstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260610151316'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2019/scoreboard/2026-09-01-live-3b4c1123/standings.html
+    - kyrgyzstan/kyrgyzstan-2019/scoreboard/20260610-wayback-79810a9a/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://olymp.krsu.kg/conteststandings/245
+    roles:
+    - scoreboard
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2019/kyrgyzstan/standings.html
+    roles:
+    - standings
+    as_of: '20230331151923'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2019/standings/20230331-wayback-7df21e61/standings.html
+    - kyrgyzstan/kyrgyzstan-2019/standings/20260904-live-bdc5e58f/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Kyrgyzstan-Regional-2020/standings
+    roles:
+    - icpc_standings
 - id: kyrgyzstan-2020
   season: 2021
   name: 2020 Kyrgyzstan Regional Contest
@@ -403,22 +570,19 @@ contests:
   - 4562
   parent: nerc-2020
   next: kyrgyzstan-2021
-  results:
-    scoreboard:
-    - url: https://olymp.krsu.kg/conteststandings/313
-      url_state: dead
-      url_checked: '2026-11-02'
-  web: https://olymp.krsu.kg/conteststandings/313
-  mirrors:
-  - url: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: https://github.com/iensen/olymp.krsu.edu.kg
-    note: added by url-hunt 2026-09-01 (round9-deep-D1)
-  - url: https://codeforces.com/gym/105493
-    note: added by url-hunt 2026-09-01 (round9-deep-D1)
+  sources:
+  - url: https://olymp.krsu.kg/conteststandings/313
+    roles:
+    - web
+    - scoreboard
+    also_at:
+    - https://neerc.ifmo.ru/subregions/kyrgyzstan.html
+    - https://github.com/iensen/olymp.krsu.edu.kg
+    - https://codeforces.com/gym/105493
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    notes: No date
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: kyrgyzstan-2020
 - id: kyrgyzstan-2021
   season: 2022
   name: 2021 ICPC Kyrgyzstan Regional Contest
@@ -428,19 +592,26 @@ contests:
   - 4936
   parent: nerc-2021
   next: kyrgyzstan-2022
-  results:
-    scoreboard:
-    - url: https://olymp.krsu.kg/conteststandings/522
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://olymp.krsu.edu.kg/ContestRanklist.aspx?contest=522
-      archived: kyrgyzstan/kyrgyzstan-2021/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Kyrgyzstan-Regional-2022/standings
-  web: https://olymp.krsu.edu.kg/HomeSubregion.aspx
+  sources:
+  - url: https://olymp.krsu.edu.kg/HomeSubregion.aspx
+    roles:
+    - web
+  - url: https://olymp.krsu.kg/conteststandings/522
+    roles:
+    - scoreboard
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://olymp.krsu.edu.kg/ContestRanklist.aspx?contest=522
+    roles:
+    - standings
+    archived:
+    - kyrgyzstan/kyrgyzstan-2021/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Kyrgyzstan-Regional-2022/standings
+    roles:
+    - icpc_standings
 - id: kyrgyzstan-2022
   season: 2023
   name: 2022 ICPC Kyrgyzstan Regional Contest
@@ -450,20 +621,34 @@ contests:
   - 5578
   parent: nerc-2022
   next: kyrgyzstan-2023
-  results:
-    scoreboard:
-    - url: https://olymp.krsu.kg/conteststandings/788
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://olymp.krsu.edu.kg/ContestRanklist.aspx?contest=788
-      archived: kyrgyzstan/kyrgyzstan-2022/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Kyrgyzstan-Regional-2023/standings
-  web: https://olymp.krsu.edu.kg/HomeSubregion.aspx
-  problemset: https://codeforces.com/gym/104018
+  sources:
+  - url: https://olymp.krsu.edu.kg/HomeSubregion.aspx
+    roles:
+    - web
+  - url: https://olymp.krsu.kg/conteststandings/788
+    roles:
+    - scoreboard
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://olymp.krsu.edu.kg/ContestRanklist.aspx?contest=788
+    roles:
+    - standings
+    as_of: '20221105225847'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2022/external-standings/2026-04-15-external/content.html
+    - kyrgyzstan/kyrgyzstan-2022/standings/20221105-wayback-11244d3f/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Kyrgyzstan-Regional-2023/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/104018
+    roles:
+    - problemset
+    as_of: '20221108154325'
+    url_state: replaced
+    url_checked: '2026-11-02'
 - id: kyrgyzstan-2023
   season: 2024
   name: 2023 ICPC Kyrgyzstan Regional Contest
@@ -473,20 +658,32 @@ contests:
   - 7738
   parent: nerc-2023
   next: kyrgyzstan-2024
-  results:
-    scoreboard:
-    - url: https://olymp.krsu.kg/conteststandings/15968
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://olymp.krsu.edu.kg/ContestRanklist.aspx?contest=15968
-      archived: kyrgyzstan/kyrgyzstan-2023/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Kyrgyzstan-Regional-2024/standings
-  web: https://olymp.krsu.edu.kg
-  problemset: https://codeforces.com/gym/104761
+  sources:
+  - url: https://olymp.krsu.edu.kg
+    roles:
+    - web
+  - url: https://olymp.krsu.kg/conteststandings/15968
+    roles:
+    - scoreboard
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://olymp.krsu.edu.kg/ContestRanklist.aspx?contest=15968
+    roles:
+    - standings
+    archived:
+    - kyrgyzstan/kyrgyzstan-2023/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Kyrgyzstan-Regional-2024/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/104761
+    roles:
+    - problemset
+    as_of: '20231128073329'
+    url_state: replaced
+    url_checked: '2026-11-02'
 - id: kyrgyzstan-2024
   season: 2025
   name: 2024 ICPC Kyrgyzstan Regional Contest
@@ -496,20 +693,32 @@ contests:
   - 8904
   parent: nerc-2024
   next: kyrgyzstan-2025
-  results:
-    scoreboard:
-    - url: https://olymp.krsu.kg/conteststandings/16214
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://olymp.krsu.edu.kg/conteststandings/16214
-      archived: kyrgyzstan/kyrgyzstan-2024/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Kyrgyzstan-Regional-2025/standings
-  web: https://olymp.krsu.edu.kg/regionals/regionals
-  problemset: https://codeforces.com/gym/105493
+  sources:
+  - url: https://olymp.krsu.edu.kg/regionals/regionals
+    roles:
+    - web
+  - url: https://olymp.krsu.kg/conteststandings/16214
+    roles:
+    - scoreboard
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://olymp.krsu.edu.kg/conteststandings/16214
+    roles:
+    - standings
+    archived:
+    - kyrgyzstan/kyrgyzstan-2024/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Kyrgyzstan-Regional-2025/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/105493
+    roles:
+    - problemset
+    as_of: '20250807061736'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: kyrgyzstan-2025
   season: 2026
   name: 2025 ICPC Kyrgyzstan Regional Contest
@@ -519,26 +728,43 @@ contests:
   - 9172
   parent: nerc-2025
   next: kyrgyzstan-2026
-  results:
-    scoreboard:
-    - url: https://olymp.krsu.kg/conteststandings/16406
-      as_of: '20251207012224'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: kyrgyzstan/kyrgyzstan-2025/scoreboard/20251207-wayback-3358117f/page.html
-    - url: https://codeforces.com/gym/106169/standings
-      archived: kyrgyzstan/kyrgyzstan-2025/scoreboard/2026-09-01-live-67d4ae01/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://olymp.krsu.edu.kg/conteststandings/16406
-      archived: kyrgyzstan/kyrgyzstan-2025/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Kyrgyzstan-Regional-2026/standings
-  web: https://olymp.krsu.edu.kg/regionals/regionals
-  problemset: https://codeforces.com/gym/106169
+  sources:
+  - url: https://olymp.krsu.edu.kg/regionals/regionals
+    roles:
+    - web
+  - url: https://olymp.krsu.kg/conteststandings/16406
+    roles:
+    - scoreboard
+    as_of: '20251207012224'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2025/scoreboard/20251207-wayback-3358117f/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://codeforces.com/gym/106169/standings
+    roles:
+    - scoreboard
+    as_of: '20260220170150'
+    archived:
+    - kyrgyzstan/kyrgyzstan-2025/scoreboard/2026-09-01-live-67d4ae01/page.html
+    - kyrgyzstan/kyrgyzstan-2025/scoreboard/20260220-wayback-f636f463/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://olymp.krsu.edu.kg/conteststandings/16406
+    roles:
+    - standings
+    archived:
+    - kyrgyzstan/kyrgyzstan-2025/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Kyrgyzstan-Regional-2026/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/106169
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: kyrgyzstan-2026
   status: upcoming
   season: 2027

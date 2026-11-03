@@ -1,20 +1,26 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: australia
   name: Australian Programming Contest
+  tier: subregional
+  region: Asia Pacific
+  naming: season-start
 contests:
 - id: australia-1998
   season: 1999
   cms_ids: []
   parent: south-pacific-1998
   next: null
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc99/Regionals/Aus98/Standings.htm
-      as_of: '20100710005352'
-      archived: australia/australia-1998/standings/2026-09-01-live-033d1c72/Standings.htm
-      url_state: live
-      url_checked: '2026-11-02'
+  sources:
+  - url: http://icpc.baylor.edu/past/icpc99/Regionals/Aus98/Standings.htm
+    roles:
+    - standings
+    as_of: '20100710005352'
+    archived:
+    - australia/australia-1998/standings/2026-09-01-live-033d1c72/Standings.htm
+    - australia/australia-1998/standings/2026-09-01-wayback-033d1c72/Standings.htm
+    url_state: live
+    url_checked: '2026-11-02'
 - id: australia-2013
   season: 2014
   name: 2013 Australian Programming Contest
@@ -25,27 +31,29 @@ contests:
   - 2045
   parent: south-pacific-2013
   next: null
-  web:
-    url: http://www.cse.unsw.edu.au/~elgindyh/AuPC/home.html
-    as_of: '20130920014853'
-  results:
-    scoreboard:
-    - url: http://www.cse.unsw.edu.au/~elgindyh/AuPC/home.html
-      as_of: '20130920014853'
-      archived: australia/australia-2013/scoreboard/2026-04-16-archive/contest-2045-2013.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1111
-        as_of: '20210119095426'
-        note: AuPC 2013
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/1111
-    as_of: '20210119095426'
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: http://www.cse.unsw.edu.au/~elgindyh/AuPC/home.html
+    roles:
+    - web
+    - scoreboard
+    as_of: '20130920014853'
+    archived:
+    - australia/australia-2013/scoreboard/2026-04-16-archive/contest-2045-2013.html
+    - australia/australia-2013/scoreboard/20130920-wayback-678df82b/home.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://www.acmicpc.net/category/detail/1111
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20210119095426'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      AuPC 2013
+  problems:
+    set: australia-2013
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28

@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: gran-premio-centroamerica
   name: ICPC Gran Premio de Centroamérica
+  tier: subregional
+  region: Latin America
+  naming: season-start
 contests:
 - id: gran-premio-centroamerica-2018
   season: 2019
@@ -11,14 +14,17 @@ contests:
   cms_ids:
   - 3773
   parent: central-america-2018
+  next: gran-premio-centroamerica-2019
+  sources:
+  - url: https://icpccentroamerica.org/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/GP-Centroamerica-2019/standings
+    roles:
+    - icpc_standings
+    note: added by url-hunt 2026-09-01 (round9-research)
   notes: '90 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
-  next: gran-premio-centroamerica-2019
-  web: https://icpccentroamerica.org/
-  mirrors: []
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/GP-Centroamerica-2019/standings
-    note: added by url-hunt 2026-09-01 (round9-research)
 - id: gran-premio-centroamerica-2019
   season: 2020
   name: Gran Premio de Centroamerica 2019
@@ -27,13 +33,15 @@ contests:
   cms_ids:
   - 4243
   parent: central-america-2019
+  next: gran-premio-centroamerica-2020
+  sources:
+  - url: https://icpc.global/regionals/finder/GP-Centroamerica-2020
+    roles:
+    - web
+    also_at:
+    - https://icpccentroamerica.org/
   notes: '69 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
-  next: gran-premio-centroamerica-2020
-  web: https://icpc.global/regionals/finder/GP-Centroamerica-2020
-  mirrors:
-  - url: https://icpccentroamerica.org/
-    note: added by url-hunt 2026-09-01 (round9-research)
 - id: gran-premio-centroamerica-2020
   season: 2021
   name: Gran Premio de Centroamerica 2020
@@ -42,13 +50,15 @@ contests:
   cms_ids:
   - 4478
   parent: central-america-2020
+  next: gran-premio-centroamerica-2021
+  sources:
+  - url: https://icpc.global/regionals/finder/GP-Centroamerica-2021
+    roles:
+    - web
+    also_at:
+    - https://icpccentroamerica.org/
   notes: '36 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
-  next: gran-premio-centroamerica-2021
-  web: https://icpc.global/regionals/finder/GP-Centroamerica-2021
-  mirrors:
-  - url: https://icpccentroamerica.org/
-    note: added by url-hunt 2026-09-01 (round9-research)
 - id: gran-premio-centroamerica-2021
   season: 2022
   name: 2021 ICPC Gran Premio de Centroamerica
@@ -56,13 +66,15 @@ contests:
   cms_ids:
   - 4710
   parent: central-america-2021
+  next: gran-premio-centroamerica-2022
+  sources:
+  - url: https://icpc.global/regionals/finder/GP-Centroamerica-2022
+    roles:
+    - web
+    also_at:
+    - https://icpccentroamerica.org/
   notes: '24 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
-  next: gran-premio-centroamerica-2022
-  web: https://icpc.global/regionals/finder/GP-Centroamerica-2022
-  mirrors:
-  - url: https://icpccentroamerica.org/
-    note: added by url-hunt 2026-09-01 (round9-research)
 - id: gran-premio-centroamerica-2022
   season: 2023
   name: 2022 ICPC Gran Premio de Centroamerica
@@ -71,12 +83,14 @@ contests:
   cms_ids:
   - 5530
   parent: central-america-2022
+  next: gran-premio-centroamerica-2023
+  sources:
+  - url: https://icpc.global/regionals/finder/GP-Centroamerica-2023/standings
+    roles:
+    - icpc_standings
+    note: added by url-hunt 2026-09-01 (round9-research)
   notes: '13 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
-  next: gran-premio-centroamerica-2023
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/GP-Centroamerica-2023/standings
-    note: added by url-hunt 2026-09-01 (round9-research)
 - id: gran-premio-centroamerica-2023
   season: 2024
   name: 2023 ICPC Gran Premio de Centroamerica
@@ -84,13 +98,15 @@ contests:
   cms_ids:
   - 7542
   parent: central-america-2023
+  next: gran-premio-centroamerica-2024
+  sources:
+  - url: https://icpc.global/regionals/finder/GP-Centroamerica-2024
+    roles:
+    - web
+    also_at:
+    - https://icpccentroamerica.org/
   notes: '45 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
-  next: gran-premio-centroamerica-2024
-  web: https://icpc.global/regionals/finder/GP-Centroamerica-2024
-  mirrors:
-  - url: https://icpccentroamerica.org/
-    note: added by url-hunt 2026-09-01 (round9-research)
 - id: gran-premio-centroamerica-2024
   season: 2025
   name: 2024 ICPC Gran Premio de Centroamerica
@@ -99,11 +115,13 @@ contests:
   cms_ids:
   - 8952
   parent: central-america-2024
+  next: gran-premio-centroamerica-2025
+  sources:
+  - url: https://icpc.global/regionals/finder/GP-Centroamerica-2025
+    roles:
+    - web
   notes: '80 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
-  next: gran-premio-centroamerica-2025
-  web: https://icpc.global/regionals/finder/GP-Centroamerica-2025
-  mirrors: []
 - id: gran-premio-centroamerica-2025
   season: 2026
   name: 2025 ICPC Gran Premio de Centroamerica
@@ -111,20 +129,24 @@ contests:
   cms_ids:
   - 9408
   parent: central-america-2025
+  next: gran-premio-centroamerica-2026
+  sources:
+  - url: https://icpccentroamerica.org/resultados-oficiales/
+    roles:
+    - standings
+    as_of: '20260121150608'
+    archived:
+    - gran-premio-centroamerica/gran-premio-centroamerica-2025/standings/20260121-wayback-b77b9d5f/page.html
+    - gran-premio-centroamerica/gran-premio-centroamerica-2025/standings/20261020-live-aaf60c3a/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://icpc.global/regionals/finder/GP-Centroamerica-2026/standings
+    roles:
+    - icpc_standings
+    note: added by url-hunt 2026-09-01 (round9-research)
   notes: '101 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
-  next: gran-premio-centroamerica-2026
-  results:
-    standings:
-    - url: https://icpccentroamerica.org/resultados-oficiales/
-      as_of: '20260121150608'
-      note: added by url-hunt 2026-09-01 (round9-research)
-      url_state: changed
-      url_checked: '2026-11-02'
-      archived: gran-premio-centroamerica/gran-premio-centroamerica-2025/standings/20260121-wayback-b77b9d5f/page.html
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/GP-Centroamerica-2026/standings
-    note: added by url-hunt 2026-09-01 (round9-research)
 - id: gran-premio-centroamerica-2026
   season: 2027
   name: 2026 ICPC Gran Premio de Centroamerica
@@ -133,13 +155,16 @@ contests:
   cms_ids:
   - 9811
   parent: central-america-2026
+  sources:
+  - url: https://icpccentroamerica.org/resultados-oficiales/
+    roles:
+    - standings
+    as_of: '20260419202905'
+    archived:
+    - gran-premio-centroamerica/gran-premio-centroamerica-2026/standings/20260419-wayback-3ee61ba6/page.html
+    - gran-premio-centroamerica/gran-premio-centroamerica-2026/standings/20261020-live-aaf60c3a/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (round9-research)
   notes: '123 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
-  results:
-    standings:
-    - url: https://icpccentroamerica.org/resultados-oficiales/
-      as_of: '20260419202905'
-      note: added by url-hunt 2026-09-01 (round9-research)
-      url_state: changed
-      url_checked: '2026-11-02'
-      archived: gran-premio-centroamerica/gran-premio-centroamerica-2026/standings/20260419-wayback-3ee61ba6/page.html

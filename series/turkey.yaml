@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: turkey
   name: ICPC Turkey Programming Contest
+  tier: subregional
+  region: Europe
+  naming: season-start
 contests:
 - id: turkey-2010
   season: 2011
@@ -11,25 +14,20 @@ contests:
   cms_ids:
   - 703
   parent: seerc-2010
-  web: https://icpc.baylor.edu/regionals/finder/Turkey-2011
-  notes: 'Q1 2026-09-07: CMS shows 21 registered/18 accepted teams and date 2010-09-13 - indicates (does
-    not prove) it ran; no webpage, results or wayback trace found; inzva''s 2019 ''first official Turkish
-    contest'' claim may simply not know of it'
-  mirrors:
-  - url: https://icpc.global/regionals/finder/Turkey-2011/standings
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: https://codeforces.com/blog/inzva
-    note: added by url-hunt 2026-09-01 (round9-deep-D1)
-  - url: https://inzva.com/reports/2019/turkish-programming-contest
-    note: added by url-hunt 2026-09-01 (round9-deep-D1)
-  - url: https://www.etu.edu.tr/tr/bolum/bilgisayar-muhendisligi/haber/tobb-etu-bilgisayar-muhendisligi-bolumu-takimi-acm-icpc-seerc-2016-programlama-yarismasindan-tarihi-basari-ile-dondu
-    note: added by url-hunt 2026-09-01 (round9-deep-D1)
-  - url: https://www.facebook.com/ICPCNews/posts/we-glad-to-announce-the-first-official-turkish-programming-contest-ever-organize/2539709802735336/
-    note: added by url-hunt 2026-09-01 (round9-deep-probe)
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Turkey-2011/standings
-    note: added by url-hunt 2026-09-01 (wave2-europe)
   sources:
+  - url: https://icpc.baylor.edu/regionals/finder/Turkey-2011
+    roles:
+    - web
+    also_at:
+    - https://codeforces.com/blog/inzva
+    - https://inzva.com/reports/2019/turkish-programming-contest
+    - https://www.etu.edu.tr/tr/bolum/bilgisayar-muhendisligi/haber/tobb-etu-bilgisayar-muhendisligi-bolumu-takimi-acm-icpc-seerc-2016-programlama-yarismasindan-tarihi-basari-ile-dondu
+    - https://www.facebook.com/ICPCNews/posts/we-glad-to-announce-the-first-official-turkish-programming-contest-ever-organize/2539709802735336/
+  - url: https://icpc.global/regionals/finder/Turkey-2011/standings
+    roles:
+    - icpc_standings
+    note: added by url-hunt 2026-09-01 (wave2-europe)
+  provenance:
   - 'SEERC 2010 final report (2010): ''There were 57 programming teams registered, from Bulgaria, Macedonia,
     Moldova, Serbia, Romania, Turkey and Ukraine''; 52 accepted from 28 universities; contest Saturday
     16 Oct 2010 at Politehnica Bucharest; country table — https://seerc.icpc.global/2010/report.htm [existence
@@ -45,6 +43,9 @@ contests:
     7 countries incl. Turkey; top 3 Ukrainian teams. (Independent confirmation of Turkish participation
     in Bucharest, not of a Turkish site.) — https://www.agir.ro/univers-ingineresc/numar-20-2010/a-35-a-editie-a-competitiei-internationale-de-programare-batalia-creierelor_3119.html
     [existence hunt 2026-10-22]'
+  notes: 'Q1 2026-09-07: CMS shows 21 registered/18 accepted teams and date 2010-09-13 - indicates (does
+    not prove) it ran; no webpage, results or wayback trace found; inzva''s 2019 ''first official Turkish
+    contest'' claim may simply not know of it'
 - id: turkey-2019
   season: 2020
   name: 2019 Turkey Programming Contest
@@ -54,25 +55,28 @@ contests:
   - 4119
   parent: seerc-2019
   next: turkey-2020
-  web: https://inzva.com/algorithm/contest/2019/turkish-programming-contest-2019
-  results:
-    scoreboard:
-    - url: https://inzva.com/reports/2019/turkish-programming-contest
-      archived: turkey/turkey-2019/scoreboard/2026-04-16-turkey/2019-turkey-programming-contest-2019.html
-      note: from archived capture (scoreboard)
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Turkey-2020/standings
-  problemset: https://inzva.com/reports/2019/turkish-programming-contest
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: https://inzva.com/algorithm/contest/2019/turkish-programming-contest-2019
+    roles:
+    - web
+  - url: https://inzva.com/reports/2019/turkish-programming-contest
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20191016213319'
+    archived:
+    - turkey/turkey-2019/scoreboard/2026-04-16-turkey/2019-turkey-programming-contest-2019.html
+    - turkey/turkey-2019/scoreboard/20191016-wayback-7e9d67a8/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://icpc.global/regionals/finder/Turkey-2020/standings
+    roles:
+    - icpc_standings
   problems:
-    count: 11
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: turkey-2019
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: turkey-2020
   season: 2021
   name: 2020 Turkey Programming Contest
@@ -80,32 +84,37 @@ contests:
   - 4536
   parent: seerc-2020
   next: turkey-2021
-  results:
-    scoreboard:
-    - url: https://algotester.com/en/Contest/ViewScoreboard/60345
-      as_of: '20201212092127'
-      note: added by url-hunt 2026-09-01 (round9-deep-D1)
-      url_state: changed
-      url_checked: '2026-11-02'
-      archived: turkey/turkey-2020/scoreboard/20201212-wayback-dcd9ae09/page.html
-    - url: https://algotester.com/en/Contest/ViewScoreboard/60350
-      as_of: '20201226094620'
-      note: added by url-hunt 2026-09-01 (round9-deep-D1)
-      url_state: changed
-      url_checked: '2026-11-02'
-      archived: turkey/turkey-2020/scoreboard/20201226-wayback-61e46e33/page.html
-  web: https://icpc.global/regionals/finder/Turkey-2021/standings
-  mirrors:
-  - url: https://inzva.com/reports/2020/online-programming-contest-2020
-    note: added by url-hunt 2026-09-01 (round9-deep-D1)
-  - url: https://www.algotester.com/opc
-    note: added by url-hunt 2026-09-01 (round9-deep-D1)
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Turkey-2021/standings
+  sources:
+  - url: https://icpc.global/regionals/finder/Turkey-2021/standings
+    roles:
+    - web
+    - icpc_standings
+    also_at:
+    - https://inzva.com/reports/2020/online-programming-contest-2020
+    - https://www.algotester.com/opc
     note: added by url-hunt 2026-09-01 (wave2-europe)
+  - url: https://algotester.com/en/Contest/ViewScoreboard/60345
+    roles:
+    - scoreboard
+    as_of: '20201212092127'
+    archived:
+    - turkey/turkey-2020/scoreboard/20201212-wayback-dcd9ae09/page.html
+    - turkey/turkey-2020/scoreboard/20261020-live-8e41a29d/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (round9-deep-D1)
+  - url: https://algotester.com/en/Contest/ViewScoreboard/60350
+    roles:
+    - scoreboard
+    as_of: '20201226094620'
+    archived:
+    - turkey/turkey-2020/scoreboard/20201226-wayback-61e46e33/page.html
+    - turkey/turkey-2020/scoreboard/20261020-live-501bf7f2/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (round9-deep-D1)
   problems:
-    notes: No date, no teams
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: turkey-2020
 - id: turkey-2021
   season: 2022
   name: 2021 ICPC Turkey Programming Contest
@@ -113,22 +122,19 @@ contests:
   - 4910
   parent: seerc-2021
   next: turkey-2022
-  web: https://icpc.global/regionals/finder/Turkey-2022/standings
-  mirrors:
-  - url: https://seerc.icpc.global/2022/
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: https://inzva.com/reports/2021/online-programming-contest-for-universities-2021-report
-    note: added by url-hunt 2026-09-01 (round9-deep-D1)
-  - url: https://www.algoleague.com/contest/online-programming-contest-2021-qualification-round/problem/list
-    note: added by url-hunt 2026-09-01 (round9-deep-D1)
-  - url: https://www.algoleague.com/contest/online-programming-contest-2021-final-contest/problem/list
-    note: added by url-hunt 2026-09-01 (round9-deep-D1)
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Turkey-2022/standings
+  sources:
+  - url: https://icpc.global/regionals/finder/Turkey-2022/standings
+    roles:
+    - web
+    - icpc_standings
+    also_at:
+    - https://seerc.icpc.global/2022/
+    - https://inzva.com/reports/2021/online-programming-contest-for-universities-2021-report
+    - https://www.algoleague.com/contest/online-programming-contest-2021-qualification-round/problem/list
+    - https://www.algoleague.com/contest/online-programming-contest-2021-final-contest/problem/list
     note: added by url-hunt 2026-09-01 (wave2-europe)
   problems:
-    notes: No date, no teams
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: turkey-2021
 - id: turkey-2022
   season: 2023
   name: 2022 ICPC Turkey Programming Contest
@@ -136,28 +142,27 @@ contests:
   - 5425
   parent: seerc-2022
   next: turkey-2023
-  results:
-    scoreboard:
-    - url: https://www.algoleague.com/contest/online-programming-contest-2022/leaderboard
-      as_of: '20220917083944'
-      note: added by url-hunt 2026-09-01 (round9-deep-D1)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: turkey/turkey-2022/scoreboard/20261020-live-ec76889f/page.html
-  web: https://icpc.global/regionals/finder/Turkey-2023/standings
-  mirrors:
-  - url: https://icpc.global/regionals/finder/Turkey-2023/teams
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: https://inzva.com/reports/2022/online-programming-contest-2022
-    note: added by url-hunt 2026-09-01 (round9-deep-D1)
-  - url: https://bm.itu.edu.tr/en/home/2022/07/21/online-programming-contest-2022-inzva
-    note: added by url-hunt 2026-09-01 (round9-deep-D1)
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Turkey-2023/standings
+  sources:
+  - url: https://icpc.global/regionals/finder/Turkey-2023/standings
+    roles:
+    - web
+    - icpc_standings
+    also_at:
+    - https://icpc.global/regionals/finder/Turkey-2023/teams
+    - https://inzva.com/reports/2022/online-programming-contest-2022
+    - https://bm.itu.edu.tr/en/home/2022/07/21/online-programming-contest-2022-inzva
     note: added by url-hunt 2026-09-01 (wave2-europe)
+  - url: https://www.algoleague.com/contest/online-programming-contest-2022/leaderboard
+    roles:
+    - scoreboard
+    as_of: '20220917083944'
+    archived:
+    - turkey/turkey-2022/scoreboard/20261020-live-ec76889f/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (round9-deep-D1)
   problems:
-    notes: No date, no teams
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: turkey-2022
 - id: turkey-2023
   season: 2024
   name: 2023 ICPC Turkey Programming Contest
@@ -165,26 +170,24 @@ contests:
   - 7583
   parent: seerc-2023
   next: turkey-2026
-  web: https://icpc.global/regionals/finder/Turkey-2024/standings
-  mirrors:
-  - url: https://inzva.com/reports/2023/online-programming-contest-2023
-    note: added by url-hunt 2026-09-01 (round9-deep-D1)
-  - url: https://w3.cs.bilkent.edu.tr/news/bilkent-university-excels-in-inzvas-online-programming-contest-2023/
-    note: added by url-hunt 2026-09-01 (round9-deep-D1)
-  - url: https://www.algoleague.com/contest/online-programming-contest-2023/leaderboard
-    note: added by url-hunt 2026-09-01 (round9-deep-probe)
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Turkey-2024/standings
+  sources:
+  - url: https://icpc.global/regionals/finder/Turkey-2024/standings
+    roles:
+    - web
+    - icpc_standings
+    also_at:
+    - https://inzva.com/reports/2023/online-programming-contest-2023
+    - https://w3.cs.bilkent.edu.tr/news/bilkent-university-excels-in-inzvas-online-programming-contest-2023/
+    - https://www.algoleague.com/contest/online-programming-contest-2023/leaderboard
     note: added by url-hunt 2026-09-01 (wave2-europe)
   problems:
-    notes: No date, no teams
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: turkey-2023
 - id: turkey-2026
+  status: upcoming
   season: 2027
   name: 2026 ICPC Turkey Programming Contest
   cms_ids:
   - 9868
   parent: seerc-2026
-  status: upcoming
   notes: added from CMS relax-all export 2026-10-20 (abbrev TRCPC; 0 registrants at export); series resumes
     after no 2024-25 editions

@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: syria
   name: ICPC Syrian Collegiate Programming Contest
+  tier: subregional
+  region: Africa & Arab
+  naming: season-start
 contests:
 - id: syria-2011
   season: 2012
@@ -12,24 +15,26 @@ contests:
   - 934
   parent: acpc-2011
   next: syria-2012
-  web:
-    url: http://syria.acm-acpc.org/
+  sources:
+  - url: http://syria.acm-acpc.org/
+    roles:
+    - web
     as_of: '20130103032335'
-  results:
-    scoreboard:
-    - url: https://syria.acm-acpc.org/index.php?option=com_content&view=article&id=8&Itemid=13
-      as_of: '20130102110139'
-      archived: syria/syria-2011/scoreboard/2026-09-01-wayback-4838f168/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://syria.acm-acpc.org/index.php?option=com_content&view=article&id=8&Itemid=13
-      as_of: '20130102110139'
-      archived: syria/syria-2011/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/SCPC-2012/standings
+  - url: https://syria.acm-acpc.org/index.php?option=com_content&view=article&id=8&Itemid=13
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20130102110139'
+    archived:
+    - syria/syria-2011/scoreboard/2026-09-01-wayback-4838f168/page.html
+    - syria/syria-2011/external-standings/2026-04-15-external/content.html
+    - syria/syria-2011/standings/20130102-wayback-34a8c4cf/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/SCPC-2012/standings
+    roles:
+    - icpc_standings
 - id: syria-2012
   season: 2013
   name: 2012 Syrian Collegiate Programming Contest
@@ -39,11 +44,16 @@ contests:
   - 1353
   parent: acpc-2012
   next: syria-2013
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/SCPC-2013/standings
-    archived: syria/syria-2012/standings/api-20260904/standings.html
+  sources:
+  - url: http://Syria.acmacpc.org
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/SCPC-2013/standings
+    roles:
+    - icpc_standings
+    archived:
+    - syria/syria-2012/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 1353, 19 teams, DB fetch 2026-04-26)
-  web: http://Syria.acmacpc.org
 - id: syria-2013
   season: 2014
   name: 2013 Syrian Collegiate Programming Contest
@@ -53,9 +63,12 @@ contests:
   - 2055
   parent: acpc-2013
   next: syria-2014
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/SCPC-2014/standings
-    archived: syria/syria-2013/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/SCPC-2014/standings
+    roles:
+    - icpc_standings
+    archived:
+    - syria/syria-2013/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 2055, 18 teams, DB fetch 2026-04-26)
 - id: syria-2014
   season: 2015
@@ -66,14 +79,22 @@ contests:
   - 2632
   parent: acpc-2014
   next: syria-2015
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/100500/standings
-      archived: syria/syria-2014/scoreboard/2026-09-01-live-879a7b03/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/SCPC-2015/standings
-  problemset: https://codeforces.com/gym/100500
+  sources:
+  - url: https://codeforces.com/gym/100500/standings
+    roles:
+    - scoreboard
+    archived:
+    - syria/syria-2014/scoreboard/2026-09-01-live-879a7b03/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/SCPC-2015/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/100500
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: syria-2015
   season: 2016
   name: 2015 Syrian Collegiate Programming Contest
@@ -83,16 +104,26 @@ contests:
   - 2858
   parent: acpc-2015
   next: syria-2016
-  icpc_standings: https://icpc.global/regionals/finder/SCPC-2016/standings
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/101086/standings
-      as_of: '20170706060255'
-      note: added by url-hunt 2026-09-01 (wave3-cfgym)
-      url_state: changed
-      url_checked: '2026-11-02'
-      archived: syria/syria-2015/scoreboard/20170706-wayback-500196d8/page.html
-  problemset: https://codeforces.com/gym/101086
+  sources:
+  - url: https://codeforces.com/gym/101086/standings
+    roles:
+    - scoreboard
+    as_of: '20170706060255'
+    archived:
+    - syria/syria-2015/scoreboard/20170706-wayback-500196d8/page.html
+    - syria/syria-2015/scoreboard/20260902-live-1859672a/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-cfgym)
+  - url: https://icpc.global/regionals/finder/SCPC-2016/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/101086
+    roles:
+    - problemset
+    as_of: '20170706055620'
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: syria-2016
   season: 2017
   name: 2016 Syrian Collegiate Programming Contest
@@ -102,9 +133,12 @@ contests:
   - 3170
   parent: acpc-2016
   next: syria-2017
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/SCPC-2017/standings
-    archived: syria/syria-2016/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/SCPC-2017/standings
+    roles:
+    - icpc_standings
+    archived:
+    - syria/syria-2016/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3170, 64 teams, DB fetch 2026-04-26)
 - id: syria-2017
   season: 2018
@@ -114,9 +148,12 @@ contests:
   - 3336
   parent: acpc-2017
   next: syria-2018
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/SCPC-2018/standings
-    archived: syria/syria-2017/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/SCPC-2018/standings
+    roles:
+    - icpc_standings
+    archived:
+    - syria/syria-2017/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3336, 66 teams, DB fetch 2026-04-26)
   notes: date '2017-17-23' in source sheet is invalid; the SCPC-2018 finder link suggests Nov/Dec 2017
 - id: syria-2018
@@ -128,15 +165,23 @@ contests:
   - 3602
   parent: acpc-2018
   next: syria-2019
-  icpc_standings: https://icpc.global/regionals/finder/SCPC-2019/standings
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/102006/standings
-      note: added by url-hunt 2026-09-01 (wave3-cfgym)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: syria/syria-2018/scoreboard/20260902-live-dd048c0e/page.html
-  problemset: https://codeforces.com/gym/102006
+  sources:
+  - url: https://codeforces.com/gym/102006/standings
+    roles:
+    - scoreboard
+    archived:
+    - syria/syria-2018/scoreboard/20260902-live-dd048c0e/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-cfgym)
+  - url: https://icpc.global/regionals/finder/SCPC-2019/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/102006
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: syria-2019
   season: 2020
   name: 2019 Syrian Collegiate Programming Contest
@@ -146,9 +191,12 @@ contests:
   - 4010
   parent: acpc-2019
   next: syria-2020
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/SCPC-2020/standings
-    archived: syria/syria-2019/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/SCPC-2020/standings
+    roles:
+    - icpc_standings
+    archived:
+    - syria/syria-2019/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4010, 70 teams, DB fetch 2026-04-26)
 - id: syria-2020
   season: 2021
@@ -159,9 +207,12 @@ contests:
   - 4398
   parent: acpc-2020
   next: syria-2021
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/SCPC-2021/standings
-    archived: syria/syria-2020/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/SCPC-2021/standings
+    roles:
+    - icpc_standings
+    archived:
+    - syria/syria-2020/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4398, 65 teams, DB fetch 2026-04-26)
 - id: syria-2021
   season: 2022
@@ -172,9 +223,12 @@ contests:
   - 4762
   parent: acpc-2021
   next: syria-2022
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/SCPC-2022/standings
-    archived: syria/syria-2021/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/SCPC-2022/standings
+    roles:
+    - icpc_standings
+    archived:
+    - syria/syria-2021/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4762, 70 teams, DB fetch 2026-04-26)
 - id: syria-2022
   season: 2023
@@ -185,9 +239,12 @@ contests:
   - 5499
   parent: acpc-2022
   next: syria-2023
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/SCPC-2023/standings
-    archived: syria/syria-2022/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/SCPC-2023/standings
+    roles:
+    - icpc_standings
+    archived:
+    - syria/syria-2022/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 5499, 89 teams, DB fetch 2026-04-26)
 - id: syria-2023
   season: 2024
@@ -198,13 +255,17 @@ contests:
   - 7620
   parent: acpc-2023
   next: syria-2024
-  results:
-    scoreboard:
-    - url: https://acpcsb.acpc.global/SCPC2023/
-      archived: syria/syria-2023/scoreboard/2026-09-01-live-20f2adf1/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/SCPC-2024/standings
+  sources:
+  - url: https://acpcsb.acpc.global/SCPC2023/
+    roles:
+    - scoreboard
+    archived:
+    - syria/syria-2023/scoreboard/2026-09-01-live-20f2adf1/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/SCPC-2024/standings
+    roles:
+    - icpc_standings
 - id: syria-2024
   season: 2025
   name: 2024 ICPC Syrian Collegiate Programming Contest
@@ -214,22 +275,24 @@ contests:
   - 8792
   parent: acpc-2024
   next: syria-2025
-  icpc_standings: https://icpc.global/regionals/finder/SCPC-2025/standings
-  results:
-    scoreboard:
-    - url: https://acpcsb.acpc.global/SCPC2024/all.html
-      note: added by url-hunt 2026-09-01 (board-upgrade-agent)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: syria/syria-2024/scoreboard/20261020-live-27933691/all.html
-  web: http://syria.acm-acpc.org/
-  mirrors:
-  - url: https://www.facebook.com/acm.scpc/
-    note: added by url-hunt 2026-09-01 (round9-research)
+  sources:
+  - url: http://syria.acm-acpc.org/
+    roles:
+    - web
+    also_at:
+    - https://www.facebook.com/acm.scpc/
+    - https://icpc.global/regionals/finder/SCPC-2025
   - url: https://acpcsb.acpc.global/SCPC2024/all.html
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: https://icpc.global/regionals/finder/SCPC-2025
-    note: added by url-hunt 2026-09-01 (round9-deep-D4)
+    roles:
+    - scoreboard
+    archived:
+    - syria/syria-2024/scoreboard/20261020-live-27933691/all.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (board-upgrade-agent)
+  - url: https://icpc.global/regionals/finder/SCPC-2025/standings
+    roles:
+    - icpc_standings
 - id: syria-2025
   season: 2026
   name: 2025 ICPC Syrian Collegiate Programming Contest
@@ -239,9 +302,12 @@ contests:
   - 9296
   parent: acpc-2025
   next: syria-2026
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/SCPC-2026/standings
-    archived: syria/syria-2025/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/SCPC-2026/standings
+    roles:
+    - icpc_standings
+    archived:
+    - syria/syria-2025/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 9296, 78 teams, DB fetch 2026-04-26)
 - id: syria-2026
   status: upcoming

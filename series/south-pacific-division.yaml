@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: south-pacific-division
   name: ICPC South Pacific Independent Regional Contest Preliminary
+  tier: subregional
+  region: Asia Pacific
+  naming: season-start
   lineage:
   - type: continues-from
     series: south-pacific-central
@@ -22,17 +25,28 @@ contests:
   - 4860
   parent: south-pacific-2021
   next: south-pacific-division-2022
-  results:
-    scoreboard:
-    - url: https://sppcontests.org/wp-content/uploads/2024/07/2021_archive/2021_Divisionals_Scoreboard.pdf
-      archived: south-pacific-division/south-pacific-division-2021/scoreboard/2026-09-01-live-f3a36ada/2021_Divisionals_Scoreboard.pdf
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/South-Pacific-Div-2022/standings
-  web: https://sppcontests.org/south-pacific-icpc/
-  problemset:
-    url: https://sppcontests.org/wp-content/uploads/2024/07/2021_archive/2021_Regional_Problemset.pdf
+  sources:
+  - url: https://sppcontests.org/south-pacific-icpc/
+    roles:
+    - web
+  - url: https://sppcontests.org/wp-content/uploads/2024/07/2021_archive/2021_Divisionals_Scoreboard.pdf
+    roles:
+    - scoreboard
+    as_of: '20250513100500'
+    archived:
+    - south-pacific-division/south-pacific-division-2021/scoreboard/2026-09-01-live-f3a36ada/2021_Divisionals_Scoreboard.pdf
+    - south-pacific-division/south-pacific-division-2021/scoreboard/20250513-wayback-d4dfb286/2021_Divisionals_Scoreboard.pdf
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/South-Pacific-Div-2022/standings
+    roles:
+    - icpc_standings
+  - url: https://sppcontests.org/wp-content/uploads/2024/07/2021_archive/2021_Regional_Problemset.pdf
+    roles:
+    - problemset
     as_of: '20250513091430'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: south-pacific-division-2022
   season: 2023
   name: 2022 South Pacific Independent Regional Contest Divisional
@@ -42,11 +56,18 @@ contests:
   - 5635
   parent: south-pacific-2022
   next: south-pacific-division-2023
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/South-Pacific-Div-2023/standings
-    archived: south-pacific-division/south-pacific-division-2022/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/South-Pacific-Div-2023/standings
+    roles:
+    - icpc_standings
+    archived:
+    - south-pacific-division/south-pacific-division-2022/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 5635, 103 teams, DB fetch 2026-04-26)
-  problemset: https://sppcontests.org/wp-content/uploads/2024/07/2022_Problemset_Divisionals_A.pdf
+  - url: https://sppcontests.org/wp-content/uploads/2024/07/2022_Problemset_Divisionals_A.pdf
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: south-pacific-division-2023
   season: 2024
   name: 2023 South Pacific Independent Regional Contest Preliminary
@@ -56,11 +77,19 @@ contests:
   - 7527
   parent: south-pacific-2023
   next: south-pacific-division-2024
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/South-Pacific-Div-2024/standings
-    archived: south-pacific-division/south-pacific-division-2023/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/South-Pacific-Div-2024/standings
+    roles:
+    - icpc_standings
+    archived:
+    - south-pacific-division/south-pacific-division-2023/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 7527, 121 teams, DB fetch 2026-04-26)
-  problemset: https://sppcontests.org/problem_pdfs/2023/prelimsA.pdf
+  - url: https://sppcontests.org/problem_pdfs/2023/prelimsA.pdf
+    roles:
+    - problemset
+    as_of: '20240521000801'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: south-pacific-division-2024
   season: 2025
   name: 2024 South Pacific Independent Regional Contest Preliminary
@@ -70,25 +99,44 @@ contests:
   - 8761
   parent: south-pacific-2024
   next: south-pacific-division-2025
-  results:
-    scoreboard:
-    - url: https://sppcontests.org/wp-content/uploads/2024/09/ScoreboardA-1.html
-      archived: south-pacific-division/south-pacific-division-2024/scoreboard/2026-09-01-live-9c3cd605/ScoreboardA-1.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://sppcontests.org/wp-content/uploads/2024/09/ScoreboardB-1.html
-      archived: south-pacific-division/south-pacific-division-2024/scoreboard/2026-09-01-live-4c18a26f/ScoreboardB-1.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://sppcontests.org/archive/
-      archived: south-pacific-division/south-pacific-division-2024/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/South-Pacific-Div-2025/standings
-  web: https://sppcontests.org/
-  problemset: https://sppcontests.org/wp-content/uploads/2024/09/xxPreliminaries_A-5-1.pdf
+  sources:
+  - url: https://sppcontests.org/
+    roles:
+    - web
+  - url: https://sppcontests.org/wp-content/uploads/2024/09/ScoreboardA-1.html
+    roles:
+    - scoreboard
+    archived:
+    - south-pacific-division/south-pacific-division-2024/scoreboard/2026-09-01-live-9c3cd605/ScoreboardA-1.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://sppcontests.org/wp-content/uploads/2024/09/ScoreboardB-1.html
+    roles:
+    - scoreboard
+    archived:
+    - south-pacific-division/south-pacific-division-2024/scoreboard/2026-09-01-live-4c18a26f/ScoreboardB-1.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://sppcontests.org/archive/
+    roles:
+    - standings
+    as_of: '20241005084442'
+    archived:
+    - south-pacific-division/south-pacific-division-2024/external-standings/2026-04-15-external/content.html
+    - south-pacific-division/south-pacific-division-2024/standings/20241005-wayback-e9ebaa74/page.html
+    - south-pacific-division/south-pacific-division-2024/standings/20260901-live-030d0ac5/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/South-Pacific-Div-2025/standings
+    roles:
+    - icpc_standings
+  - url: https://sppcontests.org/wp-content/uploads/2024/09/xxPreliminaries_A-5-1.pdf
+    roles:
+    - problemset
+    as_of: '20250816024705'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: south-pacific-division-2025
   season: 2026
   name: 2025 ICPC South Pacific Independent Regional Contest Preliminary
@@ -97,9 +145,12 @@ contests:
   - 9379
   parent: south-pacific-2025
   next: south-pacific-division-2026
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/South-Pacific-Div-2026/standings
-    archived: south-pacific-division/south-pacific-division-2025/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/South-Pacific-Div-2026/standings
+    roles:
+    - icpc_standings
+    archived:
+    - south-pacific-division/south-pacific-division-2025/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 9379, 171 teams, DB fetch 2026-04-26)
 - id: south-pacific-division-2026
   status: upcoming

@@ -1,0 +1,49 @@
+# Online judges where ICPC problems can be solved (or were). Referenced by id from
+# `judge:` on judge_page sources (series/*.yaml) and from problem judge links
+# (problemsets/*.yaml). Add an entry before using a new id; validate.py checks.
+judges:
+- id: kattis
+  name: Kattis
+  url: https://open.kattis.com/
+  problem_url: https://open.kattis.com/problems/{id}
+  contest_url: https://open.kattis.com/problem-sources/{id}
+  status: active
+  statements: true
+  submissions: true
+  notes: Problem-source pages list a contest's problems; short names are the problem ids.
+- id: livearchive
+  name: ICPC Live Archive
+  url: https://onlinejudge.org/
+  problem_url: https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem={id}
+  contest_url: https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category={id}
+  status: active
+  statements: true
+  submissions: true
+  notes: Formerly icpcarchive.ecs.baylor.edu (same ids); category pages hold one contest each.
+- id: baekjoon
+  name: Baekjoon Online Judge
+  url: https://www.acmicpc.net/
+  problem_url: https://www.acmicpc.net/problem/{id}
+  contest_url: https://www.acmicpc.net/category/detail/{id}
+  status: closed
+  closed: '2026-04-28'
+  statements: true
+  submissions: false
+  notes: Service ended 2026-04-28 (서비스 종료); pages survive only in Wayback snapshots before that date.
+- id: codeforces
+  name: Codeforces Gym
+  url: https://codeforces.com/gyms
+  problem_url: https://codeforces.com/gym/{id}
+  contest_url: https://codeforces.com/gym/{id}
+  status: active
+  statements: true
+  submissions: true
+  notes: Gym pages need a login to view; ids are gym number (+ problem letter).
+- id: qoj
+  name: QOJ / Universal Cup
+  url: https://qoj.ac/
+  problem_url: https://qoj.ac/problem/{id}
+  contest_url: https://qoj.ac/contest/{id}
+  status: active
+  statements: true
+  submissions: true

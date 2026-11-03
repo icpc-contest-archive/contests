@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: ukiepc
   name: ICPC UK & Ireland Programming Contest
+  tier: subregional
+  region: Europe
+  naming: season-start
 contests:
 - id: ukiepc-2013
   season: 2014
@@ -13,30 +16,40 @@ contests:
   - 2101
   parent: nwerc-2013
   next: ukiepc-2014
-  web: http://ukiepc.info/2013/
-  results:
-    scoreboard:
-    - url: http://ukiepc.info/2013/
-      archived: ukiepc/ukiepc-2013/scoreboard/2026-04-16-ukiepc/2013-uk--ireland-programming-contest-2013.html
-      note: from archived capture (scoreboard)
-      url_state: replaced
-      url_checked: '2026-11-02'
-    - url: https://ukiepc.info/2013/scoreboard/
-      note: added by url-hunt 2026-09-01 (template)
-      archived: ukiepc/ukiepc-2013/scoreboard/2026-09-01-live-c385db50/page.html
-      url_state: live
-      url_checked: '2026-11-02'
+  sources:
+  - url: http://ukiepc.info/2013/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20151025124906'
+    archived:
+    - ukiepc/ukiepc-2013/scoreboard/2026-04-16-ukiepc/2013-uk--ireland-programming-contest-2013.html
+    - ukiepc/ukiepc-2013/scoreboard/20151025-wayback-9645f874/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://ukiepc.info/2013/scoreboard/
+    roles:
+    - scoreboard
+    archived:
+    - ukiepc/ukiepc-2013/scoreboard/2026-09-01-live-c385db50/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (template)
+  - url: https://github.com/icpc/ncpc-web/releases/download/ncpc2013-data/ncpc2013problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202013
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190922140048'
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202013
-    notes: Same as ncpc-2013
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://github.com/icpc/ncpc-web/releases/download/ncpc2013-data/ncpc2013problems.pdf
+    set: nordic-ukiepc-2013
 - id: ukiepc-2014
   season: 2015
   name: 2014 UK & Ireland Programming Contest
@@ -49,30 +62,44 @@ contests:
   - 2690
   parent: nwerc-2014
   next: ukiepc-2015
-  web: http://ukiepc.info/2014/
-  results:
-    scoreboard:
-    - url: https://ukiepc14.kattis.com/contests/s4a3c2c/standings
-      archived: ukiepc/ukiepc-2014/scoreboard/2026-09-01-live-c8bce8fd/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    - url: http://ukiepc.info/2014/
-      archived: ukiepc/ukiepc-2014/scoreboard/2026-04-16-ukiepc/2014-uk--ireland-programming-contest-2014.html
-      note: from archived capture (scoreboard)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/UKIEPC-2015/standings
+  sources:
+  - url: http://ukiepc.info/2014/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20151025124926'
+    archived:
+    - ukiepc/ukiepc-2014/scoreboard/2026-04-16-ukiepc/2014-uk--ireland-programming-contest-2014.html
+    - ukiepc/ukiepc-2014/scoreboard/20151025-wayback-91493990/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://ukiepc14.kattis.com/contests/s4a3c2c/standings
+    roles:
+    - scoreboard
+    as_of: '20220814191509'
+    archived:
+    - ukiepc/ukiepc-2014/scoreboard/2026-09-01-live-c8bce8fd/page.html
+    - ukiepc/ukiepc-2014/scoreboard/20220814-wayback-41f6aefd/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/UKIEPC-2015/standings
+    roles:
+    - icpc_standings
+  - url: https://ukiepc.info/2014/2014/ncpc2014problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202014
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190718025002'
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202014
-    notes: Same as ncpc-2014
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://ukiepc.info/2014/2014/ncpc2014problems.pdf
+    set: nordic-ukiepc-2014
 - id: ukiepc-2015
   season: 2016
   name: 2015 UK & Ireland Programming Contest
@@ -85,40 +112,55 @@ contests:
   - 2783
   parent: nwerc-2015
   next: ukiepc-2016
-  web: http://ukiepc.info/2015/
-  results:
-    scoreboard:
-    - url: https://ukiepc.info/2015/scoreboard/
-      archived: ukiepc/ukiepc-2015/scoreboard/2026-09-01-live-7ddf1661/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://ukiepc.info/2015/
-      archived: ukiepc/ukiepc-2015/scoreboard/2026-04-16-ukiepc/2015-uk--ireland-programming-contest-2015.html
-      note: from archived capture (scoreboard)
-      url_state: replaced
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://ukiepc-2015.bath.ac.uk/
-      as_of: '20180915102832'
-      archived: ukiepc/ukiepc-2015/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/UKIEPC-2016/standings
+  sources:
+  - url: http://ukiepc.info/2015/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20151025122138'
+    archived:
+    - ukiepc/ukiepc-2015/scoreboard/2026-04-16-ukiepc/2015-uk--ireland-programming-contest-2015.html
+    - ukiepc/ukiepc-2015/scoreboard/20151025-wayback-ae8e9233/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://ukiepc.info/2015/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20190819081848'
+    archived:
+    - ukiepc/ukiepc-2015/scoreboard/2026-09-01-live-7ddf1661/page.html
+    - ukiepc/ukiepc-2015/scoreboard/20190819-wayback-87db8ec4/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://ukiepc-2015.bath.ac.uk/
+    roles:
+    - standings
+    as_of: '20180915102832'
+    archived:
+    - ukiepc/ukiepc-2015/external-standings/2026-04-15-external/content.html
+    - ukiepc/ukiepc-2015/standings/20180915-wayback-ffeded23/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/UKIEPC-2016/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/UK%20and%20Ireland%20Programming%20Contest%20(UKIPC)/2015%20UK%20and%20Ireland%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1412
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201020034400'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: UKIEPC 2015
   problems:
-    repo: icpc-problem-archive/ukiepc-2015
-    count: 13
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1412
-        as_of: '20201020034400'
-        note: UKIEPC 2015
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/UK%20and%20Ireland%20Programming%20Contest%20(UKIPC)/2015%20UK%20and%20Ireland%20Programming%20Contest/problems.pdf
+    set: ukiepc-2015
 - id: ukiepc-2016
   season: 2017
   name: 2016 UK & Ireland Programming Contest
@@ -130,35 +172,45 @@ contests:
   - 3119
   parent: nwerc-2016
   next: ukiepc-2017
-  web: https://ukiepc.info/2016/
-  results:
-    scoreboard:
-    - url: https://ukiepc.info/2016/scoreboard/
-      archived: ukiepc/ukiepc-2016/scoreboard/2026-09-01-live-daae3f6c/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://ukiepc.info/2015/
-      archived: ukiepc/ukiepc-2016/scoreboard/2026-04-16-ukiepc/2016-uk--ireland-programming-contest-2016.html
-      note: from archived capture (scoreboard)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/UKIEPC-2017/standings
-  problemset: http://ukiepc.info/2015/
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: https://ukiepc.info/2016/
+    roles:
+    - web
+  - url: http://ukiepc.info/2015/
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20170627204837'
+    archived:
+    - ukiepc/ukiepc-2016/scoreboard/2026-04-16-ukiepc/2016-uk--ireland-programming-contest-2016.html
+    - ukiepc/ukiepc-2016/scoreboard/20170627-wayback-b64c27bd/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://ukiepc.info/2016/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20190819084633'
+    archived:
+    - ukiepc/ukiepc-2016/scoreboard/2026-09-01-live-daae3f6c/page.html
+    - ukiepc/ukiepc-2016/scoreboard/20190819-wayback-97e00190/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/UKIEPC-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/1542
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201025111717'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: UKIEPC 2016
   problems:
-    repo: icpc-problem-archive/ukiepc-2016
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1542
-        as_of: '20201025111717'
-        note: UKIEPC 2016
+    set: ukiepc-2016
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: ukiepc-2017
   season: 2018
   name: 2017 UK & Ireland Programming Contest
@@ -170,33 +222,45 @@ contests:
   - 3275
   parent: nwerc-2017
   next: ukiepc-2018
-  web: http://ukiepc.info/2017/
-  results:
-    scoreboard:
-    - url: https://ukiepc.info/2017/scoreboard/
-      archived: ukiepc/ukiepc-2017/scoreboard/2026-09-01-live-bfa9f493/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://ukiepc.info/2017/
-      archived: ukiepc/ukiepc-2017/scoreboard/2026-04-16-ukiepc/2017-uk--ireland-programming-contest-2017.html
-      note: from archived capture (scoreboard)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/UKIEPC-2018/standings
+  sources:
+  - url: http://ukiepc.info/2017/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20171021072419'
+    archived:
+    - ukiepc/ukiepc-2017/scoreboard/2026-04-16-ukiepc/2017-uk--ireland-programming-contest-2017.html
+    - ukiepc/ukiepc-2017/scoreboard/20171021-wayback-50c23a71/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://ukiepc.info/2017/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20190819074110'
+    archived:
+    - ukiepc/ukiepc-2017/scoreboard/2026-09-01-live-bfa9f493/page.html
+    - ukiepc/ukiepc-2017/scoreboard/20190819-wayback-f6f23080/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/UKIEPC-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/UK%20and%20Ireland%20Programming%20Contest%20(UKIPC)/2017%20UK%20and%20Ireland%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1785
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201027181359'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: UKIEPC 2017
   problems:
-    repo: icpc-problem-archive/ukiepc-2017
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1785
-        as_of: '20201027181359'
-        note: UKIEPC 2017
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/UK%20and%20Ireland%20Programming%20Contest%20(UKIPC)/2017%20UK%20and%20Ireland%20Programming%20Contest/problems.pdf
+    set: ukiepc-2017
 - id: ukiepc-2018
   season: 2019
   name: 2018 UK & Ireland Programming Contest
@@ -209,33 +273,45 @@ contests:
   - 3657
   parent: nwerc-2018
   next: ukiepc-2019
-  web: http://ukiepc.info/2018/
-  results:
-    scoreboard:
-    - url: https://ukiepc.info/2018/scoreboard/
-      archived: ukiepc/ukiepc-2018/scoreboard/2026-09-01-live-185a3e47/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://ukiepc.info/2018/
-      archived: ukiepc/ukiepc-2018/scoreboard/2026-04-16-ukiepc/2018-uk--ireland-programming-contest-2018.html
-      note: from archived capture (scoreboard)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/UKIEPC-2019/standings
+  sources:
+  - url: http://ukiepc.info/2018/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20181114032722'
+    archived:
+    - ukiepc/ukiepc-2018/scoreboard/2026-04-16-ukiepc/2018-uk--ireland-programming-contest-2018.html
+    - ukiepc/ukiepc-2018/scoreboard/20181114-wayback-287954af/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://ukiepc.info/2018/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20190819080613'
+    archived:
+    - ukiepc/ukiepc-2018/scoreboard/2026-09-01-live-185a3e47/page.html
+    - ukiepc/ukiepc-2018/scoreboard/20190819-wayback-576f6ee7/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/UKIEPC-2019/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/UK%20and%20Ireland%20Programming%20Contest%20(UKIPC)/2018%20UK%20and%20Ireland%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2068
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191120112138'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: UKIEPC 2018
   problems:
-    repo: icpc-problem-archive/ukiepc-2018
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2068
-        as_of: '20191120112138'
-        note: UKIEPC 2018
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/UK%20and%20Ireland%20Programming%20Contest%20(UKIPC)/2018%20UK%20and%20Ireland%20Programming%20Contest/problems.pdf
+    set: ukiepc-2018
 - id: ukiepc-2019
   season: 2020
   name: 2019 UK & Ireland Programming Contest
@@ -247,33 +323,45 @@ contests:
   - 4149
   parent: nwerc-2019
   next: ukiepc-2020
-  web: http://ukiepc.info/2019/
-  results:
-    scoreboard:
-    - url: https://ukiepc.info/2019/scoreboard/
-      archived: ukiepc/ukiepc-2019/scoreboard/2026-09-01-live-7a1fb9fc/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://ukiepc.info/2019/
-      archived: ukiepc/ukiepc-2019/scoreboard/2026-04-16-ukiepc/2019-uk--ireland-programming-contest-2019.html
-      note: from archived capture (scoreboard)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/UKIEPC-2020/standings
+  sources:
+  - url: http://ukiepc.info/2019/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20200201150831'
+    archived:
+    - ukiepc/ukiepc-2019/scoreboard/2026-04-16-ukiepc/2019-uk--ireland-programming-contest-2019.html
+    - ukiepc/ukiepc-2019/scoreboard/20200201-wayback-d7984d1e/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://ukiepc.info/2019/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20191114172325'
+    archived:
+    - ukiepc/ukiepc-2019/scoreboard/2026-09-01-live-7a1fb9fc/page.html
+    - ukiepc/ukiepc-2019/scoreboard/20191114-wayback-6c1261cc/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/UKIEPC-2020/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/UK%20and%20Ireland%20Programming%20Contest%20(UKIPC)/2019%20UK%20and%20Ireland%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2095
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260420220941'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: UKIEPC 2019
   problems:
-    repo: icpc-problem-archive/ukiepc-2019
-    count: 13
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2095
-        as_of: '20260420220941'
-        note: UKIEPC 2019
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/UK%20and%20Ireland%20Programming%20Contest%20(UKIPC)/2019%20UK%20and%20Ireland%20Programming%20Contest/problems.pdf
+    set: ukiepc-2019
 - id: ukiepc-2020
   season: 2021
   name: 2020 UK & Ireland Programming Contest
@@ -286,33 +374,42 @@ contests:
   - 4509
   parent: nwerc-2020
   next: ukiepc-2021
-  web: http://ukiepc.info/2020/
-  results:
-    scoreboard:
-    - url: https://ukiepc.info/2020/scoreboard/
-      archived: ukiepc/ukiepc-2020/scoreboard/2026-09-01-live-1966e3c9/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://ukiepc.info/2020/
-      archived: ukiepc/ukiepc-2020/scoreboard/2026-04-16-ukiepc/2020-uk--ireland-programming-contest-2020.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
+  sources:
+  - url: http://ukiepc.info/2020/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20201212102925'
+    archived:
+    - ukiepc/ukiepc-2020/scoreboard/2026-04-16-ukiepc/2020-uk--ireland-programming-contest-2020.html
+    - ukiepc/ukiepc-2020/scoreboard/20201212-wayback-7d940c7d/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://ukiepc.info/2020/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20210117064715'
+    archived:
+    - ukiepc/ukiepc-2020/scoreboard/2026-09-01-live-1966e3c9/page.html
+    - ukiepc/ukiepc-2020/scoreboard/20210117-wayback-d09510b7/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/UK%20and%20Ireland%20Programming%20Contest%20(UKIPC)/2020%20UK%20and%20Ireland%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2358
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210228033436'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: UKIEPC 2020
   problems:
-    repo: icpc-problem-archive/ukiepc-2020
-    count: 13
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    notes: Partly shared with benelux-2020
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2358
-        as_of: '20210228033436'
-        note: UKIEPC 2020
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/UK%20and%20Ireland%20Programming%20Contest%20(UKIPC)/2020%20UK%20and%20Ireland%20Programming%20Contest/problems.pdf
+    set: ukiepc-2020
 - id: ukiepc-2021
   season: 2022
   name: 2021 ICPC UK & Ireland Programming Contest
@@ -325,27 +422,32 @@ contests:
   - 4927
   parent: nwerc-2021
   next: ukiepc-2022
-  web: https://ukiepc.info/2021/
-  results:
-    scoreboard:
-    - url: https://ukiepc.info/2021/scoreboard/
-      archived: ukiepc/ukiepc-2021/scoreboard/2026-09-01-live-d47d4855/page.html
-      url_state: live
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://ukiepc.info/2021/
+    roles:
+    - web
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://ukiepc.info/2021/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20241207225431'
+    archived:
+    - ukiepc/ukiepc-2021/scoreboard/2026-09-01-live-d47d4855/page.html
+    - ukiepc/ukiepc-2021/scoreboard/20241207-wayback-d09418bd/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3057
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20230208225241'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: UKIEPC 2021
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 12
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3057
-        as_of: '20230208225241'
-        note: UKIEPC 2021
-  problemset: https://ukiepc.info/2021/
+    set: ukiepc-2021
 - id: ukiepc-2022
   season: 2023
   name: 2022 ICPC UK & Ireland Programming Contest
@@ -358,21 +460,24 @@ contests:
   - 5404
   parent: nwerc-2022
   next: ukiepc-2023
-  web: https://ukiepc.info/2022/scoreboard/
-  results:
-    scoreboard:
-    - url: https://ukiepc.info/2022/scoreboard/
-      archived: ukiepc/ukiepc-2022/scoreboard/2026-09-01-live-b514c105/page.html
-      url_state: live
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://ukiepc.info/2022/scoreboard/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20230207075556'
+    archived:
+    - ukiepc/ukiepc-2022/scoreboard/2026-09-01-live-b514c105/page.html
+    - ukiepc/ukiepc-2022/scoreboard/20230207-wayback-cc580618/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/UK%20and%20Ireland%20Programming%20Contest%20(UKIPC)/2022%20UK%20and%20Ireland%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    count: 12
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/UK%20and%20Ireland%20Programming%20Contest%20(UKIPC)/2022%20UK%20and%20Ireland%20Programming%20Contest/problems.pdf
+    set: ukiepc-2022
 - id: ukiepc-2023
   season: 2024
   name: 2023 ICPC UK & Ireland Programming Contest
@@ -385,21 +490,36 @@ contests:
   - 7597
   parent: nwerc-2023
   next: ukiepc-2024
-  web: https://ukiepc.info/2023/
-  results:
-    scoreboard:
-    - url: https://ukiepc.info/2023/scoreboard/
-      archived: ukiepc/ukiepc-2023/scoreboard/2026-09-01-live-12993aa4/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/UKIEPC-2024/standings
+  sources:
+  - url: https://ukiepc.info/2023/
+    roles:
+    - web
+  - url: https://ukiepc.info/2023/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20231201065541'
+    archived:
+    - ukiepc/ukiepc-2023/scoreboard/2026-09-01-live-12993aa4/page.html
+    - ukiepc/ukiepc-2023/scoreboard/20231201-wayback-902400ab/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/UKIEPC-2024/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/UK%20and%20Ireland%20Programming%20Contest%20(UKIPC)/2023%20UK%20and%20Ireland%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4017
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: UKIEPC 2023
   problems:
-    source: Kattis problem export (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4017
-        note: UKIEPC 2023
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/UK%20and%20Ireland%20Programming%20Contest%20(UKIPC)/2023%20UK%20and%20Ireland%20Programming%20Contest/problems.pdf
+    set: ukiepc-2023
 - id: ukiepc-2024
   season: 2025
   name: 2024 ICPC UK & Ireland Programming Contest
@@ -410,21 +530,36 @@ contests:
   - 9007
   parent: nwerc-2024
   next: ukiepc-2025
-  web: https://ukiepc.info/2024/
-  results:
-    scoreboard:
-    - url: https://ukiepc.info/2024/scoreboard/
-      archived: ukiepc/ukiepc-2024/scoreboard/2026-09-01-live-0e2ae886/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/UKIEPC-2025/standings
+  sources:
+  - url: https://ukiepc.info/2024/
+    roles:
+    - web
+  - url: https://ukiepc.info/2024/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20241114121704'
+    archived:
+    - ukiepc/ukiepc-2024/scoreboard/2026-09-01-live-0e2ae886/page.html
+    - ukiepc/ukiepc-2024/scoreboard/20241114-wayback-de8823f5/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/UKIEPC-2025/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/UK%20and%20Ireland%20Programming%20Contest%20(UKIPC)/2024%20UK%20and%20Ireland%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4316
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: UKIEPC 2024
   problems:
-    source: Kattis problem export (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4316
-        note: UKIEPC 2024
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/UK%20and%20Ireland%20Programming%20Contest%20(UKIPC)/2024%20UK%20and%20Ireland%20Programming%20Contest/problems.pdf
+    set: ukiepc-2024
 - id: ukiepc-2025
   season: 2026
   name: 2025 ICPC UK & Ireland Programming Contest
@@ -436,22 +571,37 @@ contests:
   - 9376
   parent: nwerc-2025
   next: ukiepc-2026
-  web: https://ukiepc.info/2025/
-  results:
-    scoreboard:
-    - url: https://ukiepc.info/2025/scoreboard/
-      archived: ukiepc/ukiepc-2025/scoreboard/2026-09-01-live-2d2fc377/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/UKIEPC-2026/standings
-  problemset: https://drive.google.com/file/d/137_WVF0q5_S061wci5xGNc_wzA_Jd7I9/view
+  sources:
+  - url: https://ukiepc.info/2025/
+    roles:
+    - web
+  - url: https://ukiepc.info/2025/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20251106091225'
+    archived:
+    - ukiepc/ukiepc-2025/scoreboard/2026-09-01-live-2d2fc377/page.html
+    - ukiepc/ukiepc-2025/scoreboard/20251106-wayback-aa1e7f52/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/UKIEPC-2026/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/137_WVF0q5_S061wci5xGNc_wzA_Jd7I9/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4655
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260416154615'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: UKIEPC 2025
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4655
-        as_of: '20260416154615'
-        note: UKIEPC 2025
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: ukiepc-2025
 - id: ukiepc-2026
   status: upcoming
   season: 2027
@@ -459,4 +609,7 @@ contests:
   cms_ids:
   - 9584
   parent: nwerc-2026
-  web: https://ukiepc.info/2026/
+  sources:
+  - url: https://ukiepc.info/2026/
+    roles:
+    - web

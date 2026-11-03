@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: germany
   name: ICPC German Collegiate Programming Contest
+  tier: subregional
+  region: Europe
+  naming: season-start
 contests:
 - id: germany-2010
   season: 2011
@@ -13,34 +16,45 @@ contests:
   - 668
   parent: nwerc-2010
   next: germany-2011
-  web: https://2010.gcpc.nwerc.eu/
-  results:
-    scoreboard:
-    - url: https://2010.gcpc.nwerc.eu/
-      archived: germany/germany-2010/scoreboard/2026-09-01-live-6723bba5/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://gcpc.nwerc.eu/gcpc_2010.php
-      as_of: '20200201003903'
-      archived: germany/germany-2010/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/German-2011/standings
+  sources:
+  - url: https://2010.gcpc.nwerc.eu/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20220926190221'
+    archived:
+    - germany/germany-2010/scoreboard/2026-09-01-live-6723bba5/page.html
+    - germany/germany-2010/scoreboard/20220926-wayback-c6bc5499/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://gcpc.nwerc.eu/gcpc_2010.php
+    roles:
+    - standings
+    as_of: '20200201003903'
+    archived:
+    - germany/germany-2010/external-standings/2026-04-15-external/content.html
+    - germany/germany-2010/standings/20120711-wayback-a2cecd69/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/German-2011/standings
+    roles:
+    - icpc_standings
+  - url: https://2010.gcpc.nwerc.eu/problemset_2010.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/219
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201124011913'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: GCPC 2010
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/219
-        as_of: '20201124011913'
-        note: GCPC 2010
-  problemset: https://2010.gcpc.nwerc.eu/problemset_2010.pdf
+    set: germany-2010
 - id: germany-2011
   season: 2012
   name: 2011 German Collegiate Programming Contest
@@ -51,27 +65,35 @@ contests:
   - 792
   parent: nwerc-2011
   next: germany-2012
-  web: https://2011.gcpc.nwerc.eu/
-  results:
-    scoreboard:
-    - url: https://2011.gcpc.nwerc.eu/
-      archived: germany/germany-2011/scoreboard/2026-09-01-live-6fbaa984/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/German-2012/standings
+  sources:
+  - url: https://2011.gcpc.nwerc.eu/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20221002125706'
+    archived:
+    - germany/germany-2011/scoreboard/2026-09-01-live-6fbaa984/page.html
+    - germany/germany-2011/scoreboard/20221002-wayback-7a4c5809/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/German-2012/standings
+    roles:
+    - icpc_standings
+  - url: https://2011.gcpc.nwerc.eu/problemset_2011.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/218
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190719210856'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: GCPC 2011
   problems:
-    count: 10
-    statement: full
-    data: full
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/218
-        as_of: '20190719210856'
-        note: GCPC 2011
-  problemset: https://2011.gcpc.nwerc.eu/problemset_2011.pdf
+    set: germany-2011
 - id: germany-2012
   season: 2013
   name: 2012 German Collegiate Programming Contest
@@ -82,35 +104,55 @@ contests:
   - 1342
   parent: nwerc-2012
   next: germany-2013
-  web: https://2012.gcpc.nwerc.eu/
-  results:
-    scoreboard:
-    - url: https://2012.gcpc.nwerc.eu/
-      archived: germany/germany-2012/scoreboard/2026-09-01-live-9600d9a7/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://gcpc.nwerc.eu/
-      archived: germany/germany-2012/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      as_of: '20130613110354'
-  icpc_standings: https://icpc.global/regionals/finder/German-2013/standings
+  sources:
+  - url: https://2012.gcpc.nwerc.eu/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20221006010247'
+    archived:
+    - germany/germany-2012/scoreboard/2026-09-01-live-9600d9a7/page.html
+    - germany/germany-2012/scoreboard/20221006-wayback-41c4e8a9/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://gcpc.nwerc.eu/
+    roles:
+    - standings
+    as_of: '20130613110354'
+    archived:
+    - germany/germany-2012/external-standings/2026-04-15-external/content.html
+    - germany/germany-2012/standings/20130613-wayback-21cb8db3/page.html
+    - germany/germany-2012/standings/20130613-wayback-db87effc/page.html
+    - germany/germany-2012/standings/20260904-live-acd2159a/page.html
+    - germany/germany-2012/standings/20261023-live-4ea5b84e/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/German-2013/standings
+    roles:
+    - icpc_standings
+  - url: https://2012.gcpc.nwerc.eu/problemset_2012.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/German%20Collegiate%20Programming%20Contest%20%28GCPC%29%202012
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190720175200'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/217
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201130144739'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: GCPC 2012
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/German%20Collegiate%20Programming%20Contest%20%28GCPC%29%202012
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/217
-        as_of: '20201130144739'
-        note: GCPC 2012
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://2012.gcpc.nwerc.eu/problemset_2012.pdf
+    set: germany-2012
 - id: germany-2013
   season: 2014
   name: 2013 German Collegiate Programming Contest
@@ -121,27 +163,39 @@ contests:
   - 2020
   parent: nwerc-2013
   next: germany-2014
-  web: https://2013.gcpc.nwerc.eu/
-  results:
-    scoreboard:
-    - url: https://2013.gcpc.nwerc.eu/
-      archived: germany/germany-2013/scoreboard/2026-09-01-live-600d17a3/page.html
-      url_state: live
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://2013.gcpc.nwerc.eu/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20220518130943'
+    archived:
+    - germany/germany-2013/scoreboard/2026-09-01-live-600d17a3/page.html
+    - germany/germany-2013/scoreboard/20220518-wayback-c5f38a0d/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://2013.gcpc.nwerc.eu/problemset_2013.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/German%20Collegiate%20Programming%20Contest%20%28GCPC%29%202013
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190722075905'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1110
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20171217031045'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: GCPC 2013
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/German%20Collegiate%20Programming%20Contest%20%28GCPC%29%202013
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1110
-        as_of: '20171217031045'
-        note: GCPC 2013
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://2013.gcpc.nwerc.eu/problemset_2013.pdf
+    set: germany-2013
 - id: germany-2014
   season: 2015
   name: 2014 German Collegiate Programming Contest
@@ -152,35 +206,45 @@ contests:
   - 2689
   parent: nwerc-2014
   next: germany-2015
-  web: https://2014.gcpc.nwerc.eu/
-  results:
-    scoreboard:
-    - url: https://2014.gcpc.nwerc.eu/
-      archived: germany/germany-2014/scoreboard/2026-09-01-live-26f40c6d/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://gcpc.nwerc.eu/index.php
-      as_of: '20200201004103'
-      archived: germany/germany-2014/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/German-2015/standings
+  sources:
+  - url: https://2014.gcpc.nwerc.eu/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20220809080042'
+    archived:
+    - germany/germany-2014/scoreboard/2026-09-01-live-26f40c6d/page.html
+    - germany/germany-2014/scoreboard/20220809-wayback-37ef47cd/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://gcpc.nwerc.eu/index.php
+    roles:
+    - standings
+    as_of: '20200201004103'
+    archived:
+    - germany/germany-2014/external-standings/2026-04-15-external/content.html
+    - germany/germany-2014/standings/20150506-wayback-d1fac4ec/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/German-2015/standings
+    roles:
+    - icpc_standings
+  - url: https://2014.gcpc.nwerc.eu/problemset_2014.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1285
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201027004011'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: GCPC 2014
   problems:
-    repo: icpc-problem-archive/germany-2014
-    count: 11
-    statement: full
-    data: full
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1285
-        as_of: '20201027004011'
-        note: GCPC 2014
-  problemset: https://2014.gcpc.nwerc.eu/problemset_2014.pdf
+    set: germany-2014
 - id: germany-2015
   season: 2016
   name: 2015 German Collegiate Programming Contest
@@ -191,35 +255,49 @@ contests:
   - 2784
   parent: nwerc-2015
   next: germany-2016
-  web: https://2015.gcpc.nwerc.eu/
-  results:
-    scoreboard:
-    - url: https://2015.gcpc.nwerc.eu/
-      archived: germany/germany-2015/scoreboard/2026-09-01-live-cc45a41a/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://gcpc.nwerc.eu/
-      archived: germany/germany-2015/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      as_of: '20150703043846'
-  icpc_standings: https://icpc.global/regionals/finder/German-2016/standings
+  sources:
+  - url: https://2015.gcpc.nwerc.eu/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20220522142538'
+    archived:
+    - germany/germany-2015/scoreboard/2026-09-01-live-cc45a41a/page.html
+    - germany/germany-2015/scoreboard/20220522-wayback-25b84d52/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://gcpc.nwerc.eu/
+    roles:
+    - standings
+    as_of: '20150703043846'
+    archived:
+    - germany/germany-2015/external-standings/2026-04-15-external/content.html
+    - germany/germany-2015/standings/20150703-wayback-1a57d499/page.html
+    - germany/germany-2015/standings/20150703-wayback-bf1dd5f7/page.html
+    - germany/germany-2015/standings/20260904-live-acd2159a/page.html
+    - germany/germany-2015/standings/20261023-live-4ea5b84e/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/German-2016/standings
+    roles:
+    - icpc_standings
+  - url: https://2015.gcpc.nwerc.eu/problemset_2015.pdf
+    roles:
+    - problemset
+    as_of: '20220703170906'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1355
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201130144353'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: GCPC 2015
   problems:
-    repo: icpc-problem-archive/germany-2015
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1355
-        as_of: '20201130144353'
-        note: GCPC 2015
-  problemset: https://2015.gcpc.nwerc.eu/problemset_2015.pdf
+    set: germany-2015
 - id: germany-2016
   season: 2017
   name: 2016 German Collegiate Programming Contest
@@ -230,28 +308,36 @@ contests:
   - 3118
   parent: nwerc-2016
   next: germany-2017
-  web: https://2016.gcpc.nwerc.eu/
-  results:
-    scoreboard:
-    - url: https://2016.gcpc.nwerc.eu/
-      archived: germany/germany-2016/scoreboard/2026-09-01-live-24162b9b/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/German-2017/standings
+  sources:
+  - url: https://2016.gcpc.nwerc.eu/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20220816223340'
+    archived:
+    - germany/germany-2016/scoreboard/2026-09-01-live-24162b9b/page.html
+    - germany/germany-2016/scoreboard/20220816-wayback-da3d8125/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/German-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://2016.gcpc.nwerc.eu/problemset_2016.pdf
+    roles:
+    - problemset
+    as_of: '20230131062625'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1509
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201027062605'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: GCPC 2016
   problems:
-    repo: icpc-problem-archive/germany-2016
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1509
-        as_of: '20201027062605'
-        note: GCPC 2016
-  problemset: https://2016.gcpc.nwerc.eu/problemset_2016.pdf
+    set: germany-2016
 - id: germany-2017
   season: 2018
   name: 2017 German Collegiate Programming Contest
@@ -262,34 +348,46 @@ contests:
   - 3277
   parent: nwerc-2017
   next: germany-2018
-  web: https://2017.gcpc.nwerc.eu/
-  results:
-    scoreboard:
-    - url: https://2017.gcpc.nwerc.eu/
-      archived: germany/germany-2017/scoreboard/2026-09-01-live-6ad3ccc8/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://icpc.tum.de/contests/history/2017/gcpc
-      archived: germany/germany-2017/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/German-2018/standings
+  sources:
+  - url: https://2017.gcpc.nwerc.eu/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20220520075146'
+    archived:
+    - germany/germany-2017/scoreboard/2026-09-01-live-6ad3ccc8/page.html
+    - germany/germany-2017/scoreboard/20220520-wayback-ab3cd842/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.tum.de/contests/history/2017/gcpc
+    roles:
+    - standings
+    as_of: '20240706025320'
+    archived:
+    - germany/germany-2017/external-standings/2026-04-15-external/content.html
+    - germany/germany-2017/standings/20240706-wayback-0219032b/page.html
+    - germany/germany-2017/standings/20260901-live-1e7228bc/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/German-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://2017.gcpc.nwerc.eu/problemset_2017.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1907
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201026223648'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: GCPC 2017
   problems:
-    repo: icpc-problem-archive/germany-2017
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1907
-        as_of: '20201026223648'
-        note: GCPC 2017
-  problemset: https://2017.gcpc.nwerc.eu/problemset_2017.pdf
+    set: germany-2017
 - id: germany-2018
   season: 2019
   name: 2018 German Collegiate Programming Contest
@@ -300,28 +398,36 @@ contests:
   - 3660
   parent: nwerc-2018
   next: germany-2019
-  web: https://2018.gcpc.nwerc.eu/
-  results:
-    scoreboard:
-    - url: https://2018.gcpc.nwerc.eu/
-      archived: germany/germany-2018/scoreboard/2026-09-01-live-e828aa7f/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/German-2019/standings
+  sources:
+  - url: https://2018.gcpc.nwerc.eu/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20220807162539'
+    archived:
+    - germany/germany-2018/scoreboard/2026-09-01-live-e828aa7f/page.html
+    - germany/germany-2018/scoreboard/20220807-wayback-4a62643c/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/German-2019/standings
+    roles:
+    - icpc_standings
+  - url: https://2018.gcpc.nwerc.eu/problemset_2018.pdf
+    roles:
+    - problemset
+    as_of: '20230127042323'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1908
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191207221332'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: GCPC 2018
   problems:
-    repo: icpc-problem-archive/germany-2018
-    count: 13
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1908
-        as_of: '20191207221332'
-        note: GCPC 2018
-  problemset: https://2018.gcpc.nwerc.eu/problemset_2018.pdf
+    set: germany-2018
 - id: germany-2019
   season: 2020
   name: 2019 German Collegiate Programming Contest
@@ -332,28 +438,35 @@ contests:
   - 4148
   parent: nwerc-2019
   next: germany-2020
-  web: https://2019.gcpc.nwerc.eu/
-  results:
-    scoreboard:
-    - url: https://2019.gcpc.nwerc.eu/
-      archived: germany/germany-2019/scoreboard/2026-09-01-live-14d1e43d/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/German-2020/standings
+  sources:
+  - url: https://2019.gcpc.nwerc.eu/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20221001053813'
+    archived:
+    - germany/germany-2019/scoreboard/2026-09-01-live-14d1e43d/page.html
+    - germany/germany-2019/scoreboard/20221001-wayback-5679cef7/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/German-2020/standings
+    roles:
+    - icpc_standings
+  - url: https://2019.gcpc.nwerc.eu/problemset_2019.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2119
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260420231522'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: GCPC 2019
   problems:
-    repo: icpc-problem-archive/germany-2019
-    count: 13
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2119
-        as_of: '20260420231522'
-        note: GCPC 2019
-  problemset: https://2019.gcpc.nwerc.eu/problemset_2019.pdf
+    set: germany-2019
 - id: germany-2020
   season: 2021
   name: 2020 German Collegiate Programming Contest
@@ -364,28 +477,41 @@ contests:
   - 4508
   parent: nwerc-2020
   next: germany-2021
-  web: https://2020.gcpc.nwerc.eu/
-  results:
-    scoreboard:
-    - url: https://2020.gcpc.nwerc.eu/
-      archived: germany/germany-2020/scoreboard/2026-09-01-live-21ee6089/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/German-2021/standings
+  sources:
+  - url: https://2020.gcpc.nwerc.eu/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20220819161659'
+    archived:
+    - germany/germany-2020/scoreboard/2026-09-01-live-21ee6089/page.html
+    - germany/germany-2020/scoreboard/20220819-wayback-dc8edc7e/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/German-2021/standings
+    roles:
+    - icpc_standings
+  - url: https://2020.gcpc.nwerc.eu/problemset_2020.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/German%20Collegiate%20Programming%20Contest%20%28GCPC%29%202020
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20241204220211'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2427
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: GCPC 2020
   problems:
-    repo: icpc-problem-archive/germany-2020
-    count: 13
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/German%20Collegiate%20Programming%20Contest%20%28GCPC%29%202020
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2427
-        note: GCPC 2020
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://2020.gcpc.nwerc.eu/problemset_2020.pdf
+    set: germany-2020
 - id: germany-2021
   season: 2022
   name: 2021 ICPC German Collegiate Programming Contest
@@ -393,29 +519,32 @@ contests:
   - 4928
   parent: nwerc-2021
   next: germany-2022
-  web: https://2021.gcpc.nwerc.eu/
-  results:
-    scoreboard:
-    - url: https://2021.gcpc.nwerc.eu/
-      archived: germany/germany-2021/scoreboard/2026-09-01-live-905b5fc0/page.html
-      url_state: live
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://2021.gcpc.nwerc.eu/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20220714053057'
+    archived:
+    - germany/germany-2021/scoreboard/2026-09-01-live-905b5fc0/page.html
+    - germany/germany-2021/scoreboard/20220714-wayback-71f42d83/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://2021.gcpc.nwerc.eu/problemset_2021.pdf
+    roles:
+    - problemset
+    as_of: '20230607043525'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3127
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: GCPC 2021
   problems:
-    repo: icpc-problem-archive/germany-2021
-    count: 14
-    statement: full
-    data: full
-    solutions: full
-    package: partial
-    notes: No date, no teams
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    counts:
-      package: 4
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3127
-        note: GCPC 2021
-  problemset: https://2021.gcpc.nwerc.eu/problemset_2021.pdf
+    set: germany-2021
 - id: germany-2022
   season: 2023
   name: 2022 ICPC German Collegiate Programming Contest
@@ -425,29 +554,44 @@ contests:
   - 5405
   parent: nwerc-2022
   next: germany-2023
-  web: https://2022.gcpc.nwerc.eu/
-  results:
-    scoreboard:
-    - url: https://2022.gcpc.nwerc.eu/results
-      archived: germany/germany-2022/scoreboard/2026-09-01-live-1d25cdc1/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/German-2023/standings
+  sources:
+  - url: https://2022.gcpc.nwerc.eu/
+    roles:
+    - web
+  - url: https://2022.gcpc.nwerc.eu/results
+    roles:
+    - scoreboard
+    as_of: '20221206115115'
+    archived:
+    - germany/germany-2022/scoreboard/2026-09-01-live-1d25cdc1/page.html
+    - germany/germany-2022/scoreboard/20221206-wayback-5f1e7de5/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/German-2023/standings
+    roles:
+    - icpc_standings
+  - url: https://2022.gcpc.nwerc.eu/problemset.pdf
+    roles:
+    - problemset
+    as_of: '20221209165632'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/German%20Collegiate%20Programming%20Contest%202022
+    roles:
+    - judge_page
+    judge: kattis
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3223
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260618020845'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: GCPC 2022
   problems:
-    repo: icpc-problem-archive/germany-2022
-    count: 13
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/German%20Collegiate%20Programming%20Contest%202022
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3223
-        note: GCPC 2022
-    notes: No date
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://2022.gcpc.nwerc.eu/problemset.pdf
+    set: germany-2022
 - id: germany-2023
   season: 2024
   name: 2023 ICPC German Collegiate Programming Contest
@@ -457,28 +601,43 @@ contests:
   - 7601
   parent: nwerc-2023
   next: germany-2024
-  web: https://2023.gcpc.nwerc.eu/
-  results:
-    scoreboard:
-    - url: https://2023.gcpc.nwerc.eu/results
-      archived: germany/germany-2023/scoreboard/2026-09-01-live-f73bee36/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/German-2024/standings
+  sources:
+  - url: https://2023.gcpc.nwerc.eu/
+    roles:
+    - web
+  - url: https://2023.gcpc.nwerc.eu/results
+    roles:
+    - scoreboard
+    as_of: '20240623221221'
+    archived:
+    - germany/germany-2023/scoreboard/2026-09-01-live-f73bee36/page.html
+    - germany/germany-2023/scoreboard/20240623-wayback-4bb9fc97/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/German-2024/standings
+    roles:
+    - icpc_standings
+  - url: https://2023.gcpc.nwerc.eu/problemset.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/German%20Collegiate%20Programming%20Contest%20%28GCPC%29%202023
+    roles:
+    - judge_page
+    judge: kattis
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3625
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260618021146'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: GCPC 2023
   problems:
-    count: 13
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/German%20Collegiate%20Programming%20Contest%20%28GCPC%29%202023
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3625
-        note: GCPC 2023
-    notes: No date
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://2023.gcpc.nwerc.eu/problemset.pdf
+    set: germany-2023
 - id: germany-2024
   season: 2025
   name: 2024 ICPC German Collegiate Programming Contest
@@ -488,26 +647,40 @@ contests:
   - 9010
   parent: nwerc-2024
   next: germany-2025
-  web: https://2024.gcpc.nwerc.eu/
-  results:
-    scoreboard:
-    - url: https://2024.gcpc.nwerc.eu/results
-      archived: germany/germany-2024/scoreboard/2026-09-01-live-5cca07d9/page.html
-      url_state: live
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://2024.gcpc.nwerc.eu/
+    roles:
+    - web
+  - url: https://2024.gcpc.nwerc.eu/results
+    roles:
+    - scoreboard
+    as_of: '20250121061652'
+    archived:
+    - germany/germany-2024/scoreboard/2026-09-01-live-5cca07d9/page.html
+    - germany/germany-2024/scoreboard/20250121-wayback-aa84479c/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/German%20Collegiate%20Programming%20Contest%20(GCPC)/2024%20German%20Collegiate%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/German%20Collegiate%20Programming%20Contest%20%28GCPC%29%202024
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20250617014855'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4304
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: GCPC 2024
   problems:
-    count: 13
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/German%20Collegiate%20Programming%20Contest%20%28GCPC%29%202024
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4304
-        note: GCPC 2024
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/German%20Collegiate%20Programming%20Contest%20(GCPC)/2024%20German%20Collegiate%20Programming%20Contest/problems.pdf
+    set: germany-2024
 - id: germany-2025
   season: 2026
   name: 2025 ICPC German Collegiate Programming Contest
@@ -517,26 +690,35 @@ contests:
   - 9375
   parent: nwerc-2025
   next: germany-2026
-  web: https://2025.gcpc.nwerc.eu/
-  results:
-    scoreboard:
-    - url: https://2025.gcpc.nwerc.eu/results
-      archived: germany/germany-2025/scoreboard/2026-09-01-live-3ee59715/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://2025.gcpc.nwerc.eu/
+    roles:
+    - web
+  - url: https://2025.gcpc.nwerc.eu/results
+    roles:
+    - scoreboard
+    as_of: '20250709223822'
+    archived:
+    - germany/germany-2025/scoreboard/2026-09-01-live-3ee59715/page.html
+    - germany/germany-2025/scoreboard/20250709-wayback-98ee098a/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://2025.gcpc.nwerc.eu/contest.pdf
+    roles:
+    - problemset
+    as_of: '20251015084245'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4638
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260418220924'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: GCPC 2025
   problems:
-    count: 13
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4638
-        as_of: '20260418220924'
-        note: GCPC 2025
-  problemset: https://2025.gcpc.nwerc.eu/contest.pdf
+    set: germany-2025
 - id: germany-2026
   season: 2027
   name: 2026 ICPC German Collegiate Programming Contest
@@ -544,15 +726,24 @@ contests:
   cms_ids:
   - 9583
   parent: nwerc-2026
-  web: https://2026.gcpc.nwerc.eu/
-  results:
-    scoreboard:
-    - url: https://2026.gcpc.nwerc.eu/results
-      as_of: '20260421233720'
-      note: confirmed by maintainer 2026-09-02 (contest ran; site + scoreboard live)
-      url_state: changed
-      url_checked: '2026-11-02'
-      archived: germany/germany-2026/scoreboard/20260421-wayback-e94c4721/page.html
+  sources:
+  - url: https://2026.gcpc.nwerc.eu/
+    roles:
+    - web
+  - url: https://2026.gcpc.nwerc.eu/results
+    roles:
+    - scoreboard
+    as_of: '20260421233720'
+    archived:
+    - germany/germany-2026/scoreboard/20260421-wayback-e94c4721/page.html
+    - germany/germany-2026/scoreboard/20260904-live-6f00c1ca/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: confirmed by maintainer 2026-09-02 (contest ran; site + scoreboard live)
+  - url: https://wcm.cpulm.org/contest/gcpc-2026/materials/9/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    source: Kattis problem export (2026-11-01)
-  problemset: https://wcm.cpulm.org/contest/gcpc-2026/materials/9/view
+    set: germany-2026

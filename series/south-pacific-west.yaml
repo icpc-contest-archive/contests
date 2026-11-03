@@ -1,6 +1,9 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: south-pacific-west
+  tier: subregional
+  region: Asia Pacific
+  naming: season-start
   lineage:
   - type: continues-as
     series: south-pacific-division
@@ -15,23 +18,30 @@ contests:
   - 2541
   parent: south-pacific-2014
   next: south-pacific-west-2015
-  results:
-    scoreboard:
-    - url: http://elena.aut.ac.nz/homepages/acm_contest/2014/Western/ScoreboardW.htm
-      as_of: '20150512144411'
-      archived: south-pacific-west/south-pacific-west-2014/scoreboard/2026-09-01-wayback-1ad50061/ScoreboardW.htm
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://elena.aut.ac.nz/homepages/acm_contest/2014/Western/ScoreboardW.htm
-      as_of: '20150512144411'
-      archived: south-pacific-west/south-pacific-west-2014/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/SP-West-2015/standings
-  web: http://acmicpc.unisa.edu.au/index.php/component/content/article?id=105
-  problemset: https://sppcontests.org/wp-content/uploads/2024/07/2014_archive/problemsetwest.pdf
+  sources:
+  - url: http://acmicpc.unisa.edu.au/index.php/component/content/article?id=105
+    roles:
+    - web
+  - url: http://elena.aut.ac.nz/homepages/acm_contest/2014/Western/ScoreboardW.htm
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20150512144411'
+    archived:
+    - south-pacific-west/south-pacific-west-2014/scoreboard/2026-09-01-wayback-1ad50061/ScoreboardW.htm
+    - south-pacific-west/south-pacific-west-2014/external-standings/2026-04-15-external/content.html
+    - south-pacific-west/south-pacific-west-2014/standings/20150512-wayback-d7bd9ea6/ScoreboardW.htm
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/SP-West-2015/standings
+    roles:
+    - icpc_standings
+  - url: https://sppcontests.org/wp-content/uploads/2024/07/2014_archive/problemsetwest.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: south-pacific-west-2015
   season: 2016
   name: ACM South Pacific Western Division
@@ -42,30 +52,41 @@ contests:
   - 2748
   parent: south-pacific-2015
   next: south-pacific-west-2016
-  results:
-    scoreboard:
-    - url: http://public.webdev.aut.ac.nz/ACM/Scoreboards/2015/Divisonal/WesternDivision.html
-      as_of: '20160130034034'
-      archived: south-pacific-west/south-pacific-west-2015/scoreboard/2026-09-01-wayback-b803ce27/WesternDivision.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://public.webdev.aut.ac.nz/ACM/Scoreboards/2015/Divisonal/WesternDivision.html
-      as_of: '20160830081241'
-      archived: south-pacific-west/south-pacific-west-2015/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/SP-West-2016/standings
-  web: http://acmicpc.unisa.edu.au/index.php/contest-rules?id=105
-  problemset: https://sppcontests.org/wp-content/uploads/2024/07/2015_archive/Problem_sets/Divisional/west.pdf
+  sources:
+  - url: http://acmicpc.unisa.edu.au/index.php/contest-rules?id=105
+    roles:
+    - web
+  - url: http://public.webdev.aut.ac.nz/ACM/Scoreboards/2015/Divisonal/WesternDivision.html
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20160130034034'
+    archived:
+    - south-pacific-west/south-pacific-west-2015/scoreboard/2026-09-01-wayback-b803ce27/WesternDivision.html
+    - south-pacific-west/south-pacific-west-2015/external-standings/2026-04-15-external/content.html
+    - south-pacific-west/south-pacific-west-2015/scoreboard/20160130-wayback-901e47bc/WesternDivision.html
+    - south-pacific-west/south-pacific-west-2015/standings/20160130-wayback-901e47bc/WesternDivision.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: as_of 20160830081241 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/SP-West-2016/standings
+    roles:
+    - icpc_standings
+  - url: https://sppcontests.org/wp-content/uploads/2024/07/2015_archive/Problem_sets/Divisional/west.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1369
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201022181955'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ACM South Pacific Western Division 2015
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1369
-        as_of: '20201022181955'
-        note: ACM South Pacific Western Division 2015
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: south-pacific-west-2015
 - id: south-pacific-west-2016
   season: 2017
   name: ACM South Pacific Western Division
@@ -76,18 +97,29 @@ contests:
   - 3102
   parent: south-pacific-2016
   next: south-pacific-west-2017
-  web:
-    url: https://acmicpc.unisa.edu.au/index.php/regional-contest-current/55-regional-contests/2016-regional-contests/143-2016-south-pacific-region-contests
+  sources:
+  - url: https://acmicpc.unisa.edu.au/index.php/regional-contest-current/55-regional-contests/2016-regional-contests/143-2016-south-pacific-region-contests
+    roles:
+    - web
     as_of: '20180321024125'
-  results:
-    scoreboard:
-    - url: http://public.webdev.aut.ac.nz/ACM/Scoreboards/2016/Divisional/Scoreboard_Division.htm
-      as_of: '20180329094133'
-      archived: south-pacific-west/south-pacific-west-2016/scoreboard/2026-09-01-wayback-0ef5c3dd/Scoreboard_Division.htm
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/SP-West-2017/standings
-  problemset: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/SPPC2016div.pdf
+  - url: http://public.webdev.aut.ac.nz/ACM/Scoreboards/2016/Divisional/Scoreboard_Division.htm
+    roles:
+    - scoreboard
+    as_of: '20180329094133'
+    archived:
+    - south-pacific-west/south-pacific-west-2016/scoreboard/2026-09-01-wayback-0ef5c3dd/Scoreboard_Division.htm
+    - south-pacific-west/south-pacific-west-2016/scoreboard/20180329-wayback-5fd10317/Scoreboard_Division.htm
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/SP-West-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/SPPC2016div.pdf
+    roles:
+    - problemset
+    as_of: '20180203031850'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: south-pacific-west-2017
   season: 2018
   name: ACM South Pacific Western Division
@@ -98,15 +130,22 @@ contests:
   - 3245
   parent: south-pacific-2017
   next: south-pacific-west-2018
-  results:
-    scoreboard:
-    - url: http://public.webdev.aut.ac.nz/ACM/Scoreboards/2017/Divisional/Scoreboard.htm
-      as_of: '20180127213946'
-      archived: south-pacific-west/south-pacific-west-2017/scoreboard/2026-09-01-wayback-e2874af3/Scoreboard.htm
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/SP-West-2018/standings
-  web: https://acmicpc.unisa.edu.au/index.php/component/content/article/52-regional-contests/divisions/105-western-division
+  sources:
+  - url: https://acmicpc.unisa.edu.au/index.php/component/content/article/52-regional-contests/divisions/105-western-division
+    roles:
+    - web
+  - url: http://public.webdev.aut.ac.nz/ACM/Scoreboards/2017/Divisional/Scoreboard.htm
+    roles:
+    - scoreboard
+    as_of: '20180127213946'
+    archived:
+    - south-pacific-west/south-pacific-west-2017/scoreboard/2026-09-01-wayback-e2874af3/Scoreboard.htm
+    - south-pacific-west/south-pacific-west-2017/scoreboard/20180127-wayback-8da466b9/Scoreboard.htm
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/SP-West-2018/standings
+    roles:
+    - icpc_standings
 - id: south-pacific-west-2018
   season: 2019
   name: South Pacific Western Division
@@ -117,12 +156,22 @@ contests:
   - 3616
   parent: south-pacific-2018
   next: south-pacific-west-2019
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/SP-West-2019/standings
-    archived: south-pacific-west/south-pacific-west-2018/standings/api-20260904/standings.html
+  sources:
+  - url: https://acmicpc.unisa.edu.au/index.php/contest-rules/52-regional-contests/divisions/105-western-division
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/SP-West-2019/standings
+    roles:
+    - icpc_standings
+    archived:
+    - south-pacific-west/south-pacific-west-2018/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3616, 22 teams, DB fetch 2026-04-26)
-  web: https://acmicpc.unisa.edu.au/index.php/contest-rules/52-regional-contests/divisions/105-western-division
-  problemset: https://sppcontests.org/wp-content/uploads/2024/07/2018_archive/2018D_problems.pdf
+  - url: https://sppcontests.org/wp-content/uploads/2024/07/2018_archive/2018D_problems.pdf
+    roles:
+    - problemset
+    as_of: '20250213022637'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: south-pacific-west-2019
   season: 2020
   name: South Pacific Western Division
@@ -132,15 +181,22 @@ contests:
   - 4280
   parent: south-pacific-2019
   next: south-pacific-division-2021
-  results:
-    scoreboard:
-    - url: http://public.webdev.aut.ac.nz/ACM/Scoreboards/2019/Divisional/Scoreboard-Full.html
-      as_of: '20201021204142'
-      archived: south-pacific-west/south-pacific-west-2019/scoreboard/2026-09-01-wayback-b2a93782/Scoreboard-Full.html
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/SP-West-2020/standings
+  sources:
+  - url: http://public.webdev.aut.ac.nz/ACM/Scoreboards/2019/Divisional/Scoreboard-Full.html
+    roles:
+    - scoreboard
+    as_of: '20201021204142'
+    archived:
+    - south-pacific-west/south-pacific-west-2019/scoreboard/2026-09-01-wayback-b2a93782/Scoreboard-Full.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/SP-West-2020/standings
+    roles:
+    - icpc_standings
+  - url: https://sppcontests.org/wp-content/uploads/2024/07/2019_archive/2019D_Problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    notes: No date
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://sppcontests.org/wp-content/uploads/2024/07/2019_archive/2019D_Problems.pdf
+    set: south-pacific-west-2019

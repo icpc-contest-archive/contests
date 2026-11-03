@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: kolkata-kanpur
   name: ICPC Asia Kolkata-Kanpur Onsite Regional Contest
+  tier: regional
+  region: Asia West
+  naming: season-start
   lineage:
   - type: continues-from
     series: kolkata
@@ -19,22 +22,29 @@ contests:
   - 3441
   parent: wf-2018
   next: kolkata-kanpur-2018
-  results:
-    standings:
-    - url: http://icpckolkata.in/Result.pdf
-      as_of: '20180830025240'
-      archived: kolkata-kanpur/kolkata-kanpur-2017/standings/2026-09-01-wayback-d2b2e01a/Result.pdf
-      url_state: replaced
-      url_checked: '2026-11-02'
-    - url: http://icpckolkata.in/Result.pdf
-      as_of: '20180613163654'
-      archived: kolkata-kanpur/kolkata-kanpur-2017/external-standings/2026-04-15-external/content.pdf
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/ICPCKolkataKanpur-2018/standings
-  web: http://www.icpckolkata.in
-  problemset: https://www.codechef.com/KOL17ROL
+  sources:
+  - url: http://www.icpckolkata.in
+    roles:
+    - web
+  - url: http://icpckolkata.in/Result.pdf
+    roles:
+    - standings
+    as_of: '20180830025240'
+    archived:
+    - kolkata-kanpur/kolkata-kanpur-2017/standings/2026-09-01-wayback-d2b2e01a/Result.pdf
+    - kolkata-kanpur/kolkata-kanpur-2017/external-standings/2026-04-15-external/content.pdf
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: as_of 20180613163654 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/ICPCKolkataKanpur-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://www.codechef.com/KOL17ROL
+    roles:
+    - problemset
+    as_of: '20191023132645'
+    url_state: replaced
+    url_checked: '2026-11-02'
 - id: kolkata-kanpur-2018
   season: 2019
   name: 2018 ICPC Asia Kolkata-Kanpur Onsite Regional Contest
@@ -44,19 +54,26 @@ contests:
   - 3529
   parent: wf-2019
   next: kanpur-2019
-  results:
-    standings:
-    - url: http://icpckolkata.in/result-of-onsite-round/
-      as_of: '20190811204644'
-      archived: kolkata-kanpur/kolkata-kanpur-2018/standings/2026-09-01-wayback-24e90103/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    - url: http://icpckolkata.in/result-of-onsite-round/
-      as_of: '20190811204644'
-      archived: kolkata-kanpur/kolkata-kanpur-2018/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/ICPCKolkataKanpur-2019/standings
-  web: http://www.icpckolkata.in
-  problemset: https://www.codechef.com/KOL18ROL
+  sources:
+  - url: http://www.icpckolkata.in
+    roles:
+    - web
+  - url: http://icpckolkata.in/result-of-onsite-round/
+    roles:
+    - standings
+    as_of: '20190811204644'
+    archived:
+    - kolkata-kanpur/kolkata-kanpur-2018/standings/2026-09-01-wayback-24e90103/page.html
+    - kolkata-kanpur/kolkata-kanpur-2018/external-standings/2026-04-15-external/content.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/ICPCKolkataKanpur-2019/standings
+    roles:
+    - icpc_standings
+  - url: https://www.codechef.com/KOL18ROL
+    roles:
+    - problemset
+    as_of: '20200815130441'
+    url_state: replaced
+    url_checked: '2026-11-02'

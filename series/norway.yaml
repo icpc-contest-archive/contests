@@ -1,6 +1,9 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: norway
+  tier: subregional
+  region: Europe
+  naming: season-start
   lineage:
   - type: continues-as
     series: nordic
@@ -12,29 +15,35 @@ contests:
   cms_ids: []
   parent: nwerc-2000
   next: norway-2001
-  web:
-    url: http://www.ifi.uio.no/~db/nm-i-programmering/nm2000/
+  sources:
+  - url: http://www.ifi.uio.no/~db/nm-i-programmering/nm2000/
+    roles:
+    - web
     as_of: '20011006203937'
-  results:
-    scoreboard:
-    - url: http://www.ifi.uio.no/~db/nm-i-programmering/nm2000/status.shtml
-      as_of: '20011122180630'
-      archived: norway/norway-2000/scoreboard/2026-09-01-wayback-2c7e9289/status.shtml
-      url_state: dead
-      url_checked: '2026-11-02'
+  - url: http://www.ifi.uio.no/~db/nm-i-programmering/nm2000/status.shtml
+    roles:
+    - scoreboard
+    as_of: '20011122180630'
+    archived:
+    - norway/norway-2000/scoreboard/2026-09-01-wayback-2c7e9289/status.shtml
+    url_state: dead
+    url_checked: '2026-11-02'
 - id: norway-2001
   season: 2002
   date: '2001-09-29'
   cms_ids: []
   parent: nwerc-2001
   next: nordic-2002
-  web:
-    url: http://heim.ifi.uio.no/~db/nm-i-programmering/nm2001/
+  sources:
+  - url: http://heim.ifi.uio.no/~db/nm-i-programmering/nm2001/
+    roles:
+    - web
     as_of: '20151023235214'
-  results:
-    scoreboard:
-    - url: http://heim.ifi.uio.no/~db/nm-i-programmering/nm2001/resultater.html
-      as_of: '20070706233520'
-      archived: norway/norway-2001/scoreboard/2026-09-01-wayback-bd3b66ec/resultater.html
-      url_state: dead
-      url_checked: '2026-11-02'
+  - url: http://heim.ifi.uio.no/~db/nm-i-programmering/nm2001/resultater.html
+    roles:
+    - scoreboard
+    as_of: '20070706233520'
+    archived:
+    - norway/norway-2001/scoreboard/2026-09-01-wayback-bd3b66ec/resultater.html
+    url_state: dead
+    url_checked: '2026-11-02'

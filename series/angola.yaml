@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: angola
   name: ICPC Angolan Collegiate Programming Contest
+  tier: subregional
+  region: Africa & Arab
+  naming: season-start
 contests:
 - id: angola-2017
   season: 2018
@@ -12,8 +15,13 @@ contests:
   - 3490
   parent: south-africa-2017
   next: angola-2018
-  icpc_standings: https://icpc.global/regionals/finder/AOCPC-2018/standings
-  web: https://icpcangola.wordpress.com/
+  sources:
+  - url: https://icpcangola.wordpress.com/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/AOCPC-2018/standings
+    roles:
+    - icpc_standings
 - id: angola-2018
   season: 2019
   name: 2018 Angolan Collegiate Programming Contest
@@ -23,15 +31,16 @@ contests:
   - 3565
   parent: south-africa-2018
   next: angola-2019
-  icpc_standings: https://icpc.global/regionals/finder/AOCPC-2019/standings
-  web: https://www.angop.ao/en/noticias/tecnologia/africano-de-programacao-com-tres-representantes-angolanos/
-  mirrors:
+  sources:
+  - url: https://www.angop.ao/en/noticias/tecnologia/africano-de-programacao-com-tres-representantes-angolanos/
+    roles:
+    - web
+    also_at:
+    - https://icpc.global/regionals/finder/AOCPC-2019/teams
+    - https://icpc.global/regionals/finder/AOCPC-2019
   - url: https://icpc.global/regionals/finder/AOCPC-2019/standings
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: https://icpc.global/regionals/finder/AOCPC-2019/teams
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: https://icpc.global/regionals/finder/AOCPC-2019
-    note: added by url-hunt 2026-09-01 (round9-deep-D4)
+    roles:
+    - icpc_standings
 - id: angola-2019
   season: 2020
   name: 2019 Angolan Collegiate Programming Contest
@@ -41,9 +50,12 @@ contests:
   - 4058
   parent: acpc-2019
   next: angola-2020
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/AOCPC-2020/standings
-    archived: angola/angola-2019/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/AOCPC-2020/standings
+    roles:
+    - icpc_standings
+    archived:
+    - angola/angola-2019/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4058, 25 teams, DB fetch 2026-04-26)
 - id: angola-2020
   season: 2021
@@ -54,11 +66,18 @@ contests:
   - 4416
   parent: acpc-2020
   next: angola-2021
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/AOCPC-2021/standings
-    archived: angola/angola-2020/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/AOCPC-2021/standings
+    roles:
+    - icpc_standings
+    archived:
+    - angola/angola-2020/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4416, 9 teams, DB fetch 2026-04-26)
-  problemset: https://github.com/kitihounel/competitive-programming-africa/blob/master/angola/2020/angola-2020-problemset.pdf
+  - url: https://github.com/kitihounel/competitive-programming-africa/blob/master/angola/2020/angola-2020-problemset.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: angola-2021
   season: 2022
   name: 2021 ICPC Angolan Collegiate Programming Contest
@@ -68,11 +87,18 @@ contests:
   - 4785
   parent: acpc-2021
   next: angola-2022
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/AOCPC-2022/standings
-    archived: angola/angola-2021/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/AOCPC-2022/standings
+    roles:
+    - icpc_standings
+    archived:
+    - angola/angola-2021/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4785, 14 teams, DB fetch 2026-04-26)
-  problemset: https://github.com/kitihounel/competitive-programming-africa/blob/master/angola/2021/angola-2021-problemset.pdf
+  - url: https://github.com/kitihounel/competitive-programming-africa/blob/master/angola/2021/angola-2021-problemset.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: angola-2022
   season: 2023
   name: 2022 ICPC Angolan Collegiate Programming Contest
@@ -82,11 +108,19 @@ contests:
   - 5506
   parent: acpc-2022
   next: angola-2023
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/AOCPC-2023/standings
-    archived: angola/angola-2022/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/AOCPC-2023/standings
+    roles:
+    - icpc_standings
+    archived:
+    - angola/angola-2022/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 5506, 31 teams, DB fetch 2026-04-26)
-  problemset: https://www.scribd.com/document/754400532/Exercicios-AOCPC-2022
+  - url: https://www.scribd.com/document/754400532/Exercicios-AOCPC-2022
+    roles:
+    - problemset
+    as_of: '20250904075112'
+    url_state: replaced
+    url_checked: '2026-11-02'
 - id: angola-2023
   season: 2024
   name: 2023 ICPC Angolan Collegiate Programming Contest
@@ -96,14 +130,18 @@ contests:
   - 7633
   parent: acpc-2023
   next: angola-2024
-  results:
-    frozen_scoreboard:
-    - url: https://scoreboard.acpc.global/aocpc2023/
-      as_of: '20260810134335'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: angola/angola-2023/frozen_scoreboard/20260810-wayback-19ecff36/page.html
-  icpc_standings: https://icpc.global/regionals/finder/AOCPC-2024/standings
+  sources:
+  - url: https://scoreboard.acpc.global/aocpc2023/
+    roles:
+    - frozen_scoreboard
+    as_of: '20260810134335'
+    archived:
+    - angola/angola-2023/frozen_scoreboard/20260810-wayback-19ecff36/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/AOCPC-2024/standings
+    roles:
+    - icpc_standings
 - id: angola-2024
   season: 2025
   name: 2024 ICPC Angolan Collegiate Programming Contest
@@ -113,9 +151,12 @@ contests:
   - 8780
   parent: acpc-2024
   next: angola-2025
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/AOCPC-2025/standings
-    archived: angola/angola-2024/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/AOCPC-2025/standings
+    roles:
+    - icpc_standings
+    archived:
+    - angola/angola-2024/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 8780, 39 teams, DB fetch 2026-04-26)
 - id: angola-2025
   season: 2026
@@ -126,9 +167,12 @@ contests:
   - 9268
   parent: acpc-2025
   next: angola-2026
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/AOCPC-2026/standings
-    archived: angola/angola-2025/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/AOCPC-2026/standings
+    roles:
+    - icpc_standings
+    archived:
+    - angola/angola-2025/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 9268, 45 teams, DB fetch 2026-04-26)
 - id: angola-2026
   status: upcoming

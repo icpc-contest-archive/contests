@@ -1,7 +1,10 @@
-# Maintained in-repo; finder pages moved to the icpc_standings tier (tools/migrate_finder_tier.py).
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: nena-west
   name: Buffalo - Western Contest
+  tier: subregional
+  region: North America
+  naming: season-start
 contests:
 - id: nena-west-2008
   season: 2009
@@ -12,8 +15,13 @@ contests:
   - 47
   parent: nena-2008
   next: nena-west-2009
-  icpc_standings: https://icpc.global/regionals/finder/Oswego-Preliminary-2009/standings
-  web: http://www.cs.oswego.edu/~mohammad/contest
+  sources:
+  - url: http://www.cs.oswego.edu/~mohammad/contest
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Oswego-Preliminary-2009/standings
+    roles:
+    - icpc_standings
 - id: nena-west-2009
   season: 2010
   name: 2009 Fredonia Preliminary Contest
@@ -22,11 +30,16 @@ contests:
   - 556
   parent: nena-2009
   next: nena-west-2010
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Fredonia-Preliminary-2010/standings
-    archived: nena-west/nena-west-2009/standings/api-20260904/standings.html
+  sources:
+  - url: http://www.cs.fredonia.edu/acm/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Fredonia-Preliminary-2010/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nena-west/nena-west-2009/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 556, 11 teams, DB fetch 2026-04-26)
-  web: http://www.cs.fredonia.edu/acm/
 - id: nena-west-2010
   season: 2011
   name: 2010 SUNY Oswego Contest
@@ -36,11 +49,16 @@ contests:
   - 652
   parent: nena-2010
   next: nena-west-2011
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/SUNY-Oswego-2011/standings
-    archived: nena-west/nena-west-2010/standings/api-20260904/standings.html
+  sources:
+  - url: http://www.cs.rit.edu/~icpc/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/SUNY-Oswego-2011/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nena-west/nena-west-2010/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 652, 7 teams, DB fetch 2026-04-26)
-  web: http://www.cs.rit.edu/~icpc/
 - id: nena-west-2011
   season: 2012
   name: 2011 SUNY Oswego Preliminary Contest
@@ -50,11 +68,16 @@ contests:
   - 885
   parent: nena-2011
   next: nena-west-2012
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/SUNY-Oswego-Preliminary-2012/standings
-    archived: nena-west/nena-west-2011/standings/api-20260904/standings.html
+  sources:
+  - url: http://www.cs.oswego.edu/~mohammad/contest/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/SUNY-Oswego-Preliminary-2012/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nena-west/nena-west-2011/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 885, 12 teams, DB fetch 2026-04-26)
-  web: http://www.cs.oswego.edu/~mohammad/contest/
 - id: nena-west-2012
   season: 2013
   name: 2012 SUNY Oswego Preliminary Contest
@@ -64,11 +87,16 @@ contests:
   - 1378
   parent: nena-2012
   next: nena-west-2013
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/SUNY-Oswego-Preliminary-2013/standings
-    archived: nena-west/nena-west-2012/standings/api-20260904/standings.html
+  sources:
+  - url: http://www.cs.oswego.edu/~mohammad/contest/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/SUNY-Oswego-Preliminary-2013/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nena-west/nena-west-2012/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 1378, 12 teams, DB fetch 2026-04-26)
-  web: http://www.cs.oswego.edu/~mohammad/contest/
 - id: nena-west-2013
   season: 2014
   name: 2013 SUNY Oswego Preliminary Contest
@@ -78,7 +106,10 @@ contests:
   - 1961
   parent: nena-2013
   next: nena-west-2014
-  web: http://www.cs.oswego.edu/~mohammad/contest/
+  sources:
+  - url: http://www.cs.oswego.edu/~mohammad/contest/
+    roles:
+    - web
 - id: nena-west-2014
   season: 2015
   name: 2014 Western Preliminary Contest
@@ -87,11 +118,16 @@ contests:
   - 2713
   parent: nena-2014
   next: nena-west-2015
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/NA-WPC-2015/standings
-    archived: nena-west/nena-west-2014/standings/api-20260904/standings.html
+  sources:
+  - url: http://www.cs.oswego.edu/~mohammad/contest/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/NA-WPC-2015/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nena-west/nena-west-2014/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 2713, 8 teams, DB fetch 2026-04-26)
-  web: http://www.cs.oswego.edu/~mohammad/contest/
 - id: nena-west-2015
   season: 2016
   name: 2015 Western Preliminary Contest
@@ -100,11 +136,16 @@ contests:
   - 2824
   parent: nena-2015
   next: nena-west-2016
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/NA-WPC-2016/standings
-    archived: nena-west/nena-west-2015/standings/api-20260904/standings.html
+  sources:
+  - url: http://www.cs.oswego.edu/~mohammad/contest/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/NA-WPC-2016/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nena-west/nena-west-2015/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 2824, 13 teams, DB fetch 2026-04-26)
-  web: http://www.cs.oswego.edu/~mohammad/contest/
 - id: nena-west-2016
   season: 2017
   name: Oswego - Western Preliminary Contest
@@ -113,7 +154,10 @@ contests:
   - 3200
   parent: nena-2016
   next: nena-west-2017
-  web: http://www.cs.oswego.edu/~mohammad/contest/
+  sources:
+  - url: http://www.cs.oswego.edu/~mohammad/contest/
+    roles:
+    - web
 - id: nena-west-2017
   season: 2018
   name: Oswego - Western Preliminary Contest
@@ -122,7 +166,10 @@ contests:
   - 3255
   parent: nena-2017
   next: nena-west-2018
-  web: https://cs.oswego.edu/~mohammad/contest/
+  sources:
+  - url: https://cs.oswego.edu/~mohammad/contest/
+    roles:
+    - web
 - id: nena-west-2018
   season: 2019
   name: Oswego - Western Preliminary Contest
@@ -130,7 +177,10 @@ contests:
   - 3540
   parent: nena-2018
   next: nena-west-2019
-  web: https://cs.oswego.edu/~mohammad/contest/
+  sources:
+  - url: https://cs.oswego.edu/~mohammad/contest/
+    roles:
+    - web
 - id: nena-west-2019
   season: 2020
   name: 2019 Buffalo - Western Contest
@@ -140,7 +190,10 @@ contests:
   - 4080
   parent: nena-2019
   next: null
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/NA-WC-2020/standings
-    archived: nena-west/nena-west-2019/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/NA-WC-2020/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nena-west/nena-west-2019/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4080, 7 teams, DB fetch 2026-04-26)

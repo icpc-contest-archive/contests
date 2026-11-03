@@ -1,25 +1,39 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: caribbean
   name: ICPC Caribbean Finals
+  tier: regional
+  region: Latin America
+  naming: season-start
 contests:
 - id: caribbean-2009
   cms_ids: []
   next: caribbean-2010
-  results:
-    standings:
-    - url: https://finalcaribe.wordpress.com/final-carib/resultados-2009/
-      archived: caribbean/caribbean-2009/standings/2026-09-01-live-c6b92711/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-  problemset: https://drive.google.com/file/d/1YCo9tDdfrYFzyWpCuBoTMmDz2DEdoBwI/view
+  sources:
+  - url: https://finalcaribe.wordpress.com/final-carib/resultados-2009/
+    roles:
+    - standings
+    as_of: '20111210031001'
+    archived:
+    - caribbean/caribbean-2009/standings/2026-09-01-live-c6b92711/page.html
+    - caribbean/caribbean-2009/standings/20111210-wayback-e52e0e16/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://drive.google.com/file/d/1YCo9tDdfrYFzyWpCuBoTMmDz2DEdoBwI/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/567
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150418084756'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2009
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/567
-        as_of: '20150418084756'
-        note: Latin America Regional Contests 2009
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: caribbean-2009
 - id: caribbean-2010
   season: 2011
   name: 2010 Caribbean Finals of the ACM-ICPC
@@ -29,27 +43,46 @@ contests:
   - 676
   parent: wf-2011
   next: caribbean-2011
-  results:
-    standings:
-    - url: https://finalcaribe.wordpress.com/final-carib/resultados-2010/
-      archived: caribbean/caribbean-2010/standings/2026-09-01-live-041e2fd2/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    - url: http://finalcaribe.wordpress.com/
-      archived: caribbean/caribbean-2010/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Caribbean-Finals-2011/standings
-  web: http://finalcaribe.wordpress.com/
-  problemset: https://drive.google.com/file/d/1M-PJ9NAxeURa62q3QPtupWq174xiFZrN/view
+  sources:
+  - url: http://finalcaribe.wordpress.com/
+    roles:
+    - web
+    - standings
+    as_of: '20111128230921'
+    archived:
+    - caribbean/caribbean-2010/external-standings/2026-04-15-external/content.html
+    - caribbean/caribbean-2010/standings/20111128-wayback-44411b0f/page.html
+    - caribbean/caribbean-2010/standings/20260901-live-96d98e72/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://finalcaribe.wordpress.com/final-carib/resultados-2010/
+    roles:
+    - standings
+    as_of: '20111207145231'
+    archived:
+    - caribbean/caribbean-2010/standings/2026-09-01-live-041e2fd2/page.html
+    - caribbean/caribbean-2010/standings/20111207-wayback-675d84d9/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Caribbean-Finals-2011/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/1M-PJ9NAxeURa62q3QPtupWq174xiFZrN/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/566
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150416123649'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2010
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/566
-        as_of: '20150416123649'
-        note: Latin America Regional Contests 2010
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: caribbean-2010
 - id: caribbean-2011
   season: 2012
   name: 2011 Caribbean Finals of the ACM-ICPC
@@ -59,27 +92,44 @@ contests:
   - 890
   parent: wf-2012
   next: caribbean-2012
-  results:
-    standings:
-    - url: https://finalcaribe.wordpress.com/final-carib/resultados-2011/
-      archived: caribbean/caribbean-2011/standings/2026-09-01-live-9a85d0f3/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://finalcaribe.wordpress.com/
-      archived: caribbean/caribbean-2011/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Caribbean-Finals-2012/standings
-  web: http://finalcaribe.wordpress.com/
-  problemset: https://drive.google.com/file/d/1UsZK0VYpmWsfeOYLzXH0uEUq41oZdKyI/view
+  sources:
+  - url: http://finalcaribe.wordpress.com/
+    roles:
+    - web
+    - standings
+    as_of: '20111128230921'
+    archived:
+    - caribbean/caribbean-2011/external-standings/2026-04-15-external/content.html
+    - caribbean/caribbean-2011/standings/20111128-wayback-44411b0f/page.html
+    - caribbean/caribbean-2011/standings/20260901-live-96d98e72/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://finalcaribe.wordpress.com/final-carib/resultados-2011/
+    roles:
+    - standings
+    archived:
+    - caribbean/caribbean-2011/standings/2026-09-01-live-9a85d0f3/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Caribbean-Finals-2012/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/1UsZK0VYpmWsfeOYLzXH0uEUq41oZdKyI/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/565
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150416165224'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2011
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/565
-        as_of: '20150416165224'
-        note: Latin America Regional Contests 2011
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: caribbean-2011
 - id: caribbean-2012
   season: 2013
   name: 2012 Caribbean Finals of the ACM-ICPC
@@ -89,24 +139,36 @@ contests:
   - 1433
   parent: wf-2013
   next: caribbean-2013
-  icpc_standings: https://icpc.global/regionals/finder/Caribbean-Finals-2013/standings
-  results:
-    standings:
-    - url: http://carib-finals.uci.cu/
-      as_of: '20200128141417'
-      archived: caribbean/caribbean-2012/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  web: http://carib-finals.uci.cu/
-  problemset: https://drive.google.com/file/d/1ina_7f69DZhtPd__YPxCd7faMJUsBpTz/view
+  sources:
+  - url: http://carib-finals.uci.cu/
+    roles:
+    - web
+    - standings
+    as_of: '20200128141417'
+    archived:
+    - caribbean/caribbean-2012/external-standings/2026-04-15-external/content.html
+    - caribbean/caribbean-2012/standings/20121128-wayback-7116f131/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Caribbean-Finals-2013/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/1ina_7f69DZhtPd__YPxCd7faMJUsBpTz/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/564
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150416150048'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2012
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/564
-        as_of: '20150416150048'
-        note: Latin America Regional Contests 2012
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: caribbean-2012
 - id: caribbean-2013
   season: 2014
   name: 2013 ACM-ICPC Caribbean Finals
@@ -116,19 +178,31 @@ contests:
   - 1864
   parent: wf-2014
   next: caribbean-2014
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/CF-2014/standings
-    archived: caribbean/caribbean-2013/standings/api-20260904/standings.html
+  sources:
+  - url: http://carib-finals.uci.cu/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/CF-2014/standings
+    roles:
+    - icpc_standings
+    archived:
+    - caribbean/caribbean-2013/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 1864, 43 teams, DB fetch 2026-04-26)
-  web: http://carib-finals.uci.cu/
-  problemset: https://drive.google.com/file/d/12cm67XIfhsn_cit0SGK-_EQ4oa-VJsCb/view
+  - url: https://drive.google.com/file/d/12cm67XIfhsn_cit0SGK-_EQ4oa-VJsCb/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1175
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150416163731'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2013
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1175
-        as_of: '20150416163731'
-        note: Latin America Regional Contests 2013
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: caribbean-2013
 - id: caribbean-2014
   season: 2015
   name: 2014 ACM-ICPC Caribbean Finals
@@ -138,23 +212,38 @@ contests:
   - 2533
   parent: wf-2015
   next: caribbean-2015
-  web: https://finalcaribe.wordpress.com/
-  icpc_standings: https://icpc.global/regionals/finder/CF-2015/standings
-  results:
-    standings:
-    - url: http://score.bombonera.org/latam2014/
-      archived: caribbean/caribbean-2014/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  problemset: https://drive.google.com/file/d/1Z88lXuHQChLMpmeAL5FPof26dYFzXFCn/view
+  sources:
+  - url: https://finalcaribe.wordpress.com/
+    roles:
+    - web
+  - url: http://score.bombonera.org/latam2014/
+    roles:
+    - standings
+    as_of: '20141111175144'
+    archived:
+    - caribbean/caribbean-2014/external-standings/2026-04-15-external/content.html
+    - caribbean/caribbean-2014/standings/20141111-wayback-33c840e4/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/CF-2015/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/1Z88lXuHQChLMpmeAL5FPof26dYFzXFCn/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1297
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150416133301'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2014
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1297
-        as_of: '20150416133301'
-        note: Latin America Regional Contests 2014
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: caribbean-2014
 - id: caribbean-2015
   season: 2016
   name: 2015 ACM-ICPC Caribbean Finals
@@ -164,23 +253,36 @@ contests:
   - 2802
   parent: wf-2016
   next: caribbean-2016
-  icpc_standings: https://icpc.global/regionals/finder/CF-2016/standings
-  results:
-    standings:
-    - url: http://www.bombonera.org/board/
-      archived: caribbean/caribbean-2015/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: changed
-      url_checked: '2026-11-02'
-  web: http://coj.uci.cu/
-  problemset: https://drive.google.com/file/d/14KtLMGBAOGA0X4sWTMlouT0Ws_bSj_YH/view
+  sources:
+  - url: http://coj.uci.cu/
+    roles:
+    - web
+  - url: http://www.bombonera.org/board/
+    roles:
+    - standings
+    archived:
+    - caribbean/caribbean-2015/external-standings/2026-04-15-external/content.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/CF-2016/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/14KtLMGBAOGA0X4sWTMlouT0Ws_bSj_YH/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1418
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190719100616'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2015
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1418
-        as_of: '20190719100616'
-        note: Latin America Regional Contests 2015
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: caribbean-2015
 - id: caribbean-2016
   season: 2017
   name: 2016 ACM-ICPC Caribbean Finals
@@ -190,23 +292,36 @@ contests:
   - 3020
   parent: wf-2017
   next: caribbean-2017
-  icpc_standings: https://icpc.global/regionals/finder/CF-2017/standings
-  results:
-    standings:
-    - url: http://www.bombonera.org/board/
-      archived: caribbean/caribbean-2016/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: changed
-      url_checked: '2026-11-02'
-  web: http://coj-forum.uci.cu/viewforum.php?f=42
-  problemset: https://drive.google.com/file/d/11V3glPkLXuCB4_UmLA2n6GUxUS3hFN5R/view
+  sources:
+  - url: http://coj-forum.uci.cu/viewforum.php?f=42
+    roles:
+    - web
+  - url: http://www.bombonera.org/board/
+    roles:
+    - standings
+    archived:
+    - caribbean/caribbean-2016/external-standings/2026-04-15-external/content.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/CF-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/11V3glPkLXuCB4_UmLA2n6GUxUS3hFN5R/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1572
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190819201522'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2016
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1572
-        as_of: '20190819201522'
-        note: Latin America Regional Contests 2016
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: caribbean-2016
 - id: caribbean-2017
   season: 2018
   name: 2017 ACM-ICPC Caribbean Finals
@@ -216,24 +331,36 @@ contests:
   - 3460
   parent: wf-2018
   next: caribbean-2018
-  icpc_standings: https://icpc.global/regionals/finder/CF-2018/standings
-  results:
-    standings:
-    - url: https://coj-forum.uci.cu/viewforum.php?f=77
-      as_of: '20210413183506'
-      archived: caribbean/caribbean-2017/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  web: https://coj-forum.uci.cu/viewforum.php?f=77
-  problemset: https://drive.google.com/file/d/1FiDalrMI35Se-jUh4SaY3S06AoBAIMc6/view
+  sources:
+  - url: https://coj-forum.uci.cu/viewforum.php?f=77
+    roles:
+    - web
+    - standings
+    as_of: '20210413183506'
+    archived:
+    - caribbean/caribbean-2017/external-standings/2026-04-15-external/content.html
+    - caribbean/caribbean-2017/standings/20210413-wayback-4f27f983/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/CF-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/1FiDalrMI35Se-jUh4SaY3S06AoBAIMc6/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1787
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190817133943'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2017
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1787
-        as_of: '20190817133943'
-        note: Latin America Regional Contests 2017
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: caribbean-2017
 - id: caribbean-2018
   season: 2019
   name: 2018 ICPC Caribbean Finals
@@ -243,29 +370,40 @@ contests:
   - 3619
   parent: wf-2019
   next: caribbean-2019
-  results:
-    scoreboard:
-    - url: http://score.bombonera.org/score2018f2/score/
-      as_of: '20181112085616'
-      archived: caribbean/caribbean-2018/scoreboard/2026-09-01-wayback-86969b6b/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://score.bombonera.org/score2018f2/score/
-      archived: caribbean/caribbean-2018/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/CaribFinals-2019/standings
-  web: https://coj-forum.uci.cu/viewforum.php?f=105
-  problemset: https://drive.google.com/file/d/1cIJA_seiSjtciyQPdTG2KTNrT-9wRny4/view
+  sources:
+  - url: https://coj-forum.uci.cu/viewforum.php?f=105
+    roles:
+    - web
+  - url: http://score.bombonera.org/score2018f2/score/
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20181112085616'
+    archived:
+    - caribbean/caribbean-2018/scoreboard/2026-09-01-wayback-86969b6b/page.html
+    - caribbean/caribbean-2018/external-standings/2026-04-15-external/content.html
+    - caribbean/caribbean-2018/standings/20181112-wayback-35463035/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/CaribFinals-2019/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/1cIJA_seiSjtciyQPdTG2KTNrT-9wRny4/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1956
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190723112850'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2018
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1956
-        as_of: '20190723112850'
-        note: Latin America Regional Contests 2018
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: caribbean-2018
 - id: caribbean-2019
   season: 2020
   name: 2019 ICPC Caribbean Finals
@@ -276,28 +414,47 @@ contests:
   - 4244
   parent: wf-2020
   next: caribbean-2020
-  results:
-    scoreboard:
-    - url: https://scorelatam.naquadah.com.br/latam-2019/
-      archived: caribbean/caribbean-2019/scoreboard/2026-09-01-live-e9f99892/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://score.bombonera.org/
-      archived: caribbean/caribbean-2019/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/CaribFinals-2020/standings
-  web: https://www.icpc-caribe.com/
-  problemset: https://drive.google.com/file/d/1orJNNnCo4Wqo0e1WQksiQ4G6vbuftB46/view
+  sources:
+  - url: https://www.icpc-caribe.com/
+    roles:
+    - web
+  - url: https://scorelatam.naquadah.com.br/latam-2019/
+    roles:
+    - scoreboard
+    as_of: '20210411155403'
+    archived:
+    - caribbean/caribbean-2019/scoreboard/2026-09-01-live-e9f99892/page.html
+    - caribbean/caribbean-2019/scoreboard/20210411-wayback-2f0d6964/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://score.bombonera.org/
+    roles:
+    - standings
+    as_of: '20200129151639'
+    archived:
+    - caribbean/caribbean-2019/external-standings/2026-04-15-external/content.html
+    - caribbean/caribbean-2019/standings/20200129-wayback-e3ad4780/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/CaribFinals-2020/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/1orJNNnCo4Wqo0e1WQksiQ4G6vbuftB46/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2117
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20200807143554'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2019
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2117
-        as_of: '20200807143554'
-        note: Latin America Regional Contests 2019
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: caribbean-2019
 - id: caribbean-2020
   season: 2021
   name: 2020 ICPC Caribbean Finals
@@ -307,22 +464,38 @@ contests:
   - 4468
   parent: wf-2021
   next: caribbean-2021
-  results:
-    scoreboard:
-    - url: https://scorelatam.naquadah.com.br/latam-2020/
-      archived: caribbean/caribbean-2020/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/CaribFinals-2021/standings
-  web: https://www.icpc-caribe.com/
-  problemset: https://drive.google.com/file/d/1zNyntYDM3fmvVELLzwWtpkk6TUnHV9gT/view
+  sources:
+  - url: https://www.icpc-caribe.com/
+    roles:
+    - web
+  - url: https://scorelatam.naquadah.com.br/latam-2020/
+    roles:
+    - scoreboard
+    as_of: '20210710234912'
+    archived:
+    - caribbean/caribbean-2020/external-standings/2026-04-15-external/content.html
+    - caribbean/caribbean-2020/scoreboard/20210710-wayback-4dae36e1/page.html
+    - caribbean/caribbean-2020/scoreboard/20260901-live-167fc391/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/CaribFinals-2021/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/1zNyntYDM3fmvVELLzwWtpkk6TUnHV9gT/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2611
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210923213505'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2020
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2611
-        as_of: '20210923213505'
-        note: Latin America Regional Contests 2020
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: caribbean-2020
 - id: caribbean-2021
   season: 2022
   name: 2021 ICPC Caribbean Finals
@@ -332,22 +505,38 @@ contests:
   - 4698
   parent: wf-2022
   next: caribbean-2022
-  results:
-    scoreboard:
-    - url: https://scorelatam.naquadah.com.br/latam-2021/
-      archived: caribbean/caribbean-2021/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/CaribFinals-2022/standings
-  web: https://www.icpc-caribe.com/
-  problemset: https://drive.google.com/file/d/1CoctzPkRFtL62akJ4h9Aa1sgiedmdv0I/view
+  sources:
+  - url: https://www.icpc-caribe.com/
+    roles:
+    - web
+  - url: https://scorelatam.naquadah.com.br/latam-2021/
+    roles:
+    - scoreboard
+    as_of: '20220520232853'
+    archived:
+    - caribbean/caribbean-2021/external-standings/2026-04-15-external/content.html
+    - caribbean/caribbean-2021/scoreboard/20220520-wayback-3964f6f9/page.html
+    - caribbean/caribbean-2021/scoreboard/20260901-live-3b3bfd42/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/CaribFinals-2022/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/1CoctzPkRFtL62akJ4h9Aa1sgiedmdv0I/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3088
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20230514144551'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2021
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3088
-        as_of: '20230514144551'
-        note: Latin America Regional Contests 2021
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: caribbean-2021
 - id: caribbean-2022
   season: 2023
   name: 2022 ICPC Caribbean Finals
@@ -357,22 +546,39 @@ contests:
   - 5534
   parent: wf-2023
   next: caribbean-2023
-  results:
-    scoreboard:
-    - url: https://scorelatam.naquadah.com.br/latam-2022/
-      archived: caribbean/caribbean-2022/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/CaribFinals-2023/standings
-  web: https://www.icpccaribe.org/
-  problemset: https://scorelatam.naquadah.com.br/latam-2022/contest.pdf
+  sources:
+  - url: https://www.icpccaribe.org/
+    roles:
+    - web
+  - url: https://scorelatam.naquadah.com.br/latam-2022/
+    roles:
+    - scoreboard
+    as_of: '20230323084846'
+    archived:
+    - caribbean/caribbean-2022/external-standings/2026-04-15-external/content.html
+    - caribbean/caribbean-2022/scoreboard/20230323-wayback-62e21791/page.html
+    - caribbean/caribbean-2022/scoreboard/20260901-live-4cb367aa/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/CaribFinals-2023/standings
+    roles:
+    - icpc_standings
+  - url: https://scorelatam.naquadah.com.br/latam-2022/contest.pdf
+    roles:
+    - problemset
+    as_of: '20230323034228'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3579
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20230514144552'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2022
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3579
-        as_of: '20230514144552'
-        note: Latin America Regional Contests 2022
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: caribbean-2022
 - id: caribbean-2023
   season: 2024
   name: 2023 ICPC Caribbean Finals
@@ -383,28 +589,47 @@ contests:
   - 7555
   parent: lac-2024
   next: caribbean-2024
-  results:
-    scoreboard:
-    - url: https://scorelatam.naquadah.com.br/latam-2023/
-      archived: caribbean/caribbean-2023/scoreboard/2026-09-01-live-c3916262/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://www.icpccaribe.org/icpc-caribe/podios-de-los-concursos-regionales-caribeños-del-icpc
-      as_of: '20260116162651'
-      archived: caribbean/caribbean-2023/external-standings/2026-04-15-external/content.html
-      note: 'from archived capture (external-standings); snapshot verified at a different locator: https://www.icpccaribe.org/icpc-caribe/podios-de-los-concursos-regionales-caribe%C3%B1os-del-icpc'
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/CaribFinals-2024/standings
-  web: https://www.icpccaribe.org/
-  problemset: https://scorelatam.naquadah.com.br/latam-2023/contest.pdf
+  sources:
+  - url: https://www.icpccaribe.org/
+    roles:
+    - web
+  - url: https://scorelatam.naquadah.com.br/latam-2023/
+    roles:
+    - scoreboard
+    as_of: '20231023172618'
+    archived:
+    - caribbean/caribbean-2023/scoreboard/2026-09-01-live-c3916262/page.html
+    - caribbean/caribbean-2023/scoreboard/20231023-wayback-7d20f130/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://www.icpccaribe.org/icpc-caribe/podios-de-los-concursos-regionales-caribeños-del-icpc
+    roles:
+    - standings
+    as_of: '20260116162651'
+    archived:
+    - caribbean/caribbean-2023/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 'from archived capture (external-standings); snapshot verified at a different locator: https://www.icpccaribe.org/icpc-caribe/podios-de-los-concursos-regionales-caribe%C3%B1os-del-icpc'
+  - url: https://icpc.global/regionals/finder/CaribFinals-2024/standings
+    roles:
+    - icpc_standings
+  - url: https://scorelatam.naquadah.com.br/latam-2023/contest.pdf
+    roles:
+    - problemset
+    as_of: '20231208120837'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4006
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260618021201'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2023
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4006
-        note: Latin America Regional Contests 2023
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: caribbean-2023
 - id: caribbean-2024
   season: 2025
   name: 2024 ICPC Caribbean Finals
@@ -414,27 +639,45 @@ contests:
   - 8949
   parent: lac-2025
   next: caribbean-2025
-  results:
-    scoreboard:
-    - url: https://scorelatam.naquadah.com.br/latam-2024/
-      archived: caribbean/caribbean-2024/scoreboard/2026-09-01-live-478cb21c/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://www.icpccaribe.org/icpc-caribe/podios-de-los-concursos-regionales-caribeños-del-icpc
-      archived: caribbean/caribbean-2024/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/CaribFinals-2025/standings
-  web: https://www.icpccaribe.org/
-  problemset: https://scorelatam.naquadah.com.br/latam-2024/contest.pdf
+  sources:
+  - url: https://www.icpccaribe.org/
+    roles:
+    - web
+  - url: https://scorelatam.naquadah.com.br/latam-2024/
+    roles:
+    - scoreboard
+    as_of: '20241113233607'
+    archived:
+    - caribbean/caribbean-2024/scoreboard/2026-09-01-live-478cb21c/page.html
+    - caribbean/caribbean-2024/scoreboard/20241113-wayback-753d3b6a/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.icpccaribe.org/icpc-caribe/podios-de-los-concursos-regionales-caribeños-del-icpc
+    roles:
+    - standings
+    archived:
+    - caribbean/caribbean-2024/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/CaribFinals-2025/standings
+    roles:
+    - icpc_standings
+  - url: https://scorelatam.naquadah.com.br/latam-2024/contest.pdf
+    roles:
+    - problemset
+    as_of: '20241113233655'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4388
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2024
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4388
-        note: Latin America Regional Contests 2024
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: caribbean-2024
 - id: caribbean-2025
   season: 2026
   name: 2025 ICPC Caribbean Finals
@@ -445,21 +688,35 @@ contests:
   - 9401
   parent: lac-2026
   next: caribbean-2026
-  results:
-    scoreboard:
-    - url: https://scorelatam.naquadah.com.br/latam-2025/
-      archived: caribbean/caribbean-2025/scoreboard/2026-09-01-live-6f489726/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/CaribFinals-2026/standings
-  problemset: https://scorelatam.naquadah.com.br/latam-2025/contest.pdf
+  sources:
+  - url: https://scorelatam.naquadah.com.br/latam-2025/
+    roles:
+    - scoreboard
+    as_of: '20251124192456'
+    archived:
+    - caribbean/caribbean-2025/scoreboard/2026-09-01-live-6f489726/page.html
+    - caribbean/caribbean-2025/scoreboard/20251124-wayback-89af3860/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/CaribFinals-2026/standings
+    roles:
+    - icpc_standings
+  - url: https://scorelatam.naquadah.com.br/latam-2025/contest.pdf
+    roles:
+    - problemset
+    as_of: '20251124192836'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4687
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260418223005'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2025
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4687
-        as_of: '20260418223005'
-        note: Latin America Regional Contests 2025
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: caribbean-2025
 - id: caribbean-2026
   status: upcoming
   season: 2027

@@ -1,123 +1,163 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: alberta
   name: ICPC Alberta Collegiate Programming Contest
+  tier: subregional
+  region: North America
+  naming: season-start
 contests:
 - id: alberta-2003
   date: '2003-10-18'
   cms_ids: []
   next: alberta-2004
-  results:
-    scoreboard:
-    - url: http://webdocs.cs.ualberta.ca/~acpc/2003/Global-Standings.html
-      as_of: '20210516110534'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: alberta/alberta-2003/scoreboard/2026-09-01-wayback-e5ba1af0/Global-Standings.html
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1127
-        as_of: '20201024150540'
-        note: ACPC 2003
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/1127
-    as_of: '20201024150540'
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: http://webdocs.cs.ualberta.ca/~acpc/2003/Global-Standings.html
+    roles:
+    - scoreboard
+    as_of: '20210516110534'
+    archived:
+    - alberta/alberta-2003/scoreboard/2026-09-01-wayback-e5ba1af0/Global-Standings.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1127
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20201024150540'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      ACPC 2003
+  problems:
+    set: alberta-2003
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - id: alberta-2004
   date: '2004-10-02'
   cms_ids: []
   next: alberta-2005
-  results:
-    scoreboard:
-    - url: http://webdocs.cs.ualberta.ca/~acpc/2004/Standings.txt
-      as_of: '20210516110843'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: alberta/alberta-2004/scoreboard/2026-09-01-wayback-01e6b98e/Standings.txt
+  sources:
+  - url: http://webdocs.cs.ualberta.ca/~acpc/2004/Standings.txt
+    roles:
+    - scoreboard
+    as_of: '20210516110843'
+    archived:
+    - alberta/alberta-2004/scoreboard/2026-09-01-wayback-01e6b98e/Standings.txt
+    url_state: dead
+    url_checked: '2026-11-02'
 - id: alberta-2005
   name: Alberta Collegiate Programming Contest 2005
   date: '2005-10-01'
   cms_ids: []
   next: alberta-2006
-  results:
-    scoreboard:
-    - url: http://webdocs.cs.ualberta.ca/~acpc/2005/ACPC05-Scoreboard.html
-      as_of: '20210516121627'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: alberta/alberta-2005/scoreboard/2026-09-01-wayback-fb777e28/ACPC05-Scoreboard.html
+  sources:
+  - url: http://webdocs.cs.ualberta.ca/~acpc/2005/ACPC05-Scoreboard.html
+    roles:
+    - scoreboard
+    as_of: '20210516121627'
+    archived:
+    - alberta/alberta-2005/scoreboard/2026-09-01-wayback-fb777e28/ACPC05-Scoreboard.html
+    url_state: dead
+    url_checked: '2026-11-02'
 - id: alberta-2006
   date: '2006-10-14'
   cms_ids: []
   next: alberta-2007
-  web:
-    url: http://webdocs.cs.ualberta.ca/~acpc/2006/
+  sources:
+  - url: http://webdocs.cs.ualberta.ca/~acpc/2006/
+    roles:
+    - web
     as_of: '20200220172536'
-  results:
-    scoreboard:
-    - url: http://webdocs.cs.ualberta.ca/~acpc/2006/jscores.html
-      as_of: '20210516120658'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: alberta/alberta-2006/scoreboard/2026-09-01-wayback-e8f0db0a/jscores.html
-  problemset:
-    url: http://webdocs.cs.ualberta.ca/~acpc/2006/problems/
+  - url: http://webdocs.cs.ualberta.ca/~acpc/2006/jscores.html
+    roles:
+    - scoreboard
+    as_of: '20210516120658'
+    archived:
+    - alberta/alberta-2006/scoreboard/2026-09-01-wayback-e8f0db0a/jscores.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://webdocs.cs.ualberta.ca/~acpc/2006/problems/
+    roles:
+    - problemset
     as_of: '20210125114401'
+    url_state: dead
+    url_checked: '2026-11-02'
 - id: alberta-2007
   date: '2007-10-13'
   cms_ids: []
   next: alberta-2008
-  web:
-    url: http://webdocs.cs.ualberta.ca/~acpc/2007/
+  sources:
+  - url: http://webdocs.cs.ualberta.ca/~acpc/2007/
+    roles:
+    - web
+    - rankings
     as_of: '20200220172541'
-  results:
-    rankings:
-    - url: https://webdocs.cs.ualberta.ca/~acpc/2007/
-      as_of: '20170925020540'
-      note: added by url-hunt 2026-09-01 (wave2-rest)
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: alberta/alberta-2007/rankings/20170925-wayback-cbb3e05c/page.html
-  problemset: https://onlinejudge.org/contests/183-12926485/
+    archived:
+    - alberta/alberta-2007/rankings/20170925-wayback-cbb3e05c/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: as_of 20170925020540 for rankings; added by url-hunt 2026-09-01 (wave2-rest)
+  - url: https://onlinejudge.org/contests/183-12926485/
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: alberta-2008
   cms_ids: []
   next: alberta-2009
-  results:
-    scoreboard:
-    - url: http://webdocs.cs.ualberta.ca/~contest/ACPC2008/contest/scores.php
-      as_of: '20130624003545'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: alberta/alberta-2008/scoreboard/2026-09-01-wayback-9c7262aa/page.html
-  problemset: https://onlinejudge.org/contests/223-b9be34e1/
+  sources:
+  - url: http://webdocs.cs.ualberta.ca/~contest/ACPC2008/contest/scores.php
+    roles:
+    - scoreboard
+    as_of: '20130624003545'
+    archived:
+    - alberta/alberta-2008/scoreboard/2026-09-01-wayback-9c7262aa/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://onlinejudge.org/contests/223-b9be34e1/
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: alberta-2009
   date: '2009-10-17'
   cms_ids: []
   next: alberta-2010
-  results:
-    scoreboard:
-    - url: http://webdocs.cs.ualberta.ca/~contest/ACPC2009/contest/scores.php
-      as_of: '20101113165220'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: alberta/alberta-2009/scoreboard/2026-09-01-wayback-e9ea9da7/page.html
-  problemset: https://onlinejudge.org/contests/248-94d9714b/
+  sources:
+  - url: http://webdocs.cs.ualberta.ca/~contest/ACPC2009/contest/scores.php
+    roles:
+    - scoreboard
+    as_of: '20101113165220'
+    archived:
+    - alberta/alberta-2009/scoreboard/2026-09-01-wayback-e9ea9da7/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://onlinejudge.org/contests/248-94d9714b/
+    roles:
+    - problemset
+    as_of: '20251015200429'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: alberta-2010
   date: '2010-10-16'
   cms_ids: []
   next: alberta-2011
-  results:
-    scoreboard:
-    - url: http://webdocs.cs.ualberta.ca/~contest/ACPC2010/contest/scores.php
-      as_of: '20111228161818'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: alberta/alberta-2010/scoreboard/2026-09-01-wayback-ee014f52/page.html
-  problemset: https://onlinejudge.org/contests/274-2a1acb25/ACPC2010Problems.pdf
+  sources:
+  - url: http://webdocs.cs.ualberta.ca/~contest/ACPC2010/contest/scores.php
+    roles:
+    - scoreboard
+    as_of: '20111228161818'
+    archived:
+    - alberta/alberta-2010/scoreboard/2026-09-01-wayback-ee014f52/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://onlinejudge.org/contests/274-2a1acb25/ACPC2010Problems.pdf
+    roles:
+    - problemset
+    as_of: '20251115144823'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: alberta-2011
   name: 2011 ICPC Alberta Contest
   date: '2011-10-15'
@@ -125,15 +165,24 @@ contests:
   cms_ids:
   - 946
   next: alberta-2012
-  results:
-    scoreboard:
-    - url: http://psc.cpsc.ucalgary.ca/acpc/2011/contest/scores.php
-      as_of: '20210101143747'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: alberta/alberta-2011/scoreboard/2026-09-01-wayback-4b8d5196/page.html
-  web: http://psc.cpsc.ucalgary.ca/acpc
-  problemset: https://onlinejudge.org/contests/297-6b705635/
+  sources:
+  - url: http://psc.cpsc.ucalgary.ca/acpc
+    roles:
+    - web
+  - url: http://psc.cpsc.ucalgary.ca/acpc/2011/contest/scores.php
+    roles:
+    - scoreboard
+    as_of: '20210101143747'
+    archived:
+    - alberta/alberta-2011/scoreboard/2026-09-01-wayback-4b8d5196/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://onlinejudge.org/contests/297-6b705635/
+    roles:
+    - problemset
+    as_of: '20251017081610'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: alberta-2012
   name: 2012 ICPC Alberta Contest
   date: '2012-10-13'
@@ -141,22 +190,34 @@ contests:
   cms_ids:
   - 1397
   next: alberta-2013
-  results:
-    scoreboard:
-    - url: http://psc.cpsc.ucalgary.ca/acpc/2012/contest/scores.php
-      as_of: '20210101143701'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: alberta/alberta-2012/scoreboard/2026-09-01-wayback-25f08186/page.html
-  web: http://psc.cpsc.ucalgary.ca/acpc/
-  problemset: https://onlinejudge.org/contests/316-032efa2f/
+  sources:
+  - url: http://psc.cpsc.ucalgary.ca/acpc/
+    roles:
+    - web
+  - url: http://psc.cpsc.ucalgary.ca/acpc/2012/contest/scores.php
+    roles:
+    - scoreboard
+    as_of: '20210101143701'
+    archived:
+    - alberta/alberta-2012/scoreboard/2026-09-01-wayback-25f08186/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://onlinejudge.org/contests/316-032efa2f/
+    roles:
+    - problemset
+    as_of: '20251017072708'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1126
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190823224917'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ACPC 2012
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1126
-        as_of: '20190823224917'
-        note: ACPC 2012
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: alberta-2012
 - id: alberta-2013
   name: 2013 ICPC Alberta Contest
   date: '2013-10-19'
@@ -164,13 +225,15 @@ contests:
   cms_ids:
   - 1982
   next: alberta-2014
-  results:
-    scoreboard:
-    - url: http://psc.cpsc.ucalgary.ca/acpc/2013/contest/scores.php
-      as_of: '20210101143522'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: alberta/alberta-2013/scoreboard/2026-09-01-wayback-4f11bb54/page.html
+  sources:
+  - url: http://psc.cpsc.ucalgary.ca/acpc/2013/contest/scores.php
+    roles:
+    - scoreboard
+    as_of: '20210101143522'
+    archived:
+    - alberta/alberta-2013/scoreboard/2026-09-01-wayback-4f11bb54/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
 - id: alberta-2014
   name: 2014 Alberta Collegiate Programming Contest
   date: '2014-10-04'
@@ -178,284 +241,394 @@ contests:
   cms_ids:
   - 2728
   next: alberta-2015
-  web:
-    url: http://psc.cpsc.ucalgary.ca/acpc/2014/contest/index.php
+  sources:
+  - url: http://psc.cpsc.ucalgary.ca/acpc/2014/contest/index.php
+    roles:
+    - web
     as_of: '20210102083527'
-  results:
-    scoreboard:
-    - url: http://psc.cpsc.ucalgary.ca/acpc/2014/contest/scores.php
-      as_of: '20210101143347'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: alberta/alberta-2014/scoreboard/2026-09-01-wayback-677d9012/page.html
+  - url: http://psc.cpsc.ucalgary.ca/acpc/2014/contest/scores.php
+    roles:
+    - scoreboard
+    as_of: '20210101143347'
+    archived:
+    - alberta/alberta-2014/scoreboard/2026-09-01-wayback-677d9012/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
 - id: alberta-2015
   name: 2015 Alberta Collegiate Programming Contest
   date: '2015-10-17'
   cms_ids:
   - 2831
   next: alberta-2016
-  results:
-    scoreboard:
-    - url: http://psc.cpsc.ucalgary.ca/acpc/2015/contest/div1/scores.php
-      as_of: '20210101004146'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: alberta/alberta-2015/scoreboard/2026-09-01-wayback-d01d61d2/page.html
-    - url: http://psc.cpsc.ucalgary.ca/acpc/2015/contest/div2/scores.php
-      as_of: '20210101004229'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: alberta/alberta-2015/scoreboard/2026-09-01-wayback-081c5c64/page.html
-  web: https://cpc.cpsc.ucalgary.ca/contests/acpc/2015/
+  sources:
+  - url: https://cpc.cpsc.ucalgary.ca/contests/acpc/2015/
+    roles:
+    - web
+  - url: http://psc.cpsc.ucalgary.ca/acpc/2015/contest/div1/scores.php
+    roles:
+    - scoreboard
+    as_of: '20210101004146'
+    archived:
+    - alberta/alberta-2015/scoreboard/2026-09-01-wayback-d01d61d2/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://psc.cpsc.ucalgary.ca/acpc/2015/contest/div2/scores.php
+    roles:
+    - scoreboard
+    as_of: '20210101004229'
+    archived:
+    - alberta/alberta-2015/scoreboard/2026-09-01-wayback-081c5c64/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
 - id: alberta-2016
   name: 2016 Alberta Collegiate Programming Contest
   date: '2016-10-15'
   cms_ids:
   - 3205
   next: alberta-2017
-  results:
-    scoreboard:
-    - url: https://acpc16.kattis.com/contests/acpc16/standings/652
-      archived: alberta/alberta-2016/scoreboard/2026-09-01-live-1c4b9655/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://acpc16.kattis.com/contests/acpc16/standings/653
-      archived: alberta/alberta-2016/scoreboard/2026-09-01-live-48b07763/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  web: https://cpc.cpsc.ucalgary.ca/contests/acpc/2016/
+  sources:
+  - url: https://cpc.cpsc.ucalgary.ca/contests/acpc/2016/
+    roles:
+    - web
+  - url: https://acpc16.kattis.com/contests/acpc16/standings/652
+    roles:
+    - scoreboard
+    archived:
+    - alberta/alberta-2016/scoreboard/2026-09-01-live-1c4b9655/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://acpc16.kattis.com/contests/acpc16/standings/653
+    roles:
+    - scoreboard
+    archived:
+    - alberta/alberta-2016/scoreboard/2026-09-01-live-48b07763/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://acpc16.kattis.com/contests/acpc16/problems
+    roles:
+    - problemset
+    - judge_page
+    judge: kattis
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    count: 9
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://acpc16.kattis.com/contests/acpc16/problems
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://acpc16.kattis.com/contests/acpc16/problems
+    set: alberta-2016
 - id: alberta-2017
   name: 2017 Alberta Collegiate Programming Contest
   date: '2017-10-21'
   cms_ids:
   - 3251
   next: alberta-2018
-  results:
-    scoreboard:
-    - url: https://acpc17.kattis.com/contests/acpc17/standings/953
-      archived: alberta/alberta-2017/scoreboard/2026-09-01-live-d0369046/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://acpc17.kattis.com/contests/acpc17/standings/952
-      archived: alberta/alberta-2017/scoreboard/2026-09-01-live-108d7c3d/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  web: https://cpc.cpsc.ucalgary.ca/contests/acpc/2017/
+  sources:
+  - url: https://cpc.cpsc.ucalgary.ca/contests/acpc/2017/
+    roles:
+    - web
+  - url: https://acpc17.kattis.com/contests/acpc17/standings/953
+    roles:
+    - scoreboard
+    archived:
+    - alberta/alberta-2017/scoreboard/2026-09-01-live-d0369046/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://acpc17.kattis.com/contests/acpc17/standings/952
+    roles:
+    - scoreboard
+    archived:
+    - alberta/alberta-2017/scoreboard/2026-09-01-live-108d7c3d/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://acpc17.kattis.com/contests/acpc17/problems
+    roles:
+    - problemset
+    - judge_page
+    judge: kattis
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    count: 10
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://acpc17.kattis.com/contests/acpc17/problems
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://acpc17.kattis.com/contests/acpc17/problems
+    set: alberta-2017
 - id: alberta-2018
   name: 2018 Alberta Collegiate Programming Contest
   date: '2018-10-27'
   cms_ids:
   - 3548
   next: alberta-2019
-  results:
-    scoreboard:
-    - url: https://acpc18.kattis.com/contests/acpc18/standings/1772
-      archived: alberta/alberta-2018/scoreboard/2026-09-01-live-3bd83e41/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://acpc18.kattis.com/contests/acpc18/standings/1773
-      archived: alberta/alberta-2018/scoreboard/2026-09-01-live-49bb3050/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  web: https://cpc.cpsc.ucalgary.ca/contests/acpc/2018/
+  sources:
+  - url: https://cpc.cpsc.ucalgary.ca/contests/acpc/2018/
+    roles:
+    - web
+  - url: https://acpc18.kattis.com/contests/acpc18/standings/1772
+    roles:
+    - scoreboard
+    archived:
+    - alberta/alberta-2018/scoreboard/2026-09-01-live-3bd83e41/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://acpc18.kattis.com/contests/acpc18/standings/1773
+    roles:
+    - scoreboard
+    archived:
+    - alberta/alberta-2018/scoreboard/2026-09-01-live-49bb3050/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://acpc18.kattis.com/contests/acpc18/problems
+    roles:
+    - problemset
+    - judge_page
+    judge: kattis
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    count: 8
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://acpc18.kattis.com/contests/acpc18/problems
-    notes: No date in CMS
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://acpc18.kattis.com/contests/acpc18/problems
+    set: alberta-2018
 - id: alberta-2019
   name: 2019 Alberta Collegiate Programming Contest
   date: '2019-11-23'
   cms_ids:
   - 4076
   next: alberta-2020
-  web: https://cpc.cpsc.ucalgary.ca/contests/acpc/2019/
-  results:
-    scoreboard:
-    - url: https://cpc.cpsc.ucalgary.ca/contests/acpc/2019/
-      archived: alberta/alberta-2019/scoreboard/2026-04-16-canada-west/2019-alberta-collegiate-programming-contest-2019.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://cpc.cpsc.ucalgary.ca/contests/acpc/2019/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20191209084720'
+    archived:
+    - alberta/alberta-2019/scoreboard/2026-04-16-canada-west/2019-alberta-collegiate-programming-contest-2019.html
+    - alberta/alberta-2019/scoreboard/20191209-wayback-538da353/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
   problems:
-    notes: No date in CMS. 2 divisions
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: alberta-2019
 - id: alberta-2020
   name: 2020 Alberta Collegiate Programming Contest
   date: '2020-11-14'
   cms_ids:
   - 4344
   next: alberta-2021
-  results:
-    scoreboard:
-    - url: https://acpc20d1.kattis.com/contests/acpc20d1/standings
-      archived: alberta/alberta-2020/scoreboard/2026-09-01-live-2d176459/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://acpc20d2.kattis.com/contests/acpc20d2/standings
-      archived: alberta/alberta-2020/scoreboard/2026-09-01-live-dd8fc60a/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-      as_of: '20241108170700'
-  web: https://cpc.cpsc.ucalgary.ca/contests/acpc/2020/
+  sources:
+  - url: https://cpc.cpsc.ucalgary.ca/contests/acpc/2020/
+    roles:
+    - web
+  - url: https://acpc20d1.kattis.com/contests/acpc20d1/standings
+    roles:
+    - scoreboard
+    as_of: '20241103034712'
+    archived:
+    - alberta/alberta-2020/scoreboard/2026-09-01-live-2d176459/page.html
+    - alberta/alberta-2020/scoreboard/20241103-wayback-d151f62e/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://acpc20d2.kattis.com/contests/acpc20d2/standings
+    roles:
+    - scoreboard
+    as_of: '20241108170700'
+    archived:
+    - alberta/alberta-2020/scoreboard/2026-09-01-live-dd8fc60a/page.html
+    - alberta/alberta-2020/scoreboard/20241108-wayback-3bce45bf/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://acpc20d1.kattis.com/contests/acpc20d1/problems
+    roles:
+    - problemset
+    as_of: '20241213015230'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Alberta%20Collegiate%20Programming%20Contest%202020
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20220528102638'
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Alberta%20Collegiate%20Programming%20Contest%202020
-    notes: No date in CMS. 2 divisions
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://acpc20d1.kattis.com/contests/acpc20d1/problems
+    set: alberta-2020
 - id: alberta-2021
   name: 2021 ICPC Alberta Collegiate Programming Contest
   date: '2021-11-27'
   cms_ids:
   - 4682
   next: alberta-2022
-  results:
-    scoreboard:
-    - url: https://acpc21d1.kattis.com/contests/acpc21d1/standings
-      archived: alberta/alberta-2021/scoreboard/2026-09-01-live-a87ec0c2/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://acpc21d2.kattis.com/contests/acpc21d2/standings
-      archived: alberta/alberta-2021/scoreboard/2026-09-01-live-50caccc9/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  web: https://cpc.cpsc.ucalgary.ca/contests/acpc/2021/
+  sources:
+  - url: https://cpc.cpsc.ucalgary.ca/contests/acpc/2021/
+    roles:
+    - web
+  - url: https://acpc21d1.kattis.com/contests/acpc21d1/standings
+    roles:
+    - scoreboard
+    archived:
+    - alberta/alberta-2021/scoreboard/2026-09-01-live-a87ec0c2/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://acpc21d2.kattis.com/contests/acpc21d2/standings
+    roles:
+    - scoreboard
+    as_of: '20241110063248'
+    archived:
+    - alberta/alberta-2021/scoreboard/2026-09-01-live-50caccc9/page.html
+    - alberta/alberta-2021/scoreboard/20241110-wayback-30ba71cd/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://acpc21d1.kattis.com/contests/acpc21d1/problems
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Alberta%20Collegiate%20Programming%20Contest%202021
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20220528100340'
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    count: 15
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Alberta%20Collegiate%20Programming%20Contest%202021
-    notes: No date in CMS. 2 divisions
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://acpc21d1.kattis.com/contests/acpc21d1/problems
+    set: alberta-2021
 - id: alberta-2022
   name: 2022 ICPC Alberta Collegiate Programming Contest
   date: '2022-11-26'
   cms_ids:
   - 5383
   next: alberta-2023
-  results:
-    scoreboard:
-    - url: https://acpc22d1.kattis.com/contests/acpc22d1/standings
-      archived: alberta/alberta-2022/scoreboard/2026-09-01-live-8ca5b3e9/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://acpc22d2.kattis.com/contests/acpc22d2/standings
-      archived: alberta/alberta-2022/scoreboard/2026-09-01-live-86153d50/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  web: https://cpc.cpsc.ucalgary.ca/contests/acpc/2022/
+  sources:
+  - url: https://cpc.cpsc.ucalgary.ca/contests/acpc/2022/
+    roles:
+    - web
+  - url: https://acpc22d1.kattis.com/contests/acpc22d1/standings
+    roles:
+    - scoreboard
+    archived:
+    - alberta/alberta-2022/scoreboard/2026-09-01-live-8ca5b3e9/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://acpc22d2.kattis.com/contests/acpc22d2/standings
+    roles:
+    - scoreboard
+    as_of: '20260308210811'
+    archived:
+    - alberta/alberta-2022/scoreboard/2026-09-01-live-86153d50/page.html
+    - alberta/alberta-2022/scoreboard/20260308-wayback-b0099108/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://acpc22d1.kattis.com/contests/acpc22d1/problems
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Alberta%20Collegiate%20Programming%20Contest%202022
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20231001064414'
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    count: 14
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Alberta%20Collegiate%20Programming%20Contest%202022
-    notes: No date in CMS. 2 divisions
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://acpc22d1.kattis.com/contests/acpc22d1/problems
+    set: alberta-2022
 - id: alberta-2023
   name: 2023 ICPC Alberta Collegiate Programming Contest
+  date: '2023-11-25'
   cms_ids:
   - 7453
   next: alberta-2024
-  results:
-    scoreboard:
-    - url: https://acpc23.kattis.com/contests/acpc23d1/standings
-      archived: alberta/alberta-2023/scoreboard/2026-09-01-live-a9a8a2f2/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://acpc23.kattis.com/contests/acpc23d2/standings
-      archived: alberta/alberta-2023/scoreboard/2026-09-01-live-a815ad1f/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  web: https://cpc.cpsc.ucalgary.ca/contests/acpc/2023/
-  problems:
-    count: 22
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis:
-      - https://acpc23.kattis.com/contests/acpc23d1/problems
-      - https://acpc23.kattis.com/contests/acpc23d2/problems
-    notes: No date in CMS. 2 divisions
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  date: '2023-11-25'
   sources:
+  - url: https://cpc.cpsc.ucalgary.ca/contests/acpc/2023/
+    roles:
+    - web
+  - url: https://acpc23.kattis.com/contests/acpc23d1/standings
+    roles:
+    - scoreboard
+    as_of: '20241114075140'
+    archived:
+    - alberta/alberta-2023/scoreboard/2026-09-01-live-a9a8a2f2/page.html
+    - alberta/alberta-2023/scoreboard/20241114-wayback-ce5c70f6/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://acpc23.kattis.com/contests/acpc23d2/standings
+    roles:
+    - scoreboard
+    as_of: '20241114073614'
+    archived:
+    - alberta/alberta-2023/scoreboard/2026-09-01-live-a815ad1f/page.html
+    - alberta/alberta-2023/scoreboard/20241114-wayback-00cd1ad4/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://acpc23.kattis.com/contests/acpc23d1/problems
+    roles:
+    - problemset
+    - judge_page
+    judge: kattis
+    as_of: '20241114063545'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://acpc23.kattis.com/contests/acpc23d2/problems
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20250915163416'
+    url_state: live
+    url_checked: '2026-11-02'
+  problems:
+    set: alberta-2023
+  provenance:
   - ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://acpc23.kattis.com/contests/acpc23d1/problems
 - id: alberta-2024
   cms_ids: []
   next: alberta-2025
-  results:
-    scoreboard:
-    - url: https://acpc24.kattis.com/contests/acpc24d1/standings
-      archived: alberta/alberta-2024/scoreboard/2026-09-01-live-ed9752ea/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://acpc24.kattis.com/contests/acpc24d2/standings
-      archived: alberta/alberta-2024/scoreboard/2026-09-01-live-d8f9e791/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  web: https://cpc.cpsc.ucalgary.ca/contests/acpc/2024/
+  sources:
+  - url: https://cpc.cpsc.ucalgary.ca/contests/acpc/2024/
+    roles:
+    - web
+  - url: https://acpc24.kattis.com/contests/acpc24d1/standings
+    roles:
+    - scoreboard
+    as_of: '20260306214259'
+    archived:
+    - alberta/alberta-2024/scoreboard/2026-09-01-live-ed9752ea/page.html
+    - alberta/alberta-2024/scoreboard/20260306-wayback-ee14320e/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://acpc24.kattis.com/contests/acpc24d2/standings
+    roles:
+    - scoreboard
+    as_of: '20260306213139'
+    archived:
+    - alberta/alberta-2024/scoreboard/2026-09-01-live-d8f9e791/page.html
+    - alberta/alberta-2024/scoreboard/20260306-wayback-f3c01b58/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://acpc24.kattis.com/contests/acpc24d1/problems
+    roles:
+    - problemset
+    as_of: '20260308174526'
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    source: Kattis problem export (2026-11-01)
-  problemset: https://acpc24.kattis.com/contests/acpc24d1/problems
+    set: alberta-2024
 - id: alberta-2025
   name: Alberta Collegiate Programming Contest 2025
   date: '2025-10-18'
   cms_ids: []
   next: null
-  results:
-    scoreboard:
-    - url: https://acpc25.kattis.com/contests/i4bbbd/standings
-      archived: alberta/alberta-2025/scoreboard/2026-09-01-live-4a7f2a67/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://acpc25.kattis.com/contests/k8s8ci/standings
-      archived: alberta/alberta-2025/scoreboard/2026-09-01-live-e0f05051/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  web: https://cpc.cpsc.ucalgary.ca/contests/acpc/2025/
+  sources:
+  - url: https://cpc.cpsc.ucalgary.ca/contests/acpc/2025/
+    roles:
+    - web
+  - url: https://acpc25.kattis.com/contests/i4bbbd/standings
+    roles:
+    - scoreboard
+    archived:
+    - alberta/alberta-2025/scoreboard/2026-09-01-live-4a7f2a67/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://acpc25.kattis.com/contests/k8s8ci/standings
+    roles:
+    - scoreboard
+    archived:
+    - alberta/alberta-2025/scoreboard/2026-09-01-live-e0f05051/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://acpc25.kattis.com/contests/i4bbbd/problems
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    source: Kattis problem export (2026-11-01)
-  problemset: https://acpc25.kattis.com/contests/i4bbbd/problems
+    set: alberta-2025

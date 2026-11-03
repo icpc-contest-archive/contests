@@ -1,46 +1,55 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: bapc-prelims
   name: ICPC BAPC Preliminaries
+  tier: subregional
+  region: Europe
+  naming: season-start
 contests:
 - id: bapc-prelims-2009
   season: 2010
   cms_ids: []
   parent: bapc-2009
   next: bapc-prelims-2010
-  web: http://chipcie.wisv.ch/archive/2009/
+  sources:
+  - url: http://chipcie.wisv.ch/archive/2009/
+    roles:
+    - web
+  - url: https://chipcie.wisv.ch/archive/2009/dkp/dkp2009.pdf
+    roles:
+    - problemset
+    as_of: '20240413155852'
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 9
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://chipcie.wisv.ch/archive/2009/dkp/dkp2009.pdf
+    set: bapc-prelims-2009
 - id: bapc-prelims-2010
   season: 2011
   cms_ids: []
   parent: bapc-2010
   next: bapc-prelims-2011
-  web: http://chipcie.wisv.ch/archive/2010/
-  mirrors:
-  - url: http://2010.bapc.eu/
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
+  sources:
+  - url: http://chipcie.wisv.ch/archive/2010/
+    roles:
+    - web
+    also_at:
+    - http://2010.bapc.eu/
+  - url: https://chipcie.wisv.ch/archive/2010/dkp/dkp2010.pdf
+    roles:
+    - problemset
+    as_of: '20240413152008'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/426
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201024125213'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: BAPC 2010 Preliminaries
   problems:
-    repo: icpc-problem-archive/benelux-prelims-2010
-    count: 10
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/426
-        as_of: '20201024125213'
-        note: BAPC 2010 Preliminaries
-  problemset: https://chipcie.wisv.ch/archive/2010/dkp/dkp2010.pdf
+    set: bapc-prelims-2010
 - id: bapc-prelims-2011
   season: 2012
   name: 2011 BAPC Preliminaries
@@ -50,21 +59,26 @@ contests:
   - 889
   parent: bapc-2011
   next: bapc-prelims-2012
-  web: http://bapc.eu/
+  sources:
+  - url: http://bapc.eu/
+    roles:
+    - web
+  - url: https://chipcie.wisv.ch/archive/2011/dkp/Problems.pdf
+    roles:
+    - problemset
+    as_of: '20240413165742'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/425
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201024140319'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: BAPC 2011 Preliminaries
   problems:
-    repo: icpc-problem-archive/benelux-prelims-2011
-    count: 10
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/425
-        as_of: '20201024140319'
-        note: BAPC 2011 Preliminaries
-  problemset: https://chipcie.wisv.ch/archive/2011/dkp/Problems.pdf
+    set: bapc-prelims-2011
 - id: bapc-prelims-2012
   season: 2013
   name: 2012 BAPC Preliminaries
@@ -74,24 +88,29 @@ contests:
   - 1344
   parent: bapc-2012
   next: bapc-prelims-2013
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/BAPC-Preliminaries-2013/standings
-    archived: bapc-prelims/bapc-prelims-2012/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/BAPC-Preliminaries-2013/standings
+    roles:
+    - icpc_standings
+    archived:
+    - bapc-prelims/bapc-prelims-2012/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 1344, 21 teams, DB fetch 2026-04-26)
+  - url: https://chipcie.wisv.ch/archive/2012/dkp/problemset.pdf
+    roles:
+    - problemset
+    as_of: '20240413162704'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/418
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201031101554'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: BAPC 2012 Preliminaries
   problems:
-    repo: icpc-problem-archive/benelux-prelims-2012
-    count: 10
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/418
-        as_of: '20201031101554'
-        note: BAPC 2012 Preliminaries
-  problemset: https://chipcie.wisv.ch/archive/2012/dkp/problemset.pdf
+    set: bapc-prelims-2012
 - id: bapc-prelims-2013
   season: 2014
   name: 2013 BAPC Preliminaries
@@ -101,31 +120,36 @@ contests:
   - 2022
   parent: bapc-2013
   next: bapc-prelims-2014
-  results:
-    standings:
-    - url: https://eolymp.com/en/contests/3413
-      note: added by url-hunt 2026-09-01 (round9-research)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: bapc-prelims/bapc-prelims-2013/standings/20261020-live-5ab1ad5d/page.html
-  web: http://2013.bapc.eu/
-  mirrors:
-  - url: https://codeforces.com/gym/100625
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
+  sources:
+  - url: http://2013.bapc.eu/
+    roles:
+    - web
+    also_at:
+    - https://codeforces.com/gym/100625
+  - url: https://eolymp.com/en/contests/3413
+    roles:
+    - standings
+    archived:
+    - bapc-prelims/bapc-prelims-2013/standings/20261020-live-5ab1ad5d/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://chipcie.wisv.ch/archive/2013/dkp/problemset.pdf
+    roles:
+    - problemset
+    as_of: '20240531094938'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1155
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201020233501'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: BAPC 2013 Preliminaries
   problems:
-    repo: icpc-problem-archive/benelux-prelims-2013
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1155
-        as_of: '20201020233501'
-        note: BAPC 2013 Preliminaries
-  problemset: https://chipcie.wisv.ch/archive/2013/dkp/problemset.pdf
+    set: bapc-prelims-2013
 - id: bapc-prelims-2014
   season: 2015
   name: 2014 BAPC Preliminaries
@@ -135,29 +159,37 @@ contests:
   - 2692
   parent: bapc-2014
   next: bapc-prelims-2015
-  results:
-    standings:
-    - url: http://bapc.eu/
-      as_of: '20180910074515'
-      archived: bapc-prelims/bapc-prelims-2014/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/BAPC-Preliminaries-2015/standings
+  sources:
+  - url: http://bapc.eu/
+    roles:
+    - standings
+    as_of: '20180910074515'
+    archived:
+    - bapc-prelims/bapc-prelims-2014/external-standings/2026-04-15-external/content.html
+    - bapc-prelims/bapc-prelims-2014/standings/20141217-wayback-d7752f82/page.html
+    - bapc-prelims/bapc-prelims-2014/standings/20260901-live-e734e012/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/BAPC-Preliminaries-2015/standings
+    roles:
+    - icpc_standings
+  - url: https://chipcie.wisv.ch/archive/2014/dkp/problemset.pdf
+    roles:
+    - problemset
+    as_of: '20240526151032'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1286
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201029185747'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: BAPC 2014 Preliminaries
   problems:
-    repo: icpc-problem-archive/benelux-prelims-2014
-    count: 10
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1286
-        as_of: '20201029185747'
-        note: BAPC 2014 Preliminaries
-  problemset: https://chipcie.wisv.ch/archive/2014/dkp/problemset.pdf
+    set: bapc-prelims-2014
 - id: bapc-prelims-2015
   season: 2016
   name: 2015 BAPC Preliminaries
@@ -167,23 +199,26 @@ contests:
   - 2782
   parent: bapc-2015
   next: bapc-prelims-2016
-  web: https://2015.bapc.eu/
-  mirrors: []
+  sources:
+  - url: https://2015.bapc.eu/
+    roles:
+    - web
+  - url: https://chipcie.wisv.ch/archive/2015/dkp/dkp2015.pdf
+    roles:
+    - problemset
+    as_of: '20240531094959'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1409
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20171217065702'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: BAPC 2015 Preliminaries
   problems:
-    repo: icpc-problem-archive/benelux-prelims-2015
-    count: 11
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    notes: No date
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1409
-        as_of: '20171217065702'
-        note: BAPC 2015 Preliminaries
-  problemset: https://chipcie.wisv.ch/archive/2015/dkp/dkp2015.pdf
+    set: bapc-prelims-2015
 - id: bapc-prelims-2016
   season: 2017
   name: 2016 BAPC Preliminaries
@@ -194,34 +229,46 @@ contests:
   - 3117
   parent: bapc-2016
   next: bapc-prelims-2017
-  results:
-    scoreboard:
-    - url: https://2016.bapc.eu/en/contest/preliminaries/
-      as_of: '20210506030112'
-      archived: bapc-prelims/bapc-prelims-2016/scoreboard/2026-09-01-wayback-1037e950/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://2016.bapc.eu/en/contest/preliminaries/
-      archived: bapc-prelims/bapc-prelims-2016/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/BAPC-Preliminaries-2017/standings
+  sources:
+  - url: https://2016.bapc.eu/en/contest/preliminaries/
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20210506030112'
+    archived:
+    - bapc-prelims/bapc-prelims-2016/scoreboard/2026-09-01-wayback-1037e950/page.html
+    - bapc-prelims/bapc-prelims-2016/external-standings/2026-04-15-external/content.html
+    - bapc-prelims/bapc-prelims-2016/scoreboard/20260901-live-6d5b0b7d/page.html
+    - bapc-prelims/bapc-prelims-2016/standings/20210506-wayback-d89e9250/page.html
+    - bapc-prelims/bapc-prelims-2016/standings/20260901-live-52f6e840/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/BAPC-Preliminaries-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://chipcie.wisv.ch/archive/2016/dapc/problemset.pdf
+    roles:
+    - problemset
+    as_of: '20240531094848'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Benelux%20Algorithm%20Programming%20Contest%20%28BAPC%29%20preliminaries%202016
+    roles:
+    - judge_page
+    judge: kattis
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1529
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201023014653'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: BAPC 2016 Preliminaries
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Benelux%20Algorithm%20Programming%20Contest%20%28BAPC%29%20preliminaries%202016
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1529
-        as_of: '20201023014653'
-        note: BAPC 2016 Preliminaries
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://chipcie.wisv.ch/archive/2016/dapc/problemset.pdf
+    set: bapc-prelims-2016
 - id: bapc-prelims-2017
   season: 2018
   name: 2017 BAPC Preliminaries
@@ -232,27 +279,42 @@ contests:
   - 3279
   parent: bapc-2017
   next: bapc-prelims-2018
-  results:
-    scoreboard:
-    - url: https://2017.bapc.eu/scoreboard/preliminaries/
-      archived: bapc-prelims/bapc-prelims-2017/scoreboard/2026-09-01-live-01246cc2/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/BAPC-Preliminaries-2018/standings
+  sources:
+  - url: https://2017.bapc.eu/scoreboard/preliminaries/
+    roles:
+    - scoreboard
+    as_of: '20201229140634'
+    archived:
+    - bapc-prelims/bapc-prelims-2017/scoreboard/2026-09-01-live-01246cc2/page.html
+    - bapc-prelims/bapc-prelims-2017/scoreboard/20201229-wayback-373d47e1/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/BAPC-Preliminaries-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://chipcie.wisv.ch/archive/2017/dapc/problemset.pdf
+    roles:
+    - problemset
+    as_of: '20240531094955'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Benelux%20Algorithm%20Programming%20Contest%20%28BAPC%29%20preliminaries%202017
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190819163846'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1782
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191215201507'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: BAPC 2017 Preliminaries
   problems:
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Benelux%20Algorithm%20Programming%20Contest%20%28BAPC%29%20preliminaries%202017
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1782
-        as_of: '20191215201507'
-        note: BAPC 2017 Preliminaries
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://chipcie.wisv.ch/archive/2017/dapc/problemset.pdf
+    set: bapc-prelims-2017
 - id: bapc-prelims-2018
   season: 2019
   name: 2018 BAPC Preliminaries
@@ -263,27 +325,43 @@ contests:
   - 3659
   parent: bapc-2018
   next: bapc-prelims-2019
-  results:
-    scoreboard:
-    - url: https://2018.bapc.eu/preliminaries.html
-      archived: bapc-prelims/bapc-prelims-2018/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  web: https://2018.bapc.eu/preliminaries
+  sources:
+  - url: https://2018.bapc.eu/preliminaries
+    roles:
+    - web
+  - url: https://2018.bapc.eu/preliminaries.html
+    roles:
+    - scoreboard
+    as_of: '20201230145116'
+    archived:
+    - bapc-prelims/bapc-prelims-2018/external-standings/2026-04-15-external/content.html
+    - bapc-prelims/bapc-prelims-2018/scoreboard/20201230-wayback-4f00afcd/preliminaries.html
+    - bapc-prelims/bapc-prelims-2018/scoreboard/20260901-live-21514991/preliminaries.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://chipcie.wisv.ch/archive/2018/dapc/problemset.pdf
+    roles:
+    - problemset
+    as_of: '20240413162549'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Benelux%20Algorithm%20Programming%20Contest%20%28BAPC%29%20preliminaries%202018
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20191022212446'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1936
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190825031240'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: BAPC 2018 Preliminaries
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Benelux%20Algorithm%20Programming%20Contest%20%28BAPC%29%20preliminaries%202018
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1936
-        as_of: '20190825031240'
-        note: BAPC 2018 Preliminaries
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://chipcie.wisv.ch/archive/2018/dapc/problemset.pdf
+    set: bapc-prelims-2018
 - id: bapc-prelims-2019
   season: 2020
   name: 2019 BAPC Preliminaries
@@ -294,33 +372,52 @@ contests:
   - 4151
   parent: bapc-2019
   next: bapc-prelims-2020
-  results:
-    scoreboard:
-    - url: https://2019.bapc.eu/results.html
-      archived: bapc-prelims/bapc-prelims-2019/scoreboard/2026-09-01-live-4a416f45/results.html
-      url_state: live
-      url_checked: '2026-11-02'
-      as_of: '20191113203442'
-  icpc_standings: https://icpc.global/regionals/finder/BAPC-Preliminaries-2020/standings
-  web:
-  - https://2019.bapc.eu/preliminaries
-  - https://2019.bapc.eu/
-  problems:
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Benelux%20Algorithm%20Programming%20Contest%20%28BAPC%29%20preliminaries%202019
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2066
-        as_of: '20191112112138'
-        note: BAPC 2019 Preliminaries
-    source: ICPC Problem Archive progress sheet (2026-11-01)
   sources:
+  - url: https://2019.bapc.eu/preliminaries
+    roles:
+    - web
+  - url: https://2019.bapc.eu/
+    roles:
+    - web
+  - url: https://2019.bapc.eu/results.html
+    roles:
+    - scoreboard
+    as_of: '20191113203442'
+    archived:
+    - bapc-prelims/bapc-prelims-2019/scoreboard/2026-09-01-live-4a416f45/results.html
+    - bapc-prelims/bapc-prelims-2019/scoreboard/20191113-wayback-52fdf5cf/results.html
+    - bapc-prelims/bapc-prelims-2019/scoreboard/20191113-wayback-c20add44/results.html
+    - bapc-prelims/bapc-prelims-2019/scoreboard/20261023-live-7a0cf26c/results.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/BAPC-Preliminaries-2020/standings
+    roles:
+    - icpc_standings
+  - url: https://chipcie.wisv.ch/archive/2019/dapc/problemset.pdf
+    roles:
+    - problemset
+    as_of: '20240526140346'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Benelux%20Algorithm%20Programming%20Contest%20%28BAPC%29%20preliminaries%202019
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20210124092634'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2066
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191112112138'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: BAPC 2019 Preliminaries
+  problems:
+    set: bapc-prelims-2019
+  provenance:
   - ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://chipcie.wisv.ch/archive/2019/dapc/problemset.pdf
 - id: bapc-prelims-2020
   season: 2021
   name: 2020 BAPC Preliminaries
@@ -331,34 +428,41 @@ contests:
   - 4512
   parent: bapc-2020
   next: bapc-prelims-2021
-  results:
-    scoreboard:
-    - url: https://2020.bapc.eu/scoreboard-preliminaries
-      as_of: '20211011125502'
-      url_state: replaced
-      url_checked: '2026-11-02'
-      note: content removed upstream; 2026-04 capture is a DOMjudge redirect stub (caveated) — contemporaneous
-        wayback pending
-      archived: bapc-prelims/bapc-prelims-2020/scoreboard/20211011-wayback-a9eff14c/page.html
-  icpc_standings: https://icpc.global/regionals/finder/BAPC-Preliminaries-2021/standings
-  web: https://2020.bapc.eu/preliminaries
-  problemset: https://2020.bapc.eu/problems
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: https://2020.bapc.eu/preliminaries
+    roles:
+    - web
+  - url: https://2020.bapc.eu/scoreboard-preliminaries
+    roles:
+    - scoreboard
+    as_of: '20211011125502'
+    archived:
+    - bapc-prelims/bapc-prelims-2020/scoreboard/20211011-wayback-a9eff14c/page.html
+    - bapc-prelims/bapc-prelims-2020/scoreboard/20260901-live-dae9951d/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: content removed upstream; 2026-04 capture is a DOMjudge redirect stub (caveated) — contemporaneous
+      wayback pending
+  - url: https://icpc.global/regionals/finder/BAPC-Preliminaries-2021/standings
+    roles:
+    - icpc_standings
+  - url: https://2020.bapc.eu/problems
+    roles:
+    - problemset
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2346
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210228024610'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: BAPC 2020 Preliminaries
   problems:
-    repo: icpc-problem-archive/benelux-prelims-2020
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    notes: Ask for package?
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2346
-        as_of: '20210228024610'
-        note: BAPC 2020 Preliminaries
+    set: bapc-prelims-2020
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: bapc-prelims-2021
   season: 2022
   name: 2021 ICPC BAPC Preliminaries
@@ -369,38 +473,52 @@ contests:
   - 4930
   parent: bapc-2021
   next: bapc-prelims-2022
-  results:
-    scoreboard:
-    - url: https://2021.bapc.eu/Prelim21.html
-      as_of: '20250327100527'
-      archived: bapc-prelims/bapc-prelims-2021/scoreboard/2026-09-01-wayback-913c50bd/Prelim21.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://commissies.ch.tudelft.nl/chipcie/archief/2021/dapc/full-scoreboard.html
-      archived: bapc-prelims/bapc-prelims-2021/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/BAPC-Preliminaries-2022/standings
-  web: https://2021.bapc.eu
-  problems:
-    repo: icpc-problem-archive/benelux-prelims-2021
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Benelux%20Algorithm%20Programming%20Contest%20%28BAPC%29%20preliminaries%202021
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2825
-        as_of: '20230131004905'
-        note: BAPC 2021 Preliminaries
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: https://2021.bapc.eu/prelims2021-problems.pdf
+  sources:
+  - url: https://2021.bapc.eu
+    roles:
+    - web
+  - url: https://2021.bapc.eu/Prelim21.html
+    roles:
+    - scoreboard
+    as_of: '20250327100527'
+    archived:
+    - bapc-prelims/bapc-prelims-2021/scoreboard/2026-09-01-wayback-913c50bd/Prelim21.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://commissies.ch.tudelft.nl/chipcie/archief/2021/dapc/full-scoreboard.html
+    roles:
+    - standings
+    archived:
+    - bapc-prelims/bapc-prelims-2021/external-standings/2026-04-15-external/content.html
+    - bapc-prelims/bapc-prelims-2021/standings/20260901-live-fe9e33ce/full-scoreboard.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/BAPC-Preliminaries-2022/standings
+    roles:
+    - icpc_standings
+  - url: https://2021.bapc.eu/prelims2021-problems.pdf
+    roles:
+    - problemset
     as_of: '20211206131633'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Benelux%20Algorithm%20Programming%20Contest%20%28BAPC%29%20preliminaries%202021
+    roles:
+    - judge_page
+    judge: kattis
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2825
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20230131004905'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: BAPC 2021 Preliminaries
+  problems:
+    set: bapc-prelims-2021
 - id: bapc-prelims-2022
   season: 2023
   name: 2022 ICPC BAPC Preliminaries
@@ -411,29 +529,41 @@ contests:
   - 5407
   parent: bapc-2022
   next: bapc-prelims-2023
-  results:
-    scoreboard:
-    - url: https://2022.bapc.eu/preliminaries/scoreboard/
-      as_of: '20241212075750'
-      archived: bapc-prelims/bapc-prelims-2022/scoreboard/2026-09-01-wayback-2303a32d/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/BAPC-Preliminaries-2023/standings
+  sources:
+  - url: https://2022.bapc.eu/preliminaries/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20241212075750'
+    archived:
+    - bapc-prelims/bapc-prelims-2022/scoreboard/2026-09-01-wayback-2303a32d/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/BAPC-Preliminaries-2023/standings
+    roles:
+    - icpc_standings
+  - url: https://chipcie.wisv.ch/archive/2022/dapc/problemset.pdf
+    roles:
+    - problemset
+    as_of: '20240526143737'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Benelux%20Algorithm%20Programming%20Contest%20%28BAPC%29%20preliminaries%202022
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20250915222445'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3221
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20230319160204'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: BAPC 2022 Preliminaries
   problems:
-    repo: icpc-problem-archive/benelux-prelims-2022
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Benelux%20Algorithm%20Programming%20Contest%20%28BAPC%29%20preliminaries%202022
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3221
-        as_of: '20230319160204'
-        note: BAPC 2022 Preliminaries
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://chipcie.wisv.ch/archive/2022/dapc/problemset.pdf
+    set: bapc-prelims-2022
 - id: bapc-prelims-2023
   season: 2024
   name: 2023 ICPC BAPC Preliminaries
@@ -444,27 +574,41 @@ contests:
   - 7599
   parent: bapc-2023
   next: bapc-prelims-2024
-  results:
-    scoreboard:
-    - url: https://2023.bapc.eu/static/prelim_scoreboard/index.html
-      archived: bapc-prelims/bapc-prelims-2023/scoreboard/2026-09-01-live-4b050c49/index.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/BAPC-Preliminaries-2024/standings
+  sources:
+  - url: https://2023.bapc.eu/static/prelim_scoreboard/index.html
+    roles:
+    - scoreboard
+    as_of: '20231203031724'
+    archived:
+    - bapc-prelims/bapc-prelims-2023/scoreboard/2026-09-01-live-4b050c49/index.html
+    - bapc-prelims/bapc-prelims-2023/scoreboard/20231203-wayback-15176a17/index.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/BAPC-Preliminaries-2024/standings
+    roles:
+    - icpc_standings
+  - url: https://chipcie.wisv.ch/archive/2023/dapc/problemset.pdf
+    roles:
+    - problemset
+    as_of: '20240413164156'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Benelux%20Algorithm%20Programming%20Contest%20%28BAPC%29%20preliminaries%202023
+    roles:
+    - judge_page
+    judge: kattis
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3987
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260416155132'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: BAPC 2023 Preliminaries
   problems:
-    count: 13
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Benelux%20Algorithm%20Programming%20Contest%20%28BAPC%29%20preliminaries%202023
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3987
-        as_of: '20260416155132'
-        note: BAPC 2023 Preliminaries
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://chipcie.wisv.ch/archive/2023/dapc/problemset.pdf
+    set: bapc-prelims-2023
 - id: bapc-prelims-2024
   season: 2025
   name: 2024 ICPC BAPC Preliminaries
@@ -475,28 +619,40 @@ contests:
   - 9009
   parent: bapc-2024
   next: bapc-prelims-2025
-  results:
-    scoreboard:
-    - url: https://chipcie.wisv.ch/archive/2024/dapc/scoreboard/merged.html
-      archived: bapc-prelims/bapc-prelims-2024/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/BAPC-Preliminaries-2025/standings
+  sources:
+  - url: https://chipcie.wisv.ch/archive/2024/dapc/scoreboard/merged.html
+    roles:
+    - scoreboard
+    archived:
+    - bapc-prelims/bapc-prelims-2024/external-standings/2026-04-15-external/content.html
+    - bapc-prelims/bapc-prelims-2024/scoreboard/20260901-live-7f3ec33f/merged.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/BAPC-Preliminaries-2025/standings
+    roles:
+    - icpc_standings
+  - url: https://chipcie.wisv.ch/archive/2024/dapc/problemset.pdf
+    roles:
+    - problemset
+    as_of: '20250709091025'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Benelux%20Algorithm%20Programming%20Contest%20%28BAPC%29%20preliminaries%202024
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20250906223728'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4313
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: BAPC 2024 Preliminaries
   problems:
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: partial
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Benelux%20Algorithm%20Programming%20Contest%20%28BAPC%29%20preliminaries%202024
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4313
-        note: BAPC 2024 Preliminaries
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    counts:
-      package: 11
-  problemset: https://chipcie.wisv.ch/archive/2024/dapc/problemset.pdf
+    set: bapc-prelims-2024
 - id: bapc-prelims-2025
   season: 2026
   name: 2025 ICPC BAPC Preliminaries
@@ -506,22 +662,39 @@ contests:
   - 9373
   parent: bapc-2025
   next: bapc-prelims-2026
-  results:
-    scoreboard:
-    - url: https://2025.bapc.eu/prelims/scoreboard/
-      archived: bapc-prelims/bapc-prelims-2025/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/BAPC-Preliminaries-2026/standings
-  web: https://2025.bapc.eu/preliminaries
+  sources:
+  - url: https://2025.bapc.eu/preliminaries
+    roles:
+    - web
+  - url: https://2025.bapc.eu/prelims/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20251108175622'
+    archived:
+    - bapc-prelims/bapc-prelims-2025/external-standings/2026-04-15-external/content.html
+    - bapc-prelims/bapc-prelims-2025/scoreboard/20251108-wayback-ad6fae76/page.html
+    - bapc-prelims/bapc-prelims-2025/scoreboard/20260901-live-5bd98298/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/BAPC-Preliminaries-2026/standings
+    roles:
+    - icpc_standings
+  - url: https://chipcie.wisv.ch/archive/2025/dapc/problemset.pdf
+    roles:
+    - problemset
+    as_of: '20260512033708'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4651
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260418222406'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: BAPC 2025 Preliminaries
   problems:
-    source: Kattis problem export (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4651
-        as_of: '20260418222406'
-        note: BAPC 2025 Preliminaries
-  problemset: https://chipcie.wisv.ch/archive/2025/dapc/problemset.pdf
+    set: bapc-prelims-2025
 - id: bapc-prelims-2026
   status: upcoming
   season: 2027

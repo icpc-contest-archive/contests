@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: jinan
   name: ICPC Asia Jinan Regional Contest
+  tier: regional
+  region: Asia East
+  naming: season-start
 contests:
 - id: jinan-2020
   season: 2021
@@ -11,18 +14,25 @@ contests:
   - 4387
   parent: wf-2021
   next: jinan-2021
-  icpc_standings: https://icpc.global/regionals/finder/Jinan-2021/standings
-  results:
-    scoreboard:
-    - url: https://board.xcpcio.com/icpc/2020/jinan
-      note: added by url-hunt 2026-09-01 (wave3-xcpcio)
-      url_state: changed
-      url_checked: '2026-11-02'
-      archived: jinan/jinan-2020/scoreboard/20260902-live-8d8ee314/page.html
+  sources:
+  - url: https://board.xcpcio.com/icpc/2020/jinan
+    roles:
+    - scoreboard
+    archived:
+    - jinan/jinan-2020/scoreboard/20260902-live-8d8ee314/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-xcpcio)
+  - url: https://icpc.global/regionals/finder/Jinan-2021/standings
+    roles:
+    - icpc_standings
+  - url: https://xcpcio.github.io/upload-file/icpc/2020/2020_ICPC_Jinan_statement.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    notes: No date
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://xcpcio.github.io/upload-file/icpc/2020/2020_ICPC_Jinan_statement.pdf
+    set: jinan-2020
 - id: jinan-2021
   season: 2022
   name: 2021 ICPC Asia Jinan Regional Contest
@@ -32,16 +42,24 @@ contests:
   - 4733
   parent: wf-2022
   next: jinan-2022
-  icpc_standings: https://icpc.global/regionals/finder/Jinan-2022/standings
-  results:
-    scoreboard:
-    - url: https://board.xcpcio.com/icpc/46th/jinan
-      as_of: '20211121063731'
-      note: added by url-hunt 2026-09-01 (wave3-xcpcio)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: jinan/jinan-2021/scoreboard/20211121-wayback-7a5e780a/page.html
-  problemset: https://xcpcio.github.io/upload-file/icpc/46th/2021ICPC%E6%B5%8E%E5%8D%97%E6%AD%A3%E5%BC%8F%E8%B5%9B%E9%A2%98%E9%9D%A2.pdf
+  sources:
+  - url: https://board.xcpcio.com/icpc/46th/jinan
+    roles:
+    - scoreboard
+    as_of: '20211121063731'
+    archived:
+    - jinan/jinan-2021/scoreboard/20211121-wayback-7a5e780a/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-xcpcio)
+  - url: https://icpc.global/regionals/finder/Jinan-2022/standings
+    roles:
+    - icpc_standings
+  - url: https://xcpcio.github.io/upload-file/icpc/46th/2021ICPC%E6%B5%8E%E5%8D%97%E6%AD%A3%E5%BC%8F%E8%B5%9B%E9%A2%98%E9%9D%A2.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: jinan-2022
   season: 2023
   name: 2022 ICPC Asia Jinan Regional Contest
@@ -51,19 +69,29 @@ contests:
   - 5571
   parent: wf-2023
   next: jinan-2023
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/104076/standings
-      archived: jinan/jinan-2022/scoreboard/2026-09-01-live-26451f24/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://board.xcpcio.com/icpc/47th/jinan
-      as_of: '20240907133213'
-      note: added by url-hunt 2026-09-01 (xcpcio-data-agent)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Jinan-2023/standings
-  problemset: https://icpcarchive.github.io/Asia%20East%20Continent%20Contests/Jinan/2022%20Asia%20Jinan%20Regional%20Contest/problems.pdf
+  sources:
+  - url: https://codeforces.com/gym/104076/standings
+    roles:
+    - scoreboard
+    archived:
+    - jinan/jinan-2022/scoreboard/2026-09-01-live-26451f24/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://board.xcpcio.com/icpc/47th/jinan
+    roles:
+    - scoreboard
+    as_of: '20240907133213'
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (xcpcio-data-agent)
+  - url: https://icpc.global/regionals/finder/Jinan-2023/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Asia%20East%20Continent%20Contests/Jinan/2022%20Asia%20Jinan%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: jinan-2023
   season: 2024
   name: 2023 ICPC Asia Jinan Regional Contest
@@ -73,25 +101,36 @@ contests:
   - 7698
   parent: wf-2024
   next: null
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/104901/standings
-      archived: jinan/jinan-2023/scoreboard/2026-09-01-live-cfdee200/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    - url: https://board.xcpcio.com/icpc/48th/jinan
-      as_of: '20231230060919'
-      note: added by url-hunt 2026-09-01 (xcpcio-data-agent)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: jinan/jinan-2023/scoreboard/20231230-wayback-decafb5d/page.html
-  icpc_standings: https://icpc.global/regionals/finder/Jinan-2024/standings
-  problemset: https://icpcarchive.github.io/Asia%20East%20Continent%20Contests/Jinan/2023%20Asia%20Jinan%20Regional%20Contest/problems.pdf
+  sources:
+  - url: https://codeforces.com/gym/104901/standings
+    roles:
+    - scoreboard
+    as_of: '20240301040835'
+    archived:
+    - jinan/jinan-2023/scoreboard/2026-09-01-live-cfdee200/page.html
+    - jinan/jinan-2023/scoreboard/20240301-wayback-fac9d314/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://board.xcpcio.com/icpc/48th/jinan
+    roles:
+    - scoreboard
+    as_of: '20231230060919'
+    archived:
+    - jinan/jinan-2023/scoreboard/20231230-wayback-decafb5d/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (xcpcio-data-agent)
+  - url: https://icpc.global/regionals/finder/Jinan-2024/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Asia%20East%20Continent%20Contests/Jinan/2023%20Asia%20Jinan%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: jinan-2026
+  status: upcoming
   season: 2027
   name: 2026 Asia Jinan Regional Contest
-  cms_ids:
-  - 9607
   parent: wf-2027
-  status: upcoming
   notes: upcoming shell from misclass audit 2026-09-02

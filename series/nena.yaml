@@ -1,25 +1,31 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: nena
   name: ICPC North America Northeast Regional Contest
+  tier: regional
+  region: North America
+  naming: season-start
 contests:
 - id: nena-1997
   season: 1998
+  location: run from **Westfield State College**
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1998
   next: nena-1998
-  web:
-    url: http://cs.wsc.ma.edu/acm_ne_region.html
+  sources:
+  - url: http://cs.wsc.ma.edu/acm_ne_region.html
+    roles:
+    - web
     as_of: '19990128003821'
-  results:
-    scoreboard:
-    - url: http://cs.wsc.ma.edu/acm/results.html
-      as_of: '19990127193649'
-      archived: nena/nena-1997/scoreboard/2026-09-01-wayback-b121d7b7/results.html
-      url_state: dead
-      url_checked: '2026-11-02'
-  location: run from **Westfield State College**
+  - url: http://cs.wsc.ma.edu/acm/results.html
+    roles:
+    - scoreboard
+    as_of: '19990127193649'
+    archived:
+    - nena/nena-1997/scoreboard/2026-09-01-wayback-b121d7b7/results.html
+    url_state: dead
+    url_checked: '2026-11-02'
 - id: nena-1998
   season: 1999
   name: 1998 ACM Northeast North America Programming Contest
@@ -28,39 +34,55 @@ contests:
   - 1062
   parent: wf-1999
   next: nena-1999
-  web:
-    url: http://garfield.cs.wsc.ma.edu/acm_ne_region.html
+  sources:
+  - url: http://garfield.cs.wsc.ma.edu/acm_ne_region.html
+    roles:
+    - web
     as_of: '19990220233417'
-  results:
-    standings:
-    - url: http://garfield.cs.wsc.ma.edu/acm/results.html
-      as_of: '19990220183157'
-      archived: nena/nena-1998/standings/2026-09-01-wayback-3dd55578/results.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc99/Regionals/NENA98/Standings.htm
-      as_of: '20030527080106'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: nena/nena-1998/standings/20030527-wayback-0730f840/Standings.htm
-  problems:
-    count: 6
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=497
-        as_of: '20210919193636'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  - url: http://garfield.cs.wsc.ma.edu/acm/results.html
+    roles:
+    - standings
+    as_of: '19990220183157'
+    archived:
+    - nena/nena-1998/standings/2026-09-01-wayback-3dd55578/results.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc99/Regionals/NENA98/Standings.htm
+    roles:
+    - standings
+    as_of: '20030527080106'
+    archived:
+    - nena/nena-1998/standings/20030527-wayback-0730f840/Standings.htm
+    - nena/nena-1998/standings/20030527-wayback-e473cd91/Standings.htm
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_NorthEast/1998/index.html
+    roles:
+    - problemset
     as_of: '20001003145249'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc99/Regionals/NENA98/problems.pdf
+    roles:
+    - problemset
     as_of: '20030711173318'
-  - https://www.cs.rit.edu/~icpc/questions/RIT_1998.pdf
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://www.cs.rit.edu/~icpc/questions/RIT_1998.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=497
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210919193636'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: nena-1998
 - id: nena-1999
   season: 2000
   name: 1999 ACM Northeast North America Programming Contest
@@ -70,37 +92,48 @@ contests:
   - 1215
   parent: wf-2000
   next: nena-2000
-  web:
-    url: http://cs.wsc.ma.edu/acm_ne_region.html
+  sources:
+  - url: http://cs.wsc.ma.edu/acm_ne_region.html
+    roles:
+    - web
     as_of: '20000417015418'
-  results:
-    scoreboard:
-    - url: http://cs.wsc.ma.edu/acm/results.html
-      as_of: '19991109083553'
-      archived: nena/nena-1999/scoreboard/2026-09-01-wayback-52b1202b/results.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2000/regionals/NENA99/Standings.html
-      as_of: '20020112010805'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: nena/nena-1999/standings/20020112-wayback-23e95622/Standings.html
-  problems:
-    repo: icpc-problem-archive/statement-only
-    count: 7
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  - url: http://cs.wsc.ma.edu/acm/results.html
+    roles:
+    - scoreboard
+    as_of: '19991109083553'
+    archived:
+    - nena/nena-1999/scoreboard/2026-09-01-wayback-52b1202b/results.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2000/regionals/NENA99/Standings.html
+    roles:
+    - standings
+    as_of: '20020112010805'
+    archived:
+    - nena/nena-1999/standings/20020112-wayback-23e95622/Standings.html
+    - nena/nena-1999/standings/20020112-wayback-c08a30a1/Standings.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_NorthEast/1999/index.html
+    roles:
+    - problemset
     as_of: '20020628075726'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2000/regionals/NENA99/problems.pdf
+    roles:
+    - problemset
     as_of: '20050116183210'
-  - https://www.cs.rit.edu/~icpc/questions/RIT_1999.pdf
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://www.cs.rit.edu/~icpc/questions/RIT_1999.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  problems:
+    set: nena-1999
 - id: nena-2000
   season: 2001
   name: 2000 ACM Northeast North America Programming Contest
@@ -110,46 +143,57 @@ contests:
   - 1296
   parent: wf-2001
   next: nena-2001
-  web:
-    url: http://cs.wsc.ma.edu/acm_ne_region.html
+  sources:
+  - url: http://cs.wsc.ma.edu/acm_ne_region.html
+    roles:
+    - web
     as_of: '20001211041900'
-  results:
-    scoreboard:
-    - url: http://cs.wsc.ma.edu/acm/results.html
-      as_of: '20010217233635'
-      archived: nena/nena-2000/scoreboard/2026-09-01-wayback-6899346a/results.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    rankings:
-    - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=439
-      as_of: '20060901131802'
-      archived: nena/nena-2000/rankings/2026-09-01-wayback-2b60e9d9/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=439
-      as_of: '20011222222939'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: unknown
-      url_checked: '2026-11-02'
-  problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=80
-        as_of: '20211026110002'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  - url: http://cs.wsc.ma.edu/acm/results.html
+    roles:
+    - scoreboard
+    as_of: '20010217233635'
+    archived:
+    - nena/nena-2000/scoreboard/2026-09-01-wayback-6899346a/results.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=439
+    roles:
+    - standings
+    - rankings
+    as_of: '20011222222939'
+    archived:
+    - nena/nena-2000/rankings/2026-09-01-wayback-2b60e9d9/page.html
+    - nena/nena-2000/standings/20011222-wayback-50af9475/page.html
+    - nena/nena-2000/standings/20011222-wayback-a49b2fc0/page.html
+    url_state: unknown
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings); as_of 20060901131802 for rankings
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_NorthEast/2000/index.html
+    roles:
+    - problemset
     as_of: '20020514051739'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2001/regionals/NENA00/Problems.pdf
+    roles:
+    - problemset
     as_of: '20030323130618'
-  - https://www.cs.rit.edu/~icpc/questions/RIT_2000.pdf
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://www.cs.rit.edu/~icpc/questions/RIT_2000.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=80
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211026110002'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: nena-2000
 - id: nena-2001
   season: 2002
   name: 2001 ACM Northeast North America Programming Contest
@@ -159,54 +203,69 @@ contests:
   - 980
   parent: wf-2002
   next: nena-2002
-  web:
-    url: http://cs.wsc.ma.edu/acm_ne_region.html
-    as_of: '20020205081135'
-  results:
-    scoreboard:
-    - url: http://cs.wsc.ma.edu/acm/results.html
-      as_of: '20020406105609'
-      archived: nena/nena-2001/scoreboard/2026-09-01-wayback-53dbf6c3/results.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://www.ntnu.edu.tw/acm/ProblemSetArchive/B_US_NorthEast/2001/index.html
-      as_of: '20141002124134'
-      archived: nena/nena-2001/scoreboard/2026-04-16-archive/2001-northeast-north-america-programming-contest-2001.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-    rankings:
-    - url: http://icpc.baylor.edu/Past/icpc2002/regionals/ViewRegionalStandings.asp?ContestID=504
-      as_of: '20090102030821'
-      archived: nena/nena-2001/rankings/2026-09-01-wayback-137e6517/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2002/regionals/ViewRegionalStandings.asp?ContestID=504
-      as_of: '20020701110157'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: unknown
-      url_checked: '2026-11-02'
-  problemset:
-  - url: http://www.ntnu.edu.tw/acm/ProblemSetArchive/B_US_NorthEast/2001/index.html
-    as_of: '20141002124134'
-  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_NorthEast/2001/index.html
-    as_of: '20020514051422'
-  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/NENA01/problems.html
-    as_of: '20020619100512'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: http://cs.wsc.ma.edu/acm_ne_region.html
+    roles:
+    - web
+    as_of: '20020205081135'
+  - url: http://www.ntnu.edu.tw/acm/ProblemSetArchive/B_US_NorthEast/2001/index.html
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20141002124134'
+    archived:
+    - nena/nena-2001/scoreboard/2026-04-16-archive/2001-northeast-north-america-programming-contest-2001.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://cs.wsc.ma.edu/acm/results.html
+    roles:
+    - scoreboard
+    as_of: '20020406105609'
+    archived:
+    - nena/nena-2001/scoreboard/2026-09-01-wayback-53dbf6c3/results.html
+    - nena/nena-2001/scoreboard/20020406-wayback-6041f83b/results.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2002/regionals/ViewRegionalStandings.asp?ContestID=504
+    roles:
+    - standings
+    - rankings
+    as_of: '20020701110157'
+    archived:
+    - nena/nena-2001/rankings/2026-09-01-wayback-137e6517/page.html
+    - nena/nena-2001/standings/20020701-wayback-7fe61ee0/page.html
+    - nena/nena-2001/standings/20020701-wayback-dfe27709/page.html
+    url_state: unknown
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings); as_of 20090102030821 for rankings
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_NorthEast/2001/index.html
+    roles:
+    - problemset
+    as_of: '20020514051422'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/NENA01/problems.html
+    roles:
+    - problemset
+    as_of: '20020619100512'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: http://cs.wsc.ma.edu/acm/problems.html
+    roles:
+    - problemset
+    as_of: '20011208103157'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=109
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210926184259'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 7
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=109
-        as_of: '20210926184259'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: nena-2001
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: nena-2002
   season: 2003
   name: 2002 ACM Northeast North America Programming Contest
@@ -216,48 +275,56 @@ contests:
   - 1100
   parent: wf-2003
   next: nena-2003
-  web:
-    url: http://cs.wsc.ma.edu/acm_ne_region.html
-    as_of: '20021209092842'
-  results:
-    scoreboard:
-    - url: http://cs.wsc.ma.edu/~larry/acm/results.html
-      as_of: '20021209131527'
-      archived: nena/nena-2002/scoreboard/2026-04-16-archive/2002-northeast-north-america-programming-contest-2002.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    rankings:
-    - url: http://icpc.baylor.edu/past/icpc2003/Regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings00fd.html?ContestID=572
-      as_of: '20090307020145'
-      archived: nena/nena-2002/rankings/2026-09-01-wayback-7bb3fcfa/ViewRegionalStandings00fd.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/cs.wsc.ma.edu/_larry/acm/results.html
-      as_of: '20060901153642'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-mirror)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: nena/nena-2002/standings/20060901-wayback-183f376e/results.html
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings00fd.html?ContestID=572
-      as_of: '20060115021848'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: unknown
-      url_checked: '2026-11-02'
-  problemset:
-  - url: http://cs.wsc.ma.edu/~larry/acm/results.html
-    as_of: '20021209131527'
-  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/cs.wsc.ma.edu/_larry/acm/WNECACM02Problems.pdf
-    as_of: '20030711002322'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: http://cs.wsc.ma.edu/acm_ne_region.html
+    roles:
+    - web
+    as_of: '20021209092842'
+  - url: http://cs.wsc.ma.edu/~larry/acm/results.html
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20021209131527'
+    archived:
+    - nena/nena-2002/scoreboard/2026-04-16-archive/2002-northeast-north-america-programming-contest-2002.html
+    - nena/nena-2002/scoreboard/20021209-wayback-e31a5bd7/results.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/cs.wsc.ma.edu/_larry/acm/results.html
+    roles:
+    - standings
+    as_of: '20060901153642'
+    archived:
+    - nena/nena-2002/standings/20060901-wayback-183f376e/results.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-mirror)
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings00fd.html?ContestID=572
+    roles:
+    - standings
+    - rankings
+    as_of: '20060115021848'
+    archived:
+    - nena/nena-2002/rankings/2026-09-01-wayback-7bb3fcfa/ViewRegionalStandings00fd.html
+    - nena/nena-2002/standings/20060115-wayback-6766ea63/ViewRegionalStandings00fd.html
+    - nena/nena-2002/standings/20060115-wayback-a8822509/ViewRegionalStandings00fd.html
+    url_state: unknown
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings); as_of 20090307020145 for rankings
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/cs.wsc.ma.edu/_larry/acm/WNECACM02Problems.pdf
+    roles:
+    - problemset
+    as_of: '20030711002322'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: http://cs.wsc.ma.edu/~larry/acm/problems.html
+    roles:
+    - problemset
+    as_of: '20021126073622'
   problems:
-    count: 7
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: nena-2002
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: nena-2003
   season: 2004
   name: 2003 ACM Northeast North America Programming Contest
@@ -267,43 +334,61 @@ contests:
   - 1148
   parent: wf-2004
   next: nena-2004
-  web:
-    url: http://cs.wsc.ma.edu/acm_ne_region.html
+  sources:
+  - url: http://cs.wsc.ma.edu/acm_ne_region.html
+    roles:
+    - web
     as_of: '20040217191847'
-  results:
-    scoreboard:
-    - url: http://cs.wsc.ma.edu/~larry/acm/results.html
-      as_of: '20040206103810'
-      archived: nena/nena-2003/scoreboard/2026-09-01-wayback-0440b17f/results.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=646
-      as_of: '20071012205913'
-      archived: nena/nena-2003/standings/2026-09-01-wayback-10bc98fa/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    - url: http://icpc.baylor.edu/past/icpc2004/RegReport/cs.wsc.ma.edu/acm/results.html
-      as_of: '20060903014829'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regreport)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: nena/nena-2003/standings/20060903-wayback-e5ae20ce/results.html
-    - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandings1be8.html?ContestID=646
-      as_of: '20060901143222'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: nena/nena-2003/standings/20060901-wayback-0d4b12f9/ViewRegionalStandings1be8.html
+  - url: http://cs.wsc.ma.edu/~larry/acm/results.html
+    roles:
+    - scoreboard
+    as_of: '20040206103810'
+    archived:
+    - nena/nena-2003/scoreboard/2026-09-01-wayback-0440b17f/results.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=646
+    roles:
+    - standings
+    as_of: '20071012205913'
+    archived:
+    - nena/nena-2003/standings/2026-09-01-wayback-10bc98fa/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://icpc.baylor.edu/past/icpc2004/RegReport/cs.wsc.ma.edu/acm/results.html
+    roles:
+    - standings
+    as_of: '20060903014829'
+    archived:
+    - nena/nena-2003/standings/20060903-wayback-e5ae20ce/results.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-regreport)
+  - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandings1be8.html?ContestID=646
+    roles:
+    - standings
+    as_of: '20060901143222'
+    archived:
+    - nena/nena-2003/standings/20060901-wayback-0d4b12f9/ViewRegionalStandings1be8.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: http://cs.wsc.ma.edu/acm/results.html
+    roles:
+    - standings
+    as_of: '19991109083553'
+    note: added by url-hunt 2026-09-01 (cms-api)
+  - url: https://www.cs.rit.edu/~icpc/questions/NENA_Final_2003.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://cs.wsc.ma.edu/acm/problems.html
+    roles:
+    - problemset
+    as_of: '20011208103157'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.rit.edu/~icpc/questions/NENA_Final_2003.pdf
+    set: nena-2003
 - id: nena-2004
   season: 2005
   name: 2004 ACM Northeast North America Programming Contest
@@ -313,31 +398,34 @@ contests:
   - 1192
   parent: wf-2005
   next: nena-2005
-  web:
-    url: http://cs.wsc.ma.edu/acm_ne_region.html
+  sources:
+  - url: http://cs.wsc.ma.edu/acm_ne_region.html
+    roles:
+    - web
     as_of: '20041205064658'
-  results:
-    scoreboard:
-    - url: http://cs.wsc.ma.edu/~larry/acm/results.html
-      as_of: '20041205120142'
-      archived: nena/nena-2004/scoreboard/2026-09-01-wayback-a4ab7019/results.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=688
-      as_of: '20071012162900'
-      archived: nena/nena-2004/standings/2026-09-01-wayback-d96e72b1/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
+  - url: http://cs.wsc.ma.edu/~larry/acm/results.html
+    roles:
+    - scoreboard
+    as_of: '20041205120142'
+    archived:
+    - nena/nena-2004/scoreboard/2026-09-01-wayback-a4ab7019/results.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=688
+    roles:
+    - standings
+    as_of: '20071012162900'
+    archived:
+    - nena/nena-2004/standings/2026-09-01-wayback-d96e72b1/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://www.cs.rit.edu/~icpc/questions/NENA_Final_2004.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.rit.edu/~icpc/questions/NENA_Final_2004.pdf
+    set: nena-2004
 - id: nena-2005
   season: 2006
   name: 2005 ACM Northeast North America Programming Contest
@@ -348,24 +436,28 @@ contests:
   - 1155
   parent: wf-2006
   next: nena-2006
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=722
-      as_of: '20090103065030'
-      archived: nena/nena-2005/standings/2026-09-01-wayback-f07b46ed/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/regionals/finder/Northeastern-North-America-2006/standings
-  web: http://www.cs.rit.edu/~icpc
+  sources:
+  - url: http://www.cs.rit.edu/~icpc
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=722
+    roles:
+    - standings
+    as_of: '20090103065030'
+    archived:
+    - nena/nena-2005/standings/2026-09-01-wayback-f07b46ed/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://icpc.global/regionals/finder/Northeastern-North-America-2006/standings
+    roles:
+    - icpc_standings
+  - url: https://www.cs.rit.edu/~icpc/questions/2005/NENA_final_2005.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.rit.edu/~icpc/questions/2005/NENA_final_2005.pdf
+    set: nena-2005
 - id: nena-2006
   season: 2007
   name: 2006 ACM Northeast North America Programming Contest
@@ -376,30 +468,30 @@ contests:
   - 1030
   parent: wf-2007
   next: nena-2007
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=764
-      as_of: '20071011185717'
-      archived: nena/nena-2006/standings/2026-09-01-wayback-787b72ef/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=764
-      as_of: '20191210010802'
-      archived: nena/nena-2006/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/regionals/finder/Northeastern-North-America-2007/standings
-  web: http://www.cs.rit.edu/~icpc
+  sources:
+  - url: http://www.cs.rit.edu/~icpc
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=764
+    roles:
+    - standings
+    as_of: '20071011185717'
+    archived:
+    - nena/nena-2006/standings/2026-09-01-wayback-787b72ef/page.html
+    - nena/nena-2006/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: as_of 20191210010802 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Northeastern-North-America-2007/standings
+    roles:
+    - icpc_standings
+  - url: https://www.cs.rit.edu/~icpc/questions/2006/NENA_final_2006.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.rit.edu/~icpc/questions/2006/NENA_final_2006.pdf
+    set: nena-2006
 - id: nena-2007
   season: 2008
   name: 2007 ACM Northeast North America Programming Contest
@@ -410,24 +502,28 @@ contests:
   - 1214
   parent: wf-2008
   next: nena-2008
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=847
-      as_of: '20080915032317'
-      archived: nena/nena-2007/standings/2026-09-01-wayback-07713c62/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/regionals/finder/Northeastern-North-America-2008/standings
-  web: http://www.cs.rit.edu/~icpc
+  sources:
+  - url: http://www.cs.rit.edu/~icpc
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=847
+    roles:
+    - standings
+    as_of: '20080915032317'
+    archived:
+    - nena/nena-2007/standings/2026-09-01-wayback-07713c62/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://icpc.global/regionals/finder/Northeastern-North-America-2008/standings
+    roles:
+    - icpc_standings
+  - url: https://www.cs.rit.edu/~icpc/questions/2007/NENA_final_2007.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.rit.edu/~icpc/questions/2007/NENA_final_2007.pdf
+    set: nena-2007
 - id: nena-2008
   season: 2009
   name: 2008 Northeast North America Programming Contest
@@ -437,17 +533,20 @@ contests:
   - 38
   parent: wf-2009
   next: nena-2009
-  icpc_standings: https://icpc.global/regionals/finder/Northeast-North-America-2009/standings
-  web: http://www.cs.rit.edu/~icpc
+  sources:
+  - url: http://www.cs.rit.edu/~icpc
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Northeast-North-America-2009/standings
+    roles:
+    - icpc_standings
+  - url: https://www.cs.rit.edu/~icpc/questions/2008/NENA_final_2008.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.rit.edu/~icpc/questions/2008/NENA_final_2008.pdf
+    set: nena-2008
 - id: nena-2009
   season: 2010
   name: 2009 Northeast North America Programming Contest
@@ -457,20 +556,24 @@ contests:
   - 551
   parent: wf-2010
   next: nena-2010
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Northeast-North-America-2010/standings
-    archived: nena/nena-2009/standings/api-20260904/standings.html
+  sources:
+  - url: http://www.cs.rit.edu/~icpc
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Northeast-North-America-2010/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nena/nena-2009/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 551, 12 teams, DB fetch 2026-04-26)
-  web: http://www.cs.rit.edu/~icpc
+  - url: https://www.cs.rit.edu/~icpc/questions/2009/NENA_final_2009.pdf
+    roles:
+    - problemset
+    as_of: '20160316112715'
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.rit.edu/~icpc/questions/2009/NENA_final_2009.pdf
+    set: nena-2009
 - id: nena-2010
   season: 2011
   name: 2010 Northeast North America Regional Contest
@@ -480,20 +583,23 @@ contests:
   - 648
   parent: wf-2011
   next: nena-2011
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Northeast-North-America-2011/standings
-    archived: nena/nena-2010/standings/api-20260904/standings.html
+  sources:
+  - url: http://www.cs.rit.edu/~icpc
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Northeast-North-America-2011/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nena/nena-2010/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 648, 11 teams, DB fetch 2026-04-26)
-  web: http://www.cs.rit.edu/~icpc
+  - url: https://www.cs.rit.edu/~icpc/questions/2010/NENA_final_2010.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.rit.edu/~icpc/questions/2010/NENA_final_2010.pdf
+    set: nena-2010
 - id: nena-2011
   season: 2012
   name: 2011 Northeast North America Regional Contest
@@ -503,20 +609,23 @@ contests:
   - 883
   parent: wf-2012
   next: nena-2012
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Northeast-North-America-2012/standings
-    archived: nena/nena-2011/standings/api-20260904/standings.html
+  sources:
+  - url: http://www.cs.rit.edu/~icpc
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Northeast-North-America-2012/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nena/nena-2011/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 883, 12 teams, DB fetch 2026-04-26)
-  web: http://www.cs.rit.edu/~icpc
+  - url: https://www.cs.rit.edu/~icpc/questions/2011/NENA_final_2011.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.rit.edu/~icpc/questions/2011/NENA_final_2011.pdf
+    set: nena-2011
 - id: nena-2012
   season: 2013
   name: 2012 Northeast NA Regional Contest
@@ -526,20 +635,24 @@ contests:
   - 1377
   parent: wf-2013
   next: nena-2013
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Northeast-North-America-2013/standings
-    archived: nena/nena-2012/standings/api-20260904/standings.html
+  sources:
+  - url: http://www.cs.rit.edu/~icpc
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Northeast-North-America-2013/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nena/nena-2012/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 1377, 12 teams, DB fetch 2026-04-26)
-  web: http://www.cs.rit.edu/~icpc
+  - url: https://www.cs.rit.edu/~icpc/questions/2012/NENA_Final_2012.pdf
+    roles:
+    - problemset
+    as_of: '20150411195753'
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.rit.edu/~icpc/questions/2012/NENA_Final_2012.pdf
+    set: nena-2012
 - id: nena-2013
   season: 2014
   name: 2013 Northeast North America Regional Contest
@@ -548,27 +661,30 @@ contests:
   - 1959
   parent: wf-2014
   next: nena-2014
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Northeast-North-America-2014/standings
-    archived: nena/nena-2013/standings/api-20260904/standings.html
+  sources:
+  - url: http://www.cs.rit.edu/~icpc/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Northeast-North-America-2014/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nena/nena-2013/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 1959, 12 teams, DB fetch 2026-04-26)
-  web: http://www.cs.rit.edu/~icpc/
+  - url: https://www.cs.rit.edu/~icpc/questions/2013/NENA_Final_2013.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Northeast%20North%20America%20Regional%202013
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20210923031217'
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: partial
-    solutions: partial
-    package: partial
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Northeast%20North%20America%20Regional%202013
-    notes: No date
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    counts:
-      data: 6
-      solutions: 6
-      package: 6
-  problemset: https://www.cs.rit.edu/~icpc/questions/2013/NENA_Final_2013.pdf
+    set: nena-2013
 - id: nena-2014
   season: 2015
   name: 2014 Northeast North America Regional Contest
@@ -578,26 +694,30 @@ contests:
   - 2426
   parent: wf-2015
   next: nena-2015
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Northeast-North-America-2015/standings
-    archived: nena/nena-2014/standings/api-20260904/standings.html
+  sources:
+  - url: http://www.cs.rit.edu/~icpc/finals.html
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Northeast-North-America-2015/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nena/nena-2014/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 2426, 12 teams, DB fetch 2026-04-26)
-  web: http://www.cs.rit.edu/~icpc/finals.html
+  - url: https://www.cs.rit.edu/~icpc/questions/2014/NENA_Final_2014.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Northeast%20North%20America%20Regional%202014
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20200811004058'
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: partial
-    solutions: partial
-    package: partial
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Northeast%20North%20America%20Regional%202014
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    counts:
-      data: 7
-      solutions: 7
-      package: 7
-  problemset: https://www.cs.rit.edu/~icpc/questions/2014/NENA_Final_2014.pdf
+    set: nena-2014
 - id: nena-2015
   season: 2016
   name: 2015 Northeast North America Regional Contest
@@ -607,20 +727,23 @@ contests:
   - 2821
   parent: wf-2016
   next: nena-2016
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Northeast-North-America-2016/standings
-    archived: nena/nena-2015/standings/api-20260904/standings.html
+  sources:
+  - url: http://www.cs.rit.edu/~icpc
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Northeast-North-America-2016/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nena/nena-2015/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 2821, 13 teams, DB fetch 2026-04-26)
-  web: http://www.cs.rit.edu/~icpc
+  - url: https://www.cs.rit.edu/~icpc/questions/2015/NENA_Final_2015.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.rit.edu/~icpc/questions/2015/NENA_Final_2015.pdf
+    set: nena-2015
 - id: nena-2016
   season: 2017
   name: 2016 Northeast North America Regional Contest
@@ -630,19 +753,21 @@ contests:
   - 3196
   parent: wf-2017
   next: nena-2017
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Northeast-North-America-2017/standings
-    archived: nena/nena-2016/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/Northeast-North-America-2017/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nena/nena-2016/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3196, 16 teams, DB fetch 2026-04-26)
+  - url: https://www.cs.rit.edu/~icpc/questions/2016/NENA_Final_2016.pdf
+    roles:
+    - problemset
+    as_of: '20210506205311'
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.rit.edu/~icpc/questions/2016/NENA_Final_2016.pdf
+    set: nena-2016
 - id: nena-2017
   season: 2018
   name: 2017 Northeast North America Regional Contest
@@ -652,19 +777,20 @@ contests:
   - 3254
   parent: wf-2018
   next: nena-2018
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Northeast-North-America-2018/standings
-    archived: nena/nena-2017/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/Northeast-North-America-2018/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nena/nena-2017/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3254, 17 teams, DB fetch 2026-04-26)
+  - url: https://www.cs.rit.edu/~icpc/questions/2017/NENA_Final_2017.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 9
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.rit.edu/~icpc/questions/2017/NENA_Final_2017.pdf
+    set: nena-2017
 - id: nena-2018
   season: 2019
   name: 2018 Northeast North America Regional Contest
@@ -674,19 +800,20 @@ contests:
   - 3537
   parent: wf-2019
   next: nena-2019
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Northeast-North-America-2019/standings
-    archived: nena/nena-2018/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/Northeast-North-America-2019/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nena/nena-2018/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3537, 16 teams, DB fetch 2026-04-26)
+  - url: https://www.cs.rit.edu/~icpc/questions/2018/NENA_Final_2018.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 9
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.rit.edu/~icpc/questions/2018/NENA_Final_2018.pdf
+    set: nena-2018
 - id: nena-2019
   season: 2020
   name: 2019 Northeast North America Regional Contest
@@ -696,23 +823,29 @@ contests:
   - 4078
   parent: nac-2020
   next: nena-2020
-  results:
-    scoreboard:
-    - url: https://nena19.kattis.com/contests/nena19/standings
-      archived: nena/nena-2019/scoreboard/2026-09-01-live-f7d54e97/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northeast-North-America-2020/standings
+  sources:
+  - url: https://nena19.kattis.com/contests/nena19/standings
+    roles:
+    - scoreboard
+    as_of: '20220926031242'
+    archived:
+    - nena/nena-2019/scoreboard/2026-09-01-live-f7d54e97/page.html
+    - nena/nena-2019/scoreboard/20220926-wayback-99344ab3/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northeast-North-America-2020/standings
+    roles:
+    - icpc_standings
+  - url: https://nena19.kattis.com/contests/nena19/problems
+    roles:
+    - problemset
+    - judge_page
+    judge: kattis
+    as_of: '20220926040611'
+    url_state: changed
+    url_checked: '2026-11-02'
   problems:
-    count: 10
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://nena19.kattis.com/contests/nena19/problems
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://nena19.kattis.com/contests/nena19/problems
+    set: nena-2019
 - id: nena-2020
   season: 2021
   name: 2020 Northeast North America Regional Contest
@@ -722,23 +855,29 @@ contests:
   - 4352
   parent: nac-2021
   next: nena-2021
-  results:
-    scoreboard:
-    - url: https://nena20.kattis.com/contests/nena20/standings
-      archived: nena/nena-2020/scoreboard/2026-09-01-live-699c98d6/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northeast-North-America-2021/standings
+  sources:
+  - url: https://nena20.kattis.com/contests/nena20/standings
+    roles:
+    - scoreboard
+    as_of: '20231127152121'
+    archived:
+    - nena/nena-2020/scoreboard/2026-09-01-live-699c98d6/page.html
+    - nena/nena-2020/scoreboard/20231127-wayback-e30ddc69/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northeast-North-America-2021/standings
+    roles:
+    - icpc_standings
+  - url: https://nena20.kattis.com/contests/nena20/problems
+    roles:
+    - problemset
+    - judge_page
+    judge: kattis
+    as_of: '20231127152054'
+    url_state: replaced
+    url_checked: '2026-11-02'
   problems:
-    count: 18
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://nena20.kattis.com/contests/nena20/problems
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://nena20.kattis.com/contests/nena20/problems
+    set: nena-2020
 - id: nena-2021
   season: 2022
   name: 2021 ICPC Northeast North America Regional Contest
@@ -748,30 +887,46 @@ contests:
   - 4677
   parent: nac-2022
   next: nena-2022
-  results:
-    scoreboard:
-    - url: https://nena21.kattis.com/contests/nena21/standings
-      archived: nena/nena-2021/scoreboard/2026-09-01-live-30fd20df/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nena21.kattis.com/
-      archived: nena/nena-2021/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northeast-North-America-2022/standings
+  sources:
+  - url: https://nena21.kattis.com/contests/nena21/standings
+    roles:
+    - scoreboard
+    as_of: '20241003193700'
+    archived:
+    - nena/nena-2021/scoreboard/2026-09-01-live-30fd20df/page.html
+    - nena/nena-2021/scoreboard/20241003-wayback-514e78bd/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://nena21.kattis.com/
+    roles:
+    - standings
+    as_of: '20220305204827'
+    archived:
+    - nena/nena-2021/external-standings/2026-04-15-external/content.html
+    - nena/nena-2021/standings/20220305-wayback-1a5e6cd3/page.html
+    - nena/nena-2021/standings/20260901-live-e3ef115e/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Northeast-North-America-2022/standings
+    roles:
+    - icpc_standings
+  - url: https://nena21.kattis.com/contests/nena21/problems
+    roles:
+    - problemset
+    - judge_page
+    judge: kattis
+    as_of: '20241003204007'
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3043
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://nena21.kattis.com/contests/nena21/problems
-      baekjoon: https://www.acmicpc.net/category/detail/3043
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://nena21.kattis.com/contests/nena21/problems
+    set: nena-2021
 - id: nena-2022
   season: 2023
   name: 2022 ICPC Northeast North America Regional Contest
@@ -783,23 +938,29 @@ contests:
   - 5389
   parent: nac-2023
   next: nena-2023
-  results:
-    scoreboard:
-    - url: https://nena22.kattis.com/contests/nena22/standings
-      archived: nena/nena-2022/scoreboard/2026-09-01-live-4a81bdc1/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northeast-North-America-2023/standings
+  sources:
+  - url: https://nena22.kattis.com/contests/nena22/standings
+    roles:
+    - scoreboard
+    as_of: '20230226144515'
+    archived:
+    - nena/nena-2022/scoreboard/2026-09-01-live-4a81bdc1/page.html
+    - nena/nena-2022/scoreboard/20230226-wayback-6998d284/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northeast-North-America-2023/standings
+    roles:
+    - icpc_standings
+  - url: https://nena22.kattis.com/contests/nena22/problems
+    roles:
+    - problemset
+    - judge_page
+    judge: kattis
+    as_of: '20230226144528'
+    url_state: replaced
+    url_checked: '2026-11-02'
   problems:
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://nena22.kattis.com/contests/nena22/problems
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://nena22.kattis.com/contests/nena22/problems
+    set: nena-2022
 - id: nena-2023
   season: 2024
   name: 2023 ICPC Northeast North America Regional Contest
@@ -812,14 +973,23 @@ contests:
   parent: nac-2024
   next: nena-2024
   subset_of: east-na-2023
-  web: https://ne.na.icpc.global/archive/2023-2024/
-  results:
-    scoreboard:
-    - url: https://naeast23.kattis.com/contests/naeast23/standings/5331
-      archived: nena/nena-2023/scoreboard/2026-09-01-live-bfc02136/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  problemset: https://naeast23.kattis.com/contests/naeast23/problems
+  sources:
+  - url: https://ne.na.icpc.global/archive/2023-2024/
+    roles:
+    - web
+  - url: https://naeast23.kattis.com/contests/naeast23/standings/5331
+    roles:
+    - scoreboard
+    archived:
+    - nena/nena-2023/scoreboard/2026-09-01-live-bfc02136/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://naeast23.kattis.com/contests/naeast23/problems
+    roles:
+    - problemset
+    as_of: '20240223023315'
+    url_state: replaced
+    url_checked: '2026-11-02'
 - id: nena-2024
   season: 2025
   name: 2024 ICPC Northeast North America Regional Contest
@@ -833,21 +1003,37 @@ contests:
   parent: nac-2025
   next: nena-2025
   subset_of: east-na-2024
-  results:
-    scoreboard:
-    - url: https://naeast24.kattis.com/contests/naeast24/standings/nena/all
-      archived: nena/nena-2024/scoreboard/2026-09-01-live-852d18b9/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northeast-North-America-2025/standings
-  web: https://ne.na.icpc.global/
-  problemset: https://naeast24.kattis.com/contests/naeast24/problems
+  sources:
+  - url: https://ne.na.icpc.global/
+    roles:
+    - web
+  - url: https://naeast24.kattis.com/contests/naeast24/standings/nena/all
+    roles:
+    - scoreboard
+    as_of: '20250820112910'
+    archived:
+    - nena/nena-2024/scoreboard/2026-09-01-live-852d18b9/page.html
+    - nena/nena-2024/scoreboard/20250820-wayback-028247eb/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northeast-North-America-2025/standings
+    roles:
+    - icpc_standings
+  - url: https://naeast24.kattis.com/contests/naeast24/problems
+    roles:
+    - problemset
+    as_of: '20241212022057'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4343
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2024 Northeast North America Regional Contest
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4343
-        note: 2024 Northeast North America Regional Contest
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: nena-2024
 - id: nena-2025
   season: 2026
   name: 2025 ICPC North America Northeast Regional Contest
@@ -860,16 +1046,29 @@ contests:
   parent: nac-2026
   next: nena-2026
   subset_of: east-na-2025
-  results:
-    scoreboard:
-    - url: https://naeast25.kattis.com/contests/naeast25/standings/nena/all
-      archived: nena/nena-2025/scoreboard/2026-09-01-live-cb91052c/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northeast-North-America-2026/standings
-  web: https://ne.na.icpc.global/
-  problemset: https://naeast25.kattis.com/contests/naeast25/problems
+  sources:
+  - url: https://ne.na.icpc.global/
+    roles:
+    - web
+  - url: https://naeast25.kattis.com/contests/naeast25/standings/nena/all
+    roles:
+    - scoreboard
+    as_of: '20251119200107'
+    archived:
+    - nena/nena-2025/scoreboard/2026-09-01-live-cb91052c/page.html
+    - nena/nena-2025/scoreboard/20251119-wayback-52d03617/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northeast-North-America-2026/standings
+    roles:
+    - icpc_standings
+  - url: https://naeast25.kattis.com/contests/naeast25/problems
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: nena-2026
+  status: upcoming
   season: 2027
   name: 2026 ICPC North America Northeast Regional Contest
   cms_ids:
@@ -877,5 +1076,7 @@ contests:
   parent: nac-2027
   next: null
   subset_of: east-na-2026
-  web: https://ne.na.icpc.global/
-  status: upcoming
+  sources:
+  - url: https://ne.na.icpc.global/
+    roles:
+    - web

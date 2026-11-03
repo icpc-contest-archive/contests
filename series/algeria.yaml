@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: algeria
   name: ICPC Algerian Collegiate Programming Contest
+  tier: subregional
+  region: Africa & Arab
+  naming: season-start
 contests:
 - id: algeria-2014
   season: 2015
@@ -12,13 +15,15 @@ contests:
   - 2694
   parent: acpc-2014
   next: algeria-2018
-  icpc_standings: https://icpc.global/regionals/finder/ALCPC-2015/standings
-  web: https://www.facebook.com/AlgeriaCPC/
-  mirrors:
+  sources:
+  - url: https://www.facebook.com/AlgeriaCPC/
+    roles:
+    - web
+    also_at:
+    - https://icpc.global/regionals/finder/ALCPC-2015
   - url: https://icpc.global/regionals/finder/ALCPC-2015/standings
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: https://icpc.global/regionals/finder/ALCPC-2015
-    note: added by url-hunt 2026-09-01 (round9-deep-D4)
+    roles:
+    - icpc_standings
 - id: algeria-2018
   season: 2019
   name: 2018 Algerian Collegiate Programming Contest
@@ -28,13 +33,15 @@ contests:
   - 3779
   parent: acpc-2018
   next: algeria-2020
-  icpc_standings: https://icpc.global/regionals/finder/AlCPC-2019/standings
-  web: https://red0xff.github.io/about/alcpc18/
-  mirrors:
-  - url: https://www.facebook.com/AlgeriaCPC/
-    note: added by url-hunt 2026-09-01 (round9-research)
+  sources:
+  - url: https://red0xff.github.io/about/alcpc18/
+    roles:
+    - web
+    also_at:
+    - https://www.facebook.com/AlgeriaCPC/
   - url: https://icpc.global/regionals/finder/AlCPC-2019/standings
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
+    roles:
+    - icpc_standings
 - id: algeria-2020
   season: 2021
   name: 2020 Algerian Collegiate Programming Contest
@@ -44,11 +51,18 @@ contests:
   - 4591
   parent: acpc-2020
   next: algeria-2021
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/ALCPC-2021/standings
-    archived: algeria/algeria-2020/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/ALCPC-2021/standings
+    roles:
+    - icpc_standings
+    archived:
+    - algeria/algeria-2020/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4591, 12 teams, DB fetch 2026-04-26)
-  problemset: https://github.com/tiber10/Algerian-Collegiate-Prgoramming-Contest-2020/blob/main/ALCPC2020.pdf
+  - url: https://github.com/tiber10/Algerian-Collegiate-Prgoramming-Contest-2020/blob/main/ALCPC2020.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: algeria-2021
   season: 2022
   name: 2021 ICPC Algerian Collegiate Programming Contest
@@ -58,9 +72,12 @@ contests:
   - 4756
   parent: acpc-2021
   next: algeria-2022
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/ALCPC-2022/standings
-    archived: algeria/algeria-2021/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/ALCPC-2022/standings
+    roles:
+    - icpc_standings
+    archived:
+    - algeria/algeria-2021/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4756, 9 teams, DB fetch 2026-04-26)
 - id: algeria-2022
   season: 2023
@@ -71,9 +88,12 @@ contests:
   - 5444
   parent: acpc-2022
   next: algeria-2023
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/ALCPC-2023/standings
-    archived: algeria/algeria-2022/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/ALCPC-2023/standings
+    roles:
+    - icpc_standings
+    archived:
+    - algeria/algeria-2022/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 5444, 28 teams, DB fetch 2026-04-26)
 - id: algeria-2023
   season: 2024
@@ -84,14 +104,18 @@ contests:
   - 7657
   parent: acpc-2023
   next: algeria-2024
-  results:
-    frozen_scoreboard:
-    - url: https://scoreboard.acpc.global/alcpc2023/
-      as_of: '20260810134335'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: algeria/algeria-2023/frozen_scoreboard/20260810-wayback-985d961f/page.html
-  icpc_standings: https://icpc.global/regionals/finder/ALCPC-2024/standings
+  sources:
+  - url: https://scoreboard.acpc.global/alcpc2023/
+    roles:
+    - frozen_scoreboard
+    as_of: '20260810134335'
+    archived:
+    - algeria/algeria-2023/frozen_scoreboard/20260810-wayback-985d961f/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/ALCPC-2024/standings
+    roles:
+    - icpc_standings
 - id: algeria-2024
   season: 2025
   name: 2024 ICPC Algerian Collegiate Programming Contest
@@ -99,16 +123,17 @@ contests:
   - 8782
   parent: acpc-2024
   next: algeria-2025
-  icpc_standings: https://icpc.global/regionals/finder/ALCPC-2025/standings
-  web: https://acpc.global/event/alcpc2024/
-  mirrors:
-  - url: https://www.facebook.com/AlgeriaCPC/
-    note: added by url-hunt 2026-09-01 (round9-research)
-  - url: https://icpc.global/regionals/finder/ALCPC-2025/standings
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: https://icpc.global/regionals/finder/ALCPC-2025
-    note: added by url-hunt 2026-09-01 (round9-deep-D4)
   sources:
+  - url: https://acpc.global/event/alcpc2024/
+    roles:
+    - web
+    also_at:
+    - https://www.facebook.com/AlgeriaCPC/
+    - https://icpc.global/regionals/finder/ALCPC-2025
+  - url: https://icpc.global/regionals/finder/ALCPC-2025/standings
+    roles:
+    - icpc_standings
+  provenance:
   - 'ACPC events calendar (2024-2025): No ALCPC/Algeria event listed; 2024 national contests shown are
     AoLCPC2024 (Angola, Oct 10-11), LCPC2024 (Lebanon, Oct 4-5), QCPC2024 (Qatar, Sep 27-28); ''no upcoming
     events''. — https://acpc.global/events/ [existence hunt 2026-10-22]'
@@ -132,13 +157,15 @@ contests:
   - 9284
   parent: acpc-2025
   next: algeria-2026
-  icpc_standings: https://icpc.global/regionals/finder/ALCPC-2026/standings
-  web: https://www.facebook.com/AlgeriaCPC/
-  mirrors:
+  sources:
+  - url: https://www.facebook.com/AlgeriaCPC/
+    roles:
+    - web
+    also_at:
+    - https://icpc.global/regionals/finder/ALCPC-2026
   - url: https://icpc.global/regionals/finder/ALCPC-2026/standings
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: https://icpc.global/regionals/finder/ALCPC-2026
-    note: added by url-hunt 2026-09-01 (round9-deep-D4)
+    roles:
+    - icpc_standings
 - id: algeria-2026
   status: upcoming
   season: 2027

@@ -1,8 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: aec
   name: ICPC Asia East Continent Final Contest
   tier: championship
+  region: Asia East
+  naming: season-start
 contests:
 - id: aec-2015
   season: 2016
@@ -13,21 +15,35 @@ contests:
   - 2875
   parent: wf-2016
   next: aec-2016
-  results:
-    scoreboard:
-    - url: http://board.acmicpc.cn/
-      as_of: '20160716130645'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: aec/aec-2015/scoreboard/2026-09-01-wayback-1633aa93/page.html
-    - url: http://board.acmicpc.info/icpc2015/shu_onsite.php
-      as_of: '20160315092830'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: aec/aec-2015/scoreboard/2026-09-01-wayback-09ed4706/page.html
-  icpc_standings: https://icpc.global/regionals/finder/Asia-EC-2016/standings
-  web: http://acm2015.shu.edu.cn
-  problemset: https://codeforces.com/gym/103957
+  sources:
+  - url: http://acm2015.shu.edu.cn
+    roles:
+    - web
+  - url: http://board.acmicpc.cn/
+    roles:
+    - scoreboard
+    as_of: '20160716130645'
+    archived:
+    - aec/aec-2015/scoreboard/2026-09-01-wayback-1633aa93/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://board.acmicpc.info/icpc2015/shu_onsite.php
+    roles:
+    - scoreboard
+    as_of: '20160315092830'
+    archived:
+    - aec/aec-2015/scoreboard/2026-09-01-wayback-09ed4706/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Asia-EC-2016/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/103957
+    roles:
+    - problemset
+    as_of: '20221217100050'
+    url_state: replaced
+    url_checked: '2026-11-02'
 - id: aec-2016
   season: 2017
   name: 2016 ACM-ICPC Asia CHINA-Final Contest
@@ -37,18 +53,28 @@ contests:
   - 3098
   parent: wf-2017
   next: aec-2017
-  web:
-    url: http://icpc.shu.edu.cn/Default.aspx?tabid=34079
+  sources:
+  - url: http://icpc.shu.edu.cn/Default.aspx?tabid=34079
+    roles:
+    - web
     as_of: '20180512190124'
-  results:
-    scoreboard:
-    - url: http://board.acmicpc.cn/
-      as_of: '20170913043737'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: aec/aec-2016/scoreboard/2026-09-01-wayback-9f951d56/page.html
-  icpc_standings: https://icpc.global/regionals/finder/Asia-China-Final-2017/standings
-  problemset: https://codeforces.com/gym/101194
+  - url: http://board.acmicpc.cn/
+    roles:
+    - scoreboard
+    as_of: '20170913043737'
+    archived:
+    - aec/aec-2016/scoreboard/2026-09-01-wayback-9f951d56/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Asia-China-Final-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/101194
+    roles:
+    - problemset
+    as_of: '20170706032055'
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: aec-2017
   season: 2018
   name: 2017 ACM-ICPC Asia East Continent League Final
@@ -58,18 +84,28 @@ contests:
   - 3378
   parent: wf-2018
   next: aec-2018
-  web:
-    url: http://icpc.shu.edu.cn/
+  sources:
+  - url: http://icpc.shu.edu.cn/
+    roles:
+    - web
     as_of: '20200808231611'
-  results:
-    scoreboard:
-    - url: http://board.acmicpc.cn/
-      as_of: '20180308071522'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: aec/aec-2017/scoreboard/2026-09-01-wayback-1c057899/page.html
-  icpc_standings: https://icpc.global/regionals/finder/Asia-EC-League-Final-2018/standings
-  problemset: https://codeforces.com/gym/101775
+  - url: http://board.acmicpc.cn/
+    roles:
+    - scoreboard
+    as_of: '20180308071522'
+    archived:
+    - aec/aec-2017/scoreboard/2026-09-01-wayback-1c057899/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Asia-EC-League-Final-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/101775
+    roles:
+    - problemset
+    as_of: '20190409075041'
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: aec-2018
   season: 2019
   name: 2018 ICPC Asia-East Continent Final
@@ -79,22 +115,37 @@ contests:
   - 3696
   parent: wf-2019
   next: aec-2019
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/102056/standings
-      archived: aec/aec-2018/scoreboard/2026-09-01-live-4808e312/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://acm.nwpu.edu.cn/
-      as_of: '20190917014928'
-      archived: aec/aec-2018/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Asia-EC-League-Final-2019/standings
-  web: http://acm.nwpu.edu.cn
-  problemset: https://codeforces.com/gym/102056
+  sources:
+  - url: http://acm.nwpu.edu.cn
+    roles:
+    - web
+    - standings
+    as_of: '20190917014928'
+    archived:
+    - aec/aec-2018/external-standings/2026-04-15-external/content.html
+    - aec/aec-2018/standings/20181228-wayback-cd413460/page.html
+    - aec/aec-2018/standings/20190917-wayback-3a5f33f3/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://codeforces.com/gym/102056/standings
+    roles:
+    - scoreboard
+    as_of: '20221020112809'
+    archived:
+    - aec/aec-2018/scoreboard/2026-09-01-live-4808e312/page.html
+    - aec/aec-2018/scoreboard/20221020-wayback-f2611bb0/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Asia-EC-League-Final-2019/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/102056
+    roles:
+    - problemset
+    as_of: '20231103171439'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: aec-2019
   season: 2020
   name: 2019 ICPC Asia-East Continent Final Contest
@@ -104,23 +155,31 @@ contests:
   - 4239
   parent: wf-2020
   next: aec-2020
-  results:
-    scoreboard:
-    - url: http://icpc.nwpu.edu.cn/home/scoreboard/
-      as_of: '20200206051643'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: aec/aec-2019/external-standings/2026-04-15-external/content.html
-    standings:
-    - url: http://icpc.nwpu.edu.cn/home/scoreboard/
-      as_of: '20200206051643'
-      archived: aec/aec-2019/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Asia-EC-League-Final-2020/standings
-  web: http://icpc.nwpu.edu.cn/
-  problemset: https://codeforces.com/gym/102361
+  sources:
+  - url: http://icpc.nwpu.edu.cn/
+    roles:
+    - web
+  - url: http://icpc.nwpu.edu.cn/home/scoreboard/
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20200206051643'
+    archived:
+    - aec/aec-2019/external-standings/2026-04-15-external/content.html
+    - aec/aec-2019/scoreboard/2026-09-01-wayback-6a4188e2/page.html
+    - aec/aec-2019/standings/20200206-wayback-bbb87f22/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Asia-EC-League-Final-2020/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/102361
+    roles:
+    - problemset
+    as_of: '20221025114103'
+    url_state: replaced
+    url_checked: '2026-11-02'
 - id: aec-2020
   season: 2021
   name: 2020 ICPC Asia-East Continent Final Contest
@@ -130,17 +189,27 @@ contests:
   - 4366
   parent: wf-2021
   next: aec-2021
-  icpc_standings: https://icpc.global/regionals/finder/Asia-EC-League-Final-2021/standings
-  results:
-    standings:
-    - url: http://icpc.nwpu.edu.cn/
-      as_of: '20200204013939'
-      archived: aec/aec-2020/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  web: http://icpc.nwpu.edu.cn
-  problemset: https://codeforces.com/gym/103069
+  sources:
+  - url: http://icpc.nwpu.edu.cn
+    roles:
+    - web
+    - standings
+    as_of: '20200204013939'
+    archived:
+    - aec/aec-2020/external-standings/2026-04-15-external/content.html
+    - aec/aec-2020/standings/20200204-wayback-d5674cf0/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Asia-EC-League-Final-2021/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/103069
+    roles:
+    - problemset
+    as_of: '20221020112809'
+    url_state: replaced
+    url_checked: '2026-11-02'
 - id: aec-2021
   season: 2022
   name: 2021 ICPC Asia-East Continent Final Contest
@@ -150,22 +219,35 @@ contests:
   - 4718
   parent: wf-2022
   next: aec-2022
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/103861/standings
-      archived: aec/aec-2021/scoreboard/2026-09-01-live-b9e83711/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.nwpu.edu.cn/
-      as_of: '20200204013939'
-      archived: aec/aec-2021/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Asia-EC-League-Final-2022/standings
-  web: http://icpc.nwpu.edu.cn/
-  problemset: https://codeforces.com/gym/103861
+  sources:
+  - url: http://icpc.nwpu.edu.cn/
+    roles:
+    - web
+    - standings
+    as_of: '20200204013939'
+    archived:
+    - aec/aec-2021/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://codeforces.com/gym/103861/standings
+    roles:
+    - scoreboard
+    as_of: '20220805084532'
+    archived:
+    - aec/aec-2021/scoreboard/2026-09-01-live-b9e83711/page.html
+    - aec/aec-2021/scoreboard/20220805-wayback-2ac66981/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Asia-EC-League-Final-2022/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/103861
+    roles:
+    - problemset
+    as_of: '20220803100815'
+    url_state: replaced
+    url_checked: '2026-11-02'
 - id: aec-2022
   season: 2023
   name: 2022 ICPC Asia East Continent Final Contest
@@ -175,14 +257,16 @@ contests:
   - 5537
   parent: wf-2023
   next: aec-2023
-  results:
-    scoreboard:
-    - url: https://board.xcpcio.com/icpc/47th/ec-final
-      as_of: '20231202044147'
-      note: added by url-hunt 2026-09-01 (wave3-xcpcio)
-      url_state: changed
-      url_checked: '2026-11-02'
-      archived: aec/aec-2022/scoreboard/20231202-wayback-606e710e/page.html
+  sources:
+  - url: https://board.xcpcio.com/icpc/47th/ec-final
+    roles:
+    - scoreboard
+    as_of: '20231202044147'
+    archived:
+    - aec/aec-2022/scoreboard/20231202-wayback-606e710e/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-xcpcio)
 - id: aec-2023
   season: 2024
   name: 2023 ICPC Asia East Continent Final Contest
@@ -192,13 +276,21 @@ contests:
   - 7694
   parent: wf-2024
   next: aec-2024
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/104639/standings
-      archived: aec/aec-2023/scoreboard/2026-09-01-live-265859f2/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-  problemset: https://codeforces.com/gym/104639
+  sources:
+  - url: https://codeforces.com/gym/104639/standings
+    roles:
+    - scoreboard
+    as_of: '20231208085104'
+    archived:
+    - aec/aec-2023/scoreboard/2026-09-01-live-265859f2/page.html
+    - aec/aec-2023/scoreboard/20231208-wayback-5d10c35d/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://codeforces.com/gym/104639
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: aec-2024
   season: 2025
   name: 2024 ICPC Asia East Continent Final Contest
@@ -208,16 +300,20 @@ contests:
   - 9017
   parent: wf-2025
   next: aec-2025
-  icpc_standings: https://icpc.global/regionals/finder/Xian-2025/standings
-  results:
-    standings:
-    - url: http://http/icpc.nwpu.edu.cn
-      as_of: '20200204013939'
-      archived: aec/aec-2024/external-standings/2026-04-15-external/content.cn
-      note: 'from archived capture (external-standings); snapshot verified at a different locator: http://icpc.nwpu.edu.cn/'
-      url_state: dead
-      url_checked: '2026-11-02'
-  web: http://http:/icpc.nwpu.edu.cn
+  sources:
+  - url: http://http:/icpc.nwpu.edu.cn
+    roles:
+    - web
+    - standings
+    as_of: '20200204013939'
+    archived:
+    - aec/aec-2024/external-standings/2026-04-15-external/content.cn
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 'from archived capture (external-standings); snapshot verified at a different locator: http://icpc.nwpu.edu.cn/'
+  - url: https://icpc.global/regionals/finder/Xian-2025/standings
+    roles:
+    - icpc_standings
 - id: aec-2025
   season: 2026
   name: 2025 ICPC Asia East Continent Final Contest
@@ -227,14 +323,16 @@ contests:
   - 9217
   parent: wf-2026
   next: aec-2026
-  results:
-    scoreboard:
-    - url: https://board.xcpcio.com/icpc/50th/ecfinal
-      as_of: '20260201123847'
-      note: added by url-hunt 2026-09-01 (wave3-xcpcio)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: aec/aec-2025/scoreboard/20260201-wayback-4a6983fe/page.html
+  sources:
+  - url: https://board.xcpcio.com/icpc/50th/ecfinal
+    roles:
+    - scoreboard
+    as_of: '20260201123847'
+    archived:
+    - aec/aec-2025/scoreboard/20260201-wayback-4a6983fe/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-xcpcio)
 - id: aec-2026
   status: upcoming
   season: 2027

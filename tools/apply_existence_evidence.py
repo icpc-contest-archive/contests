@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Append existence-hunt evidence to the `sources:` list of catalogue contests.
+"""Append existence-hunt evidence to the `provenance:` list of catalogue contests.
 
 Reads data/existence-evidence-<date>.json (output of the 2026-10-22 existence hunt) and, for
-every contest whose verdict is one of --verdicts, appends its proposed `sources:` lines to the
-contest record in series/<series>.yaml — never touching any other field, never duplicating a
-line whose URL is already present in that contest's sources/notes. Dates, hosts and winners
+every contest whose verdict is one of --verdicts, appends its proposed provenance lines (the
+hunt's JSON still calls them `proposed_sources_lines`) to the contest record in
+series/<series>.yaml — never touching any other field, never duplicating a line whose URL is
+already present in that contest's provenance/notes. Dates, hosts and winners
 found by the hunt are NOT applied (they are listed in the report for manual review).
 
 Run from the contests repo root:
@@ -20,16 +21,10 @@ import re
 from collections import Counter
 from pathlib import Path
 
-import yaml
-
 ROOT = Path(__file__).resolve().parent.parent
-
-
-class Dumper(yaml.SafeDumper):
-    pass
-
-
-Dumper.add_representer(type(None), lambda d, v: d.represent_scalar("tag:yaml.org,2002:null", "null"))
+import sys  # noqa: E402
+sys.path.insert(0, str(ROOT / "tools"))
+from catalogue import dump_series, load_series  # noqa: E402
 
 URL_RE = re.compile(r"https?://\S+")
 
@@ -48,14 +43,13 @@ def main() -> int:
               if c["verdict"] in verdicts and c.get("proposed_sources_lines")}
 
     stats = Counter()
-    for f in sorted((ROOT / "series").glob("*.yaml")):
-        sdoc = yaml.safe_load(f.read_text())
+    for sid, sdoc in load_series().items():
         changed = False
         for c in sdoc["contests"]:
             e = wanted.get(c["id"])
             if not e:
                 continue
-            have = " ".join(c.get("sources") or []) + " " + str(c.get("notes") or "")
+            have = " ".join(c.get("provenance") or []) + " " + str(c.get("notes") or "")
             have_urls = set(URL_RE.findall(have))
             added = 0
             for line in e["proposed_sources_lines"]:
@@ -65,7 +59,7 @@ def main() -> int:
                 if urls and all(u.rstrip(".,)") in have_urls for u in urls):
                     stats["dup"] += 1
                     continue
-                c.setdefault("sources", []).append(line)
+                c.setdefault("provenance", []).append(line)
                 have_urls.update(u.rstrip(".,)") for u in urls)
                 added += 1
                 stats["added"] += 1
@@ -78,9 +72,7 @@ def main() -> int:
                         c["notes"] = ((c.get("notes") or "") + ("; " if c.get("notes") else "") + note)
                         changed = True
         if changed and not args.dry_run:
-            header = ("# Maintained in-repo; last bulk edit: tools/apply_existence_evidence.py "
-                      "(existence hunt 2026-10-22).\n")
-            f.write_text(header + yaml.dump(sdoc, Dumper=Dumper, sort_keys=False, allow_unicode=True, width=100))
+            dump_series(sid, sdoc, "apply_existence_evidence.py (existence hunt 2026-10-22)")
             stats["files"] += 1
     print(dict(stats), "(dry run)" if args.dry_run else "")
     return 0

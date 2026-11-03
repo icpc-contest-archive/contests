@@ -1,7 +1,10 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_candidates.py (url-hunt 2026-09-01).
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: india
   name: ACM-ICPC Asia India-FINAL Contest
+  tier: regional
+  region: Asia West
+  naming: season-start
 contests:
 - id: india-2016
   season: 2017
@@ -12,8 +15,17 @@ contests:
   - 3218
   parent: wf-2017
   next: null
-  web: http://icpcindiafinal.in
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/AR-India-FINAL-2017/standings
-    archived: india/india-2016/standings/2026-09-01-live-b7a9517a/page.html
-  problemset: https://www.codechef.com/ACM16INF
+  sources:
+  - url: http://icpcindiafinal.in
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/AR-India-FINAL-2017/standings
+    roles:
+    - icpc_standings
+    archived:
+    - india/india-2016/standings/2026-09-01-live-b7a9517a/page.html
+  - url: https://www.codechef.com/ACM16INF
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'

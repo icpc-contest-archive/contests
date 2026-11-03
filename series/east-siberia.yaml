@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: east-siberia
   name: ICPC East Siberian Regional Contest
+  tier: subregional
+  region: Northern Eurasia
+  naming: season-start
 contests:
 - id: east-siberia-2000
   season: 2001
@@ -9,135 +12,194 @@ contests:
   cms_ids: []
   parent: neerc-2000
   next: east-siberia-2001
-  web: https://ikit.sfu-kras.ru/olimp/acm/2000
-  results:
-    rankings:
-    - url: https://ikit.sfu-kras.ru/olimp/acm/2000
-      as_of: '20170307203904'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: east-siberia/east-siberia-2000/rankings/20170307-wayback-337d2dec/page.html
+  sources:
+  - url: https://ikit.sfu-kras.ru/olimp/acm/2000
+    roles:
+    - web
+    - rankings
+    as_of: '20170307203904'
+    archived:
+    - east-siberia/east-siberia-2000/rankings/20170307-wayback-337d2dec/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
 - id: east-siberia-2001
   season: 2002
   name: 2001 East Siberian Subregional Contest
   cms_ids: []
   parent: neerc-2001
   next: east-siberia-2002
-  web: https://ikit.sfu-kras.ru/olimp/acm/2001
-  results:
-    standings:
-    - url: https://ikit.sfu-kras.ru/sites/default/files/page_files/rezultaty_chetvert_finala_mezhdunarodnoy_olimpiady_po_programmirovaniyu.pdf
-      url_state: dead
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://ikit.sfu-kras.ru/olimp/acm/2001
+    roles:
+    - web
+  - url: https://ikit.sfu-kras.ru/sites/default/files/page_files/rezultaty_chetvert_finala_mezhdunarodnoy_olimpiady_po_programmirovaniyu.pdf
+    roles:
+    - standings
+    url_state: dead
+    url_checked: '2026-11-02'
 - id: east-siberia-2002
   season: 2003
   name: 2002 East Siberian Subregional Contest
   cms_ids: []
   parent: neerc-2002
   next: east-siberia-2003
-  results:
-    standings:
-    - url: http://neerc.ifmo.ru/Subregions/east-siberian.html
-      as_of: '20020124225143'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: east-siberia/east-siberia-2002/standings/2026-09-01-wayback-b8e7a14d/east-siberian.html
-  web: https://ikit.sfu-kras.ru/olimp/acm/2002
+  sources:
+  - url: https://ikit.sfu-kras.ru/olimp/acm/2002
+    roles:
+    - web
+  - url: http://neerc.ifmo.ru/Subregions/east-siberian.html
+    roles:
+    - standings
+    as_of: '20020124225143'
+    archived:
+    - east-siberia/east-siberia-2002/standings/2026-09-01-wayback-b8e7a14d/east-siberian.html
+    url_state: dead
+    url_checked: '2026-11-02'
 - id: east-siberia-2003
   season: 2004
   name: 2003 East Siberian Subregional Contest
   cms_ids: []
   parent: neerc-2003
   next: east-siberia-2004
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2003/east-siberian/standings.html
-      archived: east-siberia/east-siberia-2003/standings/2026-09-01-live-58886581/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2003/east-siberian/standings.html
-      as_of: '20171011160746'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: east-siberia/east-siberia-2003/standings/20171011-wayback-d095a4e3/standings.html
-  web: https://ikit.sfu-kras.ru/olimp/acm/2003
+  sources:
+  - url: https://ikit.sfu-kras.ru/olimp/acm/2003
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2003/east-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20220122050107'
+    archived:
+    - east-siberia/east-siberia-2003/standings/2026-09-01-live-58886581/standings.html
+    - east-siberia/east-siberia-2003/standings/20220122-wayback-e95d0bc2/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2003/east-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20171011160746'
+    archived:
+    - east-siberia/east-siberia-2003/standings/20171011-wayback-d095a4e3/standings.html
+    - east-siberia/east-siberia-2003/standings/20260904-live-16f896cc/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: east-siberia-2004
   season: 2005
   name: 2004 East Siberian Subregional Contest
   cms_ids: []
   parent: neerc-2004
   next: east-siberia-2005
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2004/east-siberian/standings.html
-      archived: east-siberia/east-siberia-2004/standings/2026-09-01-live-a386bbc3/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2004/east-siberian/standings.html
-      as_of: '20171011161718'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: east-siberia/east-siberia-2004/standings/20171011-wayback-79546cae/standings.html
-  web: https://ikit.sfu-kras.ru/olimp/acm/2004
+  sources:
+  - url: https://ikit.sfu-kras.ru/olimp/acm/2004
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2004/east-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20260613062702'
+    archived:
+    - east-siberia/east-siberia-2004/standings/2026-09-01-live-a386bbc3/standings.html
+    - east-siberia/east-siberia-2004/standings/20260613-wayback-18d8ef7b/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2004/east-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20171011161718'
+    archived:
+    - east-siberia/east-siberia-2004/standings/20171011-wayback-79546cae/standings.html
+    - east-siberia/east-siberia-2004/standings/20260904-live-78926403/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: east-siberia-2005
   season: 2006
   name: 2005 East Siberian Subregional Contest
   cms_ids: []
   parent: neerc-2005
   next: east-siberia-2006
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2005/east-siberian/standings.html
-      archived: east-siberia/east-siberia-2005/standings/2026-09-01-live-7b3739c1/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2005/east-siberian/standings.html
-      as_of: '20161209013601'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: east-siberia/east-siberia-2005/standings/20161209-wayback-7c8cd5c1/standings.html
-  web: https://ikit.sfu-kras.ru/olimp/acm/2005
+  sources:
+  - url: https://ikit.sfu-kras.ru/olimp/acm/2005
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2005/east-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20220122050947'
+    archived:
+    - east-siberia/east-siberia-2005/standings/2026-09-01-live-7b3739c1/standings.html
+    - east-siberia/east-siberia-2005/standings/20220122-wayback-632d3f48/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2005/east-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20161209013601'
+    archived:
+    - east-siberia/east-siberia-2005/standings/20161209-wayback-7c8cd5c1/standings.html
+    - east-siberia/east-siberia-2005/standings/20260904-live-50af4424/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: east-siberia-2006
   season: 2007
   name: 2006 East Siberian Subregional Contest
   cms_ids: []
   parent: neerc-2006
   next: east-siberia-2007
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2006/east-siberian/standings.html
-      archived: east-siberia/east-siberia-2006/standings/2026-09-01-live-17b77e01/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2006/east-siberian/standings.html
-      as_of: '20171011160820'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: east-siberia/east-siberia-2006/standings/20171011-wayback-0d5dd2b1/standings.html
-  web: https://ikit.sfu-kras.ru/olimp/acm/2006
+  sources:
+  - url: https://ikit.sfu-kras.ru/olimp/acm/2006
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2006/east-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20230322031913'
+    archived:
+    - east-siberia/east-siberia-2006/standings/2026-09-01-live-17b77e01/standings.html
+    - east-siberia/east-siberia-2006/standings/20230322-wayback-a0c89975/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2006/east-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20171011160820'
+    archived:
+    - east-siberia/east-siberia-2006/standings/20171011-wayback-0d5dd2b1/standings.html
+    - east-siberia/east-siberia-2006/standings/20261020-live-8efc5608/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: east-siberia-2007
   season: 2008
   name: 2007 East Siberian Subregional Contest
   cms_ids: []
   parent: neerc-2007
   next: east-siberia-2008
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2007/east-siberian/standings.html
-      archived: east-siberia/east-siberia-2007/standings/2026-09-01-live-e85a5b9d/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2007/east-siberian/standings.html
-      as_of: '20171011160825'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: east-siberia/east-siberia-2007/standings/20171011-wayback-e590f8a6/standings.html
-  web: https://ikit.sfu-kras.ru/olimp/acm/2007
+  sources:
+  - url: https://ikit.sfu-kras.ru/olimp/acm/2007
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2007/east-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20260613055544'
+    archived:
+    - east-siberia/east-siberia-2007/standings/2026-09-01-live-e85a5b9d/standings.html
+    - east-siberia/east-siberia-2007/standings/20260613-wayback-22ed53c3/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2007/east-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20171011160825'
+    archived:
+    - east-siberia/east-siberia-2007/standings/20171011-wayback-e590f8a6/standings.html
+    - east-siberia/east-siberia-2007/standings/20261020-live-b93fb2fe/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: east-siberia-2008
   season: 2009
   name: 2008 East Siberian Subregional Contest
@@ -147,20 +209,32 @@ contests:
   - 71
   parent: neerc-2008
   next: east-siberia-2009
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2008/east-siberian/standings.html
-      archived: east-siberia/east-siberia-2008/standings/2026-09-01-live-c44a0d58/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2008/east-siberian/standings.html
-      as_of: '20171011161738'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: east-siberia/east-siberia-2008/standings/20171011-wayback-885bee7d/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/East-Siberian-Subregional-2009/standings
-  web: https://ikit.sfu-kras.ru/olimp/acm/2008
+  sources:
+  - url: https://ikit.sfu-kras.ru/olimp/acm/2008
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2008/east-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20260610221229'
+    archived:
+    - east-siberia/east-siberia-2008/standings/2026-09-01-live-c44a0d58/standings.html
+    - east-siberia/east-siberia-2008/standings/20260610-wayback-790d80d5/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2008/east-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20171011161738'
+    archived:
+    - east-siberia/east-siberia-2008/standings/20171011-wayback-885bee7d/standings.html
+    - east-siberia/east-siberia-2008/standings/20261020-live-9b54324e/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/East-Siberian-Subregional-2009/standings
+    roles:
+    - icpc_standings
 - id: east-siberia-2009
   season: 2010
   name: 2009 East Siberian Subregional Contest
@@ -170,20 +244,29 @@ contests:
   - 536
   parent: neerc-2009
   next: east-siberia-2010
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2009/east-siberian/standings.html
-      archived: east-siberia/east-siberia-2009/scoreboard/2026-09-01-live-47b6549e/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2009/east-siberian/standings.html
-      as_of: '20161117020659'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: east-siberia/east-siberia-2009/standings/20161117-wayback-8f7b7d7a/standings.html
-  web: https://ikit.sfu-kras.ru/olimp/acm/2009
+  sources:
+  - url: https://ikit.sfu-kras.ru/olimp/acm/2009
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2009/east-siberian/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260610151515'
+    archived:
+    - east-siberia/east-siberia-2009/scoreboard/2026-09-01-live-47b6549e/standings.html
+    - east-siberia/east-siberia-2009/scoreboard/20260610-wayback-bbcc0222/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2009/east-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20161117020659'
+    archived:
+    - east-siberia/east-siberia-2009/standings/20161117-wayback-8f7b7d7a/standings.html
+    - east-siberia/east-siberia-2009/standings/20261020-live-94822b63/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: east-siberia-2010
   season: 2011
   name: 2010 East Siberian Subregional Contest
@@ -192,19 +275,29 @@ contests:
   - 630
   parent: neerc-2010
   next: east-siberia-2011
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2010/east-siberian/standings.html
-      archived: east-siberia/east-siberia-2010/standings/2026-09-01-live-13cf571c/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2010/east-siberian/standings.html
-      as_of: '20171011160855'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: east-siberia/east-siberia-2010/standings/20171011-wayback-14f8fb04/standings.html
-  web: https://ikit.sfu-kras.ru/olimp/acm/2010
+  sources:
+  - url: https://ikit.sfu-kras.ru/olimp/acm/2010
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2010/east-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20230322022942'
+    archived:
+    - east-siberia/east-siberia-2010/standings/2026-09-01-live-13cf571c/standings.html
+    - east-siberia/east-siberia-2010/standings/20230322-wayback-b51023c5/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2010/east-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20171011160855'
+    archived:
+    - east-siberia/east-siberia-2010/standings/20171011-wayback-14f8fb04/standings.html
+    - east-siberia/east-siberia-2010/standings/20261020-live-94ccfa70/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: east-siberia-2011
   season: 2012
   name: 2011 East Siberian Subregional Contest
@@ -214,18 +307,27 @@ contests:
   - 762
   parent: neerc-2011
   next: east-siberia-2012
-  results:
-    scoreboard:
-    - url: https://ikit.sfu-kras.ru/sites/default/files/page_files/acm_programmming_contest_2011_east-siberian_quarterfinals.pdf
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nerc.itmo.ru/archive/2011/east-siberian/standings.html
-      archived: east-siberia/east-siberia-2011/standings/2026-09-01-live-0e2b7071/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/East-Siberian-Subregional-2012/standings
-  web: https://ikit.sfu-kras.ru/olimp/acm/2011
+  sources:
+  - url: https://ikit.sfu-kras.ru/olimp/acm/2011
+    roles:
+    - web
+  - url: https://ikit.sfu-kras.ru/sites/default/files/page_files/acm_programmming_contest_2011_east-siberian_quarterfinals.pdf
+    roles:
+    - scoreboard
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2011/east-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20260610145649'
+    archived:
+    - east-siberia/east-siberia-2011/standings/2026-09-01-live-0e2b7071/standings.html
+    - east-siberia/east-siberia-2011/standings/20260610-wayback-989d6952/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/East-Siberian-Subregional-2012/standings
+    roles:
+    - icpc_standings
 - id: east-siberia-2012
   season: 2013
   name: 2012 East Siberian Subregional Contest
@@ -235,21 +337,32 @@ contests:
   - 1304
   parent: neerc-2012
   next: east-siberia-2013
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2012/east-siberian/standings.html
-      archived: east-siberia/east-siberia-2012/scoreboard/2026-09-01-live-aedee791/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2012/east-siberian/standings.html
-      as_of: '20161031081811'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: east-siberia/east-siberia-2012/standings/20161031-wayback-26127ba0/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/East-Siberian-Subregional-2013/standings
-  web: https://ikit.sfu-kras.ru/olimp/acm/2012
+  sources:
+  - url: https://ikit.sfu-kras.ru/olimp/acm/2012
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2012/east-siberian/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260610154525'
+    archived:
+    - east-siberia/east-siberia-2012/scoreboard/2026-09-01-live-aedee791/standings.html
+    - east-siberia/east-siberia-2012/scoreboard/20260610-wayback-3f7d75d6/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2012/east-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20161031081811'
+    archived:
+    - east-siberia/east-siberia-2012/standings/20161031-wayback-26127ba0/standings.html
+    - east-siberia/east-siberia-2012/standings/20261020-live-252c4128/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/East-Siberian-Subregional-2013/standings
+    roles:
+    - icpc_standings
 - id: east-siberia-2013
   season: 2014
   name: 2013 East Siberian Subregional Contest
@@ -259,20 +372,29 @@ contests:
   - 2039
   parent: neerc-2013
   next: east-siberia-2014
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2013/east-siberian/standings.html
-      archived: east-siberia/east-siberia-2013/scoreboard/2026-09-01-live-bfe98923/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2013/east-siberian/standings.html
-      as_of: '20161031215140'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: east-siberia/east-siberia-2013/standings/20161031-wayback-eb8f4a43/standings.html
-  web: https://ikit.sfu-kras.ru/olimp/acm/2013
+  sources:
+  - url: https://ikit.sfu-kras.ru/olimp/acm/2013
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2013/east-siberian/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260610212332'
+    archived:
+    - east-siberia/east-siberia-2013/scoreboard/2026-09-01-live-bfe98923/standings.html
+    - east-siberia/east-siberia-2013/scoreboard/20260610-wayback-f2cf1551/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2013/east-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20161031215140'
+    archived:
+    - east-siberia/east-siberia-2013/standings/20161031-wayback-eb8f4a43/standings.html
+    - east-siberia/east-siberia-2013/standings/20261020-live-3fe7b7e6/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: east-siberia-2014
   season: 2015
   name: 2014 East Siberian Subregional Contest
@@ -282,22 +404,37 @@ contests:
   - 2685
   parent: neerc-2014
   next: east-siberia-2015
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2014/east-siberian/standings.html
-      archived: east-siberia/east-siberia-2014/scoreboard/2026-09-01-live-13239e6b/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2014/east-siberian/standings.html
-      as_of: '20161031082552'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: east-siberia/east-siberia-2014/standings/20161031-wayback-1e85344a/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/East-Siberian-Subregional-2015/standings
-  web: https://ikit.sfu-kras.ru/olimp/acm/2014
-  problemset: https://codeforces.com/gym/101961
+  sources:
+  - url: https://ikit.sfu-kras.ru/olimp/acm/2014
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2014/east-siberian/standings.html
+    roles:
+    - scoreboard
+    as_of: '20220122062032'
+    archived:
+    - east-siberia/east-siberia-2014/scoreboard/2026-09-01-live-13239e6b/standings.html
+    - east-siberia/east-siberia-2014/scoreboard/20220122-wayback-305e246d/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2014/east-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20161031082552'
+    archived:
+    - east-siberia/east-siberia-2014/standings/20161031-wayback-1e85344a/standings.html
+    - east-siberia/east-siberia-2014/standings/20260904-live-b434070b/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/East-Siberian-Subregional-2015/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/101961
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: east-siberia-2015
   season: 2016
   name: 2015 East Siberian Subregional Contest
@@ -307,21 +444,32 @@ contests:
   - 2764
   parent: neerc-2015
   next: east-siberia-2016
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2015/east-siberian/standings.html
-      archived: east-siberia/east-siberia-2015/scoreboard/2026-09-01-live-c30fb950/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2015/east-siberian/standings.html
-      as_of: '20161031081031'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: east-siberia/east-siberia-2015/standings/20161031-wayback-c8729bbf/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/East-Siberian-Subregional-2016/standings
-  web: https://ikit.sfu-kras.ru/olimp/acm/2015
+  sources:
+  - url: https://ikit.sfu-kras.ru/olimp/acm/2015
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2015/east-siberian/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260613055827'
+    archived:
+    - east-siberia/east-siberia-2015/scoreboard/2026-09-01-live-c30fb950/standings.html
+    - east-siberia/east-siberia-2015/scoreboard/20260613-wayback-3d12b080/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2015/east-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20161031081031'
+    archived:
+    - east-siberia/east-siberia-2015/standings/20161031-wayback-c8729bbf/standings.html
+    - east-siberia/east-siberia-2015/standings/20260904-live-c6e207b3/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/East-Siberian-Subregional-2016/standings
+    roles:
+    - icpc_standings
 - id: east-siberia-2016
   season: 2017
   name: 2016 East Siberian Subregional Contest
@@ -331,22 +479,37 @@ contests:
   - 3150
   parent: neerc-2016
   next: east-siberia-2017
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2016/east-siberian/standings.html
-      archived: east-siberia/east-siberia-2016/scoreboard/2026-09-01-live-e6c6aa00/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2016/east-siberian/standings.html
-      as_of: '20171011161823'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: east-siberia/east-siberia-2016/standings/20171011-wayback-a7321c55/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/East-Siberian-Subregional-2017/standings
-  web: https://ikit.sfu-kras.ru/olimp/acm/2016
-  problemset: https://codeforces.com/gym/101585
+  sources:
+  - url: https://ikit.sfu-kras.ru/olimp/acm/2016
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2016/east-siberian/standings.html
+    roles:
+    - scoreboard
+    as_of: '20191213083233'
+    archived:
+    - east-siberia/east-siberia-2016/scoreboard/2026-09-01-live-e6c6aa00/standings.html
+    - east-siberia/east-siberia-2016/scoreboard/20191213-wayback-5ee19602/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2016/east-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20171011161823'
+    archived:
+    - east-siberia/east-siberia-2016/standings/20171011-wayback-a7321c55/standings.html
+    - east-siberia/east-siberia-2016/standings/20260904-live-5ff7e3ae/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/East-Siberian-Subregional-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/101585
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: east-siberia-2017
   season: 2018
   name: 2017 East Siberian Subregional Contest
@@ -356,22 +519,37 @@ contests:
   - 3295
   parent: nerc-2017
   next: east-siberia-2018
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2017/east-siberian/standings.html
-      archived: east-siberia/east-siberia-2017/scoreboard/2026-09-01-live-07456965/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2017/east-siberian/standings.html
-      as_of: '20180920232552'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: east-siberia/east-siberia-2017/standings/20180920-wayback-fb3d3936/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/East-Siberian-Subregional-2018/standings
-  web: https://ikit.sfu-kras.ru/olimp/acm/2017
-  problemset: https://codeforces.com/gym/101590
+  sources:
+  - url: https://ikit.sfu-kras.ru/olimp/acm/2017
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2017/east-siberian/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260613060455'
+    archived:
+    - east-siberia/east-siberia-2017/scoreboard/2026-09-01-live-07456965/standings.html
+    - east-siberia/east-siberia-2017/scoreboard/20260613-wayback-e703d49f/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2017/east-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20180920232552'
+    archived:
+    - east-siberia/east-siberia-2017/standings/20180920-wayback-fb3d3936/standings.html
+    - east-siberia/east-siberia-2017/standings/20260904-live-42c72eb6/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/East-Siberian-Subregional-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/101590
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: east-siberia-2018
   season: 2019
   name: 2018 East Siberian Subregional Contest
@@ -381,14 +559,22 @@ contests:
   - 3684
   parent: nerc-2018
   next: east-siberia-2019
-  results:
-    scoreboard:
-    - url: https://contest.yandex.ru/contest/9267/standings
-      archived: east-siberia/east-siberia-2018/scoreboard/2026-09-01-live-2845bef4/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  web: https://ikit.sfu-kras.ru/olimp/acm/2018
-  problemset: https://codeforces.com/gym/102139
+  sources:
+  - url: https://ikit.sfu-kras.ru/olimp/acm/2018
+    roles:
+    - web
+  - url: https://contest.yandex.ru/contest/9267/standings
+    roles:
+    - scoreboard
+    archived:
+    - east-siberia/east-siberia-2018/scoreboard/2026-09-01-live-2845bef4/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://codeforces.com/gym/102139
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: east-siberia-2019
   season: 2020
   name: 2019 East Siberian Regional Contest
@@ -398,31 +584,41 @@ contests:
   - 4192
   parent: nerc-2019
   next: east-siberia-2020
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2019/east-siberian/standings.html
-      as_of: '20260613060845'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: east-siberia/east-siberia-2019/scoreboard/20260613-wayback-49038278/standings.html
-    - url: https://contest.yandex.ru/contest/14276/standings
-      as_of: '20191215214933'
-      archived: east-siberia/east-siberia-2019/scoreboard/2026-09-01-wayback-7cc164cf/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    - url: https://contest.yandex.ru/contest/14276/standings
-      archived: east-siberia/east-siberia-2019/scoreboard/2026-09-01-live-2448bc00/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2019/east-siberian/standings.html
-      as_of: '20230321195545'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: east-siberia/east-siberia-2019/standings/20230321-wayback-67f02ec4/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/East-Siberian-Regional-2020/standings
-  web: https://ikit.sfu-kras.ru/olimp/acm/2019
+  sources:
+  - url: https://ikit.sfu-kras.ru/olimp/acm/2019
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2019/east-siberian/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260613060845'
+    archived:
+    - east-siberia/east-siberia-2019/scoreboard/20260613-wayback-49038278/standings.html
+    - east-siberia/east-siberia-2019/scoreboard/20260904-live-ddb6def7/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://contest.yandex.ru/contest/14276/standings
+    roles:
+    - scoreboard
+    as_of: '20191215214933'
+    archived:
+    - east-siberia/east-siberia-2019/scoreboard/2026-09-01-wayback-7cc164cf/page.html
+    - east-siberia/east-siberia-2019/scoreboard/2026-09-01-live-2448bc00/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2019/east-siberian/standings.html
+    roles:
+    - standings
+    as_of: '20230321195545'
+    archived:
+    - east-siberia/east-siberia-2019/standings/20230321-wayback-67f02ec4/standings.html
+    - east-siberia/east-siberia-2019/standings/20260904-live-f218e1ea/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/East-Siberian-Regional-2020/standings
+    roles:
+    - icpc_standings
 - id: east-siberia-2020
   season: 2021
   name: 2020 East Siberian Regional Contest
@@ -432,15 +628,27 @@ contests:
   - 4565
   parent: nerc-2020
   next: east-siberia-2021
-  results:
-    scoreboard:
-    - url: https://contest.yandex.ru/contest/20851/standings
-      archived: east-siberia/east-siberia-2020/scoreboard/2026-09-01-live-8fac88e5/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/East-Siberian-Regional-2021/standings
-  web: https://ikit.sfu-kras.ru/olimp/acm/2020
-  problemset: https://codeforces.com/gym/103411
+  sources:
+  - url: https://ikit.sfu-kras.ru/olimp/acm/2020
+    roles:
+    - web
+  - url: https://contest.yandex.ru/contest/20851/standings
+    roles:
+    - scoreboard
+    as_of: '20201203015704'
+    archived:
+    - east-siberia/east-siberia-2020/scoreboard/2026-09-01-live-8fac88e5/page.html
+    - east-siberia/east-siberia-2020/scoreboard/20201203-wayback-f2aceb20/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/East-Siberian-Regional-2021/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/103411
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: east-siberia-2021
   season: 2022
   name: 2021 ICPC East Siberian Regional Contest
@@ -450,14 +658,23 @@ contests:
   - 4950
   parent: nerc-2021
   next: east-siberia-2022
-  results:
-    scoreboard:
-    - url: https://contest.yandex.ru/contest/31850/standings
-      archived: east-siberia/east-siberia-2021/external-standings/2026-04-15-external/content.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/East-Siberian-Regional-2022/standings
-  web: https://ikit.sfu-kras.ru/olimp/icpc/2021
+  sources:
+  - url: https://ikit.sfu-kras.ru/olimp/icpc/2021
+    roles:
+    - web
+  - url: https://contest.yandex.ru/contest/31850/standings
+    roles:
+    - scoreboard
+    as_of: '20211122174407'
+    archived:
+    - east-siberia/east-siberia-2021/external-standings/2026-04-15-external/content.html
+    - east-siberia/east-siberia-2021/scoreboard/20211122-wayback-92402507/page.html
+    - east-siberia/east-siberia-2021/scoreboard/20260901-live-10e6ade2/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/East-Siberian-Regional-2022/standings
+    roles:
+    - icpc_standings
 - id: east-siberia-2022
   season: 2023
   name: 2022 ICPC East Siberian Regional Contest
@@ -467,13 +684,17 @@ contests:
   - 5588
   parent: nerc-2022
   next: east-siberia-2023
-  results:
-    scoreboard:
-    - url: https://contest.yandex.ru/contest/43400/standings
-      archived: east-siberia/east-siberia-2022/scoreboard/2026-09-01-live-52a1fcf3/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/East-Siberian-Regional-2023/standings
+  sources:
+  - url: https://contest.yandex.ru/contest/43400/standings
+    roles:
+    - scoreboard
+    archived:
+    - east-siberia/east-siberia-2022/scoreboard/2026-09-01-live-52a1fcf3/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/East-Siberian-Regional-2023/standings
+    roles:
+    - icpc_standings
 - id: east-siberia-2023
   season: 2024
   name: 2023 ICPC East Siberian Regional Contest
@@ -483,14 +704,22 @@ contests:
   - 7746
   parent: nerc-2023
   next: east-siberia-2024
-  results:
-    scoreboard:
-    - url: https://contest.yandex.ru/contest/52945/standings
-      archived: east-siberia/east-siberia-2023/scoreboard/2026-09-01-live-b49ea29b/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/East-Siberian-Regional-2024/standings
-  web: https://ikit.sfu-kras.ru/olimp/icpc
+  sources:
+  - url: https://ikit.sfu-kras.ru/olimp/icpc
+    roles:
+    - web
+  - url: https://contest.yandex.ru/contest/52945/standings
+    roles:
+    - scoreboard
+    as_of: '20231227120446'
+    archived:
+    - east-siberia/east-siberia-2023/scoreboard/2026-09-01-live-b49ea29b/page.html
+    - east-siberia/east-siberia-2023/scoreboard/20231227-wayback-88691a74/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/East-Siberian-Regional-2024/standings
+    roles:
+    - icpc_standings
 - id: east-siberia-2024
   season: 2025
   name: 2024 ICPC East Siberian Regional Contest
@@ -500,14 +729,22 @@ contests:
   - 8908
   parent: nerc-2024
   next: east-siberia-2025
-  results:
-    scoreboard:
-    - url: https://contest.yandex.ru/contest/71026/standings/
-      archived: east-siberia/east-siberia-2024/scoreboard/2026-09-01-live-48dbf08e/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/East-Siberian-Regional-2025/standings
-  web: https://ikit.sfu-kras.ru/olimp/icpc
+  sources:
+  - url: https://ikit.sfu-kras.ru/olimp/icpc
+    roles:
+    - web
+  - url: https://contest.yandex.ru/contest/71026/standings/
+    roles:
+    - scoreboard
+    as_of: '20250122050028'
+    archived:
+    - east-siberia/east-siberia-2024/scoreboard/2026-09-01-live-48dbf08e/page.html
+    - east-siberia/east-siberia-2024/scoreboard/20250122-wayback-3f55cce2/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/East-Siberian-Regional-2025/standings
+    roles:
+    - icpc_standings
 - id: east-siberia-2025
   season: 2026
   name: 2025 ICPC East Siberian Regional Contest
@@ -517,11 +754,16 @@ contests:
   - 9181
   parent: nerc-2025
   next: east-siberia-2026
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/East-Siberian-Regional-2026/standings
-    archived: east-siberia/east-siberia-2025/standings/api-20260904/standings.html
+  sources:
+  - url: https://ikit.sfu-kras.ru/olimp/icpc
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/East-Siberian-Regional-2026/standings
+    roles:
+    - icpc_standings
+    archived:
+    - east-siberia/east-siberia-2025/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 9181, 45 teams, DB fetch 2026-04-26)
-  web: https://ikit.sfu-kras.ru/olimp/icpc
 - id: east-siberia-2026
   status: upcoming
   season: 2027

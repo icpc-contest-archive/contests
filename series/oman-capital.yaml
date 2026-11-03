@@ -1,7 +1,10 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_candidates.py (url-hunt 2026-09-01).
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: oman-capital
   name: ICPC Oman Capital Sub-region Collegiate Programming Contest
+  tier: subregional
+  region: Africa & Arab
+  naming: season-start
 contests:
 - id: oman-capital-2025
   season: 2026
@@ -11,12 +14,14 @@ contests:
   cms_ids:
   - 9310
   parent: oman-2025
-  notes: '80 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   next: oman-capital-2026
-  web: https://icpc.global/regionals/finder/OCPCCap-2026
-  mirrors:
-  - url: https://www.facebook.com/SultanateOfOmanCPC/
-    note: added by url-hunt 2026-09-01 (round9-research)
+  sources:
+  - url: https://icpc.global/regionals/finder/OCPCCap-2026
+    roles:
+    - web
+    also_at:
+    - https://www.facebook.com/SultanateOfOmanCPC/
+  notes: '80 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: oman-capital-2026
   season: 2027
   name: 2026 ICPC Oman Capital Sub-region Collegiate Programming Contest
@@ -25,8 +30,10 @@ contests:
   cms_ids:
   - 9724
   parent: oman-2026
+  sources:
+  - url: https://icpc.global/regionals/finder/OCPCCap-2027
+    roles:
+    - web
+    also_at:
+    - https://www.facebook.com/SultanateOfOmanCPC/
   notes: '64 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
-  web: https://icpc.global/regionals/finder/OCPCCap-2027
-  mirrors:
-  - url: https://www.facebook.com/SultanateOfOmanCPC/
-    note: added by url-hunt 2026-09-01 (round9-research)

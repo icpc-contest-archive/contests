@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: yinchuan
   name: ICPC Asia Yinchuan Regional Contest
+  tier: regional
+  region: Asia East
+  naming: season-start
 contests:
 - id: yinchuan-2019
   season: 2020
@@ -12,13 +15,25 @@ contests:
   - 4211
   parent: wf-2020
   next: null
-  icpc_standings: https://icpc.global/regionals/finder/Yinchuan-2020/standings
-  results:
-    standings:
-    - url: https://codeforces.com/gym/104021/standings
-      note: added by url-hunt 2026-09-01 (agent-asia)
-      archived: yinchuan/yinchuan-2019/standings/2026-09-01-live-1e1e0a25/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-  web: http://xxx.yyy.edu
-  problemset: https://icpcarchive.github.io/Asia%20East%20Continent%20Contests/Yinchuan/2019%20Asia%20Yinchuan%20Regional%20Contest/problems.pdf
+  sources:
+  - url: http://xxx.yyy.edu
+    roles:
+    - web
+  - url: https://codeforces.com/gym/104021/standings
+    roles:
+    - standings
+    as_of: '20221216131343'
+    archived:
+    - yinchuan/yinchuan-2019/standings/2026-09-01-live-1e1e0a25/page.html
+    - yinchuan/yinchuan-2019/standings/20221216-wayback-17fb6584/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (agent-asia)
+  - url: https://icpc.global/regionals/finder/Yinchuan-2020/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Asia%20East%20Continent%20Contests/Yinchuan/2019%20Asia%20Yinchuan%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'

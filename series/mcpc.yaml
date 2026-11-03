@@ -1,25 +1,56 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: mcpc
   name: ICPC North America Mid-Central Regional Contest
+  tier: regional
+  region: North America
+  naming: season-start
 contests:
 - id: mcpc-1992
   season: 1993
+  location: (SMSU era; cs.smsu.edu/~mcpc)
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1993
   next: mcpc-1993
-  location: (SMSU era; cs.smsu.edu/~mcpc)
-  web: https://ciiwiki.ecs.baylor.edu/index.php/History_-_ICPC_1993
+  sources:
+  - url: https://ciiwiki.ecs.baylor.edu/index.php/History_-_ICPC_1993
+    roles:
+    - web
 - id: mcpc-1993
   season: 1994
+  location: (SMSU era; cs.smsu.edu/~mcpc)
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1994
   next: mcpc-1994
-  location: (SMSU era; cs.smsu.edu/~mcpc)
-  web: https://catsofwywop.com/icpc/data/mcpc/2000/browse.html
   sources:
+  - url: https://catsofwywop.com/icpc/data/mcpc/2000/browse.html
+    roles:
+    - web
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidCen/1993/index.html
+    roles:
+    - problemset
+    as_of: '20010220184337'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=454
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211017165647'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2363
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 1993 Mid-Central Regional Programming Contest
+  problems:
+    set: mcpc-1993
+  provenance:
   - 'comp.org.acm: ACM press release 1994-03-09 (1994-03-14): All 15 regional contests held in fall 1993
     (600+ teams, 400 schools). — https://groups.google.com/g/comp.org.acm/c/X7HfCMv1fq4 [existence hunt
     2026-10-22]'
@@ -34,32 +65,29 @@ contests:
     35 teams): ''4 Washington University 5 963'', ''8 University of Central Arkansas 4 499'', ''20 University
     of Kentucky 3 496'' — the Mid-Central region''s qualifiers from the fall-1993 regional. — https://plg.uwaterloo.ca/~gvcormac/acmresults/1994.html
     [existence hunt 2026-10-22]'
-  problems:
-    count: 6
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=454
-        as_of: '20211017165647'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2363
-        note: 1993 Mid-Central Regional Programming Contest
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidCen/1993/index.html
-    as_of: '20010220184337'
 - id: mcpc-1994
   season: 1995
+  location: (SMSU era; cs.smsu.edu/~mcpc)
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1995
   next: mcpc-1995
-  location: (SMSU era; cs.smsu.edu/~mcpc)
-  web: https://catsofwywop.com/icpc/data/mcpc/2000/browse.html
   sources:
+  - url: https://catsofwywop.com/icpc/data/mcpc/2000/browse.html
+    roles:
+    - web
+  - url: https://www.acmicpc.net/category/detail/2362
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      1994 Mid-Central Regional Programming Contest
+  problems:
+    set: mcpc-1994
+  provenance:
   - 'comp.org.acm: Radev, ''ACM''95 Finals Participants'' (1995-01-13): ''MID-CENTRAL — Washington University;
     University of Central Arkansas; Northern Kentucky University''. — https://groups.google.com/g/comp.org.acm/c/_Zlfc9ABA8Y/m/X4ovVTmmPZoJ
     [existence hunt 2026-10-22]'
@@ -68,118 +96,128 @@ contests:
     MCPC archive''s linked content starts at 1998; nothing for 1993/1994. — https://cs.slu.edu/~goldwasser/icpc/resources/practices2010.html
     [existence hunt 2026-10-22]'
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problems:
-    count: 6
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2362
-        note: 1994 Mid-Central Regional Programming Contest
-  problemset:
-    url: https://www.acmicpc.net/category/detail/2362
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
 - id: mcpc-1995
   season: 1996
+  location: (SMSU era; cs.smsu.edu/~mcpc)
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1996
   next: mcpc-1996
-  web:
-    url: http://www.harding.edu/%7Eacm95/
+  sources:
+  - url: http://www.harding.edu/%7Eacm95/
+    roles:
+    - web
     as_of: '19990225093159'
-  results:
-    scoreboard:
-    - url: http://www.harding.edu/%7Eacm95/standings.html
-      as_of: '19990129052134'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: mcpc/mcpc-1995/scoreboard/2026-09-01-wayback-0e6fcbfd/standings.html
-  location: (SMSU era; cs.smsu.edu/~mcpc)
-  problems:
-    count: 7
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=463
-        as_of: '20211019213358'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/157
-        as_of: '20201024061258'
-        note: 1995 Mid-Central Regional Programming Contest
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidCen/1995/index.html
+  - url: http://www.harding.edu/%7Eacm95/standings.html
+    roles:
+    - scoreboard
+    as_of: '19990129052134'
+    archived:
+    - mcpc/mcpc-1995/scoreboard/2026-09-01-wayback-0e6fcbfd/standings.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidCen/1995/index.html
+    roles:
+    - problemset
     as_of: '19980202012434'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=463
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211019213358'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/157
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201024061258'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 1995 Mid-Central Regional Programming Contest
+  problems:
+    set: mcpc-1995
 - id: mcpc-1996
   season: 1997
+  location: (SMSU era; cs.smsu.edu/~mcpc)
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1997
   next: mcpc-1997
-  web:
-    url: http://csc.smsu.edu/~mcpc/oldIndex.html
+  sources:
+  - url: http://csc.smsu.edu/~mcpc/oldIndex.html
+    roles:
+    - web
     as_of: '20010607204252'
-  location: (SMSU era; cs.smsu.edu/~mcpc)
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=474
-        as_of: '20211129060716'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/156
-        as_of: '20201124181633'
-        note: 1996 Mid-Central Regional Programming Contest
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidCen/1996/index.html
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidCen/1996/index.html
+    roles:
+    - problemset
     as_of: '19980202012511'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=474
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211129060716'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/156
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201124181633'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 1996 Mid-Central Regional Programming Contest
+  problems:
+    set: mcpc-1996
 - id: mcpc-1997
   season: 1998
+  location: (SMSU era; cs.smsu.edu/~mcpc)
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1998
   next: mcpc-1998
-  web:
-    url: http://csc.smsu.edu/~mcpc/old1index.html
+  sources:
+  - url: http://csc.smsu.edu/~mcpc/old1index.html
+    roles:
+    - web
     as_of: '20020802013114'
-  results:
-    scoreboard:
-    - url: http://csc.smsu.edu/~mcpc/97results.html
-      as_of: '20020721054742'
-      archived: mcpc/mcpc-1997/scoreboard/2026-09-01-live-d2f46b8b/97results.html
-      url_state: live
-      url_checked: '2026-11-02'
-  location: (SMSU era; cs.smsu.edu/~mcpc)
-  problems:
-    count: 6
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=486
-        as_of: '20210926163932'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/155
-        as_of: '20171220100310'
-        note: 1997 Mid-Central Regional Programming Contest
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidCen/1997/index.html
+  - url: http://csc.smsu.edu/~mcpc/97results.html
+    roles:
+    - scoreboard
+    as_of: '20020721054742'
+    archived:
+    - mcpc/mcpc-1997/scoreboard/2026-09-01-live-d2f46b8b/97results.html
+    - mcpc/mcpc-1997/scoreboard/2026-09-01-wayback-d2f46b8b/97results.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidCen/1997/index.html
+    roles:
+    - problemset
     as_of: '19980202012549'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=486
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210926163932'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/155
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20171220100310'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 1997 Mid-Central Regional Programming Contest
+  problems:
+    set: mcpc-1997
 - id: mcpc-1998
   season: 1999
   name: 1998 ACM Mid-Central USA Programming Contest
@@ -188,45 +226,61 @@ contests:
   - 1241
   parent: wf-1999
   next: mcpc-1999
-  web:
-    url: http://csc.smsu.edu/~mcpc/98index.html
+  sources:
+  - url: http://csc.smsu.edu/~mcpc/98index.html
+    roles:
+    - web
     as_of: '20010607202630'
-  results:
-    scoreboard:
-    - url: http://icpc.baylor.edu/past/icpc99/Regionals/MCUSA98/Standings.htm
-      as_of: '20100710041333'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: mcpc/mcpc-1998/scoreboard/2026-09-01-wayback-16b01cf0/Standings.htm
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc99/Regionals/MCUSA98/Standings.htm
-      as_of: '20030718185614'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: unknown
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Central-USA-1999/standings
-  problems:
-    count: 6
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=495
-        as_of: '20211025070944'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/154
-        as_of: '20201024063828'
-        note: 1998 Mid-Central Regional Programming Contest
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  - url: http://icpc.baylor.edu/past/icpc99/Regionals/MCUSA98/Standings.htm
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20100710041333'
+    archived:
+    - mcpc/mcpc-1998/scoreboard/2026-09-01-wayback-16b01cf0/Standings.htm
+    - mcpc/mcpc-1998/standings/20030718-wayback-00cd96fe/Standings.htm
+    - mcpc/mcpc-1998/standings/20030718-wayback-2edef3de/Standings.htm
+    url_state: unknown
+    url_checked: '2026-11-02'
+    note: as_of 20030718185614 for standings; added by url-hunt 2026-09-01 (cdx-baylor-regionals)
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-1999/standings
+    roles:
+    - icpc_standings
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidCen/1998/index.html
+    roles:
+    - problemset
     as_of: '20001003145133'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc99/Regionals/MCUSA98/Problems.htm
+    roles:
+    - problemset
     as_of: '20020308062951'
+    url_state: unknown
+    url_checked: '2026-11-02'
   - url: http://www.icpc-midcentral.us/archives/1998/
+    roles:
+    - problemset
     as_of: '20160404074241'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=495
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211025070944'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/154
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201024063828'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 1998 Mid-Central Regional Programming Contest
+  problems:
+    set: mcpc-1998
 - id: mcpc-1999
   season: 2000
   name: 1999 ACM Mid-Central USA Programming Contest
@@ -237,45 +291,61 @@ contests:
   - 1249
   parent: wf-2000
   next: mcpc-2000
-  web:
-    url: http://csc.smsu.edu/~mcpc/99index.html
+  sources:
+  - url: http://csc.smsu.edu/~mcpc/99index.html
+    roles:
+    - web
     as_of: '20010607202847'
-  results:
-    scoreboard:
-    - url: http://icpc.baylor.edu/past/icpc2000/regionals/MCUSA99/Standings.html
-      as_of: '20020112035410'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: mcpc/mcpc-1999/scoreboard/2026-09-01-wayback-cc99f189/Standings.html
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2000/regionals/MCUSA99/Standings.html
-      as_of: '20020112035410'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: unknown
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Central-USA-2000/standings
-  problems:
-    count: 6
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=505
-        as_of: '20210917004631'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/153
-        as_of: '20201124183941'
-        note: 1999 Mid-Central Regional Programming Contest
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  - url: http://icpc.baylor.edu/past/icpc2000/regionals/MCUSA99/Standings.html
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20020112035410'
+    archived:
+    - mcpc/mcpc-1999/scoreboard/2026-09-01-wayback-cc99f189/Standings.html
+    - mcpc/mcpc-1999/standings/20020112-wayback-3c3b9957/Standings.html
+    - mcpc/mcpc-1999/standings/20020112-wayback-56ad0c79/Standings.html
+    url_state: unknown
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-2000/standings
+    roles:
+    - icpc_standings
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidCen/1999/index.html
+    roles:
+    - problemset
     as_of: '20020211102614'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2000/Regionals/MCUSA99/Problems.pdf
+    roles:
+    - problemset
     as_of: '20030926160203'
+    url_state: unknown
+    url_checked: '2026-11-02'
   - url: http://www.icpc-midcentral.us/archives/1999/
+    roles:
+    - problemset
     as_of: '20160404074246'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=505
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210917004631'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/153
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201124183941'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 1999 Mid-Central Regional Programming Contest
+  problems:
+    set: mcpc-1999
 - id: mcpc-2000
   season: 2001
   name: 2000 ACM Mid-Central USA Programming Contest
@@ -286,45 +356,69 @@ contests:
   - 955
   parent: wf-2001
   next: mcpc-2001
-  web:
-    url: http://csc.smsu.edu/~mcpc/00index.html
+  sources:
+  - url: http://csc.smsu.edu/~mcpc/00index.html
+    roles:
+    - web
     as_of: '20020802041600'
-  results:
-    rankings:
-    - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=436
-      as_of: '20060901130635'
-      archived: mcpc/mcpc-2000/rankings/2026-09-01-wayback-65b28071/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2001/Regionals/ViewRegionalStandings.asp?ContestID=436
-      as_of: '20020112132528'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: unknown
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Central-USA-2001/standings
-  problems:
-    count: 6
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=78
-        as_of: '20211026123321'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/152
-        as_of: '20201124184543'
-        note: 2000 Mid-Central Regional Programming Contest
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+    also_at:
+    - url: http://csc.smsu.edu/~mcpc/
+      as_of: '19991006131646'
+  - url: http://icpc.baylor.edu/past/icpc2001/Regionals/ViewRegionalStandings.asp?ContestID=436
+    roles:
+    - standings
+    - rankings
+    as_of: '20020112132528'
+    archived:
+    - mcpc/mcpc-2000/rankings/2026-09-01-wayback-65b28071/page.html
+    - mcpc/mcpc-2000/standings/20020112-wayback-5e36b2d4/page.html
+    - mcpc/mcpc-2000/standings/20020112-wayback-af886e7b/page.html
+    url_state: unknown
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings); as_of 20060901130635 for rankings
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=436
+    roles:
+    - standings
+    as_of: '20090801053950'
+    note: added by url-hunt 2026-09-01 (cms-api)
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-2001/standings
+    roles:
+    - icpc_standings
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidCen/2000/index.html
+    roles:
+    - problemset
     as_of: '20020521002323'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2001/regionals/MCUSA00/Problems.pdf
+    roles:
+    - problemset
     as_of: '20030323124131'
+    url_state: unknown
+    url_checked: '2026-11-02'
   - url: http://www.icpc-midcentral.us/archives/2000/
+    roles:
+    - problemset
     as_of: '20160404074251'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=78
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211026123321'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/152
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201124184543'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2000 Mid-Central Regional Programming Contest
+  problems:
+    set: mcpc-2000
 - id: mcpc-2001
   season: 2002
   name: 2001 ACM Mid-Central USA Programming Contest
@@ -335,50 +429,78 @@ contests:
   - 1294
   parent: wf-2002
   next: mcpc-2002
-  web:
-    url: http://csc.smsu.edu/~mcpc/01index.html
+  sources:
+  - url: http://csc.smsu.edu/~mcpc/01index.html
+    roles:
+    - web
+    - rankings
     as_of: '20020611005801'
-  results:
-    rankings:
-    - url: http://csc.smsu.edu/~mcpc/01index.html
-      as_of: '20020611005801'
-      archived: mcpc/mcpc-2001/rankings/2026-09-01-wayback-d6302155/01index.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/Past/icpc2002/regionals/ViewRegionalStandings.asp?ContestID=501
-      as_of: '20090102030808'
-      archived: mcpc/mcpc-2001/rankings/2026-09-01-wayback-7410b298/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=501
-      as_of: '20020619100012'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: unknown
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Central-USA-2002/standings
-  problems:
-    count: 7
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=107
-        as_of: '20210806034612'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/151
-        as_of: '20201130115442'
-        note: 2001 Mid-Central Regional Programming Contest
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+    also_at:
+    - url: http://cs.smsu.edu/~mcpc/
+      as_of: '19991009185842'
+    archived:
+    - mcpc/mcpc-2001/rankings/2026-09-01-wayback-d6302155/01index.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=501
+    roles:
+    - standings
+    - rankings
+    as_of: '20020619100012'
+    archived:
+    - mcpc/mcpc-2001/rankings/2026-09-01-wayback-7410b298/page.html
+    - mcpc/mcpc-2001/standings/20020619-wayback-924497af/page.html
+    - mcpc/mcpc-2001/standings/20020619-wayback-fdea1cf4/page.html
+    url_state: unknown
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings); as_of 20090102030808 for rankings
+  - url: http://www.cs.smsu.edu/cig-bin/mcpc2001.cig?view=99
+    roles:
+    - standings
+    as_of: '20040905032735'
+    note: added by url-hunt 2026-09-01 (cms-api)
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-2002/standings
+    roles:
+    - icpc_standings
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidCen/2001/index.html
+    roles:
+    - problemset
     as_of: '20020514050130'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2002/Regionals/MCUSA01/problems.html
+    roles:
+    - problemset
     as_of: '20020619100053'
+    url_state: unknown
+    url_checked: '2026-11-02'
   - url: http://www.icpc-midcentral.us/archives/2001/
+    roles:
+    - problemset
     as_of: '20160404074530'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://www.cs.smsu.edu/~rcjudge/
+    roles:
+    - problemset
+    as_of: '20010424063919'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=107
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210806034612'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/151
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201130115442'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2001 Mid-Central Regional Programming Contest
+  problems:
+    set: mcpc-2001
 - id: mcpc-2002
   season: 2003
   name: 2002 ACM Mid-Central USA Programming Contest
@@ -389,44 +511,61 @@ contests:
   - 1014
   parent: wf-2003
   next: mcpc-2003
-  web:
-    url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/cs.smsu.edu/_mcpc/index.html
+  sources:
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/cs.smsu.edu/_mcpc/index.html
+    roles:
+    - web
     as_of: '20060901153922'
-  results:
-    scoreboard:
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/www.cs.smsu.edu/_rcjudge/2002.html
-      as_of: '20060901154028'
-      archived: mcpc/mcpc-2002/scoreboard/2026-09-01-wayback-95e0ff46/2002.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    rankings:
-    - url: http://icpc.baylor.edu/past/icpc2003/Regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings50e1.html?ContestID=569
-      as_of: '20090307020234'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: mcpc/mcpc-2002/rankings/2026-09-01-wayback-9f90cb0d/ViewRegionalStandings50e1.html
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings50e1.html?ContestID=569
-      as_of: '20060901122953'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: unknown
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Central-USA-2003/standings
-  problems:
-    count: 7
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/150
-        as_of: '20201025090149'
-        note: 2002 Mid-Central Regional Programming Contest
-  problemset:
-    url: http://www.icpc-midcentral.us/archives/2002/
+    also_at:
+    - url: http://cs.smsu.edu/~mcpc/
+      as_of: '19991009185842'
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/www.cs.smsu.edu/_rcjudge/2002.html
+    roles:
+    - scoreboard
+    as_of: '20060901154028'
+    archived:
+    - mcpc/mcpc-2002/scoreboard/2026-09-01-wayback-95e0ff46/2002.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings50e1.html?ContestID=569
+    roles:
+    - standings
+    - rankings
+    as_of: '20060901122953'
+    archived:
+    - mcpc/mcpc-2002/rankings/2026-09-01-wayback-9f90cb0d/ViewRegionalStandings50e1.html
+    - mcpc/mcpc-2002/standings/20060901-wayback-8875b425/ViewRegionalStandings50e1.html
+    url_state: unknown
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings); as_of 20090307020234 for rankings
+  - url: http://www.cs.smsu.edu/~rcjudge/2002.html
+    roles:
+    - standings
+    as_of: '20041026103022'
+    note: added by url-hunt 2026-09-01 (cms-api)
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-2003/standings
+    roles:
+    - icpc_standings
+  - url: http://www.icpc-midcentral.us/archives/2002/
+    roles:
+    - problemset
     as_of: '20160404074257'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://www.cs.smsu.edu/~rcjudge/
+    roles:
+    - problemset
+    as_of: '20010424063919'
+  - url: https://www.acmicpc.net/category/detail/150
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201025090149'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2002 Mid-Central Regional Programming Contest
+  problems:
+    set: mcpc-2002
 - id: mcpc-2003
   season: 2004
   name: 2003 ACM Mid-Central USA Programming Contest
@@ -437,43 +576,60 @@ contests:
   - 1248
   parent: wf-2004
   next: mcpc-2004
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=643
-      as_of: '20071012205858'
-      archived: mcpc/mcpc-2003/standings/2026-09-01-wayback-318c86e0/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandingsf9d8.html?ContestID=643
-      as_of: '20060901143234'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: mcpc/mcpc-2003/standings/20060901-wayback-71bb8660/ViewRegionalStandingsf9d8.html
-    scoreboard:
-    - url: http://icpc.baylor.edu/past/icpc2004/RegReport/grok.smsu.edu/_score/mcpc2003.html
-      as_of: '20050414193441'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regreport)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: mcpc/mcpc-2003/scoreboard/20050414-wayback-fd97b1e9/mcpc2003.html
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Central-USA-2004/standings
-  web: http://www.cs.smsu.edu/~mcpc/
-  problems:
-    count: 9
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/149
-        as_of: '20201130115838'
-        note: 2003 Mid-Central Regional Programming Contest
-  problemset:
-    url: http://www.icpc-midcentral.us/archives/2003/
+  sources:
+  - url: http://www.cs.smsu.edu/~mcpc/
+    roles:
+    - web
+    - standings
+    - problemset
+    as_of: '19991009185842'
+    note: added by url-hunt 2026-09-01 (cms-api)
+  - url: http://icpc.baylor.edu/past/icpc2004/RegReport/grok.smsu.edu/_score/mcpc2003.html
+    roles:
+    - scoreboard
+    as_of: '20050414193441'
+    archived:
+    - mcpc/mcpc-2003/scoreboard/20050414-wayback-fd97b1e9/mcpc2003.html
+    - mcpc/mcpc-2003/scoreboard/20050414-wayback-de8d7b33/mcpc2003.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-regreport)
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=643
+    roles:
+    - standings
+    as_of: '20071012205858'
+    archived:
+    - mcpc/mcpc-2003/standings/2026-09-01-wayback-318c86e0/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandingsf9d8.html?ContestID=643
+    roles:
+    - standings
+    as_of: '20060901143234'
+    archived:
+    - mcpc/mcpc-2003/standings/20060901-wayback-71bb8660/ViewRegionalStandingsf9d8.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-2004/standings
+    roles:
+    - icpc_standings
+  - url: http://www.icpc-midcentral.us/archives/2003/
+    roles:
+    - problemset
     as_of: '20160404074535'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/149
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201130115838'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2003 Mid-Central Regional Programming Contest
+  problems:
+    set: mcpc-2003
 - id: mcpc-2004
   season: 2005
   name: 2004 ACM Mid-Central USA Programming Contest
@@ -484,31 +640,44 @@ contests:
   - 1272
   parent: wf-2005
   next: mcpc-2005
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=685
-      as_of: '20071012162841'
-      archived: mcpc/mcpc-2004/standings/2026-09-01-wayback-f2991477/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Central-USA-2005/standings
-  web: http://csc.smsu.edu/~mcpc/
-  problems:
-    count: 7
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/2004%20ACM%20ICPC%20Mid-Central%20North%20American%20Regional%20Contest
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/148
-        as_of: '20201130104741'
-        note: 2004 Mid-Central Regional Programming Contest
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://www.icpc-midcentral.us/archives/2004/
+  sources:
+  - url: http://csc.smsu.edu/~mcpc/
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=685
+    roles:
+    - standings
+    as_of: '20071012162841'
+    archived:
+    - mcpc/mcpc-2004/standings/2026-09-01-wayback-f2991477/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-2005/standings
+    roles:
+    - icpc_standings
+  - url: http://www.icpc-midcentral.us/archives/2004/
+    roles:
+    - problemset
     as_of: '20160404074539'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/2004%20ACM%20ICPC%20Mid-Central%20North%20American%20Regional%20Contest
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190923135423'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/148
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201130104741'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2004 Mid-Central Regional Programming Contest
+  problems:
+    set: mcpc-2004
 - id: mcpc-2005
   season: 2006
   name: 2005 ACM Mid-Central USA Programming Contest
@@ -519,36 +688,47 @@ contests:
   - 1244
   parent: wf-2006
   next: mcpc-2006
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=719
-      as_of: '20071011202418'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: mcpc/mcpc-2005/standings/2026-09-01-wayback-b15a71fe/page.html
-    - url: http://mcpc.cs.rockhurst.edu/archives.html
-      as_of: '20070703085252'
-      archived: mcpc/mcpc-2005/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Central-USA-2006/standings
-  web: http://mcpc.cs.rockhurst.edu
-  problems:
-    count: 9
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/147
-        as_of: '20201130111016'
-        note: 2005 Mid-Central Regional Programming Contest
-  problemset:
-    url: http://www.icpc-midcentral.us/archives/2005/
+  sources:
+  - url: http://mcpc.cs.rockhurst.edu
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=719
+    roles:
+    - standings
+    as_of: '20071011202418'
+    archived:
+    - mcpc/mcpc-2005/standings/2026-09-01-wayback-b15a71fe/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://mcpc.cs.rockhurst.edu/archives.html
+    roles:
+    - standings
+    as_of: '20070703085252'
+    archived:
+    - mcpc/mcpc-2005/external-standings/2026-04-15-external/content.html
+    - mcpc/mcpc-2005/standings/20060312-wayback-31008d58/archives.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-2006/standings
+    roles:
+    - icpc_standings
+  - url: http://www.icpc-midcentral.us/archives/2005/
+    roles:
+    - problemset
     as_of: '20160404074302'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/147
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201130111016'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2005 Mid-Central Regional Programming Contest
+  problems:
+    set: mcpc-2005
 - id: mcpc-2006
   season: 2007
   name: 2006 ACM Mid-Central USA Programming Contest
@@ -559,38 +739,48 @@ contests:
   - 965
   parent: wf-2007
   next: mcpc-2007
-  web:
-    url: http://mcpc.cs.rockhurst.edu/
+  sources:
+  - url: http://mcpc.cs.rockhurst.edu/
+    roles:
+    - web
     as_of: '20070703084532'
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=761
-      as_of: '20071011194607'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: mcpc/mcpc-2006/standings/2026-09-01-wayback-3eae3485/page.html
-    - url: http://mcpc.cs.rockhurst.edu/contest/cgi-bin/mcpc2006.cgi
-      as_of: '20070714101551'
-      archived: mcpc/mcpc-2006/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Central-USA-2007/standings
-  problems:
-    count: 7
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/146
-        as_of: '20201031045545'
-        note: 2006 Mid-Central Regional Programming Contest
-  problemset:
-    url: http://www.icpc-midcentral.us/archives/2006/
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=761
+    roles:
+    - standings
+    as_of: '20071011194607'
+    archived:
+    - mcpc/mcpc-2006/standings/2026-09-01-wayback-3eae3485/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://mcpc.cs.rockhurst.edu/contest/cgi-bin/mcpc2006.cgi
+    roles:
+    - standings
+    as_of: '20070714101551'
+    archived:
+    - mcpc/mcpc-2006/external-standings/2026-04-15-external/content.html
+    - mcpc/mcpc-2006/standings/20070714-wayback-ad6f36c7/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-2007/standings
+    roles:
+    - icpc_standings
+  - url: http://www.icpc-midcentral.us/archives/2006/
+    roles:
+    - problemset
     as_of: '20160404074544'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/146
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201031045545'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2006 Mid-Central Regional Programming Contest
+  problems:
+    set: mcpc-2006
 - id: mcpc-2007
   season: 2008
   name: 2007 ACM Mid-Central USA Programming Contest
@@ -601,36 +791,47 @@ contests:
   - 1209
   parent: wf-2008
   next: mcpc-2008
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=844
-      as_of: '20080915032304'
-      archived: mcpc/mcpc-2007/standings/2026-09-01-wayback-78f331a4/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    - url: http://score.cigas.net/cgi-bin/mcpc2007.cgi
-      as_of: '20080916131600'
-      archived: mcpc/mcpc-2007/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Central-USA-2008/standings
-  web: http://mcpc.cigas.net
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/145
-        as_of: '20201126042809'
-        note: 2007 Mid-Central Regional Programming Contest
-  problemset:
-    url: http://www.icpc-midcentral.us/archives/2007/
+  sources:
+  - url: http://mcpc.cigas.net
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=844
+    roles:
+    - standings
+    as_of: '20080915032304'
+    archived:
+    - mcpc/mcpc-2007/standings/2026-09-01-wayback-78f331a4/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://score.cigas.net/cgi-bin/mcpc2007.cgi
+    roles:
+    - standings
+    as_of: '20080916131600'
+    archived:
+    - mcpc/mcpc-2007/external-standings/2026-04-15-external/content.html
+    - mcpc/mcpc-2007/standings/20080119-wayback-2becc98b/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-2008/standings
+    roles:
+    - icpc_standings
+  - url: http://www.icpc-midcentral.us/archives/2007/
+    roles:
+    - problemset
     as_of: '20160404074549'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/145
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201126042809'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2007 Mid-Central Regional Programming Contest
+  problems:
+    set: mcpc-2007
 - id: mcpc-2008
   season: 2009
   name: 2008 Mid-Central USA Contest
@@ -641,38 +842,48 @@ contests:
   - 36
   parent: wf-2009
   next: mcpc-2009
-  results:
-    scoreboard:
-    - url: https://mcicpc.cs.atu.edu/reports/mcpc2008.final.html
-      as_of: '20150921043902'
-      archived: mcpc/mcpc-2008/scoreboard/2026-09-01-wayback-abb7b609/mcpc2008.final.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://mcicpc.cs.atu.edu/reports/mcpc2008.final.html
-      as_of: '20150921043902'
-      archived: mcpc/mcpc-2008/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Central-USA-2009/standings
-  web: http://mcicpc.cs.atu.edu
-  problems:
-    count: 8
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/2008%20ICPC%20North%20America%20Mid-Central%20Regional
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/144
-        as_of: '20190922101238'
-        note: 2008 Mid-Central Regional Programming Contest
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://www.icpc-midcentral.us/archives/2008/
+  sources:
+  - url: http://mcicpc.cs.atu.edu
+    roles:
+    - web
+  - url: https://mcicpc.cs.atu.edu/reports/mcpc2008.final.html
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20150921043902'
+    archived:
+    - mcpc/mcpc-2008/scoreboard/2026-09-01-wayback-abb7b609/mcpc2008.final.html
+    - mcpc/mcpc-2008/external-standings/2026-04-15-external/content.html
+    - mcpc/mcpc-2008/standings/20150921-wayback-38d695f8/mcpc2008.final.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-2009/standings
+    roles:
+    - icpc_standings
+  - url: http://www.icpc-midcentral.us/archives/2008/
+    roles:
+    - problemset
     as_of: '20160404074307'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/2008%20ICPC%20North%20America%20Mid-Central%20Regional
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20260604111717'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/144
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190922101238'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2008 Mid-Central Regional Programming Contest
+  problems:
+    set: mcpc-2008
 - id: mcpc-2009
   season: 2010
   name: 2009 Mid-Central USA Contest
@@ -683,38 +894,53 @@ contests:
   - 560
   parent: wf-2010
   next: mcpc-2010
-  results:
-    scoreboard:
-    - url: http://mcicpc.cs.atu.edu/reports/mcpc2009.final.html
-      as_of: '20150921044611'
-      archived: mcpc/mcpc-2009/scoreboard/2026-09-01-wayback-4f15ab1b/mcpc2009.final.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://mcicpc.cs.atu.edu/reports/mcpc2010.final.html
-      as_of: '20150921044645'
-      archived: mcpc/mcpc-2009/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Central-USA-2010/standings
-  web: http://mcicpc.cs.atu.edu
-  problems:
-    count: 9
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/2009%20ACM%20Mid-Central%20USA%20Regional%20Programming%20Contest
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/143
-        as_of: '20210126193030'
-        note: 2009 Mid-Central Regional Programming Contest
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://www.icpc-midcentral.us/archives/2009/
+  sources:
+  - url: http://mcicpc.cs.atu.edu
+    roles:
+    - web
+  - url: http://mcicpc.cs.atu.edu/reports/mcpc2009.final.html
+    roles:
+    - scoreboard
+    as_of: '20150921044611'
+    archived:
+    - mcpc/mcpc-2009/scoreboard/2026-09-01-wayback-4f15ab1b/mcpc2009.final.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://mcicpc.cs.atu.edu/reports/mcpc2010.final.html
+    roles:
+    - standings
+    as_of: '20150921044645'
+    archived:
+    - mcpc/mcpc-2009/external-standings/2026-04-15-external/content.html
+    - mcpc/mcpc-2009/standings/20150921-wayback-ed9bc2b5/mcpc2010.final.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-2010/standings
+    roles:
+    - icpc_standings
+  - url: http://www.icpc-midcentral.us/archives/2009/
+    roles:
+    - problemset
     as_of: '20160404074312'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/2009%20ACM%20Mid-Central%20USA%20Regional%20Programming%20Contest
+    roles:
+    - judge_page
+    judge: kattis
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/143
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210126193030'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2009 Mid-Central Regional Programming Contest
+  problems:
+    set: mcpc-2009
 - id: mcpc-2010
   season: 2011
   name: 2010 Mid-Central USA Regional Contest
@@ -725,37 +951,41 @@ contests:
   - 655
   parent: wf-2011
   next: mcpc-2011
-  results:
-    scoreboard:
-    - url: https://mcicpc.cs.atu.edu/reports/mcpc2010.final.html
-      as_of: '20150921044645'
-      archived: mcpc/mcpc-2010/scoreboard/2026-09-01-wayback-41dc67a6/mcpc2010.final.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://mcicpc.cs.atu.edu/reports/mcpc2010.final.html
-      as_of: '20150921044645'
-      archived: mcpc/mcpc-2010/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Central-USA-2011/standings
-  web: http://mcicpc.cs.atu.edu
-  problems:
-    count: 9
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/142
-        as_of: '20191209104923'
-        note: 2010 Mid-Central Regional Programming Contest
-  problemset:
-    url: http://www.icpc-midcentral.us/archives/2010/
+  sources:
+  - url: http://mcicpc.cs.atu.edu
+    roles:
+    - web
+  - url: https://mcicpc.cs.atu.edu/reports/mcpc2010.final.html
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20150921044645'
+    archived:
+    - mcpc/mcpc-2010/scoreboard/2026-09-01-wayback-41dc67a6/mcpc2010.final.html
+    - mcpc/mcpc-2010/external-standings/2026-04-15-external/content.html
+    - mcpc/mcpc-2010/standings/20150921-wayback-ed9bc2b5/mcpc2010.final.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-2011/standings
+    roles:
+    - icpc_standings
+  - url: http://www.icpc-midcentral.us/archives/2010/
+    roles:
+    - problemset
     as_of: '20160404074554'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/142
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191209104923'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2010 Mid-Central Regional Programming Contest
+  problems:
+    set: mcpc-2010
 - id: mcpc-2011
   season: 2012
   name: 2011 Mid-Central USA Regional Contest
@@ -766,37 +996,41 @@ contests:
   - 877
   parent: wf-2012
   next: mcpc-2012
-  results:
-    scoreboard:
-    - url: https://mcicpc.cs.atu.edu/reports/mcpc2011.final.html
-      as_of: '20150921044654'
-      archived: mcpc/mcpc-2011/scoreboard/2026-09-01-wayback-24c967f8/mcpc2011.final.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://mcicpc.cs.atu.edu/reports/mcpc2011.final.html
-      as_of: '20150921044654'
-      archived: mcpc/mcpc-2011/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Central-USA-2012/standings
-  web: http://mcicpc.cs.atu.edu
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/141
-        as_of: '20201024070151'
-        note: 2011 Mid-Central Regional Programming Contest
-  problemset:
-    url: http://www.icpc-midcentral.us/archives/2011/
+  sources:
+  - url: http://mcicpc.cs.atu.edu
+    roles:
+    - web
+  - url: https://mcicpc.cs.atu.edu/reports/mcpc2011.final.html
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20150921044654'
+    archived:
+    - mcpc/mcpc-2011/scoreboard/2026-09-01-wayback-24c967f8/mcpc2011.final.html
+    - mcpc/mcpc-2011/external-standings/2026-04-15-external/content.html
+    - mcpc/mcpc-2011/standings/20150921-wayback-4d0bb2ab/mcpc2011.final.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-2012/standings
+    roles:
+    - icpc_standings
+  - url: http://www.icpc-midcentral.us/archives/2011/
+    roles:
+    - problemset
     as_of: '20160404074559'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/141
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201024070151'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2011 Mid-Central Regional Programming Contest
+  problems:
+    set: mcpc-2011
 - id: mcpc-2012
   season: 2013
   name: 2012 Mid-Central USA Regional Contest
@@ -807,44 +1041,50 @@ contests:
   - 1386
   parent: wf-2013
   next: mcpc-2013
-  web:
-    url: http://mcicpc.cs.atu.edu/
+  sources:
+  - url: http://mcicpc.cs.atu.edu/
+    roles:
+    - web
     as_of: '20130421163915'
-  results:
-    scoreboard:
-    - url: https://mcicpc.cs.atu.edu/reports/mcpc2012.final.html
-      as_of: '20130719042703'
-      archived: mcpc/mcpc-2012/scoreboard/2026-09-01-wayback-5fd5793d/mcpc2012.final.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/regionals/finder/mid-central-usa-2012/standings
-      as_of: '20150309110027'
-      archived: mcpc/mcpc-2012/standings/2026-09-01-wayback-fe9adf6e/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    - url: http://mcicpc.cs.atu.edu/reports/mcpc2012.final.html
-      as_of: '20150921140926'
-      archived: mcpc/mcpc-2012/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Central-USA-2013/standings
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/140
-        as_of: '20201028094614'
-        note: 2012 Mid-Central Regional Programming Contest
-  problemset:
-    url: http://www.icpc-midcentral.us/archives/2012/
+  - url: https://mcicpc.cs.atu.edu/reports/mcpc2012.final.html
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20130719042703'
+    archived:
+    - mcpc/mcpc-2012/scoreboard/2026-09-01-wayback-5fd5793d/mcpc2012.final.html
+    - mcpc/mcpc-2012/external-standings/2026-04-15-external/content.html
+    - mcpc/mcpc-2012/standings/20130719-wayback-7916974c/mcpc2012.final.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: as_of 20150921140926 for standings; from archived capture (external-standings)
+  - url: http://icpc.baylor.edu/regionals/finder/mid-central-usa-2012/standings
+    roles:
+    - standings
+    as_of: '20150309110027'
+    archived:
+    - mcpc/mcpc-2012/standings/2026-09-01-wayback-fe9adf6e/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-2013/standings
+    roles:
+    - icpc_standings
+  - url: http://www.icpc-midcentral.us/archives/2012/
+    roles:
+    - problemset
     as_of: '20160404074317'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/140
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201028094614'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2012 Mid-Central Regional Programming Contest
+  problems:
+    set: mcpc-2012
 - id: mcpc-2013
   season: 2014
   name: 2013 Mid-Central USA Regional Contest
@@ -855,30 +1095,37 @@ contests:
   - 1978
   parent: wf-2014
   next: mcpc-2014
-  results:
-    scoreboard:
-    - url: https://mcicpc.cs.atu.edu/reports/mcpc2013.final.html
-      as_of: '20150217031030'
-      archived: mcpc/mcpc-2013/scoreboard/2026-09-01-wayback-6e1c081e/mcpc2013.final.html
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Central-USA-2014/standings
-  web: http://mcicpc.cs.atu.edu/
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1167
-        as_of: '20210119095617'
-        note: 2013 Mid-Central Regional Programming Contest
-  problemset:
-    url: http://www.icpc-midcentral.us/archives/2013/
+  sources:
+  - url: http://mcicpc.cs.atu.edu/
+    roles:
+    - web
+  - url: https://mcicpc.cs.atu.edu/reports/mcpc2013.final.html
+    roles:
+    - scoreboard
+    as_of: '20150217031030'
+    archived:
+    - mcpc/mcpc-2013/scoreboard/2026-09-01-wayback-6e1c081e/mcpc2013.final.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-2014/standings
+    roles:
+    - icpc_standings
+  - url: http://www.icpc-midcentral.us/archives/2013/
+    roles:
+    - problemset
     as_of: '20160404074324'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1167
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210119095617'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2013 Mid-Central Regional Programming Contest
+  problems:
+    set: mcpc-2013
 - id: mcpc-2014
   season: 2015
   name: 2014 Mid-Central USA Regional Contest
@@ -889,43 +1136,56 @@ contests:
   - 2443
   parent: wf-2015
   next: mcpc-2015
-  results:
-    scoreboard:
-    - url: https://mcicpc.cs.atu.edu/reports/mcpc2014.final.html
-      as_of: '20141105064859'
-      archived: mcpc/mcpc-2014/scoreboard/2026-09-01-wayback-f3d013b3/mcpc2014.final.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/regionals/finder/mid-central-usa-2014/standings
-      as_of: '20150309093047'
-      archived: mcpc/mcpc-2014/standings/2026-09-01-wayback-56601b8f/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    - url: http://mcicpc.cs.atu.edu/reports/mcpc2014.final.html
-      as_of: '20151029041201'
-      archived: mcpc/mcpc-2014/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Central-USA-2015/standings
-  web: http://mcicpc.cs.atu.edu/
-  problems:
-    count: 9
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/ACM/ICPC%20Mid-Central%20USA%202014%20Regional%20Contest
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1292
-        as_of: '20201027043842'
-        note: 2014 Mid-Central Regional Programming Contest
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://www.icpc-midcentral.us/archives/2014/
+  sources:
+  - url: http://mcicpc.cs.atu.edu/
+    roles:
+    - web
+  - url: https://mcicpc.cs.atu.edu/reports/mcpc2014.final.html
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20141105064859'
+    archived:
+    - mcpc/mcpc-2014/scoreboard/2026-09-01-wayback-f3d013b3/mcpc2014.final.html
+    - mcpc/mcpc-2014/external-standings/2026-04-15-external/content.html
+    - mcpc/mcpc-2014/standings/20141105-wayback-32de4162/mcpc2014.final.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: as_of 20151029041201 for standings; from archived capture (external-standings)
+  - url: http://icpc.baylor.edu/regionals/finder/mid-central-usa-2014/standings
+    roles:
+    - standings
+    as_of: '20150309093047'
+    archived:
+    - mcpc/mcpc-2014/standings/2026-09-01-wayback-56601b8f/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-2015/standings
+    roles:
+    - icpc_standings
+  - url: http://www.icpc-midcentral.us/archives/2014/
+    roles:
+    - problemset
     as_of: '20160404074605'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/ACM/ICPC%20Mid-Central%20USA%202014%20Regional%20Contest
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190820154808'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1292
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201027043842'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2014 Mid-Central Regional Programming Contest
+  problems:
+    set: mcpc-2014
 - id: mcpc-2015
   season: 2016
   name: 2015 Mid-Central USA Regional Contest
@@ -936,30 +1196,45 @@ contests:
   - 2837
   parent: wf-2016
   next: mcpc-2016
-  results:
-    scoreboard:
-    - url: https://mcpc15.kattis.com/contests/en2mpy/standings
-      archived: mcpc/mcpc-2015/scoreboard/2026-09-01-live-0ac75bb4/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Central-USA-2016/standings
-  web: http://www.icpc-midcentral.us/
-  problems:
-    count: 9
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/2015%20ICPC%20Mid-Central%20Regional
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1417
-        as_of: '20191211031704'
-        note: 2015 Mid-Central Regional Programming Contest
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://www.icpc-midcentral.us/archives/2015/
+  sources:
+  - url: http://www.icpc-midcentral.us/
+    roles:
+    - web
+  - url: https://mcpc15.kattis.com/contests/en2mpy/standings
+    roles:
+    - scoreboard
+    as_of: '20231118005053'
+    archived:
+    - mcpc/mcpc-2015/scoreboard/2026-09-01-live-0ac75bb4/page.html
+    - mcpc/mcpc-2015/scoreboard/20231118-wayback-d24531e3/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-2016/standings
+    roles:
+    - icpc_standings
+  - url: http://www.icpc-midcentral.us/archives/2015/
+    roles:
+    - problemset
     as_of: '20160612024314'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/2015%20ICPC%20Mid-Central%20Regional
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190823062812'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1417
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191211031704'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2015 Mid-Central Regional Programming Contest
+  problems:
+    set: mcpc-2015
 - id: mcpc-2016
   season: 2017
   name: 2016 Mid-Central USA Regional Contest
@@ -970,35 +1245,50 @@ contests:
   - 3207
   parent: wf-2017
   next: mcpc-2017
-  results:
-    scoreboard:
-    - url: https://mcpc16.kattis.com/contests/mcpc16/standings
-      archived: mcpc/mcpc-2016/scoreboard/2026-09-01-live-684591a2/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.icpc-midcentral.us/reports/mcpc16.kattis.com/standings/standalone.html
-      as_of: '20180827024835'
-      archived: mcpc/mcpc-2016/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Central-USA-2017/standings
-  web: http://www.icpc-midcentral.us/
+  sources:
+  - url: http://www.icpc-midcentral.us/
+    roles:
+    - web
+  - url: https://mcpc16.kattis.com/contests/mcpc16/standings
+    roles:
+    - scoreboard
+    as_of: '20220819174201'
+    archived:
+    - mcpc/mcpc-2016/scoreboard/2026-09-01-live-684591a2/page.html
+    - mcpc/mcpc-2016/scoreboard/20220819-wayback-29b28d34/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: http://www.icpc-midcentral.us/reports/mcpc16.kattis.com/standings/standalone.html
+    roles:
+    - standings
+    as_of: '20180827024835'
+    archived:
+    - mcpc/mcpc-2016/external-standings/2026-04-15-external/content.html
+    - mcpc/mcpc-2016/standings/20170311-wayback-b261eff2/standalone.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://mcpc16.kattis.com/contests/mcpc16/problems
+    roles:
+    - problemset
+    - judge_page
+    judge: kattis
+    as_of: '20220819162033'
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1558
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201019221339'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2016 Mid-Central Regional Programming Contest
   problems:
-    count: 10
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://mcpc16.kattis.com/contests/mcpc16/problems
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1558
-        as_of: '20201019221339'
-        note: 2016 Mid-Central Regional Programming Contest
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://mcpc16.kattis.com/contests/mcpc16/problems
+    set: mcpc-2016
 - id: mcpc-2017
   season: 2018
   name: 2017 Mid-Central USA Regional Contest
@@ -1010,27 +1300,37 @@ contests:
   - 3268
   parent: wf-2018
   next: mcpc-2018
-  results:
-    scoreboard:
-    - url: https://mcpc17.kattis.com/contests/mcpc17/standings
-      archived: mcpc/mcpc-2017/scoreboard/2026-09-01-live-4d723ecd/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Central-USA-2018/standings
+  sources:
+  - url: https://mcpc17.kattis.com/contests/mcpc17/standings
+    roles:
+    - scoreboard
+    as_of: '20221001134630'
+    archived:
+    - mcpc/mcpc-2017/scoreboard/2026-09-01-live-4d723ecd/page.html
+    - mcpc/mcpc-2017/scoreboard/20221001-wayback-bb944fb2/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://mcpc17.kattis.com/contests/mcpc17/problems
+    roles:
+    - problemset
+    - judge_page
+    judge: kattis
+    as_of: '20221001143651'
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1790
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201027005908'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2017 Mid-Central Regional Programming Contest
   problems:
-    count: 9
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://mcpc17.kattis.com/contests/mcpc17/problems
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1790
-        as_of: '20201027005908'
-        note: 2017 Mid-Central Regional Programming Contest
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://mcpc17.kattis.com/contests/mcpc17/problems
+    set: mcpc-2017
 - id: mcpc-2018
   season: 2019
   name: 2018 Mid-Central USA Regional Contest
@@ -1041,28 +1341,40 @@ contests:
   - 3556
   parent: wf-2019
   next: mcpc-2019
-  results:
-    scoreboard:
-    - url: https://mcpc18.kattis.com/contests/mcpc18/standings
-      archived: mcpc/mcpc-2018/scoreboard/2026-09-01-live-6e57d067/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Central-USA-2019/standings
-  web: http://www.icpc-midcentral.us/
+  sources:
+  - url: http://www.icpc-midcentral.us/
+    roles:
+    - web
+  - url: https://mcpc18.kattis.com/contests/mcpc18/standings
+    roles:
+    - scoreboard
+    as_of: '20220702203012'
+    archived:
+    - mcpc/mcpc-2018/scoreboard/2026-09-01-live-6e57d067/page.html
+    - mcpc/mcpc-2018/scoreboard/20220702-wayback-ca6429c8/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-2019/standings
+    roles:
+    - icpc_standings
+  - url: https://mcpc18.kattis.com/contests/mcpc18/problems
+    roles:
+    - problemset
+    - judge_page
+    judge: kattis
+    as_of: '20220702211738'
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1946
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191117050508'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2018 Mid-Central Regional Programming Contest
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://mcpc18.kattis.com/contests/mcpc18/problems
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1946
-        as_of: '20191117050508'
-        note: 2018 Mid-Central Regional Programming Contest
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://mcpc18.kattis.com/contests/mcpc18/problems
+    set: mcpc-2018
 - id: mcpc-2019
   season: 2020
   name: 2019 Mid-Central USA Regional Contest
@@ -1073,33 +1385,50 @@ contests:
   - 4067
   parent: nac-2020
   next: mcpc-2020
-  results:
-    scoreboard:
-    - url: https://mcpc19.kattis.com/contests/mcpc19/standings
-      archived: mcpc/mcpc-2019/scoreboard/2026-09-01-live-9dde49ee/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://mcpc19.kattis.com/standings
-      archived: mcpc/mcpc-2019/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Central-USA-2020/standings
-  web: https://www.cse.sdsmt.edu/ecorwin/midcentral/index.html
+  sources:
+  - url: https://www.cse.sdsmt.edu/ecorwin/midcentral/index.html
+    roles:
+    - web
+  - url: https://mcpc19.kattis.com/contests/mcpc19/standings
+    roles:
+    - scoreboard
+    as_of: '20220810103200'
+    archived:
+    - mcpc/mcpc-2019/scoreboard/2026-09-01-live-9dde49ee/page.html
+    - mcpc/mcpc-2019/scoreboard/20220810-wayback-103ef239/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://mcpc19.kattis.com/standings
+    roles:
+    - standings
+    as_of: '20191210043305'
+    archived:
+    - mcpc/mcpc-2019/external-standings/2026-04-15-external/content.html
+    - mcpc/mcpc-2019/standings/20191210-wayback-d27152c5/page.html
+    - mcpc/mcpc-2019/standings/20260901-live-103da42d/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-2020/standings
+    roles:
+    - icpc_standings
+  - url: https://mcpc19.kattis.com/contests/mcpc19/problems
+    roles:
+    - problemset
+    - judge_page
+    judge: kattis
+    as_of: '20220925140917'
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2136
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260420234421'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://mcpc19.kattis.com/contests/mcpc19/problems
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2136
-        as_of: '20260420234421'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://mcpc19.kattis.com/contests/mcpc19/problems
+    set: mcpc-2019
 - id: mcpc-2020
   season: 2021
   name: 2020 Mid-Central USA Regional Contest
@@ -1111,26 +1440,35 @@ contests:
   - 4341
   parent: nac-2021
   next: mcpc-2021
-  results:
-    scoreboard:
-    - url: https://mcpc20.kattis.com/contests/mcpc20/standings
-      archived: mcpc/mcpc-2020/scoreboard/2026-09-01-live-69da410a/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Central-USA-2021/standings
+  sources:
+  - url: https://mcpc20.kattis.com/contests/mcpc20/standings
+    roles:
+    - scoreboard
+    as_of: '20231110175249'
+    archived:
+    - mcpc/mcpc-2020/scoreboard/2026-09-01-live-69da410a/page.html
+    - mcpc/mcpc-2020/scoreboard/20231110-wayback-083869f9/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-2021/standings
+    roles:
+    - icpc_standings
+  - url: https://mcpc20.kattis.com/contests/mcpc20/problems
+    roles:
+    - problemset
+    - judge_page
+    judge: kattis
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2459
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210511101245'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 15
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://mcpc20.kattis.com/contests/mcpc20/problems
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2459
-        as_of: '20210511101245'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://mcpc20.kattis.com/contests/mcpc20/problems
+    set: mcpc-2020
 - id: mcpc-2021
   season: 2022
   name: 2021 ICPC Mid-Central USA Regional Contest
@@ -1142,25 +1480,38 @@ contests:
   - 4678
   parent: nac-2022
   next: mcpc-2022
-  results:
-    scoreboard:
-    - url: https://mcpc21.kattis.com/contests/mcpc21/standings
-      archived: mcpc/mcpc-2021/scoreboard/2026-09-01-live-805a53cb/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Central-USA-2022/standings
-  web: https://na.icpc.global/home/regionals/mid-central/
+  sources:
+  - url: https://na.icpc.global/home/regionals/mid-central/
+    roles:
+    - web
+  - url: https://mcpc21.kattis.com/contests/mcpc21/standings
+    roles:
+    - scoreboard
+    as_of: '20231003012932'
+    archived:
+    - mcpc/mcpc-2021/scoreboard/2026-09-01-live-805a53cb/page.html
+    - mcpc/mcpc-2021/scoreboard/20231003-wayback-cea99c40/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-2022/standings
+    roles:
+    - icpc_standings
+  - url: https://mcpc21.kattis.com/contests/mcpc21/problems
+    roles:
+    - problemset
+    - judge_page
+    judge: kattis
+    as_of: '20241202162004'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3042
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://mcpc21.kattis.com/contests/mcpc21/problems
-      baekjoon: https://www.acmicpc.net/category/detail/3042
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://mcpc21.kattis.com/contests/mcpc21/problems
+    set: mcpc-2021
 - id: mcpc-2022
   season: 2023
   name: 2022 ICPC Mid-Central USA Regional Contest
@@ -1172,25 +1523,44 @@ contests:
   - 5384
   parent: nac-2023
   next: mcpc-2023
-  results:
-    scoreboard:
-    - url: https://mcpc22.kattis.com/contests/mcpc22/standings
-      archived: mcpc/mcpc-2022/external-standings/2026-04-15-external/content.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Central-USA-2023/standings
-  web: https://na.icpc.global/regionals/mid-central/
+  sources:
+  - url: https://na.icpc.global/regionals/mid-central/
+    roles:
+    - web
+  - url: https://mcpc22.kattis.com/contests/mcpc22/standings
+    roles:
+    - scoreboard
+    as_of: '20230226144436'
+    archived:
+    - mcpc/mcpc-2022/external-standings/2026-04-15-external/content.html
+    - mcpc/mcpc-2022/scoreboard/20230226-wayback-e7a50191/page.html
+    - mcpc/mcpc-2022/scoreboard/20260901-live-afefdaf0/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-2023/standings
+    roles:
+    - icpc_standings
+  - url: https://na.icpc.global/wp-content/uploads/2023/02/mc_2022_problem_set-1.pdf
+    roles:
+    - problemset
+    as_of: '20240317000323'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://mcpc22.kattis.com/contests/mcpc22/problems
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20230226144506'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3512
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 13
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://mcpc22.kattis.com/contests/mcpc22/problems
-      baekjoon: https://www.acmicpc.net/category/detail/3512
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://na.icpc.global/wp-content/uploads/2023/02/mc_2022_problem_set-1.pdf
+    set: mcpc-2022
 - id: mcpc-2023
   season: 2024
   name: 2023 ICPC Mid-Central USA Regional Contest
@@ -1202,25 +1572,38 @@ contests:
   - 7460
   parent: nac-2024
   next: mcpc-2024
-  results:
-    scoreboard:
-    - url: https://mcpc23.kattis.com/contests/mcpc23/standings
-      archived: mcpc/mcpc-2023/scoreboard/2026-09-01-live-9c46fba6/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Central-USA-2024/standings
-  web: https://na.icpc.global/mcna/
+  sources:
+  - url: https://na.icpc.global/mcna/
+    roles:
+    - web
+  - url: https://mcpc23.kattis.com/contests/mcpc23/standings
+    roles:
+    - scoreboard
+    as_of: '20240622100251'
+    archived:
+    - mcpc/mcpc-2023/scoreboard/2026-09-01-live-9c46fba6/page.html
+    - mcpc/mcpc-2023/scoreboard/20240622-wayback-f579510e/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-2024/standings
+    roles:
+    - icpc_standings
+  - url: https://mcpc23.kattis.com/contests/mcpc23/problems
+    roles:
+    - problemset
+    - judge_page
+    judge: kattis
+    as_of: '20241205054938'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4158
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://mcpc23.kattis.com/contests/mcpc23/problems
-      baekjoon: https://www.acmicpc.net/category/detail/4158
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://mcpc23.kattis.com/contests/mcpc23/problems
+    set: mcpc-2023
 - id: mcpc-2024
   season: 2025
   name: 2024 ICPC Mid-Central USA Regional Contest
@@ -1232,21 +1615,35 @@ contests:
   - 8935
   parent: nac-2025
   next: mcpc-2025
-  results:
-    scoreboard:
-    - url: https://mcpc24.kattis.com/contests/mcpc24/standings
-      archived: mcpc/mcpc-2024/scoreboard/2026-09-01-live-aab90e8f/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Central-USA-2025/standings
-  web: https://mc.na.icpc.global/
+  sources:
+  - url: https://mc.na.icpc.global/
+    roles:
+    - web
+  - url: https://mcpc24.kattis.com/contests/mcpc24/standings
+    roles:
+    - scoreboard
+    archived:
+    - mcpc/mcpc-2024/scoreboard/2026-09-01-live-aab90e8f/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-2025/standings
+    roles:
+    - icpc_standings
+  - url: https://mcpc24.kattis.com/contests/mcpc24/problems
+    roles:
+    - problemset
+    as_of: '20241219175513'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4332
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2024 Mid-Central USA Programming Contest
   problems:
-    source: Kattis problem export (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4332
-        note: 2024 Mid-Central USA Programming Contest
-  problemset: https://mcpc24.kattis.com/contests/mcpc24/problems
+    set: mcpc-2024
 - id: mcpc-2025
   season: 2026
   name: 2025 ICPC North America Mid-Central Regional Contest
@@ -1258,17 +1655,27 @@ contests:
   - 9337
   parent: nac-2026
   next: mcpc-2026
-  results:
-    scoreboard:
-    - url: https://mcpc25.kattis.com/contests/mcpc25/standings
-      archived: mcpc/mcpc-2025/scoreboard/2026-09-01-live-190077d7/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mid-Central-USA-2026/standings
-  web: https://mc.na.icpc.global/
+  sources:
+  - url: https://mc.na.icpc.global/
+    roles:
+    - web
+  - url: https://mcpc25.kattis.com/contests/mcpc25/standings
+    roles:
+    - scoreboard
+    archived:
+    - mcpc/mcpc-2025/scoreboard/2026-09-01-live-190077d7/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-2026/standings
+    roles:
+    - icpc_standings
+  - url: https://mcpc25.kattis.com/contests/mcpc25/problems
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    source: Kattis problem export (2026-11-01)
-  problemset: https://mcpc25.kattis.com/contests/mcpc25/problems
+    set: mcpc-2025
 - id: mcpc-2026
   status: upcoming
   season: 2027
@@ -1276,4 +1683,7 @@ contests:
   cms_ids:
   - 9771
   parent: nac-2027
-  web: https://mc.na.icpc.global/
+  sources:
+  - url: https://mc.na.icpc.global/
+    roles:
+    - web
