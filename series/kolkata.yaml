@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: kolkata
   name: ACM-ICPC Asia Kolkata Regional Contest
+  tier: regional
+  region: Asia West
+  naming: season-start
   lineage:
   - type: continues-from
     series: kanpur
@@ -25,21 +28,31 @@ contests:
   - 1056
   parent: wf-2006
   next: kanpur-2006
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=743
-      as_of: '20071011202423'
-      archived: kolkata/kolkata-2005/standings/2026-09-01-wayback-359b3572/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    - url: http://www.cse.iitk.ac.in/users/acm/index_files/page0009.htm
-      as_of: '20060427012201'
-      archived: kolkata/kolkata-2005/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Kolkata-2006/standings
-  web: http://www.cse.iitk.ac.in/users/acm/
+  sources:
+  - url: http://www.cse.iitk.ac.in/users/acm/
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=743
+    roles:
+    - standings
+    as_of: '20071011202423'
+    archived:
+    - kolkata/kolkata-2005/standings/2026-09-01-wayback-359b3572/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://www.cse.iitk.ac.in/users/acm/index_files/page0009.htm
+    roles:
+    - standings
+    as_of: '20060427012201'
+    archived:
+    - kolkata/kolkata-2005/external-standings/2026-04-15-external/content.html
+    - kolkata/kolkata-2005/standings/20060117-wayback-d7f6e64b/page0009.htm
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Kolkata-2006/standings
+    roles:
+    - icpc_standings
 - id: kolkata-2015
   season: 2016
   name: 2015 ACM-ICPC Asia Kolkata Regional Contest
@@ -49,14 +62,22 @@ contests:
   - 2873
   parent: wf-2016
   next: kolkata-2016
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Kolkata-2016/standings
-    archived: kolkata/kolkata-2015/standings/api-20260904/standings.html
+  sources:
+  - url: http://www.icpckolkata.in
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Kolkata-2016/standings
+    roles:
+    - icpc_standings
+    archived:
+    - kolkata/kolkata-2015/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 2873, 60 teams, DB fetch 2026-04-26)
-  web: http://www.icpckolkata.in
-  problemset:
-    url: http://icpckolkata.in/2015/ONSITEProblemSet2015.pdf
+  - url: http://icpckolkata.in/2015/ONSITEProblemSet2015.pdf
+    roles:
+    - problemset
     as_of: '20161231205745'
+    url_state: dead
+    url_checked: '2026-11-02'
 - id: kolkata-2016
   season: 2017
   name: 2016 ACM-ICPC Asia Kolkata Regional Contest
@@ -66,20 +87,28 @@ contests:
   - 3050
   parent: wf-2017
   next: kolkata-kanpur-2017
-  results:
-    rankings:
-    - url: http://icpckolkata.in/2017/01/05/result-of-onsite-contest/
-      as_of: '20170109235316'
-      archived: kolkata/kolkata-2016/rankings/2026-09-01-wayback-18931924/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpckolkata.in/2017/01/05/result-of-onsite-contest/
-      as_of: '20170109235316'
-      archived: kolkata/kolkata-2016/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/ICPC-Kolkata-2017/standings
-  web: http://icpckolkata.in
-  problemset: https://www.codechef.com/ACM16KOL
+  sources:
+  - url: http://icpckolkata.in
+    roles:
+    - web
+  - url: http://icpckolkata.in/2017/01/05/result-of-onsite-contest/
+    roles:
+    - standings
+    - rankings
+    as_of: '20170109235316'
+    archived:
+    - kolkata/kolkata-2016/external-standings/2026-04-15-external/content.html
+    - kolkata/kolkata-2016/rankings/2026-09-01-wayback-18931924/page.html
+    - kolkata/kolkata-2016/standings/20170109-wayback-f398d76c/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/ICPC-Kolkata-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://www.codechef.com/ACM16KOL
+    roles:
+    - problemset
+    as_of: '20251224202114'
+    url_state: live
+    url_checked: '2026-11-02'

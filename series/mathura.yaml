@@ -1,7 +1,10 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_candidates.py (url-hunt 2026-09-01).
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: mathura
   name: ICPC Asia Mathura Kanpur Regional Contest
+  tier: regional
+  region: Asia West
+  naming: season-start
 contests:
 - id: mathura-2022
   season: 2023
@@ -12,22 +15,35 @@ contests:
   - 5649
   parent: awc-2022
   next: mathura-2026
-  web: https://kanpurarchive2022.indiaicpc.in/?page_id=55
-  results:
-    standings:
-    - url: https://kanpurarchive2022.indiaicpc.in/?page_id=724
-      archived: mathura/mathura-2022/standings/2026-09-01-live-52fec046/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/ICPC-Mathura-2023/standings
-  problemset: https://kanpurarchive2022.indiaicpc.in/problems_2022.pdf
+  sources:
+  - url: https://kanpurarchive2022.indiaicpc.in/?page_id=55
+    roles:
+    - web
+  - url: https://kanpurarchive2022.indiaicpc.in/?page_id=724
+    roles:
+    - standings
+    archived:
+    - mathura/mathura-2022/standings/2026-09-01-live-52fec046/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/ICPC-Mathura-2023/standings
+    roles:
+    - icpc_standings
+  - url: https://kanpurarchive2022.indiaicpc.in/problems_2022.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: mathura-2026
+  status: upcoming
   season: 2027
   name: 2026 ICPC Asia West Mathura Regional Contest
   cms_ids:
   - 9869
   parent: awc-2026
-  status: upcoming
+  sources:
+  - url: https://mathuraicpc.in/
+    roles:
+    - web
   notes: added from CMS relax-all export 2026-10-20 (abbrev ICPC-Mathura; 2,207 male + 226 female registrants
     at export, via preliminary 9872); first Mathura edition since 2022
-  web: https://mathuraicpc.in/

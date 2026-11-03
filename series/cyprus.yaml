@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: cyprus
   name: ICPC Cyprus Collegiate Programming Contest
+  tier: subregional
+  region: Europe
+  naming: season-start
 contests:
 - id: cyprus-2018
   season: 2019
@@ -12,15 +15,18 @@ contests:
   - 3650
   parent: seerc-2018
   next: cyprus-2019
-  web: http://icpc-cyprus.com/icpc2018/
-  results:
-    rankings:
-    - url: http://icpc-cyprus.com/icpc2018/
-      as_of: '20190610163032'
-      note: added by url-hunt 2026-09-01 (wave2-europe)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: cyprus/cyprus-2018/rankings/20190610-wayback-486891a9/page.html
+  sources:
+  - url: http://icpc-cyprus.com/icpc2018/
+    roles:
+    - web
+    - rankings
+    as_of: '20190610163032'
+    archived:
+    - cyprus/cyprus-2018/rankings/20190610-wayback-486891a9/page.html
+    - cyprus/cyprus-2018/rankings/20260901-live-43a54105/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave2-europe)
 - id: cyprus-2019
   season: 2020
   name: 2019 Cyprus Collegiate Programming Contest
@@ -30,15 +36,18 @@ contests:
   - 4118
   parent: seerc-2019
   next: cyprus-2025
-  web: http://icpc-cyprus.com/icpc2019/
-  results:
-    rankings:
-    - url: http://icpc-cyprus.com/icpc2019/
-      as_of: '20190610163044'
-      note: added by url-hunt 2026-09-01 (wave2-europe)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: cyprus/cyprus-2019/rankings/20190610-wayback-aa35b86b/page.html
+  sources:
+  - url: http://icpc-cyprus.com/icpc2019/
+    roles:
+    - web
+    - rankings
+    as_of: '20190610163044'
+    archived:
+    - cyprus/cyprus-2019/rankings/20190610-wayback-aa35b86b/page.html
+    - cyprus/cyprus-2019/rankings/20260901-live-156512c9/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave2-europe)
 - id: cyprus-2025
   season: 2026
   name: 2025 ICPC Cyprus Collegiate Programming Contest
@@ -48,12 +57,21 @@ contests:
   - 9474
   parent: seerc-2025
   next: cyprus-2026
-  web: http://icpc-cyprus.com/icpc2025/
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/ICPCCyprus-2026/standings
-    archived: cyprus/cyprus-2025/standings/api-20260904/standings.html
+  sources:
+  - url: http://icpc-cyprus.com/icpc2025/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/ICPCCyprus-2026/standings
+    roles:
+    - icpc_standings
+    archived:
+    - cyprus/cyprus-2025/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 9474, 20 teams, DB fetch 2026-04-26)
-  problemset: https://codeforces.com/gym/106151
+  - url: https://codeforces.com/gym/106151
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: cyprus-2026
   status: upcoming
   season: 2027

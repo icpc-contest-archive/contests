@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: south-america-north
   name: ICPC South America North Finals
+  tier: regional
+  region: Latin America
+  naming: season-start
   lineage:
   - type: continues-from
     series: south-america
@@ -16,23 +19,26 @@ contests:
   - 29
   parent: wf-2009
   next: south-america-north-2009
-  icpc_standings: https://icpc.global/regionals/finder/South-America-North-2009/standings
-  web: https://icpc.global/regionals/finder/South-America-North-2009/standings
-  mirrors:
-  - url: https://icpc.global/regionals/finder/South-America-North-2009
-    note: added by url-hunt 2026-09-01 (round9-deep-D4)
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/568
-        as_of: '20150418085948'
-        note: South America Regional Contests 2008
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/568
-    as_of: '20150418085948'
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: https://icpc.global/regionals/finder/South-America-North-2009/standings
+    roles:
+    - web
+    - icpc_standings
+    also_at:
+    - https://icpc.global/regionals/finder/South-America-North-2009
+  - url: https://www.acmicpc.net/category/detail/568
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20150418085948'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      South America Regional Contests 2008
+  problems:
+    set: south-america-north-2008
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - id: south-america-north-2009
   season: 2010
@@ -43,30 +49,40 @@ contests:
   - 519
   parent: wf-2010
   next: south-america-north-2010
-  results:
-    scoreboard:
-    - url: http://acis.org.co/index.php?id=1406
-      as_of: '20140706012832'
-      archived: south-america-north/south-america-north-2009/scoreboard/2026-09-01-wayback-b3eb303d/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.acis.org.co/index.php?id=1406
-      as_of: '20140706012832'
-      archived: south-america-north/south-america-north-2009/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/South-America-North-2010/standings
-  web: http://www.acis.org.co/index.php?id=1358
-  problemset: https://drive.google.com/file/d/1YCo9tDdfrYFzyWpCuBoTMmDz2DEdoBwI/view
+  sources:
+  - url: http://www.acis.org.co/index.php?id=1358
+    roles:
+    - web
+  - url: http://acis.org.co/index.php?id=1406
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20140706012832'
+    archived:
+    - south-america-north/south-america-north-2009/scoreboard/2026-09-01-wayback-b3eb303d/page.html
+    - south-america-north/south-america-north-2009/external-standings/2026-04-15-external/content.html
+    - south-america-north/south-america-north-2009/standings/20130502-wayback-fe7b85c8/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/South-America-North-2010/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/1YCo9tDdfrYFzyWpCuBoTMmDz2DEdoBwI/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/567
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150418084756'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2009
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/567
-        as_of: '20150418084756'
-        note: Latin America Regional Contests 2009
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: south-america-north-2009
 - id: south-america-north-2010
   season: 2011
   name: 2010 South America/North Regional Contest
@@ -76,30 +92,41 @@ contests:
   - 589
   parent: wf-2011
   next: south-america-north-2011
-  results:
-    scoreboard:
-    - url: http://acis.org.co/index.php?id=1559
-      as_of: '20140706022232'
-      archived: south-america-north/south-america-north-2010/scoreboard/2026-09-01-wayback-1fe77467/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.acis.org.co/index.php?id=1559
-      as_of: '20140706022232'
-      archived: south-america-north/south-america-north-2010/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/South-America-North-2011/standings
-  web: http:////www.acis.org.co/index.php?id=1519
-  problemset: https://drive.google.com/file/d/1M-PJ9NAxeURa62q3QPtupWq174xiFZrN/view
+  sources:
+  - url: http:////www.acis.org.co/index.php?id=1519
+    roles:
+    - web
+  - url: http://acis.org.co/index.php?id=1559
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20140706022232'
+    archived:
+    - south-america-north/south-america-north-2010/scoreboard/2026-09-01-wayback-1fe77467/page.html
+    - south-america-north/south-america-north-2010/external-standings/2026-04-15-external/content.html
+    - south-america-north/south-america-north-2010/standings/20130509-wayback-f2c3ea3c/page.html
+    - south-america-north/south-america-north-2010/standings/20140706-wayback-5f6d429a/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/South-America-North-2011/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/1M-PJ9NAxeURa62q3QPtupWq174xiFZrN/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/566
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150416123649'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2010
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/566
-        as_of: '20150416123649'
-        note: Latin America Regional Contests 2010
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: south-america-north-2010
 - id: south-america-north-2011
   season: 2012
   name: 2011 South America/North Regional Contest
@@ -109,30 +136,39 @@ contests:
   - 838
   parent: wf-2012
   next: south-america-north-2012
-  results:
-    scoreboard:
-    - url: http://www.acm-icpc.com.ve/resultados/
-      as_of: '20120719150543'
-      archived: south-america-north/south-america-north-2011/scoreboard/2026-09-01-wayback-b069a4bf/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.acm-icpc.com.ve/resultados/
-      as_of: '20120719150543'
-      archived: south-america-north/south-america-north-2011/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/South-America-North-2012/standings
-  web: http://www.acmicpc-latam.org/
-  problemset: https://drive.google.com/file/d/1UsZK0VYpmWsfeOYLzXH0uEUq41oZdKyI/view
+  sources:
+  - url: http://www.acmicpc-latam.org/
+    roles:
+    - web
+  - url: http://www.acm-icpc.com.ve/resultados/
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20120719150543'
+    archived:
+    - south-america-north/south-america-north-2011/scoreboard/2026-09-01-wayback-b069a4bf/page.html
+    - south-america-north/south-america-north-2011/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/South-America-North-2012/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/1UsZK0VYpmWsfeOYLzXH0uEUq41oZdKyI/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/565
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150416165224'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2011
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/565
-        as_of: '20150416165224'
-        note: Latin America Regional Contests 2011
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: south-america-north-2011
 - id: south-america-north-2012
   season: 2013
   name: 2012 South America-North Regional Contest
@@ -142,18 +178,28 @@ contests:
   - 1401
   parent: wf-2013
   next: south-america-north-2013
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/South-America-North-2013/standings
-    archived: south-america-north/south-america-north-2012/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/South-America-North-2013/standings
+    roles:
+    - icpc_standings
+    archived:
+    - south-america-north/south-america-north-2012/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 1401, 59 teams, DB fetch 2026-04-26)
-  problemset: https://icpcarchive.github.io/Latin%20American%20Contests/Latin%20American%20Regional%20Contest/2012%20Latin%20American%20Regional%20Contest/problems.pdf
+  - url: https://icpcarchive.github.io/Latin%20American%20Contests/Latin%20American%20Regional%20Contest/2012%20Latin%20American%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/564
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150416150048'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2012
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/564
-        as_of: '20150416150048'
-        note: Latin America Regional Contests 2012
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: south-america-north-2012
 - id: south-america-north-2013
   season: 2014
   name: 2013 South America-North Regional Contest
@@ -163,18 +209,28 @@ contests:
   - 1867
   parent: wf-2014
   next: south-america-north-2014
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/South-America-North-2014/standings
-    archived: south-america-north/south-america-north-2013/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/South-America-North-2014/standings
+    roles:
+    - icpc_standings
+    archived:
+    - south-america-north/south-america-north-2013/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 1867, 56 teams, DB fetch 2026-04-26)
-  problemset: https://icpcarchive.github.io/Latin%20American%20Contests/Latin%20American%20Regional%20Contest/2013%20Latin%20American%20Regional%20Contest/problems.pdf
+  - url: https://icpcarchive.github.io/Latin%20American%20Contests/Latin%20American%20Regional%20Contest/2013%20Latin%20American%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1175
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150416163731'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2013
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1175
-        as_of: '20150416163731'
-        note: Latin America Regional Contests 2013
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: south-america-north-2013
 - id: south-america-north-2014
   season: 2015
   name: 2014 ACM-ICPC South America-North Finals
@@ -184,24 +240,40 @@ contests:
   - 2450
   parent: wf-2015
   next: south-america-north-2015
-  icpc_standings: https://icpc.global/regionals/finder/South-America-North-2015/standings
-  results:
-    standings:
-    - url: http://score.bombonera.org/latam2014/
-      archived: south-america-north/south-america-north-2014/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      as_of: '20141111175144'
-  web: http://www.acis.org.co/index.php?id=2184
-  problemset: https://drive.google.com/file/d/1Z88lXuHQChLMpmeAL5FPof26dYFzXFCn/view
+  sources:
+  - url: http://www.acis.org.co/index.php?id=2184
+    roles:
+    - web
+  - url: http://score.bombonera.org/latam2014/
+    roles:
+    - standings
+    as_of: '20141111175144'
+    archived:
+    - south-america-north/south-america-north-2014/external-standings/2026-04-15-external/content.html
+    - south-america-north/south-america-north-2014/standings/20141111-wayback-33c840e4/page.html
+    - south-america-north/south-america-north-2014/standings/20141111-wayback-56042300/page.html
+    - south-america-north/south-america-north-2014/standings/20261023-live-22903275/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/South-America-North-2015/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/1Z88lXuHQChLMpmeAL5FPof26dYFzXFCn/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1297
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150416133301'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2014
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1297
-        as_of: '20150416133301'
-        note: Latin America Regional Contests 2014
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: south-america-north-2014
 - id: south-america-north-2015
   season: 2016
   name: 2015 ACM-ICPC South America-North Finals
@@ -211,18 +283,28 @@ contests:
   - 2811
   parent: wf-2016
   next: south-america-north-2016
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/South-America-North-2016/standings
-    archived: south-america-north/south-america-north-2015/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/South-America-North-2016/standings
+    roles:
+    - icpc_standings
+    archived:
+    - south-america-north/south-america-north-2015/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 2811, 73 teams, DB fetch 2026-04-26)
-  problemset: https://icpcarchive.github.io/Latin%20American%20Contests/Latin%20American%20Regional%20Contest/2015%20Latin%20American%20Regional%20Contest/problems.pdf
+  - url: https://icpcarchive.github.io/Latin%20American%20Contests/Latin%20American%20Regional%20Contest/2015%20Latin%20American%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1418
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190719100616'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2015
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1418
-        as_of: '20190719100616'
-        note: Latin America Regional Contests 2015
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: south-america-north-2015
 - id: south-america-north-2016
   season: 2017
   name: 2016 ACM-ICPC South America-North Finals
@@ -232,23 +314,35 @@ contests:
   - 3012
   parent: wf-2017
   next: south-america-north-2017
-  icpc_standings: https://icpc.global/regionals/finder/South-America-North-2017/standings
-  results:
-    standings:
-    - url: http://acis.org.co/portal/content/resultados-marat%C3%B3n-regional-2016
-      as_of: '20211204015524'
-      archived: south-america-north/south-america-north-2016/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  problemset: https://icpcarchive.github.io/Latin%20American%20Contests/Latin%20American%20Regional%20Contest/2016%20Latin%20American%20Regional%20Contest/problems.pdf
+  sources:
+  - url: http://acis.org.co/portal/content/resultados-marat%C3%B3n-regional-2016
+    roles:
+    - standings
+    as_of: '20211204015524'
+    archived:
+    - south-america-north/south-america-north-2016/external-standings/2026-04-15-external/content.html
+    - south-america-north/south-america-north-2016/standings/20211204-wayback-eb798a8f/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/South-America-North-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Latin%20American%20Contests/Latin%20American%20Regional%20Contest/2016%20Latin%20American%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1572
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190819201522'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2016
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1572
-        as_of: '20190819201522'
-        note: Latin America Regional Contests 2016
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: south-america-north-2016
 - id: south-america-north-2017
   season: 2018
   name: 2017 ACM-ICPC South America-North Finals
@@ -258,18 +352,28 @@ contests:
   - 3451
   parent: wf-2018
   next: south-america-north-2018
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/South-America-North-2018/standings
-    archived: south-america-north/south-america-north-2017/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/South-America-North-2018/standings
+    roles:
+    - icpc_standings
+    archived:
+    - south-america-north/south-america-north-2017/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3451, 63 teams, DB fetch 2026-04-26)
-  problemset: https://icpcarchive.github.io/Latin%20American%20Contests/Latin%20American%20Regional%20Contest/2017%20Latin%20American%20Regional%20Contest/problems.pdf
+  - url: https://icpcarchive.github.io/Latin%20American%20Contests/Latin%20American%20Regional%20Contest/2017%20Latin%20American%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1787
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190817133943'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2017
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1787
-        as_of: '20190817133943'
-        note: Latin America Regional Contests 2017
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: south-america-north-2017
 - id: south-america-north-2018
   season: 2019
   name: 2018 ICPC South America-North Finals
@@ -279,18 +383,28 @@ contests:
   - 3626
   parent: wf-2019
   next: south-america-north-2019
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/South-America-North-2019/standings
-    archived: south-america-north/south-america-north-2018/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/South-America-North-2019/standings
+    roles:
+    - icpc_standings
+    archived:
+    - south-america-north/south-america-north-2018/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3626, 56 teams, DB fetch 2026-04-26)
-  problemset: https://drive.google.com/file/d/1cIJA_seiSjtciyQPdTG2KTNrT-9wRny4/view
+  - url: https://drive.google.com/file/d/1cIJA_seiSjtciyQPdTG2KTNrT-9wRny4/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1956
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190723112850'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2018
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1956
-        as_of: '20190723112850'
-        note: Latin America Regional Contests 2018
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: south-america-north-2018
 - id: south-america-north-2019
   season: 2020
   name: 2019 ICPC South America-North Finals
@@ -300,21 +414,34 @@ contests:
   - 4247
   parent: wf-2020
   next: south-america-north-2020
-  results:
-    scoreboard:
-    - url: https://scorelatam.naquadah.com.br/latam-2019/
-      archived: south-america-north/south-america-north-2019/scoreboard/2026-09-01-live-e9f99892/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/South-America-North-2020/standings
-  problemset: https://drive.google.com/file/d/1orJNNnCo4Wqo0e1WQksiQ4G6vbuftB46/view
+  sources:
+  - url: https://scorelatam.naquadah.com.br/latam-2019/
+    roles:
+    - scoreboard
+    as_of: '20210411155403'
+    archived:
+    - south-america-north/south-america-north-2019/scoreboard/2026-09-01-live-e9f99892/page.html
+    - south-america-north/south-america-north-2019/scoreboard/20210411-wayback-2f0d6964/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/South-America-North-2020/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/1orJNNnCo4Wqo0e1WQksiQ4G6vbuftB46/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2117
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20200807143554'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2019
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2117
-        as_of: '20200807143554'
-        note: Latin America Regional Contests 2019
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: south-america-north-2019
 - id: south-america-north-2020
   season: 2021
   name: 2020 ICPC South America-North Finals
@@ -323,21 +450,34 @@ contests:
   - 4473
   parent: wf-2021
   next: south-america-north-2021
-  results:
-    scoreboard:
-    - url: https://scorelatam.naquadah.com.br/latam-2020/
-      archived: south-america-north/south-america-north-2020/scoreboard/2026-09-01-live-208f16a8/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/South-America-North-2021/standings
-  problemset: https://icpcarchive.github.io/Latin%20American%20Contests/Latin%20American%20Regional%20Contest/2020%20Latin%20American%20Regional%20Contest/problems.pdf
+  sources:
+  - url: https://scorelatam.naquadah.com.br/latam-2020/
+    roles:
+    - scoreboard
+    as_of: '20210710234912'
+    archived:
+    - south-america-north/south-america-north-2020/scoreboard/2026-09-01-live-208f16a8/page.html
+    - south-america-north/south-america-north-2020/scoreboard/20210710-wayback-4dae36e1/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/South-America-North-2021/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Latin%20American%20Contests/Latin%20American%20Regional%20Contest/2020%20Latin%20American%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2611
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210923213505'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2020
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2611
-        as_of: '20210923213505'
-        note: Latin America Regional Contests 2020
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: south-america-north-2020
 - id: south-america-north-2021
   season: 2022
   name: 2021 ICPC South America-North Finals
@@ -347,21 +487,34 @@ contests:
   - 4700
   parent: wf-2022
   next: south-america-north-2022
-  results:
-    scoreboard:
-    - url: https://scorelatam.naquadah.com.br/latam-2021/
-      archived: south-america-north/south-america-north-2021/scoreboard/2026-09-01-live-a1f3ddb3/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/South-America-North-2022/standings
-  problemset: https://drive.google.com/file/d/1CoctzPkRFtL62akJ4h9Aa1sgiedmdv0I/view
+  sources:
+  - url: https://scorelatam.naquadah.com.br/latam-2021/
+    roles:
+    - scoreboard
+    as_of: '20220520232853'
+    archived:
+    - south-america-north/south-america-north-2021/scoreboard/2026-09-01-live-a1f3ddb3/page.html
+    - south-america-north/south-america-north-2021/scoreboard/20220520-wayback-3964f6f9/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/South-America-North-2022/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/1CoctzPkRFtL62akJ4h9Aa1sgiedmdv0I/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3088
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20230514144551'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2021
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3088
-        as_of: '20230514144551'
-        note: Latin America Regional Contests 2021
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: south-america-north-2021
 - id: south-america-north-2022
   season: 2023
   name: 2022 ICPC South America-North Finals
@@ -370,21 +523,34 @@ contests:
   - 5519
   parent: wf-2023
   next: south-america-north-2023
-  results:
-    scoreboard:
-    - url: https://scorelatam.naquadah.com.br/latam-2022/
-      archived: south-america-north/south-america-north-2022/scoreboard/2026-09-01-live-1822a1cb/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/South-America-North-2023/standings
-  problemset: https://icpcarchive.github.io/Latin%20American%20Contests/Latin%20American%20Regional%20Contest/2022%20Latin%20American%20Regional%20Contest/problems.pdf
+  sources:
+  - url: https://scorelatam.naquadah.com.br/latam-2022/
+    roles:
+    - scoreboard
+    as_of: '20230323084846'
+    archived:
+    - south-america-north/south-america-north-2022/scoreboard/2026-09-01-live-1822a1cb/page.html
+    - south-america-north/south-america-north-2022/scoreboard/20230323-wayback-62e21791/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/South-America-North-2023/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Latin%20American%20Contests/Latin%20American%20Regional%20Contest/2022%20Latin%20American%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3579
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20230514144552'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2022
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3579
-        as_of: '20230514144552'
-        note: Latin America Regional Contests 2022
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: south-america-north-2022
 - id: south-america-north-2023
   season: 2024
   name: 2023 ICPC South America-North Finals
@@ -393,20 +559,34 @@ contests:
   - 7547
   parent: lac-2024
   next: south-america-north-2024
-  results:
-    scoreboard:
-    - url: https://scorelatam.naquadah.com.br/latam-2023/
-      archived: south-america-north/south-america-north-2023/scoreboard/2026-09-01-live-c3916262/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/South-America-North-2024/standings
-  problemset: https://icpcarchive.github.io/Latin%20American%20Contests/Latin%20American%20Regional%20Contest/2023%20Latin%20American%20Regional%20Contest/problems.pdf
+  sources:
+  - url: https://scorelatam.naquadah.com.br/latam-2023/
+    roles:
+    - scoreboard
+    as_of: '20231023172618'
+    archived:
+    - south-america-north/south-america-north-2023/scoreboard/2026-09-01-live-c3916262/page.html
+    - south-america-north/south-america-north-2023/scoreboard/20231023-wayback-7d20f130/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/South-America-North-2024/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Latin%20American%20Contests/Latin%20American%20Regional%20Contest/2023%20Latin%20American%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4006
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260618021201'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2023
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4006
-        note: Latin America Regional Contests 2023
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: south-america-north-2023
 - id: south-america-north-2024
   season: 2025
   name: 2024 ICPC South America-North Finals
@@ -416,20 +596,34 @@ contests:
   - 8941
   parent: lac-2025
   next: south-america-north-2025
-  results:
-    scoreboard:
-    - url: https://scorelatam.naquadah.com.br/latam-2024/
-      archived: south-america-north/south-america-north-2024/scoreboard/2026-09-01-live-478cb21c/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/South-America-North-2025/standings
-  problemset: https://scorelatam.naquadah.com.br/latam-2024/contest.pdf
+  sources:
+  - url: https://scorelatam.naquadah.com.br/latam-2024/
+    roles:
+    - scoreboard
+    as_of: '20241113233607'
+    archived:
+    - south-america-north/south-america-north-2024/scoreboard/2026-09-01-live-478cb21c/page.html
+    - south-america-north/south-america-north-2024/scoreboard/20241113-wayback-753d3b6a/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/South-America-North-2025/standings
+    roles:
+    - icpc_standings
+  - url: https://scorelatam.naquadah.com.br/latam-2024/contest.pdf
+    roles:
+    - problemset
+    as_of: '20241113233655'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4388
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2024
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4388
-        note: Latin America Regional Contests 2024
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: south-america-north-2024
 - id: south-america-north-2025
   season: 2026
   name: 2025 ICPC South America North Finals
@@ -439,21 +633,35 @@ contests:
   - 9411
   parent: lac-2026
   next: south-america-north-2026
-  results:
-    scoreboard:
-    - url: https://scorelatam.naquadah.com.br/latam-2025/
-      archived: south-america-north/south-america-north-2025/scoreboard/2026-09-01-live-6f489726/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/South-America-North-2026/standings
-  problemset: https://scorelatam.naquadah.com.br/latam-2025/contest.pdf
+  sources:
+  - url: https://scorelatam.naquadah.com.br/latam-2025/
+    roles:
+    - scoreboard
+    as_of: '20251124192456'
+    archived:
+    - south-america-north/south-america-north-2025/scoreboard/2026-09-01-live-6f489726/page.html
+    - south-america-north/south-america-north-2025/scoreboard/20251124-wayback-89af3860/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/South-America-North-2026/standings
+    roles:
+    - icpc_standings
+  - url: https://scorelatam.naquadah.com.br/latam-2025/contest.pdf
+    roles:
+    - problemset
+    as_of: '20251124192836'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4687
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260418223005'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2025
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4687
-        as_of: '20260418223005'
-        note: Latin America Regional Contests 2025
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: south-america-north-2025
 - id: south-america-north-2026
   status: upcoming
   season: 2027

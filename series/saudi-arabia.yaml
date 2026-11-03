@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: saudi-arabia
   name: ICPC Saudi Collegiate Programming Contest
+  tier: subregional
+  region: Africa & Arab
+  naming: season-start
 contests:
 - id: saudi-arabia-2022
   season: 2023
@@ -12,9 +15,12 @@ contests:
   - 5696
   parent: acpc-2022
   next: saudi-arabia-2023
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/SaudiCPC-2023/standings
-    archived: saudi-arabia/saudi-arabia-2022/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/SaudiCPC-2023/standings
+    roles:
+    - icpc_standings
+    archived:
+    - saudi-arabia/saudi-arabia-2022/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 5696, 51 teams, DB fetch 2026-04-26)
 - id: saudi-arabia-2023
   season: 2024
@@ -23,30 +29,29 @@ contests:
   - 7650
   parent: acpc-2023
   next: saudi-arabia-2024
-  icpc_standings: https://icpc.global/regionals/finder/SaudiCPC-2024/standings
-  web: https://mcit.gov.sa/en/news/stages-%E2%80%9Csaudi-cpc%E2%80%9D-launched
-  results:
-    standings:
-    - url: https://codeforces.com/group/hTqC3XzK2z/contest/400007
-      note: added by url-hunt 2026-09-01 (round9-deep-D3)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: saudi-arabia/saudi-arabia-2023/standings/20261020-live-e9e9d285/page.html
-  mirrors:
-  - url: https://futureskills.mcit.gov.sa/ar/node/30104
-    note: added by url-hunt 2026-09-01 (round9-research)
-  - url: https://icpc.global/regionals/finder/SaudiCPC-2024/standings
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: https://www.spa.gov.sa/2384689
+  sources:
+  - url: https://mcit.gov.sa/en/news/stages-%E2%80%9Csaudi-cpc%E2%80%9D-launched
+    roles:
+    - web
+    also_at:
+    - https://futureskills.mcit.gov.sa/ar/node/30104
+    - https://www.spa.gov.sa/2384689
+    - https://x.com/SaudiCPC
+    - https://www.facebook.com/SaudiArabiaCPC/
+  - url: https://codeforces.com/group/hTqC3XzK2z/contest/400007
+    roles:
+    - standings
+    - problemset
+    archived:
+    - saudi-arabia/saudi-arabia-2023/standings/20261020-live-e9e9d285/page.html
+    url_state: live
+    url_checked: '2026-11-02'
     note: added by url-hunt 2026-09-01 (round9-deep-D3)
-  - url: https://x.com/SaudiCPC
-    note: added by url-hunt 2026-09-01 (round9-deep-probe)
-  - url: https://www.facebook.com/SaudiArabiaCPC/
-    note: added by url-hunt 2026-09-01 (round9-deep-probe)
+  - url: https://icpc.global/regionals/finder/SaudiCPC-2024/standings
+    roles:
+    - icpc_standings
   problems:
-    notes: No date, no teams
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://codeforces.com/group/hTqC3XzK2z/contest/400007
+    set: saudi-arabia-2023
 - id: saudi-arabia-2024
   season: 2025
   name: 2024 ICPC Saudi Collegiate Programming Contest
@@ -54,9 +59,11 @@ contests:
   - 8828
   parent: acpc-2024
   next: saudi-arabia-2025
-  icpc_standings: https://icpc.global/regionals/finder/SaudiCPC-2025/standings
-  web: https://icpc.global/regionals/finder/SaudiCPC-2025/standings
-  mirrors: []
+  sources:
+  - url: https://icpc.global/regionals/finder/SaudiCPC-2025/standings
+    roles:
+    - web
+    - icpc_standings
 - id: saudi-arabia-2025
   season: 2026
   name: 2025 ICPC Saudi Collegiate Programming Contest
@@ -64,9 +71,11 @@ contests:
   - 9287
   parent: acpc-2025
   next: saudi-arabia-2026
-  icpc_standings: https://icpc.global/regionals/finder/SaudiCPC-2026/standings
-  web: https://icpc.global/regionals/finder/SaudiCPC-2026/standings
-  mirrors: []
+  sources:
+  - url: https://icpc.global/regionals/finder/SaudiCPC-2026/standings
+    roles:
+    - web
+    - icpc_standings
 - id: saudi-arabia-2026
   status: upcoming
   season: 2027

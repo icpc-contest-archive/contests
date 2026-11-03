@@ -1,7 +1,10 @@
-# Maintained in-repo; problem-archive data imported by tools/import_problem_archive.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: sudan
   name: ICPC Sudanese Collegiate Programming Contest
+  tier: subregional
+  region: Africa & Arab
+  naming: season-start
 contests:
 - id: sudan-2020
   season: 2021
@@ -12,9 +15,12 @@ contests:
   - 4592
   parent: acpc-2020
   next: sudan-2021
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/SdCPC-2021/standings
-    archived: sudan/sudan-2020/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/SdCPC-2021/standings
+    roles:
+    - icpc_standings
+    archived:
+    - sudan/sudan-2020/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4592, 35 teams, DB fetch 2026-04-26)
 - id: sudan-2021
   season: 2022
@@ -25,9 +31,12 @@ contests:
   - 4821
   parent: acpc-2021
   next: sudan-2022
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/SdCPC-2022/standings
-    archived: sudan/sudan-2021/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/SdCPC-2022/standings
+    roles:
+    - icpc_standings
+    archived:
+    - sudan/sudan-2021/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4821, 10 teams, DB fetch 2026-04-26)
 - id: sudan-2022
   season: 2023
@@ -38,9 +47,12 @@ contests:
   - 5498
   parent: acpc-2022
   next: sudan-2023
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/SdCPC-2023/standings
-    archived: sudan/sudan-2022/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/SdCPC-2023/standings
+    roles:
+    - icpc_standings
+    archived:
+    - sudan/sudan-2022/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 5498, 16 teams, DB fetch 2026-04-26)
 - id: sudan-2023
   season: 2024
@@ -49,18 +61,18 @@ contests:
   - 7628
   parent: acpc-2023
   next: sudan-2024
-  web: https://www.facebook.com/SudanCPC/
-  mirrors:
+  sources:
+  - url: https://www.facebook.com/SudanCPC/
+    roles:
+    - web
+    also_at:
+    - https://www.facebook.com/SudanCPC/videos/c-inventor-bjarne-stroustrup/750543612479177/
   - url: https://icpc.global/regionals/finder/SdCPC-2024/standings
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: https://www.facebook.com/SudanCPC/videos/c-inventor-bjarne-stroustrup/750543612479177/
-    note: added by url-hunt 2026-09-01 (round9-deep-probe)
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/SdCPC-2024/standings
+    roles:
+    - icpc_standings
     note: added by url-hunt 2026-09-01 (wave2-rest)
   problems:
-    notes: No date, no teams
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: sudan-2023
 - id: sudan-2024
   season: 2025
   name: 2024 ICPC Sudanese Collegiate Programming Contest
@@ -68,10 +80,11 @@ contests:
   - 8822
   parent: acpc-2024
   next: null
-  web: https://www.facebook.com/SudanCPC/
-  mirrors:
+  sources:
+  - url: https://www.facebook.com/SudanCPC/
+    roles:
+    - web
   - url: https://icpc.global/regionals/finder/SdCPC-2025/standings
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/SdCPC-2025/standings
+    roles:
+    - icpc_standings
     note: added by url-hunt 2026-09-01 (wave2-rest)

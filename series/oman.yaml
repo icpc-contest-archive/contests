@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: oman
   name: ICPC Oman Collegiate Programming Contest
+  tier: subregional
+  region: Africa & Arab
+  naming: season-start
 contests:
 - id: oman-2013
   season: 2014
@@ -12,9 +15,12 @@ contests:
   - 2065
   parent: acpc-2013
   next: oman-2014
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/OCPC-2014/standings
-    archived: oman/oman-2013/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/OCPC-2014/standings
+    roles:
+    - icpc_standings
+    archived:
+    - oman/oman-2013/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 2065, 29 teams, DB fetch 2026-04-26)
 - id: oman-2014
   season: 2015
@@ -25,9 +31,12 @@ contests:
   - 2631
   parent: acpc-2014
   next: oman-2016
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/OCPC-2015/standings
-    archived: oman/oman-2014/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/OCPC-2015/standings
+    roles:
+    - icpc_standings
+    archived:
+    - oman/oman-2014/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 2631, 29 teams, DB fetch 2026-04-26)
 - id: oman-2016
   season: 2017
@@ -38,9 +47,12 @@ contests:
   - 3228
   parent: acpc-2016
   next: oman-2017
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/OCPC-2017/standings
-    archived: oman/oman-2016/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/OCPC-2017/standings
+    roles:
+    - icpc_standings
+    archived:
+    - oman/oman-2016/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3228, 38 teams, DB fetch 2026-04-26)
 - id: oman-2017
   season: 2018
@@ -51,9 +63,12 @@ contests:
   - 3335
   parent: acpc-2017
   next: oman-2018
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/OCPC-2018/standings
-    archived: oman/oman-2017/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/OCPC-2018/standings
+    roles:
+    - icpc_standings
+    archived:
+    - oman/oman-2017/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3335, 38 teams, DB fetch 2026-04-26)
 - id: oman-2018
   season: 2019
@@ -64,8 +79,13 @@ contests:
   - 3594
   parent: acpc-2018
   next: oman-2019
-  icpc_standings: https://icpc.global/regionals/finder/OCPC-2019/standings
-  web: http://www.acmocpc.org
+  sources:
+  - url: http://www.acmocpc.org
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/OCPC-2019/standings
+    roles:
+    - icpc_standings
 - id: oman-2019
   season: 2020
   name: 2019 Oman Collegiate Programming Contest
@@ -75,11 +95,16 @@ contests:
   - 4022
   parent: acpc-2019
   next: oman-2020
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/OCPC-2020/standings
-    archived: oman/oman-2019/standings/api-20260904/standings.html
+  sources:
+  - url: http://www.acmocpc.org
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/OCPC-2020/standings
+    roles:
+    - icpc_standings
+    archived:
+    - oman/oman-2019/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4022, 36 teams, DB fetch 2026-04-26)
-  web: http://www.acmocpc.org
 - id: oman-2020
   season: 2021
   name: 2020 Oman Collegiate Programming Contest
@@ -89,9 +114,12 @@ contests:
   - 4397
   parent: acpc-2020
   next: oman-2021
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/OCPC-2021/standings
-    archived: oman/oman-2020/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/OCPC-2021/standings
+    roles:
+    - icpc_standings
+    archived:
+    - oman/oman-2020/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4397, 12 teams, DB fetch 2026-04-26)
 - id: oman-2021
   season: 2022
@@ -102,16 +130,19 @@ contests:
   - 4754
   parent: acpc-2021
   next: oman-2022
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/OCPC-2022/standings
-    archived: oman/oman-2021/standings/api-20260904/standings.html
+  sources:
+  - url: https://twitter.com/ocpc_official
+    roles:
+    - web
+    also_at:
+    - https://www.facebook.com/AfricaArabCPC/
+    - https://www.instagram.com/ocpc_official/
+  - url: https://icpc.global/regionals/finder/OCPC-2022/standings
+    roles:
+    - icpc_standings
+    archived:
+    - oman/oman-2021/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4754, 30 teams, DB fetch 2026-04-26)
-  web: https://twitter.com/ocpc_official
-  mirrors:
-  - url: https://www.facebook.com/AfricaArabCPC/
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: https://www.instagram.com/ocpc_official/
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
 - id: oman-2022
   season: 2023
   name: 2022 ICPC Oman Collegiate Programming Contest
@@ -121,22 +152,23 @@ contests:
   - 5438
   parent: acpc-2022
   next: oman-2023
-  icpc_standings: https://icpc.global/regionals/finder/OCPC-2023/standings
-  results:
-    scoreboard:
-    - url: https://acpcsb.acpc.global/ocpc2022/ocpc.html
-      note: added by url-hunt 2026-09-01 (board-upgrade-agent)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: oman/oman-2022/scoreboard/20261020-live-57c36c3a/ocpc.html
-  web: https://anwaar.squ.edu.om/Post/Post-Detail/ArticleID/483/SQU-Hosts-Oman-Collegiate-Programming-Contest
-  mirrors:
-  - url: https://www.facebook.com/SultanateOfOmanCPC/
-    note: added by url-hunt 2026-09-01 (round9-research)
+  sources:
+  - url: https://anwaar.squ.edu.om/Post/Post-Detail/ArticleID/483/SQU-Hosts-Oman-Collegiate-Programming-Contest
+    roles:
+    - web
+    also_at:
+    - https://www.facebook.com/SultanateOfOmanCPC/
   - url: https://acpcsb.acpc.global/ocpc2022/ocpc.html
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
+    roles:
+    - scoreboard
+    archived:
+    - oman/oman-2022/scoreboard/20261020-live-57c36c3a/ocpc.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (board-upgrade-agent)
   - url: https://icpc.global/regionals/finder/OCPC-2023/standings
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
+    roles:
+    - icpc_standings
 - id: oman-2023
   season: 2024
   name: 2023 ICPC Oman Collegiate Programming Contest
@@ -146,15 +178,16 @@ contests:
   - 7656
   parent: acpc-2023
   next: oman-2024
-  icpc_standings: https://icpc.global/regionals/finder/OCPC-2024/standings
-  web: https://nu.edu.om/engineering/nu-students-in-ocpc-2023/
-  mirrors:
-  - url: https://www.linkedin.com/posts/mahmood-al-dhahli-9873a8278_icpc-icpc2023-ocpc2023-activity-7128764918572474369-B3E7
-    note: added by url-hunt 2026-09-01 (round9-research)
-  - url: https://www.facebook.com/SultanateOfOmanCPC/
-    note: added by url-hunt 2026-09-01 (round9-research)
+  sources:
+  - url: https://nu.edu.om/engineering/nu-students-in-ocpc-2023/
+    roles:
+    - web
+    also_at:
+    - https://www.linkedin.com/posts/mahmood-al-dhahli-9873a8278_icpc-icpc2023-ocpc2023-activity-7128764918572474369-B3E7
+    - https://www.facebook.com/SultanateOfOmanCPC/
   - url: https://icpc.global/regionals/finder/OCPC-2024/standings
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
+    roles:
+    - icpc_standings
 - id: oman-2024
   season: 2025
   name: 2024 ICPC Oman Collegiate Programming Contest
@@ -162,15 +195,16 @@ contests:
   - 8776
   parent: acpc-2024
   next: oman-2025
-  icpc_standings: https://icpc.global/regionals/finder/OCPC-2025/standings
-  web: https://www.uob.edu.om/en/news/91/college-of-engineering-of-university-of-buraimi-participates-in-the-10th-edition-of-the-oman-collegiate-programming-contest-ocpc
-  mirrors:
-  - url: https://www.facebook.com/SultanateOfOmanCPC/
-    note: added by url-hunt 2026-09-01 (round9-research)
+  sources:
+  - url: https://www.uob.edu.om/en/news/91/college-of-engineering-of-university-of-buraimi-participates-in-the-10th-edition-of-the-oman-collegiate-programming-contest-ocpc
+    roles:
+    - web
+    also_at:
+    - https://www.facebook.com/SultanateOfOmanCPC/
+    - https://unizwa.edu.om/index.php?deptname=&lang=en&newsid=3722
   - url: https://icpc.global/regionals/finder/OCPC-2025/standings
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: https://unizwa.edu.om/index.php?deptname=&lang=en&newsid=3722
-    note: added by url-hunt 2026-09-01 (round9-deep-probe)
+    roles:
+    - icpc_standings
 - id: oman-2025
   season: 2026
   name: 2025 ICPC Oman Collegiate Programming Contest
@@ -180,9 +214,12 @@ contests:
   - 9309
   parent: acpc-2025
   next: oman-2026
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/OCPC-2026/standings
-    archived: oman/oman-2025/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/OCPC-2026/standings
+    roles:
+    - icpc_standings
+    archived:
+    - oman/oman-2025/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 9309, 53 teams, DB fetch 2026-04-26)
 - id: oman-2026
   status: upcoming

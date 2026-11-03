@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: xian
   name: ICPC Asia Xi'an Regional Contest
+  tier: regional
+  region: Asia East
+  naming: season-start
 contests:
 - id: xian-2002
   season: 2003
@@ -12,38 +15,51 @@ contests:
   - 1091
   parent: wf-2003
   next: xian-2006
-  results:
-    scoreboard:
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/unit.xjtu.edu.cn/unit/acm/jieguo.htm
-      as_of: '20060901164406'
-      archived: xian/xian-2002/scoreboard/2026-09-01-wayback-91b72422/jieguo.htm
-      url_state: dead
-      url_checked: '2026-11-01'
-    rankings:
-    - url: http://icpc.baylor.edu/past/icpc2003/Regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings8b0b.html?ContestID=578
-      as_of: '20090307020327'
-      archived: xian/xian-2002/rankings/2026-09-01-wayback-d07a005e/ViewRegionalStandings8b0b.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings8b0b.html?ContestID=578
-      as_of: '20060901121350'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: unknown
-      url_checked: '2026-11-02'
-  web: http://acm.xjtu.edu.cn/
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1206
-        as_of: '20170925095348'
-        note: Xi'an Regional Contest 2002
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/1206
-    as_of: '20170925095348'
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: http://acm.xjtu.edu.cn/
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/unit.xjtu.edu.cn/unit/acm/jieguo.htm
+    roles:
+    - scoreboard
+    as_of: '20060901164406'
+    archived:
+    - xian/xian-2002/scoreboard/2026-09-01-wayback-91b72422/jieguo.htm
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings8b0b.html?ContestID=578
+    roles:
+    - standings
+    - rankings
+    as_of: '20060901121350'
+    archived:
+    - xian/xian-2002/rankings/2026-09-01-wayback-d07a005e/ViewRegionalStandings8b0b.html
+    - xian/xian-2002/standings/20060901-wayback-7291b495/ViewRegionalStandings8b0b.html
+    url_state: unknown
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings); as_of 20090307020327 for rankings
+  - url: http://unit.xjtu.edu.cn/unit/acm/jieguo.htm
+    roles:
+    - standings
+    as_of: '20021217023449'
+    note: added by url-hunt 2026-09-01 (cms-api)
+  - url: https://www.acmicpc.net/category/detail/1206
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20170925095348'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      Xi'an Regional Contest 2002
+  - url: http://unit.xjtu.edu.cn/unit/acm/timu.doc
+    roles:
+    - problemset
+    as_of: '20031129235929'
+  problems:
+    set: xian-2002
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - id: xian-2006
   season: 2007
@@ -54,15 +70,21 @@ contests:
   - 1284
   parent: wf-2007
   next: xian-2014
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=790
-      as_of: '20080502051013'
-      archived: xian/xian-2006/standings/2026-09-01-wayback-327efba8/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/regionals/finder/Xian-2007/standings
-  web: http://acm.xidian.edu.cn/
+  sources:
+  - url: http://acm.xidian.edu.cn/
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=790
+    roles:
+    - standings
+    as_of: '20080502051013'
+    archived:
+    - xian/xian-2006/standings/2026-09-01-wayback-327efba8/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://icpc.global/regionals/finder/Xian-2007/standings
+    roles:
+    - icpc_standings
 - id: xian-2014
   season: 2015
   name: 2014 ACM-ICPC Asia Xian Regional Contest
@@ -72,33 +94,46 @@ contests:
   - 2697
   parent: wf-2015
   next: xian-2017
-  results:
-    scoreboard:
-    - url: http://board.acmicpc.info/icpc2014/nwpu_onsite.php
-      as_of: '20141029090750'
-      archived: xian/xian-2014/scoreboard/2026-09-01-wayback-42e1696b/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: https://board.xcpcio.com/icpc/2014/nwpu_onsite
-      note: added by url-hunt 2026-09-01 (wave3-xcpcio)
-      url_state: changed
-      url_checked: '2026-11-02'
-      archived: xian/xian-2014/scoreboard/20260902-live-72c2f845/page.html
-    - url: http://board.acmicpc.info/icpc2014/nwpu_onsite.php
-      as_of: '20141029090750'
-      note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://acm.nwpu.edu.cn/
-      as_of: '20190917014928'
-      archived: xian/xian-2014/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/XIA-2015/standings
-  web: http://acm.nwpu.edu.cn
-  problemset: https://codeforces.com/gym/100548
+  sources:
+  - url: http://acm.nwpu.edu.cn
+    roles:
+    - web
+    - standings
+    as_of: '20190917014928'
+    archived:
+    - xian/xian-2014/external-standings/2026-04-15-external/content.html
+    - xian/xian-2014/standings/20141029-wayback-5a76f532/page.html
+    - xian/xian-2014/standings/20190917-wayback-3a5f33f3/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: http://board.acmicpc.info/icpc2014/nwpu_onsite.php
+    roles:
+    - scoreboard
+    as_of: '20141029090750'
+    archived:
+    - xian/xian-2014/scoreboard/2026-09-01-wayback-42e1696b/page.html
+    - xian/xian-2014/scoreboard/20141029-wayback-2ab4b5e1/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
+  - url: https://board.xcpcio.com/icpc/2014/nwpu_onsite
+    roles:
+    - scoreboard
+    archived:
+    - xian/xian-2014/scoreboard/20260902-live-72c2f845/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-xcpcio)
+  - url: https://icpc.global/regionals/finder/XIA-2015/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/100548
+    roles:
+    - problemset
+    as_of: '20150206165741'
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: xian-2017
   season: 2018
   name: 2017 ACM-ICPC Asia Xian Regional Contest
@@ -108,28 +143,36 @@ contests:
   - 3366
   parent: wf-2018
   next: xian-2022
-  results:
-    scoreboard:
-    - url: http://board.acmicpc.info/icpc2017/nwpu_onsite.php
-      as_of: '20171228133414'
-      archived: xian/xian-2017/scoreboard/2026-09-01-wayback-401aff46/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://board.acmicpc.info/icpc2017/nwpu_onsite.php
-      as_of: '20171228133414'
-      note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://acm.nwpu.edu.cn/
-      as_of: '20190917014928'
-      archived: xian/xian-2017/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Xian-2018/standings
-  web: http://acm.nwpu.edu.cn
-  problemset: https://qoj.ac/contest/2112
+  sources:
+  - url: http://acm.nwpu.edu.cn
+    roles:
+    - web
+    - standings
+    as_of: '20190917014928'
+    archived:
+    - xian/xian-2017/external-standings/2026-04-15-external/content.html
+    - xian/xian-2017/standings/20190917-wayback-3a5f33f3/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: http://board.acmicpc.info/icpc2017/nwpu_onsite.php
+    roles:
+    - scoreboard
+    as_of: '20171228133414'
+    archived:
+    - xian/xian-2017/scoreboard/2026-09-01-wayback-401aff46/page.html
+    - xian/xian-2017/scoreboard/20171228-wayback-061fb73a/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
+  - url: https://icpc.global/regionals/finder/Xian-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://qoj.ac/contest/2112
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: xian-2022
   season: 2023
   name: 2022 ICPC Asia Xi'an Regional Contest
@@ -139,26 +182,42 @@ contests:
   - 5550
   parent: wf-2023
   next: xian-2023
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/104077/standings
-      archived: xian/xian-2022/scoreboard/2026-09-01-live-a04cbd78/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    - url: https://board.xcpcio.com/icpc/47th/xian
-      note: added by url-hunt 2026-09-01 (xcpcio-data-agent)
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.nwpu.edu.cn/
-      as_of: '20200204013939'
-      archived: xian/xian-2022/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Xian-2023/standings
-  web: http://icpc.nwpu.edu.cn
-  problemset: https://codeforces.com/gym/104077
+  sources:
+  - url: http://icpc.nwpu.edu.cn
+    roles:
+    - web
+    - standings
+    as_of: '20200204013939'
+    archived:
+    - xian/xian-2022/external-standings/2026-04-15-external/content.html
+    - xian/xian-2022/standings/20200204-wayback-d5674cf0/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://codeforces.com/gym/104077/standings
+    roles:
+    - scoreboard
+    as_of: '20221217075916'
+    archived:
+    - xian/xian-2022/scoreboard/2026-09-01-live-a04cbd78/page.html
+    - xian/xian-2022/scoreboard/20221217-wayback-16f114a2/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://board.xcpcio.com/icpc/47th/xian
+    roles:
+    - scoreboard
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (xcpcio-data-agent)
+  - url: https://icpc.global/regionals/finder/Xian-2023/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/104077
+    roles:
+    - problemset
+    as_of: '20221217014558'
+    url_state: replaced
+    url_checked: '2026-11-02'
 - id: xian-2023
   season: 2024
   name: 2023 ICPC Asia Xi'an Regional Contest
@@ -168,23 +227,32 @@ contests:
   - 7681
   parent: wf-2024
   next: xian-2025
-  results:
-    standings:
-    - url: http://icpc.nwpu.edu.cn/
-      as_of: '20200204013939'
-      archived: xian/xian-2023/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-    scoreboard:
-    - url: https://board.xcpcio.com/icpc/48th/xian
-      as_of: '20240907133256'
-      note: added by url-hunt 2026-09-01 (xcpcio-data-agent)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Xian-2024/standings
-  web: http://icpc.nwpu.edu.cn/
-  problemset: https://codeforces.com/gym/105471
+  sources:
+  - url: http://icpc.nwpu.edu.cn/
+    roles:
+    - web
+    - standings
+    as_of: '20200204013939'
+    archived:
+    - xian/xian-2023/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://board.xcpcio.com/icpc/48th/xian
+    roles:
+    - scoreboard
+    as_of: '20240907133256'
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (xcpcio-data-agent)
+  - url: https://icpc.global/regionals/finder/Xian-2024/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/105471
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: xian-2025
   season: 2026
   name: 2025 ICPC Asia Xi'an Regional Contest
@@ -194,15 +262,21 @@ contests:
   - 9220
   parent: wf-2026
   next: xian-2026
-  results:
-    scoreboard:
-    - url: https://board.xcpcio.com/icpc/50th/xian
-      as_of: '20251111084857'
-      note: added by url-hunt 2026-09-01 (wave3-xcpcio)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: xian/xian-2025/scoreboard/20251111-wayback-87ffef04/page.html
-  problemset: https://qoj.ac/contest/2562
+  sources:
+  - url: https://board.xcpcio.com/icpc/50th/xian
+    roles:
+    - scoreboard
+    as_of: '20251111084857'
+    archived:
+    - xian/xian-2025/scoreboard/20251111-wayback-87ffef04/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-xcpcio)
+  - url: https://qoj.ac/contest/2562
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: xian-2026
   status: upcoming
   season: 2027

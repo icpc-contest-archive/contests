@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: thailand-national
   name: ICPC Thailand National On-site Programming Contest
+  tier: regional
+  region: Asia Pacific
+  naming: season-start
 contests:
 - id: thailand-national-2012
   season: 2013
@@ -11,12 +14,14 @@ contests:
   cms_ids:
   - 1496
   parent: thailand-2012
-  notes: '77 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   next: thailand-national-2013
-  web: https://icpc.global/regionals/finder/Thailand-2013
-  mirrors:
-  - url: https://icpc.global/regionals/finder/Hatyai-2013
-    note: added by url-hunt 2026-09-01 (round9-deep-D4)
+  sources:
+  - url: https://icpc.global/regionals/finder/Thailand-2013
+    roles:
+    - web
+    also_at:
+    - https://icpc.global/regionals/finder/Hatyai-2013
+  notes: '77 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: thailand-national-2013
   season: 2014
   name: Asia Thailand National On-site Programming Contest
@@ -25,22 +30,26 @@ contests:
   cms_ids:
   - 1940
   parent: thailand-2013
-  notes: '110 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   next: thailand-national-2014
-  web: https://www.eng.psu.ac.th/old-website/8-information/365-5-acm-icpc-thailand-2013
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1157
-        as_of: '20201124173303'
-        note: 2013 ACM-ICPC Thailand National Programming Contest
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/1157
-    as_of: '20201124173303'
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: https://www.eng.psu.ac.th/old-website/8-information/365-5-acm-icpc-thailand-2013
+    roles:
+    - web
+  - url: https://www.acmicpc.net/category/detail/1157
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20201124173303'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      2013 ACM-ICPC Thailand National Programming Contest
+  problems:
+    set: thailand-national-2013
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+  notes: '110 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: thailand-national-2014
   season: 2015
   name: Asia Thailand National On-site Programming Contest
@@ -49,12 +58,14 @@ contests:
   cms_ids:
   - 2597
   parent: thailand-2014
-  notes: '116 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   next: thailand-national-2015
-  web: https://icpc.global/regionals/finder/thai-nat-on-site-2015
-  mirrors:
-  - url: https://icpc.global/regionals/finder/thai-nat-on-site-2015/standings
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
+  sources:
+  - url: https://icpc.global/regionals/finder/thai-nat-on-site-2015
+    roles:
+    - web
+    also_at:
+    - https://icpc.global/regionals/finder/thai-nat-on-site-2015/standings
+  notes: '116 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: thailand-national-2015
   season: 2016
   name: Asia Thailand National On-site Programming Contest
@@ -63,26 +74,30 @@ contests:
   cms_ids:
   - 2942
   parent: thailand-2015
-  notes: '100 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   next: thailand-national-2016
-  web: https://museum.li.mahidol.ac.th/acm-icpc-thailand-national-contest-2015/
-  mirrors: []
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Thai-Nat-On-site-2016/standings
-    note: added by url-hunt 2026-09-01 (round9-research)
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1532
-        as_of: '20190921111418'
-        note: 2015 ACM-ICPC Thailand National Programming Contest
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/1532
-    as_of: '20190921111418'
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: https://museum.li.mahidol.ac.th/acm-icpc-thailand-national-contest-2015/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Thai-Nat-On-site-2016/standings
+    roles:
+    - icpc_standings
+    note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://www.acmicpc.net/category/detail/1532
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20190921111418'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      2015 ACM-ICPC Thailand National Programming Contest
+  problems:
+    set: thailand-national-2015
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+  notes: '100 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: thailand-national-2016
   season: 2017
   name: Asia Bangkok- Thailand National On-site Programming Contest
@@ -91,25 +106,44 @@ contests:
   cms_ids:
   - 3096
   parent: thailand-2016
-  notes: '108 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   next: thailand-national-2025
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/bangkok-nat-on-site-2017/standings
-    note: added by url-hunt 2026-09-01 (round9-research)
   sources:
+  - url: https://icpc.global/regionals/finder/bangkok-nat-on-site-2017/standings
+    roles:
+    - icpc_standings
+    note: added by url-hunt 2026-09-01 (round9-research)
+  provenance:
   - 'Siamphone (Thai tech news) (2016-12): Series context: describes the Thai national-level ''Local Contest''
     structure (first hosted by PSU Phuket; central-region centre added in 2012) while reporting Chula
     ''CPCU Debuggers'' winning the 8-9 Dec 2016 Asia regional  — https://www.siamphone.com/contents/news-29357.html
     [existence hunt 2026-10-22]'
+  notes: '108 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: thailand-national-2024
   season: 2025
   name: 2024 ICPC Thailand National On-site Programming Contest
   date: '2024-11-16'
   cms_ids: []
   parent: awc-2024
-  notes: 'Q10/D6 2026-09-07: the 2024 revival at Chulalongkorn (''onsite event for every team''); originally
-    proposed as thailand-2024, landed here after dedupe check showed no thailand-national-2024 existed'
   sources:
+  - url: https://icpc-2024.cp.eng.chula.ac.th/2024/contest/teams
+    roles:
+    - web
+    also_at:
+    - https://icpc-2024.cp.eng.chula.ac.th/2024/
+  - url: https://codeforces.com/gym/105335/standings
+    roles:
+    - standings
+    archived:
+    - thailand-national/thailand-national-2024/standings/20261023-live-88ebe64c/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://icpc-2024.cp.eng.chula.ac.th/2024/editorials/ICPC_National_Bangkok_2024.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  provenance:
   - 'ICPC Thailand National Competition 2024 - organiser site (Chula CP) (2024-09-02 (last update)): Thailand
     National Round (on-site) 7-8 September 2024 at Building 3, Faculty of Engineering, Chulalongkorn University;
     contest 8 Sept 09:00-14:00, closing ceremony 16:00-18:00; Internal Round 17-18 Aug 2024. — https://icpc-2024.cp.eng.chula.ac.th/2024/schedule
@@ -121,18 +155,8 @@ contests:
   - 'Organiser site - Registration result (2024): ''57 Team responses'' - registered teams listed with
     university (first page shows Chiang Mai University x3, Chulalongkorn x2). — https://icpc-2024.cp.eng.chula.ac.th/2024/contest/teams
     [existence hunt 2026-10-22]'
-  results:
-    standings:
-    - url: https://codeforces.com/gym/105335/standings
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: thailand-national/thailand-national-2024/standings/20261023-live-88ebe64c/page.html
-  web: https://icpc-2024.cp.eng.chula.ac.th/2024/contest/teams
-  mirrors:
-  - url: https://icpc-2024.cp.eng.chula.ac.th/2024/
-    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-  problemset: https://icpc-2024.cp.eng.chula.ac.th/2024/editorials/ICPC_National_Bangkok_2024.pdf
+  notes: 'Q10/D6 2026-09-07: the 2024 revival at Chulalongkorn (''onsite event for every team''); originally
+    proposed as thailand-2024, landed here after dedupe check showed no thailand-national-2024 existed'
 - id: thailand-national-2025
   season: 2026
   name: 2025 ICPC Thailand National Contest
@@ -141,27 +165,33 @@ contests:
   cms_ids:
   - 9467
   parent: thailand-2025
-  notes: '47 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   next: thailand-national-2026
-  web: https://icpc2025.science.kmitl.ac.th/
-  results:
-    standings:
-    - url: https://codeforces.com/gym/106069/standings
-      note: added by url-hunt 2026-09-01 (round9-research)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: thailand-national/thailand-national-2025/standings/20261020-live-970ebf09/page.html
-  mirrors: []
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Thailand-2026/standings
+  sources:
+  - url: https://icpc2025.science.kmitl.ac.th/
+    roles:
+    - web
+  - url: https://codeforces.com/gym/106069/standings
+    roles:
+    - standings
+    archived:
+    - thailand-national/thailand-national-2025/standings/20261020-live-970ebf09/page.html
+    url_state: live
+    url_checked: '2026-11-02'
     note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://icpc.global/regionals/finder/Thailand-2026/standings
+    roles:
+    - icpc_standings
+    note: added by url-hunt 2026-09-01 (round9-research)
+  notes: '47 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: thailand-national-2026
+  status: upcoming
   season: 2027
   name: 2026 ICPC Thailand National Contest
   cms_ids:
   - 9675
   parent: thailand-2026
+  sources:
+  - url: https://icpc.global/regionals/finder/Thailand-2027
+    roles:
+    - web
   notes: 'from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
-  status: upcoming
-  web: https://icpc.global/regionals/finder/Thailand-2027
-  mirrors: []

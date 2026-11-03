@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: nordic
   name: ICPC Nordic Collegiate Programming Contest
+  tier: subregional
+  region: Europe
+  naming: season-start
   lineage:
   - type: continues-from
     series: norway
@@ -16,62 +19,97 @@ contests:
   cms_ids: []
   parent: nwerc-2002
   next: nordic-2003
-  web: https://www.ida.liu.se/projects/progcontest/progsm/2002/
-  results:
-    scoreboard:
-    - url: https://www.ida.liu.se/projects/progcontest/progsm/2002/
-      archived: nordic/nordic-2002/scoreboard/2026-09-01-live-f5efbd45/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2002%20Nordic%20Collegiate%20Programming%20Contest/problems.ps
+  sources:
+  - url: https://www.ida.liu.se/projects/progcontest/progsm/2002/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20040105005213'
+    archived:
+    - nordic/nordic-2002/scoreboard/2026-09-01-live-f5efbd45/page.html
+    - nordic/nordic-2002/scoreboard/20040105-wayback-72418e2d/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2002%20Nordic%20Collegiate%20Programming%20Contest/problems.ps
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/770
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190723111049'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NCPC 2002
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/770
-        as_of: '20190723111049'
-        note: NCPC 2002
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: nordic-2002
 - id: nordic-2003
   season: 2004
   date: '2003-09-27'
   cms_ids: []
   parent: nwerc-2003
   next: nordic-2004
-  results:
-    scoreboard:
-    - url: https://www.ida.liu.se/projects/progcontest/progsm/2003/prognm2003-final.html
-      archived: nordic/nordic-2003/scoreboard/2026-09-01-live-2cadac63/prognm2003-final.html
-      url_state: live
-      url_checked: '2026-11-02'
-  web: https://www.ida.liu.se/projects/progcontest/progsm/2003/
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2003%20Nordic%20Collegiate%20Programming%20Contest/problems.ps
+  sources:
+  - url: https://www.ida.liu.se/projects/progcontest/progsm/2003/
+    roles:
+    - web
+  - url: https://www.ida.liu.se/projects/progcontest/progsm/2003/prognm2003-final.html
+    roles:
+    - scoreboard
+    as_of: '20050315104435'
+    archived:
+    - nordic/nordic-2003/scoreboard/2026-09-01-live-2cadac63/prognm2003-final.html
+    - nordic/nordic-2003/scoreboard/20050315-wayback-a393b09a/prognm2003-final.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2003%20Nordic%20Collegiate%20Programming%20Contest/problems.ps
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/769
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201024150432'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NCPC 2003
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/769
-        as_of: '20201024150432'
-        note: NCPC 2003
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: nordic-2003
 - id: nordic-2004
   season: 2005
   date: '2004-10-02'
   cms_ids: []
   parent: nwerc-2004
   next: nordic-2005
-  results:
-    scoreboard:
-    - url: https://www.ida.liu.se/projects/progcontest/progsm/2004/nmsm2004-summary.html
-      archived: nordic/nordic-2004/scoreboard/2026-09-01-live-43cf1122/nmsm2004-summary.html
-      url_state: live
-      url_checked: '2026-11-02'
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2004%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+  sources:
+  - url: https://www.ida.liu.se/projects/progcontest/progsm/2004/nmsm2004-summary.html
+    roles:
+    - scoreboard
+    as_of: '20060516065854'
+    archived:
+    - nordic/nordic-2004/scoreboard/2026-09-01-live-43cf1122/nmsm2004-summary.html
+    - nordic/nordic-2004/scoreboard/20060516-wayback-01c61697/nmsm2004-summary.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2004%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/768
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190825024159'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NCPC 2004
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/768
-        as_of: '20190825024159'
-        note: NCPC 2004
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: nordic-2004
 - id: nordic-2005
   season: 2006
   name: 2005 Nordic Collegiate Programming Contest
@@ -82,34 +120,44 @@ contests:
   - 1066
   parent: nwerc-2005
   next: nordic-2006
-  web: https://nordic.icpc.io/ncpc2005/
-  results:
-    scoreboard:
-    - url: http://www.nada.kth.se/contest/ncpc/2005/final/ncpc.html
-      as_of: '20060105025117'
-      archived: nordic/nordic-2005/scoreboard/2026-09-01-wayback-48b6cf5f/ncpc.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Nordic-2006/standings
+  sources:
+  - url: https://nordic.icpc.io/ncpc2005/
+    roles:
+    - web
+  - url: http://www.nada.kth.se/contest/ncpc/2005/final/ncpc.html
+    roles:
+    - scoreboard
+    as_of: '20060105025117'
+    archived:
+    - nordic/nordic-2005/scoreboard/2026-09-01-wayback-48b6cf5f/ncpc.html
+    - nordic/nordic-2005/scoreboard/20260901-live-b6025c6d/ncpc.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Nordic-2006/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2005%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202005
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190718022138'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/216
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190716064843'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NCPC 2005
   problems:
-    count: 9
-    statement: full
-    data: partial
-    solutions: partial
-    package: partial
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202005
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/216
-        as_of: '20190716064843'
-        note: NCPC 2005
-    notes: Missing problem G (Kingdom)
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    counts:
-      data: 8
-      solutions: 8
-      package: 8
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2005%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    set: nordic-2005
 - id: nordic-2006
   season: 2007
   name: 2006 Nordic Collegiate Programming Contest
@@ -120,28 +168,45 @@ contests:
   - 1060
   parent: nwerc-2006
   next: nordic-2007
-  web: https://nordic.icpc.io/ncpc2006/
-  results:
-    scoreboard:
-    - url: https://www.csc.kth.se/contest/ncpc/2006/ncpc.html
-      archived: nordic/nordic-2006/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Nordic-2007/standings
+  sources:
+  - url: https://nordic.icpc.io/ncpc2006/
+    roles:
+    - web
+  - url: https://www.csc.kth.se/contest/ncpc/2006/ncpc.html
+    roles:
+    - scoreboard
+    as_of: '20061024060623'
+    archived:
+    - nordic/nordic-2006/external-standings/2026-04-15-external/content.html
+    - nordic/nordic-2006/scoreboard/20061024-wayback-b9c28dd1/ncpc.html
+    - nordic/nordic-2006/scoreboard/20260901-live-ad5788ea/ncpc.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Nordic-2007/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2006%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202006
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20191022211644'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/215
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190917050420'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NCPC 2006
   problems:
-    count: 9
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202006
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/215
-        as_of: '20190917050420'
-        note: NCPC 2006
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2006%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    set: nordic-2006
 - id: nordic-2007
   season: 2008
   name: 2007 Nordic Collegiate Programming Contest
@@ -152,28 +217,45 @@ contests:
   - 1226
   parent: nwerc-2007
   next: nordic-2008
-  web: https://nordic.icpc.io/ncpc2007/
-  results:
-    scoreboard:
-    - url: https://www.csc.kth.se/contest/ncpc/2007/standings/
-      archived: nordic/nordic-2007/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Nordic-2008/standings
+  sources:
+  - url: https://nordic.icpc.io/ncpc2007/
+    roles:
+    - web
+  - url: https://www.csc.kth.se/contest/ncpc/2007/standings/
+    roles:
+    - scoreboard
+    as_of: '20071015053022'
+    archived:
+    - nordic/nordic-2007/external-standings/2026-04-15-external/content.html
+    - nordic/nordic-2007/scoreboard/20071015-wayback-bec68caf/page.html
+    - nordic/nordic-2007/scoreboard/20260901-live-01ebf870/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Nordic-2008/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2007%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202007
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190720181013'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/214
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190821233542'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NCPC 2007
   problems:
-    count: 9
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202007
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/214
-        as_of: '20190821233542'
-        note: NCPC 2007
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2007%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    set: nordic-2007
 - id: nordic-2008
   season: 2009
   name: 2008 Nordic Collegiate Programming Contest
@@ -185,37 +267,62 @@ contests:
   - 50
   parent: nwerc-2008
   next: nordic-2009
-  web: https://nordic.icpc.io/ncpc2008/
-  results:
-    scoreboard:
-    - url: https://www.csc.kth.se/contest/ncpc/2008/standings/
-      archived: nordic/nordic-2008/scoreboard/2026-09-01-live-31bffec9/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.csc.kth.se/contest/ncpc/2008/standings/?icpc
-      archived: nordic/nordic-2008/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-      as_of: '20081006224651'
-  icpc_standings: https://icpc.global/regionals/finder/Nordic-2009/standings
+  sources:
+  - url: https://nordic.icpc.io/ncpc2008/
+    roles:
+    - web
+  - url: https://www.csc.kth.se/contest/ncpc/2008/standings/
+    roles:
+    - scoreboard
+    as_of: '20081006084137'
+    archived:
+    - nordic/nordic-2008/scoreboard/2026-09-01-live-31bffec9/page.html
+    - nordic/nordic-2008/scoreboard/20081006-wayback-6c73b9fd/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.csc.kth.se/contest/ncpc/2008/standings/?icpc
+    roles:
+    - standings
+    as_of: '20081006224651'
+    archived:
+    - nordic/nordic-2008/external-standings/2026-04-15-external/content.html
+    - nordic/nordic-2008/standings/20081006-wayback-771c035a/page.html
+    - nordic/nordic-2008/standings/20260901-live-3a436dc2/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Nordic-2009/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2008%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202008
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190919131400'
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202008%2C%20adapted%20from%20Andrew%20Stankevich%20Contest%2017%2C%20Petrozavodsk%2C%20February%202%2C%202006
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20220124103255'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/213
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190821220727'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NCPC 2008
   problems:
-    count: 10
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis:
-      - https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202008
-      - https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202008%2C%20adapted%20from%20Andrew%20Stankevich%20Contest%2017%2C%20Petrozavodsk%2C%20February%202%2C%202006
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/213
-        as_of: '20190821220727'
-        note: NCPC 2008
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2008%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    set: nordic-2008
 - id: nordic-2009
   season: 2010
   name: 2009 Nordic Collegiate Programming Contest
@@ -227,34 +334,54 @@ contests:
   - 540
   parent: nwerc-2009
   next: nordic-2010
-  web: https://nordic.icpc.io/ncpc2009/
-  results:
-    scoreboard:
-    - url: https://www.csc.kth.se/contest/ncpc/2009/standings/
-      archived: nordic/nordic-2009/scoreboard/2026-09-01-live-55115143/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://ncpc.idi.ntnu.no/ncpc2009
-      archived: nordic/nordic-2009/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Nordic-2010/standings
+  sources:
+  - url: https://nordic.icpc.io/ncpc2009/
+    roles:
+    - web
+  - url: https://www.csc.kth.se/contest/ncpc/2009/standings/
+    roles:
+    - scoreboard
+    as_of: '20091011095529'
+    archived:
+    - nordic/nordic-2009/scoreboard/2026-09-01-live-55115143/page.html
+    - nordic/nordic-2009/scoreboard/20091011-wayback-b24f325c/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://ncpc.idi.ntnu.no/ncpc2009
+    roles:
+    - standings
+    as_of: '20100805090808'
+    archived:
+    - nordic/nordic-2009/external-standings/2026-04-15-external/content.html
+    - nordic/nordic-2009/standings/20100805-wayback-1775d79f/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Nordic-2010/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2009%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202009
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20210125101127'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/212
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190718063731'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NCPC 2009
   problems:
-    count: 10
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202009
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/212
-        as_of: '20190718063731'
-        note: NCPC 2009
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2009%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    set: nordic-2009
 - id: nordic-2010
   season: 2011
   name: 2010 Nordic Collegiate Programming Contest
@@ -266,28 +393,44 @@ contests:
   - 615
   parent: nwerc-2010
   next: nordic-2011
-  web: https://nordic.icpc.io/ncpc2010/
-  results:
-    scoreboard:
-    - url: https://nordic.icpc.io/ncpc2010/scoreboard
-      archived: nordic/nordic-2010/scoreboard/2026-09-01-live-491d270c/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Nordic-2011/standings
+  sources:
+  - url: https://nordic.icpc.io/ncpc2010/
+    roles:
+    - web
+  - url: https://nordic.icpc.io/ncpc2010/scoreboard
+    roles:
+    - scoreboard
+    as_of: '20230202010820'
+    archived:
+    - nordic/nordic-2010/scoreboard/2026-09-01-live-491d270c/page.html
+    - nordic/nordic-2010/scoreboard/20230202-wayback-fb67589b/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Nordic-2011/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2010%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202010
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190919021829'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/211
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190824174053'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NCPC 2010
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202010
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/211
-        as_of: '20190824174053'
-        note: NCPC 2010
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2010%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    set: nordic-2010
 - id: nordic-2011
   season: 2012
   name: 2011 Nordic Collegiate Programming Contest
@@ -299,29 +442,43 @@ contests:
   - 791
   parent: nwerc-2011
   next: nordic-2012
-  web: https://nordic.icpc.io/ncpc2011/
-  results:
-    scoreboard:
-    - url: http://ncpc2011.contest.scrool.se/standings/
-      as_of: '20181119175412'
-      archived: nordic/nordic-2011/scoreboard/2026-09-01-wayback-f378ccc8/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Nordic-2012/standings
+  sources:
+  - url: https://nordic.icpc.io/ncpc2011/
+    roles:
+    - web
+  - url: http://ncpc2011.contest.scrool.se/standings/
+    roles:
+    - scoreboard
+    as_of: '20181119175412'
+    archived:
+    - nordic/nordic-2011/scoreboard/2026-09-01-wayback-f378ccc8/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Nordic-2012/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2011%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202011
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190821075648'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/210
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20171221120443'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NCPC 2011
   problems:
-    count: 10
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202011
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/210
-        as_of: '20171221120443'
-        note: NCPC 2011
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2011%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    set: nordic-2011
 - id: nordic-2012
   season: 2013
   name: 2012 Nordic Collegiate Programming Contest
@@ -333,29 +490,43 @@ contests:
   - 1341
   parent: nwerc-2012
   next: nordic-2013
-  web: https://nordic.icpc.io/ncpc2012/
-  results:
-    scoreboard:
-    - url: http://ncpc12.contest.scrool.se/standings/
-      as_of: '20181121100538'
-      archived: nordic/nordic-2012/scoreboard/2026-09-01-wayback-948a80ab/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Nordic-2013/standings
+  sources:
+  - url: https://nordic.icpc.io/ncpc2012/
+    roles:
+    - web
+  - url: http://ncpc12.contest.scrool.se/standings/
+    roles:
+    - scoreboard
+    as_of: '20181121100538'
+    archived:
+    - nordic/nordic-2012/scoreboard/2026-09-01-wayback-948a80ab/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Nordic-2013/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2012%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202012
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190721185202'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/209
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190721130245'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NCPC 2012
   problems:
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202012
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/209
-        as_of: '20190721130245'
-        note: NCPC 2012
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2012%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    set: nordic-2012
 - id: nordic-2013
   season: 2014
   name: 2013 Nordic Collegiate Programming Contest
@@ -367,28 +538,40 @@ contests:
   - 2019
   parent: nwerc-2013
   next: nordic-2014
-  web: https://nordic.icpc.io/ncpc2013/
-  results:
-    scoreboard:
-    - url: http://ncpc13.contest.scrool.se/standings/
-      as_of: '20160719225554'
-      archived: nordic/nordic-2013/scoreboard/2026-09-01-wayback-2fc00f90/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://nordic.icpc.io/ncpc2013/
+    roles:
+    - web
+  - url: http://ncpc13.contest.scrool.se/standings/
+    roles:
+    - scoreboard
+    as_of: '20160719225554'
+    archived:
+    - nordic/nordic-2013/scoreboard/2026-09-01-wayback-2fc00f90/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2013%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202013
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190922140048'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1146
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190824174850'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NCPC 2013
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202013
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1146
-        as_of: '20190824174850'
-        note: NCPC 2013
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2013%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    set: nordic-ukiepc-2013
 - id: nordic-2014
   season: 2015
   name: 2014 Nordic Collegiate Programming Contest
@@ -399,28 +582,44 @@ contests:
   - 2693
   parent: nwerc-2014
   next: nordic-2015
-  web: https://nordic.icpc.io/ncpc2014/
-  results:
-    scoreboard:
-    - url: https://ncpc14.kattis.com/contests/s3f31fa/standings
-      archived: nordic/nordic-2014/scoreboard/2026-09-01-live-640501b1/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Nordic-2015/standings
+  sources:
+  - url: https://nordic.icpc.io/ncpc2014/
+    roles:
+    - web
+  - url: https://ncpc14.kattis.com/contests/s3f31fa/standings
+    roles:
+    - scoreboard
+    as_of: '20220706213448'
+    archived:
+    - nordic/nordic-2014/scoreboard/2026-09-01-live-640501b1/page.html
+    - nordic/nordic-2014/scoreboard/20220706-wayback-6da76848/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Nordic-2015/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2014%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202014
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190718025002'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1284
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190718070451'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NCPC 2014
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202014
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1284
-        as_of: '20190718070451'
-        note: NCPC 2014
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2014%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    set: nordic-ukiepc-2014
 - id: nordic-2015
   season: 2016
   name: 2015 Nordic Collegiate Programming Contest
@@ -432,28 +631,41 @@ contests:
   - 2785
   parent: nwerc-2015
   next: nordic-2016
-  web: https://nordic.icpc.io/ncpc2015/
-  results:
-    scoreboard:
-    - url: https://ncpc15.kattis.com/contests/ncpc15/standings
-      archived: nordic/nordic-2015/scoreboard/2026-09-01-live-89c967a3/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Nordic-2016/standings
+  sources:
+  - url: https://nordic.icpc.io/ncpc2015/
+    roles:
+    - web
+  - url: https://ncpc15.kattis.com/contests/ncpc15/standings
+    roles:
+    - scoreboard
+    archived:
+    - nordic/nordic-2015/scoreboard/2026-09-01-live-89c967a3/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Nordic-2016/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2015%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202015
+    roles:
+    - judge_page
+    judge: kattis
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1393
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190825030236'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NCPC 2015
   problems:
-    count: 10
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202015
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1393
-        as_of: '20190825030236'
-        note: NCPC 2015
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2015%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    set: nordic-2015
 - id: nordic-2016
   season: 2017
   name: 2016 Nordic Collegiate Programming Contest
@@ -465,28 +677,42 @@ contests:
   - 3120
   parent: nwerc-2016
   next: nordic-2017
-  web: https://nordic.icpc.io/ncpc2016/
-  results:
-    scoreboard:
-    - url: https://ncpc16.kattis.com/contests/ncpc16/standings
-      archived: nordic/nordic-2016/scoreboard/2026-09-01-live-9771ebc9/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Nordic-2017/standings
+  sources:
+  - url: https://nordic.icpc.io/ncpc2016/
+    roles:
+    - web
+  - url: https://ncpc16.kattis.com/contests/ncpc16/standings
+    roles:
+    - scoreboard
+    archived:
+    - nordic/nordic-2016/scoreboard/2026-09-01-live-9771ebc9/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Nordic-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2016%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202016
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190717141900'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1530
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190825021330'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NCPC 2016
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202016
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1530
-        as_of: '20190825021330'
-        note: NCPC 2016
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2016%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    set: nordic-2016
 - id: nordic-2017
   season: 2018
   name: 2017 Nordic Collegiate Programming Contest
@@ -497,28 +723,44 @@ contests:
   - 3276
   parent: nwerc-2017
   next: nordic-2018
-  web: https://nordic.icpc.io/ncpc2017/
-  results:
-    scoreboard:
-    - url: https://ncpc17.kattis.com/contests/ncpc17/standings
-      archived: nordic/nordic-2017/scoreboard/2026-09-01-live-8a0b2a71/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Nordic-2018/standings
+  sources:
+  - url: https://nordic.icpc.io/ncpc2017/
+    roles:
+    - web
+  - url: https://ncpc17.kattis.com/contests/ncpc17/standings
+    roles:
+    - scoreboard
+    as_of: '20220704021151'
+    archived:
+    - nordic/nordic-2017/scoreboard/2026-09-01-live-8a0b2a71/page.html
+    - nordic/nordic-2017/scoreboard/20220704-wayback-c7f00961/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Nordic-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2017%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202017
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190821071337'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1784
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190719103425'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NCPC 2017
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202017
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1784
-        as_of: '20190719103425'
-        note: NCPC 2017
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2017%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    set: nordic-2017
 - id: nordic-2018
   season: 2019
   name: 2018 Nordic Collegiate Programming Contest
@@ -529,28 +771,44 @@ contests:
   - 3656
   parent: nwerc-2018
   next: nordic-2019
-  web: https://nordic.icpc.io/ncpc2018/
-  results:
-    scoreboard:
-    - url: https://ncpc18.kattis.com/contests/ncpc18/standings
-      archived: nordic/nordic-2018/scoreboard/2026-09-01-live-05619420/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Nordic-2019/standings
+  sources:
+  - url: https://nordic.icpc.io/ncpc2018/
+    roles:
+    - web
+  - url: https://ncpc18.kattis.com/contests/ncpc18/standings
+    roles:
+    - scoreboard
+    as_of: '20230330211142'
+    archived:
+    - nordic/nordic-2018/scoreboard/2026-09-01-live-05619420/page.html
+    - nordic/nordic-2018/scoreboard/20230330-wayback-79f8e1e9/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Nordic-2019/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2018%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202018
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20220528105325'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1938
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190824173709'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NCPC 2018
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202018
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1938
-        as_of: '20190824173709'
-        note: NCPC 2018
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2018%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    set: nordic-2018
 - id: nordic-2019
   season: 2020
   name: 2019 Nordic Collegiate Programming Contest
@@ -562,28 +820,44 @@ contests:
   - 4152
   parent: nwerc-2019
   next: nordic-2020
-  web: https://nordic.icpc.io/ncpc2019/
-  results:
-    scoreboard:
-    - url: https://ncpc19.kattis.com/contests/ncpc19/standings
-      archived: nordic/nordic-2019/scoreboard/2026-09-01-live-1d0ef942/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Nordic-2020/standings
+  sources:
+  - url: https://nordic.icpc.io/ncpc2019/
+    roles:
+    - web
+  - url: https://ncpc19.kattis.com/contests/ncpc19/standings
+    roles:
+    - scoreboard
+    as_of: '20220812221511'
+    archived:
+    - nordic/nordic-2019/scoreboard/2026-09-01-live-1d0ef942/page.html
+    - nordic/nordic-2019/scoreboard/20220812-wayback-b8b781b4/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Nordic-2020/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2019%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202019
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20200921133050'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2116
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210729051549'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NCPC 2019
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202019
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2116
-        as_of: '20210729051549'
-        note: NCPC 2019
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2019%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    set: nordic-2019
 - id: nordic-2020
   season: 2021
   name: 2020 Nordic Collegiate Programming Contest
@@ -595,28 +869,44 @@ contests:
   - 4510
   parent: nwerc-2020
   next: nordic-2021
-  web: https://nordic.icpc.io/ncpc2020/
-  results:
-    scoreboard:
-    - url: https://ncpc20.kattis.com/contests/ncpc20/standings
-      archived: nordic/nordic-2020/scoreboard/2026-09-01-live-f063d594/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Nordic-2021/standings
+  sources:
+  - url: https://nordic.icpc.io/ncpc2020/
+    roles:
+    - web
+  - url: https://ncpc20.kattis.com/contests/ncpc20/standings
+    roles:
+    - scoreboard
+    as_of: '20220630070907'
+    archived:
+    - nordic/nordic-2020/scoreboard/2026-09-01-live-f063d594/page.html
+    - nordic/nordic-2020/scoreboard/20220630-wayback-8d46bcc6/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Nordic-2021/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2020%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202020
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20210416021740'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2447
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210511111707'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NCPC 2020
   problems:
-    count: 13
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202020
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2447
-        as_of: '20210511111707'
-        note: NCPC 2020
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2020%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    set: nordic-2020
 - id: nordic-2021
   season: 2022
   name: 2021 ICPC Nordic Collegiate Programming Contest
@@ -628,28 +918,41 @@ contests:
   - 4931
   parent: nwerc-2021
   next: nordic-2022
-  web: https://nordic.icpc.io/ncpc2021/
-  results:
-    scoreboard:
-    - url: https://ncpc21.kattis.com/contests/ncpc21/standings
-      archived: nordic/nordic-2021/scoreboard/2026-09-01-live-83d1a462/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://nordic.icpc.io/ncpc2021/
+    roles:
+    - web
+  - url: https://ncpc21.kattis.com/contests/ncpc21/standings
+    roles:
+    - scoreboard
+    as_of: '20220706075121'
+    archived:
+    - nordic/nordic-2021/scoreboard/2026-09-01-live-83d1a462/page.html
+    - nordic/nordic-2021/scoreboard/20220706-wayback-05ef6c08/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2021%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202021
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20211203104659'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2816
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20220116101330'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NCPC 2021
   problems:
-    count: 13
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202021
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2816
-        as_of: '20220116101330'
-        note: NCPC 2021
-    notes: No date
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2021%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    set: nordic-2021
 - id: nordic-2022
   season: 2023
   name: 2022 ICPC Nordic Collegiate Programming Contest
@@ -661,26 +964,41 @@ contests:
   - 5403
   parent: nwerc-2022
   next: nordic-2023
-  web: https://nordic.icpc.io/ncpc2022/
-  results:
-    scoreboard:
-    - url: https://ncpc22.kattis.com/contests/ncpc22/standings
-      archived: nordic/nordic-2022/scoreboard/2026-09-01-live-53fbc9d6/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://nordic.icpc.io/ncpc2022/
+    roles:
+    - web
+  - url: https://ncpc22.kattis.com/contests/ncpc22/standings
+    roles:
+    - scoreboard
+    as_of: '20221008111837'
+    archived:
+    - nordic/nordic-2022/scoreboard/2026-09-01-live-53fbc9d6/page.html
+    - nordic/nordic-2022/scoreboard/20221008-wayback-131fb393/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2022%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202022
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20230928015934'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3224
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260618020855'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NCPC 2022
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202022
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3224
-        note: NCPC 2022
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2022%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    set: nordic-2022
 - id: nordic-2023
   season: 2024
   name: 2023 ICPC Nordic Collegiate Programming Contest
@@ -692,26 +1010,40 @@ contests:
   - 7600
   parent: nwerc-2023
   next: nordic-2024
-  web: https://nordic.icpc.io/ncpc2023/
-  results:
-    scoreboard:
-    - url: https://ncpc23.kattis.com/contests/ncpc23/standings
-      archived: nordic/nordic-2023/scoreboard/2026-09-01-live-00916a8c/page.html
-      url_state: live
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://nordic.icpc.io/ncpc2023/
+    roles:
+    - web
+  - url: https://ncpc23.kattis.com/contests/ncpc23/standings
+    roles:
+    - scoreboard
+    as_of: '20240514015933'
+    archived:
+    - nordic/nordic-2023/scoreboard/2026-09-01-live-00916a8c/page.html
+    - nordic/nordic-2023/scoreboard/20240514-wayback-244c8ef4/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://github.com/icpc/ncpc-web/releases/download/ncpc2023-data/ncpc2023problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202023
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20241211084800'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4004
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NCPC 2023
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202023
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4004
-        note: NCPC 2023
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://github.com/icpc/ncpc-web/releases/download/ncpc2023-data/ncpc2023problems.pdf
+    set: nordic-2023
 - id: nordic-2024
   season: 2025
   name: 2024 ICPC Nordic Collegiate Programming Contest
@@ -723,26 +1055,40 @@ contests:
   - 9011
   parent: nwerc-2024
   next: nordic-2025
-  web: https://nordic.icpc.io/ncpc2024/
-  results:
-    scoreboard:
-    - url: https://ncpc24.kattis.com/contests/ncpc24/standings/6261
-      archived: nordic/nordic-2024/scoreboard/2026-09-01-live-eb67a758/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://nordic.icpc.io/ncpc2024/
+    roles:
+    - web
+  - url: https://ncpc24.kattis.com/contests/ncpc24/standings/6261
+    roles:
+    - scoreboard
+    as_of: '20250909063811'
+    archived:
+    - nordic/nordic-2024/scoreboard/2026-09-01-live-eb67a758/page.html
+    - nordic/nordic-2024/scoreboard/20250909-wayback-12d987d0/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2024%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://ncpc24.kattis.com/contests/ncpc24/problems
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20241109164526'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4314
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NCPC 2024
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://ncpc24.kattis.com/contests/ncpc24/problems
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4314
-        note: NCPC 2024
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2024%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
+    set: nordic-2024
 - id: nordic-2025
   season: 2026
   name: 2025 ICPC Nordic Collegiate Programming Contest
@@ -754,21 +1100,32 @@ contests:
   - 9374
   parent: nwerc-2025
   next: nordic-2026
-  web: https://nordic.icpc.io/ncpc2025/
-  results:
-    scoreboard:
-    - url: https://ncpc25.kattis.com/contests/ncpc25/standings
-      archived: nordic/nordic-2025/scoreboard/2026-09-01-live-3e4335cb/page.html
-      url_state: live
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://nordic.icpc.io/ncpc2025/
+    roles:
+    - web
+  - url: https://ncpc25.kattis.com/contests/ncpc25/standings
+    roles:
+    - scoreboard
+    archived:
+    - nordic/nordic-2025/scoreboard/2026-09-01-live-3e4335cb/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://github.com/icpc/ncpc-web/releases/download/ncpc2025-data/ncpc2025problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4653
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260418222758'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NCPC 2025
   problems:
-    source: Kattis problem export (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4653
-        as_of: '20260418222758'
-        note: NCPC 2025
-  problemset: https://github.com/icpc/ncpc-web/releases/download/ncpc2025-data/ncpc2025problems.pdf
+    set: nordic-2025
 - id: nordic-2026
   status: upcoming
   season: 2027

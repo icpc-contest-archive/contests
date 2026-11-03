@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: changsha
   name: ACM-ICPC Asia Changsha Regional Contest
+  tier: regional
+  region: Asia East
+  naming: season-start
 contests:
 - id: changsha-2013
   season: 2014
@@ -12,17 +15,17 @@ contests:
   - 1943
   parent: wf-2014
   next: null
-  results:
-    scoreboard:
-    - url: http://board.acmicpc.info/icpc2013/hnu_onsite.php
-      as_of: '20131120195359'
-      archived: changsha/changsha-2013/scoreboard/2026-09-01-wayback-2233b7ef/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://board.acmicpc.info/icpc2013/hnu_onsite.php
-      as_of: '20131120195359'
-      note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: changsha/changsha-2013/scoreboard/20131120-wayback-b78c125e/page.html
-  web: http://1.2013changsha.duapp.com
+  sources:
+  - url: http://1.2013changsha.duapp.com
+    roles:
+    - web
+  - url: http://board.acmicpc.info/icpc2013/hnu_onsite.php
+    roles:
+    - scoreboard
+    as_of: '20131120195359'
+    archived:
+    - changsha/changsha-2013/scoreboard/2026-09-01-wayback-2233b7ef/page.html
+    - changsha/changsha-2013/scoreboard/20131120-wayback-b78c125e/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)

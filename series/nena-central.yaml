@@ -1,7 +1,10 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_candidates.py (url-hunt 2026-09-01).
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: nena-central
   name: WNE Preliminary Contest
+  tier: subregional
+  region: North America
+  naming: season-start
 contests:
 - id: nena-central-2008
   season: 2009
@@ -12,9 +15,18 @@ contests:
   - 45
   parent: nena-2008
   next: nena-central-2009
-  icpc_standings: https://icpc.global/regionals/finder/WNEC-Preliminary-2009/standings
-  web: http://mars.wnec.edu/acmcontest/
-  problemset: https://www.cs.rit.edu/~icpc/questions/2008/WNEC_2008.pdf
+  sources:
+  - url: http://mars.wnec.edu/acmcontest/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/WNEC-Preliminary-2009/standings
+    roles:
+    - icpc_standings
+  - url: https://www.cs.rit.edu/~icpc/questions/2008/WNEC_2008.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: nena-central-2009
   season: 2010
   name: 2009 WNEC Preliminary
@@ -24,12 +36,21 @@ contests:
   - 552
   parent: nena-2009
   next: nena-central-2010
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/WNEC-Preliminary-2010/standings
-    archived: nena-central/nena-central-2009/standings/api-20260904/standings.html
+  sources:
+  - url: http://mars.wnec.edu/acmcontest/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/WNEC-Preliminary-2010/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nena-central/nena-central-2009/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 552, 16 teams, DB fetch 2026-04-26)
-  web: http://mars.wnec.edu/acmcontest/
-  problemset: https://www.cs.rit.edu/~icpc/questions/2009/WNEC_2009.pdf
+  - url: https://www.cs.rit.edu/~icpc/questions/2009/WNEC_2009.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: nena-central-2010
   season: 2011
   name: 2010 WNEC Preliminary
@@ -39,12 +60,22 @@ contests:
   - 651
   parent: nena-2010
   next: nena-central-2011
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/WNEC-Preliminary-2011/standings
-    archived: nena-central/nena-central-2010/standings/api-20260904/standings.html
+  sources:
+  - url: http://mars.wnec.edu/acmcontest/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/WNEC-Preliminary-2011/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nena-central/nena-central-2010/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 651, 15 teams, DB fetch 2026-04-26)
-  web: http://mars.wnec.edu/acmcontest/
-  problemset: https://www.cs.rit.edu/~icpc/questions/2010/WNEC_2010.pdf
+  - url: https://www.cs.rit.edu/~icpc/questions/2010/WNEC_2010.pdf
+    roles:
+    - problemset
+    as_of: '20250614064826'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: nena-central-2011
   season: 2012
   name: 2011 WNEC Preliminary
@@ -54,12 +85,21 @@ contests:
   - 884
   parent: nena-2011
   next: nena-central-2012
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/WNEC-Preliminary-2012/standings
-    archived: nena-central/nena-central-2011/standings/api-20260904/standings.html
+  sources:
+  - url: http://mars.wne.edu/acmcontest/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/WNEC-Preliminary-2012/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nena-central/nena-central-2011/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 884, 19 teams, DB fetch 2026-04-26)
-  web: http://mars.wne.edu/acmcontest/
-  problemset: https://www.cs.rit.edu/~icpc/questions/2011/WNEC_2011.pdf
+  - url: https://www.cs.rit.edu/~icpc/questions/2011/WNEC_2011.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: nena-central-2012
   season: 2013
   name: 2012 WNEC Preliminary
@@ -69,12 +109,21 @@ contests:
   - 1380
   parent: nena-2012
   next: nena-central-2013
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/WNEC-Preliminary-2013/standings
-    archived: nena-central/nena-central-2012/standings/api-20260904/standings.html
+  sources:
+  - url: http://mars.wne.edu/acmcontest/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/WNEC-Preliminary-2013/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nena-central/nena-central-2012/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 1380, 18 teams, DB fetch 2026-04-26)
-  web: http://mars.wne.edu/acmcontest/
-  problemset: https://www.cs.rit.edu/~icpc/questions/2012/WNEC_2012.pdf
+  - url: https://www.cs.rit.edu/~icpc/questions/2012/WNEC_2012.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: nena-central-2013
   season: 2014
   name: 2013 WNE Preliminary
@@ -84,8 +133,15 @@ contests:
   - 1965
   parent: nena-2013
   next: nena-central-2014
-  web: http://mars.wne.edu/acmcontest/
-  problemset: https://www.cs.rit.edu/~icpc/questions/2013/WNE_2013.pdf
+  sources:
+  - url: http://mars.wne.edu/acmcontest/
+    roles:
+    - web
+  - url: https://www.cs.rit.edu/~icpc/questions/2013/WNE_2013.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: nena-central-2014
   season: 2015
   name: 2014 WNE Preliminary Contest
@@ -95,12 +151,21 @@ contests:
   - 2712
   parent: nena-2014
   next: nena-central-2015
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/NA-WNE-2015/standings
-    archived: nena-central/nena-central-2014/standings/api-20260904/standings.html
+  sources:
+  - url: http://mars.wne.edu/acmcontest/welcome.html
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/NA-WNE-2015/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nena-central/nena-central-2014/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 2712, 16 teams, DB fetch 2026-04-26)
-  web: http://mars.wne.edu/acmcontest/welcome.html
-  problemset: https://www.cs.rit.edu/~icpc/questions/2014/WNE_2014.pdf
+  - url: https://www.cs.rit.edu/~icpc/questions/2014/WNE_2014.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: nena-central-2015
   season: 2016
   name: WNE - Northeast Preliminary
@@ -110,12 +175,21 @@ contests:
   - 2825
   parent: nena-2015
   next: nena-central-2016
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/NA-WNE-2016/standings
-    archived: nena-central/nena-central-2015/standings/api-20260904/standings.html
+  sources:
+  - url: http://mars.wne.edu/acmcontest/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/NA-WNE-2016/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nena-central/nena-central-2015/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 2825, 17 teams, DB fetch 2026-04-26)
-  web: http://mars.wne.edu/acmcontest/
-  problemset: https://www.cs.rit.edu/~icpc/questions/2015/WNE_2015.pdf
+  - url: https://www.cs.rit.edu/~icpc/questions/2015/WNE_2015.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: nena-central-2016
   season: 2017
   name: Hamilton - Northeast Contest
@@ -124,11 +198,16 @@ contests:
   - 3236
   parent: nena-2016
   next: nena-central-2017
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/NENA-HNEC-2017/standings
-    archived: nena-central/nena-central-2016/standings/api-20260904/standings.html
+  sources:
+  - url: http://cs.hamilton.edu/acm-icpc/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/NENA-HNEC-2017/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nena-central/nena-central-2016/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3236, 7 teams, DB fetch 2026-04-26)
-  web: http://cs.hamilton.edu/acm-icpc/
 - id: nena-central-2017
   season: 2018
   name: Hamilton - Northeast Contest
@@ -137,11 +216,16 @@ contests:
   - 3256
   parent: nena-2017
   next: nena-central-2018
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/NENA-HNEC-2018/standings
-    archived: nena-central/nena-central-2017/standings/api-20260904/standings.html
+  sources:
+  - url: https://cs.hamilton.edu/acm-icpc/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/NENA-HNEC-2018/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nena-central/nena-central-2017/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3256, 5 teams, DB fetch 2026-04-26)
-  web: https://cs.hamilton.edu/acm-icpc/
 - id: nena-central-2018
   season: 2019
   name: Hamilton - Northeast Contest
@@ -150,11 +234,16 @@ contests:
   - 3539
   parent: nena-2018
   next: nena-central-2019
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/NENA-HNEC-2019/standings
-    archived: nena-central/nena-central-2018/standings/api-20260904/standings.html
+  sources:
+  - url: https://cs.hamilton.edu/acm-icpc/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/NENA-HNEC-2019/standings
+    roles:
+    - icpc_standings
+    archived:
+    - nena-central/nena-central-2018/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3539, 15 teams, DB fetch 2026-04-26)
-  web: https://cs.hamilton.edu/acm-icpc/
 - id: nena-central-2019
   season: 2020
   name: Hamilton College - Central Contest
@@ -164,5 +253,10 @@ contests:
   - 4082
   parent: nena-2019
   next: null
-  icpc_standings: https://icpc.global/regionals/finder/NENA-CC-2020/standings
-  web: https://cs.hamilton.edu/acm-icpc/
+  sources:
+  - url: https://cs.hamilton.edu/acm-icpc/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/NENA-CC-2020/standings
+    roles:
+    - icpc_standings

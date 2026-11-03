@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: caribbean-national
   name: ICPC Caribbean National Contests
+  tier: subregional
+  region: Latin America
+  naming: season-start
 contests:
 - id: caribbean-national-2013
   season: 2014
@@ -10,15 +13,16 @@ contests:
   location: PUCMM
   cms_ids:
   - 1865
+  next: caribbean-national-2014
+  sources:
+  - url: https://icpc.global/regionals/finder/cnc-2014/teams
+    roles:
+    - web
+    also_at:
+    - https://icpc.global/regionals/finder/cnc-2014/standings
+    - https://www.icpccaribe.org/
   notes: '132 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
-  next: caribbean-national-2014
-  web: https://icpc.global/regionals/finder/cnc-2014/teams
-  mirrors:
-  - url: https://icpc.global/regionals/finder/cnc-2014/standings
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: https://www.icpccaribe.org/
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
 - id: caribbean-national-2014
   season: 2015
   name: 2014 ACM-ICPC Caribbean National Contests
@@ -26,15 +30,16 @@ contests:
   location: UPR-BY
   cms_ids:
   - 2534
+  next: caribbean-national-2015
+  sources:
+  - url: https://icpc.global/regionals/finder/cnc-2015/teams
+    roles:
+    - web
+    also_at:
+    - https://icpc.global/regionals/finder/cnc-2015/standings
+    - https://www.icpccaribe.org/
   notes: '120 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
-  next: caribbean-national-2015
-  web: https://icpc.global/regionals/finder/cnc-2015/teams
-  mirrors:
-  - url: https://icpc.global/regionals/finder/cnc-2015/standings
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: https://www.icpccaribe.org/
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
 - id: caribbean-national-2015
   season: 2016
   name: 2015 ACM-ICPC Caribbean National Contests
@@ -42,13 +47,15 @@ contests:
   location: UHO, UO-SAM, UC, UCLV, CUJAE, UH, and UCI
   cms_ids:
   - 2803
+  next: caribbean-national-2016
+  sources:
+  - url: https://icpc.global/regionals/finder/cnc-2016/teams
+    roles:
+    - web
+    also_at:
+    - https://www.icpccaribe.org/
   notes: '120 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
-  next: caribbean-national-2016
-  web: https://icpc.global/regionals/finder/cnc-2016/teams
-  mirrors:
-  - url: https://www.icpccaribe.org/
-    note: added by url-hunt 2026-09-01 (round9-research)
 - id: caribbean-national-2016
   season: 2017
   name: 2016 ACM-ICPC Caribbean National Contests
@@ -56,13 +63,15 @@ contests:
   location: UCNE
   cms_ids:
   - 3021
+  next: caribbean-national-2017
+  sources:
+  - url: https://icpc.global/regionals/finder/cnc-2017/teams
+    roles:
+    - web
+    also_at:
+    - https://www.icpccaribe.org/
   notes: '120 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
-  next: caribbean-national-2017
-  web: https://icpc.global/regionals/finder/cnc-2017/teams
-  mirrors:
-  - url: https://www.icpccaribe.org/
-    note: added by url-hunt 2026-09-01 (round9-research)
 - id: caribbean-national-2017
   season: 2018
   name: 2017 ACM-ICPC Caribbean National Contests
@@ -70,13 +79,15 @@ contests:
   location: UWI-JAM
   cms_ids:
   - 3461
+  next: caribbean-national-2018
+  sources:
+  - url: https://icpc.global/regionals/finder/cnc-2018/teams
+    roles:
+    - web
+    also_at:
+    - https://www.icpccaribe.org/
   notes: '97 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
-  next: caribbean-national-2018
-  web: https://icpc.global/regionals/finder/cnc-2018/teams
-  mirrors:
-  - url: https://www.icpccaribe.org/
-    note: added by url-hunt 2026-09-01 (round9-research)
 - id: caribbean-national-2018
   season: 2019
   name: 2018 ACM-ICPC Caribbean National Contests
@@ -84,13 +95,15 @@ contests:
   location: UHO, UO-SAM, UC, UCLV, ITM, UH and UCI
   cms_ids:
   - 3620
+  next: caribbean-national-2019
+  sources:
+  - url: https://icpc.global/regionals/finder/cnc-2019/teams
+    roles:
+    - web
+    also_at:
+    - https://www.icpccaribe.org/
   notes: '133 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
-  next: caribbean-national-2019
-  web: https://icpc.global/regionals/finder/cnc-2019/teams
-  mirrors:
-  - url: https://www.icpccaribe.org/
-    note: added by url-hunt 2026-09-01 (round9-research)
 - id: caribbean-national-2019
   season: 2020
   name: 2019 ICPC Caribbean National Contests
@@ -98,13 +111,20 @@ contests:
   location: UPR-B
   cms_ids:
   - 4245
+  sources:
+  - url: https://icpc.global/regionals/finder/CNC-2020/teams
+    roles:
+    - web
+    also_at:
+    - https://www.icpccaribe.org/
+  - url: https://matcomgrader.com/media/contests/6248/secured/vEt9JvKeF8gsnYnBjTdnr5RWX7QjY3af/problems-en.pdf
+    roles:
+    - problemset
+    as_of: '20191115151028'
+    url_state: live
+    url_checked: '2026-11-02'
   notes: '195 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
-  web: https://icpc.global/regionals/finder/CNC-2020/teams
-  mirrors:
-  - url: https://www.icpccaribe.org/
-    note: added by url-hunt 2026-09-01 (round9-research)
-  problemset: https://matcomgrader.com/media/contests/6248/secured/vEt9JvKeF8gsnYnBjTdnr5RWX7QjY3af/problems-en.pdf
 - id: caribbean-national-2020
   season: 2021
   name: 2020 ICPC Caribbean Finals (Qualifier)
@@ -112,9 +132,34 @@ contests:
   cms_ids:
   - 4469
   parent: caribbean-2020
-  notes: '49 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   next: caribbean-national-2021
   sources:
+  - url: https://matcomgrader.com/contest/standing/6259
+    roles:
+    - standings
+    as_of: '20210626191758'
+    archived:
+    - caribbean-national/caribbean-national-2020/standings/20210626-wayback-3b5dc4c3/page.html
+    - caribbean-national/caribbean-national-2020/standings/20261023-live-710ec774/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://www.icpccaribe.org/eliminatoria/clasificados-regional-anteriores/clasificados-regional-2020
+    roles:
+    - rankings
+    as_of: '20231003115402'
+    archived:
+    - caribbean-national/caribbean-national-2020/rankings/20231003-wayback-ad22ff87/page.html
+    - caribbean-national/caribbean-national-2020/rankings/20261023-live-0f11f957/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://drive.google.com/file/d/1McLPwgjC2EBpF4a5N7Auece3qQXfntJf/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  provenance:
   - 'MatcomGrader — ''The 2020 ICPC Caribbean Finals (Qualifier) - Real Contest'' standings (2021): Ended
     contest with 75 ranked teams; UH Top 14 solved, UH++ 12, VC-Servicio Militar 10, Los Oxidados 9, Team3C-1
     9; group filters Cuba/DR/T&T (Qualifier), Guest_Teams, Preuniversity_Teams. — https://matcomgrader.com/contest/standing/6259
@@ -131,22 +176,7 @@ contests:
     2021, distributed; 1st UH Top (10 solved), 2nd UH++ (9), 3rd Math&C.H.E.E.S.E (6); links ranking PDF,
     icpc.global caribfinals-2021 standings, problemset PDF and scorelatam latam-2020. — https://www.icpccaribe.org/icpc-caribe/podios-de-los-concursos-regionales-caribeños-del-icpc
     [existence hunt 2026-10-22]'
-  results:
-    standings:
-    - url: https://matcomgrader.com/contest/standing/6259
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      as_of: '20210626191758'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: caribbean-national/caribbean-national-2020/standings/20210626-wayback-3b5dc4c3/page.html
-    rankings:
-    - url: https://www.icpccaribe.org/eliminatoria/clasificados-regional-anteriores/clasificados-regional-2020
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      as_of: '20231003115402'
-      url_state: changed
-      url_checked: '2026-11-02'
-      archived: caribbean-national/caribbean-national-2020/rankings/20231003-wayback-ad22ff87/page.html
-  problemset: https://drive.google.com/file/d/1McLPwgjC2EBpF4a5N7Auece3qQXfntJf/view
+  notes: '49 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: caribbean-national-2021
   season: 2022
   name: 2021 ICPC Caribbean Finals (Qualifier)
@@ -154,8 +184,33 @@ contests:
   cms_ids:
   - 4699
   parent: caribbean-2021
-  notes: '122 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   sources:
+  - url: https://matcomgrader.com/contest/standing/6262
+    roles:
+    - standings
+    as_of: '20220305182723'
+    archived:
+    - caribbean-national/caribbean-national-2021/standings/20220305-wayback-16a2aae2/page.html
+    - caribbean-national/caribbean-national-2021/standings/20261023-live-48cee077/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://www.icpccaribe.org/eliminatoria/clasificados-regional-anteriores/clasificados-regional-2021
+    roles:
+    - rankings
+    as_of: '20231003093613'
+    archived:
+    - caribbean-national/caribbean-national-2021/rankings/20231003-wayback-12079356/page.html
+    - caribbean-national/caribbean-national-2021/rankings/20261023-live-7ac6ece7/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://drive.google.com/file/d/1W2kNgsdnxwn65pt8YvuRj-drjvooUoHE/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  provenance:
   - 'MatcomGrader — ''The 2021 ICPC Caribbean Finals (Qualifier) - Real Contest'' standings (2022): Ended
     contest; UH Top 13 solved (pen. 1306), Team3C-1 11, 3N1?M4 10, UH++ 8, FreesTyle 8; standings run
     past rank 86. — https://matcomgrader.com/contest/standing/6262 [existence hunt 2026-10-22]'
@@ -171,19 +226,4 @@ contests:
     2nd UH_NotReturn (5), 3rd FreesTyle (5); UH++ and FreesTyle qualified to WF 2022 (Sharm El Sheikh);
     links ranking PDF, icpc.global caribfinals-2022 — https://www.icpccaribe.org/icpc-caribe/podios-de-los-concursos-regionales-caribeños-del-icpc
     [existence hunt 2026-10-22]'
-  results:
-    standings:
-    - url: https://matcomgrader.com/contest/standing/6262
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      as_of: '20220305182723'
-      url_state: changed
-      url_checked: '2026-11-02'
-      archived: caribbean-national/caribbean-national-2021/standings/20220305-wayback-16a2aae2/page.html
-    rankings:
-    - url: https://www.icpccaribe.org/eliminatoria/clasificados-regional-anteriores/clasificados-regional-2021
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      as_of: '20231003093613'
-      url_state: changed
-      url_checked: '2026-11-02'
-      archived: caribbean-national/caribbean-national-2021/rankings/20231003-wayback-12079356/page.html
-  problemset: https://drive.google.com/file/d/1W2kNgsdnxwn65pt8YvuRj-drjvooUoHE/view
+  notes: '122 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'

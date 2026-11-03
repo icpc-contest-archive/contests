@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: north-russia
   name: ICPC Northwestern Russia Regional Contest
+  tier: subregional
+  region: Northern Eurasia
+  naming: season-start
 contests:
 - id: north-russia-1998
   season: 1999
@@ -9,36 +12,43 @@ contests:
   cms_ids: []
   parent: neerc-1998
   next: north-russia-1999
-  web: https://neerc.ifmo.ru/subregions/northern.html
-  mirrors: []
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/northern.html
+    roles:
+    - web
 - id: north-russia-1999
   season: 2000
   name: 1999 Northern Subregional Contest
   cms_ids: []
   parent: neerc-1999
   next: north-russia-2000
-  web: https://neerc.ifmo.ru/subregions/northern.html
-  mirrors: []
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/northern.html
+    roles:
+    - web
 - id: north-russia-2000
   season: 2001
   name: 2000 Northern Subregional Contest
   cms_ids: []
   parent: neerc-2000
   next: north-russia-2001
-  web: https://neerc.ifmo.ru/subregions/northern.html
-  mirrors: []
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/northern.html
+    roles:
+    - web
 - id: north-russia-2001
   season: 2002
   name: 2001 Northern Subregional Contest
   cms_ids: []
   parent: neerc-2001
   next: north-russia-2002
-  web: https://www.kgeorgiy.info/papers/Vasilev_VN__Kazakov_MA__Korneev_GA__Parfenov_VG__Stankevich_AS_--_NEERC_2001.pdf
-  mirrors:
-  - url: http://ifmo.ru/*
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: http://is.ifmo.ru/*
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
+  sources:
+  - url: https://www.kgeorgiy.info/papers/Vasilev_VN__Kazakov_MA__Korneev_GA__Parfenov_VG__Stankevich_AS_--_NEERC_2001.pdf
+    roles:
+    - web
+    also_at:
+    - http://ifmo.ru/*
+    - http://is.ifmo.ru/*
 - id: north-russia-2002
   season: 2003
   name: 2002 Northern Subregional Contest
@@ -46,20 +56,23 @@ contests:
   cms_ids: []
   parent: neerc-2002
   next: north-russia-2003
-  web: https://neerc.ifmo.ru/subregions/northern.html
-  mirrors: []
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1204
-        as_of: '20201022092306'
-        note: NEERC Northern Subregional 2002
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/1204
-    as_of: '20201022092306'
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: https://neerc.ifmo.ru/subregions/northern.html
+    roles:
+    - web
+  - url: https://www.acmicpc.net/category/detail/1204
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20201022092306'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      NEERC Northern Subregional 2002
+  problems:
+    set: north-russia-2002
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - id: north-russia-2003
   season: 2004
@@ -67,154 +80,242 @@ contests:
   cms_ids: []
   parent: neerc-2003
   next: north-russia-2004
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2003/northern/standings.html
-      archived: north-russia/north-russia-2003/scoreboard/2026-09-01-live-2d6d5a10/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2003/northern/standings.html
-      as_of: '20161028234832'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2003/standings/20161028-wayback-65b56c85/standings.html
-  web: https://neerc.ifmo.ru/subregions/northern.html
-  problemset: https://nerc.itmo.ru/archive/2003/northern/problems.rar
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/northern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2003/northern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20211206234057'
+    archived:
+    - north-russia/north-russia-2003/scoreboard/2026-09-01-live-2d6d5a10/standings.html
+    - north-russia/north-russia-2003/scoreboard/20211206-wayback-defdee50/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2003/northern/standings.html
+    roles:
+    - standings
+    as_of: '20161028234832'
+    archived:
+    - north-russia/north-russia-2003/standings/20161028-wayback-65b56c85/standings.html
+    - north-russia/north-russia-2003/standings/20260904-live-5897e771/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://nerc.itmo.ru/archive/2003/northern/problems.rar
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/898
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201019152751'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NEERC Northern Subregional 2003
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/898
-        as_of: '20201019152751'
-        note: NEERC Northern Subregional 2003
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: north-russia-2003
 - id: north-russia-2004
   season: 2005
   name: 2004 Northern Subregional Contest
   cms_ids: []
   parent: neerc-2004
   next: north-russia-2005
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2004/northern/standings.html
-      archived: north-russia/north-russia-2004/scoreboard/2026-09-01-live-8e056b61/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2004/northern/standings.html
-      as_of: '20161028234834'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2004/standings/20161028-wayback-9fa70036/standings.html
-  web: https://neerc.ifmo.ru/subregions/northern.html
-  problemset: https://nerc.itmo.ru/archive/2004/northern/problems.rar
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/northern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2004/northern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20211207004616'
+    archived:
+    - north-russia/north-russia-2004/scoreboard/2026-09-01-live-8e056b61/standings.html
+    - north-russia/north-russia-2004/scoreboard/20211207-wayback-01e7a8f6/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2004/northern/standings.html
+    roles:
+    - standings
+    as_of: '20161028234834'
+    archived:
+    - north-russia/north-russia-2004/standings/20161028-wayback-9fa70036/standings.html
+    - north-russia/north-russia-2004/standings/20260904-live-4d5303d7/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://nerc.itmo.ru/archive/2004/northern/problems.rar
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/897
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201023111444'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NEERC Northern Subregional 2004
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/897
-        as_of: '20201023111444'
-        note: NEERC Northern Subregional 2004
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: north-russia-2004
 - id: north-russia-2005
   season: 2006
   name: 2005 Northern Subregional Contest
   cms_ids: []
   parent: neerc-2005
   next: north-russia-2006
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2005/northern/standings.html
-      as_of: '20211206235003'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2005/scoreboard/20211206-wayback-4b2009d9/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2005/northern/standings.html
-      as_of: '20161028234840'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2005/standings/20161028-wayback-b9ffb873/standings.html
-  web: https://neerc.ifmo.ru/subregions/northern.html
-  problemset: https://nerc.itmo.ru/archive/2005/northern/statements.rar
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/northern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2005/northern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20211206235003'
+    archived:
+    - north-russia/north-russia-2005/scoreboard/20211206-wayback-4b2009d9/standings.html
+    - north-russia/north-russia-2005/scoreboard/20260904-live-6279e96c/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2005/northern/standings.html
+    roles:
+    - standings
+    as_of: '20161028234840'
+    archived:
+    - north-russia/north-russia-2005/standings/20161028-wayback-b9ffb873/standings.html
+    - north-russia/north-russia-2005/standings/20260904-live-9c76d7fe/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://nerc.itmo.ru/archive/2005/northern/statements.rar
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/936
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201020234609'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NEERC Western Subregional 2005
+  - url: https://www.acmicpc.net/category/detail/48
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201022184606'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NEERC Northern Subregional 2005
   problems:
-    judges:
-      baekjoon:
-      - url: https://www.acmicpc.net/category/detail/936
-        as_of: '20201020234609'
-        note: NEERC Western Subregional 2005
-      - url: https://www.acmicpc.net/category/detail/48
-        as_of: '20201022184606'
-        note: NEERC Northern Subregional 2005
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: north-russia-2005
 - id: north-russia-2006
   season: 2007
   name: 2006 Northern Subregional Contest
   cms_ids: []
   parent: neerc-2006
   next: north-russia-2007
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2006/northern/standings.html
-      as_of: '20211206224923'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2006/scoreboard/20211206-wayback-93efb26f/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2006/northern/standings.html
-      as_of: '20161028234847'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2006/standings/20161028-wayback-672d1f10/standings.html
-  web: https://neerc.ifmo.ru/subregions/northern.html
-  problemset:
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/northern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2006/northern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20211206224923'
+    archived:
+    - north-russia/north-russia-2006/scoreboard/20211206-wayback-93efb26f/standings.html
+    - north-russia/north-russia-2006/scoreboard/20260904-live-65b16cb8/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2006/northern/standings.html
+    roles:
+    - standings
+    as_of: '20161028234847'
+    archived:
+    - north-russia/north-russia-2006/standings/20161028-wayback-672d1f10/standings.html
+    - north-russia/north-russia-2006/standings/20260904-live-ca8bc8a1/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
   - url: http://neerc.ifmo.ru/archive/2006/northern/problems.pdf
+    roles:
+    - problemset
     as_of: '20161109082001'
+    url_state: live
+    url_checked: '2026-11-02'
   - url: http://nerc.itmo.ru/archive/2006/northern/problems.pdf
+    roles:
+    - problemset
     as_of: '20211206235824'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/47
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201025143940'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NEERC Northern Subregional 2006
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/47
-        as_of: '20201025143940'
-        note: NEERC Northern Subregional 2006
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: north-russia-2006
 - id: north-russia-2007
   season: 2008
   name: 2007 Northern Subregional Contest
   cms_ids: []
   parent: neerc-2007
   next: north-russia-2008
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2007/northern/standings.html
-      as_of: '20211206235744'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2007/scoreboard/20211206-wayback-0b68f917/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2007/northern/standings.html
-      as_of: '20161028234851'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2007/standings/20161028-wayback-1436e373/standings.html
-  web: https://neerc.ifmo.ru/subregions/northern.html
-  problemset:
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/northern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2007/northern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20211206235744'
+    archived:
+    - north-russia/north-russia-2007/scoreboard/20211206-wayback-0b68f917/standings.html
+    - north-russia/north-russia-2007/scoreboard/20260904-live-4e285404/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2007/northern/standings.html
+    roles:
+    - standings
+    as_of: '20161028234851'
+    archived:
+    - north-russia/north-russia-2007/standings/20161028-wayback-1436e373/standings.html
+    - north-russia/north-russia-2007/standings/20260904-live-fa1bab35/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
   - url: http://neerc.ifmo.ru/archive/2007/northern/problems.pdf
+    roles:
+    - problemset
     as_of: '20161109083139'
+    url_state: live
+    url_checked: '2026-11-02'
   - url: http://nerc.itmo.ru/archive/2007/northern/problems.pdf
+    roles:
+    - problemset
     as_of: '20211206225750'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/46
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201029060307'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NEERC Northern Subregional 2007
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/46
-        as_of: '20201029060307'
-        note: NEERC Northern Subregional 2007
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: north-russia-2007
 - id: north-russia-2008
   season: 2009
   name: 2008 Northern Subregional Contest
@@ -224,29 +325,48 @@ contests:
   - 63
   parent: neerc-2008
   next: north-russia-2009
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2008/northern/standings.html
-      archived: north-russia/north-russia-2008/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2008/northern/standings.html
-      as_of: '20161028234857'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2008/standings/20161028-wayback-41204dd8/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Northern-Subregional-2009/standings
-  web: http://nerc.itmo.ru/subregions/northern.html
-  problemset: https://nerc.itmo.ru/archive/2008/northern/problems.ps
+  sources:
+  - url: http://nerc.itmo.ru/subregions/northern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2008/northern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20211206225643'
+    archived:
+    - north-russia/north-russia-2008/external-standings/2026-04-15-external/content.html
+    - north-russia/north-russia-2008/scoreboard/20211206-wayback-e0a24d0b/standings.html
+    - north-russia/north-russia-2008/scoreboard/20260904-live-93dcd269/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2008/northern/standings.html
+    roles:
+    - standings
+    as_of: '20161028234857'
+    archived:
+    - north-russia/north-russia-2008/standings/20161028-wayback-41204dd8/standings.html
+    - north-russia/north-russia-2008/standings/20260904-live-5785f625/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Northern-Subregional-2009/standings
+    roles:
+    - icpc_standings
+  - url: https://nerc.itmo.ru/archive/2008/northern/problems.ps
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/45
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201020005759'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NEERC Northern Subregional 2008
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/45
-        as_of: '20201020005759'
-        note: NEERC Northern Subregional 2008
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: north-russia-2008
 - id: north-russia-2009
   season: 2010
   name: 2009 Northern Subregional Contest
@@ -256,32 +376,52 @@ contests:
   - 537
   parent: neerc-2009
   next: north-russia-2010
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2009/northern/standings.html
-      archived: north-russia/north-russia-2009/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2009/northern/standings.html
-      as_of: '20161028234901'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2009/standings/20161028-wayback-93323581/standings.html
-  web: http://nerc.itmo.ru/subregions/northern.html
-  problemset:
+  sources:
+  - url: http://nerc.itmo.ru/subregions/northern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2009/northern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20211207000544'
+    archived:
+    - north-russia/north-russia-2009/external-standings/2026-04-15-external/content.html
+    - north-russia/north-russia-2009/scoreboard/20211207-wayback-df7bc8e3/standings.html
+    - north-russia/north-russia-2009/scoreboard/20260904-live-a1d46fea/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2009/northern/standings.html
+    roles:
+    - standings
+    as_of: '20161028234901'
+    archived:
+    - north-russia/north-russia-2009/standings/20161028-wayback-93323581/standings.html
+    - north-russia/north-russia-2009/standings/20260904-live-f95a9860/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
   - url: http://neerc.ifmo.ru/archive/2009/northern/problems.pdf
+    roles:
+    - problemset
     as_of: '20161109083149'
+    url_state: live
+    url_checked: '2026-11-02'
   - url: http://nerc.itmo.ru/archive/2009/northern/problems.pdf
+    roles:
+    - problemset
     as_of: '20211206230504'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/44
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201020235043'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NEERC Northern Subregional 2009
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/44
-        as_of: '20201020235043'
-        note: NEERC Northern Subregional 2009
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: north-russia-2009
 - id: north-russia-2010
   season: 2011
   name: 2010 Northern Subregional Contest
@@ -291,32 +431,52 @@ contests:
   - 631
   parent: neerc-2010
   next: north-russia-2011
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2010/northern/standings.html
-      archived: north-russia/north-russia-2010/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2010/northern/standings.html
-      as_of: '20161028234906'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2010/standings/20161028-wayback-ede2ab75/standings.html
-  web: http://nerc.itmo.ru/subregions/northern.html
-  problemset:
+  sources:
+  - url: http://nerc.itmo.ru/subregions/northern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2010/northern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20211207004101'
+    archived:
+    - north-russia/north-russia-2010/external-standings/2026-04-15-external/content.html
+    - north-russia/north-russia-2010/scoreboard/20211207-wayback-58a4d1fe/standings.html
+    - north-russia/north-russia-2010/scoreboard/20260904-live-0ee264e5/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2010/northern/standings.html
+    roles:
+    - standings
+    as_of: '20161028234906'
+    archived:
+    - north-russia/north-russia-2010/standings/20161028-wayback-ede2ab75/standings.html
+    - north-russia/north-russia-2010/standings/20260904-live-bd6f1c49/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
   - url: http://neerc.ifmo.ru/archive/2010/northern/problems.pdf
+    roles:
+    - problemset
     as_of: '20161109085030'
+    url_state: live
+    url_checked: '2026-11-02'
   - url: http://nerc.itmo.ru/archive/2010/northern/problems.pdf
+    roles:
+    - problemset
     as_of: '20211206234448'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/43
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201026075239'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NEERC Northern Subregional 2010
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/43
-        as_of: '20201026075239'
-        note: NEERC Northern Subregional 2010
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: north-russia-2010
 - id: north-russia-2011
   season: 2012
   name: 2011 Northern Subregional Contest
@@ -326,34 +486,54 @@ contests:
   - 765
   parent: neerc-2011
   next: north-russia-2012
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2011/northern/standings.html
-      as_of: '20211206234406'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2011/scoreboard/20211206-wayback-dc344ce3/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2011/northern/standings.html
-      as_of: '20161028234911'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2011/standings/20161028-wayback-3fcd4514/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Northern-Subregional-2012/standings
-  web: https://neerc.ifmo.ru/subregions/northern.html
-  problemset:
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/northern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2011/northern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20211206234406'
+    archived:
+    - north-russia/north-russia-2011/scoreboard/20211206-wayback-dc344ce3/standings.html
+    - north-russia/north-russia-2011/scoreboard/20260904-live-63a4f6ee/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2011/northern/standings.html
+    roles:
+    - standings
+    as_of: '20161028234911'
+    archived:
+    - north-russia/north-russia-2011/standings/20161028-wayback-3fcd4514/standings.html
+    - north-russia/north-russia-2011/standings/20260904-live-2d2b03fa/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Northern-Subregional-2012/standings
+    roles:
+    - icpc_standings
   - url: http://neerc.ifmo.ru/archive/2011/northern/problems.pdf
+    roles:
+    - problemset
     as_of: '20161109091516'
+    url_state: live
+    url_checked: '2026-11-02'
   - url: http://nerc.itmo.ru/archive/2011/northern/problems.pdf
+    roles:
+    - problemset
     as_of: '20211207004937'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/42
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201026075109'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NEERC Northern Subregional 2011
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/42
-        as_of: '20201026075109'
-        note: NEERC Northern Subregional 2011
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: north-russia-2011
 - id: north-russia-2012
   season: 2013
   name: 2012 Northern Subregional Contest
@@ -363,34 +543,54 @@ contests:
   - 1316
   parent: neerc-2012
   next: north-russia-2013
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2012/northern/standings.html
-      as_of: '20211207004829'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2012/scoreboard/20211207-wayback-4e2595f0/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2012/northern/standings.html
-      as_of: '20161028234921'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2012/standings/20161028-wayback-e28680b9/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Northern-Subregional-2013/standings
-  web: https://neerc.ifmo.ru/subregions/northern.html
-  problemset:
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/northern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2012/northern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20211207004829'
+    archived:
+    - north-russia/north-russia-2012/scoreboard/20211207-wayback-4e2595f0/standings.html
+    - north-russia/north-russia-2012/scoreboard/20260904-live-99a718c4/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2012/northern/standings.html
+    roles:
+    - standings
+    as_of: '20161028234921'
+    archived:
+    - north-russia/north-russia-2012/standings/20161028-wayback-e28680b9/standings.html
+    - north-russia/north-russia-2012/standings/20260904-live-7af7da02/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Northern-Subregional-2013/standings
+    roles:
+    - icpc_standings
   - url: http://neerc.ifmo.ru/archive/2012/northern/problems.pdf
+    roles:
+    - problemset
     as_of: '20161108203552'
+    url_state: live
+    url_checked: '2026-11-02'
   - url: http://nerc.itmo.ru/archive/2012/northern/problems.pdf
+    roles:
+    - problemset
     as_of: '20211206235236'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/937
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201024122155'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NEERC Northern Subregional 2012
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/937
-        as_of: '20201024122155'
-        note: NEERC Northern Subregional 2012
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: north-russia-2012
 - id: north-russia-2013
   season: 2014
   name: 2013 Northern Subregional Contest
@@ -400,33 +600,51 @@ contests:
   - 2031
   parent: neerc-2013
   next: north-russia-2014
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2013/northern/standings.html
-      as_of: '20211206235157'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2013/scoreboard/20211206-wayback-dee3d6b2/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2013/northern/standings.html
-      as_of: '20161028234931'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2013/standings/20161028-wayback-27a18c31/standings.html
-  web: https://neerc.ifmo.ru/subregions/northern.html
-  problemset:
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/northern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2013/northern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20211206235157'
+    archived:
+    - north-russia/north-russia-2013/scoreboard/20211206-wayback-dee3d6b2/standings.html
+    - north-russia/north-russia-2013/scoreboard/20260904-live-26530d41/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2013/northern/standings.html
+    roles:
+    - standings
+    as_of: '20161028234931'
+    archived:
+    - north-russia/north-russia-2013/standings/20161028-wayback-27a18c31/standings.html
+    - north-russia/north-russia-2013/standings/20260904-live-5a399893/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
   - url: http://neerc.ifmo.ru/archive/2013/northern/north-2013-statements.pdf
+    roles:
+    - problemset
     as_of: '20161108205450'
+    url_state: live
+    url_checked: '2026-11-02'
   - url: http://nerc.itmo.ru/archive/2013/northern/north-2013-statements.pdf
+    roles:
+    - problemset
     as_of: '20211206231703'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1168
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191117153504'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NEERC Northern Subregional 2013
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1168
-        as_of: '20191117153504'
-        note: NEERC Northern Subregional 2013
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: north-russia-2013
 - id: north-russia-2014
   season: 2015
   name: 2014 Northern Subregional Contest
@@ -436,34 +654,54 @@ contests:
   - 2681
   parent: neerc-2014
   next: north-russia-2015
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2014/northern/standings.html
-      as_of: '20211206225049'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2014/scoreboard/20211206-wayback-bf9c70f3/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2014/northern/standings.html
-      as_of: '20161028234936'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2014/standings/20161028-wayback-c149b5c7/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Northern-Subregional-2015/standings
-  web: http://neerc.ifmo.ru
-  problemset:
+  sources:
+  - url: http://neerc.ifmo.ru
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2014/northern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20211206225049'
+    archived:
+    - north-russia/north-russia-2014/scoreboard/20211206-wayback-bf9c70f3/standings.html
+    - north-russia/north-russia-2014/scoreboard/20260904-live-f3e51762/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2014/northern/standings.html
+    roles:
+    - standings
+    as_of: '20161028234936'
+    archived:
+    - north-russia/north-russia-2014/standings/20161028-wayback-c149b5c7/standings.html
+    - north-russia/north-russia-2014/standings/20260904-live-e9dd2354/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Northern-Subregional-2015/standings
+    roles:
+    - icpc_standings
   - url: http://neerc.ifmo.ru/archive/2014/northern/north-2014-statements.pdf
+    roles:
+    - problemset
     as_of: '20161108203608'
+    url_state: live
+    url_checked: '2026-11-02'
   - url: http://nerc.itmo.ru/archive/2014/northern/north-2014-statements.pdf
+    roles:
+    - problemset
     as_of: '20211207005010'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1295
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201020230152'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NEERC Northern Subregional 2014
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1295
-        as_of: '20201020230152'
-        note: NEERC Northern Subregional 2014
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: north-russia-2014
 - id: north-russia-2015
   season: 2016
   name: 2015 Northern Subregional Contest
@@ -473,34 +711,54 @@ contests:
   - 2768
   parent: neerc-2015
   next: north-russia-2016
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2015/northern/standings.html
-      as_of: '20211207000056'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2015/scoreboard/20211207-wayback-cc4925f8/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2015/northern/standings.html
-      as_of: '20161028234944'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2015/standings/20161028-wayback-ccb45845/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Northern-Subregional-2016/standings
-  web: http://neerc.ifmo.ru/subregions/northern.html
-  problemset:
+  sources:
+  - url: http://neerc.ifmo.ru/subregions/northern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2015/northern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20211207000056'
+    archived:
+    - north-russia/north-russia-2015/scoreboard/20211207-wayback-cc4925f8/standings.html
+    - north-russia/north-russia-2015/scoreboard/20260904-live-ab9005bd/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2015/northern/standings.html
+    roles:
+    - standings
+    as_of: '20161028234944'
+    archived:
+    - north-russia/north-russia-2015/standings/20161028-wayback-ccb45845/standings.html
+    - north-russia/north-russia-2015/standings/20260904-live-79abf0af/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Northern-Subregional-2016/standings
+    roles:
+    - icpc_standings
   - url: http://neerc.ifmo.ru/archive/2015/northern/north-2015-statements.pdf
+    roles:
+    - problemset
     as_of: '20161108205508'
+    url_state: live
+    url_checked: '2026-11-02'
   - url: http://nerc.itmo.ru/archive/2015/northern/north-2015-statements.pdf
+    roles:
+    - problemset
     as_of: '20211207001439'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1411
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201031232456'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NEERC Northern Subregional 2015
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1411
-        as_of: '20201031232456'
-        note: NEERC Northern Subregional 2015
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: north-russia-2015
 - id: north-russia-2016
   season: 2017
   name: 2016 Northern Subregional Contest
@@ -510,34 +768,54 @@ contests:
   - 3149
   parent: neerc-2016
   next: north-russia-2017
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2016/northern/standings.html
-      as_of: '20191207212809'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2016/scoreboard/20191207-wayback-5d2e9771/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2016/northern/standings.html
-      as_of: '20161025230254'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2016/standings/20161025-wayback-6ce2296c/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Northern-Subregional-2017/standings
-  web: http://neerc.ifmo.ru/subregions/northern.html
-  problemset:
+  sources:
+  - url: http://neerc.ifmo.ru/subregions/northern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2016/northern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20191207212809'
+    archived:
+    - north-russia/north-russia-2016/scoreboard/20191207-wayback-5d2e9771/standings.html
+    - north-russia/north-russia-2016/scoreboard/20260904-live-0dd4a74b/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2016/northern/standings.html
+    roles:
+    - standings
+    as_of: '20161025230254'
+    archived:
+    - north-russia/north-russia-2016/standings/20161025-wayback-6ce2296c/standings.html
+    - north-russia/north-russia-2016/standings/20260904-live-ebf58155/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Northern-Subregional-2017/standings
+    roles:
+    - icpc_standings
   - url: http://neerc.ifmo.ru/archive/2016/northern/north-2016-statements.pdf
+    roles:
+    - problemset
     as_of: '20171013175133'
+    url_state: live
+    url_checked: '2026-11-02'
   - url: http://nerc.itmo.ru/archive/2016/northern/north-2016-statements.pdf
+    roles:
+    - problemset
     as_of: '20211206233756'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1536
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201029054714'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NEERC Northern Subregional 2016
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1536
-        as_of: '20201029054714'
-        note: NEERC Northern Subregional 2016
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: north-russia-2016
 - id: north-russia-2017
   season: 2018
   name: 2017 Northern Subregional Contest
@@ -547,34 +825,54 @@ contests:
   - 3284
   parent: nerc-2017
   next: north-russia-2018
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2017/northern/standings.html
-      as_of: '20211207000812'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2017/scoreboard/20211207-wayback-4444f4ff/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2017/northern/standings.html
-      as_of: '20171106190710'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2017/standings/20171106-wayback-63ba787d/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Northern-Subregional-2018/standings
-  web: http://neerc.ifmo.ru/subregions/northern.html
-  problemset:
+  sources:
+  - url: http://neerc.ifmo.ru/subregions/northern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2017/northern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20211207000812'
+    archived:
+    - north-russia/north-russia-2017/scoreboard/20211207-wayback-4444f4ff/standings.html
+    - north-russia/north-russia-2017/scoreboard/20260904-live-277ac43c/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2017/northern/standings.html
+    roles:
+    - standings
+    as_of: '20171106190710'
+    archived:
+    - north-russia/north-russia-2017/standings/20171106-wayback-63ba787d/standings.html
+    - north-russia/north-russia-2017/standings/20260904-live-2398b0a1/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Northern-Subregional-2018/standings
+    roles:
+    - icpc_standings
   - url: http://neerc.ifmo.ru/archive/2017/northern/north-2017-statement.pdf
+    roles:
+    - problemset
     as_of: '20171118090020'
+    url_state: live
+    url_checked: '2026-11-02'
   - url: http://nerc.itmo.ru/archive/2017/northern/north-2017-statements.pdf
+    roles:
+    - problemset
     as_of: '20211206230127'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1795
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210127015633'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NEERC Northern Subregional 2017
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1795
-        as_of: '20210127015633'
-        note: NEERC Northern Subregional 2017
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: north-russia-2017
 - id: north-russia-2018
   season: 2019
   name: 2018 Northern Subregional Contest
@@ -584,34 +882,54 @@ contests:
   - 3677
   parent: nerc-2018
   next: north-russia-2019
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2018/northern/standings.html
-      as_of: '20211206230552'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2018/scoreboard/20211206-wayback-947e5345/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2018/northern/standings.html
-      as_of: '20181028192231'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2018/standings/20181028-wayback-fb6cf5cb/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Northern-Subregional-2019/standings
-  web: https://neerc.ifmo.ru/subregions/northern.html
-  problemset:
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/northern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2018/northern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20211206230552'
+    archived:
+    - north-russia/north-russia-2018/scoreboard/20211206-wayback-947e5345/standings.html
+    - north-russia/north-russia-2018/scoreboard/20260904-live-a80447bf/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2018/northern/standings.html
+    roles:
+    - standings
+    as_of: '20181028192231'
+    archived:
+    - north-russia/north-russia-2018/standings/20181028-wayback-fb6cf5cb/standings.html
+    - north-russia/north-russia-2018/standings/20260904-live-132692b2/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Northern-Subregional-2019/standings
+    roles:
+    - icpc_standings
   - url: http://neerc.ifmo.ru/archive/2018/northern/north-2018-statements.pdf
+    roles:
+    - problemset
     as_of: '20181123094832'
+    url_state: live
+    url_checked: '2026-11-02'
   - url: http://nerc.itmo.ru/archive/2018/northern/north-2018-statements.pdf
+    roles:
+    - problemset
     as_of: '20211207003119'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1970
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190825072603'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NEERC Northern Subregional 2018
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1970
-        as_of: '20190825072603'
-        note: NEERC Northern Subregional 2018
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: north-russia-2018
 - id: north-russia-2019
   season: 2020
   name: 2019 Northwestern Russia Regional Contest
@@ -621,33 +939,55 @@ contests:
   - 4206
   parent: nerc-2019
   next: north-russia-2020
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2019/northern/standings.html
-      archived: north-russia/north-russia-2019/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2019/northern/standings.html
-      as_of: '20191105155340'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2019/standings/20191105-wayback-6c700828/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Northwestern-Russia-Regional-2020/standings
-  web: http://nerc.itmo.ru/subregions/northern.html
-  problemset:
+  sources:
+  - url: http://nerc.itmo.ru/subregions/northern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2019/northern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20191118040012'
+    archived:
+    - north-russia/north-russia-2019/external-standings/2026-04-15-external/content.html
+    - north-russia/north-russia-2019/scoreboard/20191118-wayback-6c20a1ef/standings.html
+    - north-russia/north-russia-2019/scoreboard/20260904-live-bf1fd49a/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2019/northern/standings.html
+    roles:
+    - standings
+    as_of: '20191105155340'
+    archived:
+    - north-russia/north-russia-2019/standings/20191105-wayback-6c700828/standings.html
+    - north-russia/north-russia-2019/standings/20260904-live-00f1462c/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Northwestern-Russia-Regional-2020/standings
+    roles:
+    - icpc_standings
   - url: http://nerc.itmo.ru/archive/2019/northern/nwq-2019-statements.pdf
+    roles:
+    - problemset
     as_of: '20211207001551'
+    url_state: live
+    url_checked: '2026-11-02'
   - url: http://nerc.itmo.ru/archive/2019/northern/nwrrc-2019-statements.pdf
+    roles:
+    - problemset
     as_of: '20191113025109'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2120
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260420231811'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ICPC 2019-2020 North-Western Russia Regional Contest
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2120
-        as_of: '20260420231811'
-        note: ICPC 2019-2020 North-Western Russia Regional Contest
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: north-russia-2019
 - id: north-russia-2020
   season: 2021
   name: 2020 Northwestern Russia Regional Contest
@@ -657,32 +997,48 @@ contests:
   - 4576
   parent: nerc-2020
   next: north-russia-2021
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2020/northern/standings.html
-      as_of: '20201201093421'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2020/scoreboard/20201201-wayback-b1916b43/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2020/northern/standings.html
-      as_of: '20201128002036'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2020/standings/20201128-wayback-06b48be2/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Northwestern-Russia-Regional-2021/standings
-  web: https://nerc.itmo.ru/subregions/northern.html
-  problemset:
-    url: http://nerc.itmo.ru/archive/2020/northern/statements.pdf
+  sources:
+  - url: https://nerc.itmo.ru/subregions/northern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2020/northern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20201201093421'
+    archived:
+    - north-russia/north-russia-2020/scoreboard/20201201-wayback-b1916b43/standings.html
+    - north-russia/north-russia-2020/scoreboard/20260904-live-430a4299/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2020/northern/standings.html
+    roles:
+    - standings
+    as_of: '20201128002036'
+    archived:
+    - north-russia/north-russia-2020/standings/20201128-wayback-06b48be2/standings.html
+    - north-russia/north-russia-2020/standings/20260904-live-28ed4145/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Northwestern-Russia-Regional-2021/standings
+    roles:
+    - icpc_standings
+  - url: http://nerc.itmo.ru/archive/2020/northern/statements.pdf
+    roles:
+    - problemset
     as_of: '20211206225439'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2348
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210228034510'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ICPC 2020-2021 North-Western Russia Regional Contest
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2348
-        as_of: '20210228034510'
-        note: ICPC 2020-2021 North-Western Russia Regional Contest
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: north-russia-2020
 - id: north-russia-2021
   season: 2022
   name: 2021 ICPC Northwestern Russia Regional Contest
@@ -692,33 +1048,60 @@ contests:
   - 4945
   parent: nerc-2021
   next: north-russia-2022
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2021/northern/standings.html
-      archived: north-russia/north-russia-2021/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2021/northern/standings.html
-      as_of: '20220120070722'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2021/standings/20220120-wayback-33332607/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Northwestern-Russia-Regional-2022/standings
-  web: https://neerc.ifmo.ru/subregions/northern.html
-  problemset:
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/northern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2021/northern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20220122060624'
+    archived:
+    - north-russia/north-russia-2021/external-standings/2026-04-15-external/content.html
+    - north-russia/north-russia-2021/scoreboard/20220122-wayback-bde386bd/standings.html
+    - north-russia/north-russia-2021/scoreboard/20260904-live-ec8ebdbf/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2021/northern/standings.html
+    roles:
+    - standings
+    as_of: '20220120070722'
+    archived:
+    - north-russia/north-russia-2021/standings/20220120-wayback-33332607/standings.html
+    - north-russia/north-russia-2021/standings/20260904-live-44bfdf41/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Northwestern-Russia-Regional-2022/standings
+    roles:
+    - icpc_standings
   - url: https://neerc.ifmo.ru/archive/2021/northern/nwq-2021-statements.pdf
+    roles:
+    - problemset
     as_of: '20211203020712'
+    url_state: live
+    url_checked: '2026-11-02'
   - url: https://nerc.itmo.ru/archive/2021/northern/problems.pdf
+    roles:
+    - problemset
     as_of: '20220121010233'
-  - https://nerc.itmo.ru/archive/2021/northern/statements.pdf
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2021/northern/statements.pdf
+    roles:
+    - problemset
+    as_of: '20220515163626'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3049
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ICPC 2021-2022 North-Western Russia Regional Contest
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3049
-        note: ICPC 2021-2022 North-Western Russia Regional Contest
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: north-russia-2021
 - id: north-russia-2022
   season: 2023
   name: 2022 ICPC Northwestern Russia Regional Contest
@@ -728,33 +1111,53 @@ contests:
   - 5584
   parent: nerc-2022
   next: north-russia-2023
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2022/northern/standings.html
-      as_of: '20221105225756'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2022/scoreboard/20221105-wayback-2281b78b/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2022/northern/standings.html
-      as_of: '20221201133252'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2022/standings/20221201-wayback-a93a6d77/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Northwestern-Russia-Regional-2023/standings
-  web: https://nerc.itmo.ru/subregions/northern.html
-  problemset:
+  sources:
+  - url: https://nerc.itmo.ru/subregions/northern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2022/northern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20221105225756'
+    archived:
+    - north-russia/north-russia-2022/scoreboard/20221105-wayback-2281b78b/standings.html
+    - north-russia/north-russia-2022/scoreboard/20260904-live-65f91e8e/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2022/northern/standings.html
+    roles:
+    - standings
+    as_of: '20221201133252'
+    archived:
+    - north-russia/north-russia-2022/standings/20221201-wayback-a93a6d77/standings.html
+    - north-russia/north-russia-2022/standings/20260904-live-bafe1718/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Northwestern-Russia-Regional-2023/standings
+    roles:
+    - icpc_standings
   - url: https://neerc.ifmo.ru/archive/2022/northern/nwq-2022-statements.pdf
+    roles:
+    - problemset
     as_of: '20230127233223'
+    url_state: live
+    url_checked: '2026-11-02'
   - url: https://nerc.itmo.ru/archive/2022/northern/statements.pdf
+    roles:
+    - problemset
     as_of: '20221105225837'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3348
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ICPC 2022-2023 North-Western Russia Regional Contest
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3348
-        note: ICPC 2022-2023 North-Western Russia Regional Contest
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: north-russia-2022
 - id: north-russia-2023
   season: 2024
   name: 2023 ICPC Northwestern Russia Regional Contest
@@ -764,32 +1167,54 @@ contests:
   - 7740
   parent: nerc-2023
   next: north-russia-2024
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2023/northern/standings.html
-      archived: north-russia/north-russia-2023/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2023/northern/standings.html
-      as_of: '20231209184712'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2023/standings/20231209-wayback-2a81fc3d/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Northwestern-Russia-Regional-2024/standings
-  web: https://nerc.itmo.ru/subregions/northern.html
-  problemset:
+  sources:
+  - url: https://nerc.itmo.ru/subregions/northern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2023/northern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20231110113545'
+    archived:
+    - north-russia/north-russia-2023/external-standings/2026-04-15-external/content.html
+    - north-russia/north-russia-2023/scoreboard/20231110-wayback-bcf72ed7/standings.html
+    - north-russia/north-russia-2023/scoreboard/20260904-live-5a3881ef/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2023/northern/standings.html
+    roles:
+    - standings
+    as_of: '20231209184712'
+    archived:
+    - north-russia/north-russia-2023/standings/20231209-wayback-2a81fc3d/standings.html
+    - north-russia/north-russia-2023/standings/20260904-live-51b124a1/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Northwestern-Russia-Regional-2024/standings
+    roles:
+    - icpc_standings
   - url: http://neerc.ifmo.ru/archive/2023/northern/nwq-2023-statements.pdf
+    roles:
+    - problemset
     as_of: '20250113230049'
+    url_state: live
+    url_checked: '2026-11-02'
   - url: https://nerc.itmo.ru/archive/2023/northern/statements.pdf
+    roles:
+    - problemset
     as_of: '20231110101733'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4024
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ICPC 2023-2024 Northwestern Russia Regional Contest
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4024
-        note: ICPC 2023-2024 Northwestern Russia Regional Contest
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: north-russia-2023
 - id: north-russia-2024
   season: 2025
   name: 2024 ICPC Northwestern Russia Regional Contest
@@ -799,32 +1224,54 @@ contests:
   - 8888
   parent: nerc-2024
   next: north-russia-2025
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2024/northern/standings.html
-      archived: north-russia/north-russia-2024/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2024/northern/standings.html
-      as_of: '20250113234233'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2024/standings/20250113-wayback-be1a9790/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Northwestern-Russia-Regional-2025/standings
-  web: https://nerc.itmo.ru/subregions/northern.html
-  problemset:
+  sources:
+  - url: https://nerc.itmo.ru/subregions/northern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2024/northern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20241117235231'
+    archived:
+    - north-russia/north-russia-2024/external-standings/2026-04-15-external/content.html
+    - north-russia/north-russia-2024/scoreboard/20241117-wayback-03223bed/standings.html
+    - north-russia/north-russia-2024/scoreboard/20260904-live-a655c65b/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2024/northern/standings.html
+    roles:
+    - standings
+    as_of: '20250113234233'
+    archived:
+    - north-russia/north-russia-2024/standings/20250113-wayback-be1a9790/standings.html
+    - north-russia/north-russia-2024/standings/20260904-live-d7e03f40/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Northwestern-Russia-Regional-2025/standings
+    roles:
+    - icpc_standings
   - url: http://neerc.ifmo.ru/archive/2024/northern/nwq-2024-statements-en.pdf
+    roles:
+    - problemset
     as_of: '20250121074223'
+    url_state: live
+    url_checked: '2026-11-02'
   - url: https://nerc.itmo.ru/archive/2024/northern/statements.pdf
+    roles:
+    - problemset
     as_of: '20241117235228'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4361
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ICPC 2024-2025 Northwestern Russia Regional Contest
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4361
-        note: ICPC 2024-2025 Northwestern Russia Regional Contest
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: north-russia-2024
 - id: north-russia-2025
   season: 2026
   name: 2025 ICPC Northwestern Russia Regional Contest
@@ -834,36 +1281,59 @@ contests:
   - 9158
   parent: nerc-2025
   next: north-russia-2026
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2025/northern/standings.html
-      as_of: '20251121170932'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2025/scoreboard/20251121-wayback-d3806ca3/standings.html
-    - url: https://codeforces.com/gym/106193/standings
-      archived: north-russia/north-russia-2025/scoreboard/2026-09-01-live-b810e5b4/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2025/northern/standings.html
-      as_of: '20251217115628'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: north-russia/north-russia-2025/standings/20251217-wayback-526156cc/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Northwestern-Russia-Regional-2026/standings
-  web: https://nerc.itmo.ru/subregions/northern.html
-  problemset:
-  - https://nerc.itmo.ru/archive/2025/northern/statements.pdf
+  sources:
+  - url: https://nerc.itmo.ru/subregions/northern.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2025/northern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20251121170932'
+    archived:
+    - north-russia/north-russia-2025/scoreboard/20251121-wayback-d3806ca3/standings.html
+    - north-russia/north-russia-2025/scoreboard/20260904-live-2aca8000/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://codeforces.com/gym/106193/standings
+    roles:
+    - scoreboard
+    archived:
+    - north-russia/north-russia-2025/scoreboard/2026-09-01-live-b810e5b4/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2025/northern/standings.html
+    roles:
+    - standings
+    as_of: '20251217115628'
+    archived:
+    - north-russia/north-russia-2025/standings/20251217-wayback-526156cc/standings.html
+    - north-russia/north-russia-2025/standings/20260904-live-2e39ad98/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Northwestern-Russia-Regional-2026/standings
+    roles:
+    - icpc_standings
+  - url: https://nerc.itmo.ru/archive/2025/northern/statements.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   - url: https://nerc.itmo.ru/archive/2025/northern/statements-spb-en.pdf
+    roles:
+    - problemset
     as_of: '20251121194131'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4631
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ICPC 2025-2026 Northwestern Russia Regional Contest
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4631
-        note: ICPC 2025-2026 Northwestern Russia Regional Contest
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: north-russia-2025
 - id: north-russia-2026
   status: upcoming
   season: 2027

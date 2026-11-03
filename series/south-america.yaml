@@ -1,7 +1,10 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_candidates.py (url-hunt 2026-09-01).
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: south-america
   name: ACM-ICPC South America Contest outside Brazil
+  tier: regional
+  region: Latin America
+  naming: season-start
   lineage:
   - type: continues-as
     series: brazil
@@ -15,29 +18,27 @@ series:
 contests:
 - id: south-america-1997
   season: 1998
+  location: Campinas (IC-Unicamp), Brazil (single site, Dec 13)
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1998
   next: south-america-1998
-  location: Campinas (IC-Unicamp), Brazil (single site, Dec 13)
-  web: https://www.icpccaribe.org/icpc-latam/concursos-regionales-acm-icpc-de-sudam%C3%A9rica-1996-2003
-  mirrors:
-  - url: http://maratona.ime.usp.br/hist/1997/
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  problems:
-    count: 6
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=479
-        as_of: '20210924114914'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=479
+  sources:
+  - url: https://www.icpccaribe.org/icpc-latam/concursos-regionales-acm-icpc-de-sudam%C3%A9rica-1996-2003
+    roles:
+    - web
+    also_at:
+    - http://maratona.ime.usp.br/hist/1997/
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=479
+    roles:
+    - problemset
+    - judge_page
+    judge: livearchive
     as_of: '20210924114914'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: south-america-1997
 - id: south-america-1998
   season: 1999
   name: 1998 ACM South America Programming Contest
@@ -46,24 +47,33 @@ contests:
   - 997
   parent: wf-1999
   next: south-america-1999
-  web: https://www.ime.usp.br/~cef/acm/
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc99/Regionals/SAmer98/Standings.htm
-      as_of: '20100709230849'
-      archived: south-america/south-america-1998/standings/2026-09-01-live-02c95c3e/Standings.htm
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc99/Regionals/SAmer98/Standings.htm
-      as_of: '20020326042658'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: live
-      url_checked: '2026-11-02'
-  problemset:
+  sources:
+  - url: https://www.ime.usp.br/~cef/acm/
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/past/icpc99/Regionals/SAmer98/Standings.htm
+    roles:
+    - standings
+    as_of: '20100709230849'
+    archived:
+    - south-america/south-america-1998/standings/2026-09-01-live-02c95c3e/Standings.htm
+    - south-america/south-america-1998/standings/20020326-wayback-5eb0fdcc/Standings.htm
+    - south-america/south-america-1998/standings/2026-09-01-wayback-02c95c3e/Standings.htm
+    url_state: live
+    url_checked: '2026-11-02'
+    note: as_of 20020326042658 for standings; added by url-hunt 2026-09-01 (cdx-baylor-regionals)
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_SouthAme/1998/index.html
+    roles:
+    - problemset
     as_of: '20010221210959'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc99/Regionals/SAmer98/problems.pdf
+    roles:
+    - problemset
     as_of: '20040129092313'
+    url_state: unknown
+    url_checked: '2026-11-02'
 - id: south-america-1999
   season: 2000
   name: 1999 ACM South America Programming Contest
@@ -73,37 +83,42 @@ contests:
   - 984
   parent: wf-2000
   next: south-america-2000
-  web:
-    url: http://www.dcc.unicamp.br/~acmcntst/
+  sources:
+  - url: http://www.dcc.unicamp.br/~acmcntst/
+    roles:
+    - web
     as_of: '20000831061115'
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2000/regionals/SAmer99/Standings.html
-      as_of: '20091230035040'
-      archived: south-america/south-america-1999/standings/2026-09-01-wayback-987b3b86/Standings.html
-      url_state: unknown
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc2000/regionals/SAmer99/Standings.html
-      as_of: '20020112023358'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: unknown
-      url_checked: '2026-11-02'
-  problems:
-    count: 7
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=500
-        as_of: '20211026000548'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  - url: http://icpc.baylor.edu/past/icpc2000/regionals/SAmer99/Standings.html
+    roles:
+    - standings
+    as_of: '20091230035040'
+    archived:
+    - south-america/south-america-1999/standings/2026-09-01-wayback-987b3b86/Standings.html
+    - south-america/south-america-1999/standings/20020112-wayback-89af1d75/Standings.html
+    url_state: unknown
+    url_checked: '2026-11-02'
+    note: as_of 20020112023358 for standings; added by url-hunt 2026-09-01 (cdx-baylor-regionals)
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_SouthAme/1999/index.html
+    roles:
+    - problemset
     as_of: '20001003145333'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2000/Regionals/SAmer99/Problems.pdf
+    roles:
+    - problemset
     as_of: '20031105055526'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=500
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211026000548'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: south-america-1999
 - id: south-america-2000
   season: 2001
   name: 2000 ACM South America Programming Contest
@@ -114,38 +129,52 @@ contests:
   - 987
   parent: wf-2001
   next: south-america-2001
-  results:
-    rankings:
-    - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=457
-      as_of: '20060901130923'
-      archived: south-america/south-america-2000/rankings/2026-09-01-wayback-d552b915/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=457
-      as_of: '20011224102345'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: unknown
-      url_checked: '2026-11-02'
-  web:
-    url: http://icpc.baylor.edu/past/icpc2001/Regionals/SAmer00/Default.asp
+  sources:
+  - url: http://icpc.baylor.edu/past/icpc2001/Regionals/SAmer00/Default.asp
+    roles:
+    - web
     as_of: '20020525042906'
-  problems:
-    count: 6
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=74
-        as_of: '20210924175204'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+    also_at:
+    - url: http://www.dcc.unicamp.br/~acmcntst
+      as_of: '19990823053822'
+  - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=457
+    roles:
+    - standings
+    - rankings
+    as_of: '20011224102345'
+    archived:
+    - south-america/south-america-2000/rankings/2026-09-01-wayback-d552b915/page.html
+    - south-america/south-america-2000/standings/20011224-wayback-13f1225f/page.html
+    - south-america/south-america-2000/standings/20011224-wayback-57d0fa3a/page.html
+    url_state: unknown
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings); as_of 20060901130923 for rankings
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=457
+    roles:
+    - standings
+    as_of: '20070221220719'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_SouthAme/2000/index.html
+    roles:
+    - problemset
     as_of: '20020624142029'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2001/regionals/SAmer00/Problems.pdf
+    roles:
+    - problemset
     as_of: '20030323164638'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=74
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210924175204'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: south-america-2000
 - id: south-america-2001
   season: 2002
   name: 2001 ACM South America Programming Contest
@@ -156,46 +185,59 @@ contests:
   - 1099
   parent: wf-2002
   next: south-america-2002
-  results:
-    standings:
-    - url: http://www.dcc.unicamp.br/~acmcntst/results.html
-      as_of: '20021214114603'
-      archived: south-america/south-america-2001/standings/2026-09-01-wayback-7be702b9/results.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=522
-      as_of: '20020618010517'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: south-america/south-america-2001/rankings/2026-09-01-wayback-62e936a5/page.html
-    - url: http://www.ic.unicamp.br/~acmcntst
-      note: added by url-hunt 2026-09-01 (cms-api)
-    rankings:
-    - url: http://icpc.baylor.edu/Past/icpc2002/regionals/ViewRegionalStandings.asp?ContestID=522
-      as_of: '20090102024716'
-      archived: south-america/south-america-2001/rankings/2026-09-01-wayback-62e936a5/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-  web:
-    url: http://icpc.baylor.edu/past/icpc2002/Regionals/SAmer01/default.asp
+  sources:
+  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/SAmer01/default.asp
+    roles:
+    - web
     as_of: '20020619091425'
-  problems:
-    count: 6
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=103
-        as_of: '20210924190215'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+    also_at:
+    - url: http://www.dcc.unicamp.br/~acmcntst
+      as_of: '19990823053822'
+  - url: http://www.dcc.unicamp.br/~acmcntst/results.html
+    roles:
+    - standings
+    as_of: '20021214114603'
+    archived:
+    - south-america/south-america-2001/standings/2026-09-01-wayback-7be702b9/results.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=522
+    roles:
+    - standings
+    - rankings
+    as_of: '20020618010517'
+    archived:
+    - south-america/south-america-2001/rankings/2026-09-01-wayback-62e936a5/page.html
+    - south-america/south-america-2001/standings/20020618-wayback-d686af72/page.html
+    - south-america/south-america-2001/standings/20020618-wayback-f5f43f41/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings); as_of 20090102024716 for rankings
+  - url: http://www.ic.unicamp.br/~acmcntst
+    roles:
+    - standings
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_SouthAme/2001/index.html
+    roles:
+    - problemset
     as_of: '20020811165933'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2002/regionals/SAmer01/problems.pdf
+    roles:
+    - problemset
     as_of: '20030831044958'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=103
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210924190215'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: south-america-2001
 - id: south-america-2002
   season: 2003
   name: 2002 ACM South America Programming Contest
@@ -206,30 +248,34 @@ contests:
   - 981
   parent: wf-2003
   next: south-america-2003
-  web:
-    url: http://www.dcc.unicamp.br/~acmcntst/
+  sources:
+  - url: http://www.dcc.unicamp.br/~acmcntst/
+    roles:
+    - web
     as_of: '20021130042749'
-  results:
-    standings:
-    - url: http://www.dcc.unicamp.br/acmcntst/results.html
-      as_of: '20030517144856'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: south-america/south-america-2002/standings/2026-09-01-wayback-881dbe90/results.html
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandingsf455.html?ContestID=589
-      as_of: '20060901120816'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: south-america/south-america-2002/rankings/2026-09-01-wayback-e682fd23/ViewRegionalStandingsf455.html
-    - url: http://www.ic.unicamp.br/~acmcntst
-      note: added by url-hunt 2026-09-01 (cms-api)
-    rankings:
-    - url: http://icpc.baylor.edu/past/icpc2003/Regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandingsf455.html?ContestID=589
-      as_of: '20090307020407'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: south-america/south-america-2002/rankings/2026-09-01-wayback-e682fd23/ViewRegionalStandingsf455.html
+  - url: http://www.dcc.unicamp.br/acmcntst/results.html
+    roles:
+    - standings
+    as_of: '20030517144856'
+    archived:
+    - south-america/south-america-2002/standings/2026-09-01-wayback-881dbe90/results.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandingsf455.html?ContestID=589
+    roles:
+    - standings
+    - rankings
+    as_of: '20060901120816'
+    archived:
+    - south-america/south-america-2002/rankings/2026-09-01-wayback-e682fd23/ViewRegionalStandingsf455.html
+    - south-america/south-america-2002/standings/20060901-wayback-70ab638a/ViewRegionalStandingsf455.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings); as_of 20090307020407 for rankings
+  - url: http://www.ic.unicamp.br/~acmcntst
+    roles:
+    - standings
+    note: added by url-hunt 2026-09-01 (cms-api)
 - id: south-america-2003
   season: 2004
   name: 2003 ACM South America Programming Contest
@@ -243,22 +289,33 @@ contests:
   next:
   - south-america-2004
   - brazil-2004
-  web:
-    url: http://www.dcc.unicamp.br/~acmcntst/
+  sources:
+  - url: http://www.dcc.unicamp.br/~acmcntst/
+    roles:
+    - web
     as_of: '20040101141958'
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=662
-      as_of: '20071012210040'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: south-america/south-america-2003/standings/2026-09-01-wayback-a944dc22/page.html
-    - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandingsb7ce.html?ContestID=662
-      as_of: '20060901142537'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: south-america/south-america-2003/standings/20060901-wayback-128def21/ViewRegionalStandingsb7ce.html
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=662
+    roles:
+    - standings
+    as_of: '20071012210040'
+    archived:
+    - south-america/south-america-2003/standings/2026-09-01-wayback-a944dc22/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandingsb7ce.html?ContestID=662
+    roles:
+    - standings
+    as_of: '20060901142537'
+    archived:
+    - south-america/south-america-2003/standings/20060901-wayback-128def21/ViewRegionalStandingsb7ce.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewStandings.asp?ContestID=662
+    roles:
+    - standings
+    as_of: '20031227110650'
+    note: added by url-hunt 2026-09-01 (cms-api)
 - id: south-america-2004
   season: 2005
   name: 2004 ACM-ICPC South America Contest outside Brazil
@@ -268,19 +325,25 @@ contests:
   - 968
   parent: wf-2005
   next: south-america-2005
-  web:
-    url: http://www.dcc.unicamp.br/~acmcntst/
+  sources:
+  - url: http://www.dcc.unicamp.br/~acmcntst/
+    roles:
+    - web
     as_of: '20041215170129'
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=704
-      as_of: '20071012163022'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: south-america/south-america-2004/standings/2026-09-01-wayback-e989f5b6/page.html
-  problemset:
-    url: http://www.dcc.unicamp.br/~acmcntst/problems/warmup2004.pdf
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=704
+    roles:
+    - standings
+    as_of: '20071012163022'
+    archived:
+    - south-america/south-america-2004/standings/2026-09-01-wayback-e989f5b6/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://www.dcc.unicamp.br/~acmcntst/problems/warmup2004.pdf
+    roles:
+    - problemset
     as_of: '20050212220840'
+    url_state: dead
+    url_checked: '2026-11-02'
 - id: south-america-2005
   season: 2006
   name: 2005 ACM-ICPC South America Contest outside Brazil
@@ -290,20 +353,28 @@ contests:
   - 1245
   parent: wf-2006
   next: south-america-2006
-  web:
-    url: http://www.ic.unicamp.br/~acmcntst/
+  sources:
+  - url: http://www.ic.unicamp.br/~acmcntst/
+    roles:
+    - web
     as_of: '20060103080621'
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=738
-      as_of: '20071011212848'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: south-america/south-america-2005/standings/2026-09-01-wayback-c3a06551/page.html
-  icpc_standings: https://icpc.global/regionals/finder/South-America-Outside-Brazil-2006/standings
-  problemset:
-    url: http://www.ic.unicamp.br/~acmcntst/Welcome_files/SAmerica2005_problems.pdf
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=738
+    roles:
+    - standings
+    as_of: '20071011212848'
+    archived:
+    - south-america/south-america-2005/standings/2026-09-01-wayback-c3a06551/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://icpc.global/regionals/finder/South-America-Outside-Brazil-2006/standings
+    roles:
+    - icpc_standings
+  - url: http://www.ic.unicamp.br/~acmcntst/Welcome_files/SAmerica2005_problems.pdf
+    roles:
+    - problemset
     as_of: '20060714033231'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: south-america-2006
   season: 2007
   name: 2006 ACM-ICPC South America Contest outside Brazil
@@ -313,22 +384,33 @@ contests:
   - 1212
   parent: wf-2007
   next: south-america-2007
-  web:
-    url: http://www.ic.unicamp.br/%7Eacmcntst/
+  sources:
+  - url: http://www.ic.unicamp.br/%7Eacmcntst/
+    roles:
+    - web
     as_of: '20061229212018'
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=780
-      as_of: '20071011223835'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: south-america/south-america-2006/standings/2026-09-01-wayback-b9d1af50/page.html
-    - url: http://www.ic.unicamp.br/~acmcntst/
-      archived: south-america/south-america-2006/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/South-America-Outside-Brazil-2007/standings
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=780
+    roles:
+    - standings
+    as_of: '20071011223835'
+    archived:
+    - south-america/south-america-2006/standings/2026-09-01-wayback-b9d1af50/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://www.ic.unicamp.br/~acmcntst/
+    roles:
+    - standings
+    as_of: '20061124030225'
+    archived:
+    - south-america/south-america-2006/external-standings/2026-04-15-external/content.html
+    - south-america/south-america-2006/standings/20061124-wayback-1746bb5a/page.html
+    - south-america/south-america-2006/standings/20260901-live-91c6d988/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/South-America-Outside-Brazil-2007/standings
+    roles:
+    - icpc_standings
 - id: south-america-2007
   season: 2008
   name: 2007 ACM-ICPC South America Contest outside Brazil
@@ -340,16 +422,21 @@ contests:
   next:
   - south-america-south-2008
   - south-america-north-2008
-  web:
-    url: http://www.ic.unicamp.br/~acmcntst/
+  sources:
+  - url: http://www.ic.unicamp.br/~acmcntst/
+    roles:
+    - web
     as_of: '20080807043720'
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=861
-      as_of: '20080915032418'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: south-america/south-america-2007/standings/2026-09-01-wayback-3e62e7bb/page.html
-  icpc_standings: https://icpc.global/regionals/finder/South-America-Outside-Brazil-2008/standings
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=861
+    roles:
+    - standings
+    as_of: '20080915032418'
+    archived:
+    - south-america/south-america-2007/standings/2026-09-01-wayback-3e62e7bb/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://icpc.global/regionals/finder/South-America-Outside-Brazil-2008/standings
+    roles:
+    - icpc_standings
   problems:
-    source: Kattis problem export (2026-11-01)
+    set: south-america-2007

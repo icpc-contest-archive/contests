@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: tehran
   name: ICPC Asia Tehran Regional Contest
+  tier: regional
+  region: Asia West
+  naming: season-start
 contests:
 - id: tehran-1999
   season: 2000
@@ -12,35 +15,43 @@ contests:
   - 1016
   parent: wf-2000
   next: tehran-2000
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2000/regionals/Tehran99/Standings.html
-      as_of: '20020311070635'
-      archived: tehran/tehran-1999/standings/2026-09-01-wayback-eeadd967/Standings.html
-      url_state: unknown
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc2000/regionals/Tehran99/Standings.html
-      as_of: '20020311070635'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: unknown
-      url_checked: '2026-11-02'
-    rankings:
-    - url: http://icpc.baylor.edu/past/icpc2004/RegReport/sharif.edu/_acmicpc/03/archive/final99.ps
-      as_of: '20060903022602'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regreport)
-      url_state: unknown
-      url_checked: '2026-11-02'
-  web: http://www.sharif.ac.ir/~acmicpc/
-  problemset:
-    url: http://icpc.baylor.edu/past/icpc2000/regionals/tehran99/Problems.html
+  sources:
+  - url: http://www.sharif.ac.ir/~acmicpc/
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/past/icpc2000/regionals/Tehran99/Standings.html
+    roles:
+    - standings
+    as_of: '20020311070635'
+    archived:
+    - tehran/tehran-1999/standings/2026-09-01-wayback-eeadd967/Standings.html
+    - tehran/tehran-1999/standings/20020311-wayback-9b5be354/Standings.html
+    url_state: unknown
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
+  - url: http://icpc.baylor.edu/past/icpc2004/RegReport/sharif.edu/_acmicpc/03/archive/final99.ps
+    roles:
+    - rankings
+    as_of: '20060903022602'
+    url_state: unknown
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-regreport)
+  - url: http://icpc.baylor.edu/past/icpc2000/regionals/tehran99/Problems.html
+    roles:
+    - problemset
     as_of: '20020209230837'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/883
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201025142151'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Tehran Site 1999
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/883
-        as_of: '20201025142151'
-        note: Tehran Site 1999
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: tehran-1999
 - id: tehran-2000
   season: 2001
   name: 2000 ACM Asia Programming Contest, Tehran
@@ -50,47 +61,76 @@ contests:
   - 1206
   parent: wf-2001
   next: tehran-2001
-  web:
-    url: https://icpc.sharif.edu/2000/
+  sources:
+  - url: https://icpc.sharif.edu/2000/
+    roles:
+    - web
     as_of: '20251013061733'
-  results:
-    rankings:
-    - url: http://swt.edu/~ch01/rankins2000/2000_tehran.htm
-      as_of: '20050222101234'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: tehran/tehran-2000/rankings/2026-09-01-wayback-eba859d5/2000_tehran.htm
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2001/Regionals/ViewRegionalStandings.asp?ContestID=449
-      as_of: '20020112015230'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: tehran/tehran-2000/standings/20020112-wayback-037fe17b/page.html
-  icpc_standings: https://icpc.global/regionals/finder/Tehran-2001/standings
-  problems:
-    count: 9
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=65
-        as_of: '20210919223511'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/882
-        as_of: '20201020205527'
-        note: Tehran Site 2000
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+    also_at:
+    - url: http://sharif.ac.ir/~acmicpc/
+      as_of: '20000824121118'
+  - url: http://icpc.baylor.edu/past/icpc2001/Regionals/ViewRegionalStandings.asp?ContestID=449
+    roles:
+    - standings
+    as_of: '20020112015230'
+    archived:
+    - tehran/tehran-2000/standings/20020112-wayback-037fe17b/page.html
+    - tehran/tehran-2000/standings/20020112-wayback-9fb6b29a/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: http://swt.edu/~ch01/rankins2000/2000_tehran.htm
+    roles:
+    - rankings
+    as_of: '20050222101234'
+    archived:
+    - tehran/tehran-2000/rankings/2026-09-01-wayback-eba859d5/2000_tehran.htm
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Tehran-2001/standings
+    roles:
+    - icpc_standings
   - url: https://icpc.sharif.edu/2000/problems.html
+    roles:
+    - problemset
     as_of: '20251016030856'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_VV_Asian/2000/Teheran.pdf
+    roles:
+    - problemset
     as_of: '20020624142207'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2001/Regionals/Tehran00/Problems.pdf
+    roles:
+    - problemset
     as_of: '20030323174134'
-  - https://icpc.ir/2000/problems.html
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://icpc.ir/2000/problems.html
+    roles:
+    - problemset
+    as_of: '20260712114039'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=65
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210919223511'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/882
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201020205527'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Tehran Site 2000
+  problems:
+    set: tehran-2000
 - id: tehran-2001
   season: 2002
   name: 2001 ACM Asia Programming Contest - Tehran
@@ -100,47 +140,85 @@ contests:
   - 999
   parent: wf-2002
   next: tehran-2002
-  web:
-    url: https://icpc.sharif.edu/2001/
+  sources:
+  - url: https://icpc.sharif.edu/2001/
+    roles:
+    - web
     as_of: '20250803153739'
-  results:
-    rankings:
-    - url: http://swt.edu/~ch01/Rankings2001/Iranfullnums.htm
-      as_of: '20050220101621'
-      archived: tehran/tehran-2001/rankings/2026-09-01-wayback-62efe3c3/Iranfullnums.htm
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2002/regionals/ViewRegionalStandings.asp?ContestID=514
-      as_of: '20020701111707'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: tehran/tehran-2001/standings/20020701-wayback-d885aa7e/page.html
-  icpc_standings: https://icpc.global/regionals/finder/Tehran-2002/standings
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=96
-        as_of: '20211206092101'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/881
-        as_of: '20201022214638'
-        note: Tehran Site 2001
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+    also_at:
+    - url: http://sharif.ac.ir/~acmicpc/
+      as_of: '20000824121118'
+  - url: http://icpc.baylor.edu/past/icpc2002/regionals/ViewRegionalStandings.asp?ContestID=514
+    roles:
+    - standings
+    as_of: '20020701111707'
+    archived:
+    - tehran/tehran-2001/standings/20020701-wayback-d885aa7e/page.html
+    - tehran/tehran-2001/standings/20020701-wayback-3350e21f/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: http://sharif.edu/~acmicpc/standings.html
+    roles:
+    - standings
+    as_of: '20011208210244'
+    note: added by url-hunt 2026-09-01 (cms-api)
+  - url: http://swt.edu/~ch01/Rankings2001/Iranfullnums.htm
+    roles:
+    - rankings
+    as_of: '20050220101621'
+    archived:
+    - tehran/tehran-2001/rankings/2026-09-01-wayback-62efe3c3/Iranfullnums.htm
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Tehran-2002/standings
+    roles:
+    - icpc_standings
   - url: https://icpc.sharif.edu/2001/problems.html
+    roles:
+    - problemset
     as_of: '20250430235714'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_VV_Asian/2001/Teheran/
+    roles:
+    - problemset
     as_of: '20020628075825'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2002/Regionals/Tehran01/problems.html
+    roles:
+    - problemset
     as_of: '20020619095450'
-  - https://icpc.ir/2001/problems.html
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://icpc.ir/2001/problems.html
+    roles:
+    - problemset
+    as_of: '20260712113113'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://sharif.edu/~acmicpc/problems.html
+    roles:
+    - problemset
+    as_of: '20011127010847'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=96
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211206092101'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/881
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201022214638'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Tehran Site 2001
+  problems:
+    set: tehran-2001
 - id: tehran-2002
   season: 2003
   name: 2002 ACM Asia Programming Contest - Tehran
@@ -150,41 +228,74 @@ contests:
   - 1116
   parent: wf-2003
   next: tehran-2003
-  web:
-    url: https://icpc.sharif.edu/2002/
+  sources:
+  - url: https://icpc.sharif.edu/2002/
+    roles:
+    - web
     as_of: '20250918001521'
-  results:
-    standings:
-    - url: https://icpc.sharif.edu/2002/finalcontest/finals.html
-      as_of: '20250328113449'
-      archived: tehran/tehran-2002/standings/2026-09-01-wayback-c9ba0fad/finals.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/sharif.edu/_acmicpc/acmicpc02/finalcontest/finals.html
-      as_of: '20060901161447'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-mirror)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: tehran/tehran-2002/standings/20060901-wayback-9f9a5935/finals.html
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings171c.html?ContestID=582
-      as_of: '20060901120953'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: tehran/tehran-2002/standings/20060901-wayback-d18b022e/ViewRegionalStandings171c.html
-  icpc_standings: https://icpc.global/regionals/finder/Tehran-2003/standings
-  problemset:
+    also_at:
+    - url: http://sharif.ac.ir/~acmicpc/
+      as_of: '20000824121118'
+  - url: https://icpc.sharif.edu/2002/finalcontest/finals.html
+    roles:
+    - standings
+    as_of: '20250328113449'
+    archived:
+    - tehran/tehran-2002/standings/2026-09-01-wayback-c9ba0fad/finals.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/sharif.edu/_acmicpc/acmicpc02/finalcontest/finals.html
+    roles:
+    - standings
+    as_of: '20060901161447'
+    archived:
+    - tehran/tehran-2002/standings/20060901-wayback-9f9a5935/finals.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-mirror)
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings171c.html?ContestID=582
+    roles:
+    - standings
+    as_of: '20060901120953'
+    archived:
+    - tehran/tehran-2002/standings/20060901-wayback-d18b022e/ViewRegionalStandings171c.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: http://sharif.edu/~acmicpc/acmicpc02/finalcontest/finals.html
+    roles:
+    - standings
+    as_of: '20030218164106'
+    note: added by url-hunt 2026-09-01 (cms-api)
+  - url: https://icpc.global/regionals/finder/Tehran-2003/standings
+    roles:
+    - icpc_standings
   - url: https://icpc.sharif.edu/2002/problems.html
+    roles:
+    - problemset
     as_of: '20240820064917'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/sharif.edu/_acmicpc/acmicpc02/finalcontest/problems.html
+    roles:
+    - problemset
     as_of: '20030527023229'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: http://sharif.edu/~acmicpc/acmicpc02/finalcontest/problems.html
+    roles:
+    - problemset
+    as_of: '20030218162941'
+  - url: https://www.acmicpc.net/category/detail/880
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201022184833'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Tehran Site 2002
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/880
-        as_of: '20201022184833'
-        note: Tehran Site 2002
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: tehran-2002
 - id: tehran-2003
   season: 2004
   name: 2003 ACM Asia Programming Contest - Tehran
@@ -194,40 +305,76 @@ contests:
   - 1006
   parent: wf-2004
   next: tehran-2004
-  web:
-    url: https://icpc.sharif.edu/2003/
+  sources:
+  - url: https://icpc.sharif.edu/2003/
+    roles:
+    - web
     as_of: '20250717003353'
-  results:
-    standings:
-    - url: https://icpc.sharif.edu/2003/final-standings.html
-      as_of: '20251011192137'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: tehran/tehran-2003/standings/2026-09-01-wayback-34fc7bac/final-standings.html
-    - url: http://icpc.baylor.edu/past/icpc2004/RegReport/sharif.edu/_acmicpc/03/final-standings.html
-      as_of: '20051120193843'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regreport)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: tehran/tehran-2003/standings/20051120-wayback-f929ee36/final-standings.html
-    - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandings024e.html?ContestID=655
-      as_of: '20060406223650'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: tehran/tehran-2003/standings/20060406-wayback-ed98e46e/ViewRegionalStandings024e.html
-  icpc_standings: https://icpc.global/regionals/finder/Tehran-2004/standings
-  problemset:
+    also_at:
+    - url: http://sharif.edu/~acmicpc/
+      as_of: '20020201205033'
+  - url: https://icpc.sharif.edu/2003/final-standings.html
+    roles:
+    - standings
+    as_of: '20251011192137'
+    archived:
+    - tehran/tehran-2003/standings/2026-09-01-wayback-34fc7bac/final-standings.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2004/RegReport/sharif.edu/_acmicpc/03/final-standings.html
+    roles:
+    - standings
+    as_of: '20051120193843'
+    archived:
+    - tehran/tehran-2003/standings/20051120-wayback-f929ee36/final-standings.html
+    - tehran/tehran-2003/standings/20051120-wayback-305d243d/final-standings.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-regreport)
+  - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandings024e.html?ContestID=655
+    roles:
+    - standings
+    as_of: '20060406223650'
+    archived:
+    - tehran/tehran-2003/standings/20060406-wayback-ed98e46e/ViewRegionalStandings024e.html
+    - tehran/tehran-2003/standings/20060406-wayback-75ede834/ViewRegionalStandings024e.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewStandings.asp?ContestID=655
+    roles:
+    - standings
+    as_of: '20031227105641'
+    note: added by url-hunt 2026-09-01 (cms-api)
+  - url: https://icpc.global/regionals/finder/Tehran-2004/standings
+    roles:
+    - icpc_standings
   - url: https://icpc.sharif.edu/2003/problems.html
+    roles:
+    - problemset
     as_of: '20250717003729'
-  - https://icpc.ir/2003/problems.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.ir/2003/problems.html
+    roles:
+    - problemset
+    as_of: '20260712111533'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://sharif.edu/~acmicpc/03/problems.html
+    roles:
+    - problemset
+    as_of: '20031212231752'
+  - url: https://www.acmicpc.net/category/detail/879
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201022215016'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Tehran Site 2003
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/879
-        as_of: '20201022215016'
-        note: Tehran Site 2003
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: tehran-2003
 - id: tehran-2004
   season: 2005
   name: 2004 ACM Asia Programming Contest - Tehran
@@ -237,30 +384,45 @@ contests:
   - 1097
   parent: wf-2005
   next: tehran-2005
-  web:
-    url: https://icpc.sharif.edu/2004/
+  sources:
+  - url: https://icpc.sharif.edu/2004/
+    roles:
+    - web
     as_of: '20250918000249'
-  results:
-    scoreboard:
-    - url: http://sharif.edu/~acmicpc/04/ranking/finals.html
-      as_of: '20051027100656'
-      archived: tehran/tehran-2004/scoreboard/2026-09-01-wayback-41df20ca/finals.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://sharif.edu/~acmicpc/04/ranking/sumtime.html
-      as_of: '20050909075251'
-      archived: tehran/tehran-2004/scoreboard/2026-09-01-wayback-f7c15d2d/sumtime.html
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Tehran-2005/standings
-  problemset: https://icpc.ir/2004/problems.html
+  - url: http://sharif.edu/~acmicpc/04/ranking/finals.html
+    roles:
+    - scoreboard
+    as_of: '20051027100656'
+    archived:
+    - tehran/tehran-2004/scoreboard/2026-09-01-wayback-41df20ca/finals.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://sharif.edu/~acmicpc/04/ranking/sumtime.html
+    roles:
+    - scoreboard
+    as_of: '20050909075251'
+    archived:
+    - tehran/tehran-2004/scoreboard/2026-09-01-wayback-f7c15d2d/sumtime.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Tehran-2005/standings
+    roles:
+    - icpc_standings
+  - url: https://icpc.ir/2004/problems.html
+    roles:
+    - problemset
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/878
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201020023335'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Tehran Site 2004
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/878
-        as_of: '20201020023335'
-        note: Tehran Site 2004
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: tehran-2004
 - id: tehran-2005
   season: 2006
   name: 2005 ACM Asia Programming Contest - Tehran
@@ -270,30 +432,47 @@ contests:
   - 973
   parent: wf-2006
   next: tehran-2006
-  web:
-    url: http://icpc.sharif.edu/2005/
+  sources:
+  - url: http://icpc.sharif.edu/2005/
+    roles:
+    - web
     as_of: '20181130213129'
-  results:
-    scoreboard:
-    - url: https://icpc.sharif.edu/2005/ranking/full.html
-      as_of: '20250516110214'
-      archived: tehran/tehran-2005/scoreboard/2026-09-01-live-60f12027/full.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://icpc.sharif.edu/2005/ranking/sumtime.html
-      as_of: '20250516101729'
-      archived: tehran/tehran-2005/scoreboard/2026-09-01-live-19def462/sumtime.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Tehran-2006/standings
-  problemset: https://icpc.ir/2005/problems.html
+  - url: https://icpc.sharif.edu/2005/ranking/full.html
+    roles:
+    - scoreboard
+    as_of: '20250516110214'
+    archived:
+    - tehran/tehran-2005/scoreboard/2026-09-01-live-60f12027/full.html
+    - tehran/tehran-2005/scoreboard/2026-09-01-wayback-60f12027/full.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.sharif.edu/2005/ranking/sumtime.html
+    roles:
+    - scoreboard
+    as_of: '20250516101729'
+    archived:
+    - tehran/tehran-2005/scoreboard/2026-09-01-live-19def462/sumtime.html
+    - tehran/tehran-2005/scoreboard/2026-09-01-wayback-19def462/sumtime.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Tehran-2006/standings
+    roles:
+    - icpc_standings
+  - url: https://icpc.ir/2005/problems.html
+    roles:
+    - problemset
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/877
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201123162618'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Tehran Site 2005
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/877
-        as_of: '20201123162618'
-        note: Tehran Site 2005
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: tehran-2005
 - id: tehran-2006
   season: 2007
   name: 2006 ACM Asia Programming Contest - Tehran
@@ -303,36 +482,45 @@ contests:
   - 1018
   parent: wf-2007
   next: tehran-2007
-  web:
-    url: http://icpc.sharif.edu/2006/
-    as_of: '20181130213140'
-  results:
-    scoreboard:
-    - url: http://icpc.sharif.edu/2006/summary.html
-      as_of: '20240731113009'
-      archived: tehran/tehran-2006/scoreboard/2026-09-01-wayback-b6a4bf3a/summary.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://sharif.edu/~acmicpc/acmicpc06/standings.html
-      as_of: '20130427044731'
-      archived: tehran/tehran-2006/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Tehran-2007/standings
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/714
-        as_of: '20201031230832'
-        note: Tehran Site 2006
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/714
-    as_of: '20201031230832'
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: http://icpc.sharif.edu/2006/
+    roles:
+    - web
+    as_of: '20181130213140'
+  - url: http://icpc.sharif.edu/2006/summary.html
+    roles:
+    - scoreboard
+    as_of: '20240731113009'
+    archived:
+    - tehran/tehran-2006/scoreboard/2026-09-01-wayback-b6a4bf3a/summary.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://sharif.edu/~acmicpc/acmicpc06/standings.html
+    roles:
+    - standings
+    as_of: '20130427044731'
+    archived:
+    - tehran/tehran-2006/external-standings/2026-04-15-external/content.html
+    - tehran/tehran-2006/standings/20070105-wayback-090c2a70/standings.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Tehran-2007/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/714
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20201031230832'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      Tehran Site 2006
+  problems:
+    set: tehran-2006
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - id: tehran-2007
   season: 2008
@@ -343,36 +531,45 @@ contests:
   - 1076
   parent: wf-2008
   next: tehran-2008
-  web:
-    url: http://icpc.sharif.edu/2007/
-    as_of: '20181130213155'
-  results:
-    scoreboard:
-    - url: http://icpc.sharif.edu/2007/summary.html
-      as_of: '20181130213201'
-      archived: tehran/tehran-2007/scoreboard/2026-09-01-wayback-d3a47df2/summary.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=854
-      as_of: '20110924031722'
-      archived: tehran/tehran-2007/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/regionals/finder/Tehran-2008/standings
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/713
-        as_of: '20190821231805'
-        note: Tehran Site 2007
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/713
-    as_of: '20190821231805'
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: http://icpc.sharif.edu/2007/
+    roles:
+    - web
+    as_of: '20181130213155'
+  - url: http://icpc.sharif.edu/2007/summary.html
+    roles:
+    - scoreboard
+    as_of: '20181130213201'
+    archived:
+    - tehran/tehran-2007/scoreboard/2026-09-01-wayback-d3a47df2/summary.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=854
+    roles:
+    - standings
+    as_of: '20110924031722'
+    archived:
+    - tehran/tehran-2007/external-standings/2026-04-15-external/content.html
+    - tehran/tehran-2007/standings/20080424-wayback-075a7443/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Tehran-2008/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/713
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20190821231805'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      Tehran Site 2007
+  problems:
+    set: tehran-2007
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - id: tehran-2008
   season: 2009
@@ -383,29 +580,35 @@ contests:
   - 20
   parent: wf-2009
   next: tehran-2009
-  web:
-    url: http://icpc.sharif.edu/2008/
-    as_of: '20181130213205'
-  results:
-    scoreboard:
-    - url: http://icpc.sharif.edu/2008/summary.html
-      as_of: '20181130213211'
-      archived: tehran/tehran-2008/scoreboard/2026-09-01-wayback-48c173a6/summary.html
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Tehran-2009/standings
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1161
-        as_of: '20201022180802'
-        note: Tehran Site 2008
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/1161
-    as_of: '20201022180802'
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: http://icpc.sharif.edu/2008/
+    roles:
+    - web
+    as_of: '20181130213205'
+  - url: http://icpc.sharif.edu/2008/summary.html
+    roles:
+    - scoreboard
+    as_of: '20181130213211'
+    archived:
+    - tehran/tehran-2008/scoreboard/2026-09-01-wayback-48c173a6/summary.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Tehran-2009/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/1161
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20201022180802'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      Tehran Site 2008
+  problems:
+    set: tehran-2008
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - id: tehran-2009
   season: 2010
@@ -416,29 +619,35 @@ contests:
   - 501
   parent: wf-2010
   next: tehran-2010
-  web:
-    url: http://icpc.sharif.edu/2009/
-    as_of: '20181130210535'
-  results:
-    scoreboard:
-    - url: http://icpc.sharif.edu/2009/scoreboard/summary.html
-      as_of: '20181130210545'
-      archived: tehran/tehran-2009/scoreboard/2026-09-01-wayback-6dad2b9d/summary.html
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Tehran-2010/standings
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1163
-        as_of: '20201025144320'
-        note: Tehran Site 2009
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/1163
-    as_of: '20201025144320'
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: http://icpc.sharif.edu/2009/
+    roles:
+    - web
+    as_of: '20181130210535'
+  - url: http://icpc.sharif.edu/2009/scoreboard/summary.html
+    roles:
+    - scoreboard
+    as_of: '20181130210545'
+    archived:
+    - tehran/tehran-2009/scoreboard/2026-09-01-wayback-6dad2b9d/summary.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Tehran-2010/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/1163
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20201025144320'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      Tehran Site 2009
+  problems:
+    set: tehran-2009
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - id: tehran-2010
   season: 2011
@@ -449,35 +658,45 @@ contests:
   - 606
   parent: wf-2011
   next: tehran-2011
-  web:
-    url: http://icpc.sharif.edu/2010/
-    as_of: '20181130213215'
-  results:
-    standings:
-    - url: http://icpc.sharif.edu/2010/scoreboard/full.html
-      as_of: '20191106174951'
-      archived: tehran/tehran-2010/standings/2026-09-01-wayback-c75cfe9e/full.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc.sharif.edu/acmicpc10/scoreboard/Rank.pdf
-      as_of: '20170807181413'
-      archived: tehran/tehran-2010/external-standings/2026-04-15-external/content.pdf
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Tehran-2011/standings
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1162
-        as_of: '20191214014450'
-        note: Tehran Site 2010
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/1162
-    as_of: '20191214014450'
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: http://icpc.sharif.edu/2010/
+    roles:
+    - web
+    as_of: '20181130213215'
+  - url: http://icpc.sharif.edu/2010/scoreboard/full.html
+    roles:
+    - standings
+    as_of: '20191106174951'
+    archived:
+    - tehran/tehran-2010/standings/2026-09-01-wayback-c75cfe9e/full.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.sharif.edu/acmicpc10/scoreboard/Rank.pdf
+    roles:
+    - standings
+    as_of: '20170807181413'
+    archived:
+    - tehran/tehran-2010/external-standings/2026-04-15-external/content.pdf
+    - tehran/tehran-2010/standings/20101230-wayback-d91d0490/Rank.pdf
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Tehran-2011/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/1162
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20191214014450'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      Tehran Site 2010
+  problems:
+    set: tehran-2010
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - id: tehran-2011
   season: 2012
@@ -488,25 +707,37 @@ contests:
   - 803
   parent: wf-2012
   next: tehran-2012
-  web:
-    url: http://icpc.sharif.edu/2011/
+  sources:
+  - url: http://icpc.sharif.edu/2011/
+    roles:
+    - web
     as_of: '20181130213225'
-  results:
-    scoreboard:
-    - url: http://icpc.sharif.edu/2011/scoreboard/summary.html
-      as_of: '20181130210556'
-      archived: tehran/tehran-2011/scoreboard/2026-09-01-wayback-896e9b01/summary.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://acm.ut.ac.ir/sc/icpc-asia-region-tehran-site-2011-ranklist.html
-      as_of: '20140210101212'
-      archived: tehran/tehran-2011/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Tehran-2012/standings
-  problemset: https://icpc.ir/2011/problems.html
+  - url: http://icpc.sharif.edu/2011/scoreboard/summary.html
+    roles:
+    - scoreboard
+    as_of: '20181130210556'
+    archived:
+    - tehran/tehran-2011/scoreboard/2026-09-01-wayback-896e9b01/summary.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://acm.ut.ac.ir/sc/icpc-asia-region-tehran-site-2011-ranklist.html
+    roles:
+    - standings
+    as_of: '20140210101212'
+    archived:
+    - tehran/tehran-2011/external-standings/2026-04-15-external/content.html
+    - tehran/tehran-2011/standings/20111205-wayback-eb33e22a/icpc-asia-region-tehran-site-2011-ranklist.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Tehran-2012/standings
+    roles:
+    - icpc_standings
+  - url: https://icpc.ir/2011/problems.html
+    roles:
+    - problemset
+    url_state: dead
+    url_checked: '2026-11-02'
 - id: tehran-2012
   season: 2013
   name: 2012 ACM-ICPC Asia Tehran Regional Contest
@@ -516,25 +747,37 @@ contests:
   - 1371
   parent: wf-2013
   next: tehran-2013
-  results:
-    scoreboard:
-    - url: http://icpc.sharif.edu/2012/scoreboard/
-      as_of: '20181130213246'
-      archived: tehran/tehran-2012/scoreboard/2026-09-01-wayback-3720ba17/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Tehran-2013/standings
-  web: https://icpc.ir/2012/
-  problemset:
-    url: https://icpc.ir/2012/problems/TD.zip
+  sources:
+  - url: https://icpc.ir/2012/
+    roles:
+    - web
+  - url: http://icpc.sharif.edu/2012/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20181130213246'
+    archived:
+    - tehran/tehran-2012/scoreboard/2026-09-01-wayback-3720ba17/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Tehran-2013/standings
+    roles:
+    - icpc_standings
+  - url: https://icpc.ir/2012/problems/TD.zip
+    roles:
+    - problemset
     as_of: '20250630133518'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/712
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201028210727'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Tehran Site 2012
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/712
-        as_of: '20201028210727'
-        note: Tehran Site 2012
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: tehran-2012
 - id: tehran-2013
   season: 2014
   name: 2013 ACM-ICPC Asia Tehran Regional Contest
@@ -544,25 +787,37 @@ contests:
   - 1923
   parent: wf-2014
   next: tehran-2014
-  results:
-    scoreboard:
-    - url: http://icpc.sharif.edu/2013/scoreboard/
-      as_of: '20181130213251'
-      archived: tehran/tehran-2013/scoreboard/2026-09-01-wayback-61bbf85c/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-  web: https://icpc.ir/2013/
-  icpc_standings: https://icpc.global/regionals/finder/Tehran-2014/standings
-  problemset:
-    url: https://icpc.ir/2013/problems/TD.zip
+  sources:
+  - url: https://icpc.ir/2013/
+    roles:
+    - web
+  - url: http://icpc.sharif.edu/2013/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20181130213251'
+    archived:
+    - tehran/tehran-2013/scoreboard/2026-09-01-wayback-61bbf85c/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Tehran-2014/standings
+    roles:
+    - icpc_standings
+  - url: https://icpc.ir/2013/problems/TD.zip
+    roles:
+    - problemset
     as_of: '20250630125719'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1190
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201029200003'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Tehran Site 2013
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1190
-        as_of: '20201029200003'
-        note: Tehran Site 2013
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: tehran-2013
 - id: tehran-2014
   season: 2015
   name: 2014 ACM-ICPC Asia Tehran Regional Contest
@@ -572,29 +827,42 @@ contests:
   - 2547
   parent: wf-2015
   next: tehran-2015
-  web:
+  sources:
   - url: http://icpc.sharif.ir/acmicpc14
+    roles:
+    - web
     as_of: '20151125180053'
   - url: http://icpc.sharif.edu/2014/
+    roles:
+    - web
     as_of: '20181201021451'
-  results:
-    scoreboard:
-    - url: http://icpc.sharif.ir/2014/scoreboard/
-      as_of: '20240427120554'
-      archived: tehran/tehran-2014/scoreboard/2026-09-01-wayback-30eec84e/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Tehran-2015/standings
-  problemset:
-    url: http://icpc.sharif.edu/2014/problems/TD.zip
+  - url: http://icpc.sharif.ir/2014/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20240427120554'
+    archived:
+    - tehran/tehran-2014/scoreboard/2026-09-01-wayback-30eec84e/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Tehran-2015/standings
+    roles:
+    - icpc_standings
+  - url: http://icpc.sharif.edu/2014/problems/TD.zip
+    roles:
+    - problemset
     as_of: '20240729044516'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1321
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201020153426'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Tehran Site 2014
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1321
-        as_of: '20201020153426'
-        note: Tehran Site 2014
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: tehran-2014
 - id: tehran-2015
   season: 2016
   name: 2015 ACM-ICPC Asia Tehran Regional Contest
@@ -604,27 +872,34 @@ contests:
   - 2932
   parent: wf-2016
   next: tehran-2016
-  results:
-    scoreboard:
-    - url: https://icpc.sharif.edu/2015/scoreboard/
-      as_of: '20250918004056'
-      archived: tehran/tehran-2015/scoreboard/2026-09-01-wayback-a9c0616c/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Tehran-2016/standings
-  web: https://icpc.ir/2015/
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1503
-        as_of: '20201024094538'
-        note: Tehran Site 2015
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/1503
-    as_of: '20201024094538'
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: https://icpc.ir/2015/
+    roles:
+    - web
+  - url: https://icpc.sharif.edu/2015/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20250918004056'
+    archived:
+    - tehran/tehran-2015/scoreboard/2026-09-01-wayback-a9c0616c/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Tehran-2016/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/1503
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20201024094538'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      Tehran Site 2015
+  problems:
+    set: tehran-2015
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - id: tehran-2016
   season: 2017
@@ -635,30 +910,46 @@ contests:
   - 3032
   parent: wf-2017
   next: tehran-2017
-  results:
-    scoreboard:
-    - url: https://icpc.sharif.edu/2016/scoreboard/
-      as_of: '20250516114331'
-      archived: tehran/tehran-2016/scoreboard/2026-09-01-wayback-870287bd/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.sharif.edu/acmicpc16/scoreboard/
-      as_of: '20180928062435'
-      archived: tehran/tehran-2016/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Tehran-2017/standings
-  web: https://icpc.ir/2016/
-  problemset: https://github.com/mehranagh20/ACM-regional-2016/blob/master/problems.pdf
+  sources:
+  - url: https://icpc.ir/2016/
+    roles:
+    - web
+  - url: https://icpc.sharif.edu/2016/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20250516114331'
+    archived:
+    - tehran/tehran-2016/scoreboard/2026-09-01-wayback-870287bd/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.sharif.edu/acmicpc16/scoreboard/
+    roles:
+    - standings
+    as_of: '20180928062435'
+    archived:
+    - tehran/tehran-2016/external-standings/2026-04-15-external/content.html
+    - tehran/tehran-2016/standings/20161226-wayback-48508582/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Tehran-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://github.com/mehranagh20/ACM-regional-2016/blob/master/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1611
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191022004354'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Tehran Site 2016
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1611
-        as_of: '20191022004354'
-        note: Tehran Site 2016
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: tehran-2016
 - id: tehran-2017
   season: 2018
   name: 2017 ACM-ICPC Asia Tehran Regional Contest
@@ -668,34 +959,44 @@ contests:
   - 3426
   parent: wf-2018
   next: tehran-2018
-  results:
-    scoreboard:
-    - url: https://icpc.sharif.edu/2017/scoreboard/
-      as_of: '20250501000334'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: tehran/tehran-2017/scoreboard/2026-09-01-wayback-bc0cb548/page.html
-    standings:
-    - url: http://icpc.sharif.edu/acmicpc17/scoreboard/
-      as_of: '20181031143147'
-      archived: tehran/tehran-2017/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Tehran-2018/standings
-  web: https://icpc.ir/2017/
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1820
-        as_of: '20201024115613'
-        note: Tehran Site 2017
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/1820
-    as_of: '20201024115613'
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: https://icpc.ir/2017/
+    roles:
+    - web
+  - url: https://icpc.sharif.edu/2017/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20250501000334'
+    archived:
+    - tehran/tehran-2017/scoreboard/2026-09-01-wayback-bc0cb548/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.sharif.edu/acmicpc17/scoreboard/
+    roles:
+    - standings
+    as_of: '20181031143147'
+    archived:
+    - tehran/tehran-2017/external-standings/2026-04-15-external/content.html
+    - tehran/tehran-2017/standings/20171219-wayback-1f79787b/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Tehran-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/1820
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20201024115613'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      Tehran Site 2017
+  problems:
+    set: tehran-2017
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - id: tehran-2018
   season: 2019
@@ -706,34 +1007,38 @@ contests:
   - 3527
   parent: wf-2019
   next: tehran-2019
-  results:
-    scoreboard:
-    - url: https://icpc.sharif.edu/2018/scoreboard/
-      as_of: '20250717005057'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: tehran/tehran-2018/external-standings/2026-04-15-external/content.html
-    standings:
-    - url: http://icpc.sharif.edu/2018/scoreboard/
-      as_of: '20250717005057'
-      archived: tehran/tehran-2018/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Tehran-2019/standings
-  web: https://icpc.ir/2018/
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1980
-        as_of: '20190919191801'
-        note: Tehran Site 2018
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/1980
-    as_of: '20190919191801'
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: https://icpc.ir/2018/
+    roles:
+    - web
+  - url: https://icpc.sharif.edu/2018/scoreboard/
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20250717005057'
+    archived:
+    - tehran/tehran-2018/external-standings/2026-04-15-external/content.html
+    - tehran/tehran-2018/scoreboard/2026-09-01-wayback-ab62cce4/page.html
+    - tehran/tehran-2018/standings/20190411-wayback-4b6efd21/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Tehran-2019/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/1980
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20190919191801'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      Tehran Site 2018
+  problems:
+    set: tehran-2018
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - id: tehran-2019
   season: 2020
@@ -744,32 +1049,37 @@ contests:
   - 4088
   parent: awc-2019
   next: tehran-2020
-  results:
-    scoreboard:
-    - url: https://icpc.sharif.edu/2019/scoreboard/
-      as_of: '20250803153319'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: tehran/tehran-2019/external-standings/2026-04-15-external/content.html
-    standings:
-    - url: http://icpc.sharif.edu/2019/scoreboard/
-      as_of: '20250803153319'
-      archived: tehran/tehran-2019/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Tehran-2020/standings
-  web: https://icpc.ir/2019/
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2154
-        note: Tehran Site 2019
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/2154
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: https://icpc.ir/2019/
+    roles:
+    - web
+  - url: https://icpc.sharif.edu/2019/scoreboard/
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20250803153319'
+    archived:
+    - tehran/tehran-2019/external-standings/2026-04-15-external/content.html
+    - tehran/tehran-2019/scoreboard/2026-09-01-wayback-795a6eda/page.html
+    - tehran/tehran-2019/standings/20191223-wayback-c713844e/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Tehran-2020/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/2154
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      Tehran Site 2019
+  problems:
+    set: tehran-2019
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - id: tehran-2020
   season: 2021
@@ -780,25 +1090,33 @@ contests:
   - 4498
   parent: wf-2021
   next: tehran-2022
-  results:
-    scoreboard:
-    - url: https://icpc.sharif.edu/2020/scoreboard/
-      as_of: '20250516105533'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: tehran/tehran-2020/scoreboard/2026-09-01-wayback-0ba64fbd/page.html
-  icpc_standings: https://icpc.global/regionals/finder/Tehran-2021/standings
-  web: https://icpc.ir/2020/
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2395
-        note: Tehran Site 2020
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/2395
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: https://icpc.ir/2020/
+    roles:
+    - web
+  - url: https://icpc.sharif.edu/2020/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20250516105533'
+    archived:
+    - tehran/tehran-2020/scoreboard/2026-09-01-wayback-0ba64fbd/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Tehran-2021/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/2395
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      Tehran Site 2020
+  problems:
+    set: tehran-2020
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - id: tehran-2022
   season: 2023
@@ -809,34 +1127,38 @@ contests:
   - 5662
   parent: awc-2022
   next: tehran-2023
-  web:
-    url: https://icpc.ir/2022/info
-    as_of: '20240228214742'
-  results:
-    scoreboard:
-    - url: http://icpc.sharif.edu/2022/scoreboard/
-      as_of: '20230601122212'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: tehran/tehran-2022/external-standings/2026-04-15-external/content.html
-    standings:
-    - url: http://icpc.sharif.edu/2022/scoreboard/
-      as_of: '20260218173256'
-      archived: tehran/tehran-2022/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Tehran-2023/standings
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3607
-        note: 2022 ICPC Asia Tehran Regional Contest
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/3607
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: https://icpc.ir/2022/info
+    roles:
+    - web
+    as_of: '20240228214742'
+  - url: http://icpc.sharif.edu/2022/scoreboard/
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20230601122212'
+    archived:
+    - tehran/tehran-2022/external-standings/2026-04-15-external/content.html
+    - tehran/tehran-2022/scoreboard/2026-09-01-wayback-9b6d242f/page.html
+    - tehran/tehran-2022/standings/20230528-wayback-b2918781/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: as_of 20260218173256 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Tehran-2023/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/3607
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      2022 ICPC Asia Tehran Regional Contest
+  problems:
+    set: tehran-2022
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - id: tehran-2023
   season: 2024
@@ -847,32 +1169,37 @@ contests:
   - 7489
   parent: awc-2023
   next: tehran-2024
-  results:
-    scoreboard:
-    - url: https://icpc.sharif.edu/2023/scoreboard/
-      as_of: '20251011191808'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: tehran/tehran-2023/external-standings/2026-04-15-external/content.html
-    standings:
-    - url: http://icpc.sharif.edu/2023/scoreboard/
-      as_of: '20251011191808'
-      archived: tehran/tehran-2023/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Tehran-2024/standings
-  web: https://icpc.ir/2023/
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4393
-        note: 2023 ICPC Asia Tehran Regional Contest
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/4393
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: https://icpc.ir/2023/
+    roles:
+    - web
+  - url: https://icpc.sharif.edu/2023/scoreboard/
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20251011191808'
+    archived:
+    - tehran/tehran-2023/external-standings/2026-04-15-external/content.html
+    - tehran/tehran-2023/scoreboard/2026-09-01-wayback-4cb236ce/page.html
+    - tehran/tehran-2023/standings/20240616-wayback-aaa7d0d9/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Tehran-2024/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/4393
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      2023 ICPC Asia Tehran Regional Contest
+  problems:
+    set: tehran-2023
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - id: tehran-2024
   season: 2025
@@ -883,32 +1210,44 @@ contests:
   - 8874
   parent: awc-2024
   next: tehran-2025
-  results:
-    scoreboard:
-    - url: https://icpc.sharif.edu/2024/scoreboard/
-      as_of: '20250526082710'
-      archived: tehran/tehran-2024/scoreboard/2026-09-01-wayback-4a1e7317/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://icpc.ir/2024/scoreboard/
-      as_of: '20250705021849'
-      archived: tehran/tehran-2024/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Tehran-2025/standings
-  web: https://icpc.ir/2024/
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4394
-        note: 2024 ICPC Asia Tehran Regional Contest
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/4394
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: https://icpc.ir/2024/
+    roles:
+    - web
+  - url: https://icpc.sharif.edu/2024/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20250526082710'
+    archived:
+    - tehran/tehran-2024/scoreboard/2026-09-01-wayback-4a1e7317/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.ir/2024/scoreboard/
+    roles:
+    - standings
+    as_of: '20250705021849'
+    archived:
+    - tehran/tehran-2024/external-standings/2026-04-15-external/content.html
+    - tehran/tehran-2024/standings/20250705-wayback-542f750d/page.html
+    - tehran/tehran-2024/standings/20260901-live-a618b545/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Tehran-2025/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/4394
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      2024 ICPC Asia Tehran Regional Contest
+  problems:
+    set: tehran-2024
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - id: tehran-2025
   season: 2026
@@ -919,21 +1258,32 @@ contests:
   - 9233
   parent: awc-2025
   next: tehran-2026
-  results:
-    scoreboard:
-    - url: https://icpc.ir/2025/scoreboard/
-      archived: tehran/tehran-2025/scoreboard/2026-09-01-live-5596e284/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://icpc.sharif.edu/2025/scoreboard/
-      as_of: '20260219024814'
-      archived: tehran/tehran-2025/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Tehran-2026/standings
-  web: https://icpc.ir/2025/
+  sources:
+  - url: https://icpc.ir/2025/
+    roles:
+    - web
+  - url: https://icpc.ir/2025/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20260218110752'
+    archived:
+    - tehran/tehran-2025/scoreboard/2026-09-01-live-5596e284/page.html
+    - tehran/tehran-2025/scoreboard/20260218-wayback-08b5b786/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.sharif.edu/2025/scoreboard/
+    roles:
+    - standings
+    as_of: '20260219024814'
+    archived:
+    - tehran/tehran-2025/external-standings/2026-04-15-external/content.html
+    - tehran/tehran-2025/standings/20260219-wayback-da1bf543/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Tehran-2026/standings
+    roles:
+    - icpc_standings
 - id: tehran-2026
   status: upcoming
   season: 2027

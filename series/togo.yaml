@@ -1,7 +1,10 @@
-# Maintained in-repo; problem-archive data imported by tools/import_problem_archive.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: togo
   name: ICPC Togolese Collegiate Programming Contest
+  tier: subregional
+  region: Africa & Arab
+  naming: season-start
 contests:
 - id: togo-2016
   season: 2017
@@ -12,14 +15,18 @@ contests:
   - 3160
   parent: south-africa-2016
   next: togo-2017
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/TCPC-SA-2017/standings
-    archived: togo/togo-2016/standings/api-20260904/standings.html
+  sources:
+  - url: http://www.mapcom-group.com/index.php?menu=cnp
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/TCPC-SA-2017/standings
+    roles:
+    - icpc_standings
+    archived:
+    - togo/togo-2016/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3160, 19 teams, DB fetch 2026-04-26)
-  web: http://www.mapcom-group.com/index.php?menu=cnp
   problems:
-    notes: Also CMS:3002
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: togo-2016
 - id: togo-2017
   season: 2018
   name: 2017 Togolese Collegiate Programming Contest
@@ -29,9 +36,12 @@ contests:
   - 3331
   parent: south-africa-2017
   next: togo-2019
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/TCPC-SA-2018/standings
-    archived: togo/togo-2017/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/TCPC-SA-2018/standings
+    roles:
+    - icpc_standings
+    archived:
+    - togo/togo-2017/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3331, 25 teams, DB fetch 2026-04-26)
 - id: togo-2019
   season: 2020
@@ -42,8 +52,13 @@ contests:
   - 4052
   parent: acpc-2019
   next: togo-2020
-  icpc_standings: https://icpc.global/regionals/finder/TogoCPC-2020/standings
-  web: https://cic.univ-lome.tg/
+  sources:
+  - url: https://cic.univ-lome.tg/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/TogoCPC-2020/standings
+    roles:
+    - icpc_standings
 - id: togo-2020
   season: 2021
   name: 2020 Togolese Collegiate Programming Contest
@@ -53,9 +68,12 @@ contests:
   - 4410
   parent: acpc-2020
   next: togo-2021
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/TogoCPC-2021/standings
-    archived: togo/togo-2020/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/TogoCPC-2021/standings
+    roles:
+    - icpc_standings
+    archived:
+    - togo/togo-2020/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4410, 8 teams, DB fetch 2026-04-26)
 - id: togo-2021
   season: 2022
@@ -66,9 +84,12 @@ contests:
   - 4820
   parent: acpc-2021
   next: togo-2022
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/TogoCPC-2022/standings
-    archived: togo/togo-2021/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/TogoCPC-2022/standings
+    roles:
+    - icpc_standings
+    archived:
+    - togo/togo-2021/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4820, 13 teams, DB fetch 2026-04-26)
 - id: togo-2022
   season: 2023
@@ -77,19 +98,23 @@ contests:
   - 5440
   parent: acpc-2022
   next: togo-2023
-  web: https://www.facebook.com/TogoCPC/
-  mirrors:
+  sources:
+  - url: https://www.facebook.com/TogoCPC/
+    roles:
+    - web
+    also_at:
+    - https://icpc.global/regionals/finder/TogoCPC-2021/teams
   - url: https://icpc.global/regionals/finder/TogoCPC-2023/standings
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: https://icpc.global/regionals/finder/TogoCPC-2021/teams
-    note: added by url-hunt 2026-09-01 (round9-deep-probe)
-  problemset: https://www.scribd.com/document/557514016/TogoCPC-P
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/TogoCPC-2023/standings
+    roles:
+    - icpc_standings
     note: added by url-hunt 2026-09-01 (wave2-rest)
+  - url: https://www.scribd.com/document/557514016/TogoCPC-P
+    roles:
+    - problemset
+    url_state: replaced
+    url_checked: '2026-11-02'
   problems:
-    notes: No date
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: togo-2022
 - id: togo-2023
   season: 2024
   name: 2023 ICPC Togolese Collegiate Programming Contest
@@ -97,13 +122,13 @@ contests:
   - 7635
   parent: acpc-2023
   next: null
-  web: https://www.facebook.com/TogoCPC/
-  mirrors:
+  sources:
+  - url: https://www.facebook.com/TogoCPC/
+    roles:
+    - web
   - url: https://icpc.global/regionals/finder/TogoCPC-2024/standings
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/TogoCPC-2024/standings
+    roles:
+    - icpc_standings
     note: added by url-hunt 2026-09-01 (wave2-rest)
   problems:
-    notes: No date, no teams
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: togo-2023

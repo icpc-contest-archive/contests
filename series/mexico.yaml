@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: mexico
   name: ICPC Mexico Finals
+  tier: regional
+  region: Latin America
+  naming: season-start
   lineage:
   - type: continues-from
     series: central-america
@@ -16,28 +19,48 @@ contests:
   - 4241
   parent: wf-2020
   next: mexico-2020
-  results:
-    scoreboard:
-    - url: https://scorelatam.naquadah.com.br/latam-2019/
-      archived: mexico/mexico-2019/scoreboard/2026-09-01-live-e9f99892/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://scorelatam.naquadah.com.br/
-      archived: mexico/mexico-2019/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mexico-2020/standings
-  web: http://blogs.iteso.mx/acm/
-  problemset: https://drive.google.com/file/d/1orJNNnCo4Wqo0e1WQksiQ4G6vbuftB46/view
+  sources:
+  - url: http://blogs.iteso.mx/acm/
+    roles:
+    - web
+  - url: https://scorelatam.naquadah.com.br/latam-2019/
+    roles:
+    - scoreboard
+    as_of: '20210411155403'
+    archived:
+    - mexico/mexico-2019/scoreboard/2026-09-01-live-e9f99892/page.html
+    - mexico/mexico-2019/scoreboard/20210411-wayback-2f0d6964/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://scorelatam.naquadah.com.br/
+    roles:
+    - standings
+    as_of: '20191116160431'
+    archived:
+    - mexico/mexico-2019/external-standings/2026-04-15-external/content.html
+    - mexico/mexico-2019/standings/20191116-wayback-48d570ec/page.html
+    - mexico/mexico-2019/standings/20260901-live-51f8bc59/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mexico-2020/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/1orJNNnCo4Wqo0e1WQksiQ4G6vbuftB46/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2117
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20200807143554'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2019
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2117
-        as_of: '20200807143554'
-        note: Latin America Regional Contests 2019
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: mexico-2019
 - id: mexico-2020
   season: 2021
   name: 2020 ICPC Mexico Finals
@@ -48,29 +71,46 @@ contests:
   - 4479
   parent: wf-2021
   next: mexico-2021
-  results:
-    scoreboard:
-    - url: https://scorelatam.naquadah.com.br/latam-2020/
-      archived: mexico/mexico-2020/scoreboard/2026-09-01-live-208f16a8/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://global.naquadah.com.br/boca/ScoreGlobal/
-      as_of: '20210710183023'
-      archived: mexico/mexico-2020/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mexico-2021/standings
-  web: https://blogs.iteso.mx/acm/
-  problemset: https://drive.google.com/file/d/1zNyntYDM3fmvVELLzwWtpkk6TUnHV9gT/view
+  sources:
+  - url: https://blogs.iteso.mx/acm/
+    roles:
+    - web
+  - url: https://scorelatam.naquadah.com.br/latam-2020/
+    roles:
+    - scoreboard
+    as_of: '20210710234912'
+    archived:
+    - mexico/mexico-2020/scoreboard/2026-09-01-live-208f16a8/page.html
+    - mexico/mexico-2020/scoreboard/20210710-wayback-4dae36e1/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://global.naquadah.com.br/boca/ScoreGlobal/
+    roles:
+    - standings
+    as_of: '20210710183023'
+    archived:
+    - mexico/mexico-2020/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mexico-2021/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/1zNyntYDM3fmvVELLzwWtpkk6TUnHV9gT/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2611
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210923213505'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2020
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2611
-        as_of: '20210923213505'
-        note: Latin America Regional Contests 2020
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: mexico-2020
 - id: mexico-2021
   season: 2022
   name: 2021 ICPC Mexico Finals
@@ -83,22 +123,38 @@ contests:
   - 4704
   parent: wf-2022
   next: mexico-2022
-  results:
-    scoreboard:
-    - url: https://scorelatam.naquadah.com.br/latam-2021/
-      archived: mexico/mexico-2021/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mexico-2022/standings
-  web: https://www.facebook.com/acmitesochapter
-  problemset: https://drive.google.com/file/d/1CoctzPkRFtL62akJ4h9Aa1sgiedmdv0I/view
+  sources:
+  - url: https://www.facebook.com/acmitesochapter
+    roles:
+    - web
+  - url: https://scorelatam.naquadah.com.br/latam-2021/
+    roles:
+    - scoreboard
+    as_of: '20220520232853'
+    archived:
+    - mexico/mexico-2021/external-standings/2026-04-15-external/content.html
+    - mexico/mexico-2021/scoreboard/20220520-wayback-3964f6f9/page.html
+    - mexico/mexico-2021/scoreboard/20260901-live-3b3bfd42/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Mexico-2022/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/1CoctzPkRFtL62akJ4h9Aa1sgiedmdv0I/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3088
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20230514144551'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2021
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3088
-        as_of: '20230514144551'
-        note: Latin America Regional Contests 2021
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: mexico-2021
 - id: mexico-2022
   season: 2023
   name: 2022 ICPC Mexico Finals
@@ -108,22 +164,39 @@ contests:
   - 5531
   parent: wf-2023
   next: mexico-2023
-  results:
-    scoreboard:
-    - url: https://scorelatam.naquadah.com.br/latam-2022/
-      archived: mexico/mexico-2022/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mexico-2023/standings
-  web: https://regional2022.icpcmexico.org/
-  problemset: https://scorelatam.naquadah.com.br/latam-2022/contest.pdf
+  sources:
+  - url: https://regional2022.icpcmexico.org/
+    roles:
+    - web
+  - url: https://scorelatam.naquadah.com.br/latam-2022/
+    roles:
+    - scoreboard
+    as_of: '20230323084846'
+    archived:
+    - mexico/mexico-2022/external-standings/2026-04-15-external/content.html
+    - mexico/mexico-2022/scoreboard/20230323-wayback-62e21791/page.html
+    - mexico/mexico-2022/scoreboard/20260901-live-4cb367aa/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Mexico-2023/standings
+    roles:
+    - icpc_standings
+  - url: https://scorelatam.naquadah.com.br/latam-2022/contest.pdf
+    roles:
+    - problemset
+    as_of: '20230323034228'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3579
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20230514144552'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2022
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3579
-        as_of: '20230514144552'
-        note: Latin America Regional Contests 2022
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: mexico-2022
 - id: mexico-2023
   season: 2024
   name: 2023 ICPC Mexico Finals
@@ -133,21 +206,39 @@ contests:
   - 7543
   parent: lac-2024
   next: mexico-2024
-  results:
-    scoreboard:
-    - url: https://scorelatam.naquadah.com.br/latam-2023/
-      archived: mexico/mexico-2023/external-standings/2026-04-15-external/content.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mexico-2024/standings
-  web: https://regional2023.icpcmexico.org/
-  problemset: https://scorelatam.naquadah.com.br/latam-2023/contest.pdf
+  sources:
+  - url: https://regional2023.icpcmexico.org/
+    roles:
+    - web
+  - url: https://scorelatam.naquadah.com.br/latam-2023/
+    roles:
+    - scoreboard
+    as_of: '20231023172618'
+    archived:
+    - mexico/mexico-2023/external-standings/2026-04-15-external/content.html
+    - mexico/mexico-2023/scoreboard/20231023-wayback-7d20f130/page.html
+    - mexico/mexico-2023/scoreboard/20260901-live-8557617e/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Mexico-2024/standings
+    roles:
+    - icpc_standings
+  - url: https://scorelatam.naquadah.com.br/latam-2023/contest.pdf
+    roles:
+    - problemset
+    as_of: '20231208120837'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4006
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260618021201'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2023
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4006
-        note: Latin America Regional Contests 2023
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: mexico-2023
 - id: mexico-2024
   season: 2025
   name: 2024 ICPC Mexico Finals
@@ -157,21 +248,38 @@ contests:
   - 8953
   parent: lac-2025
   next: mexico-2025
-  results:
-    scoreboard:
-    - url: https://scorelatam.naquadah.com.br/latam-2024/
-      archived: mexico/mexico-2024/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mexico-2025/standings
-  web: http://2024icpcmexicofinals.org/
-  problemset: https://scorelatam.naquadah.com.br/latam-2024/contest.pdf
+  sources:
+  - url: http://2024icpcmexicofinals.org/
+    roles:
+    - web
+  - url: https://scorelatam.naquadah.com.br/latam-2024/
+    roles:
+    - scoreboard
+    as_of: '20241113233607'
+    archived:
+    - mexico/mexico-2024/external-standings/2026-04-15-external/content.html
+    - mexico/mexico-2024/scoreboard/20241113-wayback-753d3b6a/page.html
+    - mexico/mexico-2024/scoreboard/20260901-live-1e59e77d/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Mexico-2025/standings
+    roles:
+    - icpc_standings
+  - url: https://scorelatam.naquadah.com.br/latam-2024/contest.pdf
+    roles:
+    - problemset
+    as_of: '20241113233655'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4388
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2024
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4388
-        note: Latin America Regional Contests 2024
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: mexico-2024
 - id: mexico-2025
   season: 2026
   name: 2025 ICPC Mexico Finals
@@ -181,22 +289,39 @@ contests:
   - 9409
   parent: lac-2026
   next: mexico-2026
-  results:
-    scoreboard:
-    - url: https://scorelatam.naquadah.com.br/latam-2025/
-      archived: mexico/mexico-2025/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mexico-2026/standings
-  web: https://finals2025.icpcmexico.org/
-  problemset: https://scorelatam.naquadah.com.br/latam-2025/contest.pdf
+  sources:
+  - url: https://finals2025.icpcmexico.org/
+    roles:
+    - web
+  - url: https://scorelatam.naquadah.com.br/latam-2025/
+    roles:
+    - scoreboard
+    as_of: '20251124192456'
+    archived:
+    - mexico/mexico-2025/external-standings/2026-04-15-external/content.html
+    - mexico/mexico-2025/scoreboard/20251124-wayback-89af3860/page.html
+    - mexico/mexico-2025/scoreboard/20260901-live-2d73d3f7/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Mexico-2026/standings
+    roles:
+    - icpc_standings
+  - url: https://scorelatam.naquadah.com.br/latam-2025/contest.pdf
+    roles:
+    - problemset
+    as_of: '20251124192836'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4687
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260418223005'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2025
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4687
-        as_of: '20260418223005'
-        note: Latin America Regional Contests 2025
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: mexico-2025
 - id: mexico-2026
   status: upcoming
   season: 2027

@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 """Apply the capture run's url-state verdicts to the catalogue.
 
-Reads the newest archive/reports/url-states-*.json and, per matching result entry:
+Reads the newest archive/reports/url-states-*.json and, per matching source (the
+verdict's contest + catalogue_url, matched by address whatever roles it serves):
   - normalizes wayback-link entries: url -> raw origin URL, the snapshot
     timestamp moves into `as_of` (kept if already set)
-  - records the snapshot used (`as_of`) when the entry had none
+  - records the snapshot used (`as_of`) when the source had none
   - sets url_state (live|changed|replaced|dead|unknown) + url_checked
+
+Verdicts for also_at mirror addresses (kind web-mirror) have no source entry of their
+own and are left alone, as before.
 
 Run from the contests repo root; validate afterwards.
 """
@@ -16,21 +20,11 @@ import re
 from collections import Counter
 from pathlib import Path
 
-import yaml
-
 ROOT = Path(__file__).resolve().parent.parent
 import sys  # noqa: E402
 sys.path.insert(0, str(ROOT / "tools"))
+from catalogue import RANK, dump_series, find_source, load_series  # noqa: E402
 from resources import unwrap  # noqa: E402
-
-
-class Dumper(yaml.SafeDumper):
-    pass
-
-
-Dumper.add_representer(
-    type(None), lambda d, v: d.represent_scalar("tag:yaml.org,2002:null", "null")
-)
 
 
 def main() -> int:
@@ -44,39 +38,55 @@ def main() -> int:
     if merged.exists():
         reports[-1] = merged
     states = json.loads(reports[-1].read_text())
-    by_key = {(s["contest"], s["kind"], s["catalogue_url"]): s for s in states}
-    print(f"applying {len(by_key)} verdicts from {reports[-1].name}")
+    # one address may have been checked under several kinds (pre-sources-model queues, or a
+    # source serving several roles): the most recent verdict per source wins, ties going to
+    # the verdict made for the highest-ranked role (RANK: scoreboard before problemset ...)
+    def rank(kind: str) -> int:
+        return RANK.get("judge_page" if kind.startswith("judge-") else kind, len(RANK))
+
+    def better(a: dict, b: dict) -> bool:
+        return ((a.get("checked") or ""), -rank(a["kind"])) > ((b.get("checked") or ""), -rank(b["kind"]))
+
+    by_contest: dict[str, list[dict]] = {}
+    for s in states:
+        by_contest.setdefault(s["contest"], []).append(s)
+    print(f"applying {len(states)} verdicts from {reports[-1].name}")
 
     stats = Counter()
-    for f in sorted((ROOT / "series").glob("*.yaml")):
-        doc = yaml.safe_load(f.read_text())
+    for sid, doc in load_series().items():
         changed = False
         for c in doc["contests"]:
-            for kind, lst in c.get("results", {}).items():
-                for e in lst:
-                    s = by_key.get((c["id"], kind, e["url"]))
-                    if not s:
-                        continue
-                    if s["catalogue_url"] != s["raw_url"]:
-                        # wayback-link entry: url becomes the raw origin URL
-                        _, ts, _ = unwrap(s["catalogue_url"])
-                        if ts and not e.get("as_of"):
-                            e["as_of"] = ts
-                        e["url"] = s["raw_url"]
-                        stats["normalized wayback-link entry"] += 1
-                    ts = s.get("wayback_timestamp") or unwrap(s.get("wayback_url") or "")[1]
+            applied: dict[int, dict] = {}   # id(source) -> verdict applied
+            for s in by_contest.get(c["id"], []):
+                e = find_source(c, s["catalogue_url"]) or find_source(c, s["raw_url"])
+                if e is None:
+                    stats[f"no source for verdict kind {s['kind']}"] += 1
+                    continue
+                prev = applied.get(id(e))
+                if prev and not better(s, prev):
+                    continue
+                applied[id(e)] = s
+                if s["catalogue_url"] != s["raw_url"] and unwrap(e["url"])[2]:
+                    # wayback-link entry: url becomes the raw origin URL
+                    _, ts, _ = unwrap(e["url"])
                     if ts and not e.get("as_of"):
                         e["as_of"] = ts
-                        stats["wayback snapshot recorded (as_of)"] += 1
-                    if e.get("url_state") != s["state"]:
-                        stats[f"state -> {s['state']}"] += 1
-                    e["url_state"], e["url_checked"] = s["state"], s["checked"]
+                    e["url"] = s["raw_url"]
+                    stats["normalized wayback-link entry"] += 1
                     changed = True
+                ts = s.get("wayback_timestamp") or unwrap(s.get("wayback_url") or "")[1]
+                if ts and not e.get("as_of"):
+                    e["as_of"] = ts
+                    stats["wayback snapshot recorded (as_of)"] += 1
+                    changed = True
+                if e.get("url_state") != s["state"]:
+                    stats[f"state -> {s['state']}"] += 1
+                if (e.get("url_state"), e.get("url_checked")) != (s["state"], s["checked"]):
+                    changed = True
+                e["url_state"], e["url_checked"] = s["state"], s["checked"]
+                stats["verdicts applied"] += 1
         if changed:
-            header = ("# Maintained in-repo; url states applied by "
-                      "tools/apply_url_states.py.\n")
-            f.write_text(header + yaml.dump(doc, Dumper=Dumper, sort_keys=False,
-                                            allow_unicode=True, width=100))
+            dump_series(sid, doc, "apply_url_states.py")
             stats["files written"] += 1
     for k, v in sorted(stats.items()):
         print(f"{k}: {v}")

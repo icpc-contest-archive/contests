@@ -1,7 +1,10 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_candidates.py (url-hunt 2026-09-01).
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: werc
   name: Western European Regional Contest
+  tier: regional
+  region: Europe
+  naming: season-start
   lineage:
   - type: continues-from
     series: erc
@@ -17,23 +20,30 @@ contests:
   cms_status: pre-cms
   parent: wf-1993
   next: werc-1993
-  web: https://ciiwiki.ecs.baylor.edu/index.php/History_-_ICPC_1993
-  problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=449
-        as_of: '20211017150823'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-  - https://chipcie.wisv.ch/archive/1992/nwercpc/problemset.pdf
+  sources:
+  - url: https://ciiwiki.ecs.baylor.edu/index.php/History_-_ICPC_1993
+    roles:
+    - web
+  - url: https://chipcie.wisv.ch/archive/1992/nwercpc/problemset.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_NWRC/1992/index.html
+    roles:
+    - problemset
     as_of: '19980202011319'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=449
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211017150823'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: werc-1992
 - id: werc-1993
   season: 1994
   name: 1993 Western European Regional Contest
@@ -42,6 +52,20 @@ contests:
   parent: wf-1994
   next: werc-1994
   sources:
+  - url: https://chipcie.wisv.ch/archive/1993/nwercpc/nwerc93.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_NWRC/1993/index.html
+    roles:
+    - problemset
+    as_of: '19980202011356'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: werc-1993
+  provenance:
   - 'CHipCie archive — WERC 1993 problem set (scan) (1993): Page 1: ''1993-4 ACM International Collegiate
     Programming Contest / Western European Regional at University College Swansea / Problem A Chess''.
     — https://chipcie.wisv.ch/archive/1993/nwercpc/nwerc93.pdf [existence hunt 2026-10-22]'
@@ -50,18 +74,6 @@ contests:
   - 'BCS — ''Rising to the challenge'' (c. 2016): ''NWERC was last in the British Isles in 1993, at Swansea
     with 25 teams from nine countries.'' — https://www.bcs.org/articles-opinion-and-research/rising-to-the-challenge/
     [existence hunt 2026-10-22]'
-  problemset:
-  - https://chipcie.wisv.ch/archive/1993/nwercpc/nwerc93.pdf
-  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_NWRC/1993/index.html
-    as_of: '19980202011356'
-  problems:
-    repo: icpc-problem-archive/statement-only
-    count: 7
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
 - id: werc-1994
   season: 1995
   name: 1994 Western European Regional Contest
@@ -69,16 +81,20 @@ contests:
   cms_status: pre-cms
   parent: wf-1995
   next: nwerc-1995
-  web: http://www.acm.inf.ethz.ch/ProblemSetArchive.html
-  problemset:
-  - http://www.karrels.org/Ed/ACM/weur94/index.html
+  sources:
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive.html
+    roles:
+    - web
+  - url: http://www.karrels.org/Ed/ACM/weur94/index.html
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_NWRC/1994/index.html
+    roles:
+    - problemset
     as_of: '19980202011434'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: werc-1994

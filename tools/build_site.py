@@ -26,8 +26,13 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 import sys  # noqa: E402
 sys.path.insert(0, str(ROOT / "tools"))
-from resources import fmt_time, label as res_label, unwrap, wayback_link  # noqa: E402
+from resources import fmt_time, label as res_label, norm_key, unwrap, wayback_link  # noqa: E402
+from catalogue import (RESULT_ROLES, also_at, archived, best_result, by_role, has_role, load_judges,  # noqa: E402
+                       load_sets, set_letters, set_of, sources)
 import site_resources  # noqa: E402
+
+# the four published result tiers (RESULT_ROLES minus the CMS's own icpc_standings)
+RESULT_KINDS = tuple(r for r in RESULT_ROLES if r != "icpc_standings")
 
 RES = site_resources.Resources(ROOT)  # locator/resource page lookups (data/resources.json)
 REPLAY_BASE = os.environ.get("REPLAY_BASE", "https://icpc-contest-archive.github.io/replay")
@@ -41,71 +46,28 @@ STATE_TITLE = {
 }
 LOCAL_TITLE = "local archive server — works only while tools/serve.py is running on this machine"
 
-CHAMPIONSHIPS = {"nac", "awc", "euc", "apc", "lac", "aec", "nadc"}
-# World regions: the top level of the modern ICPC hierarchy (finals + championships
-# get their own bucket). Historical series are filed under today's closest region;
-# judgment calls: ukraine + turkey under Europe (EUC/SEERC lineage).
-REGION_GROUPS = {
-    "World Finals & championships": ["wf", "nac", "euc", "apc", "aec", "awc", "lac", "nadc"],
-    "North America": ["socal","naq","nena","nena-atlantic","nena-central","nena-east","nena-north",
-        "nena-west","ecna","scusa","rmc","lethbridge","gny","mcpc","seusa","mausa","pacnw","east-na",
-        "south-na","alberta","ncna"],
-    "Latin America": ["brazil","mexico","caribbean","central-america","south-america",
-        "south-america-north","south-america-south","cuba"],
-    "Europe": ["poland","hungary","slovenia","turkey","ukraine","cerc","swerc","nwerc","bapc",
-        "bapc-prelims","germany","croatia","romania","bulgaria","greece","cyprus","nordic","sweden",
-        "norway","ukiepc","ctuo","erc","werc","mcerc","seerc"],
-    "Northern Eurasia": ["neerc","nerc","south-russia","central-russia","north-russia",
-        "west-siberia","east-siberia","far-east-russia","urals","moscow","taurida","west-neerc",
-        "armenia","azerbaijan","georgia","kazakhstan","kyrgyzstan","uzbekistan"],
-    "Africa & Arab": ["acpc","egypt","jordan","syria","lebanon","kuwait","bahrain","oman","qatar",
-        "saudi-arabia","palestine","morocco","tunisia","algeria","sudan","south-africa","angola",
-        "benin","burkina-faso","ethiopia","ivory-coast","nigeria","senegal","togo"],
-    "Asia West": ["tehran","pakistan","kabul","dhaka","kanpur","amritapuri","kharagpur","kolkata",
-        "gwalior","chennai","coimbatore","bombay","mathura","india","gwalior-kanpur",
-        "kolkata-kanpur","kolkata-roorkee","gwalior-pune"],
-    "Asia Pacific": ["mongolia-national","philippines-national",  # feeders with unlinked parents
-        "japan","korea","taiwan","singapore","manila","jakarta","kuala-lumpur",
-        "thailand","vietnam","yangon","south-pacific","south-pacific-west","south-pacific-central",
-        "south-pacific-east","south-pacific-division","nzpc","australia"],
-    "Asia East": ["hong-kong","macau","pyongyang","beijing","shanghai","chengdu","hangzhou","xian",
-        "harbin","wuhan","fuzhou","hefei","nanjing","dalian","changchun","changsha","jinan","jinhua",
-        "jiaozuo","kunming","mudanjiang","nanchang","nanning","ningbo","qingdao","shenyang",
-        "tianjin","urumqi","xuzhou","yinchuan","anshan","guangzhou"],
-}
-SERIES_REGION = {s: g for g, ss in REGION_GROUPS.items() for s in ss}
-# a feeder whose parent is a championship belongs to that championship's region
-CHAMPIONSHIP_REGION = {"nac": "North America", "nadc": "North America", "euc": "Europe",
-                       "apc": "Asia Pacific", "awc": "Asia West", "aec": "Asia East",
-                       "lac": "Latin America"}
+CHAMPIONSHIPS: set = set()   # series with tier: championship (filled by derive_regions)
+# World regions come from the series headers (`region`, tools/migrate_series_headers.py);
+# finals + championships get their own bucket on the overview pages.
+REGION_NAMES = ["North America", "Latin America", "Europe", "Northern Eurasia", "Africa & Arab",
+                "Asia West", "Asia Pacific", "Asia East"]
+REGION_GROUPS: dict = {"World Finals & championships": []} | {r: [] for r in REGION_NAMES}
+SERIES_REGION: dict = {}
 
 
 def derive_regions(series_docs: dict, contests: dict) -> None:
-    """Series not in REGION_GROUPS take the region of the series they advance into
-    (walking parent chains from their latest contest); the table stays the override.
-    Feeder layers (national/first-phase/sub-regional series) then follow their regional
-    automatically instead of needing a table entry each."""
-    for _round in range(6):
-        changed = False
-        for sid, doc in series_docs.items():
-            if sid in SERIES_REGION:
-                continue
-            for c in reversed(doc["contests"]):
-                parents = c.get("parent") if isinstance(c.get("parent"), list) else [c.get("parent")]
-                for pid in parents:
-                    pc = contests.get(pid) if pid else None
-                    if not pc:
-                        continue
-                    pser = pid.rsplit("-", 1)[0]
-                    reg = CHAMPIONSHIP_REGION.get(pser) or SERIES_REGION.get(pser)
-                    if reg and pser != "wf" and reg != "World Finals & championships":
-                        SERIES_REGION[sid] = reg
-                        changed = True
-                        break
-                if sid in SERIES_REGION:
-                    break
-        if not changed:
-            break
+    """Fill SERIES_REGION / REGION_GROUPS / CHAMPIONSHIPS from the series headers."""
+    for sid, doc in series_docs.items():
+        h = doc["series"]
+        if h.get("tier") == "championship":
+            CHAMPIONSHIPS.add(sid)
+        if sid == "wf" or h.get("tier") == "championship":
+            REGION_GROUPS["World Finals & championships"].append(sid)
+        if h.get("region"):
+            SERIES_REGION[sid] = h["region"]
+            if sid != "wf" and h.get("tier") != "championship":
+                REGION_GROUPS[h["region"]].append(sid)
+
 
 CSS = """
 :root { --fg:#1a1a1a; --muted:#666; --line:#ddd; --accent:#0b5cad; --bg:#fff; --chip:#f0f4f8; }
@@ -245,16 +207,27 @@ def refs(v):
     return v if isinstance(v, list) else [v]
 
 
-def locators(v):
-    """`web`/`problemset`-style fields: string or {url, as_of} or a list of either
-    -> list of (url, as_of|None)."""
-    out = []
-    for w in refs(v):
-        if isinstance(w, dict):
-            out.append((w["url"], w.get("as_of")))
-        else:
-            out.append((w, None))
-    return out
+def result_sources(c) -> list[dict]:
+    """Sources serving any of the four published result tiers (not icpc_standings),
+    each once however many tiers it serves."""
+    return [s for s in sources(c) if any(r in s["roles"] for r in RESULT_KINDS)]
+
+
+def held_path(e: dict) -> str | None:
+    """The archived capture to link as "the" copy: the first entry of `archived` that we
+    hold without a content caveat, else the first entry, else None."""
+    paths = archived(e)
+    if not paths:
+        return None
+    for p in paths:
+        if not (capture_info.get(p) or {}).get("content_caveat"):
+            return p
+    return paths[0]
+
+
+def held_capture(e: dict) -> bool:
+    """The source points at a capture we hold and that capture is the real thing."""
+    return any(not (capture_info.get(p) or {}).get("content_caveat") for p in archived(e))
 
 
 def page(title: str, body: str, rel: str) -> str:
@@ -264,7 +237,7 @@ def page(title: str, body: str, rel: str) -> str:
 <nav class="top"><div><a href="{rel}index.html">ICPC contest archive</a>
 <a href="{rel}grid.html">grid</a> <a href="{rel}series/index.html">series</a>
 <a href="{rel}seasons.html">seasons</a> <a href="{rel}coverage.html">coverage</a>
-<a href="{rel}resources/index.html">resources</a> <a href="{rel}problems/index.html">problems</a> <a href="{rel}wanted.html">wanted</a>
+<a href="{rel}resources/index.html">resources</a> <a href="{rel}problems/index.html">problems</a> <a href="{rel}problemsets/index.html">problem sets</a> <a href="{rel}wanted.html">wanted</a>
 <a href="{rel}cms.html">cms ids</a> <a href="{rel}local.html">local</a></div></nav>
 <main>{body}</main>
 <script>{TABLE_JS}</script></body></html>"""
@@ -284,29 +257,20 @@ def link_contest(cid: str, rel: str, chip: bool = False) -> str:
     return out
 
 
-def ist_locator(c):
-    """icpc_standings as (url, entry-dict) whether it is a bare url or a locator object."""
-    v = c.get("icpc_standings")
-    if not v:
-        return None, None
-    return (v["url"], v) if isinstance(v, dict) else (v, {"url": v})
-
-
 def best_tier(c) -> str:
     """The ONE tier ladder used by the grid, coverage, wanted list and marks:
     scoreboard > frozen_scoreboard > standings > rankings > icpc > none."""
-    res = c.get("results", {})
-    for k in ("scoreboard", "frozen_scoreboard", "standings", "rankings"):
-        if res.get(k):
-            return k
-    return "icpc" if c.get("icpc_standings") else "none"
+    br = best_result(c)
+    if not br:
+        return "none"
+    return "icpc" if br[0] == "icpc_standings" else br[0]
 
 
 def web_state(c) -> str:
-    """'link' (a website locator), 'none' (confirmed none: web: null), 'unknown' (not researched)."""
-    if c.get("web"):
+    """'link' (a web source), 'none' (confirmed none: web under `none:`), 'unknown' (not researched)."""
+    if has_role(c, "web"):
         return "link"
-    return "none" if "web" in c else "unknown"
+    return "none" if "web" in (c.get("none") or []) else "unknown"
 
 
 TIERS = (("scoreboard", "S"), ("frozen_scoreboard", "F"),
@@ -319,28 +283,27 @@ MARK_LEGEND = ('<p class="small muted"><b>S</b> scoreboard · <b>F</b> frozen sc
 
 def tier_marks(c):
     """One styled marker per artifact tier; preservation state = style, not a letter."""
-    res = c.get("results", {})
     out = []
     for key, letter in TIERS:
-        entries = res.get(key)
+        entries = by_role(c, key)
         if not entries:
             continue
-        arch = next((e for e in entries if e.get("archived")
-                     and not (capture_info.get(e["archived"]) or {}).get("content_caveat")), None)
+        arch = next((e for e in entries if held_capture(e)), None)
         kind = key.replace("_", " ")
         if arch:
-            out.append(f'<a class="mark m-arch" href="{REPLAY_BASE}/a/{esc(arch["archived"])}" '
+            out.append(f'<a class="mark m-arch" href="{REPLAY_BASE}/a/{esc(held_path(arch))}" '
                        f'title="{kind} — archived copy">{letter}</a>')
         else:
             out.append(f'<a class="mark m-live" href="{esc(entries[0]["url"])}" '
                        f'title="{kind} — live link only, not yet archived">{letter}</a>')
-    url, e = ist_locator(c)
-    if url:
-        if e.get("archived") and not (capture_info.get(e["archived"]) or {}).get("content_caveat"):
-            out.append(f'<a class="mark m-arch m-ist" href="{REPLAY_BASE}/a/{esc(e["archived"])}" '
+    ist = by_role(c, "icpc_standings")
+    if ist:
+        e = next((x for x in ist if held_capture(x)), None)
+        if e:
+            out.append(f'<a class="mark m-arch m-ist" href="{REPLAY_BASE}/a/{esc(held_path(e))}" '
                        f'title="ICPC standings — archived copy (rendered from the API dump)">I</a>')
         else:
-            out.append(f'<a class="mark m-ist" href="{esc(url)}" '
+            out.append(f'<a class="mark m-ist" href="{esc(ist[0]["url"])}" '
                        f'title="ICPC standings (CMS data) — live link only">I</a>')
     return "".join(out)
 
@@ -379,8 +342,8 @@ def load():
 
 
 def health_chip(url: str, e: dict | None = None, rel: str = "") -> str:
-    """The locator's health, one way everywhere: catalogue url_state if the entry has one,
-    else the resource graph's verdict (web/mirror/icpc locators have no field for it)."""
+    """The locator's health, one way everywhere: the source's url_state if it has one,
+    else the resource graph's verdict (also_at mirrors and old entries have no field for it)."""
     st, when = None, None
     if e and e.get("url_state"):
         st, when = e["url_state"], e.get("url_checked")
@@ -402,8 +365,7 @@ def lost_locators(c) -> list:
     """Result/web locators of this contest that are dead live AND have no Wayback snapshot:
     whatever we hold is the only copy; if we hold nothing, the material is lost."""
     out = []
-    urls = [e["url"] for lst in (c.get("results") or {}).values() for e in lst]
-    urls += [w for w, _ in locators(c.get("web"))]
+    urls = [s["url"] for s in sources(c) if "web" in s["roles"] or any(r in s["roles"] for r in RESULT_KINDS)]
     for u in urls:
         L = RES.locs.get(site_resources.lid(u))
         if not L:
@@ -423,11 +385,8 @@ def state_line(c, cid: str) -> str:
     if c.get("status") == "upcoming":
         bits.append('<span class="chip">upcoming</span>')
     tier = TIER_LABEL[bt]
-    res = c.get("results") or {}
-    held = any(e.get("archived") and not (capture_info.get(e["archived"]) or {}).get("content_caveat")
-               for lst in res.values() for e in lst)
-    _u, ie = ist_locator(c)
-    ist_held = bool(ie and ie.get("archived") and not (capture_info.get(ie["archived"]) or {}).get("content_caveat"))
+    held = any(held_capture(e) for e in result_sources(c))
+    ist_held = any(held_capture(e) for e in by_role(c, "icpc_standings"))
     if bt == "none":
         bits.append('<span class="chip" title="no result link of any tier">dark</span>')
     else:
@@ -463,15 +422,30 @@ def result_links(cid, key, entries, replay_lookup, rel, matched_paths):
         as_of = e.get("as_of")
         parts = [f'<a href="{esc(url)}">live</a>']
         parts.append(f'<a href="{esc(wayback_link(url, as_of))}">wayback</a>')
-        baked = ("a/" + e["archived"]) if e.get("archived") else replay_lookup.get((cid, url))
-        cap = capture_info.get(e.get("archived") or "")
-        when = fmt_time(cap_time(cap)) if cap else ""
-        if baked:
-            matched_paths.add(baked)
-            parts.append(f'<a href="{REPLAY_BASE}/{esc(baked)}" title="our copy of this resource">'
-                         f'archived{" (" + when + ")" if when else ""}</a>')
-        if e.get("archived"):
-            parts.append(local_link("archive/" + e["archived"], "raw"))
+        # every capture of this address gets a link; the preferred (held, no caveat) one first
+        paths = archived(e)
+        first = held_path(e)
+        if first:
+            paths = [first] + [p for p in paths if p != first]
+        cap = capture_info.get(first or "")
+        if paths:
+            for n, pth in enumerate(paths):
+                cp = capture_info.get(pth)
+                when = fmt_time(cap_time(cp)) if cp else ""
+                caveat = (cp or {}).get("content_caveat")
+                baked = "a/" + pth
+                matched_paths.add(baked)
+                lab = "archived" if n == 0 else f"archived {n + 1}"
+                title = "our copy of this resource" + (f" — caveat: {caveat}" if caveat else "")
+                parts.append(f'<a href="{REPLAY_BASE}/{esc(baked)}" title="{esc(title)}">'
+                             f'{lab}{" (" + when + ")" if when else ""}</a>'
+                             + (' <span class="muted small">(caveat)</span>' if caveat else ""))
+                parts.append(local_link("archive/" + pth, "raw"))
+        else:
+            baked = replay_lookup.get((cid, norm_key(url)))
+            if baked:
+                matched_paths.add(baked)
+                parts.append(f'<a href="{REPLAY_BASE}/{esc(baked)}" title="our copy of this resource">archived</a>')
         rows.append(
             f'<div class="small"><span class="chip">{esc(key.replace("_", " ")) if key != "icpc_standings" else "ICPC standings"}</span> '
             + " · ".join(parts) + f' <span class="muted">{RES.label_link(url, as_of or cap_time(cap), rel, esc(res_label(url, as_of)))}</span>{health_chip(url, e)}</div>'
@@ -510,11 +484,12 @@ def web_cell(c, cid: str) -> str:
     site = website_of.get(cid)
     if web_state(c) == "none":
         return '<span class="muted small">confirmed none</span>'
-    for n, (w, as_of) in enumerate(locators(c.get("web"))):
+    for n, s in enumerate(by_role(c, "web")):
+        w, as_of = s["url"], s.get("as_of")
         host = re.sub(r"^https?://(www\.)?", "", w).rstrip("/")
         host = host if len(host) <= 40 else host[:39] + "…"
         wb_ts = (site.get("wayback_timestamp") if site and n == 0 else None) or as_of
-        bit = (f'<a href="{esc(w)}" title="{esc(res_label(w, as_of, 200))}">{esc(host)}</a>{health_chip(w)} '
+        bit = (f'<a href="{esc(w)}" title="{esc(res_label(w, as_of, 200))}">{esc(host)}</a>{health_chip(w, s)} '
                f'<a class="small" href="{esc(wayback_link(w, wb_ts))}">wb</a>')
         if RES.locator_href(w, "../"):
             bit += f' <a class="small" href="{RES.locator_href(w, "../")}" title="resource page">res</a>'
@@ -537,25 +512,95 @@ def cap_time(cap: dict):
 
 
 # ---- problems (DEFINITIONS.md, Problems) ----
-PROBLEM_FILES: dict = {}  # contest id -> parsed problems/<id>.yaml
-REPLAY_LOOKUP: dict = {}  # (contest, url) -> baked replay path, filled by build()
-PROBLEMSET_CAPS: dict = {}  # (contest, url) -> archive path of a held problem-set capture (not published)
+# Phase B (2026-11-02): problem sets are objects. problemsets/<set-id>.yaml holds the
+# holdings, the problems and the per-contest letter maps; a contest carries only
+# `problems: {set: <set-id>, note?}`. judges.yaml is the registry of online judges.
+SETS: dict = {}       # set id -> parsed problemsets/<set-id>.yaml
+JUDGES: dict = {}     # judge id -> judges.yaml entry
+PROBLEMS: dict = {}   # problem id -> {"rows": [(set id, problem row)], "apps": [(set id, contest id, letter|None)]}
+REPLAY_LOOKUP: dict = {}  # (contest, norm_key(url)) -> baked replay path, filled by build()
+REPLAY_PROBLEMSET: dict = {}  # the same, problem-set pages only
+PROBLEMSET_CAPS: dict = {}  # (contest, norm_key(url)) -> archive path of a held problem-set capture (not published)
 HELD_KINDS = (("statement", "St", "statements"), ("data", "D", "test data"),
               ("solutions", "So", "solutions"), ("package", "P", "complete packages"))
-JUDGE_LABEL = {"kattis": "Kattis", "livearchive": "Live Archive", "baekjoon": "Baekjoon",
-               "codeforces": "Codeforces"}
 HELD_LEGEND = ('<p class="small muted"><b>St</b> statements · <b>D</b> test data · <b>So</b> solutions · '
                '<b>P</b> complete problem packages — <span class="mark h-full">filled</span> = held for every '
                'problem, <span class="mark h-part">outlined</span> = for some (hover for the number), '
                '<span class="mark h-none">grey</span> = none</p>')
+HAVE_LEGEND = ('<p class="small muted"><b>St</b> statement · <b>D</b> test data · <b>IV</b>/<b>OV</b> input/output '
+               'validator · <b>So</b> solutions · <b>P</b> complete package — filled = held.</p>')
+REPO_URL = "https://github.com/icpc-contest-archive/contests/blob/main/"
 
 
-def load_problem_files():
-    PROBLEM_FILES.clear()
-    pdir = ROOT / "problems"
-    if pdir.exists():
-        for f in sorted(pdir.glob("*.yaml")):
-            PROBLEM_FILES[f.stem] = yaml.safe_load(f.read_text())
+def load_problem_sets():
+    """Read problemsets/*.yaml and judges.yaml; index every problem by id with its
+    appearances (set, contest, letter) — a problem id can sit in several sets (reused WF problems)."""
+    SETS.clear()
+    SETS.update(load_sets())
+    JUDGES.clear()
+    JUDGES.update(load_judges())
+    PROBLEMS.clear()
+    for sid, doc in SETS.items():
+        for p in doc.get("problems") or []:
+            ent = PROBLEMS.setdefault(p["id"], {"rows": [], "apps": []})
+            ent["rows"].append((sid, p))
+            for m in doc.get("contests") or []:
+                inv = {pid: L for L, pid in (m.get("letters") or {}).items()}
+                ent["apps"].append((sid, m["contest"], inv.get(p["id"])))
+
+
+def set_for(c: dict) -> dict:
+    """The set a contest used, or {} (also {} for a contest that has not run: nothing about
+    its problems is public — DEFINITIONS.md, Problems, publication rule)."""
+    if c.get("status") == "upcoming":
+        return {}
+    return set_of(c, SETS) or {}
+
+
+def letter_of(doc: dict, cid: str, pid: str) -> str | None:
+    """The letter problem `pid` had in contest `cid` (from the set's per-contest letter map)."""
+    for L, x in set_letters(doc, cid).items():
+        if x == pid:
+            return L
+    return None
+
+
+def set_problems_in_order(doc: dict, cid: str | None = None) -> list[tuple[str | None, dict]]:
+    """(letter, problem row) pairs: in letter order for the contest when it has a letter map
+    (letterless problems after), else in file order with the letter from any member contest."""
+    probs = doc.get("problems") or []
+    if not probs:
+        return []
+    members = [m["contest"] for m in doc.get("contests") or []]
+    use = cid if cid and set_letters(doc, cid) else next((m for m in members if set_letters(doc, m)), None)
+    if not use:
+        return [(None, p) for p in probs]
+    inv = {pid: L for L, pid in set_letters(doc, use).items()}
+    key = lambda L: (0, (len(L), L)) if L else (1, ("", ""))  # noqa: E731
+    return sorted(((inv.get(p["id"]), p) for p in probs), key=lambda t: key(t[0]))
+
+
+def problem_name(pid: str) -> str:
+    rows = PROBLEMS.get(pid, {}).get("rows") or []
+    return rows[0][1]["name"] if rows else pid
+
+
+def contest_ref(cid: str, rel: str) -> str:
+    """A contest link when the contest is in the mainline catalogue, else its id with a
+    non-mainline chip (the registry contests have no page)."""
+    if cid in CONTESTS:
+        return link_contest(cid, rel)
+    return f'{esc(cid)} <span class="chip" title="outside the mainline hierarchy (registry/non-mainline.yaml)">non-mainline</span>'
+
+
+def set_link(sid: str, rel: str, label: str | None = None) -> str:
+    doc = SETS.get(sid) or {}
+    tip = doc.get("name") or ""
+    return f'<a href="{rel}problemset/{esc(sid)}.html"' + (f' title="{esc(tip)}"' if tip else "") + f'>{esc(label or sid)}</a>'
+
+
+def problem_link(pid: str, rel: str, label: str | None = None) -> str:
+    return f'<a href="{rel}problem/{esc(pid)}.html">{esc(label or pid)}</a>'
 
 
 def repo_link(pb: dict) -> str:
@@ -585,24 +630,74 @@ def held_marks(pb: dict) -> str:
     return "".join(out)
 
 
-JUDGE_CAPS: dict = {}  # (contest, url) -> archive path of a held judge-page capture (private, like problem sets)
+def held_chips(pb: dict) -> str:
+    """The holdings as words: `statements: full` … with n/count for partial kinds."""
+    words = []
+    for key, _l, what in HELD_KINDS:
+        st = pb.get(key)
+        if not st:
+            continue
+        n = (pb.get("counts") or {}).get(key)
+        words.append(f'<span class="chip">{what}: {st}' + (f" ({n}/{pb.get('count')})" if st == "partial" and n is not None else "") + "</span>")
+    return " ".join(words)
+
+
+JUDGE_CAPS: dict = {}  # (contest, norm_key(url)) -> archive path of a held judge-page capture (private, like problem sets)
+
+
+def judge_name(jid: str) -> str:
+    return (JUDGES.get(jid) or {}).get("name") or jid
+
+
+def judge_closed_chip(jid: str) -> str:
+    """A `closed <date>` chip for a judge the registry marks closed (Baekjoon, 2026-04-28)."""
+    j = JUDGES.get(jid) or {}
+    if j.get("status") != "closed":
+        return ""
+    when = j.get("closed") or ""
+    return (f' <span class="chip" title="{esc(j.get("notes") or "this judge has shut down; pages survive only in Wayback snapshots")}">'
+            f'closed{" " + esc(when) if when else ""}</span>')
 
 
 def judge_links(j: dict | None, sep: str = " · ", cid: str | None = None) -> str:
+    """Links grouped by judge: `{<judge>: url | {url, as_of} | [...]}`, numbered when a judge has several."""
     parts = []
     for key, v in (j or {}).items():
         locs = v if isinstance(v, list) else [v]
-        lab = JUDGE_LABEL.get(key, key)
+        lab = judge_name(key)
         for i, loc in enumerate(locs):
             url = loc["url"] if isinstance(loc, dict) else loc
             as_of = loc.get("as_of") if isinstance(loc, dict) else None
             href = wayback_link(url, as_of) if as_of else url
             bit = (f'<a href="{esc(href)}" title="{esc(res_label(url, as_of, 200))}">{esc(lab)}'
                    + (f" {i + 1}" if len(locs) > 1 else "") + ("</a> <span class=\"small muted\">(wayback)</span>" if as_of else "</a>"))
-            if cid and (cid, url) in JUDGE_CAPS:
-                bit += " " + local_link("archive/" + JUDGE_CAPS[(cid, url)], "archived")
+            if cid and (cid, norm_key(url)) in JUDGE_CAPS:
+                bit += " " + local_link("archive/" + JUDGE_CAPS[(cid, norm_key(url))], "archived")
+            bit += judge_closed_chip(key)
             parts.append(bit)
     return sep.join(parts)
+
+
+def problem_judge_links(p: dict, sep: str = " · ") -> str:
+    """A problem's `judges: [{judge, url, id?, as_of?}]` as links, the judge's own id in the tooltip."""
+    parts = []
+    for j in p.get("judges") or []:
+        url, as_of = j["url"], j.get("as_of")
+        href = wayback_link(url, as_of) if as_of else url
+        tip = res_label(url, as_of, 200) + (f" — {judge_name(j['judge'])} id {j['id']}" if j.get("id") else "")
+        parts.append(f'<a href="{esc(href)}" title="{esc(tip)}">{esc(judge_name(j["judge"]))}</a>'
+                     + (' <span class="small muted">(wayback)</span>' if as_of else "") + judge_closed_chip(j["judge"]))
+    return sep.join(parts)
+
+
+def judge_page_links(c: dict, sep: str = " · ", cid: str | None = None) -> str:
+    """The contest's judge pages: sources with role judge_page, grouped by `judge`
+    (numbered when a judge has several), rendered like the per-problem judge links."""
+    groups: dict[str, list] = {}
+    for s in by_role(c, "judge_page"):
+        groups.setdefault(s.get("judge") or "judge", []).append(
+            {"url": s["url"], "as_of": s["as_of"]} if s.get("as_of") else s["url"])
+    return judge_links(groups, sep, cid)
 
 
 def problem_have_marks(p: dict) -> str:
@@ -618,85 +713,221 @@ def problem_have_marks(p: dict) -> str:
     return "".join(out)
 
 
+def problem_name_cell(p: dict, rel: str, link: bool = True) -> str:
+    """name (linked to the problem page) · short name · private chip · uuid."""
+    nm = problem_link(p["id"], rel, p["name"]) if link else esc(p["name"])
+    if p.get("short_name"):
+        nm += f' <span class="small muted">{esc(p["short_name"])}</span>'
+    if p.get("status") == "private":
+        nm += ' <span class="chip" title="kept private after the contest; name and uuid are public">private</span>'
+    if p.get("uuid"):
+        nm += f' <span class="small muted" title="problem package uuid">{esc(p["uuid"])}</span>'
+    return nm
+
+
+def problem_row(letter, p: dict, rel: str, first_cells: str = "") -> str:
+    """One table row: [first_cells] letter · name · held · solve online · notes. A private
+    problem shows name and uuid only (publication rule)."""
+    private = p.get("status") == "private"
+    return (f'<tr>{first_cells}<td class="letter">{esc(letter or "?")}</td><td class="wrap">{problem_name_cell(p, rel)}</td>'
+            + ("<td></td><td></td><td></td>" if private else
+               f'<td>{problem_have_marks(p)}</td><td class="small">{problem_judge_links(p)}</td>'
+               f'<td class="wrap small muted">{esc(p.get("notes", ""))}</td>') + "</tr>")
+
+
 def problems_section(cid: str, c: dict, rel: str) -> list[str]:
-    """The Problems block of a contest page: holdings summary, judge links, per-problem table."""
-    pb = c.get("problems")
-    pf = PROBLEM_FILES.get(cid)
-    if not pb and not pf and not c.get("problemset"):
+    """The Problems block of a contest page: the set's holdings, judge links, per-problem table."""
+    pb = set_for(c)
+    if not pb and not has_role(c, "problemset") and not has_role(c, "judge_page"):
         return []
-    pb = pb or {}
+    link = c.get("problems") or {}
     b = ['<h2 id="problems">Problems</h2>', '<dl class="fields">']
+    if pb:
+        others = [m["contest"] for m in pb.get("contests") or [] if m["contest"] != cid]
+        b.append(f'<dt>problem set</dt><dd>{set_link(pb["id"], rel)}'
+                 + (f' <span class="muted">{esc(pb["name"])}</span>' if pb.get("name") else "")
+                 + (' <span class="small muted">— also used by ' + ", ".join(contest_ref(x, rel) for x in others) + "</span>" if others else "")
+                 + "</dd>")
     if pb.get("count"):
         b.append(f"<dt>problems</dt><dd>{pb['count']}</dd>")
     if pb.get("repo"):
         b.append(f"<dt>archive repo</dt><dd>{repo_link(pb)} <span class=\"small muted\">(icpc-problem-archive, private)</span></dd>")
     if any(pb.get(k) for k, *_ in HELD_KINDS):
-        words = []
-        for key, _l, what in HELD_KINDS:
-            st = pb.get(key)
-            if not st:
-                continue
-            n = (pb.get("counts") or {}).get(key)
-            words.append(f'<span class="chip">{what}: {st}' + (f" ({n}/{pb.get('count')})" if st == "partial" and n is not None else "") + "</span>")
-        b.append("<dt>held</dt><dd>" + " ".join(words) + "</dd>")
-    for w, as_of in locators(c.get("problemset")):
+        b.append("<dt>held</dt><dd>" + held_chips(pb) + "</dd>")
+    for s in by_role(c, "problemset"):
+        w, as_of = s["url"], s.get("as_of")
         parts = [f'<a href="{esc(w)}">{esc(res_label(w, as_of, 80))}</a>',
                  f'<a href="{esc(wayback_link(w, as_of))}">wayback</a>']
-        baked = REPLAY_LOOKUP.get((cid, w))
+        k = (cid, norm_key(w))
+        # the problem-set capture of this address first (a source may also be a result page,
+        # whose replay is linked under Results), else whatever replay page we have of it
+        baked = REPLAY_PROBLEMSET.get(k)
         if baked:
             parts.append(f'<a href="{REPLAY_BASE}/{esc(baked)}" title="our copy of this resource">archived</a>')
-        elif (cid, w) in PROBLEMSET_CAPS:  # 2026-11-02: problem-set captures stay in the private archive
-            parts.append(local_link("archive/" + PROBLEMSET_CAPS[(cid, w)], "archived"))
+        elif k in PROBLEMSET_CAPS:  # 2026-11-02: problem-set captures stay in the private archive
+            parts.append(local_link("archive/" + PROBLEMSET_CAPS[k], "archived"))
+        elif REPLAY_LOOKUP.get(k):
+            parts.append(f'<a href="{REPLAY_BASE}/{esc(REPLAY_LOOKUP[k])}" title="our copy of this resource">archived</a>')
         if RES.locator_href(w, rel):
             parts.append(RES.label_link(w, as_of, rel, "resource"))
-        b.append("<dt>problem set</dt><dd>" + " · ".join(parts) + health_chip(w) + "</dd>")
-    if pb.get("judges"):
-        b.append("<dt>solve online</dt><dd>" + judge_links(pb["judges"], cid=cid) + "</dd>")
+        b.append("<dt>published set</dt><dd>" + " · ".join(parts) + health_chip(w, s) + "</dd>")
+    if has_role(c, "judge_page"):
+        b.append("<dt>solve online</dt><dd>" + judge_page_links(c, cid=cid) + "</dd>")
     if pb.get("notes"):
         b.append(f'<dt>notes</dt><dd class="wrap">{esc(pb["notes"])}</dd>')
-    if pb.get("source"):
-        b.append(f'<dt>source</dt><dd class="small muted">{esc(pb["source"])}</dd>')
+    if link.get("note"):
+        b.append(f'<dt>note</dt><dd class="wrap">{esc(link["note"])}</dd>')
+    if pb.get("provenance"):
+        b.append('<dt>source</dt><dd class="small muted wrap">' + "; ".join(esc(x) for x in dict.fromkeys(pb["provenance"])) + "</dd>")
     b.append("</dl>")
-    if pf:
+    if pb.get("problems"):
         notes = []
-        if pf.get("letters") == "unknown":
-            notes.append("letters not known yet")
-        if pf.get("complete") is False:
-            notes.append(f"{len(pf['problems'])} of {pb.get('count') or '?'} problems listed")
+        if not set_letters(pb, cid):
+            notes.append("letters not known yet" if pb.get("letters") == "unknown"
+                         or not any(set_letters(pb, m["contest"]) for m in pb["contests"])
+                         else "no letter map for this contest (shown with another contest's letters)")
+        if pb.get("complete") is False:
+            notes.append(f"{len(pb['problems'])} of {pb.get('count') or '?'} problems listed")
         if notes:
             b.append('<p class="small muted">' + " · ".join(notes) + "</p>")
         b.append('<div class="tablewrap"><table><tr><th>#</th><th>problem</th><th>held</th><th>solve online</th><th>notes</th></tr>')
-        for p in pf["problems"]:
-            nm = esc(p["name"]) + (f' <span class="small muted">{esc(p["short_name"])}</span>' if p.get("short_name") else "")
-            if p.get("status") == "private":
-                nm += ' <span class="chip" title="kept private after the contest; name and uuid are public">private</span>'
-            if p.get("uuid"):
-                nm += f' <span class="small muted" title="problem package uuid">{esc(p["uuid"])}</span>'
-            b.append(f'<tr><td class="letter">{esc(p.get("letter") or "?")}</td><td class="wrap">{nm}</td>'
-                     f'<td>{problem_have_marks(p)}</td><td>{judge_links(p.get("judges"))}</td>'
-                     f'<td class="wrap small muted">{esc(p.get("notes", ""))}</td></tr>')
+        for L, p in set_problems_in_order(pb, cid):
+            b.append(problem_row(L, p, rel))
         b.append("</table></div>")
-        b.append('<p class="small muted"><b>St</b> statement · <b>D</b> test data · <b>IV</b>/<b>OV</b> input/output '
-                 'validator · <b>So</b> solutions · <b>P</b> complete package. '
-                 f'Data: <a href="https://github.com/icpc-contest-archive/contests/blob/main/problems/{esc(cid)}.yaml">problems/{esc(cid)}.yaml</a>.</p>')
+        b.append(HAVE_LEGEND[:-4] + f' Data: <a href="{REPO_URL}problemsets/{esc(pb["id"])}.yaml">problemsets/{esc(pb["id"])}.yaml</a>.</p>')
     return b
+
+
+def problemset_page(sid: str, doc: dict, rel: str) -> str:
+    """problemset/<set-id>.html — the set as an object: holdings, member contests with
+    their letter maps, the problem table, provenance."""
+    b = [f"<h1>{esc(doc.get('name') or sid)}</h1>"]
+    if doc.get("name"):
+        b.append(f'<p class="muted">{esc(sid)}</p>')
+    b.append('<p class="small muted">problem set — <a href="../problemsets/index.html">all sets</a> · '
+             '<a href="../problems/index.html">problem holdings</a></p>')
+    d = ['<dl class="fields">', f"<dt>set id</dt><dd>{esc(sid)}</dd>"]
+    members = [m["contest"] for m in doc.get("contests") or []]
+    d.append("<dt>used by</dt><dd>" + ", ".join(contest_ref(m, rel) for m in members) + "</dd>")
+    if doc.get("count"):
+        d.append(f"<dt>problems</dt><dd>{doc['count']}" + (' <span class="small muted">(list incomplete)</span>' if doc.get("complete") is False and doc.get("problems") else "") + "</dd>")
+    if doc.get("repo"):
+        d.append(f"<dt>archive repo</dt><dd>{repo_link(doc)} <span class=\"small muted\">(icpc-problem-archive, private)</span></dd>")
+    if any(doc.get(k) for k, *_ in HELD_KINDS):
+        d.append("<dt>held</dt><dd>" + held_chips(doc) + " " + held_marks(doc) + "</dd>")
+    if doc.get("letters") == "unknown":
+        d.append('<dt>letters</dt><dd class="muted">not known for any contest (list came from an online judge)</dd>')
+    if doc.get("notes"):
+        d.append(f'<dt>notes</dt><dd class="wrap">{esc(doc["notes"])}</dd>')
+    if doc.get("provenance"):
+        d.append('<dt>provenance</dt><dd class="wrap small muted">' + "; ".join(esc(x) for x in dict.fromkeys(doc["provenance"])) + "</dd>")
+    d.append(f'<dt>data</dt><dd class="small"><a href="{REPO_URL}problemsets/{esc(sid)}.yaml">problemsets/{esc(sid)}.yaml</a></dd>')
+    d.append("</dl>")
+    b += d
+    probs = doc.get("problems") or []
+    with_letters = [m for m in members if set_letters(doc, m)]
+    if probs:
+        b.append(f"<h2>Problems ({len(probs)}" + (f" of {doc['count']}" if doc.get("complete") is False and doc.get("count") else "") + ")</h2>")
+        if len(members) > 1 and with_letters:
+            b.append('<p class="small muted">The # column shows the letter in each contest that has a letter map: '
+                     + " · ".join(f"{esc(m)}" for m in with_letters) + ".</p>")
+        b.append('<div class="tablewrap"><table><tr><th>#</th><th>problem</th><th>internal id</th><th>held</th><th>solve online</th><th>notes</th></tr>')
+        for L, p in set_problems_in_order(doc):
+            if len(with_letters) > 1:
+                ls = [letter_of(doc, m, p["id"]) for m in with_letters]
+                L = " / ".join(x or "?" for x in ls) if len(set(ls)) > 1 else ls[0]
+            private = p.get("status") == "private"
+            b.append(f'<tr><td class="letter">{esc(L or "?")}</td><td class="wrap">{problem_name_cell(p, rel)}</td>'
+                     f'<td class="small">{problem_link(p["id"], rel)}</td>'
+                     + ("<td></td><td></td><td></td>" if private else
+                        f'<td>{problem_have_marks(p)}</td><td class="small">{problem_judge_links(p)}</td>'
+                        f'<td class="wrap small muted">{esc(p.get("notes", ""))}</td>') + "</tr>")
+        b.append("</table></div>" + HAVE_LEGEND)
+    else:
+        b.append('<p class="muted">Only the holdings are recorded for this set; no per-problem list yet'
+                 + (f" ({doc['count']} problems)" if doc.get("count") else "") + ".</p>")
+    if len(with_letters) > 1 or (with_letters and len(members) > 1):
+        b.append("<h2>Letter maps</h2>")
+        for m in members:
+            lm = set_letters(doc, m)
+            b.append(f"<p><b>{contest_ref(m, rel)}</b>: " + (" · ".join(
+                f'<span class="letter">{esc(L)}</span> {problem_link(pid, rel, problem_name(pid))}'
+                for L, pid in sorted(lm.items(), key=lambda t: (len(t[0]), t[0]))) if lm else '<span class="muted">no letter map</span>') + "</p>")
+    return page(doc.get("name") or sid, "\n".join(b), rel)
+
+
+def problem_page(pid: str, ent: dict, rel: str) -> str:
+    """problem/<pid>.html — one problem: name, uuid, ids, every appearance (set + contest +
+    letter), holdings, judge links, status."""
+    rows = ent["rows"]
+    p = rows[0][1]  # the first set's row carries the name/uuid; others agree (same uuid)
+    private = any(r.get("status") == "private" for _s, r in rows)
+    b = [f"<h1>{esc(p['name'])}</h1>",
+         '<p class="small muted">problem — <a href="../problems/list.html">every listed problem</a> · '
+         '<a href="../problemsets/index.html">all sets</a></p>',
+         '<dl class="fields">', f"<dt>internal id</dt><dd>{esc(pid)}</dd>"]
+    uuids = sorted({r["uuid"] for _s, r in rows if r.get("uuid")})
+    if uuids:
+        b.append("<dt>uuid</dt><dd>" + ", ".join(esc(u) for u in uuids) + "</dd>")
+    aliases = sorted({a for _s, r in rows for a in r.get("aliases") or []})
+    if aliases:
+        b.append("<dt>aliases</dt><dd>" + ", ".join(esc(a) for a in aliases) + "</dd>")
+    shorts = sorted({r["short_name"] for _s, r in rows if r.get("short_name")})
+    if shorts:
+        b.append("<dt>short name</dt><dd>" + ", ".join(esc(x) for x in shorts) + "</dd>")
+    apps = []
+    for sid, cid, L in ent["apps"]:
+        apps.append(f'{contest_ref(cid, rel)} <span class="small muted">({set_link(sid, rel)})</span>'
+                    + (f' — <span class="letter">{esc(L)}</span>' if L else ""))
+    b.append("<dt>appearances</dt><dd>" + "<br>".join(apps) + "</dd>")
+    if private:
+        b.append('<dt>status</dt><dd><span class="chip">private</span> <span class="small muted">kept private after the contest; name and uuid are public</span></dd>')
+    else:
+        have_rows = [r for _s, r in rows if "have" in r]
+        if have_rows:
+            b.append(f"<dt>held</dt><dd>{problem_have_marks(have_rows[0])}</dd>")
+        else:
+            b.append('<dt>held</dt><dd class="muted">not recorded yet</dd>')
+        seen, jl = set(), []
+        for _s, r in rows:
+            for j in r.get("judges") or []:
+                if j["url"] not in seen:
+                    seen.add(j["url"])
+                    jl.append(problem_judge_links({"judges": [j]}) + (f' <span class="small muted">id {esc(j["id"])}</span>' if j.get("id") else ""))
+        if jl:
+            b.append("<dt>solve online</dt><dd>" + "<br>".join(jl) + "</dd>")
+        notes = [r["notes"] for _s, r in rows if r.get("notes")]
+        if notes:
+            b.append('<dt>notes</dt><dd class="wrap">' + "; ".join(esc(x) for x in dict.fromkeys(notes)) + "</dd>")
+    b.append('<dt>data</dt><dd class="small">' + ", ".join(
+        f'<a href="{REPO_URL}problemsets/{esc(s)}.yaml">problemsets/{esc(s)}.yaml</a>' for s, _r in rows) + "</dd>")
+    b.append("</dl>")
+    if not private:
+        b.append(HAVE_LEGEND)
+    return page(p["name"], "\n".join(b), rel)
 
 
 def build(out: Path):
     series_docs, contests, series_of, prev, children, subsets, aux = load()
     derive_regions(series_docs, contests)
-    load_problem_files()
+    load_problem_sets()
     out.mkdir(parents=True, exist_ok=True)
     (out / "contest").mkdir(exist_ok=True)
     (out / "series").mkdir(exist_ok=True)
+    for sub in ("problemset", "problem", "problemsets", "judges"):
+        (out / sub).mkdir(exist_ok=True)
 
     replay_lookup = REPLAY_LOOKUP
     replay_lookup.clear()
+    REPLAY_PROBLEMSET.clear()
     replay_by_contest = defaultdict(list)
     if aux["replay-index"]:
         for e in aux["replay-index"]["pages"]:
             if e.get("url"):
-                replay_lookup[(e["contest"], e["url"])] = e["path"]
+                k = (e["contest"], norm_key(e["url"]))
+                replay_lookup[k] = e["path"]
+                if e.get("artifact") == "problemset":
+                    REPLAY_PROBLEMSET[k] = e["path"]
             replay_by_contest[e["contest"]].append(e)
     archived_by_contest = defaultdict(list)
     PROBLEMSET_CAPS.clear()
@@ -706,9 +937,9 @@ def build(out: Path):
             archived_by_contest[e["contest"]].append(e)
             capture_info[e["path"]] = e
             if e.get("artifact") == "problemset" and e.get("url") and not e.get("content_caveat"):
-                PROBLEMSET_CAPS.setdefault((e["contest"], e["url"]), e["path"])
+                PROBLEMSET_CAPS.setdefault((e["contest"], norm_key(e["url"])), e["path"])
             if str(e.get("artifact", "")).startswith("judge-") and e.get("url") and not e.get("content_caveat"):
-                JUDGE_CAPS.setdefault((e["contest"], e["url"]), e["path"])
+                JUDGE_CAPS.setdefault((e["contest"], norm_key(e["url"])), e["path"])
     website_of.clear()  # contest -> primary website capture entry
     if aux["website-index"]:
         for e in aux["website-index"]["sites"]:
@@ -753,7 +984,8 @@ def build(out: Path):
             d.append("<dt>CMS ids</dt><dd class='muted'>"
                      + ("pre-CMS era" if c.get("cms_status") == "pre-cms" else "none") + "</dd>")
         site = website_of.get(cid)
-        for n_w, (w, as_of) in enumerate(locators(c.get("web"))):
+        for n_w, ws in enumerate(by_role(c, "web")):
+            w, as_of = ws["url"], ws.get("as_of")
             wb_ts = as_of
             extra = ""
             if site and n_w == 0:
@@ -769,23 +1001,22 @@ def build(out: Path):
             d.append(f'<dt>web</dt><dd><a href="{esc(w)}">{esc(res_label(w, as_of, 80))}</a> · '
                      f'<a href="{esc(wayback_link(w, wb_ts))}">wayback</a>{extra}'
                      + (f' · {RES.label_link(w, wb_ts, rel, "resource")}' if RES.locator_href(w, rel) else "")
-                     + health_chip(w) + "</dd>")
+                     + health_chip(w, ws) + "</dd>")
         if web_state(c) == "none":
             d.append('<dt>web</dt><dd class="muted">confirmed none (see notes)</dd>')
         if c.get("notes"):
             d.append(f'<dt>notes</dt><dd class="wrap">{esc(c["notes"])}</dd>')
+        if c.get("provenance"):
+            d.append('<dt>provenance</dt><dd class="wrap small muted">'
+                     + "; ".join(esc(x) for x in refs(c["provenance"])) + "</dd>")
         d.append("</dl>")
         b += d
-        res = c.get("results", {})
-        if res or replay_by_contest.get(cid) or c.get("icpc_standings"):
+        if best_result(c) or replay_by_contest.get(cid):
             b.append("<h2>Results</h2>")
             matched_paths: set = set()
-            for key in ("scoreboard", "frozen_scoreboard", "standings", "rankings"):
-                if key in res:
-                    b += result_links(cid, key, res[key], replay_lookup, rel, matched_paths)
-            url, e = ist_locator(c)
-            if url:  # the ICPC-standings tier, rendered like any other result row
-                b += result_links(cid, "icpc_standings", [e], replay_lookup, rel, matched_paths)
+            # one row per (tier, source): a source serving two tiers appears under each
+            for key in RESULT_ROLES:
+                b += result_links(cid, key, by_role(c, key), replay_lookup, rel, matched_paths)
             extra = [e for e in replay_by_contest.get(cid, []) if e["path"] not in matched_paths
                      and e.get("artifact") != "problemset"]
             for e in extra:
@@ -821,8 +1052,7 @@ def build(out: Path):
             tiers = defaultdict(int)
             for c in ran:
                 tiers[best_tier(c)] += 1
-            n_arch = sum(1 for c in ran if any(e.get("archived") and not (capture_info.get(e["archived"]) or {}).get("content_caveat")
-                                               for lst in (c.get("results") or {}).values() for e in lst))
+            n_arch = sum(1 for c in ran if any(held_capture(e) for e in result_sources(c)))
             n_site = sum(1 for c in ran if c["id"] in website_of)
             n_lost = sum(1 for c in ran if any(not held for _u, _w, held in lost_locators(c)))
             parts = [f'{tiers[k]} {TIER_LABEL[k]}' for k in ("scoreboard", "frozen_scoreboard", "standings", "rankings", "icpc", "none") if tiers[k]]
@@ -831,7 +1061,7 @@ def build(out: Path):
                      + ": " + ", ".join(parts) + f" · {n_arch} with an archived result · {n_site} websites archived"
                      + (f' · <span class="chip">{n_lost} lost</span>' if n_lost else "") + "</p>")
         b.append(MARK_LEGEND)
-        has_probs = any(c.get("problems") for c in doc["contests"])
+        has_probs = any(set_for(c) or has_role(c, "judge_page") for c in doc["contests"])
         if has_probs:
             b.append(HELD_LEGEND)
         b.append('<div class="tablewrap"><table><tr><th>contest</th><th>date</th>'
@@ -840,9 +1070,10 @@ def build(out: Path):
         for c in reversed(doc["contests"]):  # latest first
             pcell = ""
             if has_probs:
-                pb = c.get("problems") or {}
+                pb = set_for(c)
                 pcell = ("<td>" + (f'<span class="small muted">{pb["count"]}</span> ' if pb.get("count") else "")
-                         + held_marks(pb) + "</td>") if pb else "<td></td>"
+                         + held_marks(pb) + (f' <span class="small">{set_link(pb["id"], rel, "set")}</span>' if pb.get("problems") else "")
+                         + "</td>") if pb else "<td></td>"
             b.append(
                 "<tr><td>" + link_contest(c["id"], rel, chip=True) + "</td>"
                 f"<td>{esc(c.get('date', ''))}</td>"
@@ -1002,16 +1233,14 @@ def build(out: Path):
         order scoreboard > frozen scoreboard > standings > rankings > ICPC standings:
         each flag means "holds this tier or a better one". Web coverage separately:
         a site link, and an archived crawl of it."""
-        res = c.get("results", {})
-        sb = "scoreboard" in res
-        fr = sb or "frozen_scoreboard" in res
-        st = fr or "standings" in res
-        rk = st or "rankings" in res
-        any_ = rk or bool(c.get("icpc_standings"))
+        sb = has_role(c, "scoreboard")
+        fr = sb or has_role(c, "frozen_scoreboard")
+        st = fr or has_role(c, "standings")
+        rk = st or has_role(c, "rankings")
+        any_ = rk or has_role(c, "icpc_standings")
         return {"n": 1, "date": bool(c.get("date")),
                 "sb": sb, "fr": fr, "st": st, "rk": rk, "any": any_,
-                "arch": any(e.get("archived") and not (capture_info.get(e["archived"]) or {}).get("content_caveat")
-                            for lst in res.values() for e in lst),
+                "arch": any(held_capture(e) for e in result_sources(c)),
                 "web": web_state(c) == "link",
                 "web_none": web_state(c) == "none",
                 "web_arch": c["id"] in website_of}
@@ -1132,18 +1361,13 @@ def build(out: Path):
         url_tables[k] = []
     for cid in sorted(contests):
         c = contests[cid]
-        for k, _l in TIERS:
-            for e in c.get("results", {}).get(k, []):
-                url_tables[k].append((cid, e))
-        url, e = ist_locator(c)
-        if url:
-            url_tables["icpc_standings"].append((cid, e))
-        for w, as_of in locators(c.get("web")):
-            url_tables["web"].append((cid, {"url": w, "as_of": as_of}))
-        for m in c.get("mirrors") or []:
-            url_tables["mirror"].append((cid, m))
-        for w, as_of in locators(c.get("problemset")):
-            url_tables["problemset"].append((cid, {"url": w, "as_of": as_of}))
+        # a source is listed under each role it serves; `also_at` addresses are the mirrors
+        for k in url_tables:
+            if k != "mirror":
+                url_tables[k] += [(cid, e) for e in by_role(c, k)]
+        for s in sources(c):
+            for m in also_at(s):
+                url_tables["mirror"].append((cid, m))
     art_order = ["scoreboard", "frozen_scoreboard", "standings", "rankings",
                  "icpc_standings", "web", "mirror", "problemset"]
     counts = {k: len(url_tables[k]) for k in art_order}
@@ -1161,9 +1385,11 @@ def build(out: Path):
             wb = wb_href(e)
             if wb:
                 extras.append(f'<a class="small" href="{esc(wb)}">wayback</a>')
-            if e.get("archived"):
-                extras.append(f'<a class="small" href="{REPLAY_BASE}/a/{esc(e["archived"])}">'
-                              'archived</a>')
+            for n, pth in enumerate(archived(e)):
+                extras.append(f'<a class="small" href="{REPLAY_BASE}/a/{esc(pth)}">'
+                              + ("archived" if n == 0 else f"archived {n + 1}") + '</a>')
+            if e.get("note") and k == "mirror":
+                extras.append(f'<span class="muted small">{esc(e["note"])}</span>')
             rows_h.append(f'<tr><td>{link_contest(cid, "../")}</td>'
                           f'<td class="wrap">{RES.label_link(e["url"], e.get("as_of"), "../", esc(res_label(e["url"], e.get("as_of"), 110)))}'
                           f' <a class="small" href="{esc(e["url"])}">live</a></td>'
@@ -1308,13 +1534,13 @@ def build(out: Path):
     # ---- problems: coverage + every contest with archive holdings + every problem ----
     (out / "problems").mkdir(exist_ok=True)
     nm_doc = yaml.safe_load((ROOT / "registry" / "non-mainline.yaml").read_text())
-    nm_with = [c for c in nm_doc["non_mainline_contests"] if c.get("problems")]
+    nm_with = [c for c in nm_doc["non_mainline_contests"] if set_for(c) or has_role(c, "judge_page")]
     rel = "../"
 
     def pflags(c):
-        pb = c.get("problems") or {}
-        f = {"n": 1, "rec": bool(pb), "repo": bool(pb.get("repo")), "count": bool(pb.get("count")),
-             "judges": bool(pb.get("judges")), "file": c["id"] in PROBLEM_FILES,
+        pb = set_for(c)
+        f = {"n": 1, "rec": bool(pb) or has_role(c, "judge_page"), "repo": bool(pb.get("repo")), "count": bool(pb.get("count")),
+             "judges": has_role(c, "judge_page"), "file": bool(pb.get("problems")),
              "nprob": pb.get("count") or 0}
         for key, *_ in HELD_KINDS:
             f[key + "_full"] = pb.get(key) == "full"
@@ -1344,7 +1570,9 @@ def build(out: Path):
                 + "".join(pcell(t[k + "_any"], t["n"]) for k, *_ in HELD_KINDS)
                 + pcell(t["judges"], t["n"]) + "</tr>")
 
-    n_problems_listed = sum(len(d["problems"]) for d in PROBLEM_FILES.values())
+    n_problems_listed = sum(len(d.get("problems") or []) for d in SETS.values())
+    sets_listed = [sid for sid, d in SETS.items() if d.get("problems")]
+    contests_listed = sorted({m["contest"] for sid in sets_listed for m in SETS[sid]["contests"]})
     pidx = ["<h1>Problems</h1>",
             f'<p class="muted">What the <b>ICPC Problem Archive</b> holds, per contest: of {ptot["n"]} contests that ran, '
             f'{ptot["rec"]} ({round(100 * ptot["rec"] / ptot["n"])}%) have their problem holdings recorded, '
@@ -1352,8 +1580,9 @@ def build(out: Path):
             f'{ptot["data_full"]} every test-data set, {ptot["solutions_full"]} every solution and '
             f'{ptot["package_full"]} a complete package for every problem; {ptot["nprob"]} problems counted in all. '
             f'{ptot["judges"]} contests link to an online judge where the problems can be solved. '
-            f'{len(PROBLEM_FILES)} contests have a per-problem list ({n_problems_listed} problems) — '
-            f'<a href="list.html">all listed problems</a>.</p>',
+            f'{len(contests_listed)} contests have a per-problem list ({len(sets_listed)} problem sets, {n_problems_listed} problems; '
+            f'{len(PROBLEMS)} distinct problems) — <a href="list.html">all listed problems</a> · '
+            f'<a href="../problemsets/index.html">all {len(SETS)} problem sets</a> · <a href="../judges/index.html">online judges</a>.</p>',
             '<p class="small muted">The archive repos are private; this page tracks what exists. Names and counts are '
             'published only for contests that have run (enforced by the validator); problems kept private after a '
             'contest still have their names listed. Model: '
@@ -1389,40 +1618,103 @@ def build(out: Path):
                 'the box filters. <b>#</b> = number of problems; <i>list</i> = a per-problem list exists.</p>'
                 '<div class="tablewrap"><table><tr><th>contest</th><th>date</th><th>region</th><th class="num">#</th>'
                 '<th>held</th><th>archive repo</th><th>solve online</th><th>per-problem</th><th>notes</th></tr>')
-    all_rows = [(cid, c, SERIES_REGION.get(series_of[cid], "Other"), True) for cid, c in contests.items() if c.get("problems")]
+    all_rows = [(cid, c, SERIES_REGION.get(series_of[cid], "Other"), True) for cid, c in contests.items()
+                if set_for(c) or has_role(c, "judge_page")]
     all_rows += [(c["id"], c, "non-mainline", False) for c in nm_with]
     for cid, c, region, linked in sorted(all_rows, key=lambda x: x[0]):
-        pb = c["problems"]
+        pb = set_for(c)
         pidx.append(
             "<tr><td>" + (link_contest(cid, rel, chip=True) if linked else f'{esc(cid)} <span class="chip" title="outside the mainline hierarchy (registry/non-mainline.yaml)">non-mainline</span>') + "</td>"
             f"<td>{esc(c.get('date', ''))}</td><td class=\"small muted\">{esc(region)}</td>"
             f'<td class="num">{pb.get("count", "")}</td><td>{held_marks(pb)}</td>'
-            f'<td>{repo_link(pb)}</td><td class="small">{judge_links(pb.get("judges"))}</td>'
-            + (f'<td><a href="{rel}contest/{esc(cid)}.html#problems">list</a></td>' if cid in PROBLEM_FILES else "<td></td>")
+            f'<td>{repo_link(pb)}</td><td class="small">{judge_page_links(c)}</td>'
+            + (f'<td>{set_link(pb["id"], rel, "list")}</td>' if pb.get("problems") else "<td></td>")
             + f'<td class="wrap small muted">{esc(pb.get("notes", ""))}</td></tr>')
     pidx.append("</table></div>")
     (out / "problems" / "index.html").write_text(page("Problems", "\n".join(pidx), rel))
 
     plist = ["<h1>Every listed problem</h1>",
-             f'<p class="muted">{n_problems_listed} problems from {len(PROBLEM_FILES)} contests with a per-problem list '
-             f'(<a href="index.html">problem holdings by contest</a>). The box filters by any column — contest, letter, name.</p>',
-             '<p class="small muted"><b>St</b> statement · <b>D</b> test data · <b>IV</b>/<b>OV</b> input/output validator · '
-             '<b>So</b> solutions · <b>P</b> complete package — filled = held.</p>',
-             '<div class="tablewrap"><table><tr><th>contest</th><th>#</th><th>problem</th><th>held</th><th>solve online</th><th>notes</th></tr>']
-    for cid in sorted(PROBLEM_FILES):
-        for p in PROBLEM_FILES[cid]["problems"]:
-            nm = esc(p["name"]) + (f' <span class="small muted">{esc(p["short_name"])}</span>' if p.get("short_name") else "")
-            if p.get("status") == "private":
-                nm += ' <span class="chip">private</span>'
-            link = link_contest(cid, rel) if cid in contests else esc(cid)
-            plist.append(f'<tr><td>{link}</td><td class="letter">{esc(p.get("letter") or "?")}</td><td class="wrap">{nm}</td>'
-                         f'<td>{problem_have_marks(p)}</td><td class="small">{judge_links(p.get("judges"))}</td>'
-                         f'<td class="wrap small muted">{esc(p.get("notes", ""))}</td></tr>')
+             f'<p class="muted">{n_problems_listed} problems from {len(sets_listed)} problem sets used by {len(contests_listed)} contests '
+             f'(<a href="index.html">problem holdings by contest</a> · <a href="../problemsets/index.html">all sets</a>). '
+             'One row per problem per set; a set used by several contests lists them all. The box filters by any column — contest, set, letter, name.</p>',
+             HAVE_LEGEND,
+             '<div class="tablewrap"><table><tr><th>contest</th><th>set</th><th>#</th><th>problem</th><th>held</th><th>solve online</th><th>notes</th></tr>']
+    for sid in sorted(sets_listed):
+        doc = SETS[sid]
+        members = [m["contest"] for m in doc["contests"]]
+        with_letters = [m for m in members if set_letters(doc, m)]
+        for L, p in set_problems_in_order(doc):
+            if len(with_letters) > 1:
+                ls = [letter_of(doc, m, p["id"]) for m in with_letters]
+                L = " / ".join(x or "?" for x in ls) if len(set(ls)) > 1 else ls[0]
+            first = ('<td class="wrap">' + ", ".join(contest_ref(m, rel) for m in members) + "</td>"
+                     + f'<td class="small">{set_link(sid, rel)}</td>')
+            plist.append(problem_row(L, p, rel, first))
     plist.append("</table></div>")
     (out / "problems" / "list.html").write_text(page("Every listed problem", "\n".join(plist), rel))
     (out / "problems" / "problems.json").write_text(json.dumps(
-        {"generated": datetime.date.today().isoformat(), "contests": PROBLEM_FILES}, ensure_ascii=False))
-    print(f"  problems: {len(all_rows)} contests with holdings, {n_problems_listed} problems listed")
+        {"generated": datetime.date.today().isoformat(), "sets": SETS, "judges": JUDGES}, ensure_ascii=False))
+    print(f"  problems: {len(all_rows)} contests with holdings, {len(SETS)} sets, {n_problems_listed} problems listed in {len(sets_listed)} sets")
+
+    # ---- problem sets index, set pages, problem pages, judges ----
+    srows = []
+    for sid in sorted(SETS):
+        doc = SETS[sid]
+        members = [m["contest"] for m in doc["contests"]]
+        n_list = len(doc.get("problems") or [])
+        srows.append(f'<tr><td>{set_link(sid, rel)}</td><td class="wrap small">{esc(doc.get("name", ""))}</td>'
+                     f'<td class="wrap">{", ".join(contest_ref(m, rel) for m in members)}</td>'
+                     f'<td class="num">{doc.get("count", "")}</td><td class="num">{n_list or ""}</td>'
+                     f'<td>{held_marks(doc)}</td><td>{repo_link(doc)}</td>'
+                     f'<td class="wrap small muted">{esc(doc.get("notes", ""))}</td></tr>')
+    n_shared = sum(1 for d in SETS.values() if len(d["contests"]) > 1)
+    sidx = ["<h1>Problem sets</h1>",
+            f'<p class="muted">{len(SETS)} problem sets: a set is the object a contest used — one set can serve several contests '
+            f'({n_shared} shared sets, e.g. NCPC + UKIEPC). {len(sets_listed)} sets have a per-problem list ({n_problems_listed} rows, '
+            f'{len(PROBLEMS)} distinct problems); the rest record only what the ICPC Problem Archive holds. '
+            f'See also <a href="../problems/index.html">holdings by contest</a>, <a href="../problems/list.html">every listed problem</a> and '
+            f'<a href="../judges/index.html">online judges</a>.</p>',
+            HELD_LEGEND,
+            '<div class="tablewrap"><table><tr><th>set</th><th>name</th><th>used by</th><th class="num">#</th>'
+            '<th class="num" title="problems listed">listed</th><th>held</th><th>archive repo</th><th>notes</th></tr>'
+            + "\n".join(srows) + "</table></div>"]
+    (out / "problemsets" / "index.html").write_text(page("Problem sets", "\n".join(sidx), rel))
+    for sid, doc in SETS.items():
+        (out / "problemset" / f"{sid}.html").write_text(problemset_page(sid, doc, rel))
+    for pid, ent in PROBLEMS.items():
+        (out / "problem" / f"{pid}.html").write_text(problem_page(pid, ent, rel))
+
+    n_prob_links = defaultdict(set)   # judge -> problem ids linking to it
+    n_page_links = defaultdict(set)   # judge -> contests with a judge_page source
+    for pid, ent in PROBLEMS.items():
+        for _s, r in ent["rows"]:
+            for j in r.get("judges") or []:
+                n_prob_links[j["judge"]].add(pid)
+    for c in list(contests.values()) + nm_doc["non_mainline_contests"]:
+        for s in by_role(c, "judge_page"):
+            n_page_links[s.get("judge") or "judge"].add(c["id"])
+    jrows = []
+    for jid, j in JUDGES.items():
+        st = esc(j.get("status", ""))
+        if j.get("closed"):
+            st += f' {esc(j["closed"])}'
+        jrows.append(f'<tr><td>{esc(jid)}</td><td><a href="{esc(j["url"])}">{esc(j.get("name", jid))}</a></td>'
+                     f'<td><span class="chip">{st}</span></td>'
+                     f'<td class="num">{len(n_prob_links.get(jid, ()))}</td><td class="num">{len(n_page_links.get(jid, ()))}</td>'
+                     f'<td class="small">{"statements" if j.get("statements") else ""}{" · " if j.get("statements") and j.get("submissions") else ""}{"submissions" if j.get("submissions") else ""}</td>'
+                     f'<td class="wrap small muted">{esc(j.get("notes", ""))}</td></tr>')
+    unknown = sorted(set(n_prob_links) | set(n_page_links)) 
+    unknown = [x for x in unknown if x not in JUDGES]
+    jidx = ["<h1>Online judges</h1>",
+            f'<p class="muted">The {len(JUDGES)} judges in <a href="{REPO_URL}judges.yaml">judges.yaml</a>, the registry every judge link '
+            'refers to: per-problem links (<i>problems</i>) and contest-level judge pages (<i>contest pages</i>, sources with role judge_page). '
+            'A closed judge\'s pages survive only in Wayback snapshots taken before the closing date.</p>',
+            '<div class="tablewrap"><table><tr><th>id</th><th>judge</th><th>status</th><th class="num">problems</th>'
+            '<th class="num">contest pages</th><th>offers</th><th>notes</th></tr>' + "\n".join(jrows) + "</table></div>"]
+    if unknown:
+        jidx.append('<p class="small muted">Judge ids used but not in the registry: ' + ", ".join(esc(x) for x in unknown) + "</p>")
+    (out / "judges" / "index.html").write_text(page("Online judges", "\n".join(jidx), rel))
+    print(f"  problem sets: {len(SETS)} set pages, {len(PROBLEMS)} problem pages, {len(JUDGES)} judges")
 
     # ---- machine-readable dump ----
     dump = {}
@@ -1436,18 +1728,17 @@ def build(out: Path):
 
     # ---- search + landing ----
     def hosts_of(c):
+        """Hosts of the website and result sources (what people search by)."""
         hs = set()
-        for w, _ in locators(c.get("web")):
-            hs.add(re.sub(r"^https?://(www\.)?", "", w).split("/")[0])
-        for lst in (c.get("results") or {}).values():
-            for e in lst:
-                hs.add(re.sub(r"^https?://(www\.)?", "", e["url"]).split("/")[0])
+        for s in sources(c):
+            if "web" in s["roles"] or any(r in s["roles"] for r in RESULT_KINDS):
+                hs.add(re.sub(r"^https?://(www\.)?", "", s["url"]).split("/")[0])
         return sorted(hs)
 
     search = [{"id": cid, "name": c.get("name"), "date": c.get("date"), "series": series_of[cid],
                "cms": [str(i) for i in (c.get("cms_ids") or [])], "hosts": hosts_of(c),
                "region": SERIES_REGION.get(series_of[cid], ""),
-               "problems": [p["name"] for p in PROBLEM_FILES.get(cid, {}).get("problems", [])] or None}
+               "problems": [p["name"] for p in set_for(c).get("problems") or []] or None}
               for cid, c in sorted(contests.items())]
     (out / "search.json").write_text(json.dumps(search, ensure_ascii=False))
     ran = sum(1 for c in contests.values() if c.get("status") != "upcoming")
@@ -1462,7 +1753,7 @@ and in this project's own archive.</p>
 <h2>Start somewhere</h2>
 <p>{link_contest('wf-2025', '')} · <a href="series/wf.html">World Finals series</a> ·
 <a href="series/index.html">all series</a> · <a href="seasons.html">seasons</a> ·
-<a href="coverage.html">collection coverage</a> · <a href="problems/index.html">problems</a> · <a href="resources/index.html">all resources</a> ·
+<a href="coverage.html">collection coverage</a> · <a href="problems/index.html">problems</a> · <a href="problemsets/index.html">problem sets</a> · <a href="resources/index.html">all resources</a> ·
 <a href="wanted.html">most wanted</a> · <a href="catalogue.json">catalogue.json</a> ·
 <a href="local.html">local archive</a></p>
 <p class="small muted">Data: <a href="https://github.com/icpc-contest-archive/contests">

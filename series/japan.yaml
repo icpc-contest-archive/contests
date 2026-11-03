@@ -1,7 +1,10 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_candidates.py (url-hunt 2026-09-01).
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: japan
   name: ICPC Asia Yokohama Regional Contest
+  tier: regional
+  region: Asia Pacific
+  naming: season-start
 contests:
 - id: japan-1998
   season: 1999
@@ -11,45 +14,55 @@ contests:
   - 1102
   parent: wf-1999
   next: japan-1999
-  results:
-    standings:
-    - url: http://www.swt.edu/~ch01/tokyoranking98.htm
-      as_of: '20041227031552'
-      archived: japan/japan-1998/standings/2026-09-01-wayback-dd7af605/tokyoranking98.htm
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc99/Regionals/Tokyo98/Standings.htm
-      as_of: '20021125230833'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: japan/japan-1998/standings/20021125-wayback-1c6bee38/Standings.htm
-    scoreboard:
-    - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_VV_Asian/1998/tokyo/tokyoprob98.htm
-      as_of: '20090714005436'
-      archived: japan/japan-1998/scoreboard/2026-04-16-archive/1998-asia-programming-contest-japan-1998.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-  web: http://www.isse.kuis.kyoto-u.ac.jp/acm-japan/
-  problemset:
-  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_VV_Asian/1998/tokyo/tokyoprob98.htm
-    as_of: '20090714005436'
-  - url: http://icpc.baylor.edu/past/icpc99/Regionals/Tokyo98/Problems.htm
-    as_of: '20021125230515'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: http://www.isse.kuis.kyoto-u.ac.jp/acm-japan/
+    roles:
+    - web
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_VV_Asian/1998/tokyo/tokyoprob98.htm
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20090714005436'
+    archived:
+    - japan/japan-1998/scoreboard/2026-04-16-archive/1998-asia-programming-contest-japan-1998.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://www.swt.edu/~ch01/tokyoranking98.htm
+    roles:
+    - standings
+    as_of: '20041227031552'
+    archived:
+    - japan/japan-1998/standings/2026-09-01-wayback-dd7af605/tokyoranking98.htm
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc99/Regionals/Tokyo98/Standings.htm
+    roles:
+    - standings
+    as_of: '20021125230833'
+    archived:
+    - japan/japan-1998/standings/20021125-wayback-1c6bee38/Standings.htm
+    - japan/japan-1998/standings/20021125-wayback-3c6af296/Standings.htm
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
+  - url: http://icpc.baylor.edu/past/icpc99/Regionals/Tokyo98/Problems.htm
+    roles:
+    - problemset
+    as_of: '20021125230515'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=490
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210926195233'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=490
-        as_of: '20210926195233'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: japan-1998
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: japan-1999
   season: 2000
   name: 1999 ACM Asia Programming Contest, Kyoto
@@ -59,35 +72,48 @@ contests:
   - 977
   parent: wf-2000
   next: japan-2000
-  results:
-    standings:
-    - url: http://swt.edu/~ch01/rankings1999/tokyo99.htm
-      as_of: '20050221192159'
-      archived: japan/japan-1999/standings/2026-09-01-wayback-040fb55d/tokyo99.htm
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc2000/regionals/Kyoto99/Standings.html
-      as_of: '20020111113045'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: japan/japan-1999/standings/20020111-wayback-3c15bd40/Standings.html
-  web: http://www.isse.kuis.kyoto-u.ac.jp/acm-japan/
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2734
-        as_of: '20211028053718'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  sources:
+  - url: http://www.isse.kuis.kyoto-u.ac.jp/acm-japan/
+    roles:
+    - web
+  - url: http://swt.edu/~ch01/rankings1999/tokyo99.htm
+    roles:
+    - standings
+    as_of: '20050221192159'
+    archived:
+    - japan/japan-1999/standings/2026-09-01-wayback-040fb55d/tokyo99.htm
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2000/regionals/Kyoto99/Standings.html
+    roles:
+    - standings
+    as_of: '20020111113045'
+    archived:
+    - japan/japan-1999/standings/20020111-wayback-3c15bd40/Standings.html
+    - japan/japan-1999/standings/20020111-wayback-acba2d31/Standings.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
   - url: http://icpc.baylor.edu/past/icpc2000/regionals/Kyoto99/problems.pdf
+    roles:
+    - problemset
     as_of: '20041117081433'
-  - https://storage.googleapis.com/files.icpc.jp/regional1999/1999regional.pdf
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://storage.googleapis.com/files.icpc.jp/regional1999/1999regional.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2734
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20211028053718'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: japan-1999
 - id: japan-2000
   season: 2001
   name: 2000 ACM Asia Programming Contest, Tsukuba
@@ -97,43 +123,62 @@ contests:
   - 1044
   parent: wf-2001
   next: japan-2001
-  web:
-    url: http://icpc.score.is.tsukuba.ac.jp/
+  sources:
+  - url: http://icpc.score.is.tsukuba.ac.jp/
+    roles:
+    - web
     as_of: '20071105094436'
-  results:
-    rankings:
-    - url: http://swt.edu/~ch01/rankins2000/2000_japan.htm
-      as_of: '20050222023435'
-      archived: japan/japan-2000/rankings/2026-09-01-wayback-064d380d/2000_japan.htm
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2001/Regionals/ViewRegionalStandings.asp?ContestID=447
-      as_of: '20020112015254'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: japan/japan-2000/standings/20020112-wayback-b6477ab6/page.html
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=66
-        as_of: '20210928104310'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2733
-        note: Asia Regional Contest 2000 in Tsukuba
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  - url: http://icpc.baylor.edu/past/icpc2001/Regionals/ViewRegionalStandings.asp?ContestID=447
+    roles:
+    - standings
+    as_of: '20020112015254'
+    archived:
+    - japan/japan-2000/standings/20020112-wayback-b6477ab6/page.html
+    - japan/japan-2000/standings/20020112-wayback-4e7c5083/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: http://swt.edu/~ch01/rankins2000/2000_japan.htm
+    roles:
+    - rankings
+    as_of: '20050222023435'
+    archived:
+    - japan/japan-2000/rankings/2026-09-01-wayback-064d380d/2000_japan.htm
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_VV_Asian/2000/Tsukuba.pdf
+    roles:
+    - problemset
     as_of: '20020624142207'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2001/Regionals/Tsukuba00/Problems.pdf
+    roles:
+    - problemset
     as_of: '20030323114506'
-  - https://storage.googleapis.com/files.icpc.jp/regional2000/2000regional.pdf
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://storage.googleapis.com/files.icpc.jp/regional2000/2000regional.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=66
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210928104310'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2733
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional Contest 2000 in Tsukuba
+  problems:
+    set: japan-2000
 - id: japan-2001
   season: 2002
   name: 2001 ACM Asia Programming Contest - Hakodate
@@ -143,55 +188,79 @@ contests:
   - 1055
   parent: wf-2002
   next: japan-2002
-  web:
-    url: http://www.fun.ac.jp/icpc/
+  sources:
+  - url: http://www.fun.ac.jp/icpc/
+    roles:
+    - web
     as_of: '20090103170540'
-  results:
-    standings:
-    - url: http://swt.edu/~ch01/Rankings2001/StandingsJapan.html
-      as_of: '20050220221951'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: japan/japan-2001/standings/2026-09-01-wayback-5fc0b25f/StandingsJapan.html
-    - url: http://www.fun.ac.jp/icpc/full.html
-      as_of: '20050308002745'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: japan/japan-2001/standings/2026-09-01-wayback-139cf120/full.html
-    - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=512
-      as_of: '20020619091504'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: japan/japan-2001/rankings/2026-09-01-wayback-b8ca2b95/page.html
-    rankings:
-    - url: http://icpc.baylor.edu/Past/icpc2002/regionals/ViewRegionalStandings.asp?ContestID=512
-      as_of: '20090102025416'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: japan/japan-2001/rankings/2026-09-01-wayback-b8ca2b95/page.html
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=90
-        as_of: '20210926191617'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1102
-        as_of: '20201026075625'
-        note: Asia Regional Contest 2001 in Hakodate
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  - url: http://swt.edu/~ch01/Rankings2001/StandingsJapan.html
+    roles:
+    - standings
+    as_of: '20050220221951'
+    archived:
+    - japan/japan-2001/standings/2026-09-01-wayback-5fc0b25f/StandingsJapan.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://www.fun.ac.jp/icpc/full.html
+    roles:
+    - standings
+    as_of: '20050308002745'
+    archived:
+    - japan/japan-2001/standings/2026-09-01-wayback-139cf120/full.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=512
+    roles:
+    - standings
+    - rankings
+    as_of: '20020619091504'
+    archived:
+    - japan/japan-2001/rankings/2026-09-01-wayback-b8ca2b95/page.html
+    - japan/japan-2001/standings/20020619-wayback-70f5cad1/page.html
+    - japan/japan-2001/standings/20020619-wayback-d8f8472e/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings); as_of 20090102025416 for rankings
+  - url: http://www.fun.ac.jp/Standings.html
+    roles:
+    - standings
+    as_of: '20020222070141'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://www.fun.ac.jp/icpc/Problems.html
+    roles:
+    - problemset
     as_of: '20090103170522'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_VV_Asian/2001/Hakodate/
+    roles:
+    - problemset
     as_of: '20020628075825'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2002/regionals/Hakodate01/problems.pdf
+    roles:
+    - problemset
     as_of: '20030705061317'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=90
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210926191617'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1102
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201026075625'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional Contest 2001 in Hakodate
+  problems:
+    set: japan-2001
 - id: japan-2002
   season: 2003
   name: 2002 ACM Asia Programming Contest - Kanazawa
@@ -201,45 +270,60 @@ contests:
   - 1194
   parent: wf-2003
   next: japan-2003
-  web:
-    url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/www.kitnet.jp/icpc/index.html
+  sources:
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/www.kitnet.jp/icpc/index.html
+    roles:
+    - web
     as_of: '20060901154519'
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/www.kitnet.jp/icpc/ajiakekka/index.html
-      as_of: '20060901154542'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: japan/japan-2002/standings/2026-09-01-wayback-77487f12/index.html
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandingsb445.html?ContestID=580
-      as_of: '20060901120806'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: japan/japan-2002/rankings/2026-09-01-wayback-d9eafc74/ViewRegionalStandingsb445.html
-    - url: http://www.kitnet.jp/icpc/ajiakekka/index.html
-      note: added by url-hunt 2026-09-01 (cms-api)
-    rankings:
-    - url: http://icpc.baylor.edu/past/icpc2003/Regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandingsb445.html?ContestID=580
-      as_of: '20090307020337'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: japan/japan-2002/rankings/2026-09-01-wayback-d9eafc74/ViewRegionalStandingsb445.html
-  problemset:
-  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/www.kitnet.jp/icpc/problems/problems.pdf
-    as_of: '20030711151100'
-  - https://storage.googleapis.com/files.icpc.jp/regional2002/2002regional.pdf
-  - http://www.kitnet.jp/icpc/problems/index.html
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1842
-        as_of: '20201203143437'
-        note: Asia Regional Contest 2002 in Kanazawa
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  mirrors:
-  - url: http://www.kitnet.jp/icpc/
+    also_at:
+    - http://www.kitnet.jp/icpc/
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/www.kitnet.jp/icpc/ajiakekka/index.html
+    roles:
+    - standings
+    as_of: '20060901154542'
+    archived:
+    - japan/japan-2002/standings/2026-09-01-wayback-77487f12/index.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandingsb445.html?ContestID=580
+    roles:
+    - standings
+    - rankings
+    as_of: '20060901120806'
+    archived:
+    - japan/japan-2002/rankings/2026-09-01-wayback-d9eafc74/ViewRegionalStandingsb445.html
+    - japan/japan-2002/standings/20060901-wayback-0bc534f7/ViewRegionalStandingsb445.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings); as_of 20090307020337 for rankings
+  - url: http://www.kitnet.jp/icpc/ajiakekka/index.html
+    roles:
+    - standings
     note: added by url-hunt 2026-09-01 (cms-api)
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/www.kitnet.jp/icpc/problems/problems.pdf
+    roles:
+    - problemset
+    as_of: '20030711151100'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://storage.googleapis.com/files.icpc.jp/regional2002/2002regional.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.kitnet.jp/icpc/problems/index.html
+    roles:
+    - problemset
+  - url: https://www.acmicpc.net/category/detail/1842
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201203143437'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional Contest 2002 in Kanazawa
+  problems:
+    set: japan-2002
 - id: japan-2003
   season: 2004
   name: 2003 ACM Asia Programming Contest - Aizu
@@ -249,33 +333,50 @@ contests:
   - 1198
   parent: wf-2004
   next: japan-2004
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=653
-      as_of: '20071012205948'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: japan/japan-2003/standings/2026-09-01-wayback-30b9a918/page.html
-    - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandings2ede.html?ContestID=653
-      as_of: '20060901143456'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: japan/japan-2003/standings/20060901-wayback-e90245c0/ViewRegionalStandings2ede.html
-    - url: http://www.u-aizu.ac.jp/conference/ACM/AizuStandings.html
-      note: added by url-hunt 2026-09-01 (cms-api)
-  web: http://www.u-aizu.ac.jp/conference/ACM/
-  problemset:
-  - https://storage.googleapis.com/files.icpc.jp/regional2003/2003regional.pdf
-  - http://www.u-aizu.ac.jp/conference/ACM/problems/index.html
+  sources:
+  - url: http://www.u-aizu.ac.jp/conference/ACM/
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=653
+    roles:
+    - standings
+    as_of: '20071012205948'
+    archived:
+    - japan/japan-2003/standings/2026-09-01-wayback-30b9a918/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandings2ede.html?ContestID=653
+    roles:
+    - standings
+    as_of: '20060901143456'
+    archived:
+    - japan/japan-2003/standings/20060901-wayback-e90245c0/ViewRegionalStandings2ede.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: http://www.u-aizu.ac.jp/conference/ACM/AizuStandings.html
+    roles:
+    - standings
+    note: added by url-hunt 2026-09-01 (cms-api)
+  - url: https://storage.googleapis.com/files.icpc.jp/regional2003/2003regional.pdf
+    roles:
+    - problemset
+    as_of: '20251015235610'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.u-aizu.ac.jp/conference/ACM/problems/index.html
+    roles:
+    - problemset
+  - url: https://www.acmicpc.net/category/detail/200
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191113015610'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional Contest 2003 in Aizu
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/200
-        as_of: '20191113015610'
-        note: Asia Regional Contest 2003 in Aizu
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  mirrors: []
+    set: japan-2003
 - id: japan-2004
   season: 2005
   name: 2004 ACM Asia Programming Contest - Ehime
@@ -285,26 +386,35 @@ contests:
   - 1117
   parent: wf-2005
   next: japan-2005
-  web:
-    url: http://www.ehime-u.ac.jp/ICPC/regional/results.html
+  sources:
+  - url: http://www.ehime-u.ac.jp/ICPC/regional/results.html
+    roles:
+    - web
     as_of: '20071101090735'
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=695
-      as_of: '20071012162935'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: japan/japan-2004/standings/2026-09-01-wayback-570baedd/page.html
-  problemset:
-    url: http://www.ehime-u.ac.jp/ICPC/problems/regional/r2004.pdf
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=695
+    roles:
+    - standings
+    as_of: '20071012162935'
+    archived:
+    - japan/japan-2004/standings/2026-09-01-wayback-570baedd/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://www.ehime-u.ac.jp/ICPC/problems/regional/r2004.pdf
+    roles:
+    - problemset
     as_of: '20061003015441'
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/199
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190721123756'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional Contest 2004 in Ehime
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/199
-        as_of: '20190721123756'
-        note: Asia Regional Contest 2004 in Ehime
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: japan-2004
 - id: japan-2005
   season: 2006
   name: 2005 ACM Asia Programming Contest - Tokyo
@@ -314,32 +424,46 @@ contests:
   - 1087
   parent: wf-2006
   next: japan-2006
-  web:
-    url: http://www.teu.ac.jp/icpc/
+  sources:
+  - url: http://www.teu.ac.jp/icpc/
+    roles:
+    - web
     as_of: '20080507181550'
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=729
-      as_of: '20071011212838'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: japan/japan-2005/standings/2026-09-01-wayback-eb303f97/page.html
-    - url: http://www.teu.ac.jp/icpc/regional/results.html
-      as_of: '20080626140323'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: japan/japan-2005/standings/2026-09-01-wayback-20067d8e/results.html
-  icpc_standings: https://icpc.global/regionals/finder/Tokyo-2006/standings
-  problemset:
-    url: http://www.teu.ac.jp/icpc/regional/problems.html
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=729
+    roles:
+    - standings
+    as_of: '20071011212838'
+    archived:
+    - japan/japan-2005/standings/2026-09-01-wayback-eb303f97/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://www.teu.ac.jp/icpc/regional/results.html
+    roles:
+    - standings
+    as_of: '20080626140323'
+    archived:
+    - japan/japan-2005/standings/2026-09-01-wayback-20067d8e/results.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Tokyo-2006/standings
+    roles:
+    - icpc_standings
+  - url: http://www.teu.ac.jp/icpc/regional/problems.html
+    roles:
+    - problemset
     as_of: '20080415050201'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/198
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190718022735'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional Contest 2005 in Tokyo
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/198
-        as_of: '20190718022735'
-        note: Asia Regional Contest 2005 in Tokyo
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: japan-2005
 - id: japan-2006
   season: 2007
   name: 2006 ACM Asia Programming Contest - Yokohama
@@ -349,38 +473,48 @@ contests:
   - 1126
   parent: wf-2007
   next: japan-2007
-  web:
-    url: http://www.acm-japan.org/icpc2006/
+  sources:
+  - url: http://www.acm-japan.org/icpc2006/
+    roles:
+    - web
     as_of: '20080807125305'
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=792
-      as_of: '20080502051025'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: japan/japan-2006/standings/2026-09-01-wayback-c4131372/page.html
-    - url: http://www.acm-japan.org/icpc2006/regional/result.html
-      as_of: '20080907145041'
-      archived: japan/japan-2006/standings/2026-09-01-wayback-87246421/result.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    - url: http://www.acm-japan.org/icpc2006/regional/result.html
-      as_of: '20081104110120'
-      archived: japan/japan-2006/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Yokohama-2007/standings
-  problemset:
-    url: http://www.acm-japan.org/icpc2006/domestic/problem.html
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=792
+    roles:
+    - standings
+    as_of: '20080502051025'
+    archived:
+    - japan/japan-2006/standings/2026-09-01-wayback-c4131372/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://www.acm-japan.org/icpc2006/regional/result.html
+    roles:
+    - standings
+    as_of: '20080907145041'
+    archived:
+    - japan/japan-2006/standings/2026-09-01-wayback-87246421/result.html
+    - japan/japan-2006/external-standings/2026-04-15-external/content.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: as_of 20081104110120 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Yokohama-2007/standings
+    roles:
+    - icpc_standings
+  - url: http://www.acm-japan.org/icpc2006/domestic/problem.html
+    roles:
+    - problemset
     as_of: '20080618140331'
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/197
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191119225005'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional Contest 2006 in Yokohama
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/197
-        as_of: '20191119225005'
-        note: Asia Regional Contest 2006 in Yokohama
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: japan-2006
 - id: japan-2007
   season: 2008
   name: 2007 ACM Asia Programming Contest - Tokyo
@@ -390,23 +524,36 @@ contests:
   - 1069
   parent: wf-2008
   next: japan-2008
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=881
-      as_of: '20080915032522'
-      archived: japan/japan-2007/standings/2026-09-01-wayback-bec221a8/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/regionals/finder/Tokyo-2008/standings
-  web: http://www.logos.ic.i.u-tokyo.ac.jp/icpc2007/
-  problemset: https://storage.googleapis.com/files.icpc.jp/regional2007/2007regional.pdf
+  sources:
+  - url: http://www.logos.ic.i.u-tokyo.ac.jp/icpc2007/
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=881
+    roles:
+    - standings
+    as_of: '20080915032522'
+    archived:
+    - japan/japan-2007/standings/2026-09-01-wayback-bec221a8/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://icpc.global/regionals/finder/Tokyo-2008/standings
+    roles:
+    - icpc_standings
+  - url: https://storage.googleapis.com/files.icpc.jp/regional2007/2007regional.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/196
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190717144308'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional Contest 2007 in Tokyo
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/196
-        as_of: '20190717144308'
-        note: Asia Regional Contest 2007 in Tokyo
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: japan-2007
 - id: japan-2008
   season: 2009
   name: 2008 Asia Aizu Contest
@@ -416,31 +563,39 @@ contests:
   - 6
   parent: wf-2009
   next: japan-2009
-  web:
-    url: http://sparth.u-aizu.ac.jp/icpc2008/r_overview.php
+  sources:
+  - url: http://sparth.u-aizu.ac.jp/icpc2008/r_overview.php
+    roles:
+    - web
     as_of: '20090101040837'
-  results:
-    standings:
-    - url: http://sparth.u-aizu.ac.jp/icpc2008/r_result.php
-      as_of: '20090101040233'
-      archived: japan/japan-2008/standings/2026-09-01-wayback-342b9ada/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://sparth.u-aizu.ac.jp/icpc2008/r_result.php
-      as_of: '20210228012453'
-      archived: japan/japan-2008/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Aizu-2009/standings
-  problemset: https://storage.googleapis.com/files.icpc.jp/regional2008/2008regional.pdf
+  - url: http://sparth.u-aizu.ac.jp/icpc2008/r_result.php
+    roles:
+    - standings
+    as_of: '20090101040233'
+    archived:
+    - japan/japan-2008/standings/2026-09-01-wayback-342b9ada/page.html
+    - japan/japan-2008/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: as_of 20210228012453 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Aizu-2009/standings
+    roles:
+    - icpc_standings
+  - url: https://storage.googleapis.com/files.icpc.jp/regional2008/2008regional.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/195
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210118082844'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional Contest 2008 in Aizu
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/195
-        as_of: '20210118082844'
-        note: Asia Regional Contest 2008 in Aizu
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: japan-2008
 - id: japan-2009
   season: 2010
   name: 2009 ACM-ICPC Asia Tokyo Regional Contest
@@ -450,29 +605,38 @@ contests:
   - 498
   parent: wf-2010
   next: japan-2010
-  results:
-    standings:
-    - url: http://www.waseda.jp/assoc-icpc2009/contest/ranking.html
-      as_of: '20160406094000'
-      archived: japan/japan-2009/standings/2026-09-01-wayback-cd12f483/ranking.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://www.waseda.jp/assoc-icpc2009/contest/ranking.html
-      as_of: '20200928090259'
-      archived: japan/japan-2009/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Tokyo-2010/standings
-  web: http://www.waseda.jp/assoc-icpc2009/en/index.html
-  problemset: https://storage.googleapis.com/files.icpc.jp/regional2009/2009regional.pdf
+  sources:
+  - url: http://www.waseda.jp/assoc-icpc2009/en/index.html
+    roles:
+    - web
+  - url: http://www.waseda.jp/assoc-icpc2009/contest/ranking.html
+    roles:
+    - standings
+    as_of: '20160406094000'
+    archived:
+    - japan/japan-2009/standings/2026-09-01-wayback-cd12f483/ranking.html
+    - japan/japan-2009/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: as_of 20200928090259 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Tokyo-2010/standings
+    roles:
+    - icpc_standings
+  - url: https://storage.googleapis.com/files.icpc.jp/regional2009/2009regional.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/194
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210124132718'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional Contest 2009 in Tokyo
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/194
-        as_of: '20210124132718'
-        note: Asia Regional Contest 2009 in Tokyo
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: japan-2009
 - id: japan-2010
   season: 2011
   name: 2010 ACM-ICPC Asia Tokyo Regional Contest
@@ -482,33 +646,40 @@ contests:
   - 600
   parent: wf-2011
   next: japan-2011
-  web:
-    url: http://icpc2010.honiden.nii.ac.jp/
+  sources:
+  - url: http://icpc2010.honiden.nii.ac.jp/
+    roles:
+    - web
     as_of: '20101205005503'
-  results:
-    standings:
-    - url: http://icpc2010.honiden.nii.ac.jp/en/regional-contest/standing
-      as_of: '20101218084842'
-      archived: japan/japan-2010/standings/2026-09-01-wayback-7933952e/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc2010.honiden.nii.ac.jp/en/regional-contest/standing
-      as_of: '20110204171007'
-      archived: japan/japan-2010/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Tokyo-2011/standings
-  problemset:
-    url: http://icpc2010.honiden.nii.ac.jp/domestic-contest/problems
+  - url: http://icpc2010.honiden.nii.ac.jp/en/regional-contest/standing
+    roles:
+    - standings
+    as_of: '20101218084842'
+    archived:
+    - japan/japan-2010/standings/2026-09-01-wayback-7933952e/page.html
+    - japan/japan-2010/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: as_of 20110204171007 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Tokyo-2011/standings
+    roles:
+    - icpc_standings
+  - url: http://icpc2010.honiden.nii.ac.jp/domestic-contest/problems
+    roles:
+    - problemset
     as_of: '20101127133656'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/193
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201130115225'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional Contest 2010 in Tokyo
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/193
-        as_of: '20201130115225'
-        note: Asia Regional Contest 2010 in Tokyo
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: japan-2010
 - id: japan-2011
   season: 2012
   name: 2011 ACM-ICPC Asia Fukuoka Regional Contest
@@ -518,33 +689,40 @@ contests:
   - 797
   parent: wf-2012
   next: japan-2012
-  web:
-    url: http://icpc2011.ait.kyushu-u.ac.jp/
+  sources:
+  - url: http://icpc2011.ait.kyushu-u.ac.jp/
+    roles:
+    - web
     as_of: '20120705201347'
-  results:
-    standings:
-    - url: http://icpc2011.ait.kyushu-u.ac.jp/regional-contest/standing
-      as_of: '20120523181339'
-      archived: japan/japan-2011/standings/2026-09-01-wayback-c1cdb9ac/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc2011.ait.kyushu-u.ac.jp/regional-contest/standing
-      as_of: '20120523181339'
-      archived: japan/japan-2011/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Fukuoka-2012/standings
-  problemset:
-    url: http://icpc2011.ait.kyushu-u.ac.jp/domestic-contest/problems
+  - url: http://icpc2011.ait.kyushu-u.ac.jp/regional-contest/standing
+    roles:
+    - standings
+    as_of: '20120523181339'
+    archived:
+    - japan/japan-2011/standings/2026-09-01-wayback-c1cdb9ac/page.html
+    - japan/japan-2011/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Fukuoka-2012/standings
+    roles:
+    - icpc_standings
+  - url: http://icpc2011.ait.kyushu-u.ac.jp/domestic-contest/problems
+    roles:
+    - problemset
     as_of: '20121104062545'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/192
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210124040953'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional Contest 2011 in Fukuoka
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/192
-        as_of: '20210124040953'
-        note: Asia Regional Contest 2011 in Fukuoka
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: japan-2011
 - id: japan-2012
   season: 2013
   name: 2012 ACM-ICPC Asia Tokyo Regional Contest
@@ -554,22 +732,38 @@ contests:
   - 1487
   parent: wf-2013
   next: japan-2013
-  web: http://www.cs.titech.ac.jp/icpc2012/index-e.html
-  results:
-    standings:
-    - url: http://www.cs.titech.ac.jp/icpc2012/regional-contest/standing-e.html
-      archived: japan/japan-2012/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Tokyo-2013/standings
-  problemset: http://www.cs.titech.ac.jp/icpc2012/regional-contest/problem.html
+  sources:
+  - url: http://www.cs.titech.ac.jp/icpc2012/index-e.html
+    roles:
+    - web
+  - url: http://www.cs.titech.ac.jp/icpc2012/regional-contest/standing-e.html
+    roles:
+    - standings
+    as_of: '20130108111312'
+    archived:
+    - japan/japan-2012/external-standings/2026-04-15-external/content.html
+    - japan/japan-2012/standings/20130108-wayback-a56d7695/standing-e.html
+    - japan/japan-2012/standings/20260901-live-b5a52786/standing-e.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Tokyo-2013/standings
+    roles:
+    - icpc_standings
+  - url: http://www.cs.titech.ac.jp/icpc2012/regional-contest/problem.html
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/191
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201027072215'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional Contest 2012 in Tokyo
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/191
-        as_of: '20201027072215'
-        note: Asia Regional Contest 2012 in Tokyo
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: japan-2012
 - id: japan-2013
   season: 2014
   name: 2013 ACM-ICPC Asia Aizu Regional Contest
@@ -579,27 +773,38 @@ contests:
   - 1929
   parent: wf-2014
   next: japan-2014
-  web:
-    url: http://sparth.u-aizu.ac.jp/icpc2013/
+  sources:
+  - url: http://sparth.u-aizu.ac.jp/icpc2013/
+    roles:
+    - web
     as_of: '20170715033451'
-  results:
-    standings:
-    - url: http://sparth.u-aizu.ac.jp/icpc2013/r_result.php/
-      as_of: '20161201140219'
-      archived: japan/japan-2013/standings/2026-09-01-wayback-36e48f8d/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Aizu-2014/standings
-  problemset:
-    url: http://sparth.u-aizu.ac.jp/icpc2013/results/2013AizuAllProblems.pdf
+  - url: http://sparth.u-aizu.ac.jp/icpc2013/r_result.php/
+    roles:
+    - standings
+    as_of: '20161201140219'
+    archived:
+    - japan/japan-2013/standings/2026-09-01-wayback-36e48f8d/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Aizu-2014/standings
+    roles:
+    - icpc_standings
+  - url: http://sparth.u-aizu.ac.jp/icpc2013/results/2013AizuAllProblems.pdf
+    roles:
+    - problemset
     as_of: '20210127133306'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1185
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190916160439'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional Contest 2013 in Aizu
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1185
-        as_of: '20190916160439'
-        note: Asia Regional Contest 2013 in Aizu
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: japan-2013
 - id: japan-2014
   season: 2015
   name: 2014 ACM-ICPC Asia Tokyo Regional Contest
@@ -609,27 +814,48 @@ contests:
   - 2590
   parent: wf-2015
   next: japan-2015
-  web: https://icpc.jp/2014/
-  results:
-    standings:
-    - url: https://icpc.jp/2014/regional/results/
-      archived: japan/japan-2014/standings/2026-09-01-live-2aca9aa3/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://icpc.iisf.or.jp/2014-waseda/regional/results/
-      archived: japan/japan-2014/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Tokyo-2015/standings
-  problemset: https://icpc.jp/2014/domestic/problems/
+  sources:
+  - url: https://icpc.jp/2014/
+    roles:
+    - web
+  - url: https://icpc.jp/2014/regional/results/
+    roles:
+    - standings
+    as_of: '20250803183101'
+    archived:
+    - japan/japan-2014/standings/2026-09-01-live-2aca9aa3/page.html
+    - japan/japan-2014/standings/20250803-wayback-8f349999/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.iisf.or.jp/2014-waseda/regional/results/
+    roles:
+    - standings
+    as_of: '20141022101854'
+    archived:
+    - japan/japan-2014/external-standings/2026-04-15-external/content.html
+    - japan/japan-2014/standings/20141022-wayback-9ec4359d/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Tokyo-2015/standings
+    roles:
+    - icpc_standings
+  - url: https://icpc.jp/2014/domestic/problems/
+    roles:
+    - problemset
+    as_of: '20250807134228'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1291
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201124003738'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional Contest 2014 in Tokyo
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1291
-        as_of: '20201124003738'
-        note: Asia Regional Contest 2014 in Tokyo
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: japan-2014
 - id: japan-2015
   season: 2016
   name: 2015 ACM-ICPC Asia Tsukuba Regional Contest
@@ -639,22 +865,37 @@ contests:
   - 2912
   parent: wf-2016
   next: japan-2016
-  web: https://icpc.jp/2015/
-  results:
-    standings:
-    - url: https://icpc.jp/2015/regional/results/
-      archived: japan/japan-2015/standings/2026-09-01-live-4b96376b/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Tsukuba-2016/standings
-  problemset: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Japan/2015%20Asia%20Tsukuba%20Regional%20Contest/problems.pdf
+  sources:
+  - url: https://icpc.jp/2015/
+    roles:
+    - web
+  - url: https://icpc.jp/2015/regional/results/
+    roles:
+    - standings
+    as_of: '20250719083111'
+    archived:
+    - japan/japan-2015/standings/2026-09-01-live-4b96376b/page.html
+    - japan/japan-2015/standings/20250719-wayback-2fc90938/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Tsukuba-2016/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Japan/2015%20Asia%20Tsukuba%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1440
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201029061215'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional Contest 2015 in Tsukuba
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1440
-        as_of: '20201029061215'
-        note: Asia Regional Contest 2015 in Tsukuba
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: japan-2015
 - id: japan-2016
   season: 2017
   name: 2016 ACM-ICPC Asia Tsukuba Regional Contest
@@ -664,22 +905,37 @@ contests:
   - 3042
   parent: wf-2017
   next: japan-2017
-  web: https://icpc.jp/2016/
-  results:
-    standings:
-    - url: https://icpc.jp/2016/regional/results/
-      archived: japan/japan-2016/standings/2026-09-01-live-442629c3/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Tsukuba-2017/standings
-  problemset: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Japan/2016%20Asia%20Tsukuba%20Regional%20Contest/problems.pdf
+  sources:
+  - url: https://icpc.jp/2016/
+    roles:
+    - web
+  - url: https://icpc.jp/2016/regional/results/
+    roles:
+    - standings
+    as_of: '20250803180807'
+    archived:
+    - japan/japan-2016/standings/2026-09-01-live-442629c3/page.html
+    - japan/japan-2016/standings/20250803-wayback-d5de185a/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Tsukuba-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Japan/2016%20Asia%20Tsukuba%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1533
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210119055822'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional Contest 2016 in Tsukuba
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1533
-        as_of: '20210119055822'
-        note: Asia Regional Contest 2016 in Tsukuba
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: japan-2016
 - id: japan-2017
   season: 2018
   name: 2017 ACM-ICPC Asia Tsukuba Regional Contest
@@ -689,27 +945,46 @@ contests:
   - 3413
   parent: wf-2018
   next: japan-2018
-  web: https://icpc.jp/2017/
-  results:
-    scoreboard:
-    - url: https://storage.googleapis.com/files.icpc.jp/regional2017/standings.html
-      archived: japan/japan-2017/scoreboard/2026-09-01-live-d9c4c2d9/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://icpc.jp/2017/regional/results/
-      archived: japan/japan-2017/standings/2026-09-01-live-0dbec6b9/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Tsukuba-2018/standings
-  problemset: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Japan/2017%20Asia%20Tsukuba%20Regional%20Contest/problems.pdf
+  sources:
+  - url: https://icpc.jp/2017/
+    roles:
+    - web
+  - url: https://storage.googleapis.com/files.icpc.jp/regional2017/standings.html
+    roles:
+    - scoreboard
+    as_of: '20250616055610'
+    archived:
+    - japan/japan-2017/scoreboard/2026-09-01-live-d9c4c2d9/standings.html
+    - japan/japan-2017/scoreboard/20250616-wayback-884f1800/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.jp/2017/regional/results/
+    roles:
+    - standings
+    as_of: '20250803174532'
+    archived:
+    - japan/japan-2017/standings/2026-09-01-live-0dbec6b9/page.html
+    - japan/japan-2017/standings/20250803-wayback-89b28a6a/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Tsukuba-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Japan/2017%20Asia%20Tsukuba%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1819
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201022204806'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ACM-ICPC Asia Tsukuba Regional Contest 2017
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1819
-        as_of: '20201022204806'
-        note: ACM-ICPC Asia Tsukuba Regional Contest 2017
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: japan-2017
 - id: japan-2018
   season: 2019
   name: 2018 ICPC Asia Yokohama Regional Contest
@@ -719,27 +994,44 @@ contests:
   - 3742
   parent: wf-2019
   next: japan-2019
-  web: https://icpc.jp/2018/regional/
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/102082/standings
-      archived: japan/japan-2018/scoreboard/2026-09-01-live-8ae75390/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://icpc.jp/2018/regional/results/
-      archived: japan/japan-2018/standings/2026-09-01-live-a5a5148b/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Yokohama-2019/standings
-  problemset: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Japan/2018%20Asia%20Yokohama%20Regional%20Contest/problems.pdf
+  sources:
+  - url: https://icpc.jp/2018/regional/
+    roles:
+    - web
+  - url: https://codeforces.com/gym/102082/standings
+    roles:
+    - scoreboard
+    archived:
+    - japan/japan-2018/scoreboard/2026-09-01-live-8ae75390/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.jp/2018/regional/results/
+    roles:
+    - standings
+    as_of: '20250608144612'
+    archived:
+    - japan/japan-2018/standings/2026-09-01-live-a5a5148b/page.html
+    - japan/japan-2018/standings/20250608-wayback-789bf161/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Yokohama-2019/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Japan/2018%20Asia%20Yokohama%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1982
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210623141820'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Yokohama Regional Contest 2018
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1982
-        as_of: '20210623141820'
-        note: Asia Yokohama Regional Contest 2018
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: japan-2018
 - id: japan-2019
   season: 2020
   name: 2019 ICPC Asia Yokohama Regional Contest
@@ -749,27 +1041,47 @@ contests:
   - 4165
   parent: wf-2020
   next: japan-2020
-  web: https://icpc.jp/2019/regional/
-  results:
-    standings:
-    - url: https://icpc.jp/2019/regional/results/
-      archived: japan/japan-2019/standings/2026-09-01-live-a73084a0/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://icpc.iisf.or.jp/2019-yokohama/regional-standings/
-      archived: japan/japan-2019/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Yokohama-2020/standings
-  problemset: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Japan/2019%20Asia%20Yokohama%20Regional%20Contest/problems.pdf
+  sources:
+  - url: https://icpc.jp/2019/regional/
+    roles:
+    - web
+  - url: https://icpc.jp/2019/regional/results/
+    roles:
+    - standings
+    as_of: '20250807123217'
+    archived:
+    - japan/japan-2019/standings/2026-09-01-live-a73084a0/page.html
+    - japan/japan-2019/standings/20250807-wayback-db1664b6/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.iisf.or.jp/2019-yokohama/regional-standings/
+    roles:
+    - standings
+    as_of: '20200516193717'
+    archived:
+    - japan/japan-2019/external-standings/2026-04-15-external/content.html
+    - japan/japan-2019/standings/20200516-wayback-178fafc0/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Yokohama-2020/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Japan/2019%20Asia%20Yokohama%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2137
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20230514151956'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ICPC 2019 Asia Yokohama Regional
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2137
-        as_of: '20230514151956'
-        note: ICPC 2019 Asia Yokohama Regional
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: japan-2019
 - id: japan-2020
   season: 2021
   name: 2020 ICPC Asia Yokohama Regional Contest
@@ -779,23 +1091,37 @@ contests:
   - 4331
   parent: wf-2021
   next: japan-2021
-  web: https://icpc.jp/2020/regional/
-  results:
-    standings:
-    - url: https://icpc.jp/2020/regional/results/
-      as_of: '20250803185003'
-      archived: japan/japan-2020/standings/2026-09-01-live-b0a0f984/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Yokohama-2021/standings
-  problemset: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Japan/2020%20Asia%20Yokohama%20Regional%20Contest/problems.pdf
+  sources:
+  - url: https://icpc.jp/2020/regional/
+    roles:
+    - web
+  - url: https://icpc.jp/2020/regional/results/
+    roles:
+    - standings
+    as_of: '20250803185003'
+    archived:
+    - japan/japan-2020/standings/2026-09-01-live-b0a0f984/page.html
+    - japan/japan-2020/standings/20250803-wayback-4fb2c61b/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Yokohama-2021/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Japan/2020%20Asia%20Yokohama%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2567
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20220310104513'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ICPC 2020 Asia Yokohama Regional
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2567
-        as_of: '20220310104513'
-        note: ICPC 2020 Asia Yokohama Regional
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: japan-2020
 - id: japan-2021
   season: 2022
   name: 2021 ICPC Asia Yokohama Regional Contest
@@ -805,21 +1131,36 @@ contests:
   - 4882
   parent: wf-2022
   next: japan-2022
-  web: https://icpc.jp/2021/regional/
-  results:
-    standings:
-    - url: https://icpc.jp/2021/regional/results/
-      archived: japan/japan-2021/standings/2026-09-01-live-90b24f08/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Yokohama-2022/standings
-  problemset: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Japan/2021%20Asia%20Yokohama%20Regional%20Contest/problems.pdf
+  sources:
+  - url: https://icpc.jp/2021/regional/
+    roles:
+    - web
+  - url: https://icpc.jp/2021/regional/results/
+    roles:
+    - standings
+    as_of: '20250803184055'
+    archived:
+    - japan/japan-2021/standings/2026-09-01-live-90b24f08/page.html
+    - japan/japan-2021/standings/20250803-wayback-2efee592/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Yokohama-2022/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Japan/2021%20Asia%20Yokohama%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3082
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ICPC 2021 Asia Yokohama Regional
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3082
-        note: ICPC 2021 Asia Yokohama Regional
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: japan-2021
 - id: japan-2022
   season: 2023
   name: 2022 ICPC Asia Yokohama Regional Contest
@@ -829,18 +1170,31 @@ contests:
   - 5624
   parent: wf-2023
   next: japan-2023
-  web: https://icpc.jp/2022/regional/
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Yokohama-2023/standings
-    archived: japan/japan-2022/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.jp/2022/regional/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Yokohama-2023/standings
+    roles:
+    - icpc_standings
+    archived:
+    - japan/japan-2022/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 5624, 43 teams, DB fetch 2026-04-26)
-  problemset: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Japan/2022%20Asia%20Yokohama%20Regional%20Contest/problems.pdf
+  - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Japan/2022%20Asia%20Yokohama%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3481
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260618021014'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ICPC 2022 Asia Yokohama Regional
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3481
-        note: ICPC 2022 Asia Yokohama Regional
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: japan-2022
 - id: japan-2023
   season: 2024
   name: 2023 ICPC Asia Yokohama Regional Contest
@@ -850,18 +1204,31 @@ contests:
   - 7498
   parent: apc-2024
   next: japan-2024
-  web: https://icpc.jp/2023/regional/
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Yokohama-2024/standings
-    archived: japan/japan-2023/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.jp/2023/regional/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Yokohama-2024/standings
+    roles:
+    - icpc_standings
+    archived:
+    - japan/japan-2023/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 7498, 58 teams, DB fetch 2026-04-26)
-  problemset: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Japan/2023%20Asia%20Yokohama%20Regional%20Contest/problems.pdf
+  - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Japan/2023%20Asia%20Yokohama%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4070
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260618021231'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ICPC 2023 Asia Yokohama Regional
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4070
-        note: ICPC 2023 Asia Yokohama Regional
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: japan-2023
 - id: japan-2024
   season: 2025
   name: 2024 ICPC Asia Yokohama Regional Contest
@@ -871,26 +1238,45 @@ contests:
   - 8738
   parent: apc-2025
   next: japan-2025
-  web: https://icpc.jp/2024/regional/
-  results:
-    scoreboard:
-    - url: https://storage.googleapis.com/files.icpc.jp/regional2024/standings.html
-      archived: japan/japan-2024/scoreboard/2026-09-01-live-5f196953/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://codeforces.com/gym/105633/standings
-      archived: japan/japan-2024/scoreboard/2026-09-01-live-9a791bd4/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Yokohama-2025/standings
-  problemset: https://storage.googleapis.com/wp-content.icpc.jp/sites/12/2024/12/all_with_cover_web.pdf
+  sources:
+  - url: https://icpc.jp/2024/regional/
+    roles:
+    - web
+  - url: https://storage.googleapis.com/files.icpc.jp/regional2024/standings.html
+    roles:
+    - scoreboard
+    as_of: '20250616062150'
+    archived:
+    - japan/japan-2024/scoreboard/2026-09-01-live-5f196953/standings.html
+    - japan/japan-2024/scoreboard/20250616-wayback-afcf8088/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://codeforces.com/gym/105633/standings
+    roles:
+    - scoreboard
+    archived:
+    - japan/japan-2024/scoreboard/2026-09-01-live-9a791bd4/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Yokohama-2025/standings
+    roles:
+    - icpc_standings
+  - url: https://storage.googleapis.com/wp-content.icpc.jp/sites/12/2024/12/all_with_cover_web.pdf
+    roles:
+    - problemset
+    as_of: '20250603212113'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4371
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20241224152540'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2024 ICPC Asia Yokohama Regional Contest
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4371
-        as_of: '20241224152540'
-        note: 2024 ICPC Asia Yokohama Regional Contest
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: japan-2024
 - id: japan-2025
   season: 2026
   name: 2025 ICPC Asia Yokohama Regional Contest
@@ -900,26 +1286,47 @@ contests:
   - 9386
   parent: apc-2026
   next: japan-2026
-  web: https://icpc.jp/2025/regional/
-  results:
-    scoreboard:
-    - url: https://storage.googleapis.com/files.icpc.jp/regional2025/standings.html
-      archived: japan/japan-2025/scoreboard/2026-09-01-live-fb0f45fc/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://icpcsec.firebaseapp.com/standings/
-      archived: japan/japan-2025/scoreboard/2026-09-01-live-4049ee58/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Yokohama-2026/standings
-  problemset: https://icpc.jp/2025/docs/all_contest_en_with_cover.pdf
+  sources:
+  - url: https://icpc.jp/2025/regional/
+    roles:
+    - web
+  - url: https://storage.googleapis.com/files.icpc.jp/regional2025/standings.html
+    roles:
+    - scoreboard
+    as_of: '20251226065852'
+    archived:
+    - japan/japan-2025/scoreboard/2026-09-01-live-fb0f45fc/standings.html
+    - japan/japan-2025/scoreboard/20251226-wayback-f842f8f4/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcsec.firebaseapp.com/standings/
+    roles:
+    - scoreboard
+    as_of: '20260301011147'
+    archived:
+    - japan/japan-2025/scoreboard/2026-09-01-live-4049ee58/page.html
+    - japan/japan-2025/scoreboard/20260301-wayback-d007776f/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Yokohama-2026/standings
+    roles:
+    - icpc_standings
+  - url: https://icpc.jp/2025/docs/all_contest_en_with_cover.pdf
+    roles:
+    - problemset
+    as_of: '20260113125524'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4643
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260418220821'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2025 ICPC Asia Yokohama Regional Contest
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4643
-        as_of: '20260418220821'
-        note: 2025 ICPC Asia Yokohama Regional Contest
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: japan-2025
 - id: japan-2026
   status: upcoming
   season: 2027

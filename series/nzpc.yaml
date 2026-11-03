@@ -1,233 +1,285 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: nzpc
   name: New Zealand Programming Contest
+  tier: subregional
+  region: Asia Pacific
+  naming: season-start
 contests:
 - id: nzpc-1998
   season: 1999
   cms_ids: []
   parent: south-pacific-1998
   next: null
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc99/Regionals/NZ98/Standings.htm
-      as_of: '20100710010615'
-      url_state: unknown
-      url_checked: '2026-11-02'
-      archived: nzpc/nzpc-1998/standings/2026-09-01-wayback-52d46490/Standings.htm
-    - url: http://icpc.baylor.edu/past/icpc99/Regionals/NZ98/Standings.htm
-      as_of: '20020527172144'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: unknown
-      url_checked: '2026-11-02'
-  problemset: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC1998.pdf
+  sources:
+  - url: http://icpc.baylor.edu/past/icpc99/Regionals/NZ98/Standings.htm
+    roles:
+    - standings
+    as_of: '20100710010615'
+    archived:
+    - nzpc/nzpc-1998/standings/2026-09-01-wayback-52d46490/Standings.htm
+    - nzpc/nzpc-1998/standings/20020527-wayback-891d491d/Standings.htm
+    url_state: unknown
+    url_checked: '2026-11-02'
+    note: as_of 20020527172144 for standings; added by url-hunt 2026-09-01 (cdx-baylor-regionals)
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC1998.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: nzpc-2002
   cms_ids: []
   next: nzpc-2004
-  results:
-    standings:
-    - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz02results.pdf
-      as_of: '20081018021235'
-      note: added by url-hunt 2026-09-01 (wave3-nzpc)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: nzpc/nzpc-2002/standings/20081018-wayback-55e9108b/nz02results.pdf
+  sources:
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz02results.pdf
+    roles:
+    - standings
+    as_of: '20081018021235'
+    archived:
+    - nzpc/nzpc-2002/standings/20081018-wayback-55e9108b/nz02results.pdf
+    - nzpc/nzpc-2002/standings/20260902-live-880c50a4/nz02results.pdf
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-nzpc)
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2002.pdf
+    roles:
+    - problemset
+    as_of: '20100516042310'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1145
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191212062739'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 10
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1145
-        as_of: '20191212062739'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2002.pdf
+    set: nzpc-2002
 - id: nzpc-2004
   cms_ids: []
   next: nzpc-2005
-  results:
-    standings:
-    - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz04resultsFull.html
-      as_of: '20081018020838'
-      note: added by url-hunt 2026-09-01 (wave3-nzpc)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: nzpc/nzpc-2004/standings/20081018-wayback-4b30f86c/nz04resultsFull.html
+  sources:
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz04resultsFull.html
+    roles:
+    - standings
+    as_of: '20081018020838'
+    archived:
+    - nzpc/nzpc-2004/standings/20081018-wayback-4b30f86c/nz04resultsFull.html
+    - nzpc/nzpc-2004/standings/20260902-live-b16336f4/nz04resultsFull.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-nzpc)
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2004.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1144
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190823233355'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 15
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1144
-        as_of: '20190823233355'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2004.pdf
+    set: nzpc-2004
 - id: nzpc-2005
   cms_ids: []
   next: nzpc-2006
-  results:
-    standings:
-    - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz05results.pdf
-      as_of: '20081018020914'
-      note: added by url-hunt 2026-09-01 (wave3-nzpc)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: nzpc/nzpc-2005/standings/20081018-wayback-54248cae/nz05results.pdf
+  sources:
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz05results.pdf
+    roles:
+    - standings
+    as_of: '20081018020914'
+    archived:
+    - nzpc/nzpc-2005/standings/20081018-wayback-54248cae/nz05results.pdf
+    - nzpc/nzpc-2005/standings/20260902-live-4f65b8b4/nz05results.pdf
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-nzpc)
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2005.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1143
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190719095629'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 15
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1143
-        as_of: '20190719095629'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2005.pdf
+    set: nzpc-2005
 - id: nzpc-2006
   cms_ids: []
   next: nzpc-2007
-  results:
-    standings:
-    - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz06results.pdf
-      as_of: '20081018021213'
-      note: added by url-hunt 2026-09-01 (wave3-nzpc)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: nzpc/nzpc-2006/standings/20081018-wayback-4c61081e/nz06results.pdf
+  sources:
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz06results.pdf
+    roles:
+    - standings
+    as_of: '20081018021213'
+    archived:
+    - nzpc/nzpc-2006/standings/20081018-wayback-4c61081e/nz06results.pdf
+    - nzpc/nzpc-2006/standings/20260902-live-bd3a9de6/nz06results.pdf
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-nzpc)
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2006.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1142
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190819223511'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 15
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1142
-        as_of: '20190819223511'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2006.pdf
+    set: nzpc-2006
 - id: nzpc-2007
   cms_ids: []
   next: nzpc-2008
-  results:
-    standings:
-    - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz07results.pdf
-      as_of: '20081018021157'
-      note: added by url-hunt 2026-09-01 (wave3-nzpc)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: nzpc/nzpc-2007/standings/20081018-wayback-d2dd8ee1/nz07results.pdf
+  sources:
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz07results.pdf
+    roles:
+    - standings
+    as_of: '20081018021157'
+    archived:
+    - nzpc/nzpc-2007/standings/20081018-wayback-d2dd8ee1/nz07results.pdf
+    - nzpc/nzpc-2007/standings/20260902-live-44773903/nz07results.pdf
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-nzpc)
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2007.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1232
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210126221900'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 16
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1232
-        as_of: '20210126221900'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2007.pdf
+    set: nzpc-2007
 - id: nzpc-2008
   cms_ids: []
   next: nzpc-2009
-  results:
-    standings:
-    - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz08results.pdf
-      as_of: '20081018021107'
-      note: added by url-hunt 2026-09-01 (wave3-nzpc)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: nzpc/nzpc-2008/standings/20081018-wayback-c6280629/nz08results.pdf
+  sources:
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz08results.pdf
+    roles:
+    - standings
+    as_of: '20081018021107'
+    archived:
+    - nzpc/nzpc-2008/standings/20081018-wayback-c6280629/nz08results.pdf
+    - nzpc/nzpc-2008/standings/20260902-live-c504079b/nz08results.pdf
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-nzpc)
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2008.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/914
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191022015958'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 14
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/914
-        as_of: '20191022015958'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2008.pdf
+    set: nzpc-2008
 - id: nzpc-2009
   cms_ids: []
   next: nzpc-2010
-  results:
-    standings:
-    - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz09results.pdf
-      as_of: '20100514230710'
-      note: added by url-hunt 2026-09-01 (wave3-nzpc)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: nzpc/nzpc-2009/standings/20100514-wayback-94982c62/nz09results.pdf
+  sources:
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz09results.pdf
+    roles:
+    - standings
+    as_of: '20100514230710'
+    archived:
+    - nzpc/nzpc-2009/standings/20100514-wayback-94982c62/nz09results.pdf
+    - nzpc/nzpc-2009/standings/20260902-live-86cc9ad0/nz09results.pdf
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-nzpc)
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2009.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/913
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190721140547'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 15
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/913
-        as_of: '20190721140547'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2009.pdf
+    set: nzpc-2009
 - id: nzpc-2010
   cms_ids: []
   next: nzpc-2011
-  results:
-    standings:
-    - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz10results.pdf
-      as_of: '20160212094157'
-      note: added by url-hunt 2026-09-01 (wave3-nzpc)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: nzpc/nzpc-2010/standings/20160212-wayback-faf409c3/nz10results.pdf
+  sources:
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz10results.pdf
+    roles:
+    - standings
+    as_of: '20160212094157'
+    archived:
+    - nzpc/nzpc-2010/standings/20160212-wayback-faf409c3/nz10results.pdf
+    - nzpc/nzpc-2010/standings/20260902-live-e1882cff/nz10results.pdf
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-nzpc)
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2010.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/447
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201124184800'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 15
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/447
-        as_of: '20201124184800'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2010.pdf
+    set: nzpc-2010
 - id: nzpc-2011
   cms_ids: []
   next: nzpc-2012
-  results:
-    standings:
-    - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz11results.pdf
-      as_of: '20160212094206'
-      note: added by url-hunt 2026-09-01 (wave3-nzpc)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: nzpc/nzpc-2011/standings/20160212-wayback-0ec42f43/nz11results.pdf
+  sources:
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz11results.pdf
+    roles:
+    - standings
+    as_of: '20160212094206'
+    archived:
+    - nzpc/nzpc-2011/standings/20160212-wayback-0ec42f43/nz11results.pdf
+    - nzpc/nzpc-2011/standings/20260902-live-f384a8ff/nz11results.pdf
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-nzpc)
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2011.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/446
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201028152744'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 14
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/446
-        as_of: '20201028152744'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2011.pdf
+    set: nzpc-2011
 - id: nzpc-2012
   season: 2013
   name: 2012 New Zealand Programming Contest
@@ -237,26 +289,31 @@ contests:
   - 1534
   parent: south-pacific-2012
   next: nzpc-2013
-  results:
-    standings:
-    - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz12results.pdf
-      as_of: '20160212094233'
-      note: added by url-hunt 2026-09-01 (wave3-nzpc)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: nzpc/nzpc-2012/standings/20160212-wayback-db9865a2/nz12results.pdf
+  sources:
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz12results.pdf
+    roles:
+    - standings
+    as_of: '20160212094233'
+    archived:
+    - nzpc/nzpc-2012/standings/20160212-wayback-db9865a2/nz12results.pdf
+    - nzpc/nzpc-2012/standings/20260902-live-2980d20b/nz12results.pdf
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-nzpc)
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2012.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/445
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201026182941'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 13
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/445
-        as_of: '20201026182941'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2012.pdf
+    set: nzpc-2012
 - id: nzpc-2013
   season: 2014
   name: 2013 New Zealand Programming Contest
@@ -265,229 +322,275 @@ contests:
   - 2042
   parent: south-pacific-2013
   next: nzpc-2015
-  results:
-    standings:
-    - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz13results.pdf
-      as_of: '20160212094241'
-      note: added by url-hunt 2026-09-01 (wave3-nzpc)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: nzpc/nzpc-2013/standings/20160212-wayback-40218c92/nz13results.pdf
+  sources:
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz13results.pdf
+    roles:
+    - standings
+    as_of: '20160212094241'
+    archived:
+    - nzpc/nzpc-2013/standings/20160212-wayback-40218c92/nz13results.pdf
+    - nzpc/nzpc-2013/standings/20260902-live-d67a8353/nz13results.pdf
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-nzpc)
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2013.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    notes: No date, no teams in CMS
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2013.pdf
+    set: nzpc-2013
 - id: nzpc-2015
   cms_ids: []
   next: nzpc-2016
-  web: https://nzprogcontest.org.nz/results/2015/
-  results:
-    scoreboard:
-    - url: https://nzprogcontest.org.nz/results/2015/
-      archived: nzpc/nzpc-2015/scoreboard/2026-09-01-live-b7aef3e5/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://nzprogcontest.org.nz/results/2015/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20230609203527'
+    archived:
+    - nzpc/nzpc-2015/scoreboard/2026-09-01-live-b7aef3e5/page.html
+    - nzpc/nzpc-2015/scoreboard/20230609-wayback-dc65facd/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2015.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1395
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210119084153'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 15
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1395
-        as_of: '20210119084153'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2015.pdf
+    set: nzpc-2015
 - id: nzpc-2016
   cms_ids: []
   next: nzpc-2017
-  web: https://nzprogcontest.org.nz/results/2016/
-  results:
-    scoreboard:
-    - url: https://nzprogcontest.org.nz/results/2016/
-      archived: nzpc/nzpc-2016/scoreboard/2026-09-01-live-2e24afa5/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://nzprogcontest.org.nz/results/2016/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20230609215959'
+    archived:
+    - nzpc/nzpc-2016/scoreboard/2026-09-01-live-2e24afa5/page.html
+    - nzpc/nzpc-2016/scoreboard/20230609-wayback-0e1cc6f8/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2016.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1562
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190821195745'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 16
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1562
-        as_of: '20190821195745'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2016.pdf
+    set: nzpc-2016
 - id: nzpc-2017
   cms_ids: []
   next: nzpc-2018
-  web: https://nzprogcontest.org.nz/results/2017/
-  results:
-    scoreboard:
-    - url: https://nzprogcontest.org.nz/results/2017/
-      archived: nzpc/nzpc-2017/scoreboard/2026-09-01-live-ede98ef7/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://nzprogcontest.org.nz/results/2017/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20230609205317'
+    archived:
+    - nzpc/nzpc-2017/scoreboard/2026-09-01-live-ede98ef7/page.html
+    - nzpc/nzpc-2017/scoreboard/20230609-wayback-db19ade3/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2017.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1799
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190719100713'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 15
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1799
-        as_of: '20190719100713'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2017.pdf
+    set: nzpc-2017
 - id: nzpc-2018
   cms_ids: []
   next: nzpc-2019
-  web: https://nzprogcontest.org.nz/results/2018/
-  results:
-    scoreboard:
-    - url: https://nzprogcontest.org.nz/results/2018/
-      archived: nzpc/nzpc-2018/scoreboard/2026-09-01-live-c9d76b8d/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://nzprogcontest.org.nz/results/2018/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20230609221351'
+    archived:
+    - nzpc/nzpc-2018/scoreboard/2026-09-01-live-c9d76b8d/page.html
+    - nzpc/nzpc-2018/scoreboard/20230609-wayback-fd6ab902/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2018.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 16
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2018.pdf
+    set: nzpc-2018
 - id: nzpc-2019
   cms_ids: []
   next: nzpc-2020
-  web: https://nzprogcontest.org.nz/results/2019/
-  results:
-    scoreboard:
-    - url: https://nzprogcontest.org.nz/results/2019/
-      archived: nzpc/nzpc-2019/scoreboard/2026-09-01-live-a4e82b01/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://nzprogcontest.org.nz/results/2019/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20230609210842'
+    archived:
+    - nzpc/nzpc-2019/scoreboard/2026-09-01-live-a4e82b01/page.html
+    - nzpc/nzpc-2019/scoreboard/20230609-wayback-722c19a8/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2019.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 16
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2019.pdf
+    set: nzpc-2019
 - id: nzpc-2020
   cms_ids: []
   next: nzpc-2021
-  web: https://nzprogcontest.org.nz/results/2020/
-  results:
-    scoreboard:
-    - url: https://nzprogcontest.org.nz/results/2020/
-      archived: nzpc/nzpc-2020/scoreboard/2026-09-01-live-808e8b09/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://nzprogcontest.org.nz/results/2020/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20230609220718'
+    archived:
+    - nzpc/nzpc-2020/scoreboard/2026-09-01-live-808e8b09/page.html
+    - nzpc/nzpc-2020/scoreboard/20230609-wayback-029af32a/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2020.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 16
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2020.pdf
+    set: nzpc-2020
 - id: nzpc-2021
   cms_ids: []
   next: nzpc-2022
-  web: https://nzprogcontest.org.nz/results/2021/
-  results:
-    scoreboard:
-    - url: https://nzprogcontest.org.nz/results/2021/
-      archived: nzpc/nzpc-2021/scoreboard/2026-09-01-live-56f63bc6/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://nzprogcontest.org.nz/results/2021/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20230609210002'
+    archived:
+    - nzpc/nzpc-2021/scoreboard/2026-09-01-live-56f63bc6/page.html
+    - nzpc/nzpc-2021/scoreboard/20230609-wayback-448f1916/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2021.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 14
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2021.pdf
+    set: nzpc-2021
 - id: nzpc-2022
   cms_ids: []
   next: nzpc-2023
-  web: https://nzprogcontest.org.nz/results/2022/
-  results:
-    scoreboard:
-    - url: https://nzprogcontest.org.nz/results/2022/
-      archived: nzpc/nzpc-2022/scoreboard/2026-09-01-live-065afdab/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://nzprogcontest.org.nz/results/2022/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20230609222006'
+    archived:
+    - nzpc/nzpc-2022/scoreboard/2026-09-01-live-065afdab/page.html
+    - nzpc/nzpc-2022/scoreboard/20230609-wayback-95f0b89f/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2022.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 16
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2022.pdf
+    set: nzpc-2022
 - id: nzpc-2023
   name: 2023 New Zealand Programming Contest
   cms_ids: []
   next: null
-  web: https://nzprogcontest.org.nz/results/2023/
-  results:
-    scoreboard:
-    - url: https://nzprogcontest.org.nz/results/2023/
-      archived: nzpc/nzpc-2023/scoreboard/2026-09-01-live-596abe28/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://nzprogcontest.org.nz/results/2023/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20231003235217'
+    archived:
+    - nzpc/nzpc-2023/scoreboard/2026-09-01-live-596abe28/page.html
+    - nzpc/nzpc-2023/scoreboard/20231003-wayback-0b7b30f9/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2023.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 16
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2023.pdf
+    set: nzpc-2023
 - id: nzpc-2000
   season: 2001
   name: 2000 New Zealand Programming Contest
   cms_ids: []
   parent: south-pacific-2000
-  notes: added from misclass audit 2026-09-02 (None teams, None results in CMS); missing edition; series
-    proven continuous by the ~mjd problemset archive (NZPC2000.pdf exists)
   sources:
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz00results.html
+    roles:
+    - standings
+    as_of: '20040830214536'
+    archived:
+    - nzpc/nzpc-2000/standings/20040830-wayback-f01dbe22/nz00results.html
+    - nzpc/nzpc-2000/standings/20261023-live-9c945689/nz00results.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2000.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  provenance:
   - 'Michael Dinneen (Auckland) — NZ Programming Contest 2000 results (2000): Contest on August 5th; 28
     teams scored; overall winner Auckland''s Po Shao / Lev Gimel''farb / Vane Trajkov (230 pts, Level
     3); Chris Handley (Otago) is NZ Contest Director; Auckland judges named. — https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz00results.html
     [existence hunt 2026-10-22]'
-  results:
-    standings:
-    - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz00results.html
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      as_of: '20040830214536'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: nzpc/nzpc-2000/standings/20040830-wayback-f01dbe22/nz00results.html
-  problemset: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2000.pdf
+  notes: added from misclass audit 2026-09-02 (None teams, None results in CMS); missing edition; series
+    proven continuous by the ~mjd problemset archive (NZPC2000.pdf exists)
 - id: nzpc-2001
   season: 2002
   name: 2001 New Zealand Programming Contest
   cms_ids: []
   parent: south-pacific-2001
-  notes: added from misclass audit 2026-09-02 (None teams, None results in CMS); missing edition; ~mjd
-    archive has NZPC2001.pdf
   sources:
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2001.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  provenance:
   - 'South Pacific Competitive Programming Association archive — 2001 ICPC results & site reports (2001
     (republished 2025)): Auckland site report refers to ''the New Zealand Programming Contest winners''
     among the University of Auckland and Waikato teams; Auckland 12 teams, Dunedin 7 teams; NZ champions
@@ -497,15 +600,20 @@ contests:
     Seminar by the NZ contest director on how the New Zealand and ACM contests changed over the last decade
     (history: NZ teams 10th at 1989 finals, Otago won 1990 finals). No 2001 contest data. — https://www.cs.otago.ac.nz/csis-seminars/2001/010810-chris_handley.html
     [existence hunt 2026-10-22]'
-  problemset: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2001.pdf
+  notes: added from misclass audit 2026-09-02 (None teams, None results in CMS); missing edition; ~mjd
+    archive has NZPC2001.pdf
 - id: nzpc-2003
   season: 2004
   name: 2003 New Zealand Programming Contest
   cms_ids: []
   parent: south-pacific-2003
-  notes: added from misclass audit 2026-09-02 (None teams, None results in CMS); missing edition; ~mjd
-    archive has NZPC2003.pdf
   sources:
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2003.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  provenance:
   - 'Otago CS seminar: Andrew Trotman, ''The Programming Contests'' (2004-04-30): Otago''s ''The Pumpkin
     Lemma'' placed 27th of 73 at the ACM world finals in Prague; ''on the way to the finals, the team
     won the New Zealand contest and took the top New Zealand place at the South Pacific contest''. — https://cs.otago.ac.nz/csis-seminars/2004/040430-andrew_trotman.html
@@ -514,15 +622,20 @@ contests:
     on Saturday 20 September 2003 at 9 sites, 96 teams; Dunedin site winner and ''NZ Champions'' The Pumpkin
     Lemma (Otago); Auckland site 16 teams, champion ''A Handshaking Llama'' (Waikato). — https://sppcontests.org/archive/2003-icpc-results/
     [existence hunt 2026-10-22]'
-  problemset: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2003.pdf
+  notes: added from misclass audit 2026-09-02 (None teams, None results in CMS); missing edition; ~mjd
+    archive has NZPC2003.pdf
 - id: nzpc-2014
   season: 2015
   name: 2014 New Zealand Programming Contest
   cms_ids: []
   parent: south-pacific-2014
-  notes: added from misclass audit 2026-09-02 (None teams, None results in CMS); missing edition; ~mjd
-    archive has NZPC2014.pdf
   sources:
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2014.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  provenance:
   - 'Auckland Site Page for the NZ Programming Contest (2016 edition) (2016): NZPC 2016 on Saturday 6
     August 2016 at Auckland; mentions the official NZPC site maintained by director Phil Robbins, past
     problems/results on Dinneen''s page, and ''Photos of the 2014 and 2015 Auckland contests''. — https://www.cs.auckland.ac.nz/~mjd/prog_contest/NZinfo.html
@@ -533,4 +646,5 @@ contests:
   - 'NZPC official site — About / Phil Robbins memoriam (2026-07-22): Phil Robbins was NZPC Contest Director
     from 2004 to 2026 (22 years), i.e. the contest ran annually through 2014; History section ''under
     construction''. — https://nzprogcontest.org.nz/about/ [existence hunt 2026-10-22]'
-  problemset: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2014.pdf
+  notes: added from misclass audit 2026-09-02 (None teams, None results in CMS); missing edition; ~mjd
+    archive has NZPC2014.pdf

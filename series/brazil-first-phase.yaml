@@ -1,16 +1,44 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: brazil-first-phase
   name: ICPC Brazil Sub-Regional (Primeira Fase)
+  tier: subregional
+  region: Latin America
+  naming: season-start
 contests:
 - id: brazil-first-phase-1996
   season: 1997
   name: Maratona de Programação SBC / Brazil First Phase 1996
   cms_ids: []
-  notes: 'from icpc-history master_contests (family ruling 2026-09-04; src: region-latam.md (archive reconstruction));
-    existence hunt 2026-10-22: verdict likely-not-run — review'
   next: brazil-first-phase-1997
   sources:
+  - url: https://maratona.sbc.org.br/hist/1996/96_inicial.html
+    roles:
+    - web
+  - url: https://maratona.sbc.org.br/hist/1996/index.html
+    roles:
+    - standings
+    as_of: '20200718005034'
+    archived:
+    - brazil-first-phase/brazil-first-phase-1996/standings/20200718-wayback-db0dc48e/index.html
+    - brazil-first-phase/brazil-first-phase-1996/standings/20261023-live-cafb915f/index.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/1996/participantes.html
+    roles:
+    - rankings
+    archived:
+    - brazil-first-phase/brazil-first-phase-1996/rankings/20261023-live-b247da5d/participantes.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/1996/probl.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  provenance:
   - 'Maratona SBC history page 1996 (2021-03-22 (last modified)): Contest ''28 e 29 de novembro de 1996''
     at UFMG, ''pela primeira vez''; results table of 11 universities, winner IC-Unicamp 3 problems/702;
     only Brazilian/South American team invited to WF 2 March 1997 San Jose. Single event — https://maratona.sbc.org.br/hist/1996/index.html
@@ -25,31 +53,31 @@ contests:
     Nov 1996, one site only (UFMG), Regional Director Claudionor Jose Nunes Coelho, Brasil 13 teams, podium
     IC-UNICAMP / UnB / IME-USP; ''Primer concurso sudamericano... clasificatorio''; only the c — https://www.icpccaribe.org/icpc-latam/concursos-regionales-acm-icpc-de-sudam%C3%A9rica-1996-2003
     [existence hunt 2026-10-22]'
-  results:
-    standings:
-    - url: https://maratona.sbc.org.br/hist/1996/index.html
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      as_of: '20200718005034'
-      url_state: changed
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-1996/standings/20200718-wayback-db0dc48e/index.html
-    rankings:
-    - url: https://maratona.sbc.org.br/hist/1996/participantes.html
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-1996/rankings/20261023-live-b247da5d/participantes.html
-  web: https://maratona.sbc.org.br/hist/1996/96_inicial.html
-  mirrors: []
-  problemset: https://maratona.sbc.org.br/hist/1996/probl.pdf
+  notes: 'from icpc-history master_contests (family ruling 2026-09-04; src: region-latam.md (archive reconstruction));
+    existence hunt 2026-10-22: verdict likely-not-run — review'
 - id: brazil-first-phase-1997
   season: 1998
   name: Maratona de Programação SBC / Brazil First Phase 1997
   cms_ids: []
-  notes: 'from icpc-history master_contests (family ruling 2026-09-04; src: region-latam.md (archive reconstruction));
-    existence hunt 2026-10-22: verdict likely-not-run — review'
   next: brazil-first-phase-2008
   sources:
+  - url: https://maratona.sbc.org.br/hist/1997/index.html
+    roles:
+    - web
+  - url: https://maratona.sbc.org.br/hist/1997/result.html
+    roles:
+    - standings
+    archived:
+    - brazil-first-phase/brazil-first-phase-1997/standings/20261023-live-44de29ad/result.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/1997/contest_only.ps
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  provenance:
   - 'Maratona SBC history page 1997 (2009-04-29 (last modified)): ''1997 - II Consun, Campinas'', ''12
     a 14 de dezembro de 1997''; top-3 Brazilian teams PUC-RJ, UFPE, FURG; PUC-RJ ''o unico time brasileiro
     (e sul-americano) classificado para as finais mundiais'' (Atlanta, 28 Feb 1998, 24th,  — https://maratona.sbc.org.br/hist/1997/index.html
@@ -66,16 +94,8 @@ contests:
   - 'ICPC Latin America - LARs 1996-2023 (n/a): Lists ''The 1997 ACM Programming Contest South America''
     -> maratona.sbc.org.br/hist/1997/index.html. — https://www.icpclatam.org/regionals/lars1996-2023 [existence
     hunt 2026-10-22]'
-  web: https://maratona.sbc.org.br/hist/1997/index.html
-  problemset: https://maratona.sbc.org.br/hist/1997/contest_only.ps
-  results:
-    standings:
-    - url: https://maratona.sbc.org.br/hist/1997/result.html
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: changed
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-1997/standings/20261023-live-44de29ad/result.html
-  mirrors: []
+  notes: 'from icpc-history master_contests (family ruling 2026-09-04; src: region-latam.md (archive reconstruction));
+    existence hunt 2026-10-22: verdict likely-not-run — review'
 - id: brazil-first-phase-2008
   season: 2009
   name: 2008 South America/Brazil First Phase
@@ -83,10 +103,63 @@ contests:
   cms_ids:
   - 58
   parent: brazil-2008
-  notes: '361 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
-    +series lineage)'
   next: brazil-first-phase-2009
   sources:
+  - url: https://maratona.sbc.org.br/hist/2008/index.html
+    roles:
+    - web
+  - url: https://maratona.sbc.org.br/hist/2008/primeira-fase/resultados/saopaulo/score-detalhado.php.html
+    roles:
+    - scoreboard
+    archived:
+    - brazil-first-phase/brazil-first-phase-2008/scoreboard/20261023-live-2882d80c/score-detalhado.php.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2008/primeira-fase/resultados/riodejaneiro/score.php.html
+    roles:
+    - scoreboard
+    archived:
+    - brazil-first-phase/brazil-first-phase-2008/scoreboard/20261023-live-c68baf86/score.php.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2008/primeira-fase/resultados/curitiba/score.php.html
+    roles:
+    - scoreboard
+    archived:
+    - brazil-first-phase/brazil-first-phase-2008/scoreboard/20261023-live-101b8fdc/score.php.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2008/primeira-fase/resultados/juizdefora/html/full.html
+    roles:
+    - scoreboard
+    archived:
+    - brazil-first-phase/brazil-first-phase-2008/scoreboard/20261023-live-7d563947/full.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2008/primeira-fase
+    roles:
+    - rankings
+    archived:
+    - brazil-first-phase/brazil-first-phase-2008/rankings/20261023-live-4570187d/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2008/primeira-fase/maratona_v5.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://maratona.ime.usp.br/hist/2008/primeira-fase/maratona_v5.pdf
+    roles:
+    - problemset
+    as_of: '20171011112452'
+    url_state: dead
+    url_checked: '2026-11-02'
+  provenance:
   - 'Maratona de Programacao 2008 history page (2008): ''Primeira Fase: 20 de setembro de 2008''; 40 sedes;
     record 360 teams from 129 schools; links to primeira-fase results. — https://maratona.sbc.org.br/hist/2008/index.html
     [existence hunt 2026-10-22]'
@@ -99,40 +172,8 @@ contests:
   - 'ICPC Caribe - Brasil 2004-2016 (n/a): 2008: first phase 20 Sep 2008, 40 sites, 360 teams (361 per
     Baylor); final at UVV, Espirito Santo. — https://www.icpccaribe.org/icpc-latam/concursos-regionales-acm-icpc-de-brasil-2004-2016
     [existence hunt 2026-10-22]'
-  results:
-    rankings:
-    - url: https://maratona.sbc.org.br/hist/2008/primeira-fase
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2008/rankings/20261023-live-4570187d/page.html
-    scoreboard:
-    - url: https://maratona.sbc.org.br/hist/2008/primeira-fase/resultados/saopaulo/score-detalhado.php.html
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2008/scoreboard/20261023-live-2882d80c/score-detalhado.php.html
-    - url: https://maratona.sbc.org.br/hist/2008/primeira-fase/resultados/riodejaneiro/score.php.html
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2008/scoreboard/20261023-live-c68baf86/score.php.html
-    - url: https://maratona.sbc.org.br/hist/2008/primeira-fase/resultados/curitiba/score.php.html
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2008/scoreboard/20261023-live-101b8fdc/score.php.html
-    - url: https://maratona.sbc.org.br/hist/2008/primeira-fase/resultados/juizdefora/html/full.html
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2008/scoreboard/20261023-live-7d563947/full.html
-  web: https://maratona.sbc.org.br/hist/2008/index.html
-  mirrors: []
-  problemset:
-  - https://maratona.sbc.org.br/hist/2008/primeira-fase/maratona_v5.pdf
-  - url: http://maratona.ime.usp.br/hist/2008/primeira-fase/maratona_v5.pdf
-    as_of: '20171011112452'
+  notes: '361 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
+    +series lineage)'
 - id: brazil-first-phase-2009
   season: 2010
   name: 2009 South America/Brazil First Phase
@@ -140,9 +181,25 @@ contests:
   cms_ids:
   - 517
   parent: brazil-2009
-  notes: '412 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   next: brazil-first-phase-2010
   sources:
+  - url: https://maratona.sbc.org.br/hist/2009/index.html
+    roles:
+    - web
+  - url: https://maratona.sbc.org.br/hist/2009/primeira-fase
+    roles:
+    - rankings
+    archived:
+    - brazil-first-phase/brazil-first-phase-2009/rankings/20261023-live-55943546/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2009/primeira-fase/primeirafase09/maratona.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  provenance:
   - 'XIV Maratona 2009 history page (2009): First phase 19 Sep 2009, ''44 sedes espalhadas pelo pais'',
     ''participacao recorde de 410 times de 145 escolas''. — https://maratona.sbc.org.br/hist/2009/index.html
     [existence hunt 2026-10-22]'
@@ -155,16 +212,7 @@ contests:
   - 'ICPC Caribe - Brasil 2004-2016 (n/a): 2009: 19 Sep 2009, 44 sites, 410 teams, final IC-UNICAMP. —
     https://www.icpccaribe.org/icpc-latam/concursos-regionales-acm-icpc-de-brasil-2004-2016 [existence
     hunt 2026-10-22]'
-  results:
-    rankings:
-    - url: https://maratona.sbc.org.br/hist/2009/primeira-fase
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2009/rankings/20261023-live-55943546/page.html
-  web: https://maratona.sbc.org.br/hist/2009/index.html
-  mirrors: []
-  problemset: https://maratona.sbc.org.br/hist/2009/primeira-fase/primeirafase09/maratona.pdf
+  notes: '412 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: brazil-first-phase-2010
   season: 2011
   name: 2010 South America/Brazil First Phase
@@ -172,9 +220,31 @@ contests:
   cms_ids:
   - 594
   parent: brazil-2010
-  notes: '432 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   next: brazil-first-phase-2011
   sources:
+  - url: https://maratona.sbc.org.br/hist/2010/index.html
+    roles:
+    - web
+  - url: https://maratona.sbc.org.br/hist/2010/primeira-fase
+    roles:
+    - rankings
+    archived:
+    - brazil-first-phase/brazil-first-phase-2010/rankings/20261023-live-f15eda8a/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2010/primeira-fase/maratona.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://maratona.ime.usp.br/hist/2010/primeira-fase/maratona.pdf
+    roles:
+    - problemset
+    as_of: '20111215135124'
+    url_state: dead
+    url_checked: '2026-11-02'
+  provenance:
   - 'XV Maratona 2010 history page (2010): ''Primeira Fase: 18 de setembro de 2010'', ''43 sedes espalhadas
     pelo pais'', ''participacao recorde de 432 times de 157 escolas''; 50 teams to final at UDESC Joinville
     22-23 Oct 2010. — https://maratona.sbc.org.br/hist/2010/index.html [existence hunt 2026-10-22]'
@@ -187,19 +257,7 @@ contests:
     hunt 2026-10-22]'
   - 'Maratona DCC-UFMG - Competicoes Passadas (n/a): 2010 Primeira Fase (Varginha/MG): UFMG SUDO 1st place.
     — https://www.maratona.dcc.ufmg.br/info/competicoes-passadas.html [existence hunt 2026-10-22]'
-  results:
-    rankings:
-    - url: https://maratona.sbc.org.br/hist/2010/primeira-fase
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2010/rankings/20261023-live-f15eda8a/page.html
-  web: https://maratona.sbc.org.br/hist/2010/index.html
-  mirrors: []
-  problemset:
-  - https://maratona.sbc.org.br/hist/2010/primeira-fase/maratona.pdf
-  - url: http://maratona.ime.usp.br/hist/2010/primeira-fase/maratona.pdf
-    as_of: '20111215135124'
+  notes: '432 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: brazil-first-phase-2011
   season: 2012
   name: 2011 South America/Brazil First Phase
@@ -207,9 +265,31 @@ contests:
   cms_ids:
   - 813
   parent: brazil-2011
-  notes: '536 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   next: brazil-first-phase-2012
   sources:
+  - url: https://maratona.sbc.org.br/hist/2011/index.html
+    roles:
+    - web
+  - url: https://maratona.sbc.org.br/hist/2011/primeira-fase
+    roles:
+    - rankings
+    archived:
+    - brazil-first-phase/brazil-first-phase-2011/rankings/20261023-live-d6a26350/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2011/primeira-fase/competicao/maratona.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://maratona.ime.usp.br/hist/2011/primeira-fase/competicao/maratona.pdf
+    roles:
+    - problemset
+    as_of: '20160625201056'
+    url_state: dead
+    url_checked: '2026-11-02'
+  provenance:
   - 'XVI Maratona 2011 history page (2011): ''Primeira Fase: 17 de setembro de 2011'', ''44 sedes espalhadas
     pelo pais'', record 536 teams from 191 schools. — https://maratona.sbc.org.br/hist/2011/index.html
     [existence hunt 2026-10-22]'
@@ -222,19 +302,7 @@ contests:
     [existence hunt 2026-10-22]'
   - 'Maratona DCC-UFMG (n/a): 2011 Primeira Fase at FAGAMMON, Lavras/MG: UFMG Starters Edition 1st. —
     https://www.maratona.dcc.ufmg.br/info/competicoes-passadas.html [existence hunt 2026-10-22]'
-  results:
-    rankings:
-    - url: https://maratona.sbc.org.br/hist/2011/primeira-fase
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2011/rankings/20261023-live-d6a26350/page.html
-  web: https://maratona.sbc.org.br/hist/2011/index.html
-  mirrors: []
-  problemset:
-  - https://maratona.sbc.org.br/hist/2011/primeira-fase/competicao/maratona.pdf
-  - url: http://maratona.ime.usp.br/hist/2011/primeira-fase/competicao/maratona.pdf
-    as_of: '20160625201056'
+  notes: '536 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: brazil-first-phase-2012
   season: 2013
   name: 2012 South America/Brazil First Phase
@@ -242,9 +310,33 @@ contests:
   cms_ids:
   - 1486
   parent: brazil-2012
-  notes: '547 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   next: brazil-first-phase-2013
   sources:
+  - url: https://maratona.sbc.org.br/hist/2012/index.html
+    roles:
+    - web
+    also_at:
+    - https://maratona.sbc.org.br/hist/2012/primeira-fase/regras12.html
+  - url: https://maratona.sbc.org.br/hist/2012/primeira-fase
+    roles:
+    - rankings
+    archived:
+    - brazil-first-phase/brazil-first-phase-2012/rankings/20261023-live-c743baac/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2012/primeira-fase/maratona.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://maratona.ime.usp.br/hist/2012/primeira-fase/maratona.pdf
+    roles:
+    - problemset
+    as_of: '20160626211622'
+    url_state: dead
+    url_checked: '2026-11-02'
+  provenance:
   - 'XVII Maratona 2012 history page (2012): ''Primeira Fase: 15 de setembro de 2012'', ''em 42 sedes
     espalhadas pelo pais'', record 545 teams from 194 schools. — https://maratona.sbc.org.br/hist/2012/index.html
     [existence hunt 2026-10-22]'
@@ -256,21 +348,7 @@ contests:
     [existence hunt 2026-10-22]'
   - 'ICPC Caribe - Brasil 2004-2016 (n/a): 2012: 15 Sep 2012, 37 sites, 545 teams, final UEL. — https://www.icpccaribe.org/icpc-latam/concursos-regionales-acm-icpc-de-brasil-2004-2016
     [existence hunt 2026-10-22]'
-  results:
-    rankings:
-    - url: https://maratona.sbc.org.br/hist/2012/primeira-fase
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2012/rankings/20261023-live-c743baac/page.html
-  web: https://maratona.sbc.org.br/hist/2012/index.html
-  mirrors:
-  - url: https://maratona.sbc.org.br/hist/2012/primeira-fase/regras12.html
-    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-  problemset:
-  - https://maratona.sbc.org.br/hist/2012/primeira-fase/maratona.pdf
-  - url: http://maratona.ime.usp.br/hist/2012/primeira-fase/maratona.pdf
-    as_of: '20160626211622'
+  notes: '547 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: brazil-first-phase-2013
   season: 2014
   name: 2013 South America/Brazil First Phase
@@ -278,9 +356,39 @@ contests:
   cms_ids:
   - 1817
   parent: brazil-2013
-  notes: '586 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   next: brazil-first-phase-2014
   sources:
+  - url: https://maratona.sbc.org.br/hist/2013/index.html
+    roles:
+    - web
+  - url: https://maratona.sbc.org.br/hist/2013/primeira-fase/prim-fase2013/saopaulo/Report%20Page.pdf
+    roles:
+    - scoreboard
+    archived:
+    - brazil-first-phase/brazil-first-phase-2013/scoreboard/20261023-live-8c51981f/page.pdf
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2013/primeira-fase/
+    roles:
+    - rankings
+    archived:
+    - brazil-first-phase/brazil-first-phase-2013/rankings/20261023-live-bcf255ba/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2013/primeira-fase/prim-fase2013/maratona.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://maratona.ime.usp.br/hist/2013/primeira-fase/prim-fase2013/maratona.pdf
+    roles:
+    - problemset
+    as_of: '20160615135817'
+    url_state: dead
+    url_checked: '2026-11-02'
+  provenance:
   - 'XVIII Maratona 2013 history page (2013): First phase ''14 de setembro de 2013'', 36 sedes, record
     ''586 times de 182 escolas''. — https://maratona.sbc.org.br/hist/2013/index.html [existence hunt 2026-10-22]'
   - 'XVIII Maratona - primeira fase (2013): ''Primeira Fase: 14 de setembro de 2013''; 586 teams/182 schools;
@@ -293,25 +401,7 @@ contests:
   - 'Codeforces gym 101473 ''2013-2014 ACM-ICPC Brazil Subregional Programming Contest'' (n/a): Search-result
     title shows the 2013 Brazil subregional problem set mirrored as a Codeforces gym. — https://codeforces.com/gym/101473/standings/friends/true/participant/13838930?mobile=false
     [existence hunt 2026-10-22]'
-  results:
-    rankings:
-    - url: https://maratona.sbc.org.br/hist/2013/primeira-fase/
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2013/rankings/20261023-live-bcf255ba/page.html
-    scoreboard:
-    - url: https://maratona.sbc.org.br/hist/2013/primeira-fase/prim-fase2013/saopaulo/Report%20Page.pdf
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: changed
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2013/scoreboard/20261023-live-8c51981f/page.pdf
-  web: https://maratona.sbc.org.br/hist/2013/index.html
-  mirrors: []
-  problemset:
-  - https://maratona.sbc.org.br/hist/2013/primeira-fase/prim-fase2013/maratona.pdf
-  - url: http://maratona.ime.usp.br/hist/2013/primeira-fase/prim-fase2013/maratona.pdf
-    as_of: '20160615135817'
+  notes: '586 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: brazil-first-phase-2014
   season: 2015
   name: South America/Brazil First Phase
@@ -319,9 +409,47 @@ contests:
   cms_ids:
   - 2537
   parent: brazil-2014
-  notes: '643 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   next: brazil-first-phase-2015
   sources:
+  - url: https://maratona.sbc.org.br/hist/2014/index.html
+    roles:
+    - web
+  - url: https://maratona.sbc.org.br/hist/2014/primeira-fase/saopaulo
+    roles:
+    - scoreboard
+    archived:
+    - brazil-first-phase/brazil-first-phase-2014/scoreboard/20261023-live-399250db/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2014/primeira-fase/riogrande/Report%20Page.html
+    roles:
+    - scoreboard
+    archived:
+    - brazil-first-phase/brazil-first-phase-2014/scoreboard/20261023-live-4bf25aa1/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2014/primeira-fase/
+    roles:
+    - rankings
+    archived:
+    - brazil-first-phase/brazil-first-phase-2014/rankings/20261023-live-f85eef6b/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2014/primeira-fase/maratona.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://maratona.ime.usp.br/hist/2014/primeira-fase/maratona.pdf
+    roles:
+    - problemset
+    as_of: '20240619172518'
+    url_state: dead
+    url_checked: '2026-11-02'
+  provenance:
   - 'XIX Maratona 2014 history page (2014): ''Primeira Fase: 13 de setembro de 2014''; ''643 times de
     199 escolas'' at 41 sites. — https://maratona.sbc.org.br/hist/2014/index.html [existence hunt 2026-10-22]'
   - 'XIX Maratona - primeira fase (2014): First phase 13 Sep 2014, final 7-8 Nov 2014; 643 teams/199 schools/41
@@ -334,30 +462,7 @@ contests:
   - 'Codeforces blog ''Brazil ACM-ICPC Sub Regional 2014/2015'' by aajjbb (2014-09 (12 years ago)): ''Brazil''s
     first phase of ICPC 2014/2015 Regional will happen this next Saturday (09/13/2014)'', mirrored on
     UVa; 28 comments discussing problems. — https://codeforces.com/blog/entry/13749 [existence hunt 2026-10-22]'
-  results:
-    rankings:
-    - url: https://maratona.sbc.org.br/hist/2014/primeira-fase/
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2014/rankings/20261023-live-f85eef6b/page.html
-    scoreboard:
-    - url: https://maratona.sbc.org.br/hist/2014/primeira-fase/saopaulo
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2014/scoreboard/20261023-live-399250db/page.html
-    - url: https://maratona.sbc.org.br/hist/2014/primeira-fase/riogrande/Report%20Page.html
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2014/scoreboard/20261023-live-4bf25aa1/page.html
-  web: https://maratona.sbc.org.br/hist/2014/index.html
-  mirrors: []
-  problemset:
-  - https://maratona.sbc.org.br/hist/2014/primeira-fase/maratona.pdf
-  - url: https://maratona.ime.usp.br/hist/2014/primeira-fase/maratona.pdf
-    as_of: '20240619172518'
+  notes: '643 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: brazil-first-phase-2015
   season: 2016
   name: South America/Brazil First Phase
@@ -365,9 +470,41 @@ contests:
   cms_ids:
   - 2810
   parent: brazil-2015
-  notes: '639 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   next: brazil-first-phase-2016
   sources:
+  - url: https://maratona.sbc.org.br/hist/2015/index.html
+    roles:
+    - web
+  - url: https://maratona.sbc.org.br/hist/2015/primeira-fase/saopaulo/
+    roles:
+    - scoreboard
+    archived:
+    - brazil-first-phase/brazil-first-phase-2015/scoreboard/20261023-live-e1cafb34/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2015/primeira-fase/maringa/maringa.pdf
+    roles:
+    - scoreboard
+    archived:
+    - brazil-first-phase/brazil-first-phase-2015/scoreboard/20261023-live-3ff702e9/maringa.pdf
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2015/primeira-fase
+    roles:
+    - rankings
+    archived:
+    - brazil-first-phase/brazil-first-phase-2015/rankings/20261023-live-c762e876/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2015/primeira-fase/maratona.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  provenance:
   - 'XX Maratona 2015 history page (2015): ''Primeira Fase: 12 de setembro de 2015''; ''41 sedes espalhadas
     pelo pais''; ''639 times de 209 escolas''. — https://maratona.sbc.org.br/hist/2015/index.html [existence
     hunt 2026-10-22]'
@@ -381,27 +518,7 @@ contests:
     ''Last Satuday we had the Brazilian Sub Regionals for ICPC 2015/16''; UVa mirror contest 351; comments
     point to maratona.ime.usp.br/vagas15.html. — https://codeforces.com/blog/entry/20335?locale=en [existence
     hunt 2026-10-22]'
-  results:
-    rankings:
-    - url: https://maratona.sbc.org.br/hist/2015/primeira-fase
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2015/rankings/20261023-live-c762e876/page.html
-    scoreboard:
-    - url: https://maratona.sbc.org.br/hist/2015/primeira-fase/saopaulo/
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2015/scoreboard/20261023-live-e1cafb34/page.html
-    - url: https://maratona.sbc.org.br/hist/2015/primeira-fase/maringa/maringa.pdf
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: changed
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2015/scoreboard/20261023-live-3ff702e9/maringa.pdf
-  web: https://maratona.sbc.org.br/hist/2015/index.html
-  mirrors: []
-  problemset: https://maratona.sbc.org.br/hist/2015/primeira-fase/maratona.pdf
+  notes: '639 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: brazil-first-phase-2016
   season: 2017
   name: South America/Brazil First Phase
@@ -409,9 +526,41 @@ contests:
   cms_ids:
   - 3019
   parent: brazil-2016
-  notes: '777 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   next: brazil-first-phase-2017
   sources:
+  - url: https://maratona.sbc.org.br/hist/2016/index.html
+    roles:
+    - web
+  - url: https://maratona.sbc.org.br/hist/2016/primeira-fase/SB.pdf
+    roles:
+    - scoreboard
+    archived:
+    - brazil-first-phase/brazil-first-phase-2016/scoreboard/20261023-live-61a9d26d/SB.pdf
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2016/primeira-fase/SP-SaoPaulo.pdf
+    roles:
+    - scoreboard
+    archived:
+    - brazil-first-phase/brazil-first-phase-2016/scoreboard/20261023-live-939a931a/SP-SaoPaulo.pdf
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2016/primeira-fase
+    roles:
+    - rankings
+    archived:
+    - brazil-first-phase/brazil-first-phase-2016/rankings/20261023-live-939103d5/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2016/primeira-fase/maratona.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  provenance:
   - 'XXI Maratona 2016 history page (2016): ''Primeira Fase: 10 de setembro de 2016''; 49 sedes; ''779
     times de 231 escolas''; ''Pela primeira vez todas as sedes participaram da correcao centralizada''.
     — https://maratona.sbc.org.br/hist/2016/index.html [existence hunt 2026-10-22]'
@@ -425,27 +574,7 @@ contests:
   - 'ICPC Caribe - Brasil 2004-2016 (n/a): 2016: 10 Sep 2016, 49 sites, 779 teams from 231 schools, final
     UFMG. — https://www.icpccaribe.org/icpc-latam/concursos-regionales-acm-icpc-de-brasil-2004-2016 [existence
     hunt 2026-10-22]'
-  results:
-    rankings:
-    - url: https://maratona.sbc.org.br/hist/2016/primeira-fase
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2016/rankings/20261023-live-939103d5/page.html
-    scoreboard:
-    - url: https://maratona.sbc.org.br/hist/2016/primeira-fase/SB.pdf
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2016/scoreboard/20261023-live-61a9d26d/SB.pdf
-    - url: https://maratona.sbc.org.br/hist/2016/primeira-fase/SP-SaoPaulo.pdf
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2016/scoreboard/20261023-live-939a931a/SP-SaoPaulo.pdf
-  web: https://maratona.sbc.org.br/hist/2016/index.html
-  problemset: https://maratona.sbc.org.br/hist/2016/primeira-fase/maratona.pdf
-  mirrors: []
+  notes: '777 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: brazil-first-phase-2017
   season: 2018
   name: South America/Brazil First Phase
@@ -453,9 +582,43 @@ contests:
   cms_ids:
   - 3459
   parent: brazil-2017
-  notes: '816 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   next: brazil-first-phase-2018
   sources:
+  - url: https://maratona.sbc.org.br/hist/2017/index.html
+    roles:
+    - web
+  - url: https://maratona.sbc.org.br/hist/2017/prim-fase17/reports/detailedfinalscoreboard
+    roles:
+    - scoreboard
+    archived:
+    - brazil-first-phase/brazil-first-phase-2017/scoreboard/20261023-live-123d1396/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2017/prim-fase17/spsp.pdf
+    roles:
+    - scoreboard
+    archived:
+    - brazil-first-phase/brazil-first-phase-2017/scoreboard/20261023-live-efa4ed70/spsp.pdf
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2017/vagas17.html
+    roles:
+    - rankings
+    as_of: '20240826222343'
+    archived:
+    - brazil-first-phase/brazil-first-phase-2017/rankings/20240826-wayback-31bcb081/vagas17.html
+    - brazil-first-phase/brazil-first-phase-2017/rankings/20261023-live-b870513b/vagas17.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2017/prim-fase17/maratona.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  provenance:
   - 'XXII Maratona 2017 history page (2017): First phase ''9 de setembro de 2017'', ''51 sedes simultaneas
     no pais'', ''816 times de 232 escolas'' (837 with cafe com leite). — https://maratona.sbc.org.br/hist/2017/index.html
     [existence hunt 2026-10-22]'
@@ -469,28 +632,7 @@ contests:
     ACM ICPC 2017 Brazil Sub-Regionals contest was held, featuring 13 problems and having more than 800
     teams''; links maratona.ime.usp.br/prim-fase17/maratona.pdf and URI judge. — https://codeforces.com/topic/54807/en1
     [existence hunt 2026-10-22]'
-  results:
-    scoreboard:
-    - url: https://maratona.sbc.org.br/hist/2017/prim-fase17/reports/detailedfinalscoreboard
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2017/scoreboard/20261023-live-123d1396/page.html
-    - url: https://maratona.sbc.org.br/hist/2017/prim-fase17/spsp.pdf
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2017/scoreboard/20261023-live-efa4ed70/spsp.pdf
-    rankings:
-    - url: https://maratona.sbc.org.br/hist/2017/vagas17.html
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      as_of: '20240826222343'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2017/rankings/20240826-wayback-31bcb081/vagas17.html
-  web: https://maratona.sbc.org.br/hist/2017/index.html
-  problemset: https://maratona.sbc.org.br/hist/2017/prim-fase17/maratona.pdf
-  mirrors: []
+  notes: '816 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: brazil-first-phase-2018
   season: 2019
   name: South America/Brazil First Phase
@@ -498,9 +640,45 @@ contests:
   cms_ids:
   - 3625
   parent: brazil-2018
-  notes: '746 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   next: brazil-first-phase-2019
   sources:
+  - url: https://maratona.sbc.org.br/hist/2018/index.html
+    roles:
+    - web
+  - url: https://maratona.sbc.org.br/hist/2018/prim-fase18/score.html
+    roles:
+    - scoreboard
+    archived:
+    - brazil-first-phase/brazil-first-phase-2018/scoreboard/20261023-live-5862af04/score.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2018/prim-fase18/spsp.pdf
+    roles:
+    - scoreboard
+    as_of: '20250317135417'
+    archived:
+    - brazil-first-phase/brazil-first-phase-2018/scoreboard/20250317-wayback-f54b6bdd/spsp.pdf
+    - brazil-first-phase/brazil-first-phase-2018/scoreboard/20261023-live-951ae197/spsp.pdf
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2018/primfase18.html
+    roles:
+    - rankings
+    as_of: '20250305233456'
+    archived:
+    - brazil-first-phase/brazil-first-phase-2018/rankings/20250305-wayback-23699f97/primfase18.html
+    - brazil-first-phase/brazil-first-phase-2018/rankings/20261023-live-545f04bc/primfase18.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2018/prim-fase18/maratona.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  provenance:
   - 'XXIII Maratona 2018 year page (2018): ''Primeira Fase: 15 de setembro de 2018''; Final Brasileira
     Salvador 9-10 Nov 2018; links primfase18.html. — https://maratona.sbc.org.br/hist/2018/index.html
     [existence hunt 2026-10-22]'
@@ -513,29 +691,7 @@ contests:
   - 'Codeforces ''2018-2019 ACM-ICPC Brazil Subregional Community Editorial'' by marcosvcloures (2018
     (8 years ago)): Community editorial for the 2018-2019 Brazil Subregional (gym 101908); comments on
     problems G, K, L. — https://codeforces.com/blog/entry/61935 [existence hunt 2026-10-22]'
-  results:
-    scoreboard:
-    - url: https://maratona.sbc.org.br/hist/2018/prim-fase18/score.html
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2018/scoreboard/20261023-live-5862af04/score.html
-    - url: https://maratona.sbc.org.br/hist/2018/prim-fase18/spsp.pdf
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      as_of: '20250317135417'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2018/scoreboard/20250317-wayback-f54b6bdd/spsp.pdf
-    rankings:
-    - url: https://maratona.sbc.org.br/hist/2018/primfase18.html
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      as_of: '20250305233456'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2018/rankings/20250305-wayback-23699f97/primfase18.html
-  web: https://maratona.sbc.org.br/hist/2018/index.html
-  problemset: https://maratona.sbc.org.br/hist/2018/prim-fase18/maratona.pdf
-  mirrors: []
+  notes: '746 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: brazil-first-phase-2019
   season: 2020
   name: South America/Brazil First Phase
@@ -543,9 +699,29 @@ contests:
   cms_ids:
   - 4256
   parent: brazil-2019
-  notes: '722 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   next: brazil-first-phase-2020
   sources:
+  - url: https://maratona.sbc.org.br/hist/2019/primfase19/
+    roles:
+    - web
+    also_at:
+    - https://maratona.sbc.org.br/hist/2019/
+  - url: https://maratona.sbc.org.br/hist/2019/primfase19/reports/ScoreBrasil.html
+    roles:
+    - scoreboard
+    as_of: '20250305233458'
+    archived:
+    - brazil-first-phase/brazil-first-phase-2019/scoreboard/20250305-wayback-a63e1e96/ScoreBrasil.html
+    - brazil-first-phase/brazil-first-phase-2019/scoreboard/20261023-live-1c5192d7/ScoreBrasil.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2019/primfase19/provas/competicao/maratona.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  provenance:
   - 'XXIV Maratona 2019 year page (2019-2021): ''A primeira fase ocorreu em 14 de setembro em 47 sedes'';
     726 teams from 224 schools; links primfase19/. — https://maratona.sbc.org.br/hist/2019/ [existence
     hunt 2026-10-22]'
@@ -558,19 +734,7 @@ contests:
   - 'IFSULDEMINAS news (2019-09-19): Regional stage 14 Sep 2019 at Campus Muzambinho; 45 teams from 11
     institutions expected; 1st ''Falacias e Caricias'' (UNIFEI), 2nd ''IrionTroopers'' (INATEL). — https://portal.ifsuldeminas.edu.br/index.php/ultimas-noticias-ifsuldeminas/3093-campus-muzambinho-sedia-a-1-fase-da-maratona-nacional-de-programacao
     [existence hunt 2026-10-22]'
-  web: https://maratona.sbc.org.br/hist/2019/primfase19/
-  mirrors:
-  - url: https://maratona.sbc.org.br/hist/2019/
-    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-  results:
-    scoreboard:
-    - url: https://maratona.sbc.org.br/hist/2019/primfase19/reports/ScoreBrasil.html
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      as_of: '20250305233458'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2019/scoreboard/20250305-wayback-a63e1e96/ScoreBrasil.html
-  problemset: https://maratona.sbc.org.br/hist/2019/primfase19/provas/competicao/maratona.pdf
+  notes: '722 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: brazil-first-phase-2020
   season: 2021
   name: South America/Brazil First Phase
@@ -578,9 +742,37 @@ contests:
   cms_ids:
   - 4472
   parent: brazil-2020
-  notes: '798 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   next: brazil-first-phase-2021
   sources:
+  - url: https://maratona.sbc.org.br/hist/2020/resfinal20.html
+    roles:
+    - web
+  - url: https://maratona.sbc.org.br/hist/2020/primfase20/reports/ScoreBrasil.html
+    roles:
+    - scoreboard
+    as_of: '20250313005658'
+    archived:
+    - brazil-first-phase/brazil-first-phase-2020/scoreboard/20250313-wayback-c400fe3d/ScoreBrasil.html
+    - brazil-first-phase/brazil-first-phase-2020/scoreboard/20261023-live-adff23f2/ScoreBrasil.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2020/primfase20.html
+    roles:
+    - rankings
+    as_of: '20250305233459'
+    archived:
+    - brazil-first-phase/brazil-first-phase-2020/rankings/20250305-wayback-71b43add/primfase20.html
+    - brazil-first-phase/brazil-first-phase-2020/rankings/20261023-live-b8124685/primfase20.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2020/primfase20/maratona20.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  provenance:
   - 'XXV Maratona 2020 year page (2020-2022): First phase 14 Nov 2020, online, 27 state sites, 799 teams
     from 196 schools, all states. — https://maratona.sbc.org.br/hist/2020/resfinal20.html [existence hunt
     2026-10-22]'
@@ -593,33 +785,42 @@ contests:
     [existence hunt 2026-10-22]'
   - 'Codigo de Conduta para a primeira fase online (2020): Search-result title: code of conduct for the
     2020 online first phase. — https://maratona.sbc.org.br/hist/2020/conduta.html [existence hunt 2026-10-22]'
-  results:
-    rankings:
-    - url: https://maratona.sbc.org.br/hist/2020/primfase20.html
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      as_of: '20250305233459'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2020/rankings/20250305-wayback-71b43add/primfase20.html
-    scoreboard:
-    - url: https://maratona.sbc.org.br/hist/2020/primfase20/reports/ScoreBrasil.html
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      as_of: '20250313005658'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2020/scoreboard/20250313-wayback-c400fe3d/ScoreBrasil.html
-  web: https://maratona.sbc.org.br/hist/2020/resfinal20.html
-  problemset: https://maratona.sbc.org.br/hist/2020/primfase20/maratona20.pdf
-  mirrors: []
+  notes: '798 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: brazil-first-phase-2021
   season: 2022
   name: 2021 ICPC South America/Brazil First Phase
   cms_ids:
   - 4708
   parent: brazil-2021
-  notes: '534 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   next: brazil-first-phase-2022
   sources:
+  - url: https://maratona.sbc.org.br/hist/2021/result21.html
+    roles:
+    - web
+  - url: https://maratona.sbc.org.br/hist/2021/primeira-fase/reportsbr2021/score.html
+    roles:
+    - scoreboard
+    archived:
+    - brazil-first-phase/brazil-first-phase-2021/scoreboard/20261023-live-55052f6b/score.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2021/primfase21.html
+    roles:
+    - rankings
+    as_of: '20240828192440'
+    archived:
+    - brazil-first-phase/brazil-first-phase-2021/rankings/20240828-wayback-023f1e0d/primfase21.html
+    - brazil-first-phase/brazil-first-phase-2021/rankings/20261023-live-921a41f0/primfase21.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2021/primeira-fase/maratona.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  provenance:
   - 'XXVI Maratona 2021 year page (2021-2023): ''A primeira fase foi online, no dia 30 de outubro de 2021'';
     534 teams from 127 Brazilian institutions. — https://maratona.sbc.org.br/hist/2021/result21.html [existence
     hunt 2026-10-22]'
@@ -632,23 +833,7 @@ contests:
   - 'CIn-UFPE news (2021-11-03): First phase online on 30 Oct 2021 (COVID); 534 teams from 127 institutions;
     CIn teams placed 7th (''Amigos do Yuki''), 26th, 37th, 39th, 99th, 133rd nationally. — https://portal.cin.ufpe.br/2021/11/03/times-do-cin-ufpe-se-classificam-para-disputar-a-primeira-fase-da-xxvi-maratona-de-programacao/
     [existence hunt 2026-10-22]'
-  results:
-    rankings:
-    - url: https://maratona.sbc.org.br/hist/2021/primfase21.html
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      as_of: '20240828192440'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2021/rankings/20240828-wayback-023f1e0d/primfase21.html
-    scoreboard:
-    - url: https://maratona.sbc.org.br/hist/2021/primeira-fase/reportsbr2021/score.html
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2021/scoreboard/20261023-live-55052f6b/score.html
-  web: https://maratona.sbc.org.br/hist/2021/result21.html
-  problemset: https://maratona.sbc.org.br/hist/2021/primeira-fase/maratona.pdf
-  mirrors: []
+  notes: '534 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: brazil-first-phase-2022
   season: 2023
   name: 2022 ICPC South America/Brazil First Phase
@@ -656,9 +841,51 @@ contests:
   cms_ids:
   - 5528
   parent: brazil-2022
-  notes: '556 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   next: brazil-first-phase-2023
   sources:
+  - url: https://www.youtube.com/watch?v=tXyFdZgKi7o
+    roles:
+    - web
+    also_at:
+    - https://www.youtube.com/watch?v=cThhHujQTeE
+  - url: https://maratona.sbc.org.br/hist/2022/primfase22/vitoria2022-report/Score.html
+    roles:
+    - scoreboard
+    archived:
+    - brazil-first-phase/brazil-first-phase-2022/scoreboard/20261023-live-b8c37d4f/Score.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2022/primfase22/reports/brbr/Score.html
+    roles:
+    - scoreboard
+    archived:
+    - brazil-first-phase/brazil-first-phase-2022/scoreboard/20261023-live-786ad4e3/Score.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2022/primfase22/reports/brccl/Score.html
+    roles:
+    - scoreboard
+    archived:
+    - brazil-first-phase/brazil-first-phase-2022/scoreboard/20261023-live-fbdb2971/Score.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2022/primfase22/
+    roles:
+    - rankings
+    archived:
+    - brazil-first-phase/brazil-first-phase-2022/rankings/20261023-live-27ec67cb/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2022/primfase22/reports/problems/maratona.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  provenance:
   - 'XXVII Maratona 2022 year page (2022-2024): First phase 8 Oct 2022 in 42 sites; 556 teams from 170
     institutions. — https://maratona.sbc.org.br/hist/2022/ [existence hunt 2026-10-22]'
   - 'Primeira Fase 2022 page (2022): 8 Oct 2022, 42 sites, 556 BR teams/170 institutions (+AR/BO/CA/MX);
@@ -670,34 +897,7 @@ contests:
     ''Streamed live on Oct 8, 2022''; ''Transmissao oficial da Primeira Fase da Maratona SBC de Programacao,
     valida pela temporada 2022-23''; scoreboard links for BR/AR/MX/BO/CA. — https://www.youtube.com/watch?v=tXyFdZgKi7o
     [existence hunt 2026-10-22]'
-  results:
-    scoreboard:
-    - url: https://maratona.sbc.org.br/hist/2022/primfase22/vitoria2022-report/Score.html
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2022/scoreboard/20261023-live-b8c37d4f/Score.html
-    - url: https://maratona.sbc.org.br/hist/2022/primfase22/reports/brbr/Score.html
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2022/scoreboard/20261023-live-786ad4e3/Score.html
-    - url: https://maratona.sbc.org.br/hist/2022/primfase22/reports/brccl/Score.html
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2022/scoreboard/20261023-live-fbdb2971/Score.html
-    rankings:
-    - url: https://maratona.sbc.org.br/hist/2022/primfase22/
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2022/rankings/20261023-live-27ec67cb/page.html
-  web: https://www.youtube.com/watch?v=tXyFdZgKi7o
-  mirrors:
-  - url: https://www.youtube.com/watch?v=cThhHujQTeE
-    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-  problemset: https://maratona.sbc.org.br/hist/2022/primfase22/reports/problems/maratona.pdf
+  notes: '556 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: brazil-first-phase-2023
   season: 2024
   name: 2023 ICPC South America/Brazil First Phase
@@ -705,9 +905,35 @@ contests:
   cms_ids:
   - 7540
   parent: brazil-2023
-  notes: '731 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   next: brazil-first-phase-2024
   sources:
+  - url: https://www.youtube.com/watch?v=I1NiurdCdi4
+    roles:
+    - web
+  - url: https://maratona.sbc.org.br/hist/2023/primfase23/contest/Score.html
+    roles:
+    - scoreboard
+    archived:
+    - brazil-first-phase/brazil-first-phase-2023/scoreboard/20261023-live-942c56ef/Score.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2023/primfase23/
+    roles:
+    - rankings
+    as_of: '20250718130816'
+    archived:
+    - brazil-first-phase/brazil-first-phase-2023/rankings/20250718-wayback-578d3ccc/page.html
+    - brazil-first-phase/brazil-first-phase-2023/rankings/20261023-live-0c358c30/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2023/primfase23/contest/maratona.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  provenance:
   - 'XXVIII Maratona 2023 year page (2023-2024): ''A primeira fase ocorreu em 2 de setembro''; 44 sites;
     ''726 times de 181 instituicoes''. — https://maratona.sbc.org.br/hist/2023/ [existence hunt 2026-10-22]'
   - 'Primeira Fase 2023 page (2023): 2 Sep 2023; 44 sites; 726 teams/181 institutions; qualifiers by site
@@ -718,23 +944,7 @@ contests:
   - 'YouTube ''Maratona SBC 2023 - Primeira Fase - AO VIVO'' (2023-09-02): Official livestream of the
     2023 first phase, Maratona SBC channel, 6,608 views. — https://www.youtube.com/watch?v=I1NiurdCdi4
     [existence hunt 2026-10-22]'
-  results:
-    scoreboard:
-    - url: https://maratona.sbc.org.br/hist/2023/primfase23/contest/Score.html
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2023/scoreboard/20261023-live-942c56ef/Score.html
-    rankings:
-    - url: https://maratona.sbc.org.br/hist/2023/primfase23/
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      as_of: '20250718130816'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2023/rankings/20250718-wayback-578d3ccc/page.html
-  web: https://www.youtube.com/watch?v=I1NiurdCdi4
-  problemset: https://maratona.sbc.org.br/hist/2023/primfase23/contest/maratona.pdf
-  mirrors: []
+  notes: '731 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: brazil-first-phase-2024
   season: 2025
   name: 2024 ICPC South America/Brazil First Phase
@@ -742,9 +952,41 @@ contests:
   cms_ids:
   - 8958
   parent: brazil-2024
-  notes: '880 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   next: brazil-first-phase-2025
   sources:
+  - url: https://maratona.sbc.org.br/hist/2024/
+    roles:
+    - web
+  - url: https://maratona.sbc.org.br/hist/2024/primfase24/reports/Score.html
+    roles:
+    - scoreboard
+    archived:
+    - brazil-first-phase/brazil-first-phase-2024/scoreboard/20261023-live-ab37e20b/Score.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2024/primfase24/reports-ccl/Score.html
+    roles:
+    - scoreboard
+    archived:
+    - brazil-first-phase/brazil-first-phase-2024/scoreboard/20261023-live-c9516f9d/Score.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2024/primfase24.html
+    roles:
+    - rankings
+    archived:
+    - brazil-first-phase/brazil-first-phase-2024/rankings/20261023-live-d4c84cfb/primfase24.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2024/primfase24/contest-pf2024/maratona.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  provenance:
   - 'Maratona SBC 2024 year page (2024-2025): First phase ''ocorreu em 31 de agosto de 2024'' in 48 sites;
     ''880 times de 226 escolas''. — https://maratona.sbc.org.br/hist/2024/ [existence hunt 2026-10-22]'
   - 'Primeira Fase 2024 page (2025-03-21 (last modified)): 12-problem set; simultaneous BO/MX/CA; CCL
@@ -757,27 +999,7 @@ contests:
     at site, 36 in Supersede Sul; 880 teams/226 schools/48 sites nationally; ''(long long) sizeof Cacetinho''
     8 problems, qualified. — https://www.inf.ufrgs.br/site/noticia/primeira-fase-da-maratona-sbc-de-programacao-2024/
     [existence hunt 2026-10-22]'
-  results:
-    scoreboard:
-    - url: https://maratona.sbc.org.br/hist/2024/primfase24/reports/Score.html
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2024/scoreboard/20261023-live-ab37e20b/Score.html
-    - url: https://maratona.sbc.org.br/hist/2024/primfase24/reports-ccl/Score.html
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2024/scoreboard/20261023-live-c9516f9d/Score.html
-    rankings:
-    - url: https://maratona.sbc.org.br/hist/2024/primfase24.html
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2024/rankings/20261023-live-d4c84cfb/primfase24.html
-  web: https://maratona.sbc.org.br/hist/2024/
-  problemset: https://maratona.sbc.org.br/hist/2024/primfase24/contest-pf2024/maratona.pdf
-  mirrors: []
+  notes: '880 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: brazil-first-phase-2025
   season: 2026
   name: 2025 ICPC South America Brazil First Phase
@@ -785,10 +1007,36 @@ contests:
   cms_ids:
   - 9415
   parent: brazil-2025
-  notes: '1025 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db
-    (contest/api_contest/site))'
   next: brazil-first-phase-2026
   sources:
+  - url: https://maratona.sbc.org.br/hist/2025/
+    roles:
+    - web
+    also_at:
+    - https://www.sbc.org.br/evento/primeira-fase-maratona-sbc-de-programacao-2025/
+  - url: https://maratona.sbc.org.br/hist/2025/subbr-2025/index.html
+    roles:
+    - scoreboard
+    archived:
+    - brazil-first-phase/brazil-first-phase-2025/scoreboard/20261023-live-d96f9c38/index.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2025/primeira-fase25.html
+    roles:
+    - rankings
+    archived:
+    - brazil-first-phase/brazil-first-phase-2025/rankings/20261023-live-9c0e5815/primeira-fase25.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://scorelatam.naquadah.com.br/subbr-2025/maratona.pdf
+    roles:
+    - problemset
+    as_of: '20250917205058'
+    url_state: live
+    url_checked: '2026-11-02'
+  provenance:
   - 'Maratona SBC 2025 year page (2025-2026): ''A primeira fase ... ocorreu em 13 de setembro de 2025
     em 53 sedes espalhadas pelo pais ... reunindo 1025 times de 239 escolas''; links primeira-fase25.html.
     — https://maratona.sbc.org.br/hist/2025/ [existence hunt 2026-10-22]'
@@ -802,33 +1050,42 @@ contests:
   - 'MaratonUSP (2025): ''No dia 13 de setembro de 2025 aconteceu a primeira fase da Maratona SBC de Programacao'';
     USP (Butanta) team placements (best 1st in Sao Paulo / 21st in Brazil, 8 problems); cites official
     scoreboard subbr-2025/index.htm — https://www.ime.usp.br/~maratona/ [existence hunt 2026-10-22]'
-  results:
-    scoreboard:
-    - url: https://maratona.sbc.org.br/hist/2025/subbr-2025/index.html
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2025/scoreboard/20261023-live-d96f9c38/index.html
-    rankings:
-    - url: https://maratona.sbc.org.br/hist/2025/primeira-fase25.html
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2025/rankings/20261023-live-9c0e5815/primeira-fase25.html
-  web: https://maratona.sbc.org.br/hist/2025/
-  mirrors:
-  - url: https://www.sbc.org.br/evento/primeira-fase-maratona-sbc-de-programacao-2025/
-    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-  problemset: https://scorelatam.naquadah.com.br/subbr-2025/maratona.pdf
+  notes: '1025 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db
+    (contest/api_contest/site))'
 - id: brazil-first-phase-2026
   season: 2027
   name: 2026 ICPC South America Brazil First Phase
   cms_ids:
   - 9825
   parent: brazil-2026
-  notes: 'from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
-    +series lineage)'
   sources:
+  - url: https://www.flickr.com/photos/203496631@N03/sets/72177720335397698
+    roles:
+    - web
+  - url: https://maratona.sbc.org.br/relatorio-icpc-latam-br-fp-2026/
+    roles:
+    - scoreboard
+    archived:
+    - brazil-first-phase/brazil-first-phase-2026/scoreboard/20261023-live-6ada2d79/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/resultados.html
+    roles:
+    - rankings
+    as_of: '20260824205514'
+    archived:
+    - brazil-first-phase/brazil-first-phase-2026/rankings/20260824-wayback-3652f993/resultados.html
+    - brazil-first-phase/brazil-first-phase-2026/rankings/20261023-live-1d9d2247/resultados.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/relatorio-icpc-latam-br-fp-2026/documentos/contest.pt.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  provenance:
   - 'Maratona SBC - resultados (current season page) (2026-09): ''A primeira fase de 2026 ocorreu no dia
     29 de agosto, em 54 sedes''; ''Inscreveeram-se 965 times de 233 escolas''; qualifiers for the Final
     Brasileira by site/supersede; links to relatorio-icpc-latam-br-fp-2026 scoreboard,  — https://maratona.sbc.org.br/resultados.html
@@ -844,20 +1101,5 @@ contests:
   - 'RCO (Santa Catarina regional news) (2026-08-25): Maratona SBC 2026 regional stage on 29 August at
     Unoesc Pinhalzinho with 19 teams from 8 institutions; SC sites Pinhalzinho and Florianopolis. — https://rco.com.br/noticias/tecnologia/pinhalzinho-recebe-etapa-regional-de-uma-das-principais-competicoes-universitarias-de-programacao
     [existence hunt 2026-10-22]'
-  results:
-    scoreboard:
-    - url: https://maratona.sbc.org.br/relatorio-icpc-latam-br-fp-2026/
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2026/scoreboard/20261023-live-6ada2d79/page.html
-    rankings:
-    - url: https://maratona.sbc.org.br/resultados.html
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      as_of: '20260824205514'
-      url_state: changed
-      url_checked: '2026-11-02'
-      archived: brazil-first-phase/brazil-first-phase-2026/rankings/20260824-wayback-3652f993/resultados.html
-  web: https://www.flickr.com/photos/203496631@N03/sets/72177720335397698
-  problemset: https://maratona.sbc.org.br/relatorio-icpc-latam-br-fp-2026/documentos/contest.pt.pdf
-  mirrors: []
+  notes: 'from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
+    +series lineage)'

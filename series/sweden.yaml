@@ -1,6 +1,9 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: sweden
+  tier: subregional
+  region: Europe
+  naming: season-start
   lineage:
   - type: continues-as
     series: nordic
@@ -14,13 +17,17 @@ contests:
   cms_status: pre-cms
   parent: nwerc-1996
   next: sweden-1997
-  web: https://fileadmin.cs.lth.se/contest/c96/
-  results:
-    scoreboard:
-    - url: https://fileadmin.cs.lth.se/contest/c96/
-      archived: sweden/sweden-1996/scoreboard/2026-09-01-live-5dbac057/page.html
-      url_state: live
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://fileadmin.cs.lth.se/contest/c96/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20111124081456'
+    archived:
+    - sweden/sweden-1996/scoreboard/2026-09-01-live-5dbac057/page.html
+    - sweden/sweden-1996/scoreboard/20111124-wayback-e92fdd64/page.html
+    url_state: live
+    url_checked: '2026-11-02'
 - id: sweden-1997
   season: 1998
   date: '1997-09-27'
@@ -28,67 +35,92 @@ contests:
   cms_status: pre-cms
   parent: nwerc-1997
   next: sweden-1998
-  web: https://fileadmin.cs.lth.se/contest/c97/
-  results:
-    scoreboard:
-    - url: https://fileadmin.cs.lth.se/contest/c97/
-      archived: sweden/sweden-1997/scoreboard/2026-09-01-live-b2052ffa/page.html
-      url_state: live
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://fileadmin.cs.lth.se/contest/c97/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20111124081501'
+    archived:
+    - sweden/sweden-1997/scoreboard/2026-09-01-live-b2052ffa/page.html
+    - sweden/sweden-1997/scoreboard/20111124-wayback-cdcad960/page.html
+    url_state: live
+    url_checked: '2026-11-02'
 - id: sweden-1998
   season: 1999
   date: '1998-09-26'
   cms_ids: []
   parent: nwerc-1998
   next: sweden-1999
-  web: https://fileadmin.cs.lth.se/contest/c98/
-  results:
-    scoreboard:
-    - url: https://fileadmin.cs.lth.se/contest/c98/
-      archived: sweden/sweden-1998/scoreboard/2026-09-01-live-4708f478/page.html
-      url_state: live
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://fileadmin.cs.lth.se/contest/c98/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20111124081656'
+    archived:
+    - sweden/sweden-1998/scoreboard/2026-09-01-live-4708f478/page.html
+    - sweden/sweden-1998/scoreboard/20111124-wayback-ff950ed3/page.html
+    url_state: live
+    url_checked: '2026-11-02'
 - id: sweden-1999
   season: 2000
   date: '1999-09-25'
   cms_ids: []
   parent: nwerc-1999
   next: sweden-2000
-  web: https://fileadmin.cs.lth.se/contest/c99/
-  results:
-    scoreboard:
-    - url: https://fileadmin.cs.lth.se/contest/c99/
-      archived: sweden/sweden-1999/scoreboard/2026-09-01-live-2a247173/page.html
-      url_state: live
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://fileadmin.cs.lth.se/contest/c99/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20111124081308'
+    archived:
+    - sweden/sweden-1999/scoreboard/2026-09-01-live-2a247173/page.html
+    - sweden/sweden-1999/scoreboard/20111124-wayback-24dd4a92/page.html
+    url_state: live
+    url_checked: '2026-11-02'
 - id: sweden-2000
   season: 2001
   date: '2000-09-30'
   cms_ids: []
   parent: nwerc-2000
   next: sweden-2001
-  web: https://fileadmin.cs.lth.se/contest/c00/
-  results:
-    scoreboard:
-    - url: https://fileadmin.cs.lth.se/contest/c00/
-      archived: sweden/sweden-2000/scoreboard/2026-09-01-live-d6289e4e/page.html
-      url_state: live
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://fileadmin.cs.lth.se/contest/c00/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20111124080953'
+    archived:
+    - sweden/sweden-2000/scoreboard/2026-09-01-live-d6289e4e/page.html
+    - sweden/sweden-2000/scoreboard/20111124-wayback-e69ec180/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://fileadmin.cs.lth.se/contest/c00/ProblemSet.pdf
+    roles:
+    - problemset
+    as_of: '20190713114749'
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    source: Kattis problem export (2026-11-01)
-  problemset: https://fileadmin.cs.lth.se/contest/c00/ProblemSet.pdf
+    set: sweden-2000
 - id: sweden-2001
   season: 2002
   date: '2001-10-06'
   cms_ids: []
   parent: nwerc-2001
   next: nordic-2002
-  web: https://fileadmin.cs.lth.se/contest/c01/
-  results:
-    scoreboard:
-    - url: https://fileadmin.cs.lth.se/contest/c01/
-      archived: sweden/sweden-2001/scoreboard/2026-09-01-live-d5b8243a/page.html
-      url_state: live
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://fileadmin.cs.lth.se/contest/c01/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20111124081302'
+    archived:
+    - sweden/sweden-2001/scoreboard/2026-09-01-live-d5b8243a/page.html
+    - sweden/sweden-2001/scoreboard/20111124-wayback-ff06c3ae/page.html
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    source: Kattis problem export (2026-11-01)
+    set: sweden-2001

@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: west-neerc
   name: ICPC Belarus Regional Contest
+  tier: subregional
+  region: Northern Eurasia
+  naming: season-start
 contests:
 - id: west-neerc-1998
   season: 1999
@@ -9,164 +12,234 @@ contests:
   cms_ids: []
   parent: neerc-1998
   next: west-neerc-1999
-  web: https://neerc.ifmo.ru/subregions/western.html
-  mirrors:
-  - url: https://acm.bsu.by/
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/western.html
+    roles:
+    - web
+    also_at:
+    - https://acm.bsu.by/
 - id: west-neerc-1999
   season: 2000
   name: 1999 Western Subregional Contest
   cms_ids: []
   parent: neerc-1999
   next: west-neerc-2000
-  web: https://neerc.ifmo.ru/subregions/western.html
-  mirrors:
-  - url: https://acm.bsu.by/
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/western.html
+    roles:
+    - web
+    also_at:
+    - https://acm.bsu.by/
 - id: west-neerc-2000
   season: 2001
   name: 2000 Western Subregional Contest
   cms_ids: []
   parent: neerc-2000
   next: west-neerc-2001
-  web: https://neerc.ifmo.ru/subregions/western.html
-  mirrors:
-  - url: https://acm.bsu.by/
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/western.html
+    roles:
+    - web
+    also_at:
+    - https://acm.bsu.by/
 - id: west-neerc-2001
   season: 2002
   name: 2001 Western Subregional Contest
   cms_ids: []
   parent: neerc-2001
   next: west-neerc-2002
-  web: https://www.kgeorgiy.info/papers/Vasilev_VN__Kazakov_MA__Korneev_GA__Parfenov_VG__Stankevich_AS_--_NEERC_2001.pdf
-  mirrors:
-  - url: http://bsu.by/*
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
+  sources:
+  - url: https://www.kgeorgiy.info/papers/Vasilev_VN__Kazakov_MA__Korneev_GA__Parfenov_VG__Stankevich_AS_--_NEERC_2001.pdf
+    roles:
+    - web
+    also_at:
+    - http://bsu.by/*
 - id: west-neerc-2002
   season: 2003
   name: 2002 Western Subregional Contest
   cms_ids: []
   parent: neerc-2002
   next: west-neerc-2003
-  web: https://icpc.bsu.by/
-  mirrors:
-  - url: http://bsu.by/*
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: https://neerc.ifmo.ru/subregions/western.html
-    note: added by url-hunt 2026-09-01 (round9-deep-probe)
-  - url: https://acm.bsu.by/
-    note: added by url-hunt 2026-09-01 (round9-deep-probe)
+  sources:
+  - url: https://icpc.bsu.by/
+    roles:
+    - web
+    also_at:
+    - http://bsu.by/*
+    - https://neerc.ifmo.ru/subregions/western.html
+    - https://acm.bsu.by/
 - id: west-neerc-2003
   season: 2004
   name: 2003 Western Subregional Contest
   cms_ids: []
   parent: neerc-2003
   next: west-neerc-2004
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2003/western/standings.html
-      archived: west-neerc/west-neerc-2003/standings/2026-09-01-live-1484ef25/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2003/western/standings.html
-      as_of: '20191105160626'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-neerc/west-neerc-2003/standings/20191105-wayback-04599c50/standings.html
-  web: https://neerc.ifmo.ru/subregions/western.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/western.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2003/western/standings.html
+    roles:
+    - standings
+    as_of: '20230322040809'
+    archived:
+    - west-neerc/west-neerc-2003/standings/2026-09-01-live-1484ef25/standings.html
+    - west-neerc/west-neerc-2003/standings/20230322-wayback-bb5d0840/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2003/western/standings.html
+    roles:
+    - standings
+    as_of: '20191105160626'
+    archived:
+    - west-neerc/west-neerc-2003/standings/20191105-wayback-04599c50/standings.html
+    - west-neerc/west-neerc-2003/standings/20260904-live-91c13e85/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: west-neerc-2004
   season: 2005
   name: 2004 Western Subregional Contest
   cms_ids: []
   parent: neerc-2004
   next: west-neerc-2005
-  results:
-    scoreboard:
-    - url: https://acm.bsu.by/contests/54/standings/
-      archived: west-neerc/west-neerc-2004/scoreboard/2026-09-01-live-063df36c/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nerc.itmo.ru/archive/2004/western/standings.html
-      archived: west-neerc/west-neerc-2004/standings/2026-09-01-live-f00d36ca/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2004/western/standings.html
-      as_of: '20180203030440'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-neerc/west-neerc-2004/standings/20180203-wayback-d6a232af/standings.html
-  web: https://neerc.ifmo.ru/subregions/western.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/western.html
+    roles:
+    - web
+  - url: https://acm.bsu.by/contests/54/standings/
+    roles:
+    - scoreboard
+    as_of: '20191021235858'
+    archived:
+    - west-neerc/west-neerc-2004/scoreboard/2026-09-01-live-063df36c/page.html
+    - west-neerc/west-neerc-2004/scoreboard/20191021-wayback-54fd1102/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2004/western/standings.html
+    roles:
+    - standings
+    as_of: '20220122060701'
+    archived:
+    - west-neerc/west-neerc-2004/standings/2026-09-01-live-f00d36ca/standings.html
+    - west-neerc/west-neerc-2004/standings/20220122-wayback-b0980a97/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2004/western/standings.html
+    roles:
+    - standings
+    as_of: '20180203030440'
+    archived:
+    - west-neerc/west-neerc-2004/standings/20180203-wayback-d6a232af/standings.html
+    - west-neerc/west-neerc-2004/standings/20260904-live-e01fd63c/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: west-neerc-2005
   season: 2006
   name: 2005 Western Subregional Contest
   cms_ids: []
   parent: neerc-2005
   next: west-neerc-2006
-  results:
-    scoreboard:
-    - url: https://acm.bsu.by/contests/55/standings/
-      archived: west-neerc/west-neerc-2005/scoreboard/2026-09-01-live-43668248/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nerc.itmo.ru/archive/2005/western/standings.html
-      archived: west-neerc/west-neerc-2005/standings/2026-09-01-live-e1313d78/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2005/western/standings.html
-      as_of: '20161208235406'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-neerc/west-neerc-2005/standings/20161208-wayback-36fc5354/standings.html
-  web: https://neerc.ifmo.ru/subregions/western.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/western.html
+    roles:
+    - web
+  - url: https://acm.bsu.by/contests/55/standings/
+    roles:
+    - scoreboard
+    as_of: '20191021235904'
+    archived:
+    - west-neerc/west-neerc-2005/scoreboard/2026-09-01-live-43668248/page.html
+    - west-neerc/west-neerc-2005/scoreboard/20191021-wayback-d692c792/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2005/western/standings.html
+    roles:
+    - standings
+    as_of: '20240725091005'
+    archived:
+    - west-neerc/west-neerc-2005/standings/2026-09-01-live-e1313d78/standings.html
+    - west-neerc/west-neerc-2005/standings/20240725-wayback-3252a728/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2005/western/standings.html
+    roles:
+    - standings
+    as_of: '20161208235406'
+    archived:
+    - west-neerc/west-neerc-2005/standings/20161208-wayback-36fc5354/standings.html
+    - west-neerc/west-neerc-2005/standings/20260904-live-07de4c4b/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: west-neerc-2006
   season: 2007
   name: 2006 Western Subregional Contest
   cms_ids: []
   parent: neerc-2006
   next: west-neerc-2007
-  results:
-    scoreboard:
-    - url: https://acm.bsu.by/contests/56/standings/
-      archived: west-neerc/west-neerc-2006/scoreboard/2026-09-01-live-2f220519/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nerc.itmo.ru/archive/2006/western/standings.html
-      archived: west-neerc/west-neerc-2006/standings/2026-09-01-live-a0a1240a/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2006/western/standings.html
-      as_of: '20191024060712'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-neerc/west-neerc-2006/standings/20191024-wayback-e859de4c/standings.html
-  web: https://neerc.ifmo.ru/subregions/western.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/western.html
+    roles:
+    - web
+  - url: https://acm.bsu.by/contests/56/standings/
+    roles:
+    - scoreboard
+    as_of: '20191021235920'
+    archived:
+    - west-neerc/west-neerc-2006/scoreboard/2026-09-01-live-2f220519/page.html
+    - west-neerc/west-neerc-2006/scoreboard/20191021-wayback-105e3903/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2006/western/standings.html
+    roles:
+    - standings
+    as_of: '20220122061452'
+    archived:
+    - west-neerc/west-neerc-2006/standings/2026-09-01-live-a0a1240a/standings.html
+    - west-neerc/west-neerc-2006/standings/20220122-wayback-e3728725/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2006/western/standings.html
+    roles:
+    - standings
+    as_of: '20191024060712'
+    archived:
+    - west-neerc/west-neerc-2006/standings/20191024-wayback-e859de4c/standings.html
+    - west-neerc/west-neerc-2006/standings/20260904-live-0f589d46/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: west-neerc-2007
   season: 2008
   name: 2007 Western Subregional Contest
   cms_ids: []
   parent: neerc-2007
   next: west-neerc-2008
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2007/western/standings.html
-      archived: west-neerc/west-neerc-2007/standings/2026-09-01-live-97bae2ae/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2007/western/standings.html
-      as_of: '20180715064607'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-neerc/west-neerc-2007/standings/20180715-wayback-46c3dec3/standings.html
-  web: https://neerc.ifmo.ru/subregions/western.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/western.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2007/western/standings.html
+    roles:
+    - standings
+    as_of: '20250327063603'
+    archived:
+    - west-neerc/west-neerc-2007/standings/2026-09-01-live-97bae2ae/standings.html
+    - west-neerc/west-neerc-2007/standings/20250327-wayback-90e21cfb/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2007/western/standings.html
+    roles:
+    - standings
+    as_of: '20180715064607'
+    archived:
+    - west-neerc/west-neerc-2007/standings/20180715-wayback-46c3dec3/standings.html
+    - west-neerc/west-neerc-2007/standings/20260904-live-8ff83913/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: west-neerc-2008
   season: 2009
   name: 2008 Western Subregional Contest
@@ -176,25 +249,41 @@ contests:
   - 68
   parent: neerc-2008
   next: west-neerc-2009
-  results:
-    scoreboard:
-    - url: https://acm.bsu.by/contests/5/standings/
-      archived: west-neerc/west-neerc-2008/scoreboard/2026-09-01-live-9ae2d103/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nerc.itmo.ru/archive/2008/western/standings.html
-      archived: west-neerc/west-neerc-2008/standings/2026-09-01-live-e71100cf/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2008/western/standings.html
-      as_of: '20180715065421'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-neerc/west-neerc-2008/standings/20180715-wayback-8041ef07/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Western-Subregional-2009/standings
-  web: http://www.fpmi.bsu.by/acmicpc
+  sources:
+  - url: http://www.fpmi.bsu.by/acmicpc
+    roles:
+    - web
+  - url: https://acm.bsu.by/contests/5/standings/
+    roles:
+    - scoreboard
+    as_of: '20191021235638'
+    archived:
+    - west-neerc/west-neerc-2008/scoreboard/2026-09-01-live-9ae2d103/page.html
+    - west-neerc/west-neerc-2008/scoreboard/20191021-wayback-727e2ffb/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2008/western/standings.html
+    roles:
+    - standings
+    as_of: '20220122062645'
+    archived:
+    - west-neerc/west-neerc-2008/standings/2026-09-01-live-e71100cf/standings.html
+    - west-neerc/west-neerc-2008/standings/20220122-wayback-feb87406/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2008/western/standings.html
+    roles:
+    - standings
+    as_of: '20180715065421'
+    archived:
+    - west-neerc/west-neerc-2008/standings/20180715-wayback-8041ef07/standings.html
+    - west-neerc/west-neerc-2008/standings/20260904-live-22827310/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Western-Subregional-2009/standings
+    roles:
+    - icpc_standings
 - id: west-neerc-2009
   season: 2010
   name: 2009 Western Subregional Contest
@@ -204,25 +293,44 @@ contests:
   - 538
   parent: neerc-2009
   next: west-neerc-2010
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/101411/standings
-      archived: west-neerc/west-neerc-2009/scoreboard/2026-09-01-live-91049fa7/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://nerc.itmo.ru/archive/2009/western/standings.html
-      archived: west-neerc/west-neerc-2009/standings/2026-09-01-live-340fd268/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2009/western/standings.html
-      as_of: '20191105160646'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-neerc/west-neerc-2009/standings/20191105-wayback-92c77fb5/standings.html
-  web: https://neerc.ifmo.ru/subregions/western.html
-  problemset: https://codeforces.com/gym/101411
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/western.html
+    roles:
+    - web
+  - url: https://codeforces.com/gym/101411/standings
+    roles:
+    - scoreboard
+    as_of: '20170706052745'
+    archived:
+    - west-neerc/west-neerc-2009/scoreboard/2026-09-01-live-91049fa7/page.html
+    - west-neerc/west-neerc-2009/scoreboard/20170706-wayback-d804b35d/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2009/western/standings.html
+    roles:
+    - standings
+    as_of: '20240725092845'
+    archived:
+    - west-neerc/west-neerc-2009/standings/2026-09-01-live-340fd268/standings.html
+    - west-neerc/west-neerc-2009/standings/20240725-wayback-b932ed4d/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2009/western/standings.html
+    roles:
+    - standings
+    as_of: '20191105160646'
+    archived:
+    - west-neerc/west-neerc-2009/standings/20191105-wayback-92c77fb5/standings.html
+    - west-neerc/west-neerc-2009/standings/20260904-live-90991471/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://codeforces.com/gym/101411
+    roles:
+    - problemset
+    as_of: '20170706050333'
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: west-neerc-2010
   season: 2011
   name: 2010 Western Subregional Contest
@@ -232,21 +340,35 @@ contests:
   - 632
   parent: neerc-2010
   next: west-neerc-2011
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2010/western/standings.html
-      as_of: '20230322041642'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-neerc/west-neerc-2010/standings/20230322-wayback-604f2588/standings.html
-    - url: https://neerc.ifmo.ru/archive/2010/western/standings.html
-      as_of: '20171125053336'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-neerc/west-neerc-2010/standings/20171125-wayback-fe51ab6a/standings.html
-  web: http://www.fpmi.bsu.by/ru/?guid=12244
-  problemset: https://codeforces.com/gym/101409
+  sources:
+  - url: http://www.fpmi.bsu.by/ru/?guid=12244
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2010/western/standings.html
+    roles:
+    - standings
+    as_of: '20230322041642'
+    archived:
+    - west-neerc/west-neerc-2010/standings/20230322-wayback-604f2588/standings.html
+    - west-neerc/west-neerc-2010/standings/20260904-live-0e97fbb6/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2010/western/standings.html
+    roles:
+    - standings
+    as_of: '20171125053336'
+    archived:
+    - west-neerc/west-neerc-2010/standings/20171125-wayback-fe51ab6a/standings.html
+    - west-neerc/west-neerc-2010/standings/20260904-live-764566af/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://codeforces.com/gym/101409
+    roles:
+    - problemset
+    as_of: '20170706052436'
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: west-neerc-2011
   season: 2012
   name: 2011 Western Subregional Contest
@@ -256,23 +378,37 @@ contests:
   - 767
   parent: neerc-2011
   next: west-neerc-2012
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2011/western/standings.html
-      as_of: '20220122050309'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-neerc/west-neerc-2011/scoreboard/20220122-wayback-aafb608f/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2011/western/standings.html
-      as_of: '20191025045622'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-neerc/west-neerc-2011/standings/20191025-wayback-ec6d27ab/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Western-Subregional-2012/standings
-  web: https://neerc.ifmo.ru/subregions/western.html
-  problemset: https://codeforces.com/gym/101410
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/western.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2011/western/standings.html
+    roles:
+    - scoreboard
+    as_of: '20220122050309'
+    archived:
+    - west-neerc/west-neerc-2011/scoreboard/20220122-wayback-aafb608f/standings.html
+    - west-neerc/west-neerc-2011/scoreboard/20260904-live-ef9f6faa/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2011/western/standings.html
+    roles:
+    - standings
+    as_of: '20191025045622'
+    archived:
+    - west-neerc/west-neerc-2011/standings/20191025-wayback-ec6d27ab/standings.html
+    - west-neerc/west-neerc-2011/standings/20260904-live-a06bc6f2/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Western-Subregional-2012/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/101410
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: west-neerc-2012
   season: 2013
   name: 2012 Western Subregional Contest
@@ -282,23 +418,37 @@ contests:
   - 1309
   parent: neerc-2012
   next: west-neerc-2013
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2012/western/standings.html
-      as_of: '20220122060903'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-neerc/west-neerc-2012/scoreboard/20220122-wayback-69387ed5/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2012/western/standings.html
-      as_of: '20161031081010'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-neerc/west-neerc-2012/standings/20161031-wayback-ea979a08/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Western-Subregional-2013/standings
-  web: https://neerc.ifmo.ru/subregions/western.html
-  problemset: https://codeforces.com/gym/100113
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/western.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2012/western/standings.html
+    roles:
+    - scoreboard
+    as_of: '20220122060903'
+    archived:
+    - west-neerc/west-neerc-2012/scoreboard/20220122-wayback-69387ed5/standings.html
+    - west-neerc/west-neerc-2012/scoreboard/20260904-live-6248d7d2/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2012/western/standings.html
+    roles:
+    - standings
+    as_of: '20161031081010'
+    archived:
+    - west-neerc/west-neerc-2012/standings/20161031-wayback-ea979a08/standings.html
+    - west-neerc/west-neerc-2012/standings/20260904-live-34632f2c/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Western-Subregional-2013/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/100113
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: west-neerc-2013
   season: 2014
   name: 2013 Western Subregional Contest
@@ -308,21 +458,29 @@ contests:
   - 2040
   parent: neerc-2013
   next: west-neerc-2014
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2013/western/standings.html
-      as_of: '20220122051158'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-neerc/west-neerc-2013/scoreboard/20220122-wayback-2a957e86/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2013/western/standings.html
-      as_of: '20161031215202'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-neerc/west-neerc-2013/standings/20161031-wayback-e6fe7646/standings.html
-  web: https://neerc.ifmo.ru/subregions/western.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/western.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2013/western/standings.html
+    roles:
+    - scoreboard
+    as_of: '20220122051158'
+    archived:
+    - west-neerc/west-neerc-2013/scoreboard/20220122-wayback-2a957e86/standings.html
+    - west-neerc/west-neerc-2013/scoreboard/20260904-live-16c19c24/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2013/western/standings.html
+    roles:
+    - standings
+    as_of: '20161031215202'
+    archived:
+    - west-neerc/west-neerc-2013/standings/20161031-wayback-e6fe7646/standings.html
+    - west-neerc/west-neerc-2013/standings/20260904-live-a513c06e/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: west-neerc-2014
   season: 2015
   name: 2014 Western Subregional Contest
@@ -332,22 +490,32 @@ contests:
   - 2674
   parent: neerc-2014
   next: west-neerc-2015
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2014/western/standings.html
-      as_of: '20220122061914'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-neerc/west-neerc-2014/scoreboard/20220122-wayback-704f71d6/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2014/western/standings.html
-      as_of: '20161031081838'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-neerc/west-neerc-2014/standings/20161031-wayback-5bd67553/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Western-Subregional-2015/standings
-  web: https://neerc.ifmo.ru/subregions/western.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/western.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2014/western/standings.html
+    roles:
+    - scoreboard
+    as_of: '20220122061914'
+    archived:
+    - west-neerc/west-neerc-2014/scoreboard/20220122-wayback-704f71d6/standings.html
+    - west-neerc/west-neerc-2014/scoreboard/20260904-live-ba7130b8/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2014/western/standings.html
+    roles:
+    - standings
+    as_of: '20161031081838'
+    archived:
+    - west-neerc/west-neerc-2014/standings/20161031-wayback-5bd67553/standings.html
+    - west-neerc/west-neerc-2014/standings/20260904-live-b53822f5/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Western-Subregional-2015/standings
+    roles:
+    - icpc_standings
 - id: west-neerc-2015
   season: 2016
   name: 2015 Western Subregional Contest
@@ -357,22 +525,32 @@ contests:
   - 2754
   parent: neerc-2015
   next: west-neerc-2016
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2015/western/standings.html
-      as_of: '20220122052409'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-neerc/west-neerc-2015/scoreboard/20220122-wayback-7aa1b9c7/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2015/western/standings.html
-      as_of: '20161031081903'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-neerc/west-neerc-2015/standings/20161031-wayback-232ed376/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Western-Subregional-2016/standings
-  web: https://neerc.ifmo.ru/subregions/western.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/western.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2015/western/standings.html
+    roles:
+    - scoreboard
+    as_of: '20220122052409'
+    archived:
+    - west-neerc/west-neerc-2015/scoreboard/20220122-wayback-7aa1b9c7/standings.html
+    - west-neerc/west-neerc-2015/scoreboard/2026-09-01-live-72f51545/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2015/western/standings.html
+    roles:
+    - standings
+    as_of: '20161031081903'
+    archived:
+    - west-neerc/west-neerc-2015/standings/20161031-wayback-232ed376/standings.html
+    - west-neerc/west-neerc-2015/standings/20260904-live-9a49e30c/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Western-Subregional-2016/standings
+    roles:
+    - icpc_standings
 - id: west-neerc-2016
   season: 2017
   name: 2016 Western Subregional Contest
@@ -382,26 +560,42 @@ contests:
   - 3147
   parent: neerc-2016
   next: west-neerc-2017
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2016/western/standings.html
-      as_of: '20220122063017'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-neerc/west-neerc-2016/scoreboard/20220122-wayback-7a93ff10/standings.html
-    - url: https://acm.bsu.by/contests/17/standings/
-      archived: west-neerc/west-neerc-2016/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2016/western/standings.html
-      as_of: '20171025201631'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-neerc/west-neerc-2016/standings/20171025-wayback-4b94ff17/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Western-Subregional-2017/standings
-  web: http://www.fpmi.bsu.by/ru/main.aspx?guid=24011
+  sources:
+  - url: http://www.fpmi.bsu.by/ru/main.aspx?guid=24011
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2016/western/standings.html
+    roles:
+    - scoreboard
+    as_of: '20220122063017'
+    archived:
+    - west-neerc/west-neerc-2016/scoreboard/20220122-wayback-7a93ff10/standings.html
+    - west-neerc/west-neerc-2016/scoreboard/20260904-live-d3ac95e5/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://acm.bsu.by/contests/17/standings/
+    roles:
+    - scoreboard
+    as_of: '20191022000429'
+    archived:
+    - west-neerc/west-neerc-2016/external-standings/2026-04-15-external/content.html
+    - west-neerc/west-neerc-2016/scoreboard/20191022-wayback-c0bdabda/page.html
+    - west-neerc/west-neerc-2016/scoreboard/20260901-live-e2d85e28/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2016/western/standings.html
+    roles:
+    - standings
+    as_of: '20171025201631'
+    archived:
+    - west-neerc/west-neerc-2016/standings/20171025-wayback-4b94ff17/standings.html
+    - west-neerc/west-neerc-2016/standings/20260904-live-9e00f839/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Western-Subregional-2017/standings
+    roles:
+    - icpc_standings
 - id: west-neerc-2017
   season: 2018
   name: 2017 Western Subregional Contest
@@ -411,18 +605,31 @@ contests:
   - 3294
   parent: nerc-2017
   next: west-neerc-2018
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2017/western/standings.html
-      archived: west-neerc/west-neerc-2017/scoreboard/2026-09-01-live-04740294/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://acm.bsu.by/contests/45/standings/
-      archived: west-neerc/west-neerc-2017/scoreboard/2026-09-01-live-1962c74f/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Western-Subregional-2018/standings
-  web: https://neerc.ifmo.ru/subregions/western.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/western.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2017/western/standings.html
+    roles:
+    - scoreboard
+    as_of: '20220122053201'
+    archived:
+    - west-neerc/west-neerc-2017/scoreboard/2026-09-01-live-04740294/standings.html
+    - west-neerc/west-neerc-2017/scoreboard/20220122-wayback-b815683b/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://acm.bsu.by/contests/45/standings/
+    roles:
+    - scoreboard
+    as_of: '20191021235711'
+    archived:
+    - west-neerc/west-neerc-2017/scoreboard/2026-09-01-live-1962c74f/page.html
+    - west-neerc/west-neerc-2017/scoreboard/20191021-wayback-67506fb1/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Western-Subregional-2018/standings
+    roles:
+    - icpc_standings
 - id: west-neerc-2018
   season: 2019
   name: 2018 Western Subregional Contest
@@ -432,14 +639,23 @@ contests:
   - 3678
   parent: nerc-2018
   next: west-neerc-2019
-  results:
-    scoreboard:
-    - url: https://acm.bsu.by/contests/69/standings/
-      archived: west-neerc/west-neerc-2018/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Western-Subregional-2019/standings
-  web: http://fpmi.bsu.by/ru/main.aspx?guid=24011
+  sources:
+  - url: http://fpmi.bsu.by/ru/main.aspx?guid=24011
+    roles:
+    - web
+  - url: https://acm.bsu.by/contests/69/standings/
+    roles:
+    - scoreboard
+    as_of: '20190723171013'
+    archived:
+    - west-neerc/west-neerc-2018/external-standings/2026-04-15-external/content.html
+    - west-neerc/west-neerc-2018/scoreboard/20190723-wayback-8a6d5d25/page.html
+    - west-neerc/west-neerc-2018/scoreboard/20260901-live-728e22b7/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Western-Subregional-2019/standings
+    roles:
+    - icpc_standings
 - id: west-neerc-2019
   season: 2020
   name: 2019 Belarus and Baltics Regional Contest
@@ -449,31 +665,52 @@ contests:
   - 4196
   parent: nerc-2019
   next: west-neerc-2020
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2019/western/standings.html
-      as_of: '20240725093902'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-neerc/west-neerc-2019/scoreboard/20240725-wayback-37134531/standings.html
-    - url: https://acm.bsu.by/contests/88/standings/
-      archived: west-neerc/west-neerc-2019/scoreboard/2026-09-01-live-1fb99a52/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://acm.bsu.by/contests/88/standings/wide/
-      archived: west-neerc/west-neerc-2019/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2019/western/standings.html
-      as_of: '20230331164458'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: west-neerc/west-neerc-2019/standings/20230331-wayback-e164d06f/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Belarus-and-Baltics-Regional-2020/standings
-  web: https://neerc.ifmo.ru/subregions/western.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/western.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2019/western/standings.html
+    roles:
+    - scoreboard
+    as_of: '20240725093902'
+    archived:
+    - west-neerc/west-neerc-2019/scoreboard/20240725-wayback-37134531/standings.html
+    - west-neerc/west-neerc-2019/scoreboard/20260904-live-b83837b3/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://acm.bsu.by/contests/88/standings/
+    roles:
+    - scoreboard
+    as_of: '20191121171920'
+    archived:
+    - west-neerc/west-neerc-2019/scoreboard/2026-09-01-live-1fb99a52/page.html
+    - west-neerc/west-neerc-2019/scoreboard/20191121-wayback-cc9db3c3/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://acm.bsu.by/contests/88/standings/wide/
+    roles:
+    - standings
+    as_of: '20191121171937'
+    archived:
+    - west-neerc/west-neerc-2019/external-standings/2026-04-15-external/content.html
+    - west-neerc/west-neerc-2019/standings/20191121-wayback-d50a2bec/page.html
+    - west-neerc/west-neerc-2019/standings/20260901-live-68400423/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://neerc.ifmo.ru/archive/2019/western/standings.html
+    roles:
+    - standings
+    as_of: '20230331164458'
+    archived:
+    - west-neerc/west-neerc-2019/standings/20230331-wayback-e164d06f/standings.html
+    - west-neerc/west-neerc-2019/standings/20260904-live-37af7152/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Belarus-and-Baltics-Regional-2020/standings
+    roles:
+    - icpc_standings
 - id: west-neerc-2020
   season: 2021
   name: 2020 Belarus and Baltics Regional Contest
@@ -483,14 +720,23 @@ contests:
   - 4573
   parent: nerc-2020
   next: west-neerc-2021
-  results:
-    scoreboard:
-    - url: https://acm.bsu.by/contests/139/standings/
-      archived: west-neerc/west-neerc-2020/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Belarus-and-Baltics-Regional-2021/standings
-  web: http://fpmi.bsu.by/ru/main.aspx?guid=24011
+  sources:
+  - url: http://fpmi.bsu.by/ru/main.aspx?guid=24011
+    roles:
+    - web
+  - url: https://acm.bsu.by/contests/139/standings/
+    roles:
+    - scoreboard
+    as_of: '20201130043007'
+    archived:
+    - west-neerc/west-neerc-2020/external-standings/2026-04-15-external/content.html
+    - west-neerc/west-neerc-2020/scoreboard/20201130-wayback-4ac60a03/page.html
+    - west-neerc/west-neerc-2020/scoreboard/20260901-live-2ee63ba2/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Belarus-and-Baltics-Regional-2021/standings
+    roles:
+    - icpc_standings
 - id: west-neerc-2021
   season: 2022
   name: 2021 ICPC Belarus and Baltics Regional Contest
@@ -500,13 +746,19 @@ contests:
   - 4943
   parent: nerc-2021
   next: west-neerc-2022
-  results:
-    scoreboard:
-    - url: https://acm.bsu.by/contests/168/standings/
-      archived: west-neerc/west-neerc-2021/scoreboard/2026-09-01-live-fc022138/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Belarus-and-Baltics-Regional-2022/standings
+  sources:
+  - url: https://acm.bsu.by/contests/168/standings/
+    roles:
+    - scoreboard
+    as_of: '20211201181135'
+    archived:
+    - west-neerc/west-neerc-2021/scoreboard/2026-09-01-live-fc022138/page.html
+    - west-neerc/west-neerc-2021/scoreboard/20211201-wayback-4449782e/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Belarus-and-Baltics-Regional-2022/standings
+    roles:
+    - icpc_standings
 - id: west-neerc-2022
   season: 2023
   name: 2022 ICPC Belarus Regional Contest
@@ -516,13 +768,19 @@ contests:
   - 5595
   parent: nerc-2022
   next: west-neerc-2023
-  results:
-    scoreboard:
-    - url: https://acm.bsu.by/contests/198/standings/
-      archived: west-neerc/west-neerc-2022/scoreboard/2026-09-01-live-586d08c6/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Belarus-Regional-2023/standings
+  sources:
+  - url: https://acm.bsu.by/contests/198/standings/
+    roles:
+    - scoreboard
+    as_of: '20221105225806'
+    archived:
+    - west-neerc/west-neerc-2022/scoreboard/2026-09-01-live-586d08c6/page.html
+    - west-neerc/west-neerc-2022/scoreboard/20221105-wayback-f2a88822/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Belarus-Regional-2023/standings
+    roles:
+    - icpc_standings
 - id: west-neerc-2023
   season: 2024
   name: 2023 ICPC Belarus Regional Contest
@@ -532,13 +790,19 @@ contests:
   - 7730
   parent: nerc-2023
   next: west-neerc-2024
-  results:
-    scoreboard:
-    - url: https://acm.bsu.by/contests/225/standings/
-      archived: west-neerc/west-neerc-2023/scoreboard/2026-09-01-live-a446c1f3/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Belarus-Regional-2024/standings
+  sources:
+  - url: https://acm.bsu.by/contests/225/standings/
+    roles:
+    - scoreboard
+    as_of: '20231110094909'
+    archived:
+    - west-neerc/west-neerc-2023/scoreboard/2026-09-01-live-a446c1f3/page.html
+    - west-neerc/west-neerc-2023/scoreboard/20231110-wayback-48f8c32d/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Belarus-Regional-2024/standings
+    roles:
+    - icpc_standings
 - id: west-neerc-2024
   season: 2025
   name: 2024 ICPC Belarus Regional Contest
@@ -548,15 +812,28 @@ contests:
   - 8897
   parent: nerc-2024
   next: west-neerc-2025
-  results:
-    scoreboard:
-    - url: https://acm.bsu.by/contests/254/standings/
-      archived: west-neerc/west-neerc-2024/scoreboard/2026-09-01-live-33fbb1ea/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Belarus-Regional-2025/standings
-  web: https://icpc.bsu.by/
-  problemset: https://codeforces.com/gym/105535
+  sources:
+  - url: https://icpc.bsu.by/
+    roles:
+    - web
+  - url: https://acm.bsu.by/contests/254/standings/
+    roles:
+    - scoreboard
+    as_of: '20250120215757'
+    archived:
+    - west-neerc/west-neerc-2024/scoreboard/2026-09-01-live-33fbb1ea/page.html
+    - west-neerc/west-neerc-2024/scoreboard/20250120-wayback-3355c039/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Belarus-Regional-2025/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/105535
+    roles:
+    - problemset
+    as_of: '20250730150719'
+    url_state: replaced
+    url_checked: '2026-11-02'
 - id: west-neerc-2025
   season: 2026
   name: 2025 ICPC Belarus Regional Contest
@@ -566,14 +843,22 @@ contests:
   - 9163
   parent: nerc-2025
   next: west-neerc-2026
-  results:
-    scoreboard:
-    - url: https://acm.bsu.by/contests/282/standings/
-      archived: west-neerc/west-neerc-2025/scoreboard/2026-09-01-live-88ffdac2/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Belarus-Regional-2026/standings
-  web: https://icpc.bsu.by/
+  sources:
+  - url: https://icpc.bsu.by/
+    roles:
+    - web
+  - url: https://acm.bsu.by/contests/282/standings/
+    roles:
+    - scoreboard
+    as_of: '20251126133339'
+    archived:
+    - west-neerc/west-neerc-2025/scoreboard/2026-09-01-live-88ffdac2/page.html
+    - west-neerc/west-neerc-2025/scoreboard/20251126-wayback-bcadb911/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Belarus-Regional-2026/standings
+    roles:
+    - icpc_standings
 - id: west-neerc-2026
   status: upcoming
   season: 2027

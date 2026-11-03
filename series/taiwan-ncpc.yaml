@@ -1,7 +1,10 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_candidates.py (url-hunt 2026-09-01).
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: taiwan-ncpc
   name: Taiwan National Collegiate Programming Contest (MOE NCPC)
+  tier: subregional
+  region: Asia Pacific
+  naming: season-start
 contests:
 - id: taiwan-ncpc-2007
   season: 2008
@@ -11,13 +14,19 @@ contests:
   cms_ids:
   - 1136
   parent: taiwan-2007
-  notes: '92 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   next: taiwan-ncpc-2012
-  web: https://ncpc.ntnu.edu.tw/ncpc2007/
-  problemset: https://ncpc.ntnu.edu.tw/files.html
-  mirrors:
-  - url: https://ncpc.nsysu.edu.tw/p/412-1062-25782.php
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
+  sources:
+  - url: https://ncpc.ntnu.edu.tw/ncpc2007/
+    roles:
+    - web
+    also_at:
+    - https://ncpc.nsysu.edu.tw/p/412-1062-25782.php
+  - url: https://ncpc.ntnu.edu.tw/files.html
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  notes: '92 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: taiwan-ncpc-2012
   season: 2013
   name: Asia Kaohsiung - Taiwan National Group-A Programming Contest
@@ -28,13 +37,19 @@ contests:
   - 1520
   - 1521
   parent: taiwan-2012
+  next: taiwan-ncpc-2013
+  sources:
+  - url: https://www.nchu.edu.tw/_run.php?work=down2&file=95f66ea7cb80e50500b08bfd3a039f3c8c0e1c6a.pdf&name=%E3%80%8C101%E5%B9%B4%E5%BA%A6%E5%85%A8%E5%9C%8B%E5%A4%A7%E5%B0%88%E9%9B%BB%E8%85%A6%E8%BB%9F%E9%AB%94%E8%A8%AD%E8%A8%88%E7%AB%B6%E8%B3%BD%E3%80%8D.pdf
+    roles:
+    - web
+  - url: https://ncpc.ntnu.edu.tw/files.html
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
   notes: '53 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))
     | merged duplicate-year row: Asia Kaohsiung - Taiwan National Group-B Programming Contest | merged
     duplicate-year row: Asia Kaohsiung - Taiwan National Group-C Programming Contest'
-  next: taiwan-ncpc-2013
-  web: https://www.nchu.edu.tw/_run.php?work=down2&file=95f66ea7cb80e50500b08bfd3a039f3c8c0e1c6a.pdf&name=%E3%80%8C101%E5%B9%B4%E5%BA%A6%E5%85%A8%E5%9C%8B%E5%A4%A7%E5%B0%88%E9%9B%BB%E8%85%A6%E8%BB%9F%E9%AB%94%E8%A8%AD%E8%A8%88%E7%AB%B6%E8%B3%BD%E3%80%8D.pdf
-  mirrors: []
-  problemset: https://ncpc.ntnu.edu.tw/files.html
 - id: taiwan-ncpc-2013
   season: 2014
   name: Asia Chia-Yi -Taiwan National Programming Contest
@@ -43,14 +58,20 @@ contests:
   - 1908
   - 1909
   parent: taiwan-2013
+  next: taiwan-ncpc-2014
+  sources:
+  - url: https://ncpc.ntnu.edu.tw/ncpc2013/
+    roles:
+    - web
+    also_at:
+    - https://ncpc.nsysu.edu.tw/p/412-1062-25782.php
+  - url: https://ncpc.ntnu.edu.tw/files.html
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
   notes: '78 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))
     | merged duplicate-year row: Taiwan National NCPU Programming Contest'
-  next: taiwan-ncpc-2014
-  web: https://ncpc.ntnu.edu.tw/ncpc2013/
-  problemset: https://ncpc.ntnu.edu.tw/files.html
-  mirrors:
-  - url: https://ncpc.nsysu.edu.tw/p/412-1062-25782.php
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
 - id: taiwan-ncpc-2014
   season: 2015
   name: 2014 ACM-ICPC Taiwan NCPU National Programming Contest
@@ -58,13 +79,15 @@ contests:
   location: Taichung City, Taiwan
   cms_ids:
   - 2553
+  next: taiwan-ncpc-2015
+  sources:
+  - url: https://ncpc.ntnu.edu.tw/files.html
+    roles:
+    - web
+    also_at:
+    - https://ncpc.nsysu.edu.tw/
   notes: '55 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site));
     parent ''apc'' from inventory unresolved - left unlinked'
-  next: taiwan-ncpc-2015
-  web: https://ncpc.ntnu.edu.tw/files.html
-  mirrors:
-  - url: https://ncpc.nsysu.edu.tw/
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
 - id: taiwan-ncpc-2015
   season: 2016
   name: 2015 ACM-ICPC Taiwan NCPU National Programming Contest for Private Universities
@@ -72,10 +95,15 @@ contests:
   location: Taiwan
   cms_ids:
   - 2969
+  next: taiwan-ncpc-2016
+  sources:
+  - url: https://ncpc.ntnu.edu.tw/files.html
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   notes: '81 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site));
     parent ''apc'' from inventory unresolved - left unlinked'
-  next: taiwan-ncpc-2016
-  problemset: https://ncpc.ntnu.edu.tw/files.html
 - id: taiwan-ncpc-2016
   season: 2017
   name: 2016 ACM-ICPC Taiwan NCTU National Programming Contest for Technology Universities

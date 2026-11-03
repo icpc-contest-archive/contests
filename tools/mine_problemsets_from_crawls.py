@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Mine problem-set locators for contests without `problemset:` from the page lists of
+"""Mine problem-set locators for contests without a problemset source from the page lists of
 this project's own website crawls (data/resources.json). A hit is a page we hold with
 HTTP 200 whose URL looks like a problem set (set PDF > archive > problems index page),
 year-consistent with the contest, not a per-problem file, and not another contest's set
@@ -9,24 +9,19 @@ Wayback-mode crawls give `as_of` = the page's snapshot, which must not predate t
 Writes data/problemset-candidates-sites-<date>.json for tools/apply_url_candidates.py
 (--statuses verified,wayback) and a review list in reports/.
 """
-import datetime, json, re, glob, sys
+import datetime, json, re, sys
 from collections import defaultdict, Counter
 from pathlib import Path
-import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
+from catalogue import by_role, has_role, load_contests  # noqa: E402
+
 today = datetime.date.today().isoformat()
-cat = {}
-for f in glob.glob(str(ROOT / "series/*.yaml")):
-    for c in yaml.safe_load(open(f))["contests"]:
-        cat[c["id"]] = c
+cat = load_contests()
 ran = {k for k, c in cat.items() if c.get("status") != "upcoming"}
-has = {k for k in ran if cat[k].get("problemset")}
-used = set()
-for c in cat.values():
-    ps = c.get("problemset")
-    for x in (ps if isinstance(ps, list) else [ps]) if ps else []:
-        used.add(x["url"] if isinstance(x, dict) else x)
+has = {k for k in ran if has_role(cat[k], "problemset")}
+used = {s["url"] for c in cat.values() for s in by_role(c, "problemset")}
 R = json.load(open(ROOT / "data/resources.json"))["locators"]
 
 LOOKS = re.compile(r"problem[-_ ]?set|problems?(\.pdf|\.s?html?|/|$)|/problems|probset|tasks?\.pdf|statements?\.pdf|opgaven|uppgifter|zadania", re.I)

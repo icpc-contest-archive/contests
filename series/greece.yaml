@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: greece
   name: ICPC Greece Collegiate Programming Contest
+  tier: subregional
+  region: Europe
+  naming: season-start
 contests:
 - id: greece-2023
   season: 2024
@@ -12,11 +15,18 @@ contests:
   - 8468
   parent: seerc-2023
   next: greece-2024
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/ICPCGreece-2024/standings
-    archived: greece/greece-2023/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/ICPCGreece-2024/standings
+    roles:
+    - icpc_standings
+    archived:
+    - greece/greece-2023/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 8468, 82 teams, DB fetch 2026-04-26)
-  problemset: https://grcpc.upatras.gr/wp-content/uploads/sites/177/2023/10/problems-GRCPC-2023.pdf
+  - url: https://grcpc.upatras.gr/wp-content/uploads/sites/177/2023/10/problems-GRCPC-2023.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: greece-2024
   season: 2025
   name: 2024 ICPC Greece Collegiate Programming Contest
@@ -25,15 +35,25 @@ contests:
   - 8968
   parent: seerc-2024
   next: greece-2025
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/105453/standings
-      archived: greece/greece-2024/scoreboard/2026-09-01-live-af11e45c/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/ICPCGreece-2025/standings
-  web: http://algoforum.upatras.gr
-  problemset: https://codeforces.com/gym/105453
+  sources:
+  - url: http://algoforum.upatras.gr
+    roles:
+    - web
+  - url: https://codeforces.com/gym/105453/standings
+    roles:
+    - scoreboard
+    archived:
+    - greece/greece-2024/scoreboard/2026-09-01-live-af11e45c/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/ICPCGreece-2025/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/105453
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: greece-2025
   season: 2026
   name: 2025 ICPC Greece Collegiate Programming Contest
@@ -42,15 +62,25 @@ contests:
   - 9351
   parent: seerc-2025
   next: greece-2026
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/106151/standings
-      archived: greece/greece-2025/scoreboard/2026-09-01-live-f4c2d95b/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/ICPCGreece-2026/standings
-  web: https://grcpc.upatras.gr/
-  problemset: https://codeforces.com/gym/106151
+  sources:
+  - url: https://grcpc.upatras.gr/
+    roles:
+    - web
+  - url: https://codeforces.com/gym/106151/standings
+    roles:
+    - scoreboard
+    archived:
+    - greece/greece-2025/scoreboard/2026-09-01-live-f4c2d95b/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/ICPCGreece-2026/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/106151
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: greece-2026
   status: upcoming
   season: 2027

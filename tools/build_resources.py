@@ -2,7 +2,8 @@
 """Build data/resources.json: the resource graph (DEFINITIONS.md, "Resources").
 
 Joins everything the project knows about each locator into one record:
-  catalogue references  (series/*.yaml: results.*[], web, mirrors[], problemset)
+  catalogue references  (series/*.yaml: sources[] — one per address, with its roles — and
+                         the web source's also_at mirrors)
   captures              (../archive/index.json when checked out, else data/archive-index.json)
   website crawls        (data/website-index.json + the crawl manifests when available)
   live-check verdicts   (../archive/reports/url-states-*-merged.json, newest per locator)
@@ -28,15 +29,11 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-import yaml
-
 ROOT = Path(__file__).resolve().parent.parent
 ARCHIVE = ROOT.parent / "archive"
 sys.path.insert(0, str(ROOT / "tools"))
+from catalogue import also_at, archived, load_contests, primary_role, sources  # noqa: E402
 from resources import canon_url, norm_key, ts_from, unwrap  # noqa: E402
-
-TIERS = ("scoreboard", "frozen_scoreboard", "standings", "rankings")
-
 
 def lid(url: str) -> str:
     return hashlib.sha256(norm_key(url).encode()).hexdigest()[:12]
@@ -106,51 +103,34 @@ def main() -> int:
                                            "evidence": evidence, **extra})
 
     # ---- catalogue references ----
-    for f in sorted((ROOT / "series").glob("*.yaml")):
-        doc = yaml.safe_load(f.read_text())
-        for c in doc["contests"]:
-            cid = c["id"]
+    # one reference per source address: `kind` = the primary role (judge_page -> judge-<judge>;
+    # kept under the old name `field` for consumers), `roles` = every role the address serves.
+    # also_at addresses reference the locator as `mirror` of the web source.
+    for c in load_contests().values():
+        cid = c["id"]
 
-            def ref(url, field, e=None, as_of=None):
-                L = loc(url)
-                r = {"contest": cid, "field": field}
-                if as_of:
-                    r["as_of"] = as_of
-                for k in ("url_state", "url_checked", "note", "archived"):
-                    if e and e.get(k):
-                        r[k] = e[k]
-                L["refs"].append(r)
-                if as_of:
-                    res(L, as_of, None)["refs"].append({"contest": cid, "field": field})
+        def ref(url, field, roles, e=None, as_of=None):
+            L = loc(url)
+            r = {"contest": cid, "field": field, "roles": list(roles)}
+            if as_of:
+                r["as_of"] = as_of
+            for k in ("judge", "url_state", "url_checked", "note"):
+                if e and e.get(k):
+                    r[k] = e[k]
+            if e and archived(e):
+                r["archived"] = archived(e)  # every capture path the catalogue names
+            L["refs"].append(r)
+            if as_of:
+                res(L, as_of, None)["refs"].append({"contest": cid, "field": field, "roles": list(roles)})
 
-            for kind, lst in (c.get("results") or {}).items():
-                for e in lst:
-                    ref(e["url"], kind, e, e.get("as_of"))
-            w = c.get("web")
-            for x in (w if isinstance(w, list) else [w]) if w else []:
-                if isinstance(x, dict):
-                    ref(x["url"], "web", x, x.get("as_of"))
-                else:
-                    ref(x, "web")
-            for m in c.get("mirrors") or []:
-                ref(m["url"], "mirror", m, m.get("as_of"))
-            ps = c.get("problemset")
-            for x in (ps if isinstance(ps, list) else [ps]) if ps else []:  # a list since 2026-11-01
-                if isinstance(x, dict):
-                    ref(x["url"], "problemset", x, x.get("as_of"))
-                else:
-                    ref(x, "problemset")
-            for jname, jv in ((c.get("problems") or {}).get("judges") or {}).items():  # 2026-11-02
-                for x in (jv if isinstance(jv, list) else [jv]):
-                    if isinstance(x, dict):
-                        ref(x["url"], f"judge-{jname}", x, x.get("as_of"))
-                    else:
-                        ref(x, f"judge-{jname}")
-            ist = c.get("icpc_standings")
-            if isinstance(ist, dict):
-                ref(ist["url"], "icpc_standings", ist, ist.get("as_of"))
-            elif ist:
-                ref(ist, "icpc_standings")
+        for s in sources(c):
+            kind = primary_role(s)
+            if kind == "judge_page":
+                kind = f"judge-{s.get('judge') or 'unknown'}"
+            ref(s["url"], kind, s["roles"], s, s.get("as_of"))
+            if "web" in s["roles"]:
+                for m in also_at(s):
+                    ref(m["url"], "mirror", ["web"], m, m.get("as_of"))
 
     # ---- captures ----
     for cap in captures:

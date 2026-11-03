@@ -1,7 +1,10 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_candidates.py (url-hunt 2026-09-01).
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: acpc
   name: ICPC Africa & Arab Collegiate Programming Championship
+  tier: regional
+  region: Africa & Arab
+  naming: season-start
 contests:
 - id: acpc-1998
   season: 1999
@@ -11,24 +14,27 @@ contests:
   - 1041
   parent: wf-1999
   next: acpc-1999
-  web:
-    url: http://icpc.baylor.edu/past/icpc99/Regionals/AARPC98/Default.htm
-    as_of: '20041118004847'
-  problemset:
-  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_AARC/1998/index.html
-    as_of: '20090713055854'
-  - url: http://icpc.baylor.edu/past/icpc99/Regionals/AARPC98/Problems.htm
-    as_of: '20041121214904'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: http://icpc.baylor.edu/past/icpc99/Regionals/AARPC98/Default.htm
+    roles:
+    - web
+    as_of: '20041118004847'
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_AARC/1998/index.html
+    roles:
+    - problemset
+    as_of: '20090713055854'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc99/Regionals/AARPC98/Problems.htm
+    roles:
+    - problemset
+    as_of: '20041121214904'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/acpc-1998
-    count: 7
-    statement: full
-    data: none
-    solutions: full
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: acpc-1998
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: acpc-1999
   season: 2000
   name: 1999 ACM Africa and Arab Programming Contest
@@ -38,24 +44,27 @@ contests:
   - 1281
   parent: wf-2000
   next: acpc-2000
-  web:
-    url: http://icpc.baylor.edu/past/icpc2000/regionals/AARPC99/Report.html
+  sources:
+  - url: http://icpc.baylor.edu/past/icpc2000/regionals/AARPC99/Report.html
+    roles:
+    - web
     as_of: '20020111122148'
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2000/regionals/AARPC99/Standings.html
-      as_of: '20020111133509'
-      archived: acpc/acpc-1999/standings/2026-09-01-wayback-21aae3c2/Standings.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc2000/regionals/AARPC99/Standings.html
-      as_of: '20020111133509'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: dead
-      url_checked: '2026-11-02'
-  problemset:
-    url: http://icpc.baylor.edu/past/icpc2000/regionals/AARPC99/Problems.pdf
+  - url: http://icpc.baylor.edu/past/icpc2000/regionals/AARPC99/Standings.html
+    roles:
+    - standings
+    as_of: '20020111133509'
+    archived:
+    - acpc/acpc-1999/standings/2026-09-01-wayback-21aae3c2/Standings.html
+    - acpc/acpc-1999/standings/20020111-wayback-9ac0f538/Standings.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
+  - url: http://icpc.baylor.edu/past/icpc2000/regionals/AARPC99/Problems.pdf
+    roles:
+    - problemset
     as_of: '20030607052522'
+    url_state: dead
+    url_checked: '2026-11-02'
 - id: acpc-2000
   season: 2001
   name: 2000 ACM Africa and Arab Programming Contest
@@ -65,43 +74,47 @@ contests:
   - 1032
   parent: wf-2001
   next: acpc-2001
-  results:
-    rankings:
-    - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=431
-      as_of: '20060901130612'
-      archived: acpc/acpc-2000/rankings/2026-09-01-wayback-01adc336/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=431
-      as_of: '20011222230325'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  web:
-    url: http://icpc.baylor.edu/past/icpc2001/Regionals/AARPC00/Default.asp
+  sources:
+  - url: http://icpc.baylor.edu/past/icpc2001/Regionals/AARPC00/Default.asp
+    roles:
+    - web
     as_of: '20020111073601'
-  problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=57
-        as_of: '20150309102755'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+    also_at:
+    - url: http://www.alakhawayn.ma/ACMcontest
+      as_of: '19980515181211'
+  - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=431
+    roles:
+    - standings
+    - rankings
+    as_of: '20011222230325'
+    archived:
+    - acpc/acpc-2000/rankings/2026-09-01-wayback-01adc336/page.html
+    - acpc/acpc-2000/standings/20011222-wayback-1b2b47bc/page.html
+    - acpc/acpc-2000/standings/20011222-wayback-d8132c9e/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings); as_of 20060901130612 for rankings
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_AARC/2000/index.html
+    roles:
+    - problemset
     as_of: '20020513195159'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2001/regionals/AARPC00/Problems.pdf
+    roles:
+    - problemset
     as_of: '20030323120405'
-  mirrors:
-  - url: http://www.alakhawayn.ma/ACMcontest
-    as_of: '19980515181211'
-    note: added by url-hunt 2026-09-01 (cms-api)
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=57
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20150309102755'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: acpc-2000
 - id: acpc-2001
   season: 2002
   name: 2001 ACM Africa and Arab Programming Contest
@@ -111,46 +124,52 @@ contests:
   - 1282
   parent: wf-2002
   next: acpc-2002
-  results:
-    rankings:
-    - url: http://icpc.baylor.edu/Past/icpc2002/regionals/ViewRegionalStandings.asp?ContestID=496
-      as_of: '20090102030950'
-      archived: acpc/acpc-2001/rankings/2026-09-01-wayback-bf60d33a/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2002/regionals/ViewRegionalStandings.asp?ContestID=496
-      as_of: '20020701104616'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://www.aucegypt.edu/acm/standings.pdf
-      as_of: '20030829072250'
-      note: added by url-hunt 2026-09-01 (cms-api)
-  web:
-    url: http://icpc.baylor.edu/past/icpc2002/Regionals/AARPC01/default.asp
+  sources:
+  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/AARPC01/default.asp
+    roles:
+    - web
     as_of: '20020619092239'
-  problems:
-    repo: icpc-problem-archive/statement-only
-    count: 9
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=87
-        as_of: '20210917075022'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_AARC/2001/index.html
-    as_of: '20020622021421'
-  - url: http://icpc.baylor.edu/past/icpc2002/regionals/AARPC01/problems.pdf
-    as_of: '20030831070454'
-  mirrors:
-  - url: http://www.aucegypt.edu/acm/
-    as_of: '20010502154845'
+    also_at:
+    - url: http://www.aucegypt.edu/acm/
+      as_of: '20010502154845'
+  - url: http://icpc.baylor.edu/past/icpc2002/regionals/ViewRegionalStandings.asp?ContestID=496
+    roles:
+    - standings
+    - rankings
+    as_of: '20020701104616'
+    archived:
+    - acpc/acpc-2001/rankings/2026-09-01-wayback-bf60d33a/page.html
+    - acpc/acpc-2001/standings/20020701-wayback-04c77b30/page.html
+    - acpc/acpc-2001/standings/20020701-wayback-18f3ed10/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings); as_of 20090102030950 for rankings
+  - url: http://www.aucegypt.edu/acm/standings.pdf
+    roles:
+    - standings
+    as_of: '20030829072250'
     note: added by url-hunt 2026-09-01 (cms-api)
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_AARC/2001/index.html
+    roles:
+    - problemset
+    as_of: '20020622021421'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2002/regionals/AARPC01/problems.pdf
+    roles:
+    - problemset
+    as_of: '20030831070454'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=87
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210917075022'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: acpc-2001
 - id: acpc-2002
   season: 2003
   name: 2002 ACM Africa and Arab Programming Contest
@@ -160,58 +179,63 @@ contests:
   - 1084
   parent: wf-2003
   next: acpc-2003
-  web:
-    url: http://www.aucegypt.edu/acm/anarc02.html
+  sources:
+  - url: http://www.aucegypt.edu/acm/anarc02.html
+    roles:
+    - web
     as_of: '20030820204023'
-  results:
-    standings:
-    - url: http://www.aucegypt.edu/acm/standings2002.pdf
-      as_of: '20030822104040'
-      archived: acpc/acpc-2002/standings/2026-09-01-wayback-4991578f/standings2002.pdf
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/www.aucegypt.edu/acm/standings2002.pdf
-      as_of: '20060512070518'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-mirror)
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: acpc/acpc-2002/standings/20060512-wayback-60dbb2c6/standings2002.pdf
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings0bd5.html?ContestID=564
-      as_of: '20060901122919'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: acpc/acpc-2002/rankings/2026-09-01-wayback-bde21012/ViewRegionalStandings0bd5.html
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/www.aucegypt.edu/acm/standings2002.pdf
-      as_of: '20060512070518'
-      note: added by url-hunt 2026-09-01 (round9-research)
-      url_state: dead
-      url_checked: '2026-11-02'
-    rankings:
-    - url: http://icpc.baylor.edu/past/icpc2003/Regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings0bd5.html?ContestID=564
-      as_of: '20090307020150'
-      archived: acpc/acpc-2002/rankings/2026-09-01-wayback-bde21012/ViewRegionalStandings0bd5.html
-      url_state: dead
-      url_checked: '2026-11-01'
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=116
-        as_of: '20210922002253'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+    also_at:
+    - url: http://www.aucegypt.edu/acm/
+      as_of: '20010502154845'
+  - url: http://www.aucegypt.edu/acm/standings2002.pdf
+    roles:
+    - standings
+    as_of: '20030822104040'
+    archived:
+    - acpc/acpc-2002/standings/2026-09-01-wayback-4991578f/standings2002.pdf
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/www.aucegypt.edu/acm/standings2002.pdf
+    roles:
+    - standings
+    as_of: '20060512070518'
+    archived:
+    - acpc/acpc-2002/standings/20060512-wayback-60dbb2c6/standings2002.pdf
+    - acpc/acpc-2002/standings/20060512-wayback-c43c4d1b/standings2002.pdf
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-mirror); added by url-hunt 2026-09-01 (round9-research)
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings0bd5.html?ContestID=564
+    roles:
+    - standings
+    - rankings
+    as_of: '20060901122919'
+    archived:
+    - acpc/acpc-2002/rankings/2026-09-01-wayback-bde21012/ViewRegionalStandings0bd5.html
+    - acpc/acpc-2002/standings/20060901-wayback-4ffe6896/ViewRegionalStandings0bd5.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings); as_of 20090307020150 for rankings
   - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/www.aucegypt.edu/acm/problems.pdf
+    roles:
+    - problemset
     as_of: '20030703164734'
-  - https://www.scribd.com/document/512318515/anarc2002
-  mirrors:
-  - url: http://www.aucegypt.edu/acm/
-    as_of: '20010502154845'
-    note: added by url-hunt 2026-09-01 (cms-api)
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.scribd.com/document/512318515/anarc2002
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=116
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210922002253'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: acpc-2002
 - id: acpc-2003
   season: 2004
   name: 2003 ACM Africa and Arab Programming Contest
@@ -221,49 +245,54 @@ contests:
   - 1036
   parent: wf-2004
   next: acpc-2004
-  results:
-    scoreboard:
-    - url: http://acm.kuniv.edu/2003/pc2/summary.html
-      as_of: '20071012101515'
-      archived: acpc/acpc-2003/scoreboard/2026-09-01-wayback-99d102d8/summary.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=638
-      as_of: '20071012205832'
-      archived: acpc/acpc-2003/standings/2026-09-01-wayback-0d346a51/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandingsc2df.html?ContestID=638
-      as_of: '20060901143555'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: acpc/acpc-2003/standings/20060901-wayback-085c5315/ViewRegionalStandingsc2df.html
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewStandings.asp?ContestID=638
-      as_of: '20040117083704'
-      note: added by url-hunt 2026-09-01 (cms-api)
-  web: http://acm.kuniv.edu
-  problems:
-    count: 9
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=146
-        as_of: '20150309102310'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=146
-    as_of: '20150309102310'
-  - url: http://acm.kuniv.edu/2003/anarc2003.pdf
-    as_of: '20050501181214'
-  mirrors:
-  - url: http://acm.kuniv.edu/
-    as_of: '20031204032027'
+  sources:
+  - url: http://acm.kuniv.edu
+    roles:
+    - web
+  - url: http://acm.kuniv.edu/2003/pc2/summary.html
+    roles:
+    - scoreboard
+    as_of: '20071012101515'
+    archived:
+    - acpc/acpc-2003/scoreboard/2026-09-01-wayback-99d102d8/summary.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=638
+    roles:
+    - standings
+    as_of: '20071012205832'
+    archived:
+    - acpc/acpc-2003/standings/2026-09-01-wayback-0d346a51/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandingsc2df.html?ContestID=638
+    roles:
+    - standings
+    as_of: '20060901143555'
+    archived:
+    - acpc/acpc-2003/standings/20060901-wayback-085c5315/ViewRegionalStandingsc2df.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewStandings.asp?ContestID=638
+    roles:
+    - standings
+    as_of: '20040117083704'
     note: added by url-hunt 2026-09-01 (cms-api)
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=146
+    roles:
+    - problemset
+    - judge_page
+    judge: livearchive
+    as_of: '20150309102310'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://acm.kuniv.edu/2003/anarc2003.pdf
+    roles:
+    - problemset
+    as_of: '20050501181214'
+  problems:
+    set: acpc-2003
 - id: acpc-2004
   season: 2005
   name: 2004 ACM Africa and Arab Programming Contest
@@ -273,34 +302,36 @@ contests:
   - 979
   parent: wf-2005
   next: acpc-2005
-  results:
-    scoreboard:
-    - url: http://acm.kuniv.edu/2004/contest/summary.html
-      as_of: '20071012093829'
-      archived: acpc/acpc-2004/scoreboard/2026-09-01-wayback-a37ce858/summary.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=680
-      as_of: '20071012162816'
-      archived: acpc/acpc-2004/standings/2026-09-01-wayback-d2e6761e/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-  web: http://acm.kuniv.edu
-  problems:
-    count: 9
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=177
-        as_of: '20211024052833'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=177
+  sources:
+  - url: http://acm.kuniv.edu
+    roles:
+    - web
+  - url: http://acm.kuniv.edu/2004/contest/summary.html
+    roles:
+    - scoreboard
+    as_of: '20071012093829'
+    archived:
+    - acpc/acpc-2004/scoreboard/2026-09-01-wayback-a37ce858/summary.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=680
+    roles:
+    - standings
+    as_of: '20071012162816'
+    archived:
+    - acpc/acpc-2004/standings/2026-09-01-wayback-d2e6761e/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=177
+    roles:
+    - problemset
+    - judge_page
+    judge: livearchive
     as_of: '20211024052833'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: acpc-2004
 - id: acpc-2005
   season: 2006
   name: 2005 ACM Arab & North Africa Programming Contest
@@ -310,44 +341,56 @@ contests:
   - 1138
   parent: wf-2006
   next: acpc-2006
-  results:
-    scoreboard:
-    - url: http://acm.kuniv.edu/2005/results/summary.html
-      as_of: '20071014213731'
-      archived: acpc/acpc-2005/scoreboard/2026-09-01-wayback-2f509729/summary.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=714
-      as_of: '20071011185552'
-      archived: acpc/acpc-2005/standings/2026-09-01-wayback-3567d858/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    - url: http://acm.kuniv.edu/2005/results/finals.html
-      as_of: '20060907030021'
-      archived: acpc/acpc-2005/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Arab-North-Africa-2006/standings
-  web: http://acm.kuniv.edu
-  problems:
-    count: 10
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=208
-        as_of: '20210924185850'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/136
-        as_of: '20201021190140'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=208
+  sources:
+  - url: http://acm.kuniv.edu
+    roles:
+    - web
+  - url: http://acm.kuniv.edu/2005/results/summary.html
+    roles:
+    - scoreboard
+    as_of: '20071014213731'
+    archived:
+    - acpc/acpc-2005/scoreboard/2026-09-01-wayback-2f509729/summary.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=714
+    roles:
+    - standings
+    as_of: '20071011185552'
+    archived:
+    - acpc/acpc-2005/standings/2026-09-01-wayback-3567d858/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://acm.kuniv.edu/2005/results/finals.html
+    roles:
+    - standings
+    as_of: '20060907030021'
+    archived:
+    - acpc/acpc-2005/external-standings/2026-04-15-external/content.html
+    - acpc/acpc-2005/standings/20060907-wayback-bc977638/finals.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Arab-North-Africa-2006/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=208
+    roles:
+    - problemset
+    - judge_page
+    judge: livearchive
     as_of: '20210924185850'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/136
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201021190140'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: acpc-2005
 - id: acpc-2006
   season: 2007
   name: 2006 ACM Arab & North Africa Programming Contest
@@ -357,38 +400,48 @@ contests:
   - 1261
   parent: wf-2007
   next: acpc-2007
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=756
-      as_of: '20071011212903'
-      archived: acpc/acpc-2006/standings/2026-09-01-wayback-5a5815fc/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    - url: http://www.aui.ma/personal/~K.Smith/ACM/2_standing.html
-      as_of: '20210505102302'
-      archived: acpc/acpc-2006/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Arab-North-Africa-2007/standings
-  web: http://acm.aui.ma
-  problems:
-    count: 9
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=240
-        as_of: '20211020215612'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/135
-        as_of: '20201130112901'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=240
+  sources:
+  - url: http://acm.aui.ma
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=756
+    roles:
+    - standings
+    as_of: '20071011212903'
+    archived:
+    - acpc/acpc-2006/standings/2026-09-01-wayback-5a5815fc/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://www.aui.ma/personal/~K.Smith/ACM/2_standing.html
+    roles:
+    - standings
+    as_of: '20210505102302'
+    archived:
+    - acpc/acpc-2006/external-standings/2026-04-15-external/content.html
+    - acpc/acpc-2006/standings/20210505-wayback-af135892/2_standing.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Arab-North-Africa-2007/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=240
+    roles:
+    - problemset
+    - judge_page
+    judge: livearchive
     as_of: '20211020215612'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/135
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201130112901'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: acpc-2006
 - id: acpc-2007
   season: 2008
   name: 2007 ACM Arab & North Africa Programming Contest
@@ -398,32 +451,38 @@ contests:
   - 986
   parent: wf-2008
   next: acpc-2008
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=839
-      as_of: '20080915032237'
-      archived: acpc/acpc-2007/standings/2026-09-01-wayback-3d83d4e7/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/regionals/finder/Arab-North-Africa-2008/standings
-  web: http://www.icpc-anarc.org
-  problems:
-    count: 10
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=273
-        as_of: '20211026032559'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/134
-        as_of: '20201020150750'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=273
+  sources:
+  - url: http://www.icpc-anarc.org
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=839
+    roles:
+    - standings
+    as_of: '20080915032237'
+    archived:
+    - acpc/acpc-2007/standings/2026-09-01-wayback-3d83d4e7/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://icpc.global/regionals/finder/Arab-North-Africa-2008/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=273
+    roles:
+    - problemset
+    - judge_page
+    judge: livearchive
     as_of: '20211026032559'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/134
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201020150750'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: acpc-2007
 - id: acpc-2008
   season: 2009
   name: 2008 Arab and North Africa Regional Contest
@@ -433,46 +492,54 @@ contests:
   - 3
   parent: wf-2009
   next: acpc-2009
-  web:
-    url: https://www.icpc-anarc.org/yr/2008/
+  sources:
+  - url: https://www.icpc-anarc.org/yr/2008/
+    roles:
+    - web
+    - standings
     as_of: '20081231135901'
-  results:
-    scoreboard:
-    - url: http://www.icpc-anarc.org/yr/2008/pc2/2008-pc2-summary.html
-      as_of: '20090518043739'
-      archived: acpc/acpc-2008/scoreboard/2026-09-01-wayback-f52ec07e/2008-pc2-summary.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.icpc-anarc.org/yr/2008/pc2/2008-pc2-full.html
-      as_of: '20090518043851'
-      archived: acpc/acpc-2008/standings/2026-09-01-wayback-12d645f9/2008-pc2-full.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://www.icpc-anarc.org/yr/2008/
-      as_of: '20101230221052'
-      archived: acpc/acpc-2008/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Arab-North-Africa-2009/standings
-  problems:
-    count: 10
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=307
-        as_of: '20210924181011'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/133
-        as_of: '20201023090023'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=307
+    archived:
+    - acpc/acpc-2008/external-standings/2026-04-15-external/content.html
+    - acpc/acpc-2008/standings/20081231-wayback-ea4b0cb4/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: as_of 20101230221052 for standings; from archived capture (external-standings)
+  - url: http://www.icpc-anarc.org/yr/2008/pc2/2008-pc2-summary.html
+    roles:
+    - scoreboard
+    as_of: '20090518043739'
+    archived:
+    - acpc/acpc-2008/scoreboard/2026-09-01-wayback-f52ec07e/2008-pc2-summary.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://www.icpc-anarc.org/yr/2008/pc2/2008-pc2-full.html
+    roles:
+    - standings
+    as_of: '20090518043851'
+    archived:
+    - acpc/acpc-2008/standings/2026-09-01-wayback-12d645f9/2008-pc2-full.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Arab-North-Africa-2009/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=307
+    roles:
+    - problemset
+    - judge_page
+    judge: livearchive
     as_of: '20210924181011'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/133
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201023090023'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: acpc-2008
 - id: acpc-2009
   season: 2010
   name: 2009 Arab and North Africa Regional Contest
@@ -482,39 +549,42 @@ contests:
   - 511
   parent: wf-2010
   next: acpc-2010
-  results:
-    scoreboard:
-    - url: https://www.icpc-anarc.org/yr/2009/pc2/2009-pc2-summary.html
-      as_of: '20091202073327'
-      archived: acpc/acpc-2009/scoreboard/2026-09-01-wayback-934ca274/2009-pc2-summary.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.icpc-anarc.org/yr/2009/pc2/2009-pc2-summary.html
-      as_of: '20101027005647'
-      archived: acpc/acpc-2009/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Arab-North-Africa-2010/standings
-  web: http://www.icpc-anarc.org
-  problems:
-    count: 10
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=343
-        as_of: '20210920104854'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/132
-        as_of: '20191022014431'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=343
+  sources:
+  - url: http://www.icpc-anarc.org
+    roles:
+    - web
+  - url: https://www.icpc-anarc.org/yr/2009/pc2/2009-pc2-summary.html
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20091202073327'
+    archived:
+    - acpc/acpc-2009/scoreboard/2026-09-01-wayback-934ca274/2009-pc2-summary.html
+    - acpc/acpc-2009/external-standings/2026-04-15-external/content.html
+    - acpc/acpc-2009/standings/20091202-wayback-1bac4dd8/2009-pc2-summary.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: as_of 20101027005647 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Arab-North-Africa-2010/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=343
+    roles:
+    - problemset
+    - judge_page
+    judge: livearchive
     as_of: '20210920104854'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/132
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191022014431'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: acpc-2009
 - id: acpc-2010
   season: 2011
   name: 2010 Arab Collegiate Programming Contest
@@ -524,40 +594,42 @@ contests:
   - 580
   parent: wf-2011
   next: acpc-2011
-  web:
-    url: https://www.acm-acpc.org/
+  sources:
+  - url: https://www.acm-acpc.org/
+    roles:
+    - web
     as_of: '20100716164343'
-  results:
-    standings:
-    - url: https://www.acm-acpc.org/acpc/2010/pc2/2010-pc2-full.html
-      as_of: '20101203055214'
-      archived: acpc/acpc-2010/standings/2026-09-01-wayback-cceedfb3/2010-pc2-full.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://www.acm-acpc.org/acpc/2010/pc2/2010-pc2-full.html
-      as_of: '20120704045512'
-      archived: acpc/acpc-2010/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/ACPC-2011/standings
-  problems:
-    count: 9
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=378
-        as_of: '20211020235329'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/131
-        as_of: '20201019162643'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=378
+  - url: https://www.acm-acpc.org/acpc/2010/pc2/2010-pc2-full.html
+    roles:
+    - standings
+    as_of: '20101203055214'
+    archived:
+    - acpc/acpc-2010/standings/2026-09-01-wayback-cceedfb3/2010-pc2-full.html
+    - acpc/acpc-2010/external-standings/2026-04-15-external/content.html
+    - acpc/acpc-2010/standings/20101203-wayback-df25e087/2010-pc2-full.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: as_of 20120704045512 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/ACPC-2011/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=378
+    roles:
+    - problemset
+    - judge_page
+    judge: livearchive
     as_of: '20211020235329'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/131
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201019162643'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: acpc-2010
 - id: acpc-2011
   season: 2012
   name: 2011 Arab Collegiate Programming Contest
@@ -567,30 +639,34 @@ contests:
   - 746
   parent: wf-2012
   next: acpc-2012
-  web:
-    url: http://www.csm.lau.edu.lb/acm/acpc.html
+  sources:
+  - url: http://www.csm.lau.edu.lb/acm/acpc.html
+    roles:
+    - web
     as_of: '20111030050936'
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/ACPC-2012/standings
-    archived: acpc/acpc-2011/standings/api-20260904/standings.html
+  - url: https://icpc.global/regionals/finder/ACPC-2012/standings
+    roles:
+    - icpc_standings
+    archived:
+    - acpc/acpc-2011/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 746, 67 teams, DB fetch 2026-04-26)
-  problems:
-    count: 10
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=524
-        as_of: '20210924175458'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1179
-        as_of: '20201020090914'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=524
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=524
+    roles:
+    - problemset
+    - judge_page
+    judge: livearchive
     as_of: '20210924175458'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1179
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201020090914'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: acpc-2011
 - id: acpc-2012
   season: 2013
   name: 2012 Arab Collegiate Programming Contest
@@ -600,29 +676,44 @@ contests:
   - 1348
   parent: wf-2013
   next: acpc-2013
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/100155/standings
-      archived: acpc/acpc-2012/scoreboard/2026-09-01-live-56745ca9/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/ACPC-2013/standings
-  web: http://www.acmacpc.org
+  sources:
+  - url: http://www.acmacpc.org
+    roles:
+    - web
+  - url: https://codeforces.com/gym/100155/standings
+    roles:
+    - scoreboard
+    as_of: '20230307113033'
+    archived:
+    - acpc/acpc-2012/scoreboard/2026-09-01-live-56745ca9/page.html
+    - acpc/acpc-2012/scoreboard/20230307-wayback-af07bd90/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/ACPC-2013/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/100155
+    roles:
+    - problemset
+    as_of: '20221006103001'
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=549
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211020132935'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1178
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20160123062532'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 10
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=549
-        as_of: '20211020132935'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1178
-        as_of: '20160123062532'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://codeforces.com/gym/100155
+    set: acpc-2012
 - id: acpc-2013
   season: 2014
   name: 2013 Arab Collegiate Programming Contest
@@ -632,30 +723,42 @@ contests:
   - 2050
   parent: wf-2014
   next: acpc-2014
-  results:
-    scoreboard:
-    - url: http://acmacpc.org/Homesite/archive/2013/scoreboard/
-      as_of: '20140418210242'
-      archived: acpc/acpc-2013/scoreboard/2026-09-01-wayback-48f686f8/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/ACPC-2014/standings
-  web: http://acmacpc.org
+  sources:
+  - url: http://acmacpc.org
+    roles:
+    - web
+  - url: http://acmacpc.org/Homesite/archive/2013/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20140418210242'
+    archived:
+    - acpc/acpc-2013/scoreboard/2026-09-01-wayback-48f686f8/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/ACPC-2014/standings
+    roles:
+    - icpc_standings
+  - url: https://www.scribd.com/doc/249155102/ACM-ACPC-2013
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=592
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211018161407'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1177
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20171216231403'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 12
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=592
-        as_of: '20211018161407'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1177
-        as_of: '20171216231403'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.scribd.com/doc/249155102/ACM-ACPC-2013
+    set: acpc-2013
 - id: acpc-2014
   season: 2015
   name: 2014 Arab Collegiate Programming Contest
@@ -665,31 +768,35 @@ contests:
   - 2625
   parent: wf-2015
   next: acpc-2015
-  results:
-    scoreboard:
-    - url: http://acmacpc.org/files/archive/2014/summary.html
-      as_of: '20160416054750'
-      archived: acpc/acpc-2014/scoreboard/2026-09-01-wayback-b77e9835/summary.html
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/ACPC-2015/standings
-  problems:
-    count: 10
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=633
-        as_of: '20211018003938'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1445
-        as_of: '20201024123906'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=633
+  sources:
+  - url: http://acmacpc.org/files/archive/2014/summary.html
+    roles:
+    - scoreboard
+    as_of: '20160416054750'
+    archived:
+    - acpc/acpc-2014/scoreboard/2026-09-01-wayback-b77e9835/summary.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/ACPC-2015/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=633
+    roles:
+    - problemset
+    - judge_page
+    judge: livearchive
     as_of: '20211018003938'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1445
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201024123906'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: acpc-2014
 - id: acpc-2015
   season: 2016
   name: 2015 Arab Collegiate Programming Contest
@@ -699,26 +806,32 @@ contests:
   - 2843
   parent: wf-2016
   next: acpc-2016
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/ACPC-2016/standings
-    archived: acpc/acpc-2015/standings/api-20260904/standings.html
+  sources:
+  - url: http://acmacpc.org/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/ACPC-2016/standings
+    roles:
+    - icpc_standings
+    archived:
+    - acpc/acpc-2015/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 2843, 89 teams, DB fetch 2026-04-26)
-  web: http://acmacpc.org/
-  problems:
-    count: 11
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=677
-        as_of: '20211020160546'
-      baekjoon: https://www.acmicpc.net/category/detail/2187
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=677
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=677
+    roles:
+    - problemset
+    - judge_page
+    judge: livearchive
     as_of: '20211020160546'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2187
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: acpc-2015
 - id: acpc-2016
   season: 2017
   name: 2016 Arab Collegiate Programming Contest
@@ -728,27 +841,30 @@ contests:
   - 3163
   parent: wf-2017
   next: acpc-2017
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/ACPC-2017/standings
-    archived: acpc/acpc-2016/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/ACPC-2017/standings
+    roles:
+    - icpc_standings
+    archived:
+    - acpc/acpc-2016/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3163, 109 teams, DB fetch 2026-04-26)
-  problems:
-    count: 12
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=722
-        as_of: '20210926184210'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2188
-        as_of: '20230514152010'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=722
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=722
+    roles:
+    - problemset
+    - judge_page
+    judge: livearchive
     as_of: '20210926184210'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2188
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20230514152010'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: acpc-2016
 - id: acpc-2017
   season: 2018
   name: 2017 Arab Collegiate Programming Contest
@@ -758,22 +874,27 @@ contests:
   - 3334
   parent: wf-2018
   next: acpc-2018
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/ACPC-2018/standings
-    archived: acpc/acpc-2017/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/ACPC-2018/standings
+    roles:
+    - icpc_standings
+    archived:
+    - acpc/acpc-2017/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3334, 114 teams, DB fetch 2026-04-26)
+  - url: https://drive.google.com/open?id=1vzvxWbxejmINCtuv-bFGSKwId6ZD36GS
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2189
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20220527224930'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 11
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2189
-        as_of: '20220527224930'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://drive.google.com/open?id=1vzvxWbxejmINCtuv-bFGSKwId6ZD36GS
+    set: acpc-2017
 - id: acpc-2018
   season: 2019
   name: 2018 Arab & Africa Collegiate Programming Contest
@@ -783,26 +904,32 @@ contests:
   - 3572
   parent: wf-2019
   next: acpc-2019
-  icpc_standings: https://icpc.global/regionals/finder/ACPC-2019/standings
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/101991/standings
-      note: added by url-hunt 2026-09-01 (wave3-cfgym)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: acpc/acpc-2018/scoreboard/20260902-live-3d84dba3/page.html
+  sources:
+  - url: https://codeforces.com/gym/101991/standings
+    roles:
+    - scoreboard
+    archived:
+    - acpc/acpc-2018/scoreboard/20260902-live-3d84dba3/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-cfgym)
+  - url: https://icpc.global/regionals/finder/ACPC-2019/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Africa%20and%20Arab%20Contests/Arab%20Collegiate%20Programming%20Championship/2018%20Arab%20Collegiate%20Programming%20Championship/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2190
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201023040118'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 12
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2190
-        as_of: '20201023040118'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/Africa%20and%20Arab%20Contests/Arab%20Collegiate%20Programming%20Championship/2018%20Arab%20Collegiate%20Programming%20Championship/problems.pdf
+    set: acpc-2018
 - id: acpc-2019
   season: 2020
   name: 2019 Africa & Arab Collegiate Programming Championship
@@ -812,9 +939,12 @@ contests:
   - 3987
   parent: wf-2020
   next: acpc-2020
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/ACPC-2020/standings
-    archived: acpc/acpc-2019/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/ACPC-2020/standings
+    roles:
+    - icpc_standings
+    archived:
+    - acpc/acpc-2019/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3987, 104 teams, DB fetch 2026-04-26)
 - id: acpc-2020
   season: 2021
@@ -826,11 +956,18 @@ contests:
   - 4396
   parent: wf-2021
   next: acpc-2021
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/ACPC-2021/standings
-    archived: acpc/acpc-2020/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/ACPC-2021/standings
+    roles:
+    - icpc_standings
+    archived:
+    - acpc/acpc-2020/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4396, 125 teams, DB fetch 2026-04-26)
-  problemset: https://github.com/kitihounel/competitive-programming-africa/blob/master/acpc/2020/contest/problemset.pdf
+  - url: https://github.com/kitihounel/competitive-programming-africa/blob/master/acpc/2020/contest/problemset.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: acpc-2021
   season: 2022
   name: 2021 ICPC Africa & Arab Collegiate Programming Championship
@@ -840,9 +977,12 @@ contests:
   - 4753
   parent: wf-2022
   next: acpc-2022
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/ACPC-2022/standings
-    archived: acpc/acpc-2021/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/ACPC-2022/standings
+    roles:
+    - icpc_standings
+    archived:
+    - acpc/acpc-2021/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4753, 127 teams, DB fetch 2026-04-26)
 - id: acpc-2022
   season: 2023
@@ -853,14 +993,19 @@ contests:
   - 5435
   parent: wf-2023
   next: acpc-2023
-  icpc_standings: https://icpc.global/regionals/finder/ACPC-2023/standings
-  results:
-    scoreboard:
-    - url: https://scoreboard.acpc.global/acpc2022/
-      note: added by url-hunt 2026-09-01 (wave5-boards)
-      url_state: live
-      url_checked: '2026-11-02'
-  web: https://acpcsb.acpc.global/ACPC2022/ACPC
+  sources:
+  - url: https://acpcsb.acpc.global/ACPC2022/ACPC
+    roles:
+    - web
+  - url: https://scoreboard.acpc.global/acpc2022/
+    roles:
+    - scoreboard
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave5-boards)
+  - url: https://icpc.global/regionals/finder/ACPC-2023/standings
+    roles:
+    - icpc_standings
 - id: acpc-2023
   season: 2024
   name: 2023 ICPC Africa & Arab Collegiate Programming Championship
@@ -870,14 +1015,18 @@ contests:
   - 7610
   parent: wf-2024
   next: acpc-2024
-  results:
-    frozen_scoreboard:
-    - url: https://scoreboard.acpc.global/acpc2023/ACPC.html
-      as_of: '20240419211851'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: acpc/acpc-2023/frozen_scoreboard/2026-09-01-wayback-9c920b7a/ACPC.html
-  icpc_standings: https://icpc.global/regionals/finder/ACPC-2024/standings
+  sources:
+  - url: https://scoreboard.acpc.global/acpc2023/ACPC.html
+    roles:
+    - frozen_scoreboard
+    as_of: '20240419211851'
+    archived:
+    - acpc/acpc-2023/frozen_scoreboard/2026-09-01-wayback-9c920b7a/ACPC.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/ACPC-2024/standings
+    roles:
+    - icpc_standings
 - id: acpc-2024
   season: 2025
   name: 2024 ICPC Africa & Arab Collegiate Programming Championship
@@ -887,15 +1036,21 @@ contests:
   - 8775
   parent: wf-2025
   next: acpc-2025
-  web: https://acpc.global/acpc2024/
-  results:
-    frozen_scoreboard:
-    - url: https://scoreboard.acpc.global/acpc2024/all.html
-      as_of: '20241208162705'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: acpc/acpc-2024/frozen_scoreboard/2026-09-01-wayback-8fcb73bd/all.html
-  icpc_standings: https://icpc.global/regionals/finder/ACPC-2025/standings
+  sources:
+  - url: https://acpc.global/acpc2024/
+    roles:
+    - web
+  - url: https://scoreboard.acpc.global/acpc2024/all.html
+    roles:
+    - frozen_scoreboard
+    as_of: '20241208162705'
+    archived:
+    - acpc/acpc-2024/frozen_scoreboard/2026-09-01-wayback-8fcb73bd/all.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/ACPC-2025/standings
+    roles:
+    - icpc_standings
 - id: acpc-2025
   season: 2026
   name: 2025 ICPC Africa & Arab Collegiate Programming Championship
@@ -905,9 +1060,12 @@ contests:
   - 9267
   parent: wf-2026
   next: acpc-2026
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/ACPC-2026/standings
-    archived: acpc/acpc-2025/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/ACPC-2026/standings
+    roles:
+    - icpc_standings
+    archived:
+    - acpc/acpc-2025/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 9267, 150 teams, DB fetch 2026-04-26)
 - id: acpc-2026
   status: upcoming

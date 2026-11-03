@@ -1,100 +1,110 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: pacnw
   name: ICPC North America Pacific Northwest Regional Contest
+  tier: regional
+  region: North America
+  naming: season-start
 contests:
 - id: pacnw-1994
   season: 1995
+  location: (Pacific)
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1995
   next: pacnw-1995
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    standings:
-    - url: http://www.acmicpc-pacnw.org/Standings/1994/94res.htm
-      archived: pacnw/pacnw-1994/standings/2026-09-01-live-7786eba5/94res.htm
-      url_state: live
-      url_checked: '2026-11-02'
-  location: (Pacific)
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+  - url: http://www.acmicpc-pacnw.org/Standings/1994/94res.htm
+    roles:
+    - standings
+    as_of: '20080908010846'
+    archived:
+    - pacnw/pacnw-1994/standings/2026-09-01-live-7786eba5/94res.htm
+    - pacnw/pacnw-1994/standings/20080908-wayback-d1a48a69/94res.htm
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    count: 6
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    notes: At least 6 problems
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: pacnw-1994
 - id: pacnw-1995
   season: 1996
+  location: (Pacific)
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1996
   next: pacnw-1996
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    standings:
-    - url: http://www.acmicpc-pacnw.org/Standings/1995/95res.htm
-      archived: pacnw/pacnw-1995/standings/2026-09-01-live-f7d090df/95res.htm
-      url_state: live
-      url_checked: '2026-11-02'
-  location: (Pacific)
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+  - url: http://www.acmicpc-pacnw.org/Standings/1995/95res.htm
+    roles:
+    - standings
+    as_of: '20080908010627'
+    archived:
+    - pacnw/pacnw-1995/standings/2026-09-01-live-f7d090df/95res.htm
+    - pacnw/pacnw-1995/standings/20080908-wayback-0c9f2619/95res.htm
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    count: 6
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    notes: At least 6 problems
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: pacnw-1995
 - id: pacnw-1996
   season: 1997
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1997
   next: pacnw-1997
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    standings:
-    - url: http://www.acmicpc-pacnw.org/Standings/1996/96results.htm
-      archived: pacnw/pacnw-1996/standings/2026-09-01-live-2eebf452/96results.htm
-      url_state: live
-      url_checked: '2026-11-02'
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+  - url: http://www.acmicpc-pacnw.org/Standings/1996/96results.htm
+    roles:
+    - standings
+    as_of: '20080908011311'
+    archived:
+    - pacnw/pacnw-1996/standings/2026-09-01-live-2eebf452/96results.htm
+    - pacnw/pacnw-1996/standings/20080908-wayback-8517a42b/96results.htm
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    count: 6
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    notes: At least 6 problems
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: pacnw-1996
 - id: pacnw-1997
   season: 1998
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1998
   next: pacnw-1998
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    standings:
-    - url: http://www.acmicpc-pacnw.org/Standings/1997/97Results.htm
-      archived: pacnw/pacnw-1997/standings/2026-09-01-live-51d9e62d/97Results.htm
-      url_state: live
-      url_checked: '2026-11-02'
-  problems:
-    count: 6
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=488
-        as_of: '20211203164739'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_PacNW/1997/index.html
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+  - url: http://www.acmicpc-pacnw.org/Standings/1997/97Results.htm
+    roles:
+    - standings
+    as_of: '20080908011101'
+    archived:
+    - pacnw/pacnw-1997/standings/2026-09-01-live-51d9e62d/97Results.htm
+    - pacnw/pacnw-1997/standings/20080908-wayback-2110c958/97Results.htm
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_PacNW/1997/index.html
+    roles:
+    - problemset
     as_of: '19980425012525'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=488
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211203164739'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: pacnw-1997
 - id: pacnw-1998
   season: 1999
   name: 1998 ACM Pacific Northwest Programming Contest
@@ -103,47 +113,68 @@ contests:
   - 978
   parent: wf-1999
   next: pacnw-1999
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    standings:
-    - url: http://www.acmicpc-pacnw.org/Standings/1998/98Results.htm
-      archived: pacnw/pacnw-1998/standings/2026-09-01-live-834796af/98Results.htm
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc99/Regionals/PacNW98/Standings.htm
-      as_of: '20020308054238'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: pacnw/pacnw-1998/standings/20020308-wayback-083fc7d2/Standings.htm
-    scoreboard:
-    - url: http://www.acmicpc-pacnw.org/ProblemSet/1998/Default.htm
-      archived: pacnw/pacnw-1998/scoreboard/2026-04-16-pacnw/1998-pacific-northwest-programming-contest-1998.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
-  problemset:
-  - http://www.acmicpc-pacnw.org/ProblemSet/1998/Default.htm
-  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_PacNW/1998/index.html
-    as_of: '20020514051930'
-  - url: http://icpc.baylor.edu/past/icpc99/Regionals/PacNW98/Problems.htm
-    as_of: '20030718191226'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+  - url: http://www.acmicpc-pacnw.org/ProblemSet/1998/Default.htm
+    roles:
+    - scoreboard
+    - problemset
+    archived:
+    - pacnw/pacnw-1998/scoreboard/2026-04-16-pacnw/1998-pacific-northwest-programming-contest-1998.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://www.acmicpc-pacnw.org/Standings/1998/98Results.htm
+    roles:
+    - standings
+    as_of: '20081120211642'
+    archived:
+    - pacnw/pacnw-1998/standings/2026-09-01-live-834796af/98Results.htm
+    - pacnw/pacnw-1998/standings/20081120-wayback-73245b67/98Results.htm
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc99/Regionals/PacNW98/Standings.htm
+    roles:
+    - standings
+    as_of: '20020308054238'
+    archived:
+    - pacnw/pacnw-1998/standings/20020308-wayback-083fc7d2/Standings.htm
+    - pacnw/pacnw-1998/standings/20020308-wayback-f925a375/Standings.htm
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_PacNW/1998/index.html
+    roles:
+    - problemset
+    as_of: '20020514051930'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc99/Regionals/PacNW98/Problems.htm
+    roles:
+    - problemset
+    as_of: '20030718191226'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=498
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210724035506'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1107
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201024152416'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 6
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=498
-        as_of: '20210724035506'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1107
-        as_of: '20201024152416'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: pacnw-1998
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: pacnw-1999
   season: 2000
   name: 1999 ACM Pacific Northwest Programming Contest
@@ -153,45 +184,68 @@ contests:
   - 1134
   parent: wf-2000
   next: pacnw-2000
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    scoreboard:
-    - url: http://www.acmicpc-pacnw.org/Standings/1998/98Results.htm
-      archived: pacnw/pacnw-1999/scoreboard/2026-09-01-live-834796af/98Results.htm
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://www.acmicpc-pacnw.org/Standings/1999/reports99.htm
-      archived: pacnw/pacnw-1999/scoreboard/2026-09-01-live-00389800/reports99.htm
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.acmicpc-pacnw.org/Standings/1998/98Results.htm
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc2000/regionals/PacNW99/Standings.html
-      as_of: '20020112013155'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: pacnw/pacnw-1999/standings/20020112-wayback-189ec277/Standings.html
-  problems:
-    count: 9
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1106
-        as_of: '20191215163110'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+  - url: http://www.acmicpc-pacnw.org/Standings/1998/98Results.htm
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20081120211642'
+    archived:
+    - pacnw/pacnw-1999/scoreboard/2026-09-01-live-834796af/98Results.htm
+    - pacnw/pacnw-1999/scoreboard/20081120-wayback-73245b67/98Results.htm
+    - pacnw/pacnw-1999/standings/20081120-wayback-73245b67/98Results.htm
+    - pacnw/pacnw-1999/standings/2026-09-01-live-834796af/98Results.htm
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.acmicpc-pacnw.org/Standings/1999/reports99.htm
+    roles:
+    - scoreboard
+    as_of: '20080908010200'
+    archived:
+    - pacnw/pacnw-1999/scoreboard/2026-09-01-live-00389800/reports99.htm
+    - pacnw/pacnw-1999/scoreboard/20080908-wayback-7b3a9936/reports99.htm
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2000/regionals/PacNW99/Standings.html
+    roles:
+    - standings
+    as_of: '20020112013155'
+    archived:
+    - pacnw/pacnw-1999/standings/20020112-wayback-189ec277/Standings.html
+    - pacnw/pacnw-1999/standings/20020112-wayback-17458c88/Standings.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_PacNW/1999/index.html
+    roles:
+    - problemset
     as_of: '20001003145305'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2000/regionals/PacNW99/Problems.html
+    roles:
+    - problemset
     as_of: '20020112012652'
+    url_state: unknown
+    url_checked: '2026-11-02'
   - url: http://acmicpc-pacnw.org/ProblemSet/1999/ForTheWeb.ZIP
+    roles:
+    - problemset
     as_of: '20160325005211'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1106
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191215163110'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: pacnw-1999
 - id: pacnw-2000
   season: 2001
   name: 2000 ACM Pacific Northwest Programming Contest
@@ -201,37 +255,59 @@ contests:
   - 1079
   parent: wf-2001
   next: pacnw-2001
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    standings:
-    - url: http://www.acmicpc-pacnw.org/Standings/2000/Standing.htm
-      archived: pacnw/pacnw-2000/standings/2026-09-01-live-9d52e0eb/Standing.htm
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc2001/Regionals/ViewRegionalStandings.asp?ContestID=440
-      as_of: '20020625094342'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: pacnw/pacnw-2000/standings/20020625-wayback-50b6c2e2/page.html
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=81
-        as_of: '20211028112313'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+    also_at:
+    - url: http://www.acmcontest-pacnw.org/
+      as_of: '20010301082221'
+  - url: http://www.acmicpc-pacnw.org/Standings/2000/Standing.htm
+    roles:
+    - standings
+    as_of: '20080908011016'
+    archived:
+    - pacnw/pacnw-2000/standings/2026-09-01-live-9d52e0eb/Standing.htm
+    - pacnw/pacnw-2000/standings/20080908-wayback-66d4d32f/Standing.htm
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2001/Regionals/ViewRegionalStandings.asp?ContestID=440
+    roles:
+    - standings
+    as_of: '20020625094342'
+    archived:
+    - pacnw/pacnw-2000/standings/20020625-wayback-50b6c2e2/page.html
+    - pacnw/pacnw-2000/standings/20020625-wayback-6378138e/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_PacNW/2000/index.html
+    roles:
+    - problemset
     as_of: '20020628075537'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2001/regionals/PacNW00/Problems.pdf
+    roles:
+    - problemset
     as_of: '20030323160338'
+    url_state: unknown
+    url_checked: '2026-11-02'
   - url: http://acmicpc-pacnw.org/ProblemSet/2000/allweb.zip
+    roles:
+    - problemset
     as_of: '20160325002734'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=81
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211028112313'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: pacnw-2000
 - id: pacnw-2001
   season: 2002
   name: 2001 ACM Pacific Northwest Programming Contest
@@ -241,34 +317,51 @@ contests:
   - 1237
   parent: wf-2002
   next: pacnw-2002
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    rankings:
-    - url: http://icpc.baylor.edu/Past/icpc2002/regionals/ViewRegionalStandings.asp?ContestID=505
-      as_of: '20090102024700'
-      archived: pacnw/pacnw-2001/rankings/2026-09-01-wayback-4faafdc3/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=505
-      as_of: '20020619090910'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: unknown
-      url_checked: '2026-11-02'
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+    also_at:
+    - url: http://www.acmcontest-pacnw.org/
+      as_of: '20010301082221'
+  - url: http://www.acmcontest-pacnw.org/results.htm
+    roles:
+    - standings
+    - problemset
+    as_of: '20010302152247'
+    note: added by url-hunt 2026-09-01 (cms-api)
+  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=505
+    roles:
+    - standings
+    - rankings
+    as_of: '20020619090910'
+    archived:
+    - pacnw/pacnw-2001/rankings/2026-09-01-wayback-4faafdc3/page.html
+    - pacnw/pacnw-2001/standings/20020619-wayback-47143084/page.html
+    - pacnw/pacnw-2001/standings/20020619-wayback-4eb18189/page.html
+    url_state: unknown
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings); as_of 20090102024700 for rankings
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_PacNW/2001/index.html
+    roles:
+    - problemset
     as_of: '20020624142148'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2002/Regionals/PacNW01/problems.pdf
+    roles:
+    - problemset
     as_of: '20030901072824'
+    url_state: unknown
+    url_checked: '2026-11-02'
   - url: http://acmicpc-pacnw.org/ProblemSet/2001/allweb.zip
+    roles:
+    - problemset
     as_of: '20160325001350'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: pacnw-2001
 - id: pacnw-2002
   season: 2003
   name: 2002 ACM Pacific Northwest Programming Contest
@@ -278,37 +371,63 @@ contests:
   - 1273
   parent: wf-2003
   next: pacnw-2003
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    standings:
-    - url: http://www.acmicpc-pacnw.org/Standings/2002/standings.htm
-      archived: pacnw/pacnw-2002/standings/2026-09-01-live-505ad088/standings.htm
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/www.acmcontest-pacnw.org/2002/standings.htm
-      as_of: '20060901165740'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-mirror)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: pacnw/pacnw-2002/standings/20060901-wayback-84de716b/standings.htm
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings3a52.html?ContestID=573
-      as_of: '20060901122723'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: pacnw/pacnw-2002/standings/20060901-wayback-54032217/ViewRegionalStandings3a52.html
-  problems:
-    count: 6
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+    also_at:
+    - url: http://www.acmcontest-pacnw.org/
+      as_of: '20010301082221'
+  - url: http://www.acmicpc-pacnw.org/Standings/2002/standings.htm
+    roles:
+    - standings
+    as_of: '20080908010448'
+    archived:
+    - pacnw/pacnw-2002/standings/2026-09-01-live-505ad088/standings.htm
+    - pacnw/pacnw-2002/standings/20080908-wayback-4653ba63/standings.htm
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/www.acmcontest-pacnw.org/2002/standings.htm
+    roles:
+    - standings
+    as_of: '20060901165740'
+    archived:
+    - pacnw/pacnw-2002/standings/20060901-wayback-84de716b/standings.htm
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-mirror)
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings3a52.html?ContestID=573
+    roles:
+    - standings
+    as_of: '20060901122723'
+    archived:
+    - pacnw/pacnw-2002/standings/20060901-wayback-54032217/ViewRegionalStandings3a52.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: http://www.acmcontest-pacnw.org/2002/standings.htm
+    roles:
+    - standings
+    as_of: '20021127044741'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/www.acmcontest-pacnw.org/ProblemSet/2002/forweb.zip
+    roles:
+    - problemset
     as_of: '20051015004211'
+    url_state: unknown
+    url_checked: '2026-11-02'
   - url: http://acmicpc-pacnw.org/ProblemSet/2002/forweb.zip
+    roles:
+    - problemset
     as_of: '20160325004707'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://www.acmcontest-pacnw.org/ProblemSet/2002/forweb.zip
+    roles:
+    - problemset
+    as_of: '20040719153601'
+  problems:
+    set: pacnw-2002
 - id: pacnw-2003
   season: 2004
   name: 2003 ACM Pacific Northwest Programming Contest
@@ -318,37 +437,60 @@ contests:
   - 971
   parent: wf-2004
   next: pacnw-2004
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    scoreboard:
-    - url: http://www.acmicpc-pacnw.org/Standings/2003/results2003.htm
-      archived: pacnw/pacnw-2003/scoreboard/2026-09-01-live-d8fc328c/results2003.htm
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://www.acmicpc-pacnw.org/Standings/2003/teamstats.htm
-      archived: pacnw/pacnw-2003/scoreboard/2026-09-01-live-5a0e8eb2/teamstats.htm
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.acmicpc-pacnw.org/Standings/2003/results2003.htm
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandingse54c.html?ContestID=647
-      as_of: '20060901142248'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: pacnw/pacnw-2003/standings/20060901-wayback-ca76c45d/ViewRegionalStandingse54c.html
-  problems:
-    count: 9
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://acmicpc-pacnw.org/ProblemSet/2003/ForWeb.zip
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+    also_at:
+    - url: http://www.acmcontest-pacnw.org/
+      as_of: '20010301082221'
+  - url: http://www.acmicpc-pacnw.org/Standings/2003/results2003.htm
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20080908005818'
+    archived:
+    - pacnw/pacnw-2003/scoreboard/2026-09-01-live-d8fc328c/results2003.htm
+    - pacnw/pacnw-2003/scoreboard/20080908-wayback-aa47994a/results2003.htm
+    - pacnw/pacnw-2003/standings/20080908-wayback-aa47994a/results2003.htm
+    - pacnw/pacnw-2003/standings/2026-09-01-live-d8fc328c/results2003.htm
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.acmicpc-pacnw.org/Standings/2003/teamstats.htm
+    roles:
+    - scoreboard
+    as_of: '20080908010105'
+    archived:
+    - pacnw/pacnw-2003/scoreboard/2026-09-01-live-5a0e8eb2/teamstats.htm
+    - pacnw/pacnw-2003/scoreboard/20080908-wayback-6e20fd0b/teamstats.htm
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandingse54c.html?ContestID=647
+    roles:
+    - standings
+    as_of: '20060901142248'
+    archived:
+    - pacnw/pacnw-2003/standings/20060901-wayback-ca76c45d/ViewRegionalStandingse54c.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: http://www.acmcontest-pacnw.org/Standings/2003/results2003.htm
+    roles:
+    - standings
+    as_of: '20031206071003'
+    note: added by url-hunt 2026-09-01 (cms-api)
+  - url: http://acmicpc-pacnw.org/ProblemSet/2003/ForWeb.zip
+    roles:
+    - problemset
     as_of: '20160325000744'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://www.acmcontest-pacnw.org/ProblemSet/2003/ForWeb.zip
+    roles:
+    - problemset
+    as_of: '20041017165712'
+  problems:
+    set: pacnw-2003
 - id: pacnw-2004
   season: 2005
   name: 2004 ACM Pacific Northwest Programming Contest
@@ -358,35 +500,46 @@ contests:
   - 1105
   parent: wf-2005
   next: pacnw-2005
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    scoreboard:
-    - url: http://www.acmicpc-pacnw.org/Standings/2004/Results.htm
-      archived: pacnw/pacnw-2004/scoreboard/2026-09-01-live-14914e3e/Results.htm
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://www.acmicpc-pacnw.org/Standings/2004/pc2_report_comp.txt
-      archived: pacnw/pacnw-2004/scoreboard/2026-09-01-live-6858de76/pc2_report_comp.txt
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.acmicpc-pacnw.org/Standings/2004/Results.htm
-      url_state: live
-      url_checked: '2026-11-02'
-  problems:
-    count: 10
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1105
-        as_of: '20201021152706'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://acmicpc-pacnw.org/ProblemSet/2004/default.htm
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+  - url: http://www.acmicpc-pacnw.org/Standings/2004/Results.htm
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20080908005914'
+    archived:
+    - pacnw/pacnw-2004/scoreboard/2026-09-01-live-14914e3e/Results.htm
+    - pacnw/pacnw-2004/scoreboard/20080908-wayback-0a6bb191/Results.htm
+    - pacnw/pacnw-2004/standings/20080908-wayback-0a6bb191/Results.htm
+    - pacnw/pacnw-2004/standings/2026-09-01-live-14914e3e/Results.htm
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.acmicpc-pacnw.org/Standings/2004/pc2_report_comp.txt
+    roles:
+    - scoreboard
+    as_of: '20080908011357'
+    archived:
+    - pacnw/pacnw-2004/scoreboard/2026-09-01-live-6858de76/pc2_report_comp.txt
+    - pacnw/pacnw-2004/scoreboard/20080908-wayback-c62cc5c4/pc2_report_comp.txt
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://acmicpc-pacnw.org/ProblemSet/2004/default.htm
+    roles:
+    - problemset
     as_of: '20081120215055'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1105
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201021152706'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: pacnw-2004
 - id: pacnw-2005
   season: 2006
   name: 2005 ACM Pacific Northwest Programming Contest
@@ -396,42 +549,58 @@ contests:
   - 1078
   parent: wf-2006
   next: pacnw-2006
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    scoreboard:
-    - url: http://www.acmicpc-pacnw.org/Standings/2005/Results.htm
-      archived: pacnw/pacnw-2005/scoreboard/2026-09-01-live-5463b643/Results.htm
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://www.acmicpc-pacnw.org/ContestStats/2005/pc2.report.complete.txt
-      archived: pacnw/pacnw-2005/scoreboard/2026-09-01-live-8a16b8dd/pc2.report.complete.txt
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.acmicpc-pacnw.org/Standings/2005/Results.htm
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://www.acmcontest-pacnw.org/Standings/2005/Results.htm
-      as_of: '20080821050329'
-      archived: pacnw/pacnw-2005/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Pacific-Northwest-2006/standings
-  problems:
-    count: 10
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1104
-        as_of: '20200427123512'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://acmicpc-pacnw.org/ProblemSet/2005/default.htm
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+  - url: http://www.acmicpc-pacnw.org/Standings/2005/Results.htm
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20080908010258'
+    archived:
+    - pacnw/pacnw-2005/scoreboard/2026-09-01-live-5463b643/Results.htm
+    - pacnw/pacnw-2005/scoreboard/20080908-wayback-dcf7841a/Results.htm
+    - pacnw/pacnw-2005/standings/20080908-wayback-dcf7841a/Results.htm
+    - pacnw/pacnw-2005/standings/2026-09-01-live-5463b643/Results.htm
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.acmicpc-pacnw.org/ContestStats/2005/pc2.report.complete.txt
+    roles:
+    - scoreboard
+    as_of: '20081120212126'
+    archived:
+    - pacnw/pacnw-2005/scoreboard/2026-09-01-live-8a16b8dd/pc2.report.complete.txt
+    - pacnw/pacnw-2005/scoreboard/20081120-wayback-66a4d6e3/pc2.report.complete.txt
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.acmcontest-pacnw.org/Standings/2005/Results.htm
+    roles:
+    - standings
+    as_of: '20080821050329'
+    archived:
+    - pacnw/pacnw-2005/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Pacific-Northwest-2006/standings
+    roles:
+    - icpc_standings
+  - url: http://acmicpc-pacnw.org/ProblemSet/2005/default.htm
+    roles:
+    - problemset
     as_of: '20081120220021'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1104
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20200427123512'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: pacnw-2005
 - id: pacnw-2006
   season: 2007
   name: 2006 ACM Pacific Northwest Programming Contest
@@ -441,38 +610,46 @@ contests:
   - 1162
   parent: wf-2007
   next: pacnw-2007
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    standings:
-    - url: http://www.acmicpc-pacnw.org/Standings/2006/results.htm
-      archived: pacnw/pacnw-2006/standings/2026-09-01-live-b87e4bf2/results.htm
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://www.acmcontest-pacnw.org/Standings/2006/Results.htm
-      as_of: '20070813022635'
-      archived: pacnw/pacnw-2006/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-    scoreboard:
-    - url: http://www.acmicpc-pacnw.org/Standings/2006/Results.htm
-      note: added by url-hunt 2026-09-01 (template)
-      archived: pacnw/pacnw-2006/scoreboard/2026-09-01-live-09466b10/Results.htm
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Pacific-Northwest-2007/standings
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+  - url: http://www.acmicpc-pacnw.org/Standings/2006/Results.htm
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20080908010712'
+    archived:
+    - pacnw/pacnw-2006/scoreboard/2026-09-01-live-09466b10/Results.htm
+    - pacnw/pacnw-2006/standings/2026-09-01-live-b87e4bf2/results.htm
+    - pacnw/pacnw-2006/scoreboard/20080908-wayback-874c2c98/Results.htm
+    - pacnw/pacnw-2006/standings/20080908-wayback-e6654f2f/results.htm
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (template)
+  - url: http://www.acmcontest-pacnw.org/Standings/2006/Results.htm
+    roles:
+    - standings
+    as_of: '20070813022635'
+    archived:
+    - pacnw/pacnw-2006/external-standings/2026-04-15-external/content.html
+    - pacnw/pacnw-2006/standings/20070216-wayback-dfec726d/Results.htm
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Pacific-Northwest-2007/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/detail/1103
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20201028120051'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 11
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1103
-        as_of: '20201028120051'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.acmicpc.net/category/detail/1103
+    set: pacnw-2006
 - id: pacnw-2007
   season: 2008
   name: 2007 ACM Pacific Northwest Programming Contest
@@ -483,28 +660,38 @@ contests:
   - 996
   parent: wf-2008
   next: pacnw-2008
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    standings:
-    - url: http://www.acmicpc-pacnw.org/Standings/2007.htm
-      archived: pacnw/pacnw-2007/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Pacific-Northwest-2008/standings
-  problems:
-    count: 12
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/130
-        as_of: '20180527092921'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://acmicpc-pacnw.org/ProblemSet/2007/ICPC_PacNW_2007.zip
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+  - url: http://www.acmicpc-pacnw.org/Standings/2007.htm
+    roles:
+    - standings
+    as_of: '20080123091540'
+    archived:
+    - pacnw/pacnw-2007/external-standings/2026-04-15-external/content.html
+    - pacnw/pacnw-2007/standings/20080123-wayback-552256ff/2007.htm
+    - pacnw/pacnw-2007/standings/20260901-live-b9ca1c1d/2007.htm
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Pacific-Northwest-2008/standings
+    roles:
+    - icpc_standings
+  - url: http://acmicpc-pacnw.org/ProblemSet/2007/ICPC_PacNW_2007.zip
+    roles:
+    - problemset
     as_of: '20160325003115'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/130
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20180527092921'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: pacnw-2007
 - id: pacnw-2008
   season: 2009
   name: 2008 Pacific Northwest Contest
@@ -515,36 +702,49 @@ contests:
   - 31
   parent: wf-2009
   next: pacnw-2009
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    scoreboard:
-    - url: http://www.acmicpc-pacnw.org/Standings/2008.htm
-      archived: pacnw/pacnw-2008/scoreboard/2026-09-01-live-1c9ec5be/2008.htm
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://www.acmicpc-pacnw.org/ProblemSet/2008/runs%20report.txt
-      archived: pacnw/pacnw-2008/scoreboard/2026-09-01-live-9ace36d7/page.txt
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.acmicpc-pacnw.org/Standings/2008.htm
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Pacific-Northwest-2009/standings
-  problems:
-    count: 11
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/129
-        as_of: '20190824184036'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://acmicpc-pacnw.org/ProblemSet/2008/pdfs.zip
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+  - url: http://www.acmicpc-pacnw.org/Standings/2008.htm
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20081226153113'
+    archived:
+    - pacnw/pacnw-2008/scoreboard/2026-09-01-live-1c9ec5be/2008.htm
+    - pacnw/pacnw-2008/scoreboard/20081226-wayback-e2250621/2008.htm
+    - pacnw/pacnw-2008/standings/20081226-wayback-e2250621/2008.htm
+    - pacnw/pacnw-2008/standings/2026-09-01-live-1c9ec5be/2008.htm
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.acmicpc-pacnw.org/ProblemSet/2008/runs%20report.txt
+    roles:
+    - scoreboard
+    as_of: '20100512152411'
+    archived:
+    - pacnw/pacnw-2008/scoreboard/2026-09-01-live-9ace36d7/page.txt
+    - pacnw/pacnw-2008/scoreboard/20100512-wayback-16f201ee/page.txt
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Pacific-Northwest-2009/standings
+    roles:
+    - icpc_standings
+  - url: http://acmicpc-pacnw.org/ProblemSet/2008/pdfs.zip
+    roles:
+    - problemset
     as_of: '20160325001607'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/129
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190824184036'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: pacnw-2008
 - id: pacnw-2009
   season: 2010
   name: 2009 Pacific Northwest Contest
@@ -554,28 +754,38 @@ contests:
   - 558
   parent: wf-2010
   next: pacnw-2010
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    standings:
-    - url: http://www.acmicpc-pacnw.org/Standings/2009.htm
-      archived: pacnw/pacnw-2009/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Pacific-Northwest-2010/standings
-  problems:
-    count: 11
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/128
-        as_of: '20201130102821'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://acmicpc-pacnw.org/ProblemSet/2009/problem_statements_pdf.zip
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+  - url: http://www.acmicpc-pacnw.org/Standings/2009.htm
+    roles:
+    - standings
+    as_of: '20100114165323'
+    archived:
+    - pacnw/pacnw-2009/external-standings/2026-04-15-external/content.html
+    - pacnw/pacnw-2009/standings/20100114-wayback-43d5dda8/2009.htm
+    - pacnw/pacnw-2009/standings/20260901-live-ae523c7f/2009.htm
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Pacific-Northwest-2010/standings
+    roles:
+    - icpc_standings
+  - url: http://acmicpc-pacnw.org/ProblemSet/2009/problem_statements_pdf.zip
+    roles:
+    - problemset
     as_of: '20160325000625'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/128
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201130102821'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: pacnw-2009
 - id: pacnw-2010
   season: 2011
   name: 2010 Pacific Northwest Regional Contest
@@ -585,28 +795,37 @@ contests:
   - 647
   parent: wf-2011
   next: pacnw-2011
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    standings:
-    - url: http://www.acmicpc-pacnw.org/Standings/2010.htm
-      archived: pacnw/pacnw-2010/standings/2026-09-01-live-0b0c78ff/2010.htm
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Pacific-Northwest-2011/standings
-  problems:
-    count: 12
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/127
-        as_of: '20191113140911'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://acmicpc-pacnw.org/ProblemSet/2010/ProblemStatementsICPCPacNW2010pdf.zip
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+  - url: http://www.acmicpc-pacnw.org/Standings/2010.htm
+    roles:
+    - standings
+    as_of: '20111024032042'
+    archived:
+    - pacnw/pacnw-2010/standings/2026-09-01-live-0b0c78ff/2010.htm
+    - pacnw/pacnw-2010/standings/20111024-wayback-60189680/2010.htm
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Pacific-Northwest-2011/standings
+    roles:
+    - icpc_standings
+  - url: http://acmicpc-pacnw.org/ProblemSet/2010/ProblemStatementsICPCPacNW2010pdf.zip
+    roles:
+    - problemset
     as_of: '20160325002258'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/127
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191113140911'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: pacnw-2010
 - id: pacnw-2011
   season: 2012
   name: 2011 Pacific Northwest Regional Contest
@@ -617,33 +836,47 @@ contests:
   - 871
   parent: wf-2012
   next: pacnw-2012
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    scoreboard:
-    - url: http://www.acmicpc-pacnw.org/Standings/2011_Pacific_Northwest_Regional_Contest.htm
-      archived: pacnw/pacnw-2011/scoreboard/2026-09-01-live-6cae77bb/2011_Pacific_Northwest_Regional_Contest.htm
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.acmicpc-pacnw.org/Standings/pacnw2011finalstandings.html
-      archived: pacnw/pacnw-2011/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Pacific-Northwest-2012/standings
-  problems:
-    count: 12
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/126
-        as_of: '20190821195741'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://acmicpc-pacnw.org/ProblemSet/2011/icpc-statements-2011.zip
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+  - url: http://www.acmicpc-pacnw.org/Standings/2011_Pacific_Northwest_Regional_Contest.htm
+    roles:
+    - scoreboard
+    as_of: '20130127182006'
+    archived:
+    - pacnw/pacnw-2011/scoreboard/2026-09-01-live-6cae77bb/2011_Pacific_Northwest_Regional_Contest.htm
+    - pacnw/pacnw-2011/scoreboard/20130127-wayback-95e4b197/2011_Pacific_Northwest_Regional_Contest.htm
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.acmicpc-pacnw.org/Standings/pacnw2011finalstandings.html
+    roles:
+    - standings
+    as_of: '20120109034126'
+    archived:
+    - pacnw/pacnw-2011/external-standings/2026-04-15-external/content.html
+    - pacnw/pacnw-2011/standings/20120109-wayback-ea728883/pacnw2011finalstandings.html
+    - pacnw/pacnw-2011/standings/20260901-live-1b97431b/pacnw2011finalstandings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Pacific-Northwest-2012/standings
+    roles:
+    - icpc_standings
+  - url: http://acmicpc-pacnw.org/ProblemSet/2011/icpc-statements-2011.zip
+    roles:
+    - problemset
     as_of: '20160325001443'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/126
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190821195741'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: pacnw-2011
 - id: pacnw-2012
   season: 2013
   name: 2012 Pacific Northwest Regional Contest
@@ -654,28 +887,38 @@ contests:
   - 1393
   parent: wf-2013
   next: pacnw-2013
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    scoreboard:
-    - url: http://www.acmicpc-pacnw.org/Standings/2012/index.html
-      archived: pacnw/pacnw-2012/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Pacific-Northwest-2013/standings
-  problems:
-    count: 12
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/125
-        as_of: '20190821222540'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://acmicpc-pacnw.org/ProblemSet/2012/ICPCPacNW2012ProblemStatements.pdf
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+  - url: http://www.acmicpc-pacnw.org/Standings/2012/index.html
+    roles:
+    - scoreboard
+    as_of: '20121130012400'
+    archived:
+    - pacnw/pacnw-2012/external-standings/2026-04-15-external/content.html
+    - pacnw/pacnw-2012/scoreboard/20121130-wayback-b92d3f5b/index.html
+    - pacnw/pacnw-2012/scoreboard/20260901-live-799299d2/index.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Pacific-Northwest-2013/standings
+    roles:
+    - icpc_standings
+  - url: http://acmicpc-pacnw.org/ProblemSet/2012/ICPCPacNW2012ProblemStatements.pdf
+    roles:
+    - problemset
     as_of: '20160325010014'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/125
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190821222540'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: pacnw-2012
 - id: pacnw-2013
   season: 2014
   name: 2013 Pacific Northwest Regional Contest
@@ -686,27 +929,34 @@ contests:
   - 1984
   parent: wf-2014
   next: pacnw-2014
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    scoreboard:
-    - url: http://www.acmicpc-pacnw.org/ProblemSet/2013/index.html
-      archived: pacnw/pacnw-2013/scoreboard/2026-09-01-live-c9233bbf/index.html
-      url_state: live
-      url_checked: '2026-11-02'
-  problems:
-    count: 13
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1173
-        as_of: '20201020210308'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://acmicpc-pacnw.org/ProblemSet/2013/ICPC_PacNW_2013_ProblemStatements.pdf
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+  - url: http://www.acmicpc-pacnw.org/ProblemSet/2013/index.html
+    roles:
+    - scoreboard
+    as_of: '20131111082208'
+    archived:
+    - pacnw/pacnw-2013/scoreboard/2026-09-01-live-c9233bbf/index.html
+    - pacnw/pacnw-2013/scoreboard/20131111-wayback-cc791b8d/index.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://acmicpc-pacnw.org/ProblemSet/2013/ICPC_PacNW_2013_ProblemStatements.pdf
+    roles:
+    - problemset
     as_of: '20160325002809'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1173
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201020210308'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: pacnw-2013
 - id: pacnw-2014
   season: 2015
   name: 2014 Pacific Northwest Regional Contest
@@ -717,36 +967,55 @@ contests:
   - 2419
   parent: wf-2015
   next: pacnw-2015
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    scoreboard:
-    - url: http://www.acmicpc-pacnw.org/ProblemSet/2014/html.all/index1.html
-      archived: pacnw/pacnw-2014/scoreboard/2026-09-01-live-a3e69274/index1.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://www.acmicpc-pacnw.org/ProblemSet/2014/html.all/index2.html
-      archived: pacnw/pacnw-2014/scoreboard/2026-09-01-live-cd1e9a2a/index2.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://acmicpc-pacnw.org/results.htm
-      archived: pacnw/pacnw-2014/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Pacific-Northwest-2015/standings
-  problems:
-    count: 24
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon: https://www.acmicpc.net/category/808
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://acmicpc-pacnw.org/ProblemSet/2014/div1.pdf
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+    - standings
+    as_of: '20141224125124'
+    archived:
+    - pacnw/pacnw-2014/external-standings/2026-04-15-external/content.html
+    - pacnw/pacnw-2014/standings/20141224-wayback-c46acac3/results.htm
+    - pacnw/pacnw-2014/standings/20260901-live-083808b9/results.htm
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: http://www.acmicpc-pacnw.org/ProblemSet/2014/html.all/index1.html
+    roles:
+    - scoreboard
+    as_of: '20141227212058'
+    archived:
+    - pacnw/pacnw-2014/scoreboard/2026-09-01-live-a3e69274/index1.html
+    - pacnw/pacnw-2014/scoreboard/20141227-wayback-f80ae3a4/index1.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.acmicpc-pacnw.org/ProblemSet/2014/html.all/index2.html
+    roles:
+    - scoreboard
+    as_of: '20141227222242'
+    archived:
+    - pacnw/pacnw-2014/scoreboard/2026-09-01-live-cd1e9a2a/index2.html
+    - pacnw/pacnw-2014/scoreboard/20141227-wayback-58629372/index2.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Pacific-Northwest-2015/standings
+    roles:
+    - icpc_standings
+  - url: http://acmicpc-pacnw.org/ProblemSet/2014/div1.pdf
+    roles:
+    - problemset
     as_of: '20160325001525'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/808
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20230514151624'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: pacnw-2014
 - id: pacnw-2015
   season: 2016
   name: 2015 Pacific Northwest Regional Contest
@@ -757,36 +1026,55 @@ contests:
   - 2836
   parent: wf-2016
   next: pacnw-2016
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    scoreboard:
-    - url: http://www.acmicpc-pacnw.org/ProblemSet/2015/index1.html
-      archived: pacnw/pacnw-2015/scoreboard/2026-09-01-live-41aa607a/index1.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://www.acmicpc-pacnw.org/ProblemSet/2015/index2.html
-      archived: pacnw/pacnw-2015/scoreboard/2026-09-01-live-75416c8f/index2.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://acmicpc-pacnw.org/results.htm
-      archived: pacnw/pacnw-2015/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Pacific-Northwest-2016/standings
-  problems:
-    count: 22
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon: https://www.acmicpc.net/category/809
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://acmicpc-pacnw.org/ProblemSet/2015/Statements/div1.pdf
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+    - standings
+    as_of: '20151121071424'
+    archived:
+    - pacnw/pacnw-2015/external-standings/2026-04-15-external/content.html
+    - pacnw/pacnw-2015/standings/20151121-wayback-6c489672/results.htm
+    - pacnw/pacnw-2015/standings/20260901-live-083808b9/results.htm
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: http://www.acmicpc-pacnw.org/ProblemSet/2015/index1.html
+    roles:
+    - scoreboard
+    as_of: '20151121023403'
+    archived:
+    - pacnw/pacnw-2015/scoreboard/2026-09-01-live-41aa607a/index1.html
+    - pacnw/pacnw-2015/scoreboard/20151121-wayback-6d633501/index1.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.acmicpc-pacnw.org/ProblemSet/2015/index2.html
+    roles:
+    - scoreboard
+    as_of: '20151122002549'
+    archived:
+    - pacnw/pacnw-2015/scoreboard/2026-09-01-live-75416c8f/index2.html
+    - pacnw/pacnw-2015/scoreboard/20151122-wayback-b3e54c57/index2.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Pacific-Northwest-2016/standings
+    roles:
+    - icpc_standings
+  - url: http://acmicpc-pacnw.org/ProblemSet/2015/Statements/div1.pdf
+    roles:
+    - problemset
     as_of: '20160325004401'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/809
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20230514151743'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: pacnw-2015
 - id: pacnw-2016
   season: 2017
   name: 2016 Pacific Northwest Regional Contest
@@ -797,30 +1085,41 @@ contests:
   - 3213
   parent: wf-2017
   next: pacnw-2017
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    scoreboard:
-    - url: http://www.acmicpc-pacnw.org/scoreboard/2016/ACM%20Pacific%20Northwest%20Regional%20Programming%20Contest.html
-      archived: pacnw/pacnw-2016/scoreboard/2026-09-01-live-77838a59/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://acmicpc-pacnw.org/results.htm
-      archived: pacnw/pacnw-2016/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Pacific-Northwest-2017/standings
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+    - standings
+    as_of: '20170101223008'
+    archived:
+    - pacnw/pacnw-2016/external-standings/2026-04-15-external/content.html
+    - pacnw/pacnw-2016/standings/20170101-wayback-cd2b0864/results.htm
+    - pacnw/pacnw-2016/standings/20260901-live-083808b9/results.htm
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: http://www.acmicpc-pacnw.org/scoreboard/2016/ACM%20Pacific%20Northwest%20Regional%20Programming%20Contest.html
+    roles:
+    - scoreboard
+    as_of: '20220524020058'
+    archived:
+    - pacnw/pacnw-2016/scoreboard/2026-09-01-live-77838a59/page.html
+    - pacnw/pacnw-2016/scoreboard/20220524-wayback-ab26c271/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Pacific-Northwest-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/810
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20230514151854'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 25
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon: https://www.acmicpc.net/category/810
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.acmicpc.net/category/810
+    set: pacnw-2016
 - id: pacnw-2017
   season: 2018
   name: 2017 Pacific Northwest Regional Contest
@@ -831,34 +1130,50 @@ contests:
   - 3265
   parent: wf-2018
   next: pacnw-2018
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    scoreboard:
-    - url: http://www.acmicpc-pacnw.org/ProblemSet/2017/index1.html
-      archived: pacnw/pacnw-2017/scoreboard/2026-09-01-live-7b823934/index1.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://www.acmicpc-pacnw.org/ProblemSet/2017/index2.html
-      archived: pacnw/pacnw-2017/scoreboard/2026-09-01-live-68e9ec4d/index2.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://acmicpc-pacnw.org/results.htm
-      archived: pacnw/pacnw-2017/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Pacific-Northwest-2018/standings
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+    - standings
+    as_of: '20171114103349'
+    archived:
+    - pacnw/pacnw-2017/external-standings/2026-04-15-external/content.html
+    - pacnw/pacnw-2017/standings/20171114-wayback-62aed335/results.htm
+    - pacnw/pacnw-2017/standings/20260901-live-083808b9/results.htm
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: http://www.acmicpc-pacnw.org/ProblemSet/2017/index1.html
+    roles:
+    - scoreboard
+    as_of: '20171116162057'
+    archived:
+    - pacnw/pacnw-2017/scoreboard/2026-09-01-live-7b823934/index1.html
+    - pacnw/pacnw-2017/scoreboard/20171116-wayback-8b8dae92/index1.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.acmicpc-pacnw.org/ProblemSet/2017/index2.html
+    roles:
+    - scoreboard
+    as_of: '20171116162102'
+    archived:
+    - pacnw/pacnw-2017/scoreboard/2026-09-01-live-68e9ec4d/index2.html
+    - pacnw/pacnw-2017/scoreboard/20171116-wayback-707546b5/index2.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Pacific-Northwest-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/811
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20230514151837'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 26
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon: https://www.acmicpc.net/category/811
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.acmicpc.net/category/811
+    set: pacnw-2017
 - id: pacnw-2018
   season: 2019
   name: 2018 Pacific Northwest Regional Contest
@@ -869,34 +1184,50 @@ contests:
   - 3543
   parent: wf-2019
   next: pacnw-2019
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    scoreboard:
-    - url: http://www.acmicpc-pacnw.org/scoreboard/2018/index1.html
-      archived: pacnw/pacnw-2018/scoreboard/2026-09-01-live-028ef39b/index1.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://www.acmicpc-pacnw.org/scoreboard/2018/index2.html
-      archived: pacnw/pacnw-2018/scoreboard/2026-09-01-live-27c07c05/index2.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://acmicpc-pacnw.org/results.htm
-      archived: pacnw/pacnw-2018/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Pacific-Northwest-2019/standings
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+    - standings
+    as_of: '20190717150010'
+    archived:
+    - pacnw/pacnw-2018/external-standings/2026-04-15-external/content.html
+    - pacnw/pacnw-2018/standings/20190717-wayback-4023a556/results.htm
+    - pacnw/pacnw-2018/standings/20260901-live-083808b9/results.htm
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: http://www.acmicpc-pacnw.org/scoreboard/2018/index1.html
+    roles:
+    - scoreboard
+    as_of: '20181109031038'
+    archived:
+    - pacnw/pacnw-2018/scoreboard/2026-09-01-live-028ef39b/index1.html
+    - pacnw/pacnw-2018/scoreboard/20181109-wayback-2e12c382/index1.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.acmicpc-pacnw.org/scoreboard/2018/index2.html
+    roles:
+    - scoreboard
+    as_of: '20181108164340'
+    archived:
+    - pacnw/pacnw-2018/scoreboard/2026-09-01-live-27c07c05/index2.html
+    - pacnw/pacnw-2018/scoreboard/20181108-wayback-82af47dc/index2.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Pacific-Northwest-2019/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/812
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20230401131522'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 26
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon: https://www.acmicpc.net/category/812
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.acmicpc.net/category/812
+    set: pacnw-2018
 - id: pacnw-2019
   season: 2020
   name: 2019 Pacific Northwest Regional Contest
@@ -907,36 +1238,55 @@ contests:
   - 4084
   parent: nac-2020
   next: pacnw-2020
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    scoreboard:
-    - url: http://www.acmicpc-pacnw.org/scoreboard/2019/index1.html
-      archived: pacnw/pacnw-2019/scoreboard/2026-09-01-live-3a9bc5bb/index1.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://www.acmicpc-pacnw.org/scoreboard/2019/index2.html
-      archived: pacnw/pacnw-2019/scoreboard/2026-09-01-live-7ceca212/index2.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://acmicpc-pacnw.org/results.htm
-      archived: pacnw/pacnw-2019/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Pacific-Northwest-2020/standings
-  problems:
-    count: 26
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon: https://www.acmicpc.net/category/813
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://acmicpc-pacnw.org/ProblemSet/2019/div1.pdf
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+    - standings
+    as_of: '20191111010044'
+    archived:
+    - pacnw/pacnw-2019/external-standings/2026-04-15-external/content.html
+    - pacnw/pacnw-2019/standings/20191111-wayback-1aa1ade3/results.htm
+    - pacnw/pacnw-2019/standings/20260901-live-083808b9/results.htm
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: http://www.acmicpc-pacnw.org/scoreboard/2019/index1.html
+    roles:
+    - scoreboard
+    as_of: '20191130172830'
+    archived:
+    - pacnw/pacnw-2019/scoreboard/2026-09-01-live-3a9bc5bb/index1.html
+    - pacnw/pacnw-2019/scoreboard/20191130-wayback-5a0bc86c/index1.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.acmicpc-pacnw.org/scoreboard/2019/index2.html
+    roles:
+    - scoreboard
+    as_of: '20191130101446'
+    archived:
+    - pacnw/pacnw-2019/scoreboard/2026-09-01-live-7ceca212/index2.html
+    - pacnw/pacnw-2019/scoreboard/20191130-wayback-8939a454/index2.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Pacific-Northwest-2020/standings
+    roles:
+    - icpc_standings
+  - url: http://acmicpc-pacnw.org/ProblemSet/2019/div1.pdf
+    roles:
+    - problemset
     as_of: '20230306131527'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/813
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260420225752'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: pacnw-2019
 - id: pacnw-2020
   season: 2021
   name: 2020/2021 Pacific Northwest Regional Contest
@@ -946,34 +1296,49 @@ contests:
   - 4348
   parent: nac-2021
   next: pacnw-2021
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    scoreboard:
-    - url: http://www.acmicpc-pacnw.org/scoreboard/2020/index1.html
-      archived: pacnw/pacnw-2020/scoreboard/2026-09-01-live-472f4209/index1.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://www.acmicpc-pacnw.org/scoreboard/2020/index2.html
-      archived: pacnw/pacnw-2020/scoreboard/2026-09-01-live-ddf96ffb/index2.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://acmicpc-pacnw.org/results.htm
-      archived: pacnw/pacnw-2020/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Pacific-Northwest-2021/standings
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+    - standings
+    as_of: '20210411035016'
+    archived:
+    - pacnw/pacnw-2020/external-standings/2026-04-15-external/content.html
+    - pacnw/pacnw-2020/standings/20210411-wayback-67015720/results.htm
+    - pacnw/pacnw-2020/standings/20260901-live-083808b9/results.htm
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: http://www.acmicpc-pacnw.org/scoreboard/2020/index1.html
+    roles:
+    - scoreboard
+    as_of: '20210414084417'
+    archived:
+    - pacnw/pacnw-2020/scoreboard/2026-09-01-live-472f4209/index1.html
+    - pacnw/pacnw-2020/scoreboard/20210414-wayback-e17b29a5/index1.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.acmicpc-pacnw.org/scoreboard/2020/index2.html
+    roles:
+    - scoreboard
+    as_of: '20210414073228'
+    archived:
+    - pacnw/pacnw-2020/scoreboard/2026-09-01-live-ddf96ffb/index2.html
+    - pacnw/pacnw-2020/scoreboard/20210414-wayback-ab15284e/index2.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Pacific-Northwest-2021/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/814
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 34
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon: https://www.acmicpc.net/category/814
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.acmicpc.net/category/814
+    set: pacnw-2020
 - id: pacnw-2021
   season: 2022
   name: 2021 ICPC Pacific Northwest Regional Contest
@@ -983,34 +1348,49 @@ contests:
   - 4689
   parent: nac-2022
   next: pacnw-2022
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    scoreboard:
-    - url: http://www.acmicpc-pacnw.org/scoreboard/2022/index1.html
-      archived: pacnw/pacnw-2021/scoreboard/2026-09-01-live-7d6ff607/index1.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://www.acmicpc-pacnw.org/scoreboard/2022/index2.html
-      archived: pacnw/pacnw-2021/scoreboard/2026-09-01-live-4cbadbab/index2.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://acmicpc-pacnw.org/results.htm
-      archived: pacnw/pacnw-2021/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/PacNW-2022/standings
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+    - standings
+    as_of: '20220327084202'
+    archived:
+    - pacnw/pacnw-2021/external-standings/2026-04-15-external/content.html
+    - pacnw/pacnw-2021/standings/20220327-wayback-cdb1dbcd/results.htm
+    - pacnw/pacnw-2021/standings/20260901-live-083808b9/results.htm
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: http://www.acmicpc-pacnw.org/scoreboard/2022/index1.html
+    roles:
+    - scoreboard
+    as_of: '20220524031142'
+    archived:
+    - pacnw/pacnw-2021/scoreboard/2026-09-01-live-7d6ff607/index1.html
+    - pacnw/pacnw-2021/scoreboard/20220524-wayback-dea3cb71/index1.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.acmicpc-pacnw.org/scoreboard/2022/index2.html
+    roles:
+    - scoreboard
+    as_of: '20220524015206'
+    archived:
+    - pacnw/pacnw-2021/scoreboard/2026-09-01-live-4cbadbab/index2.html
+    - pacnw/pacnw-2021/scoreboard/20220524-wayback-40614bd3/index2.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/PacNW-2022/standings
+    roles:
+    - icpc_standings
+  - url: https://www.acmicpc.net/category/815
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 26
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon: https://www.acmicpc.net/category/815
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://www.acmicpc.net/category/815
+    set: pacnw-2021
 - id: pacnw-2022
   season: 2023
   name: 2022 ICPC Pacific Northwest Regional Contest
@@ -1022,36 +1402,54 @@ contests:
   - 5380
   parent: nac-2023
   next: pacnw-2023
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    scoreboard:
-    - url: http://www.acmicpc-pacnw.org/scoreboard/Spring2023/index1.html
-      archived: pacnw/pacnw-2022/scoreboard/2026-09-01-live-c325868d/index1.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    - url: http://www.acmicpc-pacnw.org/scoreboard/Spring2023/index2.html
-      archived: pacnw/pacnw-2022/scoreboard/2026-09-01-live-bb33a4de/index2.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://acmicpc-pacnw.org/results.htm
-      archived: pacnw/pacnw-2022/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/PacNW-2023/standings
-  problems:
-    count: 26
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon: https://www.acmicpc.net/category/828
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://acmicpc-pacnw.org/ProblemSet/Spring2023
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+    - standings
+    as_of: '20230306131402'
+    archived:
+    - pacnw/pacnw-2022/external-standings/2026-04-15-external/content.html
+    - pacnw/pacnw-2022/standings/20230306-wayback-fb6e391f/results.htm
+    - pacnw/pacnw-2022/standings/20260901-live-083808b9/results.htm
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: http://www.acmicpc-pacnw.org/scoreboard/Spring2023/index1.html
+    roles:
+    - scoreboard
+    as_of: '20230306131527'
+    archived:
+    - pacnw/pacnw-2022/scoreboard/2026-09-01-live-c325868d/index1.html
+    - pacnw/pacnw-2022/scoreboard/20230306-wayback-6de5074c/index1.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: http://www.acmicpc-pacnw.org/scoreboard/Spring2023/index2.html
+    roles:
+    - scoreboard
+    as_of: '20230306131527'
+    archived:
+    - pacnw/pacnw-2022/scoreboard/2026-09-01-live-bb33a4de/index2.html
+    - pacnw/pacnw-2022/scoreboard/20230306-wayback-0a3c117d/index2.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/PacNW-2023/standings
+    roles:
+    - icpc_standings
+  - url: http://acmicpc-pacnw.org/ProblemSet/Spring2023
+    roles:
+    - problemset
     as_of: '20230320134155'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/828
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: pacnw-2022
 - id: pacnw-2023
   season: 2024
   name: 2023 ICPC Pacific Northwest Regional Contest
@@ -1061,36 +1459,54 @@ contests:
   - 7467
   parent: nac-2024
   next: pacnw-2024
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    scoreboard:
-    - url: http://www.acmicpc-pacnw.org/scoreboard/2023/index_D1.html
-      archived: pacnw/pacnw-2023/scoreboard/2026-09-01-live-6c5a1a16/index_D1.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://www.acmicpc-pacnw.org/scoreboard/2023/index_D2.html
-      archived: pacnw/pacnw-2023/scoreboard/2026-09-01-live-2dc2199a/index_D2.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://acmicpc-pacnw.org/results.htm
-      archived: pacnw/pacnw-2023/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/PacNW-2024/standings
-  problems:
-    count: 26
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon: https://www.acmicpc.net/category/1019
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://acmicpc-pacnw.org/ProblemSet/2023/problems-D1_all.pdf
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+    - standings
+    as_of: '20240506035621'
+    archived:
+    - pacnw/pacnw-2023/external-standings/2026-04-15-external/content.html
+    - pacnw/pacnw-2023/standings/20240506-wayback-9a04c241/results.htm
+    - pacnw/pacnw-2023/standings/20260901-live-083808b9/results.htm
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: http://www.acmicpc-pacnw.org/scoreboard/2023/index_D1.html
+    roles:
+    - scoreboard
+    as_of: '20240412183630'
+    archived:
+    - pacnw/pacnw-2023/scoreboard/2026-09-01-live-6c5a1a16/index_D1.html
+    - pacnw/pacnw-2023/scoreboard/20240412-wayback-1bcd36d8/index_D1.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.acmicpc-pacnw.org/scoreboard/2023/index_D2.html
+    roles:
+    - scoreboard
+    as_of: '20240412183554'
+    archived:
+    - pacnw/pacnw-2023/scoreboard/2026-09-01-live-2dc2199a/index_D2.html
+    - pacnw/pacnw-2023/scoreboard/20240412-wayback-c5a75855/index_D2.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/PacNW-2024/standings
+    roles:
+    - icpc_standings
+  - url: http://acmicpc-pacnw.org/ProblemSet/2023/problems-D1_all.pdf
+    roles:
+    - problemset
     as_of: '20240412165313'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/1019
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: pacnw-2023
 - id: pacnw-2024
   season: 2025
   name: 2024 ICPC Pacific Northwest Regional Contest
@@ -1101,29 +1517,48 @@ contests:
   - 8927
   parent: nac-2025
   next: pacnw-2025
-  web: http://www.acmicpc-pacnw.org/results.htm
-  results:
-    scoreboard:
-    - url: http://www.acmicpc-pacnw.org/scoreboard/2024/index_D1.html
-      archived: pacnw/pacnw-2024/scoreboard/2026-09-01-live-e08e52b8/index_D1.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://www.acmicpc-pacnw.org/scoreboard/2024/index_D2.html
-      archived: pacnw/pacnw-2024/scoreboard/2026-09-01-live-df007fb2/index_D2.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://acmicpc-pacnw.org/results.htm
-      archived: pacnw/pacnw-2024/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/PacNW-2025/standings
-  problems:
-    source: Kattis problem export (2026-11-01)
-  problemset:
-    url: http://acmicpc-pacnw.org/ProblemSet/2024/problems-D1_all.pdf
+  sources:
+  - url: http://www.acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+    - standings
+    as_of: '20250217005049'
+    archived:
+    - pacnw/pacnw-2024/external-standings/2026-04-15-external/content.html
+    - pacnw/pacnw-2024/standings/20250217-wayback-04dfeadd/results.htm
+    - pacnw/pacnw-2024/standings/20260901-live-083808b9/results.htm
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: http://www.acmicpc-pacnw.org/scoreboard/2024/index_D1.html
+    roles:
+    - scoreboard
+    as_of: '20241206100719'
+    archived:
+    - pacnw/pacnw-2024/scoreboard/2026-09-01-live-e08e52b8/index_D1.html
+    - pacnw/pacnw-2024/scoreboard/20241206-wayback-f07ef308/index_D1.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.acmicpc-pacnw.org/scoreboard/2024/index_D2.html
+    roles:
+    - scoreboard
+    as_of: '20241206100640'
+    archived:
+    - pacnw/pacnw-2024/scoreboard/2026-09-01-live-df007fb2/index_D2.html
+    - pacnw/pacnw-2024/scoreboard/20241206-wayback-49d5b7d1/index_D2.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/PacNW-2025/standings
+    roles:
+    - icpc_standings
+  - url: http://acmicpc-pacnw.org/ProblemSet/2024/problems-D1_all.pdf
+    roles:
+    - problemset
     as_of: '20241206104438'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: pacnw-2024
 - id: pacnw-2025
   season: 2026
   name: 2025 ICPC North America Pacific Northwest Regional Contest
@@ -1134,24 +1569,40 @@ contests:
   - 9334
   parent: nac-2026
   next: pacnw-2026
-  web: http://www.acmicpc-pacnw.org/
-  results:
-    scoreboard:
-    - url: https://pnw.na.icpc.global/scoreboard/2025/real_contest/index_D1.html
-      archived: pacnw/pacnw-2025/scoreboard/2026-09-01-live-350d156c/index_D1.html
-      url_state: live
-      url_checked: '2026-11-02'
-      as_of: '20260318205443'
-    standings:
-    - url: http://acmicpc-pacnw.org/results.htm
-      archived: pacnw/pacnw-2025/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/PacNW-2026/standings
+  sources:
+  - url: http://www.acmicpc-pacnw.org/
+    roles:
+    - web
+  - url: https://pnw.na.icpc.global/scoreboard/2025/real_contest/index_D1.html
+    roles:
+    - scoreboard
+    as_of: '20260318205443'
+    archived:
+    - pacnw/pacnw-2025/scoreboard/2026-09-01-live-350d156c/index_D1.html
+    - pacnw/pacnw-2025/scoreboard/20260318-wayback-ebac36f9/index_D1.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://acmicpc-pacnw.org/results.htm
+    roles:
+    - standings
+    as_of: '20260514005823'
+    archived:
+    - pacnw/pacnw-2025/external-standings/2026-04-15-external/content.html
+    - pacnw/pacnw-2025/standings/20260514-wayback-1c64e539/results.htm
+    - pacnw/pacnw-2025/standings/20260901-live-083808b9/results.htm
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/PacNW-2026/standings
+    roles:
+    - icpc_standings
+  - url: https://pnw.na.icpc.global/problems/2025/solutions/index-1.html
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    source: Kattis problem export (2026-11-01)
-  problemset: https://pnw.na.icpc.global/problems/2025/solutions/index-1.html
+    set: pacnw-2025
 - id: pacnw-2026
   status: upcoming
   season: 2027
@@ -1159,4 +1610,7 @@ contests:
   cms_ids:
   - 9774
   parent: nac-2027
-  web: https://pnw.na.icpc.global/
+  sources:
+  - url: https://pnw.na.icpc.global/
+    roles:
+    - web

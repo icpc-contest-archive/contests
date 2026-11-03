@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: yangon
   name: ICPC Asia Yangon Regional Programming Contest
+  tier: regional
+  region: Asia Pacific
+  naming: season-start
 contests:
 - id: yangon-2016
   season: 2017
@@ -12,23 +15,31 @@ contests:
   - 3217
   parent: wf-2017
   next: yangon-2017
-  results:
-    scoreboard:
-    - url: http://ucsy.edu.mm/ucsy/pages/2016RegionalScoreboard.jsp
-      as_of: '20170613213848'
-      archived: yangon/yangon-2016/scoreboard/2026-09-01-wayback-427eaa9a/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.ucsy.edu.mm/ucsy/pages/2016RegionalScoreboard.jsp
-      as_of: '20170613213848'
-      archived: yangon/yangon-2016/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/AR-Yangon-2017/standings
-  web: http://www.ucsy.edu.mm/ucsy/pages/regional_programming_contest.jsp
-  problemset: https://www.ucsy.edu.mm/ucsy/pages/q-ARYangon2016.pdf
+  sources:
+  - url: http://www.ucsy.edu.mm/ucsy/pages/regional_programming_contest.jsp
+    roles:
+    - web
+  - url: http://ucsy.edu.mm/ucsy/pages/2016RegionalScoreboard.jsp
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20170613213848'
+    archived:
+    - yangon/yangon-2016/scoreboard/2026-09-01-wayback-427eaa9a/page.html
+    - yangon/yangon-2016/external-standings/2026-04-15-external/content.html
+    - yangon/yangon-2016/standings/20170613-wayback-eaa74c77/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/AR-Yangon-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://www.ucsy.edu.mm/ucsy/pages/q-ARYangon2016.pdf
+    roles:
+    - problemset
+    as_of: '20181221091219'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: yangon-2017
   season: 2018
   name: 2017 ACM-ICPC Asia Yangon Regional Programming Contest
@@ -39,15 +50,29 @@ contests:
   - 3419
   parent: wf-2018
   next: yangon-2018
-  results:
-    scoreboard:
-    - url: http://www.ucsy.edu.mm/ucsy/pages/sb-ARYangon2017.html
-      archived: yangon/yangon-2017/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/AR-Yangon-2018/standings
-  web: http://www.ucsy.edu.mm/ucsy/pages/ARYangon2017.jsp
-  problemset: https://www.ucsy.edu.mm/ucsy/pages/q-ARYangon2017.pdf
+  sources:
+  - url: http://www.ucsy.edu.mm/ucsy/pages/ARYangon2017.jsp
+    roles:
+    - web
+  - url: http://www.ucsy.edu.mm/ucsy/pages/sb-ARYangon2017.html
+    roles:
+    - scoreboard
+    as_of: '20211026002742'
+    archived:
+    - yangon/yangon-2017/external-standings/2026-04-15-external/content.html
+    - yangon/yangon-2017/scoreboard/20211026-wayback-460fabf9/sb-ARYangon2017.html
+    - yangon/yangon-2017/scoreboard/20260901-live-27c19899/sb-ARYangon2017.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/AR-Yangon-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://www.ucsy.edu.mm/ucsy/pages/q-ARYangon2017.pdf
+    roles:
+    - problemset
+    as_of: '20180614141611'
+    url_state: dead
+    url_checked: '2026-11-02'
 - id: yangon-2018
   season: 2019
   name: 2018 ICPC Asia Yangon Regional Programming Contest
@@ -58,12 +83,26 @@ contests:
   - 3729
   parent: wf-2019
   next: null
-  results:
-    scoreboard:
-    - url: https://www.ucsy.edu.mm/ucsy/pages/sb-aryangon2018.html
-      archived: yangon/yangon-2018/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/AR-Yangon-2019/standings
-  web: http://www.ucsy.edu.mm/ucsy/pages/aryangon2018.jsp
-  problemset: https://www.ucsy.edu.mm/ucsy/pages/q-aryangon2018.pdf
+  sources:
+  - url: http://www.ucsy.edu.mm/ucsy/pages/aryangon2018.jsp
+    roles:
+    - web
+  - url: https://www.ucsy.edu.mm/ucsy/pages/sb-aryangon2018.html
+    roles:
+    - scoreboard
+    as_of: '20181210104109'
+    archived:
+    - yangon/yangon-2018/external-standings/2026-04-15-external/content.html
+    - yangon/yangon-2018/scoreboard/20181210-wayback-63e4ec48/sb-aryangon2018.html
+    - yangon/yangon-2018/scoreboard/20260901-live-1a59a7fb/sb-aryangon2018.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/AR-Yangon-2019/standings
+    roles:
+    - icpc_standings
+  - url: https://www.ucsy.edu.mm/ucsy/pages/q-aryangon2018.pdf
+    roles:
+    - problemset
+    as_of: '20190827111454'
+    url_state: dead
+    url_checked: '2026-11-02'

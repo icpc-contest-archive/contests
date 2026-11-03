@@ -1,7 +1,10 @@
-# Maintained in-repo; problem-archive data imported by tools/import_problem_archive.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: mongolia-national
   name: ICPC Mongolia National Programming Contest
+  tier: subregional
+  region: Asia Pacific
+  naming: season-start
 contests:
 - id: mongolia-national-2013
   season: 2014
@@ -10,11 +13,13 @@ contests:
   location: Mongolia
   cms_ids:
   - 2074
+  next: mongolia-national-2014
+  sources:
+  - url: https://news.num.edu.mn/
+    roles:
+    - web
   notes: '16 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site));
     parent ''aec'' unresolved - unlinked'
-  next: mongolia-national-2014
-  web: https://news.num.edu.mn/
-  mirrors: []
 - id: mongolia-national-2014
   season: 2015
   name: 2014 ACM-ICPC Mongolia National Programming Contest
@@ -22,11 +27,13 @@ contests:
   location: Mongolia
   cms_ids:
   - 2589
+  next: mongolia-national-2015
+  sources:
+  - url: https://news.num.edu.mn/
+    roles:
+    - web
   notes: '22 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site));
     parent ''aec'' unresolved - unlinked'
-  next: mongolia-national-2015
-  web: https://news.num.edu.mn/
-  mirrors: []
 - id: mongolia-national-2015
   season: 2016
   name: 2015 ACM-ICPC Mongolia National Programming Contest
@@ -34,13 +41,15 @@ contests:
   location: Ulaanbaatar,Mongolia
   cms_ids:
   - 2952
+  next: mongolia-national-2016
+  sources:
+  - url: https://news.num.edu.mn/?p=25305
+    roles:
+    - web
+    also_at:
+    - https://icpc.global/regionals/finder/Mongolia-National-2016
   notes: '13 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site));
     parent ''aec'' unresolved - unlinked'
-  next: mongolia-national-2016
-  web: https://news.num.edu.mn/?p=25305
-  mirrors:
-  - url: https://icpc.global/regionals/finder/Mongolia-National-2016
-    note: added by url-hunt 2026-09-01 (round9-research)
 - id: mongolia-national-2016
   season: 2017
   name: 2016 ACM-ICPC Mongolia National Collegiate Programming Contest
@@ -48,13 +57,15 @@ contests:
   location: Ulaanbaatar,Mongolia
   cms_ids:
   - 3082
+  next: mongolia-national-2017
+  sources:
+  - url: https://news.num.edu.mn/?p=33895
+    roles:
+    - web
+    also_at:
+    - https://icpc.global/regionals/finder/Mongolia-National-2017
   notes: '13 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site));
     parent ''aec'' unresolved - unlinked'
-  next: mongolia-national-2017
-  web: https://news.num.edu.mn/?p=33895
-  mirrors:
-  - url: https://icpc.global/regionals/finder/Mongolia-National-2017
-    note: added by url-hunt 2026-09-01 (round9-research)
 - id: mongolia-national-2017
   season: 2018
   name: 2017 ACM-ICPC Mongolia National Programming Contest
@@ -62,13 +73,15 @@ contests:
   location: Mongolia
   cms_ids:
   - 3398
+  next: mongolia-national-2018
+  sources:
+  - url: https://news.num.edu.mn/?p=42916
+    roles:
+    - web
+    also_at:
+    - https://icpc.global/regionals/finder/Mongolia-National-2018
   notes: '8 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site));
     parent ''aec'' unresolved - unlinked'
-  next: mongolia-national-2018
-  web: https://news.num.edu.mn/?p=42916
-  mirrors:
-  - url: https://icpc.global/regionals/finder/Mongolia-National-2018
-    note: added by url-hunt 2026-09-01 (round9-research)
 - id: mongolia-national-2018
   season: 2019
   name: 2018 ICPC Mongolia National Programming Contest
@@ -76,26 +89,29 @@ contests:
   location: Mongolia
   cms_ids:
   - 3707
+  next: mongolia-national-2019
+  sources:
+  - url: https://news.num.edu.mn/?p=49855
+    roles:
+    - web
+    also_at:
+    - https://icpc.global/regionals/finder/Mongolia-National-2019
+  - url: https://www.acmicpc.net/category/detail/1909
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20191208023110'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      Mongolia National Programming Contest 2018
+  problems:
+    set: mongolia-national-2018
+  provenance:
+  - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
   notes: '14 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site));
     parent ''aec'' unresolved - unlinked'
-  next: mongolia-national-2019
-  web: https://news.num.edu.mn/?p=49855
-  mirrors:
-  - url: https://icpc.global/regionals/finder/Mongolia-National-2019
-    note: added by url-hunt 2026-09-01 (round9-research)
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1909
-        as_of: '20191208023110'
-        note: Mongolia National Programming Contest 2018
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/1909
-    as_of: '20191208023110'
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
-  sources:
-  - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - id: mongolia-national-2019
   season: 2020
   name: 2019 ICPC Mongolia National Programming Contest
@@ -103,8 +119,10 @@ contests:
   location: Mongolia
   cms_ids:
   - 4226
+  sources:
+  - url: https://icpc.global/regionals/finder/Mongolia-National-2020/standings
+    roles:
+    - icpc_standings
+    note: added by url-hunt 2026-09-01 (round9-research)
   notes: '14 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site));
     parent ''aec'' unresolved - unlinked'
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Mongolia-National-2020/standings
-    note: added by url-hunt 2026-09-01 (round9-research)

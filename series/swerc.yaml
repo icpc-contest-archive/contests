@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: swerc
   name: ICPC Southwestern Europe Regional Contest
+  tier: regional
+  region: Europe
+  naming: season-start
   lineage:
   - type: continues-as
     series: mcerc
@@ -13,130 +16,160 @@ contests:
   cms_status: pre-cms
   parent: wf-1994
   next: swerc-1994
-  web: http://www.acm.inf.ethz.ch/SWERCHome.html
-  problems:
-    count: 7
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=451
-        as_of: '20210924114121'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SWERC/1993/index.html
+  sources:
+  - url: http://www.acm.inf.ethz.ch/SWERCHome.html
+    roles:
+    - web
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SWERC/1993/index.html
+    roles:
+    - problemset
     as_of: '19980202011741'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=451
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210924114121'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: swerc-1993
 - id: swerc-1994
   season: 1995
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1995
   next: swerc-1995
-  web: http://www.acm.inf.ethz.ch/ProblemSetArchive.html
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=456
-        as_of: '20210924124835'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SWERC/1994/index.html
+  sources:
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive.html
+    roles:
+    - web
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SWERC/1994/index.html
+    roles:
+    - problemset
     as_of: '19980202011818'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=456
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210924124835'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: swerc-1994
 - id: swerc-1995
   season: 1996
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1996
   next: swerc-1996
-  web:
-    url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SWERC/1995/
+  sources:
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SWERC/1995/
+    roles:
+    - web
     as_of: '20030224200857'
-  problems:
-    count: 9
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=461
-        as_of: '20211020164514'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/735
-        as_of: '20190719212308'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SWERC/1995/index.html
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SWERC/1995/index.html
+    roles:
+    - problemset
     as_of: '19980202011855'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=461
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211020164514'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/735
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190719212308'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: swerc-1995
 - id: swerc-1996
   season: 1997
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1997
   next: swerc-1997
-  web:
-    url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SWERC/1996/problems96.html
+  sources:
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SWERC/1996/problems96.html
+    roles:
+    - web
     as_of: '20090713080232'
-  results:
-    scoreboard:
-    - url: http://www.acm.inf.ethz.ch/Ranklist.html
-      as_of: '20020625200248'
-      archived: swerc/swerc-1996/scoreboard/2026-09-01-wayback-2325a27d/Ranklist.html
-      url_state: dead
-      url_checked: '2026-11-02'
-  problems:
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=471
-        as_of: '20211017170221'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/734
-        as_of: '20210302020609'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SWERC/1996/index.html
+  - url: http://www.acm.inf.ethz.ch/Ranklist.html
+    roles:
+    - scoreboard
+    as_of: '20020625200248'
+    archived:
+    - swerc/swerc-1996/scoreboard/2026-09-01-wayback-2325a27d/Ranklist.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SWERC/1996/index.html
+    roles:
+    - problemset
     as_of: '19980202011933'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=471
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211017170221'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/734
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210302020609'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: swerc-1996
 - id: swerc-1997
   season: 1998
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1998
   next: swerc-1998
-  results:
-    scoreboard:
-    - url: https://swerc.eu/2023/theme/cached/1997/
-      archived: swerc/swerc-1997/scoreboard/2026-09-01-live-48d70cc6/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  problems:
-    count: 9
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=483
-        as_of: '20210926151625'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/719
-        as_of: '20190722072743'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SWERC/1997/index.html
+  sources:
+  - url: https://swerc.eu/2023/theme/cached/1997/
+    roles:
+    - scoreboard
+    archived:
+    - swerc/swerc-1997/scoreboard/2026-09-01-live-48d70cc6/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SWERC/1997/index.html
+    roles:
+    - problemset
     as_of: '19980202012012'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=483
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210926151625'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/719
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190722072743'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: swerc-1997
 - id: swerc-1998
   season: 1999
   name: 1998 ACM Southwestern Europe Programming Contest
@@ -147,41 +180,61 @@ contests:
   next:
   - swerc-1999
   - mcerc-1999
-  results:
-    scoreboard:
-    - url: https://swerc.eu/2023/theme/cached/1998/
-      archived: swerc/swerc-1998/scoreboard/2026-09-01-live-5122fa57/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc99/Regionals/SWERC98/Standings.htm
-      as_of: '20030517124615'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: swerc/swerc-1998/standings/20030517-wayback-6351af5e/Standings.htm
-  web: http://www.informatik.uni-ulm.de/acm/
-  problems:
-    count: 9
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=493
-        as_of: '20210921112456'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/718
-        as_of: '20210127165944'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  sources:
+  - url: http://www.informatik.uni-ulm.de/acm/
+    roles:
+    - web
+  - url: https://swerc.eu/2023/theme/cached/1998/
+    roles:
+    - scoreboard
+    archived:
+    - swerc/swerc-1998/scoreboard/2026-09-01-live-5122fa57/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc99/Regionals/SWERC98/Standings.htm
+    roles:
+    - standings
+    as_of: '20030517124615'
+    archived:
+    - swerc/swerc-1998/standings/20030517-wayback-6351af5e/Standings.htm
+    - swerc/swerc-1998/standings/20030517-wayback-528a913a/Standings.htm
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
   - url: http://www.informatik.uni-ulm.de/acm/Locals/1998/problemset.html
+    roles:
+    - problemset
     as_of: '20060925141820'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SWERC/1998/index.html
+    roles:
+    - problemset
     as_of: '20001003144801'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc99/Regionals/SWERC98/problems.pdf
+    roles:
+    - problemset
     as_of: '20040122225553'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=493
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210921112456'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/718
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210127165944'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: swerc-1998
 - id: swerc-1999
   season: 2000
   name: 1999 ACM Southwestern Europe Programming Contest
@@ -191,35 +244,48 @@ contests:
   - 1112
   parent: wf-2000
   next: swerc-2000
-  results:
-    standings:
-    - url: https://swerc.eu/2023/theme/cached/1999/
-      archived: swerc/swerc-1999/standings/2026-09-01-live-76abf764/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc2000/regionals/SWERC99/Standings.html
-      as_of: '20020112031150'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: swerc/swerc-1999/standings/20020112-wayback-ffd76b15/Standings.html
-  web: http://acm.fi.uva.es/swerc99
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=503
-        as_of: '20211025072908'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  sources:
+  - url: http://acm.fi.uva.es/swerc99
+    roles:
+    - web
+  - url: https://swerc.eu/2023/theme/cached/1999/
+    roles:
+    - standings
+    archived:
+    - swerc/swerc-1999/standings/2026-09-01-live-76abf764/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2000/regionals/SWERC99/Standings.html
+    roles:
+    - standings
+    as_of: '20020112031150'
+    archived:
+    - swerc/swerc-1999/standings/20020112-wayback-ffd76b15/Standings.html
+    - swerc/swerc-1999/standings/20020112-wayback-294c5367/Standings.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SWERC/1999/index.html
+    roles:
+    - problemset
     as_of: '20001003144805'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2000/regionals/SWERC99/Problems.html
+    roles:
+    - problemset
     as_of: '20020112012832'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=503
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211025072908'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: swerc-1999
 - id: swerc-2000
   season: 2001
   name: 2000 ACM Southwestern Europe Programming Contest
@@ -229,31 +295,42 @@ contests:
   - 1254
   parent: wf-2001
   next: swerc-2001
-  results:
-    standings:
-    - url: https://swerc.eu/2023/theme/cached/2000/
-      archived: swerc/swerc-2000/standings/2026-09-01-live-ca270f7f/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  web:
-    url: http://icpc.baylor.edu/past/icpc2001/Regionals/SWERC00/Default.asp
+  sources:
+  - url: http://icpc.baylor.edu/past/icpc2001/Regionals/SWERC00/Default.asp
+    roles:
+    - web
     as_of: '20020112115557'
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=72
-        as_of: '20211028174206'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+    also_at:
+    - url: http://acm.fi.uva.es/swerc00
+      as_of: '20000919133249'
+  - url: https://swerc.eu/2023/theme/cached/2000/
+    roles:
+    - standings
+    archived:
+    - swerc/swerc-2000/standings/2026-09-01-live-ca270f7f/page.html
+    url_state: live
+    url_checked: '2026-11-02'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SWERC/2000/index.html
+    roles:
+    - problemset
     as_of: '20020622021308'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2001/regionals/SWERC00/Problems.pdf
+    roles:
+    - problemset
     as_of: '20030323163014'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=72
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211028174206'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: swerc-2000
 - id: swerc-2001
   season: 2002
   name: 2001 ACM Southwestern Europe Programming Contest
@@ -263,38 +340,61 @@ contests:
   - 1160
   parent: wf-2002
   next: swerc-2002
-  results:
-    scoreboard:
-    - url: https://swerc.eu/2023/theme/cached/2001/
-      archived: swerc/swerc-2001/scoreboard/2026-09-01-live-dcf31a02/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=516
-      as_of: '20020619092309'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: swerc/swerc-2001/standings/20020619-wayback-608d9449/page.html
-  web:
-    url: http://icpc.baylor.edu/past/icpc2002/Regionals/SWERC01/default.asp
+  sources:
+  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/SWERC01/default.asp
+    roles:
+    - web
     as_of: '20020619093638'
-  problems:
-    count: 9
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=101
-        as_of: '20210918093713'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+    also_at:
+    - url: http://swerc.up.pt/
+      as_of: '20010401152235'
+  - url: https://swerc.eu/2023/theme/cached/2001/
+    roles:
+    - scoreboard
+    archived:
+    - swerc/swerc-2001/scoreboard/2026-09-01-live-dcf31a02/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=516
+    roles:
+    - standings
+    as_of: '20020619092309'
+    archived:
+    - swerc/swerc-2001/standings/20020619-wayback-608d9449/page.html
+    - swerc/swerc-2001/standings/20020619-wayback-6cb0c8ea/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: http://swerc.up.pt/2001/res_swerc2001.html
+    roles:
+    - standings
+    as_of: '20011214160328'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://icpc.baylor.edu/past/icpc2002/Regionals/SWERC01/swerc2001_problemset.pdf
+    roles:
+    - problemset
     as_of: '20030929093925'
+    url_state: unknown
+    url_checked: '2026-11-02'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SWERC/2001/index.html
+    roles:
+    - problemset
     as_of: '20020513200225'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://swerc.up.pt/2001/problemset.html
+    roles:
+    - problemset
+    as_of: '20011127014506'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=101
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210918093713'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: swerc-2001
 - id: swerc-2002
   season: 2003
   name: 2002 ACM Southwestern Europe Programming Contest
@@ -304,39 +404,59 @@ contests:
   - 1270
   parent: wf-2003
   next: swerc-2003
-  results:
-    scoreboard:
-    - url: https://swerc.eu/2023/theme/cached/2002/
-      archived: swerc/swerc-2002/scoreboard/2026-09-01-live-3cd79d56/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings89dd.html?ContestID=584
-      as_of: '20060901122336'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: swerc/swerc-2002/standings/20060901-wayback-293720a3/ViewRegionalStandings89dd.html
-  web: http://swerc.up.pt/2002/
-  problems:
-    count: 9
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=131
-        as_of: '20210919192846'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/717
-        as_of: '20190719205157'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  sources:
+  - url: http://swerc.up.pt/2002/
+    roles:
+    - web
+  - url: https://swerc.eu/2023/theme/cached/2002/
+    roles:
+    - scoreboard
+    archived:
+    - swerc/swerc-2002/scoreboard/2026-09-01-live-3cd79d56/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings89dd.html?ContestID=584
+    roles:
+    - standings
+    as_of: '20060901122336'
+    archived:
+    - swerc/swerc-2002/standings/20060901-wayback-293720a3/ViewRegionalStandings89dd.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: http://swerc.up.pt/2002/Data/res_swerc2002.html
+    roles:
+    - standings
+    as_of: '20030414181108'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://swerc.up.pt/2002/Data/swerc2002_problemset.pdf
+    roles:
+    - problemset
     as_of: '20070709122603'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/swerc.up.pt/2002/Data/swerc2002_problemset.pdf
+    roles:
+    - problemset
     as_of: '20030710182016'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=131
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210919192846'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/717
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190719205157'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: swerc-2002
 - id: swerc-2003
   season: 2004
   name: 2003 ACM Southwestern Europe Programming Contest
@@ -346,34 +466,41 @@ contests:
   - 1240
   parent: wf-2004
   next: swerc-2004
-  results:
-    scoreboard:
-    - url: https://swerc.eu/2023/theme/cached/2003/
-      archived: swerc/swerc-2003/scoreboard/2026-09-01-live-cd2dd9c0/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandings5df0.html?ContestID=657
-      as_of: '20060901141910'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: swerc/swerc-2003/standings/20060901-wayback-64987dfd/ViewRegionalStandings5df0.html
-  web: http://www.polytechnique.edu/icpc2003/
-  problems:
-    count: 9
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=162
-        as_of: '20210924113952'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=162
+  sources:
+  - url: http://www.polytechnique.edu/icpc2003/
+    roles:
+    - web
+  - url: https://swerc.eu/2023/theme/cached/2003/
+    roles:
+    - scoreboard
+    archived:
+    - swerc/swerc-2003/scoreboard/2026-09-01-live-cd2dd9c0/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandings5df0.html?ContestID=657
+    roles:
+    - standings
+    as_of: '20060901141910'
+    archived:
+    - swerc/swerc-2003/standings/20060901-wayback-64987dfd/ViewRegionalStandings5df0.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewStandings.asp?ContestID=657
+    roles:
+    - standings
+    as_of: '20040304012453'
+    note: added by url-hunt 2026-09-01 (cms-api)
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=162
+    roles:
+    - problemset
+    - judge_page
+    judge: livearchive
     as_of: '20210924113952'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: swerc-2003
 - id: swerc-2004
   season: 2005
   name: 2004 ACM Southwestern Europe Programming Contest
@@ -383,27 +510,27 @@ contests:
   - 1259
   parent: wf-2005
   next: swerc-2005
-  results:
-    scoreboard:
-    - url: https://swerc.eu/2023/theme/cached/2004/
-      archived: swerc/swerc-2004/scoreboard/2026-09-01-live-924ad2c2/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  web: http://www.polytechnique.edu/icpc2004/
-  problems:
-    count: 9
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=193
-        as_of: '20211022185917'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=193
+  sources:
+  - url: http://www.polytechnique.edu/icpc2004/
+    roles:
+    - web
+  - url: https://swerc.eu/2023/theme/cached/2004/
+    roles:
+    - scoreboard
+    archived:
+    - swerc/swerc-2004/scoreboard/2026-09-01-live-924ad2c2/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=193
+    roles:
+    - problemset
+    - judge_page
+    judge: livearchive
     as_of: '20211022185917'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: swerc-2004
 - id: swerc-2005
   season: 2006
   name: 2005 ACM Southwestern Europe Programming Contest
@@ -413,38 +540,47 @@ contests:
   - 1140
   parent: wf-2006
   next: swerc-2006
-  results:
-    scoreboard:
-    - url: https://swerc.eu/2023/theme/cached/2005/
-      archived: swerc/swerc-2005/scoreboard/2026-09-01-live-57a47dba/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.polytechnique.edu/icpc2005/2005/ranking.html
-      as_of: '20090715212807'
-      archived: swerc/swerc-2005/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Southwestern-Europe-2006/standings
-  web: http://www.acm.polytechnique.fr/2005/
-  problems:
-    count: 10
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=225
-        as_of: '20211130190223'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/896
-        as_of: '20190724083506'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=225
+  sources:
+  - url: http://www.acm.polytechnique.fr/2005/
+    roles:
+    - web
+  - url: https://swerc.eu/2023/theme/cached/2005/
+    roles:
+    - scoreboard
+    archived:
+    - swerc/swerc-2005/scoreboard/2026-09-01-live-57a47dba/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: http://www.polytechnique.edu/icpc2005/2005/ranking.html
+    roles:
+    - standings
+    as_of: '20090715212807'
+    archived:
+    - swerc/swerc-2005/external-standings/2026-04-15-external/content.html
+    - swerc/swerc-2005/standings/20090715-wayback-56fa7297/ranking.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Southwestern-Europe-2006/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=225
+    roles:
+    - problemset
+    - judge_page
+    judge: livearchive
     as_of: '20211130190223'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/896
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190724083506'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: swerc-2005
 - id: swerc-2006
   season: 2007
   name: 2006 ACM Southwestern Europe Programming Contest
@@ -454,43 +590,49 @@ contests:
   - 1170
   parent: wf-2007
   next: swerc-2007
-  web:
-    url: https://sites.google.com/site/swerc2006/swerc2006results
+  sources:
+  - url: https://sites.google.com/site/swerc2006/swerc2006results
+    roles:
+    - web
+    - scoreboard
     as_of: '20201008081619'
-  results:
-    scoreboard:
-    - url: https://swerc.eu/2023/theme/cached/2006/
-      archived: swerc/swerc-2006/scoreboard/2026-09-01-live-3750fbe3/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://sites.google.com/site/swerc2006/swerc2006results
-      as_of: '20201008081619'
-      archived: swerc/swerc-2006/scoreboard/2026-04-16-archive/2006-southwestern-europe-programming-contest-2006.html
-      note: from archived capture (scoreboard)
-      url_state: replaced
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://ctp.di.fct.unl.pt/~amd/cpn/2007swerc/official/class.html
-      archived: swerc/swerc-2006/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Southwestern-Europe-2007/standings
-  problems:
-    count: 9
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=258
-        as_of: '20210921114541'
-    notes: No data
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=258
+    archived:
+    - swerc/swerc-2006/scoreboard/2026-04-16-archive/2006-southwestern-europe-programming-contest-2006.html
+    - swerc/swerc-2006/scoreboard/20260901-live-30cd1531/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://swerc.eu/2023/theme/cached/2006/
+    roles:
+    - scoreboard
+    archived:
+    - swerc/swerc-2006/scoreboard/2026-09-01-live-3750fbe3/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://ctp.di.fct.unl.pt/~amd/cpn/2007swerc/official/class.html
+    roles:
+    - standings
+    as_of: '20090929094719'
+    archived:
+    - swerc/swerc-2006/external-standings/2026-04-15-external/content.html
+    - swerc/swerc-2006/standings/20090929-wayback-897a1d12/class.html
+    - swerc/swerc-2006/standings/20260901-live-9b486676/class.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Southwestern-Europe-2007/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=258
+    roles:
+    - problemset
+    - judge_page
+    judge: livearchive
     as_of: '20210921114541'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: swerc-2006
 - id: swerc-2007
   season: 2008
   name: 2007 ACM Southwestern Europe Programming Contest
@@ -500,38 +642,53 @@ contests:
   - 1130
   parent: wf-2008
   next: swerc-2008
-  web: http://ctp.di.fct.unl.pt/~amd/cpn/2007swerc/official/
-  results:
-    scoreboard:
-    - url: https://swerc.eu/2023/theme/cached/2007/
-      archived: swerc/swerc-2007/scoreboard/2026-09-01-live-2b3a6c7e/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://ctp.di.fct.unl.pt/~amd/cpn/2007swerc/official/
-      archived: swerc/swerc-2007/scoreboard/2026-04-16-swerc-archive/2007-southwestern-europe-programming-contest-2007.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://ctp.di.fct.unl.pt/~amd/cpn/2007swerc/official/class.html
-      archived: swerc/swerc-2007/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Southwestern-Europe-2008/standings
+  sources:
+  - url: http://ctp.di.fct.unl.pt/~amd/cpn/2007swerc/official/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20131113084059'
+    archived:
+    - swerc/swerc-2007/scoreboard/2026-04-16-swerc-archive/2007-southwestern-europe-programming-contest-2007.html
+    - swerc/swerc-2007/scoreboard/20131113-wayback-67c99c51/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://swerc.eu/2023/theme/cached/2007/
+    roles:
+    - scoreboard
+    archived:
+    - swerc/swerc-2007/scoreboard/2026-09-01-live-2b3a6c7e/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://ctp.di.fct.unl.pt/~amd/cpn/2007swerc/official/class.html
+    roles:
+    - standings
+    as_of: '20090929094719'
+    archived:
+    - swerc/swerc-2007/external-standings/2026-04-15-external/content.html
+    - swerc/swerc-2007/standings/20090929-wayback-897a1d12/class.html
+    - swerc/swerc-2007/standings/20260901-live-9b486676/class.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Southwestern-Europe-2008/standings
+    roles:
+    - icpc_standings
+  - url: http://ctp.di.fct.unl.pt/~amd/cpn/2007swerc/official/Swerc2007Problems.html.tgz
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=292
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211028120346'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/swerc-2007
-    count: 9
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=292
-        as_of: '20211028120346'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: http://ctp.di.fct.unl.pt/~amd/cpn/2007swerc/official/Swerc2007Problems.html.tgz
+    set: swerc-2007
 - id: swerc-2008
   season: 2009
   name: 2008 Southwestern Europe Contest
@@ -541,37 +698,49 @@ contests:
   - 22
   parent: wf-2009
   next: swerc-2009
-  web: http://icpc.informatik.uni-erlangen.de/swerc2008/results.php
-  results:
-    scoreboard:
-    - url: https://swerc.eu/2023/theme/cached/2008/
-      archived: swerc/swerc-2008/scoreboard/2026-09-01-live-226b888b/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.informatik.uni-erlangen.de/swerc2008/results.php
-      as_of: '20190219060444'
-      archived: swerc/swerc-2008/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Southwestern-Europe-2009/standings
+  sources:
+  - url: http://icpc.informatik.uni-erlangen.de/swerc2008/results.php
+    roles:
+    - web
+    - standings
+    as_of: '20190219060444'
+    archived:
+    - swerc/swerc-2008/external-standings/2026-04-15-external/content.html
+    - swerc/swerc-2008/standings/20090428-wayback-e15acb37/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://swerc.eu/2023/theme/cached/2008/
+    roles:
+    - scoreboard
+    archived:
+    - swerc/swerc-2008/scoreboard/2026-09-01-live-226b888b/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Southwestern-Europe-2009/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Contests/Southwestern%20Europe%20Regional%20Contest%20(SWERC)/2008%20Southwestern%20Europe%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=328
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210924171509'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/61
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210302020058'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/swerc-2008
-    count: 10
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=328
-        as_of: '20210924171509'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/61
-        as_of: '20210302020058'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/Europe%20Contests/Southwestern%20Europe%20Regional%20Contest%20(SWERC)/2008%20Southwestern%20Europe%20Regional%20Contest/problems.pdf
+    set: swerc-2008
 - id: swerc-2009
   season: 2010
   name: 2009 Southwestern Europe Regional Contest
@@ -581,41 +750,56 @@ contests:
   - 542
   parent: wf-2010
   next: swerc-2010
-  web:
-    url: http://pc.fdi.ucm.es/swerc/swerc09/problems.php
+  sources:
+  - url: http://pc.fdi.ucm.es/swerc/swerc09/problems.php
+    roles:
+    - web
+    - scoreboard
     as_of: '20200113031403'
-  results:
-    scoreboard:
-    - url: https://swerc.eu/2023/theme/cached/2009/
-      archived: swerc/swerc-2009/scoreboard/2026-09-01-live-37dabd7d/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://pc.fdi.ucm.es/swerc/swerc09/problems.php
-      as_of: '20200113031403'
-      archived: swerc/swerc-2009/scoreboard/2026-04-16-archive/2009-southwestern-europe-regional-contest-2009.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Southwestern-Europe-2010/standings
-  problems:
-    repo: icpc-problem-archive/swerc-2009
-    count: 10
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Southwestern%20Europe%20Regional%20Contest%20%28SWERC%29%202009
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=364
-        as_of: '20210918084544'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/60
-        as_of: '20210126193736'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://pc.fdi.ucm.es/swerc/swerc09/swerc09-problem-set.rar
+    archived:
+    - swerc/swerc-2009/scoreboard/2026-04-16-archive/2009-southwestern-europe-regional-contest-2009.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://swerc.eu/2023/theme/cached/2009/
+    roles:
+    - scoreboard
+    archived:
+    - swerc/swerc-2009/scoreboard/2026-09-01-live-37dabd7d/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Southwestern-Europe-2010/standings
+    roles:
+    - icpc_standings
+  - url: http://pc.fdi.ucm.es/swerc/swerc09/swerc09-problem-set.rar
+    roles:
+    - problemset
     as_of: '20130614011359'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Southwestern%20Europe%20Regional%20Contest%20%28SWERC%29%202009
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190822141446'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=364
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210918084544'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/60
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210126193736'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: swerc-2009
 - id: swerc-2010
   season: 2011
   name: 2010 Southwestern Europe Regional Contest
@@ -625,38 +809,48 @@ contests:
   - 633
   parent: wf-2011
   next: swerc-2011
-  web:
-    url: http://pc.fdi.ucm.es/swerc/swerc10/problems.php
+  sources:
+  - url: http://pc.fdi.ucm.es/swerc/swerc10/problems.php
+    roles:
+    - web
+    - scoreboard
     as_of: '20190908081634'
-  results:
-    scoreboard:
-    - url: https://swerc.eu/2023/theme/cached/2010/
-      archived: swerc/swerc-2010/scoreboard/2026-09-01-live-d20ee4b2/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://pc.fdi.ucm.es/swerc/swerc10/problems.php
-      as_of: '20190908081634'
-      archived: swerc/swerc-2010/scoreboard/2026-04-16-archive/2010-southwestern-europe-regional-contest-2010.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Southwestern-Europe-2011/standings
+    archived:
+    - swerc/swerc-2010/scoreboard/2026-04-16-archive/2010-southwestern-europe-regional-contest-2010.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://swerc.eu/2023/theme/cached/2010/
+    roles:
+    - scoreboard
+    archived:
+    - swerc/swerc-2010/scoreboard/2026-09-01-live-d20ee4b2/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Southwestern-Europe-2011/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Contests/Southwestern%20Europe%20Regional%20Contest%20(SWERC)/2010%20Southwestern%20Europe%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=399
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211017191656'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/59
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201130113244'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/swerc-2010
-    count: 10
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=399
-        as_of: '20211017191656'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/59
-        as_of: '20201130113244'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/Europe%20Contests/Southwestern%20Europe%20Regional%20Contest%20(SWERC)/2010%20Southwestern%20Europe%20Regional%20Contest/problems.pdf
+    set: swerc-2010
 - id: swerc-2011
   season: 2012
   name: 2011 Southwestern Europe Regional Contest
@@ -666,38 +860,48 @@ contests:
   - 787
   parent: wf-2012
   next: swerc-2012
-  web:
-    url: http://pc.fdi.ucm.es/swerc/problems.php
+  sources:
+  - url: http://pc.fdi.ucm.es/swerc/problems.php
+    roles:
+    - web
+    - scoreboard
     as_of: '20121128040137'
-  results:
-    scoreboard:
-    - url: https://swerc.eu/2023/theme/cached/2011/
-      archived: swerc/swerc-2011/scoreboard/2026-09-01-live-b508f644/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://pc.fdi.ucm.es/swerc/problems.php
-      as_of: '20121128040137'
-      archived: swerc/swerc-2011/scoreboard/2026-04-16-archive/2011-southwestern-europe-regional-contest-2011.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Southwestern-Europe-2012/standings
+    archived:
+    - swerc/swerc-2011/scoreboard/2026-04-16-archive/2011-southwestern-europe-regional-contest-2011.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://swerc.eu/2023/theme/cached/2011/
+    roles:
+    - scoreboard
+    archived:
+    - swerc/swerc-2011/scoreboard/2026-09-01-live-b508f644/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Southwestern-Europe-2012/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Contests/Southwestern%20Europe%20Regional%20Contest%20(SWERC)/2011%20Southwestern%20Europe%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=530
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210926200802'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/58
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190722074206'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/swerc-2011
-    count: 10
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=530
-        as_of: '20210926200802'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/58
-        as_of: '20190722074206'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/Europe%20Contests/Southwestern%20Europe%20Regional%20Contest%20(SWERC)/2011%20Southwestern%20Europe%20Regional%20Contest/problems.pdf
+    set: swerc-2011
 - id: swerc-2012
   season: 2013
   name: 2012 Southwestern Europe Regional Contest
@@ -707,44 +911,58 @@ contests:
   - 1345
   parent: wf-2013
   next: swerc-2013
-  web:
-    url: http://users.dsic.upv.es/swerc_12/problems.php
+  sources:
+  - url: http://users.dsic.upv.es/swerc_12/problems.php
+    roles:
+    - web
+    - scoreboard
     as_of: '20190105190437'
-  results:
-    scoreboard:
-    - url: https://swerc.eu/2023/theme/cached/2012/
-      archived: swerc/swerc-2012/scoreboard/2026-09-01-live-f8f4d332/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://users.dsic.upv.es/swerc_12/problems.php
-      as_of: '20190105190437'
-      archived: swerc/swerc-2012/scoreboard/2026-04-16-archive/2012-southwestern-europe-regional-contest-2012.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://swerc.dsic.upv.es/resultados2012/public/index.html
-      as_of: '20131027100501'
-      archived: swerc/swerc-2012/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Southwestern-Europe-2013/standings
+    archived:
+    - swerc/swerc-2012/scoreboard/2026-04-16-archive/2012-southwestern-europe-regional-contest-2012.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://swerc.eu/2023/theme/cached/2012/
+    roles:
+    - scoreboard
+    archived:
+    - swerc/swerc-2012/scoreboard/2026-09-01-live-f8f4d332/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://swerc.dsic.upv.es/resultados2012/public/index.html
+    roles:
+    - standings
+    as_of: '20131027100501'
+    archived:
+    - swerc/swerc-2012/external-standings/2026-04-15-external/content.html
+    - swerc/swerc-2012/standings/20130715-wayback-12cd9615/index.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Southwestern-Europe-2013/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Contests/Southwestern%20Europe%20Regional%20Contest%20(SWERC)/2012%20Southwestern%20Europe%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=571
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210919230441'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/57
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190717023318'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 10
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=571
-        as_of: '20210919230441'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/57
-        as_of: '20190717023318'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/Europe%20Contests/Southwestern%20Europe%20Regional%20Contest%20(SWERC)/2012%20Southwestern%20Europe%20Regional%20Contest/problems.pdf
+    set: swerc-2012
 - id: swerc-2013
   season: 2014
   name: 2013 Southwestern Europe Regional Contest
@@ -754,47 +972,53 @@ contests:
   - 2023
   parent: wf-2014
   next: swerc-2014
-  web:
-    url: http://users.dsic.upv.es/swerc/index.php
-    as_of: '20190210153149'
-  results:
-    scoreboard:
-    - url: https://swerc.eu/2023/theme/cached/2013/
-      archived: swerc/swerc-2013/scoreboard/2026-09-01-live-e6e051c2/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://users.dsic.upv.es/swerc/problems.php
-      as_of: '20190216234925'
-      archived: swerc/swerc-2013/scoreboard/2026-04-16-archive/2013-southwestern-europe-regional-contest-2013.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-  problemset:
-    url: http://users.dsic.upv.es/swerc/problems.php
-    as_of: '20190216234925'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: http://users.dsic.upv.es/swerc/index.php
+    roles:
+    - web
+    as_of: '20190210153149'
+  - url: http://users.dsic.upv.es/swerc/problems.php
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20190216234925'
+    archived:
+    - swerc/swerc-2013/scoreboard/2026-04-16-archive/2013-southwestern-europe-regional-contest-2013.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://swerc.eu/2023/theme/cached/2013/
+    roles:
+    - scoreboard
+    archived:
+    - swerc/swerc-2013/scoreboard/2026-09-01-live-e6e051c2/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Southwestern%20Europe%20Regional%20Contest%20%28SWERC%29%202013
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20191114121949'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=614
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210924180141'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1184
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190716162825'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/swerc-2013
-    count: 10
-    statement: full
-    data: partial
-    solutions: partial
-    package: partial
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Southwestern%20Europe%20Regional%20Contest%20%28SWERC%29%202013
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=614
-        as_of: '20210924180141'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1184
-        as_of: '20190716162825'
-    notes: Missing problem J
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    counts:
-      data: 9
-      solutions: 9
-      package: 9
+    set: swerc-2013
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: swerc-2014
   season: 2015
   name: 2014 Southwestern Europe Regional Contest
@@ -804,48 +1028,66 @@ contests:
   - 2670
   parent: wf-2015
   next: swerc-2015
-  web:
-    url: http://swerc.up.pt/2014/
+  sources:
+  - url: http://swerc.up.pt/2014/
+    roles:
+    - web
+    - scoreboard
     as_of: '20171108204001'
-  results:
-    scoreboard:
-    - url: https://swerc.eu/2023/theme/cached/2014/
-      archived: swerc/swerc-2014/scoreboard/2026-09-01-live-95a4d79f/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    - url: http://swerc.up.pt/2014/
-      as_of: '20171108204001'
-      archived: swerc/swerc-2014/scoreboard/2026-04-16-archive/2014-southwestern-europe-regional-contest-2014.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://swerc.up.pt/2014/reports/ranking.html
-      as_of: '20180412201241'
-      archived: swerc/swerc-2014/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/SWERC-2015/standings
-  problems:
-    repo: icpc-problem-archive/swerc-2014
-    count: 10
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Southwestern%20Europe%20Regional%20Contest%20%28SWERC%29%202014
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=657
-        as_of: '20211025072827'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1313
-        as_of: '20210127172129'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://swerc.up.pt/2014/reports/problemset.pdf
+    archived:
+    - swerc/swerc-2014/scoreboard/2026-04-16-archive/2014-southwestern-europe-regional-contest-2014.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://swerc.eu/2023/theme/cached/2014/
+    roles:
+    - scoreboard
+    archived:
+    - swerc/swerc-2014/scoreboard/2026-09-01-live-95a4d79f/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: http://swerc.up.pt/2014/reports/ranking.html
+    roles:
+    - standings
+    as_of: '20180412201241'
+    archived:
+    - swerc/swerc-2014/external-standings/2026-04-15-external/content.html
+    - swerc/swerc-2014/standings/20180412-wayback-fce53e0b/ranking.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/SWERC-2015/standings
+    roles:
+    - icpc_standings
+  - url: http://swerc.up.pt/2014/reports/problemset.pdf
+    roles:
+    - problemset
     as_of: '20180128100652'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Southwestern%20Europe%20Regional%20Contest%20%28SWERC%29%202014
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20210122000638'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=657
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211025072827'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1313
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210127172129'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: swerc-2014
 - id: swerc-2015
   season: 2016
   name: 2015 Southwestern Europe Regional Contest
@@ -855,48 +1097,66 @@ contests:
   - 2769
   parent: wf-2016
   next: swerc-2016
-  web:
-    url: http://swerc.up.pt/2015/
+  sources:
+  - url: http://swerc.up.pt/2015/
+    roles:
+    - web
+    - scoreboard
     as_of: '20180205225559'
-  results:
-    scoreboard:
-    - url: https://swerc.eu/2023/theme/cached/2015/
-      archived: swerc/swerc-2015/scoreboard/2026-09-01-live-7531fcf9/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    - url: http://swerc.up.pt/2015/
-      as_of: '20180205225559'
-      archived: swerc/swerc-2015/scoreboard/2026-04-16-archive/2015-southwestern-europe-regional-contest-2015.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://swerc.up.pt/2015/reports/ranking.html
-      as_of: '20180512052112'
-      archived: swerc/swerc-2015/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/SWERC-2016/standings
-  problems:
-    repo: icpc-problem-archive/swerc-2015
-    count: 10
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Southwestern%20Europe%20Regional%20Contest%20%28SWERC%29%202015
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=701
-        as_of: '20210926192531'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1432
-        as_of: '20201027010516'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://swerc.up.pt/2015/reports/problemset.pdf
+    archived:
+    - swerc/swerc-2015/scoreboard/2026-04-16-archive/2015-southwestern-europe-regional-contest-2015.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://swerc.eu/2023/theme/cached/2015/
+    roles:
+    - scoreboard
+    archived:
+    - swerc/swerc-2015/scoreboard/2026-09-01-live-7531fcf9/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: http://swerc.up.pt/2015/reports/ranking.html
+    roles:
+    - standings
+    as_of: '20180512052112'
+    archived:
+    - swerc/swerc-2015/external-standings/2026-04-15-external/content.html
+    - swerc/swerc-2015/standings/20151205-wayback-a4833210/ranking.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/SWERC-2016/standings
+    roles:
+    - icpc_standings
+  - url: http://swerc.up.pt/2015/reports/problemset.pdf
+    roles:
+    - problemset
     as_of: '20180412195540'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Southwestern%20Europe%20Regional%20Contest%20%28SWERC%29%202015
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190820225700'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=701
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210926192531'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1432
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201027010516'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: swerc-2015
 - id: swerc-2016
   season: 2017
   name: 2016 Southwestern Europe Regional Contest
@@ -906,48 +1166,61 @@ contests:
   - 3121
   parent: wf-2017
   next: swerc-2017
-  web:
-    url: http://swerc.up.pt/2016/
+  sources:
+  - url: http://swerc.up.pt/2016/
+    roles:
+    - web
+    - scoreboard
     as_of: '20180211101200'
-  results:
-    scoreboard:
-    - url: http://swerc.up.pt/2016/reports/ranking.html
-      as_of: '20171213122047'
-      archived: swerc/swerc-2016/scoreboard/2026-09-01-wayback-6eaf3348/ranking.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://swerc.up.pt/2016/
-      as_of: '20180211101200'
-      archived: swerc/swerc-2016/scoreboard/2026-04-16-archive/2016-southwestern-europe-regional-contest-2016.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://swerc.up.pt/2016/reports/ranking.html
-      as_of: '20180412200103'
-      archived: swerc/swerc-2016/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/SWERC-2017/standings
-  problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Southwestern%20Europe%20Regional%20Contest%20%28SWERC%29%202016
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=750
-        as_of: '20211026023911'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1581
-        as_of: '20190716161354'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://swerc.up.pt/2016/reports/problemset.pdf
+    archived:
+    - swerc/swerc-2016/scoreboard/2026-04-16-archive/2016-southwestern-europe-regional-contest-2016.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://swerc.up.pt/2016/reports/ranking.html
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20171213122047'
+    archived:
+    - swerc/swerc-2016/scoreboard/2026-09-01-wayback-6eaf3348/ranking.html
+    - swerc/swerc-2016/external-standings/2026-04-15-external/content.html
+    - swerc/swerc-2016/standings/20180412-wayback-e2ffd309/ranking.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: as_of 20180412200103 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/SWERC-2017/standings
+    roles:
+    - icpc_standings
+  - url: http://swerc.up.pt/2016/reports/problemset.pdf
+    roles:
+    - problemset
     as_of: '20180412200259'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Southwestern%20Europe%20Regional%20Contest%20%28SWERC%29%202016
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190724092803'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=750
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211026023911'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1581
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190716161354'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: swerc-2016
 - id: swerc-2017
   season: 2018
   name: 2017 Southwestern Europe Regional Contest
@@ -957,39 +1230,62 @@ contests:
   - 3280
   parent: wf-2018
   next: swerc-2018
-  web: https://swerc.eu/2017/
-  results:
-    scoreboard:
-    - url: https://swerc.eu/2017/theme/results/official/public/
-      archived: swerc/swerc-2017/scoreboard/2026-09-01-live-fb15792b/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://swerc.eu/theme/results/official/public/
-      as_of: '20171223220352'
-      archived: swerc/swerc-2017/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/SWERC-2018/standings
-  problemset: https://swerc.eu/2017/problems/
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: https://swerc.eu/2017/
+    roles:
+    - web
+  - url: https://swerc.eu/2017/theme/results/official/public/
+    roles:
+    - scoreboard
+    as_of: '20201231181207'
+    archived:
+    - swerc/swerc-2017/scoreboard/2026-09-01-live-fb15792b/page.html
+    - swerc/swerc-2017/scoreboard/20201231-wayback-9f663d4f/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://swerc.eu/theme/results/official/public/
+    roles:
+    - standings
+    as_of: '20171223220352'
+    archived:
+    - swerc/swerc-2017/external-standings/2026-04-15-external/content.html
+    - swerc/swerc-2017/standings/20171223-wayback-339a8679/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/SWERC-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://swerc.eu/2017/problems/
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Southwestern%20Europe%20Regional%20Contest%20%28SWERC%29%202017
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190923125843'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=783
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210919231428'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1826
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190723115810'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Southwestern%20Europe%20Regional%20Contest%20%28SWERC%29%202017
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=783
-        as_of: '20210919231428'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1826
-        as_of: '20190723115810'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: swerc-2017
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: swerc-2018
   season: 2019
   name: 2018 Southwestern Europe Regional Contest
@@ -999,29 +1295,39 @@ contests:
   - 3652
   parent: wf-2019
   next: swerc-2019
-  web: https://swerc.eu/2018/
-  results:
-    scoreboard:
-    - url: https://swerc.eu/2018/theme/scoreboard/public/
-      archived: swerc/swerc-2018/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/SWERC-2019/standings
-  problemset: https://swerc.eu/2018/problems/
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: https://swerc.eu/2018/
+    roles:
+    - web
+  - url: https://swerc.eu/2018/theme/scoreboard/public/
+    roles:
+    - scoreboard
+    as_of: '20190506181842'
+    archived:
+    - swerc/swerc-2018/external-standings/2026-04-15-external/content.html
+    - swerc/swerc-2018/scoreboard/20190506-wayback-b50f4b74/page.html
+    - swerc/swerc-2018/scoreboard/20260901-live-edc89f2e/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/SWERC-2019/standings
+    roles:
+    - icpc_standings
+  - url: https://swerc.eu/2018/problems/
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2067
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191117095326'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/swerc-2018
-    count: 11
-    statement: full
-    data: full
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2067
-        as_of: '20191117095326'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: swerc-2018
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: swerc-2019
   season: 2020
   name: 2019-2020 Southwestern Europe Regional Contest
@@ -1031,27 +1337,37 @@ contests:
   - 4127
   parent: wf-2020
   next: swerc-2020
-  web: https://swerc.eu/2019/
-  results:
-    scoreboard:
-    - url: https://swerc.eu/2019/theme/scoreboard/public/
-      archived: swerc/swerc-2019/scoreboard/2026-09-01-live-be4c8dc3/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/SWERC-2020/standings
-  problemset: https://swerc.eu/2019/problems/
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: https://swerc.eu/2019/
+    roles:
+    - web
+  - url: https://swerc.eu/2019/theme/scoreboard/public/
+    roles:
+    - scoreboard
+    as_of: '20201231183936'
+    archived:
+    - swerc/swerc-2019/scoreboard/2026-09-01-live-be4c8dc3/page.html
+    - swerc/swerc-2019/scoreboard/20201231-wayback-5139c5a1/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/SWERC-2020/standings
+    roles:
+    - icpc_standings
+  - url: https://swerc.eu/2019/problems/
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2148
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/swerc-2019
-    count: 12
-    statement: full
-    data: full
-    solutions: none
-    package: none
-    judges:
-      baekjoon: https://www.acmicpc.net/category/detail/2148
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: swerc-2019
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: swerc-2020
   season: 2021
   name: 2020-2021 Southwestern Europe Regional Contest
@@ -1063,29 +1379,38 @@ contests:
   - 4513
   parent: wf-2021
   next: swerc-2021
-  web: https://swerc.eu/2020/
-  results:
-    scoreboard:
-    - url: https://swerc.eu/2020/theme/scoreboard/index.html
-      archived: swerc/swerc-2020/scoreboard/2026-09-01-live-e4d3ed90/index.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/SWERC-2021/standings
-  problemset: https://swerc.eu/2020/problems/
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: https://swerc.eu/2020/
+    roles:
+    - web
+  - url: https://swerc.eu/2020/theme/scoreboard/index.html
+    roles:
+    - scoreboard
+    as_of: '20210422234006'
+    archived:
+    - swerc/swerc-2020/scoreboard/2026-09-01-live-e4d3ed90/index.html
+    - swerc/swerc-2020/scoreboard/20210422-wayback-ff7a7c6b/index.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/SWERC-2021/standings
+    roles:
+    - icpc_standings
+  - url: https://swerc.eu/2020/problems/
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2465
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210315060922'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/swerc-2020
-    count: 13
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2465
-        as_of: '20210315060922'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: swerc-2020
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: swerc-2021
   season: 2022
   name: 2021 ICPC Southwestern Europe Regional Contest
@@ -1097,26 +1422,37 @@ contests:
   - 4900
   parent: wf-2022
   next: swerc-2022
-  web: https://swerc.eu/2021/
-  results:
-    scoreboard:
-    - url: https://swerc.eu/2021/theme/scoreboard/public/
-      archived: swerc/swerc-2021/scoreboard/2026-09-01-live-7a8b8df8/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/SWERC-2022/standings
-  problemset: https://swerc.eu/2021/problems/
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: https://swerc.eu/2021/
+    roles:
+    - web
+  - url: https://swerc.eu/2021/theme/scoreboard/public/
+    roles:
+    - scoreboard
+    as_of: '20220626045059'
+    archived:
+    - swerc/swerc-2021/scoreboard/2026-09-01-live-7a8b8df8/page.html
+    - swerc/swerc-2021/scoreboard/20220626-wayback-1326c236/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/SWERC-2022/standings
+    roles:
+    - icpc_standings
+  - url: https://swerc.eu/2021/problems/
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3100
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 12
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon: https://www.acmicpc.net/category/detail/3100
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: swerc-2021
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: swerc-2022
   season: 2023
   name: 2022 ICPC Southwestern Europe Regional Contest
@@ -1128,29 +1464,44 @@ contests:
   - 5408
   parent: wf-2023
   next: swerc-2023
-  web: https://swerc.eu/2022/
-  results:
-    scoreboard:
-    - url: https://swerc.eu/2022/theme/scoreboard/public/
-      archived: swerc/swerc-2022/scoreboard/2026-09-01-live-ee2a6396/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/SWERC-2023/standings
-  problemset: https://swerc.eu/2022/problems/
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: https://swerc.eu/2022/
+    roles:
+    - web
+  - url: https://swerc.eu/2022/theme/scoreboard/public/
+    roles:
+    - scoreboard
+    as_of: '20230319075359'
+    archived:
+    - swerc/swerc-2022/scoreboard/2026-09-01-live-ee2a6396/page.html
+    - swerc/swerc-2022/scoreboard/20230319-wayback-d89bead6/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/SWERC-2023/standings
+    roles:
+    - icpc_standings
+  - url: https://swerc.eu/2022/problems/
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3100
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3518
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: SWERC 2022-2023
   problems:
-    count: 12
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-      - https://www.acmicpc.net/category/detail/3100
-      - url: https://www.acmicpc.net/category/detail/3518
-        note: SWERC 2022-2023
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: swerc-2022
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: swerc-2023
   season: 2024
   name: 2023 ICPC Southwestern Europe Regional Contest
@@ -1162,34 +1513,53 @@ contests:
   - 7558
   parent: euc-2024
   next: swerc-2024
-  web: https://swerc.eu/2023/
-  results:
-    scoreboard:
-    - url: https://swerc.eu/2023/theme/scoreboard/domjudge.lip6.fr/public.html
-      archived: swerc/swerc-2023/scoreboard/2026-09-01-live-dab49088/public.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://swerc.eu/2023/results/
-      archived: swerc/swerc-2023/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/SWERC-2024/standings
+  sources:
+  - url: https://swerc.eu/2023/
+    roles:
+    - web
+  - url: https://swerc.eu/2023/theme/scoreboard/domjudge.lip6.fr/public.html
+    roles:
+    - scoreboard
+    as_of: '20240921160943'
+    archived:
+    - swerc/swerc-2023/scoreboard/2026-09-01-live-dab49088/public.html
+    - swerc/swerc-2023/scoreboard/20240921-wayback-b675dfa4/public.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://swerc.eu/2023/results/
+    roles:
+    - standings
+    as_of: '20240203133803'
+    archived:
+    - swerc/swerc-2023/external-standings/2026-04-15-external/content.html
+    - swerc/swerc-2023/standings/20240203-wayback-96fe60c0/page.html
+    - swerc/swerc-2023/standings/20260901-live-9977f99f/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/SWERC-2024/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Contests/Southwestern%20Europe%20Regional%20Contest%20%28SWERC%29/2023%20Southwestern%20Europe%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://swerc.eu/2023/problemset/contest-problems.pdf
+    roles:
+    - problemset
+    as_of: '20240207144412'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4151
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20240308063735'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 18
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4151
-        as_of: '20240308063735'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-  - https://icpcarchive.github.io/Europe%20Contests/Southwestern%20Europe%20Regional%20Contest%20%28SWERC%29/2023%20Southwestern%20Europe%20Regional%20Contest/problems.pdf
-  - https://swerc.eu/2023/problemset/contest-problems.pdf
+    set: swerc-2023
 - id: swerc-2024
   season: 2025
   name: 2024 ICPC Southwestern Europe Regional Contest
@@ -1201,15 +1571,26 @@ contests:
   - 8990
   parent: euc-2025
   next: swerc-2025
-  web: https://swerc.eu/2024/
-  results:
-    scoreboard:
-    - url: https://swerc.eu/2024/theme/scoreboard/
-      archived: swerc/swerc-2024/scoreboard/2026-09-01-live-885437cb/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/SWERC-2025/standings
-  problemset: https://swerc.eu/2024/problemset/main_problemset.pdf
+  sources:
+  - url: https://swerc.eu/2024/
+    roles:
+    - web
+  - url: https://swerc.eu/2024/theme/scoreboard/
+    roles:
+    - scoreboard
+    archived:
+    - swerc/swerc-2024/scoreboard/2026-09-01-live-885437cb/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/SWERC-2025/standings
+    roles:
+    - icpc_standings
+  - url: https://swerc.eu/2024/problemset/main_problemset.pdf
+    roles:
+    - problemset
+    as_of: '20241224185152'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: swerc-2025
   season: 2026
   name: 2025 ICPC Southwestern Europe Regional Contest
@@ -1220,22 +1601,37 @@ contests:
   - 9360
   parent: euc-2026
   next: swerc-2026
-  web: https://swerc.eu/2025/
-  results:
-    scoreboard:
-    - url: https://swerc.eu/2025/theme/scoreboard/
-      archived: swerc/swerc-2025/scoreboard/2026-09-01-live-0ec0ce75/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/SWERC-2026/standings
+  sources:
+  - url: https://swerc.eu/2025/
+    roles:
+    - web
+  - url: https://swerc.eu/2025/theme/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20251128183147'
+    archived:
+    - swerc/swerc-2025/scoreboard/2026-09-01-live-0ec0ce75/page.html
+    - swerc/swerc-2025/scoreboard/20251128-wayback-4a976477/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/SWERC-2026/standings
+    roles:
+    - icpc_standings
+  - url: https://swerc.eu/2025/statements.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4654
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260418220310'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: SWERC 2025
   problems:
-    source: Kattis problem export (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4654
-        as_of: '20260418220310'
-        note: SWERC 2025
-  problemset: https://swerc.eu/2025/statements.pdf
+    set: swerc-2025
 - id: swerc-2026
   status: upcoming
   season: 2027
@@ -1243,4 +1639,7 @@ contests:
   cms_ids:
   - 9592
   parent: euc-2027
-  web: https://swerc.eu/2026/
+  sources:
+  - url: https://swerc.eu/2026/
+    roles:
+    - web

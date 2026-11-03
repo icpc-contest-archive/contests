@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: nwerc
   name: ICPC Northwestern Europe Regional Contest
+  tier: regional
+  region: Europe
+  naming: season-start
   lineage:
   - type: continues-from
     series: werc
@@ -16,40 +19,46 @@ contests:
   cms_status: pre-cms
   parent: wf-1996
   next: nwerc-1996
-  web: https://chipcie.wisv.ch/archive/nwerc/
-  problemset:
-  - https://chipcie.wisv.ch/archive/1995/nwercpc/nwerc95.pdf
+  sources:
+  - url: https://chipcie.wisv.ch/archive/nwerc/
+    roles:
+    - web
+  - url: https://chipcie.wisv.ch/archive/1995/nwercpc/nwerc95.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_NWRC/1995/index.html
+    roles:
+    - problemset
     as_of: '19980202011512'
-  mirrors: []
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 4
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: nwerc-1995
 - id: nwerc-1996
   season: 1997
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1997
   next: nwerc-1997
-  web: https://chipcie.wisv.ch/archive/nwerc/
-  problemset:
-  - https://chipcie.wisv.ch/archive/1996/nwercpc/problemset.pdf
+  sources:
+  - url: https://chipcie.wisv.ch/archive/nwerc/
+    roles:
+    - web
+  - url: https://chipcie.wisv.ch/archive/1996/nwercpc/problemset.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_NWRC/1996/index.html
+    roles:
+    - problemset
     as_of: '19980202011550'
-  mirrors: []
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: nwerc-1996
 - id: nwerc-1997
   season: 1998
   date: '1997-11-23'
@@ -57,28 +66,33 @@ contests:
   cms_status: pre-cms
   parent: wf-1998
   next: nwerc-1998
-  web:
-    url: http://ch.twi.tudelft.nl/~acm/
+  sources:
+  - url: http://ch.twi.tudelft.nl/~acm/
+    roles:
+    - web
     as_of: '19980121151309'
-  results:
-    scoreboard:
-    - url: http://ch.twi.tudelft.nl/~acm/score.html
-      as_of: '19980121164640'
-      archived: nwerc/nwerc-1997/scoreboard/2026-09-01-live-3cf75018/score.html
-      url_state: live
-      url_checked: '2026-11-02'
-  problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-  - https://chipcie.wisv.ch/archive/1997/nwercpc/nwercpc97.pdf
+  - url: http://ch.twi.tudelft.nl/~acm/score.html
+    roles:
+    - scoreboard
+    as_of: '19980121164640'
+    archived:
+    - nwerc/nwerc-1997/scoreboard/2026-09-01-live-3cf75018/score.html
+    - nwerc/nwerc-1997/scoreboard/2026-09-01-wayback-3cf75018/score.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://chipcie.wisv.ch/archive/1997/nwercpc/nwercpc97.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_NWRC/1997/index.html
+    roles:
+    - problemset
     as_of: '20001003134722'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: nwerc-1997
 - id: nwerc-1998
   season: 1999
   name: 1998 ACM Northwestern Europe Programming Contest
@@ -87,33 +101,34 @@ contests:
   - 1267
   parent: wf-1999
   next: nwerc-1999
-  web:
-    url: http://icpc.baylor.edu/past/icpc99/Regionals/NWERC98/Default.htm
+  sources:
+  - url: http://icpc.baylor.edu/past/icpc99/Regionals/NWERC98/Default.htm
+    roles:
+    - web
     as_of: '20041220081425'
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc99/Regionals/NWERC98/Standings.htm
-      as_of: '20100710004141'
-      archived: nwerc/nwerc-1998/standings/2026-09-01-wayback-9b1658dd/Standings.htm
-      url_state: unknown
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc99/Regionals/NWERC98/Standings.htm
-      as_of: '20020701111143'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: unknown
-      url_checked: '2026-11-02'
-  problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-  - https://chipcie.wisv.ch/archive/1998/nwerc/nwerc98.pdf
+  - url: http://icpc.baylor.edu/past/icpc99/Regionals/NWERC98/Standings.htm
+    roles:
+    - standings
+    as_of: '20100710004141'
+    archived:
+    - nwerc/nwerc-1998/standings/2026-09-01-wayback-9b1658dd/Standings.htm
+    - nwerc/nwerc-1998/standings/20020701-wayback-24593ff5/Standings.htm
+    url_state: unknown
+    url_checked: '2026-11-02'
+    note: as_of 20020701111143 for standings; added by url-hunt 2026-09-01 (cdx-baylor-regionals)
+  - url: https://chipcie.wisv.ch/archive/1998/nwerc/nwerc98.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_NWRC/1998/index.html
+    roles:
+    - problemset
     as_of: '20010214231853'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: nwerc-1998
 - id: nwerc-1999
   season: 2000
   name: 1999 ACM Northwestern Europe Programming Contest
@@ -123,35 +138,41 @@ contests:
   - 1167
   parent: wf-2000
   next: nwerc-2000
-  web:
-    url: http://icpc.baylor.edu/past/icpc2000/regionals/NWERC99/Report.html
+  sources:
+  - url: http://icpc.baylor.edu/past/icpc2000/regionals/NWERC99/Report.html
+    roles:
+    - web
     as_of: '20040904181649'
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2000/regionals/NWERC99/Standings.html
-      as_of: '20070205103953'
-      archived: nwerc/nwerc-1999/standings/2026-09-01-wayback-c75f0910/Standings.html
-      url_state: unknown
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc2000/regionals/NWERC99/Standings.html
-      as_of: '20020803133645'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: unknown
-      url_checked: '2026-11-02'
-  problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-  - https://chipcie.wisv.ch/archive/1999/nwerc/nwerc99.pdf
+  - url: http://icpc.baylor.edu/past/icpc2000/regionals/NWERC99/Standings.html
+    roles:
+    - standings
+    as_of: '20070205103953'
+    archived:
+    - nwerc/nwerc-1999/standings/2026-09-01-wayback-c75f0910/Standings.html
+    - nwerc/nwerc-1999/standings/20020803-wayback-182a57d5/Standings.html
+    - nwerc/nwerc-1999/standings/20070205-wayback-b26ac083/Standings.html
+    url_state: unknown
+    url_checked: '2026-11-02'
+    note: as_of 20020803133645 for standings; added by url-hunt 2026-09-01 (cdx-baylor-regionals)
+  - url: https://chipcie.wisv.ch/archive/1999/nwerc/nwerc99.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_NWRC/1999/index.html
+    roles:
+    - problemset
     as_of: '20001003134739'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2000/regionals/NWERC99/Problems.pdf
+    roles:
+    - problemset
     as_of: '20030925075817'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  problems:
+    set: nwerc-1999
 - id: nwerc-2000
   season: 2001
   name: 2000 ACM Northwestern Europe Programming Contest
@@ -161,54 +182,66 @@ contests:
   - 1202
   parent: wf-2001
   next: nwerc-2001
-  web:
-    url: http://www.pi.informatik.tu-darmstadt.de/acm-contest/2000/nwerc/welcome
-    as_of: '20020612071907'
-  results:
-    scoreboard:
-    - url: http://icpc.tu-darmstadt.de/standings/
-      as_of: '20010124070700'
-      archived: nwerc/nwerc-2000/scoreboard/2026-09-01-wayback-2719776c/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc.tu-darmstadt.de/standings/sumatt
-      as_of: '20010127210500'
-      archived: nwerc/nwerc-2000/scoreboard/2026-09-01-wayback-209af2a0/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc.tu-darmstadt.de/standings/sumtime
-      as_of: '20010127213700'
-      archived: nwerc/nwerc-2000/scoreboard/2026-09-01-wayback-9e73c98f/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://www.pi.informatik.tu-darmstadt.de/acm-contest/2000/nwerc/problemset/
-      as_of: '20020516051315'
-      archived: nwerc/nwerc-2000/scoreboard/2026-04-16-archive/2000-northwestern-europe-programming-contest-2000.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.tu-darmstadt.de/standings/
-      as_of: '20010124070700'
-      url_state: dead
-      url_checked: '2026-11-02'
-  problemset:
-  - url: http://www.pi.informatik.tu-darmstadt.de/acm-contest/2000/nwerc/problemset/
-    as_of: '20020516051315'
-  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_NWRC/2000/index.html
-    as_of: '20020622022322'
-  - url: http://icpc.baylor.edu/past/icpc2001/regionals/NWERC00/Problems.pdf
-    as_of: '20030323155433'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: http://www.pi.informatik.tu-darmstadt.de/acm-contest/2000/nwerc/welcome
+    roles:
+    - web
+    as_of: '20020612071907'
+    also_at:
+    - url: http://icpc.tu-darmstadt.de/
+      as_of: '20000830093102'
+  - url: http://www.pi.informatik.tu-darmstadt.de/acm-contest/2000/nwerc/problemset/
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20020516051315'
+    archived:
+    - nwerc/nwerc-2000/scoreboard/2026-04-16-archive/2000-northwestern-europe-programming-contest-2000.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://icpc.tu-darmstadt.de/standings/
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20010124070700'
+    archived:
+    - nwerc/nwerc-2000/scoreboard/2026-09-01-wayback-2719776c/page.html
+    - nwerc/nwerc-2000/standings/2026-09-01-wayback-2719776c/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.tu-darmstadt.de/standings/sumatt
+    roles:
+    - scoreboard
+    as_of: '20010127210500'
+    archived:
+    - nwerc/nwerc-2000/scoreboard/2026-09-01-wayback-209af2a0/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.tu-darmstadt.de/standings/sumtime
+    roles:
+    - scoreboard
+    as_of: '20010127213700'
+    archived:
+    - nwerc/nwerc-2000/scoreboard/2026-09-01-wayback-9e73c98f/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_NWRC/2000/index.html
+    roles:
+    - problemset
+    as_of: '20020622022322'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2001/regionals/NWERC00/Problems.pdf
+    roles:
+    - problemset
+    as_of: '20030323155433'
+    url_state: unknown
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/nwerc-2000
-    count: 8
-    statement: full
-    data: full
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: nwerc-2000
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: nwerc-2001
   season: 2002
   name: 2001 ACM Northwestern Europe Programming Contest
@@ -218,62 +251,84 @@ contests:
   - 1193
   parent: wf-2002
   next: nwerc-2002
-  web:
-    url: http://icpc.tu-darmstadt.de/
+  sources:
+  - url: http://icpc.tu-darmstadt.de/
+    roles:
+    - web
+    - scoreboard
     as_of: '20031125021843'
-  results:
-    scoreboard:
-    - url: http://icpc.tu-darmstadt.de/standings/
-      as_of: '20031006200811'
-      archived: nwerc/nwerc-2001/scoreboard/2026-09-01-wayback-7724e00d/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc.tu-darmstadt.de/standings/sumatt
-      as_of: '20020908025153'
-      archived: nwerc/nwerc-2001/scoreboard/2026-09-01-wayback-bc3878f3/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc.tu-darmstadt.de/standings/sumtime
-      as_of: '20020424070616'
-      archived: nwerc/nwerc-2001/scoreboard/2026-09-01-wayback-db20ce46/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc.tu-darmstadt.de/
-      as_of: '20031125021843'
-      archived: nwerc/nwerc-2001/scoreboard/2026-04-16-archive/2001-northwestern-europe-programming-contest-2001.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.tu-darmstadt.de/standings/
-      as_of: '20031006200811'
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=515
-      as_of: '20020619092047'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: nwerc/nwerc-2001/standings/20020619-wayback-5b35ced7/page.html
-  problems:
-    repo: icpc-problem-archive/nwerc-2001
-    count: 9
-    statement: full
-    data: full
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/728
-        as_of: '20201023112537'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+    archived:
+    - nwerc/nwerc-2001/scoreboard/2026-04-16-archive/2001-northwestern-europe-programming-contest-2001.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://icpc.tu-darmstadt.de/standings/
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20031006200811'
+    archived:
+    - nwerc/nwerc-2001/scoreboard/2026-09-01-wayback-7724e00d/page.html
+    - nwerc/nwerc-2001/standings/2026-09-01-wayback-7724e00d/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.tu-darmstadt.de/standings/sumatt
+    roles:
+    - scoreboard
+    as_of: '20020908025153'
+    archived:
+    - nwerc/nwerc-2001/scoreboard/2026-09-01-wayback-bc3878f3/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.tu-darmstadt.de/standings/sumtime
+    roles:
+    - scoreboard
+    as_of: '20020424070616'
+    archived:
+    - nwerc/nwerc-2001/scoreboard/2026-09-01-wayback-db20ce46/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=515
+    roles:
+    - standings
+    as_of: '20020619092047'
+    archived:
+    - nwerc/nwerc-2001/standings/20020619-wayback-5b35ced7/page.html
+    - nwerc/nwerc-2001/standings/20020619-wayback-8724c1ec/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
   - url: http://icpc.tu-darmstadt.de/problemset
+    roles:
+    - problemset
     as_of: '20031207234402'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_NWRC/2001/index.html
+    roles:
+    - problemset
     as_of: '20020806025755'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2002/Regionals/NWERC01/problems.pdf
+    roles:
+    - problemset
     as_of: '20030901091139'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: http://icpc.tu-darmstadt.de/problemset/problemset.pdf
+    roles:
+    - problemset
+    as_of: '20030614155022'
+  - url: https://www.acmicpc.net/category/detail/728
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201023112537'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: nwerc-2001
 - id: nwerc-2002
   season: 2003
   name: 2002 ACM Northwestern Europe Programming Contest
@@ -283,43 +338,66 @@ contests:
   - 1176
   parent: wf-2003
   next: nwerc-2003
-  web: https://2002.nwerc.eu/
-  results:
-    scoreboard:
-    - url: https://chipcie.wisv.ch/archive/2002/nwerc/score-final-wc.html
-      archived: nwerc/nwerc-2002/scoreboard/2026-09-01-live-ec650766/score-final-wc.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://commissies.ch.tudelft.nl/chipcie/ekp/ekp2002/problems.html
-      archived: nwerc/nwerc-2002/scoreboard/2026-04-16-nwerc-archive/2002-northwestern-europe-programming-contest-2002.html
-      note: from archived capture (scoreboard)
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings89ad.html?ContestID=583
-      as_of: '20060901122755'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: nwerc/nwerc-2002/standings/20060901-wayback-9582e744/ViewRegionalStandings89ad.html
-  problemset:
-  - https://commissies.ch.tudelft.nl/chipcie/ekp/ekp2002/problems.html
-  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/ch.tudelft.nl/_chipcie/ekp/ekp2002/Problems.ps
-    as_of: '20030711165815'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: https://2002.nwerc.eu/
+    roles:
+    - web
+    also_at:
+    - url: http://www.icpc.tudelft.nl/
+      as_of: '20020929131134'
+  - url: https://commissies.ch.tudelft.nl/chipcie/ekp/ekp2002/problems.html
+    roles:
+    - scoreboard
+    - problemset
+    archived:
+    - nwerc/nwerc-2002/scoreboard/2026-04-16-nwerc-archive/2002-northwestern-europe-programming-contest-2002.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://chipcie.wisv.ch/archive/2002/nwerc/score-final-wc.html
+    roles:
+    - scoreboard
+    as_of: '20240917162631'
+    archived:
+    - nwerc/nwerc-2002/scoreboard/2026-09-01-live-ec650766/score-final-wc.html
+    - nwerc/nwerc-2002/scoreboard/20240917-wayback-93469ad5/score-final-wc.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings89ad.html?ContestID=583
+    roles:
+    - standings
+    as_of: '20060901122755'
+    archived:
+    - nwerc/nwerc-2002/standings/20060901-wayback-9582e744/ViewRegionalStandings89ad.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: http://ch.tudelft.nl/~chipcie/ekp/ekp2002/score-final.html
+    roles:
+    - standings
+    as_of: '20021126164350'
+    note: added by url-hunt 2026-09-01 (cms-api)
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/ch.tudelft.nl/_chipcie/ekp/ekp2002/Problems.ps
+    roles:
+    - problemset
+    as_of: '20030711165815'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: http://ch.tudelft.nl/~chipcie/ekp/ekp2002/problems.html
+    roles:
+    - problemset
+    as_of: '20021126163559'
+  - url: https://www.acmicpc.net/category/detail/953
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201026182622'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/nwerc-2002
-    count: 8
-    statement: full
-    data: none
-    solutions: full
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/953
-        as_of: '20201026182622'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: nwerc-2002
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: nwerc-2003
   season: 2004
   name: 2003 ACM Northwestern Europe Programming Contest
@@ -329,48 +407,76 @@ contests:
   - 1286
   parent: wf-2004
   next: nwerc-2004
-  web: https://fileadmin.cs.lth.se/contest/nwerc/nwerc2003.html
-  results:
-    scoreboard:
-    - url: http://www.cs.lth.se/contest/nwerc/results2003.html
-      as_of: '20040106020210'
-      archived: nwerc/nwerc-2003/scoreboard/2026-09-01-live-37916117/results2003.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://fileadmin.cs.lth.se/contest/nwerc/nwerc2003.html
-      archived: nwerc/nwerc-2003/scoreboard/2026-04-16-nwerc-archive/2003-northwestern-europe-programming-contest-2003.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.cs.lth.se/contest/nwerc/results
-      as_of: '20040106020210'
-      note: added by url-hunt 2026-09-01 (wave5-wayback)
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandingsdb98.html?ContestID=656
-      as_of: '20060901142308'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: nwerc/nwerc-2003/standings/20060901-wayback-6f0a8614/ViewRegionalStandingsdb98.html
+  sources:
+  - url: https://fileadmin.cs.lth.se/contest/nwerc/nwerc2003.html
+    roles:
+    - web
+    - scoreboard
+    as_of: '20180209122416'
+    also_at:
+    - url: http://www.cs.lth.se/contest/nwerc
+      as_of: '20030425043326'
+    archived:
+    - nwerc/nwerc-2003/scoreboard/2026-04-16-nwerc-archive/2003-northwestern-europe-programming-contest-2003.html
+    - nwerc/nwerc-2003/scoreboard/20180209-wayback-87d37ccb/nwerc2003.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://www.cs.lth.se/contest/nwerc/results2003.html
+    roles:
+    - scoreboard
+    as_of: '20040106020210'
+    archived:
+    - nwerc/nwerc-2003/scoreboard/2026-09-01-live-37916117/results2003.html
+    - nwerc/nwerc-2003/scoreboard/2026-09-01-wayback-37916117/results2003.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.cs.lth.se/contest/nwerc/results
+    roles:
+    - standings
+    as_of: '20040106020210'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave5-wayback)
+  - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandingsdb98.html?ContestID=656
+    roles:
+    - standings
+    as_of: '20060901142308'
+    archived:
+    - nwerc/nwerc-2003/standings/20060901-wayback-6f0a8614/ViewRegionalStandingsdb98.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewStandings.asp?ContestID=656
+    roles:
+    - standings
+    as_of: '20031227105901'
+    note: added by url-hunt 2026-09-01 (cms-api)
+  - url: https://chipcie.wisv.ch/archive/2003/nwerc/NWERC03.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.cs.lth.se/contest/nwerc/problemset2003.html
+    roles:
+    - problemset
+    as_of: '20031210223657'
+  - url: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Programming%20Contest%20%28NWERC%29%202003
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20191121161533'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/952
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201025221618'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/nwerc-2003
-    count: 8
-    statement: full
-    data: full
-    solutions: full
-    package: partial
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Programming%20Contest%20%28NWERC%29%202003
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/952
-        as_of: '20201025221618'
-    notes: Missing problem H
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    counts:
-      package: 7
-  problemset: https://chipcie.wisv.ch/archive/2003/nwerc/NWERC03.pdf
+    set: nwerc-2003
 - id: nwerc-2004
   season: 2005
   name: 2004 ACM Northwestern Europe Programming Contest
@@ -380,44 +486,56 @@ contests:
   - 1070
   parent: wf-2005
   next: nwerc-2005
-  web: https://fileadmin.cs.lth.se/contest/nwerc/
-  results:
-    scoreboard:
-    - url: http://www.cs.lth.se/contest/nwerc/results2004.html
-      as_of: '20050412103343'
-      archived: nwerc/nwerc-2004/scoreboard/2026-09-01-live-8c79892e/results2004.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://fileadmin.cs.lth.se/contest/nwerc/
-      archived: nwerc/nwerc-2004/scoreboard/2026-04-16-nwerc-archive/2004-northwestern-europe-programming-contest-2004.html
-      note: from archived capture (scoreboard)
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.cs.lth.se/contest/nwerc/results
-      as_of: '20050412103343'
-      note: added by url-hunt 2026-09-01 (wave5-wayback)
-      url_state: dead
-      url_checked: '2026-11-02'
-  problems:
-    repo: icpc-problem-archive/nwerc-2004
-    count: 9
-    statement: full
-    data: full
-    solutions: full
-    package: partial
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Programming%20Contest%20%28NWERC%29%202004
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/888
-        as_of: '20201023104557'
-    notes: Missing some
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    counts:
-      package: 5
-  problemset:
-    url: http://fileadmin.cs.lth.se/contest/nwerc/Problemset_NWERC2004.pdf
+  sources:
+  - url: https://fileadmin.cs.lth.se/contest/nwerc/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20180128043741'
+    archived:
+    - nwerc/nwerc-2004/scoreboard/2026-04-16-nwerc-archive/2004-northwestern-europe-programming-contest-2004.html
+    - nwerc/nwerc-2004/scoreboard/20180128-wayback-ff983158/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://www.cs.lth.se/contest/nwerc/results2004.html
+    roles:
+    - scoreboard
+    as_of: '20050412103343'
+    archived:
+    - nwerc/nwerc-2004/scoreboard/2026-09-01-live-8c79892e/results2004.html
+    - nwerc/nwerc-2004/scoreboard/2026-09-01-wayback-8c79892e/results2004.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.cs.lth.se/contest/nwerc/results
+    roles:
+    - standings
+    as_of: '20050412103343'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave5-wayback)
+  - url: http://fileadmin.cs.lth.se/contest/nwerc/Problemset_NWERC2004.pdf
+    roles:
+    - problemset
     as_of: '20180304091045'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Programming%20Contest%20%28NWERC%29%202004
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20201129172704'
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/888
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201023104557'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: nwerc-2004
 - id: nwerc-2005
   season: 2006
   name: 2005 ACM Northwestern Europe Programming Contest
@@ -426,47 +544,60 @@ contests:
   - 1071
   parent: wf-2006
   next: nwerc-2006
-  web: https://www.csc.kth.se/contest/nwerc/2005/
-  results:
-    scoreboard:
-    - url: https://www.csc.kth.se/contest/nwerc/2005/results/results.html
-      archived: nwerc/nwerc-2005/scoreboard/2026-09-01-live-69c05349/results.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://www.csc.kth.se/contest/nwerc/2005/solutions/
-      as_of: '20180210164634'
-      archived: nwerc/nwerc-2005/scoreboard/2026-04-16-archive/2005-northwestern-europe-programming-contest-2006.html
-      note: from archived capture (scoreboard)
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.nada.kth.se/contest/nwerc/2005/report/Standings.html
-      archived: nwerc/nwerc-2005/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northwestern-Europe-2006/standings
-  problemset:
-    url: http://www.csc.kth.se/contest/nwerc/2005/solutions/
-    as_of: '20180210164634'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: https://www.csc.kth.se/contest/nwerc/2005/
+    roles:
+    - web
+  - url: http://www.csc.kth.se/contest/nwerc/2005/solutions/
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20180210164634'
+    archived:
+    - nwerc/nwerc-2005/scoreboard/2026-04-16-archive/2005-northwestern-europe-programming-contest-2006.html
+    - nwerc/nwerc-2005/scoreboard/20260901-live-ca906eb3/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://www.csc.kth.se/contest/nwerc/2005/results/results.html
+    roles:
+    - scoreboard
+    as_of: '20061010211958'
+    archived:
+    - nwerc/nwerc-2005/scoreboard/2026-09-01-live-69c05349/results.html
+    - nwerc/nwerc-2005/scoreboard/20061010-wayback-409802a7/results.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.nada.kth.se/contest/nwerc/2005/report/Standings.html
+    roles:
+    - standings
+    archived:
+    - nwerc/nwerc-2005/external-standings/2026-04-15-external/content.html
+    - nwerc/nwerc-2005/standings/20260901-live-8f6d53d5/Standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Northwestern-Europe-2006/standings
+    roles:
+    - icpc_standings
+  - url: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Programming%20Contest%20%28NWERC%29%202005
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190818211848'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/56
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201020145040'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/nwerc-2005
-    count: 9
-    statement: full
-    data: full
-    solutions: full
-    package: partial
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Programming%20Contest%20%28NWERC%29%202005
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/56
-        as_of: '20201020145040'
-    notes: Missing some, strange date?
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    counts:
-      package: 6
+    set: nwerc-2005
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: nwerc-2006
   season: 2007
   name: 2006 ACM Northwestern Europe Programming Contest
@@ -476,43 +607,62 @@ contests:
   - 1210
   parent: wf-2007
   next: nwerc-2007
-  web: https://www.csc.kth.se/contest/nwerc/2006/
-  results:
-    scoreboard:
-    - url: https://www.csc.kth.se/contest/nwerc/2006/results/results.html
-      archived: nwerc/nwerc-2006/scoreboard/2026-09-01-live-e885fb4e/results.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://www.csc.kth.se/contest/nwerc/2006/
-      as_of: '20070128075338'
-      archived: nwerc/nwerc-2006/scoreboard/2026-04-16-archive/2006-northwestern-europe-programming-contest-2006.html
-      note: from archived capture (scoreboard)
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.csc.kth.se/contest/nwerc/2006/report/Standings.html
-      archived: nwerc/nwerc-2006/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northwestern-Europe-2007/standings
+  sources:
+  - url: https://www.csc.kth.se/contest/nwerc/2006/
+    roles:
+    - web
+    - scoreboard
+    as_of: '20070128075338'
+    archived:
+    - nwerc/nwerc-2006/scoreboard/2026-04-16-archive/2006-northwestern-europe-programming-contest-2006.html
+    - nwerc/nwerc-2006/scoreboard/20260901-live-e6c5846e/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: https://www.csc.kth.se/contest/nwerc/2006/results/results.html
+    roles:
+    - scoreboard
+    as_of: '20061208001748'
+    archived:
+    - nwerc/nwerc-2006/scoreboard/2026-09-01-live-e885fb4e/results.html
+    - nwerc/nwerc-2006/scoreboard/20061208-wayback-a4f41d7d/results.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.csc.kth.se/contest/nwerc/2006/report/Standings.html
+    roles:
+    - standings
+    as_of: '20061127045422'
+    archived:
+    - nwerc/nwerc-2006/external-standings/2026-04-15-external/content.html
+    - nwerc/nwerc-2006/standings/20061127-wayback-c6789122/Standings.html
+    - nwerc/nwerc-2006/standings/20260901-live-12cad434/Standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Northwestern-Europe-2007/standings
+    roles:
+    - icpc_standings
+  - url: https://chipcie.wisv.ch/archive/2006/nwerc/nwerc06.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Programming%20Contest%20(NWERC)%202006
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190723055336'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/55
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20171216164002'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/nwerc-2006
-    count: 9
-    statement: full
-    data: full
-    solutions: full
-    package: partial
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Programming%20Contest%20(NWERC)%202006
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/55
-        as_of: '20171216164002'
-    notes: Missing some
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    counts:
-      package: 6
-  problemset: https://chipcie.wisv.ch/archive/2006/nwerc/nwerc06.pdf
+    set: nwerc-2006
 - id: nwerc-2007
   season: 2008
   name: 2007 ACM Northwestern Europe Programming Contest
@@ -522,40 +672,48 @@ contests:
   - 1017
   parent: wf-2008
   next: nwerc-2008
-  web: http://2007.nwerc.eu/
-  results:
-    scoreboard:
-    - url: http://2007.nwerc.eu/live/scoreboard
-      as_of: '20201230152432'
-      archived: nwerc/nwerc-2007/scoreboard/2026-09-01-wayback-2648395a/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://2007.nwerc.eu/live/scoreboard
-      archived: nwerc/nwerc-2007/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northwestern-Europe-2008/standings
-  problemset: http://2007.nwerc.eu/contest/problemset
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: http://2007.nwerc.eu/
+    roles:
+    - web
+  - url: http://2007.nwerc.eu/live/scoreboard
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20201230152432'
+    archived:
+    - nwerc/nwerc-2007/scoreboard/2026-09-01-wayback-2648395a/page.html
+    - nwerc/nwerc-2007/external-standings/2026-04-15-external/content.html
+    - nwerc/nwerc-2007/standings/20071120-wayback-1503fa7b/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Northwestern-Europe-2008/standings
+    roles:
+    - icpc_standings
+  - url: http://2007.nwerc.eu/contest/problemset
+    roles:
+    - problemset
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Northwestern%20European%20Programming%20Contest%20%28NWERC%29%202007
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190819104220'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/54
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191119095206'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/nwerc-2007
-    count: 10
-    statement: full
-    data: full
-    solutions: full
-    package: partial
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Northwestern%20European%20Programming%20Contest%20%28NWERC%29%202007
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/54
-        as_of: '20191119095206'
-    notes: Missing some
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    counts:
-      package: 5
+    set: nwerc-2007
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: nwerc-2008
   season: 2009
   name: 2008 Northwestern Europe Contest
@@ -565,36 +723,48 @@ contests:
   - 25
   parent: wf-2009
   next: nwerc-2009
-  web: http://2008.nwerc.eu/
-  results:
-    scoreboard:
-    - url: http://2008.nwerc.eu/live/scoreboard
-      as_of: '20210923220245'
-      archived: nwerc/nwerc-2008/scoreboard/2026-09-01-wayback-58d001bb/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://2008.nwerc.eu/live/scoreboard
-      archived: nwerc/nwerc-2008/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northwestern-Europe-2009/standings
-  problemset: http://2008.nwerc.eu/contest/problemset
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: http://2008.nwerc.eu/
+    roles:
+    - web
+  - url: http://2008.nwerc.eu/live/scoreboard
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20210923220245'
+    archived:
+    - nwerc/nwerc-2008/scoreboard/2026-09-01-wayback-58d001bb/page.html
+    - nwerc/nwerc-2008/external-standings/2026-04-15-external/content.html
+    - nwerc/nwerc-2008/standings/20090925-wayback-37dfb117/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Northwestern-Europe-2009/standings
+    roles:
+    - icpc_standings
+  - url: http://2008.nwerc.eu/contest/problemset
+    roles:
+    - problemset
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Contest%20%28NWERC%29%202008
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190825105917'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/53
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201025080602'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 10
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Contest%20%28NWERC%29%202008
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/53
-        as_of: '20201025080602'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: nwerc-2008
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: nwerc-2009
   season: 2010
   name: 2009 Northwestern Europe Contest
@@ -604,48 +774,63 @@ contests:
   - 539
   parent: wf-2010
   next: nwerc-2010
-  web:
-    url: http://2009.nwerc.eu/index.php
-    as_of: '20110810162905'
-  results:
-    scoreboard:
-    - url: http://2009.nwerc.eu/results/
-      as_of: '20091112154357'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: nwerc/nwerc-2009/scoreboard/2026-09-01-wayback-ef34271e/page.html
-    - url: http://2009.nwerc.eu/results.php
-      as_of: '20110810162819'
-      archived: nwerc/nwerc-2009/scoreboard/2026-04-16-archive/2009-northwestern-europe-contest-2009.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.nwerc.eu/
-      as_of: '20250317175736'
-      archived: nwerc/nwerc-2009/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northwestern-Europe-2010/standings
-  problemset:
-    url: http://2009.nwerc.eu/results.php
-    as_of: '20110810162819'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: http://2009.nwerc.eu/index.php
+    roles:
+    - web
+    as_of: '20110810162905'
+  - url: http://2009.nwerc.eu/results.php
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20110810162819'
+    archived:
+    - nwerc/nwerc-2009/scoreboard/2026-04-16-archive/2009-northwestern-europe-contest-2009.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://2009.nwerc.eu/results/
+    roles:
+    - scoreboard
+    as_of: '20091112154357'
+    archived:
+    - nwerc/nwerc-2009/scoreboard/2026-09-01-wayback-ef34271e/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://www.nwerc.eu/
+    roles:
+    - standings
+    as_of: '20250317175736'
+    archived:
+    - nwerc/nwerc-2009/external-standings/2026-04-15-external/content.html
+    - nwerc/nwerc-2009/standings/20110925-wayback-0321c0fc/page.html
+    - nwerc/nwerc-2009/standings/20250317-wayback-4ab12004/page.html
+    - nwerc/nwerc-2009/standings/20260904-live-c4f7fe8f/page.html
+    - nwerc/nwerc-2009/standings/20261023-live-c5e020d7/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Northwestern-Europe-2010/standings
+    roles:
+    - icpc_standings
+  - url: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Contest%20%28NWERC%29%202009
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20191118234121'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/52
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190716055722'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/nwerc-2009
-    count: 10
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Contest%20%28NWERC%29%202009
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/52
-        as_of: '20190716055722'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: nwerc-2009
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: nwerc-2010
   season: 2011
   name: 2010 Northwestern Europe Regional Contest
@@ -655,44 +840,50 @@ contests:
   - 614
   parent: wf-2011
   next: nwerc-2011
-  web:
-    url: http://2010.nwerc.eu/results.php
+  sources:
+  - url: http://2010.nwerc.eu/results.php
+    roles:
+    - web
+    - scoreboard
     as_of: '20120120232737'
-  results:
-    scoreboard:
-    - url: http://2010.nwerc.eu/score/
-      as_of: '20110301020132'
-      archived: nwerc/nwerc-2010/scoreboard/2026-09-01-wayback-4884b60e/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://2010.nwerc.eu/results.php
-      as_of: '20120120232737'
-      archived: nwerc/nwerc-2010/scoreboard/2026-04-16-archive/2010-northwestern-europe-regional-contest-2010.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northwestern-Europe-2011/standings
-  problems:
-    repo: icpc-problem-archive/nwerc-2010
-    count: 10
-    statement: full
-    data: partial
-    solutions: partial
-    package: partial
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Regional%20Contest%20%28NWERC%29%202011
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/51
-        as_of: '20190721185440'
-    notes: Missing some
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    counts:
-      data: 7
-      solutions: 7
-      package: 7
-  problemset:
-    url: http://2010.nwerc.eu/results/nwerc2010-problemset.pdf
+    archived:
+    - nwerc/nwerc-2010/scoreboard/2026-04-16-archive/2010-northwestern-europe-regional-contest-2010.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://2010.nwerc.eu/score/
+    roles:
+    - scoreboard
+    as_of: '20110301020132'
+    archived:
+    - nwerc/nwerc-2010/scoreboard/2026-09-01-wayback-4884b60e/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northwestern-Europe-2011/standings
+    roles:
+    - icpc_standings
+  - url: http://2010.nwerc.eu/results/nwerc2010-problemset.pdf
+    roles:
+    - problemset
     as_of: '20160320072615'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Regional%20Contest%20%28NWERC%29%202011
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20220125111151'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/51
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190721185440'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: nwerc-2010
 - id: nwerc-2011
   season: 2012
   name: 2011 Northwestern Europe Regional Contest
@@ -702,55 +893,66 @@ contests:
   - 789
   parent: wf-2012
   next: nwerc-2012
-  web:
+  sources:
   - url: http://2011.nwerc.eu/index.php
+    roles:
+    - web
     as_of: '20160315105128'
   - url: http://www.nwerc.eu/
+    roles:
+    - web
+    - scoreboard
     as_of: '20120201085558'
-  results:
-    scoreboard:
-    - url: http://2011.nwerc.eu/score/final.html
-      as_of: '20160315102127'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: nwerc/nwerc-2011/scoreboard/2026-09-01-wayback-2aeb8068/final.html
-    - url: http://www.nwerc.eu/
-      as_of: '20120201085558'
-      archived: nwerc/nwerc-2011/scoreboard/2026-04-16-archive/2011-northwestern-europe-regional-contest-2011.html
-      note: from archived capture (scoreboard)
-      url_state: replaced
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.nwerc.eu/score/index.html
-      as_of: '20101125113009'
-      archived: nwerc/nwerc-2011/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northwestern-Europe-2012/standings
-  problems:
-    repo: icpc-problem-archive/nwerc-2011
-    count: 10
-    statement: full
-    data: partial
-    solutions: partial
-    package: partial
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Regional%20Contest%20%28NWERC%29%202011
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/50
-        as_of: '20200603005220'
-    notes: Missing some
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    counts:
-      data: 4
-      solutions: 4
-      package: 4
-  sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://2011.nwerc.eu/results/nwerc2011-problemset_2.pdf
+    archived:
+    - nwerc/nwerc-2011/scoreboard/2026-04-16-archive/2011-northwestern-europe-regional-contest-2011.html
+    - nwerc/nwerc-2011/scoreboard/20260901-live-c5e020d7/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://2011.nwerc.eu/score/final.html
+    roles:
+    - scoreboard
+    as_of: '20160315102127'
+    archived:
+    - nwerc/nwerc-2011/scoreboard/2026-09-01-wayback-2aeb8068/final.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://www.nwerc.eu/score/index.html
+    roles:
+    - standings
+    as_of: '20101125113009'
+    archived:
+    - nwerc/nwerc-2011/external-standings/2026-04-15-external/content.html
+    - nwerc/nwerc-2011/standings/20101125-wayback-25e7ddb6/index.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Northwestern-Europe-2012/standings
+    roles:
+    - icpc_standings
+  - url: http://2011.nwerc.eu/results/nwerc2011-problemset_2.pdf
+    roles:
+    - problemset
     as_of: '20160321142509'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Regional%20Contest%20%28NWERC%29%202011
+    roles:
+    - judge_page
+    judge: kattis
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/50
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20200603005220'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: nwerc-2011
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: nwerc-2012
   season: 2013
   name: 2012 Northwestern Europe Regional Contest
@@ -760,36 +962,47 @@ contests:
   - 1340
   parent: wf-2013
   next: nwerc-2013
-  web: https://2012.nwerc.eu/
-  results:
-    scoreboard:
-    - url: https://2012.nwerc.eu/en/results/scoreboard/
-      archived: nwerc/nwerc-2012/scoreboard/2026-09-01-live-b3f6cf47/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://chipcie.ch.tudelft.nl/
-      as_of: '20190726003148'
-      archived: nwerc/nwerc-2012/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northwestern-Europe-2013/standings
-  problemset: https://2012.nwerc.eu/en/results/problems/
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: https://2012.nwerc.eu/
+    roles:
+    - web
+  - url: https://2012.nwerc.eu/en/results/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20130115034440'
+    archived:
+    - nwerc/nwerc-2012/scoreboard/2026-09-01-live-b3f6cf47/page.html
+    - nwerc/nwerc-2012/scoreboard/20130115-wayback-5b1b8a19/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://chipcie.ch.tudelft.nl/
+    roles:
+    - standings
+    as_of: '20190726003148'
+    archived:
+    - nwerc/nwerc-2012/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Northwestern-Europe-2013/standings
+    roles:
+    - icpc_standings
+  - url: https://2012.nwerc.eu/en/results/problems/
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/49
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201023121306'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/nwerc-2012
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/49
-        as_of: '20201023121306'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: nwerc-2012
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: nwerc-2013
   season: 2014
   name: 2013 Northwestern Europe Regional Contest
@@ -799,28 +1012,35 @@ contests:
   - 2018
   parent: wf-2014
   next: nwerc-2014
-  web: https://2013.nwerc.eu/
-  results:
-    scoreboard:
-    - url: https://2013.nwerc.eu/en/results/scoreboard/
-      archived: nwerc/nwerc-2013/scoreboard/2026-09-01-live-02ab208a/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  problemset: https://2013.nwerc.eu/en/results/problems/
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: https://2013.nwerc.eu/
+    roles:
+    - web
+  - url: https://2013.nwerc.eu/en/results/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20160319113432'
+    archived:
+    - nwerc/nwerc-2013/scoreboard/2026-09-01-live-02ab208a/page.html
+    - nwerc/nwerc-2013/scoreboard/20160319-wayback-cf83d9ce/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://2013.nwerc.eu/en/results/problems/
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1188
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190720073659'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/nwerc-2013
-    count: 10
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1188
-        as_of: '20190720073659'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: nwerc-2013
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: nwerc-2014
   season: 2015
   name: 2014 Northwestern Europe Regional Contest
@@ -830,28 +1050,43 @@ contests:
   - 2688
   parent: wf-2015
   next: nwerc-2015
-  web: http://2014.nwerc.eu/
-  results:
-    scoreboard:
-    - url: http://2014.nwerc.eu/scoreboard/
-      as_of: '20170425044228'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: nwerc/nwerc-2014/scoreboard/2026-09-01-wayback-04c7eb64/page.html
-  icpc_standings: https://icpc.global/regionals/finder/Northwestern-Europe-2015/standings
+  sources:
+  - url: http://2014.nwerc.eu/
+    roles:
+    - web
+  - url: http://2014.nwerc.eu/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20170425044228'
+    archived:
+    - nwerc/nwerc-2014/scoreboard/2026-09-01-wayback-04c7eb64/page.html
+    - nwerc/nwerc-2014/scoreboard/20260902-live-b516559e/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northwestern-Europe-2015/standings
+    roles:
+    - icpc_standings
+  - url: http://2014.nwerc.eu/nwerc2014problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Regional%20Contest%20(NWERC)%202014
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190718022702'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1312
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210126224124'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Regional%20Contest%20(NWERC)%202014
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1312
-        as_of: '20210126224124'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: http://2014.nwerc.eu/nwerc2014problems.pdf
+    set: nwerc-2014
 - id: nwerc-2015
   season: 2016
   name: 2015 Northwestern Europe Regional Contest
@@ -861,28 +1096,42 @@ contests:
   - 2780
   parent: wf-2016
   next: nwerc-2016
-  web: http://2015.nwerc.eu/
-  results:
-    scoreboard:
-    - url: http://www.nwerc.eu/scoreboard/
-      as_of: '20160305082809'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: nwerc/nwerc-2015/scoreboard/2026-09-01-wayback-11e6c044/page.html
-  icpc_standings: https://icpc.global/regionals/finder/Northwestern-Europe-2016/standings
+  sources:
+  - url: http://2015.nwerc.eu/
+    roles:
+    - web
+  - url: http://www.nwerc.eu/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20160305082809'
+    archived:
+    - nwerc/nwerc-2015/scoreboard/2026-09-01-wayback-11e6c044/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northwestern-Europe-2016/standings
+    roles:
+    - icpc_standings
+  - url: http://2015.nwerc.eu/contest/nwerc2015problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Regional%20Contest%20%28NWERC%29%202015
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190717144631'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1431
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201203144930'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Regional%20Contest%20%28NWERC%29%202015
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1431
-        as_of: '20201203144930'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: http://2015.nwerc.eu/contest/nwerc2015problems.pdf
+    set: nwerc-2015
 - id: nwerc-2016
   season: 2017
   name: 2016 Northwestern Europe Regional Contest
@@ -892,37 +1141,47 @@ contests:
   - 3115
   parent: wf-2017
   next: nwerc-2017
-  web: https://people.bath.ac.uk/masjhd/2016.NWERC/
-  results:
-    scoreboard:
-    - url: http://nwerc2016-scoreboard.bath.ac.uk/static/scoreboard/static.html
-      as_of: '20170528144000'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: nwerc/nwerc-2016/external-standings/2026-04-15-external/content.html
-    standings:
-    - url: http://nwerc2016-scoreboard.bath.ac.uk/static/scoreboard/static.html
-      as_of: '20171026052310'
-      archived: nwerc/nwerc-2016/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northwestern-Europe-2017/standings
-  problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Regional%20Contest%20%28NWERC%29%202016
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1578
-        as_of: '20191019175344'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: https://people.bath.ac.uk/masjhd/2016.NWERC/nwerc2016problems.pdf
+  sources:
+  - url: https://people.bath.ac.uk/masjhd/2016.NWERC/
+    roles:
+    - web
+  - url: http://nwerc2016-scoreboard.bath.ac.uk/static/scoreboard/static.html
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20170528144000'
+    archived:
+    - nwerc/nwerc-2016/external-standings/2026-04-15-external/content.html
+    - nwerc/nwerc-2016/scoreboard/2026-09-01-wayback-6a139a2c/static.html
+    - nwerc/nwerc-2016/standings/20161122-wayback-4abe2b56/static.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: as_of 20171026052310 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Northwestern-Europe-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://people.bath.ac.uk/masjhd/2016.NWERC/nwerc2016problems.pdf
+    roles:
+    - problemset
     as_of: '20190923003349'
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Regional%20Contest%20%28NWERC%29%202016
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190922143800'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1578
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191019175344'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: nwerc-2016
 - id: nwerc-2017
   season: 2018
   name: 2017 Northwestern Europe Regional Contest
@@ -932,30 +1191,44 @@ contests:
   - 3274
   parent: wf-2018
   next: nwerc-2018
-  web: https://people.bath.ac.uk/masjhd/NWERC/index.html
-  results:
-    scoreboard:
-    - url: http://nwerc2017-scoreboard.bath.ac.uk/static/scoreboard/static.html
-      as_of: '20180202201742'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: nwerc/nwerc-2017/scoreboard/2026-09-01-wayback-30de8543/static.html
-  icpc_standings: https://icpc.global/regionals/finder/Northwestern-Europe-2018/standings
-  problemset: https://people.bath.ac.uk/masjhd/NWERC/news/index.html
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: https://people.bath.ac.uk/masjhd/NWERC/index.html
+    roles:
+    - web
+  - url: http://nwerc2017-scoreboard.bath.ac.uk/static/scoreboard/static.html
+    roles:
+    - scoreboard
+    as_of: '20180202201742'
+    archived:
+    - nwerc/nwerc-2017/scoreboard/2026-09-01-wayback-30de8543/static.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northwestern-Europe-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://people.bath.ac.uk/masjhd/NWERC/news/index.html
+    roles:
+    - problemset
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Regional%20Contest%20(NWERC)%202017
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20191022210007'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1852
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191211192639'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Regional%20Contest%20(NWERC)%202017
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1852
-        as_of: '20191211192639'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: nwerc-2017
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: nwerc-2018
   season: 2019
   name: 2018 Northwestern Europe Regional Contest
@@ -965,37 +1238,52 @@ contests:
   - 3655
   parent: wf-2019
   next: nwerc-2019
-  web: https://2018.nwerc.eu/
-  results:
-    scoreboard:
-    - url: https://2018.nwerc.eu/scoreboard/public/
-      as_of: '20190615171114'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: nwerc/nwerc-2018/scoreboard/2026-09-01-wayback-d936b0ca/page.html
-    standings:
-    - url: http://www.nwerc.eu/scoreboard/
-      as_of: '20200225021122'
-      archived: nwerc/nwerc-2018/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northwestern-Europe-2019/standings
-  problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Regional%20Contest%20(NWERC)%202018
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1967
-        as_of: '20190723110215'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://2018.nwerc.eu/files/nwerc2018problems.pdf
+  sources:
+  - url: https://2018.nwerc.eu/
+    roles:
+    - web
+  - url: https://2018.nwerc.eu/scoreboard/public/
+    roles:
+    - scoreboard
+    as_of: '20190615171114'
+    archived:
+    - nwerc/nwerc-2018/scoreboard/2026-09-01-wayback-d936b0ca/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://www.nwerc.eu/scoreboard/
+    roles:
+    - standings
+    as_of: '20200225021122'
+    archived:
+    - nwerc/nwerc-2018/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Northwestern-Europe-2019/standings
+    roles:
+    - icpc_standings
+  - url: http://2018.nwerc.eu/files/nwerc2018problems.pdf
+    roles:
+    - problemset
     as_of: '20201230020149'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Regional%20Contest%20(NWERC)%202018
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190820160302'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1967
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190723110215'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: nwerc-2018
 - id: nwerc-2019
   season: 2020
   name: 2019 Northwestern Europe Regional Contest
@@ -1005,30 +1293,43 @@ contests:
   - 4147
   parent: wf-2020
   next: nwerc-2020
-  web: https://2019.nwerc.eu/
-  results:
-    scoreboard:
-    - url: https://2019.nwerc.eu/scoreboard/
-      as_of: '20201231135925'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: nwerc/nwerc-2019/scoreboard/2026-09-01-wayback-2c0af276/page.html
-  icpc_standings: https://icpc.global/regionals/finder/Northwestern-Europe-2020/standings
-  problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Regional%20Contest%20(NWERC)%202019
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2121
-        as_of: '20260419025618'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://2019.nwerc.eu/files/nwerc2019problems.pdf
+  sources:
+  - url: https://2019.nwerc.eu/
+    roles:
+    - web
+  - url: https://2019.nwerc.eu/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20201231135925'
+    archived:
+    - nwerc/nwerc-2019/scoreboard/2026-09-01-wayback-2c0af276/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northwestern-Europe-2020/standings
+    roles:
+    - icpc_standings
+  - url: http://2019.nwerc.eu/files/nwerc2019problems.pdf
+    roles:
+    - problemset
     as_of: '20201231135930'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Regional%20Contest%20(NWERC)%202019
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20200812181434'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2121
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260419025618'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: nwerc-2019
 - id: nwerc-2020
   season: 2021
   name: 2020 Northwestern Europe Regional Contest
@@ -1038,27 +1339,43 @@ contests:
   - 4507
   parent: wf-2021
   next: nwerc-2021
-  web: https://2020.nwerc.eu/
-  results:
-    scoreboard:
-    - url: https://2020.nwerc.eu/standings/
-      archived: nwerc/nwerc-2020/scoreboard/2026-09-01-live-96a4c59d/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northwestern-Europe-2021/standings
+  sources:
+  - url: https://2020.nwerc.eu/
+    roles:
+    - web
+  - url: https://2020.nwerc.eu/standings/
+    roles:
+    - scoreboard
+    as_of: '20210420204913'
+    archived:
+    - nwerc/nwerc-2020/scoreboard/2026-09-01-live-96a4c59d/page.html
+    - nwerc/nwerc-2020/scoreboard/20210420-wayback-6b63c259/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northwestern-Europe-2021/standings
+    roles:
+    - icpc_standings
+  - url: https://2020.nwerc.eu/files/nwerc2020problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Regional%20Contest%20%28NWERC%29%202020
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20211203114302'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2488
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210511095857'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Regional%20Contest%20%28NWERC%29%202020
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2488
-        as_of: '20210511095857'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://2020.nwerc.eu/files/nwerc2020problems.pdf
+    set: nwerc-2020
 - id: nwerc-2021
   season: 2022
   name: 2021 ICPC Northwestern Europe Regional Contest
@@ -1068,27 +1385,44 @@ contests:
   - 4926
   parent: wf-2022
   next: nwerc-2022
-  web: https://2021.nwerc.eu/
-  results:
-    scoreboard:
-    - url: https://2021.nwerc.eu/standings/
-      archived: nwerc/nwerc-2021/scoreboard/2026-09-01-live-028459d4/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northwestern-Europe-2022/standings
+  sources:
+  - url: https://2021.nwerc.eu/
+    roles:
+    - web
+  - url: https://2021.nwerc.eu/standings/
+    roles:
+    - scoreboard
+    as_of: '20220119234852'
+    archived:
+    - nwerc/nwerc-2021/scoreboard/2026-09-01-live-028459d4/page.html
+    - nwerc/nwerc-2021/scoreboard/20220119-wayback-6affb4fa/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northwestern-Europe-2022/standings
+    roles:
+    - icpc_standings
+  - url: https://2021.nwerc.eu/files/nwerc2021problems.pdf
+    roles:
+    - problemset
+    as_of: '20220119234408'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Regional%20Contest%20(NWERC)%202021
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20220124102425'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2887
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20230514152034'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Regional%20Contest%20(NWERC)%202021
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2887
-        as_of: '20230514152034'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://2021.nwerc.eu/files/nwerc2021problems.pdf
+    set: nwerc-2021
 - id: nwerc-2022
   season: 2023
   name: 2022 ICPC Northwestern Europe Regional Contest
@@ -1098,34 +1432,53 @@ contests:
   - 5402
   parent: wf-2023
   next: nwerc-2023
-  web: https://2022.nwerc.eu/
-  results:
-    scoreboard:
-    - url: https://chipcie.wisv.ch/archive/2022/nwerc/scoreboard/
-      archived: nwerc/nwerc-2022/scoreboard/2026-09-01-live-d749ff05/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://2022.nwerc.eu/main/scoreboard
-      as_of: '20240530180454'
-      archived: nwerc/nwerc-2022/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northwestern-Europe-2023/standings
+  sources:
+  - url: https://2022.nwerc.eu/
+    roles:
+    - web
+  - url: https://chipcie.wisv.ch/archive/2022/nwerc/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20240413152532'
+    archived:
+    - nwerc/nwerc-2022/scoreboard/2026-09-01-live-d749ff05/page.html
+    - nwerc/nwerc-2022/scoreboard/20240413-wayback-30d86f47/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://2022.nwerc.eu/main/scoreboard
+    roles:
+    - standings
+    as_of: '20240530180454'
+    archived:
+    - nwerc/nwerc-2022/external-standings/2026-04-15-external/content.html
+    - nwerc/nwerc-2022/standings/20240530-wayback-17737eb2/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Northwestern-Europe-2023/standings
+    roles:
+    - icpc_standings
+  - url: https://chipcie.wisv.ch/archive/2022/nwerc/problem-set.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Regional%20Contest%20%28NWERC%29%202022
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20231001053714'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3237
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260419025632'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Regional%20Contest%20%28NWERC%29%202022
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3237
-        as_of: '20260419025632'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://chipcie.wisv.ch/archive/2022/nwerc/problem-set.pdf
+    set: nwerc-2022
 - id: nwerc-2023
   season: 2024
   name: 2023 ICPC Northwestern Europe Regional Contest
@@ -1135,34 +1488,52 @@ contests:
   - 7596
   parent: euc-2024
   next: nwerc-2024
-  web: https://2023.nwerc.eu/
-  results:
-    scoreboard:
-    - url: https://chipcie.wisv.ch/archive/2023/nwerc/scoreboard/
-      archived: nwerc/nwerc-2023/scoreboard/2026-09-01-live-28166d54/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://2023.nwerc.eu/main/scoreboard
-      as_of: '20241210204537'
-      archived: nwerc/nwerc-2023/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northwestern-Europe-2024/standings
+  sources:
+  - url: https://2023.nwerc.eu/
+    roles:
+    - web
+  - url: https://chipcie.wisv.ch/archive/2023/nwerc/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20240413163207'
+    archived:
+    - nwerc/nwerc-2023/scoreboard/2026-09-01-live-28166d54/page.html
+    - nwerc/nwerc-2023/scoreboard/20240413-wayback-5117466d/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://2023.nwerc.eu/main/scoreboard
+    roles:
+    - standings
+    as_of: '20241210204537'
+    archived:
+    - nwerc/nwerc-2023/external-standings/2026-04-15-external/content.html
+    - nwerc/nwerc-2023/standings/20241210-wayback-9d93f9f9/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Northwestern-Europe-2024/standings
+    roles:
+    - icpc_standings
+  - url: https://chipcie.wisv.ch/archive/2023/nwerc/problem-set.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Regional%20Contest%20%28NWERC%29%202023
+    roles:
+    - judge_page
+    judge: kattis
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4062
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260419025630'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Regional%20Contest%20%28NWERC%29%202023
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4062
-        as_of: '20260419025630'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://chipcie.wisv.ch/archive/2023/nwerc/problem-set.pdf
+    set: nwerc-2023
 - id: nwerc-2024
   season: 2025
   name: 2024 ICPC Northwestern Europe Regional Contest
@@ -1172,35 +1543,53 @@ contests:
   - 9006
   parent: euc-2025
   next: nwerc-2025
-  web: https://2024.nwerc.eu/
-  results:
-    scoreboard:
-    - url: https://chipcie.wisv.ch/archive/2024/nwerc/scoreboard/
-      archived: nwerc/nwerc-2024/scoreboard/2026-09-01-live-697daa8c/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://2024.nwerc.eu/main/scoreboard
-      as_of: '20250320014052'
-      archived: nwerc/nwerc-2024/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northwestern-Europe-2025/standings
+  sources:
+  - url: https://2024.nwerc.eu/
+    roles:
+    - web
+  - url: https://chipcie.wisv.ch/archive/2024/nwerc/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20260311092500'
+    archived:
+    - nwerc/nwerc-2024/scoreboard/2026-09-01-live-697daa8c/page.html
+    - nwerc/nwerc-2024/scoreboard/20260311-wayback-4db03ae3/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://2024.nwerc.eu/main/scoreboard
+    roles:
+    - standings
+    as_of: '20250320014052'
+    archived:
+    - nwerc/nwerc-2024/external-standings/2026-04-15-external/content.html
+    - nwerc/nwerc-2024/standings/20250320-wayback-ebd51937/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Northwestern-Europe-2025/standings
+    roles:
+    - icpc_standings
+  - url: https://chipcie.wisv.ch/archive/2024/nwerc/problem-set.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Regional%20Contest%20%28NWERC%29%202024
+    roles:
+    - judge_page
+    judge: kattis
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4356
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260419025601'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NWERC 2024
   problems:
-    count: 13
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Regional%20Contest%20%28NWERC%29%202024
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4356
-        as_of: '20260419025601'
-        note: NWERC 2024
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://chipcie.wisv.ch/archive/2024/nwerc/problem-set.pdf
+    set: nwerc-2024
 - id: nwerc-2025
   season: 2026
   name: 2025 ICPC Northwestern Europe Regional Contest
@@ -1210,22 +1599,35 @@ contests:
   - 9371
   parent: euc-2026
   next: nwerc-2026
-  web: https://2025.nwerc.eu/
-  results:
-    scoreboard:
-    - url: https://chipcie.wisv.ch/archive/2025/nwerc/scoreboard/
-      archived: nwerc/nwerc-2025/scoreboard/2026-09-01-live-5a238915/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northwestern-Europe-2026/standings
+  sources:
+  - url: https://2025.nwerc.eu/
+    roles:
+    - web
+  - url: https://chipcie.wisv.ch/archive/2025/nwerc/scoreboard/
+    roles:
+    - scoreboard
+    archived:
+    - nwerc/nwerc-2025/scoreboard/2026-09-01-live-5a238915/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northwestern-Europe-2026/standings
+    roles:
+    - icpc_standings
+  - url: https://chipcie.wisv.ch/archive/2025/nwerc/problem-set.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4637
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260418221556'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: NWERC 2025
   problems:
-    source: Kattis problem export (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4637
-        as_of: '20260418221556'
-        note: NWERC 2025
-  problemset: https://chipcie.wisv.ch/archive/2025/nwerc/problem-set.pdf
+    set: nwerc-2025
 - id: nwerc-2026
   status: upcoming
   season: 2027

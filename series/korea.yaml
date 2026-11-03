@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: korea
   name: ICPC Asia Seoul Regional Onsite Contest
+  tier: regional
+  region: Asia Pacific
+  naming: season-start
 contests:
 - id: korea-2000
   season: 2001
@@ -12,42 +15,64 @@ contests:
   - 1231
   parent: wf-2001
   next: korea-2001
-  results:
-    standings:
-    - url: http://cs.kaist.ac.kr/~acmicpc/standing.html
-      as_of: '20010428115234'
-      archived: korea/korea-2000/standings/2026-09-01-wayback-a5f1f9e8/standing.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    rankings:
-    - url: http://swt.edu/~ch01/rankins2000/2000_korea.htm
-      as_of: '20050222023411'
-      archived: korea/korea-2000/rankings/2026-09-01-wayback-b922f9e8/2000_korea.htm
-      url_state: dead
-      url_checked: '2026-11-02'
-  web:
-    url: http://icpc.baylor.edu/past/icpc2001/Regionals/Seoul00/Default.asp
+  sources:
+  - url: http://icpc.baylor.edu/past/icpc2001/Regionals/Seoul00/Default.asp
+    roles:
+    - web
     as_of: '20020112120047'
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=61
-        as_of: '20210926192933'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1080
-        as_of: '20150417123707'
-        note: Asia Regional - Taejon 2000
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+    also_at:
+    - url: http://cs.kaist.ac.kr/~acmicpc/
+      as_of: '20000930044741'
+  - url: http://cs.kaist.ac.kr/~acmicpc/standing.html
+    roles:
+    - standings
+    as_of: '20010428115234'
+    archived:
+    - korea/korea-2000/standings/2026-09-01-wayback-a5f1f9e8/standing.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=462
+    roles:
+    - standings
+    as_of: '20030609032605'
+    note: added by url-hunt 2026-09-01 (cms-api)
+  - url: http://swt.edu/~ch01/rankins2000/2000_korea.htm
+    roles:
+    - rankings
+    as_of: '20050222023411'
+    archived:
+    - korea/korea-2000/rankings/2026-09-01-wayback-b922f9e8/2000_korea.htm
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_VV_Asian/2000/Seoul.pdf
+    roles:
+    - problemset
     as_of: '20020624142207'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2001/regionals/Seoul00/Problems.pdf
+    roles:
+    - problemset
     as_of: '20030323121918'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=61
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210926192933'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1080
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150417123707'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional - Taejon 2000
+  problems:
+    set: korea-2000
 - id: korea-2001
   season: 2002
   name: 2001 ACM Asia Programming Contest - Taejon
@@ -57,44 +82,76 @@ contests:
   - 998
   parent: wf-2002
   next: korea-2002
-  results:
-    standings:
-    - url: http://swt.edu/~ch01/Rankings2001/standingKorea.html
-      as_of: '20050220221935'
-      archived: korea/korea-2001/standings/2026-09-01-wayback-97a9b1d7/standingKorea.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=524
-      as_of: '20020619093344'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: korea/korea-2001/standings/20020619-wayback-c0350b47/page.html
-  web:
-    url: http://icpc.baylor.edu/past/icpc2002/regionals/Taejon01/default.asp
+  sources:
+  - url: http://icpc.baylor.edu/past/icpc2002/regionals/Taejon01/default.asp
+    roles:
+    - web
     as_of: '20020819080356'
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=94
-        as_of: '20210921162623'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/884
-        as_of: '20150417161255'
-        note: Asia Regional - Taejon 2001
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+    also_at:
+    - url: http://cs.kaist.ac.kr/~acmicpc/
+      as_of: '20000930044741'
+  - url: http://swt.edu/~ch01/Rankings2001/standingKorea.html
+    roles:
+    - standings
+    as_of: '20050220221935'
+    archived:
+    - korea/korea-2001/standings/2026-09-01-wayback-97a9b1d7/standingKorea.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=524
+    roles:
+    - standings
+    as_of: '20020619093344'
+    archived:
+    - korea/korea-2001/standings/20020619-wayback-c0350b47/page.html
+    - korea/korea-2001/standings/20020619-wayback-58a19228/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: http://cs.kaist.ac.kr/~acmicpc/standing.html
+    roles:
+    - standings
+    as_of: '20010428115234'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://icpc.baylor.edu/past/icpc2002/regionals/Taejon01/problems_2001.zip
+    roles:
+    - problemset
     as_of: '20060118151711'
+    url_state: unknown
+    url_checked: '2026-11-02'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_VV_Asian/2001/Taejon/
+    roles:
+    - problemset
     as_of: '20020628075825'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2002/regionals/Taejon01/problems.html
+    roles:
+    - problemset
     as_of: '20020701112805'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: http://cs.kaist.ac.kr/~acmicpc/problem.html
+    roles:
+    - problemset
+    as_of: '20020203063657'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=94
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210921162623'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/884
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150417161255'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional - Taejon 2001
+  problems:
+    set: korea-2001
 - id: korea-2002
   season: 2003
   name: 2002 ACM Asia Programming Contest - Taejon
@@ -104,45 +161,72 @@ contests:
   - 1168
   parent: wf-2003
   next: korea-2003
-  web:
-    url: http://cs.kaist.ac.kr/~acmicpc/2002/index.html
+  sources:
+  - url: http://cs.kaist.ac.kr/~acmicpc/2002/index.html
+    roles:
+    - web
     as_of: '20040611100213'
-  results:
-    standings:
-    - url: http://cs.kaist.ac.kr/~acmicpc/2002/standing.html
-      as_of: '20040905060646'
-      archived: korea/korea-2002/standings/2026-09-01-wayback-6c0521b9/standing.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/cs.kaist.ac.kr/_acmicpc/standing.html
-      as_of: '20060901165727'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-mirror)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: korea/korea-2002/standings/20060901-wayback-0f4d284f/standing.html
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings1187.html?ContestID=590
-      as_of: '20060901122532'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: korea/korea-2002/rankings/2026-09-01-wayback-56688669/ViewRegionalStandings1187.html
-    rankings:
-    - url: http://icpc.baylor.edu/past/icpc2003/Regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings1187.html?ContestID=590
-      as_of: '20090307020155'
-      archived: korea/korea-2002/rankings/2026-09-01-wayback-56688669/ViewRegionalStandings1187.html
-      url_state: dead
-      url_checked: '2026-11-01'
-  problemset:
+    also_at:
+    - url: http://cs.kaist.ac.kr/~acmicpc/
+      as_of: '20000930044741'
+  - url: http://cs.kaist.ac.kr/~acmicpc/2002/standing.html
+    roles:
+    - standings
+    as_of: '20040905060646'
+    archived:
+    - korea/korea-2002/standings/2026-09-01-wayback-6c0521b9/standing.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/cs.kaist.ac.kr/_acmicpc/standing.html
+    roles:
+    - standings
+    as_of: '20060901165727'
+    archived:
+    - korea/korea-2002/standings/20060901-wayback-0f4d284f/standing.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-mirror)
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings1187.html?ContestID=590
+    roles:
+    - standings
+    - rankings
+    as_of: '20060901122532'
+    archived:
+    - korea/korea-2002/rankings/2026-09-01-wayback-56688669/ViewRegionalStandings1187.html
+    - korea/korea-2002/standings/20060901-wayback-5fa2a2b7/ViewRegionalStandings1187.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings); as_of 20090307020155 for rankings
+  - url: http://cs.kaist.ac.kr/~acmicpc/standing.html
+    roles:
+    - standings
+    as_of: '20010428115234'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/cs.kaist.ac.kr/_acmicpc/Problems/2002Problems.zip
+    roles:
+    - problemset
     as_of: '20121203074247'
-  - https://icpckorea.org/problems/2002/problemset.zip
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://icpckorea.org/problems/2002/problemset.zip
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: http://cs.kaist.ac.kr/~acmicpc/problem.html
+    roles:
+    - problemset
+    as_of: '20020203063657'
+  - url: https://www.acmicpc.net/category/detail/1079
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150416134931'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional - Taejon 2002
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1079
-        as_of: '20150416134931'
-        note: Asia Regional - Taejon 2002
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: korea-2002
 - id: korea-2003
   season: 2004
   name: 2003 ACM Asia Programming Contest - Seoul
@@ -152,35 +236,58 @@ contests:
   - 1290
   parent: wf-2004
   next: korea-2004
-  web:
-    url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/cs.kaist.ac.kr/_acmicpc/index.html
+  sources:
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/cs.kaist.ac.kr/_acmicpc/index.html
+    roles:
+    - web
     as_of: '20060901165722'
-  results:
-    standings:
-    - url: http://cs.kaist.ac.kr/~acmicpc/rank.html
-      as_of: '20040611082356'
-      archived: korea/korea-2003/standings/2026-09-01-wayback-73811287/rank.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=663
-      as_of: '20071012210045'
-      archived: korea/korea-2003/standings/2026-09-01-wayback-dabd9a7b/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandingsf27b.html?ContestID=663
-      as_of: '20060901142037'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: korea/korea-2003/standings/20060901-wayback-ff37eafe/ViewRegionalStandingsf27b.html
-  problemset: https://icpckorea.org/problems/2003/problemset.zip
+    also_at:
+    - url: http://cs.kaist.ac.kr/~acmicpc/
+      as_of: '20000930044741'
+  - url: http://cs.kaist.ac.kr/~acmicpc/rank.html
+    roles:
+    - standings
+    as_of: '20040611082356'
+    archived:
+    - korea/korea-2003/standings/2026-09-01-wayback-73811287/rank.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=663
+    roles:
+    - standings
+    as_of: '20071012210045'
+    archived:
+    - korea/korea-2003/standings/2026-09-01-wayback-dabd9a7b/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandingsf27b.html?ContestID=663
+    roles:
+    - standings
+    as_of: '20060901142037'
+    archived:
+    - korea/korea-2003/standings/20060901-wayback-ff37eafe/ViewRegionalStandingsf27b.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: https://icpckorea.org/problems/2003/problemset.zip
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: http://cs.kaist.ac.kr/~acmicpc/problem.html
+    roles:
+    - problemset
+    as_of: '20020203063657'
+  - url: https://www.acmicpc.net/category/detail/1078
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150417134937'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional - Seoul 2003
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1078
-        as_of: '20150417134937'
-        note: Asia Regional - Seoul 2003
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: korea-2003
 - id: korea-2004
   season: 2005
   name: 2004 ACM Asia Programming Contest - Seoul
@@ -190,22 +297,33 @@ contests:
   - 1157
   parent: wf-2005
   next: korea-2005
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=705
-      as_of: '20071012163027'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: korea/korea-2004/standings/2026-09-01-wayback-b58502ab/page.html
-  web: https://icpckorea.org/2004-seoul/regional
-  problemset: https://icpckorea.org/problems/2004/problemset.zip
+  sources:
+  - url: https://icpckorea.org/2004-seoul/regional
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=705
+    roles:
+    - standings
+    as_of: '20071012163027'
+    archived:
+    - korea/korea-2004/standings/2026-09-01-wayback-b58502ab/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://icpckorea.org/problems/2004/problemset.zip
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1068
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150417172905'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional - Seoul 2004
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1068
-        as_of: '20150417172905'
-        note: Asia Regional - Seoul 2004
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: korea-2004
 - id: korea-2005
   season: 2006
   name: 2005 ACM Asia Programming Contest - Seoul
@@ -215,29 +333,47 @@ contests:
   - 1108
   parent: wf-2006
   next: korea-2006
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=739
-      as_of: '20071011212854'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: korea/korea-2005/standings/2026-09-01-wayback-1c54aaa6/page.html
-    - url: http://acm.kaist.ac.kr/forum/viewtopic.php?p=998
-      as_of: '20060510061043'
-      archived: korea/korea-2005/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Seoul-2006/standings
-  web: https://icpckorea.org/2005-seoul/regional
-  problemset: https://icpckorea.org/problems/2005/problemset.zip
+  sources:
+  - url: https://icpckorea.org/2005-seoul/regional
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=739
+    roles:
+    - standings
+    as_of: '20071011212854'
+    archived:
+    - korea/korea-2005/standings/2026-09-01-wayback-1c54aaa6/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://acm.kaist.ac.kr/forum/viewtopic.php?p=998
+    roles:
+    - standings
+    as_of: '20060510061043'
+    archived:
+    - korea/korea-2005/external-standings/2026-04-15-external/content.html
+    - korea/korea-2005/standings/20060106-wayback-e87077b0/page.html
+    - korea/korea-2005/standings/20060510-wayback-0179ab30/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Seoul-2006/standings
+    roles:
+    - icpc_standings
+  - url: https://icpckorea.org/problems/2005/problemset.zip
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1067
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150417164814'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional - Seoul 2005
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1067
-        as_of: '20150417164814'
-        note: Asia Regional - Seoul 2005
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: korea-2005
 - id: korea-2006
   season: 2007
   name: 2006 ACM Asia Programming Contest - Seoul
@@ -247,29 +383,46 @@ contests:
   - 1005
   parent: wf-2007
   next: korea-2007
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=781
-      as_of: '20071011212941'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: korea/korea-2006/standings/2026-09-01-wayback-d7f30418/page.html
-    - url: http://acm.kaist.ac.kr/forum/viewtopic.php?t=572
-      as_of: '20070213164833'
-      archived: korea/korea-2006/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Seoul-2007/standings
-  web: https://icpckorea.org/2006-seoul/regional
-  problemset: https://icpckorea.org/problems/2006/problemset.zip
+  sources:
+  - url: https://icpckorea.org/2006-seoul/regional
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=781
+    roles:
+    - standings
+    as_of: '20071011212941'
+    archived:
+    - korea/korea-2006/standings/2026-09-01-wayback-d7f30418/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://acm.kaist.ac.kr/forum/viewtopic.php?t=572
+    roles:
+    - standings
+    as_of: '20070213164833'
+    archived:
+    - korea/korea-2006/external-standings/2026-04-15-external/content.html
+    - korea/korea-2006/standings/20070213-wayback-61a2c678/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Seoul-2007/standings
+    roles:
+    - icpc_standings
+  - url: https://icpckorea.org/problems/2006/problemset.zip
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1066
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150417151107'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional - Seoul 2006
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1066
-        as_of: '20150417151107'
-        note: Asia Regional - Seoul 2006
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: korea-2006
 - id: korea-2007
   season: 2008
   name: 2007 ACM Asia Programming Contest - Seoul
@@ -279,31 +432,39 @@ contests:
   - 1156
   parent: wf-2008
   next: korea-2008
-  web:
-    url: http://acm.kaist.ac.kr/forum/viewtopic.php?t=862
+  sources:
+  - url: http://acm.kaist.ac.kr/forum/viewtopic.php?t=862
+    roles:
+    - web
     as_of: '20080811020010'
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=862
-      as_of: '20080915032423'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: korea/korea-2007/external-standings/2026-04-15-external/content.html
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=862
-      as_of: '20110924030834'
-      archived: korea/korea-2007/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/regionals/finder/Seoul-2008/standings
-  problemset: https://icpckorea.org/problems/2007/problemset.zip
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=862
+    roles:
+    - standings
+    as_of: '20080915032423'
+    archived:
+    - korea/korea-2007/external-standings/2026-04-15-external/content.html
+    - korea/korea-2007/standings/2026-09-01-wayback-6d72b326/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: as_of 20110924030834 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Seoul-2008/standings
+    roles:
+    - icpc_standings
+  - url: https://icpckorea.org/problems/2007/problemset.zip
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1065
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150417142840'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional - Seoul 2007
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1065
-        as_of: '20150417142840'
-        note: Asia Regional - Seoul 2007
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: korea-2007
 - id: korea-2008
   season: 2009
   name: 2008 Asia Seoul Contest
@@ -313,24 +474,38 @@ contests:
   - 18
   parent: wf-2009
   next: korea-2009
-  web: https://icpckorea.org/2008-seoul/regional
-  results:
-    standings:
-    - url: http://acm.kaist.ac.kr/forum/viewtopic.php?p=3193
-      as_of: '20120508052713'
-      archived: korea/korea-2008/external-standings/2026-04-15-external/content.html
-      note: 'from archived capture (external-standings); snapshot verified at a different locator: http://acm.kaist.ac.kr/forum/viewtopic.php'
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Seoul-2009/standings
-  problemset: https://icpckorea.org/problems/2008/problemset.pdf
+  sources:
+  - url: https://icpckorea.org/2008-seoul/regional
+    roles:
+    - web
+  - url: http://acm.kaist.ac.kr/forum/viewtopic.php?p=3193
+    roles:
+    - standings
+    as_of: '20120508052713'
+    archived:
+    - korea/korea-2008/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 'from archived capture (external-standings); snapshot verified at a different locator: http://acm.kaist.ac.kr/forum/viewtopic.php'
+  - url: https://icpc.global/regionals/finder/Seoul-2009/standings
+    roles:
+    - icpc_standings
+  - url: https://icpckorea.org/problems/2008/problemset.pdf
+    roles:
+    - problemset
+    as_of: '20221005095044'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1064
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150417134646'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional - Seoul 2008
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1064
-        as_of: '20150417134646'
-        note: Asia Regional - Seoul 2008
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: korea-2008
 - id: korea-2009
   season: 2010
   name: 2009 ACM-ICPC Asia Seoul Regional Contest
@@ -340,34 +515,46 @@ contests:
   - 508
   parent: wf-2010
   next: korea-2010
-  results:
-    standings:
-    - url: http://acm.kaist.ac.kr/forum/viewtopic.php?t=1394
-      as_of: '20100219170701'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: korea/korea-2009/external-standings/2026-04-15-external/content.html
-    - url: http://icpc.baylor.edu/regionals/finder/seoul-2009/standings
-      as_of: '20150625003657'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: korea/korea-2009/standings/2026-09-01-wayback-9bead300/page.html
-    - url: http://acm.kaist.ac.kr/forum/viewtopic.php?t=1394
-      as_of: '20100219170701'
-      archived: korea/korea-2009/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Seoul-2010/standings
-  web: https://icpckorea.org/2009-seoul/regional
-  problemset: https://icpckorea.org/problems/2009/problemset.zip
+  sources:
+  - url: https://icpckorea.org/2009-seoul/regional
+    roles:
+    - web
+  - url: http://acm.kaist.ac.kr/forum/viewtopic.php?t=1394
+    roles:
+    - standings
+    as_of: '20100219170701'
+    archived:
+    - korea/korea-2009/external-standings/2026-04-15-external/content.html
+    - korea/korea-2009/standings/2026-09-01-wayback-df39eee0/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: http://icpc.baylor.edu/regionals/finder/seoul-2009/standings
+    roles:
+    - standings
+    as_of: '20150625003657'
+    archived:
+    - korea/korea-2009/standings/2026-09-01-wayback-9bead300/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://icpc.global/regionals/finder/Seoul-2010/standings
+    roles:
+    - icpc_standings
+  - url: https://icpckorea.org/problems/2009/problemset.zip
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1063
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150417123928'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional - Seoul 2009
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1063
-        as_of: '20150417123928'
-        note: Asia Regional - Seoul 2009
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: korea-2009
 - id: korea-2010
   season: 2011
   name: 2010 ACM-ICPC Asia Daejeon Regional Contest
@@ -377,19 +564,32 @@ contests:
   - 608
   parent: wf-2011
   next: korea-2011
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Daejeon-2011/standings
-    archived: korea/korea-2010/standings/api-20260904/standings.html
+  sources:
+  - url: http://acm.kaist.ac.kr
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Daejeon-2011/standings
+    roles:
+    - icpc_standings
+    archived:
+    - korea/korea-2010/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 608, 80 teams, DB fetch 2026-04-26)
-  web: http://acm.kaist.ac.kr
-  problemset: https://icpckorea.org/problems/2010/problemset.pdf
+  - url: https://icpckorea.org/problems/2010/problemset.pdf
+    roles:
+    - problemset
+    as_of: '20240629075640'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1062
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150417142549'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional - Daejeon 2010
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1062
-        as_of: '20150417142549'
-        note: Asia Regional - Daejeon 2010
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: korea-2010
 - id: korea-2011
   season: 2012
   name: 2011 ACM-ICPC Asia Daejeon Regional Contest
@@ -399,24 +599,39 @@ contests:
   - 795
   parent: wf-2012
   next: korea-2012
-  icpc_standings: https://icpc.global/regionals/finder/Daejeon-2012/standings
-  results:
-    standings:
-    - url: http://acm.kaist.ac.kr/phpBB3/viewtopic.php?f=25&t=657
-      as_of: '20141016072555'
-      archived: korea/korea-2011/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  web: http://acm.kaist.ac.kr
-  problemset: https://icpckorea.org/problems/2011/problemset.pdf
+  sources:
+  - url: http://acm.kaist.ac.kr
+    roles:
+    - web
+  - url: http://acm.kaist.ac.kr/phpBB3/viewtopic.php?f=25&t=657
+    roles:
+    - standings
+    as_of: '20141016072555'
+    archived:
+    - korea/korea-2011/external-standings/2026-04-15-external/content.html
+    - korea/korea-2011/standings/20130103-wayback-bee14826/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Daejeon-2012/standings
+    roles:
+    - icpc_standings
+  - url: https://icpckorea.org/problems/2011/problemset.pdf
+    roles:
+    - problemset
+    as_of: '20221209163412'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1061
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150417160822'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional - Daejeon 2011
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1061
-        as_of: '20150417160822'
-        note: Asia Regional - Daejeon 2011
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: korea-2011
 - id: korea-2012
   season: 2013
   name: 2012 ACM-ICPC Asia Daejeon Regional Contest
@@ -426,24 +641,39 @@ contests:
   - 1363
   parent: wf-2013
   next: korea-2013
-  icpc_standings: https://icpc.global/regionals/finder/Daejeon-2013/standings
-  results:
-    standings:
-    - url: http://acm.kaist.ac.kr/phpBB3/viewtopic.php?f=28&t=695
-      as_of: '20130823032525'
-      archived: korea/korea-2012/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  web: https://icpckorea.org/2012-daejeon/regional
-  problemset: https://icpckorea.org/problems/2012/problemset.pdf
+  sources:
+  - url: https://icpckorea.org/2012-daejeon/regional
+    roles:
+    - web
+  - url: http://acm.kaist.ac.kr/phpBB3/viewtopic.php?f=28&t=695
+    roles:
+    - standings
+    as_of: '20130823032525'
+    archived:
+    - korea/korea-2012/external-standings/2026-04-15-external/content.html
+    - korea/korea-2012/standings/20130823-wayback-9cac3a9c/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Daejeon-2013/standings
+    roles:
+    - icpc_standings
+  - url: https://icpckorea.org/problems/2012/problemset.pdf
+    roles:
+    - problemset
+    as_of: '20211127122324'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1060
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150417170038'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional - Daejeon 2012
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1060
-        as_of: '20150417170038'
-        note: Asia Regional - Daejeon 2012
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: korea-2012
 - id: korea-2013
   season: 2014
   name: 2013 ACM-ICPC Asia Daejeon Regional Contest
@@ -453,19 +683,32 @@ contests:
   - 1952
   parent: wf-2014
   next: korea-2014
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Daejeon-2014/standings
-    archived: korea/korea-2013/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpckorea.org/2013-daejeon/regional
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Daejeon-2014/standings
+    roles:
+    - icpc_standings
+    archived:
+    - korea/korea-2013/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 1952, 80 teams, DB fetch 2026-04-26)
-  web: https://icpckorea.org/2013-daejeon/regional
-  problemset: https://icpckorea.org/problems/2013/problemset.pdf
+  - url: https://icpckorea.org/problems/2013/problemset.pdf
+    roles:
+    - problemset
+    as_of: '20240411152507'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1169
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150417172845'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional - Daejeon 2013
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1169
-        as_of: '20150417172845'
-        note: Asia Regional - Daejeon 2013
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: korea-2013
 - id: korea-2014
   season: 2015
   name: 2014 ACM-ICPC Asia Daejeon Regional Contest
@@ -475,19 +718,32 @@ contests:
   - 2603
   parent: wf-2015
   next: korea-2015
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Daejeon-2015/standings
-    archived: korea/korea-2014/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpckorea.org/2014-daejeon/regional
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Daejeon-2015/standings
+    roles:
+    - icpc_standings
+    archived:
+    - korea/korea-2014/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 2603, 80 teams, DB fetch 2026-04-26)
-  web: https://icpckorea.org/2014-daejeon/regional
-  problemset: https://icpckorea.org/problems/2014/problemset.pdf
+  - url: https://icpckorea.org/problems/2014/problemset.pdf
+    roles:
+    - problemset
+    as_of: '20210618175323'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1303
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150417153518'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional - Daejeon 2014
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1303
-        as_of: '20150417153518'
-        note: Asia Regional - Daejeon 2014
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: korea-2014
 - id: korea-2015
   season: 2016
   name: 2015 ACM-ICPC Asia Daejeon Regional Contest
@@ -497,23 +753,39 @@ contests:
   - 2945
   parent: wf-2016
   next: korea-2016
-  web: https://icpckorea.org/2015-daejeon/regional
-  results:
-    scoreboard:
-    - url: https://icpckorea.org/2015/REGIONAL/scoreboard.html
-      as_of: '20240528124845'
-      archived: korea/korea-2015/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/regionals/finder/Daejeon-2016/standings
-  problemset: https://icpckorea.org/2015/REGIONAL/problemset-2015.pdf
+  sources:
+  - url: https://icpckorea.org/2015-daejeon/regional
+    roles:
+    - web
+  - url: https://icpckorea.org/2015/REGIONAL/scoreboard.html
+    roles:
+    - scoreboard
+    as_of: '20240528124845'
+    archived:
+    - korea/korea-2015/external-standings/2026-04-15-external/content.html
+    - korea/korea-2015/scoreboard/20240528-wayback-18963a31/scoreboard.html
+    - korea/korea-2015/scoreboard/20260901-live-b7ec6905/scoreboard.html
+    url_state: live
+    url_checked: '2026-11-01'
+  - url: https://icpc.global/regionals/finder/Daejeon-2016/standings
+    roles:
+    - icpc_standings
+  - url: https://icpckorea.org/2015/REGIONAL/problemset-2015.pdf
+    roles:
+    - problemset
+    as_of: '20160516083542'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1413
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20170707083900'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional - Daejeon 2015
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1413
-        as_of: '20170707083900'
-        note: Asia Regional - Daejeon 2015
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: korea-2015
 - id: korea-2016
   season: 2017
   name: 2016 ACM-ICPC Asia Daejeon Regional Contest
@@ -523,23 +795,39 @@ contests:
   - 3030
   parent: wf-2017
   next: korea-2017
-  web: https://icpckorea.org/2016-daejeon/regional
-  results:
-    scoreboard:
-    - url: https://icpckorea.org/2016/REGIONAL/scoreboard.html
-      as_of: '20241103113049'
-      archived: korea/korea-2016/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/regionals/finder/Daejeon-2017/standings
-  problemset: https://icpckorea.org/2016/REGIONAL/problemset-2016.pdf
+  sources:
+  - url: https://icpckorea.org/2016-daejeon/regional
+    roles:
+    - web
+  - url: https://icpckorea.org/2016/REGIONAL/scoreboard.html
+    roles:
+    - scoreboard
+    as_of: '20241103113049'
+    archived:
+    - korea/korea-2016/external-standings/2026-04-15-external/content.html
+    - korea/korea-2016/scoreboard/20241103-wayback-1c182977/scoreboard.html
+    - korea/korea-2016/scoreboard/20260901-live-2b518fd4/scoreboard.html
+    url_state: live
+    url_checked: '2026-11-01'
+  - url: https://icpc.global/regionals/finder/Daejeon-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://icpckorea.org/2016/REGIONAL/problemset-2016.pdf
+    roles:
+    - problemset
+    as_of: '20190303150603'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1544
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20170707091232'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional - Daejeon 2016
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1544
-        as_of: '20170707091232'
-        note: Asia Regional - Daejeon 2016
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: korea-2016
 - id: korea-2017
   season: 2018
   name: 2017 ACM-ICPC Asia Daejeon Regional Contest
@@ -549,30 +837,43 @@ contests:
   - 3421
   parent: wf-2018
   next: korea-2018
-  web: https://icpckorea.org/2017-daejeon/regional
-  results:
-    scoreboard:
-    - url: http://icpckorea.org/2017/regional/scoreboard/
-      as_of: '20191230085348'
-      url_state: live
-      url_checked: '2026-11-01'
-      archived: korea/korea-2017/external-standings/2026-04-15-external/content.html
-    standings:
-    - url: http://icpckorea.org/2017/regional/scoreboard
-      as_of: '20220808232939'
-      archived: korea/korea-2017/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/regionals/finder/Daejeon-2018/standings
-  problemset: https://icpckorea.org/2017/regional/problemset-2017.pdf
+  sources:
+  - url: https://icpckorea.org/2017-daejeon/regional
+    roles:
+    - web
+  - url: http://icpckorea.org/2017/regional/scoreboard/
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20191230085348'
+    archived:
+    - korea/korea-2017/external-standings/2026-04-15-external/content.html
+    - korea/korea-2017/scoreboard/2026-09-01-wayback-39c3119c/page.html
+    - korea/korea-2017/scoreboard/20261023-live-e978a6c7/page.html
+    - korea/korea-2017/standings/20220808-wayback-6839f8c6/page.html
+    - korea/korea-2017/standings/20261023-live-4c2ab0e6/page.html
+    url_state: live
+    url_checked: '2026-11-01'
+    note: as_of 20220808232939 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Daejeon-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://icpckorea.org/2017/regional/problemset-2017.pdf
+    roles:
+    - problemset
+    as_of: '20200927110049'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1778
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190820102303'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional - Daejeon 2017
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1778
-        as_of: '20190820102303'
-        note: Asia Regional - Daejeon 2017
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: korea-2017
 - id: korea-2018
   season: 2019
   name: 2018 ICPC Asia Seoul Regional Contest
@@ -582,30 +883,43 @@ contests:
   - 3725
   parent: wf-2019
   next: korea-2019
-  web: https://icpckorea.org/2018-seoul/regional
-  results:
-    scoreboard:
-    - url: http://icpckorea.org/2018/regional/scoreboard/
-      as_of: '20200920050447'
-      url_state: live
-      url_checked: '2026-11-01'
-      archived: korea/korea-2018/external-standings/2026-04-15-external/content.html
-    standings:
-    - url: http://icpckorea.org/2018/regional/scoreboard/
-      as_of: '20221005085106'
-      archived: korea/korea-2018/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/regionals/finder/Seoul-2019/standings
-  problemset: https://icpckorea.org/2018/regional/problemset-2018.pdf
+  sources:
+  - url: https://icpckorea.org/2018-seoul/regional
+    roles:
+    - web
+  - url: http://icpckorea.org/2018/regional/scoreboard/
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20200920050447'
+    archived:
+    - korea/korea-2018/external-standings/2026-04-15-external/content.html
+    - korea/korea-2018/scoreboard/2026-09-01-wayback-0013aa6f/page.html
+    - korea/korea-2018/scoreboard/20261023-live-7d2f6a3a/page.html
+    - korea/korea-2018/standings/20221005-wayback-631a9773/page.html
+    - korea/korea-2018/standings/20261023-live-7d2f6a3a/page.html
+    url_state: live
+    url_checked: '2026-11-01'
+    note: as_of 20221005085106 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Seoul-2019/standings
+    roles:
+    - icpc_standings
+  - url: https://icpckorea.org/2018/regional/problemset-2018.pdf
+    roles:
+    - problemset
+    as_of: '20240225073406'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1942
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190821051912'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional - Seoul 2018
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1942
-        as_of: '20190821051912'
-        note: Asia Regional - Seoul 2018
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: korea-2018
 - id: korea-2019
   season: 2020
   name: 2019 ICPC Asia Seoul Regional Contest
@@ -615,30 +929,42 @@ contests:
   - 4154
   parent: wf-2020
   next: korea-2020
-  web: https://icpckorea.org/2019-seoul/regional
-  results:
-    scoreboard:
-    - url: https://icpckorea.org/2019/regional/scoreboard/
-      as_of: '20191215032551'
-      url_state: live
-      url_checked: '2026-11-01'
-      archived: korea/korea-2019/external-standings/2026-04-15-external/content.html
-    standings:
-    - url: http://icpckorea.org/2019/regional/scoreboard/
-      as_of: '20231005002402'
-      archived: korea/korea-2019/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/regionals/finder/Seoul-2020/standings
-  problemset: https://icpckorea.org/2019/regional/problems.pdf
+  sources:
+  - url: https://icpckorea.org/2019-seoul/regional
+    roles:
+    - web
+  - url: https://icpckorea.org/2019/regional/scoreboard/
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20191215032551'
+    archived:
+    - korea/korea-2019/external-standings/2026-04-15-external/content.html
+    - korea/korea-2019/scoreboard/2026-09-01-wayback-315b216e/page.html
+    - korea/korea-2019/scoreboard/20261023-live-272cbfab/page.html
+    - korea/korea-2019/standings/20231005-wayback-034af141/page.html
+    - korea/korea-2019/standings/20261023-live-83ad6430/page.html
+    url_state: live
+    url_checked: '2026-11-01'
+    note: as_of 20231005002402 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Seoul-2020/standings
+    roles:
+    - icpc_standings
+  - url: https://icpckorea.org/2019/regional/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2111
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191209021850'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional - Seoul 2019
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2111
-        as_of: '20191209021850'
-        note: Asia Regional - Seoul 2019
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: korea-2019
 - id: korea-2020
   season: 2021
   name: 2020 ICPC Asia Seoul Regional Contest
@@ -648,22 +974,37 @@ contests:
   - 4329
   parent: wf-2021
   next: korea-2021
-  web: https://icpckorea.org/2020-seoul/regional
-  results:
-    scoreboard:
-    - url: http://static.icpckorea.net/2020/scoreboard_terpin/
-      archived: korea/korea-2020/scoreboard/2026-09-01-live-a7bdb981/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Seoul-2021/standings
-  problemset: https://icpcarchive.github.io/Asia%20Pacific%20Contests/South%20Korea/2020%20Asia%20Seoul%20Regional%20Contest/problems.pdf
+  sources:
+  - url: https://icpckorea.org/2020-seoul/regional
+    roles:
+    - web
+  - url: http://static.icpckorea.net/2020/scoreboard_terpin/
+    roles:
+    - scoreboard
+    as_of: '20201114030147'
+    archived:
+    - korea/korea-2020/scoreboard/2026-09-01-live-a7bdb981/page.html
+    - korea/korea-2020/scoreboard/20201114-wayback-29d5a669/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Seoul-2021/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/South%20Korea/2020%20Asia%20Seoul%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2339
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201201091630'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional - Seoul 2020
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2339
-        as_of: '20201201091630'
-        note: Asia Regional - Seoul 2020
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: korea-2020
 - id: korea-2021
   season: 2022
   name: 2021 ICPC Asia Seoul Regional Contest
@@ -673,22 +1014,37 @@ contests:
   - 4857
   parent: wf-2022
   next: korea-2022
-  web: https://icpckorea.org/2021-seoul/regional
-  results:
-    scoreboard:
-    - url: http://static.icpckorea.net/2021/scoreboard_regional/
-      archived: korea/korea-2021/scoreboard/2026-09-01-live-dd9c5659/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Seoul-2022/standings
-  problemset: https://icpcarchive.github.io/Asia%20Pacific%20Contests/South%20Korea/2021%20Asia%20Seoul%20Regional%20Contest/problems.pdf
+  sources:
+  - url: https://icpckorea.org/2021-seoul/regional
+    roles:
+    - web
+  - url: http://static.icpckorea.net/2021/scoreboard_regional/
+    roles:
+    - scoreboard
+    as_of: '20211114024855'
+    archived:
+    - korea/korea-2021/scoreboard/2026-09-01-live-dd9c5659/page.html
+    - korea/korea-2021/scoreboard/20211114-wayback-2d0850b6/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Seoul-2022/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/South%20Korea/2021%20Asia%20Seoul%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2859
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20211114124927'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional - Seoul 2021
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2859
-        as_of: '20211114124927'
-        note: Asia Regional - Seoul 2021
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: korea-2021
 - id: korea-2022
   season: 2023
   name: 2022 ICPC Asia Seoul Regional Contest
@@ -698,22 +1054,37 @@ contests:
   - 5603
   parent: wf-2023
   next: korea-2023
-  web: https://icpckorea.org/2022-seoul/regional
-  results:
-    scoreboard:
-    - url: http://static.icpckorea.net/20221119/scoreboard/
-      archived: korea/korea-2022/scoreboard/2026-09-01-live-ca610dfe/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Seoul-2023/standings
-  problemset: https://icpcarchive.github.io/Asia%20Pacific%20Contests/South%20Korea/2022%20Asia%20Seoul%20Regional%20Contest/problems.pdf
+  sources:
+  - url: https://icpckorea.org/2022-seoul/regional
+    roles:
+    - web
+  - url: http://static.icpckorea.net/20221119/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20221129011858'
+    archived:
+    - korea/korea-2022/scoreboard/2026-09-01-live-ca610dfe/page.html
+    - korea/korea-2022/scoreboard/20221129-wayback-2a7b71ed/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Seoul-2023/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/South%20Korea/2022%20Asia%20Seoul%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3227
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20221228001705'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional - Seoul 2022
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3227
-        as_of: '20221228001705'
-        note: Asia Regional - Seoul 2022
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: korea-2022
 - id: korea-2023
   season: 2024
   name: 2023 ICPC Asia Seoul Regional Contest
@@ -723,22 +1094,38 @@ contests:
   - 7510
   parent: apc-2024
   next: korea-2024
-  web: https://icpckorea.org/2023-seoul/regional
-  results:
-    scoreboard:
-    - url: http://static.icpckorea.net/2023/regional/scoreboard/
-      archived: korea/korea-2023/scoreboard/2026-09-01-live-5ebfbc64/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Seoul-2024/standings
-  problemset: https://icpckorea.org/archives/2971
+  sources:
+  - url: https://icpckorea.org/2023-seoul/regional
+    roles:
+    - web
+  - url: http://static.icpckorea.net/2023/regional/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20240305080611'
+    archived:
+    - korea/korea-2023/scoreboard/2026-09-01-live-5ebfbc64/page.html
+    - korea/korea-2023/scoreboard/20240305-wayback-4fc2ba93/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Seoul-2024/standings
+    roles:
+    - icpc_standings
+  - url: https://icpckorea.org/archives/2971
+    roles:
+    - problemset
+    as_of: '20240229191155'
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4058
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20240628080124'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Asia Regional - Seoul 2023
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4058
-        as_of: '20240628080124'
-        note: Asia Regional - Seoul 2023
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: korea-2023
 - id: korea-2024
   season: 2025
   name: 2024 ICPC Asia Seoul Regional Onsite Contest
@@ -748,22 +1135,38 @@ contests:
   - 8735
   parent: apc-2025
   next: korea-2025
-  web: https://icpckorea.org/2024-seoul/regional
-  results:
-    scoreboard:
-    - url: http://static.icpckorea.net/2024/regional/scoreboard/
-      archived: korea/korea-2024/scoreboard/2026-09-01-live-0da366a6/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Seoul-2025/standings
-  problemset: http://static.icpckorea.net/2024/regional/problemset.pdf
+  sources:
+  - url: https://icpckorea.org/2024-seoul/regional
+    roles:
+    - web
+  - url: http://static.icpckorea.net/2024/regional/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20241123040445'
+    archived:
+    - korea/korea-2024/scoreboard/2026-09-01-live-0da366a6/page.html
+    - korea/korea-2024/scoreboard/20241123-wayback-404d5d79/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Seoul-2025/standings
+    roles:
+    - icpc_standings
+  - url: http://static.icpckorea.net/2024/regional/problemset.pdf
+    roles:
+    - problemset
+    as_of: '20241202173752'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4348
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20251013045219'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2024 ICPC Asia Seoul Regional
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4348
-        as_of: '20251013045219'
-        note: 2024 ICPC Asia Seoul Regional
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: korea-2024
 - id: korea-2025
   season: 2026
   name: 2025 ICPC Asia Seoul Regional Onsite Contest
@@ -773,22 +1176,37 @@ contests:
   - 9388
   parent: apc-2026
   next: korea-2026
-  web: https://icpckorea.org/2025-seoul/regional
-  results:
-    scoreboard:
-    - url: http://static.icpckorea.net/2025/regional/scoreboard/
-      archived: korea/korea-2025/scoreboard/2026-09-01-live-94c3b01f/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Seoul-2026/standings
-  problemset: http://static.icpckorea.net/2025/regional/problemset.pdf
+  sources:
+  - url: https://icpckorea.org/2025-seoul/regional
+    roles:
+    - web
+  - url: http://static.icpckorea.net/2025/regional/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20260121215406'
+    archived:
+    - korea/korea-2025/scoreboard/2026-09-01-live-94c3b01f/page.html
+    - korea/korea-2025/scoreboard/20260121-wayback-4d16322f/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Seoul-2026/standings
+    roles:
+    - icpc_standings
+  - url: http://static.icpckorea.net/2025/regional/problemset.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4608
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260418233511'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 2025 ICPC Asia Seoul Regional
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4608
-        as_of: '20260418233511'
-        note: 2025 ICPC Asia Seoul Regional
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: korea-2025
 - id: korea-2026
   status: upcoming
   season: 2027

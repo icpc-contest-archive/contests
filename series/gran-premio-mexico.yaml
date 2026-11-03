@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: gran-premio-mexico
   name: ICPC Gran Premio de México
+  tier: subregional
+  region: Latin America
+  naming: season-start
 contests:
 - id: gran-premio-mexico-2015
   season: 2016
@@ -11,17 +14,20 @@ contests:
   cms_ids:
   - 2808
   parent: central-america-2015
+  next: gran-premio-mexico-2016
+  sources:
+  - url: https://eventos.iteso.mx/acm/primera-fase-gran-premio-de-mexico-centroamerica/standing-a-la-fecha-del-gran-premio/
+    roles:
+    - standings
+    as_of: '20250830183233'
+    archived:
+    - gran-premio-mexico/gran-premio-mexico-2015/standings/20250830-wayback-680a48bc/page.html
+    - gran-premio-mexico/gran-premio-mexico-2015/standings/20261020-live-51c02ebc/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (round9-research)
   notes: '340 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
-  next: gran-premio-mexico-2016
-  results:
-    standings:
-    - url: https://eventos.iteso.mx/acm/primera-fase-gran-premio-de-mexico-centroamerica/standing-a-la-fecha-del-gran-premio/
-      as_of: '20250830183233'
-      note: added by url-hunt 2026-09-01 (round9-research)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: gran-premio-mexico/gran-premio-mexico-2015/standings/20250830-wayback-680a48bc/page.html
 - id: gran-premio-mexico-2016
   season: 2017
   name: Gran Premio de Mexico & Centroamerica
@@ -30,16 +36,18 @@ contests:
   cms_ids:
   - 3017
   parent: central-america-2016
+  next: gran-premio-mexico-2017
+  sources:
+  - url: https://eventos.iteso.mx/acm/primera-fase-gran-premio-de-mexico-centroamerica/standing-a-la-fecha-del-gran-premio-2016/
+    roles:
+    - standings
+    archived:
+    - gran-premio-mexico/gran-premio-mexico-2016/standings/20261020-live-5f0cc8f1/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (round9-research)
   notes: '620 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
-  next: gran-premio-mexico-2017
-  results:
-    standings:
-    - url: https://eventos.iteso.mx/acm/primera-fase-gran-premio-de-mexico-centroamerica/standing-a-la-fecha-del-gran-premio-2016/
-      note: added by url-hunt 2026-09-01 (round9-research)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: gran-premio-mexico/gran-premio-mexico-2016/standings/20261020-live-5f0cc8f1/page.html
 - id: gran-premio-mexico-2017
   season: 2018
   name: Gran Premio de Mexico & Centroamerica 2017
@@ -48,17 +56,20 @@ contests:
   cms_ids:
   - 3450
   parent: central-america-2017
+  next: gran-premio-mexico-2018
+  sources:
+  - url: https://eventos.iteso.mx/acm/1-primera-fase-gran-premio-de-mexico-y-centroamerica/sobre-los-concursos-del-gran-premio-2017/resultado-acumulado-a-la-fecha-del-gran-premio-de-mexico-y-centroamerica-2017/
+    roles:
+    - standings
+    as_of: '20250917194827'
+    archived:
+    - gran-premio-mexico/gran-premio-mexico-2017/standings/20250917-wayback-d4ede4b8/page.html
+    - gran-premio-mexico/gran-premio-mexico-2017/standings/20261020-live-d4f0b8f8/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (round9-research)
   notes: '890 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
-  next: gran-premio-mexico-2018
-  results:
-    standings:
-    - url: https://eventos.iteso.mx/acm/1-primera-fase-gran-premio-de-mexico-y-centroamerica/sobre-los-concursos-del-gran-premio-2017/resultado-acumulado-a-la-fecha-del-gran-premio-de-mexico-y-centroamerica-2017/
-      as_of: '20250917194827'
-      note: added by url-hunt 2026-09-01 (round9-research)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: gran-premio-mexico/gran-premio-mexico-2017/standings/20250917-wayback-d4ede4b8/page.html
 - id: gran-premio-mexico-2018
   season: 2019
   name: Gran Premio de Mexico 2018
@@ -67,17 +78,20 @@ contests:
   cms_ids:
   - 3623
   parent: central-america-2018
+  next: gran-premio-mexico-2019
+  sources:
+  - url: https://eventos.iteso.mx/acm/1-primera-fase-gran-premio-de-mexico/sobre-los-concursos-del-gran-premio-2018/resultado-acumulado-del-gran-premio-2018/
+    roles:
+    - standings
+    as_of: '20250828023643'
+    archived:
+    - gran-premio-mexico/gran-premio-mexico-2018/standings/20250828-wayback-ea82d505/page.html
+    - gran-premio-mexico/gran-premio-mexico-2018/standings/20261020-live-56ae1b6a/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (round9-research)
   notes: '778 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
-  next: gran-premio-mexico-2019
-  results:
-    standings:
-    - url: https://eventos.iteso.mx/acm/1-primera-fase-gran-premio-de-mexico/sobre-los-concursos-del-gran-premio-2018/resultado-acumulado-del-gran-premio-2018/
-      as_of: '20250828023643'
-      note: added by url-hunt 2026-09-01 (round9-research)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: gran-premio-mexico/gran-premio-mexico-2018/standings/20250828-wayback-ea82d505/page.html
 - id: gran-premio-mexico-2019
   season: 2020
   name: Gran Premio de Mexico 2019
@@ -86,19 +100,23 @@ contests:
   cms_ids:
   - 4242
   parent: mexico-2019
+  next: gran-premio-mexico-2020
+  sources:
+  - url: https://icpc.global/regionals/finder/mcapgp-2020
+    roles:
+    - web
+  - url: https://eventos.iteso.mx/acm/1-primera-fase-gran-premio-de-mexico-2/sobre-los-concursos-del-granpremiomx2019/granpremiomx2019-resultado-acumulado/
+    roles:
+    - standings
+    as_of: '20250907065742'
+    archived:
+    - gran-premio-mexico/gran-premio-mexico-2019/standings/20250907-wayback-6941c9e2/page.html
+    - gran-premio-mexico/gran-premio-mexico-2019/standings/20261020-live-0405bf86/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (round9-research)
   notes: '1281 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db
     (contest/api_contest/site); +series lineage)'
-  next: gran-premio-mexico-2020
-  results:
-    standings:
-    - url: https://eventos.iteso.mx/acm/1-primera-fase-gran-premio-de-mexico-2/sobre-los-concursos-del-granpremiomx2019/granpremiomx2019-resultado-acumulado/
-      as_of: '20250907065742'
-      note: added by url-hunt 2026-09-01 (round9-research)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: gran-premio-mexico/gran-premio-mexico-2019/standings/20250907-wayback-6941c9e2/page.html
-  web: https://icpc.global/regionals/finder/mcapgp-2020
-  mirrors: []
 - id: gran-premio-mexico-2020
   season: 2021
   name: Gran Premio de Mexico 2020
@@ -107,19 +125,23 @@ contests:
   cms_ids:
   - 4480
   parent: mexico-2020
+  next: gran-premio-mexico-2021
+  sources:
+  - url: https://icpc.global/regionals/finder/mcapgp-2021
+    roles:
+    - web
+  - url: https://eventos.iteso.mx/acm/1-primera-fase-granpremiomx/sobre-los-concursos-del-granpremio2020/clasificacion-a-la-eliminatoria-regional-icpcmx2020/
+    roles:
+    - standings
+    as_of: '20250825110706'
+    archived:
+    - gran-premio-mexico/gran-premio-mexico-2020/standings/20250825-wayback-23a84aed/page.html
+    - gran-premio-mexico/gran-premio-mexico-2020/standings/20261020-live-3fd44b68/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (round9-research)
   notes: '717 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
-  next: gran-premio-mexico-2021
-  results:
-    standings:
-    - url: https://eventos.iteso.mx/acm/1-primera-fase-granpremiomx/sobre-los-concursos-del-granpremio2020/clasificacion-a-la-eliminatoria-regional-icpcmx2020/
-      as_of: '20250825110706'
-      note: added by url-hunt 2026-09-01 (round9-research)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: gran-premio-mexico/gran-premio-mexico-2020/standings/20250825-wayback-23a84aed/page.html
-  web: https://icpc.global/regionals/finder/mcapgp-2021
-  mirrors: []
 - id: gran-premio-mexico-2021
   season: 2022
   name: 2021 ICPC Gran Premio de Mexico
@@ -128,20 +150,24 @@ contests:
   cms_ids:
   - 4705
   parent: mexico-2021
+  next: gran-premio-mexico-2022
+  sources:
+  - url: https://eventos.iteso.mx/acm/1-primera-fase-granpremiomx/sobre-los-concursos-del-granpremiomexico2021/clasificacion-a-la-eliminatoria-regional-icpcmx2021/
+    roles:
+    - standings
+    as_of: '20250824162500'
+    archived:
+    - gran-premio-mexico/gran-premio-mexico-2021/standings/20250824-wayback-f2d2ddc5/page.html
+    - gran-premio-mexico/gran-premio-mexico-2021/standings/20261020-live-a8ec43d6/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://icpc.global/regionals/finder/mcapgp-2022/standings
+    roles:
+    - icpc_standings
+    note: added by url-hunt 2026-09-01 (round9-research)
   notes: '504 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
-  next: gran-premio-mexico-2022
-  results:
-    standings:
-    - url: https://eventos.iteso.mx/acm/1-primera-fase-granpremiomx/sobre-los-concursos-del-granpremiomexico2021/clasificacion-a-la-eliminatoria-regional-icpcmx2021/
-      as_of: '20250824162500'
-      note: added by url-hunt 2026-09-01 (round9-research)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: gran-premio-mexico/gran-premio-mexico-2021/standings/20250824-wayback-f2d2ddc5/page.html
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/mcapgp-2022/standings
-    note: added by url-hunt 2026-09-01 (round9-research)
 - id: gran-premio-mexico-2022
   season: 2023
   name: 2022 ICPC Gran Premio de Mexico
@@ -150,18 +176,25 @@ contests:
   cms_ids:
   - 5533
   parent: mexico-2022
+  next: gran-premio-mexico-2023
+  sources:
+  - url: https://eventos.iteso.mx/acm/1-primera-fase-granpremiomx/sobre-los-concursos-del-granpremiomx2022/clasificacion-a-la-eliminatoria-regional-icpcmx2022/
+    roles:
+    - standings
+    as_of: '20250902015833'
+    archived:
+    - gran-premio-mexico/gran-premio-mexico-2022/standings/20250902-wayback-446fdc40/page.html
+    - gran-premio-mexico/gran-premio-mexico-2022/standings/20261020-live-c3a576c1/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://omegaup.com/arena/ICPCMX2022_1er/
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   notes: '1058 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db
     (contest/api_contest/site); +series lineage)'
-  next: gran-premio-mexico-2023
-  results:
-    standings:
-    - url: https://eventos.iteso.mx/acm/1-primera-fase-granpremiomx/sobre-los-concursos-del-granpremiomx2022/clasificacion-a-la-eliminatoria-regional-icpcmx2022/
-      as_of: '20250902015833'
-      note: added by url-hunt 2026-09-01 (round9-research)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: gran-premio-mexico/gran-premio-mexico-2022/standings/20250902-wayback-446fdc40/page.html
-  problemset: https://omegaup.com/arena/ICPCMX2022_1er/
 - id: gran-premio-mexico-2023
   season: 2024
   name: 2023 ICPC Gran Premio de Mexico
@@ -170,20 +203,28 @@ contests:
   cms_ids:
   - 7545
   parent: mexico-2023
+  next: gran-premio-mexico-2024
+  sources:
+  - url: https://icpc.global/regionals/finder/mcapgp-2024
+    roles:
+    - web
+  - url: https://eventos.iteso.mx/acm/1-primera-fase-granpremiomx/sobre-los-concursos-del-granpremiomx2023/clasificacion-a-la-eliminatoria-regional-icpcmx2023/
+    roles:
+    - standings
+    as_of: '20250830125822'
+    archived:
+    - gran-premio-mexico/gran-premio-mexico-2023/standings/20250830-wayback-05cd70ef/page.html
+    - gran-premio-mexico/gran-premio-mexico-2023/standings/20261020-live-9565fd04/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://codeforces.com/gym/104375
+    roles:
+    - problemset
+    url_state: replaced
+    url_checked: '2026-11-02'
   notes: '1086 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db
     (contest/api_contest/site); +series lineage)'
-  next: gran-premio-mexico-2024
-  results:
-    standings:
-    - url: https://eventos.iteso.mx/acm/1-primera-fase-granpremiomx/sobre-los-concursos-del-granpremiomx2023/clasificacion-a-la-eliminatoria-regional-icpcmx2023/
-      as_of: '20250830125822'
-      note: added by url-hunt 2026-09-01 (round9-research)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: gran-premio-mexico/gran-premio-mexico-2023/standings/20250830-wayback-05cd70ef/page.html
-  web: https://icpc.global/regionals/finder/mcapgp-2024
-  problemset: https://codeforces.com/gym/104375
-  mirrors: []
 - id: gran-premio-mexico-2024
   season: 2025
   name: 2024 ICPC Gran Premio de Mexico
@@ -192,17 +233,20 @@ contests:
   cms_ids:
   - 8956
   parent: mexico-2024
+  next: gran-premio-mexico-2025
+  sources:
+  - url: https://eventos.iteso.mx/acm/1-primera-fase-granpremiomx/sobre-los-concursos-del-granpremiomx2024/clasificacion-a-la-eliminatoria-regional-icpcmx2024/
+    roles:
+    - standings
+    as_of: '20250904010900'
+    archived:
+    - gran-premio-mexico/gran-premio-mexico-2024/standings/20250904-wayback-276e22c4/page.html
+    - gran-premio-mexico/gran-premio-mexico-2024/standings/20261020-live-b9f07041/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (round9-research)
   notes: '1258 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db
     (contest/api_contest/site); +series lineage)'
-  next: gran-premio-mexico-2025
-  results:
-    standings:
-    - url: https://eventos.iteso.mx/acm/1-primera-fase-granpremiomx/sobre-los-concursos-del-granpremiomx2024/clasificacion-a-la-eliminatoria-regional-icpcmx2024/
-      as_of: '20250904010900'
-      note: added by url-hunt 2026-09-01 (round9-research)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: gran-premio-mexico/gran-premio-mexico-2024/standings/20250904-wayback-276e22c4/page.html
 - id: gran-premio-mexico-2025
   season: 2026
   name: 2025 ICPC Gran Premio de Mexico
@@ -211,19 +255,23 @@ contests:
   cms_ids:
   - 9410
   parent: mexico-2025
+  next: gran-premio-mexico-2026
+  sources:
+  - url: https://icpc.global/regionals/finder/mcapgp-2026
+    roles:
+    - web
+  - url: https://eventos.iteso.mx/acm/1-primera-fase-granpremiomx/sobre-los-concursos-del-granpremiomx2025/clasificacion-a-la-final-mexicana-icpcmx2025/
+    roles:
+    - standings
+    as_of: '20250914055551'
+    archived:
+    - gran-premio-mexico/gran-premio-mexico-2025/standings/20250914-wayback-1cef157e/page.html
+    - gran-premio-mexico/gran-premio-mexico-2025/standings/20261020-live-f4619267/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (round9-research)
   notes: '1177 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db
     (contest/api_contest/site); +series lineage)'
-  next: gran-premio-mexico-2026
-  results:
-    standings:
-    - url: https://eventos.iteso.mx/acm/1-primera-fase-granpremiomx/sobre-los-concursos-del-granpremiomx2025/clasificacion-a-la-final-mexicana-icpcmx2025/
-      as_of: '20250914055551'
-      note: added by url-hunt 2026-09-01 (round9-research)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: gran-premio-mexico/gran-premio-mexico-2025/standings/20250914-wayback-1cef157e/page.html
-  web: https://icpc.global/regionals/finder/mcapgp-2026
-  mirrors: []
 - id: gran-premio-mexico-2026
   season: 2027
   name: 2026 ICPC Gran Premio de Mexico
@@ -232,18 +280,27 @@ contests:
   cms_ids:
   - 9817
   parent: mexico-2026
+  sources:
+  - url: https://eventos.iteso.mx/acm/1-primera-fase-granpremiomx/sobre-los-concursos-del-gran-premio-de-mexico-2026/clasificacion-a-la-final-mexicana-icpc-2026/
+    roles:
+    - standings
+    archived:
+    - gran-premio-mexico/gran-premio-mexico-2026/standings/20261020-live-8051c7c4/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://codeforces.com/gym/106495/standings
+    roles:
+    - standings
+    archived:
+    - gran-premio-mexico/gran-premio-mexico-2026/standings/20261020-live-22e03fae/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://codeforces.com/gym/106495
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   notes: '492 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
-  results:
-    standings:
-    - url: https://eventos.iteso.mx/acm/1-primera-fase-granpremiomx/sobre-los-concursos-del-gran-premio-de-mexico-2026/clasificacion-a-la-final-mexicana-icpc-2026/
-      note: added by url-hunt 2026-09-01 (round9-research)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: gran-premio-mexico/gran-premio-mexico-2026/standings/20261020-live-8051c7c4/page.html
-    - url: https://codeforces.com/gym/106495/standings
-      note: added by url-hunt 2026-09-01 (round9-research)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: gran-premio-mexico/gran-premio-mexico-2026/standings/20261020-live-22e03fae/page.html
-  problemset: https://codeforces.com/gym/106495

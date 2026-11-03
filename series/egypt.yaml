@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: egypt
   name: ICPC Egyptian Collegiate Programming Contest
+  tier: subregional
+  region: Africa & Arab
+  naming: season-start
 contests:
 - id: egypt-2008
   season: 2009
@@ -11,7 +14,10 @@ contests:
   - 89
   parent: acpc-2008
   next: egypt-2009
-  web: http://acm.fci-cu.edu.eg/
+  sources:
+  - url: http://acm.fci-cu.edu.eg/
+    roles:
+    - web
 - id: egypt-2009
   season: 2010
   name: 2009 Egyptian National Programming Contest
@@ -21,23 +27,30 @@ contests:
   - 512
   parent: acpc-2009
   next: egypt-2010
-  results:
-    scoreboard:
-    - url: https://acm.fci-cu.edu.eg/archive/summaryENC09.html
-      as_of: '20091115140609'
-      archived: egypt/egypt-2009/scoreboard/2026-09-01-wayback-b4a4cedb/summaryENC09.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://acm.fci-cu.edu.eg/archive/summaryENC09.html
-      as_of: '20100908115942'
-      archived: egypt/egypt-2009/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Egyptian-2010/standings
-  web: http://acm.fci-cu.edu.eg
-  problemset: https://groups.google.com/group/acm-egypt/attach/5973777a7e9e9c7/ENC09.pdf?part=0.2
+  sources:
+  - url: http://acm.fci-cu.edu.eg
+    roles:
+    - web
+  - url: https://acm.fci-cu.edu.eg/archive/summaryENC09.html
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20091115140609'
+    archived:
+    - egypt/egypt-2009/scoreboard/2026-09-01-wayback-b4a4cedb/summaryENC09.html
+    - egypt/egypt-2009/external-standings/2026-04-15-external/content.html
+    - egypt/egypt-2009/standings/20091115-wayback-92667efe/summaryENC09.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: as_of 20100908115942 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Egyptian-2010/standings
+    roles:
+    - icpc_standings
+  - url: https://groups.google.com/group/acm-egypt/attach/5973777a7e9e9c7/ENC09.pdf?part=0.2
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: egypt-2010
   season: 2011
   name: 2010 Egyptian National Programming Contest
@@ -47,11 +60,16 @@ contests:
   - 582
   parent: acpc-2010
   next: egypt-2011
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/ECPC-2011/standings
-    archived: egypt/egypt-2010/standings/api-20260904/standings.html
+  sources:
+  - url: http://acm.fci-cu.edu.eg/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/ECPC-2011/standings
+    roles:
+    - icpc_standings
+    archived:
+    - egypt/egypt-2010/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 582, 51 teams, DB fetch 2026-04-26)
-  web: http://acm.fci-cu.edu.eg/
 - id: egypt-2011
   season: 2012
   name: 2011 Egyptian National Programming Contest
@@ -61,15 +79,16 @@ contests:
   - 747
   parent: acpc-2011
   next: egypt-2012
-  icpc_standings: https://icpc.global/regionals/finder/ECPC-2012/standings
-  web: https://aast.edu/en/centers/ric/contenttemp.php?page_id=41100066
-  mirrors:
-  - url: https://www.facebook.com/EgyptCPC/
-    note: added by url-hunt 2026-09-01 (round9-research)
+  sources:
+  - url: https://aast.edu/en/centers/ric/contenttemp.php?page_id=41100066
+    roles:
+    - web
+    also_at:
+    - https://www.facebook.com/EgyptCPC/
+    - https://icpc.global/regionals/finder/ECPC-2012
   - url: https://icpc.global/regionals/finder/ECPC-2012/standings
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: https://icpc.global/regionals/finder/ECPC-2012
-    note: added by url-hunt 2026-09-01 (round9-deep-D4)
+    roles:
+    - icpc_standings
 - id: egypt-2012
   season: 2013
   name: 2012 Egyptian Collegiate Programming Contest
@@ -79,11 +98,16 @@ contests:
   - 1349
   parent: acpc-2012
   next: egypt-2013
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/ECPC-2013/standings
-    archived: egypt/egypt-2012/standings/api-20260904/standings.html
+  sources:
+  - url: http://egypt.acmacpc.org
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/ECPC-2013/standings
+    roles:
+    - icpc_standings
+    archived:
+    - egypt/egypt-2012/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 1349, 94 teams, DB fetch 2026-04-26)
-  web: http://egypt.acmacpc.org
 - id: egypt-2013
   season: 2014
   name: 2013 Egyptian Collegiate Programming Contest
@@ -93,14 +117,23 @@ contests:
   - 2060
   parent: acpc-2013
   next: egypt-2014
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/100283/standings
-      archived: egypt/egypt-2013/scoreboard/2026-09-01-live-b160a78c/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/ECPC-2014/standings
-  problemset: https://codeforces.com/gym/100283
+  sources:
+  - url: https://codeforces.com/gym/100283/standings
+    roles:
+    - scoreboard
+    archived:
+    - egypt/egypt-2013/scoreboard/2026-09-01-live-b160a78c/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/ECPC-2014/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/100283
+    roles:
+    - problemset
+    as_of: '20260226090830'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: egypt-2014
   season: 2015
   name: 2014 Egyptian Collegiate Programming Contest
@@ -110,9 +143,12 @@ contests:
   - 2635
   parent: acpc-2014
   next: egypt-2015
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/ECPC-2015/standings
-    archived: egypt/egypt-2014/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/ECPC-2015/standings
+    roles:
+    - icpc_standings
+    archived:
+    - egypt/egypt-2014/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 2635, 159 teams, DB fetch 2026-04-26)
 - id: egypt-2015
   season: 2016
@@ -123,16 +159,26 @@ contests:
   - 2845
   parent: acpc-2015
   next: egypt-2016
-  icpc_standings: https://icpc.global/regionals/finder/ECPC-2016/standings
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/100814/standings
-      as_of: '20160408222024'
-      note: added by url-hunt 2026-09-01 (wave3-cfgym)
-      url_state: changed
-      url_checked: '2026-11-02'
-      archived: egypt/egypt-2015/scoreboard/20160408-wayback-49903978/page.html
-  problemset: https://codeforces.com/gym/100814
+  sources:
+  - url: https://codeforces.com/gym/100814/standings
+    roles:
+    - scoreboard
+    as_of: '20160408222024'
+    archived:
+    - egypt/egypt-2015/scoreboard/20160408-wayback-49903978/page.html
+    - egypt/egypt-2015/scoreboard/20260902-live-81a55e34/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-cfgym)
+  - url: https://icpc.global/regionals/finder/ECPC-2016/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/100814
+    roles:
+    - problemset
+    as_of: '20221218193409'
+    url_state: replaced
+    url_checked: '2026-11-02'
 - id: egypt-2016
   season: 2017
   name: 2016 Egyptian Collegiate Programming Contest
@@ -142,16 +188,26 @@ contests:
   - 3179
   parent: acpc-2016
   next: egypt-2017
-  icpc_standings: https://icpc.global/regionals/finder/ECPC-2017/standings
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/101147/standings
-      as_of: '20170706034620'
-      note: added by url-hunt 2026-09-01 (wave3-cfgym)
-      url_state: changed
-      url_checked: '2026-11-02'
-      archived: egypt/egypt-2016/scoreboard/20170706-wayback-9dc64fa4/page.html
-  problemset: https://codeforces.com/gym/101147
+  sources:
+  - url: https://codeforces.com/gym/101147/standings
+    roles:
+    - scoreboard
+    as_of: '20170706034620'
+    archived:
+    - egypt/egypt-2016/scoreboard/20170706-wayback-9dc64fa4/page.html
+    - egypt/egypt-2016/scoreboard/20260902-live-74fdf6e9/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-cfgym)
+  - url: https://icpc.global/regionals/finder/ECPC-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/101147
+    roles:
+    - problemset
+    as_of: '20170706032046'
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: egypt-2017
   season: 2018
   name: 2017 Egyptian Collegiate Programming Contest
@@ -161,16 +217,25 @@ contests:
   - 3343
   parent: acpc-2017
   next: egypt-2018
-  icpc_standings: https://icpc.global/regionals/finder/ECPC-2018/standings
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/101840/standings
-      as_of: '20190409001906'
-      note: added by url-hunt 2026-09-01 (wave3-cfgym)
-      url_state: changed
-      url_checked: '2026-11-02'
-      archived: egypt/egypt-2017/scoreboard/20190409-wayback-45921562/page.html
-  problemset: https://drive.google.com/open?id=0B7pnI6IXRy5Mek5MSUFmeG9aU1k
+  sources:
+  - url: https://codeforces.com/gym/101840/standings
+    roles:
+    - scoreboard
+    as_of: '20190409001906'
+    archived:
+    - egypt/egypt-2017/scoreboard/20190409-wayback-45921562/page.html
+    - egypt/egypt-2017/scoreboard/20260902-live-6efe95fd/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-cfgym)
+  - url: https://icpc.global/regionals/finder/ECPC-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/open?id=0B7pnI6IXRy5Mek5MSUFmeG9aU1k
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: egypt-2018
   season: 2019
   name: 2018 Egyptian Collegiate Programming Contest
@@ -180,15 +245,23 @@ contests:
   - 3573
   parent: acpc-2018
   next: egypt-2019
-  icpc_standings: https://icpc.global/regionals/finder/ECPC-2019/standings
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/101992/standings
-      note: added by url-hunt 2026-09-01 (wave3-cfgym)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: egypt/egypt-2018/scoreboard/20260902-live-4c22cd55/page.html
-  problemset: https://codeforces.com/gym/101992
+  sources:
+  - url: https://codeforces.com/gym/101992/standings
+    roles:
+    - scoreboard
+    archived:
+    - egypt/egypt-2018/scoreboard/20260902-live-4c22cd55/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-cfgym)
+  - url: https://icpc.global/regionals/finder/ECPC-2019/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/101992
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: egypt-2019
   season: 2020
   name: 2019 Egyptian Collegiate Programming Contest
@@ -198,9 +271,12 @@ contests:
   - 3989
   parent: acpc-2019
   next: egypt-2020
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/ECPC-2020/standings
-    archived: egypt/egypt-2019/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/ECPC-2020/standings
+    roles:
+    - icpc_standings
+    archived:
+    - egypt/egypt-2019/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3989, 165 teams, DB fetch 2026-04-26)
 - id: egypt-2020
   season: 2021
@@ -211,9 +287,12 @@ contests:
   - 4433
   parent: acpc-2020
   next: egypt-2021
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/ECPC-2021/standings
-    archived: egypt/egypt-2020/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/ECPC-2021/standings
+    roles:
+    - icpc_standings
+    archived:
+    - egypt/egypt-2020/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4433, 139 teams, DB fetch 2026-04-26)
 - id: egypt-2021
   season: 2022
@@ -224,9 +303,12 @@ contests:
   - 4791
   parent: acpc-2021
   next: egypt-2022
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/ECPC-2022/standings
-    archived: egypt/egypt-2021/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/ECPC-2022/standings
+    roles:
+    - icpc_standings
+    archived:
+    - egypt/egypt-2021/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4791, 180 teams, DB fetch 2026-04-26)
 - id: egypt-2022
   season: 2023
@@ -237,14 +319,22 @@ contests:
   - 5454
   parent: acpc-2022
   next: egypt-2023
-  results:
-    frozen_scoreboard:
-    - url: https://acpcsb.acpc.global/ecpc2022/summary.html
-      archived: egypt/egypt-2022/frozen_scoreboard/2026-09-01-live-5664d5b6/summary.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/ECPC-2023/standings
-  web: https://acpcsb.acpc.global/ecpc2022/ECPC.html
+  sources:
+  - url: https://acpcsb.acpc.global/ecpc2022/ECPC.html
+    roles:
+    - web
+  - url: https://acpcsb.acpc.global/ecpc2022/summary.html
+    roles:
+    - frozen_scoreboard
+    as_of: '20220827233349'
+    archived:
+    - egypt/egypt-2022/frozen_scoreboard/2026-09-01-live-5664d5b6/summary.html
+    - egypt/egypt-2022/frozen_scoreboard/20220827-wayback-94e51386/summary.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/ECPC-2023/standings
+    roles:
+    - icpc_standings
 - id: egypt-2023
   season: 2024
   name: 2023 ICPC Egyptian Collegiate Programming Contest
@@ -254,15 +344,19 @@ contests:
   - 7659
   parent: acpc-2023
   next: egypt-2024
-  results:
-    frozen_scoreboard:
-    - url: https://scoreboard.acpc.global/ecpc2023/
-      as_of: '20230824071145'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: egypt/egypt-2023/frozen_scoreboard/20230824-wayback-51c646bb/page.html
-  icpc_standings: https://icpc.global/regionals/finder/ECPC-2024/standings
-  web: https://scoreboard.acpc.global/ecpc2023/
+  sources:
+  - url: https://scoreboard.acpc.global/ecpc2023/
+    roles:
+    - web
+    - frozen_scoreboard
+    as_of: '20230824071145'
+    archived:
+    - egypt/egypt-2023/frozen_scoreboard/20230824-wayback-51c646bb/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/ECPC-2024/standings
+    roles:
+    - icpc_standings
 - id: egypt-2024
   season: 2025
   name: 2024 ICPC Egyptian Collegiate Programming Contest
@@ -272,14 +366,18 @@ contests:
   - 8834
   parent: acpc-2024
   next: egypt-2025
-  results:
-    frozen_scoreboard:
-    - url: https://scoreboard.acpc.global/ecpc2024/
-      as_of: '20260810134335'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: egypt/egypt-2024/frozen_scoreboard/20260810-wayback-ec202da8/page.html
-  icpc_standings: https://icpc.global/regionals/finder/ECPC-2025/standings
+  sources:
+  - url: https://scoreboard.acpc.global/ecpc2024/
+    roles:
+    - frozen_scoreboard
+    as_of: '20260810134335'
+    archived:
+    - egypt/egypt-2024/frozen_scoreboard/20260810-wayback-ec202da8/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/ECPC-2025/standings
+    roles:
+    - icpc_standings
 - id: egypt-2025
   season: 2026
   name: 2025 ICPC Egyptian Collegiate Programming Contest
@@ -289,14 +387,18 @@ contests:
   - 9271
   parent: acpc-2025
   next: egypt-2026
-  results:
-    frozen_scoreboard:
-    - url: https://scoreboard.acpc.global/ecpc2025/
-      as_of: '20260810134335'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: egypt/egypt-2025/frozen_scoreboard/20260810-wayback-acd9cb84/page.html
-  icpc_standings: https://icpc.global/regionals/finder/ECPC-2026/standings
+  sources:
+  - url: https://scoreboard.acpc.global/ecpc2025/
+    roles:
+    - frozen_scoreboard
+    as_of: '20260810134335'
+    archived:
+    - egypt/egypt-2025/frozen_scoreboard/20260810-wayback-acd9cb84/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/ECPC-2026/standings
+    roles:
+    - icpc_standings
 - id: egypt-2026
   status: upcoming
   season: 2027
@@ -304,4 +406,7 @@ contests:
   cms_ids:
   - 9732
   parent: acpc-2026
-  web: https://acpcsb.acpc.global/ECPC2026/all.html
+  sources:
+  - url: https://acpcsb.acpc.global/ECPC2026/all.html
+    roles:
+    - web

@@ -16,7 +16,7 @@ from pathlib import Path
 import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from resources import is_wrapper  # noqa: E402
+from resources import is_wrapper, norm_key  # noqa: E402
 
 try:
     from jsonschema import Draft202012Validator
@@ -75,15 +75,24 @@ def main() -> int:
 
     for sid, doc in series_docs.items():
         for c in doc["contests"]:
-            for w in refs(c.get("web")):
-                check_locator(f"{c['id']}.web", w)
-            for w in refs(c.get("problemset")):
-                check_locator(f"{c['id']}.problemset", w)
-            for m in c.get("mirrors") or []:
-                check_locator(f"{c['id']}.mirrors", m)
-            for kind, lst in (c.get("results") or {}).items():
-                for e in lst:
-                    check_locator(f"{c['id']}.results.{kind}", e)
+            seen_addr: dict[str, str] = {}
+            for s in c.get("sources") or []:
+                check_locator(f"{c['id']}.sources", s)
+                for a in s.get("also_at") or []:
+                    check_locator(f"{c['id']}.sources.also_at", a)
+                k = norm_key(s["url"])
+                if k in seen_addr:
+                    err(f"{c['id']}: address listed twice in sources ({s['url']}); merge the roles")
+                seen_addr[k] = s["url"]
+                if ("judge_page" in s["roles"]) != bool(s.get("judge")):
+                    err(f"{c['id']}: source {s['url'][:80]}: judge_page role and `judge:` must go together")
+                if s.get("url_checked") and not s.get("url_state"):
+                    err(f"{c['id']}: source {s['url'][:80]}: url_checked without url_state")
+            for r in c.get("none") or []:
+                if any(r in s["roles"] for s in c.get("sources") or []):
+                    err(f"{c['id']}: role {r} is both in none: and on a source")
+            if "mirrors" in c or "web" in c or "results" in c or "problemset" in c or "icpc_standings" in c:
+                err(f"{c['id']}: pre-2026-11 field present (web/results/problemset/mirrors/icpc_standings) — run tools/migrate_sources.py")
 
     # ---- index all mainline contests ----
     contests: dict[str, dict] = {}
@@ -137,6 +146,21 @@ def main() -> int:
             diff = d.year - int(m.group(1))
             if diff < 0 or diff > 2:
                 warn(f"{cid}: date {c['date']} vs name year (diff {diff:+d})")
+        # id year follows the series' naming pattern (DEFINITIONS.md, Naming)
+        naming = series_docs[series_of[cid]]["series"].get("naming")
+        if naming and c.get("season") and (m := re.search(r"-(\d{4})$", cid)):
+            expected = c["season"] if naming == "season-end" else c["season"] - 1
+            if int(m.group(1)) != expected:
+                err(f"{cid}: id year {m.group(1)} but season {c['season']} and series naming is {naming} "
+                    f"(expected {series_of[cid]}-{expected})")
+
+    for sid, doc in series_docs.items():
+        h = doc["series"]
+        for k in ("tier", "naming"):
+            if not h.get(k):
+                warn(f"{sid}: series header has no {k}")
+        if not h.get("region") and sid != "wf":
+            warn(f"{sid}: series header has no region")
 
     # ---- wf reachability ----
     def reaches_wf(cid, seen=None):
@@ -183,86 +207,110 @@ def main() -> int:
         if c["id"] in contests:
             err(f"{c['id']} present in both series/ and non-mainline registry")
 
-    # ---- problems: contest blocks + problems/<id>.yaml (DEFINITIONS.md, Problems) ----
-    pschema = json.loads((ROOT / "schema" / "problems.schema.json").read_text())
+    # ---- problem sets: problemsets/<set-id>.yaml + contest links (DEFINITIONS.md, Problems) ----
+    judges_doc = yaml.safe_load((ROOT / "judges.yaml").read_text())
+    judge_ids = {j["id"] for j in judges_doc["judges"]}
+    for cid, c in contests.items():
+        for s in c.get("sources") or []:
+            if s.get("judge") and s["judge"] not in judge_ids:
+                err(f"{cid}: unknown judge {s['judge']!r} (add it to judges.yaml)")
+    pschema = json.loads((ROOT / "schema" / "problemsets.schema.json").read_text())
     pvalidator = Draft202012Validator(pschema)
-    pblock_schema = {"$ref": "#/$defs/problemsBlock", "$defs": schema["$defs"]}
-    pblock_validator = Draft202012Validator(pblock_schema)
     all_known = {**{c["id"]: c for c in non_mainline["non_mainline_contests"]}, **contests}
-    for cid, c in all_known.items():
-        pb = c.get("problems")
-        if pb is None:
-            continue
-        if cid not in contests:  # series files are schema-checked above; the registry is not
-            for e in pblock_validator.iter_errors(pb):
-                err(f"non-mainline {cid}: problems: {'/'.join(map(str, e.path))}: {e.message[:140]}")
-        for key in ("judges",):
-            for v in (pb.get(key) or {}).values():
-                for loc in (v if isinstance(v, list) else [v]):
-                    check_locator(f"{cid}.problems.judges", loc)
-        if pb.get("counts"):
-            for k, n in pb["counts"].items():
-                if pb.get(k) != "partial":
-                    err(f"{cid}: problems.counts.{k} given but {k} is {pb.get(k)!r} (counts are for partial kinds only)")
-                if pb.get("count") is not None and not 0 < n < pb["count"]:
-                    err(f"{cid}: problems.counts.{k}={n} is not strictly between 0 and count={pb['count']}")
-        # problem data must never be published before the contest has run
-        d = parse_date(c.get("date"))
-        if c.get("status") == "upcoming" or (d and d > TODAY):
-            if pb.get("count") or any(pb.get(k) not in (None, "none") for k in ("statement", "data", "solutions", "package")) or pb.get("repo"):
-                err(f"{cid}: problem data on a contest that has not run yet (upcoming / dated {c.get('date')}) — not publishable")
-    uuid_owner: dict[str, list[str]] = defaultdict(list)
-    pdir = ROOT / "problems"
+    sets: dict[str, dict] = {}
+    pdir = ROOT / "problemsets"
     for f in sorted(pdir.glob("*.yaml")) if pdir.exists() else []:
         doc = yaml.safe_load(f.read_text())
         for e in pvalidator.iter_errors(doc):
-            err(f"problems/{f.name}: schema: {'/'.join(map(str, e.path))}: {e.message[:140]}")
-        cid = doc.get("contest")
-        if cid != f.stem:
-            err(f"problems/{f.name}: contest {cid!r} != filename")
-        c = all_known.get(cid)
-        if c is None:
-            err(f"problems/{f.name}: contest {cid!r} is not in the catalogue or the non-mainline registry")
+            err(f"problemsets/{f.name}: schema: {'/'.join(map(str, e.path))}: {e.message[:140]}")
+        if doc.get("id") != f.stem:
+            err(f"problemsets/{f.name}: id {doc.get('id')!r} != filename")
+        sets[f.stem] = doc
+    set_users: dict[str, list[str]] = defaultdict(list)
+    for cid, c in all_known.items():
+        pb = c.get("problems")
+        if not pb:
             continue
-        if c.get("status") == "upcoming" or ((d := parse_date(c.get("date"))) and d > TODAY):
-            err(f"problems/{f.name}: per-problem data for a contest that has not run yet — not publishable")
+        if cid not in contests:
+            for e in Draft202012Validator({"$ref": "#/$defs/problemsBlock", "$defs": schema["$defs"]}).iter_errors(pb):
+                err(f"non-mainline {cid}: problems: {e.message[:140]}")
+        sid_ = pb.get("set")
+        if sid_ not in sets:
+            err(f"{cid}: problems.set {sid_!r} has no problemsets/{sid_}.yaml")
+            continue
+        set_users[sid_].append(cid)
+        if cid not in {e["contest"] for e in sets[sid_]["contests"]}:
+            err(f"{cid}: links to set {sid_} but the set does not list it under contests")
+    pid_owner: dict[str, set] = defaultdict(set)
+    uuid_owner: dict[str, set] = defaultdict(set)
+    for sid_, doc in sets.items():
         probs = doc.get("problems") or []
-        letters = [p.get("letter") for p in probs if p.get("letter")]
-        if len(set(letters)) != len(letters):
-            err(f"problems/{f.name}: duplicate letters {sorted(l for l in letters if letters.count(l) > 1)}")
-        if len(letters) < len(probs) and doc.get("letters") != "unknown":
-            err(f"problems/{f.name}: {len(probs) - len(letters)} problem(s) without a letter — set letters: unknown or add them")
-        pb = c.get("problems") or {}
-        if doc.get("complete") is False:
-            if pb.get("count") is not None and len(probs) > pb["count"]:
-                err(f"problems/{f.name}: {len(probs)} problems listed but {cid} says count {pb['count']}")
-            elif pb.get("count") is not None and len(probs) == pb["count"] and all(p.get("letter") for p in probs):
-                warn(f"problems/{f.name}: marked incomplete but lists all {pb['count']} problems with letters — drop complete: false")
-        elif pb.get("count") is None:
-            err(f"problems/{f.name}: contest {cid} has no problems.count (set it to {len(probs)}, or mark the file complete: false)")
-        elif pb["count"] != len(probs):
-            err(f"problems/{f.name}: {len(probs)} problems listed but {cid} says count {pb['count']}")
-        for kind, key in (("statement", "statement"), ("data", "data"), ("solutions", "solutions"), ("package", "package")):
-            if pb.get(kind) is None or not all("have" in p for p in probs):
-                continue  # holdings per problem not recorded (judge-derived list): nothing to compare
-            n = sum(1 for p in probs if key in (p.get("have") or []))
-            implied = "full" if n == len(probs) else ("none" if n == 0 else "partial")
-            if implied != pb[kind]:
-                err(f"problems/{f.name}: {kind} is {pb[kind]} on the contest but the problem rows say {implied} ({n}/{len(probs)})")
+        ids = [p["id"] for p in probs]
+        if len(set(ids)) != len(ids):
+            err(f"problemsets/{sid_}.yaml: duplicate problem id")
         for p in probs:
+            pid_owner[p["id"]].add((p.get("uuid"), p["name"]))
             if p.get("uuid"):
-                uuid_owner[p["uuid"]].append(f"{cid}/{p.get('letter')}")
-            for v in (p.get("judges") or {}).values():
-                for loc in (v if isinstance(v, list) else [v]):
-                    check_locator(f"problems/{f.name} {p.get('letter')}.judges", loc)
-    # a uuid may legitimately recur (the same problem reused in another contest) but never twice in one contest
-    for u, owners in uuid_owner.items():
-        by_contest = defaultdict(list)
-        for o in owners:
-            by_contest[o.split("/")[0]].append(o)
-        for cid, os_ in by_contest.items():
-            if len(os_) > 1:
-                err(f"uuid {u} appears twice in {cid}: {os_}")
+                uuid_owner[p["uuid"]].add(p["id"])
+            for j in p.get("judges") or []:
+                if j["judge"] not in judge_ids:
+                    err(f"problemsets/{sid_}.yaml {p['id']}: unknown judge {j['judge']!r}")
+                check_locator(f"problemsets/{sid_}.yaml {p['id']}.judges", j["url"])
+        members = [e["contest"] for e in doc["contests"]]
+        for e in doc["contests"]:
+            m = e["contest"]
+            c = all_known.get(m)
+            if c is None:
+                err(f"problemsets/{sid_}.yaml: contest {m!r} is not in the catalogue or the non-mainline registry")
+                continue
+            if (c.get("problems") or {}).get("set") != sid_:
+                err(f"problemsets/{sid_}.yaml lists {m} but {m} links to set {(c.get('problems') or {}).get('set')!r}")
+            # nothing about a set is publishable before every contest that uses it has run
+            d = parse_date(c.get("date"))
+            if c.get("status") == "upcoming" or (d and d > TODAY):
+                if probs or doc.get("repo") or any(doc.get(k) not in (None, "none") for k in ("statement", "data", "solutions", "package")):
+                    err(f"problemsets/{sid_}.yaml: problem data on a contest that has not run yet ({m}, {c.get('date')}) — not publishable")
+            letters = e.get("letters") or {}
+            for letter, pid_ in letters.items():
+                if pid_ not in ids:
+                    err(f"problemsets/{sid_}.yaml: {m} letter {letter} -> {pid_} is not a problem of the set")
+            if len(set(letters.values())) != len(letters):
+                err(f"problemsets/{sid_}.yaml: {m} maps two letters to one problem")
+        if len(members) != len(set(members)):
+            err(f"problemsets/{sid_}.yaml: a contest is listed twice")
+        n, cnt = len(probs), doc.get("count")
+        if doc.get("complete") is False:
+            if cnt is not None and n > cnt:
+                err(f"problemsets/{sid_}.yaml: {n} problems listed but count {cnt}")
+        elif probs:
+            if cnt is None:
+                err(f"problemsets/{sid_}.yaml: {n} problems but no count (set count: {n}, or complete: false)")
+            elif cnt != n:
+                err(f"problemsets/{sid_}.yaml: {n} problems listed but count {cnt} (mark complete: false if the list is partial)")
+        if probs and doc.get("letters") != "unknown" and not any(e.get("letters") for e in doc["contests"]):
+            err(f"problemsets/{sid_}.yaml: problems listed but no contest has a letter map — add one or set letters: unknown")
+        if doc.get("counts"):
+            for k, v in doc["counts"].items():
+                if doc.get(k) != "partial":
+                    err(f"problemsets/{sid_}.yaml: counts.{k} given but {k} is {doc.get(k)!r}")
+                if cnt is not None and not 0 < v < cnt:
+                    err(f"problemsets/{sid_}.yaml: counts.{k}={v} not strictly between 0 and count={cnt}")
+        for kind in ("statement", "data", "solutions", "package"):
+            if doc.get(kind) is None or not probs or not all("have" in p for p in probs) or doc.get("complete") is False:
+                continue
+            k = sum(1 for p in probs if kind in (p.get("have") or []))
+            implied = "full" if k == n else ("none" if k == 0 else "partial")
+            if implied != doc[kind]:
+                err(f"problemsets/{sid_}.yaml: {kind} is {doc[kind]} but the problem rows say {implied} ({k}/{n})")
+    for sid_ in sets:
+        if sid_ not in set_users:
+            warn(f"problemsets/{sid_}.yaml is used by no contest")
+    for i, names in pid_owner.items():
+        if len({u for u, _ in names if u}) > 1:
+            err(f"problem id {i} carries two different uuids: {sorted(names)}")
+    for u, ids_ in uuid_owner.items():
+        if len(ids_) > 1:
+            err(f"uuid {u} appears under two problem ids {sorted(ids_)} — merge them (aliases)")
 
     # ---- lineage symmetry ----
     for sid, doc in series_docs.items():

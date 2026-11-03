@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: nanning
   name: ACM-ICPC Asia Nanning Regional Contest
+  tier: regional
+  region: Asia East
+  naming: season-start
 contests:
 - id: nanning-2017
   season: 2018
@@ -12,25 +15,34 @@ contests:
   - 3370
   parent: wf-2018
   next: null
-  results:
-    scoreboard:
-    - url: http://board.acmicpc.info/icpc2017/gxu_onsite.php
-      as_of: '20171228131523'
-      archived: nanning/nanning-2017/scoreboard/2026-09-01-wayback-746454b6/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://board.acmicpc.info/icpc2017/gxu_onsite.php
-      as_of: '20171228131523'
-      note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://acm.gxu.edu.cn/
-      as_of: '20250427135118'
-      archived: nanning/nanning-2017/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/AR-Nanning-2018/standings
-  web: http://acm.gxu.edu.cn
-  problemset: https://qoj.ac/contest/2114
+  sources:
+  - url: http://acm.gxu.edu.cn
+    roles:
+    - web
+    - standings
+    as_of: '20250427135118'
+    archived:
+    - nanning/nanning-2017/external-standings/2026-04-15-external/content.html
+    - nanning/nanning-2017/standings/20250427-wayback-3ec77130/page.html
+    - nanning/nanning-2017/standings/20261101-live-b93b8711/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: http://board.acmicpc.info/icpc2017/gxu_onsite.php
+    roles:
+    - scoreboard
+    as_of: '20171228131523'
+    archived:
+    - nanning/nanning-2017/scoreboard/2026-09-01-wayback-746454b6/page.html
+    - nanning/nanning-2017/scoreboard/20171228-wayback-fd5cd871/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
+  - url: https://icpc.global/regionals/finder/AR-Nanning-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://qoj.ac/contest/2114
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'

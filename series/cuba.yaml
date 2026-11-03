@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: cuba
   name: Cuban Finals of the ACM-ICPC
+  tier: subregional
+  region: Latin America
+  naming: season-start
 contests:
 - id: cuba-2010
   season: 2011
@@ -12,13 +15,17 @@ contests:
   - 677
   parent: caribbean-2010
   next: null
-  results:
-    standings:
-    - url: http://coj.uci.cu/
-      as_of: '20180824134704'
-      archived: cuba/cuba-2010/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Cuba-Finals-2011/standings
-  web: http://coj.uci.cu/
+  sources:
+  - url: http://coj.uci.cu/
+    roles:
+    - web
+    - standings
+    as_of: '20180824134704'
+    archived:
+    - cuba/cuba-2010/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Cuba-Finals-2011/standings
+    roles:
+    - icpc_standings

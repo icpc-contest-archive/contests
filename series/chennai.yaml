@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: chennai
   name: ICPC Asia Chennai Regional Contest
+  tier: regional
+  region: Asia West
+  naming: season-start
 contests:
 - id: chennai-2015
   season: 2016
@@ -12,18 +15,31 @@ contests:
   - 2910
   parent: wf-2016
   next: chennai-2016
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Chennai-2016/standings
-    archived: chennai/chennai-2015/standings/api-20260904/standings.html
+  sources:
+  - url: http://icpc.hindustanuniv.ac.in
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Chennai-2016/standings
+    roles:
+    - icpc_standings
+    archived:
+    - chennai/chennai-2015/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 2910, 115 teams, DB fetch 2026-04-26)
-  web: http://icpc.hindustanuniv.ac.in
-  problemset: https://www.codechef.com/ACM15CHN
+  - url: https://www.codechef.com/ACM15CHN
+    roles:
+    - problemset
+    as_of: '20190723054420'
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3933
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: The 2015 ACM-ICPC Asia Chennai Regional Contest
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3933
-        note: The 2015 ACM-ICPC Asia Chennai Regional Contest
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: chennai-2015
 - id: chennai-2016
   season: 2017
   name: 2016 ACM-ICPC Asia Chennai Regional Contest
@@ -33,12 +49,22 @@ contests:
   - 3215
   parent: wf-2017
   next: chennai-2017
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/AR-Chennai-2017/standings
-    archived: chennai/chennai-2016/standings/api-20260904/standings.html
+  sources:
+  - url: http://icpc.hindustanuniv.ac.in
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/AR-Chennai-2017/standings
+    roles:
+    - icpc_standings
+    archived:
+    - chennai/chennai-2016/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3215, 117 teams, DB fetch 2026-04-26)
-  web: http://icpc.hindustanuniv.ac.in
-  problemset: https://www.codechef.com/ACM16CHN
+  - url: https://www.codechef.com/ACM16CHN
+    roles:
+    - problemset
+    as_of: '20201030081816'
+    url_state: replaced
+    url_checked: '2026-11-02'
 - id: chennai-2017
   season: 2018
   name: 2017 ACM-ICPC Asia Chennai Regional Contest
@@ -48,23 +74,37 @@ contests:
   - 3437
   parent: wf-2018
   next: chennai-2023
-  results:
-    scoreboard:
-    - url: http://icpc.hindustanuniv.ac.in/Chennai%20Rank%20AsiaType%202017.pdf
-      as_of: '20190828194639'
-      archived: chennai/chennai-2017/scoreboard/2026-09-01-wayback-b012df70/page.pdf
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.hindustanuniv.ac.in/results.html
-      as_of: '20190916123557'
-      archived: chennai/chennai-2017/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/AR-Chennai-2018/standings
-  web: http://icpc.hindustanuniv.ac.in
-  problemset: https://www.codechef.com/CHN17ROL
+  sources:
+  - url: http://icpc.hindustanuniv.ac.in
+    roles:
+    - web
+  - url: http://icpc.hindustanuniv.ac.in/Chennai%20Rank%20AsiaType%202017.pdf
+    roles:
+    - scoreboard
+    as_of: '20190828194639'
+    archived:
+    - chennai/chennai-2017/scoreboard/2026-09-01-wayback-b012df70/page.pdf
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.hindustanuniv.ac.in/results.html
+    roles:
+    - standings
+    as_of: '20190916123557'
+    archived:
+    - chennai/chennai-2017/external-standings/2026-04-15-external/content.html
+    - chennai/chennai-2017/standings/20171230-wayback-53aac387/results.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/AR-Chennai-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://www.codechef.com/CHN17ROL
+    roles:
+    - problemset
+    as_of: '20191021233059'
+    url_state: replaced
+    url_checked: '2026-11-02'
 - id: chennai-2023
   season: 2024
   name: 2023 ICPC Asia Chennai Onsite Contest
@@ -74,23 +114,27 @@ contests:
   - 8237
   parent: awc-2023
   next: chennai-2024
-  icpc_standings: https://icpc.global/regionals/finder/ICPC-Asia-Chennai-2024/standings
-  results:
-    standings:
-    - url: https://icpc.codedrills.io/contests/icpc-chennai-2023-regional-round/scoreboard
-      note: added by url-hunt 2026-09-01 (round9-research)
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: https://codedrills.io/contests/icpc-chennai-2023-mock-round/scoreboard
-      note: added by url-hunt 2026-09-01 (round9-research)
-      url_state: dead
-      url_checked: '2026-11-02'
-  web: https://codedrills.io/contests/icpc-chennai-2023-regional-round
-  mirrors:
-  - url: https://codeforces.com/topic/125310
+  sources:
+  - url: https://codedrills.io/contests/icpc-chennai-2023-regional-round
+    roles:
+    - web
+    also_at:
+    - https://codeforces.com/topic/125310
+  - url: https://icpc.codedrills.io/contests/icpc-chennai-2023-regional-round/scoreboard
+    roles:
+    - standings
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://codedrills.io/contests/icpc-chennai-2023-mock-round/scoreboard
+    roles:
+    - standings
+    url_state: dead
+    url_checked: '2026-11-02'
     note: added by url-hunt 2026-09-01 (round9-research)
   - url: https://icpc.global/regionals/finder/ICPC-Asia-Chennai-2024/standings
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
+    roles:
+    - icpc_standings
 - id: chennai-2024
   season: 2025
   name: 2024 ICPC Asia Chennai Onsite Contest
@@ -100,20 +144,34 @@ contests:
   - 8877
   parent: awc-2024
   next: chennai-2025
-  results:
-    standings:
-    - url: https://icpc-iiitdm.vercel.app/Chennai%20Ranklist%202024%20Onsite.xlsx
-      archived: chennai/chennai-2024/standings/2026-09-01-live-a6e9c2b4/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://icpc-iiitdm.vercel.app/results
-      as_of: '20250108191108'
-      archived: chennai/chennai-2024/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/ICPC-Asia-Chennai-2025/standings
-  problemset: https://www.codechef.com/ICPCCHNOS24
+  sources:
+  - url: https://icpc-iiitdm.vercel.app/Chennai%20Ranklist%202024%20Onsite.xlsx
+    roles:
+    - standings
+    as_of: '20250106134239'
+    archived:
+    - chennai/chennai-2024/standings/2026-09-01-live-a6e9c2b4/page.html
+    - chennai/chennai-2024/standings/20250106-wayback-12010996/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc-iiitdm.vercel.app/results
+    roles:
+    - standings
+    as_of: '20250108191108'
+    archived:
+    - chennai/chennai-2024/external-standings/2026-04-15-external/content.html
+    - chennai/chennai-2024/standings/20250108-wayback-8a6a4c8a/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/ICPC-Asia-Chennai-2025/standings
+    roles:
+    - icpc_standings
+  - url: https://www.codechef.com/ICPCCHNOS24
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: chennai-2025
   season: 2026
   name: 2025 ICPC Asia Chennai Regional Contest
@@ -123,14 +181,23 @@ contests:
   - 9248
   parent: awc-2025
   next: chennai-2026
-  web: https://icpc-srmist-ktr.vercel.app/
-  results:
-    scoreboard:
-    - url: https://icpc-iiitdm.vercel.app/Icpc%202025/ICPC%20Chennai%20Onsite%202025-%20Final%20Ranklist.pdf
-      archived: chennai/chennai-2025/external-standings/2026-04-15-external/content.pdf
-      url_state: live
-      url_checked: '2026-11-02'
-  problemset: https://www.codechef.com/ICPCCHNOS25
+  sources:
+  - url: https://icpc-srmist-ktr.vercel.app/
+    roles:
+    - web
+  - url: https://icpc-iiitdm.vercel.app/Icpc%202025/ICPC%20Chennai%20Onsite%202025-%20Final%20Ranklist.pdf
+    roles:
+    - scoreboard
+    archived:
+    - chennai/chennai-2025/external-standings/2026-04-15-external/content.pdf
+    - chennai/chennai-2025/scoreboard/20260901-live-982529f3/page.pdf
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.codechef.com/ICPCCHNOS25
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: chennai-2026
   status: upcoming
   season: 2027

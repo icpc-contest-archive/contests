@@ -1,7 +1,9 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: wf
   name: ACM Programming Contest World Finals
+  tier: world-finals
+  naming: season-end
 contests:
 - id: wf-1977
   season: 1977
@@ -11,17 +13,17 @@ contests:
   - 9875
   parent: null
   next: wf-1978
-  web:
-    url: http://icpc.baylor.edu/past/EarlyYears.html
+  sources:
+  - url: http://icpc.baylor.edu/past/EarlyYears.html
+    roles:
+    - web
+    - rankings
     as_of: '20110102183612'
-  results:
-    rankings:
-    - url: http://icpc.baylor.edu/past/EarlyYears.html
-      as_of: '20110102183612'
-      note: added by url-hunt 2026-09-01 (wave2-europe)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: wf/wf-1977/rankings/20110102-wayback-ada91083/EarlyYears.html
+    archived:
+    - wf/wf-1977/rankings/20110102-wayback-ada91083/EarlyYears.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (wave2-europe)
 - id: wf-1978
   season: 1978
   date: '1978-02-22'
@@ -30,26 +32,22 @@ contests:
   - 9876
   parent: null
   next: wf-1979
-  web:
-    url: http://icpc.baylor.edu/past/EarlyYears.html
+  sources:
+  - url: http://icpc.baylor.edu/past/EarlyYears.html
+    roles:
+    - web
+    - rankings
     as_of: '20110102183612'
-  results:
-    rankings:
-    - url: http://icpc.baylor.edu/past/EarlyYears.html
-      as_of: '20110102183612'
-      note: added by url-hunt 2026-09-01 (wave2-europe)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: wf/wf-1978/rankings/20110102-wayback-ada91083/EarlyYears.html
+    archived:
+    - wf/wf-1978/rankings/20110102-wayback-ada91083/EarlyYears.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (wave2-europe)
+  - url: https://icpc.global/worldfinals/problems/1978-ICPC-World-Finals/1978.pdf
+    roles:
+    - problemset
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 4
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpc.global/worldfinals/problems/1978-ICPC-World-Finals/1978.pdf
+    set: wf-1978
 - id: wf-1979
   season: 1979
   location: Dayton, OH, USA
@@ -57,26 +55,22 @@ contests:
   - 9877
   parent: null
   next: wf-1980
-  web:
-    url: http://icpc.baylor.edu/past/EarlyYears.html
+  sources:
+  - url: http://icpc.baylor.edu/past/EarlyYears.html
+    roles:
+    - web
+    - rankings
     as_of: '20110102183612'
-  results:
-    rankings:
-    - url: http://icpc.baylor.edu/past/EarlyYears.html
-      as_of: '20110102183612'
-      note: added by url-hunt 2026-09-01 (wave2-europe)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: wf/wf-1979/rankings/20110102-wayback-ada91083/EarlyYears.html
+    archived:
+    - wf/wf-1979/rankings/20110102-wayback-ada91083/EarlyYears.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (wave2-europe)
+  - url: https://icpc.global/worldfinals/problems/1979-ICPC-World-Finals/1979.pdf
+    roles:
+    - problemset
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 4
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpc.global/worldfinals/problems/1979-ICPC-World-Finals/1979.pdf
+    set: wf-1979
 - id: wf-1980
   season: 1980
   location: Kansas City, MO, USA
@@ -84,26 +78,22 @@ contests:
   - 9878
   parent: null
   next: wf-1981
-  web:
-    url: http://icpc.baylor.edu/past/EarlyYears.html
+  sources:
+  - url: http://icpc.baylor.edu/past/EarlyYears.html
+    roles:
+    - web
+    - rankings
     as_of: '20110102183612'
-  results:
-    rankings:
-    - url: http://icpc.baylor.edu/past/EarlyYears.html
-      as_of: '20110102183612'
-      note: added by url-hunt 2026-09-01 (wave2-europe)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: wf/wf-1980/rankings/20110102-wayback-ada91083/EarlyYears.html
+    archived:
+    - wf/wf-1980/rankings/20110102-wayback-ada91083/EarlyYears.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (wave2-europe)
+  - url: https://icpc.global/worldfinals/problems/1980-ICPC-World-Finals/1980.pdf
+    roles:
+    - problemset
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 4
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpc.global/worldfinals/problems/1980-ICPC-World-Finals/1980.pdf
+    set: wf-1980
 - id: wf-1981
   season: 1981
   location: St. Louis, MO, USA
@@ -111,26 +101,22 @@ contests:
   - 9879
   parent: null
   next: wf-1982
-  web:
-    url: http://icpc.baylor.edu/past/EarlyYears.html
+  sources:
+  - url: http://icpc.baylor.edu/past/EarlyYears.html
+    roles:
+    - web
+    - rankings
     as_of: '20110102183612'
-  results:
-    rankings:
-    - url: http://icpc.baylor.edu/past/EarlyYears.html
-      as_of: '20110102183612'
-      note: added by url-hunt 2026-09-01 (wave2-europe)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: wf/wf-1981/rankings/20110102-wayback-ada91083/EarlyYears.html
+    archived:
+    - wf/wf-1981/rankings/20110102-wayback-ada91083/EarlyYears.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (wave2-europe)
+  - url: https://icpc.global/worldfinals/problems/1981-ICPC-World-Finals/1981.pdf
+    roles:
+    - problemset
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 6
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpc.global/worldfinals/problems/1981-ICPC-World-Finals/1981.pdf
+    set: wf-1981
 - id: wf-1982
   season: 1982
   location: Indianapolis, IN, USA
@@ -138,26 +124,22 @@ contests:
   - 9880
   parent: null
   next: wf-1983
-  web:
-    url: http://icpc.baylor.edu/past/EarlyYears.html
+  sources:
+  - url: http://icpc.baylor.edu/past/EarlyYears.html
+    roles:
+    - web
+    - rankings
     as_of: '20110102183612'
-  results:
-    rankings:
-    - url: http://icpc.baylor.edu/past/EarlyYears.html
-      as_of: '20110102183612'
-      note: added by url-hunt 2026-09-01 (wave2-europe)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: wf/wf-1982/rankings/20110102-wayback-ada91083/EarlyYears.html
+    archived:
+    - wf/wf-1982/rankings/20110102-wayback-ada91083/EarlyYears.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (wave2-europe)
+  - url: https://icpc.global/worldfinals/problems/1982-ICPC-World-Finals/1982.pdf
+    roles:
+    - problemset
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 7
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpc.global/worldfinals/problems/1982-ICPC-World-Finals/1982.pdf
+    set: wf-1982
 - id: wf-1983
   season: 1983
   location: Melbourne, FL, USA
@@ -165,26 +147,22 @@ contests:
   - 9881
   parent: null
   next: wf-1984
-  web:
-    url: http://icpc.baylor.edu/past/EarlyYears.html
+  sources:
+  - url: http://icpc.baylor.edu/past/EarlyYears.html
+    roles:
+    - web
+    - rankings
     as_of: '20110102183612'
-  results:
-    rankings:
-    - url: http://icpc.baylor.edu/past/EarlyYears.html
-      as_of: '20110102183612'
-      note: added by url-hunt 2026-09-01 (wave2-europe)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: wf/wf-1983/rankings/20110102-wayback-ada91083/EarlyYears.html
+    archived:
+    - wf/wf-1983/rankings/20110102-wayback-ada91083/EarlyYears.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (wave2-europe)
+  - url: https://icpc.global/worldfinals/problems/1983-ICPC-World-Finals/1983.pdf
+    roles:
+    - problemset
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpc.global/worldfinals/problems/1983-ICPC-World-Finals/1983.pdf
+    set: wf-1983
 - id: wf-1984
   season: 1984
   location: Philadelphia, PA, USA
@@ -192,26 +170,22 @@ contests:
   - 9882
   parent: null
   next: wf-1985
-  web:
-    url: http://icpc.baylor.edu/past/EarlyYears.html
+  sources:
+  - url: http://icpc.baylor.edu/past/EarlyYears.html
+    roles:
+    - web
+    - rankings
     as_of: '20110102183612'
-  results:
-    rankings:
-    - url: http://icpc.baylor.edu/past/EarlyYears.html
-      as_of: '20110102183612'
-      note: added by url-hunt 2026-09-01 (wave2-europe)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: wf/wf-1984/rankings/20110102-wayback-ada91083/EarlyYears.html
+    archived:
+    - wf/wf-1984/rankings/20110102-wayback-ada91083/EarlyYears.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (wave2-europe)
+  - url: https://icpc.global/worldfinals/problems/1984-ICPC-World-Finals/1984.pdf
+    roles:
+    - problemset
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 7
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpc.global/worldfinals/problems/1984-ICPC-World-Finals/1984.pdf
+    set: wf-1984
 - id: wf-1985
   season: 1985
   location: New Orleans, LA, USA
@@ -219,26 +193,22 @@ contests:
   - 9883
   parent: null
   next: wf-1986
-  web:
-    url: http://icpc.baylor.edu/past/EarlyYears.html
+  sources:
+  - url: http://icpc.baylor.edu/past/EarlyYears.html
+    roles:
+    - web
+    - rankings
     as_of: '20110102183612'
-  results:
-    rankings:
-    - url: http://icpc.baylor.edu/past/EarlyYears.html
-      as_of: '20110102183612'
-      note: added by url-hunt 2026-09-01 (wave2-europe)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: wf/wf-1985/rankings/20110102-wayback-ada91083/EarlyYears.html
+    archived:
+    - wf/wf-1985/rankings/20110102-wayback-ada91083/EarlyYears.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (wave2-europe)
+  - url: https://icpc.global/worldfinals/problems/1985-ICPC-World-Finals/1985.pdf
+    roles:
+    - problemset
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 7
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpc.global/worldfinals/problems/1985-ICPC-World-Finals/1985.pdf
+    set: wf-1985
 - id: wf-1986
   season: 1986
   location: Cincinatti, OH, USA
@@ -246,26 +216,22 @@ contests:
   - 9884
   parent: null
   next: wf-1987
-  web:
-    url: http://icpc.baylor.edu/past/EarlyYears.html
+  sources:
+  - url: http://icpc.baylor.edu/past/EarlyYears.html
+    roles:
+    - web
+    - rankings
     as_of: '20110102183612'
-  results:
-    rankings:
-    - url: http://icpc.baylor.edu/past/EarlyYears.html
-      as_of: '20110102183612'
-      note: added by url-hunt 2026-09-01 (wave2-europe)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: wf/wf-1986/rankings/20110102-wayback-ada91083/EarlyYears.html
+    archived:
+    - wf/wf-1986/rankings/20110102-wayback-ada91083/EarlyYears.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (wave2-europe)
+  - url: https://icpc.global/worldfinals/problems/1986-ICPC-World-Finals/1986.pdf
+    roles:
+    - problemset
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpc.global/worldfinals/problems/1986-ICPC-World-Finals/1986.pdf
+    set: wf-1986
 - id: wf-1987
   season: 1987
   location: St. Louis, MO, USA
@@ -273,26 +239,22 @@ contests:
   - 9885
   parent: null
   next: wf-1988
-  web:
-    url: http://icpc.baylor.edu/past/EarlyYears.html
+  sources:
+  - url: http://icpc.baylor.edu/past/EarlyYears.html
+    roles:
+    - web
+    - rankings
     as_of: '20110102183612'
-  results:
-    rankings:
-    - url: http://icpc.baylor.edu/past/EarlyYears.html
-      as_of: '20110102183612'
-      note: added by url-hunt 2026-09-01 (wave2-europe)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: wf/wf-1987/rankings/20110102-wayback-ada91083/EarlyYears.html
+    archived:
+    - wf/wf-1987/rankings/20110102-wayback-ada91083/EarlyYears.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (wave2-europe)
+  - url: https://icpc.global/worldfinals/problems/1987-ICPC-World-Finals/1987.pdf
+    roles:
+    - problemset
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpc.global/worldfinals/problems/1987-ICPC-World-Finals/1987.pdf
+    set: wf-1987
 - id: wf-1988
   season: 1988
   name: 12th Annual ACM Scholastic Programming Contest
@@ -302,26 +264,22 @@ contests:
   - 9886
   parent: null
   next: wf-1989
-  web:
-    url: http://icpc.baylor.edu/past/EarlyYears.html
+  sources:
+  - url: http://icpc.baylor.edu/past/EarlyYears.html
+    roles:
+    - web
+    - rankings
     as_of: '20110102183612'
-  results:
-    rankings:
-    - url: http://icpc.baylor.edu/past/EarlyYears.html
-      as_of: '20110102183612'
-      note: added by url-hunt 2026-09-01 (wave2-europe)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: wf/wf-1988/rankings/20110102-wayback-ada91083/EarlyYears.html
+    archived:
+    - wf/wf-1988/rankings/20110102-wayback-ada91083/EarlyYears.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (wave2-europe)
+  - url: https://icpc.global/worldfinals/problems/1988-ICPC-World-Finals/1988.pdf
+    roles:
+    - problemset
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpc.global/worldfinals/problems/1988-ICPC-World-Finals/1988.pdf
+    set: wf-1988
 - id: wf-1989
   season: 1989
   location: Louisville, KY, USA
@@ -329,26 +287,22 @@ contests:
   - 9887
   parent: null
   next: wf-1990
-  web:
-    url: http://icpc.baylor.edu/past/EarlyYears.html
+  sources:
+  - url: http://icpc.baylor.edu/past/EarlyYears.html
+    roles:
+    - web
+    - rankings
     as_of: '20110102183612'
-  results:
-    rankings:
-    - url: http://icpc.baylor.edu/past/EarlyYears.html
-      as_of: '20110102183612'
-      note: added by url-hunt 2026-09-01 (wave2-europe)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: wf/wf-1989/rankings/20110102-wayback-ada91083/EarlyYears.html
+    archived:
+    - wf/wf-1989/rankings/20110102-wayback-ada91083/EarlyYears.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (wave2-europe)
+  - url: https://icpc.global/worldfinals/problems/1989-ICPC-World-Finals/1989.pdf
+    roles:
+    - problemset
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpc.global/worldfinals/problems/1989-ICPC-World-Finals/1989.pdf
+    set: wf-1989
 - id: wf-1990
   season: 1990
   location: Washington, DC, USA
@@ -356,32 +310,33 @@ contests:
   - 9888
   parent: null
   next: wf-1991
-  web:
-    url: http://icpc.baylor.edu/past/EarlyYears.html
+  sources:
+  - url: http://icpc.baylor.edu/past/EarlyYears.html
+    roles:
+    - web
     as_of: '20110102183612'
-  results:
-    rankings:
-    - url: http://icpc.baylor.edu/Past/icpc91/finals/Standings.html
-      as_of: '20020326204232'
-      archived: wf/wf-1990/rankings/2026-09-01-wayback-28fe4a2b/Standings.html
-      url_state: dead
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/community/history-icpc-1990
-  problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=418
-        as_of: '20210921102622'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=418
+  - url: http://icpc.baylor.edu/Past/icpc91/finals/Standings.html
+    roles:
+    - rankings
+    as_of: '20020326204232'
+    archived:
+    - wf/wf-1990/rankings/2026-09-01-wayback-28fe4a2b/Standings.html
+    - wf/wf-1990/rankings/20020326-wayback-b0b298f4/Standings.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://icpc.global/community/history-icpc-1990
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=418
+    roles:
+    - problemset
+    - judge_page
+    judge: livearchive
     as_of: '20210921102622'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: wf-1990
 - id: wf-1991
   season: 1991
   date: '1991-03-06'
@@ -390,44 +345,52 @@ contests:
   - 9889
   parent: null
   next: wf-1992
-  web: https://usenetarchives.com/view.php?id=comp.org.acm&mid=PDEyMjMyOUB0dXQuY2lzLm9oaW8tc3RhdGUuZWR1Pg
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc91/finals/Standings.html
-      as_of: '20110102181045'
-      archived: wf/wf-1991/standings/2026-09-01-wayback-2bd1c7a3/Standings.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    - url: https://cphof.org/standings/icpc/1991
-      note: added by url-hunt 2026-09-01 (round9-research)
-      url_state: dead
-      url_checked: '2026-11-02'
-    rankings:
-    - url: http://icpc.baylor.edu/Past/icpc91/finals/Standings.html
-      as_of: '20020326204232'
-      archived: wf/wf-1991/rankings/2026-09-01-wayback-13ae100f/Standings.html
-      url_state: dead
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/community/history-icpc-1991
-  mirrors:
-  - url: https://archive.org/details/utzoo-wiseman-usenet-archive
+  sources:
+  - url: https://usenetarchives.com/view.php?id=comp.org.acm&mid=PDEyMjMyOUB0dXQuY2lzLm9oaW8tc3RhdGUuZWR1Pg
+    roles:
+    - web
+    also_at:
+    - https://archive.org/details/utzoo-wiseman-usenet-archive
+  - url: http://icpc.baylor.edu/past/icpc91/finals/Standings.html
+    roles:
+    - standings
+    - rankings
+    as_of: '20110102181045'
+    archived:
+    - wf/wf-1991/standings/2026-09-01-wayback-2bd1c7a3/Standings.html
+    - wf/wf-1991/rankings/2026-09-01-wayback-13ae100f/Standings.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: as_of 20020326204232 for rankings
+  - url: https://cphof.org/standings/icpc/1991
+    roles:
+    - standings
+    url_state: dead
+    url_checked: '2026-11-02'
     note: added by url-hunt 2026-09-01 (round9-research)
-  problems:
-    repo: icpc-problem-archive/statement-only
-    count: 7
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=419
-        as_of: '20211127152904'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  - url: https://icpc.global/community/history-icpc-1991
+    roles:
+    - icpc_standings
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/A_FINALS/1991/index.html
+    roles:
+    - problemset
     as_of: '19980202010509'
-  - https://icpcarchive.github.io/ICPC-World-Finals/1991-ICPC-World-Finals/1991WorldFinalProblemSet.pdf
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.github.io/ICPC-World-Finals/1991-ICPC-World-Finals/1991WorldFinalProblemSet.pdf
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=419
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211127152904'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: wf-1991
 - id: wf-1992
   season: 1992
   location: Kansas City, MO, USA
@@ -435,35 +398,44 @@ contests:
   - 9890
   parent: null
   next: wf-1993
-  web: https://icpc.global/community/history-icpc-1992
-  results:
-    scoreboard:
-    - url: https://usenetarchives.com/view.php?id=comp.org.acm&mid=PDE5OTJNYXIxOS4xNzAwNTUuMjMyOEBtYWMuY2MubWFjYWxzdHIuZWR1Pg
-      url_state: unknown
-      url_checked: '2026-11-02'
-    rankings:
-    - url: http://icpc.baylor.edu/Past/icpc92/finals/Standings.html
-      as_of: '20020326203520'
-      archived: wf/wf-1992/rankings/2026-09-01-wayback-8f977a07/Standings.html
-      url_state: dead
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/community/history-icpc-1992
-  problems:
-    repo: icpc-problem-archive/statement-only
-    count: 7
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=420
-        as_of: '20210919223416'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  sources:
+  - url: https://icpc.global/community/history-icpc-1992
+    roles:
+    - web
+    - icpc_standings
+  - url: https://usenetarchives.com/view.php?id=comp.org.acm&mid=PDE5OTJNYXIxOS4xNzAwNTUuMjMyOEBtYWMuY2MubWFjYWxzdHIuZWR1Pg
+    roles:
+    - scoreboard
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/Past/icpc92/finals/Standings.html
+    roles:
+    - rankings
+    as_of: '20020326203520'
+    archived:
+    - wf/wf-1992/rankings/2026-09-01-wayback-8f977a07/Standings.html
+    url_state: dead
+    url_checked: '2026-11-01'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/A_FINALS/1992/index.html
+    roles:
+    - problemset
     as_of: '19980202010547'
-  - https://icpcarchive.github.io/ICPC-World-Finals/1992-ICPC-World-Finals/1992WorldFinalProblemSet.pdf
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.github.io/ICPC-World-Finals/1992-ICPC-World-Finals/1992WorldFinalProblemSet.pdf
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=420
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210919223416'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: wf-1992
 - id: wf-1993
   season: 1993
   date: '1993-02-17'
@@ -472,31 +444,41 @@ contests:
   - 9891
   parent: null
   next: wf-1994
-  web: https://icpc.global/community/history-icpc-1993
-  results:
-    rankings:
-    - url: http://icpc.baylor.edu/Past/icpc93/finals/Standings.html
-      as_of: '20020327070135'
-      archived: wf/wf-1993/rankings/2026-09-01-wayback-f26980a8/Standings.html
-      url_state: dead
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/community/results-1993
-  problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=421
-        as_of: '20210928094121'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  sources:
+  - url: https://icpc.global/community/history-icpc-1993
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/Past/icpc93/finals/Standings.html
+    roles:
+    - rankings
+    as_of: '20020327070135'
+    archived:
+    - wf/wf-1993/rankings/2026-09-01-wayback-f26980a8/Standings.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://icpc.global/community/results-1993
+    roles:
+    - icpc_standings
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/A_FINALS/1993/index.html
+    roles:
+    - problemset
     as_of: '19980202010625'
-  - https://icpcarchive.github.io/ICPC-World-Finals/1993-ICPC-World-Finals/1993WorldFinalProblemSet.pdf
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.github.io/ICPC-World-Finals/1993-ICPC-World-Finals/1993WorldFinalProblemSet.pdf
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=421
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210928094121'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: wf-1993
 - id: wf-1994
   season: 1994
   date: '1994-03-09'
@@ -505,40 +487,55 @@ contests:
   - 9892
   parent: null
   next: wf-1995
-  web: https://icpc.global/community/history-icpc-1994
-  results:
-    standings:
-    - url: https://usenetarchives.com/view.php?id=comp.org.acm&mid=PG1ja2luLTExMDM5NDE2MDE1N0BybTMzNTRhMi5jcy5ieXUuZWR1Pg
-      url_state: unknown
-      url_checked: '2026-11-02'
-    - url: http://plg.uwaterloo.ca/~gvcormac/acmresults/1994.html
-      as_of: '20001004032126'
-      archived: wf/wf-1994/standings/2026-09-01-live-f8f45919/1994.html
-      url_state: live
-      url_checked: '2026-11-02'
-    rankings:
-    - url: http://icpc.baylor.edu/Past/icpc94/finals/Standings.html
-      as_of: '20020327070938'
-      archived: wf/wf-1994/rankings/2026-09-01-wayback-c1273a12/Standings.html
-      url_state: dead
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/community/results-1994
-  problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=422
-        as_of: '20210927015907'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  sources:
+  - url: https://icpc.global/community/history-icpc-1994
+    roles:
+    - web
+  - url: https://usenetarchives.com/view.php?id=comp.org.acm&mid=PG1ja2luLTExMDM5NDE2MDE1N0BybTMzNTRhMi5jcy5ieXUuZWR1Pg
+    roles:
+    - standings
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: http://plg.uwaterloo.ca/~gvcormac/acmresults/1994.html
+    roles:
+    - standings
+    as_of: '20001004032126'
+    archived:
+    - wf/wf-1994/standings/2026-09-01-live-f8f45919/1994.html
+    - wf/wf-1994/standings/2026-09-01-wayback-f8f45919/1994.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/Past/icpc94/finals/Standings.html
+    roles:
+    - rankings
+    as_of: '20020327070938'
+    archived:
+    - wf/wf-1994/rankings/2026-09-01-wayback-c1273a12/Standings.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://icpc.global/community/results-1994
+    roles:
+    - icpc_standings
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/A_FINALS/1994/index.html
+    roles:
+    - problemset
     as_of: '19980202010703'
-  - https://icpcarchive.github.io/ICPC-World-Finals/1994-ICPC-World-Finals/1994WorldFinalProblemSet.pdf
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.github.io/ICPC-World-Finals/1994-ICPC-World-Finals/1994WorldFinalProblemSet.pdf
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=422
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210927015907'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: wf-1994
 - id: wf-1995
   season: 1995
   location: Nashville, TN, USA
@@ -546,37 +543,50 @@ contests:
   - 9893
   parent: null
   next: wf-1996
-  web: https://icpc.global/community/history-icpc-1995
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/Past/icpc95/finals/Standings.html
-      as_of: '20020327072004'
-      archived: wf/wf-1995/standings/2026-09-01-wayback-b4ef6720/Standings.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    rankings:
-    - url: http://icpc.baylor.edu/past/EarlyYears.html
-      as_of: '20110102183612'
-      archived: wf/wf-1995/rankings/2026-09-01-live-32e2d45a/EarlyYears.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/community/results-1995
-  problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=423
-        as_of: '20211203170334'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  sources:
+  - url: https://icpc.global/community/history-icpc-1995
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/Past/icpc95/finals/Standings.html
+    roles:
+    - standings
+    as_of: '20020327072004'
+    archived:
+    - wf/wf-1995/standings/2026-09-01-wayback-b4ef6720/Standings.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://icpc.baylor.edu/past/EarlyYears.html
+    roles:
+    - rankings
+    as_of: '20110102183612'
+    archived:
+    - wf/wf-1995/rankings/2026-09-01-live-32e2d45a/EarlyYears.html
+    - wf/wf-1995/rankings/2026-09-01-wayback-32e2d45a/EarlyYears.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/community/results-1995
+    roles:
+    - icpc_standings
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/A_FINALS/1995/index.html
+    roles:
+    - problemset
     as_of: '19980202010740'
-  - https://icpcarchive.github.io/ICPC-World-Finals/1995-ICPC-World-Finals/1995WorldFinalProblemSet.pdf
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.github.io/ICPC-World-Finals/1995-ICPC-World-Finals/1995WorldFinalProblemSet.pdf
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=423
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211203170334'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: wf-1995
 - id: wf-1996
   season: 1996
   location: Philadelphia, PA, USA
@@ -584,46 +594,67 @@ contests:
   - 9894
   parent: null
   next: wf-1997
-  web: https://icpc.global/community/history-icpc-1996
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc96/Finals/Standings.html
-      as_of: '20020112025353'
-      archived: wf/wf-1996/standings/2026-09-01-wayback-e04c3282/Standings.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    - url: https://www.eecis.udel.edu/~saunders/ACMstand96
-      archived: wf/wf-1996/standings/2026-09-01-live-e40a3064/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://www.acm.org/contest/96/finals/standings.html
-      as_of: '19961221001427'
-      archived: wf/wf-1996/standings/2026-09-01-wayback-4767a97e/standings.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    rankings:
-    - url: http://icpc.baylor.edu/past/EarlyYears.html
-      as_of: '20110102183612'
-      archived: wf/wf-1996/rankings/2026-09-01-live-32e2d45a/EarlyYears.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/community/results-1996
-  problems:
-    repo: icpc-problem-archive/statement-only
-    count: 7
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=424
-        as_of: '20210926194420'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  sources:
+  - url: https://icpc.global/community/history-icpc-1996
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/past/icpc96/Finals/Standings.html
+    roles:
+    - standings
+    as_of: '20020112025353'
+    archived:
+    - wf/wf-1996/standings/2026-09-01-wayback-e04c3282/Standings.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://www.eecis.udel.edu/~saunders/ACMstand96
+    roles:
+    - standings
+    as_of: '19990209100429'
+    archived:
+    - wf/wf-1996/standings/2026-09-01-live-e40a3064/page.html
+    - wf/wf-1996/standings/19990209-wayback-d97fc390/page.txt
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.acm.org/contest/96/finals/standings.html
+    roles:
+    - standings
+    as_of: '19961221001427'
+    archived:
+    - wf/wf-1996/standings/2026-09-01-wayback-4767a97e/standings.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/EarlyYears.html
+    roles:
+    - rankings
+    as_of: '20110102183612'
+    archived:
+    - wf/wf-1996/rankings/2026-09-01-live-32e2d45a/EarlyYears.html
+    - wf/wf-1996/rankings/2026-09-01-wayback-32e2d45a/EarlyYears.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/community/results-1996
+    roles:
+    - icpc_standings
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/A_FINALS/1996/index.html
+    roles:
+    - problemset
     as_of: '19980202010817'
-  - https://icpcarchive.github.io/ICPC-World-Finals/1996-ICPC-World-Finals/1996WorldFinalProblemSet.pdf
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.github.io/ICPC-World-Finals/1996-ICPC-World-Finals/1996WorldFinalProblemSet.pdf
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=424
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210926194420'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: wf-1996
 - id: wf-1997
   season: 1997
   location: San Jose, CA, USA
@@ -631,37 +662,50 @@ contests:
   - 9895
   parent: null
   next: wf-1998
-  web: https://icpc.global/community/history-icpc-1997
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc97/Finals/Standings.html
-      as_of: '20020112032248'
-      archived: wf/wf-1997/standings/2026-09-01-wayback-aad563cb/Standings.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    rankings:
-    - url: http://icpc.baylor.edu/past/EarlyYears.html
-      as_of: '20110102183612'
-      archived: wf/wf-1997/rankings/2026-09-01-live-32e2d45a/EarlyYears.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/community/results-1997
-  problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=425
-        as_of: '20210927013306'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  sources:
+  - url: https://icpc.global/community/history-icpc-1997
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/past/icpc97/Finals/Standings.html
+    roles:
+    - standings
+    as_of: '20020112032248'
+    archived:
+    - wf/wf-1997/standings/2026-09-01-wayback-aad563cb/Standings.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://icpc.baylor.edu/past/EarlyYears.html
+    roles:
+    - rankings
+    as_of: '20110102183612'
+    archived:
+    - wf/wf-1997/rankings/2026-09-01-live-32e2d45a/EarlyYears.html
+    - wf/wf-1997/rankings/2026-09-01-wayback-32e2d45a/EarlyYears.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/community/results-1997
+    roles:
+    - icpc_standings
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/A_FINALS/1997/index.html
+    roles:
+    - problemset
     as_of: '19980202010854'
-  - https://icpcarchive.github.io/ICPC-World-Finals/1997-ICPC-World-Finals/1997WorldFinalProblemSet.pdf
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.github.io/ICPC-World-Finals/1997-ICPC-World-Finals/1997WorldFinalProblemSet.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=425
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210927013306'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: wf-1997
 - id: wf-1998
   season: 1998
   location: Atlanta, GA, USA
@@ -669,31 +713,41 @@ contests:
   - 9896
   parent: null
   next: wf-1999
-  web: https://icpc.global/community/history-icpc-1998
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc98/Finals/Report/Standings.htm
-      as_of: '20110102171708'
-      archived: wf/wf-1998/standings/2026-09-01-wayback-cb2b346b/Standings.htm
-      url_state: dead
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/community/results-1998
-  problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=426
-        as_of: '20211207091143'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  sources:
+  - url: https://icpc.global/community/history-icpc-1998
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/past/icpc98/Finals/Report/Standings.htm
+    roles:
+    - standings
+    as_of: '20110102171708'
+    archived:
+    - wf/wf-1998/standings/2026-09-01-wayback-cb2b346b/Standings.htm
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://icpc.global/community/results-1998
+    roles:
+    - icpc_standings
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/A_FINALS/1998/index.html
+    roles:
+    - problemset
     as_of: '19980425010946'
-  - https://icpcarchive.github.io/ICPC-World-Finals/1998-ICPC-World-Finals/1998WorldFinalProblemSet.pdf
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.github.io/ICPC-World-Finals/1998-ICPC-World-Finals/1998WorldFinalProblemSet.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=426
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211207091143'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: wf-1998
 - id: wf-1999
   season: 1999
   name: 1999 ACM Programming Contest World Finals
@@ -703,30 +757,42 @@ contests:
   - 1098
   parent: null
   next: wf-2000
-  web: https://icpc.global/community/history-icpc-1999
-  results:
-    standings:
-    - url: https://cphof.org/standings/icpc/1999
-      archived: wf/wf-1999/standings/2026-09-01-live-838b1f93/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/community/results-1999
-  problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=427
-        as_of: '20211207090303'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  sources:
+  - url: https://icpc.global/community/history-icpc-1999
+    roles:
+    - web
+  - url: https://cphof.org/standings/icpc/1999
+    roles:
+    - standings
+    as_of: '20211023013759'
+    archived:
+    - wf/wf-1999/standings/2026-09-01-live-838b1f93/page.html
+    - wf/wf-1999/standings/20211023-wayback-1f86a2a4/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/community/results-1999
+    roles:
+    - icpc_standings
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/A_FINALS/1999/index.html
+    roles:
+    - problemset
     as_of: '20010208234723'
-  - https://icpcarchive.github.io/ICPC-World-Finals/1999-ICPC-World-Finals/1999WorldFinalProblemSet.pdf
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.github.io/ICPC-World-Finals/1999-ICPC-World-Finals/1999WorldFinalProblemSet.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=427
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211207090303'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: wf-1999
 - id: wf-2000
   season: 2000
   name: 2000 ACM Programming Contest World Finals
@@ -736,35 +802,48 @@ contests:
   - 1222
   parent: null
   next: wf-2001
-  results:
-    standings:
-    - url: https://cphof.org/standings/icpc/2000
-      archived: wf/wf-2000/standings/2026-09-01-live-b648968e/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://acm.baylor.edu/acmicpc/about/Standings00.htm
-      note: added by url-hunt 2026-09-01 (wf-hunt-agent)
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: wf/wf-2000/standings/20010519-wayback-e4f585bc/Standings00.htm
-      as_of: '20010519190845'
-  web: http://icpc.baylor.edu/icpc/finals/
-  problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=428
-        as_of: '20210921170944'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  sources:
+  - url: http://icpc.baylor.edu/icpc/finals/
+    roles:
+    - web
+  - url: https://cphof.org/standings/icpc/2000
+    roles:
+    - standings
+    as_of: '20211023011233'
+    archived:
+    - wf/wf-2000/standings/2026-09-01-live-b648968e/page.html
+    - wf/wf-2000/standings/20211023-wayback-d861c51f/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://acm.baylor.edu/acmicpc/about/Standings00.htm
+    roles:
+    - standings
+    as_of: '20010519190845'
+    archived:
+    - wf/wf-2000/standings/20010519-wayback-e4f585bc/Standings00.htm
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wf-hunt-agent)
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/A_FINALS/2000/index.html
+    roles:
+    - problemset
     as_of: '20001003134454'
-  - https://icpcarchive.github.io/ICPC-World-Finals/2000-ICPC-World-Finals/2000WorldFinalProblemSet.pdf
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.github.io/ICPC-World-Finals/2000-ICPC-World-Finals/2000WorldFinalProblemSet.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=428
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210921170944'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: wf-2000
 - id: wf-2001
   season: 2001
   name: 2001 ACM Programming Contest World Finals
@@ -774,30 +853,47 @@ contests:
   - 1037
   parent: null
   next: wf-2002
-  results:
-    standings:
-    - url: https://cphof.org/standings/icpc/2001
-      archived: wf/wf-2001/standings/2026-09-01-live-91223455/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/community/results-2001
-  web: http://icpc.baylor.edu/icpc/finals/
-  problems:
-    repo: icpc-problem-archive/wf-2001
-    count: 9
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=35
-        as_of: '20210924190746'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  sources:
+  - url: http://icpc.baylor.edu/icpc/finals/
+    roles:
+    - web
+  - url: https://cphof.org/standings/icpc/2001
+    roles:
+    - standings
+    as_of: '20211023012824'
+    archived:
+    - wf/wf-2001/standings/2026-09-01-live-91223455/page.html
+    - wf/wf-2001/standings/20211023-wayback-6122353a/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/icpc/finals/Standings.html
+    roles:
+    - standings
+    as_of: '20020406103146'
+    note: added by url-hunt 2026-09-01 (cms-api)
+  - url: https://icpc.global/community/results-2001
+    roles:
+    - icpc_standings
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/A_FINALS/2001/index.html
+    roles:
+    - problemset
     as_of: '20020513201232'
-  - https://icpcarchive.github.io/ICPC-World-Finals/2001-ICPC-World-Finals/2001WorldFinalProblemSet.pdf
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.github.io/ICPC-World-Finals/2001-ICPC-World-Finals/2001WorldFinalProblemSet.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=35
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210924190746'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: wf-2001
 - id: wf-2002
   season: 2002
   name: 2002 ACM Programming Contest World Finals
@@ -807,29 +903,45 @@ contests:
   - 953
   parent: null
   next: wf-2003
-  results:
-    standings:
-    - url: https://cphof.org/standings/icpc/2002
-      archived: wf/wf-2002/standings/2026-09-01-live-dae7afd8/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  web: http://icpc.baylor.edu/icpc/finals/
+  sources:
+  - url: http://icpc.baylor.edu/icpc/finals/
+    roles:
+    - web
+  - url: https://cphof.org/standings/icpc/2002
+    roles:
+    - standings
+    as_of: '20211023013718'
+    archived:
+    - wf/wf-2002/standings/2026-09-01-live-dae7afd8/page.html
+    - wf/wf-2002/standings/20211023-wayback-ec9ab39c/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/icpc/finals/Standings.html
+    roles:
+    - standings
+    as_of: '20020406103146'
+    note: added by url-hunt 2026-09-01 (cms-api)
+  - url: https://icpcarchive.github.io/ICPC-World-Finals/2002-ICPC-World-Finals/2002WorldFinalProblemSet.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=36
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211025064908'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2817
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20211208091031'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/wf-2002
-    count: 9
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=36
-        as_of: '20211025064908'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2817
-        as_of: '20211208091031'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/ICPC-World-Finals/2002-ICPC-World-Finals/2002WorldFinalProblemSet.pdf
+    set: wf-2002
 - id: wf-2003
   season: 2003
   name: 2003 ACM Programming Contest World Finals
@@ -839,26 +951,38 @@ contests:
   - 1085
   parent: null
   next: wf-2004
-  results:
-    standings:
-    - url: https://cphof.org/standings/icpc/2003
-      archived: wf/wf-2003/standings/2026-09-01-live-ded402c4/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  web: http://icpc.baylor.edu/icpc/finals/
+  sources:
+  - url: http://icpc.baylor.edu/icpc/finals/
+    roles:
+    - web
+  - url: https://cphof.org/standings/icpc/2003
+    roles:
+    - standings
+    as_of: '20211006212229'
+    archived:
+    - wf/wf-2003/standings/2026-09-01-live-ded402c4/page.html
+    - wf/wf-2003/standings/20211006-wayback-5258335d/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/icpc/finals/Standings.html
+    roles:
+    - standings
+    as_of: '20020406103146'
+    note: added by url-hunt 2026-09-01 (cms-api)
+  - url: https://icpcarchive.github.io/ICPC-World-Finals/2003-ICPC-World-Finals/2003WorldFinalProblemSet.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=37
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211028114143'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/wf-2003
-    count: 10
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=37
-        as_of: '20211028114143'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/ICPC-World-Finals/2003-ICPC-World-Finals/2003WorldFinalProblemSet.pdf
+    set: wf-2003
 - id: wf-2004
   season: 2004
   name: 2004 ACM Programming Contest World Finals
@@ -868,29 +992,45 @@ contests:
   - 1262
   parent: null
   next: wf-2005
-  results:
-    standings:
-    - url: https://cphof.org/standings/icpc/2004
-      archived: wf/wf-2004/standings/2026-09-01-live-c3fe59fc/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  web: http://icpc.baylor.edu/icpc/finals
+  sources:
+  - url: http://icpc.baylor.edu/icpc/finals
+    roles:
+    - web
+  - url: https://cphof.org/standings/icpc/2004
+    roles:
+    - standings
+    as_of: '20211023015554'
+    archived:
+    - wf/wf-2004/standings/2026-09-01-live-c3fe59fc/page.html
+    - wf/wf-2004/standings/20211023-wayback-c930318e/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/icpc/finals/Standings.html
+    roles:
+    - standings
+    as_of: '20020406103146'
+    note: added by url-hunt 2026-09-01 (cms-api)
+  - url: https://icpcarchive.github.io/ICPC-World-Finals/2004-ICPC-World-Finals/2004WorldFinalProblemSet.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=38
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210927000449'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2728
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20211020043443'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/wf-2004
-    count: 10
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=38
-        as_of: '20210927000449'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2728
-        as_of: '20211020043443'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/ICPC-World-Finals/2004-ICPC-World-Finals/2004WorldFinalProblemSet.pdf
+    set: wf-2004
 - id: wf-2005
   season: 2005
   name: 2005 ACM Programming Contest World Finals
@@ -900,26 +1040,33 @@ contests:
   - 1068
   parent: null
   next: wf-2006
-  results:
-    standings:
-    - url: https://cphof.org/standings/icpc/2005
-      archived: wf/wf-2005/standings/2026-09-01-live-043a266f/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  web: http://icpc.baylor.edu/icpc/finals/
+  sources:
+  - url: http://icpc.baylor.edu/icpc/finals/
+    roles:
+    - web
+  - url: https://cphof.org/standings/icpc/2005
+    roles:
+    - standings
+    as_of: '20211023020629'
+    archived:
+    - wf/wf-2005/standings/2026-09-01-live-043a266f/page.html
+    - wf/wf-2005/standings/20211023-wayback-4aca0cb7/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.github.io/ICPC-World-Finals/2005-ICPC-World-Finals/2005WorldFinalProblemSet.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=39
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210926190150'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/wf-2005
-    count: 10
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=39
-        as_of: '20210926190150'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/ICPC-World-Finals/2005-ICPC-World-Finals/2005WorldFinalProblemSet.pdf
+    set: wf-2005
 - id: wf-2006
   season: 2006
   name: 2006 ACM Programming Contest World Finals
@@ -929,33 +1076,46 @@ contests:
   - 1092
   parent: null
   next: wf-2007
-  results:
-    standings:
-    - url: https://cphof.org/standings/icpc/2006
-      archived: wf/wf-2006/standings/2026-09-01-live-7f7ef925/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/icpc/Finals/Standings2006.html
-      as_of: '20190917065822'
-      archived: wf/wf-2006/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/regionals/finder/World-Finals-2006/standings
-  web: https://news.icpc.global/wf2006/
+  sources:
+  - url: https://news.icpc.global/wf2006/
+    roles:
+    - web
+  - url: https://cphof.org/standings/icpc/2006
+    roles:
+    - standings
+    as_of: '20211023021615'
+    archived:
+    - wf/wf-2006/standings/2026-09-01-live-7f7ef925/page.html
+    - wf/wf-2006/standings/20211023-wayback-5131ccc8/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/icpc/Finals/Standings2006.html
+    roles:
+    - standings
+    as_of: '20190917065822'
+    archived:
+    - wf/wf-2006/external-standings/2026-04-15-external/content.html
+    - wf/wf-2006/standings/20060415-wayback-d726c052/Standings2006.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/World-Finals-2006/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/ICPC-World-Finals/2006-ICPC-World-Finals/2006WorldFinalProblemSet.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=40
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211130180639'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/wf-2006
-    count: 10
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=40
-        as_of: '20211130180639'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/ICPC-World-Finals/2006-ICPC-World-Finals/2006WorldFinalProblemSet.pdf
+    set: wf-2006
 - id: wf-2007
   season: 2007
   name: 2007 ACM Programming Contest World Finals
@@ -965,32 +1125,43 @@ contests:
   - 1161
   parent: null
   next: wf-2008
-  results:
-    scoreboard:
-    - url: https://zibada.guru/finals/2007/
-      archived: wf/wf-2007/scoreboard/2026-09-01-live-0a461c8b/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://cphof.org/standings/icpc/2007
-      archived: wf/wf-2007/standings/2026-09-01-live-5dc39aeb/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/World-Finals-2007/standings
-  web: https://news.icpc.global/wf2007/
+  sources:
+  - url: https://news.icpc.global/wf2007/
+    roles:
+    - web
+  - url: https://zibada.guru/finals/2007/
+    roles:
+    - scoreboard
+    archived:
+    - wf/wf-2007/scoreboard/2026-09-01-live-0a461c8b/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://cphof.org/standings/icpc/2007
+    roles:
+    - standings
+    as_of: '20211023022526'
+    archived:
+    - wf/wf-2007/standings/2026-09-01-live-5dc39aeb/page.html
+    - wf/wf-2007/standings/20211023-wayback-96517540/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/World-Finals-2007/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/ICPC-World-Finals/2007-ICPC-World-Finals/2007WorldFinalProblemSet.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=41
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211018015907'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/wf-2007
-    count: 10
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=41
-        as_of: '20211018015907'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpcarchive.github.io/ICPC-World-Finals/2007-ICPC-World-Finals/2007WorldFinalProblemSet.pdf
+    set: wf-2007
 - id: wf-2008
   season: 2008
   name: 2008 ACM Programming Contest World Finals
@@ -1000,34 +1171,50 @@ contests:
   - 960
   parent: null
   next: wf-2009
-  results:
-    scoreboard:
-    - url: https://zibada.guru/finals/2008/
-      archived: wf/wf-2008/scoreboard/2026-09-01-live-e40d9aac/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://cphof.org/standings/icpc/2008
-      archived: wf/wf-2008/standings/2026-09-01-live-b17619cd/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/World-Finals-2008/standings
-  web: http://icpc.baylor.edu/icpc/finals
+  sources:
+  - url: http://icpc.baylor.edu/icpc/finals
+    roles:
+    - web
+  - url: https://zibada.guru/finals/2008/
+    roles:
+    - scoreboard
+    as_of: '20230325011238'
+    archived:
+    - wf/wf-2008/scoreboard/2026-09-01-live-e40d9aac/page.html
+    - wf/wf-2008/scoreboard/20230325-wayback-d8fa54d1/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://cphof.org/standings/icpc/2008
+    roles:
+    - standings
+    as_of: '20211023023111'
+    archived:
+    - wf/wf-2008/standings/2026-09-01-live-b17619cd/page.html
+    - wf/wf-2008/standings/20211023-wayback-6cc36ead/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/World-Finals-2008/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/ICPC-World-Finals/2008-ICPC-World-Finals/2008WorldFinalsProblemSet.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://nghia03092004.github.io/competitive-programming-assets/icpc/2008/contest_problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=42
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211023071353'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/wf-2008
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=42
-        as_of: '20211023071353'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-  - https://icpcarchive.github.io/ICPC-World-Finals/2008-ICPC-World-Finals/2008WorldFinalsProblemSet.pdf
-  - https://nghia03092004.github.io/competitive-programming-assets/icpc/2008/contest_problems.pdf
+    set: wf-2008
 - id: wf-2009
   season: 2009
   name: 33rd Annual World Finals of the ACM International Collegiate Programming Contest
@@ -1037,37 +1224,57 @@ contests:
   - 1
   parent: null
   next: wf-2010
-  results:
-    scoreboard:
-    - url: https://zibada.guru/finals/2009/
-      archived: wf/wf-2009/scoreboard/2026-09-01-live-c5297771/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://cphof.org/standings/icpc/2009
-      archived: wf/wf-2009/standings/2026-09-01-live-00d4bb7a/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/World-Finals-2009/standings
-  web: http://icpc09.csc.kth.se/
+  sources:
+  - url: http://icpc09.csc.kth.se/
+    roles:
+    - web
+  - url: https://zibada.guru/finals/2009/
+    roles:
+    - scoreboard
+    as_of: '20230325011238'
+    archived:
+    - wf/wf-2009/scoreboard/2026-09-01-live-c5297771/page.html
+    - wf/wf-2009/scoreboard/20230325-wayback-547ef055/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://cphof.org/standings/icpc/2009
+    roles:
+    - standings
+    as_of: '20211023024115'
+    archived:
+    - wf/wf-2009/standings/2026-09-01-live-00d4bb7a/page.html
+    - wf/wf-2009/standings/20211023-wayback-62a1d005/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/World-Finals-2009/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/ICPC-World-Finals/2009-ICPC-World-Finals/2009WorldFinalProblemSet.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://nghia03092004.github.io/competitive-programming-assets/icpc/2009/contest_problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=43
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211028112921'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2808
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20211020025107'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/wf-2009
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=43
-        as_of: '20211028112921'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2808
-        as_of: '20211020025107'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-  - https://icpcarchive.github.io/ICPC-World-Finals/2009-ICPC-World-Finals/2009WorldFinalProblemSet.pdf
-  - https://nghia03092004.github.io/competitive-programming-assets/icpc/2009/contest_problems.pdf
+    set: wf-2009
 - id: wf-2010
   season: 2010
   name: 34th Annual World Finals of the ACM International Collegiate Programming Contest
@@ -1077,37 +1284,57 @@ contests:
   - 490
   parent: null
   next: wf-2011
-  results:
-    scoreboard:
-    - url: https://zibada.guru/finals/2010/
-      archived: wf/wf-2010/scoreboard/2026-09-01-live-07581a01/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://cphof.org/standings/icpc/2010
-      archived: wf/wf-2010/standings/2026-09-01-live-87358bbb/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/World-Finals-2010/standings
-  web: http://icpc.baylor.edu
+  sources:
+  - url: http://icpc.baylor.edu
+    roles:
+    - web
+  - url: https://zibada.guru/finals/2010/
+    roles:
+    - scoreboard
+    as_of: '20230325011238'
+    archived:
+    - wf/wf-2010/scoreboard/2026-09-01-live-07581a01/page.html
+    - wf/wf-2010/scoreboard/20230325-wayback-04aa18ee/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://cphof.org/standings/icpc/2010
+    roles:
+    - standings
+    as_of: '20211023021457'
+    archived:
+    - wf/wf-2010/standings/2026-09-01-live-87358bbb/page.html
+    - wf/wf-2010/standings/20211023-wayback-88dd8b37/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/World-Finals-2010/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/ICPC-World-Finals/2010-ICPC-World-Finals/2010WorldFinalProblemSet.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://nghia03092004.github.io/competitive-programming-assets/icpc/2010/contest_problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=44
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210927110434'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2057
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191209023653'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/wf-2010
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=44
-        as_of: '20210927110434'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2057
-        as_of: '20191209023653'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-  - https://icpcarchive.github.io/ICPC-World-Finals/2010-ICPC-World-Finals/2010WorldFinalProblemSet.pdf
-  - https://nghia03092004.github.io/competitive-programming-assets/icpc/2010/contest_problems.pdf
+    set: wf-2010
 - id: wf-2011
   season: 2011
   name: 35th Annual World Finals of the ACM International Collegiate Programming Contest
@@ -1117,47 +1344,73 @@ contests:
   - 575
   parent: null
   next: wf-2012
-  results:
-    scoreboard:
-    - url: https://zibada.guru/finals/2011/
-      archived: wf/wf-2011/scoreboard/2026-09-01-live-830cf247/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    - url: http://board.acmicpc.info/icpc2011/board.php
-      as_of: '20200117040243'
-      archived: wf/wf-2011/scoreboard/2026-09-01-wayback-258e8a58/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/scoreboard
-      as_of: '20120417182049'
-      archived: wf/wf-2011/scoreboard/2026-09-01-wayback-03515248/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    standings:
-    - url: https://cphof.org/standings/icpc/2011
-      archived: wf/wf-2011/standings/2026-09-01-live-f8e371d8/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/World-Finals-2011/standings
-  web: https://news.icpc.global/wf2011/
+  sources:
+  - url: https://news.icpc.global/wf2011/
+    roles:
+    - web
+  - url: https://zibada.guru/finals/2011/
+    roles:
+    - scoreboard
+    as_of: '20230325011238'
+    archived:
+    - wf/wf-2011/scoreboard/2026-09-01-live-830cf247/page.html
+    - wf/wf-2011/scoreboard/20230325-wayback-1d3c8cbd/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: http://board.acmicpc.info/icpc2011/board.php
+    roles:
+    - scoreboard
+    as_of: '20200117040243'
+    archived:
+    - wf/wf-2011/scoreboard/2026-09-01-wayback-258e8a58/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/scoreboard
+    roles:
+    - scoreboard
+    as_of: '20120417182049'
+    archived:
+    - wf/wf-2011/scoreboard/2026-09-01-wayback-03515248/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://cphof.org/standings/icpc/2011
+    roles:
+    - standings
+    as_of: '20211024003651'
+    archived:
+    - wf/wf-2011/standings/2026-09-01-live-f8e371d8/page.html
+    - wf/wf-2011/standings/20211024-wayback-99ff3bdb/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/World-Finals-2011/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/ICPC-World-Finals/2011-ICPC-World-Finals/2011WorldFinalProblemSet.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://nghia03092004.github.io/competitive-programming-assets/icpc/2011/contest_problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=45
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210920140648'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150417013055'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    repo: icpc-problem-archive/wf-2011
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=45
-        as_of: '20210920140648'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2
-        as_of: '20150417013055'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-  - https://icpcarchive.github.io/ICPC-World-Finals/2011-ICPC-World-Finals/2011WorldFinalProblemSet.pdf
-  - https://nghia03092004.github.io/competitive-programming-assets/icpc/2011/contest_problems.pdf
+    set: wf-2011
 - id: wf-2012
   season: 2012
   name: 36th Annual World Finals of the ACM International Collegiate Programming Contest
@@ -1167,42 +1420,66 @@ contests:
   - 742
   parent: null
   next: wf-2013
-  results:
-    scoreboard:
-    - url: https://zibada.guru/finals/2012/
-      archived: wf/wf-2012/scoreboard/2026-09-01-live-9669edda/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    - url: http://board.acmicpc.info/icpc2012/board.php
-      as_of: '20191217131359'
-      archived: wf/wf-2012/scoreboard/2026-09-01-wayback-c17d5d70/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/scoreboard/
-      as_of: '20130118153249'
-      archived: wf/wf-2012/scoreboard/2026-09-01-wayback-5e3cf0f5/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    standings:
-    - url: https://cphof.org/standings/icpc/2012
-      archived: wf/wf-2012/standings/2026-09-01-live-bcbebaf4/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/World-Finals-2012/standings
-  web: https://news.icpc.global/wf2012/
+  sources:
+  - url: https://news.icpc.global/wf2012/
+    roles:
+    - web
+  - url: https://zibada.guru/finals/2012/
+    roles:
+    - scoreboard
+    as_of: '20230325011238'
+    archived:
+    - wf/wf-2012/scoreboard/2026-09-01-live-9669edda/page.html
+    - wf/wf-2012/scoreboard/20230325-wayback-7ee29f7b/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: http://board.acmicpc.info/icpc2012/board.php
+    roles:
+    - scoreboard
+    as_of: '20191217131359'
+    archived:
+    - wf/wf-2012/scoreboard/2026-09-01-wayback-c17d5d70/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20130118153249'
+    archived:
+    - wf/wf-2012/scoreboard/2026-09-01-wayback-5e3cf0f5/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://cphof.org/standings/icpc/2012
+    roles:
+    - standings
+    as_of: '20211024005112'
+    archived:
+    - wf/wf-2012/standings/2026-09-01-live-bcbebaf4/page.html
+    - wf/wf-2012/standings/20211024-wayback-3f23e7d1/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/World-Finals-2012/standings
+    roles:
+    - icpc_standings
+  - url: https://icpc.global/worldfinals/problems/2012-ICPC-World-Finals/icpc2012.pdf
+    roles:
+    - problemset
+  - url: https://open.kattis.com/problem-sources/International%20Collegiate%20Programming%20Contest%20%28ACM-ICPC%29%20World%20Finals%202012
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20210927142127'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150416215040'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/International%20Collegiate%20Programming%20Contest%20%28ACM-ICPC%29%20World%20Finals%202012
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1
-        as_of: '20150416215040'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpc.global/worldfinals/problems/2012-ICPC-World-Finals/icpc2012.pdf
+    set: wf-2012
 - id: wf-2013
   season: 2013
   name: 37th Annual World Finals of the ACM International Collegiate Programming Contest
@@ -1212,38 +1489,57 @@ contests:
   - 1299
   parent: null
   next: wf-2014
-  results:
-    scoreboard:
-    - url: http://board.acmicpc.info/icpc2013/board.php
-      as_of: '20191217131504'
-      archived: wf/wf-2013/scoreboard/2026-09-01-wayback-d2083762/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/scoreboard
-      as_of: '20140220034727'
-      archived: wf/wf-2013/scoreboard/2026-09-01-wayback-f307be9e/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    standings:
-    - url: https://cphof.org/standings/icpc/2013
-      archived: wf/wf-2013/standings/2026-09-01-live-5295b353/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/World-Finals-2013/standings
-  web: https://news.icpc.global/wf2013/
+  sources:
+  - url: https://news.icpc.global/wf2013/
+    roles:
+    - web
+  - url: http://board.acmicpc.info/icpc2013/board.php
+    roles:
+    - scoreboard
+    as_of: '20191217131504'
+    archived:
+    - wf/wf-2013/scoreboard/2026-09-01-wayback-d2083762/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/scoreboard
+    roles:
+    - scoreboard
+    as_of: '20140220034727'
+    archived:
+    - wf/wf-2013/scoreboard/2026-09-01-wayback-f307be9e/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://cphof.org/standings/icpc/2013
+    roles:
+    - standings
+    as_of: '20211023024039'
+    archived:
+    - wf/wf-2013/standings/2026-09-01-live-5295b353/page.html
+    - wf/wf-2013/standings/20211023-wayback-c514b1b2/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/World-Finals-2013/standings
+    roles:
+    - icpc_standings
+  - url: https://icpc.global/worldfinals/problems/2013-ICPC-World-Finals/icpc2013.pdf
+    roles:
+    - problemset
+  - url: https://open.kattis.com/problem-sources/International%20Collegiate%20Programming%20Contest%20%28ACM-ICPC%29%20World%20Finals%202013
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20210122011305'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1059
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150416223518'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/International%20Collegiate%20Programming%20Contest%20%28ACM-ICPC%29%20World%20Finals%202013
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1059
-        as_of: '20150416223518'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpc.global/worldfinals/problems/2013-ICPC-World-Finals/icpc2013.pdf
+    set: wf-2013
 - id: wf-2014
   season: 2014
   name: 38th Annual World Finals of the ACM International Collegiate Programming Contest
@@ -1253,37 +1549,54 @@ contests:
   - 1811
   parent: null
   next: wf-2015
-  results:
-    scoreboard:
-    - url: http://board.acmicpc.info/icpc2014/board.php
-      as_of: '20191217131634'
-      archived: wf/wf-2014/scoreboard/2026-09-01-wayback-b7210d28/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/scoreboard/
-      as_of: '20141027084221'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: wf/wf-2014/scoreboard/2026-09-01-wayback-01f65d1f/page.html
-    standings:
-    - url: https://cphof.org/standings/icpc/2014
-      archived: wf/wf-2014/standings/2026-09-01-live-b0f3073a/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  web: https://www.icpc2014.ru/en
+  sources:
+  - url: https://www.icpc2014.ru/en
+    roles:
+    - web
+  - url: http://board.acmicpc.info/icpc2014/board.php
+    roles:
+    - scoreboard
+    as_of: '20191217131634'
+    archived:
+    - wf/wf-2014/scoreboard/2026-09-01-wayback-b7210d28/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20141027084221'
+    archived:
+    - wf/wf-2014/scoreboard/2026-09-01-wayback-01f65d1f/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://cphof.org/standings/icpc/2014
+    roles:
+    - standings
+    as_of: '20211023003954'
+    archived:
+    - wf/wf-2014/standings/2026-09-01-live-b0f3073a/page.html
+    - wf/wf-2014/standings/20211023-wayback-87e07e09/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/worldfinals/problems/2014-ICPC-World-Finals/icpc2014.pdf
+    roles:
+    - problemset
+  - url: https://open.kattis.com/problem-sources/International%20Collegiate%20Programming%20Contest%20%28ACM-ICPC%29%20World%20Finals%202014
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20191215140035'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1250
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150417002239'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/International%20Collegiate%20Programming%20Contest%20%28ACM-ICPC%29%20World%20Finals%202014
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1250
-        as_of: '20150417002239'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpc.global/worldfinals/problems/2014-ICPC-World-Finals/icpc2014.pdf
+    set: wf-2014
 - id: wf-2015
   season: 2015
   name: 39th Annual World Finals of the ACM International Collegiate Programming Contest
@@ -1293,32 +1606,46 @@ contests:
   - 2409
   parent: null
   next: wf-2016
-  results:
-    scoreboard:
-    - url: http://board.acmicpc.info/icpc2015/board.php
-      as_of: '20160315094603'
-      archived: wf/wf-2015/scoreboard/2026-09-01-wayback-950cb550/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://cphof.org/standings/icpc/2015
-      archived: wf/wf-2015/standings/2026-09-01-live-a8e43840/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/World-Finals-2015/standings
+  sources:
+  - url: http://board.acmicpc.info/icpc2015/board.php
+    roles:
+    - scoreboard
+    as_of: '20160315094603'
+    archived:
+    - wf/wf-2015/scoreboard/2026-09-01-wayback-950cb550/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://cphof.org/standings/icpc/2015
+    roles:
+    - standings
+    as_of: '20211023004825'
+    archived:
+    - wf/wf-2015/standings/2026-09-01-live-a8e43840/page.html
+    - wf/wf-2015/standings/20211023-wayback-d1e917ad/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/World-Finals-2015/standings
+    roles:
+    - icpc_standings
+  - url: https://icpc.global/worldfinals/problems/2015-ICPC-World-Finals/icpc2015.pdf
+    roles:
+    - problemset
+  - url: https://open.kattis.com/problem-sources/International%20Collegiate%20Programming%20Contest%20%28ACM-ICPC%29%20World%20Finals%202015
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190818074414'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1347
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20170506003118'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 13
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/International%20Collegiate%20Programming%20Contest%20%28ACM-ICPC%29%20World%20Finals%202015
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1347
-        as_of: '20170506003118'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpc.global/worldfinals/problems/2015-ICPC-World-Finals/icpc2015.pdf
+    set: wf-2015
 - id: wf-2016
   season: 2016
   name: 40th Annual World Finals of the ACM International Collegiate Programming Contest
@@ -1328,37 +1655,58 @@ contests:
   - 2745
   parent: null
   next: wf-2017
-  results:
-    scoreboard:
-    - url: https://zibada.guru/finals/2016/
-      archived: wf/wf-2016/scoreboard/2026-09-01-live-f0991f48/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://icpc.baylor.edu/scoreboard/
-      as_of: '20170203185935'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: wf/wf-2016/scoreboard/2026-09-01-wayback-0d70e5fe/page.html
-    standings:
-    - url: https://cphof.org/standings/icpc/2016
-      archived: wf/wf-2016/standings/2026-09-01-live-6784879e/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/World-Finals-2016/standings
-  web: https://news.icpc.global/wf2016/
+  sources:
+  - url: https://news.icpc.global/wf2016/
+    roles:
+    - web
+  - url: https://zibada.guru/finals/2016/
+    roles:
+    - scoreboard
+    as_of: '20221029094928'
+    archived:
+    - wf/wf-2016/scoreboard/2026-09-01-live-f0991f48/page.html
+    - wf/wf-2016/scoreboard/20221029-wayback-829ddc8c/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.baylor.edu/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20170203185935'
+    archived:
+    - wf/wf-2016/scoreboard/2026-09-01-wayback-0d70e5fe/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://cphof.org/standings/icpc/2016
+    roles:
+    - standings
+    as_of: '20211023010012'
+    archived:
+    - wf/wf-2016/standings/2026-09-01-live-6784879e/page.html
+    - wf/wf-2016/standings/20211023-wayback-1f71be2e/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/World-Finals-2016/standings
+    roles:
+    - icpc_standings
+  - url: https://icpc.global/worldfinals/problems/2016-ICPC-World-Finals/icpc2016.pdf
+    roles:
+    - problemset
+  - url: https://open.kattis.com/problem-sources/International%20Collegiate%20Programming%20Contest%20%28ACM-ICPC%29%20World%20Finals%202016
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190719170049'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1490
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20170506002218'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 13
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/International%20Collegiate%20Programming%20Contest%20%28ACM-ICPC%29%20World%20Finals%202016
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1490
-        as_of: '20170506002218'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpc.global/worldfinals/problems/2016-ICPC-World-Finals/icpc2016.pdf
+    set: wf-2016
 - id: wf-2017
   season: 2017
   name: 41st Annual World Finals of the ACM International Collegiate Programming Contest
@@ -1368,43 +1716,68 @@ contests:
   - 3007
   parent: null
   next: wf-2018
-  results:
-    scoreboard:
-    - url: https://zibada.guru/finals/2017/
-      archived: wf/wf-2017/scoreboard/2026-09-01-live-ecbf7588/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    - url: https://icpc.baylor.edu/scoreboard/
-      as_of: '20171026224300'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: wf/wf-2017/scoreboard/2026-09-01-wayback-5fe95496/page.html
-    standings:
-    - url: https://cphof.org/standings/icpc/2017
-      archived: wf/wf-2017/standings/2026-09-01-live-9af75d17/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/worldfinals/results
-      as_of: '20200523153345'
-      archived: wf/wf-2017/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/regionals/finder/World-Finals-2017/standings
-  web: http://icpc.baylor.edu
+  sources:
+  - url: http://icpc.baylor.edu
+    roles:
+    - web
+  - url: https://zibada.guru/finals/2017/
+    roles:
+    - scoreboard
+    as_of: '20230325011238'
+    archived:
+    - wf/wf-2017/scoreboard/2026-09-01-live-ecbf7588/page.html
+    - wf/wf-2017/scoreboard/20230325-wayback-a19724d2/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpc.baylor.edu/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20171026224300'
+    archived:
+    - wf/wf-2017/scoreboard/2026-09-01-wayback-5fe95496/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://cphof.org/standings/icpc/2017
+    roles:
+    - standings
+    as_of: '20211023011145'
+    archived:
+    - wf/wf-2017/standings/2026-09-01-live-9af75d17/page.html
+    - wf/wf-2017/standings/20211023-wayback-bdeb0300/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/worldfinals/results
+    roles:
+    - standings
+    as_of: '20200523153345'
+    archived:
+    - wf/wf-2017/external-standings/2026-04-15-external/content.html
+    - wf/wf-2017/standings/20170525-wayback-83bf4db7/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/World-Finals-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://icpc.global/worldfinals/problems/2017-ICPC-World-Finals/icpc2017.pdf
+    roles:
+    - problemset
+  - url: https://open.kattis.com/problem-sources/International%20Collegiate%20Programming%20Contest%20%28ACM-ICPC%29%20World%20Finals%202017
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190723010818'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1747
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20170705211421'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/International%20Collegiate%20Programming%20Contest%20%28ACM-ICPC%29%20World%20Finals%202017
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1747
-        as_of: '20170705211421'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpc.global/worldfinals/problems/2017-ICPC-World-Finals/icpc2017.pdf
+    set: wf-2017
 - id: wf-2018
   season: 2018
   name: 42nd Annual World Finals of the International Collegiate Programming Contest
@@ -1414,37 +1787,56 @@ contests:
   - 3241
   parent: null
   next: wf-2019
-  results:
-    scoreboard:
-    - url: https://www.domjudge.org/scoreboard/wf2018/
-      archived: wf/wf-2018/scoreboard/2026-09-01-live-34ae89be/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://icpc.baylor.edu/scoreboard/
-      as_of: '20181010145851'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: wf/wf-2018/scoreboard/2026-09-01-wayback-14f37445/page.html
-    standings:
-    - url: https://cphof.org/standings/icpc/2018
-      archived: wf/wf-2018/standings/2026-09-01-live-9f29d61a/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/World-Finals-2018/standings
-  web: http://icpc2018.pku.edu.cn/
+  sources:
+  - url: http://icpc2018.pku.edu.cn/
+    roles:
+    - web
+  - url: https://www.domjudge.org/scoreboard/wf2018/
+    roles:
+    - scoreboard
+    archived:
+    - wf/wf-2018/scoreboard/2026-09-01-live-34ae89be/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.baylor.edu/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20181010145851'
+    archived:
+    - wf/wf-2018/scoreboard/2026-09-01-wayback-14f37445/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://cphof.org/standings/icpc/2018
+    roles:
+    - standings
+    as_of: '20211023012704'
+    archived:
+    - wf/wf-2018/standings/2026-09-01-live-9f29d61a/page.html
+    - wf/wf-2018/standings/20211023-wayback-82255032/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/World-Finals-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://icpc.global/worldfinals/problems/2018-ICPC-World-Finals/icpc2018.pdf
+    roles:
+    - problemset
+  - url: https://open.kattis.com/problem-sources/International%20Collegiate%20Programming%20Contest%20%28ACM-ICPC%29%20World%20Finals%202018
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20220124110652'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1859
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190821054531'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/International%20Collegiate%20Programming%20Contest%20%28ACM-ICPC%29%20World%20Finals%202018
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1859
-        as_of: '20190821054531'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpc.global/worldfinals/problems/2018-ICPC-World-Finals/icpc2018.pdf
+    set: wf-2018
 - id: wf-2019
   season: 2019
   name: 43rd Annual World Finals of the International Collegiate Programming Contest
@@ -1454,39 +1846,59 @@ contests:
   - 3512
   parent: null
   next: wf-2020
-  results:
-    scoreboard:
-    - url: https://www.domjudge.org/scoreboard/wf2019/
-      archived: wf/wf-2019/scoreboard/2026-09-01-live-e64db716/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://icpc.baylor.edu/scoreboard/
-      as_of: '20191211025347'
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: wf/wf-2019/scoreboard/2026-09-01-wayback-3840c1f2/page.html
-    - url: https://icpc.global/scoreboard/
-      as_of: '20201207094903'
-      archived: wf/wf-2019/scoreboard/2026-09-01-wayback-5b14e7d1/page.html
-    standings:
-    - url: https://cphof.org/standings/icpc/2019
-      archived: wf/wf-2019/standings/2026-09-01-live-863ccb6d/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/World-Finals-2019/standings
+  sources:
+  - url: https://www.domjudge.org/scoreboard/wf2019/
+    roles:
+    - scoreboard
+    archived:
+    - wf/wf-2019/scoreboard/2026-09-01-live-e64db716/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.baylor.edu/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20191211025347'
+    archived:
+    - wf/wf-2019/scoreboard/2026-09-01-wayback-3840c1f2/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://icpc.global/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20201207094903'
+    archived:
+    - wf/wf-2019/scoreboard/2026-09-01-wayback-5b14e7d1/page.html
+  - url: https://cphof.org/standings/icpc/2019
+    roles:
+    - standings
+    as_of: '20211023013637'
+    archived:
+    - wf/wf-2019/standings/2026-09-01-live-863ccb6d/page.html
+    - wf/wf-2019/standings/20211023-wayback-2ce7ef34/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/World-Finals-2019/standings
+    roles:
+    - icpc_standings
+  - url: https://icpc.global/worldfinals/problems/2019-ICPC-World-Finals/icpc2019.pdf
+    roles:
+    - problemset
+  - url: https://open.kattis.com/problem-sources/ACM-ICPC%20World%20Finals%202019
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20210622173050'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2021
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190821222110'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/ACM-ICPC%20World%20Finals%202019
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2021
-        as_of: '20190821222110'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpc.global/worldfinals/problems/2019-ICPC-World-Finals/icpc2019.pdf
+    set: wf-2019
 - id: wf-2020
   season: 2020
   name: 44th Annual World Finals of the International Collegiate Programming Contest
@@ -1496,32 +1908,50 @@ contests:
   - 3980
   parent: null
   next: wf-2021
-  results:
-    scoreboard:
-    - url: https://www.domjudge.org/scoreboard/wf2020/
-      archived: wf/wf-2020/scoreboard/2026-09-01-live-b2f69e04/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://cphof.org/standings/icpc/2020
-      archived: wf/wf-2020/standings/2026-09-01-live-e36ecb97/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/World-Finals-2020/standings
-  web: http://icpc.global
+  sources:
+  - url: http://icpc.global
+    roles:
+    - web
+  - url: https://www.domjudge.org/scoreboard/wf2020/
+    roles:
+    - scoreboard
+    as_of: '20211130145726'
+    archived:
+    - wf/wf-2020/scoreboard/2026-09-01-live-b2f69e04/page.html
+    - wf/wf-2020/scoreboard/20211130-wayback-284a1ebd/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://cphof.org/standings/icpc/2020
+    roles:
+    - standings
+    as_of: '20211006191220'
+    archived:
+    - wf/wf-2020/standings/2026-09-01-live-e36ecb97/page.html
+    - wf/wf-2020/standings/20211006-wayback-d1ba34b5/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/World-Finals-2020/standings
+    roles:
+    - icpc_standings
+  - url: https://icpc.global/worldfinals/problems/2020-ICPC-World-Finals/icpc2020.pdf
+    roles:
+    - problemset
+  - url: https://open.kattis.com/problem-sources/ICPC%20World%20Finals%202020
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20211203113613'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2805
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20211020042713'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 15
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/ICPC%20World%20Finals%202020
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2805
-        as_of: '20211020042713'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpc.global/worldfinals/problems/2020-ICPC-World-Finals/icpc2020.pdf
+    set: wf-2020
 - id: wf-2021
   season: 2021
   name: 45th Annual World Finals of the International Collegiate Programming Contest
@@ -1531,33 +1961,48 @@ contests:
   - 4298
   parent: null
   next: wf-2022
-  results:
-    scoreboard:
-    - url: https://www.domjudge.org/scoreboard/wf2021/
-      archived: wf/wf-2021/scoreboard/2026-09-01-live-242c968f/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://cphof.org/standings/icpc/2021
-      archived: wf/wf-2021/standings/2026-09-01-live-9aaf751f/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/World-Finals-2021/standings
+  sources:
+  - url: https://www.domjudge.org/scoreboard/wf2021/
+    roles:
+    - scoreboard
+    archived:
+    - wf/wf-2021/scoreboard/2026-09-01-live-242c968f/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://cphof.org/standings/icpc/2021
+    roles:
+    - standings
+    as_of: '20221119144725'
+    archived:
+    - wf/wf-2021/standings/2026-09-01-live-9aaf751f/page.html
+    - wf/wf-2021/standings/20221119-wayback-92bc62c1/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/World-Finals-2021/standings
+    roles:
+    - icpc_standings
+  - url: https://icpc.global/worldfinals/problems/icpc2021.pdf
+    roles:
+    - problemset
+  - url: https://icpc.global/worldfinals/problems/2021-ICPC-World-Finals/icpc2021.pdf
+    roles:
+    - problemset
+  - url: https://open.kattis.com/problem-sources/ICPC%20World%20Finals%202021
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20230923175623'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3230
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20221209045614'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/ICPC%20World%20Finals%202021
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3230
-        as_of: '20221209045614'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-  - https://icpc.global/worldfinals/problems/icpc2021.pdf
-  - https://icpc.global/worldfinals/problems/2021-ICPC-World-Finals/icpc2021.pdf
+    set: wf-2021
 - id: wf-2022
   season: 2022
   name: 46th Annual World Championship of the International Collegiate Programming Contest
@@ -1567,34 +2012,54 @@ contests:
   - 4673
   parent: null
   next: wf-2023
-  results:
-    scoreboard:
-    - url: https://zibada.guru/finals/2022/
-      archived: wf/wf-2022/scoreboard/2026-09-01-live-b17882aa/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://cphof.org/standings/icpc/2022
-      archived: wf/wf-2022/standings/2026-09-01-live-586ee8ad/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/World-Finals-2022/standings
+  sources:
+  - url: https://zibada.guru/finals/2022/
+    roles:
+    - scoreboard
+    as_of: '20240702191249'
+    archived:
+    - wf/wf-2022/scoreboard/2026-09-01-live-b17882aa/page.html
+    - wf/wf-2022/scoreboard/20240702-wayback-6bdec85a/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://cphof.org/standings/icpc/2022
+    roles:
+    - standings
+    as_of: '20240522075746'
+    archived:
+    - wf/wf-2022/standings/2026-09-01-live-586ee8ad/page.html
+    - wf/wf-2022/standings/20240522-wayback-a6468239/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/World-Finals-2022/standings
+    roles:
+    - icpc_standings
+  - url: https://icpc.global/worldfinals/problems/2022-ICPC-World-Finals/icpc2022.pdf
+    roles:
+    - problemset
+  - url: https://open.kattis.com/problem-sources/ICPC%20World%20Finals%202022
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20241211090315'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/ICPC%20World%20Finals%202022%20and%202023
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20241204204319'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4210
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260418195724'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis:
-      - https://open.kattis.com/problem-sources/ICPC%20World%20Finals%202022
-      - https://open.kattis.com/problem-sources/ICPC%20World%20Finals%202022%20and%202023
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4210
-        as_of: '20260418195724'
-    notes: Partly shared with wf-2023
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpc.global/worldfinals/problems/2022-ICPC-World-Finals/icpc2022.pdf
+    set: wf-2022
 - id: wf-2023
   season: 2023
   name: 47th Annual World Championship of the International Collegiate Programming Contest
@@ -1604,37 +2069,61 @@ contests:
   - 5366
   parent: null
   next: wf-2024
-  results:
-    scoreboard:
-    - url: https://zibada.guru/finals/2023/
-      archived: wf/wf-2023/scoreboard/2026-09-01-live-ce0c0f59/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://icpc.global/worldfinals/scoreboard/2023/scoreboards/index.html
-      note: added by url-hunt 2026-09-01 (web-search)
-    standings:
-    - url: https://cphof.org/standings/icpc/2023
-      archived: wf/wf-2023/standings/2026-09-01-live-fc77964d/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/World-Finals-2023/standings
-  web: https://news.icpc.global/wf2023/
+  sources:
+  - url: https://news.icpc.global/wf2023/
+    roles:
+    - web
+  - url: https://zibada.guru/finals/2023/
+    roles:
+    - scoreboard
+    as_of: '20240702202848'
+    archived:
+    - wf/wf-2023/scoreboard/2026-09-01-live-ce0c0f59/page.html
+    - wf/wf-2023/scoreboard/20240702-wayback-9770c851/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/worldfinals/scoreboard/2023/scoreboards/index.html
+    roles:
+    - scoreboard
+    note: added by url-hunt 2026-09-01 (web-search)
+  - url: https://cphof.org/standings/icpc/2023
+    roles:
+    - standings
+    as_of: '20240522081329'
+    archived:
+    - wf/wf-2023/standings/2026-09-01-live-fc77964d/page.html
+    - wf/wf-2023/standings/20240522-wayback-78e998b6/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/World-Finals-2023/standings
+    roles:
+    - icpc_standings
+  - url: https://icpc.global/worldfinals/problems/2023-ICPC-World-Finals/icpc2023.pdf
+    roles:
+    - problemset
+  - url: https://open.kattis.com/problem-sources/ICPC%20World%20Finals%202023
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20241204222837'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/ICPC%20World%20Finals%202022%20and%202023
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20241204204319'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4211
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260418195729'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis:
-      - https://open.kattis.com/problem-sources/ICPC%20World%20Finals%202023
-      - https://open.kattis.com/problem-sources/ICPC%20World%20Finals%202022%20and%202023
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4211
-        as_of: '20260418195729'
-    notes: Partly shared with wf-2022
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpc.global/worldfinals/problems/2023-ICPC-World-Finals/icpc2023.pdf
+    set: wf-2023
 - id: wf-2024
   season: 2024
   name: 48th Annual World Championship of the International Collegiate Programming Contest
@@ -1644,33 +2133,49 @@ contests:
   - 7445
   parent: null
   next: wf-2025
-  results:
-    scoreboard:
-    - url: https://zibada.guru/finals/2024/
-      archived: wf/wf-2024/scoreboard/2026-09-01-live-1789d02c/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://cphof.org/standings/icpc/2024
-      archived: wf/wf-2024/standings/2026-09-01-live-cf2a0c6d/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/World-Finals-2024/standings
-  web: https://worldfinals.icpc.global/2024/
+  sources:
+  - url: https://worldfinals.icpc.global/2024/
+    roles:
+    - web
+  - url: https://zibada.guru/finals/2024/
+    roles:
+    - scoreboard
+    archived:
+    - wf/wf-2024/scoreboard/2026-09-01-live-1789d02c/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://cphof.org/standings/icpc/2024
+    roles:
+    - standings
+    as_of: '20240920215618'
+    archived:
+    - wf/wf-2024/standings/2026-09-01-live-cf2a0c6d/page.html
+    - wf/wf-2024/standings/20240920-wayback-39c46962/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/World-Finals-2024/standings
+    roles:
+    - icpc_standings
+  - url: https://icpc.global/worldfinals/problems/2024-ICPC-World-Finals/icpc2024.pdf
+    roles:
+    - problemset
+  - url: https://open.kattis.com/problem-sources/ICPC%20World%20Finals%202024
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20241211093149'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4292
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260418195732'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ICPC World Finals 2024
   problems:
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/ICPC%20World%20Finals%202024
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4292
-        as_of: '20260418195732'
-        note: ICPC World Finals 2024
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://icpc.global/worldfinals/problems/2024-ICPC-World-Finals/icpc2024.pdf
+    set: wf-2024
 - id: wf-2025
   season: 2025
   name: 49th Annual World Championship of the International Collegiate Programming Contest
@@ -1680,29 +2185,51 @@ contests:
   - 8732
   parent: null
   next: wf-2026
-  results:
-    scoreboard:
-    - url: https://worldfinals.icpc.global/scoreboard/2025/finals/index.html
-      archived: wf/wf-2025/scoreboard/2026-09-01-live-fbe72dd0/index.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://cphof.org/standings/icpc/2025
-      archived: wf/wf-2025/standings/2026-09-01-live-735b35b5/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/World-Finals-2025/standings
-  web: https://worldfinals.icpc.global/
+  sources:
+  - url: https://worldfinals.icpc.global/
+    roles:
+    - web
+  - url: https://worldfinals.icpc.global/scoreboard/2025/finals/index.html
+    roles:
+    - scoreboard
+    as_of: '20250907151234'
+    archived:
+    - wf/wf-2025/scoreboard/2026-09-01-live-fbe72dd0/index.html
+    - wf/wf-2025/scoreboard/20250907-wayback-da378d96/index.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://cphof.org/standings/icpc/2025
+    roles:
+    - standings
+    as_of: '20250905071957'
+    archived:
+    - wf/wf-2025/standings/2026-09-01-live-735b35b5/page.html
+    - wf/wf-2025/standings/20250905-wayback-246c9889/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/World-Finals-2025/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/ICPC-World-Finals/2025-ICPC-World-Finals/2025-problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://nghia03092004.github.io/competitive-programming-assets/icpc/2025/contest_problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4567
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260418195714'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ICPC World Finals 2025
   problems:
-    source: Kattis problem export (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4567
-        as_of: '20260418195714'
-        note: ICPC World Finals 2025
-  problemset:
-  - https://icpcarchive.github.io/ICPC-World-Finals/2025-ICPC-World-Finals/2025-problems.pdf
-  - https://nghia03092004.github.io/competitive-programming-assets/icpc/2025/contest_problems.pdf
+    set: wf-2025
 - id: wf-2026
   status: upcoming
   season: 2026
@@ -1712,7 +2239,10 @@ contests:
   cms_ids:
   - 9150
   next: wf-2027
-  web: https://worldfinals.icpc.global/2026/
+  sources:
+  - url: https://worldfinals.icpc.global/2026/
+    roles:
+    - web
 - id: wf-2027
   status: upcoming
   season: 2027

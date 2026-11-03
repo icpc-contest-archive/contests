@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: nerc
   name: ICPC Northern Eurasia Finals
+  tier: regional
+  region: Northern Eurasia
+  naming: season-start
   lineage:
   - type: continues-from
     series: neerc
@@ -16,31 +19,49 @@ contests:
   - 3283
   parent: wf-2018
   next: nerc-2018
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2017/standings.html
-      archived: nerc/nerc-2017/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northern-Eurasia-2018/standings
-  web: http://neerc.ifmo.ru/information/index.html
-  problems:
-    count: 12
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1812
-        as_of: '20201021194611'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  sources:
+  - url: http://neerc.ifmo.ru/information/index.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2017/standings.html
+    roles:
+    - scoreboard
+    as_of: '20191118144857'
+    archived:
+    - nerc/nerc-2017/external-standings/2026-04-15-external/content.html
+    - nerc/nerc-2017/scoreboard/20191118-wayback-ea301dda/standings.html
+    - nerc/nerc-2017/scoreboard/20260904-live-4a261c41/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northern-Eurasia-2018/standings
+    roles:
+    - icpc_standings
   - url: http://neerc.ifmo.ru/archive/2017/neerc-2017-statement.pdf
+    roles:
+    - problemset
     as_of: '20171215054430'
-  - https://icpcarchive.github.io/Europe%20Contests/Northern%20Eurasia%20Finals%20%28NERC%29/2017%20Northern%20Eurasia%20Finals/problems.pdf
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.github.io/Europe%20Contests/Northern%20Eurasia%20Finals%20%28NERC%29/2017%20Northern%20Eurasia%20Finals/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   - url: https://nerc.itmo.ru/archive/2017/neerc-2017-statement.pdf
+    roles:
+    - problemset
     as_of: '20220122053845'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1812
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201021194611'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: nerc-2017
 - id: nerc-2018
   season: 2019
   name: 2018 Northern Eurasia Contests
@@ -50,28 +71,38 @@ contests:
   - 3672
   parent: wf-2019
   next: nerc-2019
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2018/standings.html
-      archived: nerc/nerc-2018/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northern-Eurasia-2019/standings
-  web: http://nerc.itmo.ru/
-  problems:
-    count: 13
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1972
-        as_of: '20190724083233'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://nerc.itmo.ru/archive/2018/neerc-2018-statement.pdf
+  sources:
+  - url: http://nerc.itmo.ru/
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2018/standings.html
+    roles:
+    - scoreboard
+    as_of: '20191118135153'
+    archived:
+    - nerc/nerc-2018/external-standings/2026-04-15-external/content.html
+    - nerc/nerc-2018/scoreboard/20191118-wayback-35d7e55f/standings.html
+    - nerc/nerc-2018/scoreboard/20260904-live-1b683980/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northern-Eurasia-2019/standings
+    roles:
+    - icpc_standings
+  - url: http://nerc.itmo.ru/archive/2018/neerc-2018-statement.pdf
+    roles:
+    - problemset
     as_of: '20241013104842'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1972
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190724083233'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: nerc-2018
 - id: nerc-2019
   season: 2020
   name: 2019 Northern Eurasia Finals
@@ -81,28 +112,38 @@ contests:
   - 4185
   parent: wf-2020
   next: nerc-2020
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2019/standings.html
-      archived: nerc/nerc-2019/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northern-Eurasia-2020/standings
-  web: https://nerc.itmo.ru
-  problems:
-    count: 12
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2241
-        as_of: '20210228031428'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://nerc.itmo.ru/archive/2019/nerc-2019-statement.pdf
+  sources:
+  - url: https://nerc.itmo.ru
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2019/standings.html
+    roles:
+    - scoreboard
+    as_of: '20191203051855'
+    archived:
+    - nerc/nerc-2019/external-standings/2026-04-15-external/content.html
+    - nerc/nerc-2019/scoreboard/20191203-wayback-41e63e10/standings.html
+    - nerc/nerc-2019/scoreboard/20260904-live-c7ab3aef/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northern-Eurasia-2020/standings
+    roles:
+    - icpc_standings
+  - url: http://nerc.itmo.ru/archive/2019/nerc-2019-statement.pdf
+    roles:
+    - problemset
     as_of: '20220127065741'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2241
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210228031428'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: nerc-2019
 - id: nerc-2020
   season: 2021
   name: 2020 Northern Eurasia Finals Online
@@ -112,32 +153,49 @@ contests:
   - 4551
   parent: wf-2021
   next: nerc-2021
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2020/standings.html
-      as_of: '20201213065826'
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: nerc/nerc-2020/scoreboard/20201213-wayback-e7204232/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Northern-Eurasia-2021/standings
-  web: http://nerc.itmo.ru/information/index.html
-  problems:
-    count: 26
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-      - https://www.acmicpc.net/category/detail/2397
-      - https://www.acmicpc.net/category/detail/2575
-    notes: Online & offline. No date
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  sources:
+  - url: http://nerc.itmo.ru/information/index.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2020/standings.html
+    roles:
+    - scoreboard
+    as_of: '20201213065826'
+    archived:
+    - nerc/nerc-2020/scoreboard/20201213-wayback-e7204232/standings.html
+    - nerc/nerc-2020/scoreboard/20260904-live-dd521919/standings.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northern-Eurasia-2021/standings
+    roles:
+    - icpc_standings
   - url: http://nerc.itmo.ru/archive/2020/nerc-2020-online-statement.pdf
+    roles:
+    - problemset
     as_of: '20240618092437'
+    url_state: live
+    url_checked: '2026-11-02'
   - url: http://nerc.itmo.ru/archive/2020/nerc-2020-offline-statement.pdf
+    roles:
+    - problemset
     as_of: '20210514101727'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2397
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2575
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260618020737'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: nerc-2020
 - id: nerc-2021
   season: 2022
   name: 2021 ICPC Northern Eurasia Finals
@@ -147,29 +205,48 @@ contests:
   - 4933
   parent: wf-2022
   next: nerc-2022
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2021/standings.html
-      archived: nerc/nerc-2021/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northern-Eurasia-2022/standings
-  web: http://nerc.itmo.ru/archive/2021.html
-  problems:
-    count: 12
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon: https://www.acmicpc.net/category/detail/3141
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  sources:
+  - url: http://nerc.itmo.ru/archive/2021.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2021/standings.html
+    roles:
+    - scoreboard
+    as_of: '20220427161521'
+    archived:
+    - nerc/nerc-2021/external-standings/2026-04-15-external/content.html
+    - nerc/nerc-2021/scoreboard/20220427-wayback-0d207204/standings.html
+    - nerc/nerc-2021/scoreboard/20260904-live-4d596079/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northern-Eurasia-2022/standings
+    roles:
+    - icpc_standings
   - url: https://neerc.ifmo.ru/archive/2021/nerc-2021-statement.pdf
+    roles:
+    - problemset
     as_of: '20220509071730'
-  - https://icpcarchive.github.io/Europe%20Contests/Northern%20Eurasia%20Finals%20%28NERC%29/2021%20Northern%20Eurasia%20Finals/problems.pdf
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.github.io/Europe%20Contests/Northern%20Eurasia%20Finals%20%28NERC%29/2021%20Northern%20Eurasia%20Finals/problems.pdf
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
   - url: https://nerc.itmo.ru/archive/2021/nerc-2021-statement.pdf
+    roles:
+    - problemset
     as_of: '20220512235013'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3141
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: nerc-2021
 - id: nerc-2022
   season: 2023
   name: 2022 ICPC Northern Eurasia Finals
@@ -179,30 +256,48 @@ contests:
   - 5574
   parent: wf-2023
   next: nerc-2023
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2022/standings.html
-      as_of: '20221210025112'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: nerc/nerc-2022/scoreboard/20221210-wayback-d87670f9/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Northern-Eurasia-2023/standings
-  web: http://nerc.itmo.ru/archive/2022.html
-  problems:
-    count: 12
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon: https://www.acmicpc.net/category/detail/3261
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  sources:
+  - url: http://nerc.itmo.ru/archive/2022.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2022/standings.html
+    roles:
+    - scoreboard
+    as_of: '20221210025112'
+    archived:
+    - nerc/nerc-2022/scoreboard/20221210-wayback-d87670f9/standings.html
+    - nerc/nerc-2022/scoreboard/20260904-live-08214dbb/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northern-Eurasia-2023/standings
+    roles:
+    - icpc_standings
   - url: https://neerc.ifmo.ru/archive/2022/nef-2022-statement.pdf
+    roles:
+    - problemset
     as_of: '20221210020812'
-  - https://icpcarchive.github.io/Europe%20Contests/Northern%20Eurasia%20Finals%20%28NERC%29/2022%20Northern%20Eurasia%20Finals/problems.pdf
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.github.io/Europe%20Contests/Northern%20Eurasia%20Finals%20%28NERC%29/2022%20Northern%20Eurasia%20Finals/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   - url: https://nerc.itmo.ru/archive/2022/nef-2022-statement.pdf
+    roles:
+    - problemset
     as_of: '20221211201703'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3261
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260618020957'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: nerc-2022
 - id: nerc-2023
   season: 2024
   name: 2023 ICPC Northern Eurasia Finals
@@ -212,26 +307,43 @@ contests:
   - 7724
   parent: wf-2024
   next: nerc-2024
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2023/standings.html
-      as_of: '20231213020612'
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: nerc/nerc-2023/scoreboard/20231213-wayback-fa238574/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Northern-Eurasia-2024/standings
-  web: https://nerc.icpc.global
-  problemset:
+  sources:
+  - url: https://nerc.icpc.global
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2023/standings.html
+    roles:
+    - scoreboard
+    as_of: '20231213020612'
+    archived:
+    - nerc/nerc-2023/scoreboard/20231213-wayback-fa238574/standings.html
+    - nerc/nerc-2023/scoreboard/20260904-live-2854e157/standings.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northern-Eurasia-2024/standings
+    roles:
+    - icpc_standings
   - url: https://nerc.icpc.global/archive/2023/nef-2023-statement.pdf
+    roles:
+    - problemset
     as_of: '20240303052146'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: https://nerc.itmo.ru/archive/2023/nef-2023-statement.pdf
+    roles:
+    - problemset
     as_of: '20231214062307'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4372
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Northern Eurasia Finals 2023
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4372
-        note: Northern Eurasia Finals 2023
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: nerc-2023
 - id: nerc-2024
   season: 2025
   name: 2024 ICPC Northern Eurasia Finals
@@ -241,23 +353,38 @@ contests:
   - 8884
   parent: wf-2025
   next: nerc-2025
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2024/standings.html
-      archived: nerc/nerc-2024/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northern-Eurasia-2025/standings
-  web: https://nerc.itmo.ru
-  problemset:
-    url: http://nerc.itmo.ru/archive/2024/nef-2024-statement.pdf
+  sources:
+  - url: https://nerc.itmo.ru
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2024/standings.html
+    roles:
+    - scoreboard
+    as_of: '20241218043131'
+    archived:
+    - nerc/nerc-2024/external-standings/2026-04-15-external/content.html
+    - nerc/nerc-2024/scoreboard/20241218-wayback-2bbb1922/standings.html
+    - nerc/nerc-2024/scoreboard/20260904-live-7c9077c9/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northern-Eurasia-2025/standings
+    roles:
+    - icpc_standings
+  - url: http://nerc.itmo.ru/archive/2024/nef-2024-statement.pdf
+    roles:
+    - problemset
     as_of: '20250422202100'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4373
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Northern Eurasia Finals 2024
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4373
-        note: Northern Eurasia Finals 2024
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: nerc-2024
 - id: nerc-2025
   season: 2026
   name: 2025 ICPC Northern Eurasia Finals
@@ -266,25 +393,40 @@ contests:
   - 9152
   parent: wf-2026
   next: nerc-2026
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2025/standings.html
-      as_of: '20251217124200'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: nerc/nerc-2025/scoreboard/20251217-wayback-ceb62641/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Northern-Eurasia-2026/standings
-  problemset:
+  sources:
+  - url: https://nerc.itmo.ru/archive/2025/standings.html
+    roles:
+    - scoreboard
+    as_of: '20251217124200'
+    archived:
+    - nerc/nerc-2025/scoreboard/20251217-wayback-ceb62641/standings.html
+    - nerc/nerc-2025/scoreboard/20260904-live-7d1caaa5/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northern-Eurasia-2026/standings
+    roles:
+    - icpc_standings
   - url: https://neerc.ifmo.ru/archive/2025/nef-2025-statement.pdf
+    roles:
+    - problemset
     as_of: '20251222191347'
+    url_state: live
+    url_checked: '2026-11-02'
   - url: https://nerc.itmo.ru/archive/2025/nef-2025-statement.pdf
+    roles:
+    - problemset
     as_of: '20251217214201'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4633
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Northern Eurasia Finals 2025
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4633
-        note: Northern Eurasia Finals 2025
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: nerc-2025
 - id: nerc-2026
   status: upcoming
   season: 2027

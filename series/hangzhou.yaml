@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: hangzhou
   name: ICPC Asia Hangzhou Regional Contest
+  tier: regional
+  region: Asia East
+  naming: season-start
 contests:
 - id: hangzhou-2005
   season: 2006
@@ -12,31 +15,39 @@ contests:
   - 1067
   parent: wf-2006
   next: hangzhou-2008
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=728
-      as_of: '20071011223750'
-      archived: hangzhou/hangzhou-2005/standings/2026-09-01-wayback-395c91fe/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=728
-      as_of: '20110103173948'
-      archived: hangzhou/hangzhou-2005/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/regionals/finder/Hangzhou-2006/standings
-  web: http://acm.zju.edu.cn/icpc2005/
-  problemset:
-    url: http://acm.zju.edu.cn/icpc2005/Problemset.pdf
+  sources:
+  - url: http://acm.zju.edu.cn/icpc2005/
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=728
+    roles:
+    - standings
+    as_of: '20071011223750'
+    archived:
+    - hangzhou/hangzhou-2005/standings/2026-09-01-wayback-395c91fe/page.html
+    - hangzhou/hangzhou-2005/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: as_of 20110103173948 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Hangzhou-2006/standings
+    roles:
+    - icpc_standings
+  - url: http://acm.zju.edu.cn/icpc2005/Problemset.pdf
+    roles:
+    - problemset
     as_of: '20070207012446'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1116
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201022095534'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Hangzhou Regional Contest 2005
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1116
-        as_of: '20201022095534'
-        note: Hangzhou Regional Contest 2005
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: hangzhou-2005
 - id: hangzhou-2008
   season: 2009
   name: 2008 Asia Hangzhou Contest
@@ -48,15 +59,21 @@ contests:
   - 11
   parent: wf-2009
   next: hangzhou-2010
-  results:
-    standings:
-    - url: http://icpc.asia/Result/2008HangzhouResults.htm
-      archived: hangzhou/hangzhou-2008/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Hangzhou-2009/standings
-  web: http://acm.hdu.edu.cn
+  sources:
+  - url: http://acm.hdu.edu.cn
+    roles:
+    - web
+  - url: http://icpc.asia/Result/2008HangzhouResults.htm
+    roles:
+    - standings
+    archived:
+    - hangzhou/hangzhou-2008/external-standings/2026-04-15-external/content.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Hangzhou-2009/standings
+    roles:
+    - icpc_standings
 - id: hangzhou-2010
   season: 2011
   name: 2010 ACM-ICPC Asia Hangzhou Regional Contest
@@ -66,33 +83,35 @@ contests:
   - 660
   parent: wf-2011
   next: hangzhou-2012
-  results:
-    scoreboard:
-    - url: http://board.acmicpc.info/icpc2010/zstu_onsite.php
-      as_of: '20121108112917'
-      archived: hangzhou/hangzhou-2010/scoreboard/2026-09-01-wayback-42f0b110/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: https://acm.zstu.edu.cn/summary.html
-      as_of: '20101029045749'
-      archived: hangzhou/hangzhou-2010/scoreboard/2026-09-01-wayback-46e5db02/summary.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://board.acmicpc.info/icpc2010/zstu_onsite.php
-      as_of: '20121108112917'
-      note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: hangzhou/hangzhou-2010/scoreboard/20121108-wayback-38ca57f0/page.html
-    standings:
-    - url: http://acm.zstu.edu.cn/summary.html
-      as_of: '20101029045749'
-      archived: hangzhou/hangzhou-2010/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Hangzhou-2011/standings
-  web: http://acm.zstu.edu.cn
+  sources:
+  - url: http://acm.zstu.edu.cn
+    roles:
+    - web
+  - url: http://board.acmicpc.info/icpc2010/zstu_onsite.php
+    roles:
+    - scoreboard
+    as_of: '20121108112917'
+    archived:
+    - hangzhou/hangzhou-2010/scoreboard/2026-09-01-wayback-42f0b110/page.html
+    - hangzhou/hangzhou-2010/scoreboard/20121108-wayback-38ca57f0/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
+  - url: https://acm.zstu.edu.cn/summary.html
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20101029045749'
+    archived:
+    - hangzhou/hangzhou-2010/scoreboard/2026-09-01-wayback-46e5db02/summary.html
+    - hangzhou/hangzhou-2010/external-standings/2026-04-15-external/content.html
+    - hangzhou/hangzhou-2010/standings/20101029-wayback-c5ba041e/summary.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Hangzhou-2011/standings
+    roles:
+    - icpc_standings
 - id: hangzhou-2012
   season: 2013
   name: 2012 ACM-ICPC Asia Hangzhou Regional Contest
@@ -102,21 +121,23 @@ contests:
   - 1359
   parent: wf-2013
   next: hangzhou-2013
-  results:
-    scoreboard:
-    - url: http://board.acmicpc.info/icpc2012/zstu_onsite.php
-      as_of: '20121228005539'
-      archived: hangzhou/hangzhou-2012/scoreboard/2026-09-01-wayback-94748d7c/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://board.acmicpc.info/icpc2012/zstu_onsite.php
-      as_of: '20121105234516'
-      note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: hangzhou/hangzhou-2012/scoreboard/20121105-wayback-8fd955a9/page.html
-  icpc_standings: https://icpc.global/regionals/finder/Hangzhou-2013/standings
-  web: http://acm.zstu.edu.cn
+  sources:
+  - url: http://acm.zstu.edu.cn
+    roles:
+    - web
+  - url: http://board.acmicpc.info/icpc2012/zstu_onsite.php
+    roles:
+    - scoreboard
+    as_of: '20121228005539'
+    archived:
+    - hangzhou/hangzhou-2012/scoreboard/2026-09-01-wayback-94748d7c/page.html
+    - hangzhou/hangzhou-2012/scoreboard/20121105-wayback-8fd955a9/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: as_of 20121105234516 for scoreboard; added by url-hunt 2026-09-01 (cdx-bnuoj-board)
+  - url: https://icpc.global/regionals/finder/Hangzhou-2013/standings
+    roles:
+    - icpc_standings
 - id: hangzhou-2013
   season: 2014
   name: 2013 ACM-ICPC Asia Hangzhou Regional Contest
@@ -126,21 +147,23 @@ contests:
   - 1955
   parent: wf-2014
   next: hangzhou-2022
-  results:
-    scoreboard:
-    - url: http://board.acmicpc.info/icpc2013/zjut_onsite.php
-      as_of: '20131030053228'
-      archived: hangzhou/hangzhou-2013/scoreboard/2026-09-01-wayback-6f114764/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://board.acmicpc.info/icpc2013/zjut_onsite.php
-      as_of: '20131030053228'
-      note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: hangzhou/hangzhou-2013/scoreboard/20131030-wayback-46594877/page.html
-  icpc_standings: https://icpc.global/regionals/finder/Hangzhou-2014/standings
-  web: http://acm.zjut.edu.cn
+  sources:
+  - url: http://acm.zjut.edu.cn
+    roles:
+    - web
+  - url: http://board.acmicpc.info/icpc2013/zjut_onsite.php
+    roles:
+    - scoreboard
+    as_of: '20131030053228'
+    archived:
+    - hangzhou/hangzhou-2013/scoreboard/2026-09-01-wayback-6f114764/page.html
+    - hangzhou/hangzhou-2013/scoreboard/20131030-wayback-46594877/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
+  - url: https://icpc.global/regionals/finder/Hangzhou-2014/standings
+    roles:
+    - icpc_standings
 - id: hangzhou-2022
   season: 2023
   name: 2022 ICPC Asia Hangzhou Regional Contest
@@ -150,18 +173,30 @@ contests:
   - 6158
   parent: wf-2023
   next: hangzhou-2023
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/104090/standings
-      archived: hangzhou/hangzhou-2022/scoreboard/2026-09-01-live-5c69a77e/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    - url: https://board.xcpcio.com/icpc/47th/hangzhou
-      note: added by url-hunt 2026-09-01 (xcpcio-data-agent)
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Hangzhou-2023/standings
-  problemset: https://icpcarchive.github.io/Asia%20East%20Continent%20Contests/Hangzhou/2022%20Asia%20Hangzhou%20Regional%20Contest/problems.pdf
+  sources:
+  - url: https://codeforces.com/gym/104090/standings
+    roles:
+    - scoreboard
+    as_of: '20221217075816'
+    archived:
+    - hangzhou/hangzhou-2022/scoreboard/2026-09-01-live-5c69a77e/page.html
+    - hangzhou/hangzhou-2022/scoreboard/20221217-wayback-f24272c8/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://board.xcpcio.com/icpc/47th/hangzhou
+    roles:
+    - scoreboard
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (xcpcio-data-agent)
+  - url: https://icpc.global/regionals/finder/Hangzhou-2023/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Asia%20East%20Continent%20Contests/Hangzhou/2022%20Asia%20Hangzhou%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: hangzhou-2023
   season: 2024
   name: 2023 ICPC Asia Hangzhou Regional Contest
@@ -171,20 +206,33 @@ contests:
   - 7691
   parent: wf-2024
   next: hangzhou-2024
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/104976/standings
-      archived: hangzhou/hangzhou-2023/scoreboard/2026-09-01-live-97922f0b/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    - url: https://board.xcpcio.com/icpc/48th/hangzhou
-      as_of: '20231210030835'
-      note: added by url-hunt 2026-09-01 (xcpcio-data-agent)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: hangzhou/hangzhou-2023/scoreboard/20231210-wayback-ea1cd68b/page.html
-  icpc_standings: https://icpc.global/regionals/finder/Hangzhou-2024/standings
-  problemset: https://icpcarchive.github.io/Asia%20East%20Continent%20Contests/Hangzhou/2023%20Asia%20Hangzhou%20Regional%20Contest/problems.pdf
+  sources:
+  - url: https://codeforces.com/gym/104976/standings
+    roles:
+    - scoreboard
+    as_of: '20240301041840'
+    archived:
+    - hangzhou/hangzhou-2023/scoreboard/2026-09-01-live-97922f0b/page.html
+    - hangzhou/hangzhou-2023/scoreboard/20240301-wayback-6ba24200/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://board.xcpcio.com/icpc/48th/hangzhou
+    roles:
+    - scoreboard
+    as_of: '20231210030835'
+    archived:
+    - hangzhou/hangzhou-2023/scoreboard/20231210-wayback-ea1cd68b/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (xcpcio-data-agent)
+  - url: https://icpc.global/regionals/finder/Hangzhou-2024/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Asia%20East%20Continent%20Contests/Hangzhou/2023%20Asia%20Hangzhou%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: hangzhou-2024
   season: 2025
   name: 2024 ICPC Asia Hangzhou Regional Contest
@@ -194,11 +242,20 @@ contests:
   - 9014
   parent: wf-2025
   next: null
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/105657/standings
-      archived: hangzhou/hangzhou-2024/scoreboard/2026-09-01-live-c908f5c2/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Hangzhou-2025/standings
-  problemset: https://codeforces.com/gym/105657
+  sources:
+  - url: https://codeforces.com/gym/105657/standings
+    roles:
+    - scoreboard
+    archived:
+    - hangzhou/hangzhou-2024/scoreboard/2026-09-01-live-c908f5c2/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Hangzhou-2025/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/105657
+    roles:
+    - problemset
+    as_of: '20250715001419'
+    url_state: live
+    url_checked: '2026-11-02'

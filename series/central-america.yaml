@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: central-america
   name: ICPC Central America Finals
+  tier: regional
+  region: Latin America
+  naming: season-start
   lineage:
   - type: continues-as
     series: mexico
@@ -13,25 +16,33 @@ contests:
   cms_status: pre-cms
   parent: wf-1998
   next: central-america-1998
-  web: https://www.icpccaribe.org/icpc-latam/concursos-regionales-acm-icpc-de-m%C3%A9xico-y-centroam%C3%A9rica-1997-2016
-  problemset:
-  - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_US_CentAm/1997/problems.txt
-    as_of: '20010228092626'
-  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_CentAm/1997/index.html
-    as_of: '19980425011738'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: https://www.icpccaribe.org/icpc-latam/concursos-regionales-acm-icpc-de-m%C3%A9xico-y-centroam%C3%A9rica-1997-2016
+    roles:
+    - web
+  - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_US_CentAm/1997/problems.txt
+    roles:
+    - problemset
+    as_of: '20010228092626'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_CentAm/1997/index.html
+    roles:
+    - problemset
+    as_of: '19980425011738'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=478
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210919195037'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 5
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=478
-        as_of: '20210919195037'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: central-america-1997
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: central-america-1998
   season: 1999
   name: 1998 ACM Central America Programming Contest
@@ -40,45 +51,49 @@ contests:
   - 964
   parent: wf-1999
   next: central-america-1999
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc99/Regionals/CAmerica98/Standings.htm
-      as_of: '20100709230413'
-      archived: central-america/central-america-1998/standings/2026-09-01-live-7645bdf0/Standings.htm
-      url_state: changed
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc99/Regionals/CAmerica98/Standings.htm
-      as_of: '20020701105923'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: changed
-      url_checked: '2026-11-02'
-    scoreboard:
-    - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_CentAm/1998/index.html
-      as_of: '20090713053850'
-      archived: central-america/central-america-1998/scoreboard/2026-04-16-archive/1998-central-america-programming-contest-1998.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-  web: http://www-cs.qro.itesm.mx/~acm
-  problemset:
-  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_CentAm/1998/index.html
-    as_of: '20090713053850'
-  - url: http://icpc.baylor.edu/past/icpc99/Regionals/CAmerica98/Problems.htm
-    as_of: '20020313222600'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: http://www-cs.qro.itesm.mx/~acm
+    roles:
+    - web
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_CentAm/1998/index.html
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20090713053850'
+    archived:
+    - central-america/central-america-1998/scoreboard/2026-04-16-archive/1998-central-america-programming-contest-1998.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://icpc.baylor.edu/past/icpc99/Regionals/CAmerica98/Standings.htm
+    roles:
+    - standings
+    as_of: '20100709230413'
+    archived:
+    - central-america/central-america-1998/standings/2026-09-01-live-7645bdf0/Standings.htm
+    - central-america/central-america-1998/standings/20020701-wayback-78d0dfb5/Standings.htm
+    - central-america/central-america-1998/standings/2026-09-01-wayback-7645bdf0/Standings.htm
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: as_of 20020701105923 for standings; added by url-hunt 2026-09-01 (cdx-baylor-regionals)
+  - url: http://icpc.baylor.edu/past/icpc99/Regionals/CAmerica98/Problems.htm
+    roles:
+    - problemset
+    as_of: '20020313222600'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2723
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20211020024617'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: South America Regional Contests 1998
   problems:
-    count: 6
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2723
-        as_of: '20211020024617'
-        note: South America Regional Contests 1998
+    set: central-america-1998
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: central-america-1999
   season: 2000
   name: 1999 ACM Central America Programming Contest
@@ -88,23 +103,31 @@ contests:
   - 1196
   parent: wf-2000
   next: central-america-2000
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2000/regionals/CAmerica99/Standings.html
-      as_of: '20020111163812'
-      archived: central-america/central-america-1999/standings/2026-09-01-wayback-cd19df5a/Standings.html
-      url_state: unknown
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc2000/regionals/CAmerica99/Standings.html
-      as_of: '20020111163812'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: unknown
-      url_checked: '2026-11-02'
-  web: http://orion.qro.itesm.mx/~acm/
-  problemset:
+  sources:
+  - url: http://orion.qro.itesm.mx/~acm/
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/past/icpc2000/regionals/CAmerica99/Standings.html
+    roles:
+    - standings
+    as_of: '20020111163812'
+    archived:
+    - central-america/central-america-1999/standings/2026-09-01-wayback-cd19df5a/Standings.html
+    - central-america/central-america-1999/standings/20020111-wayback-2e021140/Standings.html
+    url_state: unknown
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
   - url: http://icpc.baylor.edu/past/icpc2000/regionals/CAmerica99/problems.pdf
+    roles:
+    - problemset
     as_of: '20030920031922'
-  - https://academicos.azc.uam.mx/franz/acm/problems1999.pdf
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://academicos.azc.uam.mx/franz/acm/problems1999.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: central-america-2000
   season: 2001
   name: 2000 ACM Central America Programming Contest
@@ -114,39 +137,49 @@ contests:
   - 1195
   parent: wf-2001
   next: central-america-2001
-  results:
-    rankings:
-    - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=456
-      as_of: '20060901131708'
-      archived: central-america/central-america-2000/rankings/2026-09-01-wayback-1f6f8930/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2001/Regionals/ViewRegionalStandings.asp?ContestID=456
-      as_of: '20020112022922'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: unknown
-      url_checked: '2026-11-02'
-  web:
-    url: http://icpc.baylor.edu/past/icpc2001/Regionals/CAmerica00/Default.asp
+  sources:
+  - url: http://icpc.baylor.edu/past/icpc2001/Regionals/CAmerica00/Default.asp
+    roles:
+    - web
     as_of: '20020701102746'
-  problems:
-    count: 5
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=73
-        as_of: '20211018020723'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  - url: http://icpc.baylor.edu/past/icpc2001/Regionals/ViewRegionalStandings.asp?ContestID=456
+    roles:
+    - standings
+    - rankings
+    as_of: '20020112022922'
+    archived:
+    - central-america/central-america-2000/rankings/2026-09-01-wayback-1f6f8930/page.html
+    - central-america/central-america-2000/standings/20020112-wayback-36323b13/page.html
+    - central-america/central-america-2000/standings/20020112-wayback-985de831/page.html
+    url_state: unknown
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings); as_of 20060901131708 for rankings
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_CentAm/2000/index.html
+    roles:
+    - problemset
     as_of: '20020622020221'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2001/regionals/CAmerica00/Problems.pdf
+    roles:
+    - problemset
     as_of: '20030323145715'
-  - https://academicos.azc.uam.mx/franz/acm/problems2000.pdf
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://academicos.azc.uam.mx/franz/acm/problems2000.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=73
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211018020723'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: central-america-2000
 - id: central-america-2001
   season: 2002
   name: 2001 ACM Mexico and Central America Programming Contest
@@ -156,39 +189,61 @@ contests:
   - 1188
   parent: wf-2002
   next: central-america-2002
-  results:
-    rankings:
-    - url: http://icpc.baylor.edu/Past/icpc2002/regionals/ViewRegionalStandings.asp?ContestID=521
-      as_of: '20090102025433'
-      archived: central-america/central-america-2001/rankings/2026-09-01-wayback-524e80af/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=521
-      as_of: '20020619093536'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: unknown
-      url_checked: '2026-11-02'
-  web:
-    url: http://icpc.baylor.edu/past/icpc2002/Regionals/CAmerica01/default.asp
+  sources:
+  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/CAmerica01/default.asp
+    roles:
+    - web
     as_of: '20020619092630'
-  problems:
-    count: 6
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=102
-        as_of: '20211018180342'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+    also_at:
+    - url: http://orion.qro.itesm.mx/~acm/
+      as_of: '20010515212627'
+  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=521
+    roles:
+    - standings
+    - rankings
+    as_of: '20020619093536'
+    archived:
+    - central-america/central-america-2001/rankings/2026-09-01-wayback-524e80af/page.html
+    - central-america/central-america-2001/standings/20020619-wayback-1a3c3600/page.html
+    - central-america/central-america-2001/standings/20020619-wayback-9651cc88/page.html
+    url_state: unknown
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings); as_of 20090102025433 for rankings
+  - url: http://orion.qro.itesm.mx/~acm/concursos/standings.html
+    roles:
+    - standings
+    as_of: '20011103180336'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_CentAm/2001/index.html
+    roles:
+    - problemset
     as_of: '20020622015957'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2002/Regionals/CAmerica01/problems.html
+    roles:
+    - problemset
     as_of: '20020619092631'
-  - https://academicos.azc.uam.mx/franz/acm/problems2001.pdf
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://academicos.azc.uam.mx/franz/acm/problems2001.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://orion.qro.itesm.mx/~acm/concursos/problems.html
+    roles:
+    - problemset
+    as_of: '20001207212700'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=102
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211018180342'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: central-america-2001
 - id: central-america-2002
   season: 2003
   name: 2002 ACM Mexico and Central America Programming Contest
@@ -198,39 +253,58 @@ contests:
   - 1152
   parent: wf-2003
   next: central-america-2003
-  web:
-    url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/orion.qro.itesm.mx/_acm/index.html
+  sources:
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/orion.qro.itesm.mx/_acm/index.html
+    roles:
+    - web
     as_of: '20060901153455'
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/orion.qro.itesm.mx/acm/2002/standings.htm
-      as_of: '20060901153448'
-      archived: central-america/central-america-2002/standings/2026-09-01-wayback-bad403bb/standings.htm
-      url_state: dead
-      url_checked: '2026-11-01'
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings52d5.html?ContestID=588
-      as_of: '20060901123102'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: central-america/central-america-2002/rankings/2026-09-01-wayback-36016e9a/ViewRegionalStandings52d5.html
-    rankings:
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings52d5.html?ContestID=588
-      as_of: '20080506123655'
-      archived: central-america/central-america-2002/rankings/2026-09-01-wayback-36016e9a/ViewRegionalStandings52d5.html
-      url_state: dead
-      url_checked: '2026-11-01'
-  problemset:
+    also_at:
+    - url: http://orion.qro.itesm.mx/~acm/
+      as_of: '20010515212627'
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/orion.qro.itesm.mx/acm/2002/standings.htm
+    roles:
+    - standings
+    as_of: '20060901153448'
+    archived:
+    - central-america/central-america-2002/standings/2026-09-01-wayback-bad403bb/standings.htm
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings52d5.html?ContestID=588
+    roles:
+    - standings
+    - rankings
+    as_of: '20060901123102'
+    archived:
+    - central-america/central-america-2002/rankings/2026-09-01-wayback-36016e9a/ViewRegionalStandings52d5.html
+    - central-america/central-america-2002/standings/20060901-wayback-512bcc44/ViewRegionalStandings52d5.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings); as_of 20080506123655 for rankings
   - url: http://icpc.baylor.edu/past/icpc2003/Regionals/Reports/orion.qro.itesm.mx/acm/2002/problems.htm
+    roles:
+    - problemset
     as_of: '20030505042134'
-  - https://academicos.azc.uam.mx/franz/acm/problems2002.pdf
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://academicos.azc.uam.mx/franz/acm/problems2002.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://orion.qro.itesm.mx/acm/2002/problems.htm
+    roles:
+    - problemset
+    as_of: '20030106073048'
+  - url: https://www.acmicpc.net/category/detail/574
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150418085726'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: South America Regional Contests 2002
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/574
-        as_of: '20150418085726'
-        note: South America Regional Contests 2002
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: central-america-2002
 - id: central-america-2003
   season: 2004
   name: 2003 ACM Mexico and Central America Programming Contest
@@ -240,28 +314,47 @@ contests:
   - 1021
   parent: wf-2004
   next: central-america-2004
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=661
-      as_of: '20071012210031'
-      archived: central-america/central-america-2003/standings/2026-09-01-wayback-4224bc67/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandings6d7c.html?ContestID=661
-      as_of: '20060110002335'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: central-america/central-america-2003/standings/20060110-wayback-79b88c95/ViewRegionalStandings6d7c.html
-  web: http://orion.qro.itesm.mx/~acm/
-  problemset: https://academicos.azc.uam.mx/franz/acm/problems2003.pdf
+  sources:
+  - url: http://orion.qro.itesm.mx/~acm/
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=661
+    roles:
+    - standings
+    as_of: '20071012210031'
+    archived:
+    - central-america/central-america-2003/standings/2026-09-01-wayback-4224bc67/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandings6d7c.html?ContestID=661
+    roles:
+    - standings
+    as_of: '20060110002335'
+    archived:
+    - central-america/central-america-2003/standings/20060110-wayback-79b88c95/ViewRegionalStandings6d7c.html
+    - central-america/central-america-2003/standings/20060110-wayback-61b4a977/ViewRegionalStandings6d7c.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: https://academicos.azc.uam.mx/franz/acm/problems2003.pdf
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: http://orion.qro.itesm.mx/~acm/Problems/
+    roles:
+    - problemset
+    as_of: '20031123091014'
+  - url: https://www.acmicpc.net/category/detail/573
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150416134304'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: South America Regional Contests 2003
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/573
-        as_of: '20150416134304'
-        note: South America Regional Contests 2003
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: central-america-2003
 - id: central-america-2004
   season: 2005
   name: 2004 ACM Mexico and Central America Programming Contest
@@ -271,22 +364,33 @@ contests:
   - 1110
   parent: wf-2005
   next: central-america-2005
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=703
-      as_of: '20080506121206'
-      archived: central-america/central-america-2004/standings/2026-09-01-wayback-ec4259cb/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-  web: http://khalo.qro.itesm.mx/~acm/
-  problemset: https://academicos.azc.uam.mx/franz/acm/problems2004.pdf
+  sources:
+  - url: http://khalo.qro.itesm.mx/~acm/
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=703
+    roles:
+    - standings
+    as_of: '20080506121206'
+    archived:
+    - central-america/central-america-2004/standings/2026-09-01-wayback-ec4259cb/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://academicos.azc.uam.mx/franz/acm/problems2004.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/572
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150416121932'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: South America Regional Contests 2004
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/572
-        as_of: '20150416121932'
-        note: South America Regional Contests 2004
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: central-america-2004
 - id: central-america-2005
   season: 2006
   name: 2005 ACM Mexico and Central America Programming Contest
@@ -297,31 +401,47 @@ contests:
   - 1184
   parent: wf-2006
   next: central-america-2006
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=737
-      as_of: '20071011212843'
-      archived: central-america/central-america-2005/standings/2026-09-01-wayback-d21d8016/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    - url: http://khalo.qro.itesm.mx/~acm/resultados.php
-      as_of: '20070520235427'
-      archived: central-america/central-america-2005/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mexico-Central-America-2006/standings
-  web: http://khalo.qro.itesm.mx/~acm/
-  problemset:
-    url: http://khalo.qro.itesm.mx/~acm/Problems.html
+  sources:
+  - url: http://khalo.qro.itesm.mx/~acm/
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=737
+    roles:
+    - standings
+    as_of: '20071011212843'
+    archived:
+    - central-america/central-america-2005/standings/2026-09-01-wayback-d21d8016/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://khalo.qro.itesm.mx/~acm/resultados.php
+    roles:
+    - standings
+    as_of: '20070520235427'
+    archived:
+    - central-america/central-america-2005/external-standings/2026-04-15-external/content.html
+    - central-america/central-america-2005/standings/20070410-wayback-c6fc1e1a/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mexico-Central-America-2006/standings
+    roles:
+    - icpc_standings
+  - url: http://khalo.qro.itesm.mx/~acm/Problems.html
+    roles:
+    - problemset
     as_of: '20050827165413'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/571
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150416161441'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: South America Regional Contests 2005
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/571
-        as_of: '20150416161441'
-        note: South America Regional Contests 2005
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: central-america-2005
 - id: central-america-2006
   season: 2007
   name: 2006 ACM Mexico and Central America Programming Contest
@@ -332,29 +452,46 @@ contests:
   - 1109
   parent: wf-2007
   next: central-america-2007
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=779
-      as_of: '20071011185732'
-      archived: central-america/central-america-2006/standings/2026-09-01-wayback-6479429d/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    - url: http://cidi.uaq.mx/acm/results.html
-      as_of: '20080925063732'
-      archived: central-america/central-america-2006/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mexico-Central-America-2007/standings
-  web: http://cidi.uaq.mx/acm
-  problemset: https://academicos.azc.uam.mx/franz/acm/problems2006.pdf
+  sources:
+  - url: http://cidi.uaq.mx/acm
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=779
+    roles:
+    - standings
+    as_of: '20071011185732'
+    archived:
+    - central-america/central-america-2006/standings/2026-09-01-wayback-6479429d/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://cidi.uaq.mx/acm/results.html
+    roles:
+    - standings
+    as_of: '20080925063732'
+    archived:
+    - central-america/central-america-2006/external-standings/2026-04-15-external/content.html
+    - central-america/central-america-2006/standings/20070218-wayback-bb0a0e97/results.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mexico-Central-America-2007/standings
+    roles:
+    - icpc_standings
+  - url: https://academicos.azc.uam.mx/franz/acm/problems2006.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/570
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150416153324'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: South America Regional Contests 2006
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/570
-        as_of: '20150416153324'
-        note: South America Regional Contests 2006
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: central-america-2006
 - id: central-america-2007
   season: 2008
   name: 2007 ACM Mexico and Central America Programming Contest
@@ -364,25 +501,37 @@ contests:
   - 958
   parent: wf-2008
   next: central-america-2008
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=860
-      as_of: '20080915032412'
-      archived: central-america/central-america-2007/standings/2026-09-01-wayback-1e276e98/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/regionals/finder/Mexico-Central-America-2008/standings
-  web: http://cidi.uaq.mx/acm
-  problemset:
-    url: http://cidi.uaq.mx/acm/problems.html
+  sources:
+  - url: http://cidi.uaq.mx/acm
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=860
+    roles:
+    - standings
+    as_of: '20080915032412'
+    archived:
+    - central-america/central-america-2007/standings/2026-09-01-wayback-1e276e98/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://icpc.global/regionals/finder/Mexico-Central-America-2008/standings
+    roles:
+    - icpc_standings
+  - url: http://cidi.uaq.mx/acm/problems.html
+    roles:
+    - problemset
     as_of: '20071206035850'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/569
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150416131137'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: South America Regional Contests 2007
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/569
-        as_of: '20150416131137'
-        note: South America Regional Contests 2007
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: central-america-2007
 - id: central-america-2008
   season: 2009
   name: 2008 Mexico & Central America Contest
@@ -393,16 +542,28 @@ contests:
   - 28
   parent: wf-2009
   next: central-america-2009
-  icpc_standings: https://icpc.global/regionals/finder/Mexico-Central-America-2009/standings
-  web: http://cidi.uaq.mx/acm
-  problemset: https://academicos.azc.uam.mx/franz/acm/problems2008.pdf
+  sources:
+  - url: http://cidi.uaq.mx/acm
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Mexico-Central-America-2009/standings
+    roles:
+    - icpc_standings
+  - url: https://academicos.azc.uam.mx/franz/acm/problems2008.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/568
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150418085948'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: South America Regional Contests 2008
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/568
-        as_of: '20150418085948'
-        note: South America Regional Contests 2008
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: central-america-2008
 - id: central-america-2009
   season: 2010
   name: 2009 Mexico & Central America Contest
@@ -413,29 +574,38 @@ contests:
   - 515
   parent: wf-2010
   next: central-america-2010
-  results:
-    standings:
-    - url: http://cidi.uaq.mx/acm/results_09.html
-      as_of: '20151113081504'
-      archived: central-america/central-america-2009/standings/2026-09-01-wayback-30d4910a/results_09.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://cidi.uaq.mx/acm/results_09.html
-      as_of: '20151113081504'
-      archived: central-america/central-america-2009/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mexico-Central-America-2010/standings
-  web: http://cidi.uaq.mx/acm
-  problemset: https://academicos.azc.uam.mx/franz/acm/problems2009.pdf
+  sources:
+  - url: http://cidi.uaq.mx/acm
+    roles:
+    - web
+  - url: http://cidi.uaq.mx/acm/results_09.html
+    roles:
+    - standings
+    as_of: '20151113081504'
+    archived:
+    - central-america/central-america-2009/standings/2026-09-01-wayback-30d4910a/results_09.html
+    - central-america/central-america-2009/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mexico-Central-America-2010/standings
+    roles:
+    - icpc_standings
+  - url: https://academicos.azc.uam.mx/franz/acm/problems2009.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/567
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150418084756'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2009
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/567
-        as_of: '20150418084756'
-        note: Latin America Regional Contests 2009
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: central-america-2009
 - id: central-america-2010
   season: 2011
   name: 2010 Mexico & Central America Regional Contest
@@ -446,19 +616,31 @@ contests:
   - 586
   parent: wf-2011
   next: central-america-2011
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Mexico-Central-America-2011/standings
-    archived: central-america/central-america-2010/standings/api-20260904/standings.html
+  sources:
+  - url: http://cidi.uaq.mx/acm
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Mexico-Central-America-2011/standings
+    roles:
+    - icpc_standings
+    archived:
+    - central-america/central-america-2010/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 586, 199 teams, DB fetch 2026-04-26)
-  web: http://cidi.uaq.mx/acm
-  problemset: https://academicos.azc.uam.mx/franz/acm/problems2010.pdf
+  - url: https://academicos.azc.uam.mx/franz/acm/problems2010.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/566
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150416123649'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2010
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/566
-        as_of: '20150416123649'
-        note: Latin America Regional Contests 2010
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: central-america-2010
 - id: central-america-2011
   season: 2012
   name: 2011 Mexico & Central America Regional Contest
@@ -469,30 +651,40 @@ contests:
   - 814
   parent: wf-2012
   next: central-america-2012
-  results:
-    scoreboard:
-    - url: http://cidi.uaq.mx/acm/images/index.html
-      as_of: '20120118013314'
-      archived: central-america/central-america-2011/scoreboard/2026-09-01-wayback-aee48ade/index.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://cidi.uaq.mx/acm/images/index.html
-      as_of: '20120118013314'
-      archived: central-america/central-america-2011/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mexico-Central-America-2012/standings
-  web: http://cidi.uaq.mx/acm/
-  problemset: https://academicos.azc.uam.mx/franz/acm/problems2011.pdf
+  sources:
+  - url: http://cidi.uaq.mx/acm/
+    roles:
+    - web
+  - url: http://cidi.uaq.mx/acm/images/index.html
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20120118013314'
+    archived:
+    - central-america/central-america-2011/scoreboard/2026-09-01-wayback-aee48ade/index.html
+    - central-america/central-america-2011/external-standings/2026-04-15-external/content.html
+    - central-america/central-america-2011/standings/20111113-wayback-3b937ec5/index.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mexico-Central-America-2012/standings
+    roles:
+    - icpc_standings
+  - url: https://academicos.azc.uam.mx/franz/acm/problems2011.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/565
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150416165224'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2011
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/565
-        as_of: '20150416165224'
-        note: Latin America Regional Contests 2011
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: central-america-2011
 - id: central-america-2012
   season: 2013
   name: 2012 Mexico & Central America Regional Contest
@@ -503,19 +695,31 @@ contests:
   - 1436
   parent: wf-2013
   next: central-america-2013
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Mexico-Central-America-2013/standings
-    archived: central-america/central-america-2012/standings/api-20260904/standings.html
+  sources:
+  - url: http://cidi.uaq.mx/acm/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Mexico-Central-America-2013/standings
+    roles:
+    - icpc_standings
+    archived:
+    - central-america/central-america-2012/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 1436, 163 teams, DB fetch 2026-04-26)
-  web: http://cidi.uaq.mx/acm/
-  problemset: https://academicos.azc.uam.mx/franz/acm/problems2012.pdf
+  - url: https://academicos.azc.uam.mx/franz/acm/problems2012.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/564
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150416150048'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2012
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/564
-        as_of: '20150416150048'
-        note: Latin America Regional Contests 2012
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: central-america-2012
 - id: central-america-2013
   season: 2014
   name: 2013 Mexico & Central America Regional Contest
@@ -526,19 +730,31 @@ contests:
   - 1818
   parent: wf-2014
   next: central-america-2014
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Mexico-Central-America-2014/standings
-    archived: central-america/central-america-2013/standings/api-20260904/standings.html
+  sources:
+  - url: http://cidi.uaq.mx/acm/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Mexico-Central-America-2014/standings
+    roles:
+    - icpc_standings
+    archived:
+    - central-america/central-america-2013/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 1818, 174 teams, DB fetch 2026-04-26)
-  web: http://cidi.uaq.mx/acm/
-  problemset: https://academicos.azc.uam.mx/franz/acm/problems2013.pdf
+  - url: https://academicos.azc.uam.mx/franz/acm/problems2013.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1175
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150416163731'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2013
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1175
-        as_of: '20150416163731'
-        note: Latin America Regional Contests 2013
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: central-america-2013
 - id: central-america-2014
   season: 2015
   name: 2014 ACM-ICPC  Mexico and Central America Finals
@@ -548,29 +764,40 @@ contests:
   - 2482
   parent: wf-2015
   next: central-america-2015
-  results:
-    scoreboard:
-    - url: http://score.bombonera.org/latam2014/
-      as_of: '20150507120712'
-      archived: central-america/central-america-2014/scoreboard/2026-09-01-wayback-ebb43fd8/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://score.bombonera.org/latam2014
-      archived: central-america/central-america-2014/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mexico-Central-America-2015/standings
-  web: http://blogs.iteso.mx/acm
-  problemset: https://drive.google.com/file/d/1Z88lXuHQChLMpmeAL5FPof26dYFzXFCn/view
+  sources:
+  - url: http://blogs.iteso.mx/acm
+    roles:
+    - web
+  - url: http://score.bombonera.org/latam2014/
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20150507120712'
+    archived:
+    - central-america/central-america-2014/scoreboard/2026-09-01-wayback-ebb43fd8/page.html
+    - central-america/central-america-2014/external-standings/2026-04-15-external/content.html
+    - central-america/central-america-2014/standings/20141111-wayback-fb30aec4/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mexico-Central-America-2015/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/1Z88lXuHQChLMpmeAL5FPof26dYFzXFCn/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1297
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20150416133301'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2014
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1297
-        as_of: '20150416133301'
-        note: Latin America Regional Contests 2014
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: central-america-2014
 - id: central-america-2015
   season: 2016
   name: 2015 ACM-ICPC  Mexico and Central America Finals
@@ -580,23 +807,36 @@ contests:
   - 2805
   parent: wf-2016
   next: central-america-2016
-  icpc_standings: https://icpc.global/regionals/finder/Mexico-Central-America-2016/standings
-  results:
-    standings:
-    - url: http://www.bombonera.org/board
-      archived: central-america/central-america-2015/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: changed
-      url_checked: '2026-11-02'
-  web: http://blogs.iteso.mx/acm
-  problemset: https://drive.google.com/file/d/14KtLMGBAOGA0X4sWTMlouT0Ws_bSj_YH/view
+  sources:
+  - url: http://blogs.iteso.mx/acm
+    roles:
+    - web
+  - url: http://www.bombonera.org/board
+    roles:
+    - standings
+    archived:
+    - central-america/central-america-2015/external-standings/2026-04-15-external/content.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mexico-Central-America-2016/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/14KtLMGBAOGA0X4sWTMlouT0Ws_bSj_YH/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1418
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190719100616'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2015
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1418
-        as_of: '20190719100616'
-        note: Latin America Regional Contests 2015
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: central-america-2015
 - id: central-america-2016
   season: 2017
   name: 2016 ACM-ICPC Mexico and Central America Finals
@@ -606,29 +846,40 @@ contests:
   - 3016
   parent: wf-2017
   next: central-america-2017
-  results:
-    scoreboard:
-    - url: http://www.bombonera.org/scoreboard2016/
-      as_of: '20170318010028'
-      archived: central-america/central-america-2016/scoreboard/2026-09-01-wayback-ec7b3f25/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.bombonera.org/scoreboard2016
-      archived: central-america/central-america-2016/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mexico-Central-America-2017/standings
-  web: http://blogs.iteso.mx/acm
-  problemset: https://drive.google.com/file/d/11V3glPkLXuCB4_UmLA2n6GUxUS3hFN5R/view
+  sources:
+  - url: http://blogs.iteso.mx/acm
+    roles:
+    - web
+  - url: http://www.bombonera.org/scoreboard2016/
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20170318010028'
+    archived:
+    - central-america/central-america-2016/scoreboard/2026-09-01-wayback-ec7b3f25/page.html
+    - central-america/central-america-2016/external-standings/2026-04-15-external/content.html
+    - central-america/central-america-2016/standings/20170318-wayback-3845fb20/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mexico-Central-America-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/11V3glPkLXuCB4_UmLA2n6GUxUS3hFN5R/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1572
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190819201522'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2016
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1572
-        as_of: '20190819201522'
-        note: Latin America Regional Contests 2016
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: central-america-2016
 - id: central-america-2017
   season: 2018
   name: 2017 ACM-ICPC Mexico and Central America Finals
@@ -639,29 +890,40 @@ contests:
   - 3449
   parent: wf-2018
   next: central-america-2018
-  results:
-    scoreboard:
-    - url: https://www.bombonera.org/score2017f2/score
-      as_of: '20171114080854'
-      archived: central-america/central-america-2017/scoreboard/2026-09-01-wayback-04abe660/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.bombonera.org/score2017f2/score
-      archived: central-america/central-america-2017/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Mexico-Central-America-2018/standings
-  web: http://blogs.iteso.mx/acm
-  problemset: https://drive.google.com/file/d/1FiDalrMI35Se-jUh4SaY3S06AoBAIMc6/view
+  sources:
+  - url: http://blogs.iteso.mx/acm
+    roles:
+    - web
+  - url: https://www.bombonera.org/score2017f2/score
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20171114080854'
+    archived:
+    - central-america/central-america-2017/scoreboard/2026-09-01-wayback-04abe660/page.html
+    - central-america/central-america-2017/external-standings/2026-04-15-external/content.html
+    - central-america/central-america-2017/standings/20171114-wayback-f24cec84/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mexico-Central-America-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/1FiDalrMI35Se-jUh4SaY3S06AoBAIMc6/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1787
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190817133943'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2017
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1787
-        as_of: '20190817133943'
-        note: Latin America Regional Contests 2017
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: central-america-2017
 - id: central-america-2018
   season: 2019
   name: 2018 ICPC Mexico and Central America Finals
@@ -674,23 +936,38 @@ contests:
   next:
   - central-america-2019
   - mexico-2019
-  icpc_standings: https://icpc.global/regionals/finder/Mexico-Central-America-2019/standings
-  results:
-    standings:
-    - url: http://score.bombonera.org/
-      archived: central-america/central-america-2018/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-  web: http://icpc2018.udg.mx/
-  problemset: https://drive.google.com/file/d/1cIJA_seiSjtciyQPdTG2KTNrT-9wRny4/view
+  sources:
+  - url: http://icpc2018.udg.mx/
+    roles:
+    - web
+  - url: http://score.bombonera.org/
+    roles:
+    - standings
+    as_of: '20181113212745'
+    archived:
+    - central-america/central-america-2018/external-standings/2026-04-15-external/content.html
+    - central-america/central-america-2018/standings/20181113-wayback-c257337e/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Mexico-Central-America-2019/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/1cIJA_seiSjtciyQPdTG2KTNrT-9wRny4/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1956
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190723112850'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2018
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1956
-        as_of: '20190723112850'
-        note: Latin America Regional Contests 2018
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: central-america-2018
 - id: central-america-2019
   season: 2020
   name: 2019 ICPC Central America Finals
@@ -700,21 +977,34 @@ contests:
   - 4263
   parent: wf-2020
   next: central-america-2020
-  results:
-    scoreboard:
-    - url: https://scorelatam.naquadah.com.br/latam-2019/
-      archived: central-america/central-america-2019/scoreboard/2026-09-01-live-e9f99892/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Central-America-2020/standings
-  problemset: https://drive.google.com/file/d/1orJNNnCo4Wqo0e1WQksiQ4G6vbuftB46/view
+  sources:
+  - url: https://scorelatam.naquadah.com.br/latam-2019/
+    roles:
+    - scoreboard
+    as_of: '20210411155403'
+    archived:
+    - central-america/central-america-2019/scoreboard/2026-09-01-live-e9f99892/page.html
+    - central-america/central-america-2019/scoreboard/20210411-wayback-2f0d6964/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Central-America-2020/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/1orJNNnCo4Wqo0e1WQksiQ4G6vbuftB46/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2117
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20200807143554'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2019
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2117
-        as_of: '20200807143554'
-        note: Latin America Regional Contests 2019
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: central-america-2019
 - id: central-america-2020
   season: 2021
   name: 2020 ICPC Central America Finals
@@ -724,21 +1014,34 @@ contests:
   - 4477
   parent: wf-2021
   next: central-america-2021
-  results:
-    scoreboard:
-    - url: https://scorelatam.naquadah.com.br/latam-2020/
-      archived: central-america/central-america-2020/scoreboard/2026-09-01-live-208f16a8/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Central-America-2021/standings
-  problemset: https://drive.google.com/file/d/1zNyntYDM3fmvVELLzwWtpkk6TUnHV9gT/view
+  sources:
+  - url: https://scorelatam.naquadah.com.br/latam-2020/
+    roles:
+    - scoreboard
+    as_of: '20210710234912'
+    archived:
+    - central-america/central-america-2020/scoreboard/2026-09-01-live-208f16a8/page.html
+    - central-america/central-america-2020/scoreboard/20210710-wayback-4dae36e1/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Central-America-2021/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/1zNyntYDM3fmvVELLzwWtpkk6TUnHV9gT/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2611
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210923213505'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2020
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2611
-        as_of: '20210923213505'
-        note: Latin America Regional Contests 2020
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: central-america-2020
 - id: central-america-2021
   season: 2022
   name: 2021 ICPC Central America Finals
@@ -748,21 +1051,34 @@ contests:
   - 4709
   parent: wf-2022
   next: central-america-2022
-  results:
-    scoreboard:
-    - url: https://scorelatam.naquadah.com.br/latam-2021/
-      archived: central-america/central-america-2021/scoreboard/2026-09-01-live-a1f3ddb3/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Central-America-2022/standings
-  problemset: https://drive.google.com/file/d/1CoctzPkRFtL62akJ4h9Aa1sgiedmdv0I/view
+  sources:
+  - url: https://scorelatam.naquadah.com.br/latam-2021/
+    roles:
+    - scoreboard
+    as_of: '20220520232853'
+    archived:
+    - central-america/central-america-2021/scoreboard/2026-09-01-live-a1f3ddb3/page.html
+    - central-america/central-america-2021/scoreboard/20220520-wayback-3964f6f9/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Central-America-2022/standings
+    roles:
+    - icpc_standings
+  - url: https://drive.google.com/file/d/1CoctzPkRFtL62akJ4h9Aa1sgiedmdv0I/view
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3088
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20230514144551'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2021
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3088
-        as_of: '20230514144551'
-        note: Latin America Regional Contests 2021
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: central-america-2021
 - id: central-america-2022
   season: 2023
   name: 2022 ICPC Central America Finals
@@ -772,21 +1088,35 @@ contests:
   - 5529
   parent: wf-2023
   next: central-america-2023
-  results:
-    scoreboard:
-    - url: https://scorelatam.naquadah.com.br/latam-2022/
-      archived: central-america/central-america-2022/scoreboard/2026-09-01-live-1822a1cb/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Central-America-2023/standings
-  problemset: https://scorelatam.naquadah.com.br/latam-2022/contest.pdf
+  sources:
+  - url: https://scorelatam.naquadah.com.br/latam-2022/
+    roles:
+    - scoreboard
+    as_of: '20230323084846'
+    archived:
+    - central-america/central-america-2022/scoreboard/2026-09-01-live-1822a1cb/page.html
+    - central-america/central-america-2022/scoreboard/20230323-wayback-62e21791/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Central-America-2023/standings
+    roles:
+    - icpc_standings
+  - url: https://scorelatam.naquadah.com.br/latam-2022/contest.pdf
+    roles:
+    - problemset
+    as_of: '20230323034228'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3579
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20230514144552'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2022
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3579
-        as_of: '20230514144552'
-        note: Latin America Regional Contests 2022
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: central-america-2022
 - id: central-america-2023
   season: 2024
   name: 2023 ICPC Central America Finals
@@ -796,20 +1126,35 @@ contests:
   - 7541
   parent: lac-2024
   next: central-america-2024
-  results:
-    scoreboard:
-    - url: https://scorelatam.naquadah.com.br/latam-2023/
-      archived: central-america/central-america-2023/scoreboard/2026-09-01-live-c3916262/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Central-America-2024/standings
-  problemset: https://scorelatam.naquadah.com.br/latam-2023/contest.pdf
+  sources:
+  - url: https://scorelatam.naquadah.com.br/latam-2023/
+    roles:
+    - scoreboard
+    as_of: '20231023172618'
+    archived:
+    - central-america/central-america-2023/scoreboard/2026-09-01-live-c3916262/page.html
+    - central-america/central-america-2023/scoreboard/20231023-wayback-7d20f130/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Central-America-2024/standings
+    roles:
+    - icpc_standings
+  - url: https://scorelatam.naquadah.com.br/latam-2023/contest.pdf
+    roles:
+    - problemset
+    as_of: '20231208120837'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4006
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260618021201'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2023
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4006
-        note: Latin America Regional Contests 2023
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: central-america-2023
 - id: central-america-2024
   season: 2025
   name: 2024 ICPC Central America Finals
@@ -820,20 +1165,34 @@ contests:
   - 8951
   parent: lac-2025
   next: central-america-2025
-  results:
-    scoreboard:
-    - url: https://scorelatam.naquadah.com.br/latam-2024/
-      archived: central-america/central-america-2024/scoreboard/2026-09-01-live-478cb21c/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Central-America-2025/standings
-  problemset: https://scorelatam.naquadah.com.br/latam-2024/contest.pdf
+  sources:
+  - url: https://scorelatam.naquadah.com.br/latam-2024/
+    roles:
+    - scoreboard
+    as_of: '20241113233607'
+    archived:
+    - central-america/central-america-2024/scoreboard/2026-09-01-live-478cb21c/page.html
+    - central-america/central-america-2024/scoreboard/20241113-wayback-753d3b6a/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Central-America-2025/standings
+    roles:
+    - icpc_standings
+  - url: https://scorelatam.naquadah.com.br/latam-2024/contest.pdf
+    roles:
+    - problemset
+    as_of: '20241113233655'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4388
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2024
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4388
-        note: Latin America Regional Contests 2024
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: central-america-2024
 - id: central-america-2025
   season: 2026
   name: 2025 ICPC Central America Finals
@@ -844,21 +1203,35 @@ contests:
   - 9407
   parent: lac-2026
   next: central-america-2026
-  results:
-    scoreboard:
-    - url: https://scorelatam.naquadah.com.br/latam-2025/
-      archived: central-america/central-america-2025/scoreboard/2026-09-01-live-6f489726/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Central-America-2026/standings
-  problemset: https://scorelatam.naquadah.com.br/latam-2025/contest.pdf
+  sources:
+  - url: https://scorelatam.naquadah.com.br/latam-2025/
+    roles:
+    - scoreboard
+    as_of: '20251124192456'
+    archived:
+    - central-america/central-america-2025/scoreboard/2026-09-01-live-6f489726/page.html
+    - central-america/central-america-2025/scoreboard/20251124-wayback-89af3860/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Central-America-2026/standings
+    roles:
+    - icpc_standings
+  - url: https://scorelatam.naquadah.com.br/latam-2025/contest.pdf
+    roles:
+    - problemset
+    as_of: '20251124192836'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4687
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260418223005'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: Latin America Regional Contests 2025
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4687
-        as_of: '20260418223005'
-        note: Latin America Regional Contests 2025
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: central-america-2025
 - id: central-america-2026
   status: upcoming
   season: 2027

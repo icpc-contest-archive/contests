@@ -1,7 +1,10 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_candidates.py (url-hunt 2026-09-01).
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: hong-kong
   name: ICPC Asia Hong Kong Regional Contest
+  tier: regional
+  region: Asia East
+  naming: season-start
 contests:
 - id: hong-kong-2000
   season: 2001
@@ -12,41 +15,44 @@ contests:
   - 991
   parent: wf-2001
   next: hong-kong-2016
-  web:
-    url: http://www.cintec.cuhk.edu.hk/icpc2000/
+  sources:
+  - url: http://www.cintec.cuhk.edu.hk/icpc2000/
+    roles:
+    - web
     as_of: '20010714110745'
-  results:
-    rankings:
-    - url: http://icpc.baylor.edu/past/icpc2001/Regionals/ViewRegionalStandings.asp?ContestID=460
-      as_of: '20070816110012'
-      archived: hong-kong/hong-kong-2000/rankings/2026-09-01-wayback-bc480b17/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=460
-      as_of: '20011224102139'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: unknown
-      url_checked: '2026-11-02'
-  problems:
-    count: 6
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=59
-        as_of: '20211201091830'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=460
+    roles:
+    - standings
+    - rankings
+    as_of: '20011224102139'
+    archived:
+    - hong-kong/hong-kong-2000/rankings/2026-09-01-wayback-bc480b17/page.html
+    - hong-kong/hong-kong-2000/standings/20011224-wayback-424304a5/page.html
+    - hong-kong/hong-kong-2000/standings/20011224-wayback-7537ffe8/page.html
+    url_state: unknown
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings); as_of 20070816110012 for rankings
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_VV_Asian/2000/Hongkong.pdf
+    roles:
+    - problemset
     as_of: '20020624142207'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2001/Regionals/Hongkong00/Problems.pdf
+    roles:
+    - problemset
     as_of: '20030323152612'
-  mirrors:
-  - url: http://www.cintec.cuhk.edu.hk/icpc2000
-    note: added by url-hunt 2026-09-01 (cms-api)
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=59
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211201091830'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: hong-kong-2000
 - id: hong-kong-2016
   season: 2017
   name: 2016 ACM-ICPC Asia Hong Kong Regional Contest
@@ -56,33 +62,48 @@ contests:
   - 3087
   parent: wf-2017
   next: hong-kong-2017
-  results:
-    scoreboard:
-    - url: http://board.acmicpc.info/icpc2016/cuhk_onsite.php
-      as_of: '20161117232335'
-      archived: hong-kong/hong-kong-2016/scoreboard/2026-09-01-wayback-1bc69fa6/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: https://asiahk16.kattis.com/contests/asiahk16/standings
-      archived: hong-kong/hong-kong-2016/scoreboard/2026-09-01-live-a19b2427/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://board.acmicpc.info/icpc2016/cuhk_onsite.php
-      as_of: '20161117232335'
-      note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://asiahk16.kattis.com/standings
-      archived: hong-kong/hong-kong-2016/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Hong-Kong-2017/standings
-  web: http://www.cse.cuhk.edu.hk/~acmicpc/onsite.html
+  sources:
+  - url: http://www.cse.cuhk.edu.hk/~acmicpc/onsite.html
+    roles:
+    - web
+  - url: http://board.acmicpc.info/icpc2016/cuhk_onsite.php
+    roles:
+    - scoreboard
+    as_of: '20161117232335'
+    archived:
+    - hong-kong/hong-kong-2016/scoreboard/2026-09-01-wayback-1bc69fa6/page.html
+    - hong-kong/hong-kong-2016/scoreboard/20161117-wayback-64770f1c/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
+  - url: https://asiahk16.kattis.com/contests/asiahk16/standings
+    roles:
+    - scoreboard
+    archived:
+    - hong-kong/hong-kong-2016/scoreboard/2026-09-01-live-a19b2427/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://asiahk16.kattis.com/standings
+    roles:
+    - standings
+    as_of: '20170820230226'
+    archived:
+    - hong-kong/hong-kong-2016/external-standings/2026-04-15-external/content.html
+    - hong-kong/hong-kong-2016/standings/20170820-wayback-f070b743/page.html
+    - hong-kong/hong-kong-2016/standings/20260901-live-41f2a5e3/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Hong-Kong-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://asiahk16.kattis.com/contests/asiahk16/problems
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    source: Kattis problem export (2026-11-01)
-  problemset: https://asiahk16.kattis.com/contests/asiahk16/problems
+    set: hong-kong-2016
 - id: hong-kong-2017
   season: 2018
   name: 2017 ACM-ICPC Asia Hong Kong Regional Contest
@@ -92,21 +113,36 @@ contests:
   - 3368
   parent: wf-2018
   next: hong-kong-2018
-  results:
-    scoreboard:
-    - url: https://pclub.comp.polyu.edu.hk/acm/scoreboard.html
-      archived: hong-kong/hong-kong-2017/scoreboard/2026-09-01-live-b00cb1c6/scoreboard.html
-      url_state: live
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://pclub.comp.polyu.edu.hk/acm/acmicpc2017.html
-      archived: hong-kong/hong-kong-2017/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Hong-Kong-plu-2018/standings
-  web: http://pclub.comp.polyu.edu.hk/acm/acmicpc2017.html
-  problemset: https://pclub.comp.polyu.edu.hk/acm/problem_171120.pdf
+  sources:
+  - url: http://pclub.comp.polyu.edu.hk/acm/acmicpc2017.html
+    roles:
+    - web
+    - standings
+    as_of: '20171216162000'
+    archived:
+    - hong-kong/hong-kong-2017/external-standings/2026-04-15-external/content.html
+    - hong-kong/hong-kong-2017/standings/20171216-wayback-22b1ad4d/acmicpc2017.html
+    - hong-kong/hong-kong-2017/standings/20260901-live-a08d0639/acmicpc2017.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://pclub.comp.polyu.edu.hk/acm/scoreboard.html
+    roles:
+    - scoreboard
+    as_of: '20171123042209'
+    archived:
+    - hong-kong/hong-kong-2017/scoreboard/2026-09-01-live-b00cb1c6/scoreboard.html
+    - hong-kong/hong-kong-2017/scoreboard/20171123-wayback-2da50890/scoreboard.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Hong-Kong-plu-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://pclub.comp.polyu.edu.hk/acm/problem_171120.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: hong-kong-2018
   season: 2019
   name: 2018 ICPC Asia Hong Kong Regional Contest
@@ -116,12 +152,16 @@ contests:
   - 3720
   parent: wf-2019
   next: hong-kong-2019
-  web:
-    url: http://acmhk.cs.cityu.edu.hk/icpc
+  sources:
+  - url: http://acmhk.cs.cityu.edu.hk/icpc
+    roles:
+    - web
     as_of: '20181206132844'
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Hong-Kong-City-2019/standings
-    archived: hong-kong/hong-kong-2018/standings/api-20260904/standings.html
+  - url: https://icpc.global/regionals/finder/Hong-Kong-City-2019/standings
+    roles:
+    - icpc_standings
+    archived:
+    - hong-kong/hong-kong-2018/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3720, 52 teams, DB fetch 2026-04-26)
 - id: hong-kong-2019
   season: 2020
@@ -132,12 +172,21 @@ contests:
   - 4229
   parent: wf-2020
   next: hong-kong-2022
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Hong-Kong-City-2020/standings
-    archived: hong-kong/hong-kong-2019/standings/api-20260904/standings.html
+  sources:
+  - url: http://acmhk.cs.cityu.edu.hk/icpc
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Hong-Kong-City-2020/standings
+    roles:
+    - icpc_standings
+    archived:
+    - hong-kong/hong-kong-2019/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4229, 36 teams, DB fetch 2026-04-26)
-  web: http://acmhk.cs.cityu.edu.hk/icpc
-  problemset: https://icpcarchive.github.io/Asia%20East%20Continent%20Contests/Hongkong/2019%20Asia%20Hong%20Kong%20Regional%20Contest/problems.pdf
+  - url: https://icpcarchive.github.io/Asia%20East%20Continent%20Contests/Hongkong/2019%20Asia%20Hong%20Kong%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: hong-kong-2022
   season: 2023
   name: 2022 ICPC Asia Hong Kong Regional Contest
@@ -147,22 +196,36 @@ contests:
   - 5546
   parent: wf-2023
   next: hong-kong-2024
-  web: https://icpc2023.cse.cuhk.edu.hk/
-  results:
-    standings:
-    - url: https://icpc2023.cse.cuhk.edu.hk/standings.pdf
-      archived: hong-kong/hong-kong-2022/standings/2026-09-01-live-3cfd2dcb/standings.pdf
-      url_state: live
-      url_checked: '2026-11-02'
-    scoreboard:
-    - url: https://board.xcpcio.com/icpc/47th/hongkong
-      as_of: '20240406020322'
-      note: added by url-hunt 2026-09-01 (xcpcio-data-agent)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: hong-kong/hong-kong-2022/scoreboard/20240406-wayback-c55bb40b/page.html
-  icpc_standings: https://icpc.global/regionals/finder/HongKong-City-2023/standings
-  problemset: https://icpcarchive.github.io/Asia%20East%20Continent%20Contests/Hongkong/2023%20Asia%20Hong%20Kong%20Regional%20Contest/problems.pdf
+  sources:
+  - url: https://icpc2023.cse.cuhk.edu.hk/
+    roles:
+    - web
+  - url: https://board.xcpcio.com/icpc/47th/hongkong
+    roles:
+    - scoreboard
+    as_of: '20240406020322'
+    archived:
+    - hong-kong/hong-kong-2022/scoreboard/20240406-wayback-c55bb40b/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (xcpcio-data-agent)
+  - url: https://icpc2023.cse.cuhk.edu.hk/standings.pdf
+    roles:
+    - standings
+    as_of: '20240313215319'
+    archived:
+    - hong-kong/hong-kong-2022/standings/2026-09-01-live-3cfd2dcb/standings.pdf
+    - hong-kong/hong-kong-2022/standings/20240313-wayback-8157f2e4/standings.pdf
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/HongKong-City-2023/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Asia%20East%20Continent%20Contests/Hongkong/2023%20Asia%20Hong%20Kong%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: hong-kong-2024
   season: 2025
   name: 2024 ICPC Asia Hong Kong Regional Contest
@@ -172,17 +235,27 @@ contests:
   - 9090
   parent: wf-2025
   next: hong-kong-2025
-  web: https://icpc2024.comp.polyu.edu.hk/
-  icpc_standings: https://icpc.global/regionals/finder/HongKong-2025/standings
-  results:
-    scoreboard:
-    - url: https://board.xcpcio.com/icpc/49th/hongkong
-      as_of: '20251019114545'
-      note: added by url-hunt 2026-09-01 (wave3-xcpcio)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: hong-kong/hong-kong-2024/scoreboard/20251019-wayback-420d3d8e/page.html
-  problemset: https://qoj.ac/contest/1885
+  sources:
+  - url: https://icpc2024.comp.polyu.edu.hk/
+    roles:
+    - web
+  - url: https://board.xcpcio.com/icpc/49th/hongkong
+    roles:
+    - scoreboard
+    as_of: '20251019114545'
+    archived:
+    - hong-kong/hong-kong-2024/scoreboard/20251019-wayback-420d3d8e/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-xcpcio)
+  - url: https://icpc.global/regionals/finder/HongKong-2025/standings
+    roles:
+    - icpc_standings
+  - url: https://qoj.ac/contest/1885
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: hong-kong-2025
   season: 2026
   name: 2025 ICPC Asia Hong Kong Regional Contest
@@ -192,16 +265,24 @@ contests:
   - 9229
   parent: wf-2026
   next: hong-kong-2026
-  icpc_standings: https://icpc.global/regionals/finder/HongKong-2026/standings
-  results:
-    scoreboard:
-    - url: https://board.xcpcio.com/icpc/50th/hongkong
-      as_of: '20251213063010'
-      note: added by url-hunt 2026-09-01 (wave3-xcpcio)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: hong-kong/hong-kong-2025/scoreboard/20251213-wayback-4cecdf3f/page.html
-  problemset: https://qoj.ac/contest/3169
+  sources:
+  - url: https://board.xcpcio.com/icpc/50th/hongkong
+    roles:
+    - scoreboard
+    as_of: '20251213063010'
+    archived:
+    - hong-kong/hong-kong-2025/scoreboard/20251213-wayback-4cecdf3f/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-xcpcio)
+  - url: https://icpc.global/regionals/finder/HongKong-2026/standings
+    roles:
+    - icpc_standings
+  - url: https://qoj.ac/contest/3169
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: hong-kong-2026
   status: upcoming
   season: 2027

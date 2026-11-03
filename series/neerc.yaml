@@ -1,7 +1,10 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_candidates.py (url-hunt 2026-09-01).
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: neerc
   name: Northeastern Europe Regional Contest
+  tier: regional
+  region: Northern Eurasia
+  naming: season-start
   lineage:
   - type: continues-as
     series: nerc
@@ -13,60 +16,84 @@ contests:
   cms_status: pre-cms
   parent: wf-1997
   next: neerc-1997
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/1996/standings.html
-      as_of: '20191118042941'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: neerc/neerc-1996/standings/20191118-wayback-d1d9bd41/standings.html
-  web: https://neerc.ifmo.ru/archive/1996/
-  problems:
-    count: 6
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=468
-        as_of: '20211018181139'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  sources:
+  - url: https://neerc.ifmo.ru/archive/1996/
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/1996/standings.html
+    roles:
+    - standings
+    as_of: '20191118042941'
+    archived:
+    - neerc/neerc-1996/standings/20191118-wayback-d1d9bd41/standings.html
+    - neerc/neerc-1996/standings/20260904-live-3cd65595/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_NERC/1996/index.html
+    roles:
+    - problemset
     as_of: '19980202011125'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: https://neerc.ifmo.ru/archive/1996/problems.zip
+    roles:
+    - problemset
     as_of: '20250623144847'
-  - https://nerc.itmo.ru/archive/1996/problems.zip
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/1996/problems.zip
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=468
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211018181139'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: neerc-1996
 - id: neerc-1997
   season: 1998
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1998
   next: neerc-1998
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/1997/standings.html
-      as_of: '20191118134942'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: neerc/neerc-1997/standings/20191118-wayback-ff91a79f/standings.html
-  web: https://neerc.ifmo.ru/archive/1997/
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=481
-        as_of: '20211016115039'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  sources:
+  - url: https://neerc.ifmo.ru/archive/1997/
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/1997/standings.html
+    roles:
+    - standings
+    as_of: '20191118134942'
+    archived:
+    - neerc/neerc-1997/standings/20191118-wayback-ff91a79f/standings.html
+    - neerc/neerc-1997/standings/20260904-live-ae42458e/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_NERC/1997/index.html
+    roles:
+    - problemset
     as_of: '19980202011204'
-  - https://nerc.itmo.ru/archive/1997/problems.zip
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/1997/problems.zip
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=481
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211016115039'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: neerc-1997
 - id: neerc-1998
   season: 1999
   name: 1998 ACM Northeastern Europe Programming Contest
@@ -75,42 +102,68 @@ contests:
   - 1077
   parent: wf-1999
   next: neerc-1999
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/1998/standings.html
-      as_of: '20191118131619'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: neerc/neerc-1998/standings/20191118-wayback-398fb31f/standings.html
-    - url: http://icpc.baylor.edu/past/icpc99/Regionals/NEERC98/Standings.htm
-      as_of: '20020527171728'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: neerc/neerc-1998/standings/20020527-wayback-78304a24/Standings.htm
-  web: http://www.ifmo.ru/neerc/
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=492
-        as_of: '20211025074420'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/895
-        as_of: '20201024092655'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  sources:
+  - url: http://www.ifmo.ru/neerc/
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/1998/standings.html
+    roles:
+    - standings
+    as_of: '20191118131619'
+    archived:
+    - neerc/neerc-1998/standings/20191118-wayback-398fb31f/standings.html
+    - neerc/neerc-1998/standings/20260904-live-9a86f921/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc99/Regionals/NEERC98/Standings.htm
+    roles:
+    - standings
+    as_of: '20020527171728'
+    archived:
+    - neerc/neerc-1998/standings/20020527-wayback-78304a24/Standings.htm
+    - neerc/neerc-1998/standings/20020527-wayback-2860e2e5/Standings.htm
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_NERC/1998/index.html
+    roles:
+    - problemset
     as_of: '20010214224946'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc99/Regionals/NEERC98/Problems.htm
+    roles:
+    - problemset
     as_of: '20030718190353'
+    url_state: unknown
+    url_checked: '2026-11-02'
   - url: https://neerc.ifmo.ru/archive/1998/problems.zip
+    roles:
+    - problemset
     as_of: '20250623144847'
-  - https://nerc.itmo.ru/archive/1998/problems.zip
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/1998/problems.zip
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=492
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211025074420'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/895
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201024092655'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: neerc-1998
 - id: neerc-1999
   season: 2000
   name: 1999 ACM Northeastern Europe Programming Contest
@@ -121,40 +174,62 @@ contests:
   - 1010
   parent: wf-2000
   next: neerc-2000
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/1999/standings.html
-      as_of: '20191118135754'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: neerc/neerc-1999/standings/20191118-wayback-4d6894d0/standings.html
-    - url: http://icpc.baylor.edu/past/icpc2000/regionals/NEERC99/Standings.html
-      as_of: '20020420165511'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: neerc/neerc-1999/standings/20020420-wayback-a3c17f2e/Standings.html
-  web: http://www.ifmo.ru/neerc/
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=502
-        as_of: '20211024130846'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/894
-        as_of: '20201021163346'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  sources:
+  - url: http://www.ifmo.ru/neerc/
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/1999/standings.html
+    roles:
+    - standings
+    as_of: '20191118135754'
+    archived:
+    - neerc/neerc-1999/standings/20191118-wayback-4d6894d0/standings.html
+    - neerc/neerc-1999/standings/20260904-live-2532c15f/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2000/regionals/NEERC99/Standings.html
+    roles:
+    - standings
+    as_of: '20020420165511'
+    archived:
+    - neerc/neerc-1999/standings/20020420-wayback-a3c17f2e/Standings.html
+    - neerc/neerc-1999/standings/20020420-wayback-d1f0050e/Standings.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_NERC/1999/index.html
+    roles:
+    - problemset
     as_of: '20010214224741'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2000/regionals/NEERC99/Problems.html
+    roles:
+    - problemset
     as_of: '20020112005306'
-  - https://nerc.itmo.ru/archive/1999/problems.rar
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/1999/problems.rar
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=502
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211024130846'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/894
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201021163346'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: neerc-1999
 - id: neerc-2000
   season: 2001
   name: 2000 ACM Northeastern Europe Programming Contest
@@ -165,43 +240,67 @@ contests:
   - 1246
   parent: wf-2001
   next: neerc-2001
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2000/standings.html
-      as_of: '20191118030517'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: neerc/neerc-2000/standings/20191118-wayback-f4c12140/standings.html
-    - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=453
-      as_of: '20011222222745'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: neerc/neerc-2000/standings/20011222-wayback-303345b4/page.html
-  web:
-    url: http://icpc.baylor.edu/past/icpc2001/Regionals/NEERC00/Default.asp
+  sources:
+  - url: http://icpc.baylor.edu/past/icpc2001/Regionals/NEERC00/Default.asp
+    roles:
+    - web
     as_of: '20020312052015'
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=69
-        as_of: '20211025075011'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/893
-        as_of: '20201026194407'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+    also_at:
+    - url: http://home.ifmo.ru/neerc/
+      as_of: '20011005065902'
+  - url: https://nerc.itmo.ru/archive/2000/standings.html
+    roles:
+    - standings
+    as_of: '20191118030517'
+    archived:
+    - neerc/neerc-2000/standings/20191118-wayback-f4c12140/standings.html
+    - neerc/neerc-2000/standings/20260904-live-769043be/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=453
+    roles:
+    - standings
+    as_of: '20011222222745'
+    archived:
+    - neerc/neerc-2000/standings/20011222-wayback-303345b4/page.html
+    - neerc/neerc-2000/standings/20011222-wayback-5b01d8e5/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_NERC/2000/index.html
+    roles:
+    - problemset
     as_of: '20020513195656'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2001/regionals/NEERC00/Problems.pdf
+    roles:
+    - problemset
     as_of: '20030323161842'
+    url_state: unknown
+    url_checked: '2026-11-02'
   - url: https://neerc.ifmo.ru/archive/2000/problems.pdf.zip
+    roles:
+    - problemset
     as_of: '20220906045952'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=69
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211025075011'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/893
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201026194407'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: neerc-2000
 - id: neerc-2001
   season: 2002
   name: 2001 ACM Northeastern Europe Programming Contest
@@ -212,51 +311,82 @@ contests:
   - 1065
   parent: wf-2002
   next: neerc-2002
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2001/standings.html
-      as_of: '20191118040108'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: neerc/neerc-2001/scoreboard/20191118-wayback-9b937f94/standings.html
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=518
-      as_of: '20020619092850'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: neerc/neerc-2001/standings/20020619-wayback-dcaea9e6/page.html
-  web:
-    url: http://icpc.baylor.edu/past/icpc2002/Regionals/NEERC01/default.asp
-    as_of: '20020619100822'
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=98
-        as_of: '20211015204729'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/892
-        as_of: '20201023090956'
-    notes: Strange date?
-    source: ICPC Problem Archive progress sheet (2026-11-01)
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_NERC/2001/index.html
-    as_of: '20020806022138'
-  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/NEERC01/problems.html
-    as_of: '20020619100503'
-  - url: https://neerc.ifmo.ru/archive/2001/problems-doc.zip
-    as_of: '20250623144847'
-  - https://nerc.itmo.ru/archive/2001/problems-pdf.zip
-  mirrors:
-  - url: http://neerc.ifmo.ru/
+  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/NEERC01/default.asp
+    roles:
+    - web
+    as_of: '20020619100822'
+    also_at:
+    - http://neerc.ifmo.ru/
+  - url: https://nerc.itmo.ru/archive/2001/standings.html
+    roles:
+    - scoreboard
+    as_of: '20191118040108'
+    archived:
+    - neerc/neerc-2001/scoreboard/20191118-wayback-9b937f94/standings.html
+    - neerc/neerc-2001/scoreboard/20260904-live-76d2f673/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=518
+    roles:
+    - standings
+    as_of: '20020619092850'
+    archived:
+    - neerc/neerc-2001/standings/20020619-wayback-dcaea9e6/page.html
+    - neerc/neerc-2001/standings/20020619-wayback-d2678ca0/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: http://neerc.ifmo.ru/Regional/results.html
+    roles:
+    - standings
+    as_of: '20011226155457'
     note: added by url-hunt 2026-09-01 (cms-api)
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_NERC/2001/index.html
+    roles:
+    - problemset
+    as_of: '20020806022138'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/NEERC01/problems.html
+    roles:
+    - problemset
+    as_of: '20020619100503'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2001/problems-doc.zip
+    roles:
+    - problemset
+    as_of: '20250623144847'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2001/problems-pdf.zip
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: http://neerc.ifmo.ru/Regional/problems/index.html
+    roles:
+    - problemset
+    as_of: '20020203131235'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=98
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211015204729'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/892
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201023090956'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: neerc-2001
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: neerc-2002
   season: 2003
   name: 2002 ACM Northeastern Europe Programming Contest
@@ -268,41 +398,59 @@ contests:
   - 1224
   parent: wf-2003
   next: neerc-2003
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2002/standings.html
-      as_of: '20191118131950'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: neerc/neerc-2002/scoreboard/20191118-wayback-272f879c/standings.html
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/neerc.ifmo.ru/Regional/standings/index.htm
-      as_of: '20060901170121'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-mirror)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: neerc/neerc-2002/standings/20060901-wayback-6a3dcfa4/index.htm
-    - url: http://icpc.baylor.edu/past/icpc2003/Regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings3886.html
-      as_of: '20090307031815'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: neerc/neerc-2002/standings/20090307-wayback-cced9020/ViewRegionalStandings3886.html
-  web: http://neerc.ifmo.ru/
+  sources:
+  - url: http://neerc.ifmo.ru/
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2002/standings.html
+    roles:
+    - scoreboard
+    as_of: '20191118131950'
+    archived:
+    - neerc/neerc-2002/scoreboard/20191118-wayback-272f879c/standings.html
+    - neerc/neerc-2002/scoreboard/20260904-live-ff858179/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/neerc.ifmo.ru/Regional/standings/index.htm
+    roles:
+    - standings
+    as_of: '20060901170121'
+    archived:
+    - neerc/neerc-2002/standings/20060901-wayback-6a3dcfa4/index.htm
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-mirror)
+  - url: http://icpc.baylor.edu/past/icpc2003/Regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings3886.html
+    roles:
+    - standings
+    as_of: '20090307031815'
+    archived:
+    - neerc/neerc-2002/standings/20090307-wayback-cced9020/ViewRegionalStandings3886.html
+    - neerc/neerc-2002/standings/20090307-wayback-502e93a6/ViewRegionalStandings3886.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: https://nerc.itmo.ru/archive/2002/problems.rar
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/891
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201019162755'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://codeforces.com/gym/100002
+    roles:
+    - judge_page
+    judge: codeforces
+    as_of: '20221226061401'
+    url_state: live
+    url_checked: '2026-11-02'
   problems:
-    count: 9
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/891
-        as_of: '20201019162755'
-      codeforces: https://codeforces.com/gym/100002
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://nerc.itmo.ru/archive/2002/problems.rar
-  mirrors: []
+    set: neerc-2002
 - id: neerc-2003
   season: 2004
   name: 2003 ACM Northeastern Europe Programming Contest
@@ -314,37 +462,58 @@ contests:
   - 1172
   parent: wf-2004
   next: neerc-2004
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2003/standings.html
-      as_of: '20191118040821'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: neerc/neerc-2003/scoreboard/20191118-wayback-9318c5ee/standings.html
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandings30de.html?ContestID=659
-      as_of: '20060901141834'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: neerc/neerc-2003/standings/20060901-wayback-b74daa75/ViewRegionalStandings30de.html
-  web: http://neerc.ifmo.ru/
-  problems:
-    count: 11
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/890
-        as_of: '20201024125246'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-  - https://neerc.ifmo.ru/archive/2003/problems.pdf
+  sources:
+  - url: http://neerc.ifmo.ru/
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2003/standings.html
+    roles:
+    - scoreboard
+    as_of: '20191118040821'
+    archived:
+    - neerc/neerc-2003/scoreboard/20191118-wayback-9318c5ee/standings.html
+    - neerc/neerc-2003/scoreboard/20260904-live-5d296e48/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandings30de.html?ContestID=659
+    roles:
+    - standings
+    as_of: '20060901141834'
+    archived:
+    - neerc/neerc-2003/standings/20060901-wayback-b74daa75/ViewRegionalStandings30de.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: http://neerc.ifmo.ru/regional/standings.html
+    roles:
+    - standings
+    as_of: '20030511143534'
+    note: added by url-hunt 2026-09-01 (cms-api)
+  - url: https://neerc.ifmo.ru/archive/2003/problems.pdf
+    roles:
+    - problemset
+    as_of: '20181222142209'
+    url_state: live
+    url_checked: '2026-11-02'
   - url: https://nerc.itmo.ru/archive/2003/problems.pdf
+    roles:
+    - problemset
     as_of: '20230322025016'
-  mirrors: []
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://neerc.ifmo.ru/regional/problems/problems.ps
+    roles:
+    - problemset
+    as_of: '20040205225935'
+  - url: https://www.acmicpc.net/category/detail/890
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201024125246'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: neerc-2003
 - id: neerc-2004
   season: 2005
   name: 2004 ACM Northeastern Europe Programming Contest
@@ -356,28 +525,34 @@ contests:
   - 967
   parent: wf-2005
   next: neerc-2005
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2004/standings.html
-      as_of: '20191118031424'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: neerc/neerc-2004/scoreboard/20191118-wayback-b5ad448b/standings.html
-  web: http://neerc.ifmo.ru/
-  problems:
-    count: 12
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/889
-        as_of: '20201024154912'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: https://nerc.itmo.ru/archive/2004/problems/problems.pdf
+  sources:
+  - url: http://neerc.ifmo.ru/
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2004/standings.html
+    roles:
+    - scoreboard
+    as_of: '20191118031424'
+    archived:
+    - neerc/neerc-2004/scoreboard/20191118-wayback-b5ad448b/standings.html
+    - neerc/neerc-2004/scoreboard/20260904-live-7c0eb934/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://nerc.itmo.ru/archive/2004/problems/problems.pdf
+    roles:
+    - problemset
     as_of: '20220122053356'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/889
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201024154912'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: neerc-2004
 - id: neerc-2005
   season: 2006
   name: 2005 ACM Northeastern Europe Programming Contest
@@ -388,36 +563,47 @@ contests:
   - 1166
   parent: wf-2006
   next: neerc-2006
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2005/standings.html
-      as_of: '20191118143145'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: neerc/neerc-2005/scoreboard/20191118-wayback-e21fce5d/standings.html
-    standings:
-    - url: http://neerc.ifmo.ru/regional/standings/standings-with-time.html
-      as_of: '20130901071433'
-      archived: neerc/neerc-2005/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northeastern-Europe-2006/standings
-  web: http://neerc.ifmo.ru/
-  problems:
-    count: 12
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/21
-        as_of: '20191112032752'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: https://nerc.itmo.ru/archive/2005/problems/problems.pdf
+  sources:
+  - url: http://neerc.ifmo.ru/
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2005/standings.html
+    roles:
+    - scoreboard
+    as_of: '20191118143145'
+    archived:
+    - neerc/neerc-2005/scoreboard/20191118-wayback-e21fce5d/standings.html
+    - neerc/neerc-2005/scoreboard/20260904-live-b0f2a73a/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://neerc.ifmo.ru/regional/standings/standings-with-time.html
+    roles:
+    - standings
+    as_of: '20130901071433'
+    archived:
+    - neerc/neerc-2005/external-standings/2026-04-15-external/content.html
+    - neerc/neerc-2005/standings/20130901-wayback-d75384c1/standings-with-time.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Northeastern-Europe-2006/standings
+    roles:
+    - icpc_standings
+  - url: https://nerc.itmo.ru/archive/2005/problems/problems.pdf
+    roles:
+    - problemset
     as_of: '20220122063411'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/21
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191112032752'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: neerc-2005
 - id: neerc-2006
   season: 2007
   name: 2006 ACM Northeastern Europe Programming Contest
@@ -428,37 +614,52 @@ contests:
   - 1289
   parent: wf-2007
   next: neerc-2007
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2006/standings.html
-      as_of: '20191118032143'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: neerc/neerc-2006/scoreboard/20191118-wayback-c50aca55/standings.html
-    standings:
-    - url: http://neerc.ifmo.ru/regional/standings/standings-with-time.html
-      as_of: '20130901071433'
-      archived: neerc/neerc-2006/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northeastern-Europe-2007/standings
-  web: http://neerc.ifmo.ru
-  problems:
-    count: 11
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/20
-        as_of: '20201130143719'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-  - https://neerc.ifmo.ru/archive/2006/problems/problems.pdf
+  sources:
+  - url: http://neerc.ifmo.ru
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2006/standings.html
+    roles:
+    - scoreboard
+    as_of: '20191118032143'
+    archived:
+    - neerc/neerc-2006/scoreboard/20191118-wayback-c50aca55/standings.html
+    - neerc/neerc-2006/scoreboard/20260904-live-3c3e3196/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://neerc.ifmo.ru/regional/standings/standings-with-time.html
+    roles:
+    - standings
+    as_of: '20130901071433'
+    archived:
+    - neerc/neerc-2006/external-standings/2026-04-15-external/content.html
+    - neerc/neerc-2006/standings/20130901-wayback-d75384c1/standings-with-time.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Northeastern-Europe-2007/standings
+    roles:
+    - icpc_standings
+  - url: https://neerc.ifmo.ru/archive/2006/problems/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   - url: https://nerc.itmo.ru/archive/2006/problems/problems.pdf
+    roles:
+    - problemset
     as_of: '20220122053027'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/20
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201130143719'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: neerc-2006
 - id: neerc-2007
   season: 2008
   name: 2007 ACM Northeastern Europe Programming Contest
@@ -469,37 +670,52 @@ contests:
   - 1180
   parent: wf-2008
   next: neerc-2008
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2007/standings.html
-      as_of: '20191118042233'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: neerc/neerc-2007/scoreboard/20191118-wayback-8f0f7fac/standings.html
-    standings:
-    - url: http://neerc.ifmo.ru/information/standings.html
-      as_of: '20240615101317'
-      archived: neerc/neerc-2007/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northeastern-Europe-2008/standings
-  web: http://neerc.ifmo.ru
-  problems:
-    count: 12
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/19
-        as_of: '20171220211205'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-  - https://neerc.ifmo.ru/archive/2007/problems.pdf
+  sources:
+  - url: http://neerc.ifmo.ru
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2007/standings.html
+    roles:
+    - scoreboard
+    as_of: '20191118042233'
+    archived:
+    - neerc/neerc-2007/scoreboard/20191118-wayback-8f0f7fac/standings.html
+    - neerc/neerc-2007/scoreboard/20260904-live-4d398443/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://neerc.ifmo.ru/information/standings.html
+    roles:
+    - standings
+    as_of: '20240615101317'
+    archived:
+    - neerc/neerc-2007/external-standings/2026-04-15-external/content.html
+    - neerc/neerc-2007/standings/20240615-wayback-873ad612/standings.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Northeastern-Europe-2008/standings
+    roles:
+    - icpc_standings
+  - url: https://neerc.ifmo.ru/archive/2007/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   - url: https://nerc.itmo.ru/archive/2007/problems.pdf
+    roles:
+    - problemset
     as_of: '20220122052903'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/19
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20171220211205'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: neerc-2007
 - id: neerc-2008
   season: 2009
   name: 2008 Northeastern Europe Contest
@@ -509,29 +725,43 @@ contests:
   - 24
   parent: wf-2009
   next: neerc-2009
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2008/standings.html
-      archived: neerc/neerc-2008/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northeastern-Europe-2009/standings
-  web: http://nerc.itmo.ru/
-  problems:
-    count: 11
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/18
-        as_of: '20191210124324'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-  - https://neerc.ifmo.ru/archive/2008/problems.pdf
+  sources:
+  - url: http://nerc.itmo.ru/
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2008/standings.html
+    roles:
+    - scoreboard
+    as_of: '20191118032852'
+    archived:
+    - neerc/neerc-2008/external-standings/2026-04-15-external/content.html
+    - neerc/neerc-2008/scoreboard/20191118-wayback-094f7d5e/standings.html
+    - neerc/neerc-2008/scoreboard/20260904-live-7cc28365/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northeastern-Europe-2009/standings
+    roles:
+    - icpc_standings
+  - url: https://neerc.ifmo.ru/archive/2008/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   - url: https://nerc.itmo.ru/archive/2008/problems.pdf
+    roles:
+    - problemset
     as_of: '20220122062905'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/18
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191210124324'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: neerc-2008
 - id: neerc-2009
   season: 2010
   name: 2009 Northeastern Europe Contest
@@ -541,30 +771,49 @@ contests:
   - 523
   parent: wf-2010
   next: neerc-2010
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2009/standings.html
-      archived: neerc/neerc-2009/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northeastern-Europe-2010/standings
-  web: http://nerc.itmo.ru/
-  problems:
-    count: 11
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/17
-        as_of: '20190716055537'
-      codeforces: https://codeforces.com/gym/100069
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-  - https://neerc.ifmo.ru/archive/2009/problems.pdf
+  sources:
+  - url: http://nerc.itmo.ru/
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2009/standings.html
+    roles:
+    - scoreboard
+    as_of: '20191118042931'
+    archived:
+    - neerc/neerc-2009/external-standings/2026-04-15-external/content.html
+    - neerc/neerc-2009/scoreboard/20191118-wayback-d0251030/standings.html
+    - neerc/neerc-2009/scoreboard/20260904-live-2c763267/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northeastern-Europe-2010/standings
+    roles:
+    - icpc_standings
+  - url: https://neerc.ifmo.ru/archive/2009/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   - url: https://nerc.itmo.ru/archive/2009/problems.pdf
+    roles:
+    - problemset
     as_of: '20220122052658'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/17
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190716055537'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://codeforces.com/gym/100069
+    roles:
+    - judge_page
+    judge: codeforces
+    url_state: live
+    url_checked: '2026-11-02'
+  problems:
+    set: neerc-2009
 - id: neerc-2010
   season: 2011
   name: 2010 Northeastern Europe Regional Contest
@@ -574,28 +823,38 @@ contests:
   - 617
   parent: wf-2011
   next: neerc-2011
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2010/standings.html
-      archived: neerc/neerc-2010/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northeastern-Europe-2011/standings
-  web: http://nerc.itmo.ru/
-  problems:
-    count: 11
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/16
-        as_of: '20190825021435'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://nerc.itmo.ru/archive/2010/neerc-2010-problems.pdf
+  sources:
+  - url: http://nerc.itmo.ru/
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2010/standings.html
+    roles:
+    - scoreboard
+    as_of: '20191118030947'
+    archived:
+    - neerc/neerc-2010/external-standings/2026-04-15-external/content.html
+    - neerc/neerc-2010/scoreboard/20191118-wayback-e3b55478/standings.html
+    - neerc/neerc-2010/scoreboard/20260904-live-183c9a26/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northeastern-Europe-2011/standings
+    roles:
+    - icpc_standings
+  - url: http://nerc.itmo.ru/archive/2010/neerc-2010-problems.pdf
+    roles:
+    - problemset
     as_of: '20241013103955'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/16
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190825021435'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: neerc-2010
 - id: neerc-2011
   season: 2012
   name: 2011 Northeastern Europe Regional Contest
@@ -605,29 +864,43 @@ contests:
   - 752
   parent: wf-2012
   next: neerc-2012
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2011/standings.html
-      archived: neerc/neerc-2011/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northeastern-Europe-2012/standings
-  web: http://nerc.itmo.ru/
-  problems:
-    count: 12
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/15
-        as_of: '20201124175251'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-  - https://icpcarchive.github.io/Europe%20Contests/Northern%20Eurasia%20Finals%20(NERC)/2011%20Northern%20Eurasia%20Finals/problems.pdf
+  sources:
+  - url: http://nerc.itmo.ru/
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2011/standings.html
+    roles:
+    - scoreboard
+    as_of: '20191118041016'
+    archived:
+    - neerc/neerc-2011/external-standings/2026-04-15-external/content.html
+    - neerc/neerc-2011/scoreboard/20191118-wayback-99baac36/standings.html
+    - neerc/neerc-2011/scoreboard/20260904-live-4a898ac4/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northeastern-Europe-2012/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Contests/Northern%20Eurasia%20Finals%20(NERC)/2011%20Northern%20Eurasia%20Finals/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   - url: https://nerc.itmo.ru/archive/2011/neerc-2011.pdf
+    roles:
+    - problemset
     as_of: '20220122063201'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/15
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201124175251'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: neerc-2011
 - id: neerc-2012
   season: 2013
   name: 2012 Northeastern Europe Regional Contest
@@ -637,29 +910,43 @@ contests:
   - 1301
   parent: wf-2013
   next: neerc-2013
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2012/standings.html
-      archived: neerc/neerc-2012/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northeastern-Europe-2013/standings
-  web: http://nerc.itmo.ru/
-  problems:
-    count: 11
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/14
-        as_of: '20201130134823'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-  - https://icpcarchive.github.io/Europe%20Contests/Northern%20Eurasia%20Finals%20(NERC)/2012%20Northern%20Eurasia%20Finals/problems.pdf
+  sources:
+  - url: http://nerc.itmo.ru/
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2012/standings.html
+    roles:
+    - scoreboard
+    as_of: '20191118031614'
+    archived:
+    - neerc/neerc-2012/external-standings/2026-04-15-external/content.html
+    - neerc/neerc-2012/scoreboard/20191118-wayback-bcdf1ca7/standings.html
+    - neerc/neerc-2012/scoreboard/20260904-live-2e76153f/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northeastern-Europe-2013/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.github.io/Europe%20Contests/Northern%20Eurasia%20Finals%20(NERC)/2012%20Northern%20Eurasia%20Finals/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   - url: https://nerc.itmo.ru/archive/2012/problems.pdf
+    roles:
+    - problemset
     as_of: '20220122053611'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/14
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201130134823'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: neerc-2012
 - id: neerc-2013
   season: 2014
   name: 2013 Northeastern Europe Regional Contest
@@ -669,28 +956,34 @@ contests:
   - 2025
   parent: wf-2014
   next: neerc-2014
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2013/standings.html
-      as_of: '20191118041719'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: neerc/neerc-2013/scoreboard/20191118-wayback-a463c3b5/standings.html
-  web: http://nerc.itmo.ru/
-  problems:
-    count: 11
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1183
-        as_of: '20201023090814'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://nerc.itmo.ru/archive/2013/neerc-2013-problems.pdf
+  sources:
+  - url: http://nerc.itmo.ru/
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2013/standings.html
+    roles:
+    - scoreboard
+    as_of: '20191118041719'
+    archived:
+    - neerc/neerc-2013/scoreboard/20191118-wayback-a463c3b5/standings.html
+    - neerc/neerc-2013/scoreboard/20260904-live-4e35408a/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://nerc.itmo.ru/archive/2013/neerc-2013-problems.pdf
+    roles:
+    - problemset
     as_of: '20241013112025'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1183
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201023090814'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: neerc-2013
 - id: neerc-2014
   season: 2015
   name: 2014 Northeastern Europe Regional Contest
@@ -700,28 +993,38 @@ contests:
   - 2672
   parent: wf-2015
   next: neerc-2015
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2014/standings.html
-      archived: neerc/neerc-2014/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northeastern-Europe-2015/standings
-  web: http://nerc.itmo.ru/
-  problems:
-    count: 11
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1320
-        as_of: '20201020195531'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://nerc.itmo.ru/archive/2014/neerc-2014-statements.pdf
+  sources:
+  - url: http://nerc.itmo.ru/
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2014/standings.html
+    roles:
+    - scoreboard
+    as_of: '20191118133556'
+    archived:
+    - neerc/neerc-2014/external-standings/2026-04-15-external/content.html
+    - neerc/neerc-2014/scoreboard/20191118-wayback-a1750de2/standings.html
+    - neerc/neerc-2014/scoreboard/20260904-live-f23f558d/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northeastern-Europe-2015/standings
+    roles:
+    - icpc_standings
+  - url: http://nerc.itmo.ru/archive/2014/neerc-2014-statements.pdf
+    roles:
+    - problemset
     as_of: '20241013110754'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1320
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201020195531'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: neerc-2014
 - id: neerc-2015
   season: 2016
   name: 2015 Northeastern Europe Regional Contest
@@ -731,29 +1034,43 @@ contests:
   - 2752
   parent: wf-2016
   next: neerc-2016
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2015/standings.html
-      archived: neerc/neerc-2015/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northeastern-Europe-2016/standings
-  web: http://nerc.itmo.ru/
-  problems:
-    count: 12
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1439
-        as_of: '20201027071930'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-  - https://neerc.ifmo.ru/archive/2015/neerc-2015.pdf
+  sources:
+  - url: http://nerc.itmo.ru/
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2015/standings.html
+    roles:
+    - scoreboard
+    as_of: '20191118144141'
+    archived:
+    - neerc/neerc-2015/external-standings/2026-04-15-external/content.html
+    - neerc/neerc-2015/scoreboard/20191118-wayback-136f8cef/standings.html
+    - neerc/neerc-2015/scoreboard/20260904-live-f1fa4e83/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northeastern-Europe-2016/standings
+    roles:
+    - icpc_standings
+  - url: https://neerc.ifmo.ru/archive/2015/neerc-2015.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
   - url: https://nerc.itmo.ru/archive/2015/neerc-2015.pdf
+    roles:
+    - problemset
     as_of: '20220122063444'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1439
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201027071930'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: neerc-2015
 - id: neerc-2016
   season: 2017
   name: 2016 Northeastern Europe Regional Contest
@@ -763,25 +1080,35 @@ contests:
   - 3139
   parent: wf-2017
   next: nerc-2017
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2016/standings.html
-      archived: neerc/neerc-2016/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Northeastern-Europe-2017/standings
-  web: http://nerc.itmo.ru/
-  problems:
-    count: 13
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1585
-        as_of: '20201124181459'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: http://nerc.itmo.ru/archive/2016/neerc-2016-statement.pdf
+  sources:
+  - url: http://nerc.itmo.ru/
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2016/standings.html
+    roles:
+    - scoreboard
+    as_of: '20191118134339'
+    archived:
+    - neerc/neerc-2016/external-standings/2026-04-15-external/content.html
+    - neerc/neerc-2016/scoreboard/20191118-wayback-0eb6d4d0/standings.html
+    - neerc/neerc-2016/scoreboard/20260904-live-894f51c8/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Northeastern-Europe-2017/standings
+    roles:
+    - icpc_standings
+  - url: http://nerc.itmo.ru/archive/2016/neerc-2016-statement.pdf
+    roles:
+    - problemset
     as_of: '20241013111217'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1585
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201124181459'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: neerc-2016

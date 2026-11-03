@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: mcerc
   name: ACM Mid-Central European Programming Contest
+  tier: regional
+  region: Europe
+  naming: season-start
   lineage:
   - type: continues-from
     series: swerc
@@ -19,53 +22,71 @@ contests:
   - 1000
   parent: wf-2000
   next: mcerc-2000
-  web:
-    url: http://acm.informatik.uni-freiburg.de/
-    as_of: '20020606025303'
-  results:
-    scoreboard:
-    - url: http://acm.informatik.uni-freiburg.de/1999/ranking/
-      as_of: '20020802110825'
-      archived: mcerc/mcerc-1999/scoreboard/2026-09-01-wayback-edc27c16/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_EU_MCRC/1999/index.html
-      as_of: '20040517070207'
-      archived: mcerc/mcerc-1999/scoreboard/2026-04-16-archive/1999-mid-central-european-programming-contest-1999.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2000/regionals/MCEurope99/Standings.html
-      as_of: '20020112033829'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: mcerc/mcerc-1999/standings/20020112-wayback-5579810c/Standings.html
-  problemset:
-  - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_EU_MCRC/1999/index.html
-    as_of: '20040517070207'
-  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_MCRC/1999/index.html
-    as_of: '20020622020929'
-  - url: http://icpc.baylor.edu/past/icpc2000/regionals/MCEurope99/Problems.pdf
-    as_of: '20030607091023'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: http://acm.informatik.uni-freiburg.de/
+    roles:
+    - web
+    as_of: '20020606025303'
+  - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_EU_MCRC/1999/index.html
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20040517070207'
+    archived:
+    - mcerc/mcerc-1999/scoreboard/2026-04-16-archive/1999-mid-central-european-programming-contest-1999.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://acm.informatik.uni-freiburg.de/1999/ranking/
+    roles:
+    - scoreboard
+    as_of: '20020802110825'
+    archived:
+    - mcerc/mcerc-1999/scoreboard/2026-09-01-wayback-edc27c16/page.html
+    - mcerc/mcerc-1999/scoreboard/20260901-live-090e38db/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2000/regionals/MCEurope99/Standings.html
+    roles:
+    - standings
+    as_of: '20020112033829'
+    archived:
+    - mcerc/mcerc-1999/standings/20020112-wayback-5579810c/Standings.html
+    - mcerc/mcerc-1999/standings/20020112-wayback-ba41daad/Standings.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_MCRC/1999/index.html
+    roles:
+    - problemset
+    as_of: '20020622020929'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2000/regionals/MCEurope99/Problems.pdf
+    roles:
+    - problemset
+    as_of: '20030607091023'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=501
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211016215042'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/722
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201027072149'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: MCERC 1999
   problems:
-    count: 9
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=501
-        as_of: '20211016215042'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/722
-        as_of: '20201027072149'
-        note: MCERC 1999
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: mcerc-1999
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: mcerc-2000
   season: 2001
   name: 2000 ACM Mid-Central European Programming Contest
@@ -75,44 +96,58 @@ contests:
   - 1276
   parent: wf-2001
   next: nwerc-2001
-  web:
-    url: http://acm.informatik.uni-freiburg.de/
-    as_of: '20020606025303'
-  results:
-    scoreboard:
-    - url: http://acm.informatik.uni-freiburg.de/2000/ranking/
-      as_of: '20020609211327'
-      archived: mcerc/mcerc-2000/scoreboard/2026-09-01-wayback-d03f1d01/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_EU_MCRC/2000/index.html
-      as_of: '20040517065553'
-      archived: mcerc/mcerc-2000/scoreboard/2026-04-16-archive/2000-mid-central-european-programming-contest-2000.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-  problemset:
-  - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_EU_MCRC/2000/index.html
-    as_of: '20040517065553'
-  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_MCRC/2000/index.html
-    as_of: '20020622021126'
-  - url: http://icpc.baylor.edu/past/icpc2001/regionals/MCEurope00/Problems.pdf
-    as_of: '20030323180427'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: http://acm.informatik.uni-freiburg.de/
+    roles:
+    - web
+    as_of: '20020606025303'
+  - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_EU_MCRC/2000/index.html
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20040517065553'
+    archived:
+    - mcerc/mcerc-2000/scoreboard/2026-04-16-archive/2000-mid-central-european-programming-contest-2000.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://acm.informatik.uni-freiburg.de/2000/ranking/
+    roles:
+    - scoreboard
+    as_of: '20020609211327'
+    archived:
+    - mcerc/mcerc-2000/scoreboard/2026-09-01-wayback-d03f1d01/page.html
+    - mcerc/mcerc-2000/scoreboard/20260901-live-bfeb9811/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_MCRC/2000/index.html
+    roles:
+    - problemset
+    as_of: '20020622021126'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2001/regionals/MCEurope00/Problems.pdf
+    roles:
+    - problemset
+    as_of: '20030323180427'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=68
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211018011205'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/721
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201021100641'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: MCERC 2000
   problems:
-    repo: icpc-problem-archive/statement-only
-    count: 8
-    statement: full
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=68
-        as_of: '20211018011205'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/721
-        as_of: '20201021100641'
-        note: MCERC 2000
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: mcerc-2000
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)

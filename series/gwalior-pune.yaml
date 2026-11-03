@@ -1,7 +1,10 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_candidates.py (url-hunt 2026-09-01).
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: gwalior-pune
   name: ICPC Asia Gwalior-Pune Regional Contest
+  tier: regional
+  region: Asia West
+  naming: season-start
   aliases:
   - gwailor-pune
   lineage:
@@ -21,12 +24,22 @@ contests:
   - 3514
   parent: wf-2019
   next: gwalior-pune-2019
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/ICPC-Gwalior-Pune-2019/standings
-    archived: gwalior-pune/gwalior-pune-2018/standings/api-20260904/standings.html
+  sources:
+  - url: http://icpc-iiitm.com/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/ICPC-Gwalior-Pune-2019/standings
+    roles:
+    - icpc_standings
+    archived:
+    - gwalior-pune/gwalior-pune-2018/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3514, 111 teams, DB fetch 2026-04-26)
-  web: http://icpc-iiitm.com/
-  problemset: https://www.codechef.com/GWR18ROL
+  - url: https://www.codechef.com/GWR18ROL
+    roles:
+    - problemset
+    as_of: '20191013222259'
+    url_state: replaced
+    url_checked: '2026-11-02'
 - id: gwalior-pune-2019
   season: 2020
   name: 2019 ICPC Asia Gwalior-Pune Regional Contest
@@ -36,11 +49,16 @@ contests:
   - 4105
   parent: awc-2019
   next: gwalior-pune-2020
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/ICPC-Gwalior-Pune-2020/standings
-    archived: gwalior-pune/gwalior-pune-2019/standings/api-20260904/standings.html
+  sources:
+  - url: http://icpc-iiitm.com/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/ICPC-Gwalior-Pune-2020/standings
+    roles:
+    - icpc_standings
+    archived:
+    - gwalior-pune/gwalior-pune-2019/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4105, 119 teams, DB fetch 2026-04-26)
-  web: http://icpc-iiitm.com/
 - id: gwalior-pune-2020
   season: 2021
   name: 2020 ICPC Asia Gwalior-Pune Regional Contest
@@ -50,11 +68,16 @@ contests:
   - 4500
   parent: wf-2021
   next: gwalior-pune-2021
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/ICPC-Gwalior-Pune-2021/standings
-    archived: gwalior-pune/gwalior-pune-2020/standings/api-20260904/standings.html
+  sources:
+  - url: https://iiitmg-iiitp-icpc.com/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/ICPC-Gwalior-Pune-2021/standings
+    roles:
+    - icpc_standings
+    archived:
+    - gwalior-pune/gwalior-pune-2020/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4500, 510 teams, DB fetch 2026-04-26)
-  web: https://iiitmg-iiitp-icpc.com/
 - id: gwalior-pune-2021
   season: 2022
   name: 2021 ICPC Asia Gwalior-Pune Regional Contest
@@ -64,7 +87,11 @@ contests:
   - 4830
   parent: awc-2021
   next: gwalior-2022
-  web:
-    url: https://iiitmg-iiitp-icpc.com/
+  sources:
+  - url: https://iiitmg-iiitp-icpc.com/
+    roles:
+    - web
     as_of: '20221130002428'
-  icpc_standings: https://icpc.global/regionals/finder/ICPC-Gwalior-Pune-2021/standings
+  - url: https://icpc.global/regionals/finder/ICPC-Gwalior-Pune-2021/standings
+    roles:
+    - icpc_standings

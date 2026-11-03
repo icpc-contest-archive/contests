@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: myanmar-mcpc
   name: Myanmar Collegiate Programming Contest
+  tier: subregional
+  region: Asia Pacific
+  naming: season-start
 contests:
 - id: myanmar-mcpc-2017
   season: 2018
@@ -11,10 +14,18 @@ contests:
   cms_ids:
   - 3420
   parent: yangon-2017
-  notes: '64 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   next: myanmar-mcpc-2018
-  web: https://www.ucsy.edu.mm/ucsy/pages/mcpc2017.jsp
-  problemset: https://www.ucsy.edu.mm/ucsy/pages/q-mcpc2017.pdf
+  sources:
+  - url: https://www.ucsy.edu.mm/ucsy/pages/mcpc2017.jsp
+    roles:
+    - web
+  - url: https://www.ucsy.edu.mm/ucsy/pages/q-mcpc2017.pdf
+    roles:
+    - problemset
+    as_of: '20180820094126'
+    url_state: live
+    url_checked: '2026-11-02'
+  notes: '64 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: myanmar-mcpc-2018
   season: 2019
   name: 2018 Myanmar Collegiate Programming Contest
@@ -23,18 +34,28 @@ contests:
   cms_ids:
   - 3730
   parent: yangon-2018
-  notes: '71 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   next: myanmar-mcpc-2019
-  results:
-    standings:
-    - url: http://www.ucsy.edu.mm/ucsy/pages/sb-mcpc2018.html
-      as_of: '20180820013740'
-      note: added by url-hunt 2026-09-01 (round9-research)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: myanmar-mcpc/myanmar-mcpc-2018/standings/20180820-wayback-3834de78/sb-mcpc2018.html
-  web: https://www.ucsy.edu.mm/ucsy/pages/mcpc2018.jsp
-  problemset: https://www.ucsy.edu.mm/ucsy/pages/q-mcpc2018.pdf
+  sources:
+  - url: https://www.ucsy.edu.mm/ucsy/pages/mcpc2018.jsp
+    roles:
+    - web
+  - url: http://www.ucsy.edu.mm/ucsy/pages/sb-mcpc2018.html
+    roles:
+    - standings
+    as_of: '20180820013740'
+    archived:
+    - myanmar-mcpc/myanmar-mcpc-2018/standings/20180820-wayback-3834de78/sb-mcpc2018.html
+    - myanmar-mcpc/myanmar-mcpc-2018/standings/20261020-live-039dd85c/sb-mcpc2018.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://www.ucsy.edu.mm/ucsy/pages/q-mcpc2018.pdf
+    roles:
+    - problemset
+    as_of: '20211025224743'
+    url_state: dead
+    url_checked: '2026-11-02'
+  notes: '71 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: myanmar-mcpc-2019
   season: 2020
   name: 2019 ICPC Myanmar National Collegiate Programming Contest
@@ -42,14 +63,19 @@ contests:
   location: Philippines
   cms_ids:
   - 4169
+  sources:
+  - url: https://www.ucsy.edu.mm/pages/mcpc2019.jsp
+    roles:
+    - web
+  - url: https://www.ucsy.edu.mm/ucsy/pages/sb-mcpc2019.jsp
+    roles:
+    - standings
+    as_of: '20211025223638'
+    archived:
+    - myanmar-mcpc/myanmar-mcpc-2019/standings/20211025-wayback-47d46287/page.html
+    - myanmar-mcpc/myanmar-mcpc-2019/standings/20261020-live-b56dcf76/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (round9-research)
   notes: '85 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site));
     parent ''apc'' unresolved - unlinked'
-  results:
-    standings:
-    - url: https://www.ucsy.edu.mm/ucsy/pages/sb-mcpc2019.jsp
-      as_of: '20211025223638'
-      note: added by url-hunt 2026-09-01 (round9-research)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: myanmar-mcpc/myanmar-mcpc-2019/standings/20211025-wayback-47d46287/page.html
-  web: https://www.ucsy.edu.mm/pages/mcpc2019.jsp

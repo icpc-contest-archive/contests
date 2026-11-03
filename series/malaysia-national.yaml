@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: malaysia-national
   name: ICPC Malaysia National Programming Contest (al-Khawarizmi)
+  tier: subregional
+  region: Asia Pacific
+  naming: season-start
 contests:
 - id: malaysia-national-2013
   season: 2014
@@ -9,10 +12,21 @@ contests:
   date: '2013-09-21'
   cms_ids:
   - 2097
-  notes: '53 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site));
-    parent ''apc'' unresolved - unlinked (aec/apc convention)'
   next: malaysia-national-2014
   sources:
+  - url: https://www.acmicpc.net/category/detail/1193
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20171221120434'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      Al-Khawarizmi National Programming Contest 2013
+  problems:
+    set: malaysia-national-2013
+  provenance:
   - 'Universiti Teknologi PETRONAS press release (2012): Context for the series only: ''ACM-ICPC Malaysia
     National Programming Contest 2012 (al-Khawarizmi-12)'' held 3-4 Nov 2012 at UiTM Shah Alam, 48 teams
     from 19 universities, UTP ''Holy Shot'' national champion (going on to the — https://www.utp.edu.my/Pages/Media/Press-Release/2012/UTP-Team-Emerged-as-National-Champion-in-ACM-ICPC-Malaysia-al-Khawarizmi-National-Programming-Contest-2012.aspx
@@ -21,17 +35,8 @@ contests:
     the series continued immediately after 2013. — https://news.utar.edu.my/awards/2014/37/37.html [existence
     hunt 2026-10-22]'
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1193
-        as_of: '20171221120434'
-        note: Al-Khawarizmi National Programming Contest 2013
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/1193
-    as_of: '20171221120434'
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
+  notes: '53 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site));
+    parent ''apc'' unresolved - unlinked (aec/apc convention)'
 - id: malaysia-national-2014
   season: 2015
   name: ACM ICPC Malaysia al-Khawarizmi National Programming Contest 2014
@@ -39,9 +44,8 @@ contests:
   cms_ids:
   - 2709
   parent: kuala-lumpur-2014
-  notes: '60 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   next: malaysia-national-2016
-  sources:
+  provenance:
   - 'UTAR news - ''UTAR tops ACM-ICPC National Programming Contest'' (2014): ACM-ICPC Malaysia National
     Programming Contest held 27-28 September 2014 at Universiti Teknologi Petronas, Seri Iskandar, Perak.
     UTAR team KitKat won (9/10 problems), EPSILON (UM) 2nd with 7, Andalusia (IIUM) 3rd with 6. — https://news.utar.edu.my/awards/2014/37/37.html
@@ -49,16 +53,31 @@ contests:
   - 'FSI 升学情报 (Malaysian Chinese education press) (2016-11-18): In reporting the 2016 win it states KitKat''s
     2016 title was ''the team''s second title, after 2014'' - corroborates the 2014 edition and winner.
     — https://www.fsi.com.my/champion-in-national-programming-contest/ [existence hunt 2026-10-22]'
+  notes: '60 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: malaysia-national-2016
   season: 2017
   name: 2016 ACM-ICPC Malaysia AlKhawarizmi National Programming Contest
   date: '2016-10-07'
   cms_ids:
   - 3069
-  notes: '32 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site));
-    parent ''apc'' unresolved - unlinked (aec/apc convention)'
   next: malaysia-national-2018
   sources:
+  - url: https://www.iium.edu.my/acmicpc/2016/config.html
+    roles:
+    - web
+  - url: https://www.acmicpc.net/category/detail/1739
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20201025203010'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      Al-Khawarizmi National Programming Contest 2016
+  problems:
+    set: malaysia-national-2016
+  provenance:
   - 'FSI 升学情报 (Malaysian Chinese education press) (2016-11-18): ACM-ICPC Malaysia al-Khawarizmi National
     Programming Contest 2016, 7-8 October 2016 at IIUM Kuala Lumpur; champion KitKat (UTAR) solved 7,
     WilderCodes (IIUM) and There (UNITEN) 6 each; eight universities took part; 10 pr — https://www.fsi.com.my/champion-in-national-programming-contest/
@@ -71,28 +90,33 @@ contests:
     organiser page for the 2016 scores/problem sets; fetch fails (client error) and Wayback availability
     API reports no snapshot. — https://www.iium.edu.my/acmicpc/2016/tentative.html [existence hunt 2026-10-22]'
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  web: https://www.iium.edu.my/acmicpc/2016/config.html
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1739
-        as_of: '20201025203010'
-        note: Al-Khawarizmi National Programming Contest 2016
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/1739
-    as_of: '20201025203010'
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
+  notes: '32 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site));
+    parent ''apc'' unresolved - unlinked (aec/apc convention)'
 - id: malaysia-national-2018
   season: 2019
   name: 2018 ICPC Malaysia National alKhawarizmi Programming Contest
   date: '2018-05-11'
   cms_ids:
   - 3750
-  notes: '43 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site));
-    parent ''apc'' unresolved - unlinked (aec/apc convention)'
   next: malaysia-national-2019
   sources:
+  - url: http://www.iium.edu.my/acmicpc/2018/config.html
+    roles:
+    - web
+    as_of: '20200217215627'
+  - url: https://www.acmicpc.net/category/detail/1882
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20201025221413'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      Al-Khawarizmi National Programming Contest 2018
+  problems:
+    set: malaysia-national-2018
+  provenance:
   - 'FSI 升学情报 (Malaysian Chinese education press) (2018): ACM ICPC Malaysia al-Khawarizmi National Programming
     Contest 2018 on 11-12 May 2018 at IIUM Kuala Lumpur; champion UTAR KitKat (9/10), 1st runner-up IM26C4u
     (UM, 8), 2nd runner-up Make Malaysia Great Again (IIUM, 7); 13  — https://www.fsi.com.my/national-champion-in-acm-icpc/
@@ -106,20 +130,8 @@ contests:
     snapshot http://web.archive.org/web/20200217215627/http:// — https://www.iium.edu.my/acmicpc/2018/config.html
     [existence hunt 2026-10-22]'
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  web:
-    url: http://www.iium.edu.my/acmicpc/2018/config.html
-    as_of: '20200217215627'
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1882
-        as_of: '20201025221413'
-        note: Al-Khawarizmi National Programming Contest 2018
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/1882
-    as_of: '20201025221413'
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
+  notes: '43 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site));
+    parent ''apc'' unresolved - unlinked (aec/apc convention)'
 - id: malaysia-national-2019
   season: 2020
   name: Asia KL Malaysia  National On-site Contest
@@ -127,8 +139,25 @@ contests:
   cms_ids:
   - 4160
   parent: kuala-lumpur-2019
-  notes: '36 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   sources:
+  - url: https://www.iium.edu.my/acmicpc/2019/index.html
+    roles:
+    - web
+  - url: https://www.iium.edu.my/acmicpc/2019/scoreboard.html
+    roles:
+    - scoreboard
+    as_of: '20190601222634'
+    archived:
+    - malaysia-national/malaysia-national-2019/scoreboard/20190601-wayback-767cf887/scoreboard.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://codeforces.com/gym/102219
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  provenance:
   - 'Xiamen University Malaysia news (2019): ICPC Malaysia al-Khawarizmi National Programming Contest
     2019 held Saturday 27 April 2019 at IIUM (Kulliyyah of ICT); whyAreWeHere (IIUM) 1st, readTaco (UM)
     2nd, XMUM Lazyzzz 3rd (bronze), Test 4th, Void 7th; 36 competin — https://www.xmu.edu.my/school-computing-and-data-science/posts/news/xmum-team-won-bronze-medal-icpc-malaysia-programming
@@ -144,13 +173,4 @@ contests:
   - 'Codeforces Gym 102219 ''2019 ICPC Malaysia National'' (2019): Search-surfaced gym registrants page
     for the mirror of the 2019 Malaysia National contest (not fetched). — https://codeforces.com/gymRegistrants/102219
     [existence hunt 2026-10-22]'
-  results:
-    scoreboard:
-    - url: https://www.iium.edu.my/acmicpc/2019/scoreboard.html
-      note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-      as_of: '20190601222634'
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: malaysia-national/malaysia-national-2019/scoreboard/20190601-wayback-767cf887/scoreboard.html
-  problemset: https://codeforces.com/gym/102219
-  web: https://www.iium.edu.my/acmicpc/2019/index.html
+  notes: '36 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'

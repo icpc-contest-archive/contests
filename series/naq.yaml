@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: naq
   name: ICPC North America Qualifier
+  tier: subregional
+  region: North America
+  naming: season-start
 contests:
 - id: naq-2012
   name: 2012 North America Qualifier
@@ -20,22 +23,36 @@ contests:
   - 1546
   - 1547
   next: naq-2013
-  icpc_standings: https://icpc.global/regionals/finder/East-Central-Na-Qualifier-2013/standings
-  web: http://cs.baylor.edu/~hamerly/icpc/qualifier_2012/
+  sources:
+  - url: http://cs.baylor.edu/~hamerly/icpc/qualifier_2012/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/East-Central-Na-Qualifier-2013/standings
+    roles:
+    - icpc_standings
+  - url: https://cs.baylor.edu/~hamerly/icpc/qualifier_2012/problem_statements.pdf
+    roles:
+    - problemset
+    as_of: '20200910024214'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/ICPC%202012%20North%20American%20Qualifier
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190823203531'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1309
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20171217034758'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ACM-ICPC North America Qualifier 2012
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/ICPC%202012%20North%20American%20Qualifier
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1309
-        as_of: '20171217034758'
-        note: ACM-ICPC North America Qualifier 2012
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://cs.baylor.edu/~hamerly/icpc/qualifier_2012/problem_statements.pdf
+    set: naq-2012
 - id: naq-2013
   name: 2013 North America Qualifier
   date: '2013-10-05'
@@ -54,21 +71,33 @@ contests:
   - 2126
   - 2127
   next: naq-2014
-  web: http://cs.baylor.edu/~hamerly/icpc/qualifier_2013/
+  sources:
+  - url: http://cs.baylor.edu/~hamerly/icpc/qualifier_2013/
+    roles:
+    - web
+  - url: https://cs.baylor.edu/~hamerly/icpc/qualifier_2013/final_problem_statements.pdf
+    roles:
+    - problemset
+    as_of: '20151010044540'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/2013%20ACM-ICPC%20North%20American%20Qualifier
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190826005955'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1308
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191018035239'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ACM-ICPC North America Qualifier 2013
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/2013%20ACM-ICPC%20North%20American%20Qualifier
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1308
-        as_of: '20191018035239'
-        note: ACM-ICPC North America Qualifier 2013
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://cs.baylor.edu/~hamerly/icpc/qualifier_2013/final_problem_statements.pdf
+    set: naq-2013
 - id: naq-2014
   name: 2014 North America Qualifier
   date: '2014-09-27'
@@ -76,29 +105,44 @@ contests:
   cms_ids:
   - 2440
   next: naq-2015
-  icpc_standings: https://icpc.global/regionals/finder/North-America-Qualifier-2015/standings
-  results:
-    scoreboard:
-    - url: https://naq14.kattis.com/standings
-      note: added by url-hunt 2026-09-01 (agent-na)
-      archived: naq/naq-2014/scoreboard/2026-09-01-live-7bec5638/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  web: http://cs.baylor.edu/~hamerly/icpc/qualifier_2014
+  sources:
+  - url: http://cs.baylor.edu/~hamerly/icpc/qualifier_2014
+    roles:
+    - web
+  - url: https://naq14.kattis.com/standings
+    roles:
+    - scoreboard
+    archived:
+    - naq/naq-2014/scoreboard/2026-09-01-live-7bec5638/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (agent-na)
+  - url: https://icpc.global/regionals/finder/North-America-Qualifier-2015/standings
+    roles:
+    - icpc_standings
+  - url: https://cs.baylor.edu/~hamerly/icpc/qualifier_2014/problem_statements.pdf
+    roles:
+    - problemset
+    as_of: '20151124135159'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/2014%20ICPC%20North%20America%20Qualifier
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190818211913'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1307
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201020205043'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ACM-ICPC North America Qualifier 2014
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/2014%20ICPC%20North%20America%20Qualifier
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1307
-        as_of: '20201020205043'
-        note: ACM-ICPC North America Qualifier 2014
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://cs.baylor.edu/~hamerly/icpc/qualifier_2014/problem_statements.pdf
+    set: naq-2014
 - id: naq-2015
   name: 2015 North America Qualifier
   date: '2015-10-03'
@@ -106,29 +150,46 @@ contests:
   cms_ids:
   - 2840
   next: naq-2016
-  icpc_standings: https://icpc.global/regionals/finder/North-America-Qualifier-2016/standings
-  results:
-    scoreboard:
-    - url: https://naq15.kattis.com/standings
-      note: added by url-hunt 2026-09-01 (agent-na)
-      archived: naq/naq-2015/scoreboard/2026-09-01-live-6e03a81f/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  web: http://cs.baylor.edu/~hamerly/icpc/qualifier_2015/
+  sources:
+  - url: http://cs.baylor.edu/~hamerly/icpc/qualifier_2015/
+    roles:
+    - web
+  - url: https://naq15.kattis.com/standings
+    roles:
+    - scoreboard
+    as_of: '20191118043231'
+    archived:
+    - naq/naq-2015/scoreboard/2026-09-01-live-6e03a81f/page.html
+    - naq/naq-2015/scoreboard/20191118-wayback-848ca8c0/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (agent-na)
+  - url: https://icpc.global/regionals/finder/North-America-Qualifier-2016/standings
+    roles:
+    - icpc_standings
+  - url: https://cs.baylor.edu/~hamerly/icpc/qualifier_2015/problemset-naq-2015.pdf
+    roles:
+    - problemset
+    as_of: '20200910024257'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/2015%20ICPC%20North%20American%20Qualifier%20Contest
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190823073142'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1372
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201031010419'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ACM-ICPC North America Qualifier 2015
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/2015%20ICPC%20North%20American%20Qualifier%20Contest
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1372
-        as_of: '20201031010419'
-        note: ACM-ICPC North America Qualifier 2015
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://cs.baylor.edu/~hamerly/icpc/qualifier_2015/problemset-naq-2015.pdf
+    set: naq-2015
 - id: naq-2016
   name: 2016 North America Qualifier
   date: '2016-09-24'
@@ -136,29 +197,46 @@ contests:
   cms_ids:
   - 3194
   next: naq-2017
-  icpc_standings: https://icpc.global/regionals/finder/North-America-Qualifier-2017/standings
-  results:
-    scoreboard:
-    - url: https://naq16.kattis.com/standings
-      note: added by url-hunt 2026-09-01 (agent-na)
-      archived: naq/naq-2016/scoreboard/2026-09-01-live-3e07d588/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  web: http://cs.baylor.edu/~hamerly/icpc/qualifier_2016/
+  sources:
+  - url: http://cs.baylor.edu/~hamerly/icpc/qualifier_2016/
+    roles:
+    - web
+  - url: https://naq16.kattis.com/standings
+    roles:
+    - scoreboard
+    as_of: '20190722164445'
+    archived:
+    - naq/naq-2016/scoreboard/2026-09-01-live-3e07d588/page.html
+    - naq/naq-2016/scoreboard/20190722-wayback-cc878ec7/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (agent-na)
+  - url: https://icpc.global/regionals/finder/North-America-Qualifier-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://cs.baylor.edu/~hamerly/icpc/qualifier_2016/problemset-naq-2016.pdf
+    roles:
+    - problemset
+    as_of: '20200910025040'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/2016%20ICPC%20North%20American%20Qualifier%20Contest
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190719211430'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1523
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201031014531'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ACM-ICPC North America Qualifier 2016
   problems:
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/2016%20ICPC%20North%20American%20Qualifier%20Contest
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1523
-        as_of: '20201031014531'
-        note: ACM-ICPC North America Qualifier 2016
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://cs.baylor.edu/~hamerly/icpc/qualifier_2016/problemset-naq-2016.pdf
+    set: naq-2016
 - id: naq-2017
   name: 2017 North America Qualifier
   date: '2017-10-07'
@@ -166,29 +244,46 @@ contests:
   cms_ids:
   - 3253
   next: naq-2018
-  icpc_standings: https://icpc.global/regionals/finder/North-America-Qualifier-2018/standings
-  results:
-    scoreboard:
-    - url: https://naq17.kattis.com/standings
-      note: added by url-hunt 2026-09-01 (agent-na)
-      archived: naq/naq-2017/scoreboard/2026-09-01-live-5b18a4d3/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  web: http://cs.ecs.baylor.edu/~hamerly/icpc/qualifier_2017/
+  sources:
+  - url: http://cs.ecs.baylor.edu/~hamerly/icpc/qualifier_2017/
+    roles:
+    - web
+  - url: https://naq17.kattis.com/standings
+    roles:
+    - scoreboard
+    as_of: '20200910024357'
+    archived:
+    - naq/naq-2017/scoreboard/2026-09-01-live-5b18a4d3/page.html
+    - naq/naq-2017/scoreboard/20200910-wayback-5f39d39d/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (agent-na)
+  - url: https://icpc.global/regionals/finder/North-America-Qualifier-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://cs.baylor.edu/~hamerly/icpc/qualifier_2017/naq2017_problemset.pdf
+    roles:
+    - problemset
+    as_of: '20171025151759'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/2017%20ICPC%20North%20American%20Qualifier%20Contest
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20190716162327'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1827
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210122195742'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ACM-ICPC North America Qualifier 2017
   problems:
-    count: 13
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/2017%20ICPC%20North%20American%20Qualifier%20Contest
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1827
-        as_of: '20210122195742'
-        note: ACM-ICPC North America Qualifier 2017
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://cs.baylor.edu/~hamerly/icpc/qualifier_2017/naq2017_problemset.pdf
+    set: naq-2017
 - id: naq-2018
   name: 2018 North America Qualifier
   date: '2018-10-16'
@@ -196,29 +291,47 @@ contests:
   cms_ids:
   - 3554
   next: naq-2019
-  results:
-    standings:
-    - url: https://naq18.kattis.com/standings
-      archived: naq/naq-2018/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/North-America-Qualifier-2019/standings
-  web: http://cs.baylor.edu/~hamerly/icpc/qualifier_2018/
+  sources:
+  - url: http://cs.baylor.edu/~hamerly/icpc/qualifier_2018/
+    roles:
+    - web
+  - url: https://naq18.kattis.com/standings
+    roles:
+    - standings
+    as_of: '20191115211255'
+    archived:
+    - naq/naq-2018/external-standings/2026-04-15-external/content.html
+    - naq/naq-2018/standings/20191115-wayback-90193958/page.html
+    - naq/naq-2018/standings/20260901-live-9d3ec603/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/North-America-Qualifier-2019/standings
+    roles:
+    - icpc_standings
+  - url: https://cs.baylor.edu/~hamerly/icpc/qualifier_2018/problemset_eBSgWoBY.pdf
+    roles:
+    - problemset
+    as_of: '20200910024156'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/2018%20ICPC%20North%20American%20Qualifier%20Contest
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20191022210212'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/1969
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190723114702'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ACM-ICPC North America Qualifier 2018
   problems:
-    count: 13
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/2018%20ICPC%20North%20American%20Qualifier%20Contest
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1969
-        as_of: '20190723114702'
-        note: ACM-ICPC North America Qualifier 2018
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://cs.baylor.edu/~hamerly/icpc/qualifier_2018/problemset_eBSgWoBY.pdf
+    set: naq-2018
 - id: naq-2019
   name: 2019 North America Qualifier
   date: '2019-10-05'
@@ -226,28 +339,43 @@ contests:
   cms_ids:
   - 4063
   next: naq-2020
-  web: https://cs.baylor.edu/~hamerly/icpc/qualifier_2019/
-  results:
-    scoreboard:
-    - url: https://naq19.kattis.com/contests/naq19/standings
-      note: added by url-hunt 2026-09-01 (agent-na)
-      archived: naq/naq-2019/scoreboard/2026-09-01-live-e9b82e6d/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://cs.baylor.edu/~hamerly/icpc/qualifier_2019/
+    roles:
+    - web
+  - url: https://naq19.kattis.com/contests/naq19/standings
+    roles:
+    - scoreboard
+    as_of: '20220809191903'
+    archived:
+    - naq/naq-2019/scoreboard/2026-09-01-live-e9b82e6d/page.html
+    - naq/naq-2019/scoreboard/20220809-wayback-755da69b/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (agent-na)
+  - url: https://cs.baylor.edu/~hamerly/icpc/qualifier_2019/naq2019.pdf
+    roles:
+    - problemset
+    as_of: '20191012070408'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/2019%20ICPC%20North%20American%20Qualifier%20Contest
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20191121172416'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2070
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20200908210406'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ICPC North America Qualifier 2019
   problems:
-    count: 13
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/2019%20ICPC%20North%20American%20Qualifier%20Contest
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2070
-        as_of: '20200908210406'
-        note: ICPC North America Qualifier 2019
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://cs.baylor.edu/~hamerly/icpc/qualifier_2019/naq2019.pdf
+    set: naq-2019
 - id: naq-2020
   name: 2020 North America Qualifier
   date: '2021-02-11'
@@ -255,28 +383,36 @@ contests:
   cms_ids:
   - 4335
   next: naq-2021
-  results:
-    scoreboard:
-    - url: https://naq20.kattis.com/standings
-      note: added by url-hunt 2026-09-01 (agent-na)
-      archived: naq/naq-2020/scoreboard/2026-09-01-live-99b70a89/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  web: https://www.icpc.org/icpc-north-america-qualifier
+  sources:
+  - url: https://www.icpc.org/icpc-north-america-qualifier
+    roles:
+    - web
+  - url: https://naq20.kattis.com/standings
+    roles:
+    - scoreboard
+    archived:
+    - naq/naq-2020/scoreboard/2026-09-01-live-99b70a89/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (agent-na)
+  - url: https://open.kattis.com/problem-sources/2020%20ICPC%20North%20American%20Qualifier%20Contest
+    roles:
+    - problemset
+    - judge_page
+    judge: kattis
+    as_of: '20220124115340'
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2440
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20220519220458'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ICPC North America Qualifier 2020
   problems:
-    count: 4
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/2020%20ICPC%20North%20American%20Qualifier%20Contest
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2440
-        as_of: '20220519220458'
-        note: ICPC North America Qualifier 2020
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://open.kattis.com/problem-sources/2020%20ICPC%20North%20American%20Qualifier%20Contest
+    set: naq-2020
 - id: naq-2021
   name: 2021 ICPC North America Qualifier
   date: '2022-02-11'
@@ -284,28 +420,39 @@ contests:
   cms_ids:
   - 4696
   next: naq-2022
-  results:
-    standings:
-    - url: https://naq21.kattis.com/standings
-      archived: naq/naq-2021/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/North-America-Qualifier-2022/standings
-  web: https://na.icpc.global/naq/
+  sources:
+  - url: https://na.icpc.global/naq/
+    roles:
+    - web
+  - url: https://naq21.kattis.com/standings
+    roles:
+    - standings
+    archived:
+    - naq/naq-2021/external-standings/2026-04-15-external/content.html
+    - naq/naq-2021/standings/20260901-live-f431e1ff/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/North-America-Qualifier-2022/standings
+    roles:
+    - icpc_standings
+  - url: https://open.kattis.com/problem-sources/2021%20ICPC%20North%20American%20Qualifier%20Contest%20%28Jan%202022%29
+    roles:
+    - problemset
+    - judge_page
+    judge: kattis
+    as_of: '20220629014045'
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3015
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ICPC North America Qualifier 2021
   problems:
-    count: 14
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/2021%20ICPC%20North%20American%20Qualifier%20Contest%20%28Jan%202022%29
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3015
-        note: ICPC North America Qualifier 2021
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://open.kattis.com/problem-sources/2021%20ICPC%20North%20American%20Qualifier%20Contest%20%28Jan%202022%29
+    set: naq-2021
 - id: naq-2022
   name: 2022 ICPC North America Qualifier
   date: '2023-02-04'
@@ -313,26 +460,39 @@ contests:
   cms_ids:
   - 5374
   next: naq-2023
-  results:
-    scoreboard:
-    - url: https://naq22.kattis.com/contests/naq22/standings
-      note: added by url-hunt 2026-09-01 (agent-na)
-      archived: naq/naq-2022/scoreboard/2026-09-01-live-7b67097e/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://naq22.kattis.com/contests/naq22/standings
+    roles:
+    - scoreboard
+    as_of: '20240416040004'
+    archived:
+    - naq/naq-2022/scoreboard/2026-09-01-live-7b67097e/page.html
+    - naq/naq-2022/scoreboard/20240416-wayback-4b622aa9/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (agent-na)
+  - url: https://na.icpc.global/wp-content/uploads/2023/02/NAQ-Problems.pdf
+    roles:
+    - problemset
+    as_of: '20230205232514'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/2022%20ICPC%20North%20America%20Qualifier
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20231001060529'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/3475
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ICPC North America Qualifier 2022
   problems:
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://open.kattis.com/problem-sources/2022%20ICPC%20North%20America%20Qualifier
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/3475
-        note: ICPC North America Qualifier 2022
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://na.icpc.global/wp-content/uploads/2023/02/NAQ-Problems.pdf
+    set: naq-2022
 - id: naq-2023
   name: 2023 ICPC North America Qualifier
   date: '2023-09-30'
@@ -340,29 +500,40 @@ contests:
   cms_ids:
   - 7466
   next: naq-2024
-  results:
-    standings:
-    - url: https://qoj.ac/contest/1102/standings
-      note: added by url-hunt 2026-09-01 (round9-research)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: naq/naq-2023/standings/20261020-live-2fa03d5d/page.html
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/North-America-Qualifier-2024/standings
+  sources:
+  - url: https://qoj.ac/contest/1102/standings
+    roles:
+    - standings
+    archived:
+    - naq/naq-2023/standings/20261020-live-2fa03d5d/page.html
+    url_state: live
+    url_checked: '2026-11-02'
     note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://icpc.global/regionals/finder/North-America-Qualifier-2024/standings
+    roles:
+    - icpc_standings
+    note: added by url-hunt 2026-09-01 (round9-research)
+  - url: http://serjudging.vanb.org/wp-content/uploads/naq23.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://naq23.kattis.com/contests/naq23-fall/problems
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20230930215011'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4130
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ICPC North America Qualifier 2023
   problems:
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://naq23.kattis.com/contests/naq23-fall/problems
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4130
-        note: ICPC North America Qualifier 2023
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: http://serjudging.vanb.org/wp-content/uploads/naq23.pdf
+    set: naq-2023
 - id: naq-2024
   name: 2024 ICPC North America Qualifier
   date: '2024-10-05'
@@ -371,26 +542,38 @@ contests:
   - 8917
   - 8932
   next: naq-2025
-  results:
-    scoreboard:
-    - url: https://naq24.kattis.com/contests/naq24/standings
-      note: added by url-hunt 2026-09-01 (agent-na)
-      archived: naq/naq-2024/scoreboard/2026-09-01-live-db528011/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://naq24.kattis.com/contests/naq24/standings
+    roles:
+    - scoreboard
+    as_of: '20241005190012'
+    archived:
+    - naq/naq-2024/scoreboard/2026-09-01-live-db528011/page.html
+    - naq/naq-2024/scoreboard/20241005-wayback-5da88c17/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (agent-na)
+  - url: http://serjudging.vanb.org/wp-content/uploads/naq24.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://naq24.kattis.com/contests/naq24/problems
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20241005175503'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4310
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ICPC North America Qualifier 2024
   problems:
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://naq24.kattis.com/contests/naq24/problems
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4310
-        note: ICPC North America Qualifier 2024
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: http://serjudging.vanb.org/wp-content/uploads/naq24.pdf
+    set: naq-2024
 - id: naq-2025
   name: 2025 ICPC North America Qualifier
   date: '2025-10-11'
@@ -398,20 +581,31 @@ contests:
   cms_ids:
   - 9333
   next: naq-2026
-  results:
-    scoreboard:
-    - url: https://naq25.kattis.com/contests/naq25/standings
-      note: added by url-hunt 2026-09-01 (agent-na)
-      archived: naq/naq-2025/scoreboard/2026-09-01-live-84290bed/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://naq25.kattis.com/contests/naq25/standings
+    roles:
+    - scoreboard
+    as_of: '20251011204256'
+    archived:
+    - naq/naq-2025/scoreboard/2026-09-01-live-84290bed/page.html
+    - naq/naq-2025/scoreboard/20251011-wayback-96bcb682/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (agent-na)
+  - url: http://serjudging.vanb.org/wp-content/uploads/naq25.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/4589
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ICPC North America Qualifier 2025
   problems:
-    source: Kattis problem export (2026-11-01)
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/4589
-        note: ICPC North America Qualifier 2025
-  problemset: http://serjudging.vanb.org/wp-content/uploads/naq25.pdf
+    set: naq-2025
 - id: naq-2026
   status: upcoming
   name: 2026 ICPC North America Qualifier

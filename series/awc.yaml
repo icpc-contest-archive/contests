@@ -1,8 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: awc
   name: ICPC Asia West Continent Championship Contest
   tier: championship
+  region: Asia West
+  naming: season-start
 contests:
 - id: awc-2019
   season: 2020
@@ -13,18 +15,27 @@ contests:
   - 4107
   parent: wf-2020
   next: awc-2021
-  results:
-    scoreboard:
-    - url: https://algo.codemarshal.org/contests/awf-19/standings
-      as_of: '20230926052823'
-      archived: awc/awc-2019/scoreboard/2026-09-01-wayback-2a3df938/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/ICPCKolkataKanpur-2020/standings
-  web: http://wc.indiaicpc.in/
-  problemset:
-    url: http://wc.indiaicpc.in/problem_sets.pdf
+  sources:
+  - url: http://wc.indiaicpc.in/
+    roles:
+    - web
+  - url: https://algo.codemarshal.org/contests/awf-19/standings
+    roles:
+    - scoreboard
+    as_of: '20230926052823'
+    archived:
+    - awc/awc-2019/scoreboard/2026-09-01-wayback-2a3df938/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/ICPCKolkataKanpur-2020/standings
+    roles:
+    - icpc_standings
+  - url: http://wc.indiaicpc.in/problem_sets.pdf
+    roles:
+    - problemset
     as_of: '20240205183533'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: awc-2021
   season: 2022
   name: 2021 ICPC Asia West Continent Final Contest
@@ -34,14 +45,18 @@ contests:
   - 4827
   parent: wf-2022
   next: awc-2022
-  web: https://giki.edu.pk/2022/12/26/event-report-the-icpc-asia-west-continent-finals-2021/
-  results:
-    scoreboard:
-    - url: https://icpc.codedrills.io/contests/icpc-asia-west-continent-finals-2021/scoreboard
-      as_of: '20250814041710'
-      archived: awc/awc-2021/scoreboard/2026-09-01-wayback-5112373a/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
+  sources:
+  - url: https://giki.edu.pk/2022/12/26/event-report-the-icpc-asia-west-continent-finals-2021/
+    roles:
+    - web
+  - url: https://icpc.codedrills.io/contests/icpc-asia-west-continent-finals-2021/scoreboard
+    roles:
+    - scoreboard
+    as_of: '20250814041710'
+    archived:
+    - awc/awc-2021/scoreboard/2026-09-01-wayback-5112373a/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
 - id: awc-2022
   season: 2023
   name: 2022 ICPC Asia West Continent Final Contest
@@ -51,15 +66,21 @@ contests:
   - 5637
   parent: wf-2023
   next: awc-2023
-  web: https://icpc.green.edu.bd/
-  results:
-    scoreboard:
-    - url: https://algo.codemarshal.org/contests/dhaka-22/standings
-      as_of: '20230531214941'
-      archived: awc/awc-2022/scoreboard/2026-09-01-wayback-904b2ddf/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/ICPCKolkataKanpur-2023/standings
+  sources:
+  - url: https://icpc.green.edu.bd/
+    roles:
+    - web
+  - url: https://algo.codemarshal.org/contests/dhaka-22/standings
+    roles:
+    - scoreboard
+    as_of: '20230531214941'
+    archived:
+    - awc/awc-2022/scoreboard/2026-09-01-wayback-904b2ddf/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/ICPCKolkataKanpur-2023/standings
+    roles:
+    - icpc_standings
 - id: awc-2023
   season: 2024
   name: 2023 ICPC Asia West Continent Final Contest
@@ -69,20 +90,26 @@ contests:
   - 7470
   parent: wf-2024
   next: awc-2024
-  web:
-    url: https://discuss.codedrills.io/t/icpc-asia-west-continent-final-contest-2023/4435
+  sources:
+  - url: https://discuss.codedrills.io/t/icpc-asia-west-continent-final-contest-2023/4435
+    roles:
+    - web
     as_of: '20240419050828'
-  icpc_standings: https://icpc.global/regionals/finder/ICPCKolkataKanpur-2024/standings
-  results:
-    standings:
-    - url: https://wc.indiaicpc.in/?page_id=321
-      archived: awc/awc-2023/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
+  - url: https://wc.indiaicpc.in/?page_id=321
+    roles:
+    - standings
+    as_of: '20250114230311'
+    archived:
+    - awc/awc-2023/external-standings/2026-04-15-external/content.html
+    - awc/awc-2023/standings/20250114-wayback-48369bb8/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/ICPCKolkataKanpur-2024/standings
+    roles:
+    - icpc_standings
   problems:
-    notes: No date
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: awc-2023
 - id: awc-2024
   season: 2025
   name: 2024 ICPC Asia West Continent Final Contest
@@ -92,13 +119,17 @@ contests:
   - 8857
   parent: wf-2025
   next: awc-2025
-  results:
-    standings:
-    - url: https://icpcasiawest.vercel.app/results?session=1f1672dc-34bd-4bb1-8e58-a751ba2ff12c
-      archived: awc/awc-2024/standings/2026-09-01-live-86dc14b7/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/ICPCKolkataKanpur-2025/standings
+  sources:
+  - url: https://icpcasiawest.vercel.app/results?session=1f1672dc-34bd-4bb1-8e58-a751ba2ff12c
+    roles:
+    - standings
+    archived:
+    - awc/awc-2024/standings/2026-09-01-live-86dc14b7/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/ICPCKolkataKanpur-2025/standings
+    roles:
+    - icpc_standings
 - id: awc-2025
   season: 2026
   name: 2025 ICPC Asia West Continent Championship Contest
@@ -108,14 +139,21 @@ contests:
   - 9232
   parent: wf-2026
   next: awc-2026
-  results:
-    standings:
-    - url: https://icpcasiawest.vercel.app/results?session=94014565-8795-4278-b03c-33187bea12ae
-      archived: awc/awc-2025/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/AWCChampionshipContest-2026/standings
-  web: https://wc.indiaicpc.in/
+  sources:
+  - url: https://wc.indiaicpc.in/
+    roles:
+    - web
+  - url: https://icpcasiawest.vercel.app/results?session=94014565-8795-4278-b03c-33187bea12ae
+    roles:
+    - standings
+    archived:
+    - awc/awc-2025/external-standings/2026-04-15-external/content.html
+    - awc/awc-2025/standings/20260901-live-df276822/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/AWCChampionshipContest-2026/standings
+    roles:
+    - icpc_standings
 - id: awc-2026
   status: upcoming
   season: 2027
@@ -123,4 +161,7 @@ contests:
   cms_ids:
   - 9650
   parent: wf-2027
-  icpc_standings: https://icpc.global/regionals/finder/AWCChampionshipContest-2027/standings
+  sources:
+  - url: https://icpc.global/regionals/finder/AWCChampionshipContest-2027/standings
+    roles:
+    - icpc_standings

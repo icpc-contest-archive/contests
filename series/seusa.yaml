@@ -1,67 +1,72 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: seusa
   name: ICPC North America Southeast Regional Contest
+  tier: regional
+  region: North America
+  naming: season-start
 contests:
 - id: seusa-1988
   season: 1989
+  location: (rotating host)
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1989
   next: seusa-1990
-  results:
-    rankings:
-    - url: https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc
-      as_of: '20140630180351'
-      note: added by url-hunt 2026-09-01 (early-na-agent)
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: seusa/seusa-1988/rankings/20140630-wayback-54ecd414/page.html
-  location: (rotating host)
-  problemset:
-  - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_US_SouthEas/1988/index.html
-    as_of: '20020728082210'
-  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_SouthEas/1988/index.html
-    as_of: '20001003145511'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc
+    roles:
+    - rankings
+    as_of: '20140630180351'
+    archived:
+    - seusa/seusa-1988/rankings/20140630-wayback-54ecd414/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (early-na-agent)
+  - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_US_SouthEas/1988/index.html
+    roles:
+    - problemset
+    as_of: '20020728082210'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_SouthEas/1988/index.html
+    roles:
+    - problemset
+    as_of: '20001003145511'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 5
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: seusa-1988
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: seusa-1990
   season: 1991
+  location: Auburn
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1991
   next: seusa-1993
-  web: https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc
-  results:
-    rankings:
-    - url: https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc
-      as_of: '20140630180351'
-      note: added by url-hunt 2026-09-01 (early-na-agent)
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: seusa/seusa-1990/rankings/20140630-wayback-54ecd414/page.html
-  location: Auburn
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=446
-        as_of: '20210921110540'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=446
+  sources:
+  - url: https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc
+    roles:
+    - web
+    - rankings
+    as_of: '20140630180351'
+    archived:
+    - seusa/seusa-1990/rankings/20140630-wayback-54ecd414/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (early-na-agent)
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=446
+    roles:
+    - problemset
+    - judge_page
+    judge: livearchive
     as_of: '20210921110540'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: seusa-1990
 - id: seusa-1993
   season: 1994
   name: 1993 Southeast Regional
@@ -70,82 +75,96 @@ contests:
   cms_status: pre-cms
   parent: wf-1994
   next: seusa-1994
-  results:
-    scoreboard:
-    - url: https://usenetarchives.com/view.php?id=comp.org.acm&mid=PDJidjg5cCQ3bjZAc3VudGFuLmVuZy51c2YuZWR1Pg
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc
-      as_of: '20140630180351'
-      note: added by url-hunt 2026-09-01 (round9-research)
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: seusa/seusa-1993/standings/20140630-wayback-54ecd414/page.html
-  web: https://usenetarchives.com/view.php?id=comp.org.acm&mid=PDJidjg5cCQ3bjZAc3VudGFuLmVuZy51c2YuZWR1Pg
   sources:
+  - url: https://usenetarchives.com/view.php?id=comp.org.acm&mid=PDJidjg5cCQ3bjZAc3VudGFuLmVuZy51c2YuZWR1Pg
+    roles:
+    - web
+    - scoreboard
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc
+    roles:
+    - standings
+    as_of: '20140630180351'
+    archived:
+    - seusa/seusa-1993/standings/20140630-wayback-54ecd414/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (round9-research)
+  provenance:
   - 'Gordon Cormack — ACM ICPC Finals 1994 full results (1994): WF 1994 standings include ''7 University
     of Central Florida 4 394'', ''28 University of Miami 2 347'', ''33 University of South Florida 1 172''.
     — https://plg.uwaterloo.ca/~gvcormac/acmresults/1994.html [existence hunt 2026-10-22]'
 - id: seusa-1994
   season: 1995
+  location: Univ. of South Florida (USF)
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1995
   next: seusa-1995
-  results:
-    scoreboard:
-    - url: https://usenetarchives.com/view.php?id=comp.org.acm&mid=PDNhcnFncCRrYjBAbW90aGVyLnVzZi5lZHU%2B
-      url_state: dead
-      url_checked: '2026-11-02'
-  web: http://seusa.vanb.org/
-  location: Univ. of South Florida (USF)
-  mirrors: []
+  sources:
+  - url: http://seusa.vanb.org/
+    roles:
+    - web
+  - url: https://usenetarchives.com/view.php?id=comp.org.acm&mid=PDNhcnFncCRrYjBAbW90aGVyLnVzZi5lZHU%2B
+    roles:
+    - scoreboard
+    url_state: dead
+    url_checked: '2026-11-02'
 - id: seusa-1995
   season: 1996
+  location: Mercer Univ
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1996
   next: seusa-1996
-  location: Mercer Univ
-  web: https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc
-  mirrors:
+  sources:
   - url: https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
+    roles:
+    - web
+    url_state: dead
+    url_checked: '2026-11-02'
 - id: seusa-1996
   season: 1997
+  location: UCF
   cms_ids: []
   cms_status: pre-cms
   parent: wf-1997
   next: seusa-1998
-  web: https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc
-  location: UCF
-  results:
-    rankings:
-    - url: https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc
-      as_of: '20140630180351'
-      note: added by url-hunt 2026-09-01 (round9-research)
-      url_state: dead
-      url_checked: '2026-11-02'
-      archived: seusa/seusa-1996/rankings/20140630-wayback-54ecd414/page.html
-  problemset:
-  - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_US_SouthEas/1996/index.html
-    as_of: '20010225202437'
-  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_SouthEas/1996/index.html
-    as_of: '19980202013244'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc
+    roles:
+    - web
+    - rankings
+    as_of: '20140630180351'
+    archived:
+    - seusa/seusa-1996/rankings/20140630-wayback-54ecd414/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (round9-research)
+  - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_US_SouthEas/1996/index.html
+    roles:
+    - problemset
+    as_of: '20010225202437'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_SouthEas/1996/index.html
+    roles:
+    - problemset
+    as_of: '19980202013244'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=477
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211208065615'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 10
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=477
-        as_of: '20211208065615'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: seusa-1996
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: seusa-1998
   season: 1999
   name: 1998 ACM Southeast USA Programming Contest
@@ -154,28 +173,41 @@ contests:
   - 1201
   parent: wf-1999
   next: seusa-1999
-  web:
-    url: http://www.cise.ufl.edu/%7Eacm/SER98/
+  sources:
+  - url: http://www.cise.ufl.edu/%7Eacm/SER98/
+    roles:
+    - web
     as_of: '19990203192926'
-  results:
-    scoreboard:
-    - url: http://www.cise.ufl.edu/~acm/SER98/problems/SCORE.OUT
-      as_of: '20091106125308'
-      archived: seusa/seusa-1998/scoreboard/2026-09-01-wayback-f9501063/page.txt
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc99/Regionals/SEUSA98/Standings.txt
-      as_of: '20030523120028'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: seusa/seusa-1998/standings/20030523-wayback-ed74a8a5/Standings.txt
-  problemset:
+  - url: http://www.cise.ufl.edu/~acm/SER98/problems/SCORE.OUT
+    roles:
+    - scoreboard
+    as_of: '20091106125308'
+    archived:
+    - seusa/seusa-1998/scoreboard/2026-09-01-wayback-f9501063/page.txt
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc99/Regionals/SEUSA98/Standings.txt
+    roles:
+    - standings
+    as_of: '20030523120028'
+    archived:
+    - seusa/seusa-1998/standings/20030523-wayback-ed74a8a5/Standings.txt
+    - seusa/seusa-1998/standings/20030523-wayback-9203bb00/Standings.txt
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_SouthEas/1998/index.html
+    roles:
+    - problemset
     as_of: '20010308181025'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc99/Regionals/SEUSA98/Problems.zip
+    roles:
+    - problemset
     as_of: '20100710033002'
+    url_state: unknown
+    url_checked: '2026-11-02'
 - id: seusa-1999
   season: 2000
   name: 1999 ACM Southeast USA Programming Contest
@@ -185,45 +217,55 @@ contests:
   - 1127
   parent: wf-2000
   next: seusa-2000
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2000/regionals/SEUSA99/Standings.html
-      as_of: '20020112032511'
-      archived: seusa/seusa-1999/standings/2026-09-01-wayback-e5ad67c8/Standings.html
-      url_state: unknown
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc2000/regionals/SEUSA99/Standings.html
-      as_of: '20020112032511'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-      url_state: unknown
-      url_checked: '2026-11-02'
-    scoreboard:
-    - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_US_SouthEas/1999/index.html
-      as_of: '20020728082418'
-      archived: seusa/seusa-1999/scoreboard/2026-04-16-archive/1999-southeast-usa-programming-contest-1999.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2000/standings
-  web: http://icpc.baylor.edu/icpc/regionals/seusa99/home.shtml
-  problemset:
-  - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_US_SouthEas/1999/index.html
-    as_of: '20020728082418'
-  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_SouthEas/1999/index.html
-    as_of: '20001003145530'
-  - url: http://icpc.baylor.edu/past/icpc2000/regionals/SEUSA99/problemset/circle.pdf
-    as_of: '20030511125917'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: http://icpc.baylor.edu/icpc/regionals/seusa99/home.shtml
+    roles:
+    - web
+  - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_US_SouthEas/1999/index.html
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20020728082418'
+    archived:
+    - seusa/seusa-1999/scoreboard/2026-04-16-archive/1999-southeast-usa-programming-contest-1999.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://icpc.baylor.edu/past/icpc2000/regionals/SEUSA99/Standings.html
+    roles:
+    - standings
+    as_of: '20020112032511'
+    archived:
+    - seusa/seusa-1999/standings/2026-09-01-wayback-e5ad67c8/Standings.html
+    - seusa/seusa-1999/standings/20020112-wayback-75612501/Standings.html
+    url_state: unknown
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
+  - url: https://icpc.global/regionals/finder/Southeast-USA-2000/standings
+    roles:
+    - icpc_standings
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_SouthEas/1999/index.html
+    roles:
+    - problemset
+    as_of: '20001003145530'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2000/regionals/SEUSA99/problemset/circle.pdf
+    roles:
+    - problemset
+    as_of: '20030511125917'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2717
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 10
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon: https://www.acmicpc.net/category/detail/2717
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: seusa-1999
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: seusa-2000
   season: 2001
   name: 2000 ACM Southeast USA Programming Contest
@@ -233,42 +275,59 @@ contests:
   - 1026
   parent: wf-2001
   next: seusa-2001
-  web:
-    url: http://turing.gcsu.edu/~gadkins/contest.html
+  sources:
+  - url: http://turing.gcsu.edu/~gadkins/contest.html
+    roles:
+    - web
     as_of: '20001020163800'
-  results:
-    scoreboard:
-    - url: http://turing.gcsu.edu/~gadkins/overallStandings.html
-      as_of: '20010211004229'
-      archived: seusa/seusa-2000/scoreboard/2026-09-01-wayback-6679f762/overallStandings.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2001/Regionals/ViewRegionalStandings.asp?ContestID=443
-      as_of: '20020220195042'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: seusa/seusa-2000/standings/20020220-wayback-53af1660/page.html
-  icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2001/standings
-  problems:
-    count: 10
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=84
-        as_of: '20210803111504'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+  - url: http://turing.gcsu.edu/~gadkins/overallStandings.html
+    roles:
+    - scoreboard
+    as_of: '20010211004229'
+    archived:
+    - seusa/seusa-2000/scoreboard/2026-09-01-wayback-6679f762/overallStandings.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2001/Regionals/ViewRegionalStandings.asp?ContestID=443
+    roles:
+    - standings
+    as_of: '20020220195042'
+    archived:
+    - seusa/seusa-2000/standings/20020220-wayback-53af1660/page.html
+    - seusa/seusa-2000/standings/20020220-wayback-b29f1775/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: https://icpc.global/regionals/finder/Southeast-USA-2001/standings
+    roles:
+    - icpc_standings
   - url: http://turing.gcsu.edu/~gadkins/problems.html
+    roles:
+    - problemset
     as_of: '20001020191249'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_SouthEas/2000/index.html
+    roles:
+    - problemset
     as_of: '20020624223312'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2001/regionals/SEUSA00/Problems.pdf
+    roles:
+    - problemset
     as_of: '20030323124315'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=84
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210803111504'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: seusa-2000
 - id: seusa-2001
   season: 2002
   name: 2001 ACM Southeast USA Programming Contest
@@ -278,50 +337,69 @@ contests:
   - 1146
   parent: wf-2002
   next: seusa-2002
-  web:
-    url: http://turing.gcsu.edu/~gadkins/contest.html
-    as_of: '20011211105216'
-  results:
-    scoreboard:
-    - url: http://turing.gcsu.edu/~gadkins/final.htm
-      as_of: '20011018155908'
-      archived: seusa/seusa-2001/scoreboard/2026-09-01-wayback-041ad5d2/final.htm
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_US_SouthEas/2001/index.html
-      as_of: '20020728082547'
-      archived: seusa/seusa-2001/scoreboard/2026-04-16-archive/2001-southeast-usa-programming-contest-2001.html
-      note: from archived capture (scoreboard)
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2002/regionals/ViewRegionalStandings.asp?ContestID=508
-      as_of: '20020701110729'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: seusa/seusa-2001/standings/20020701-wayback-81ae4a2d/page.html
-  icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2002/standings
-  problemset:
-  - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_US_SouthEas/2001/index.html
-    as_of: '20020728082547'
-  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_SouthEas/2001/index.html
-    as_of: '20020624143456'
-  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/SEUSA01/problems.html
-    as_of: '20020619092327'
   sources:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+  - url: http://turing.gcsu.edu/~gadkins/contest.html
+    roles:
+    - web
+    as_of: '20011211105216'
+  - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_US_SouthEas/2001/index.html
+    roles:
+    - scoreboard
+    - problemset
+    as_of: '20020728082547'
+    archived:
+    - seusa/seusa-2001/scoreboard/2026-04-16-archive/2001-southeast-usa-programming-contest-2001.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (scoreboard)
+  - url: http://turing.gcsu.edu/~gadkins/final.htm
+    roles:
+    - scoreboard
+    as_of: '20011018155908'
+    archived:
+    - seusa/seusa-2001/scoreboard/2026-09-01-wayback-041ad5d2/final.htm
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2002/regionals/ViewRegionalStandings.asp?ContestID=508
+    roles:
+    - standings
+    as_of: '20020701110729'
+    archived:
+    - seusa/seusa-2001/standings/20020701-wayback-81ae4a2d/page.html
+    - seusa/seusa-2001/standings/20020701-wayback-96e05246/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: https://icpc.global/regionals/finder/Southeast-USA-2002/standings
+    roles:
+    - icpc_standings
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_SouthEas/2001/index.html
+    roles:
+    - problemset
+    as_of: '20020624143456'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/SEUSA01/problems.html
+    roles:
+    - problemset
+    as_of: '20020619092327'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: http://turing.gcsu.edu/~gadkins/prob2001/problems2001.htm
+    roles:
+    - problemset
+    as_of: '20011018160640'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=113
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210917063323'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 11
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=113
-        as_of: '20210917063323'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: seusa-2001
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: seusa-2002
   season: 2003
   name: 2002 ACM Southeast USA Programming Contest
@@ -331,44 +409,55 @@ contests:
   - 1089
   parent: wf-2003
   next: seusa-2003
-  web:
-    url: http://faculty.erau.edu/collinsj/
+  sources:
+  - url: http://faculty.erau.edu/collinsj/
+    roles:
+    - web
     as_of: '20021017124350'
-  results:
-    scoreboard:
-    - url: http://faculty.erau.edu/collinsj/score.html
-      as_of: '20021026224930'
-      archived: seusa/seusa-2002/scoreboard/2026-09-01-wayback-412f970a/score.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2003/Regionals/Reports/faculty.erau.edu/collinsj/Results.html
-      as_of: '20030505042119'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-mirror)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: seusa/seusa-2002/standings/20030505-wayback-7252775e/Results.html
-    - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings3f5c.html?ContestID=576
-      as_of: '20060901121118'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: seusa/seusa-2002/standings/20060901-wayback-8c857ec0/ViewRegionalStandings3f5c.html
-  icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2003/standings
-  problems:
-    count: 11
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=143
-        as_of: '20210921231609'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=143
+    also_at:
+    - url: http://faculty.db.erau.edu/collinsj
+      as_of: '20020308072842'
+  - url: http://faculty.erau.edu/collinsj/score.html
+    roles:
+    - scoreboard
+    as_of: '20021026224930'
+    archived:
+    - seusa/seusa-2002/scoreboard/2026-09-01-wayback-412f970a/score.html
+    - seusa/seusa-2002/scoreboard/20260901-live-c542d497/score.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2003/Regionals/Reports/faculty.erau.edu/collinsj/Results.html
+    roles:
+    - standings
+    as_of: '20030505042119'
+    archived:
+    - seusa/seusa-2002/standings/20030505-wayback-7252775e/Results.html
+    - seusa/seusa-2002/standings/20030505-wayback-032b5d68/Results.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-mirror)
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings3f5c.html?ContestID=576
+    roles:
+    - standings
+    as_of: '20060901121118'
+    archived:
+    - seusa/seusa-2002/standings/20060901-wayback-8c857ec0/ViewRegionalStandings3f5c.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: https://icpc.global/regionals/finder/Southeast-USA-2003/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=143
+    roles:
+    - problemset
+    - judge_page
+    judge: livearchive
     as_of: '20210921231609'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: seusa-2002
 - id: seusa-2003
   season: 2004
   name: 2003 ACM Southeast USA Programming Contest
@@ -378,41 +467,50 @@ contests:
   - 1093
   parent: wf-2004
   next: seusa-2004
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=650
-      as_of: '20071012205933'
-      archived: seusa/seusa-2003/standings/2026-09-01-wayback-5e0be77f/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    - url: http://icpc.baylor.edu/past/icpc2004/RegReport/faculty.db.erau.edu/lehr/score.htm
-      as_of: '20050904110115'
-      note: added by url-hunt 2026-09-01 (cdx-baylor-regreport)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: seusa/seusa-2003/standings/20050904-wayback-1ec0d987/score.htm
-    - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandings22e1.html?ContestID=650
-      as_of: '20060901143758'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: seusa/seusa-2003/standings/20060901-wayback-0b80ba9e/ViewRegionalStandings22e1.html
-  icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2004/standings
-  web: http://faculty.db.erau.edu/lehr/acm.html
-  problems:
-    count: 11
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=174
-        as_of: '20210119060903'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=174
+  sources:
+  - url: http://faculty.db.erau.edu/lehr/acm.html
+    roles:
+    - web
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=650
+    roles:
+    - standings
+    as_of: '20071012205933'
+    archived:
+    - seusa/seusa-2003/standings/2026-09-01-wayback-5e0be77f/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://icpc.baylor.edu/past/icpc2004/RegReport/faculty.db.erau.edu/lehr/score.htm
+    roles:
+    - standings
+    as_of: '20050904110115'
+    archived:
+    - seusa/seusa-2003/standings/20050904-wayback-1ec0d987/score.htm
+    - seusa/seusa-2003/standings/20050904-wayback-c2b16a7a/score.htm
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-baylor-regreport)
+  - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandings22e1.html?ContestID=650
+    roles:
+    - standings
+    as_of: '20060901143758'
+    archived:
+    - seusa/seusa-2003/standings/20060901-wayback-0b80ba9e/ViewRegionalStandings22e1.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: https://icpc.global/regionals/finder/Southeast-USA-2004/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=174
+    roles:
+    - problemset
+    - judge_page
+    judge: livearchive
     as_of: '20210119060903'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: seusa-2003
 - id: seusa-2004
   season: 2005
   name: 2004 ACM Southeast USA Programming Contest
@@ -422,31 +520,33 @@ contests:
   - 1150
   parent: wf-2005
   next: seusa-2005
-  web:
-    url: http://ser.cs.fit.edu/ser2004/index.html
+  sources:
+  - url: http://ser.cs.fit.edu/ser2004/index.html
+    roles:
+    - web
     as_of: '20140928160905'
-  results:
-    scoreboard:
-    - url: http://acm.fit.edu/SER2004/standings.txt
-      as_of: '20041212162856'
-      archived: seusa/seusa-2004/scoreboard/2026-09-01-wayback-e5cc1577/standings.txt
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2005/standings
-  problems:
-    count: 10
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=205
-        as_of: '20211022182853'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=205
+  - url: http://acm.fit.edu/SER2004/standings.txt
+    roles:
+    - scoreboard
+    as_of: '20041212162856'
+    archived:
+    - seusa/seusa-2004/scoreboard/2026-09-01-wayback-e5cc1577/standings.txt
+    - seusa/seusa-2004/scoreboard/20041212-wayback-4f22e479/standings.txt
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Southeast-USA-2005/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=205
+    roles:
+    - problemset
+    - judge_page
+    judge: livearchive
     as_of: '20211022182853'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: seusa-2004
 - id: seusa-2005
   season: 2006
   name: 2005 ACM Southeast USA Programming Contest
@@ -456,37 +556,41 @@ contests:
   - 1275
   parent: wf-2006
   next: seusa-2006
-  web:
-    url: http://acm.fit.edu/icpc/ser2005/
+  sources:
+  - url: http://acm.fit.edu/icpc/ser2005/
+    roles:
+    - web
     as_of: '20060116024607'
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=726
-      as_of: '20071011223739'
-      archived: seusa/seusa-2005/standings/2026-09-01-wayback-fd2fb4c5/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-    - url: http://acm.fit.edu/ser2005/standings.html
-      as_of: '20060907063430'
-      archived: seusa/seusa-2005/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2006/standings
-  problems:
-    count: 11
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=237
-        as_of: '20210928093823'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=237
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=726
+    roles:
+    - standings
+    as_of: '20071011223739'
+    archived:
+    - seusa/seusa-2005/standings/2026-09-01-wayback-fd2fb4c5/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: http://acm.fit.edu/ser2005/standings.html
+    roles:
+    - standings
+    as_of: '20060907063430'
+    archived:
+    - seusa/seusa-2005/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Southeast-USA-2006/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=237
+    roles:
+    - problemset
+    - judge_page
+    judge: livearchive
     as_of: '20210928093823'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: seusa-2005
 - id: seusa-2006
   season: 2007
   name: 2006 ACM Southeast USA Programming Contest
@@ -496,38 +600,37 @@ contests:
   - 1165
   parent: wf-2007
   next: seusa-2007
-  web:
-    url: http://jharris2.mat.georgiasouthern.edu/Progcontest/contest.htm
+  sources:
+  - url: http://jharris2.mat.georgiasouthern.edu/Progcontest/contest.htm
+    roles:
+    - web
     as_of: '20070217224355'
-  results:
-    scoreboard:
-    - url: http://jharris2.mat.georgiasouthern.edu/Progcontest/summary.html
-      as_of: '20061118000031'
-      archived: seusa/seusa-2006/scoreboard/2026-09-01-wayback-ac6d6116/summary.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://jharris2.mat.georgiasouthern.edu/Progcontest/summary.html
-      as_of: '20080821105344'
-      archived: seusa/seusa-2006/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2007/standings
-  problems:
-    count: 10
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=270
-        as_of: '20150309102032'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=270
+  - url: http://jharris2.mat.georgiasouthern.edu/Progcontest/summary.html
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20061118000031'
+    archived:
+    - seusa/seusa-2006/scoreboard/2026-09-01-wayback-ac6d6116/summary.html
+    - seusa/seusa-2006/external-standings/2026-04-15-external/content.html
+    - seusa/seusa-2006/scoreboard/20061118-wayback-397a6d0d/summary.html
+    - seusa/seusa-2006/standings/20080821-wayback-54b086a9/summary.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: as_of 20080821105344 for standings; from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Southeast-USA-2007/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=270
+    roles:
+    - problemset
+    - judge_page
+    judge: livearchive
     as_of: '20150309102032'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: seusa-2006
 - id: seusa-2007
   season: 2008
   name: 2007 ACM Southeast USA Programming Contest
@@ -537,31 +640,32 @@ contests:
   - 1298
   parent: wf-2008
   next: seusa-2008
-  web:
-    url: http://jharris2.mat.georgiasouthern.edu/Progcontest/contest.htm
+  sources:
+  - url: http://jharris2.mat.georgiasouthern.edu/Progcontest/contest.htm
+    roles:
+    - web
     as_of: '20071120193859'
-  results:
-    standings:
-    - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=851
-      as_of: '20080915032337'
-      archived: seusa/seusa-2007/standings/2026-09-01-wayback-d60203ac/page.html
-      url_state: dead
-      url_checked: '2026-11-01'
-  icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2008/standings
-  problems:
-    count: 10
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=304
-        as_of: '20211026182628'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
-    url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=304
+  - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=851
+    roles:
+    - standings
+    as_of: '20080915032337'
+    archived:
+    - seusa/seusa-2007/standings/2026-09-01-wayback-d60203ac/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+  - url: https://icpc.global/regionals/finder/Southeast-USA-2008/standings
+    roles:
+    - icpc_standings
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=304
+    roles:
+    - problemset
+    - judge_page
+    judge: livearchive
     as_of: '20211026182628'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: seusa-2007
 - id: seusa-2008
   season: 2009
   name: 2008 Southeast USA Programming Contest
@@ -571,39 +675,47 @@ contests:
   - 41
   parent: wf-2009
   next: seusa-2009
-  web:
-    url: http://ser.cs.fit.edu/ser2008/index.html
+  sources:
+  - url: http://ser.cs.fit.edu/ser2008/index.html
+    roles:
+    - web
     as_of: '20140928103245'
-  results:
-    scoreboard:
-    - url: http://ser.cs.fit.edu/ser2008/standings.html
-      as_of: '20140621232556'
-      archived: seusa/seusa-2008/scoreboard/2026-09-01-wayback-edb8cbb8/standings.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://ser.cs.fit.edu/ser2008/standings.html
-      as_of: '20140621232556'
-      archived: seusa/seusa-2008/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2009/standings
+  - url: http://ser.cs.fit.edu/ser2008/standings.html
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20140621232556'
+    archived:
+    - seusa/seusa-2008/scoreboard/2026-09-01-wayback-edb8cbb8/standings.html
+    - seusa/seusa-2008/external-standings/2026-04-15-external/content.html
+    - seusa/seusa-2008/standings/20091029-wayback-98292072/standings.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Southeast-USA-2009/standings
+    roles:
+    - icpc_standings
+  - url: http://vanb.org/ser2008/SER2008%20Problem%20Set.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=340
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211016212156'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/180
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201021095734'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 10
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=340
-        as_of: '20211016212156'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/180
-        as_of: '20201021095734'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: http://vanb.org/ser2008/SER2008%20Problem%20Set.pdf
+    set: seusa-2008
 - id: seusa-2009
   season: 2010
   name: 2009 Southeast USA Programming Contest
@@ -613,39 +725,47 @@ contests:
   - 559
   parent: wf-2010
   next: seusa-2010
-  web:
-    url: http://ser.cs.fit.edu/ser2009/index.html
+  sources:
+  - url: http://ser.cs.fit.edu/ser2009/index.html
+    roles:
+    - web
     as_of: '20140928103251'
-  results:
-    scoreboard:
-    - url: http://ser.cs.fit.edu/ser2009/standings.html
-      as_of: '20120604023654'
-      archived: seusa/seusa-2009/scoreboard/2026-09-01-wayback-e04e4a89/standings.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://ser.cs.fit.edu/ser2009/standings.html
-      as_of: '20120604023654'
-      archived: seusa/seusa-2009/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2010/standings
+  - url: http://ser.cs.fit.edu/ser2009/standings.html
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20120604023654'
+    archived:
+    - seusa/seusa-2009/scoreboard/2026-09-01-wayback-e04e4a89/standings.html
+    - seusa/seusa-2009/external-standings/2026-04-15-external/content.html
+    - seusa/seusa-2009/standings/20091111-wayback-84065c00/standings.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Southeast-USA-2010/standings
+    roles:
+    - icpc_standings
+  - url: http://vanb.org/ser2009/SER%202009%20Problem%20Set.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=375
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211016020349'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/179
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210119050742'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 9
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=375
-        as_of: '20211016020349'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/179
-        as_of: '20210119050742'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: http://vanb.org/ser2009/SER%202009%20Problem%20Set.pdf
+    set: seusa-2009
 - id: seusa-2010
   season: 2011
   name: 2010 Southeast USA Regional Contest
@@ -655,28 +775,39 @@ contests:
   - 654
   parent: wf-2011
   next: seusa-2011
-  web:
-    url: http://ser.cs.fit.edu/ser2010/index.html
+  sources:
+  - url: http://ser.cs.fit.edu/ser2010/index.html
+    roles:
+    - web
     as_of: '20140928103256'
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Southeast-USA-2011/standings
-    archived: seusa/seusa-2010/standings/api-20260904/standings.html
+  - url: https://icpc.global/regionals/finder/Southeast-USA-2011/standings
+    roles:
+    - icpc_standings
+    archived:
+    - seusa/seusa-2010/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 654, 75 teams, DB fetch 2026-04-26)
+  - url: http://vanb.org/ser2010/SER%202010%20Problem%20Set.pdf
+    roles:
+    - problemset
+    as_of: '20160810222757'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=410
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211023084032'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/178
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20191212205618'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 10
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=410
-        as_of: '20211023084032'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/178
-        as_of: '20191212205618'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: http://vanb.org/ser2010/SER%202010%20Problem%20Set.pdf
+    set: seusa-2010
 - id: seusa-2011
   season: 2012
   name: 2011 Southeast USA Regional Contest
@@ -686,44 +817,61 @@ contests:
   - 874
   parent: wf-2012
   next: seusa-2012
-  web:
-    url: http://ser.cs.fit.edu/ser2011/index.html
+  sources:
+  - url: http://ser.cs.fit.edu/ser2011/index.html
+    roles:
+    - web
     as_of: '20140928103302'
-  results:
-    scoreboard:
-    - url: http://ser.cs.fit.edu/ser2011/ser2011_final_standings.pdf
-      as_of: '20120127173410'
-      archived: seusa/seusa-2011/scoreboard/2026-09-01-wayback-207446af/ser2011_final_standings.pdf
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://163.118.133.14/domjudge/public/
-      as_of: '20120113100357'
-      archived: seusa/seusa-2011/scoreboard/2026-09-01-wayback-93f61cdc/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://ser.cs.fit.edu/ser2011/replay2011/
-      as_of: '20120709001206'
-      archived: seusa/seusa-2011/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2012/standings
+  - url: http://ser.cs.fit.edu/ser2011/ser2011_final_standings.pdf
+    roles:
+    - scoreboard
+    as_of: '20120127173410'
+    archived:
+    - seusa/seusa-2011/scoreboard/2026-09-01-wayback-207446af/ser2011_final_standings.pdf
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://163.118.133.14/domjudge/public/
+    roles:
+    - scoreboard
+    as_of: '20120113100357'
+    archived:
+    - seusa/seusa-2011/scoreboard/2026-09-01-wayback-93f61cdc/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://ser.cs.fit.edu/ser2011/replay2011/
+    roles:
+    - standings
+    as_of: '20120709001206'
+    archived:
+    - seusa/seusa-2011/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Southeast-USA-2012/standings
+    roles:
+    - icpc_standings
+  - url: http://vanb.org/ser2011/SER%202011%20Problem%20Set.pdf
+    roles:
+    - problemset
+    as_of: '20160302142503'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=541
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210919194008'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/177
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20190824174035'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 10
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=541
-        as_of: '20210919194008'
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/177
-        as_of: '20190824174035'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: http://vanb.org/ser2011/SER%202011%20Problem%20Set.pdf
+    set: seusa-2011
 - id: seusa-2012
   season: 2013
   name: 2012 Southeast USA Regional Contest
@@ -733,38 +881,47 @@ contests:
   - 1388
   parent: wf-2013
   next: seusa-2013
-  web:
-    url: http://cs.fit.edu/~ryan/icpc/ser2012/
+  sources:
+  - url: http://cs.fit.edu/~ryan/icpc/ser2012/
+    roles:
+    - web
     as_of: '20121217025515'
-  results:
-    scoreboard:
-    - url: http://cs.fit.edu/~ryan/icpc/ser2012/ser2012_scoreboard.pdf
-      as_of: '20140513234640'
-      archived: seusa/seusa-2012/scoreboard/2026-09-01-wayback-e8bbe770/ser2012_scoreboard.pdf
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://cs.fit.edu/~ryan/icpc/ser2012/ser2012_scoreboard.pdf
-      as_of: '20140513234640'
-      archived: seusa/seusa-2012/external-standings/2026-04-15-external/content.pdf
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2013/standings
+  - url: http://cs.fit.edu/~ryan/icpc/ser2012/ser2012_scoreboard.pdf
+    roles:
+    - scoreboard
+    - standings
+    as_of: '20140513234640'
+    archived:
+    - seusa/seusa-2012/scoreboard/2026-09-01-wayback-e8bbe770/ser2012_scoreboard.pdf
+    - seusa/seusa-2012/external-standings/2026-04-15-external/content.pdf
+    - seusa/seusa-2012/standings/20140513-wayback-4c8cf81a/ser2012_scoreboard.pdf
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Southeast-USA-2013/standings
+    roles:
+    - icpc_standings
+  - url: http://vanb.org/ser2012/SER%202012%20Problem%20Set%20-%20Division%20I.pdf
+    roles:
+    - problemset
+    as_of: '20160302143252'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=582
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211019190047'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/817
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 20
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=582
-        as_of: '20211019190047'
-      baekjoon: https://www.acmicpc.net/category/817
-    notes: 2 divisions
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: http://vanb.org/ser2012/SER%202012%20Problem%20Set%20-%20Division%20I.pdf
+    set: seusa-2012
 - id: seusa-2013
   season: 2014
   name: 2013 Southeast USA Regional Contest
@@ -774,31 +931,44 @@ contests:
   - 1972
   parent: wf-2014
   next: seusa-2014
-  web:
-    url: http://ser.cs.fit.edu/ser2013/
+  sources:
+  - url: http://ser.cs.fit.edu/ser2013/
+    roles:
+    - web
     as_of: '20140313013831'
-  results:
-    scoreboard:
-    - url: http://ser.cs.fit.edu/ser2013/ser2013_final_standings.pdf
-      as_of: '20140327052651'
-      archived: seusa/seusa-2013/scoreboard/2026-09-01-wayback-062d83ce/ser2013_final_standings.pdf
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2014/standings
+  - url: http://ser.cs.fit.edu/ser2013/ser2013_final_standings.pdf
+    roles:
+    - scoreboard
+    as_of: '20140327052651'
+    archived:
+    - seusa/seusa-2013/scoreboard/2026-09-01-wayback-062d83ce/ser2013_final_standings.pdf
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Southeast-USA-2014/standings
+    roles:
+    - icpc_standings
+  - url: http://serjudging.vanb.org/wp-content/uploads/SER-2013-Div-1-Problem-Set.pdf
+    roles:
+    - problemset
+    as_of: '20160302133136'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=625
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210918075425'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/818
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20230514151420'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 20
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=625
-        as_of: '20210918075425'
-      baekjoon: https://www.acmicpc.net/category/818
-    notes: 2 divisions
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: http://serjudging.vanb.org/wp-content/uploads/SER-2013-Div-1-Problem-Set.pdf
+    set: seusa-2013
 - id: seusa-2014
   season: 2015
   name: 2014 Southeast USA Regional Contest
@@ -808,42 +978,59 @@ contests:
   - 2415
   parent: wf-2015
   next: seusa-2015
-  web:
-    url: https://ser.cs.fit.edu/ser2014/
+  sources:
+  - url: https://ser.cs.fit.edu/ser2014/
+    roles:
+    - web
     as_of: '20160604045936'
-  results:
-    scoreboard:
-    - url: http://dj.cs.fit.edu/ser2014/d1/public/
-      as_of: '20150727064552'
-      archived: seusa/seusa-2014/scoreboard/2026-09-01-wayback-fdb765ab/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://dj.cs.fit.edu/ser2014/d2/public/
-      as_of: '20150727051318'
-      archived: seusa/seusa-2014/scoreboard/2026-09-01-wayback-676b7180/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2015/standings
+  - url: http://dj.cs.fit.edu/ser2014/d1/public/
+    roles:
+    - scoreboard
+    as_of: '20150727064552'
+    archived:
+    - seusa/seusa-2014/scoreboard/2026-09-01-wayback-fdb765ab/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://dj.cs.fit.edu/ser2014/d2/public/
+    roles:
+    - scoreboard
+    as_of: '20150727051318'
+    archived:
+    - seusa/seusa-2014/scoreboard/2026-09-01-wayback-676b7180/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Southeast-USA-2015/standings
+    roles:
+    - icpc_standings
+  - url: http://serjudging.vanb.org/wp-content/uploads/SER-2014-D1-Problems.pdf
+    roles:
+    - problemset
+    as_of: '20160302134828'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://open.kattis.com/problem-sources/2014%20Southeast%20USA%20Regionals%20Division%201
+    roles:
+    - judge_page
+    judge: kattis
+    as_of: '20220124115221'
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=668
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211022232331'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/819
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20240303185017'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 18
-    statement: partial
-    data: partial
-    solutions: partial
-    package: partial
-    judges:
-      kattis: https://open.kattis.com/problem-sources/2014%20Southeast%20USA%20Regionals%20Division%201
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=668
-        as_of: '20211022232331'
-      baekjoon: https://www.acmicpc.net/category/819
-    notes: 2 divisions
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-    counts:
-      statement: 9
-      data: 9
-      solutions: 9
-      package: 9
-  problemset: http://serjudging.vanb.org/wp-content/uploads/SER-2014-D1-Problems.pdf
+    set: seusa-2014
 - id: seusa-2015
   season: 2016
   name: 2015 Southeast USA Regional Contest
@@ -854,30 +1041,46 @@ contests:
   - 2827
   parent: wf-2016
   next: seusa-2016
-  icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2016/standings
-  results:
-    standings:
-    - url: http://ser.cs.fit.edu/
-      archived: seusa/seusa-2015/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      as_of: '20180425075353'
-  web: http://seusa.vanb.org/ser2015/
+  sources:
+  - url: http://seusa.vanb.org/ser2015/
+    roles:
+    - web
+  - url: http://ser.cs.fit.edu/
+    roles:
+    - standings
+    as_of: '20180425075353'
+    archived:
+    - seusa/seusa-2015/external-standings/2026-04-15-external/content.html
+    - seusa/seusa-2015/standings/20180425-wayback-046450e4/page.html
+    - seusa/seusa-2015/standings/20180425-wayback-64c820ed/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Southeast-USA-2016/standings
+    roles:
+    - icpc_standings
+  - url: http://serjudging.vanb.org/wp-content/uploads/SER-2015-Problems-D1.pdf
+    roles:
+    - problemset
+    as_of: '20160810205713'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=712
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20211018114325'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/820
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20230514151753'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 21
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=712
-        as_of: '20211018114325'
-      baekjoon: https://www.acmicpc.net/category/820
-    notes: 2 divisions
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: http://serjudging.vanb.org/wp-content/uploads/SER-2015-Problems-D1.pdf
+    set: seusa-2015
 - id: seusa-2016
   season: 2017
   name: 2016 Southeast USA Regional Contest
@@ -888,34 +1091,54 @@ contests:
   - 3202
   parent: wf-2017
   next: seusa-2017
-  web:
-    url: https://ser.cs.fit.edu/ser2016/
+  sources:
+  - url: https://ser.cs.fit.edu/ser2016/
+    roles:
+    - web
     as_of: '20191214051456'
-  results:
-    scoreboard:
-    - url: http://ser2016.cloudcontest.org/SER2016D1.html
-      archived: seusa/seusa-2016/scoreboard/2026-09-01-live-cd708987/SER2016D1.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://ser2016.cloudcontest.org/SER2016D2.html
-      archived: seusa/seusa-2016/scoreboard/2026-09-01-live-d0fd3dc6/SER2016D2.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2017/standings
+  - url: http://ser2016.cloudcontest.org/SER2016D1.html
+    roles:
+    - scoreboard
+    as_of: '20170423061636'
+    archived:
+    - seusa/seusa-2016/scoreboard/2026-09-01-live-cd708987/SER2016D1.html
+    - seusa/seusa-2016/scoreboard/20170423-wayback-ff2d56ad/SER2016D1.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://ser2016.cloudcontest.org/SER2016D2.html
+    roles:
+    - scoreboard
+    as_of: '20210118185931'
+    archived:
+    - seusa/seusa-2016/scoreboard/2026-09-01-live-d0fd3dc6/SER2016D2.html
+    - seusa/seusa-2016/scoreboard/20210118-wayback-6e933e20/SER2016D2.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Southeast-USA-2017/standings
+    roles:
+    - icpc_standings
+  - url: http://serjudging.vanb.org/wp-content/uploads/SER-2016-Problems-D1.pdf
+    roles:
+    - problemset
+    as_of: '20190303161738'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=756
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210923075512'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/821
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20230514151824'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 22
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=756
-        as_of: '20210923075512'
-      baekjoon: https://www.acmicpc.net/category/821
-    notes: 2 divisions
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: http://serjudging.vanb.org/wp-content/uploads/SER-2016-Problems-D1.pdf
+    set: seusa-2016
 - id: seusa-2017
   season: 2018
   name: 2017 Southeast USA Regional Contest
@@ -926,32 +1149,52 @@ contests:
   - 3263
   parent: wf-2018
   next: seusa-2018
-  results:
-    scoreboard:
-    - url: http://ser2017.cloudcontest.org/ser2017-d1.html
-      archived: seusa/seusa-2017/scoreboard/2026-09-01-live-7e988f48/ser2017-d1.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://ser2017.cloudcontest.org/ser2017-d2.html
-      archived: seusa/seusa-2017/scoreboard/2026-09-01-live-38705a51/ser2017-d2.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2018/standings
-  web: http://seusa.vanb.org/ser2017/
+  sources:
+  - url: http://seusa.vanb.org/ser2017/
+    roles:
+    - web
+  - url: http://ser2017.cloudcontest.org/ser2017-d1.html
+    roles:
+    - scoreboard
+    as_of: '20180117172205'
+    archived:
+    - seusa/seusa-2017/scoreboard/2026-09-01-live-7e988f48/ser2017-d1.html
+    - seusa/seusa-2017/scoreboard/20180117-wayback-d1bfb4b4/ser2017-d1.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://ser2017.cloudcontest.org/ser2017-d2.html
+    roles:
+    - scoreboard
+    as_of: '20180501085008'
+    archived:
+    - seusa/seusa-2017/scoreboard/2026-09-01-live-38705a51/ser2017-d2.html
+    - seusa/seusa-2017/scoreboard/20180501-wayback-ad118c38/ser2017-d2.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Southeast-USA-2018/standings
+    roles:
+    - icpc_standings
+  - url: http://serjudging.vanb.org/wp-content/uploads/SER-2017-Problems-D1.pdf
+    roles:
+    - problemset
+    as_of: '20190303163316'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=792
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210731193918'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/822
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 22
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=792
-        as_of: '20210731193918'
-      baekjoon: https://www.acmicpc.net/category/822
-    notes: 2 divisions
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: http://serjudging.vanb.org/wp-content/uploads/SER-2017-Problems-D1.pdf
+    set: seusa-2017
 - id: seusa-2018
   season: 2019
   name: 2018 Southeast USA Regional Contest
@@ -962,24 +1205,31 @@ contests:
   - 3545
   parent: wf-2019
   next: seusa-2019
-  web:
-    url: https://ser.cs.fit.edu/ser2018/
+  sources:
+  - url: https://ser.cs.fit.edu/ser2018/
+    roles:
+    - web
     as_of: '20190822112803'
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Southeast-USA-2019/standings
-    archived: seusa/seusa-2018/standings/api-20260904/standings.html
+  - url: https://icpc.global/regionals/finder/Southeast-USA-2019/standings
+    roles:
+    - icpc_standings
+    archived:
+    - seusa/seusa-2018/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3545, 118 teams, DB fetch 2026-04-26)
+  - url: http://serjudging.vanb.org/wp-content/uploads/SER-2018-Problems-D1.pdf
+    roles:
+    - problemset
+    as_of: '20190303163325'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/823
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 22
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon: https://www.acmicpc.net/category/823
-    notes: 2 divisions
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: http://serjudging.vanb.org/wp-content/uploads/SER-2018-Problems-D1.pdf
+    set: seusa-2018
 - id: seusa-2019
   season: 2020
   name: 2019 Southeast USA Regional Contest
@@ -990,31 +1240,47 @@ contests:
   - 4064
   parent: nac-2020
   next: seusa-2020
-  web:
-    url: https://ser.cs.fit.edu/ser2019/
+  sources:
+  - url: https://ser.cs.fit.edu/ser2019/
+    roles:
+    - web
     as_of: '20191116213512'
-  results:
-    scoreboard:
-    - url: http://ser2019.cloudcontest.org/SER2019D1.html
-      archived: seusa/seusa-2019/scoreboard/2026-09-01-live-309dbfb1/SER2019D1.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: http://ser2019.cloudcontest.org/SER2019D2.html
-      archived: seusa/seusa-2019/scoreboard/2026-09-01-live-0b561dd5/SER2019D2.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2020/standings
+  - url: http://ser2019.cloudcontest.org/SER2019D1.html
+    roles:
+    - scoreboard
+    as_of: '20210513185230'
+    archived:
+    - seusa/seusa-2019/scoreboard/2026-09-01-live-309dbfb1/SER2019D1.html
+    - seusa/seusa-2019/scoreboard/20210513-wayback-45122fca/SER2019D1.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://ser2019.cloudcontest.org/SER2019D2.html
+    roles:
+    - scoreboard
+    as_of: '20210513174326'
+    archived:
+    - seusa/seusa-2019/scoreboard/2026-09-01-live-0b561dd5/SER2019D2.html
+    - seusa/seusa-2019/scoreboard/20210513-wayback-373aa377/SER2019D2.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Southeast-USA-2020/standings
+    roles:
+    - icpc_standings
+  - url: http://serjudging.vanb.org/wp-content/uploads/2019-SER-D1-Problems.pdf
+    roles:
+    - problemset
+    as_of: '20191126185527'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/824
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20260420225815'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 22
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon: https://www.acmicpc.net/category/824
-    notes: 2 divisions
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: http://serjudging.vanb.org/wp-content/uploads/2019-SER-D1-Problems.pdf
+    set: seusa-2019
 - id: seusa-2020
   season: 2021
   name: 2020 Southeast USA Regional Contest
@@ -1025,27 +1291,44 @@ contests:
   - 4346
   parent: nac-2021
   next: seusa-2021
-  web: http://seusa.vanb.org/ser2020/
-  results:
-    scoreboard:
-    - url: http://seusa.vanb.org/ser2020/seusa20_standings.html
-      archived: seusa/seusa-2020/external-standings/2026-04-15-external/content.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2021/standings
+  sources:
+  - url: http://seusa.vanb.org/ser2020/
+    roles:
+    - web
+  - url: http://seusa.vanb.org/ser2020/seusa20_standings.html
+    roles:
+    - scoreboard
+    as_of: '20210618115651'
+    archived:
+    - seusa/seusa-2020/external-standings/2026-04-15-external/content.html
+    - seusa/seusa-2020/scoreboard/20210618-wayback-ee00de97/seusa20_standings.html
+    - seusa/seusa-2020/scoreboard/20260901-live-e20bddda/seusa20_standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Southeast-USA-2021/standings
+    roles:
+    - icpc_standings
+  - url: http://serjudging.vanb.org/wp-content/uploads/se2020-1.pdf
+    roles:
+    - problemset
+    as_of: '20210625091136'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://seusa20.kattis.com/contests/seusa20/problems
+    roles:
+    - judge_page
+    judge: kattis
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/2455
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20210511100624'
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 16
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://seusa20.kattis.com/contests/seusa20/problems
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/2455
-        as_of: '20210511100624'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: http://serjudging.vanb.org/wp-content/uploads/se2020-1.pdf
+    set: seusa-2020
 - id: seusa-2021
   season: 2022
   name: 2021 ICPC Southeast USA Regional Contest
@@ -1057,30 +1340,45 @@ contests:
   - 4692
   parent: nac-2022
   next: seusa-2022
-  web: http://seusa.vanb.org/ser2021/
-  results:
-    scoreboard:
-    - url: https://seusa21-d1.kattis.com/contests/seusa21d1/standings
-      archived: seusa/seusa-2021/scoreboard/2026-09-01-live-9fa71eac/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://seusa21-d2.kattis.com/contests/seusa21d2/standings
-      archived: seusa/seusa-2021/scoreboard/2026-09-01-live-15ad963a/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-      as_of: '20260228140209'
-  icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2022/standings
+  sources:
+  - url: http://seusa.vanb.org/ser2021/
+    roles:
+    - web
+  - url: https://seusa21-d1.kattis.com/contests/seusa21d1/standings
+    roles:
+    - scoreboard
+    as_of: '20250803044153'
+    archived:
+    - seusa/seusa-2021/scoreboard/2026-09-01-live-9fa71eac/page.html
+    - seusa/seusa-2021/scoreboard/20250803-wayback-7272cdaf/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://seusa21-d2.kattis.com/contests/seusa21d2/standings
+    roles:
+    - scoreboard
+    as_of: '20260228140209'
+    archived:
+    - seusa/seusa-2021/scoreboard/2026-09-01-live-15ad963a/page.html
+    - seusa/seusa-2021/scoreboard/20260228-wayback-01ab9546/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Southeast-USA-2022/standings
+    roles:
+    - icpc_standings
+  - url: http://serjudging.vanb.org/wp-content/uploads/se2021d1.pdf
+    roles:
+    - problemset
+    as_of: '20220309145820'
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/830
+    roles:
+    - judge_page
+    judge: baekjoon
+    url_state: dead
+    url_checked: '2026-11-02'
   problems:
-    count: 23
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      baekjoon: https://www.acmicpc.net/category/830
-    notes: 2 divisions
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: http://serjudging.vanb.org/wp-content/uploads/se2021d1.pdf
+    set: seusa-2021
 - id: seusa-2022
   season: 2023
   name: 2022 ICPC Southeast USA Regional Contest
@@ -1093,19 +1391,34 @@ contests:
   parent: nac-2023
   next: seusa-2023
   subset_of: south-na-2022
-  web: http://seusa.vanb.org/ser2022/
-  results:
-    scoreboard:
-    - url: https://nasouth22d1.kattis.com/contests/nasouth22d1/standings/4997
-      archived: seusa/seusa-2022/scoreboard/2026-09-01-live-d1232b0a/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://nasouth22d2.kattis.com/contests/nasouth22d2/standings/4959
-      archived: seusa/seusa-2022/scoreboard/2026-09-01-live-2f173ac9/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2023/standings
-  problemset: http://serjudging.vanb.org/wp-content/uploads/seusad1.pdf
+  sources:
+  - url: http://seusa.vanb.org/ser2022/
+    roles:
+    - web
+  - url: https://nasouth22d1.kattis.com/contests/nasouth22d1/standings/4997
+    roles:
+    - scoreboard
+    archived:
+    - seusa/seusa-2022/scoreboard/2026-09-01-live-d1232b0a/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://nasouth22d2.kattis.com/contests/nasouth22d2/standings/4959
+    roles:
+    - scoreboard
+    as_of: '20250914020541'
+    archived:
+    - seusa/seusa-2022/scoreboard/2026-09-01-live-2f173ac9/page.html
+    - seusa/seusa-2022/scoreboard/20250914-wayback-a13ebe16/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Southeast-USA-2023/standings
+    roles:
+    - icpc_standings
+  - url: http://serjudging.vanb.org/wp-content/uploads/seusad1.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: seusa-2023
   season: 2024
   name: 2023 ICPC Southeast USA Regional Contest
@@ -1117,19 +1430,32 @@ contests:
   parent: nac-2024
   next: seusa-2024
   subset_of: south-na-2023
-  web: http://seusa.vanb.org/ser2023/
-  results:
-    scoreboard:
-    - url: https://nasouth23.kattis.com/contests/nasouth23d1/standings/5667
-      archived: seusa/seusa-2023/scoreboard/2026-09-01-live-1f9b6a06/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://nasouth23.kattis.com/contests/nasouth23d2/standings/5673
-      archived: seusa/seusa-2023/scoreboard/2026-09-01-live-d047d165/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2024/standings
-  problemset: http://serjudging.vanb.org/wp-content/uploads/seusad1-1.pdf
+  sources:
+  - url: http://seusa.vanb.org/ser2023/
+    roles:
+    - web
+  - url: https://nasouth23.kattis.com/contests/nasouth23d1/standings/5667
+    roles:
+    - scoreboard
+    archived:
+    - seusa/seusa-2023/scoreboard/2026-09-01-live-1f9b6a06/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://nasouth23.kattis.com/contests/nasouth23d2/standings/5673
+    roles:
+    - scoreboard
+    archived:
+    - seusa/seusa-2023/scoreboard/2026-09-01-live-d047d165/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Southeast-USA-2024/standings
+    roles:
+    - icpc_standings
+  - url: http://serjudging.vanb.org/wp-content/uploads/seusad1-1.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: seusa-2024
   season: 2025
   name: 2024 ICPC Southeast USA Regional Contest
@@ -1142,19 +1468,32 @@ contests:
   parent: nac-2025
   next: seusa-2025
   subset_of: south-na-2024
-  web: http://seusa.vanb.org/seusa2024/
-  results:
-    scoreboard:
-    - url: https://nasouth24.kattis.com/contests/nasouth24d1/standings/seusa/all
-      archived: seusa/seusa-2024/scoreboard/2026-09-01-live-0015a704/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://nasouth24.kattis.com/contests/nasouth24d2/standings/seusa/all
-      archived: seusa/seusa-2024/scoreboard/2026-09-01-live-c3398f0f/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2025/standings
-  problemset: http://serjudging.vanb.org/wp-content/uploads/seusad1-2.pdf
+  sources:
+  - url: http://seusa.vanb.org/seusa2024/
+    roles:
+    - web
+  - url: https://nasouth24.kattis.com/contests/nasouth24d1/standings/seusa/all
+    roles:
+    - scoreboard
+    archived:
+    - seusa/seusa-2024/scoreboard/2026-09-01-live-0015a704/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://nasouth24.kattis.com/contests/nasouth24d2/standings/seusa/all
+    roles:
+    - scoreboard
+    archived:
+    - seusa/seusa-2024/scoreboard/2026-09-01-live-c3398f0f/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Southeast-USA-2025/standings
+    roles:
+    - icpc_standings
+  - url: http://serjudging.vanb.org/wp-content/uploads/seusad1-2.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: seusa-2025
   season: 2026
   name: 2025 ICPC North America Southeast Regional Contest
@@ -1167,19 +1506,34 @@ contests:
   parent: nac-2026
   next: seusa-2026
   subset_of: south-na-2025
-  web: http://seusa.vanb.org/seusa2025/
-  results:
-    scoreboard:
-    - url: https://nasouth25.kattis.com/contests/nasouth25d1/standings/seusa/all
-      archived: seusa/seusa-2025/scoreboard/2026-09-01-live-665a7160/page.html
-      url_state: replaced
-      url_checked: '2026-11-02'
-    - url: https://nasouth25.kattis.com/contests/nasouth25d2/standings/seusa/all
-      archived: seusa/seusa-2025/scoreboard/2026-09-01-live-a66e6fa9/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Southeast-USA-2026/standings
-  problemset: http://serjudging.vanb.org/wp-content/uploads/seusad1-3.pdf
+  sources:
+  - url: http://seusa.vanb.org/seusa2025/
+    roles:
+    - web
+  - url: https://nasouth25.kattis.com/contests/nasouth25d1/standings/seusa/all
+    roles:
+    - scoreboard
+    as_of: '20251112000623'
+    archived:
+    - seusa/seusa-2025/scoreboard/2026-09-01-live-665a7160/page.html
+    - seusa/seusa-2025/scoreboard/20251112-wayback-c64a0b71/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+  - url: https://nasouth25.kattis.com/contests/nasouth25d2/standings/seusa/all
+    roles:
+    - scoreboard
+    archived:
+    - seusa/seusa-2025/scoreboard/2026-09-01-live-a66e6fa9/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Southeast-USA-2026/standings
+    roles:
+    - icpc_standings
+  - url: http://serjudging.vanb.org/wp-content/uploads/seusad1-3.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: seusa-2026
   status: upcoming
   season: 2027

@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: tunisia
   name: ICPC Tunisian Collegiate Programming Contest
+  tier: subregional
+  region: Africa & Arab
+  naming: season-start
 contests:
 - id: tunisia-2013
   season: 2014
@@ -12,25 +15,30 @@ contests:
   - 2076
   parent: acpc-2013
   next: tunisia-2014
-  web:
-    url: http://acmtcpc.org/tcpc-2013.html
-    as_of: '20160205104433'
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/TCPC-2014/standings
-    archived: tunisia/tunisia-2013/standings/api-20260904/standings.html
-    note: rendered from the icpc.global API standings archive (cms 2076, 61 teams, DB fetch 2026-04-26)
-  problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/1331
-        as_of: '20201028033933'
-        note: TCPC 2013
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
-  problemset:
-    url: https://www.acmicpc.net/category/detail/1331
-    as_of: '20201028033933'
-    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found
   sources:
+  - url: http://acmtcpc.org/tcpc-2013.html
+    roles:
+    - web
+    as_of: '20160205104433'
+  - url: https://icpc.global/regionals/finder/TCPC-2014/standings
+    roles:
+    - icpc_standings
+    archived:
+    - tunisia/tunisia-2013/standings/api-20260904/standings.html
+    note: rendered from the icpc.global API standings archive (cms 2076, 61 teams, DB fetch 2026-04-26)
+  - url: https://www.acmicpc.net/category/detail/1331
+    roles:
+    - problemset
+    - judge_page
+    judge: baekjoon
+    as_of: '20201028033933'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
+      TCPC 2013
+  problems:
+    set: tunisia-2013
+  provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - id: tunisia-2014
   season: 2015
@@ -41,12 +49,16 @@ contests:
   - 2627
   parent: acpc-2014
   next: tunisia-2015
-  web:
-    url: https://acmtcpc.org/
+  sources:
+  - url: https://acmtcpc.org/
+    roles:
+    - web
     as_of: '20140720102522'
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/TCPC-2015/standings
-    archived: tunisia/tunisia-2014/standings/api-20260904/standings.html
+  - url: https://icpc.global/regionals/finder/TCPC-2015/standings
+    roles:
+    - icpc_standings
+    archived:
+    - tunisia/tunisia-2014/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 2627, 37 teams, DB fetch 2026-04-26)
 - id: tunisia-2015
   season: 2016
@@ -57,12 +69,16 @@ contests:
   - 2854
   parent: acpc-2015
   next: tunisia-2016
-  web:
-    url: http://acmtcpc.org/
+  sources:
+  - url: http://acmtcpc.org/
+    roles:
+    - web
     as_of: '20160110000121'
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/TCPC-2016/standings
-    archived: tunisia/tunisia-2015/standings/api-20260904/standings.html
+  - url: https://icpc.global/regionals/finder/TCPC-2016/standings
+    roles:
+    - icpc_standings
+    archived:
+    - tunisia/tunisia-2015/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 2854, 38 teams, DB fetch 2026-04-26)
 - id: tunisia-2016
   season: 2017
@@ -73,11 +89,16 @@ contests:
   - 3164
   parent: acpc-2016
   next: tunisia-2017
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/TCPC-2017/standings
-    archived: tunisia/tunisia-2016/standings/api-20260904/standings.html
+  sources:
+  - url: http://acmtcpc.org
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/TCPC-2017/standings
+    roles:
+    - icpc_standings
+    archived:
+    - tunisia/tunisia-2016/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3164, 58 teams, DB fetch 2026-04-26)
-  web: http://acmtcpc.org
 - id: tunisia-2017
   season: 2018
   name: 2017 Tunisian Collegiate Programming Contest
@@ -87,9 +108,12 @@ contests:
   - 3350
   parent: acpc-2017
   next: tunisia-2018
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/TCPC-2018/standings
-    archived: tunisia/tunisia-2017/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/TCPC-2018/standings
+    roles:
+    - icpc_standings
+    archived:
+    - tunisia/tunisia-2017/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3350, 87 teams, DB fetch 2026-04-26)
 - id: tunisia-2018
   season: 2019
@@ -100,12 +124,16 @@ contests:
   - 3595
   parent: acpc-2018
   next: tunisia-2019
-  web:
-    url: http://acmtcpc.org/
+  sources:
+  - url: http://acmtcpc.org/
+    roles:
+    - web
     as_of: '20180726145151'
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/TCPC-2019/standings
-    archived: tunisia/tunisia-2018/standings/api-20260904/standings.html
+  - url: https://icpc.global/regionals/finder/TCPC-2019/standings
+    roles:
+    - icpc_standings
+    archived:
+    - tunisia/tunisia-2018/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3595, 95 teams, DB fetch 2026-04-26)
 - id: tunisia-2019
   season: 2020
@@ -116,9 +144,12 @@ contests:
   - 4023
   parent: acpc-2019
   next: tunisia-2020
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/TCPC-2020/standings
-    archived: tunisia/tunisia-2019/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/TCPC-2020/standings
+    roles:
+    - icpc_standings
+    archived:
+    - tunisia/tunisia-2019/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4023, 68 teams, DB fetch 2026-04-26)
 - id: tunisia-2020
   season: 2021
@@ -129,9 +160,12 @@ contests:
   - 4418
   parent: acpc-2020
   next: tunisia-2021
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/TCPC-2021/standings
-    archived: tunisia/tunisia-2020/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/TCPC-2021/standings
+    roles:
+    - icpc_standings
+    archived:
+    - tunisia/tunisia-2020/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4418, 113 teams, DB fetch 2026-04-26)
 - id: tunisia-2021
   season: 2022
@@ -142,11 +176,18 @@ contests:
   - 4769
   parent: acpc-2021
   next: tunisia-2022
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/TCPC-2022/standings
-    archived: tunisia/tunisia-2021/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/TCPC-2022/standings
+    roles:
+    - icpc_standings
+    archived:
+    - tunisia/tunisia-2021/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4769, 101 teams, DB fetch 2026-04-26)
-  problemset: https://github.com/karygauss03/TCPC2021/blob/main/TCPC21-Contest-1.pdf
+  - url: https://github.com/karygauss03/TCPC2021/blob/main/TCPC21-Contest-1.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: tunisia-2022
   season: 2023
   name: 2022 ICPC Tunisian Collegiate Programming Contest
@@ -156,16 +197,26 @@ contests:
   - 5483
   parent: acpc-2022
   next: tunisia-2023
-  icpc_standings: https://icpc.global/regionals/finder/TCPC-2023/standings
-  results:
-    scoreboard:
-    - url: https://codeforces.com/gym/105020/standings
-      as_of: '20240504104717'
-      note: added by url-hunt 2026-09-01 (wave3-cfgym)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: tunisia/tunisia-2022/scoreboard/20240504-wayback-2ffe6828/page.html
-  problemset: https://codeforces.com/gym/105020
+  sources:
+  - url: https://codeforces.com/gym/105020/standings
+    roles:
+    - scoreboard
+    as_of: '20240504104717'
+    archived:
+    - tunisia/tunisia-2022/scoreboard/20240504-wayback-2ffe6828/page.html
+    - tunisia/tunisia-2022/scoreboard/20260902-live-561f3f53/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (wave3-cfgym)
+  - url: https://icpc.global/regionals/finder/TCPC-2023/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/105020
+    roles:
+    - problemset
+    as_of: '20240324080826'
+    url_state: replaced
+    url_checked: '2026-11-02'
 - id: tunisia-2023
   season: 2024
   name: 2023 ICPC Tunisian Collegiate Programming Contest
@@ -175,9 +226,12 @@ contests:
   - 7636
   parent: acpc-2023
   next: tunisia-2024
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/TCPC-2024/standings
-    archived: tunisia/tunisia-2023/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/TCPC-2024/standings
+    roles:
+    - icpc_standings
+    archived:
+    - tunisia/tunisia-2023/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 7636, 80 teams, DB fetch 2026-04-26)
 - id: tunisia-2024
   season: 2025
@@ -188,34 +242,41 @@ contests:
   - 8807
   parent: acpc-2024
   next: tunisia-2025
-  icpc_standings: https://icpc.global/regionals/finder/TCPC-2025/standings
-  results:
-    scoreboard:
-    - url: https://acpcsb.acpc.global/TCPC2024/TCPC.html
-      note: added by url-hunt 2026-09-01 (board-upgrade-agent)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: tunisia/tunisia-2024/scoreboard/20261020-live-79909b07/TCPC.html
-    standings:
-    - url: https://codeforces.com/gym/105020/my
-      note: added by url-hunt 2026-09-01 (round9-research)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: tunisia/tunisia-2024/standings/20261020-live-ed626b90/page.html
-    - url: https://codeforces.com/blog/entry/135324
-      as_of: '20241107021218'
-      note: added by url-hunt 2026-09-01 (round9-deep-D3)
-      url_state: changed
-      url_checked: '2026-11-02'
-      archived: tunisia/tunisia-2024/standings/20241107-wayback-b413803c/page.html
-  web: https://acpcsb.acpc.global/TCPC2024/TCPC.html
-  mirrors:
-  - url: https://www.polytecsousse.tn/tcpc/
+  sources:
+  - url: https://acpcsb.acpc.global/TCPC2024/TCPC.html
+    roles:
+    - web
+    - scoreboard
+    also_at:
+    - https://www.polytecsousse.tn/tcpc/
+    - https://www.polytecsousse.tn/tcpc-2k24/
+    - https://acpcsb.acpc.global/TCPC2024/all.html
+    archived:
+    - tunisia/tunisia-2024/scoreboard/20261020-live-79909b07/TCPC.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (board-upgrade-agent)
+  - url: https://codeforces.com/gym/105020/my
+    roles:
+    - standings
+    archived:
+    - tunisia/tunisia-2024/standings/20261020-live-ed626b90/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://codeforces.com/blog/entry/135324
+    roles:
+    - standings
+    as_of: '20241107021218'
+    archived:
+    - tunisia/tunisia-2024/standings/20241107-wayback-b413803c/page.html
+    - tunisia/tunisia-2024/standings/20261020-live-4baed207/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
     note: added by url-hunt 2026-09-01 (round9-deep-D3)
-  - url: https://www.polytecsousse.tn/tcpc-2k24/
-    note: added by url-hunt 2026-09-01 (round9-deep-D3)
-  - url: https://acpcsb.acpc.global/TCPC2024/all.html
-    note: added by url-hunt 2026-09-01 (round9-deep-probe)
+  - url: https://icpc.global/regionals/finder/TCPC-2025/standings
+    roles:
+    - icpc_standings
 - id: tunisia-2025
   season: 2026
   name: 2025 ICPC Tunisian Collegiate Programming Contest
@@ -225,29 +286,33 @@ contests:
   - 9293
   parent: acpc-2025
   next: tunisia-2026
-  icpc_standings: https://icpc.global/regionals/finder/TCPC-2026/standings
-  results:
-    scoreboard:
-    - url: https://acpcsb.acpc.global/TCPC2025/TCPC.html
-      note: added by url-hunt 2026-09-01 (board-upgrade-agent)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: tunisia/tunisia-2025/scoreboard/20261020-live-1c13fec2/TCPC.html
-    standings:
-    - url: https://codeforces.com/blog/entry/145458
-      as_of: '20250812231326'
-      note: added by url-hunt 2026-09-01 (round9-deep-D3)
-      url_state: replaced
-      url_checked: '2026-11-02'
-      archived: tunisia/tunisia-2025/standings/20250812-wayback-1b472603/page.html
-  web: https://acpcsb.acpc.global/TCPC2025/TCPC.html
-  mirrors:
-  - url: https://www.polytecsousse.tn/tcpc-2k25/
+  sources:
+  - url: https://acpcsb.acpc.global/TCPC2025/TCPC.html
+    roles:
+    - web
+    - scoreboard
+    also_at:
+    - https://www.polytecsousse.tn/tcpc-2k25/
+    - https://www.facebook.com/EcolePolytechniqueSousse/videos/the-winner-of-tcpc-2025-tcpc-tunisian-collegiate-programming-contest/1728371414707763/
+    - https://acpcsb.acpc.global/TCPC2025/all.html
+    archived:
+    - tunisia/tunisia-2025/scoreboard/20261020-live-1c13fec2/TCPC.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (board-upgrade-agent)
+  - url: https://codeforces.com/blog/entry/145458
+    roles:
+    - standings
+    as_of: '20250812231326'
+    archived:
+    - tunisia/tunisia-2025/standings/20250812-wayback-1b472603/page.html
+    - tunisia/tunisia-2025/standings/20261020-live-9a8859cf/page.html
+    url_state: replaced
+    url_checked: '2026-11-02'
     note: added by url-hunt 2026-09-01 (round9-deep-D3)
-  - url: https://www.facebook.com/EcolePolytechniqueSousse/videos/the-winner-of-tcpc-2025-tcpc-tunisian-collegiate-programming-contest/1728371414707763/
-    note: added by url-hunt 2026-09-01 (round9-deep-D3)
-  - url: https://acpcsb.acpc.global/TCPC2025/all.html
-    note: added by url-hunt 2026-09-01 (round9-deep-probe)
+  - url: https://icpc.global/regionals/finder/TCPC-2026/standings
+    roles:
+    - icpc_standings
 - id: tunisia-2026
   season: 2027
   name: 2026 ICPC Tunisian Collegiate Programming Contest
@@ -257,7 +322,10 @@ contests:
   - 9706
   parent: acpc-2026
   next: null
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/TCPC-2027/standings
-    archived: tunisia/tunisia-2026/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/TCPC-2027/standings
+    roles:
+    - icpc_standings
+    archived:
+    - tunisia/tunisia-2026/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 9706, 76 teams, DB fetch 2026-04-26)

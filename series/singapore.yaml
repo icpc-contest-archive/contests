@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: singapore
   name: ICPC Asia Singapore Regional Contest
+  tier: regional
+  region: Asia Pacific
+  naming: season-start
 contests:
 - id: singapore-2000
   season: 2001
@@ -12,40 +15,56 @@ contests:
   - 1090
   parent: wf-2001
   next: singapore-2001
-  results:
-    rankings:
-    - url: http://swt.edu/~ch01/rankins2000/2000_singapore.htm
-      as_of: '20050222101033'
-      archived: singapore/singapore-2000/rankings/2026-09-01-wayback-9bcc11fe/2000_singapore.htm
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://icpc.baylor.edu/past/icpc2001/Regionals/ViewRegionalStandings.asp?ContestID=446
-      as_of: '20020112014446'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: singapore/singapore-2000/standings/20020112-wayback-4481d039/page.html
-  icpc_standings: https://icpc.global/regionals/finder/Singapore-2001/standings
-  web:
-    url: http://icpc.baylor.edu/past/icpc2001/Regionals/Singapor00/Default.asp
+  sources:
+  - url: http://icpc.baylor.edu/past/icpc2001/Regionals/Singapor00/Default.asp
+    roles:
+    - web
     as_of: '20020701101810'
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=63
-        as_of: '20200920150851'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+    also_at:
+    - url: http://www.ntu.edu.sg/acm/
+      as_of: '20001109193600'
+  - url: http://icpc.baylor.edu/past/icpc2001/Regionals/ViewRegionalStandings.asp?ContestID=446
+    roles:
+    - standings
+    as_of: '20020112014446'
+    archived:
+    - singapore/singapore-2000/standings/20020112-wayback-4481d039/page.html
+    - singapore/singapore-2000/standings/20020112-wayback-f4f01945/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: http://swt.edu/~ch01/rankins2000/2000_singapore.htm
+    roles:
+    - rankings
+    as_of: '20050222101033'
+    archived:
+    - singapore/singapore-2000/rankings/2026-09-01-wayback-9bcc11fe/2000_singapore.htm
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Singapore-2001/standings
+    roles:
+    - icpc_standings
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_VV_Asian/2000/Singapore.pdf
+    roles:
+    - problemset
     as_of: '20020624142207'
+    url_state: dead
+    url_checked: '2026-11-02'
   - url: http://icpc.baylor.edu/past/icpc2001/Regionals/Singapor00/Problems.pdf
+    roles:
+    - problemset
     as_of: '20030323114600'
+    url_state: unknown
+    url_checked: '2026-11-02'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=63
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20200920150851'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: singapore-2000
 - id: singapore-2001
   season: 2002
   name: 2001 ACM Asia Programming Contest - Singapore
@@ -55,39 +74,65 @@ contests:
   - 1120
   parent: wf-2002
   next: singapore-2007
-  results:
-    standings:
-    - url: http://swt.edu/~ch01/Rankings2001/SingaporeResults2001.htm
-      as_of: '20050220222033'
-      archived: singapore/singapore-2001/standings/2026-09-01-wayback-726fc68a/SingaporeResults2001.htm
-      url_state: dead
-      url_checked: '2026-11-02'
-    - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=511
-      as_of: '20020619091850'
-      note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-      url_state: dead
-      url_checked: '2026-11-01'
-      archived: singapore/singapore-2001/standings/20020619-wayback-27c7d824/page.html
-  icpc_standings: https://icpc.global/regionals/finder/Singapore-2002/standings
-  web:
-    url: http://icpc.baylor.edu/past/icpc2002/Regionals/Singapor01/default.asp
+  sources:
+  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/Singapor01/default.asp
+    roles:
+    - web
     as_of: '20020619093620'
-  problems:
-    count: 8
-    statement: none
-    data: none
-    solutions: none
-    package: none
-    judges:
-      livearchive:
-        url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=93
-        as_of: '20210119062546'
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset:
+    also_at:
+    - url: http://www.ntu.edu.sg/acm/
+      as_of: '20001109193600'
+  - url: http://swt.edu/~ch01/Rankings2001/SingaporeResults2001.htm
+    roles:
+    - standings
+    as_of: '20050220222033'
+    archived:
+    - singapore/singapore-2001/standings/2026-09-01-wayback-726fc68a/SingaporeResults2001.htm
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=511
+    roles:
+    - standings
+    as_of: '20020619091850'
+    archived:
+    - singapore/singapore-2001/standings/20020619-wayback-27c7d824/page.html
+    - singapore/singapore-2001/standings/20020619-wayback-d8ae9b73/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: http://www.ntu.edu.sg/acm/results2001.htm
+    roles:
+    - standings
+    as_of: '20011222013755'
+    note: added by url-hunt 2026-09-01 (cms-api)
+  - url: https://icpc.global/regionals/finder/Singapore-2002/standings
+    roles:
+    - icpc_standings
   - url: http://icpc.baylor.edu/past/icpc2002/Regionals/Singapor01/ProblemSets2001.pdf
+    roles:
+    - problemset
     as_of: '20030512190304'
+    url_state: unknown
+    url_checked: '2026-11-02'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_VV_Asian/2001/Singapore/
+    roles:
+    - problemset
     as_of: '20020628075825'
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: http://www.ntu.edu.sg/acm/ProblemSets2001.htm
+    roles:
+    - problemset
+    as_of: '20011222003923'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=93
+    roles:
+    - judge_page
+    judge: livearchive
+    as_of: '20210119062546'
+    url_state: dead
+    url_checked: '2026-11-02'
+  problems:
+    set: singapore-2001
 - id: singapore-2007
   season: 2008
   name: 2007 ACM Asia Programming Contest - Singapore
@@ -97,30 +142,40 @@ contests:
   - 1243
   parent: wf-2008
   next: singapore-2015
-  results:
-    rankings:
-    - url: http://www.comp.nus.edu.sg/~acmicpc/result.html
-      as_of: '20100329162412'
-      archived: singapore/singapore-2007/rankings/2026-09-01-wayback-69f6cadd/result.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://www.comp.nus.edu.sg/~acmicpc/result.html
-      as_of: '20100329162412'
-      archived: singapore/singapore-2007/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: dead
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Singapore-2008/standings
-  web: http://www.comp.nus.edu.sg/~acmicpc
-  problemset: https://github.com/felix-halim/competitive-programming/blob/master/icpc/singapore07/problemset.pdf
+  sources:
+  - url: http://www.comp.nus.edu.sg/~acmicpc
+    roles:
+    - web
+  - url: http://www.comp.nus.edu.sg/~acmicpc/result.html
+    roles:
+    - standings
+    - rankings
+    as_of: '20100329162412'
+    archived:
+    - singapore/singapore-2007/external-standings/2026-04-15-external/content.html
+    - singapore/singapore-2007/rankings/2026-09-01-wayback-69f6cadd/result.html
+    - singapore/singapore-2007/standings/20071219-wayback-2a58f285/result.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Singapore-2008/standings
+    roles:
+    - icpc_standings
+  - url: https://github.com/felix-halim/competitive-programming/blob/master/icpc/singapore07/problemset.pdf
+    roles:
+    - problemset
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://www.acmicpc.net/category/detail/944
+    roles:
+    - judge_page
+    judge: baekjoon
+    as_of: '20201029205623'
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: ACM-ICPC Regional Singapore 2007
   problems:
-    judges:
-      baekjoon:
-        url: https://www.acmicpc.net/category/detail/944
-        as_of: '20201029205623'
-        note: ACM-ICPC Regional Singapore 2007
-    source: Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+    set: singapore-2007
 - id: singapore-2015
   season: 2016
   name: 2015 ACM-ICPC Asia Singapore Regional Contest
@@ -130,30 +185,43 @@ contests:
   - 2914
   parent: wf-2016
   next: singapore-2018
-  results:
-    scoreboard:
-    - url: https://asiasg15.kattis.com/contests/gkyrgw/standings
-      archived: singapore/singapore-2015/scoreboard/2026-09-01-live-02b2d58f/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-    standings:
-    - url: http://asiasg15.kattis.com/standings
-      archived: singapore/singapore-2015/external-standings/2026-04-15-external/content.html
-      note: from archived capture (external-standings)
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Asia-Singapore-2016/standings
-  web: http://www.comp.nus.edu.sg/~acmicpc
+  sources:
+  - url: http://www.comp.nus.edu.sg/~acmicpc
+    roles:
+    - web
+  - url: https://asiasg15.kattis.com/contests/gkyrgw/standings
+    roles:
+    - scoreboard
+    as_of: '20230925034704'
+    archived:
+    - singapore/singapore-2015/scoreboard/2026-09-01-live-02b2d58f/page.html
+    - singapore/singapore-2015/scoreboard/20230925-wayback-c4b85a1f/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: http://asiasg15.kattis.com/standings
+    roles:
+    - standings
+    as_of: '20161224013059'
+    archived:
+    - singapore/singapore-2015/external-standings/2026-04-15-external/content.html
+    - singapore/singapore-2015/standings/20161224-wayback-842ee590/page.html
+    - singapore/singapore-2015/standings/20260901-live-fdaddad5/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+    note: from archived capture (external-standings)
+  - url: https://icpc.global/regionals/finder/Asia-Singapore-2016/standings
+    roles:
+    - icpc_standings
+  - url: https://asiasg15.kattis.com/contests/gkyrgw/problems
+    roles:
+    - problemset
+    - judge_page
+    judge: kattis
+    as_of: '20221224201832'
+    url_state: changed
+    url_checked: '2026-11-02'
   problems:
-    count: 11
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://asiasg15.kattis.com/contests/gkyrgw/problems
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://asiasg15.kattis.com/contests/gkyrgw/problems
+    set: singapore-2015
 - id: singapore-2018
   season: 2019
   name: 2018 ICPC Asia Singapore Regional Contest
@@ -163,21 +231,28 @@ contests:
   - 3731
   parent: wf-2019
   next: null
-  results:
-    scoreboard:
-    - url: https://asiasg18.kattis.com/contests/asiasg18/standings
-      archived: singapore/singapore-2018/scoreboard/2026-09-01-live-ebf5de67/page.html
-      url_state: changed
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Asia-Singapore-2019/standings
-  web: https://www.comp.nus.edu.sg/~acmicpc/
+  sources:
+  - url: https://www.comp.nus.edu.sg/~acmicpc/
+    roles:
+    - web
+  - url: https://asiasg18.kattis.com/contests/asiasg18/standings
+    roles:
+    - scoreboard
+    as_of: '20220705131417'
+    archived:
+    - singapore/singapore-2018/scoreboard/2026-09-01-live-ebf5de67/page.html
+    - singapore/singapore-2018/scoreboard/20220705-wayback-314f82f2/page.html
+    url_state: changed
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Asia-Singapore-2019/standings
+    roles:
+    - icpc_standings
+  - url: https://asiasg18.kattis.com/contests/asiasg18/problems
+    roles:
+    - problemset
+    - judge_page
+    judge: kattis
+    url_state: changed
+    url_checked: '2026-11-02'
   problems:
-    count: 12
-    statement: full
-    data: full
-    solutions: full
-    package: full
-    judges:
-      kattis: https://asiasg18.kattis.com/contests/asiasg18/problems
-    source: ICPC Problem Archive progress sheet (2026-11-01)
-  problemset: https://asiasg18.kattis.com/contests/asiasg18/problems
+    set: singapore-2018

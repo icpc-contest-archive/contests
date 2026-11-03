@@ -1,7 +1,10 @@
-# Maintained in-repo; finder pages moved to the icpc_standings tier (tools/migrate_finder_tier.py).
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: senegal
   name: Senegalese Collegiate Programming Contest
+  tier: subregional
+  region: Africa & Arab
+  naming: season-start
 contests:
 - id: senegal-2017
   season: 2018
@@ -12,7 +15,10 @@ contests:
   - 3468
   parent: south-africa-2017
   next: null
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/SenCPC-SA-2018/standings
-    archived: senegal/senegal-2017/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/SenCPC-SA-2018/standings
+    roles:
+    - icpc_standings
+    archived:
+    - senegal/senegal-2017/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3468, 16 teams, DB fetch 2026-04-26)

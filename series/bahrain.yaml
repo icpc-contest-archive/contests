@@ -1,7 +1,10 @@
-# Maintained in-repo; problem-archive data imported by tools/import_problem_archive.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: bahrain
   name: ICPC Bahrain Collegiate Programming Contest
+  tier: subregional
+  region: Africa & Arab
+  naming: season-start
 contests:
 - id: bahrain-2019
   season: 2020
@@ -12,9 +15,12 @@ contests:
   - 4277
   parent: acpc-2019
   next: bahrain-2020
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/BaCPC-2020/standings
-    archived: bahrain/bahrain-2019/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/BaCPC-2020/standings
+    roles:
+    - icpc_standings
+    archived:
+    - bahrain/bahrain-2019/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4277, 18 teams, DB fetch 2026-04-26)
 - id: bahrain-2020
   season: 2021
@@ -25,9 +31,12 @@ contests:
   - 4411
   parent: acpc-2020
   next: bahrain-2021
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/BaCPC-2021/standings
-    archived: bahrain/bahrain-2020/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/BaCPC-2021/standings
+    roles:
+    - icpc_standings
+    archived:
+    - bahrain/bahrain-2020/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4411, 10 teams, DB fetch 2026-04-26)
 - id: bahrain-2021
   season: 2022
@@ -38,9 +47,12 @@ contests:
   - 4784
   parent: acpc-2021
   next: bahrain-2022
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/BaCPC-2022/standings
-    archived: bahrain/bahrain-2021/standings/api-20260904/standings.html
+  sources:
+  - url: https://icpc.global/regionals/finder/BaCPC-2022/standings
+    roles:
+    - icpc_standings
+    archived:
+    - bahrain/bahrain-2021/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4784, 3 teams, DB fetch 2026-04-26)
 - id: bahrain-2022
   season: 2023
@@ -49,16 +61,17 @@ contests:
   - 5497
   parent: acpc-2022
   next: bahrain-2023
-  icpc_standings: https://icpc.global/regionals/finder/BaCPC-2023/standings
-  web: https://www.facebook.com/KingdomOfBahrainCPC/
-  mirrors:
+  sources:
+  - url: https://www.facebook.com/KingdomOfBahrainCPC/
+    roles:
+    - web
+    also_at:
+    - https://icpc.global/regionals/finder/BaCPC-2023
   - url: https://icpc.global/regionals/finder/BaCPC-2023/standings
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: https://icpc.global/regionals/finder/BaCPC-2023
-    note: added by url-hunt 2026-09-01 (round9-deep-D4)
+    roles:
+    - icpc_standings
   problems:
-    notes: No date, no teams
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: bahrain-2022
 - id: bahrain-2023
   season: 2024
   name: 2023 ICPC Bahrain Collegiate Programming Contest
@@ -66,13 +79,14 @@ contests:
   - 7615
   parent: acpc-2023
   next: null
-  icpc_standings: https://icpc.global/regionals/finder/BaCPC-2024/standings
-  web: https://www.facebook.com/KingdomOfBahrainCPC/
-  mirrors:
+  sources:
+  - url: https://www.facebook.com/KingdomOfBahrainCPC/
+    roles:
+    - web
+    also_at:
+    - https://icpc.global/regionals/finder/BaCPC-2024
   - url: https://icpc.global/regionals/finder/BaCPC-2024/standings
-    note: added by url-hunt 2026-09-01 (round9-wayback-probe)
-  - url: https://icpc.global/regionals/finder/BaCPC-2024
-    note: added by url-hunt 2026-09-01 (round9-deep-D4)
+    roles:
+    - icpc_standings
   problems:
-    notes: No date, no teams
-    source: ICPC Problem Archive progress sheet (2026-11-01)
+    set: bahrain-2023

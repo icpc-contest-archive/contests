@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: kazakhstan
   name: ICPC Kazakhstan Regional Contest
+  tier: subregional
+  region: Northern Eurasia
+  naming: season-start
 contests:
 - id: kazakhstan-2003
   season: 2004
@@ -9,104 +12,145 @@ contests:
   cms_ids: []
   parent: neerc-2003
   next: kazakhstan-2004
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2003/kazakhstan/standings.html
-      as_of: '20230322020941'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2003/standings/20230322-wayback-e5ef823c/standings.html
-    - url: https://neerc.ifmo.ru/archive/2003/kazakhstan/standings.html
-      as_of: '20170924235729'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2003/standings/20170924-wayback-89f55729/standings.html
-  web: https://neerc.ifmo.ru/subregions/kazakhstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2003/kazakhstan/standings.html
+    roles:
+    - standings
+    as_of: '20230322020941'
+    archived:
+    - kazakhstan/kazakhstan-2003/standings/20230322-wayback-e5ef823c/standings.html
+    - kazakhstan/kazakhstan-2003/standings/20260904-live-2d96dfe1/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2003/kazakhstan/standings.html
+    roles:
+    - standings
+    as_of: '20170924235729'
+    archived:
+    - kazakhstan/kazakhstan-2003/standings/20170924-wayback-89f55729/standings.html
+    - kazakhstan/kazakhstan-2003/standings/20260904-live-0407267b/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: kazakhstan-2004
   season: 2005
   name: 2004 Kazakhstan Subregional Contest
   cms_ids: []
   parent: neerc-2004
   next: kazakhstan-2005
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2004/kazakhstan/standings.html
-      as_of: '20260613062403'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2004/scoreboard/20260613-wayback-3b84bbe7/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2004/kazakhstan/standings.html
-      as_of: '20170925000403'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2004/standings/20170925-wayback-9046cc7c/standings.html
-  web: https://neerc.ifmo.ru/subregions/kazakhstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2004/kazakhstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260613062403'
+    archived:
+    - kazakhstan/kazakhstan-2004/scoreboard/20260613-wayback-3b84bbe7/standings.html
+    - kazakhstan/kazakhstan-2004/scoreboard/20260904-live-cbc22b5d/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2004/kazakhstan/standings.html
+    roles:
+    - standings
+    as_of: '20170925000403'
+    archived:
+    - kazakhstan/kazakhstan-2004/standings/20170925-wayback-9046cc7c/standings.html
+    - kazakhstan/kazakhstan-2004/standings/20260904-live-90626291/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: kazakhstan-2005
   season: 2006
   name: 2005 Kazakhstan Subregional Contest
   cms_ids: []
   parent: neerc-2005
   next: kazakhstan-2006
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2005/kazakhstan/standings.html
-      as_of: '20260613054327'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2005/scoreboard/20260613-wayback-c9e4a1ef/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2005/kazakhstan/standings.html
-      as_of: '20161208235351'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2005/standings/20161208-wayback-8d38e190/standings.html
-  web: https://neerc.ifmo.ru/subregions/kazakhstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2005/kazakhstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260613054327'
+    archived:
+    - kazakhstan/kazakhstan-2005/scoreboard/20260613-wayback-c9e4a1ef/standings.html
+    - kazakhstan/kazakhstan-2005/scoreboard/20260904-live-c44b49ba/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2005/kazakhstan/standings.html
+    roles:
+    - standings
+    as_of: '20161208235351'
+    archived:
+    - kazakhstan/kazakhstan-2005/standings/20161208-wayback-8d38e190/standings.html
+    - kazakhstan/kazakhstan-2005/standings/20260904-live-e7d869c6/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: kazakhstan-2006
   season: 2007
   name: 2006 Kazakhstan Subregional Contest
   cms_ids: []
   parent: neerc-2006
   next: kazakhstan-2007
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2006/kazakhstan/standings.html
-      as_of: '20230322031332'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2006/scoreboard/20230322-wayback-d01b9909/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2006/kazakhstan/standings.html
-      as_of: '20170925000104'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2006/standings/20170925-wayback-5b31046c/standings.html
-  web: https://neerc.ifmo.ru/subregions/kazakhstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2006/kazakhstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20230322031332'
+    archived:
+    - kazakhstan/kazakhstan-2006/scoreboard/20230322-wayback-d01b9909/standings.html
+    - kazakhstan/kazakhstan-2006/scoreboard/20260904-live-e73e3923/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2006/kazakhstan/standings.html
+    roles:
+    - standings
+    as_of: '20170925000104'
+    archived:
+    - kazakhstan/kazakhstan-2006/standings/20170925-wayback-5b31046c/standings.html
+    - kazakhstan/kazakhstan-2006/standings/20260904-live-5fac6c3f/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: kazakhstan-2007
   season: 2008
   name: 2007 Kazakhstan Subregional Contest
   cms_ids: []
   parent: neerc-2007
   next: kazakhstan-2008
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2007/kazakhstan/standings.html
-      as_of: '20260610212516'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2007/scoreboard/20260610-wayback-29e8d951/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2007/kazakhstan/standings.html
-      as_of: '20170925000110'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2007/standings/20170925-wayback-d54defc4/standings.html
-  web: https://neerc.ifmo.ru/subregions/kazakhstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2007/kazakhstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260610212516'
+    archived:
+    - kazakhstan/kazakhstan-2007/scoreboard/20260610-wayback-29e8d951/standings.html
+    - kazakhstan/kazakhstan-2007/scoreboard/20260904-live-9e12186c/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2007/kazakhstan/standings.html
+    roles:
+    - standings
+    as_of: '20170925000110'
+    archived:
+    - kazakhstan/kazakhstan-2007/standings/20170925-wayback-d54defc4/standings.html
+    - kazakhstan/kazakhstan-2007/standings/20260904-live-ec0101a6/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: kazakhstan-2008
   season: 2009
   name: 2008 Kazakhstan Subregional Contest
@@ -116,22 +160,32 @@ contests:
   - 74
   parent: neerc-2008
   next: kazakhstan-2009
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2008/kazakhstan/standings.html
-      as_of: '20260613063730'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2008/scoreboard/20260613-wayback-7894dad1/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2008/kazakhstan/standings.html
-      as_of: '20170924234752'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2008/standings/20170924-wayback-cac1de49/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Kazakhstan-Subregional-2009/standings
-  web: http://neerc.ifmo.ru/subregions/kazakhstan.html
+  sources:
+  - url: http://neerc.ifmo.ru/subregions/kazakhstan.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2008/kazakhstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260613063730'
+    archived:
+    - kazakhstan/kazakhstan-2008/scoreboard/20260613-wayback-7894dad1/standings.html
+    - kazakhstan/kazakhstan-2008/scoreboard/20260904-live-4ad60679/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2008/kazakhstan/standings.html
+    roles:
+    - standings
+    as_of: '20170924234752'
+    archived:
+    - kazakhstan/kazakhstan-2008/standings/20170924-wayback-cac1de49/standings.html
+    - kazakhstan/kazakhstan-2008/standings/20260904-live-c7078590/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Kazakhstan-Subregional-2009/standings
+    roles:
+    - icpc_standings
 - id: kazakhstan-2009
   season: 2010
   name: 2009 Kazakhstan Subregional Contest
@@ -141,21 +195,29 @@ contests:
   - 524
   parent: neerc-2009
   next: kazakhstan-2010
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2009/kazakhstan/standings.html
-      as_of: '20260610151251'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2009/scoreboard/20260610-wayback-9ca5a341/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2009/kazakhstan/standings.html
-      as_of: '20170925000119'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2009/standings/20170925-wayback-3a842053/standings.html
-  web: https://neerc.ifmo.ru/subregions/kazakhstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2009/kazakhstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260610151251'
+    archived:
+    - kazakhstan/kazakhstan-2009/scoreboard/20260610-wayback-9ca5a341/standings.html
+    - kazakhstan/kazakhstan-2009/scoreboard/20260904-live-3f2d651c/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2009/kazakhstan/standings.html
+    roles:
+    - standings
+    as_of: '20170925000119'
+    archived:
+    - kazakhstan/kazakhstan-2009/standings/20170925-wayback-3a842053/standings.html
+    - kazakhstan/kazakhstan-2009/standings/20260904-live-b97241f0/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: kazakhstan-2010
   season: 2011
   name: 2010 Kazakhstan Subregional Contest
@@ -165,21 +227,29 @@ contests:
   - 618
   parent: neerc-2010
   next: kazakhstan-2011
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2010/kazakhstan/standings.html
-      as_of: '20230322022316'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2010/scoreboard/20230322-wayback-548cdcf7/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2010/kazakhstan/standings.html
-      as_of: '20170925000124'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2010/standings/20170925-wayback-909c304b/standings.html
-  web: http://neerc.ifmo.ru/
+  sources:
+  - url: http://neerc.ifmo.ru/
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2010/kazakhstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20230322022316'
+    archived:
+    - kazakhstan/kazakhstan-2010/scoreboard/20230322-wayback-548cdcf7/standings.html
+    - kazakhstan/kazakhstan-2010/scoreboard/20260904-live-68659102/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2010/kazakhstan/standings.html
+    roles:
+    - standings
+    as_of: '20170925000124'
+    archived:
+    - kazakhstan/kazakhstan-2010/standings/20170925-wayback-909c304b/standings.html
+    - kazakhstan/kazakhstan-2010/standings/20260904-live-e58ab536/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: kazakhstan-2011
   season: 2012
   name: 2011 Kazakhstan Subregional Contest
@@ -189,22 +259,32 @@ contests:
   - 760
   parent: neerc-2011
   next: kazakhstan-2012
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2011/kazakhstan/standings.html
-      as_of: '20260610145228'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2011/scoreboard/20260610-wayback-e3334584/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2011/kazakhstan/standings.html
-      as_of: '20170925000417'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2011/standings/20170925-wayback-a7afbe0e/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Kazakhstan-Subregional-2012/standings
-  web: https://neerc.ifmo.ru/subregions/kazakhstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2011/kazakhstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260610145228'
+    archived:
+    - kazakhstan/kazakhstan-2011/scoreboard/20260610-wayback-e3334584/standings.html
+    - kazakhstan/kazakhstan-2011/scoreboard/20260904-live-9230a341/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2011/kazakhstan/standings.html
+    roles:
+    - standings
+    as_of: '20170925000417'
+    archived:
+    - kazakhstan/kazakhstan-2011/standings/20170925-wayback-a7afbe0e/standings.html
+    - kazakhstan/kazakhstan-2011/standings/20260904-live-a9e929e3/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Kazakhstan-Subregional-2012/standings
+    roles:
+    - icpc_standings
 - id: kazakhstan-2012
   season: 2013
   name: 2012 Kazakhstan Subregional Contest
@@ -214,22 +294,32 @@ contests:
   - 1303
   parent: neerc-2012
   next: kazakhstan-2013
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2012/kazakhstan/standings.html
-      as_of: '20260613062549'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2012/scoreboard/20260613-wayback-31d65bdc/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2012/kazakhstan/standings.html
-      as_of: '20161029092106'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2012/standings/20161029-wayback-2f6cb3d6/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Kazakhstan-Subregional-2013/standings
-  web: https://neerc.ifmo.ru/subregions/kazakhstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2012/kazakhstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260613062549'
+    archived:
+    - kazakhstan/kazakhstan-2012/scoreboard/20260613-wayback-31d65bdc/standings.html
+    - kazakhstan/kazakhstan-2012/scoreboard/20260904-live-c4e82eb1/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2012/kazakhstan/standings.html
+    roles:
+    - standings
+    as_of: '20161029092106'
+    archived:
+    - kazakhstan/kazakhstan-2012/standings/20161029-wayback-2f6cb3d6/standings.html
+    - kazakhstan/kazakhstan-2012/standings/20260904-live-6958b546/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Kazakhstan-Subregional-2013/standings
+    roles:
+    - icpc_standings
 - id: kazakhstan-2013
   season: 2014
   name: 2013 Kazakhstan Subregional Contest
@@ -239,21 +329,29 @@ contests:
   - 2034
   parent: neerc-2013
   next: kazakhstan-2014
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2013/kazakhstan/standings.html
-      as_of: '20260610211816'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2013/scoreboard/20260610-wayback-fe44d38a/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2013/kazakhstan/standings.html
-      as_of: '20161029092110'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2013/standings/20161029-wayback-4d7f64d5/standings.html
-  web: https://neerc.ifmo.ru/subregions/kazakhstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2013/kazakhstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260610211816'
+    archived:
+    - kazakhstan/kazakhstan-2013/scoreboard/20260610-wayback-fe44d38a/standings.html
+    - kazakhstan/kazakhstan-2013/scoreboard/20260904-live-a8d3cc57/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2013/kazakhstan/standings.html
+    roles:
+    - standings
+    as_of: '20161029092110'
+    archived:
+    - kazakhstan/kazakhstan-2013/standings/20161029-wayback-4d7f64d5/standings.html
+    - kazakhstan/kazakhstan-2013/standings/20260904-live-e0da8902/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: kazakhstan-2014
   season: 2015
   name: 2014 Kazakhstan Subregional Contest
@@ -263,22 +361,32 @@ contests:
   - 2675
   parent: neerc-2014
   next: kazakhstan-2015
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2014/kazakhstan/standings.html
-      as_of: '20260610154829'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2014/scoreboard/20260610-wayback-b45bf4a5/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2014/kazakhstan/standings.html
-      as_of: '20161029092115'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2014/standings/20161029-wayback-ad0529f3/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Kazakhstan-Subregional-2015/standings
-  web: https://neerc.ifmo.ru/subregions/kazakhstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2014/kazakhstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260610154829'
+    archived:
+    - kazakhstan/kazakhstan-2014/scoreboard/20260610-wayback-b45bf4a5/standings.html
+    - kazakhstan/kazakhstan-2014/scoreboard/20260904-live-24c49fca/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2014/kazakhstan/standings.html
+    roles:
+    - standings
+    as_of: '20161029092115'
+    archived:
+    - kazakhstan/kazakhstan-2014/standings/20161029-wayback-ad0529f3/standings.html
+    - kazakhstan/kazakhstan-2014/standings/20260904-live-201bd4c0/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Kazakhstan-Subregional-2015/standings
+    roles:
+    - icpc_standings
 - id: kazakhstan-2015
   season: 2016
   name: 2015 Kazakhstan Subregional Contest
@@ -288,22 +396,32 @@ contests:
   - 2766
   parent: neerc-2015
   next: kazakhstan-2016
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2015/kazakhstan/standings.html
-      as_of: '20260613055232'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2015/scoreboard/20260613-wayback-3ca714c7/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2015/kazakhstan/standings.html
-      as_of: '20161029092121'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2015/standings/20161029-wayback-db7f1058/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Kazakhstan-Subregional-2016/standings
-  web: https://neerc.ifmo.ru/subregions/kazakhstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2015/kazakhstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260613055232'
+    archived:
+    - kazakhstan/kazakhstan-2015/scoreboard/20260613-wayback-3ca714c7/standings.html
+    - kazakhstan/kazakhstan-2015/scoreboard/20260904-live-b197c312/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2015/kazakhstan/standings.html
+    roles:
+    - standings
+    as_of: '20161029092121'
+    archived:
+    - kazakhstan/kazakhstan-2015/standings/20161029-wayback-db7f1058/standings.html
+    - kazakhstan/kazakhstan-2015/standings/20260904-live-a88d52b1/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Kazakhstan-Subregional-2016/standings
+    roles:
+    - icpc_standings
 - id: kazakhstan-2016
   season: 2017
   name: 2016 Kazakhstan Subregional Contest
@@ -313,22 +431,32 @@ contests:
   - 3151
   parent: neerc-2016
   next: kazakhstan-2017
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2016/kazakhstan/standings.html
-      as_of: '20191214220852'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2016/scoreboard/20191214-wayback-168f47a0/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2016/kazakhstan/standings.html
-      as_of: '20161025230249'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2016/standings/20161025-wayback-12929560/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Kazakhstan-Subregional-2017/standings
-  web: https://neerc.ifmo.ru/subregions/kazakhstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2016/kazakhstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20191214220852'
+    archived:
+    - kazakhstan/kazakhstan-2016/scoreboard/20191214-wayback-168f47a0/standings.html
+    - kazakhstan/kazakhstan-2016/scoreboard/20260904-live-8cd6bfdb/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2016/kazakhstan/standings.html
+    roles:
+    - standings
+    as_of: '20161025230249'
+    archived:
+    - kazakhstan/kazakhstan-2016/standings/20161025-wayback-12929560/standings.html
+    - kazakhstan/kazakhstan-2016/standings/20260904-live-a3c2c3fa/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Kazakhstan-Subregional-2017/standings
+    roles:
+    - icpc_standings
 - id: kazakhstan-2017
   season: 2018
   name: 2017 Kazakhstan Subregional Contest
@@ -338,22 +466,32 @@ contests:
   - 3289
   parent: nerc-2017
   next: kazakhstan-2018
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2017/kazakhstan/standings.html
-      as_of: '20260613060129'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2017/scoreboard/20260613-wayback-f2d6aab4/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2017/kazakhstan/standings.html
-      as_of: '20171106190714'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2017/standings/20171106-wayback-34e8907a/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Kazakhstan-Subregional-2018/standings
-  web: https://neerc.ifmo.ru/subregions/kazakhstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2017/kazakhstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260613060129'
+    archived:
+    - kazakhstan/kazakhstan-2017/scoreboard/20260613-wayback-f2d6aab4/standings.html
+    - kazakhstan/kazakhstan-2017/scoreboard/20260904-live-89c9b182/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2017/kazakhstan/standings.html
+    roles:
+    - standings
+    as_of: '20171106190714'
+    archived:
+    - kazakhstan/kazakhstan-2017/standings/20171106-wayback-34e8907a/standings.html
+    - kazakhstan/kazakhstan-2017/standings/20260904-live-45ee7ae1/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Kazakhstan-Subregional-2018/standings
+    roles:
+    - icpc_standings
 - id: kazakhstan-2018
   season: 2019
   name: 2018 Kazakhstan Subregional Contest
@@ -363,21 +501,29 @@ contests:
   - 3681
   parent: nerc-2018
   next: kazakhstan-2019
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2018/kazakhstan/standings.html
-      as_of: '20260610221443'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2018/scoreboard/20260610-wayback-9bf66a6f/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2018/kazakhstan/standings.html
-      as_of: '20181028192226'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2018/standings/20181028-wayback-ed1fea3f/standings.html
-  web: https://neerc.ifmo.ru/subregions/kazakhstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2018/kazakhstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260610221443'
+    archived:
+    - kazakhstan/kazakhstan-2018/scoreboard/20260610-wayback-9bf66a6f/standings.html
+    - kazakhstan/kazakhstan-2018/scoreboard/20260904-live-4fa52124/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2018/kazakhstan/standings.html
+    roles:
+    - standings
+    as_of: '20181028192226'
+    archived:
+    - kazakhstan/kazakhstan-2018/standings/20181028-wayback-ed1fea3f/standings.html
+    - kazakhstan/kazakhstan-2018/standings/20260904-live-5785e6d3/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: kazakhstan-2019
   season: 2020
   name: 2019 Kazakhstan Regional Contest
@@ -387,22 +533,32 @@ contests:
   - 4209
   parent: nerc-2019
   next: kazakhstan-2020
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2019/kazakhstan/standings.html
-      as_of: '20191118032431'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2019/scoreboard/20191118-wayback-aaea22e3/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2019/kazakhstan/standings.html
-      as_of: '20191104182828'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2019/standings/20191104-wayback-d5ec8132/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Kazakhstan-Regional-2020/standings
-  web: https://neerc.ifmo.ru/subregions/kazakhstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2019/kazakhstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20191118032431'
+    archived:
+    - kazakhstan/kazakhstan-2019/scoreboard/20191118-wayback-aaea22e3/standings.html
+    - kazakhstan/kazakhstan-2019/scoreboard/20260904-live-dc812639/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2019/kazakhstan/standings.html
+    roles:
+    - standings
+    as_of: '20191104182828'
+    archived:
+    - kazakhstan/kazakhstan-2019/standings/20191104-wayback-d5ec8132/standings.html
+    - kazakhstan/kazakhstan-2019/standings/20260904-live-d8a52236/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Kazakhstan-Regional-2020/standings
+    roles:
+    - icpc_standings
 - id: kazakhstan-2020
   season: 2021
   name: 2020 Kazakhstan Regional Contest
@@ -412,22 +568,32 @@ contests:
   - 4554
   parent: nerc-2020
   next: kazakhstan-2021
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2020/kazakhstan/standings.html
-      as_of: '20201201085555'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2020/scoreboard/20201201-wayback-521944fb/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2020/kazakhstan/standings.html
-      as_of: '20201128005326'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2020/standings/20201128-wayback-4f6af03d/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Kazakhstan-Regional-2021/standings
-  web: https://neerc.ifmo.ru/subregions/kazakhstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2020/kazakhstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20201201085555'
+    archived:
+    - kazakhstan/kazakhstan-2020/scoreboard/20201201-wayback-521944fb/standings.html
+    - kazakhstan/kazakhstan-2020/scoreboard/20260904-live-db24ded3/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2020/kazakhstan/standings.html
+    roles:
+    - standings
+    as_of: '20201128005326'
+    archived:
+    - kazakhstan/kazakhstan-2020/standings/20201128-wayback-4f6af03d/standings.html
+    - kazakhstan/kazakhstan-2020/standings/20260904-live-44b4b145/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Kazakhstan-Regional-2021/standings
+    roles:
+    - icpc_standings
 - id: kazakhstan-2021
   season: 2022
   name: 2021 ICPC Kazakhstan Regional Contest
@@ -437,22 +603,32 @@ contests:
   - 4947
   parent: nerc-2021
   next: kazakhstan-2022
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2021/kazakhstan/standings.html
-      as_of: '20220122045639'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2021/scoreboard/20220122-wayback-65b271f0/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2021/kazakhstan/standings.html
-      as_of: '20220120060137'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2021/standings/20220120-wayback-50766de2/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Kazakhstan-Regional-2022/standings
-  web: https://neerc.ifmo.ru/subregions/kazakhstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2021/kazakhstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20220122045639'
+    archived:
+    - kazakhstan/kazakhstan-2021/scoreboard/20220122-wayback-65b271f0/standings.html
+    - kazakhstan/kazakhstan-2021/scoreboard/20260904-live-01908980/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2021/kazakhstan/standings.html
+    roles:
+    - standings
+    as_of: '20220120060137'
+    archived:
+    - kazakhstan/kazakhstan-2021/standings/20220120-wayback-50766de2/standings.html
+    - kazakhstan/kazakhstan-2021/standings/20260904-live-14cedc9a/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Kazakhstan-Regional-2022/standings
+    roles:
+    - icpc_standings
 - id: kazakhstan-2022
   season: 2023
   name: 2022 ICPC Kazakhstan Regional Contest
@@ -462,22 +638,32 @@ contests:
   - 5594
   parent: nerc-2022
   next: kazakhstan-2023
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2022/kazakhstan/standings.html
-      as_of: '20221105225847'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2022/scoreboard/20221105-wayback-0d274c0d/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2022/kazakhstan/standings.html
-      as_of: '20221201144442'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2022/standings/20221201-wayback-c16b4f8d/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Kazakhstan-Regional-2023/standings
-  web: https://neerc.ifmo.ru/subregions/kazakhstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2022/kazakhstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20221105225847'
+    archived:
+    - kazakhstan/kazakhstan-2022/scoreboard/20221105-wayback-0d274c0d/standings.html
+    - kazakhstan/kazakhstan-2022/scoreboard/20260904-live-ea7fa000/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2022/kazakhstan/standings.html
+    roles:
+    - standings
+    as_of: '20221201144442'
+    archived:
+    - kazakhstan/kazakhstan-2022/standings/20221201-wayback-c16b4f8d/standings.html
+    - kazakhstan/kazakhstan-2022/standings/20260904-live-5d8f388f/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Kazakhstan-Regional-2023/standings
+    roles:
+    - icpc_standings
 - id: kazakhstan-2023
   season: 2024
   name: 2023 ICPC Kazakhstan Regional Contest
@@ -489,22 +675,32 @@ contests:
   - 7749
   parent: nerc-2023
   next: kazakhstan-2024
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2023/kazakhstan/standings.html
-      as_of: '20231110073323'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2023/scoreboard/20231110-wayback-57e89937/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2023/kazakhstan/standings.html
-      as_of: '20231209193300'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2023/standings/20231209-wayback-d16f37e7/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Kazakhstan-Regional-2024/standings
-  web: https://neerc.ifmo.ru/subregions/kazakhstan.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2023/kazakhstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20231110073323'
+    archived:
+    - kazakhstan/kazakhstan-2023/scoreboard/20231110-wayback-57e89937/standings.html
+    - kazakhstan/kazakhstan-2023/scoreboard/20260904-live-95d42bce/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2023/kazakhstan/standings.html
+    roles:
+    - standings
+    as_of: '20231209193300'
+    archived:
+    - kazakhstan/kazakhstan-2023/standings/20231209-wayback-d16f37e7/standings.html
+    - kazakhstan/kazakhstan-2023/standings/20260904-live-3c7832be/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Kazakhstan-Regional-2024/standings
+    roles:
+    - icpc_standings
 - id: kazakhstan-2024
   season: 2025
   name: 2024 ICPC Kazakhstan Regional Contest
@@ -516,25 +712,38 @@ contests:
   - 8885
   parent: nerc-2024
   next: kazakhstan-2025
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2024/kazakhstan/standings.html
-      as_of: '20241117011439'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2024/scoreboard/20241117-wayback-218b6b63/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2024/kazakhstan/standings.html
-      as_of: '20250121094447'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2024/standings/20250121-wayback-3f703d61/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Kazakhstan-Regional-2025/standings
-  web: https://neerc.ifmo.ru/subregions/kazakhstan.html
-  problemset:
-    url: http://nerc.itmo.ru/archive/2024/kazakhstan/statements.pdf
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2024/kazakhstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20241117011439'
+    archived:
+    - kazakhstan/kazakhstan-2024/scoreboard/20241117-wayback-218b6b63/standings.html
+    - kazakhstan/kazakhstan-2024/scoreboard/20260904-live-31a3a35f/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2024/kazakhstan/standings.html
+    roles:
+    - standings
+    as_of: '20250121094447'
+    archived:
+    - kazakhstan/kazakhstan-2024/standings/20250121-wayback-3f703d61/standings.html
+    - kazakhstan/kazakhstan-2024/standings/20260904-live-ec101ca6/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Kazakhstan-Regional-2025/standings
+    roles:
+    - icpc_standings
+  - url: http://nerc.itmo.ru/archive/2024/kazakhstan/statements.pdf
+    roles:
+    - problemset
     as_of: '20260610151822'
+    url_state: live
+    url_checked: '2026-11-02'
 - id: kazakhstan-2025
   season: 2026
   name: 2025 ICPC Kazakhstan Regional Contest
@@ -546,22 +755,32 @@ contests:
   - 9178
   parent: nerc-2025
   next: kazakhstan-2026
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2025/kazakhstan/standings.html
-      as_of: '20251212104528'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2025/scoreboard/20251212-wayback-2f32a26c/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2025/kazakhstan/standings.html
-      as_of: '20251217124401'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: kazakhstan/kazakhstan-2025/standings/20251217-wayback-2645d268/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Kazakhstan-Regional-2026/standings
-  web: https://cpfed.kz/
+  sources:
+  - url: https://cpfed.kz/
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2025/kazakhstan/standings.html
+    roles:
+    - scoreboard
+    as_of: '20251212104528'
+    archived:
+    - kazakhstan/kazakhstan-2025/scoreboard/20251212-wayback-2f32a26c/standings.html
+    - kazakhstan/kazakhstan-2025/scoreboard/20260904-live-47ebf2a7/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2025/kazakhstan/standings.html
+    roles:
+    - standings
+    as_of: '20251217124401'
+    archived:
+    - kazakhstan/kazakhstan-2025/standings/20251217-wayback-2645d268/standings.html
+    - kazakhstan/kazakhstan-2025/standings/20260904-live-d64b5679/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Kazakhstan-Regional-2026/standings
+    roles:
+    - icpc_standings
 - id: kazakhstan-2026
   status: upcoming
   season: 2027

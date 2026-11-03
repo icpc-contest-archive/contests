@@ -1,7 +1,10 @@
-# Maintained in-repo; url states applied by tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/migrate_series_headers.py (region/tier/naming, 2026-11-02).
 series:
   id: moscow
   name: ICPC Moscow Regional Contest
+  tier: subregional
+  region: Northern Eurasia
+  naming: season-start
 contests:
 - id: moscow-2003
   season: 2004
@@ -9,102 +12,160 @@ contests:
   cms_ids: []
   parent: neerc-2003
   next: moscow-2004
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2003/moscow/standings.html
-      archived: moscow/moscow-2003/standings/2026-09-01-live-40d29f1c/standings.html
-      url_state: live
-      url_checked: '2026-11-02'
-    - url: https://neerc.ifmo.ru/archive/2003/moscow/standings.html
-      as_of: '20171108013658'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2003/standings/20171108-wayback-136da54d/standings.html
-  web: https://neerc.ifmo.ru/subregions/moscow.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/moscow.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2003/moscow/standings.html
+    roles:
+    - standings
+    as_of: '20220122053528'
+    archived:
+    - moscow/moscow-2003/standings/2026-09-01-live-40d29f1c/standings.html
+    - moscow/moscow-2003/standings/20220122-wayback-c1e00b2c/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2003/moscow/standings.html
+    roles:
+    - standings
+    as_of: '20171108013658'
+    archived:
+    - moscow/moscow-2003/standings/20171108-wayback-136da54d/standings.html
+    - moscow/moscow-2003/standings/20260904-live-c9ca2b77/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: moscow-2004
   season: 2005
   name: 2004 Moscow Subregional Contest
   cms_ids: []
   parent: neerc-2004
   next: moscow-2005
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2004/moscow/standings.html
-      as_of: '20260610160531'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2004/standings/20260610-wayback-c2532653/standings.html
-    - url: https://neerc.ifmo.ru/archive/2004/moscow/standings.html
-      as_of: '20171108013253'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2004/standings/20171108-wayback-5828875a/standings.html
-  web: https://neerc.ifmo.ru/subregions/moscow.html
-  problemset: https://codeforces.com/gym/100867
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/moscow.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2004/moscow/standings.html
+    roles:
+    - standings
+    as_of: '20260610160531'
+    archived:
+    - moscow/moscow-2004/standings/20260610-wayback-c2532653/standings.html
+    - moscow/moscow-2004/standings/20260904-live-216f2a21/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2004/moscow/standings.html
+    roles:
+    - standings
+    as_of: '20171108013253'
+    archived:
+    - moscow/moscow-2004/standings/20171108-wayback-5828875a/standings.html
+    - moscow/moscow-2004/standings/20260904-live-9c41e2d0/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://codeforces.com/gym/100867
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: moscow-2005
   season: 2006
   name: 2005 Moscow Subregional Contest
   cms_ids: []
   parent: neerc-2005
   next: moscow-2006
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2005/moscow/standings.html
-      as_of: '20260613061011'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2005/standings/20260613-wayback-b11af4bb/standings.html
-    - url: https://neerc.ifmo.ru/archive/2005/moscow/standings.html
-      as_of: '20161209013616'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2005/standings/20161209-wayback-10d0ff77/standings.html
-  web: https://neerc.ifmo.ru/subregions/moscow.html
-  problemset: https://codeforces.com/gym/100866
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/moscow.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2005/moscow/standings.html
+    roles:
+    - standings
+    as_of: '20260613061011'
+    archived:
+    - moscow/moscow-2005/standings/20260613-wayback-b11af4bb/standings.html
+    - moscow/moscow-2005/standings/20260904-live-c1d9a2a1/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2005/moscow/standings.html
+    roles:
+    - standings
+    as_of: '20161209013616'
+    archived:
+    - moscow/moscow-2005/standings/20161209-wayback-10d0ff77/standings.html
+    - moscow/moscow-2005/standings/20260904-live-c5e56ff0/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://codeforces.com/gym/100866
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: moscow-2006
   season: 2007
   name: 2006 Moscow Subregional Contest
   cms_ids: []
   parent: neerc-2006
   next: moscow-2007
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2006/moscow/standings.html
-      as_of: '20260610222333'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2006/standings/20260610-wayback-2732c4a3/standings.html
-    - url: https://neerc.ifmo.ru/archive/2006/moscow/standings.html
-      as_of: '20171108013303'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2006/standings/20171108-wayback-1aef0d5b/standings.html
-  web: https://neerc.ifmo.ru/subregions/moscow.html
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/moscow.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2006/moscow/standings.html
+    roles:
+    - standings
+    as_of: '20260610222333'
+    archived:
+    - moscow/moscow-2006/standings/20260610-wayback-2732c4a3/standings.html
+    - moscow/moscow-2006/standings/20260904-live-324cab29/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2006/moscow/standings.html
+    roles:
+    - standings
+    as_of: '20171108013303'
+    archived:
+    - moscow/moscow-2006/standings/20171108-wayback-1aef0d5b/standings.html
+    - moscow/moscow-2006/standings/20260904-live-1365374a/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
 - id: moscow-2007
   season: 2008
   name: 2007 Moscow Subregional Contest
   cms_ids: []
   parent: neerc-2007
   next: moscow-2008
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2007/moscow/standings.html
-      as_of: '20260613061346'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2007/standings/20260613-wayback-5c11a00e/standings.html
-    - url: https://neerc.ifmo.ru/archive/2007/moscow/standings.html
-      as_of: '20171108013308'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2007/standings/20171108-wayback-60344e21/standings.html
-  web: https://neerc.ifmo.ru/subregions/moscow.html
-  problemset: https://codeforces.com/gym/100860
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/moscow.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2007/moscow/standings.html
+    roles:
+    - standings
+    as_of: '20260613061346'
+    archived:
+    - moscow/moscow-2007/standings/20260613-wayback-5c11a00e/standings.html
+    - moscow/moscow-2007/standings/20260904-live-d4881f1b/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2007/moscow/standings.html
+    roles:
+    - standings
+    as_of: '20171108013308'
+    archived:
+    - moscow/moscow-2007/standings/20171108-wayback-60344e21/standings.html
+    - moscow/moscow-2007/standings/20260904-live-471515fc/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://codeforces.com/gym/100860
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: moscow-2008
   season: 2009
   name: 2008 Moscow Subregional Contest
@@ -114,22 +175,38 @@ contests:
   - 69
   parent: neerc-2008
   next: moscow-2009
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2008/moscow/standings.html
-      as_of: '20260613051845'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2008/standings/20260613-wayback-e76a3a30/standings.html
-    - url: https://neerc.ifmo.ru/archive/2008/moscow/standings.html
-      as_of: '20171108013313'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2008/standings/20171108-wayback-ab58a4b0/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Moscow-Subregional-2009/standings
-  web: http://acm.msu.ru
-  problemset: https://codeforces.com/gym/100861
+  sources:
+  - url: http://acm.msu.ru
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2008/moscow/standings.html
+    roles:
+    - standings
+    as_of: '20260613051845'
+    archived:
+    - moscow/moscow-2008/standings/20260613-wayback-e76a3a30/standings.html
+    - moscow/moscow-2008/standings/20260904-live-ee3e9368/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2008/moscow/standings.html
+    roles:
+    - standings
+    as_of: '20171108013313'
+    archived:
+    - moscow/moscow-2008/standings/20171108-wayback-ab58a4b0/standings.html
+    - moscow/moscow-2008/standings/20260904-live-ab3ebd07/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Moscow-Subregional-2009/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/100861
+    roles:
+    - problemset
+    as_of: '20220311200918'
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: moscow-2009
   season: 2010
   name: 2009 Moscow Subregional Contest
@@ -139,21 +216,34 @@ contests:
   - 531
   parent: neerc-2009
   next: moscow-2010
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2009/moscow/standings.html
-      as_of: '20260610153204'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2009/standings/20260610-wayback-d6b64443/standings.html
-    - url: https://neerc.ifmo.ru/archive/2009/moscow/standings.html
-      as_of: '20171108013704'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2009/standings/20171108-wayback-855a4532/standings.html
-  web: https://neerc.ifmo.ru/subregions/moscow.html
-  problemset: https://codeforces.com/gym/100864
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/moscow.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2009/moscow/standings.html
+    roles:
+    - standings
+    as_of: '20260610153204'
+    archived:
+    - moscow/moscow-2009/standings/20260610-wayback-d6b64443/standings.html
+    - moscow/moscow-2009/standings/20260904-live-1b652eab/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2009/moscow/standings.html
+    roles:
+    - standings
+    as_of: '20171108013704'
+    archived:
+    - moscow/moscow-2009/standings/20171108-wayback-855a4532/standings.html
+    - moscow/moscow-2009/standings/20260904-live-d3e4a4b8/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://codeforces.com/gym/100864
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: moscow-2010
   season: 2011
   name: 2010 Moscow Subregional Contest
@@ -163,21 +253,35 @@ contests:
   - 625
   parent: neerc-2010
   next: moscow-2011
-  results:
-    standings:
-    - url: https://nerc.itmo.ru/archive/2010/moscow/standings.html
-      as_of: '20230322021101'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2010/standings/20230322-wayback-22d1aa3a/standings.html
-    - url: https://neerc.ifmo.ru/archive/2010/moscow/standings.html
-      as_of: '20171108013709'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2010/standings/20171108-wayback-8286b504/standings.html
-  web: http://acm.msu.ru
-  problemset: https://codeforces.com/gym/100714
+  sources:
+  - url: http://acm.msu.ru
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2010/moscow/standings.html
+    roles:
+    - standings
+    as_of: '20230322021101'
+    archived:
+    - moscow/moscow-2010/standings/20230322-wayback-22d1aa3a/standings.html
+    - moscow/moscow-2010/standings/20260904-live-120904be/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2010/moscow/standings.html
+    roles:
+    - standings
+    as_of: '20171108013709'
+    archived:
+    - moscow/moscow-2010/standings/20171108-wayback-8286b504/standings.html
+    - moscow/moscow-2010/standings/20260904-live-2fd53520/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://codeforces.com/gym/100714
+    roles:
+    - problemset
+    as_of: '20160408215834'
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: moscow-2011
   season: 2012
   name: 2011 Moscow Subregional Contest
@@ -187,23 +291,37 @@ contests:
   - 761
   parent: neerc-2011
   next: moscow-2012
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2011/moscow/standings.html
-      as_of: '20260613060716'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2011/scoreboard/20260613-wayback-360e9901/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2011/moscow/standings.html
-      as_of: '20171108013714'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2011/standings/20171108-wayback-16482cb8/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Moscow-Subregional-2012/standings
-  web: https://neerc.ifmo.ru/subregions/moscow.html
-  problemset: https://codeforces.com/gym/100863
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/moscow.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2011/moscow/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260613060716'
+    archived:
+    - moscow/moscow-2011/scoreboard/20260613-wayback-360e9901/standings.html
+    - moscow/moscow-2011/scoreboard/20260904-live-6ba82476/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2011/moscow/standings.html
+    roles:
+    - standings
+    as_of: '20171108013714'
+    archived:
+    - moscow/moscow-2011/standings/20171108-wayback-16482cb8/standings.html
+    - moscow/moscow-2011/standings/20260904-live-2ccd03df/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Moscow-Subregional-2012/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/100863
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: moscow-2012
   season: 2013
   name: 2012 Moscow Subregional Contest
@@ -213,23 +331,37 @@ contests:
   - 1311
   parent: neerc-2012
   next: moscow-2013
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2012/moscow/standings.html
-      as_of: '20260610160716'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2012/scoreboard/20260610-wayback-3b1b24e4/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2012/moscow/standings.html
-      as_of: '20161031081000'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2012/standings/20161031-wayback-19f91280/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Moscow-Subregional-2013/standings
-  web: https://neerc.ifmo.ru/subregions/moscow.html
-  problemset: https://codeforces.com/gym/100685
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/moscow.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2012/moscow/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260610160716'
+    archived:
+    - moscow/moscow-2012/scoreboard/20260610-wayback-3b1b24e4/standings.html
+    - moscow/moscow-2012/scoreboard/20260904-live-a71b42a8/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2012/moscow/standings.html
+    roles:
+    - standings
+    as_of: '20161031081000'
+    archived:
+    - moscow/moscow-2012/standings/20161031-wayback-19f91280/standings.html
+    - moscow/moscow-2012/standings/20260904-live-0a46123c/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Moscow-Subregional-2013/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/100685
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: moscow-2013
   season: 2014
   name: 2013 Moscow Subregional Contest
@@ -239,22 +371,34 @@ contests:
   - 2035
   parent: neerc-2013
   next: moscow-2014
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2013/moscow/standings.html
-      as_of: '20260610213643'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2013/scoreboard/20260610-wayback-0cc7f9eb/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2013/moscow/standings.html
-      as_of: '20161031215023'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2013/standings/20161031-wayback-7f78c7e2/standings.html
-  web: https://neerc.ifmo.ru/subregions/moscow.html
-  problemset: https://codeforces.com/gym/100257
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/moscow.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2013/moscow/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260610213643'
+    archived:
+    - moscow/moscow-2013/scoreboard/20260610-wayback-0cc7f9eb/standings.html
+    - moscow/moscow-2013/scoreboard/20260904-live-2f0eaa89/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2013/moscow/standings.html
+    roles:
+    - standings
+    as_of: '20161031215023'
+    archived:
+    - moscow/moscow-2013/standings/20161031-wayback-7f78c7e2/standings.html
+    - moscow/moscow-2013/standings/20260904-live-f04e38fd/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://codeforces.com/gym/100257
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-02'
 - id: moscow-2014
   season: 2015
   name: 2014 Moscow Subregional Contest
@@ -264,23 +408,38 @@ contests:
   - 2684
   parent: neerc-2014
   next: moscow-2015
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2014/moscow/standings.html
-      as_of: '20260613065336'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2014/scoreboard/20260613-wayback-06ea6c0e/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2014/moscow/standings.html
-      as_of: '20161031082603'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2014/standings/20161031-wayback-0c000649/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Moscow-Subregional-2015/standings
-  web: http://acm.msu.ru
-  problemset: https://codeforces.com/gym/100519
+  sources:
+  - url: http://acm.msu.ru
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2014/moscow/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260613065336'
+    archived:
+    - moscow/moscow-2014/scoreboard/20260613-wayback-06ea6c0e/standings.html
+    - moscow/moscow-2014/scoreboard/20260904-live-0f8279f2/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2014/moscow/standings.html
+    roles:
+    - standings
+    as_of: '20161031082603'
+    archived:
+    - moscow/moscow-2014/standings/20161031-wayback-0c000649/standings.html
+    - moscow/moscow-2014/standings/20260904-live-0d3d9e86/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Moscow-Subregional-2015/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/100519
+    roles:
+    - problemset
+    as_of: '20160131233954'
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: moscow-2015
   season: 2016
   name: 2015 Moscow Subregional Contest
@@ -290,23 +449,38 @@ contests:
   - 2761
   parent: neerc-2015
   next: moscow-2016
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2015/moscow/standings.html
-      as_of: '20260610152810'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2015/scoreboard/20260610-wayback-71675f3a/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2015/moscow/standings.html
-      as_of: '20161031081853'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2015/standings/20161031-wayback-2453daba/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Moscow-Subregional-2016/standings
-  web: https://neerc.ifmo.ru/subregions/moscow.html
-  problemset: https://codeforces.com/gym/100792
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/moscow.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2015/moscow/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260610152810'
+    archived:
+    - moscow/moscow-2015/scoreboard/20260610-wayback-71675f3a/standings.html
+    - moscow/moscow-2015/scoreboard/20260904-live-a6810122/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2015/moscow/standings.html
+    roles:
+    - standings
+    as_of: '20161031081853'
+    archived:
+    - moscow/moscow-2015/standings/20161031-wayback-2453daba/standings.html
+    - moscow/moscow-2015/standings/20260904-live-9ec1b3b4/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Moscow-Subregional-2016/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/100792
+    roles:
+    - problemset
+    as_of: '20231126215848'
+    url_state: replaced
+    url_checked: '2026-11-02'
 - id: moscow-2016
   season: 2017
   name: 2016 Moscow Subregional Contest
@@ -316,23 +490,38 @@ contests:
   - 3143
   parent: neerc-2016
   next: moscow-2017
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2016/moscow/standings.html
-      as_of: '20260613052614'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2016/scoreboard/20260613-wayback-4d691bcc/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2016/moscow/standings.html
-      as_of: '20170929161623'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2016/standings/20170929-wayback-98114850/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Moscow-Subregional-2017/standings
-  web: https://neerc.ifmo.ru/subregions/moscow.html
-  problemset: https://codeforces.com/gym/101137
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/moscow.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2016/moscow/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260613052614'
+    archived:
+    - moscow/moscow-2016/scoreboard/20260613-wayback-4d691bcc/standings.html
+    - moscow/moscow-2016/scoreboard/20260904-live-0c92433b/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2016/moscow/standings.html
+    roles:
+    - standings
+    as_of: '20170929161623'
+    archived:
+    - moscow/moscow-2016/standings/20170929-wayback-98114850/standings.html
+    - moscow/moscow-2016/standings/20260904-live-d0a489ce/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Moscow-Subregional-2017/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/101137
+    roles:
+    - problemset
+    as_of: '20170706043009'
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: moscow-2017
   season: 2018
   name: 2017 Moscow Subregional Contest
@@ -342,30 +531,47 @@ contests:
   - 3299
   parent: nerc-2017
   next: moscow-2018
-  web:
-    url: http://icpc.msu.ru/
+  sources:
+  - url: http://icpc.msu.ru/
+    roles:
+    - web
     as_of: '20171027003846'
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2017/moscow/standings.html
-      as_of: '20260610153454'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2017/scoreboard/20260610-wayback-a936d8a6/standings.html
-    - url: http://icpc.msu.ru/index.cgi?data=2017/moscow/results&menu=index&head=index&qf=moscow&class=moscow2017&text=NEERC&year=2017&bayregion=moscow
-      as_of: '20180917044603'
-      archived: moscow/moscow-2017/scoreboard/2026-09-01-wayback-5112a17b/page.html
-      url_state: dead
-      url_checked: '2026-11-02'
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2017/moscow/standings.html
-      as_of: '20180920232607'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2017/standings/20180920-wayback-e87dbfd7/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Moscow-Subregional-2018/standings
-  problemset: https://codeforces.com/gym/101611
+  - url: https://nerc.itmo.ru/archive/2017/moscow/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260610153454'
+    archived:
+    - moscow/moscow-2017/scoreboard/20260610-wayback-a936d8a6/standings.html
+    - moscow/moscow-2017/scoreboard/20260904-live-8cfbd4ce/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: http://icpc.msu.ru/index.cgi?data=2017/moscow/results&menu=index&head=index&qf=moscow&class=moscow2017&text=NEERC&year=2017&bayregion=moscow
+    roles:
+    - scoreboard
+    as_of: '20180917044603'
+    archived:
+    - moscow/moscow-2017/scoreboard/2026-09-01-wayback-5112a17b/page.html
+    url_state: dead
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2017/moscow/standings.html
+    roles:
+    - standings
+    as_of: '20180920232607'
+    archived:
+    - moscow/moscow-2017/standings/20180920-wayback-e87dbfd7/standings.html
+    - moscow/moscow-2017/standings/20260904-live-0c3f9904/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Moscow-Subregional-2018/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/101611
+    roles:
+    - problemset
+    as_of: '20190409031409'
+    url_state: changed
+    url_checked: '2026-11-02'
 - id: moscow-2018
   season: 2019
   name: 2018 Moscow Subregional Contest
@@ -375,16 +581,23 @@ contests:
   - 3689
   parent: nerc-2018
   next: moscow-2019
-  web:
-    url: http://icpc.msu.ru/index.cgi
+  sources:
+  - url: http://icpc.msu.ru/index.cgi
+    roles:
+    - web
     as_of: '20190911040025'
-  results:
-    scoreboard:
-    - url: http://opentrains.mipt.ru/~ejudge/resmsk2018
-      archived: moscow/moscow-2018/scoreboard/2026-09-01-live-23a0e346/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/Moscow-Subregional-2019/standings
+  - url: http://opentrains.mipt.ru/~ejudge/resmsk2018
+    roles:
+    - scoreboard
+    as_of: '20181025033233'
+    archived:
+    - moscow/moscow-2018/scoreboard/2026-09-01-live-23a0e346/page.html
+    - moscow/moscow-2018/scoreboard/20181025-wayback-406fbb29/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/Moscow-Subregional-2019/standings
+    roles:
+    - icpc_standings
 - id: moscow-2019
   season: 2020
   name: 2019 Moscow Regional Contest
@@ -394,23 +607,38 @@ contests:
   - 4204
   parent: nerc-2019
   next: moscow-2020
-  results:
-    scoreboard:
-    - url: https://nerc.itmo.ru/archive/2019/moscow/standings.html
-      as_of: '20260610154024'
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2019/scoreboard/20260610-wayback-efa55d7e/standings.html
-    standings:
-    - url: https://neerc.ifmo.ru/archive/2019/moscow/standings.html
-      as_of: '20230331153216'
-      note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-      url_state: live
-      url_checked: '2026-11-02'
-      archived: moscow/moscow-2019/standings/20230331-wayback-2c338204/standings.html
-  icpc_standings: https://icpc.global/regionals/finder/Moscow-Regional-2020/standings
-  web: https://neerc.ifmo.ru/subregions/moscow.html
-  problemset: https://codeforces.com/gym/104847
+  sources:
+  - url: https://neerc.ifmo.ru/subregions/moscow.html
+    roles:
+    - web
+  - url: https://nerc.itmo.ru/archive/2019/moscow/standings.html
+    roles:
+    - scoreboard
+    as_of: '20260610154024'
+    archived:
+    - moscow/moscow-2019/scoreboard/20260610-wayback-efa55d7e/standings.html
+    - moscow/moscow-2019/scoreboard/20260904-live-d653ae67/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://neerc.ifmo.ru/archive/2019/moscow/standings.html
+    roles:
+    - standings
+    as_of: '20230331153216'
+    archived:
+    - moscow/moscow-2019/standings/20230331-wayback-2c338204/standings.html
+    - moscow/moscow-2019/standings/20260904-live-f0aa5991/standings.html
+    url_state: live
+    url_checked: '2026-11-02'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Moscow-Regional-2020/standings
+    roles:
+    - icpc_standings
+  - url: https://codeforces.com/gym/104847
+    roles:
+    - problemset
+    as_of: '20240301005111'
+    url_state: replaced
+    url_checked: '2026-11-02'
 - id: moscow-2020
   season: 2021
   name: 2020 Moscow Regional Contest
@@ -420,12 +648,22 @@ contests:
   - 4568
   parent: nerc-2020
   next: moscow-2021
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/Moscow-Regional-2021/standings
-    archived: moscow/moscow-2020/standings/api-20260904/standings.html
+  sources:
+  - url: http://icpc.msu.ru
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Moscow-Regional-2021/standings
+    roles:
+    - icpc_standings
+    archived:
+    - moscow/moscow-2020/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4568, 275 teams, DB fetch 2026-04-26)
-  web: http://icpc.msu.ru
-  problemset: https://codeforces.com/gym/104842
+  - url: https://codeforces.com/gym/104842
+    roles:
+    - problemset
+    as_of: '20240301042203'
+    url_state: replaced
+    url_checked: '2026-11-02'
 - id: moscow-2021
   season: 2022
   name: 2021 ICPC Moscow Regional Contest
@@ -435,19 +673,28 @@ contests:
   - 4941
   parent: nerc-2021
   next: moscow-2022
-  icpc_standings: https://icpc.global/regionals/finder/MRC-2022/standings
-  results:
-    standings:
-    - url: http://icpc.msu.ru/index.cgi?data=macros/standings&menu=index&head=index&qf=moscow&class=moscow2021&year=2021
-      as_of: '20190911040025'
-      archived: moscow/moscow-2021/external-standings/2026-04-15-external/content.html
-      note: 'from archived capture (external-standings); snapshot verified at a different locator: http://icpc.msu.ru/index.cgi'
-      url_state: dead
-      url_checked: '2026-11-02'
-  web: https://nerc.icpc.global/moscow
-  problemset:
-    url: https://nerc.icpc.global/archive/2021/nerc-2021-statement.pdf
+  sources:
+  - url: https://nerc.icpc.global/moscow
+    roles:
+    - web
+  - url: http://icpc.msu.ru/index.cgi?data=macros/standings&menu=index&head=index&qf=moscow&class=moscow2021&year=2021
+    roles:
+    - standings
+    as_of: '20190911040025'
+    archived:
+    - moscow/moscow-2021/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-02'
+    note: 'from archived capture (external-standings); snapshot verified at a different locator: http://icpc.msu.ru/index.cgi'
+  - url: https://icpc.global/regionals/finder/MRC-2022/standings
+    roles:
+    - icpc_standings
+  - url: https://nerc.icpc.global/archive/2021/nerc-2021-statement.pdf
+    roles:
+    - problemset
     as_of: '20220511050348'
+    url_state: dead
+    url_checked: '2026-11-02'
 - id: moscow-2022
   season: 2023
   name: 2022 ICPC Moscow Regional Contest
@@ -457,14 +704,22 @@ contests:
   - 5575
   parent: nerc-2022
   next: moscow-2023
-  results:
-    scoreboard:
-    - url: https://ioi-russia.vdi.mipt.ru/~ejudge/mrc2022colored
-      archived: moscow/moscow-2022/scoreboard/2026-09-01-live-c1f04c6e/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/MRC-2023/standings
-  web: https://moscow.nerc.icpc.global
+  sources:
+  - url: https://moscow.nerc.icpc.global
+    roles:
+    - web
+  - url: https://ioi-russia.vdi.mipt.ru/~ejudge/mrc2022colored
+    roles:
+    - scoreboard
+    as_of: '20230329105612'
+    archived:
+    - moscow/moscow-2022/scoreboard/2026-09-01-live-c1f04c6e/page.html
+    - moscow/moscow-2022/scoreboard/20230329-wayback-5b829468/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/MRC-2023/standings
+    roles:
+    - icpc_standings
 - id: moscow-2023
   season: 2024
   name: 2023 ICPC Moscow Regional Contest
@@ -474,11 +729,16 @@ contests:
   - 7735
   parent: nerc-2023
   next: moscow-2024
-  icpc_standings:
-    url: https://icpc.global/regionals/finder/MRC-2024/standings
-    archived: moscow/moscow-2023/standings/api-20260904/standings.html
+  sources:
+  - url: http://moscow.nerc.icpc.global/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/MRC-2024/standings
+    roles:
+    - icpc_standings
+    archived:
+    - moscow/moscow-2023/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 7735, 89 teams, DB fetch 2026-04-26)
-  web: http://moscow.nerc.icpc.global/
 - id: moscow-2024
   season: 2025
   name: 2024 ICPC Moscow Regional Contest
@@ -488,14 +748,22 @@ contests:
   - 8899
   parent: nerc-2024
   next: moscow-2025
-  results:
-    scoreboard:
-    - url: https://opentrains.opencup.org/~ejudge/mrc2024/res
-      archived: moscow/moscow-2024/scoreboard/2026-09-01-live-f57e2f81/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/MRC-2025/standings
-  web: https://moscow.nerc.icpc.global
+  sources:
+  - url: https://moscow.nerc.icpc.global
+    roles:
+    - web
+  - url: https://opentrains.opencup.org/~ejudge/mrc2024/res
+    roles:
+    - scoreboard
+    as_of: '20241224155910'
+    archived:
+    - moscow/moscow-2024/scoreboard/2026-09-01-live-f57e2f81/page.html
+    - moscow/moscow-2024/scoreboard/20241224-wayback-db6d4821/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/MRC-2025/standings
+    roles:
+    - icpc_standings
 - id: moscow-2025
   season: 2026
   name: 2025 ICPC Moscow Regional Contest
@@ -505,14 +773,22 @@ contests:
   - 9170
   parent: nerc-2025
   next: moscow-2026
-  results:
-    scoreboard:
-    - url: https://contest.yandex.ru/contest/85469/standings
-      archived: moscow/moscow-2025/scoreboard/2026-09-01-live-9def20bf/page.html
-      url_state: live
-      url_checked: '2026-11-02'
-  icpc_standings: https://icpc.global/regionals/finder/MRC-2026/standings
-  web: https://moscow.nerc.icpc.global
+  sources:
+  - url: https://moscow.nerc.icpc.global
+    roles:
+    - web
+  - url: https://contest.yandex.ru/contest/85469/standings
+    roles:
+    - scoreboard
+    as_of: '20251125151413'
+    archived:
+    - moscow/moscow-2025/scoreboard/2026-09-01-live-9def20bf/page.html
+    - moscow/moscow-2025/scoreboard/20251125-wayback-1737d9a9/page.html
+    url_state: live
+    url_checked: '2026-11-02'
+  - url: https://icpc.global/regionals/finder/MRC-2026/standings
+    roles:
+    - icpc_standings
 - id: moscow-2026
   status: upcoming
   season: 2027
