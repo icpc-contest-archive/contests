@@ -73,6 +73,122 @@ class PilotSyncTests(unittest.TestCase):
             self.assertIn("scoreboard", rendered)
             self.assertIn("problemset", rendered)
 
+    def test_retry_reconciles_one_existing_pr_without_creating_a_duplicate(self):
+        submission = self.submission(approval_token="signed")
+
+        class Sheet:
+            def update(self, item, updates):
+                item.values.update({key: str(value) for key, value in updates.items()})
+
+        class GitHub:
+            created = 0
+            pull = None
+
+            def existing_pull(self, branch):
+                self.branch = branch
+                return self.pull
+
+            def create_pull(self, branch, item):
+                self.created += 1
+                self.pull = {
+                    "number": 17,
+                    "html_url": "https://github.example/pull/17",
+                    "state": "open",
+                    "merged_at": None,
+                }
+                return self.pull
+
+        github = GitHub()
+        with mock.patch.object(pilot_sync, "validate_submission"), \
+             mock.patch.object(
+                 pilot_sync, "patch_catalogue",
+                 return_value=(pilot_sync.ROOT / "series" / "gny.yaml", True),
+             ), \
+             mock.patch.object(pilot_sync, "run"):
+            pilot_sync.open_or_reconcile_pr(Sheet(), github, submission)
+            pilot_sync.open_or_reconcile_pr(Sheet(), github, submission)
+
+        self.assertEqual(github.created, 1)
+        self.assertEqual(github.branch, "pilot/pilot-123456")
+        self.assertEqual(submission.get("pr_number"), "17")
+        self.assertEqual(submission.get("publication_status"), "PR_OPEN")
+
+    def test_ingest_marks_stale_authoritative_revision_as_conflict(self):
+        submission = self.submission(publication_status="APPROVED", approval_token="signed")
+
+        class Sheet:
+            def rows(self):
+                return [submission]
+
+            def update(self, item, updates):
+                item.values.update({key: str(value) for key, value in updates.items()})
+
+        with mock.patch.object(pilot_sync, "seed_base_revision", return_value=False), \
+             mock.patch.object(
+                 pilot_sync, "open_or_reconcile_pr",
+                 side_effect=pilot_sync.PilotError("base revision conflict: expected old, found new"),
+             ):
+            pilot_sync.ingest(Sheet(), object(), pilot_sync.load_config())
+
+        self.assertEqual(submission.get("publication_status"), "CONFLICT")
+        self.assertIn("revision conflict", submission.get("error"))
+
+    def test_reconcile_requires_successful_pages_deployment_before_published(self):
+        submission = self.submission(publication_status="PR_OPEN", pr_number="17")
+
+        class Sheet:
+            def rows(self):
+                return [submission]
+
+            def update(self, item, updates):
+                item.values.update({key: str(value) for key, value in updates.items()})
+
+        class GitHub:
+            deployed = False
+
+            def pull(self, number):
+                self.number = number
+                return {
+                    "state": "closed",
+                    "merged_at": "2026-11-10T00:00:00Z",
+                    "merge_commit_sha": "b" * 40,
+                }
+
+            def deployment_succeeded(self, sha):
+                self.sha = sha
+                return self.deployed
+
+        github = GitHub()
+        sheet = Sheet()
+        pilot_sync.reconcile(sheet, github)
+        self.assertEqual(submission.get("publication_status"), "MERGED_AWAITING_DEPLOYMENT")
+        self.assertEqual(submission.get("published_sha"), "")
+
+        github.deployed = True
+        pilot_sync.reconcile(sheet, github)
+        self.assertEqual(submission.get("publication_status"), "PUBLISHED")
+        self.assertEqual(submission.get("published_sha"), "b" * 40)
+        self.assertEqual(github.number, 17)
+        self.assertEqual(github.sha, "b" * 40)
+
+    def test_reconcile_closed_unmerged_pr_as_rejected(self):
+        submission = self.submission(publication_status="PR_OPEN", pr_number="17")
+
+        class Sheet:
+            def rows(self):
+                return [submission]
+
+            def update(self, item, updates):
+                item.values.update({key: str(value) for key, value in updates.items()})
+
+        class GitHub:
+            def pull(self, number):
+                return {"state": "closed", "merged_at": None}
+
+        pilot_sync.reconcile(Sheet(), GitHub())
+        self.assertEqual(submission.get("publication_status"), "REJECTED")
+        self.assertEqual(submission.get("error"), "PR closed without merge")
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -303,8 +303,14 @@ def open_or_reconcile_pr(sheet: SheetClient, github: GitHubClient, submission: S
     branch = "pilot/" + re.sub(r"[^a-z0-9._-]", "-", submission.get("submission_id"))
     existing = github.existing_pull(branch)
     if existing:
+        if existing.get("state") == "open":
+            state = "PR_OPEN"
+        elif existing.get("merged_at"):
+            state = "MERGED_AWAITING_DEPLOYMENT"
+        else:
+            state = "REJECTED"
         sheet.update(submission, {
-            "publication_status": "PR_OPEN" if existing.get("state") == "open" else "REJECTED",
+            "publication_status": state,
             "pr_number": existing["number"], "pr_url": existing["html_url"], "error": "", "updated_at": now(),
         })
         return
