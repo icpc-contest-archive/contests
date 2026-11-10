@@ -16,7 +16,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
-      - run: pip install pyyaml jsonschema
+      - run: pip install -r pilot/requirements.txt
+      - run: python3 -m unittest tests.test_pilot_sync -v
+      - run: python3 tools/pilot_sync.py validate-config
       - run: python3 tools/validate.py
 
   build-site:
