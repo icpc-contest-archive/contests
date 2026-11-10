@@ -21,7 +21,8 @@ dirty PR uses `CONFLICT`.
 
 Create the columns named in `pilot/config.yaml`. The Form should collect the
 human-entered fields `series_id`, `contest_id`, `source_url`, `roles`, and
-`note`; the remaining columns are controlled by Apps Script or GitHub Actions.
+`note`; include `judge` when `roles` contains `judge_page`. The remaining
+columns are controlled by Apps Script or GitHub Actions.
 
 The polling workflow first writes `base_blob_sha` for a submitted row. An
 authorized reviewer then changes `review_status` to `APPROVED`. The installed

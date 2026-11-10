@@ -224,6 +224,14 @@ def validate_submission(submission: Submission, config: dict[str, Any]) -> None:
     roles = [role.strip() for role in submission.get("roles").split(",") if role.strip()]
     if not roles or any(role not in config["allowed_roles"] for role in roles):
         raise PilotError("roles contains a missing or unsupported role")
+    judge = submission.get("judge")
+    if "judge_page" in roles:
+        judges = yaml.safe_load((ROOT / "judges.yaml").read_text()).get("judges", [])
+        known_judges = {item.get("id") for item in judges}
+        if not judge or judge not in known_judges:
+            raise PilotError("judge_page requires a judge ID from judges.yaml")
+    elif judge:
+        raise PilotError("judge is only valid when roles contains judge_page")
     allowed_reviewers = {
         value.strip().lower() for value in os.environ.get("PILOT_REVIEWERS", "").split(",") if value.strip()
     }
@@ -280,13 +288,20 @@ def patch_catalogue(submission: Submission) -> tuple[Path, bool]:
     existing = next((item for item in sources if item.get("url") == source_url), None)
     if existing:
         before = json.dumps(existing, sort_keys=True)
+        judge = submission.get("judge")
+        if judge and existing.get("judge") not in {None, judge}:
+            raise PilotError("existing source URL has a different judge")
         existing_roles = list(existing.get("roles") or [])
         existing["roles"] = existing_roles + [role for role in roles if role not in existing_roles]
+        if judge and not existing.get("judge"):
+            existing["judge"] = judge
         if submission.get("note") and not existing.get("note"):
             existing["note"] = submission.get("note")
         changed = before != json.dumps(existing, sort_keys=True)
     else:
         entry: dict[str, Any] = {"url": source_url, "roles": roles}
+        if submission.get("judge"):
+            entry["judge"] = submission.get("judge")
         if submission.get("note"):
             entry["note"] = submission.get("note")
         sources.append(entry)
