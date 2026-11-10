@@ -34,10 +34,27 @@ class PilotSyncTests(unittest.TestCase):
 
     def test_signature_matches_apps_script_contract(self):
         submission = self.submission()
+        payload = (
+            b"pilot-123456|" + b"a" * 40
+            + b"|reviewer@example.org|gny|gny-2025|https://example.org/results|"
+              b"scoreboard, problemset||"
+        )
         expected = hmac.new(
-            b"secret", b"pilot-123456|" + b"a" * 40 + b"|reviewer@example.org", hashlib.sha256
+            b"secret", payload, hashlib.sha256
         ).hexdigest()
         self.assertEqual(pilot_sync.approval_signature(submission, "secret"), expected)
+
+    def test_post_approval_payload_edit_invalidates_signature(self):
+        submission = self.submission()
+        signature = pilot_sync.approval_signature(submission, "secret")
+        submission.values["approval_token"] = signature
+        submission.values["roles"] = "web"
+        with mock.patch.dict(os.environ, {
+            "PILOT_REVIEWERS": "reviewer@example.org",
+            "PILOT_APPROVAL_HMAC_SECRET": "secret",
+        }):
+            with self.assertRaisesRegex(pilot_sync.PilotError, "signature"):
+                pilot_sync.validate_submission(submission, pilot_sync.load_config())
 
     def test_validate_rejects_series_outside_pilot(self):
         config = pilot_sync.load_config()
@@ -68,6 +85,7 @@ class PilotSyncTests(unittest.TestCase):
                 pilot_sync.validate_submission(submission, config)
 
             submission.values["judge"] = "kattis"
+            submission.values["approval_token"] = pilot_sync.approval_signature(submission, "secret")
             pilot_sync.validate_submission(submission, config)
 
     def test_patch_deduplicates_source_and_merges_roles(self):
