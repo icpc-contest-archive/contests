@@ -77,7 +77,17 @@ function pilotOnEdit(event) {
     return;
   }
 
-  const payload = [submissionId, baseBlobSha, reviewer].join('|');
+  const payload = [
+    submissionId,
+    baseBlobSha,
+    reviewer,
+    pilotGet_(sheet, row, headers, 'series_id'),
+    pilotGet_(sheet, row, headers, 'contest_id'),
+    pilotGet_(sheet, row, headers, 'source_url'),
+    pilotGet_(sheet, row, headers, 'roles'),
+    pilotGet_(sheet, row, headers, 'judge'),
+    pilotGet_(sheet, row, headers, 'note'),
+  ].join('|');
   const signature = Utilities.computeHmacSha256Signature(payload, secret)
     .map(byte => ('0' + ((byte + 256) % 256).toString(16)).slice(-2))
     .join('');

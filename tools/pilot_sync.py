@@ -204,6 +204,9 @@ def approval_signature(submission: Submission, secret: str) -> str:
     payload = "|".join([
         submission.get("submission_id"), submission.get("base_blob_sha"),
         submission.get("reviewed_by").lower(),
+        submission.get("series_id"), submission.get("contest_id"),
+        submission.get("source_url"), submission.get("roles"),
+        submission.get("judge"), submission.get("note"),
     ])
     return hmac.new(secret.encode(), payload.encode(), hashlib.sha256).hexdigest()
 

@@ -26,9 +26,10 @@ columns are controlled by Apps Script or GitHub Actions.
 
 The polling workflow first writes `base_blob_sha` for a submitted row. An
 authorized reviewer then changes `review_status` to `APPROVED`. The installed
-Apps Script trigger verifies the reviewer's Google identity and signs
-`submission_id|base_blob_sha|reviewed_by`. GitHub rejects an editable status
-cell without that signature.
+Apps Script trigger verifies the reviewer's Google identity and signs the
+submission ID, base revision, reviewer, and every proposed YAML field. GitHub
+rejects an editable status cell without that signature, and rejects any payload
+field changed after approval.
 
 ## One-time configuration
 
