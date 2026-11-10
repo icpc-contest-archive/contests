@@ -17,6 +17,7 @@ class PilotSyncTests(unittest.TestCase):
             "contest_id": "gny-2025",
             "source_url": "https://example.org/results",
             "roles": "scoreboard, problemset",
+            "judge": "",
             "review_status": "APPROVED",
             "reviewed_by": "reviewer@example.org",
             "base_blob_sha": "a" * 40,
@@ -53,6 +54,20 @@ class PilotSyncTests(unittest.TestCase):
             with self.assertRaisesRegex(pilot_sync.PilotError, "signature"):
                 pilot_sync.validate_submission(submission, config)
             submission.values["approval_token"] = pilot_sync.approval_signature(submission, "secret")
+            pilot_sync.validate_submission(submission, config)
+
+    def test_validate_judge_page_against_registry(self):
+        config = pilot_sync.load_config()
+        submission = self.submission(roles="judge_page", judge="not-a-real-judge")
+        with mock.patch.dict(os.environ, {
+            "PILOT_REVIEWERS": "reviewer@example.org",
+            "PILOT_APPROVAL_HMAC_SECRET": "secret",
+        }):
+            submission.values["approval_token"] = pilot_sync.approval_signature(submission, "secret")
+            with self.assertRaisesRegex(pilot_sync.PilotError, "judge ID"):
+                pilot_sync.validate_submission(submission, config)
+
+            submission.values["judge"] = "kattis"
             pilot_sync.validate_submission(submission, config)
 
     def test_patch_deduplicates_source_and_merges_roles(self):
