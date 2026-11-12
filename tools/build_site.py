@@ -1577,6 +1577,9 @@ def problemset_page(sid: str, doc: dict, rel: str) -> str:
              + (f' <span class="muted">— {listed} listed by name below</span>' if state == "partial" else "") + "</dd>")
     if doc.get("repo"):
         d.append(f"<dt>archive repo</dt><dd>{repo_link(doc)} <span class=\"muted\">in the ICPC Problem Archive (private)</span></dd>")
+    if doc.get("aliases"):
+        d.append('<dt>replaces</dt><dd class="small">' + ", ".join(esc(a) for a in doc["aliases"])
+                 + ' <span class="muted">— these were separate sets with the same problems; their addresses lead here</span></dd>')
     if doc.get("letters") == "unknown":
         d.append('<dt>letters</dt><dd class="muted">not known — the list came from an online judge, which does not keep contest letters</dd>')
     if doc.get("notes"):
@@ -1587,10 +1590,11 @@ def problemset_page(sid: str, doc: dict, rel: str) -> str:
     b += d
     probs = doc.get("problems") or []
     with_letters = [m for m in members if set_letters(doc, m)]
+    same_letters = len({json.dumps(set_letters(doc, m), sort_keys=True) for m in with_letters}) == 1
     if probs:
         b.append(f'<h2 id="problems">Problems <span class="n">{len(probs)}' + (f" of {total}" if state == "partial" and total else "") + "</span></h2>")
-        if len(members) > 1 and len(with_letters) > 1:
-            b.append('<p class="note">Two letters in the # column: the letter in ' + " / ".join(esc(m) for m in with_letters) + ".</p>")
+        if len(members) > 1 and len(with_letters) > 1 and not same_letters:
+            b.append('<p class="note">Several letters in the # column: the letter in ' + " / ".join(esc(m) for m in with_letters) + ".</p>")
         b.append(key_line(rel, "have"))
         rows = []
         for L, p in set_letter_cells(doc):
@@ -1603,7 +1607,13 @@ def problemset_page(sid: str, doc: dict, rel: str) -> str:
     else:
         b.append('<h2 id="problems">Problems</h2><p class="empty">The problems of this set are not listed by name yet'
                  + (f" — {total} problems; only what the archive holds is recorded." if total else ".") + "</p>")
-    if len(members) > 1:
+    if len(members) > 1 and same_letters:
+        without = [m for m in members if m not in with_letters]
+        b.append('<h2 id="letters">Letters per contest</h2><p>'
+                 + (f"The {len(with_letters)} contests with a recorded lettering used the same letters, the ones in the # column"
+                    if len(with_letters) > 1 else f"{contest_ref(with_letters[0], rel)} used the letters in the # column")
+                 + (". No lettering is recorded for " + ", ".join(contest_ref(m, rel) for m in without) if without else "") + ".</p>")
+    elif len(members) > 1:
         b.append('<h2 id="letters">Letters per contest</h2>')
         for m in members:
             lm = set_letters(doc, m)
@@ -1654,9 +1664,7 @@ def problem_page(pid: str, ent: dict, rel: str) -> str:
     shorts = sorted({r["short_name"] for _s, r in rows if r.get("short_name")})
     if shorts:
         d.append("<dt>short name</dt><dd>" + ", ".join(f"<code>{esc(x)}</code>" for x in shorts) + "</dd>")
-    aliases = sorted({a for _s, r in rows for a in r.get("aliases") or []})
-    if aliases:
-        d.append("<dt>also called</dt><dd>" + ", ".join(esc(a) for a in aliases) + "</dd>")
+    # `aliases` (ids merged into this one) are not shown: they are internal and only keep old addresses working
     notes = [r["notes"] for _s, r in rows if r.get("notes")] if not private else []
     if notes:
         d.append("<dt>notes</dt><dd>" + "; ".join(esc(x) for x in dict.fromkeys(notes)) + "</dd>")
@@ -1676,6 +1684,7 @@ def problemset_index(rel: str) -> str:
         fc = set_first_contest(doc)
         count = (str(total) if total else "") + (f'<span class="sub">{listed} listed</span>' if state == "partial" else "")
         rows.append(f'<tr><td class="name">{set_cell(sid, doc, rel)}</td>'
+                    f'<td class="num">{len(doc["contests"])}</td>'
                     f'<td class="nw" data-v="{fc.get("season", "")}">{link_season(fc.get("season"), rel)}</td><td class="nw">{esc(set_region(doc))}</td>'
                     f'<td class="num" data-v="{total or ""}">{count}</td><td class="nw">{ {"complete": "complete", "partial": "partial", "none": "none"}[state]}</td>'
                     f'<td class="nw" data-vs="{esc(held_value(doc))}">{held_marks(doc)}</td><td class="nw">{repo_link(doc)}</td>'
@@ -1683,13 +1692,15 @@ def problemset_index(rel: str) -> str:
     n_listed = sum(1 for d in SETS.values() if d.get("problems"))
     shared = [sid for sid, d in SETS.items() if len(d["contests"]) > 1]
     return page("Problem sets", "<h1>Problem sets</h1>"
-                f'<p class="intro">{num(len(SETS))} problem sets. Almost every set belongs to the one contest of the same id; '
-                f'{len(shared)} were shared by two contests ({", ".join(set_link(s, rel) for s in shared)}). '
+                f'<p class="intro">{num(len(SETS))} problem sets. Most belong to the one contest of the same id; '
+                f'{len(shared)} were sat by several contests, such as the Latin America regional, where every site has the same problems '
+                "(sort by <b>contests</b> to see them). "
                 "A set's page says what the ICPC Problem Archive holds for it; where the set was published and where it can be solved are on the contest page. "
                 f"<b>Problems</b> is how many the contest had; <b>list</b> says whether we know them by name — complete for {num(n_listed)} sets, "
                 "partial when only some are listed, none when only the archive's holdings are recorded.</p>"
                 + key_line(rel, "held")
-                + table([th("problem set"), th("season", f=True), th("region", f=True), th("problems", num=True), th("list", f="problem list"),
+                + table([th("problem set"), th("contests", num=True, title="how many contests sat this set"), th("season", f=True), th("region", f=True),
+                         th("problems", num=True), th("list", f="problem list"),
                          th("held", f="held for every problem"), th("archive repo"), th("notes")], rows, "flt"),
                 rel, "problemset/index.html")
 
@@ -2691,6 +2702,17 @@ def build(out: Path):
     (out / "problem" / "index.html").write_text(problem_index("../"))
     for pid, ent in PROBLEMS.items():
         (out / "problem" / f"{pid}.html").write_text(problem_page(pid, ent, "../"))
+    n_alias = 0
+    for sid, doc in SETS.items():   # ids of sets merged into another, and of problems merged into another, keep working
+        for old in doc.get("aliases") or []:
+            if old not in SETS:
+                stub(out / "problemset" / f"{old}.html", f"{sid}.html")
+                n_alias += 1
+        for pr in doc.get("problems") or []:
+            for old in pr.get("aliases") or []:
+                if old not in PROBLEMS:
+                    stub(out / "problem" / f"{old}.html", f"{pr['id']}.html")
+                    n_alias += 1
     probs, pages = judge_usage(contests)
     for jid, j in JUDGES.items():
         (out / "judge" / f"{jid}.html").write_text(judge_page(jid, j, probs.get(jid, set()), pages.get(jid, []), "../"))
@@ -2701,7 +2723,7 @@ def build(out: Path):
     stub(out / "problems" / "list.html", "../problem/index.html")
     (out / "problems" / "problems.json").write_text(json.dumps(
         {"generated": datetime.date.today().isoformat(), "sets": SETS, "judges": JUDGES}, ensure_ascii=False))
-    print(f"  problem sets: {len(SETS)} set pages, {len(PROBLEMS)} problem pages, {len(JUDGES)} judges")
+    print(f"  problem sets: {len(SETS)} set pages, {len(PROBLEMS)} problem pages, {n_alias} redirects from merged ids, {len(JUDGES)} judges")
 
     # ---- locations ----
     for nid in LOC:
@@ -2747,7 +2769,8 @@ def build(out: Path):
     search += [clean({"t": "l", "id": nid, "name": n["name"], "aliases": n.get("aliases"),
                       "extra": f'{n["type"]} · {", ".join(x["name"] for x in location_chain(LOC, nid)[1:])} · {len(LOC_SUB.get(nid, ()))} contests'}) for nid, n in LOC.items()]
     search += [clean({"t": "j", "id": jid, "name": j.get("name"), "extra": j.get("status")}) for jid, j in JUDGES.items()]
-    search += [clean({"t": "s", "id": sid, "name": doc.get("name"), "extra": "problem set of " + ", ".join(set_members(doc))}) for sid, doc in SETS.items()]
+    search += [clean({"t": "s", "id": sid, "name": doc.get("name"), "aliases": doc.get("aliases"),
+                      "extra": "problem set of " + ", ".join(set_members(doc))}) for sid, doc in SETS.items()]
     search += [clean({"t": "p", "id": pid, "name": ent["rows"][0][1]["name"], "aliases": [r.get("uuid") for _s, r in ent["rows"] if r.get("uuid")],
                       "extra": ", ".join(dict.fromkeys(cid for _s, cid, _L in ent["apps"]))}) for pid, ent in PROBLEMS.items()]
     (out / "search.json").write_text(json.dumps(search, ensure_ascii=False, separators=(",", ":")))
@@ -2776,7 +2799,7 @@ def build(out: Path):
         print(f"  {len(RES.locs)} source pages")
 
     n = len(list(out.rglob("*.html")))
-    n_stubs = sum(1 for p in out.rglob("*.html") if p.parts[len(out.parts)] in ("locator", "resources", "urls", "problemsets", "judges", "problems") or p.name in ("seasons.html", "local.html"))
+    n_stubs = sum(1 for p in out.rglob("*.html") if p.parts[len(out.parts)] in ("locator", "resources", "urls", "problemsets", "judges", "problems") or p.name in ("seasons.html", "local.html")) + n_alias
     print(f"site: {n} pages ({n - n_stubs} content pages, {n_stubs} redirect stubs) -> {out} in {time.time() - t0:.1f}s")
 
 

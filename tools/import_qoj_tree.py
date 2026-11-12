@@ -57,7 +57,10 @@ VARIANT = {"d1": "Div. 1", "d2": "Div. 2", "online": "online round", "onsite": "
 SKIP_WHY = {"SKIP-ec-online": "Asia East Continent online qualifier (not a catalogue contest)",
             "SKIP-taiwan-online": "Taiwan Online Programming Contest (qualifier, not a catalogue contest)",
             "SKIP-warmup": "EC-Final warm-up round"}
-HELD = {"tehran-online": "Tehran online regional 2023 (a second, online edition next to tehran-2023) — which contest is it?"}
+HELD: dict[str, str] = {}  # token: question — titles parked for a ruling (none open)
+# QOJ files a delayed edition under the year it was held; the catalogue id keeps the season's year
+# (tehran-online: the 19th Iran Internet Programming Contest, 16 March 2023, belongs to the 2022 cycle)
+ID_OVERRIDE = {("tehran-online", 2023): "tehran-online-2022"}
 
 
 def parse(path: Path):
@@ -106,7 +109,7 @@ def main() -> int:
             extra = "shared Latin America regional problem set"
         else:
             sid = ASIA.get(tok[5:], tok[5:]) if tok.startswith("asia:") else TOKENS.get(tok, tok)
-            targets = [f"{sid}-{year}"]
+            targets = [ID_OVERRIDE.get((tok, year), f"{sid}-{year}")]
             extra = VARIANT.get(var or "", "")
         hit = False
         for cid in targets:

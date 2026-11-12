@@ -178,6 +178,15 @@ several contests: NCPC + UKIEPC 2013, shared North American sets):
   problem's judge links are its `judges: [{judge, url, id?, as_of?}]` list. Both refer to
   the registry by id.
 
+**Shared sets.** A set sat by several contests has an id of its own and a `name`: `latam-<year>`
+for the Latin America regional (every site sits the same problems; a site with no list of its own
+is a member without letters), otherwise the member series joined in alphabetical order
+(`nordic-ukiepc-2013`, `scusa-seusa-2020`). When separate sets turn out to be one,
+`tools/merge_problemsets.py` merges them: the set's `aliases` keep the ids of the sets it replaces
+and each problem's `aliases` the problem ids it replaces. The site redirects those addresses, and
+`validate.py` refuses an alias that is also a live id. The first merge (2026-11-12) turned 87 sets
+into 20; `reports/problemset-merge-2026-11-12.md` lists them and what was left alone.
+
 The site renders a page per set (`problemset/<set-id>.html`), per problem
 (`problem/<pid>.html`, aggregating every appearance), the set index
 (`problemset/`) and the judge registry (`judge/`). The two pages divide the facts: the
