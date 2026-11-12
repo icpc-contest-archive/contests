@@ -47,6 +47,12 @@ judges:
   status: active
   statements: true
   submissions: true
+  notes: 'The ICPC category tree (https://qoj.ac/category/2: World Finals, championships, regionals of
+    all eight regions; 534 contests on 2026-11-12) is public but behind a Cloudflare browser check: readable
+    from a normal browser, 403 to curl/WebFetch. Contest pages (/contest/{id}) and their problem lists
+    redirect to a login behind a human-verification step, so per-problem links need a logged-in browser
+    session; single problem pages (/problem/{id}) and the problem list (/problems) are public. Standings
+    are Universal Cup replays, never the original results. Imported by tools/import_qoj_tree.py (reports/qoj-tree-2026-11-12.md).'
 - id: aoj
   name: Aizu Online Judge (AOJ)
   url: https://onlinejudge.u-aizu.ac.jp/
@@ -68,10 +74,10 @@ judges:
   status: active
   statements: true
   submissions: true
-  notes: 'BLOCKED: every page (contests, problems) returns a Cloudflare "Just a moment" JS challenge (HTTP
-    403) to curl and to WebFetch; not bypassed per rules. Known to host Maratona de Programacao (brazil-first-phase
-    / brazil) problem sets as problems 1xxx-3xxx with a "Maratona" source and past-contest pages, but
-    nothing could be enumerated this run.'
+  notes: 'LOGIN REQUIRED (checked 2026-11-12 from a browser): every page — contests, problem list, single
+    problems — redirects to /login; sign-up is free (e-mail or social sign-in). Known to host Maratona
+    de Programacao (brazil-first-phase / brazil) problems as problems 1xxx-3xxx with a ''Maratona'' source;
+    nothing can be enumerated without an account.'
 - id: codechef
   name: CodeChef
   url: https://www.codechef.com/
@@ -181,11 +187,12 @@ judges:
   status: active
   statements: false
   submissions: true
-  notes: 'BLOCKER: problem-set listing (/api/problem-sets, ListVisibleProblemSets) and problem-set metadata
-    (/api/problem-sets/{id}) return 401 USER_NOT_LOGGED_IN; only /api/problem-sets/always-available (23
-    textbook sets) and /api/competitions/public (46 XCPC scoreboard objects, 2024-2026, mostly CCPC/provincial
-    + ICPC EC online prelims) are public. Front-end API table recovered from static.pintia.cn/sparkling-daydream
-    chunks. No ICPC regional problem-set ids could be confirmed from public pages, so no candidates recorded.'
+  notes: 'LOGIN REQUIRED (checked 2026-11-12 from a browser): the public dashboard lists only the textbook/practice
+    sets and the ZOJ Problem Set; /api/problem-sets answers 401 USER_NOT_LOGGED_IN. Contest problem sets
+    are, as far as the public pages show, visible only to accounts enrolled in them — not verified with
+    an account. /api/competitions/public lists XCPC scoreboards (2024-2026: CCPC, provincials, ICPC EC
+    online qualifiers). The China regional sets it ran are mirrored on QOJ, Codeforces gym, Luogu and
+    NowCoder — use those first.'
 - id: timus
   name: Timus Online Judge
   url: https://acm.timus.ru/
@@ -220,5 +227,7 @@ judges:
   status: active
   statements: true
   submissions: true
-  notes: 'BLOCKED: vjudge.net (/, /contest, /contest/data API) returns 403 Cloudflare challenge to curl
-    and WebFetch from this network. Not bypassed. No candidates recorded.'
+  notes: 'Reachable without an account from a normal browser (Cloudflare 403 to curl/WebFetch); /contest/data?title=...
+    is the DataTables JSON behind the contest list. NOT a catalogue source: its contests are user-created
+    replays (one per training session, thousands titled after ICPC regionals) that point at problems on
+    other judges; link the origin judge instead. No candidates recorded.'

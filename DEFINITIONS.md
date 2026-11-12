@@ -26,7 +26,8 @@ CMS DB entry remains *considered*.
 used historically: fall regionals carry the season-start year; World Finals and
 championships carry the season-end year. `season` stores the season **end** year
 explicitly (equals the CMS DB's `icpc_year`), so `nwerc-2018` has `season: 2019` and
-feeds `wf-2019`. Which pattern a series follows is recorded as `naming` on its header
+feeds `wf-2019`. Every contest has one: where no parent chain gives it, the series'
+`naming` does (season-start: id year + 1). Which pattern a series follows is recorded as `naming` on its header
 (`season-start` for fall-named series, `season-end` for the World Finals and
 championships); a delayed or early edition keeps the pattern, so a fall regional moved to
 January 2021 is still `<series>-2020` — successive editions keep successive numbers. Dates can drift from the name year (January contests, COVID
@@ -44,9 +45,10 @@ not the calendar date.
   `next`. **Cancelled editions are not chain members**: `awc-2019 → awc-2021`, and the
   cancelled awc-2020 lives in cms-triage.
 - `cms_ids` — CMS DB ids; a list because one contest can span several DB entries
-  (naq-2012 = ids 1537–1547). `[]` = known to have no CMS entry; `cms_status: pre-cms`
-  marks the pre-1998/99 era (until backfilled upstream). Each CMS id belongs to exactly
-  one contest across catalogue + triage, except along a `subset_of` edge.
+  (naq-2012 = ids 1537–1547). `[]` = known to have no CMS entry (the CMS is being
+  backfilled, so there is no separate "pre-CMS" marker any more: the entry simply has no
+  id yet). Each CMS id belongs to exactly one contest across catalogue + triage, except
+  along a `subset_of` edge.
 - `subset_of` — the NA-division double layer: `seusa-2024` is a regional-level view of
   the combined `south-na-2024` division contest, sharing its CMS ids. Both are real;
   counting or coverage tooling must dedupe along this edge.
@@ -69,12 +71,19 @@ not the calendar date.
 - `sites` — where the contest was held: `[{location: <locations.yaml node id>, name?, date?,
   type?: administrative|online}]`, one entry per site (see *Locations*). The free-text
   `location` string stays alongside until `sites` covers every contest.
-- `provenance` — free-text lines recording where the entry's facts came from.
+- `provenance` — free-text lines recording where the entry's facts came from: where a
+  date was read, proof that a contest with no results ran. The site shows these under
+  *Evidence* on the contest page; import stamps (`ICPC Problem Archive progress sheet
+  (…)`, `Baekjoon ICPC category tree …`) are about the problem set and are not shown
+  there.
+- `notes` — remarks about the contest itself (no teams in the CMS, two divisions, a
+  doubtful date). Remarks about its problem set go on the set.
 - Series headers carry `tier` (`world-finals` | `championship` | `regional` |
   `subregional` — championships are the continental layer skipped when deriving
   hierarchy depth; subregional = qualifiers, national/site rounds and regional-level
   views of a division), `region` (one of the eight ICPC super-regions; championships
-  take the region they are the championship of, the World Finals has none), `naming`
+  take the region they are the championship of; the World Finals series is
+  `International`), `naming`
   (`season-start` | `season-end`: which half of the season the id's year names — see
   *Naming*; validate.py checks every id against it), derived `lineage` events
   (`continues-as` / `continues-from` with the boundary year), `aliases` (old ids), and
@@ -171,8 +180,13 @@ several contests: NCPC + UKIEPC 2013, shared North American sets):
 
 The site renders a page per set (`problemset/<set-id>.html`), per problem
 (`problem/<pid>.html`, aggregating every appearance), the set index
-(`problemset/`) and the judge registry (`judge/`); the contest
-page's Problems section shows the set's holdings with this contest's letters.
+(`problemset/`) and the judge registry (`judge/`). The two pages divide the facts: the
+**contest** page's Problems section says which set it used, lists the problems with this
+contest's letters, and lists the sources (published set, judge pages); the **set** page
+says what the problem archive holds, problem by problem. Per-problem holdings (`have`)
+are recorded for few sets; elsewhere a problem's holdings follow from its set where the
+set is all-or-nothing for a kind (`full` → held, `none` → not held, `partial` → not
+recorded).
 
 **Publication rule.** Nothing about a contest's problems — not the names, not the count —
 is public before the contest has run. `validate.py` fails the build when a contest that is
@@ -217,6 +231,16 @@ Australia) › **city** › **institution** (a university or other venue). Every
 - An entry with `name` but no `location` is a site the migration could not place; the
   open ones are listed in `data/locations-review-<date>.md`.
 
+**Where a contest was held** is read from `sites` in this order (`held_at` in
+`tools/build_site.py`): its physical sites (entries without a `type`); else, for an
+online contest, the places its online or organising entries point at; else the city
+most of its administrative entries sit in (a single-site event whose CMS record only
+has staff, guest and team groups). The CMS clones a contest from the previous edition,
+so administrative groups can carry a *stale* location (every World Finals 2019–2027
+said Beijing): when the host is known, a group pointing elsewhere loses its location
+(`tools/cleanup_2026_11_12.py`, step I). CMS groups are not institutions — "NAC Guests"
+is a site label, never a node of the tree.
+
 The free-text `location` string stays on the contest for now (it is what the sheet and the
 CMS gave us, multi-site strings joined by `; `); the redesign drops it once `sites` covers
 everything. `venue` is in the schema but unused — the venue is the institution node.
@@ -255,3 +279,29 @@ holdings came from the "ICPC Problem Archive progress" sheet (`data/import/`,
 **this repo is the source of truth**; edits happen here, with git history as the audit
 trail. `provenance:` and `notes:` on a contest record where facts came from;
 `reports/open-warnings.md` tracks the judgment calls still open.
+
+## The site
+
+`tools/build_site.py` renders the catalogue into `site/` (styles, script and fonts from
+`tools/site_assets/`, copied to `site/assets/`). It is built by five rules, which
+`about.html` also tells the reader:
+
+1. **One renderer per object.** Wherever it is mentioned, a contest is its id linking to
+   its page, a series its id, a season `2024–2025`, a location its name, a source its
+   address label linking to the *source page*, a problem set its id, a problem its name,
+   a date the date linking to its day in the calendar (`calendar/<year>.html`).
+2. **A link stays on the site unless marked ↗.** The address of a source is linked from
+   its source page only (the address now, the Wayback Machine, our archived copy).
+   Deliberate, marked exceptions: a problem's judge links, a contest's CMS links, a
+   judge's own site.
+3. **Three kinds of content per contest** — website, results, problems — always in that
+   order and always present, with one status vocabulary: *held* (green, filled), *known
+   but not held* (amber, outlined), *none* (grey), *lost* (red: dead at its address, no
+   Wayback snapshot, nothing held).
+4. **One anatomy.** List page: title, one paragraph, key, filter bar, sortable table.
+   Object page: breadcrumb, title, status chips, facts, sections. Tables of contests
+   pick their columns from one set (`CONTEST_COLS`); groups of contests (a season, a
+   series, a location) show the same three counts with percentages.
+5. **One word per thing**: location, level, results, problems, website, online judge,
+   CMS id.
+

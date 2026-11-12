@@ -1,0 +1,126 @@
+# Problem-set notes moved to their contests (2026-11-12)
+
+By `tools/cleanup_2026_11_12.py`, step F.
+
+- alberta-2018: 'No date in CMS' -> contest alberta-2018: dropped; set keeps None
+- alberta-2019: 'No date in CMS. 2 divisions' -> contest alberta-2019: ['2 divisions']; set keeps None
+- alberta-2020: 'No date in CMS. 2 divisions' -> contest alberta-2020: ['2 divisions']; set keeps None
+- alberta-2021: 'No date in CMS. 2 divisions' -> contest alberta-2021: ['2 divisions']; set keeps None
+- alberta-2022: 'No date in CMS. 2 divisions' -> contest alberta-2022: ['2 divisions']; set keeps None
+- alberta-2023: 'No date in CMS. 2 divisions' -> contest alberta-2023: ['2 divisions']; set keeps None
+- amritapuri-2020: 'No date' -> contest amritapuri-2020: ['the CMS has no date']; set keeps None
+- awc-2023: 'No date' -> contest awc-2023: dropped; set keeps None
+- bahrain-2022: 'No date, no teams' -> contest bahrain-2022: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- bahrain-2023: 'No date, no teams' -> contest bahrain-2023: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- bapc-prelims-2015: 'No date' -> contest bapc-prelims-2015: ['the CMS has no date']; set keeps None
+- benin-2016: 'Also CMS:3001' -> contest benin-2016: ['also CMS id 3001']; set keeps None
+- benin-2022: 'No date' -> contest benin-2022: ['the CMS has no date']; set keeps None
+- benin-2023: 'No date, no teams' -> contest benin-2023: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- bulgaria-2013: 'No date, no teams' -> contest bulgaria-2013: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- burkina-faso-2016: 'Also CMS:3004' -> contest burkina-faso-2016: ['also CMS id 3004']; set keeps None
+- croatia-2009: 'No date, no teams' -> contest croatia-2009: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- croatia-2011: 'No date, no teams' -> contest croatia-2011: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- croatia-2013: 'No date, no teams' -> contest croatia-2013: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- croatia-2014: 'No date, no teams' -> contest croatia-2014: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- croatia-2019: 'No date, no teams' -> contest croatia-2019: ['the CMS lists no teams']; set keeps None
+- croatia-2020: 'No date, no teams' -> contest croatia-2020: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- croatia-2021: 'No date, no teams' -> contest croatia-2021: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- croatia-2022: 'No date, no teams' -> contest croatia-2022: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- croatia-2023: 'No date, no teams' -> contest croatia-2023: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- dhaka-2001: 'Strange date?' -> contest dhaka-2001: ['strange date?']; set keeps None
+- ecna-2001: 'Strange date?' -> contest ecna-2001: ['strange date?']; set keeps None
+- ecna-2010: 'Strange date?' -> contest ecna-2010: ['strange date?']; set keeps None
+- ecna-2016: 'No date' -> contest ecna-2016: ['the CMS has no date']; set keeps None
+- ecna-2023: 'No date.' -> contest ecna-2023: ['the CMS has no date']; set keeps None
+- germany-2021: 'No date, no teams' -> contest germany-2021: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- germany-2022: 'No date' -> contest germany-2022: ['the CMS has no date']; set keeps None
+- germany-2023: 'No date' -> contest germany-2023: ['the CMS has no date']; set keeps None
+- hungary-2009: 'No date, no teams' -> contest hungary-2009: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- hungary-2010: 'No date' -> contest hungary-2010: ['the CMS has no date']; set keeps None
+- hungary-2013: 'No date, no teams' -> contest hungary-2013: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- hungary-2020: 'No date, no teams' -> contest hungary-2020: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- hungary-2021: 'No date, no teams' -> contest hungary-2021: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- hungary-2022: 'No date, no teams' -> contest hungary-2022: ['the CMS lists no teams']; set keeps None
+- hungary-2023: 'No date, no teams' -> contest hungary-2023: ['the CMS lists no teams']; set keeps None
+- jinan-2020: 'No date' -> contest jinan-2020: ['the CMS has no date']; set keeps None
+- kabul-2019: 'No date' -> contest kabul-2019: dropped; set keeps None
+- kuwait-2011: 'No date, no teams. Did this run?' -> contest kuwait-2011: ['the CMS has no date', 'the CMS lists no teams — did this run?']; set keeps None
+- kuwait-2012: 'No date, no teams. Did this run?' -> contest kuwait-2012: ['the CMS has no date', 'the CMS lists no teams — did this run?']; set keeps None
+- kyrgyzstan-2010: 'No date' -> contest kyrgyzstan-2010: dropped; set keeps None
+- kyrgyzstan-2020: 'No date' -> contest kyrgyzstan-2020: dropped; set keeps None
+- lethbridge-2013: '2 divisions' -> contest lethbridge-2013: ['2 divisions']; set keeps None
+- lethbridge-2014: '2 divisions' -> contest lethbridge-2014: ['2 divisions']; set keeps None
+- lethbridge-2015: '2 divisions' -> contest lethbridge-2015: ['2 divisions']; set keeps None
+- lethbridge-2016: '2 divisions' -> contest lethbridge-2016: ['2 divisions']; set keeps None
+- lethbridge-2017: 'No date in CMS. 2 divisions' -> contest lethbridge-2017: ['the CMS has no date', '2 divisions']; set keeps None
+- lethbridge-2018: '2 divisions' -> contest lethbridge-2018: ['2 divisions']; set keeps None
+- lethbridge-2019: 'No date in CMS. 2 divisions' -> contest lethbridge-2019: ['2 divisions']; set keeps None
+- lethbridge-2020: 'No date' -> contest lethbridge-2020: ['the CMS has no date']; set keeps None
+- lethbridge-2021: 'No date, no teams in CMS' -> contest lethbridge-2021: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- lethbridge-2022: 'No date, no teams in CMS' -> contest lethbridge-2022: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- lethbridge-2023: 'No date, no teams in CMS' -> contest lethbridge-2023: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- manila-2003: 'Strange date?' -> contest manila-2003: ['strange date?']; set keeps None
+- mausa-2021: 'No date in CMS. Shared?' -> contest mausa-2021: dropped; set keeps 'Shared?'
+- morocco-2022: 'No date, no teams' -> contest morocco-2022: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- morocco-2023: 'No date, no teams' -> contest morocco-2023: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- neerc-2001: 'Strange date?' -> contest neerc-2001: ['strange date?']; set keeps None
+- nena-2013: 'No date' -> contest nena-2013: ['the CMS has no date']; set keeps None
+- nerc-2020: 'Online & offline. No date' -> contest nerc-2020: ['online & offline']; set keeps None
+- nigeria-2016: 'Also CMS:3003' -> contest nigeria-2016: ['also CMS id 3003']; set keeps None
+- nigeria-2022: 'No date' -> contest nigeria-2022: ['the CMS has no date']; set keeps None
+- nigeria-2023: 'No date, no teams' -> contest nigeria-2023: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- nordic-2021: 'No date' -> contest nordic-2021: dropped; set keeps None
+- nwerc-2005: 'Missing some, strange date?' -> contest nwerc-2005: ['strange date?']; set keeps 'Missing some'
+- nzpc-2013: 'No date, no teams in CMS' -> contest nzpc-2013: ['the CMS lists no teams']; set keeps None
+- palestine-2012: 'No date' -> contest palestine-2012: ['the CMS has no date']; set keeps None
+- poland-2017: 'No date' -> contest poland-2017: dropped; set keeps None
+- romania-2023: 'No date. 2 days, 12+13 problems. Are both the actual contest?' -> contest romania-2023: ['the CMS has no date']; set keeps '2 days, 12+13 problems. Are both the actual contest?'
+- saudi-arabia-2023: 'No date, no teams' -> contest saudi-arabia-2023: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- scusa-2002: 'Strange date?' -> contest scusa-2002: ['strange date?']; set keeps None
+- scusa-2021: '2 divisions' -> contest scusa-2021: ['2 divisions']; set keeps None
+- seerc-1998: 'Strange date?' -> contest seerc-1998: ['strange date?']; set keeps None
+- seerc-1999: 'Strange date?' -> contest seerc-1999: ['strange date?']; set keeps None
+- seusa-2012: '2 divisions' -> contest seusa-2012: ['2 divisions']; set keeps None
+- seusa-2013: '2 divisions' -> contest seusa-2013: ['2 divisions']; set keeps None
+- seusa-2014: '2 divisions' -> contest seusa-2014: ['2 divisions']; set keeps None
+- seusa-2015: '2 divisions' -> contest seusa-2015: ['2 divisions']; set keeps None
+- seusa-2016: '2 divisions' -> contest seusa-2016: ['2 divisions']; set keeps None
+- seusa-2017: '2 divisions' -> contest seusa-2017: ['2 divisions']; set keeps None
+- seusa-2018: '2 divisions' -> contest seusa-2018: ['2 divisions']; set keeps None
+- seusa-2019: '2 divisions' -> contest seusa-2019: ['2 divisions']; set keeps None
+- seusa-2021: '2 divisions' -> contest seusa-2021: ['2 divisions']; set keeps None
+- shanghai-2020: 'No date' -> contest shanghai-2020: ['the CMS has no date']; set keeps None
+- shenyang-2019: 'No date' -> contest shenyang-2019: ['the CMS has no date']; set keeps None
+- slovenia-2009: 'No date, no teams' -> contest slovenia-2009: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- slovenia-2010: 'No date, no teams' -> contest slovenia-2010: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- slovenia-2011: 'No date, no teams' -> contest slovenia-2011: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- slovenia-2012: 'No date, no teams' -> contest slovenia-2012: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- slovenia-2013: 'No date, no teams' -> contest slovenia-2013: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- slovenia-2014: 'No date, no teams' -> contest slovenia-2014: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- slovenia-2015: 'No date, no teams' -> contest slovenia-2015: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- slovenia-2016: 'No date, no teams' -> contest slovenia-2016: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- slovenia-2017: 'No date, no teams' -> contest slovenia-2017: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- slovenia-2018: 'No date, no teams' -> contest slovenia-2018: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- slovenia-2019: 'No date, no teams' -> contest slovenia-2019: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- slovenia-2020: 'No date, no teams' -> contest slovenia-2020: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- slovenia-2021: 'No date, no teams' -> contest slovenia-2021: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- slovenia-2022: 'No date, no teams' -> contest slovenia-2022: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- slovenia-2023: 'No date, no teams' -> contest slovenia-2023: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- south-africa-2019: 'No date in CMS' -> contest south-africa-2019: dropped; set keeps None
+- south-na-2022: '2 divisions' -> contest south-na-2022: ['2 divisions']; set keeps None
+- south-na-2023: '2 divisions' -> contest south-na-2023: ['2 divisions']; set keeps None
+- south-pacific-2001: 'Strange date?' -> contest south-pacific-2001: ['strange date?']; set keeps None
+- south-pacific-2008: 'Also CMS:43 ?' -> contest south-pacific-2008: ['also CMS id 43?']; set keeps None
+- south-pacific-2009: 'Also CMS:491 ?' -> contest south-pacific-2009: ['also CMS id 491?']; set keeps None
+- south-pacific-east-2019: 'No date' -> contest south-pacific-east-2019: ['the CMS has no date']; set keeps None
+- south-pacific-west-2019: 'No date' -> contest south-pacific-west-2019: ['the CMS has no date']; set keeps None
+- south-russia-2020: 'No date, no teams in CMS' -> contest south-russia-2020: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- sudan-2023: 'No date, no teams' -> contest sudan-2023: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- togo-2016: 'Also CMS:3002' -> contest togo-2016: ['also CMS id 3002']; set keeps None
+- togo-2022: 'No date' -> contest togo-2022: ['the CMS has no date']; set keeps None
+- togo-2023: 'No date, no teams' -> contest togo-2023: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- turkey-2020: 'No date, no teams' -> contest turkey-2020: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- turkey-2021: 'No date, no teams' -> contest turkey-2021: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- turkey-2022: 'No date, no teams' -> contest turkey-2022: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- turkey-2023: 'No date, no teams' -> contest turkey-2023: ['the CMS has no date', 'the CMS lists no teams']; set keeps None
+- uzbekistan-2017: 'No date' -> contest uzbekistan-2017: ['the CMS has no date']; set keeps None
