@@ -246,7 +246,7 @@ def normalise_source(s: dict) -> dict:
 
 
 CONTEST_KEY_ORDER = ("id", "status", "season", "name", "date", "location", "venue", "cms_ids",
-                     "cms_status", "sites", "parent", "next", "subset_of", "sources", "none", "problems",
+                     "sites", "parent", "next", "subset_of", "sources", "none", "problems",
                      "provenance", "notes", "reason")
 
 

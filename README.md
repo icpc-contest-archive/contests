@@ -15,6 +15,7 @@ registry/cms-triage.yaml     every excluded CMS id -> reason
 registry/non-mainline.yaml   real contests outside the hierarchy
 schema/catalogue.schema.json JSON Schema for the files above
 tools/                       importer, validator, site generator, local server
+tools/site_assets/           the site's stylesheet, script and fonts (IBM Plex Sans, OFL)
 data/import/                 the sheet export this repo was seeded from
 CONVERSION-FIXES.md          what the import fixed, and what it deliberately didn't
 ```

@@ -156,11 +156,9 @@ def main() -> int:
 
     for sid, doc in series_docs.items():
         h = doc["series"]
-        for k in ("tier", "naming"):
+        for k in ("tier", "naming", "region"):
             if not h.get(k):
                 warn(f"{sid}: series header has no {k}")
-        if not h.get("region") and sid != "wf":
-            warn(f"{sid}: series header has no region")
 
     # ---- wf reachability ----
     def reaches_wf(cid, seen=None):

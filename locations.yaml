@@ -1,6 +1,15 @@
 # Location tree: country > region > city > institution (DEFINITIONS.md, Locations).
 # Maintained in-repo; built by tools/migrate_locations.py, edited by hand afterwards.
 locations:
+- id: ae
+  name: United Arab Emirates
+  type: country
+  iso: AE
+- id: ae-dubai
+  name: Dubai
+  type: city
+  parent: ae
+  geonameid: 292223
 - id: af
   name: Afghanistan
   type: country
@@ -9864,6 +9873,11 @@ locations:
   type: region
   parent: us
   code: AZ
+- id: us-phoenix
+  name: Phoenix
+  type: city
+  parent: us-az
+  geonameid: 5308655
 - id: us-tempe
   name: Tempe
   type: city
@@ -10212,14 +10226,6 @@ locations:
   type: city
   parent: us-fl
   geonameid: 4167147
-- id: us-orlando-nac-guests
-  name: NAC Guests
-  type: institution
-  parent: us-orlando
-- id: us-orlando-napc-guests
-  name: NAPC Guests
-  type: institution
-  parent: us-orlando
 - id: us-pensacola
   name: Pensacola
   type: city
@@ -10258,22 +10264,6 @@ locations:
   parent: us-atlanta
   aliases:
   - Georgia Tech
-- id: us-atlanta-nac
-  name: NAC Technology
-  type: institution
-  parent: us-atlanta
-- id: us-atlanta-nac-media
-  name: NAC Media
-  type: institution
-  parent: us-atlanta
-- id: us-atlanta-nac-operations
-  name: NAC Operations
-  type: institution
-  parent: us-atlanta
-- id: us-atlanta-rcd
-  name: RCD
-  type: institution
-  parent: us-atlanta
 - id: us-augusta
   name: Augusta
   type: city
@@ -10564,6 +10554,11 @@ locations:
   parent: us-hammond
   aliases:
   - SELU
+- id: us-indianapolis
+  name: Indianapolis
+  type: city
+  parent: us-in
+  geonameid: 4259418
 - id: us-notre-dame
   name: Notre Dame
   type: city
@@ -10687,6 +10682,11 @@ locations:
   aliases:
   - LSU
   - LSU @ Baton Rouge, Louisiana
+- id: us-new-orleans
+  name: New Orleans
+  type: city
+  parent: us-la
+  geonameid: 4335045
 - id: us-ma
   name: Massachusetts
   type: region
@@ -10842,6 +10842,11 @@ locations:
   parent: us-ann-arbor
   aliases:
   - Michigan Site
+- id: us-detroit
+  name: Detroit
+  type: city
+  parent: us-mi
+  geonameid: 4990729
 - id: us-houghton
   name: Houghton
   type: city
@@ -11811,6 +11816,11 @@ locations:
   name: Middle Tennessee State University
   type: institution
   parent: us-murfreesboro
+- id: us-nashville
+  name: Nashville
+  type: city
+  parent: us-tn
+  geonameid: 4644585
 - id: us-tx
   name: Texas
   type: region

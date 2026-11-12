@@ -195,7 +195,7 @@ def build():
             c["venue"] = rec["Venue"]
         raw_id = rec["Contest ID"]
         if raw_id == "pre-cms":
-            c["cms_ids"], c["cms_status"] = [], "pre-cms"
+            c["cms_ids"] = []  # the sheet's "pre-cms" marker is no longer a category (2026-11-12): [] = no CMS entry
         elif raw_id == "n/a":
             c["cms_ids"] = []
         elif raw_id:
