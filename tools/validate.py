@@ -303,6 +303,22 @@ def main() -> int:
     for sid_ in sets:
         if sid_ not in set_users:
             warn(f"problemsets/{sid_}.yaml is used by no contest")
+    # merged ids (set `aliases`, problem `aliases`): never a live id, never claimed twice — old pages redirect by them
+    set_alias: dict[str, str] = {}
+    prob_alias: dict[str, str] = {}
+    live_pids = {p["id"] for d in sets.values() for p in d.get("problems") or []}
+    for sid_, doc in sets.items():
+        for old in doc.get("aliases") or []:
+            if old in sets:
+                err(f"problemsets/{sid_}.yaml: alias {old!r} is also a set — an id merged away is not reused")
+            if set_alias.setdefault(old, sid_) != sid_:
+                err(f"problemsets/{sid_}.yaml: alias {old!r} is also claimed by {set_alias[old]}")
+        for pr in doc.get("problems") or []:
+            for old in pr.get("aliases") or []:
+                if old in live_pids:
+                    err(f"problemsets/{sid_}.yaml {pr['id']}: alias {old} is also a problem id")
+                if prob_alias.setdefault(old, pr["id"]) != pr["id"]:
+                    err(f"problemsets/{sid_}.yaml {pr['id']}: alias {old} is also claimed by {prob_alias[old]}")
     for i, names in pid_owner.items():
         if len({u for u, _ in names if u}) > 1:
             err(f"problem id {i} carries two different uuids: {sorted(names)}")

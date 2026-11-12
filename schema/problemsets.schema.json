@@ -138,6 +138,14 @@
    "type": "string",
    "description": "only when the set has a name of its own (e.g. 'NCPC 2013 / UKIEPC 2013 shared set')"
   },
+  "aliases": {
+   "type": "array",
+   "uniqueItems": true,
+   "items": {
+    "$ref": "#/$defs/setId"
+   },
+   "description": "ids of sets merged into this one (their pages redirect here); an alias is never reused as a set id"
+  },
   "repo": {
    "type": "string",
    "pattern": "^icpc-problem-archive/[a-z0-9][a-z0-9-]*$",
