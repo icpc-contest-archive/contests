@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/cleanup_2026_11_12.py.
+# Maintained in-repo; last bulk edit: tools/apply_ran_2026.py.
 series:
   id: south-russia
   name: ICPC Southern and Volga Russia Regional Contest
@@ -1021,9 +1021,9 @@ contests:
     url_state: live
     url_checked: '2026-11-03'
 - id: south-russia-2026
-  status: upcoming
   season: 2027
   name: 2026 ICPC Southern and Volga Russia Regional Contest
+  date: '2026-11-10'
   sites:
   - type: administrative
   - location: ru-saratov
@@ -1031,3 +1031,15 @@ contests:
   cms_ids:
   - 9806
   parent: nerc-2026
+  sources:
+  - url: https://contest.sgu.ru/history/acm-icpc/standings2026.html
+    roles:
+    - standings
+    note: results link in the contest's ICPC CMS record
+  - url: https://icpc.global/regionals/finder/Southern-and-Volga-Russia-Regional-2027/standings
+    roles:
+    - icpc_standings
+  provenance:
+  - 'ran 2026-11-10: shown by its icpc standings, standings source(s); date from CMS site date (ruling
+    2026-11-12: upcoming ends when the date has passed and a result source or judge page shows the contest
+    ran)'

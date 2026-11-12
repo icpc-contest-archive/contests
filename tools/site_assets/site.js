@@ -161,3 +161,18 @@
     if (e.key === '/' && !/^(INPUT|SELECT|TEXTAREA)$/.test(document.activeElement.tagName)) { e.preventDefault(); q.focus(); }
   });
 })();
+
+// Random: the header link and the key r open a random page; of any kind, or of the kind last chosen on
+// random.html (kept for the browser session).
+(function () {
+  const a = document.getElementById('rnd');
+  if (!a) return;
+  const rel = document.documentElement.dataset.rel || '';
+  let kind = 'any';
+  try { kind = sessionStorage.getItem('rnd') || 'any'; } catch (e) {}
+  a.href = rel + 'random.html#' + kind;
+  if (kind !== 'any') a.title = 'Open a random ' + kind + ' page — press r (change the kind on the Random page)';
+  document.addEventListener('keydown', e => {
+    if (e.key === 'r' && !e.ctrlKey && !e.metaKey && !e.altKey && !/^(INPUT|SELECT|TEXTAREA)$/.test(document.activeElement.tagName)) a.click();
+  });
+})();

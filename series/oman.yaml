@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/migrate_locations.py (sites, 2026-11-02).
+# Maintained in-repo; last bulk edit: tools/apply_ran_2026.py.
 series:
   id: oman
   name: ICPC Oman Collegiate Programming Contest
@@ -275,9 +275,9 @@ contests:
     - oman/oman-2025/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 9309, 53 teams, DB fetch 2026-04-26)
 - id: oman-2026
-  status: upcoming
   season: 2027
   name: 2026 ICPC Oman Collegiate Programming Contest
+  date: '2026-10-21'
   sites:
   - location: om
     name: ocpc
@@ -286,3 +286,11 @@ contests:
   cms_ids:
   - 9723
   parent: acpc-2026
+  sources:
+  - url: https://icpc.global/regionals/finder/OCPC-2027/standings
+    roles:
+    - icpc_standings
+  provenance:
+  - 'ran 2026-10-21: shown by its icpc standings source(s); date from last day of the CMS contest record
+    (2026-10-20 to 2026-10-21) (ruling 2026-11-12: upcoming ends when the date has passed and a result
+    source or judge page shows the contest ran)'

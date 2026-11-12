@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/cleanup_2026_11_12.py.
+# Maintained in-repo; last bulk edit: tools/label_scopes.py.
 series:
   id: south-na
   name: North America South Division
@@ -77,6 +77,7 @@ contests:
   - url: https://nasouth22d1.kattis.com/contests/nasouth22d1/standings
     roles:
     - scoreboard
+    scope: Division 1
     as_of: '20230227033713'
     archived:
     - south-na/south-na-2022/scoreboard/2026-09-01-live-24675a61/page.html
@@ -91,6 +92,7 @@ contests:
     roles:
     - problemset
     - judge_page
+    scope: Division 1
     judge: kattis
     as_of: '20230227033727'
     url_state: replaced
@@ -98,6 +100,7 @@ contests:
   - url: https://nasouth22d2.kattis.com/contests/nasouth22d2/problems
     roles:
     - judge_page
+    scope: Division 2
     judge: kattis
     url_state: live
     url_checked: '2026-11-03'
@@ -177,6 +180,7 @@ contests:
   - url: https://nasouth23.kattis.com/contests/nasouth23d1/standings
     roles:
     - scoreboard
+    scope: Division 1
     as_of: '20240429185927'
     archived:
     - south-na/south-na-2023/scoreboard/2026-09-01-live-63d42bee/page.html
@@ -191,6 +195,7 @@ contests:
     roles:
     - problemset
     - judge_page
+    scope: Division 1
     judge: kattis
     as_of: '20240419045545'
     url_state: changed
@@ -198,6 +203,7 @@ contests:
   - url: https://nasouth23.kattis.com/contests/nasouth23d2/problems
     roles:
     - judge_page
+    scope: Division 2
     judge: kattis
     as_of: '20240419054537'
     url_state: changed
@@ -280,12 +286,14 @@ contests:
     roles:
     - problemset
     - judge_page
+    scope: Division 1
     judge: kattis
     url_state: live
     url_checked: '2026-11-03'
   - url: https://nasouth24.kattis.com/contests/nasouth24d2/problems
     roles:
     - judge_page
+    scope: Division 2
     judge: kattis
     url_state: live
     url_checked: '2026-11-03'
@@ -379,6 +387,7 @@ contests:
   - url: https://nasouth25.kattis.com/contests/nasouth25d1/standings
     roles:
     - scoreboard
+    scope: Division 1
     as_of: '20251112000012'
     archived:
     - south-na/south-na-2025/scoreboard/2026-09-01-live-2ac45a12/page.html
@@ -392,6 +401,7 @@ contests:
   - url: https://nasouth25.kattis.com/contests/nasouth25d1/problems
     roles:
     - problemset
+    scope: Division 1
     url_state: live
     url_checked: '2026-11-03'
   - url: https://open.kattis.com/problem-sources/2025%20ICPC%20South%20Central%2C%20South%20East%20and%20Mid%20Atlantic%20Regional%20%28November%208%2C%202025%29
@@ -405,9 +415,9 @@ contests:
   problems:
     set: south-na-2025
 - id: south-na-2026
-  status: upcoming
   season: 2027
   name: 2026 North America South Division
+  date: '2026-11-07'
   sites:
   - type: administrative
   - type: administrative
@@ -501,3 +511,32 @@ contests:
   - 9769
   - 9777
   parent: nac-2027
+  sources:
+  - url: https://nasouth26.kattis.com/contests/nasouth26d1/standings
+    roles:
+    - scoreboard
+    scope: Division 1
+  - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2027/standings
+    roles:
+    - icpc_standings
+  - url: https://nasouth26.kattis.com/contests/nasouth26d1/problems
+    roles:
+    - problemset
+    scope: Division 1
+  - url: https://open.kattis.com/problem-sources/2026%20ICPC%20South%20Central%2C%20South%20East%20and%20Mid%20Atlantic%20Regional%20%28November%208%2C%202026%29
+    roles:
+    - judge_page
+    judge: kattis
+  - url: https://nasouth26.kattis.com/contests/nasouth26d2/problems
+    roles:
+    - judge_page
+    scope: Division 2
+    judge: kattis
+  - url: https://open.kattis.com/problem-sources/2026%20ICPC%20South%20Central%2C%20South%20East%20and%20Mid%20Atlantic%20Regional%20%28November%2016%2C%202026%29
+    roles:
+    - judge_page
+    judge: kattis
+  provenance:
+  - 'ran 2026-11-07: shown by its icpc standings, judge page, scoreboard source(s); date from CMS site
+    date (ruling 2026-11-12: upcoming ends when the date has passed and a result source or judge page
+    shows the contest ran)'

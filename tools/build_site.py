@@ -133,6 +133,39 @@ def esc(s) -> str:
     return html.escape(str(s), quote=True)
 
 
+RANDOM_KINDS = (("contest", "contest"), ("series", "series"), ("season", "season"), ("problemset", "problem set"),
+                ("problem", "problem"), ("source", "source"), ("location", "location"), ("judge", "judge"))
+
+
+def random_page() -> str:
+    """random.html — opens a page picked at random, for spot checks without choosing what to look at."""
+    kinds = " · ".join(f'<a id="{k}" href="#{k}">{label}</a>' for k, label in RANDOM_KINDS)
+    return page("Random page", f"""<h1>Random page</h1>
+<p class="intro">For spot checks without choosing what to look at. <b>Random</b> in the header, or the key <b>r</b>, opens a
+page picked at random: first the kind of page, then one page of that kind, so contests, problems, sources and the rest turn up
+equally often. Pick a kind below and Random stays on that kind until you pick another or close the browser.</p>
+<p>Open a random <a id="any" href="#any">page of any kind</a> · {kinds}</p>
+<p class="note" id="rnd-msg"></p>
+<script>
+(function () {{
+  var rel = document.documentElement.dataset.rel || '';
+  function go() {{
+    var kind = location.hash.slice(1);
+    if (!kind) return;
+    try {{ sessionStorage.setItem('rnd', kind); }} catch (e) {{}}
+    document.getElementById('rnd-msg').textContent = 'Picking…';
+    fetch(rel + 'random.json').then(function (r) {{ return r.json(); }}).then(function (d) {{
+      var kinds = Object.keys(d), k = d[kind] ? kind : kinds[Math.floor(Math.random() * kinds.length)];
+      var id = d[k][Math.floor(Math.random() * d[k].length)];
+      location.replace(rel + (k === 'source' ? 'source/' + id + '/index.html' : k + '/' + id + '.html'));
+    }}).catch(function () {{ document.getElementById('rnd-msg').textContent = 'Could not load the page list.'; }});
+  }}
+  window.addEventListener('hashchange', go);
+  go();
+}})();
+</script>""", "")
+
+
 def refs(v):
     if v is None:
         return []
@@ -144,6 +177,7 @@ def page(title: str, body: str, rel: str, nav: str | None = None) -> str:
     links = "".join(f'<a href="{rel}{h}"' + (' class="on"' if h == nav else "") + f">{t}</a>" for h, t in NAV)
     links += '<span class="sep"></span>' + "".join(
         f'<a href="{rel}{h}"' + (' class="on"' if h == nav else "") + f">{t}</a>" for h, t in NAV2)
+    links += f'<a id="rnd" href="{rel}random.html" title="Open a random page — press r">Random</a>'
     return f"""<!doctype html><html lang="en" data-rel="{rel}"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(title)} — ICPC contest archive</title><link rel="icon" href="{rel}assets/favicon.svg">
@@ -154,6 +188,7 @@ def page(title: str, body: str, rel: str, nav: str | None = None) -> str:
 <main>{body}
 <footer class="site">Every ICPC contest from which a team could advance toward a World Finals. Something missing or wrong?
 <a href="{rel}about.html#contribute">Tell us</a> · <a href="{rel}about.html#read">How to read this site</a> ·
+<a href="{rel}random.html">Random page</a> ·
 Data: <a class="ext" href="{REPO}">icpc-contest-archive/contests</a></footer></main>
 <script src="{rel}assets/site.js" defer></script></body></html>"""
 
@@ -441,6 +476,9 @@ def result_marks(c: dict, rel: str) -> str:
         held = e is not None
         e = e or entries[0]
         tip = role_label(key) + (" — archived copy held" if held else " — link only, not archived")
+        parts = list(dict.fromkeys(x["scope"] for x in entries if x.get("scope")))
+        if parts:
+            tip += " (" + ", ".join(parts) + ")"
         href = src_href(e["url"], rel, e.get("as_of") or cap_time(cap_of(e)))
         out.append(f'<a class="m {"h" if held else "l"}" href="{href}" title="{tip}">{letter}</a>' if href
                    else f'<span class="m {"h" if held else "l"}" title="{tip}">{letter}</span>')
@@ -1084,6 +1122,8 @@ def source_table(cid: str, entries: list[dict], rel: str, kind: str, extra_rows:
     for e in entries:
         url, as_of = e["url"], e.get("as_of")
         roles = "".join(role_chip(r) for r in sorted(e["roles"], key=lambda r: RANK[r]))
+        if e.get("scope"):
+            roles += chip(e["scope"], "sc", "this source covers one part of the contest, not all of it")
         if e.get("judge"):
             roles += f'<span class="chip">{judge_link(e["judge"], rel)}</span>' + judge_closed_chip(e["judge"])
         note = esc(source_note(e))
@@ -1111,21 +1151,23 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
     d.append("<dt>date</dt><dd>" + (link_date(c["date"], rel) if c.get("date") else '<span class="muted">not known</span>') + "</dd>")
     all_sites = c.get("sites") or []
     phys = [x for x in (site_line(s, rel) for s in all_sites if not s.get("type")) if x]
-    groups = [x for x in (site_line(s, rel) for s in all_sites if s.get("type")) if x]
+    remote = [x for x in (site_line(s, rel) for s in all_sites if s.get("type") == "online") if x]
+    # administrative sites (the CMS's staff, guest and bookkeeping groups) are not places: never listed
     nodes, how = held_at(c)
     lines = []
     if how == "online":
         lines.append("Online" + (", organised from " + "; ".join(dict.fromkeys(place_short(n, rel) for n in nodes[:3])) if nodes else ""))
     elif how == "inferred":
-        lines.append("; ".join(place_short(n, rel) for n in nodes) + ' <span class="small muted">— the city its staff and guest groups in the CMS sit in</span>')
+        lines.append("; ".join(place_short(n, rel) for n in nodes) + " "
+                     + chip("inferred", "n", "no contest site is recorded; this is the city the contest's CMS record points at"))
     elif not nodes and free_location(c):
         lines.append(f'{esc(free_location(c))} <span class="small muted">— as recorded; not placed in the location tree yet</span>')
     elif not nodes and any(s.get("type") == "online" for s in all_sites):
         lines.append("Online")
     if phys:
         lines.append("<br>".join(phys) if len(phys) <= 6 else f"<details><summary>{len(phys)} sites</summary>{'<br>'.join(phys)}</details>")
-    if groups:
-        lines.append(f'<details><summary class="small muted">{len(groups)} CMS groups (staff, guests, online teams — not places)</summary>{"<br>".join(groups)}</details>')
+    if remote:
+        lines.append(f'<details><summary class="small muted">{len(remote)} online site{"s" if len(remote) != 1 else ""}</summary>{"<br>".join(remote)}</details>')
     d.append("<dt>location</dt><dd>" + ("<br>".join(x for x in lines if not x.startswith("<details")) + "".join(x for x in lines if x.startswith("<details"))
                                         if lines else '<span class="muted">not known</span>') + "</dd>")
     for label, ids in (
@@ -1224,9 +1266,6 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
     if ev:
         b.append(f'<h2 id="evidence">Evidence</h2><p class="note">How we know what is said above — where a date came from, proof that the contest ran.</p>'
                  '<ul class="plain small">' + "".join(f"<li>{esc(x)}</li>" for x in ev) + "</ul>")
-    caps = ARCHIVED_BY_CONTEST.get(cid)
-    if caps:
-        b.append(f'<p class="note">{len(caps)} raw captures in the archive repo: {local_link(f"archive/{sid}/{cid}/", "raw files")}</p>')
     return page(cid, "\n".join(b), rel, "contest/index.html")
 
 
@@ -1742,6 +1781,7 @@ def problem_index(rel: str) -> str:
 ALSO_AT: dict = defaultdict(list)    # source id -> [(mirror url, as_of, note)] from the catalogue's also_at
 MIRROR_OF: dict = defaultdict(list)  # mirror's source id -> [primary url]
 SRC_ROLES: dict = defaultdict(set)   # source id -> roles it serves anywhere in the catalogue
+SRC_SCOPE: dict = defaultdict(set)   # source id -> the part(s) of a contest it covers (`scope`), when not the whole
 ROLE_PAGES = ["web", "scoreboard", "frozen_scoreboard", "standings", "rankings", "icpc_standings", "problemset", "judge_page", "teams", "mirror"]
 
 
@@ -1749,10 +1789,13 @@ def index_sources(contests: dict) -> None:
     ALSO_AT.clear()
     MIRROR_OF.clear()
     SRC_ROLES.clear()
+    SRC_SCOPE.clear()
     for c in contests.values():
         for s in sources(c):
             k = lid(s["url"])
             SRC_ROLES[k].update(s["roles"])
+            if s.get("scope"):
+                SRC_SCOPE[k].add(s["scope"])
             for m in also_at(s):
                 ALSO_AT[k].append((m["url"], m.get("as_of"), m.get("note")))
                 MIRROR_OF[lid(m["url"])].append(s["url"])
@@ -1842,6 +1885,7 @@ def source_page(k: str, L: dict, rel: str) -> str:
     b = [crumbs(f'<a href="{rel}source/index.html">Sources</a>'),
          f"<h1>{esc(url)}</h1>",
          '<p class="status">' + "".join(role_chip(r) for r in roles)
+         + "".join(chip(x, "sc", "this source covers one part of the contest, not all of it") for x in sorted(SRC_SCOPE.get(k, ())))
          + (chip(st, STATE_CLASS.get(st, ""), STATE_TITLE.get(st, "")) if st else chip("never checked", "n", "this address has not been live-checked yet"))
          + " " + help_link("sources", rel) + "</p>"]
     # ---- the one place the address itself is linked ----
@@ -2576,6 +2620,11 @@ A date links to its day in the <a href="calendar/index.html">calendar</a>, where
 <p class="intro">A contest has <b>three kinds of content</b>, always in the same order: its <b>website</b>, its <b>results</b> and its <b>problems</b>. Each is either
 <span class="chip h">held</span> (we have a copy), <span class="chip l">known but not held</span> (we have a link), <span class="chip n">none</span>, or
 <span class="chip x">lost</span>. The colours are the scoreboard's.</p>
+<p class="intro">A <b>location</b> is where the contest was held: its sites, as places in the location tree. The CMS also lists staff, guest and
+bookkeeping groups as "sites"; those are not places and are never shown. When no real site is recorded, the city the contest's CMS record points at is shown,
+marked <span class="chip n">inferred</span>. A source that covers only part of a contest says so beside its role, like
+<span class="chip sc">Division 1</span>.</p>
+<p class="intro">For spot checks, <a href="random.html">Random</a> in the header (or the key <b>r</b>) opens a page picked at random.</p>
 
 <h2 id="status">Contest status</h2>
 <p class="intro">The chips under a contest's title — one per kind of content, plus anything unusual.</p>
@@ -2739,6 +2788,11 @@ def build(out: Path):
     (out / "non-mainline.html").write_text(non_mainline_page())
     (out / "index.html").write_text(landing_page(series_docs, contests))
     (out / "about.html").write_text(about_page())
+    (out / "random.html").write_text(random_page())
+    (out / "random.json").write_text(json.dumps({
+        "contest": sorted(contests), "series": sorted(series_docs), "season": [str(x) for x in sorted(BY_SEASON)],
+        "problemset": sorted(SETS), "problem": sorted(PROBLEMS), "source": sorted(RES.locs),
+        "location": sorted(LOC), "judge": sorted(JUDGES)}, separators=(",", ":")))
     stub(out / "local.html", "about.html#local")
 
     # ---- machine-readable dump ----
