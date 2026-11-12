@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/cleanup_2026_11_12.py.
+# Maintained in-repo; last bulk edit: tools/apply_ran_2026.py.
 series:
   id: palestine
   name: ICPC Palestinian Collegiate Programming Contest
@@ -333,9 +333,9 @@ contests:
     - palestine/palestine-2025/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 9292, 44 teams, DB fetch 2026-04-26)
 - id: palestine-2026
-  status: upcoming
   season: 2027
   name: 2026 ICPC Palestinian Collegiate Programming Contest
+  date: '2026-10-22'
   sites:
   - location: ps
     name: West Bank
@@ -343,3 +343,11 @@ contests:
   cms_ids:
   - 9708
   parent: acpc-2026
+  sources:
+  - url: https://icpc.global/regionals/finder/PCPC-2027/standings
+    roles:
+    - icpc_standings
+  provenance:
+  - 'ran 2026-10-22: shown by its icpc standings source(s); date from last day of the CMS contest record
+    (2026-10-21 to 2026-10-22) (ruling 2026-11-12: upcoming ends when the date has passed and a result
+    source or judge page shows the contest ran)'

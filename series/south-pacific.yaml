@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/cleanup_2026_11_12.py.
+# Maintained in-repo; last bulk edit: tools/label_scopes.py.
 series:
   id: south-pacific
   name: ICPC South Pacific Independent Regional Contest
@@ -1925,6 +1925,7 @@ contests:
   - url: https://sppcontests.org/wp-content/uploads/2024/07/2020_archive/2020_Regionals-Div1_Scoreboard.pdf
     roles:
     - scoreboard
+    scope: Division 1
     archived:
     - south-pacific/south-pacific-2020/scoreboard/2026-09-01-live-c0ad46ed/2020_Regionals-Div1_Scoreboard.pdf
     url_state: changed
@@ -1932,6 +1933,7 @@ contests:
   - url: https://sppcontests.org/wp-content/uploads/2024/07/2020_archive/2020_Regionals-Div2_Scoreboard.pdf
     roles:
     - scoreboard
+    scope: Division 2
     archived:
     - south-pacific/south-pacific-2020/scoreboard/2026-09-01-live-6939a881/2020_Regionals-Div2_Scoreboard.pdf
     url_state: changed
@@ -1952,6 +1954,7 @@ contests:
   - url: https://sppcontests.org/wp-content/uploads/2024/07/2020_archive/2020_Regionals-Div1_Problems.pdf
     roles:
     - problemset
+    scope: Division 1
     url_state: live
     url_checked: '2026-11-03'
 - id: south-pacific-2021
@@ -2274,9 +2277,9 @@ contests:
     - south-pacific/south-pacific-2025/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 9378, 14 teams, DB fetch 2026-04-26)
 - id: south-pacific-2026
-  status: upcoming
   season: 2027
   name: 2026 ICPC South Pacific Independent Regional Contest
+  date: '2026-10-11'
   sites:
   - type: administrative
   - location: fj-suva-usp
@@ -2316,3 +2319,15 @@ contests:
   cms_ids:
   - 9681
   parent: apc-2027
+  sources:
+  - url: https://sppcontests.org/wp-content/uploads/2026/10/scoreboard_2026.html
+    roles:
+    - scoreboard
+    note: results link in the contest's ICPC CMS record
+  - url: https://icpc.global/regionals/finder/SouthPacific-2027/standings
+    roles:
+    - icpc_standings
+  provenance:
+  - 'ran 2026-10-11: shown by its icpc standings, scoreboard source(s); date from CMS site date (ruling
+    2026-11-12: upcoming ends when the date has passed and a result source or judge page shows the contest
+    ran)'

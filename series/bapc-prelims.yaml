@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/cleanup_2026_11_12.py.
+# Maintained in-repo; last bulk edit: tools/apply_ran_2026.py.
 series:
   id: bapc-prelims
   name: ICPC BAPC Preliminaries
@@ -1067,9 +1067,9 @@ contests:
   problems:
     set: bapc-prelims-2025
 - id: bapc-prelims-2026
-  status: upcoming
   season: 2027
   name: 2026 ICPC BAPC Preliminaries
+  date: '2026-09-26'
   sites:
   - type: administrative
   - location: nl-leiden-lkp
@@ -1106,6 +1106,18 @@ contests:
   - 9586
   parent: bapc-2026
   sources:
+  - url: https://2026.bapc.eu/prelims/scoreboard/
+    roles:
+    - scoreboard
+  - url: https://chipcie.wisv.ch/archive/2026/dapc/scoreboard/merged.html
+    roles:
+    - scoreboard
+  - url: https://icpc.global/regionals/finder/BAPC-Preliminaries-2027/standings
+    roles:
+    - icpc_standings
+  - url: https://chipcie.wisv.ch/archive/2026/dapc/problemset.pdf
+    roles:
+    - problemset
   - url: https://codeforces.com/gym/106730
     roles:
     - judge_page
@@ -1113,3 +1125,11 @@ contests:
     note: '2026 Benelux Algorithm Programming Contest Preliminary (BAPC Prelims 2026) (judge hunt 2026-11-03:
       name+year: ''2026 Benelux Algorithm Programming Contest Preliminary (BAPC Prelims 2026)'' -> season
       start 2026)'
+  - url: https://open.kattis.com/problem-sources/Benelux%20Algorithm%20Programming%20Contest%20%28BAPC%29%20preliminaries%202026
+    roles:
+    - judge_page
+    judge: kattis
+  provenance:
+  - 'ran 2026-09-26: shown by its icpc standings, judge page, scoreboard source(s); date from CMS site
+    date (ruling 2026-11-12: upcoming ends when the date has passed and a result source or judge page
+    shows the contest ran)'

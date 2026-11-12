@@ -97,6 +97,16 @@ snapshot, or our live fetch) and **capture** (our stored copy of a snapshot, wit
 provenance). The code and the paragraphs below still say *locator* for source and
 *resource* for snapshot; they mean the same things.
 
+**Sources: `scope`.** A source that covers one part of a contest, not all of it, says which:
+`scope: Division 1`. `tools/label_scopes.py` sets it from the archived capture (the Kattis filter
+heading, the page title), the address (`/div2/`, `acpc20d1.kattis.com`) or the note; the site shows
+it beside the role.
+
+**Upcoming.** `status: upcoming` ends when the contest's date has passed and a result source or a
+judge page shows it ran (ranked standings in the ICPC CMS count). A contest that is one region's
+view of a larger one (`subset_of`) follows the larger one. `tools/apply_ran_2026.py` did this for
+autumn 2026 from a frozen probe of the CMS and of last year's addresses with the year moved on.
+
 ## Resources
 
 Three things used to be called "URL"; they are distinct.
@@ -187,6 +197,9 @@ and each problem's `aliases` the problem ids it replaces. The site redirects tho
 `validate.py` refuses an alias that is also a live id. The first merge (2026-11-12) turned 87 sets
 into 20; `reports/problemset-merge-2026-11-12.md` lists them and what was left alone.
 
+`tools/fill_letters.py` gives a problem its letter when the set is complete and exactly one letter
+and one problem are left; nothing else about letters is inferred.
+
 The site renders a page per set (`problemset/<set-id>.html`), per problem
 (`problem/<pid>.html`, aggregating every appearance), the set index
 (`problemset/`) and the judge registry (`judge/`). The two pages divide the facts: the
@@ -270,6 +283,10 @@ is in `data/locations-review-2026-11-02.md`; fix by editing `locations.yaml` and
 `sites:` by hand (merge two institutions by moving one name into the other's `aliases`
 and re-pointing its sites), and validate.py keeps the invariants (resolution, parent
 chains, type order, unique ids and aliases).
+
+**Shown on the site.** Sites of type `administrative` (the CMS's staff, guest and bookkeeping
+groups) stay in the data and are never shown. A contest with no real site shows the city its CMS
+record points at, marked *inferred*.
 
 ## Levels
 
