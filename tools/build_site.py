@@ -60,6 +60,7 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 import sys  # noqa: E402
 sys.path.insert(0, str(ROOT / "tools"))
+import review_units as R  # noqa: E402  (review mode: the units a reader can confirm, correct or add to)
 from resources import fmt_time, label as res_label, norm_key, unwrap, wayback_link  # noqa: E402
 from catalogue import (RANK, RESULT_ROLES, also_at, archived, best_result, by_role, has_role,  # noqa: E402
                        load_judges, load_locations, load_non_mainline, load_sets, location_chain,
@@ -158,6 +159,7 @@ def page(title: str, body: str, rel: str, nav: str | None = None) -> str:
     links += '<span class="sep"></span>' + "".join(
         f'<a href="{rel}{h}"' + (' class="on"' if h == nav else "") + f">{t}</a>" for h, t in NAV2)
     links += f'<a id="rnd" href="{rel}random.html" title="Open a random page — press r">Random</a>'
+    links += R.header_link(rel)
     return f"""<!doctype html><html lang="en" data-rel="{rel}"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(title)} — ICPC contest archive</title><link rel="icon" href="{rel}assets/favicon.svg">
@@ -1337,14 +1339,14 @@ def source_table(cid: str, entries: list[dict], rel: str, kind: str, extra_rows:
     rows = []
     for e in entries:
         url, as_of = e["url"], e.get("as_of")
-        roles = "".join(role_chip(r) for r in sorted(e["roles"], key=lambda r: RANK[r]))
+        roles = R.U("source", "".join(role_chip(r) for r in sorted(e["roles"], key=lambda r: RANK[r])), " ".join(sorted(e["roles"])), url)
         if e.get("scope"):
-            roles += chip(e["scope"], "sc", "this source covers one part of the contest, not all of it")
+            roles += R.U("division", chip(e["scope"], "sc", "this source covers one part of the contest, not all of it"), e["scope"], url)
         if e.get("judge"):
             roles += f'<span class="chip">{judge_link(e["judge"], rel)}</span>' + judge_closed_chip(e["judge"])
         note = esc(source_note(e))
         for m in also_at(e):
-            note += (" · " if note else "") + "also at " + link_source(m["url"], rel, res_label(m["url"], m.get("as_of"), 60), m.get("as_of")) + " " + avail_marks(avail(m["url"], cid))
+            note += (" · " if note else "") + "also at " + R.U("mirror", link_source(m["url"], rel, res_label(m["url"], m.get("as_of"), 60), m.get("as_of")), m["url"], url) + " " + avail_marks(avail(m["url"], cid))
         rows.append(f"<tr><td>{roles}</td><td class=\"url\">{link_source(url, rel, res_label(url, as_of, 90), as_of or cap_time(cap_of(e)))}</td>"
                     + avail_cell(url, cid, e) + f"<td class=\"small muted\">{note}</td></tr>")
     rows += extra_rows or []
@@ -1354,20 +1356,28 @@ def source_table(cid: str, entries: list[dict], rel: str, kind: str, extra_rows:
 def contest_page(cid: str, c: dict, rel: str) -> str:
     sid = SERIES_OF[cid]
     b = [crumbs(f'<a href="{rel}contest/index.html">Contests</a>', link_series(sid, rel)),
-         f"<h1>{esc(cid)}</h1>"]
+         f"<h1{R.at('contest', cid)}>{esc(cid)}</h1>"]
     if c.get("name"):
-        b.append(f'<p class="lede">{esc(c["name"])}</p>')
+        b.append(f'<p class="lede">{R.U("name", esc(c["name"]), c["name"])}</p>')
+    else:
+        b.append(R.line("name", "no name recorded"))
     b.append(status_chips(c, cid, rel))
+    upcoming = c.get("status") == "upcoming"
+    b.append(R.line("ran", ("Has not run yet" if upcoming else "Took place") + f", in the series {esc(sid)}", ("upcoming " if upcoming else "") + sid))
 
     # ---- facts ----
     d = ['<dl class="facts">',
          f"<dt>series</dt><dd>{link_series(sid, rel)} <span class=\"muted\">{esc(level_of(sid))} · {esc(SERIES_REGION.get(sid, ''))}</span></dd>"]
     if c.get("season"):
-        d.append(f"<dt>season</dt><dd>{link_season(c['season'], rel)}</dd>")
-    d.append("<dt>date</dt><dd>" + (link_date(c["date"], rel) if c.get("date") else '<span class="muted">not known</span>') + "</dd>")
+        d.append(f"<dt>season</dt><dd>{R.U('season', link_season(c['season'], rel), c['season'])}</dd>")
+    d.append("<dt>date</dt><dd>" + R.U("date", link_date(c["date"], rel) if c.get("date") else '<span class="muted">not known</span>', c.get("date") or "") + "</dd>")
     all_sites = c.get("sites") or []
-    phys = [x for x in (site_line(s, rel) for s in all_sites if not s.get("type")) if x]
-    remote = [x for x in (site_line(s, rel) for s in all_sites if s.get("type") == "online") if x]
+    def site_unit(s):  # one site as a reviewable unit; its key is the place it names
+        x = site_line(s, rel)
+        key = ("online: " if s.get("type") == "online" else "") + str(s.get("location") or s.get("name") or "")
+        return R.U("site", x, key, key) if x else ""
+    phys = [x for x in (site_unit(s) for s in all_sites if not s.get("type")) if x]
+    remote = [x for x in (site_unit(s) for s in all_sites if s.get("type") == "online") if x]
     # administrative sites (the CMS's staff, guest and bookkeeping groups) are not places: never listed
     nodes, how = held_at(c)
     lines = []
@@ -1385,7 +1395,7 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
     if remote:
         lines.append(f'<details><summary class="small muted">{len(remote)} online site{"s" if len(remote) != 1 else ""}</summary>{"<br>".join(remote)}</details>')
     d.append("<dt>location</dt><dd>" + ("<br>".join(x for x in lines if not x.startswith("<details")) + "".join(x for x in lines if x.startswith("<details"))
-                                        if lines else '<span class="muted">not known</span>') + "</dd>")
+                                        if lines else '<span class="muted">not known</span>') + " " + R.slot("site", "add a site") + "</dd>")
     for label, ids in (
         ("advances to", refs(c.get("parent"))),
         ("fed by", sorted(CHILDREN.get(cid, []))),
@@ -1394,15 +1404,21 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
         ("subset of", [c["subset_of"]] if c.get("subset_of") else []),
         ("regional views", sorted(SUBSETS.get(cid, []))),
     ):
+        unit = {"advances to": "advances", "next edition": "next", "subset of": "subset_of"}.get(label)
         if ids:
-            d.append(f"<dt>{label}</dt><dd>" + ", ".join(link_contest(x, rel, False) for x in ids) + "</dd>")
+            links = ", ".join(link_contest(x, rel, False) for x in ids)
+            d.append(f"<dt>{label}</dt><dd>" + (R.U(unit, links, ",".join(ids)) if unit else links) + "</dd>")
+        elif unit and not (unit == "advances" and "parent" in c):
+            d.append(R.row(unit, label))
     if c.get("parent") is None and "parent" in c:
-        d.append('<dt>advances to</dt><dd class="muted">nothing — the top of the hierarchy</dd>')
+        d.append('<dt>advances to</dt><dd class="muted">' + R.U("advances", "nothing — the top of the hierarchy", "nothing") + "</dd>")
     ids = c.get("cms_ids")
     if ids:
-        d.append("<dt>CMS id</dt><dd>" + ", ".join(cms_links(i) for i in ids) + "</dd>")
+        d.append("<dt>CMS id</dt><dd>" + R.U("cms_id", ", ".join(cms_links(i) for i in ids), ",".join(str(i) for i in ids)) + "</dd>")
     elif ids == []:
-        d.append('<dt>CMS id</dt><dd class="muted">none</dd>')
+        d.append('<dt>CMS id</dt><dd class="muted">' + R.U("cms_id", "none", "none") + "</dd>")
+    else:
+        d.append(R.row("cms_id", "CMS id"))
     if c.get("notes"):
         d.append(f"<dt>notes</dt><dd>{esc(c['notes'])}</dd>")
     d.append("</dl>")
@@ -1414,9 +1430,10 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
     if webs:
         b.append(source_table(cid, webs, rel, "web"))
     elif web_state(c) == "none":
-        b.append('<p class="empty">This contest had no website of its own — looked for and confirmed.</p>')
+        b.append('<p class="empty">' + R.U("none", "This contest had no website of its own — looked for and confirmed.", "none", "website") + "</p>")
     else:
-        b.append('<p class="empty">No website known. Nobody has found an address yet; that is not the same as there being none.</p>')
+        b.append('<p class="empty">' + R.U("none", "No website known. Nobody has found an address yet; that is not the same as there being none.", "", "website") + "</p>")
+    b.append(R.slot("source", "add a website", "website", tag="p"))
 
     # ---- Results ----
     b.append('<h2 id="results">Results</h2>')
@@ -1440,8 +1457,10 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
     elif c.get("status") == "upcoming":
         b.append('<p class="empty">Not run yet.</p>')
     else:
-        b.append('<p class="empty">No results found — no scoreboard, standings or rankings, not even in the ICPC CMS.'
+        b.append('<p class="empty">' + R.U("none", "No results found — no scoreboard, standings or rankings, not even in the ICPC CMS.", "", "results")
                  + (" What we do know is under Evidence below." if ev else "") + "</p>")
+    if not upcoming:
+        b.append(R.slot("source", "add a result source", "results", tag="p"))
 
     # ---- Problems ----
     b.append('<h2 id="problems">Problems</h2>')
@@ -1450,12 +1469,12 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
     if c.get("status") == "upcoming":
         b.append('<p class="empty">Not run yet — nothing about a contest\'s problems is published before it has run.</p>')
     elif not pb and not psrc:
-        b.append('<p class="empty">Nothing is known about this contest\'s problems: no problem set recorded, no published set, no online judge.</p>')
+        b.append('<p class="empty">' + R.U("problemset", "Nothing is known about this contest\'s problems: no problem set recorded, no published set, no online judge.", "") + "</p>")
     else:
         if pb:
             total, listed = set_counts(pb)
             others = [m for m in set_members(pb) if m != cid]
-            b.append(f'<p>Problem set {set_link(pb["id"], rel)}: ' + (f"{total} problems" if total else "number of problems not known")
+            b.append(f'<p>Problem set {R.U("problemset", set_link(pb["id"], rel), pb["id"])}: ' + (f"{total} problems" if total else "number of problems not known")
                      + (f", {listed} listed by name" if listed and set_list_state(pb) == "partial" else "")
                      + f' &nbsp;{held_marks(pb)} <span class="small muted">what the problem archive holds — details on the set\'s page</span>'
                      + (' <span class="small muted">· shared with ' + ", ".join(contest_ref(x, rel) for x in others) + "</span>" if others else "") + "</p>")
@@ -1464,16 +1483,18 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
             probs = set_problems_in_order(pb, cid)
             if probs:
                 b.append('<p class="cols">' + "<br>".join(
-                    f'<b>{esc(L or "?")}</b> &nbsp;{problem_link(p["id"], rel, p["name"])}'
+                    R.U("letter", f'<b>{esc(L or "?")}</b>', L or "", p["id"], p["name"]) + f' &nbsp;{problem_link(p["id"], rel, p["name"])}'
                     + (" " + chip("private", "n", "kept private after the contest; name and uuid are public") if p.get("status") == "private" else "")
                     for L, p in probs) + "</p>")
                 if not set_letters(pb, cid):
                     b.append('<p class="note">The letters are not known for this contest'
                              + (" (shown with another contest's letters)." if any(set_letters(pb, m) for m in set_members(pb)) else ".") + "</p>")
         else:
-            b.append('<p class="empty">No problem set recorded yet; the sources below are where the problems can be found.</p>')
+            b.append('<p class="empty">' + R.U("problemset", "No problem set recorded yet; the sources below are where the problems can be found.", "") + "</p>")
         if psrc:
             b.append(source_table(cid, psrc, rel, "problems"))
+    if not upcoming:
+        b.append(R.slot("source", "add a problem set or a judge page", "problems", tag="p"))
 
     # ---- everything else ----
     others = [s for s in sources(c) if not (set(s["roles"]) & (set(RESULT_ROLES) | {"web", "problemset", "judge_page"}))]
@@ -1503,33 +1524,41 @@ def series_years(doc: dict) -> tuple[int, int]:
     return min(ys), max(ys)
 
 
-def lineage_chips(doc: dict, rel: str) -> str:
-    bits = [f'<span class="chip">{esc(ev["type"].replace("-", " "))} {link_series(ev["series"], rel)} ({ev["year"]})</span>' for ev in doc["series"].get("lineage") or []]
-    bits += [chip(f"formerly {a}", "n", "an old id of this series") for a in doc["series"].get("aliases") or []]
-    return " ".join(bits)
+def lineage_chips(doc: dict, rel: str, units: bool = False) -> str:
+    """`units`: on the series' own page, where each chip is a reviewable unit."""
+    bits = [(f'<span class="chip">{esc(ev["type"].replace("-", " "))} {link_series(ev["series"], rel)} ({ev["year"]})</span>',
+             "lineage", f'{ev["type"]} {ev["series"]} {ev["year"]}') for ev in doc["series"].get("lineage") or []]
+    bits += [(chip(f"formerly {a}", "n", "an old id of this series"), "aliases", a) for a in doc["series"].get("aliases") or []]
+    return " ".join(R.U(u, h, v, v) if units else h for h, u, v in bits)
 
 
 def series_page(sid: str, doc: dict, rel: str) -> str:
     s = doc["series"]
-    b = [crumbs(f'<a href="{rel}series/index.html">Series</a>'), f"<h1>{esc(sid)}</h1>"]
+    b = [crumbs(f'<a href="{rel}series/index.html">Series</a>'), f"<h1{R.at('series', sid)}>{esc(sid)}</h1>"]
     if s.get("name"):
-        b.append(f'<p class="lede">{esc(s["name"])}</p>')
+        b.append(f'<p class="lede">{R.U("name", esc(s["name"]), s["name"])}</p>')
+    else:
+        b.append(R.line("name", "no name recorded"))
     y0, y1 = series_years(doc)
     seasons = [c["season"] for c in doc["contests"] if c.get("season")]
     d = ['<dl class="facts">',
-         f"<dt>level</dt><dd>{esc(level_of(sid))}</dd>", f"<dt>region</dt><dd>{esc(SERIES_REGION.get(sid, ''))}</dd>",
+         f"<dt>level</dt><dd>{R.U('level', esc(level_of(sid)), SERIES_TIER.get(sid, ''))}</dd>",
+         f"<dt>region</dt><dd>{R.U('region', esc(SERIES_REGION.get(sid, '')), SERIES_REGION.get(sid, ''))}</dd>",
          f"<dt>editions</dt><dd>{len(doc['contests'])}, {y0}–{y1}"
          + (f' <span class="muted">· seasons {link_season(min(seasons), rel)} to {link_season(max(seasons), rel)}</span>' if seasons else "") + "</dd>"]
-    if lineage_chips(doc, rel):
-        d.append("<dt>lineage</dt><dd>" + lineage_chips(doc, rel) + "</dd>")
+    d.append(("<dt>lineage</dt><dd>" if lineage_chips(doc, rel) else '<dt class="rvo">lineage</dt><dd class="rvo">') + lineage_chips(doc, rel, True)
+             + " " + R.slot("lineage", "add a link to another series") + " " + R.slot("aliases", "add another name") + "</dd>")
     if s.get("rotating_host"):
-        d.append('<dt>host</dt><dd>rotates between cities <span class="muted">— gaps between years are expected</span></dd>')
+        d.append("<dt>host</dt><dd>" + R.U("rotating_host", 'rotates between cities <span class="muted">— gaps between years are expected</span>', "yes") + "</dd>")
+    else:
+        d.append(R.row("rotating_host", "host", "not recorded as rotating"))
     if s.get("notes"):
         d.append(f"<dt>notes</dt><dd>{esc(s['notes'])}</dd>")
     d.append("</dl>")
     b += d
     b.append(content_nums(content_counts(doc["contests"])))
     b.append(f'<h2 id="editions">Editions <span class="n">{len(doc["contests"])}</span></h2>')
+    b.append(R.slot("contest", "add a missing contest", tag="p"))
     b.append('<p class="note">The year in an id is the season label, not the date: here it names the '
              + ("season's first half, so a fall contest postponed into the next year keeps its number." if s.get("naming") != "season-end" else "season's end.") + "</p>")
     b.append(key_line(rel, "results", "website", "held"))
@@ -1806,16 +1835,17 @@ def problemset_page(sid: str, doc: dict, rel: str) -> str:
     state = set_list_state(doc)
     fc = set_first_contest(doc)
     b = [crumbs(f'<a href="{rel}problemset/index.html">Problem sets</a>'),
-         f"<h1>{esc(sid)}</h1>"]
+         f"<h1{R.at('problemset', sid)}>{esc(sid)}</h1>"]
     if doc.get("name"):
-        b.append(f'<p class="lede">{esc(doc["name"])}</p>')
+        b.append(f'<p class="lede">{R.U("name", esc(doc["name"]), doc["name"])}</p>')
     else:
-        b.append('<p class="lede">The problem set of ' + " and ".join(esc((CONTESTS.get(m) or {}).get("name") or m) for m in members[:2]) + "</p>")
+        b.append('<p class="lede">' + R.U("name", "The problem set of " + " and ".join(esc((CONTESTS.get(m) or {}).get("name") or m) for m in members[:2]), "") + "</p>")
     chips = [chip({"complete": f"{listed} problems listed", "partial": f"{listed} of {total or '?'} problems listed",
                    "none": (f"{total} problems, not listed" if total else "problems not listed")}[state],
                   {"complete": "h", "partial": "l", "none": "l"}[state],
                   {"complete": "every problem of the set is listed by name", "partial": "only some of the problems are listed by name",
                    "none": "only the archive's holdings are recorded; the problems are not listed by name yet"}[state])]
+    chips[0] = R.U("complete", chips[0], state)
     for key, _l, what in HELD_KINDS:
         st = doc.get(key)
         if st:
@@ -1826,11 +1856,11 @@ def problemset_page(sid: str, doc: dict, rel: str) -> str:
         chips.append(chip("archive holdings not recorded", "n", "what the ICPC Problem Archive holds for this set has not been entered"))
     b.append('<p class="status">' + "".join(chips) + " " + help_link("status-set", rel) + "</p>")
     d = ['<dl class="facts">']
-    d.append("<dt>used by</dt><dd>" + ", ".join(contest_ref(m, rel) for m in members)
+    d.append("<dt>used by</dt><dd>" + ", ".join(R.U("contest", contest_ref(m, rel), m, m) for m in members) + " " + R.slot("contest", "add a contest")
              + (' <span class="muted">— where it was published and where it can be solved online are on the contest page</span>' if any(m in CONTESTS for m in members) else "") + "</dd>")
     if fc.get("season"):
         d.append(f"<dt>season</dt><dd>{link_season(fc['season'], rel)}</dd>")
-    d.append("<dt>problems</dt><dd>" + (str(total) if total else '<span class="muted">number not known</span>')
+    d.append("<dt>problems</dt><dd>" + R.U("count", str(total) if total else '<span class="muted">number not known</span>', total or "")
              + (f' <span class="muted">— {listed} listed by name below</span>' if state == "partial" else "") + "</dd>")
     if doc.get("repo"):
         d.append(f"<dt>archive repo</dt><dd>{repo_link(doc)} <span class=\"muted\">in the ICPC Problem Archive (private)</span></dd>")
@@ -1856,7 +1886,7 @@ def problemset_page(sid: str, doc: dict, rel: str) -> str:
         rows = []
         for L, p in set_letter_cells(doc):
             private = p.get("status") == "private"
-            rows.append(f'<tr><td class="letter">{esc(L)}</td><td>{problem_link(p["id"], rel, p["name"])}'
+            rows.append(f'<tr><td class="letter">{esc(L)}</td><td>{R.U("member", problem_link(p["id"], rel, p["name"]), p["id"], p["id"], p["name"])}'
                         + (" " + chip("private", "n", "kept private after the contest; name and uuid are public") if private else "") + "</td>"
                         + ("<td></td><td></td>" if private else
                            f'<td class="nw">{problem_have_marks(p, doc)}</td><td>{problem_judge_links(p)}</td>') + "</tr>")
@@ -1864,6 +1894,7 @@ def problemset_page(sid: str, doc: dict, rel: str) -> str:
     else:
         b.append('<h2 id="problems">Problems</h2><p class="empty">The problems of this set are not listed by name yet'
                  + (f" — {total} problems; only what the archive holds is recorded." if total else ".") + "</p>")
+    b.append(R.slot("member", "add a missing problem", tag="p"))
     if len(members) > 1 and same_letters:
         without = [m for m in members if m not in with_letters]
         b.append('<h2 id="letters">Letters per contest</h2><p>'
@@ -1888,7 +1919,7 @@ def problem_page(pid: str, ent: dict, rel: str) -> str:
     first_doc = SETS.get(rows[0][0])
     private = any(r.get("status") == "private" for _s, r in rows)
     b = [crumbs(f'<a href="{rel}problem/index.html">Problems</a>', *[set_link(s, rel) for s, _r in rows[:3]]),
-         f"<h1>{esc(p['name'])}</h1>"]
+         f"<h1{R.at('problem', pid)}>{R.U('name', esc(p['name']), p['name'])}</h1>"]
     if private:
         b.append('<p class="status">' + chip("private", "n", "kept private after the contest; only the name and uuid are public") + "</p>")
     d = ['<dl class="facts">']
@@ -1903,9 +1934,9 @@ def problem_page(pid: str, ent: dict, rel: str) -> str:
             for j in r.get("judges") or []:
                 if j["url"] not in seen:
                     seen.add(j["url"])
-                    jl.append(problem_judge_links({"judges": [j]}) + (f' <span class="muted">id {esc(j["id"])}</span>' if j.get("id") else "")
-                              + judge_closed_chip(j["judge"]) + f' <span class="small muted">· about {judge_link(j["judge"], rel)}</span>')
-        d.append("<dt>online judge</dt><dd>" + ("<br>".join(jl) if jl else '<span class="muted">none known</span>') + "</dd>")
+                    jl.append(R.U("judge_link", problem_judge_links({"judges": [j]}) + (f' <span class="muted">id {esc(j["id"])}</span>' if j.get("id") else "")
+                                  + judge_closed_chip(j["judge"]) + f' <span class="small muted">· about {judge_link(j["judge"], rel)}</span>', j["url"], j["url"]))
+        d.append("<dt>online judge</dt><dd>" + ("<br>".join(jl) if jl else '<span class="muted">none known</span>') + " " + R.slot("judge_link", "add a link") + "</dd>")
         have_row = next((r for _s, r in rows if "have" in r), None)
         hv = problem_have(have_row or p, first_doc)
         if have_row is not None:
@@ -2151,7 +2182,8 @@ def source_page(k: str, L: dict, rel: str) -> str:
         lede = f"An address {len(cits)} contests cite. Each means what it served for that contest, so each has a row of its own below."
     else:
         lede = "No contest cites this address now; what we hold of it was filed under an earlier catalogue entry."
-    b = [crumbs(f'<a href="{rel}source/index.html">Sources</a>'), f"<h1>{esc(url)}</h1>", f'<p class="lede">{lede}</p>',
+    b = [crumbs(f'<a href="{rel}source/index.html">Sources</a>'), f"<h1{R.at('source', k)}>{esc(url)}</h1>", f'<p class="lede">{lede}</p>',
+         R.line("moved", "Not recorded as moved to another address"),
          '<p class="status">' + avail_marks(a) + " " + help_link("sources", rel) + "</p>"]
     note = HUNT_STAMP.sub("", (single or {}).get("note") or "").strip()
     if note:
@@ -2300,11 +2332,13 @@ def judge_status(j: dict) -> str:
 
 def judge_page(jid: str, j: dict, probs: set, pages: list, rel: str) -> str:
     ncon = len({c for c, _s in pages})
-    b = [crumbs(f'<a href="{rel}judge/index.html">Judges</a>'), f'<h1>{esc(j.get("name") or jid)}</h1>',
-         '<p class="status">' + judge_status(j) + "</p>",
+    b = [crumbs(f'<a href="{rel}judge/index.html">Judges</a>'), f'<h1{R.at("judge", jid)}>{R.U("name", esc(j.get("name") or jid), j.get("name") or "")}</h1>',
+         '<p class="status">' + R.U("status", judge_status(j), (j.get("status", "") + " " + str(j.get("closed") or "")).strip()) + "</p>",
          f'<div class="nums"><div><b>{num(ncon)}</b><span><a href="#contests">contests</a></span></div>'
          f'<div><b>{num(len(probs))}</b><span><a href="#problems">problems</a></span></div></div>',
-         '<dl class="facts">', f'<dt>site</dt><dd><a class="ext" href="{esc(j["url"])}">{esc(j["url"])}</a></dd>']
+         '<dl class="facts">', "<dt>site</dt><dd>" + R.U("url", f'<a class="ext" href="{esc(j["url"])}">{esc(j["url"])}</a>', j["url"]) + "</dd>"]
+    offers = [w for w in ("statements", "submissions") if j.get(w)]
+    b.append('<dt class="rvo">offers</dt><dd class="rvo">' + R.U("offers", " and ".join(offers) or "neither", "+".join(offers) or "neither") + "</dd>")
     for key, lab in (("contest_url", "contest address"), ("problem_url", "problem address")):
         if j.get(key):
             b.append(f"<dt>{lab}</dt><dd><code>{esc(j[key])}</code></dd>")
@@ -2386,15 +2420,15 @@ def location_page(nid: str, rel: str) -> str:
     cs = [CONTESTS[c] for c in sorted(sub, key=lambda c: (CONTESTS[c].get("date") or c.rsplit("-", 1)[1], c), reverse=True)]
     ys = loc_years(nid)
     b = [crumbs(f'<a href="{rel}location/index.html">Locations</a>', *[loc_link(x["id"], rel) for x in reversed(chain)]),
-         f"<h1>{esc(n['name'])}</h1>", f'<p class="lede">{esc(n["type"].capitalize())}'
-         + (" in " + ", ".join(esc(x["name"]) for x in chain) if chain else "") + "</p>"]
+         f"<h1{R.at('location', nid)}>{R.U('name', esc(n['name']), n['name'])}</h1>", f'<p class="lede">{R.U("type", esc(n["type"].capitalize()), n["type"])}'
+         + (" in " + R.U("parent", ", ".join(esc(x["name"]) for x in chain), n.get("parent") or "") if chain else "") + "</p>"]
     st = content_counts(cs)
     series = Counter(SERIES_OF[c["id"]] for c in cs)
     b.append(content_nums(st, (f"<div><b>{ys[0]}–{ys[1]}</b><span>first to latest</span></div>" if ys else "")
                           + f"<div><b>{len(series)}</b><span>series</span></div>"))
     d = ['<dl class="facts">']
-    if n.get("aliases"):
-        d.append("<dt>also written</dt><dd>" + ", ".join(esc(a) for a in n["aliases"]) + "</dd>")
+    d.append(("<dt>also written</dt><dd>" if n.get("aliases") else '<dt class="rvo">also written</dt><dd class="rvo">')
+             + ", ".join(R.U("aliases", esc(a), a, a) for a in n.get("aliases") or []) + " " + R.slot("aliases", "add another name") + "</dd>")
     if series:
         top = series.most_common(12)
         d.append("<dt>series held here</dt><dd>" + ", ".join(f'{link_series(s, rel)} <span class="muted">{k}</span>' for s, k in top)
@@ -2910,10 +2944,7 @@ the only place where the three are opened: the address, the snapshot that shows 
 local archive server (below). When several contests cite one address — a results page reused every year — its page has a row per contest, since each means a different time.</p>
 
 <h2 id="contribute">Contribute</h2>
-<p class="intro">If you ran, judged or took part in a contest, you may be the only person who still has its scoreboard, its problem set or its dates.
-To add a source, confirm that what we show is right, or correct something, <a class="ext" href="{REPO}/issues/new">open an issue</a> and say which contest
-(its id, such as <code>nwerc-2020</code>) and what you know — a link, a file, a date, a place. Every claim is checked and recorded with where it came from.
-The <a href="wanted.html">most wanted</a> list shows what is missing.</p>
+{R.about_text(REPO)}
 
 <h2 id="local">Local archive</h2>
 <p class="intro">Besides the result pages on the public replay site, this project holds a much larger private archive: raw captures of every result page and full
@@ -2953,6 +2984,8 @@ def build(out: Path):
     for sub in ("contest", "series", "season", "calendar", "problemset", "problem", "problems", "judge", "location", "source", "source/by-role", "assets"):
         (out / sub).mkdir(parents=True, exist_ok=True)
     shutil.copytree(ASSETS, out / "assets", dirs_exist_ok=True)
+    (out / "assets" / "units.js").write_text(R.units_js())  # the unit list for review mode
+    (out / "build.json").write_text(json.dumps({"built": datetime.date.today().isoformat()}))
 
     REPLAY_LOOKUP.clear()
     REPLAY_PROBLEMSET.clear()
@@ -3118,6 +3151,8 @@ def build(out: Path):
 
     n = len(list(out.rglob("*.html")))
     n_stubs = sum(1 for p in out.rglob("*.html") if p.parts[len(out.parts)] in ("locator", "resources", "urls", "problemsets", "judges", "problems") or p.name in ("seasons.html", "local.html")) + n_alias
+    print("  review mode: " + ", ".join(f"{n} units on {k} pages" for k, n in R.STATS.items())
+          + ("" if R.OPEN else " (not open yet: reached by ?review=1)"))
     print(f"site: {n} pages ({n - n_stubs} content pages, {n_stubs} redirect stubs) -> {out} in {time.time() - t0:.1f}s")
 
 
