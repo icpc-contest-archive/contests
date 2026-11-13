@@ -123,22 +123,60 @@
     if (id.includes(term) || name.includes(term)) return 3;
     return 4;
   };
+  /* An address in the box finds source pages. source-urls.json ([address, source page, what it serves]) loads only then.
+     Addresses are compared without scheme, "www.", a trailing slash or letter case, and a Wayback address counts as the
+     page inside it. Best first: the address itself, the same path on another host, addresses below or above it, the same
+     file name elsewhere, a part of an address; the rest of the host only when nothing else matches. */
+  let srcIdx = null, seq = 0;
+  const norm = u => u.trim().replace(/^https?:\/\/web\.archive\.org\/web\/\d+[a-z_]*\//i, '')
+    .replace(/^[a-z][a-z0-9+.-]*:\/\//i, '').replace(/^www\./i, '').replace(/#.*$/, '').replace(/\/+$/, '').toLowerCase();
+  const parts = n => {
+    const i = n.indexOf('/'), path = i < 0 ? '' : n.slice(i), file = path.slice(path.lastIndexOf('/') + 1).replace(/\?.*$/, '');
+    return {host: i < 0 ? n : n.slice(0, i), path, file: /\d/.test(file) && file.length >= 8 ? file : ''};
+  };
+  const loadSrc = () => srcIdx || (srcIdx = fetch(REL + 'source-urls.json').then(r => r.json())
+    .then(d => d.map(([url, k, what]) => { const n = norm(url); return Object.assign({url, k, what, n}, parts(n)); })));
+  const WHY = ['', 'the same path on another host', 'below this address', 'this address lies below it', 'the same file name elsewhere',
+    'contains what you typed', 'on the same host'];
+  const sources = async raw => {
+    const n = norm(raw), w = parts(n);
+    if (n.length < 4) return [];
+    const tier = s => s.n === n ? 0
+      : w.path.length > 1 && s.path === w.path ? 1
+      : s.n.startsWith(n) ? 2
+      : n.startsWith(s.n + '/') ? 3
+      : w.file && s.file === w.file ? 4
+      : n.length >= 6 && s.n.includes(n) ? 5
+      : w.host.includes('.') && s.host === w.host ? 6 : 9;
+    const found = (await loadSrc()).map(s => [tier(s), s]).filter(x => x[0] < 9)
+      .sort((a, b) => a[0] - b[0] || a[1].n.length - b[1].n.length || a[1].n.localeCompare(b[1].n));
+    return found.some(x => x[0] < 6) ? found.filter(x => x[0] < 6) : found;
+  };
+  const srcHtml = (found, most) => found.slice(0, most).map(([t, s]) =>
+    `<a href="${REL}source/${s.k}/index.html"><span class="k">source</span><span class="ad">${esc(s.url)}</span>` +
+    `<span class="x">${esc(s.what)}${t ? ' · ' + WHY[t] : ''}</span></a>`).join('') +
+    (found.length > most ? `<p>${found.length - most} more sources — give more of the address to narrow it down.</p>` : '');
   const run = async () => {
-    const term = q.value.trim().toLowerCase();
+    const raw = q.value.trim(), term = raw.toLowerCase(), my = ++seq;
     if (term.length < 2) { out.classList.remove('open'); out.innerHTML = ''; return; }
-    const data = await load();
+    const addr = /:\/\/|^[^\s\/]+\.[a-z]{2,}\/./i.test(raw);                 // an address with a path
+    const host = !addr && /^[^\s\/]+\.[a-z]{2,}\/?$/i.test(raw);              // a bare host: a few of its sources, then the rest
+    const [data, src] = await Promise.all([load(), addr || host ? sources(raw) : []]);
+    if (my !== seq) return;                                                  // a later keystroke has taken over
     const hits = data.filter(c => c.id.includes(term) ||
       (c.name && c.name.toLowerCase().includes(term)) ||
       (c.cms || []).some(x => x === term) || (c.hosts || []).some(h => h.includes(term)) ||
       (c.aliases || []).some(a => a.toLowerCase().includes(term)));
     hits.sort((a, b) => score(a, term) - score(b, term) || RANK[a.t] - RANK[b.t] || a.id.localeCompare(b.id, undefined, {numeric: true}));
     sel = -1;
-    out.innerHTML = hits.length ? hits.slice(0, 60).map(c =>
+    const usual = hits.slice(0, 60).map(c =>
       `<a href="${REL}${HREF[c.t]}${esc(c.id)}.html"><span class="k">${KIND[c.t]}</span><span>${esc(c.t === 'p' || c.t === 'l' || c.t === 'j' ? (c.name || c.id) : c.id)}` +
       `${c.name && !(c.t === 'p' || c.t === 'l' || c.t === 'j') ? ' <span class="muted">' + esc(c.name) + '</span>' : ''}</span>` +
       `<span class="x">${esc([c.date, c.extra].filter(Boolean).join(' · '))}</span></a>`).join('') +
-      (hits.length > 60 ? `<p>${hits.length - 60} more — keep typing to narrow it down.</p>` : '')
-      : '<p>Nothing matches. Search knows ids, names, CMS ids, website hosts and aliases.</p>';
+      (hits.length > 60 ? `<p>${hits.length - 60} more — keep typing to narrow it down.</p>` : '');
+    out.innerHTML = (srcHtml(src, addr ? 12 : 5) + usual) ||
+      (addr ? '<p>No source has this address, or one like it.</p>'
+            : '<p>Nothing matches. Search knows ids, names, CMS ids, website hosts, aliases and the addresses of sources.</p>');
     out.classList.add('open');
   };
   let st = null;

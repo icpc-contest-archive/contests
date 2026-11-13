@@ -2971,6 +2971,16 @@ Typeface: IBM Plex Sans (SIL Open Font License).</p>"""
 
 
 
+def source_words(k: str) -> str:
+    """What an address is, in a few plain words, for the search box: `problem set of north-russia-2016`."""
+    cits = citations(k)
+    if not cits:
+        return "no contest cites it now"
+    roles = sorted({r for c in cits for r in c["roles"]}, key=lambda r: RANK.get(r, 99))
+    ids = [c["contest"] for c in cits]
+    return (", ".join(role_label(r) for r in roles) or "mirror") + " of " + ", ".join(ids[:3]) + (f" and {len(ids) - 3} more" if len(ids) > 3 else "")
+
+
 # ---- build ----
 def build(out: Path):
     t0 = time.time()
@@ -3145,6 +3155,9 @@ def build(out: Path):
             for ts in L["resources"]:
                 stub(od / f"{ts}.html", f"../../source/{k}/index.html#s-{ts}")
         (out / "source" / "index.html").write_text(source_list("../"))
+        # the address index of the search box: [address, source page, what it serves]; site.js loads it when the box holds an address
+        (out / "source-urls.json").write_text(json.dumps([[L["url"], k, source_words(k)] for k, L in RES.locs.items()],
+                                                         ensure_ascii=False, separators=(",", ":")))
         for r in ROLE_PAGES:
             (out / "source" / "by-role" / f"{r}.html").write_text(source_list("../../", r))
         for k in ROLE_PAGES + ["index"]:
