@@ -5,8 +5,10 @@ Input: a candidates file made by the statement-title extractors (_hunt/problems-
 extract_pdf_titles.py, extract_html_titles.py): {contest id: {url, path, how, flags, problems:
 [{letter, name}]}}. Only candidates without flags are applied, and only to contests whose set
 lists no problems yet: the set is opened when missing (count = number of problems read), the
-problems get ids p-sha1(set|letter|name)[:8], and the contest's letter map is written. Everything
-else is listed in the report for ruling (shared sets, count disagreements, doubtful reads).
+problems get ids p-sha1(set|letter|name)[:8], and the contest's letter map is written. The
+statement itself becomes a source of the contest (add_statement_sources.statement_source), so
+it is not only named in the set's provenance note. Everything else is listed in the report for
+ruling (shared sets, count disagreements, doubtful reads).
 
 usage: apply_statement_titles.py <candidates.json> [--date YYYY-MM-DD] [--dry-run]
 """
@@ -14,7 +16,8 @@ from __future__ import annotations
 import argparse, collections, json, re, sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from catalogue import ROOT, dump_series, load_series, load_sets  # noqa: E402
+from catalogue import ROOT, dump_series, load_judges, load_series, load_sets  # noqa: E402
+from add_statement_sources import statement_source  # noqa: E402
 from mine_judge_links import dump_set, pid  # noqa: E402
 
 def clean(name: str) -> str:
@@ -24,7 +27,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(); ap.add_argument("candidates"); ap.add_argument("--date", required=True)
     ap.add_argument("--dry-run", action="store_true"); ap.add_argument("--report", default=None, help="report file name under reports/ (default statement-titles-<date>.md)"); a = ap.parse_args()
     cands = json.loads(Path(a.candidates).read_text())
-    series = load_series(); sets = load_sets()
+    series = load_series(); sets = load_sets(); judges = load_judges()
     where = {c["id"]: (sid, c) for sid, doc in series.items() for c in doc["contests"]}
     rep = collections.defaultdict(list); touched_series = set(); changed = set(); nprob = 0
     for cid, v in sorted(cands.items()):
@@ -67,6 +70,8 @@ def main() -> int:
         s.setdefault("provenance", []).append(
             f"problem names read from the published statement {v['url']} (capture {v['path']}; "
             f"tools/apply_statement_titles.py, {a.date})")
+        if statement_source(c, v["url"], judges)[1]:  # the statement is a source of the contest, not only a note on the set
+            touched_series.add(ser)
         changed.add(sid); nprob += len(rows)
         rep["applied"].append(line)
     if not a.dry_run:
