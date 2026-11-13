@@ -340,6 +340,13 @@ holdings came from the "ICPC Problem Archive progress" sheet (`data/import/`,
 trail. `provenance:` and `notes:` on a contest record where facts came from;
 `reports/open-warnings.md` tracks the judgment calls still open.
 
+A provenance note is free text and nothing reads it. A document that data was read from is therefore also recorded as a
+**source** of the contest, which gives it a source page, lets the search box find it and has the capture rounds archive it. For
+problem names read from a published statement, `tools/apply_statement_titles.py` does this itself, and
+`tools/add_statement_sources.py` backfills it from the sets' provenance notes: a problem list on a judge of `judges.yaml` becomes a
+`judge_page`, anything else a `problemset`; a Wayback address is written as the original address plus `as_of`, and a GitHub
+address with its branch, not `HEAD`.
+
 ## The site
 
 `tools/build_site.py` renders the catalogue into `site/` (styles, script and fonts from
