@@ -176,3 +176,36 @@
     if (e.key === 'r' && !e.ctrlKey && !e.metaKey && !e.altKey && !/^(INPUT|SELECT|TEXTAREA)$/.test(document.activeElement.tagName)) a.click();
   });
 })();
+
+// Review mode: a link ending in ?review=1 switches it on for this browser, and so does the header's Review button once
+// review mode is open to everyone. Everything else is in assets/review.js, which is loaded only while review mode is on.
+(function () {
+  let a = document.getElementById('rv');
+  const root = document.documentElement, rel = root.dataset.rel || '';
+  let on = false;
+  try {
+    if (/[?&]review=1(&|$)/.test(location.search)) localStorage.setItem('rv-on', '1');
+    on = localStorage.getItem('rv-on') === '1';
+  } catch (e) {}
+  function click(e) {
+    e.preventDefault();
+    if (window.RV) return window.RV.panel();
+    if (root.classList.contains('rv')) return;
+    try { localStorage.setItem('rv-on', '1'); } catch (x) {}
+    start(true);
+  }
+  function start(open) {
+    root.classList.add('rv');
+    if (!a) {
+      a = Object.assign(document.createElement('a'), { id: 'rv', href: '#', textContent: 'Review' });
+      const nav = document.querySelector('header.site nav');
+      if (nav) nav.append(a);
+      a.addEventListener('click', click);
+    }
+    document.head.append(Object.assign(document.createElement('link'), { rel: 'stylesheet', href: rel + 'assets/review.css' }));
+    const load = (src, then) => document.head.append(Object.assign(document.createElement('script'), { src: rel + 'assets/' + src, onload: then }));
+    load('units.js', () => load('review.js', () => { if (open && window.RV) window.RV.panel(); }));
+  }
+  if (a) a.addEventListener('click', click);
+  if (on) start(false);
+})();

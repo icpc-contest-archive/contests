@@ -369,3 +369,27 @@ trail. `provenance:` and `notes:` on a contest record where facts came from;
 5. **One word per thing**: location, level, results, problems, website, online judge,
    CMS id.
 
+## Review mode
+
+Review mode lets a reader confirm, correct and add to what the catalogue says, on the page that says it. It has three parts.
+
+**Units.** A unit is one claim that can be right or wrong on its own. `tools/review_units.py` holds the one list (`UNITS`: 37 units on
+seven kinds of object) and the helpers `build_site.py` wraps them with: `U()` for a unit that is on the page, `row()` and `line()` for
+one the page does not show, `slot()` for the place where one more can be added. A unit is marked on its own object's page only. The
+marker carries the unit's key, the catalogue's value and, when the object has several, which one:
+`<span class="u" data-u="date" data-v="2017-10-21">`. The object is named by `<h1 data-at="contest/alberta-2017">`. Rows and slots for
+units without a value have the class `rvo` and are hidden unless review mode is on. The build prints how many units it wrote per kind
+of page; a unit key that is not in `UNITS` stops the build.
+
+**The script.** `tools/site_assets/review.js` (with `review.css`) is loaded only while review mode is on. It puts ✓ (confirm),
+✎ (correct) and + (add) on the units, keeps the marks in the browser's local storage (`icpc-review`) across pages and tabs, and at
+"Submit review" copies them as JSON for the issue form `review.yml` of the repository named in `review_units.REPO`. Nothing is sent
+from the site: the reviewer pastes the JSON on GitHub.
+
+**Open or not.** `review_units.OPEN` is False until that repository and its form exist: no Review button in the header, the About page
+unchanged. A link ending in `?review=1` switches review mode on for that browser regardless, which is how it is tried before it opens.
+
+The copied JSON is `{"review": 1, "site": <build day>, "count": n, "items": [...]}` with one item per line. An item is
+`{"do": confirm|correct|add, "at": kind/id, "unit": key, "of": which one, "saw": the value shown, "to": the new value, "why": reason,
+"file": {name, size, sha256}}`, with only the fields that apply. A review that names files starts with a `"reminder"` line for the
+reviewer; a review too large for one issue is split, and each part carries `"part": [k, n]`.

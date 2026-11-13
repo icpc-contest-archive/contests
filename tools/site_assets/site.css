@@ -181,3 +181,7 @@ ul.plain { list-style:none; padding:0; margin:.3rem 0; } ul.plain li { padding:.
 .cols { columns:18rem auto; column-gap:2rem; max-width:110ch; }
 .cols > * { break-inside:avoid; }
 pre { background:var(--wash); padding:.6rem .8rem; border-radius:.35rem; overflow-x:auto; font-size:.88rem; }
+/* review mode: rows and slots that exist only for reviewers (the rest is assets/review.css, loaded when it is on) */
+.rvo { display:none; }
+html.rv .rvo { display:revert; }
+header.site nav a#rv.on { color:var(--ink); font-weight:600; }

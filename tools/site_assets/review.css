@@ -1,0 +1,58 @@
+/* Review mode (assets/review.js). Loaded only while review mode is on; colours are the site's own. */
+html.rv .u { border-bottom:1px dashed var(--muted); }
+html.rv .u.ua, html.rv h1 .u { border-bottom:0; }
+html.rv .u.rv-ok { background:var(--held-bg); border-bottom-color:var(--held); border-radius:.2em; }
+html.rv .u.rv-fix { background:var(--part-bg); border-bottom-color:var(--part); border-radius:.2em; }
+html.rv .u.rv-stale { outline:2px solid var(--lost); outline-offset:1px; }
+html.rv p.rvo, html.rv .rvbar { margin:.35rem 0; }
+
+.rvc, .rvbar, .rvadds { font-size:.8rem; font-weight:400; font-style:normal; white-space:normal; }
+.rvc { margin-left:.3em; white-space:nowrap; }
+.rvb, .rvx { font:inherit; line-height:1.35; cursor:pointer; color:var(--link); background:var(--paper); border:1px solid var(--line);
+  border-radius:999px; padding:0 .55em; margin:0 .15em .15em 0; text-decoration:none; display:inline-block; }
+.rvb:hover, .rvx:hover { border-color:var(--link); }
+.rvb:focus-visible, .rvx:focus-visible, .rvin:focus-visible { outline:2px solid var(--link); outline-offset:1px; }
+.rvb.ok { color:var(--held); } .rvb.ok[aria-pressed=true] { background:var(--held); border-color:var(--held); color:var(--paper); }
+.rvb.fix { color:var(--part); }
+.rvb.add { border-style:dashed; }
+.rvb.go { background:var(--link); border-color:var(--link); color:var(--paper); font-weight:600; padding:.1em .8em; }
+.rvb.big { font-size:.95rem; padding:.25em 1.1em; }
+.rvx { border:0; background:none; color:var(--muted); padding:0 .3em; margin:0; }
+.rvm { display:inline-block; background:var(--part-bg); color:var(--part); border-radius:.3em; padding:0 .15em 0 .45em; margin:0 .3em .15em 0; white-space:normal; overflow-wrap:anywhere; }
+.rvm.add { background:var(--wash); color:var(--ink); border:1px dashed var(--line); }
+.rv2 span { color:var(--ink); }
+
+/* the pending list */
+.rvpanel { position:fixed; top:0; right:0; bottom:0; width:min(27rem, 100vw); z-index:50; overflow-y:auto; background:var(--paper); color:var(--ink);
+  border-left:1px solid var(--line); box-shadow:-.4rem 0 1.2rem rgba(0,0,0,.12); padding:.8rem 1rem 1.2rem; font-size:.9rem; }
+.rvhead { display:flex; justify-content:space-between; align-items:baseline; gap:1rem; margin-bottom:.4rem; }
+.rvhead b { font-size:1.05rem; } .rvhead .rvx { font-size:1rem; }
+.rvsum { color:var(--muted); margin:.2rem 0 .6rem; }
+.rvlist h3 { font-size:.9rem; margin:.9rem 0 .2rem; font-weight:600; }
+.rvlist ul, .rvsent ul { list-style:none; margin:0; padding:0; }
+.rvlist li { display:flex; gap:.45rem; align-items:baseline; padding:.12rem 0; border-top:1px solid var(--line); }
+.rvlist .rvk { width:1em; text-align:center; font-weight:600; } .rvlist li.confirm .rvk { color:var(--held); } .rvlist li.correct .rvk { color:var(--part); }
+.rvlist .rvt { flex:1; overflow-wrap:anywhere; } .rvlist small { color:var(--muted); }
+.rvtools { margin:1rem 0 .4rem; } .rvsent { margin:.6rem 0; color:var(--muted); } .rvsent li { padding:.15rem 0; }
+.rvfoot { margin-top:1.2rem; border-top:1px solid var(--line); padding-top:.6rem; color:var(--muted); }
+
+/* forms and the submit steps */
+.rvmodal { position:fixed; inset:0; z-index:60; background:rgba(0,0,0,.35); display:flex; align-items:flex-start; justify-content:center; padding:10vh 1rem 1rem; overflow-y:auto; }
+.rvcard { background:var(--paper); color:var(--ink); border:1px solid var(--line); border-radius:.5rem; box-shadow:0 .6rem 2rem rgba(0,0,0,.25);
+  width:min(30rem, 100%); padding:.9rem 1.1rem 1rem; font-size:.92rem; }
+.rvcard.wide { width:min(38rem, 100%); }
+.rvf { display:block; margin:.55rem 0; } .rvf[hidden] { display:none; }
+.rvf > span { display:block; color:var(--muted); font-size:.82rem; margin-bottom:.15rem; }
+.rvf small { display:block; color:var(--muted); margin-top:.2rem; }
+.rvr { display:inline-block; margin-right:1.2rem; }
+.rvin { font:inherit; color:var(--ink); background:var(--paper); border:1px solid var(--line); border-radius:.3rem; padding:.3rem .5rem; width:100%; box-sizing:border-box; }
+.rvjson { font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:.76rem; white-space:pre; }
+.rvsaw { color:var(--muted); margin:.2rem 0 .5rem; overflow-wrap:anywhere; } .rvsaw b { color:var(--ink); font-weight:600; }
+.rverr { color:var(--lost); min-height:1.2em; margin:.3rem 0; }
+.rvacts { margin-top:.7rem; }
+.rvsub ol { padding-left:1.3rem; margin:.4rem 0 .8rem; } .rvsub ol > li { margin:.5rem 0; } .rvsub small, .rvsaid { color:var(--muted); }
+.rvsub details { margin:.4rem 0; color:var(--muted); }
+#rvtoast { position:fixed; left:50%; bottom:1.2rem; transform:translateX(-50%); z-index:70; background:var(--ink); color:var(--paper);
+  padding:.45rem .9rem; border-radius:.4rem; font-size:.9rem; max-width:min(40rem, 92vw); opacity:0; pointer-events:none; transition:opacity .2s; }
+#rvtoast.on { opacity:1; }
+@media (prefers-reduced-motion: reduce) { #rvtoast { transition:none; } }
