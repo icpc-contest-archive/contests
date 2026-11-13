@@ -1346,7 +1346,7 @@ def source_table(cid: str, entries: list[dict], rel: str, kind: str, extra_rows:
             roles += f'<span class="chip">{judge_link(e["judge"], rel)}</span>' + judge_closed_chip(e["judge"])
         note = esc(source_note(e))
         for m in also_at(e):
-            note += (" · " if note else "") + "also at " + R.U("mirror", link_source(m["url"], rel, res_label(m["url"], m.get("as_of"), 60), m.get("as_of")), m["url"], url) + " " + avail_marks(avail(m["url"], cid))
+            note += (" · " if note else "") + "also at " + R.U("mirror", link_source(m["url"], rel, res_label(m["url"], m.get("as_of"), 60), m.get("as_of")), url, m["url"]) + " " + avail_marks(avail(m["url"], cid))
         rows.append(f"<tr><td>{roles}</td><td class=\"url\">{link_source(url, rel, res_label(url, as_of, 90), as_of or cap_time(cap_of(e)))}</td>"
                     + avail_cell(url, cid, e) + f"<td class=\"small muted\">{note}</td></tr>")
     rows += extra_rows or []
@@ -1372,9 +1372,9 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
         d.append(f"<dt>season</dt><dd>{R.U('season', link_season(c['season'], rel), c['season'])}</dd>")
     d.append("<dt>date</dt><dd>" + R.U("date", link_date(c["date"], rel) if c.get("date") else '<span class="muted">not known</span>', c.get("date") or "") + "</dd>")
     all_sites = c.get("sites") or []
-    def site_unit(s):  # one site as a reviewable unit; its key is the place it names
+    def site_unit(s):  # one site as a reviewable unit; its key is the place and the name it goes by
         x = site_line(s, rel)
-        key = ("online: " if s.get("type") == "online" else "") + str(s.get("location") or s.get("name") or "")
+        key = ("online: " if s.get("type") == "online" else "") + " ".join(str(v) for v in (s.get("location"), s.get("name")) if v)
         return R.U("site", x, key, key) if x else ""
     phys = [x for x in (site_unit(s) for s in all_sites if not s.get("type")) if x]
     remote = [x for x in (site_unit(s) for s in all_sites if s.get("type") == "online") if x]

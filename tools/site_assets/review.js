@@ -4,12 +4,15 @@
    <span class="u" data-u="unit" data-v="value" [data-of="which one"]> written by the generator
    (tools/review_units.py); the page's object is named by <h1 data-at="kind/id">.
 
-   Marks are kept in this browser (localStorage) until "Submit review" copies them as JSON for the
-   issue form of REPO. Nothing is sent from here: the reviewer pastes the JSON on GitHub. */
+   Marks are kept in this browser (localStorage) until "Submit review" hands them as JSON to the issue
+   form of REPO: in the link itself when they fit, by copy and paste when not. Nothing is sent from here. */
 (function () {
   'use strict';
-  const REPO = window.RV_REPO || 'icpc-contest-archive/contributions';
+  const REPO = window.RV_REPO || 'icpc-contest-archive/reviews';
   const KEY = 'icpc-review', LIMIT = 50000, KEEP_SENT_DAYS = 60;
+  // GitHub carries a link of 5,000 characters through its sign-in page; a longer one loses the review there, and
+  // from 7,100 it is refused (measured 2026-11-13, not documented). A review that fits goes in the link, the rest is pasted.
+  const LINK_MAX = 4500;
   const doc = document, root = doc.documentElement, rel = root.dataset.rel || '';
   const UN = window.RV_UNITS || {};
   const h1 = doc.querySelector('h1[data-at]');
@@ -200,7 +203,7 @@
   function form(e, what, anyUnit, at) {
     const unit = e ? e.dataset.u : anyUnit, of = e ? e.dataset.of : undefined, where = at || AT;
     const d = def(e ? KIND : '*', unit), saw = e && single(e) ? e.dataset.v : '';
-    const old = e && single(e) ? mine(e).find(i => i.do !== 'confirm') : null;
+    const old = e ? (single(e) ? mine(e).find(i => i.do !== 'confirm') : null) : st.items.find(i => same(i, where, unit));
     const long = unit === 'remark' || unit === 'none' || unit === 'ran' || (unit === 'contest' && KIND === 'series') || unit === 'member';
     const val = el(long ? 'textarea' : 'input', { class: 'rvin', placeholder: d.h, rows: long ? 3 : null });
     val.value = old ? valueText(old) : what === 'correct' && !long ? saw : '';
@@ -217,7 +220,7 @@
       if (e && e.dataset.l) item.ofl = e.dataset.l;
       if (what === 'correct' && e) item.saw = saw;
       if (w) item.why = w;
-      put(item, e && single(e) ? 'all' : false);
+      put(item, !e || single(e) ? 'all' : false);
       closeModal();
     };
     const body = el('form', { novalidate: true, onsubmit: ev => { ev.preventDefault(); ok(); } },
@@ -261,7 +264,7 @@
       if (how === 'url') {
         const u = url.value.trim();
         if (!/^https?:\/\/[^\s/]+\.[^\s]+$/i.test(u)) return void (err.textContent = 'Please give a full address, starting with http:// or https://.');
-        const have = units().some(x => (x.dataset.u === 'source' && x.dataset.of === u) || (x.dataset.u === 'mirror' && x.dataset.v === u));
+        const have = units().some(x => (x.dataset.u === 'source' || x.dataset.u === 'mirror') && x.dataset.of === u);
         if (have) return void (err.textContent = 'This contest already lists that address. Use ✓ on its row to confirm it.');
         item.to.url = u;
       } else {
@@ -344,23 +347,40 @@
     }).catch(() => toast('That file is not a saved review.'));
   }
 
-  // ---------- submit: copy, open the form, paste ----------
-  const wire = i => { const o = { do: i.do, at: i.at, unit: i.unit }; for (const k of ['of', 'saw', 'to', 'file', 'why']) if (i[k] != null && i[k] !== '') o[k] = i[k]; return o; };
+  // ---------- submit: the link carries the review when it fits; else copy, open the form, paste ----------
+  const q = JSON.stringify;
+  const only = (i, keys) => { const o = {}; for (const k of keys) if (i[k] != null && i[k] !== '') o[k] = i[k]; return o; };
+  // encodeURIComponent, but the characters a query may hold stay as they are: a link is short of room
+  const enc = s => encodeURIComponent(s).replace(/%2C/g, ',').replace(/%3A/g, ':').replace(/%2F/g, '/').replace(/%40/g, '@');
+  const plural = (n, word) => n + ' ' + word + (n === 1 ? '' : 's');
   function parts() {   // one issue holds 65,536 characters: a review larger than LIMIT goes in several
     const out = [[]]; let size = 0;
     for (const i of st.items) {
-      const n = JSON.stringify(wire(i)).length + 3;
+      const n = q(only(i, ['at', 'unit', 'of', 'saw', 'to', 'file', 'why'])).length + 3;
       if (size + n > LIMIT && out[out.length - 1].length) { out.push([]); size = 0; }
       out[out.length - 1].push(i); size += n;
     }
     return out;
   }
   let built = '';
+  // The review as JSON, grouped by page so that it is short, one fact per line (DEFINITIONS.md, Review mode):
+  //   "confirm": {page: {unit: value}}, "correct": {page: {unit: {saw, to, why}}}, "add": {page: [{unit, of, to, file, why}]}
+  // A unit the object has several of is written "unit which-one".
   function text(items, k, n) {
     const files = items.filter(i => i.file).map(i => i.file.name);
-    return '{' + (files.length ? '"reminder": ' + JSON.stringify('Attach ' + files.length + (files.length === 1 ? ' file' : ' files') + ' in the box Files below: ' + files.join(', ')) + ',\n ' : '')
-      + '"review": 1, "site": ' + JSON.stringify(built) + (n > 1 ? ', "part": [' + (k + 1) + ', ' + n + ']' : '') + ', "count": ' + items.length + ', "items": [\n '
-      + items.map(i => JSON.stringify(wire(i))).join(',\n ') + '\n]}';
+    const name = i => i.unit + (i.of ? ' ' + i.of : '');
+    const group = (what, open, close, line) => {
+      const by = new Map();
+      for (const i of items) if (i.do === what) (by.get(i.at) || by.set(i.at, []).get(i.at)).push(i);
+      return by.size ? q(what) + ':{\n' + [...by].map(([at, its]) => q(at) + ':' + open + '\n' + its.map(line).join(',\n') + close).join(',\n') + '}' : null;
+    };
+    const body = [
+      group('confirm', '{', '}', i => q(name(i)) + ':' + q(i.saw)),
+      group('correct', '{', '}', i => q(name(i)) + ':' + q(only(i, ['saw', 'to', 'why']))),
+      group('add', '[', ']', i => q(only(i, ['unit', 'of', 'to', 'file', 'why']))),
+    ].filter(Boolean);
+    return '{' + (files.length ? '"reminder":' + q('Attach ' + plural(files.length, 'file') + ' in the box Files below: ' + files.join(', ')) + ',\n' : '')
+      + '"review":2,"site":' + q(built) + (n > 1 ? ',"part":[' + (k + 1) + ',' + n + ']' : '') + ',"count":' + items.length + ',\n' + body.join(',\n') + '}';
   }
   async function submit(k) {
     load();
@@ -368,9 +388,11 @@
     if (!built) { try { built = (await (await fetch(rel + 'build.json')).json()).built || ''; } catch (e) { built = ''; } }
     const all = parts(), n = all.length, items = all[Math.min(k, n - 1)];
     const files = items.filter(i => i.file).map(i => i.file.name);
-    const title = 'Review: ' + items.length + (items.length === 1 ? ' item' : ' items') + (files.length ? ', ' + files.length + (files.length === 1 ? ' file' : ' files') + ' to attach' : '') + (n > 1 ? ' (part ' + (k + 1) + ' of ' + n + ')' : '');
+    const title = 'Review: ' + plural(items.length, 'item') + (files.length ? ', ' + plural(files.length, 'file') + ' to attach' : '') + (n > 1 ? ' (part ' + (k + 1) + ' of ' + n + ')' : '');
     const json = text(items, k, n);
-    const link = 'https://github.com/' + REPO + '/issues/new?template=review.yml&title=' + encodeURIComponent(title);
+    const form = 'https://github.com/' + REPO + '/issues/new?template=review.yml&title=' + enc(title);
+    const filled = form + '&review=' + enc(json);
+    const byLink = n === 1 && filled.length <= LINK_MAX;   // short enough for the link to carry it
     const said = el('span', { class: 'rvsaid' });
     const box = el('textarea', { class: 'rvin rvjson', readonly: true, rows: 5, onfocus: e => e.target.select() });
     box.value = json;
@@ -378,25 +400,27 @@
       let ok = false;
       try { await navigator.clipboard.writeText(json); ok = true; }
       catch (e) { box.closest('details').open = true; box.focus(); box.select(); try { ok = doc.execCommand('copy'); } catch (x) {} }
-      said.textContent = ok ? 'Copied ' + items.length + (items.length === 1 ? ' item' : ' items') : 'This browser would not copy. The text is selected below: copy it with Ctrl+C or ⌘C.';
+      said.textContent = ok ? 'Copied ' + plural(items.length, 'item') : 'This browser would not copy. The text is selected below: copy it with Ctrl+C or ⌘C.';
       copy.textContent = 'Copy again';
-    }, 'rvb go');
+    }, byLink ? 'rvb' : 'rvb go');
     const done = () => {
       const ids = new Set(items.map(i => i.id));
       change(() => { st.sent.push({ t: Date.now(), title: title, items: st.items.filter(i => ids.has(i.id)) }); st.items = st.items.filter(i => !ids.has(i.id)); });
       closeModal();
       if (st.items.length) submit(0); else toast('Marked as sent. Nothing is pending now.');
     };
-    openModal('Submit review' + (n > 1 ? ', part ' + (k + 1) + ' of ' + n : '') + ': ' + items.length + (items.length === 1 ? ' item' : ' items') + (files.length ? ', ' + files.length + (files.length === 1 ? ' file' : ' files') : ''),
+    const open = (href, note) => el('li', {}, el('a', { class: 'rvb go', href: href, target: '_blank', rel: 'noopener', text: 'Open GitHub’s form' }), el('small', { text: note }));
+    const attach = files.length ? el('li', {}, 'Drag ' + (files.length === 1 ? 'this file' : 'these files') + ' into the box “Files”:', el('ul', {}, files.map(f => el('li', { text: f })))) : null;
+    const press = el('li', { text: 'Choose your connection to the contests and press GitHub’s Submit.' });
+    openModal('Submit review' + (n > 1 ? ', part ' + (k + 1) + ' of ' + n : '') + ': ' + plural(items.length, 'item') + (files.length ? ', ' + plural(files.length, 'file') : ''),
       el('div', { class: 'rvsub' },
         n > 1 ? el('p', { class: 'rvsaw', text: 'This review is too large for one GitHub issue, so it goes in ' + n + ' parts, one after the other.' }) : null,
-        el('ol', {},
-          el('li', {}, copy, ' ', said),
-          el('li', {}, el('a', { class: 'rvb go', href: link, target: '_blank', rel: 'noopener', text: 'Open GitHub’s form' }), el('small', { text: ' in a new tab; a GitHub account is needed' })),
-          el('li', { text: 'Click in the box “Paste your review here” and paste.' }),
-          files.length ? el('li', {}, 'Drag ' + (files.length === 1 ? 'this file' : 'these files') + ' into the box “Files”:', el('ul', {}, files.map(f => el('li', { text: f })))) : null,
-          el('li', { text: 'Choose your connection to the contests and press GitHub’s Submit.' })),
-        el('details', {}, el('summary', { text: 'What is copied' }), box),
+        byLink
+          ? [el('ol', {}, open(filled, ' opens in a new tab with your review filled in'), attach, press),
+             el('p', { class: 'rvalt' }, 'Is the box “Paste your review here” empty on GitHub? ', copy, ' and paste it there. ', said)]
+          : el('ol', {}, el('li', {}, copy, ' ', said), open(form, ' opens in a new tab'),
+              el('li', { text: 'Click in the box “Paste your review here” and paste.' }), attach, press),
+        el('details', {}, el('summary', { text: byLink ? 'What is sent' : 'What is copied' }), box),
         el('div', { class: 'rvacts' }, btn('I submitted it', done, 'rvb ok'), btn('Not yet', closeModal))), true);
   }
 
