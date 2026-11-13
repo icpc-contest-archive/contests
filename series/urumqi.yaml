@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/import_qoj_tree.py.
+# Maintained in-repo; last bulk edit: tools/bake_icpc_standings.py.
 series:
   id: urumqi
   name: ACM-ICPC Asia Urumqi Regional Programming Contest
@@ -36,23 +36,26 @@ contests:
   - url: https://icpc.global/regionals/finder/Urumqi-2018/standings
     roles:
     - icpc_standings
+    archived:
+    - urumqi/urumqi-2017/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 3480, 96 teams, DB fetch 2026-04-26)
   - url: https://qoj.ac/contest/2113
     roles:
     - problemset
     - judge_page
+    judge: qoj
     url_state: changed
     url_checked: '2026-11-03'
-    judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://www.luogu.com.cn/contest/349025
     roles:
     - judge_page
     judge: luogu
+    url_state: live
+    url_checked: '2026-11-03'
     note: '[ICPC2017 Urumqi R] ICPC 2017 区域赛乌鲁木齐站重现赛 (judge hunt 2026-11-03: Luogu official-team mirror
       (重现赛 chóngxiànsài ''replay contest'', run 2026-08-17) of 2017 ACM-ICPC Asia Urumqi Regional Programming
       Contest (2017-12-03); description says original problems+data; catalogue has no problem titles to
       check (11 problems on judge))'
-    url_state: live
-    url_checked: '2026-11-03'
   problems:
     set: urumqi-2017

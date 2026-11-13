@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/bake_icpc_standings.py.
 series:
   id: kolkata
   name: ACM-ICPC Asia Kolkata Regional Contest
@@ -133,6 +133,9 @@ contests:
   - url: https://icpc.global/regionals/finder/ICPC-Kolkata-2017/standings
     roles:
     - icpc_standings
+    archived:
+    - kolkata/kolkata-2016/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 3050, 92 teams, DB fetch 2026-04-26)
   - url: https://www.codechef.com/ACM16KOL
     roles:
     - problemset
@@ -143,11 +146,11 @@ contests:
     roles:
     - judge_page
     judge: codechef
+    url_state: changed
+    url_checked: '2026-11-03'
     note: 'ACM-ICPC Asia-Kolkata Onsite Mirror Contest 2016 (judge hunt 2026-11-03: CodeChef contest ''ACM-ICPC
       Asia-Kolkata Onsite Mirror Contest 2016'' (code KOL16MOS, held 2016-12-27, 12 problems) = official
       onsite problem set as mirror/replay; catalogue kolkata-2016 dated 2016-12-27; catalogue has no problem
       titles to cross-check)'
-    url_state: changed
-    url_checked: '2026-11-03'
   problems:
     set: kolkata-2016

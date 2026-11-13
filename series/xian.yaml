@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/add_contests_2026_11_12.py.
+# Maintained in-repo; last bulk edit: tools/bake_icpc_standings.py.
 series:
   id: xian
   name: ICPC Asia Xi'an Regional Contest
@@ -152,6 +152,9 @@ contests:
   - url: https://icpc.global/regionals/finder/XIA-2015/standings
     roles:
     - icpc_standings
+    archived:
+    - xian/xian-2014/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 2697, 253 teams, DB fetch 2026-04-26)
   - url: https://codeforces.com/gym/100548
     roles:
     - problemset
@@ -169,7 +172,8 @@ contests:
   date: '2017-10-29'
   location: xxxxx
   sites:
-  - name: Asia XiAnn On Site Regional Contest
+  - location: cn-xian
+    name: Asia XiAnn On Site Regional Contest
   cms_ids:
   - 3366
   parent: wf-2018
@@ -199,24 +203,27 @@ contests:
   - url: https://icpc.global/regionals/finder/Xian-2018/standings
     roles:
     - icpc_standings
+    archived:
+    - xian/xian-2017/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 3366, 353 teams, DB fetch 2026-04-26)
   - url: https://qoj.ac/contest/2112
     roles:
     - problemset
     - judge_page
+    judge: qoj
     url_state: changed
     url_checked: '2026-11-03'
-    judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://www.luogu.com.cn/contest/339238
     roles:
     - judge_page
     judge: luogu
+    url_state: live
+    url_checked: '2026-11-03'
     note: '[ICPC2017 Xi'' an R] ICPC 2017 区域赛西安站重现赛 (judge hunt 2026-11-03: Luogu official-team mirror
       (重现赛 chóngxiànsài ''replay contest'', run 2026-07-26) of 2017 ACM-ICPC Asia Xian Regional Contest
       (2017-10-29); description says original problems+data; catalogue has no problem titles to check
       (11 problems on judge))'
-    url_state: live
-    url_checked: '2026-11-03'
   problems:
     set: xian-2017
 - id: xian-2022
@@ -262,6 +269,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Xian-2023/standings
     roles:
     - icpc_standings
+    archived:
+    - xian/xian-2022/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 5550, 454 teams, DB fetch 2026-04-26)
   - url: https://codeforces.com/gym/104077
     roles:
     - problemset
@@ -307,6 +317,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Xian-2024/standings
     roles:
     - icpc_standings
+    archived:
+    - xian/xian-2023/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 7681, 367 teams, DB fetch 2026-04-26)
   - url: https://codeforces.com/gym/105471
     roles:
     - problemset

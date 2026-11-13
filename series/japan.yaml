@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/import_qoj_tree.py.
+# Maintained in-repo; last bulk edit: tools/bake_icpc_standings.py.
 series:
   id: japan
   name: ICPC Asia Yokohama Regional Contest
@@ -509,7 +509,8 @@ contests:
   - name: Asia - Japan Nationwide Preliminaries
     date: '2004-07-02'
     type: online
-  - name: Asia - Ehime - Final Round
+  - location: jp-matsuyama-ehime
+    name: Asia - Ehime - Final Round
   cms_ids:
   - 1117
   parent: wf-2005
@@ -873,6 +874,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Tokyo-2010/standings
     roles:
     - icpc_standings
+    archived:
+    - japan/japan-2009/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 498, 288 teams, DB fetch 2026-04-26)
   - url: https://storage.googleapis.com/files.icpc.jp/regional2009/2009regional.pdf
     roles:
     - problemset
@@ -890,19 +894,19 @@ contests:
     roles:
     - judge_page
     judge: codeforces
-    note: '2009-2010 ACM-ICPC, Asia Tokyo Regional Contest (judge hunt 2026-11-03: name+year: ''2009-2010
-      ACM-ICPC, Asia Tokyo Regional Contest'' -> season start 2009)'
     url_state: live
     url_checked: '2026-11-03'
+    note: '2009-2010 ACM-ICPC, Asia Tokyo Regional Contest (judge hunt 2026-11-03: name+year: ''2009-2010
+      ACM-ICPC, Asia Tokyo Regional Contest'' -> season start 2009)'
   - url: https://onlinejudge.u-aizu.ac.jp/challenges/sources/ICPC/Regional/60
     roles:
     - judge_page
     judge: aoj
+    url_state: changed
+    url_checked: '2026-11-03'
     note: 'ACM International Collegiate Programming Contest, Asia Regional 2009, Japan (judge hunt 2026-11-03:
       AOJ ICPC/Regional challenge year 2009 (one Japan regional per year); 5/5 catalogue problem titles
       matched among 10 AOJ problems)'
-    url_state: changed
-    url_checked: '2026-11-03'
   - url: https://qoj.ac/contest/3618
     roles:
     - judge_page
@@ -948,6 +952,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Tokyo-2011/standings
     roles:
     - icpc_standings
+    archived:
+    - japan/japan-2010/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 600, 16 teams, DB fetch 2026-04-26)
   - url: http://icpc2010.honiden.nii.ac.jp/domestic-contest/problems
     roles:
     - problemset
@@ -966,19 +973,19 @@ contests:
     roles:
     - judge_page
     judge: codeforces
-    note: '2010-2011 ACM-ICPC, Asia Tokyo Regional Contest (judge hunt 2026-11-03: name+year: ''2010-2011
-      ACM-ICPC, Asia Tokyo Regional Contest'' -> season start 2010)'
     url_state: live
     url_checked: '2026-11-03'
+    note: '2010-2011 ACM-ICPC, Asia Tokyo Regional Contest (judge hunt 2026-11-03: name+year: ''2010-2011
+      ACM-ICPC, Asia Tokyo Regional Contest'' -> season start 2010)'
   - url: https://onlinejudge.u-aizu.ac.jp/challenges/sources/ICPC/Regional/61
     roles:
     - judge_page
     judge: aoj
+    url_state: changed
+    url_checked: '2026-11-03'
     note: 'ACM International Collegiate Programming Contest, Asia Regional 2010, Japan (judge hunt 2026-11-03:
       AOJ ICPC/Regional challenge year 2010 (one Japan regional per year); 7/7 catalogue problem titles
       matched among 10 AOJ problems)'
-    url_state: changed
-    url_checked: '2026-11-03'
   - url: https://qoj.ac/contest/3710
     roles:
     - judge_page
@@ -1024,6 +1031,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Fukuoka-2012/standings
     roles:
     - icpc_standings
+    archived:
+    - japan/japan-2011/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 797, 318 teams, DB fetch 2026-04-26)
   - url: http://icpc2011.ait.kyushu-u.ac.jp/domestic-contest/problems
     roles:
     - problemset
@@ -1042,19 +1052,19 @@ contests:
     roles:
     - judge_page
     judge: codeforces
-    note: '2011-2012 ACM-ICPC, Asia Fukuoka Regional Contest (judge hunt 2026-11-03: name+year: ''2011-2012
-      ACM-ICPC, Asia Fukuoka Regional Contest'' -> season start 2011)'
     url_state: live
     url_checked: '2026-11-03'
+    note: '2011-2012 ACM-ICPC, Asia Fukuoka Regional Contest (judge hunt 2026-11-03: name+year: ''2011-2012
+      ACM-ICPC, Asia Fukuoka Regional Contest'' -> season start 2011)'
   - url: https://onlinejudge.u-aizu.ac.jp/challenges/sources/ICPC/Regional/102
     roles:
     - judge_page
     judge: aoj
+    url_state: changed
+    url_checked: '2026-11-03'
     note: 'ACM International Collegiate Programming Contest, Asia Regional 2011, Japan (judge hunt 2026-11-03:
       AOJ ICPC/Regional challenge year 2011 (one Japan regional per year); 10/10 catalogue problem titles
       matched among 10 AOJ problems)'
-    url_state: changed
-    url_checked: '2026-11-03'
   - url: https://qoj.ac/contest/3422
     roles:
     - judge_page
@@ -1092,6 +1102,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Tokyo-2013/standings
     roles:
     - icpc_standings
+    archived:
+    - japan/japan-2012/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 1487, 34 teams, DB fetch 2026-04-26)
   - url: http://www.cs.titech.ac.jp/icpc2012/regional-contest/problem.html
     roles:
     - problemset
@@ -1109,19 +1122,19 @@ contests:
     roles:
     - judge_page
     judge: codeforces
-    note: '2012-2013 ACM-ICPC, Asia Tokyo Regional Contest (judge hunt 2026-11-03: name+year: ''2012-2013
-      ACM-ICPC, Asia Tokyo Regional Contest'' -> season start 2012)'
     url_state: live
     url_checked: '2026-11-03'
+    note: '2012-2013 ACM-ICPC, Asia Tokyo Regional Contest (judge hunt 2026-11-03: name+year: ''2012-2013
+      ACM-ICPC, Asia Tokyo Regional Contest'' -> season start 2012)'
   - url: https://onlinejudge.u-aizu.ac.jp/challenges/sources/ICPC/Regional/129
     roles:
     - judge_page
     judge: aoj
+    url_state: changed
+    url_checked: '2026-11-03'
     note: 'ACM International Collegiate Programming Contest, Asia Regional 2012, Japan (judge hunt 2026-11-03:
       AOJ ICPC/Regional challenge year 2012 (one Japan regional per year); 4/4 catalogue problem titles
       matched among 10 AOJ problems)'
-    url_state: changed
-    url_checked: '2026-11-03'
   - url: https://qoj.ac/contest/3395
     roles:
     - judge_page
@@ -1160,6 +1173,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Aizu-2014/standings
     roles:
     - icpc_standings
+    archived:
+    - japan/japan-2013/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 1929, 39 teams, DB fetch 2026-04-26)
   - url: http://sparth.u-aizu.ac.jp/icpc2013/results/2013AizuAllProblems.pdf
     roles:
     - problemset
@@ -1178,19 +1194,19 @@ contests:
     roles:
     - judge_page
     judge: codeforces
-    note: '2013-2014 ACM-ICPC, Asia Aizu Regional Contest (judge hunt 2026-11-03: name+year: ''2013-2014
-      ACM-ICPC, Asia Aizu Regional Contest'' -> season start 2013)'
     url_state: live
     url_checked: '2026-11-03'
+    note: '2013-2014 ACM-ICPC, Asia Aizu Regional Contest (judge hunt 2026-11-03: name+year: ''2013-2014
+      ACM-ICPC, Asia Aizu Regional Contest'' -> season start 2013)'
   - url: https://onlinejudge.u-aizu.ac.jp/challenges/sources/ICPC/Regional/144
     roles:
     - judge_page
     judge: aoj
+    url_state: changed
+    url_checked: '2026-11-03'
     note: 'ACM International Collegiate Programming Contest, Asia Regional 2013, Japan (judge hunt 2026-11-03:
       AOJ ICPC/Regional challenge year 2013 (one Japan regional per year); 10/10 catalogue problem titles
       matched among 10 AOJ problems)'
-    url_state: changed
-    url_checked: '2026-11-03'
   - url: https://qoj.ac/contest/1978
     roles:
     - judge_page
@@ -1238,6 +1254,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Tokyo-2015/standings
     roles:
     - icpc_standings
+    archived:
+    - japan/japan-2014/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 2590, 40 teams, DB fetch 2026-04-26)
   - url: https://icpc.jp/2014/domestic/problems/
     roles:
     - problemset
@@ -1256,19 +1275,19 @@ contests:
     roles:
     - judge_page
     judge: codeforces
-    note: '2014-2015 ACM-ICPC, Asia Tokyo Regional Contest (judge hunt 2026-11-03: name+year: ''2014-2015
-      ACM-ICPC, Asia Tokyo Regional Contest'' -> season start 2014)'
     url_state: live
     url_checked: '2026-11-03'
+    note: '2014-2015 ACM-ICPC, Asia Tokyo Regional Contest (judge hunt 2026-11-03: name+year: ''2014-2015
+      ACM-ICPC, Asia Tokyo Regional Contest'' -> season start 2014)'
   - url: https://onlinejudge.u-aizu.ac.jp/challenges/sources/ICPC/Regional/154
     roles:
     - judge_page
     judge: aoj
+    url_state: changed
+    url_checked: '2026-11-03'
     note: 'ACM International Collegiate Programming Contest, Asia Regional 2014, Japan (judge hunt 2026-11-03:
       AOJ ICPC/Regional challenge year 2014 (one Japan regional per year); 10/10 catalogue problem titles
       matched among 11 AOJ problems)'
-    url_state: changed
-    url_checked: '2026-11-03'
   - url: https://qoj.ac/contest/1988
     roles:
     - judge_page
@@ -1304,6 +1323,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Tsukuba-2016/standings
     roles:
     - icpc_standings
+    archived:
+    - japan/japan-2015/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 2912, 42 teams, DB fetch 2026-04-26)
   - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Japan/2015%20Asia%20Tsukuba%20Regional%20Contest/problems.pdf
     roles:
     - problemset
@@ -1321,11 +1343,11 @@ contests:
     roles:
     - judge_page
     judge: aoj
+    url_state: changed
+    url_checked: '2026-11-03'
     note: 'ACM International Collegiate Programming Contest, Asia Regional 2015, Japan (judge hunt 2026-11-03:
       AOJ ICPC/Regional challenge year 2015 (one Japan regional per year); 8/8 catalogue problem titles
       matched among 11 AOJ problems)'
-    url_state: changed
-    url_checked: '2026-11-03'
   - url: https://qoj.ac/contest/98
     roles:
     - judge_page
@@ -1361,6 +1383,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Tsukuba-2017/standings
     roles:
     - icpc_standings
+    archived:
+    - japan/japan-2016/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 3042, 45 teams, DB fetch 2026-04-26)
   - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Japan/2016%20Asia%20Tsukuba%20Regional%20Contest/problems.pdf
     roles:
     - problemset
@@ -1378,19 +1403,19 @@ contests:
     roles:
     - judge_page
     judge: codeforces
-    note: '2016-2017 ACM-ICPC, Asia Tsukuba Regional Contest (judge hunt 2026-11-03: name+year: ''2016-2017
-      ACM-ICPC, Asia Tsukuba Regional Contest'' -> season start 2016)'
     url_state: live
     url_checked: '2026-11-03'
+    note: '2016-2017 ACM-ICPC, Asia Tsukuba Regional Contest (judge hunt 2026-11-03: name+year: ''2016-2017
+      ACM-ICPC, Asia Tsukuba Regional Contest'' -> season start 2016)'
   - url: https://onlinejudge.u-aizu.ac.jp/challenges/sources/ICPC/Regional/188
     roles:
     - judge_page
     judge: aoj
+    url_state: changed
+    url_checked: '2026-11-03'
     note: 'ACM International Collegiate Programming Contest, Asia Regional 2016, Japan (judge hunt 2026-11-03:
       AOJ ICPC/Regional challenge year 2016 (one Japan regional per year); 11/11 catalogue problem titles
       matched among 11 AOJ problems)'
-    url_state: changed
-    url_checked: '2026-11-03'
   - url: https://qoj.ac/contest/101
     roles:
     - judge_page
@@ -1436,6 +1461,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Tsukuba-2018/standings
     roles:
     - icpc_standings
+    archived:
+    - japan/japan-2017/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 3413, 50 teams, DB fetch 2026-04-26)
   - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Japan/2017%20Asia%20Tsukuba%20Regional%20Contest/problems.pdf
     roles:
     - problemset
@@ -1453,19 +1481,19 @@ contests:
     roles:
     - judge_page
     judge: codeforces
-    note: '2017-2018 ACM-ICPC, Asia Tsukuba Regional Contest (judge hunt 2026-11-03: name+year: ''2017-2018
-      ACM-ICPC, Asia Tsukuba Regional Contest'' -> season start 2017)'
     url_state: live
     url_checked: '2026-11-03'
+    note: '2017-2018 ACM-ICPC, Asia Tsukuba Regional Contest (judge hunt 2026-11-03: name+year: ''2017-2018
+      ACM-ICPC, Asia Tsukuba Regional Contest'' -> season start 2017)'
   - url: https://onlinejudge.u-aizu.ac.jp/challenges/sources/ICPC/Regional/210
     roles:
     - judge_page
     judge: aoj
+    url_state: changed
+    url_checked: '2026-11-03'
     note: 'ACM International Collegiate Programming Contest, Asia Regional 2017, Japan (judge hunt 2026-11-03:
       AOJ ICPC/Regional challenge year 2017 (one Japan regional per year); 11/11 catalogue problem titles
       matched among 11 AOJ problems)'
-    url_state: changed
-    url_checked: '2026-11-03'
   - url: https://qoj.ac/contest/435
     roles:
     - judge_page
@@ -1509,6 +1537,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Yokohama-2019/standings
     roles:
     - icpc_standings
+    archived:
+    - japan/japan-2018/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 3742, 60 teams, DB fetch 2026-04-26)
   - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Japan/2018%20Asia%20Yokohama%20Regional%20Contest/problems.pdf
     roles:
     - problemset
@@ -1526,19 +1557,19 @@ contests:
     roles:
     - judge_page
     judge: codeforces
-    note: '2018-2019, ICPC, Asia Yokohama Regional Contest 2018 (judge hunt 2026-11-03: name+year: ''2018-2019,
-      ICPC, Asia Yokohama Regional Contest 2018'' -> season start 2018)'
     url_state: live
     url_checked: '2026-11-03'
+    note: '2018-2019, ICPC, Asia Yokohama Regional Contest 2018 (judge hunt 2026-11-03: name+year: ''2018-2019,
+      ICPC, Asia Yokohama Regional Contest 2018'' -> season start 2018)'
   - url: https://onlinejudge.u-aizu.ac.jp/challenges/sources/ICPC/Regional/229
     roles:
     - judge_page
     judge: aoj
+    url_state: changed
+    url_checked: '2026-11-03'
     note: 'ACM International Collegiate Programming Contest, Asia Regional 2018, Japan (judge hunt 2026-11-03:
       AOJ ICPC/Regional challenge year 2018 (one Japan regional per year); 11/11 catalogue problem titles
       matched among 11 AOJ problems)'
-    url_state: changed
-    url_checked: '2026-11-03'
   - url: https://qoj.ac/contest/750
     roles:
     - judge_page
@@ -1585,6 +1616,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Yokohama-2020/standings
     roles:
     - icpc_standings
+    archived:
+    - japan/japan-2019/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 4165, 65 teams, DB fetch 2026-04-26)
   - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Japan/2019%20Asia%20Yokohama%20Regional%20Contest/problems.pdf
     roles:
     - problemset
@@ -1602,11 +1636,11 @@ contests:
     roles:
     - judge_page
     judge: aoj
+    url_state: changed
+    url_checked: '2026-11-03'
     note: 'ACM International Collegiate Programming Contest, Asia Regional 2019, Japan (judge hunt 2026-11-03:
       AOJ ICPC/Regional challenge year 2019 (one Japan regional per year); 11/11 catalogue problem titles
       matched among 11 AOJ problems)'
-    url_state: changed
-    url_checked: '2026-11-03'
   - url: https://qoj.ac/contest/442
     roles:
     - judge_page
@@ -1643,6 +1677,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Yokohama-2021/standings
     roles:
     - icpc_standings
+    archived:
+    - japan/japan-2020/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 4331, 40 teams, DB fetch 2026-04-26)
   - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Japan/2020%20Asia%20Yokohama%20Regional%20Contest/problems.pdf
     roles:
     - problemset
@@ -1660,11 +1697,11 @@ contests:
     roles:
     - judge_page
     judge: aoj
+    url_state: changed
+    url_checked: '2026-11-03'
     note: 'International Collegiate Programming Contest, Asia Regional 2020, Japan (judge hunt 2026-11-03:
       AOJ ICPC/Regional challenge year 2020 (one Japan regional per year); 11/11 catalogue problem titles
       matched among 11 AOJ problems)'
-    url_state: changed
-    url_checked: '2026-11-03'
   - url: https://qoj.ac/contest/791
     roles:
     - judge_page
@@ -1702,6 +1739,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Yokohama-2022/standings
     roles:
     - icpc_standings
+    archived:
+    - japan/japan-2021/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 4882, 40 teams, DB fetch 2026-04-26)
   - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Japan/2021%20Asia%20Yokohama%20Regional%20Contest/problems.pdf
     roles:
     - problemset
@@ -1718,11 +1758,11 @@ contests:
     roles:
     - judge_page
     judge: aoj
+    url_state: changed
+    url_checked: '2026-11-03'
     note: 'International Collegiate Programming Contest, Asia Regional 2021, Japan (judge hunt 2026-11-03:
       AOJ ICPC/Regional challenge year 2021 (one Japan regional per year); catalogue has no problem titles
       to check; 11 problems)'
-    url_state: changed
-    url_checked: '2026-11-03'
   - url: https://qoj.ac/contest/912
     roles:
     - judge_page
@@ -1888,6 +1928,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Yokohama-2025/standings
     roles:
     - icpc_standings
+    archived:
+    - japan/japan-2024/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 8738, 55 teams, DB fetch 2026-04-26)
   - url: https://storage.googleapis.com/wp-content.icpc.jp/sites/12/2024/12/all_with_cover_web.pdf
     roles:
     - problemset
@@ -1906,19 +1949,19 @@ contests:
     roles:
     - judge_page
     judge: codeforces
-    note: 'The 2024 ICPC Asia Yokohama Regional Contest (judge hunt 2026-11-03: name+year: ''The 2024
-      ICPC Asia Yokohama Regional Contest'' -> season start 2024)'
     url_state: live
     url_checked: '2026-11-03'
+    note: 'The 2024 ICPC Asia Yokohama Regional Contest (judge hunt 2026-11-03: name+year: ''The 2024
+      ICPC Asia Yokohama Regional Contest'' -> season start 2024)'
   - url: https://onlinejudge.u-aizu.ac.jp/challenges/sources/ICPC/Regional/325
     roles:
     - judge_page
     judge: aoj
+    url_state: changed
+    url_checked: '2026-11-03'
     note: 'International Collegiate Programming Contest, Asia Regional 2024, Japan (judge hunt 2026-11-03:
       AOJ ICPC/Regional challenge year 2024 (one Japan regional per year); 12/12 catalogue problem titles
       matched among 12 AOJ problems)'
-    url_state: changed
-    url_checked: '2026-11-03'
   - url: https://qoj.ac/contest/1987
     roles:
     - judge_page
@@ -1965,6 +2008,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Yokohama-2026/standings
     roles:
     - icpc_standings
+    archived:
+    - japan/japan-2025/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 9386, 63 teams, DB fetch 2026-04-26)
   - url: https://icpc.jp/2025/docs/all_contest_en_with_cover.pdf
     roles:
     - problemset
@@ -1983,10 +2029,10 @@ contests:
     roles:
     - judge_page
     judge: codeforces
-    note: 'The 2025 Asia Yokohama Regional Contest (judge hunt 2026-11-03: name+year: ''The 2025 Asia
-      Yokohama Regional Contest'' -> season start 2025)'
     url_state: live
     url_checked: '2026-11-03'
+    note: 'The 2025 Asia Yokohama Regional Contest (judge hunt 2026-11-03: name+year: ''The 2025 Asia
+      Yokohama Regional Contest'' -> season start 2025)'
   - url: https://qoj.ac/contest/2690
     roles:
     - judge_page

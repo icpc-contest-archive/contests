@@ -89,13 +89,45 @@ not the calendar date.
   (`continues-as` / `continues-from` with the boundary year), `aliases` (old ids), and
   `rotating_host` (Asia host-city series where year gaps are structural).
 
-### Naming the URL layer (2026-11-02 redesign)
+### Sources (2026-11-13: one model)
 
-The user-facing words are **source** (a catalogued address with roles and health —
-what a contest page lists), **snapshot** (that address at one time: a Wayback
-snapshot, or our live fetch) and **capture** (our stored copy of a snapshot, with
-provenance). The code and the paragraphs below still say *locator* for source and
-*resource* for snapshot; they mean the same things.
+A **source** is one document a contest points at: an address, *as the contest means it* — what
+the address served for that contest. It is the document that matters, not the address: addresses
+die and get reused, so a source that is no longer at its address carries the time it is meant at
+(`as_of`). One entry of a contest's `sources:` is one source.
+
+The same document can be found in up to **three places**, and the site shows the three together,
+always in this order, wherever a source is listed (`avail()` in `tools/build_site.py`):
+
+| place | what is asked | values |
+| --- | --- | --- |
+| **live** — the address now | does it still serve the document? | live · changed · blocked · replaced · dead · could not tell · not checked |
+| **WB** — the Wayback Machine | does a snapshot show the document? which one? | snapshot · empty snapshot · no snapshot · excluded · not checked |
+| **ours** — our archive | do we hold a copy that is the document? | held · empty copy · missing |
+
+Any combination occurs. *lost* = dead at its address, no snapshot, no copy. *blocked* = the server
+answered but turned our fetcher away (HTTP 401/403, a certificate it does not trust): the live check
+records `dead`, the site shows what it is, and it never counts toward *lost*. *empty* (snapshot or
+copy) = something was stored, but it is not the document: an error page, a login wall, the shell of
+an app that shows nothing without a browser (`archive/tools/audit_not_there.py` decides;
+`content_caveat` records it).
+
+A **copy** is what we hold: a capture of one page, or a crawl of a website, taken from the address
+or from a Wayback snapshot, with the time it shows. The source page lists them under *Copies in our
+archive*. The words *snapshot* and *capture* remain in the tools (a snapshot is an address at one
+time; a capture is one stored fetch), and the code and the paragraphs below still say *locator* for
+the address and *resource* for an address at a time.
+
+**One address, several sources.** 9,551 of 10,327 addresses are cited by one contest: address and
+source coincide. 440 are cited by several — a results page reused every year, a joint scoreboard —
+and there each contest's citation is a source of its own, with its own time and its own copies
+(`copies_for`): a copy belongs to the contest it was captured for, or to a contest that means the
+same thing by the address (the same `as_of`; without one, the same season). The page of such an
+address has a row per contest.
+
+**ICPC standings** (`icpc_standings`) are pages of the CMS — an app, so a fetched page is an empty
+shell. Their copies are rendered from the open API's data instead (`tools/bake_icpc_standings.py`,
+source `icpc-api-archive`, time = the dump's date).
 
 **Sources: `scope`.** A source that covers one part of a contest, not all of it, says which:
 `scope: Division 1`. `tools/label_scopes.py` sets it from the archived capture (the Kattis filter
@@ -247,8 +279,10 @@ Australia) › **city** › **institution** (a university or other venue). Every
   node's name (`Perth Schools`, a division label, an unplaced institution).
 - `date` — the site's own date when it differs from the contest's (staggered sites).
 - `type` — `administrative` for the CMS's non-physical bookkeeping sites (its
-  "Administrative Site Location", staff, hidden teams: recorded as `{type: administrative}`
-  with no location) or `online` for teams competing remotely (with a location when the
+  "Administrative Site Location", staff, hidden teams, placeholder and registration groups:
+  recorded as `{type: administrative}` with no location; `tools/place_sites_2026_11_13.py`
+  marked 35 more and placed 75 sites whose name was a known place under a division label, an
+  alias, or an institution the tree lacked) or `online` for teams competing remotely (with a location when the
   organising site is known).
 - An entry with `name` but no `location` is a site the migration could not place; the
   open ones are listed in `data/locations-review-<date>.md`.
@@ -317,13 +351,17 @@ trail. `provenance:` and `notes:` on a contest record where facts came from;
    address label linking to the *source page*, a problem set its id, a problem its name,
    a date the date linking to its day in the calendar (`calendar/<year>.html`).
 2. **A link stays on the site unless marked ↗.** The address of a source is linked from
-   its source page only (the address now, the Wayback Machine, our archived copy).
+   its source page only (the address now, the Wayback snapshot that shows the document — never
+   the calendar when a snapshot is known — and our copy).
    Deliberate, marked exceptions: a problem's judge links, a contest's CMS links, a
    judge's own site.
 3. **Three kinds of content per contest** — website, results, problems — always in that
    order and always present, with one status vocabulary: *held* (green, filled), *known
    but not held* (amber, outlined), *none* (grey), *lost* (red: dead at its address, no
    Wayback snapshot, nothing held).
+   A source's availability is one unit of three marks, `live · WB · ours` (above, *Sources*),
+   shown wherever a source is listed; the checks behind it stay in `data/resources.json`
+   and are not shown.
 4. **One anatomy.** List page: title, one paragraph, key, filter bar, sortable table.
    Object page: breadcrumb, title, status chips, facts, sections. Tables of contests
    pick their columns from one set (`CONTEST_COLS`); groups of contests (a season, a
