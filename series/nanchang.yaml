@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/import_qoj_tree.py.
+# Maintained in-repo; last bulk edit: tools/bake_icpc_standings.py.
 series:
   id: nanchang
   name: ICPC Asia Nanchang Regional Contest
@@ -34,24 +34,27 @@ contests:
   - url: https://icpc.global/regionals/finder/Asia-Nanchang-2020/standings
     roles:
     - icpc_standings
+    archived:
+    - nanchang/nanchang-2019/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 4231, 331 teams, DB fetch 2026-04-26)
   - url: https://qoj.ac/contest/2825
     roles:
     - problemset
     - judge_page
+    judge: qoj
     url_state: live
     url_checked: '2026-11-03'
-    judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://www.luogu.com.cn/contest/366008
     roles:
     - judge_page
     judge: luogu
+    url_state: live
+    url_checked: '2026-11-03'
     note: '[ICPC2019 Nanchang R] ICPC 2019 区域赛南昌站重现赛 (judge hunt 2026-11-03: Luogu official-team mirror
       (重现赛 chóngxiànsài ''replay contest'', run 2026-10-29) of 2019 ICPC Asia Nanchang Regional Contest
       (2019-11-29); description says original problems+data; catalogue has no problem titles to check
       (13 problems on judge))'
-    url_state: live
-    url_checked: '2026-11-03'
   problems:
     set: nanchang-2019
 - id: nanchang-2026

@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/import_qoj_tree.py.
+# Maintained in-repo; last bulk edit: tools/bake_icpc_standings.py.
 series:
   id: guangzhou
   name: ACM-ICPC Asia Guangzhou Regional Contest
@@ -99,14 +99,17 @@ contests:
   - url: https://icpc.global/regionals/finder/Guangzhou-2015/standings
     roles:
     - icpc_standings
+    archived:
+    - guangzhou/guangzhou-2014/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 2605, 171 teams, DB fetch 2026-04-26)
   - url: https://acm.hdu.edu.cn/contests/contest_show.php?cid=558
     roles:
     - judge_page
     judge: hdu
+    url_state: live
+    url_checked: '2026-11-03'
     note: '2014ACM/ICPC亚洲区广州站-重现赛（感谢华工和北大） (judge hunt 2026-11-03: HDU public official-host-credited 重现赛/题目重现
       (replay / problem re-run) of 2014 ACM-ICPC Asia Guangzhou Regional Contest (2014-11-23), HDU contest
       start 2014-12-03; catalogue has no problem titles to check (11 problems on judge))'
-    url_state: live
-    url_checked: '2026-11-03'
   problems:
     set: guangzhou-2014

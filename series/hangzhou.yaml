@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/import_qoj_tree.py.
+# Maintained in-repo; last bulk edit: tools/bake_icpc_standings.py.
 series:
   id: hangzhou
   name: ICPC Asia Hangzhou Regional Contest
@@ -178,6 +178,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Hangzhou-2011/standings
     roles:
     - icpc_standings
+    archived:
+    - hangzhou/hangzhou-2010/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 660, 118 teams, DB fetch 2026-04-26)
 - id: hangzhou-2012
   season: 2013
   name: 2012 ACM-ICPC Asia Hangzhou Regional Contest
@@ -210,6 +213,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Hangzhou-2013/standings
     roles:
     - icpc_standings
+    archived:
+    - hangzhou/hangzhou-2012/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 1359, 141 teams, DB fetch 2026-04-26)
 - id: hangzhou-2013
   season: 2014
   name: 2013 ACM-ICPC Asia Hangzhou Regional Contest
@@ -242,15 +248,18 @@ contests:
   - url: https://icpc.global/regionals/finder/Hangzhou-2014/standings
     roles:
     - icpc_standings
+    archived:
+    - hangzhou/hangzhou-2013/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 1955, 145 teams, DB fetch 2026-04-26)
   - url: https://acm.hdu.edu.cn/contests/contest_show.php?cid=486
     roles:
     - judge_page
     judge: hdu
+    url_state: dead
+    url_checked: '2026-11-03'
     note: '2013ACM/ICPC亚洲区杭州站现场赛——题目重现 (judge hunt 2026-11-03: HDU public official-host-credited 重现赛/题目重现
       (replay / problem re-run) of 2013 ACM-ICPC Asia Hangzhou Regional Contest (2013-10-27), HDU contest
       start 2013-11-09; catalogue has no problem titles to check (11 problems on judge))'
-    url_state: dead
-    url_checked: '2026-11-03'
   problems:
     set: hangzhou-2013
 - id: hangzhou-2022
@@ -285,6 +294,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Hangzhou-2023/standings
     roles:
     - icpc_standings
+    archived:
+    - hangzhou/hangzhou-2022/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 6158, 546 teams, DB fetch 2026-04-26)
   - url: https://icpcarchive.github.io/Asia%20East%20Continent%20Contests/Hangzhou/2022%20Asia%20Hangzhou%20Regional%20Contest/problems.pdf
     roles:
     - problemset
@@ -294,10 +306,10 @@ contests:
     roles:
     - judge_page
     judge: codeforces
-    note: 'The 2022 ICPC Asia Hangzhou Regional Programming Contest (judge hunt 2026-11-03: name+year:
-      ''The 2022 ICPC Asia Hangzhou Regional Programming Contest'' -> season start 2022)'
     url_state: live
     url_checked: '2026-11-03'
+    note: 'The 2022 ICPC Asia Hangzhou Regional Programming Contest (judge hunt 2026-11-03: name+year:
+      ''The 2022 ICPC Asia Hangzhou Regional Programming Contest'' -> season start 2022)'
   - url: https://qoj.ac/contest/1071
     roles:
     - judge_page
@@ -340,6 +352,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Hangzhou-2024/standings
     roles:
     - icpc_standings
+    archived:
+    - hangzhou/hangzhou-2023/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 7691, 442 teams, DB fetch 2026-04-26)
   - url: https://icpcarchive.github.io/Asia%20East%20Continent%20Contests/Hangzhou/2023%20Asia%20Hangzhou%20Regional%20Contest/problems.pdf
     roles:
     - problemset
@@ -349,12 +364,12 @@ contests:
     roles:
     - judge_page
     judge: codeforces
+    url_state: live
+    url_checked: '2026-11-03'
     note: 'The 2023 ICPC Asia Hangzhou Regional Contest (The 2nd Universal Cup. Stage 22: Hangzhou) (judge
       hunt 2026-11-03: name+year: ''The 2023 ICPC Asia Hangzhou Regional Contest (The 2nd Universal Cup.
       Stage 22: Hangzhou)'' -> season start 2023; gym is the Universal/Open Cup replay of the regional
       set)'
-    url_state: live
-    url_checked: '2026-11-03'
   - url: https://qoj.ac/contest/1516
     roles:
     - judge_page
@@ -386,6 +401,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Hangzhou-2025/standings
     roles:
     - icpc_standings
+    archived:
+    - hangzhou/hangzhou-2024/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 9014, 366 teams, DB fetch 2026-04-26)
   - url: https://codeforces.com/gym/105657
     roles:
     - problemset
@@ -396,12 +414,12 @@ contests:
     roles:
     - judge_page
     judge: luogu
+    url_state: live
+    url_checked: '2026-11-03'
     note: '[ICPC2024 Hangzhou R] ICPC2024 区域赛杭州站重现赛 (judge hunt 2026-11-03: Luogu official-team mirror
       (重现赛 chóngxiànsài ''replay contest'', run 2025-10-11) of 2024 ICPC Asia Hangzhou Regional Contest
       (2024-11-10); description says original problems+data; catalogue has no problem titles to check
       (13 problems on judge))'
-    url_state: live
-    url_checked: '2026-11-03'
   - url: https://qoj.ac/contest/1893
     roles:
     - judge_page

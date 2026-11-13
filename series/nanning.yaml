@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/import_qoj_tree.py.
+# Maintained in-repo; last bulk edit: tools/bake_icpc_standings.py.
 series:
   id: nanning
   name: ACM-ICPC Asia Nanning Regional Contest
@@ -45,23 +45,26 @@ contests:
   - url: https://icpc.global/regionals/finder/AR-Nanning-2018/standings
     roles:
     - icpc_standings
+    archived:
+    - nanning/nanning-2017/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 3370, 228 teams, DB fetch 2026-04-26)
   - url: https://qoj.ac/contest/2114
     roles:
     - problemset
     - judge_page
+    judge: qoj
     url_state: changed
     url_checked: '2026-11-03'
-    judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://www.luogu.com.cn/contest/344657
     roles:
     - judge_page
     judge: luogu
+    url_state: live
+    url_checked: '2026-11-03'
     note: '[ICPC2017 Nanning R] ICPC 2017 区域赛南宁站重现赛 (judge hunt 2026-11-03: Luogu official-team mirror
       (重现赛 chóngxiànsài ''replay contest'', run 2026-08-09) of 2017 ACM-ICPC Asia Nanning Regional Contest
       (2017-11-26); description says original problems+data; catalogue has no problem titles to check
       (13 problems on judge))'
-    url_state: live
-    url_checked: '2026-11-03'
   problems:
     set: nanning-2017

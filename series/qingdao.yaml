@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/import_qoj_tree.py.
+# Maintained in-repo; last bulk edit: tools/bake_icpc_standings.py.
 series:
   id: qingdao
   name: ICPC Asia QingDao Regional Contest
@@ -36,23 +36,26 @@ contests:
   - url: https://icpc.global/regionals/finder/QingDao-2017/standings
     roles:
     - icpc_standings
+    archived:
+    - qingdao/qingdao-2016/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 3028, 327 teams, DB fetch 2026-04-26)
   - url: https://qoj.ac/contest/2549
     roles:
     - problemset
     - judge_page
+    judge: qoj
     url_state: changed
     url_checked: '2026-11-03'
-    judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://acm.hdu.edu.cn/contests/contest_show.php?cid=737
     roles:
     - judge_page
     judge: hdu
+    url_state: dead
+    url_checked: '2026-11-03'
     note: '2016ACM/ICPC亚洲区青岛站-重现赛（感谢中国石油大学） (judge hunt 2026-11-03: HDU public official-host-credited
       重现赛/题目重现 (replay / problem re-run) of 2016 ACM-ICPC Asia QingDao Regional Contest (2016-11-13),
       HDU contest start 2016-11-19; catalogue has no problem titles to check (13 problems on judge))'
-    url_state: dead
-    url_checked: '2026-11-03'
   problems:
     set: qingdao-2016
 - id: qingdao-2017
@@ -102,24 +105,27 @@ contests:
   - url: https://icpc.global/regionals/finder/QingDao-2018/standings
     roles:
     - icpc_standings
+    archived:
+    - qingdao/qingdao-2017/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 3372, 356 teams, DB fetch 2026-04-26)
   - url: https://qoj.ac/contest/2108
     roles:
     - problemset
     - judge_page
+    judge: qoj
     url_state: changed
     url_checked: '2026-11-03'
-    judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://www.luogu.com.cn/contest/334256
     roles:
     - judge_page
     judge: luogu
+    url_state: live
+    url_checked: '2026-11-03'
     note: '[ICPC2017 Qingdao R] ICPC 2017 区域赛青岛站重现赛 (judge hunt 2026-11-03: Luogu official-team mirror
       (重现赛 chóngxiànsài ''replay contest'', run 2026-07-12) of 2017 ACM-ICPC Asia QingDao Regional Contest
       (2017-11-05); description says original problems+data; catalogue has no problem titles to check
       (11 problems on judge))'
-    url_state: live
-    url_checked: '2026-11-03'
   problems:
     set: qingdao-2017
 - id: qingdao-2018
@@ -167,6 +173,9 @@ contests:
   - url: https://icpc.global/regionals/finder/QingDao-2019/standings
     roles:
     - icpc_standings
+    archived:
+    - qingdao/qingdao-2018/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 3718, 343 teams, DB fetch 2026-04-26)
   - url: https://xcpcio.github.io/upload-file/icpc/2018/qd2018_problems.pdf
     roles:
     - problemset
@@ -176,10 +185,10 @@ contests:
     roles:
     - judge_page
     judge: kattis
-    note: Kattis problem-sources page (export source "The 2018 ICPC Asia Qingdao Regional Programming
-      Contest", 2026-11-02)
     url_state: live
     url_checked: '2026-11-03'
+    note: Kattis problem-sources page (export source "The 2018 ICPC Asia Qingdao Regional Programming
+      Contest", 2026-11-02)
   - url: https://codeforces.com/gym/104270
     roles:
     - judge_page
@@ -200,12 +209,12 @@ contests:
     roles:
     - judge_page
     judge: luogu
+    url_state: live
+    url_checked: '2026-11-03'
     note: '[ICPC2018 Qingdao R] ICPC2018 区域赛青岛站重现赛 (judge hunt 2026-11-03: Luogu official-team mirror
       (重现赛 chóngxiànsài ''replay contest'', run 2023-11-26) of 2018 ICPC Asia QingDao Regional Contest
       (2018-11-04); description says original problems+data; 2/2 catalogue problem titles matched among
       13 judge problems)'
-    url_state: live
-    url_checked: '2026-11-03'
   - url: https://qoj.ac/contest/1187
     roles:
     - judge_page

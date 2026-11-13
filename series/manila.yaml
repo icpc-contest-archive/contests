@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/cleanup_2026_11_12.py.
+# Maintained in-repo; last bulk edit: tools/bake_icpc_standings.py.
 series:
   id: manila
   name: ICPC Asia Manila Regional Contest
@@ -118,7 +118,8 @@ contests:
     type: online
   - name: Asia - Manila - Foreign Teams
     type: online
-  - name: Asia - Manila - Final Round
+  - location: ph-pasig-ua-p
+    name: Asia - Manila - Final Round
   cms_ids:
   - 1287
   parent: wf-2005
@@ -158,6 +159,7 @@ contests:
     name: Vietnam Nationwide Programming Contest
     date: '2005-04-24'
   - name: Asia-Foreign Team Manila Registration Site
+    type: administrative
   - location: ph-manila
     name: Asia Nationwide Manila Contest Site
   cms_ids:
@@ -289,6 +291,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Manila-2012/standings
     roles:
     - icpc_standings
+    archived:
+    - manila/manila-2011/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 805, 72 teams, DB fetch 2026-04-26)
 - id: manila-2016
   season: 2017
   name: 2016 ACM-ICPC Asia Manila Regional Contest
@@ -321,6 +326,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Asia-Manila-2017/standings
     roles:
     - icpc_standings
+    archived:
+    - manila/manila-2016/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 3026, 40 teams, DB fetch 2026-04-26)
   - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Philippines/2016%20Asia%20Manila%20Regional%20Contest/problems.pdf
     roles:
     - problemset
@@ -368,6 +376,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Asia-Manila-2018/standings
     roles:
     - icpc_standings
+    archived:
+    - manila/manila-2017/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 3417, 35 teams, DB fetch 2026-04-26)
   - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Philippines/2017%20Asia%20Manila%20Regional%20Contest/problems.pdf
     roles:
     - problemset
@@ -402,6 +413,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Asia-Manila-2020/standings
     roles:
     - icpc_standings
+    archived:
+    - manila/manila-2019/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 4156, 46 teams, DB fetch 2026-04-26)
   - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Philippines/2019%20Asia%20Manila%20Regional%20Contest/problems.pdf
     roles:
     - problemset
@@ -438,6 +452,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Asia-Manila-2023/standings
     roles:
     - icpc_standings
+    archived:
+    - manila/manila-2022/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 5609, 28 teams, DB fetch 2026-04-26)
   - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Philippines/2022%20Asia%20Manila%20Regional%20Contest/problems.pdf
     roles:
     - problemset
@@ -447,10 +464,10 @@ contests:
     roles:
     - judge_page
     judge: codeforces
-    note: '2022 ICPC Asia-Manila Regional Contest (judge hunt 2026-11-03: name+year: ''2022 ICPC Asia-Manila
-      Regional Contest'' -> season start 2022)'
     url_state: live
     url_checked: '2026-11-03'
+    note: '2022 ICPC Asia-Manila Regional Contest (judge hunt 2026-11-03: name+year: ''2022 ICPC Asia-Manila
+      Regional Contest'' -> season start 2022)'
   - url: https://qoj.ac/contest/2781
     roles:
     - judge_page
@@ -488,6 +505,7 @@ contests:
     - icpc_standings
     archived:
     - manila/manila-2025/external-standings/2026-04-15-external/content.html
+    - manila/manila-2025/standings/api-20261113/standings.html
     note: from archived capture (external-standings)
   - url: https://codeforces.com/gym/106262
     roles:

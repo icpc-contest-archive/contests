@@ -80,6 +80,7 @@ dl.facts dt { color:var(--muted); } dl.facts dd { margin:0; overflow-wrap:anywhe
 .nums div { min-width:5.5rem; }
 .nums b { display:block; font-size:1.45rem; font-weight:600; line-height:1.2; font-variant-numeric:tabular-nums; }
 .nums span { color:var(--muted); font-size:.86rem; }
+.nums b .pc { font-style:normal; font-size:.62em; font-weight:400; color:var(--muted); margin-left:.15em; }
 .meter { display:block; height:5px; width:100%; max-width:9rem; margin-top:.3rem; border-radius:3px; background:var(--wash); overflow:hidden; }
 .meter i { display:block; height:100%; background:var(--held); }
 
@@ -103,6 +104,10 @@ a.m:hover { text-decoration:none; filter:brightness(.92); }
 .m.n { border-color:var(--line); color:var(--muted); opacity:.75; }           /* none */
 .m.u { border:1px dashed var(--line); color:var(--muted); opacity:.75; }      /* not recorded */
 .m.x { background:var(--lost); color:var(--paper); }                         /* lost */
+.av { white-space:nowrap; } .av .m { cursor:default; font-weight:600; }
+.av .m.n { text-decoration:line-through; }   /* not there — against dashed: nobody has looked */
+.av .chip { margin-left:.2em; }
+.status .av .m { font-size:.92em; padding:.05em .5em; }
 .key { color:var(--muted); font-size:.86rem; margin:.4rem 0 .6rem; }
 .key .m { cursor:default; }
 
@@ -162,6 +167,10 @@ table.heat td.hc { text-align:right; min-width:4.6rem; }
 table.heat td.hc a { color:inherit; }
 
 /* ---- source page ---- */
+table.where { width:auto; max-width:110ch; margin:.3rem 0 .6rem; }
+table.where th { font-weight:600; white-space:nowrap; padding-left:0; background:none; }
+table.where td { vertical-align:baseline; }
+table.where td:last-child a { font-weight:600; }
 .snap { border-left:3px solid var(--line); padding:.2rem 0 .3rem .9rem; margin:.8rem 0; }
 .snap:target { border-left-color:var(--link); }
 .snap h3 { margin:.2rem 0 .3rem; }

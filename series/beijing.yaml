@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/import_qoj_tree.py.
+# Maintained in-repo; last bulk edit: tools/bake_icpc_standings.py.
 series:
   id: beijing
   name: ICPC Asia Beijing Regional Contest
@@ -176,6 +176,7 @@ contests:
   - location: cn-beijing-buct
     date: '2005-09-24'
   - name: Asia-Non-Mainland Team Beijing Registration Site
+    type: administrative
   - location: cn-beijing-bnu
     date: '2005-04-23'
   - location: cn-beijing-peking
@@ -236,6 +237,7 @@ contests:
   sites:
   - name: zzz Site for future use
     date: '2006-01-01'
+    type: administrative
   - location: cn-beijing-tsinghua
     name: Asia Beijing - Outside Mainland China Teams Registration
     type: administrative
@@ -244,6 +246,7 @@ contests:
     date: '2006-09-16'
   - name: zz Site to be used later
     date: '2006-01-01'
+    type: administrative
   - name: Asia Beijing - Mainland China Teams Internet Contest
     date: '2006-10-07'
     type: online
@@ -432,6 +435,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Beijing-2012/standings
     roles:
     - icpc_standings
+    archived:
+    - beijing/beijing-2011/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 796, 128 teams, DB fetch 2026-04-26)
 - id: beijing-2014
   season: 2015
   name: 2014 ACM-ICPC Asia Beijing Regional Contest
@@ -472,15 +478,18 @@ contests:
   - url: https://icpc.global/regionals/finder/Beijing-2015/standings
     roles:
     - icpc_standings
+    archived:
+    - beijing/beijing-2014/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 2615, 163 teams, DB fetch 2026-04-26)
   - url: https://acm.hdu.edu.cn/contests/contest_show.php?cid=556
     roles:
     - judge_page
     judge: hdu
+    url_state: dead
+    url_checked: '2026-11-03'
     note: '2014ACM/ICPC亚洲区北京站-重现赛（感谢北师和上交） (judge hunt 2026-11-03: HDU public official-host-credited 重现赛/题目重现
       (replay / problem re-run) of 2014 ACM-ICPC Asia Beijing Regional Contest (2014-11-16), HDU contest
       start 2014-11-29; catalogue has no problem titles to check (11 problems on judge))'
-    url_state: dead
-    url_checked: '2026-11-03'
   problems:
     set: beijing-2014
 - id: beijing-2015
@@ -511,6 +520,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Beijing-2016/standings
     roles:
     - icpc_standings
+    archived:
+    - beijing/beijing-2015/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 2917, 200 teams, DB fetch 2026-04-26)
   - url: https://xcpcio.github.io/upload-file/icpc/2015/icpc_beijing_2015_statements.pdf
     roles:
     - problemset
@@ -545,6 +557,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Beijing-2017/standings
     roles:
     - icpc_standings
+    archived:
+    - beijing/beijing-2016/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 3044, 182 teams, DB fetch 2026-04-26)
 - id: beijing-2017
   season: 2018
   name: 2017 ACM-ICPC Asia Beijing Regional Contest
@@ -574,13 +589,16 @@ contests:
   - url: https://icpc.global/regionals/finder/Beijing-2018/standings
     roles:
     - icpc_standings
+    archived:
+    - beijing/beijing-2017/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 3376, 186 teams, DB fetch 2026-04-26)
   - url: https://qoj.ac/contest/1809
     roles:
     - problemset
     - judge_page
+    judge: qoj
     url_state: changed
     url_checked: '2026-11-03'
-    judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
 - id: beijing-2018
   season: 2019

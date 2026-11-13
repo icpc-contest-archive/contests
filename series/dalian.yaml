@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/bake_icpc_standings.py.
 series:
   id: dalian
   name: ACM-ICPC Asia Dalian Regional Contest
@@ -51,6 +51,9 @@ contests:
   - url: https://icpc.global/regionals/finder/Dalian-2012/standings
     roles:
     - icpc_standings
+    archived:
+    - dalian/dalian-2011/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 794, 140 teams, DB fetch 2026-04-26)
 - id: dalian-2016
   season: 2017
   name: 2016 ACM-ICPC Asia Dalian Regional Contest
@@ -80,14 +83,17 @@ contests:
   - url: https://icpc.global/regionals/finder/Dalian-2017/standings
     roles:
     - icpc_standings
+    archived:
+    - dalian/dalian-2016/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 3024, 229 teams, DB fetch 2026-04-26)
   - url: https://acm.hdu.edu.cn/contests/contest_show.php?cid=736
     roles:
     - judge_page
     judge: hdu
+    url_state: dead
+    url_checked: '2026-11-03'
     note: '2016ACM/ICPC亚洲区大连站-重现赛（感谢大连海事大学） (judge hunt 2026-11-03: HDU public official-host-credited
       重现赛/题目重现 (replay / problem re-run) of 2016 ACM-ICPC Asia Dalian Regional Contest (2016-10-16), HDU
       contest start 2016-11-06; catalogue has no problem titles to check (11 problems on judge))'
-    url_state: dead
-    url_checked: '2026-11-03'
   problems:
     set: dalian-2016
