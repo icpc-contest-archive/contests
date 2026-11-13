@@ -1363,18 +1363,21 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
         b.append(R.line("name", "no name recorded"))
     b.append(status_chips(c, cid, rel))
     upcoming = c.get("status") == "upcoming"
-    b.append(R.line("ran", ("Has not run yet" if upcoming else "Took place") + f", in the series {esc(sid)}", ("upcoming " if upcoming else "") + sid))
+    b.append(R.line("ran", "Has not run yet" if upcoming else "Took place", "upcoming" if upcoming else "yes"))
 
     # ---- facts ----
     d = ['<dl class="facts">',
-         f"<dt>series</dt><dd>{link_series(sid, rel)} <span class=\"muted\">{esc(level_of(sid))} · {esc(SERIES_REGION.get(sid, ''))}</span></dd>"]
+         f"<dt>series</dt><dd>{R.U('series', link_series(sid, rel), sid)} <span class=\"muted\">{esc(level_of(sid))} · {esc(SERIES_REGION.get(sid, ''))}</span></dd>"]
     if c.get("season"):
         d.append(f"<dt>season</dt><dd>{R.U('season', link_season(c['season'], rel), c['season'])}</dd>")
     d.append("<dt>date</dt><dd>" + R.U("date", link_date(c["date"], rel) if c.get("date") else '<span class="muted">not known</span>', c.get("date") or "") + "</dd>")
     all_sites = c.get("sites") or []
-    def site_unit(s):  # one site as a reviewable unit; its key is the place and the name it goes by
+    def site_unit(s):  # one site as a reviewable unit, and its own date as another; the key is the place and the name it goes by
         x = site_line(s, rel)
         key = ("online: " if s.get("type") == "online" else "") + " ".join(str(v) for v in (s.get("location"), s.get("name")) if v)
+        when = f'<span class="small muted">{esc(s["date"])}</span>' if s.get("date") else None
+        if x and when and " " + when in x:
+            return R.U("site", x.replace(" " + when, "", 1), key, key) + " " + R.U("site_date", when, s["date"], key)
         return R.U("site", x, key, key) if x else ""
     phys = [x for x in (site_unit(s) for s in all_sites if not s.get("type")) if x]
     remote = [x for x in (site_unit(s) for s in all_sites if s.get("type") == "online") if x]
@@ -1404,11 +1407,12 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
         ("subset of", [c["subset_of"]] if c.get("subset_of") else []),
         ("regional views", sorted(SUBSETS.get(cid, []))),
     ):
-        unit = {"advances to": "advances", "next edition": "next", "subset of": "subset_of"}.get(label)
+        # every relation is reviewed where it is shown, also the ones stored on the other contest (fed by, previous edition, regional views)
+        unit = {"advances to": "advances", "fed by": "fed_by", "previous edition": "previous", "next edition": "next",
+                "subset of": "subset_of", "regional views": "views"}[label]
         if ids:
-            links = ", ".join(link_contest(x, rel, False) for x in ids)
-            d.append(f"<dt>{label}</dt><dd>" + (R.U(unit, links, ",".join(ids)) if unit else links) + "</dd>")
-        elif unit and not (unit == "advances" and "parent" in c):
+            d.append(f"<dt>{label}</dt><dd>" + R.U(unit, ", ".join(link_contest(x, rel, False) for x in ids), ",".join(ids)) + "</dd>")
+        elif unit not in ("fed_by", "views") and not (unit == "advances" and "parent" in c):
             d.append(R.row(unit, label))
     if c.get("parent") is None and "parent" in c:
         d.append('<dt>advances to</dt><dd class="muted">' + R.U("advances", "nothing — the top of the hierarchy", "nothing") + "</dd>")
@@ -1925,9 +1929,9 @@ def problem_page(pid: str, ent: dict, rel: str) -> str:
     d = ['<dl class="facts">']
     apps = []
     for sid, cid, L in ent["apps"]:
-        apps.append((f"problem <b>{esc(L)}</b> of " if L else "") + contest_ref(cid, rel)
-                    + (f' <span class="muted">· set {set_link(sid, rel)}</span>' if sid != cid else ""))
-    d.append("<dt>appeared as</dt><dd>" + "<br>".join(apps) + "</dd>")
+        apps.append(R.U("appearance", (f"problem <b>{esc(L)}</b> of " if L else "") + contest_ref(cid, rel)
+                        + (f' <span class="muted">· set {set_link(sid, rel)}</span>' if sid != cid else ""), (f"{L} of " if L else "") + cid, cid))
+    d.append("<dt>appeared as</dt><dd>" + "<br>".join(apps) + " " + R.slot("appearance", "add a contest it appeared in") + "</dd>")
     if not private:
         seen, jl = set(), []
         for _s, r in rows:
