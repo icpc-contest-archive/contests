@@ -1,8 +1,14 @@
 """Review mode: the units a reader can confirm, correct or add to (DEFINITIONS.md, Review mode).
 
 A unit is one claim that can be right or wrong on its own. build_site.py wraps each unit where
-its object's own page shows it; the wrapper carries the unit's key and the catalogue's value,
+its object's own page states it; the wrapper carries the unit's key and the catalogue's value,
 and does nothing until the reader switches review mode on (tools/site_assets/review.js).
+
+A page is reviewed as it reads. Some facts are stored once and shown from both ends: a contest's
+previous edition is the other contest's `next`, "fed by" is the other contests' `parent`, a
+problem's appearances are the sets' problem lists and the contests' letters. Each end is a unit
+of the page that shows it (`previous`, `fed_by`, `views`, `appearance`), and reading a review
+means translating those to where the fact is stored.
 
     U(unit, inner, value)      a unit that is on the page
     row(unit, label)           a facts row for a unit with no value: shown in review mode only
@@ -25,14 +31,19 @@ STATS: Counter = Counter()  # kind -> units written, for the build's summary
 # kind -> unit key -> (label, many, hint).  `many`: the object can have several, so "add" means one more.
 UNITS: dict[str, dict[str, tuple[str, bool, str]]] = {
     "contest": {
-        "ran": ("Took place, in this series", False, "what is wrong: it did not take place, or it belongs to another series"),
+        "series": ("Series", False, "the id of the series it belongs to"),
+        "ran": ("Took place", False, "what is wrong: it did not take place, or it has not run yet"),
         "name": ("Name", False, "the contest's full name"),
         "date": ("Date", False, "the contest day, YYYY-MM-DD"),
         "season": ("Season", False, "the year the season ends, e.g. 2027"),
         "site": ("Site", True, "the city or institution it was held at, or: online"),
+        "site_date": ("Date at this site", False, "the day this site held it, YYYY-MM-DD"),
         "advances": ("Advances to", False, "contest id, e.g. wf-2018, or: nothing"),
+        "fed_by": ("Fed by", False, "ids of the contests whose teams advance to this one"),
+        "previous": ("Previous edition", False, "contest id, e.g. nwerc-2019"),
         "next": ("Next edition", False, "contest id, e.g. nwerc-2021"),
         "subset_of": ("Subset of", False, "id of the larger contest this is one region's view of"),
+        "views": ("Regional views", False, "ids of the contests that are one region's view of this one"),
         "cms_id": ("ICPC CMS id", False, "the number in the ICPC CMS, or: none"),
         "source": ("Source", True, ""),
         "division": ("Division", False, "the part of the contest this source covers, e.g. Division 1"),
@@ -60,6 +71,7 @@ UNITS: dict[str, dict[str, tuple[str, bool, str]]] = {
     "problem": {
         "name": ("Name", False, "the problem's title"),
         "judge_link": ("Online-judge link", True, "the problem's address on an online judge"),
+        "appearance": ("Appeared as", True, "a contest that used this problem, and its letter there"),
     },
     "location": {
         "name": ("Name", False, "the place's name"),

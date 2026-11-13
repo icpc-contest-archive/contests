@@ -373,9 +373,12 @@ trail. `provenance:` and `notes:` on a contest record where facts came from;
 
 Review mode lets a reader confirm, correct and add to what the catalogue says, on the page that says it. It has three parts.
 
-**Units.** A unit is one claim that can be right or wrong on its own. `tools/review_units.py` holds the one list (`UNITS`: 37 units on
+**Units.** A unit is one claim that can be right or wrong on its own. `tools/review_units.py` holds the one list (`UNITS`: 43 units on
 seven kinds of object) and the helpers `build_site.py` wraps them with: `U()` for a unit that is on the page, `row()` and `line()` for
-one the page does not show, `slot()` for the place where one more can be added. A unit is marked on its own object's page only. The
+one the page does not show, `slot()` for the place where one more can be added. A page is reviewed as it reads: a fact is a unit wherever an
+object's page states it in its facts, also when the catalogue stores it on another object (a contest's previous edition is the other
+contest's `next`; `previous`, `fed_by`, `views` and a problem's `appearance` are such units, and reading a review translates them to
+where the fact is stored). Tables that list many objects carry no units. The
 marker carries the unit's key, the catalogue's value and, when the object has several, which one:
 `<span class="u" data-u="date" data-v="2017-10-21">`. The object is named by `<h1 data-at="contest/alberta-2017">`. Rows and slots for
 units without a value have the class `rvo` and are hidden unless review mode is on. The build prints how many units it wrote per kind
