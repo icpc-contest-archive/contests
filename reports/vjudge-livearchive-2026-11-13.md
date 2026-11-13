@@ -1,0 +1,471 @@
+# Live Archive problem lists via vjudge — 2026-11-13
+
+- problems created: 0
+- judge links added: 12
+
+## held back: archive lists more problems than the set's count (1)
+
+- rmc-2001 (count 8) <- Regionals 2001 >> North America - Rocky Mountain: 9 problems (2408–2416)
+
+## judge links added to listed problems (1)
+
+- nerc-2017: 12 of 12
+
+## mapped contest not in the catalogue (3)
+
+- nwerc-1989 <- Regionals 1989 >> Europe - Northwestern: 4 problems (5566–5569)
+- nwerc-1992 <- Regionals 1992 >> Europe - Northwestern: 8 problems (5570–5577)
+- south-america-2008 <- Regionals 2008 >> Latin America - South America: 11 problems (4210–4220)
+
+# First run of the day (1,432 problems created, 2,472 links)
+
+### judge links added to listed problems (295)
+
+- south-pacific-1993: 7 of 7
+- nwerc-1996: 2 of 8
+- ncna-1997: 1 of 6
+- cerc-2000: 8 of 9
+- nwerc-2000: 3 of 3
+- nwerc-2001: 8 of 8
+- pacnw-2001: 5 of 5
+- scusa-2001: 6 of 8
+- socal-2001: 3 of 4
+- beijing-2002: 8 of 8
+- japan-2002: 8 of 8
+- kanpur-2002: 8 of 8
+- taiwan-2002: 8 of 8
+- manila-2002: 1 of 9
+- korea-2002: 5 of 8
+- tehran-2002: 7 of 7
+- xian-2002: 8 of 9
+- cerc-2002: 5 of 8
+- neerc-2002: 9 of 9
+- nwerc-2002: 8 of 8
+- gny-2002: 1 of 9
+- mausa-2002: 5 of 8
+- mcpc-2002: 6 of 7
+- scusa-2002: 7 of 8
+- japan-2003: 8 of 8
+- beijing-2003: 8 of 8
+- taiwan-2003: 3 of 9
+- tehran-2003: 8 of 8
+- cerc-2003: 5 of 9
+- neerc-2003: 11 of 11
+- nwerc-2003: 8 of 8
+- gny-2003: 1 of 9
+- mausa-2003: 1 of 8
+- mcpc-2003: 7 of 8
+- scusa-2003: 8 of 8
+- beijing-2004: 1 of 9
+- japan-2004: 9 of 9
+- korea-2004: 1 of 9
+- shanghai-2004: 10 of 10
+- tehran-2004: 8 of 8
+- cerc-2004: 1 of 9
+- neerc-2004: 12 of 12
+- nwerc-2004: 9 of 9
+- ecna-2004: 8 of 8
+- gny-2004: 1 of 9
+- mausa-2004: 8 of 8
+- mcpc-2004: 7 of 7
+- ncna-2004: 8 of 9
+- pacnw-2004: 3 of 3
+- taiwan-2005: 9 of 9
+- tehran-2005: 7 of 10
+- japan-2005: 8 of 9
+- neerc-2005: 1 of 11
+- nwerc-2005: 9 of 9
+- south-america-2005: 9 of 9
+- ecna-2005: 8 of 8
+- gny-2005: 3 of 8
+- mausa-2005: 8 of 8
+- mcpc-2005: 7 of 9
+- pacnw-2005: 4 of 4
+- rmc-2005: 7 of 9
+- scusa-2005: 8 of 8
+- tehran-2006: 7 of 9
+- japan-2006: 8 of 9
+- neerc-2006: 8 of 11
+- nwerc-2006: 9 of 9
+- ecna-2006: 8 of 8
+- gny-2006: 1 of 9
+- mausa-2006: 7 of 8
+- mcpc-2006: 5 of 7
+- ncna-2006: 7 of 9
+- nena-2006: 8 of 8
+- pacnw-2006: 8 of 10
+- rmc-2006: 5 of 6
+- scusa-2006: 7 of 8
+- tehran-2007: 9 of 10
+- japan-2007: 10 of 10
+- cerc-2007: 9 of 10
+- nwerc-2007: 10 of 10
+- south-america-2007: 10 of 10
+- ecna-2007: 8 of 8
+- gny-2007: 1 of 9
+- mausa-2007: 7 of 8
+- mcpc-2007: 8 of 8
+- ncna-2007: 9 of 9
+- pacnw-2007: 8 of 11
+- rmc-2007: 8 of 9
+- scusa-2007: 8 of 9
+- japan-2008: 10 of 10
+- kanpur-2008: 8 of 8
+- korea-2008: 1 of 10
+- tehran-2008: 10 of 10
+- cerc-2008: 2 of 10
+- neerc-2008: 1 of 11
+- nwerc-2008: 10 of 10
+- ecna-2008: 8 of 8
+- gny-2008: 1 of 9
+- mausa-2008: 7 of 8
+- mcpc-2008: 8 of 8
+- ncna-2008: 8 of 8
+- pacnw-2008: 7 of 8
+- scusa-2008: 9 of 9
+- amritapuri-2009: 3 of 10
+- gwalior-kanpur-2009: 7 of 7
+- tehran-2009: 10 of 10
+- japan-2009: 10 of 10
+- wuhan-2009: 10 of 10
+- neerc-2009: 10 of 11
+- nwerc-2009: 10 of 10
+- latam-2009: 10 of 11
+- ecna-2009: 8 of 8
+- mausa-2009: 6 of 8
+- mcpc-2009: 9 of 9
+- ncna-2009: 10 of 10
+- nena-2009: 8 of 8
+- pacnw-2009: 11 of 11
+- rmc-2009: 9 of 9
+- scusa-2009: 8 of 8
+- amritapuri-2010: 10 of 10
+- korea-2010: 10 of 10
+- jakarta-2010: 9 of 10
+- tehran-2010: 11 of 11
+- japan-2010: 10 of 10
+- cerc-2010: 10 of 10
+- neerc-2010: 11 of 11
+- nwerc-2010: 10 of 10
+- latam-2010: 7 of 11
+- ecna-2010: 8 of 8
+- mausa-2010: 7 of 8
+- mcpc-2010: 6 of 9
+- ncna-2010: 9 of 9
+- nena-2010: 8 of 8
+- pacnw-2010: 7 of 11
+- rmc-2010: 6 of 9
+- korea-2011: 12 of 12
+- japan-2011: 10 of 10
+- taiwan-2011: 9 of 9
+- kanpur-2011: 10 of 10
+- thailand-2011: 3 of 10
+- shanghai-2011: 8 of 10
+- cerc-2011: 10 of 10
+- neerc-2011: 12 of 12
+- nwerc-2011: 10 of 10
+- latam-2011: 9 of 11
+- ecna-2011: 8 of 9
+- gny-2011: 1 of 9
+- mausa-2011: 7 of 8
+- mcpc-2011: 6 of 8
+- nena-2011: 8 of 8
+- pacnw-2011: 8 of 11
+- rmc-2011: 9 of 10
+- scusa-2011: 6 of 7
+- amritapuri-2012: 11 of 11
+- korea-2012: 5 of 12
+- thailand-2012: 10 of 10
+- kanpur-2012: 11 of 11
+- tehran-2012: 10 of 10
+- japan-2012: 10 of 10
+- cerc-2012: 11 of 11
+- neerc-2012: 4 of 12
+- nwerc-2012: 11 of 11
+- latam-2012: 7 of 10
+- ecna-2012: 9 of 9
+- gny-2012: 5 of 10
+- mausa-2012: 5 of 8
+- mcpc-2012: 6 of 8
+- ncna-2012: 9 of 9
+- nena-2012: 8 of 8
+- pacnw-2012: 7 of 12
+- japan-2013: 10 of 10
+- amritapuri-2013: 11 of 11
+- chengdu-2013: 10 of 10
+- korea-2013: 12 of 12
+- hangzhou-2013: 11 of 11
+- kanpur-2013: 9 of 9
+- kharagpur-2013: 10 of 10
+- nanjing-2013: 10 of 11
+- thailand-2013: 5 of 11
+- tehran-2013: 10 of 11
+- cerc-2013: 12 of 12
+- neerc-2013: 11 of 11
+- nwerc-2013: 10 of 10
+- latam-2013: 7 of 10
+- ecna-2013: 9 of 9
+- gny-2013: 3 of 9
+- mcpc-2013: 8 of 8
+- ncna-2013: 5 of 8
+- nena-2013: 4 of 8
+- pacnw-2013: 10 of 13
+- scusa-2013: 8 of 8
+- amritapuri-2014: 9 of 10
+- anshan-2014: 12 of 12
+- thailand-2014: 12 of 12
+- beijing-2014: 11 of 11
+- korea-2014: 7 of 12
+- guangzhou-2014: 11 of 11
+- kharagpur-2014: 10 of 10
+- kuala-lumpur-2014: 12 of 12
+- pakistan-2014: 7 of 7
+- tehran-2014: 9 of 11
+- japan-2014: 10 of 11
+- cerc-2014: 12 of 12
+- neerc-2014: 11 of 11
+- nwerc-2014: 11 of 11
+- latam-2014: 11 of 11
+- ecna-2014: 8 of 9
+- gny-2014: 9 of 9
+- mcpc-2014: 9 of 9
+- ncna-2014: 7 of 8
+- nena-2014: 7 of 8
+- pacnw-2014: 6 of 12
+- rmc-2014: 6 of 6
+- amritapuri-2015: 10 of 10
+- beijing-2015: 11 of 11
+- changchun-2015: 13 of 13
+- chennai-2015: 12 of 12
+- korea-2015: 5 of 12
+- vietnam-2015: 12 of 12
+- hefei-2015: 10 of 10
+- kolkata-2015: 11 of 11
+- thailand-2015: 10 of 12
+- shanghai-2015: 12 of 12
+- shenyang-2015: 13 of 13
+- singapore-2015: 11 of 11
+- tehran-2015: 10 of 10
+- japan-2015: 11 of 11
+- cerc-2015: 12 of 12
+- neerc-2015: 12 of 12
+- nwerc-2015: 11 of 11
+- latam-2015: 11 of 11
+- ecna-2015: 9 of 9
+- gny-2015: 4 of 9
+- mcpc-2015: 7 of 9
+- ncna-2015: 1 of 12
+- nena-2015: 8 of 8
+- pacnw-2015: 11 of 11
+- rmc-2015: 10 of 10
+- scusa-2015: 6 of 6
+- amritapuri-2016: 10 of 12
+- thailand-2016: 12 of 12
+- chennai-2016: 10 of 10
+- korea-2016: 9 of 12
+- dalian-2016: 11 of 11
+- hong-kong-2016: 11 of 11
+- india-2016: 11 of 12
+- kharagpur-2016: 10 of 11
+- kolkata-2016: 11 of 12
+- manila-2016: 12 of 12
+- vietnam-2016: 11 of 12
+- qingdao-2016: 13 of 13
+- shenyang-2016: 13 of 13
+- tehran-2016: 12 of 12
+- japan-2016: 11 of 11
+- yangon-2016: 12 of 12
+- cerc-2016: 12 of 12
+- neerc-2016: 13 of 13
+- nwerc-2016: 11 of 11
+- latam-2016: 10 of 11
+- ecna-2016: 10 of 10
+- gny-2016: 9 of 10
+- mausa-2016: 3 of 5
+- mcpc-2016: 6 of 7
+- nena-2016: 8 of 8
+- pacnw-2016: 6 of 6
+- rmc-2016: 5 of 5
+- acpc-2017: 11 of 11
+- urumqi-2017: 9 of 11
+- korea-2017: 12 of 12
+- vietnam-2017: 12 of 12
+- hong-kong-2017: 11 of 11
+- jakarta-2017: 11 of 12
+- manila-2017: 13 of 13
+- nanning-2017: 13 of 13
+- qingdao-2017: 11 of 11
+- shenyang-2017: 13 of 13
+- tehran-2017: 11 of 11
+- japan-2017: 11 of 11
+- xian-2017: 10 of 11
+- yangon-2017: 11 of 12
+- cerc-2017: 12 of 12
+- nwerc-2017: 11 of 11
+- latam-2017: 13 of 13
+- ecna-2017: 10 of 10
+- gny-2017: 9 of 10
+- mausa-2017: 2 of 3
+- ncna-2017: 8 of 8
+- pacnw-2017: 13 of 13
+- rmc-2017: 11 of 11
+- scusa-2017: 10 of 11
+- wf-2012: 12 of 12
+- wf-2013: 10 of 11
+- wf-2014: 12 of 12
+- wf-2015: 13 of 13
+- wf-2016: 13 of 13
+- wf-2017: 12 of 12
+
+### problems created (150)
+
+- south-america-2002: 8 <- Regionals 2002 >> Latin America - South America
+- ecna-2002: 8 <- Regionals 2002 >> North America - East Central NA
+- ncna-2002: 8 <- Regionals 2002 >> North America - North Central NA
+- pacnw-2002: 6 <- Regionals 2002 >> North America - Pacific Northwest
+- rmc-2002: 8 <- Regionals 2002 >> North America - Rocky Mountain
+- bombay-2003: 9 <- Regionals 2003 >> Asia - Bombay
+- guangzhou-2003: 8 <- Regionals 2003 >> Asia - Guangzhou
+- kolkata-roorkee-2003: 8 <- Regionals 2003 >> Asia - Kolkata-Roorkee
+- manila-2003: 8 <- Regionals 2003 >> Asia - Manila
+- korea-2003: 9 <- Regionals 2003 >> Asia - Seoul
+- central-america-2003: 7 <- Regionals 2003 >> Latin America - Mexico and Central America
+- south-america-2003: 8 <- Regionals 2003 >> Latin America - South America
+- ecna-2003: 8 <- Regionals 2003 >> North America - East Central NA
+- ncna-2003: 9 <- Regionals 2003 >> North America - North Central NA
+- nena-2003: 8 <- Regionals 2003 >> North America - Northeast NA
+- pacnw-2003: 9 <- Regionals 2003 >> North America - Pacific Northwest
+- rmc-2003: 7 <- Regionals 2003 >> North America - Rocky Mountain
+- bombay-2004: 7 <- Regionals 2004 >> Asia - Bombay
+- kanpur-2004: 8 <- Regionals 2004 >> Asia - Kanpur
+- manila-2004: 8 <- Regionals 2004 >> Asia - Manila
+- taiwan-2004: 10 <- Regionals 2004 >> Asia - Taipei
+- central-america-2004: 7 <- Regionals 2004 >> Latin America - Mexico and Central America
+- south-america-2004: 8 <- Regionals 2004 >> Latin America - South America
+- nena-2004: 8 <- Regionals 2004 >> North America - Northeast NA
+- rmc-2004: 8 <- Regionals 2004 >> North America - Rocky Mountain
+- scusa-2004: 8 <- Regionals 2004 >> North America - South Central USA
+- beijing-2005: 9 <- Regionals 2005 >> Asia - Beijing
+- chengdu-2005: 9 <- Regionals 2005 >> Asia - ChengDu
+- coimbatore-2005: 8 <- Regionals 2005 >> Asia - Coimbatore
+- dhaka-2005: 8 <- Regionals 2005 >> Asia - Dhaka
+- hangzhou-2005: 9 <- Regionals 2005 >> Asia - Hangzhou
+- kolkata-2005: 6 <- Regionals 2005 >> Asia - Kolkata
+- manila-2005: 8 <- Regionals 2005 >> Asia - Manila
+- korea-2005: 10 <- Regionals 2005 >> Asia - Seoul
+- cerc-2005: 10 <- Regionals 2005 >> Europe - Central
+- ncna-2005: 9 <- Regionals 2005 >> North America - North Central NA
+- nena-2005: 8 <- Regionals 2005 >> North America - Northeast NA
+- beijing-2006: 9 <- Regionals 2006 >> Asia - Beijing
+- coimbatore-2006: 7 <- Regionals 2006 >> Asia - Coimbatore
+- vietnam-2006: 8 <- Regionals 2006 >> Asia - Hanoi
+- kanpur-2006: 6 <- Regionals 2006 >> Asia - Kanpur
+- taiwan-2006: 9 <- Regionals 2006 >> Asia - Kaohsiung
+- manila-2006: 10 <- Regionals 2006 >> Asia - Manila
+- shanghai-2006: 10 <- Regionals 2006 >> Asia - Shanghai
+- xian-2006: 10 <- Regionals 2006 >> Asia - Xian
+- cerc-2006: 11 <- Regionals 2006 >> Europe - Central
+- south-america-2006: 9 <- Regionals 2006 >> Latin America - South America
+- amritapuri-2007: 8 <- Regionals 2007 >> Asia - Amritapuri
+- beijing-2007: 10 <- Regionals 2007 >> Asia - Beijing
+- changchun-2007: 9 <- Regionals 2007 >> Asia - Changchun
+- chengdu-2007: 10 <- Regionals 2007 >> Asia - ChengDu
+- vietnam-2007: 10 <- Regionals 2007 >> Asia - Danang
+- kanpur-2007: 7 <- Regionals 2007 >> Asia - Kanpur
+- nanjing-2007: 10 <- Regionals 2007 >> Asia - Nanjing
+- korea-2007: 10 <- Regionals 2007 >> Asia - Seoul
+- singapore-2007: 7 <- Regionals 2007 >> Asia - Singapore
+- taiwan-2007: 10 <- Regionals 2007 >> Asia - Taipei
+- nena-2007: 8 <- Regionals 2007 >> North America - Northeast NA
+- amritapuri-2008: 9 <- Regionals 2008 >> Asia - Amritapuri
+- beijing-2008: 10 <- Regionals 2008 >> Asia - Beijing
+- chengdu-2008: 11 <- Regionals 2008 >> Asia - ChengDu
+- hangzhou-2008: 10 <- Regionals 2008 >> Asia - Hangzhou
+- harbin-2008: 10 <- Regionals 2008 >> Asia - Harbin
+- hefei-2008: 8 <- Regionals 2008 >> Asia - Hefei
+- vietnam-2008: 10 <- Regionals 2008 >> Asia - Ho-Chi-Minh-City
+- jakarta-2008: 10 <- Regionals 2008 >> Asia - Jakarta
+- kuala-lumpur-2008: 11 <- Regionals 2008 >> Asia - Kuala Lumpur
+- taiwan-2008: 10 <- Regionals 2008 >> Asia - Taipei
+- nena-2008: 8 <- Regionals 2008 >> North America - Northeast NA
+- rmc-2008: 6 <- Regionals 2008 >> North America - Rocky Mountain
+- dhaka-2009: 11 <- Regionals 2009 >> Asia - Dhaka
+- harbin-2009: 11 <- Regionals 2009 >> Asia - Harbin
+- hefei-2009: 10 <- Regionals 2009 >> Asia - Hefei
+- taiwan-2009: 9 <- Regionals 2009 >> Asia - Hsinchu
+- jakarta-2009: 10 <- Regionals 2009 >> Asia - Jakarta
+- manila-2009: 10 <- Regionals 2009 >> Asia - Manila
+- ningbo-2009: 10 <- Regionals 2009 >> Asia - Ningbo
+- thailand-2009: 11 <- Regionals 2009 >> Asia - Phuket
+- korea-2009: 10 <- Regionals 2009 >> Asia - Seoul
+- cerc-2009: 11 <- Regionals 2009 >> Europe - Central
+- gny-2009: 9 <- Regionals 2009 >> North America - Greater NY
+- chengdu-2010: 11 <- Regionals 2010 >> Asia - ChengDu
+- fuzhou-2010: 10 <- Regionals 2010 >> Asia - Fuzhou
+- hangzhou-2010: 10 <- Regionals 2010 >> Asia - Hangzhou
+- vietnam-2010: 11 <- Regionals 2010 >> Asia - Hanoi
+- harbin-2010: 10 <- Regionals 2010 >> Asia - Harbin
+- kanpur-2010: 11 <- Regionals 2010 >> Asia - Kanpur
+- taiwan-2010: 10 <- Regionals 2010 >> Asia - Kaohsiung
+- kuala-lumpur-2010: 10 <- Regionals 2010 >> Asia - Kuala Lumpur
+- tianjin-2010: 10 <- Regionals 2010 >> Asia - Tianjin
+- scusa-2010: 8 <- Regionals 2010 >> North America - South Central USA
+- amritapuri-2011: 10 <- Regionals 2011 >> Asia - Amritapuri
+- beijing-2011: 10 <- Regionals 2011 >> Asia - Beijing
+- chengdu-2011: 10 <- Regionals 2011 >> Asia - Chengdu
+- dalian-2011: 10 <- Regionals 2011 >> Asia - Dalian
+- fuzhou-2011: 10 <- Regionals 2011 >> Asia - Fuzhou
+- kuala-lumpur-2011: 9 <- Regionals 2011 >> Asia - Kuala Lumpur
+- manila-2011: 10 <- Regionals 2011 >> Asia - Manila
+- tehran-2011: 11 <- Regionals 2011 >> Asia - Tehran
+- ncna-2011: 10 <- Regionals 2011 >> North America - North Central NA
+- changchun-2012: 11 <- Regionals 2012 >> Asia - Changchun
+- chengdu-2012: 11 <- Regionals 2012 >> Asia - Chengdu
+- hangzhou-2012: 11 <- Regionals 2012 >> Asia - Hangzhou
+- vietnam-2012: 10 <- Regionals 2012 >> Asia - Hanoi
+- jakarta-2012: 10 <- Regionals 2012 >> Asia - Jakarta
+- jinhua-2012: 11 <- Regionals 2012 >> Asia - Jinhua
+- taiwan-2012: 10 <- Regionals 2012 >> Asia - Kaohsiung
+- kharagpur-2012: 8 <- Regionals 2012 >> Asia - Kharagpur
+- tianjin-2012: 11 <- Regionals 2012 >> Asia - Tianjin
+- rmc-2012: 10 <- Regionals 2012 >> North America - Rocky Mountain
+- scusa-2012: 8 <- Regionals 2012 >> North America - South Central USA
+- changchun-2013: 10 <- Regionals 2013 >> Asia - Changchun
+- changsha-2013: 11 <- Regionals 2013 >> Asia - Changsha
+- taiwan-2013: 11 <- Regionals 2013 >> Asia - Chia-Yi
+- vietnam-2013: 10 <- Regionals 2013 >> Asia - Danang
+- jakarta-2013: 10 <- Regionals 2013 >> Asia - Jakarta
+- mausa-2013: 8 <- Regionals 2013 >> North America - Mid-Atlantic USA
+- gwalior-2014: 12 <- Regionals 2014 >> Asia - Gwalior
+- jakarta-2014: 11 <- Regionals 2014 >> Asia - Jakarta
+- mudanjiang-2014: 11 <- Regionals 2014 >> Asia - Mudanjiang
+- shanghai-2014: 12 <- Regionals 2014 >> Asia - Shanghai
+- taiwan-2014: 12 <- Regionals 2014 >> Asia - Taichung
+- xian-2014: 11 <- Regionals 2014 >> Asia - Xian
+- mausa-2014: 8 <- Regionals 2014 >> North America - Mid-Atlantic USA
+- scusa-2014: 9 <- Regionals 2014 >> North America - South Central USA
+- aec-2015: 13 <- Regionals 2015 >> Asia - EC Final
+- jakarta-2015: 12 <- Regionals 2015 >> Asia - Jakarta
+- pakistan-2015: 8 <- Regionals 2015 >> Asia - Lahore
+- taiwan-2015: 12 <- Regionals 2015 >> Asia - Taipei
+- mausa-2015: 8 <- Regionals 2015 >> North America - Mid-Atlantic USA
+- socal-2015: 7 <- Regionals 2015 >> North America - Southern California
+- beijing-2016: 11 <- Regionals 2016 >> Asia - Beijing
+- aec-2016: 12 <- Regionals 2016 >> Asia - China Final
+- taiwan-2016: 13 <- Regionals 2016 >> Asia - Chung-Li
+- jakarta-2016: 12 <- Regionals 2016 >> Asia - Jakarta
+- pakistan-2016: 10 <- Regionals 2016 >> Asia - Lahore
+- pyongyang-2016: 12 <- Regionals 2016 >> Asia - Pyongyang
+- ncna-2016: 8 <- Regionals 2016 >> North America - North Central NA
+- scusa-2016: 11 <- Regionals 2016 >> North America - South Central USA
+- amritapuri-2017: 11 <- Regionals 2017 >> Asia - Amritapuri
+- beijing-2017: 10 <- Regionals 2017 >> Asia - Beijing
+- chennai-2017: 11 <- Regionals 2017 >> Asia - Chennai
+- aec-2017: 13 <- Regionals 2017 >> Asia - East Continent League Finals
+- gwalior-2017: 9 <- Regionals 2017 >> Asia - Gwalior Site
+- taiwan-2017: 13 <- Regionals 2017 >> Asia - Hua-Lien
+- kabul-2017: 9 <- Regionals 2017 >> Asia - Kabul
+- kharagpur-2017: 11 <- Regionals 2017 >> Asia - Kharagpur
+- kolkata-kanpur-2017: 11 <- Regionals 2017 >> Asia - Kolkata-Kanpur Site
+- pakistan-2017: 10 <- Regionals 2017 >> Asia - Lahore
+- thailand-2017: 12 <- Regionals 2017 >> Asia - Nakhon Pathom Site
