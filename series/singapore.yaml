@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/bake_icpc_standings.py.
+# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
 series:
   id: singapore
   name: ICPC Asia Singapore Regional Contest
@@ -43,7 +43,7 @@ contests:
     archived:
     - singapore/singapore-2000/rankings/2026-09-01-wayback-9bcc11fe/2000_singapore.htm
     url_state: dead
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://icpc.global/regionals/finder/Singapore-2001/standings
     roles:
     - icpc_standings
@@ -52,20 +52,20 @@ contests:
     - problemset
     as_of: '20020624142207'
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: http://icpc.baylor.edu/past/icpc2001/Regionals/Singapor00/Problems.pdf
     roles:
     - problemset
     as_of: '20030323114600'
     url_state: unknown
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=63
     roles:
     - judge_page
     judge: livearchive
     as_of: '20200920150851'
     url_state: dead
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   problems:
     set: singapore-2000
 - id: singapore-2001
@@ -95,7 +95,7 @@ contests:
     archived:
     - singapore/singapore-2001/standings/2026-09-01-wayback-726fc68a/SingaporeResults2001.htm
     url_state: dead
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=511
     roles:
     - standings
@@ -112,7 +112,9 @@ contests:
     as_of: '20011222013755'
     note: added by url-hunt 2026-09-01 (cms-api)
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
+    archived:
+    - singapore/singapore-2001/standings/20011222-wayback-edea7b77/results2001.htm
   - url: https://icpc.global/regionals/finder/Singapore-2002/standings
     roles:
     - icpc_standings
@@ -121,26 +123,26 @@ contests:
     - problemset
     as_of: '20030512190304'
     url_state: unknown
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_VV_Asian/2001/Singapore/
     roles:
     - problemset
     as_of: '20020628075825'
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: http://www.ntu.edu.sg/acm/ProblemSets2001.htm
     roles:
     - problemset
     as_of: '20011222003923'
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=93
     roles:
     - judge_page
     judge: livearchive
     as_of: '20210119062546'
     url_state: dead
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   problems:
     set: singapore-2001
 - id: singapore-2007
@@ -178,7 +180,7 @@ contests:
     - singapore/singapore-2007/rankings/2026-09-01-wayback-69f6cadd/result.html
     - singapore/singapore-2007/standings/20071219-wayback-2a58f285/result.html
     url_state: dead
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
     note: from archived capture (external-standings)
   - url: https://icpc.global/regionals/finder/Singapore-2008/standings
     roles:
@@ -187,14 +189,14 @@ contests:
     roles:
     - problemset
     url_state: changed
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://www.acmicpc.net/category/detail/944
     roles:
     - judge_page
     judge: baekjoon
     as_of: '20201029205623'
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
     note: ACM-ICPC Regional Singapore 2007
   problems:
     set: singapore-2007
@@ -223,7 +225,7 @@ contests:
     - singapore/singapore-2015/scoreboard/2026-09-01-live-02b2d58f/page.html
     - singapore/singapore-2015/scoreboard/20230925-wayback-c4b85a1f/page.html
     url_state: changed
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: http://asiasg15.kattis.com/standings
     roles:
     - standings
@@ -233,7 +235,7 @@ contests:
     - singapore/singapore-2015/standings/20161224-wayback-842ee590/page.html
     - singapore/singapore-2015/standings/20260901-live-fdaddad5/page.html
     url_state: changed
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
     note: from archived capture (external-standings)
   - url: https://icpc.global/regionals/finder/Asia-Singapore-2016/standings
     roles:
@@ -248,14 +250,15 @@ contests:
     judge: kattis
     as_of: '20221224201832'
     url_state: changed
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://open.kattis.com/problem-sources/2015%20ACM%20ICPC%20Singapore%20Regional
     roles:
     - judge_page
     judge: kattis
-    url_state: live
-    url_checked: '2026-11-03'
+    url_state: replaced
+    url_checked: '2026-11-13'
     note: Kattis problem-sources page (export source "2015 ACM ICPC Singapore Regional", 2026-11-02)
+    as_of: '20190719164846'
   problems:
     set: singapore-2015
 - id: singapore-2018
@@ -282,7 +285,7 @@ contests:
     - singapore/singapore-2018/scoreboard/2026-09-01-live-ebf5de67/page.html
     - singapore/singapore-2018/scoreboard/20220705-wayback-314f82f2/page.html
     url_state: changed
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://icpc.global/regionals/finder/Asia-Singapore-2019/standings
     roles:
     - icpc_standings
@@ -295,18 +298,21 @@ contests:
     - judge_page
     judge: kattis
     url_state: changed
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://open.kattis.com/problem-sources/2018%20ICPC%20Asia%20Singapore%20Regional
     roles:
     - judge_page
     judge: kattis
-    url_state: live
-    url_checked: '2026-11-03'
+    url_state: replaced
+    url_checked: '2026-11-13'
     note: Kattis problem-sources page (export source "2018 ICPC Asia Singapore Regional", 2026-11-02)
+    as_of: '20190827111519'
   - url: https://qoj.ac/contest/4076
     roles:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    url_state: unknown
+    url_checked: '2026-11-13'
   problems:
     set: singapore-2018

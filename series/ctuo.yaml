@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/bake_icpc_standings.py.
+# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
 series:
   id: ctuo
   name: ICPC CTU Open
@@ -19,14 +19,22 @@ contests:
   - url: https://contest.felk.cvut.cz/95prg/results.html
     roles:
     - standings
+    url_state: live
+    url_checked: '2026-11-13'
+    archived:
+    - ctuo/ctuo-1995/standings/20261113-live-1bcf5866/results.html
   - url: https://contest.felk.cvut.cz/95prg/problems_1995_converted.pdf
     roles:
     - problemset
+    url_state: changed
+    url_checked: '2026-11-13'
   - url: https://qoj.ac/contest/3662
     roles:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    url_state: unknown
+    url_checked: '2026-11-13'
   provenance:
   - 'added 2026-11-12: QOJ mirrors the set (https://qoj.ac/contest/3662). The first CTU Open: https://contest.felk.cvut.cz/95prg/
     says May 12th and 13th, 1995, at CTU Prague FEE; the CTU Open 2014 problem set''s introduction gives
@@ -44,14 +52,22 @@ contests:
   - url: https://contest.felk.cvut.cz/96prg/praha.html
     roles:
     - standings
+    url_state: live
+    url_checked: '2026-11-13'
+    archived:
+    - ctuo/ctuo-1996/standings/20261113-live-3398ab3d/praha.html
   - url: https://contest.felk.cvut.cz/96prg/ulohy2.html
     roles:
     - problemset
+    url_state: live
+    url_checked: '2026-11-13'
   - url: https://qoj.ac/contest/3663
     roles:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    url_state: unknown
+    url_checked: '2026-11-13'
   provenance:
   - 'added 2026-11-12: QOJ mirrors the set (https://qoj.ac/contest/3663). https://contest.felk.cvut.cz/96prg/
     lists a faculty round (26-27 April 1996) and a Prague round (3-4 May 1996); the Prague round is taken
@@ -74,17 +90,19 @@ contests:
     - ctuo/ctuo-1997/standings/2026-09-01-live-c5fd09da/results.html
     - ctuo/ctuo-1997/standings/20020730-wayback-68c3efc0/results.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://contest.felk.cvut.cz/97prg/problems.html
     roles:
     - problemset
     url_state: replaced
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://qoj.ac/contest/3664
     roles:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    url_state: unknown
+    url_checked: '2026-11-13'
   problems:
     set: ctuo-1997
   provenance:
@@ -107,17 +125,19 @@ contests:
     - ctuo/ctuo-1998/standings/2026-09-01-live-26265310/results.html
     - ctuo/ctuo-1998/standings/19990225-wayback-b2a103e4/results.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://contest.felk.cvut.cz/98prg/problems.html
     roles:
     - problemset
     url_state: replaced
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://qoj.ac/contest/3665
     roles:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    url_state: unknown
+    url_checked: '2026-11-13'
   problems:
     set: ctuo-1998
   provenance:
@@ -140,17 +160,19 @@ contests:
     - ctuo/ctuo-1999/standings/2026-09-01-live-eadc7d02/results.html
     - ctuo/ctuo-1999/standings/20030612-wayback-c7c80a98/results.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://contest.felk.cvut.cz/99prg/solution.html
     roles:
     - problemset
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://qoj.ac/contest/3666
     roles:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    url_state: unknown
+    url_checked: '2026-11-13'
   problems:
     set: ctuo-1999
   provenance:
@@ -171,7 +193,7 @@ contests:
     archived:
     - ctuo/ctuo-2000/scoreboard/20260904-live-ca37284a/rank.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
     note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://contest.felk.cvut.cz/00prg/results.html
     roles:
@@ -181,24 +203,26 @@ contests:
     - ctuo/ctuo-2000/standings/2026-09-01-live-943a6dca/results.html
     - ctuo/ctuo-2000/standings/20031101-wayback-47a77871/results.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://contest.felk.cvut.cz/00prg/solved/problems.html
     roles:
     - problemset
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://www.acmicpc.net/category/detail/1101
     roles:
     - judge_page
     judge: baekjoon
     as_of: '20201025125527'
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://qoj.ac/contest/3667
     roles:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    url_state: unknown
+    url_checked: '2026-11-13'
   problems:
     set: ctuo-2000
   provenance:
@@ -221,24 +245,26 @@ contests:
     - ctuo/ctuo-2001/standings/2026-09-01-live-438363d5/results.html
     - ctuo/ctuo-2001/standings/20011214-wayback-f0fdfac1/results.html
     url_state: changed
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://contest.felk.cvut.cz/01prg/solved/problems.html
     roles:
     - problemset
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://www.acmicpc.net/category/detail/1100
     roles:
     - judge_page
     judge: baekjoon
     as_of: '20191206151153'
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://qoj.ac/contest/3668
     roles:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    url_state: unknown
+    url_checked: '2026-11-13'
   problems:
     set: ctuo-2001
   provenance:
@@ -261,24 +287,26 @@ contests:
     - ctuo/ctuo-2002/standings/2026-09-01-live-198921d6/rank.html
     - ctuo/ctuo-2002/standings/20021211-wayback-8c65ad83/rank.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://contest.felk.cvut.cz/02prg/solved/index.html
     roles:
     - problemset
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://www.acmicpc.net/category/detail/767
     roles:
     - judge_page
     judge: baekjoon
     as_of: '20201027183151'
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://qoj.ac/contest/3669
     roles:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    url_state: unknown
+    url_checked: '2026-11-13'
   problems:
     set: ctuo-2002
   provenance:
@@ -301,24 +329,26 @@ contests:
     - ctuo/ctuo-2003/standings/2026-09-01-live-02ef8805/rank.html
     - ctuo/ctuo-2003/standings/20040518-wayback-1f02a305/rank.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://contest.felk.cvut.cz/03prg/solved/index.html
     roles:
     - problemset
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://www.acmicpc.net/category/detail/766
     roles:
     - judge_page
     judge: baekjoon
     as_of: '20201026195024'
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://qoj.ac/contest/3670
     roles:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    url_state: unknown
+    url_checked: '2026-11-13'
   problems:
     set: ctuo-2003
   provenance:
@@ -341,32 +371,35 @@ contests:
     - ctuo/ctuo-2004/standings/2026-09-01-live-56dc235d/rank.html
     - ctuo/ctuo-2004/standings/20041204-wayback-00820342/rank.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://contest.felk.cvut.cz/04prg/solved/index.html
     roles:
     - problemset
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://www.acmicpc.net/category/detail/765
     roles:
     - judge_page
     judge: baekjoon
     as_of: '20201025201938'
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://codeforces.com/gym/100811
     roles:
     - judge_page
     judge: codeforces
     note: '2004-2005 CTU Open Contest (judge hunt 2026-11-03: name+year: ''2004-2005 CTU Open Contest''
       -> season start 2004)'
-    url_state: live
-    url_checked: '2026-11-03'
+    url_state: replaced
+    url_checked: '2026-11-13'
+    as_of: '20220830202348'
   - url: https://qoj.ac/contest/3671
     roles:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    url_state: unknown
+    url_checked: '2026-11-13'
   problems:
     set: ctuo-2004
   provenance:
@@ -389,31 +422,33 @@ contests:
     - ctuo/ctuo-2005/standings/2026-09-01-live-1c9b56a9/rank.html
     - ctuo/ctuo-2005/standings/20071012-wayback-3c18de50/rank.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://contest.felk.cvut.cz/05prg/solved/index.html
     roles:
     - problemset
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://open.kattis.com/problem-sources/CTU%20Open%202005
     roles:
     - judge_page
     judge: kattis
     as_of: '20190825044244'
     url_state: replaced
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://www.acmicpc.net/category/detail/764
     roles:
     - judge_page
     judge: baekjoon
     as_of: '20201029205510'
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://qoj.ac/contest/3672
     roles:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    url_state: unknown
+    url_checked: '2026-11-13'
   problems:
     set: ctuo-2005
   provenance:
@@ -436,17 +471,19 @@ contests:
     - ctuo/ctuo-2006/standings/2026-09-01-live-aa56e70b/rank.html
     - ctuo/ctuo-2006/standings/20061207-wayback-6856b02a/rank.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://contest.felk.cvut.cz/06prg/solved/index.html
     roles:
     - problemset
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://qoj.ac/contest/3673
     roles:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    url_state: unknown
+    url_checked: '2026-11-13'
   problems:
     set: ctuo-2006
   provenance:
@@ -475,7 +512,7 @@ contests:
     - ctuo/ctuo-2007/standings/20071027-wayback-32d819a0/rank.html
     - ctuo/ctuo-2007/standings/20260901-live-10424b83/rank.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://icpc.global/regionals/finder/CTU-Open-2008/standings
     roles:
     - icpc_standings
@@ -483,27 +520,30 @@ contests:
     roles:
     - problemset
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://www.acmicpc.net/category/detail/763
     roles:
     - judge_page
     judge: baekjoon
     as_of: '20201022101231'
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://codeforces.com/gym/100810
     roles:
     - judge_page
     judge: codeforces
     note: '2007-2008 CTU Open Contest (judge hunt 2026-11-03: name+year: ''2007-2008 CTU Open Contest''
       -> season start 2007)'
-    url_state: live
-    url_checked: '2026-11-03'
+    url_state: replaced
+    url_checked: '2026-11-13'
+    as_of: '20220917165449'
   - url: https://qoj.ac/contest/3674
     roles:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    url_state: unknown
+    url_checked: '2026-11-13'
   problems:
     set: ctuo-2007
   provenance:
@@ -542,7 +582,7 @@ contests:
     - ctuo/ctuo-2008/standings/20081207-wayback-781f328f/rank.html
     - ctuo/ctuo-2008/standings/20260901-live-eca6716d/rank.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://icpc.global/regionals/finder/CTU-Open-2009/standings
     roles:
     - icpc_standings
@@ -553,26 +593,28 @@ contests:
     roles:
     - problemset
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://open.kattis.com/problem-sources/CTU%20Open%202008
     roles:
     - judge_page
     judge: kattis
     as_of: '20210927134558'
     url_state: replaced
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://www.acmicpc.net/category/detail/762
     roles:
     - judge_page
     judge: baekjoon
     as_of: '20201020024725'
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://qoj.ac/contest/3675
     roles:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    url_state: unknown
+    url_checked: '2026-11-13'
   problems:
     set: ctuo-2008
   provenance:
@@ -610,7 +652,7 @@ contests:
     - ctuo/ctuo-2009/standings/20091102-wayback-25be04e8/rank.html
     - ctuo/ctuo-2009/standings/20260901-live-319a6601/rank.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://icpc.global/regionals/finder/CTU-Open-2010/standings
     roles:
     - icpc_standings
@@ -621,27 +663,27 @@ contests:
     roles:
     - problemset
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://open.kattis.com/problem-sources/CTU%20Open%202009
     roles:
     - judge_page
     judge: kattis
     as_of: '20190826012826'
     url_state: replaced
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://www.acmicpc.net/category/detail/761
     roles:
     - judge_page
     judge: baekjoon
     as_of: '20201022204626'
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://codeforces.com/gym/100791
     roles:
     - judge_page
     judge: codeforces
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
     note: '2009-2010 CTU Open Contest (judge hunt 2026-11-03: name+year: ''2009-2010 CTU Open Contest''
       -> season start 2009)'
   - url: https://qoj.ac/contest/3676
@@ -686,7 +728,7 @@ contests:
     - ctuo/ctuo-2010/standings/20101106-wayback-753330a9/rank.html
     - ctuo/ctuo-2010/standings/20260901-live-3739c136/rank.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://icpc.global/regionals/finder/CTU-Open-2011/standings
     roles:
     - icpc_standings
@@ -697,34 +739,37 @@ contests:
     roles:
     - problemset
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://open.kattis.com/problem-sources/CTU%20Open%202010
     roles:
     - judge_page
     judge: kattis
     as_of: '20190716163910'
     url_state: replaced
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://www.acmicpc.net/category/detail/760
     roles:
     - judge_page
     judge: baekjoon
     as_of: '20201027180335'
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://codeforces.com/gym/100790
     roles:
     - judge_page
     judge: codeforces
-    url_state: live
-    url_checked: '2026-11-03'
+    url_state: changed
+    url_checked: '2026-11-13'
     note: '2010-2011 CTU Open Contest (judge hunt 2026-11-03: name+year: ''2010-2011 CTU Open Contest''
       -> season start 2010)'
+    as_of: '20160409015515'
   - url: https://qoj.ac/contest/3677
     roles:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    url_state: unknown
+    url_checked: '2026-11-13'
   problems:
     set: ctuo-2010
   provenance:
@@ -765,7 +810,7 @@ contests:
     - ctuo/ctuo-2011/scoreboard/20120722-wayback-2b46b0d7/solved.html
     - ctuo/ctuo-2011/scoreboard/20260904-live-eb4cd841/solved.html
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
     note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://contest.felk.cvut.cz/11prg/rank.html
     roles:
@@ -776,7 +821,7 @@ contests:
     - ctuo/ctuo-2011/standings/20120722-wayback-4d2c47ac/rank.html
     - ctuo/ctuo-2011/standings/20260901-live-e82e2469/rank.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://icpc.global/regionals/finder/CTU-Open-2012/standings
     roles:
     - icpc_standings
@@ -789,19 +834,21 @@ contests:
     judge: kattis
     as_of: '20200925050300'
     url_state: replaced
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://www.acmicpc.net/category/detail/759
     roles:
     - judge_page
     judge: baekjoon
     as_of: '20201024150138'
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://qoj.ac/contest/3678
     roles:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    url_state: unknown
+    url_checked: '2026-11-13'
   problems:
     set: ctuo-2011
   provenance:
@@ -842,7 +889,7 @@ contests:
     - ctuo/ctuo-2012/scoreboard/20130805-wayback-c3f8bda2/solved.html
     - ctuo/ctuo-2012/scoreboard/20260904-live-8174946b/solved.html
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
     note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://contest.felk.cvut.cz/12prg/rank/public/
     roles:
@@ -853,7 +900,7 @@ contests:
     - ctuo/ctuo-2012/scoreboard/20121031-wayback-799572c5/page.html
     - ctuo/ctuo-2012/scoreboard/20260901-live-6d1fa823/page.html
     url_state: changed
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://icpc.global/regionals/finder/CTU-Open-2013/standings
     roles:
     - icpc_standings
@@ -864,21 +911,22 @@ contests:
     roles:
     - judge_page
     judge: kattis
-    url_state: live
-    url_checked: '2026-11-03'
+    url_state: replaced
+    url_checked: '2026-11-13'
+    as_of: '20190817233255'
   - url: https://www.acmicpc.net/category/detail/758
     roles:
     - judge_page
     judge: baekjoon
     as_of: '20201020232738'
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://codeforces.com/gym/100191
     roles:
     - judge_page
     judge: codeforces
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
     note: '2012-2013 CTU Open Contest (judge hunt 2026-11-03: name+year: ''2012-2013 CTU Open Contest''
       -> season start 2012)'
   - url: https://codeforces.com/gym/100795
@@ -886,7 +934,7 @@ contests:
     - judge_page
     judge: codeforces
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
     note: '2012-2013 CTU Open Contest (judge hunt 2026-11-03: name+year: ''2012-2013 CTU Open Contest''
       -> season start 2012)'
   - url: https://qoj.ac/contest/3679
@@ -894,6 +942,8 @@ contests:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    url_state: unknown
+    url_checked: '2026-11-13'
   problems:
     set: ctuo-2012
   provenance:
@@ -943,7 +993,7 @@ contests:
     - ctuo/ctuo-2013/scoreboard/20140322-wayback-8f45a561/solved.html
     - ctuo/ctuo-2013/scoreboard/20260904-live-4bf6fa75/solved.html
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
     note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://contest.felk.cvut.cz/13prg/rank.html
     roles:
@@ -953,21 +1003,21 @@ contests:
     - ctuo/ctuo-2013/scoreboard/2026-09-01-live-2c2f4934/rank.html
     - ctuo/ctuo-2013/scoreboard/20140323-wayback-ee3009d1/rank.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://open.kattis.com/problem-sources/CTU%20Open%202013
     roles:
     - judge_page
     judge: kattis
     as_of: '20200814070719'
     url_state: replaced
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://www.acmicpc.net/category/detail/1150
     roles:
     - judge_page
     judge: baekjoon
     as_of: '20201020034045'
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://codeforces.com/gym/100784
     roles:
     - judge_page
@@ -975,12 +1025,14 @@ contests:
     note: '2013-2014 CTU Open Contest (judge hunt 2026-11-03: name+year: ''2013-2014 CTU Open Contest''
       -> season start 2013)'
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://qoj.ac/contest/3680
     roles:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    url_state: unknown
+    url_checked: '2026-11-13'
   problems:
     set: ctuo-2013
   provenance:
@@ -1021,7 +1073,7 @@ contests:
     - ctuo/ctuo-2014/scoreboard/20150407-wayback-86493420/solved.html
     - ctuo/ctuo-2014/scoreboard/20260904-live-2531ae2a/solved.html
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
     note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://contest.felk.cvut.cz/14prg/rank.html
     roles:
@@ -1031,7 +1083,7 @@ contests:
     - ctuo/ctuo-2014/scoreboard/2026-09-01-live-75349281/rank.html
     - ctuo/ctuo-2014/scoreboard/20250430-wayback-90b950ca/rank.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://icpc.global/regionals/finder/CTU-Open-2015/standings
     roles:
     - icpc_standings
@@ -1044,20 +1096,23 @@ contests:
     judge: baekjoon
     as_of: '20190719100413'
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://codeforces.com/gym/100719
     roles:
     - judge_page
     judge: codeforces
-    url_state: live
-    url_checked: '2026-11-03'
+    url_state: changed
+    url_checked: '2026-11-13'
     note: '2014-2015 CTU Open Contest (judge hunt 2026-11-03: name+year: ''2014-2015 CTU Open Contest''
       -> season start 2014)'
+    as_of: '20160408223729'
   - url: https://qoj.ac/contest/3681
     roles:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    url_state: unknown
+    url_checked: '2026-11-13'
   problems:
     set: ctuo-2014
   provenance:
@@ -1098,7 +1153,7 @@ contests:
     - ctuo/ctuo-2015/scoreboard/20151030-wayback-9a42578d/solved.html
     - ctuo/ctuo-2015/scoreboard/20260904-live-fcd18c37/solved.html
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
     note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://contest.felk.cvut.cz/15prg/rank.html
     roles:
@@ -1109,7 +1164,7 @@ contests:
     - ctuo/ctuo-2015/scoreboard/20160818-wayback-00ed8d14/rank.html
     - ctuo/ctuo-2015/scoreboard/20260901-live-70e93573/rank.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://icpc.global/regionals/finder/CTU-Open-2016/standings
     roles:
     - icpc_standings
@@ -1122,27 +1177,30 @@ contests:
     judge: kattis
     as_of: '20191021072255'
     url_state: replaced
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://www.acmicpc.net/category/detail/1410
     roles:
     - judge_page
     judge: baekjoon
     as_of: '20171217034422'
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://codeforces.com/gym/100829
     roles:
     - judge_page
     judge: codeforces
-    url_state: live
-    url_checked: '2026-11-03'
+    url_state: replaced
+    url_checked: '2026-11-13'
     note: '2015-2016 CTU Open Contest (judge hunt 2026-11-03: name+year: ''2015-2016 CTU Open Contest''
       -> season start 2015)'
+    as_of: '20220314084039'
   - url: https://qoj.ac/contest/3682
     roles:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    url_state: unknown
+    url_checked: '2026-11-13'
   problems:
     set: ctuo-2015
   provenance:
@@ -1186,7 +1244,7 @@ contests:
     - ctuo/ctuo-2016/scoreboard/20170208-wayback-f095b63a/solved.html
     - ctuo/ctuo-2016/scoreboard/20260904-live-f88bac89/solved.html
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
     note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://contest.felk.cvut.cz/16prg/rank.html
     roles:
@@ -1197,7 +1255,7 @@ contests:
     - ctuo/ctuo-2016/scoreboard/20170208-wayback-a39bbc91/rank.html
     - ctuo/ctuo-2016/scoreboard/20260901-live-1678c88a/rank.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://icpc.global/regionals/finder/CTU-Open-2017/standings
     roles:
     - icpc_standings
@@ -1210,20 +1268,24 @@ contests:
     judge: baekjoon
     as_of: '20191206053857'
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://codeforces.com/gym/101505
     roles:
     - judge_page
     judge: codeforces
-    url_state: live
-    url_checked: '2026-11-03'
+    url_state: changed
+    url_checked: '2026-11-13'
     note: '2016-2017 CTU Open Contest (judge hunt 2026-11-03: name+year: ''2016-2017 CTU Open Contest''
       -> season start 2016)'
+    as_of: '20190409071259'
   - url: https://qoj.ac/contest/22
     roles:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    as_of: '20221003153745'
+    url_state: unknown
+    url_checked: '2026-11-13'
   problems:
     set: ctuo-2016
   provenance:
@@ -1266,7 +1328,7 @@ contests:
     - ctuo/ctuo-2017/scoreboard/20171105-wayback-b449a18b/solved.html
     - ctuo/ctuo-2017/scoreboard/20260904-live-669787b1/solved.html
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
     note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://contest.felk.cvut.cz/17prg/rank.html
     roles:
@@ -1277,7 +1339,7 @@ contests:
     - ctuo/ctuo-2017/scoreboard/20171106-wayback-bb8660fe/rank.html
     - ctuo/ctuo-2017/scoreboard/20260901-live-5c4394a5/rank.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://icpc.global/regionals/finder/CTU-Open-2018/standings
     roles:
     - icpc_standings
@@ -1290,21 +1352,22 @@ contests:
     judge: baekjoon
     as_of: '20201022092354'
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://codeforces.com/gym/101670
     roles:
     - judge_page
     judge: codeforces
-    url_state: live
-    url_checked: '2026-11-03'
+    url_state: changed
+    url_checked: '2026-11-13'
     note: '2017-2018 CTU Open Contest (judge hunt 2026-11-03: name+year: ''2017-2018 CTU Open Contest''
       -> season start 2017)'
+    as_of: '20190408233718'
   - url: https://dmoj.ca/problems/?search=CTU+Open+Contest+2017
     roles:
     - judge_page
     judge: dmoj
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
     note: 'CTU Open Contest 2017 (judge hunt 2026-11-03: DMOJ problems named "CTU Open Contest 2017 -
       <title>": 11 problems, 11/11 catalogue titles match)'
   - url: https://qoj.ac/contest/3683
@@ -1312,6 +1375,8 @@ contests:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    url_state: unknown
+    url_checked: '2026-11-13'
   problems:
     set: ctuo-2017
   provenance:
@@ -1354,7 +1419,7 @@ contests:
     - ctuo/ctuo-2018/scoreboard/20190822-wayback-fb1c4d0e/solved.html
     - ctuo/ctuo-2018/scoreboard/20260904-live-a301e45e/solved.html
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
     note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://contest.felk.cvut.cz/18prg/rank.html
     roles:
@@ -1365,7 +1430,7 @@ contests:
     - ctuo/ctuo-2018/scoreboard/20190822-wayback-5df1ab80/rank.html
     - ctuo/ctuo-2018/scoreboard/20260901-live-1a583515/rank.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://icpc.global/regionals/finder/CTU-Open-2019/standings
     roles:
     - icpc_standings
@@ -1378,13 +1443,13 @@ contests:
     judge: baekjoon
     as_of: '20190723110030'
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://codeforces.com/gym/101954
     roles:
     - judge_page
     judge: codeforces
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
     note: '2018-2019 CTU Open Contest (judge hunt 2026-11-03: name+year: ''2018-2019 CTU Open Contest''
       -> season start 2018)'
   - url: https://dmoj.ca/problems/?search=CTU+Open+Contest+2018
@@ -1392,7 +1457,7 @@ contests:
     - judge_page
     judge: dmoj
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
     note: 'CTU Open Contest 2018 (judge hunt 2026-11-03: DMOJ problems named "CTU Open Contest 2018 -
       <title>": 10 problems, 10/10 catalogue titles match)'
   - url: https://qoj.ac/contest/2697
@@ -1400,6 +1465,8 @@ contests:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    url_state: unknown
+    url_checked: '2026-11-13'
   problems:
     set: ctuo-2018
   provenance:
@@ -1442,7 +1509,7 @@ contests:
     - ctuo/ctuo-2019/scoreboard/20191113-wayback-0a0d6d1e/solved.html
     - ctuo/ctuo-2019/scoreboard/20260904-live-d240ee74/solved.html
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
     note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://contest.felk.cvut.cz/19prg/rank.html
     roles:
@@ -1453,7 +1520,7 @@ contests:
     - ctuo/ctuo-2019/scoreboard/20191113-wayback-9857afb6/rank.html
     - ctuo/ctuo-2019/scoreboard/20260901-live-8f1c3903/rank.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://icpc.global/regionals/finder/CTU-Open-2020/standings
     roles:
     - icpc_standings
@@ -1466,20 +1533,24 @@ contests:
     judge: baekjoon
     as_of: '20260420221236'
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://codeforces.com/gym/104784
     roles:
     - judge_page
     judge: codeforces
-    url_state: live
-    url_checked: '2026-11-03'
+    url_state: replaced
+    url_checked: '2026-11-13'
     note: '2019-2020 CTU Open Contest (judge hunt 2026-11-03: name+year: ''2019-2020 CTU Open Contest''
       -> season start 2019)'
+    as_of: '20231126215402'
   - url: https://qoj.ac/contest/177
     roles:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    as_of: '20221003135213'
+    url_state: unknown
+    url_checked: '2026-11-13'
   problems:
     set: ctuo-2019
   provenance:
@@ -1522,7 +1593,7 @@ contests:
     - ctuo/ctuo-2021/scoreboard/20220122-wayback-ed0d3924/solved.html
     - ctuo/ctuo-2021/scoreboard/20260904-live-120ddbd8/solved.html
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
     note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://contest.felk.cvut.cz/21prg/rank.html
     roles:
@@ -1533,7 +1604,7 @@ contests:
     - ctuo/ctuo-2021/scoreboard/20220122-wayback-9c803b7e/rank.html
     - ctuo/ctuo-2021/scoreboard/20260901-live-f356992d/rank.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://icpc.global/regionals/finder/CTU-Open-2022/standings
     roles:
     - icpc_standings
@@ -1546,27 +1617,31 @@ contests:
     judge: kattis
     as_of: '20231001060657'
     url_state: changed
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://www.acmicpc.net/category/detail/2888
     roles:
     - judge_page
     judge: baekjoon
     as_of: '20230514152036'
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://codeforces.com/gym/104783
     roles:
     - judge_page
     judge: codeforces
-    url_state: live
-    url_checked: '2026-11-03'
+    url_state: replaced
+    url_checked: '2026-11-13'
     note: '2021-2022 CTU Open Contest (judge hunt 2026-11-03: name+year: ''2021-2022 CTU Open Contest''
       -> season start 2021)'
+    as_of: '20240318205718'
   - url: https://qoj.ac/contest/798
     roles:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    as_of: '20221203212120'
+    url_state: unknown
+    url_checked: '2026-11-13'
   problems:
     set: ctuo-2021
   provenance:
@@ -1619,7 +1694,7 @@ contests:
     - ctuo/ctuo-2022/scoreboard/20221107-wayback-9edefef6/solved.html
     - ctuo/ctuo-2022/scoreboard/20260904-live-3e38ec9d/solved.html
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
     note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://contest.felk.cvut.cz/22prg/rank.html
     roles:
@@ -1630,7 +1705,7 @@ contests:
     - ctuo/ctuo-2022/scoreboard/20221107-wayback-7aa189d3/rank.html
     - ctuo/ctuo-2022/scoreboard/20260901-live-a4dea32e/rank.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://icpc.global/regionals/finder/CTU-Open-2023/standings
     roles:
     - icpc_standings
@@ -1643,20 +1718,23 @@ contests:
     judge: baekjoon
     as_of: '20230310143904'
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://codeforces.com/gym/104673
     roles:
     - judge_page
     judge: codeforces
-    url_state: live
-    url_checked: '2026-11-03'
+    url_state: replaced
+    url_checked: '2026-11-13'
     note: '2022-2023 CTU Open Contest (judge hunt 2026-11-03: name+year: ''2022-2023 CTU Open Contest''
       -> season start 2022)'
+    as_of: '20240324080634'
   - url: https://qoj.ac/contest/3684
     roles:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    url_state: unknown
+    url_checked: '2026-11-13'
   problems:
     set: ctuo-2022
   provenance:
@@ -1699,7 +1777,7 @@ contests:
     - ctuo/ctuo-2023/scoreboard/20231128-wayback-9c083443/solved.html
     - ctuo/ctuo-2023/scoreboard/20260904-live-d6e4e903/solved.html
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
     note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://contest.felk.cvut.cz/23prg/rank.html
     roles:
@@ -1710,7 +1788,7 @@ contests:
     - ctuo/ctuo-2023/scoreboard/20231128-wayback-c65c38e5/rank.html
     - ctuo/ctuo-2023/scoreboard/20260901-live-615e7bee/rank.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://icpc.global/regionals/finder/CTU-Open-2024/standings
     roles:
     - icpc_standings
@@ -1723,20 +1801,23 @@ contests:
     judge: baekjoon
     as_of: '20260618021220'
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://codeforces.com/gym/104767
     roles:
     - judge_page
     judge: codeforces
-    url_state: live
-    url_checked: '2026-11-03'
+    url_state: replaced
+    url_checked: '2026-11-13'
     note: '2023-2024 CTU Open Contest (judge hunt 2026-11-03: name+year: ''2023-2024 CTU Open Contest''
       -> season start 2023)'
+    as_of: '20240301040324'
   - url: https://qoj.ac/contest/3685
     roles:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    url_state: unknown
+    url_checked: '2026-11-13'
   problems:
     set: ctuo-2023
   provenance:
@@ -1788,7 +1869,7 @@ contests:
     - ctuo/ctuo-2024/scoreboard/20250117-wayback-32715ed3/rank.html
     - ctuo/ctuo-2024/scoreboard/20260901-live-eb2d7956/rank.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://contest.felk.cvut.cz/24prg/solved.html
     roles:
     - scoreboard
@@ -1797,7 +1878,7 @@ contests:
     - ctuo/ctuo-2024/scoreboard/20250117-wayback-66446340/solved.html
     - ctuo/ctuo-2024/scoreboard/20260904-live-406b5889/solved.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
     note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://icpc.global/regionals/finder/CTU-Open-2025/standings
     roles:
@@ -1810,20 +1891,20 @@ contests:
     - problemset
     as_of: '20250207181346'
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://www.acmicpc.net/category/detail/4317
     roles:
     - judge_page
     judge: baekjoon
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
     note: CTU Open Contest 2024
   - url: https://codeforces.com/gym/105442
     roles:
     - judge_page
     judge: codeforces
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
     note: '2024-2025 CTU Open Contest (judge hunt 2026-11-03: name+year: ''2024-2025 CTU Open Contest''
       -> season start 2024)'
   - url: https://qoj.ac/contest/3417
@@ -1831,6 +1912,8 @@ contests:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    url_state: unknown
+    url_checked: '2026-11-13'
   problems:
     set: ctuo-2024
 - id: ctuo-2025
@@ -1881,7 +1964,7 @@ contests:
     - ctuo/ctuo-2025/scoreboard/20251110-wayback-2d84b318/rank.html
     - ctuo/ctuo-2025/scoreboard/20260901-live-c5a365f5/rank.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
   - url: https://contest.felk.cvut.cz/25prg/solved.html
     roles:
     - scoreboard
@@ -1890,7 +1973,7 @@ contests:
     - ctuo/ctuo-2025/scoreboard/20260218-wayback-d851575e/solved.html
     - ctuo/ctuo-2025/scoreboard/20260904-live-fb32989e/solved.html
     url_state: live
-    url_checked: '2026-11-02'
+    url_checked: '2026-11-13'
     note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://icpc.global/regionals/finder/CTU-Open-2026/standings
     roles:
@@ -1902,20 +1985,22 @@ contests:
     roles:
     - problemset
     url_state: live
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
   - url: https://www.acmicpc.net/category/detail/4686
     roles:
     - judge_page
     judge: baekjoon
     as_of: '20260418220252'
     url_state: dead
-    url_checked: '2026-11-03'
+    url_checked: '2026-11-13'
     note: CTU Open Contest 2025
   - url: https://qoj.ac/contest/3394
     roles:
     - judge_page
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    url_state: unknown
+    url_checked: '2026-11-13'
   problems:
     set: ctuo-2025
 - id: ctuo-2026
@@ -1957,9 +2042,17 @@ contests:
   - url: https://contest.felk.cvut.cz/26prg/rank.html
     roles:
     - scoreboard
+    url_state: live
+    url_checked: '2026-11-13'
+    archived:
+    - ctuo/ctuo-2026/scoreboard/20261113-live-cff75ba8/rank.html
   - url: https://contest.felk.cvut.cz/26prg/solved.html
     roles:
     - scoreboard
+    url_state: live
+    url_checked: '2026-11-13'
+    archived:
+    - ctuo/ctuo-2026/scoreboard/20261113-live-bfb7632d/solved.html
   - url: https://icpc.global/regionals/finder/CTU-Open-2027/standings
     roles:
     - icpc_standings
@@ -1969,6 +2062,8 @@ contests:
   - url: https://contest.felk.cvut.cz/26prg/solved/ctu-open-problems.pdf
     roles:
     - problemset
+    url_state: live
+    url_checked: '2026-11-13'
   provenance:
   - 'ran 2026-10-24: shown by its icpc standings, scoreboard source(s); date from second day of the event,
     as for earlier CTU Opens (the CMS site date is 23 Oct) (ruling 2026-11-12: upcoming ends when the

@@ -85,6 +85,11 @@ def main() -> int:
                     # verdict): the capture is already in the index; the as_of above is all we take
                     stats[f"provisional row skipped ({s['state']})"] += 1
                     continue
+                if s["state"] == "unknown" and e.get("url_state") in VERDICTS - {"unknown"}:
+                    # an IA-only lane (or a live lane that skipped the address) has no opinion
+                    # on the origin: never let "no live capture to judge" erase a real verdict
+                    stats[f"unknown kept as {e['url_state']}"] += 1
+                    continue
                 if e.get("url_state") != s["state"]:
                     stats[f"state -> {s['state']}"] += 1
                 if (e.get("url_state"), e.get("url_checked")) != (s["state"], s["checked"]):
