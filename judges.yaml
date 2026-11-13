@@ -231,3 +231,15 @@ judges:
     is the DataTables JSON behind the contest list. NOT a catalogue source: its contests are user-created
     replays (one per training session, thousands titled after ICPC regionals) that point at problems on
     other judges; link the origin judge instead. No candidates recorded.'
+- id: poj
+  name: PKU JudgeOnline (POJ)
+  url: http://poj.org/
+  problem_url: http://poj.org/problem?id={id}
+  contest_url: http://poj.org/searchproblem?field=source&key={id}
+  status: active
+  statements: true
+  submissions: true
+  notes: 'Peking University judge. Every problem carries a Source string ("Northeastern Europe 2003, Far-Eastern
+    Subregion", "Tehran 2004", "CTU Open 1999"); the source search is the only per-contest view (no contest
+    pages). Problem lists read 2026-11-13 through the vjudge.net mirror (2,989 problems); matched to catalogue
+    contests by the harvest classification (_hunt/problems-2026-11-13/agents-out/).'
