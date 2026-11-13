@@ -129,7 +129,10 @@
      file name elsewhere, a part of an address; the rest of the host only when nothing else matches. */
   let srcIdx = null, seq = 0;
   const norm = u => u.trim().replace(/^https?:\/\/web\.archive\.org\/web\/\d+[a-z_]*\//i, '')
-    .replace(/^[a-z][a-z0-9+.-]*:\/\//i, '').replace(/^www\./i, '').replace(/#.*$/, '').replace(/\/+$/, '').toLowerCase();
+    .replace(/^[a-z][a-z0-9+.-]*:\/\//i, '').replace(/^www\./i, '').replace(/#.*$/, '').replace(/\/+$/, '').toLowerCase()
+    // GitHub gives one file three addresses: its page (/blob/), the file (/raw/) and raw.githubusercontent.com. They are one.
+    .replace(/^raw\.githubusercontent\.com\/([^\/]+)\/([^\/]+)\//, 'github.com/$1/$2/blob/')
+    .replace(/^(github\.com\/[^\/]+\/[^\/]+)\/raw\//, '$1/blob/').replace(/\?raw=true$/, '');
   const parts = n => {
     const i = n.indexOf('/'), path = i < 0 ? '' : n.slice(i), file = path.slice(path.lastIndexOf('/') + 1).replace(/\?.*$/, '');
     return {host: i < 0 ? n : n.slice(0, i), path, file: /\d/.test(file) && file.length >= 8 ? file : ''};
@@ -174,7 +177,8 @@
       `${c.name && !(c.t === 'p' || c.t === 'l' || c.t === 'j') ? ' <span class="muted">' + esc(c.name) + '</span>' : ''}</span>` +
       `<span class="x">${esc([c.date, c.extra].filter(Boolean).join(' · '))}</span></a>`).join('') +
       (hits.length > 60 ? `<p>${hits.length - 60} more — keep typing to narrow it down.</p>` : '');
-    out.innerHTML = (srcHtml(src, addr ? 12 : 5) + usual) ||
+    const near = addr && src.length && src[0][0] > 0 ? '<p>No source has exactly this address. The nearest:</p>' : '';
+    out.innerHTML = (near + srcHtml(src, addr ? 12 : 5) + usual) ||
       (addr ? '<p>No source has this address, or one like it.</p>'
             : '<p>Nothing matches. Search knows ids, names, CMS ids, website hosts, aliases and the addresses of sources.</p>');
     out.classList.add('open');
