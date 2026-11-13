@@ -18,7 +18,7 @@ import html
 import json
 from collections import Counter
 
-REPO = "icpc-contest-archive/contributions"  # where a review is submitted: the issue form review.yml of this repository
+REPO = "icpc-contest-archive/reviews"  # where a review is submitted: the issue form review.yml of this repository
 OPEN = False  # True once that repository and its form exist. Until then review mode is reached only by a link ending in ?review=1
 STATS: Counter = Counter()  # kind -> units written, for the build's summary
 

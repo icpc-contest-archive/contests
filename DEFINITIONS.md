@@ -383,13 +383,18 @@ of page; a unit key that is not in `UNITS` stops the build.
 
 **The script.** `tools/site_assets/review.js` (with `review.css`) is loaded only while review mode is on. It puts ✓ (confirm),
 ✎ (correct) and + (add) on the units, keeps the marks in the browser's local storage (`icpc-review`) across pages and tabs, and at
-"Submit review" copies them as JSON for the issue form `review.yml` of the repository named in `review_units.REPO`. Nothing is sent
-from the site: the reviewer pastes the JSON on GitHub.
+"Submit review" hands them as JSON to the issue form `review.yml` of the repository named in `review_units.REPO`: in the link itself
+when they fit, by copy and paste when not. Nothing is sent from the site itself.
 
 **Open or not.** `review_units.OPEN` is False until that repository and its form exist: no Review button in the header, the About page
 unchanged. A link ending in `?review=1` switches review mode on for that browser regardless, which is how it is tried before it opens.
 
-The copied JSON is `{"review": 1, "site": <build day>, "count": n, "items": [...]}` with one item per line. An item is
-`{"do": confirm|correct|add, "at": kind/id, "unit": key, "of": which one, "saw": the value shown, "to": the new value, "why": reason,
-"file": {name, size, sha256}}`, with only the fields that apply. A review that names files starts with a `"reminder"` line for the
-reviewer; a review too large for one issue is split, and each part carries `"part": [k, n]`.
+A review travels as JSON, grouped by page so that it is short, one fact per line:
+`{"review": 2, "site": <build day>, "count": n, "confirm": {page: {unit: value}}, "correct": {page: {unit: {"saw", "to", "why"}}},
+"add": {page: [{"unit", "of", "to", "why", "file": {name, size, sha256}}]}}`, with only the parts that apply. A page is `kind/id`. A unit
+that an object has several of is written `unit which-one`, such as `letter p-ec3a0975`; a mirror and a site are named by themselves.
+A review that names files starts with a `"reminder"` line for the reviewer.
+
+A review whose link stays within 4,500 characters is carried by the link, which fills the form's box. GitHub keeps a link of about 5,000
+characters through its sign-in page, loses the review from a longer one, and refuses links from about 7,100 (measured 2026-11-13; not
+documented). A larger review is copied and pasted, and one too large for a single issue is split, each part carrying `"part": [k, n]`.
