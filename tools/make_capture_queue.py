@@ -33,7 +33,7 @@ from catalogue import RANK, RESULT_ROLES, also_at, archived, is_cms, load_contes
 from resources import unwrap  # noqa: E402
 
 # roles captured as single pages, in archive-layout priority order
-CAPTURE_ROLES = ("scoreboard", "frozen_scoreboard", "standings", "rankings", "problemset", "problem")
+CAPTURE_ROLES = ("scoreboard", "frozen_scoreboard", "standings", "rankings", "problemset", "problem", "editorial")
 
 
 def capture_kind(s: dict, skip: set[str] = frozenset()) -> str | None:
