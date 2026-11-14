@@ -39,7 +39,7 @@ def norm(s: str) -> str:
 
 def main() -> int:
     ap = argparse.ArgumentParser(); ap.add_argument("candidates"); ap.add_argument("--date", required=True)
-    ap.add_argument("--dry-run", action="store_true"); a = ap.parse_args()
+    ap.add_argument("--dry-run", action="store_true"); ap.add_argument("--report", default=None); a = ap.parse_args()
     cands = json.loads(Path(a.candidates).read_text())
     series = load_series(); sets = load_sets(); judges = load_judges()
     where = {c["id"]: (sid, c) for sid, doc in series.items() for c in doc["contests"]}
@@ -129,7 +129,7 @@ def main() -> int:
                  f"- problems created: {nprob}", f"- contests that joined a shared set: {njoin}", ""]
         for k in sorted(rep, key=lambda k: (k.startswith("still"), k)):
             lines += [f"## {k} ({len(rep[k])})", ""] + [f"- {x}" for x in rep[k]] + [""]
-        (ROOT / "reports" / f"held-titles-{a.date}.md").write_text("\n".join(lines))
+        (ROOT / "reports" / (a.report or f"held-titles-{a.date}.md")).write_text("\n".join(lines))
     print({k: len(v) for k, v in rep.items()}, "problems", nprob, "joins", njoin)
     for k in rep:
         if k.startswith("still held: not the same") or "clash" in k or "one name" in k or "taken" in k:
