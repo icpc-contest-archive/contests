@@ -14,6 +14,7 @@ import argparse
 import gzip
 import json
 import random
+import signal
 import re
 import subprocess
 import sys
@@ -117,7 +118,7 @@ def digest(p: Path) -> str:
             return "\n".join(out)
         files = sorted(x for x in p.rglob("*") if x.is_file())
         return "\n".join([f"folder of {len(files)} files, no site manifest"] + [f"  {x.relative_to(p)} ({x.stat().st_size} bytes)" for x in files[:40]])
-    raw = body(p)
+    raw = body(p)[:6_000_000]   # a few scoreboards are tens of MB; their start is enough
     if raw[:5] == b"%PDF-" or p.suffix.lower() == ".pdf":
         return pdf_digest(p)
     if p.suffix.lower() in (".txt", ".csv", ".json"):
@@ -125,24 +126,102 @@ def digest(p: Path) -> str:
     return html_digest(raw)
 
 
+G: dict = {}
+
+
+def _too_slow(*_a):
+    raise TimeoutError("took over 40 s to digest; open the copy yourself if it matters")
+
+
+def load_globals() -> None:
+    G["contests"], G["series"], G["sets"] = load_contests(), load_series(), load_sets()
+    res = json.loads((ROOT / "data" / "resources.json").read_text())["locators"]
+    G["by_key"] = {norm_key(L["url"]): L for L in res.values()}
+    sites = defaultdict(list)
+    for e in json.loads((ROOT / "data" / "website-index.json").read_text())["sites"]:
+        if not e.get("empty") and not e.get("shell"):
+            sites[e["contest"]].append(e)
+    G["sites"] = sites
+
+
+def build_one(job: tuple) -> dict:
+    cid, out = job
+    out = Path(out)
+    contests, series, sets, by_key, sites = G["contests"], G["series"], G["sets"], G["by_key"], G["sites"]
+    c = contests[cid]
+    d = out / cid
+    d.mkdir(parents=True, exist_ok=True)
+    hdr = series[c["_series"]]["series"]
+    sid = set_id_of(c)
+    st = sets.get(sid) if sid else None
+    pack = {"contest": cid, "name": c.get("name"), "series_name": hdr.get("name"), "region": hdr.get("region"), "tier": hdr.get("tier"),
+            "date": str(c.get("date") or ""), "season": c.get("season"), "location": c.get("location"), "cms_ids": c.get("cms_ids"),
+            "notes": c.get("notes"),
+            "problems_known": ({"count": st.get("count"), "letters": {k: next((p.get("name") for p in st.get("problems") or [] if p["id"] == v), None)
+                                                                     for k, v in (set_letters(st, cid) or {}).items()}} if st else None),
+            "sources": []}
+    for n, s in enumerate(sources(c), 1):
+        L = by_key.get(norm_key(s["url"])) or {}
+        caps = [cap for r in (L.get("resources") or {}).values() for cap in r.get("captures") or []]
+        cited = {r["contest"] for r in L.get("refs") or []}
+        own = [x for x in caps if x.get("contest") == cid or x["path"] in (s.get("archived") or [])]
+        caps = own or (caps if len(cited) <= 1 else [])
+        caps = [x for x in caps if not x.get("caveat")] or caps
+        caps.sort(key=lambda x: (x.get("source") == "live", x.get("fetched") or ""), reverse=True)
+        copy = None
+        if caps:
+            copy = {"path": caps[0]["path"], "via": caps[0].get("source"), "fetched": (caps[0].get("fetched") or "")[:10],
+                    "size": caps[0].get("size"), "sha256": (caps[0].get("sha256") or "")[:16], "caveat": caps[0].get("caveat"), "other_copies": len(caps) - 1}
+        elif "web" in s["roles"] and sites.get(cid):
+            key = norm_key(s["url"])
+            e = next((e for e in sites[cid] if norm_key(e["seed"]) == key), None)
+            if e is None and s is next((x for x in sources(c) if "web" in x["roles"]), None):
+                e = next((e for e in sites[cid] if e.get("primary")), None)   # the contest's main crawl stands for its first web source
+            if e:
+                copy = {"path": e["dir"], "via": e.get("mode"), "fetched": (e.get("fetched") or "")[:10], "pages": e.get("pages"),
+                        "seed": e["seed"], "shows": e.get("wayback_timestamp")}
+        if copy:
+            try:
+                signal.signal(signal.SIGALRM, _too_slow)
+                signal.alarm(40)
+                try:
+                    text = digest(ARCHIVE / copy["path"])
+                finally:
+                    signal.alarm(0)
+                (d / f"s{n}.txt").write_text(text)
+            except Exception as ex:  # noqa: BLE001
+                (d / f"s{n}.txt").write_text(f"digest failed: {type(ex).__name__}: {ex}")
+            copy["digest"] = f"s{n}.txt"
+            copy["file"] = str(ARCHIVE / copy["path"])
+        pack["sources"].append({"n": n, "url": s["url"], "roles": s["roles"], "scope": s.get("scope"), "judge": s.get("judge"),
+                                "as_of": s.get("as_of"), "cms_page": is_cms(s), "note": s.get("note"),
+                                "live_state": s.get("url_state"), "copy": copy})
+    (d / "pack.json").write_text(json.dumps(pack, indent=1, ensure_ascii=False))
+    return {"contest": cid, "sources": len(pack["sources"]), "with_copy": sum(1 for x in pack["sources"] if x["copy"])}
+
+
 def main() -> int:
+    import time
+    from multiprocessing import Pool
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", required=True)
     ap.add_argument("--sample", type=int)
     ap.add_argument("--seed", type=int, default=1)
     ap.add_argument("--contests")
+    ap.add_argument("--all", action="store_true", help="every contest that ran and has a source")
+    ap.add_argument("--budget", type=int, default=0, help="stop starting new work after this many seconds (rerun to resume: built packs are skipped)")
+    ap.add_argument("--jobs", type=int, default=4)
+    ap.add_argument("--batch-sources", type=int, default=0, help="with --all, when every pack is built: write batches/bNNN.txt of about this many sources each")
     args = ap.parse_args()
     out = Path(args.out).resolve()
-    contests, series, sets = load_contests(), load_series(), load_sets()
-    res = json.loads((ROOT / "data" / "resources.json").read_text())["locators"]
-    by_key = {norm_key(L["url"]): L for L in res.values()}
-    sites = defaultdict(list)
-    for e in json.loads((ROOT / "data" / "website-index.json").read_text())["sites"]:
-        if not e.get("empty") and not e.get("shell"):
-            sites[e["contest"]].append(e)
+    out.mkdir(parents=True, exist_ok=True)
+    load_globals()
+    contests, series = G["contests"], G["series"]
     ran = {cid: c for cid, c in contests.items() if c.get("status") != "upcoming" and sources(c)}
     if args.contests:
         pick = [x for x in args.contests.split(",") if x in ran]
+    elif args.all:
+        pick = sorted(ran)
     else:
         strata = defaultdict(list)
         for cid, c in sorted(ran.items()):
@@ -157,52 +236,41 @@ def main() -> int:
             for k in keys:
                 if strata[k] and len(pick) < (args.sample or 100):
                     pick.append(strata[k].pop())
+    todo = [cid for cid in pick if not (out / cid / "pack.json").exists()]
+    t0, done = time.time(), 0
+    with Pool(args.jobs) as pool:
+        it = pool.imap_unordered(build_one, [(cid, str(out)) for cid in todo])
+        for _ in it:
+            done += 1
+            if args.budget and time.time() - t0 > args.budget:
+                pool.terminate()
+                break
+    left = [cid for cid in pick if not (out / cid / "pack.json").exists()]
     index = []
     for cid in pick:
-        c = ran[cid]
-        d = out / cid
-        d.mkdir(parents=True, exist_ok=True)
-        hdr = series[c["_series"]]["series"]
-        sid = set_id_of(c)
-        st = sets.get(sid) if sid else None
-        pack = {"contest": cid, "name": c.get("name"), "series_name": hdr.get("name"), "region": hdr.get("region"), "tier": hdr.get("tier"),
-                "date": str(c.get("date") or ""), "season": c.get("season"), "location": c.get("location"), "cms_ids": c.get("cms_ids"),
-                "notes": c.get("notes"),
-                "problems_known": ({"count": st.get("count"), "letters": {k: next((p.get("name") for p in st.get("problems") or [] if p["id"] == v), None)
-                                                                         for k, v in (set_letters(st, cid) or {}).items()}} if st else None),
-                "sources": []}
-        for n, s in enumerate(sources(c), 1):
-            L = by_key.get(norm_key(s["url"])) or {}
-            caps = [cap for r in (L.get("resources") or {}).values() for cap in r.get("captures") or []]
-            cited = {r["contest"] for r in L.get("refs") or []}
-            own = [x for x in caps if x.get("contest") == cid or x["path"] in (s.get("archived") or [])]
-            caps = own or (caps if len(cited) <= 1 else [])
-            caps = [x for x in caps if not x.get("caveat")] or caps
-            caps.sort(key=lambda x: (x.get("source") == "live", x.get("fetched") or ""), reverse=True)
-            copy = None
-            if caps:
-                copy = {"path": caps[0]["path"], "via": caps[0].get("source"), "fetched": (caps[0].get("fetched") or "")[:10],
-                        "size": caps[0].get("size"), "caveat": caps[0].get("caveat"), "other_copies": len(caps) - 1}
-            elif "web" in s["roles"] and sites.get(cid):
-                key = norm_key(s["url"])
-                e = next((e for e in sites[cid] if norm_key(e["seed"]) == key), None) or next((e for e in sites[cid] if e.get("primary")), None)
-                if e:
-                    copy = {"path": e["dir"], "via": e.get("mode"), "fetched": (e.get("fetched") or "")[:10], "pages": e.get("pages"),
-                            "seed": e["seed"], "shows": e.get("wayback_timestamp")}
-            if copy:
-                try:
-                    (d / f"s{n}.txt").write_text(digest(ARCHIVE / copy["path"]))
-                except Exception as ex:  # noqa: BLE001
-                    (d / f"s{n}.txt").write_text(f"digest failed: {type(ex).__name__}: {ex}")
-                copy["digest"] = f"s{n}.txt"
-                copy["file"] = str(ARCHIVE / copy["path"])
-            pack["sources"].append({"n": n, "url": s["url"], "roles": s["roles"], "scope": s.get("scope"), "judge": s.get("judge"),
-                                    "as_of": s.get("as_of"), "cms_page": is_cms(s), "note": s.get("note"),
-                                    "live_state": s.get("url_state"), "copy": copy})
-        (d / "pack.json").write_text(json.dumps(pack, indent=1, ensure_ascii=False))
-        index.append({"contest": cid, "sources": len(pack["sources"]), "with_copy": sum(1 for x in pack["sources"] if x["copy"])})
+        p = out / cid / "pack.json"
+        if p.exists():
+            srcs = json.loads(p.read_text())["sources"]
+            index.append({"contest": cid, "sources": len(srcs), "with_copy": sum(1 for x in srcs if x["copy"])})
     (out / "index.json").write_text(json.dumps(index, indent=1))
-    print(f"{len(index)} contests, {sum(x['sources'] for x in index)} sources, {sum(x['with_copy'] for x in index)} with a copy -> {out}")
+    print(f"built {done} now; {len(index)} of {len(pick)} packs exist, {len(left)} left; {sum(x['sources'] for x in index)} sources, "
+          f"{sum(x['with_copy'] for x in index)} with a copy -> {out}")
+    if args.batch_sources and not left:
+        bd = out / "batches"
+        bd.mkdir(exist_ok=True)
+        batches, cur, n = [], [], 0
+        for x in sorted(index, key=lambda x: x["contest"]):
+            w = max(1, x["with_copy"]) + 0.3 * (x["sources"] - x["with_copy"])
+            if cur and (n + w > args.batch_sources or len(cur) >= 10):
+                batches.append(cur)
+                cur, n = [], 0
+            cur.append(x["contest"])
+            n += w
+        if cur:
+            batches.append(cur)
+        for i, b in enumerate(batches, 1):
+            (bd / f"b{i:03d}.txt").write_text("\n".join(b) + "\n")
+        print(f"{len(batches)} batches -> {bd}")
     return 0
 
 
