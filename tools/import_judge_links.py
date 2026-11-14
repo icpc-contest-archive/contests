@@ -22,7 +22,8 @@ URL = {"beecrowd": "https://judge.beecrowd.com/en/problems/view/{id}",
        "bailian": "http://bailian.openjudge.cn/practice/{id}", "poj": "http://poj.org/problem?id={id}",
        "luogu": "https://www.luogu.com.cn/problem/{id}", "loj": "https://loj.ac/p/{id}",
        "vnoj": "https://oj.vnoi.info/problem/{id}", "tlx": "https://tlx.toki.id/problems/{id}",
-       "hackerrank": "https://www.hackerrank.com/contests/{id}"}
+       "hackerrank": "https://www.hackerrank.com/contests/{id}", "spoj": "https://www.spoj.com/problems/{id}/",
+       "eolymp": "https://basecamp.eolymp.com/en/problems/{id}", "dmoj": "https://dmoj.ca/problem/{id}"}
 
 
 def expand(judge: str, sid: str, key: str, extra: str) -> tuple[str, str]:

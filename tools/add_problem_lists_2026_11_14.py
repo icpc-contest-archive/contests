@@ -101,6 +101,8 @@ def main() -> int:
             for j, k in links:
                 if not any(x["judge"] == j for x in p.get("judges") or []):
                     p.setdefault("judges", []).append({"judge": j, "url": URL[j].format(id=k), "id": k.rsplit("/", 1)[-1]}); linked += 1
+        if not s.get("letters") and not any(isinstance(e.get("letters"), dict) for e in s["contests"]):
+            s["letters"] = "unknown"
         if s.get("count") and len(probs) > s["count"]:
             print(f"!! {sid}: {len(probs)} problems, count says {s['count']}"); return 1
         if s.get("count") and len(probs) == s["count"] and s.get("complete") is False and all(len(p) for p in probs):

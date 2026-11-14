@@ -85,3 +85,26 @@ already have a problem-set source recorded that has not been read for names.
 Tables show a judge's logo instead of its name (name on hover; a closed judge greyed). Logos are the
 judges' own favicons in `tools/site_assets/judges/`; Kattis is the cat from the open.kattis.com header.
 QOJ, Bailian (same icon as POJ), LibreOJ and VNOJ have no usable logo and show a short text badge.
+
+## Third round (same day): SPOJ, Eolymp, DMOJ, GitHub
+
+- **SPOJ** registered as a judge: 325 links in 47 sets, from the 6,289 classical problems vjudge lists
+  (resource string names the contest). **Eolymp**: 264 links in 43 sets (it had contest pages only).
+  **DMOJ** re-read through its API (5,275 problems, 143 in its ICPC group): 21 more single links,
+  nothing new by contest.
+- New lists from source strings (`tools/add_problem_lists_2026_11_14b.py`, 57 problems): poland-1998,
+  poland-2001 (4 names), palestine-2012, ukraine-2012, ukraine-2013, mongolia-national-2013 (4 names);
+  thailand-2011, latam-2008, latam-2012 and ncna-2013 completed.
+- **tap-2014** (11 problems) from a statement PDF in a GitHub repo of solutions.
+- SPOJ's national sub-sites: br.spoj.com and pl.spoj.com answer a human check to curl and to the
+  browser. Wayback has br.spoj's category lists, but Brazil has no gaps left; pl.spoj has no AMPPZ
+  category. Jisuanke's problem addresses no longer resolve, so its 11 Urumqi 2017 matches are not linked.
+- Not applied: SPOJ's "10th" and "11th Egyptian Collegiate Programming Contest" (9 and 5 problems;
+  which years?), "XX Colombian National Programming ACM 2006" (7; no colombia-maraton-2006 in the
+  catalogue), Eolymp's Malaysia national 2011 and 2013 lists (titles differ from what we hold).
+- GitHub repository search (40 queries by contest name) found solution repos, not jury packages.
+  Leads kept in `_hunt/judges-2026-11-14/gh-search.json`.
+- Lead: the cover of the 2024 Maratona first-phase problem set names four contests sitting it —
+  Brazil's sub-regional, the Competencia Boliviana de Programación, Gran Premio de Centroamérica and
+  Gran Premio de México. bolivia-national-2024 currently holds the list of a Codeforces gym called
+  "Bolivia Pre-National Contest", which is probably a different contest.

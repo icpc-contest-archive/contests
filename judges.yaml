@@ -118,6 +118,7 @@ judges:
   name: Eolymp (ex e-olymp)
   short: Eolymp
   url: https://eolymp.com/
+  problem_url: https://basecamp.eolymp.com/en/problems/{id}
   problem_url: https://eolymp.com/problems/{id}
   contest_url: https://eolymp.com/contests/{id}
   status: active
@@ -332,3 +333,16 @@ judges:
     2004 sets and the Northern Subregional 2002 as runs of neighbouring numbers; the source string of
     each problem names the contest (read 2026-11-14 through vjudge.net). Nothing says a run is the whole
     contest: 2003 skips number 189.'
+- id: spoj
+  name: SPOJ (Sphere Online Judge)
+  short: SPOJ
+  url: https://www.spoj.com/
+  problem_url: https://www.spoj.com/problems/{id}/
+  status: active
+  statements: true
+  submissions: true
+  notes: 'Polish judge with a large user-added classical archive; each problem has a free-text "Resource"
+    line that often names the contest it came from (CERC, ECNA, Mid-Central, World Finals, ACPC, AMPPZ,
+    Argentina''s TAP). Cloudflare 403 to curl; opens in a browser. The 6,289 classical problems vjudge.net
+    lists were read 2026-11-13 and matched by title within one resource string. National sub-sites exist
+    (br.spoj.com for Brazil, pl.spoj.com for Poland) and are separate archives.'
