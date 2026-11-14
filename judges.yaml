@@ -225,32 +225,6 @@ judges:
     NEERC Eastern (Ural) subregional 2006-2014 live online versions, Central subregional (Rybinsk) 2001-2003,
     plus NEERC 2000-2002 and Central 2000 / Northern 2001 problems in the main set. Since 2015 Timus only
     hosts the Ural *qualifier* rounds, not the regional itself.'
-- id: ucup
-  name: Universal Cup judge (contest.ucup.ac, UOJ-based)
-  short: UCup
-  url: https://contest.ucup.ac/contests
-  problem_url: https://contest.ucup.ac/contest/{contest_id}/problem/{problem_id}
-  contest_url: https://contest.ucup.ac/contest/{id}
-  status: active
-  statements: true
-  submissions: true
-  notes: 'Reachable (200). Lists only Universal Cup stages (''The Nth Universal Cup. Stage K: Grand Prix
-    of X''); these are Open-Cup-style rounds that often reuse ICPC regional sets (e.g. Stage 6 ''Grand
-    Prix of Shenyang'' = 2025 Shenyang regional) but per brief are not catalogue contests, so no candidates
-    recorded. The ICPC-named mirrors live on qoj.ac, not here.'
-- id: vjudge
-  name: Virtual Judge (vjudge.net)
-  short: vjudge
-  url: https://vjudge.net/contest
-  problem_url: https://vjudge.net/contest/{contest_id}#problem/{letter}
-  contest_url: https://vjudge.net/contest/{id}
-  status: active
-  statements: true
-  submissions: true
-  notes: 'Reachable without an account from a normal browser (Cloudflare 403 to curl/WebFetch); /contest/data?title=...
-    is the DataTables JSON behind the contest list. NOT a catalogue source: its contests are user-created
-    replays (one per training session, thousands titled after ICPC regionals) that point at problems on
-    other judges; link the origin judge instead. No candidates recorded.'
 - id: poj
   name: PKU JudgeOnline (POJ)
   short: POJ
@@ -277,3 +251,71 @@ judges:
     and its statements (static/problem_text-cid-<id>.html) are readable without an account (checked 2026-11-13).
     Taking part needs an account; the site offers registration, and submitting to a past contest was not tried.
     The scoreboard of a contest is rank_table_content?cid= with the same id.'
+- id: bailian
+  name: Bailian 百练 (Bǎiliàn, 'hundred drills'; OpenJudge, Peking University)
+  short: Bailian
+  url: http://bailian.openjudge.cn/
+  problem_url: http://bailian.openjudge.cn/practice/{id}
+  status: active
+  statements: true
+  submissions: true
+  notes: 'Peking University''s OpenJudge practice set. Problems 1000-2999 carry the same numbers and
+    statements as POJ (checked 2026-11-14: 471 of the 485 linked titles are identical on both), so it
+    is a second place to solve the POJ-era regional sets; each problem names its source contest. Statements
+    open without an account. Problem lists read 2026-11-14 through vjudge.net (source search), matched
+    by title within one source. No contest pages.'
+- id: tlx
+  name: TLX (TOKI Learning Center, Indonesia)
+  short: TLX
+  url: https://tlx.toki.id/
+  problem_url: https://tlx.toki.id/problems/{id}
+  contest_url: https://tlx.toki.id/problems/{id}
+  status: active
+  statements: true
+  submissions: true
+  notes: 'Ikatan Alumni TOKI''s judge; the home of the ICPC Asia Jakarta regional. Its problem archive
+    has one problem set per regional, icpc-jakarta-<year> (2017-2025 seen 2026-11-14), with the contest
+    letters as problem ids: /problems/icpc-jakarta-2021/C. Statements open without an account. Read through
+    vjudge.net, which had only 6 of the 13 problems of 2024. Also hosts Indonesian provincial rounds (IDEAFUSE
+    Sumatra) that are not catalogue contests.'
+- id: vnoj
+  name: VNOJ (VNOI Online Judge, Vietnam)
+  short: VNOJ
+  url: https://oj.vnoi.info/
+  problem_url: https://oj.vnoi.info/problem/{id}
+  status: active
+  statements: true
+  submissions: true
+  notes: 'The Vietnamese olympiad community''s judge (a DMOJ fork). Hosts the ICPC Vietnam chain 2019-2024
+    with one code per problem: icpc<yy>_regional_<letter> (the Asia regional held in Vietnam that season),
+    icpc<yy>_national_<letter> (Vietnam National), and icpc<yy>_mb/_mt/_mn_<letter> for the northern, central
+    and southern provincial rounds (miền Bắc / Trung / Nam; not catalogue contests). Titles read "ICPC
+    2022 vòng Regional - A: Aqua" (vòng = round, Quốc gia = national). The site answers a Cloudflare human
+    check to both curl and a browser (2026-11-14), so the problem addresses were built from the codes
+    vjudge.net lists and were not opened.'
+- id: loj
+  name: LibreOJ (loj.ac)
+  short: LOJ
+  url: https://loj.ac/
+  problem_url: https://loj.ac/p/{id}
+  status: active
+  statements: true
+  submissions: true
+  notes: 'Chinese open judge. Has ICPC World Finals 2017-2025 and CERC 2018 as tagged problem groups;
+    only World Finals 2017 and CERC 2018 keep English titles and are linked (2026-11-14, via vjudge.net).
+    World Finals 2018-2025 are there under Chinese titles (97 problems, numbers from 6405) and are not
+    linked yet: they need matching by letter.'
+- id: hackerrank
+  name: HackerRank
+  short: HackerRank
+  url: https://www.hackerrank.com/contests
+  problem_url: https://www.hackerrank.com/contests/{id}
+  contest_url: https://www.hackerrank.com/contests/{id}/challenges
+  status: active
+  statements: true
+  submissions: true
+  notes: 'Ran the official practice/replay contests of several 2014 regionals (NWERC, CERC, SEERC, NAQ,
+    Mid-Central, North Central) and of the Arab Collegiate contest 2013 and 2015; two "ACM ICPC warmup
+    2015" rounds reuse the Greater NY 2014 and ACPC 2014 sets. A problem is /contests/<contest>/challenges/<challenge>;
+    statements open without an account. Found 2026-11-14 through vjudge.net, matched by title within
+    one contest.'
