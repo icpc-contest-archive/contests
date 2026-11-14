@@ -143,6 +143,36 @@ API's data instead (`tools/bake_icpc_standings.py`, source `icpc-api-archive`, t
 date), and the capture rounds leave them alone. `reports/icpc-standings-mapped-2026-11-14.md` lists
 what each page became.
 
+**What makes a source right (rulings of 2026-11-14).** Every source must be about this contest and
+this edition, hold what its role says, and say with `scope` when it covers only a part.
+
+- `scoreboard`: per team and per problem, solved or not. Tries and times are usual but not needed: a
+  grid that only says which problems each team solved is a scoreboard, the weakest kind.
+- `frozen_scoreboard`: the same shape as it stood at the freeze. A page with final totals and a
+  frozen grid has both roles.
+- `standings`: per team, rank and/or problems solved, no per-problem detail. A list that ranks the top
+  places and gives the rest unranked (Honorable Mention) is complete: that is normal for ICPC
+  standings, not a partial list.
+- `rankings`: teams in order, nothing more. A list of the champions or the top N counts, with `scope`
+  saying what it covers (`champions`, `top 10`). An account by somebody else (a university's
+  achievements page, a news item) counts when it gives the order.
+- A board that mixes outside participants (virtual, unofficial, practice) with the official teams is a
+  results source only when the official teams can be told apart on the page.
+- A page that covers several contests or rounds is a source of each contest it covers, with `scope`
+  naming the section when the page has separate ones.
+- `web`: a page or site by the organisers or the host about this edition (the series' site as it
+  stood for this edition counts, and so does the old CMS's "past regionals" page of a contest). Not
+  `web`: one results page, somebody else's news, a social-media post, a university's general
+  homepage, a CMS finder page.
+- `teams`: a list of the participating teams that is not a results page.
+- `problemset` / `problem`: about this contest's problems, in any form, an archive of bare solutions
+  or test data included. `editorial`: explains how to solve them.
+- A source that turns out to be another edition's document moves to that contest when the document
+  names it and the contest exists; otherwise it is removed and listed.
+- A copy that is not the document (an error page, a login wall, an empty list, an app's shell) is
+  marked empty and captured again; when the address itself holds nothing, the source goes, as the
+  empty CMS standings pages did.
+
 **Sources: `scope`.** A source that covers one part of a contest, not all of it, says which:
 `scope: Division 1`. `tools/label_scopes.py` sets it from the archived capture (the Kattis filter
 heading, the page title), the address (`/div2/`, `acpc20d1.kattis.com`) or the note; the site shows
