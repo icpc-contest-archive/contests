@@ -44,6 +44,11 @@ def main() -> int:
                     "http-error-page", "bot-challenge", "under-construction", "placeholder",
                     "seed-not-fetched", "file-missing", "wayback-not-archived", "type-mismatch"}:
                 shells[f["path"]] = ", ".join(f["reasons"]) + " — " + f["evidence"][:120]
+    # the content check flags crawls that hold nothing about the contest, or another edition
+    for cf in sorted(archive.glob("reports/content-check-*.json")):
+        for m in json.loads(cf.read_text())["marks"]:
+            if "/website/" in m["path"]:
+                shells.setdefault(m["path"].split("/files/")[0].rsplit("/site-manifest.json")[0], m["caveat"][:200])
     by_contest: dict[str, list] = defaultdict(list)
     for mf in sorted(archive.glob("*/*/website/*/site-manifest.json")):
         m = json.loads(mf.read_text())
