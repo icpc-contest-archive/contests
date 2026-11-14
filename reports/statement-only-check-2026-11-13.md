@@ -84,3 +84,19 @@ Found on the way, not applied:
   nwerc-2011, swerc-2013, swerc-2014, swerc-2015, cerc-2014, bapc-prelims-2021.
 - Repos with full packages where the set says package none or partial: ukiepc-2020 (13),
   germany-2021 (14, set says 4).
+
+## Follow-up 2026-11-14 (rulings applied)
+
+- ukiepc-2023: "Tetris" dropped (duplicate of Mini-Tetris 3023 in the Kattis database);
+  count 14; letters A–N checked against the archived statement.
+- wf-1978 … wf-2000: `repo:` now `icpc-problem-archive/wf-1978-2000`, data/solutions/package
+  full (164 packages; per-year counts equal the sets' counts). wf-1982's seven are problems
+  1–6 and 8, so there is no missing statement.
+- ukiepc-2020 and germany-2021: package full. wf-2006: 9 of 10 packaged (not Bipartite
+  Numbers). wf-2008: 2 packaged (Always an integer, Glenbow Museum).
+- seerc-2018: the published PDF (A–K) is in the archive,
+  seerc/seerc-2018/problemset/20261114-live-299c1b4a, fetched by hand with curl:
+  capture_urls.py gets HTTP 403 from seerc.icpc.global, which has 53 queued URLs
+  (21 problem sets) and no Wayback snapshots.
+- Not applied: the PDF-only repos (nwerc-2009, nwerc-2011, swerc-2013, swerc-2014,
+  swerc-2015, cerc-2014, bapc-prelims-2021) — only the default branch was read.
