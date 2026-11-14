@@ -1,0 +1,84 @@
+{
+ "contest": "pacnw-1994",
+ "rubric": 2,
+ "sources": [
+  {
+   "n": 1,
+   "verdict": "confirm",
+   "roles": [
+    "web"
+   ],
+   "scope": null,
+   "confidence": "medium",
+   "evidence": "Crawl of the Pacific Northwest series site (2021 snapshot) whose seed is the 1994 results page; the other pages are mostly later editions (1995, 2011, 2019-2024), with no 1994-specific site content beyond the results page.",
+   "flags": [
+    "year-reused"
+   ],
+   "facts": {
+    "contest_named": "1994 Pacific Region",
+    "date": "November 19, 1994",
+    "inside": [
+     {
+      "address": "http://acmicpc-pacnw.org/Standings/1994/94res.htm",
+      "is": "standings",
+      "already_a_source": true
+     }
+    ],
+    "language": "en"
+   },
+   "opened_full_copy": false
+  },
+  {
+   "n": 2,
+   "verdict": "confirm",
+   "roles": [
+    "standings"
+   ],
+   "scope": null,
+   "confidence": "high",
+   "evidence": "Table of 38 ranked rows (plus header) with columns TEAM NAME, FINAL SCORE, NUM. SOLVED, RANK on a page titled '1994 Results / 1994 Pacific Region' dated November 19, 1994.",
+   "flags": [],
+   "facts": {
+    "teams": 38,
+    "columns": [
+     "TEAM NAME",
+     "FINAL SCORE",
+     "NUM. SOLVED",
+     "RANK"
+    ],
+    "final_or_frozen": "final",
+    "has_times": false,
+    "has_tries": false,
+    "top3": [
+     "UC Berkeley #1",
+     "Stanford #1",
+     "Stanford #2"
+    ],
+    "contest_named": "1994 Pacific Region",
+    "language": "en"
+   },
+   "opened_full_copy": false
+  }
+ ],
+ "contest_facts": [
+  {
+   "fact": "date",
+   "value": "1994-11-19",
+   "from": 2,
+   "pack_says": ""
+  },
+  {
+   "fact": "max problems solved",
+   "value": "6",
+   "from": 2,
+   "pack_says": "6 problems known"
+  },
+  {
+   "fact": "teams",
+   "value": "38",
+   "from": 2,
+   "pack_says": null
+  }
+ ],
+ "notes": "Rank 24 is shared by 15 teams with no score (solved nothing or not shown). Rank order is by solved count, then the FINAL SCORE column, which does not look monotonic with rank among top 3 (Stanford #1 1207 ranks above Stanford #2 1253, and UC Berkeley #1 1056 above both), so score semantics are unclear. Source 1 is the series site; it holds the 1994 results page but is not an edition-specific site."
+}

@@ -1,0 +1,119 @@
+{
+ "contest": "beijing-2007",
+ "rubric": 2,
+ "sources": [
+  {
+   "n": 1,
+   "verdict": "confirm",
+   "roles": [
+    "web"
+   ],
+   "scope": null,
+   "confidence": "high",
+   "evidence": "Crawl of icpc.buaa.edu.cn/pages titled 'ACM-ICPC 2007 Beijing China', 'The 2007 ACM-ICPC Regionals Beijing, Asia Nov 11, 2007', host Beihang University, with schedule, rules, committee, hotel pages (English and Chinese).",
+   "flags": [],
+   "facts": {
+    "date": "Nov 11, 2007 (schedule pages list 9-11 Nov)",
+    "place": "Beijing, China (Beihang University, 37 Xue Yuan Rd, Haidian)",
+    "host": "Beihang University (College of Software)",
+    "contest_named": "The 2007 ACM-ICPC Regionals Beijing, Asia; Theme: Microsoft Cup Collegiate Programming Contest",
+    "language": "English and Chinese",
+    "inside": [
+     {
+      "address": "http://icpc.buaa.edu.cn/pages/Result_CN.aspx",
+      "is": "rankings",
+      "already_a_source": false
+     }
+    ]
+   },
+   "opened_full_copy": true
+  },
+  {
+   "n": 2,
+   "verdict": "confirm",
+   "roles": [
+    "standings"
+   ],
+   "scope": null,
+   "confidence": "high",
+   "evidence": "Table Rank, Team, Citation, #Solved, Time with 70 ranked rows (1st to 50th place) followed by 938 unranked Honorable Mention rows; solved/time shown only for the ranked teams that solved problems and time blank for lower ones.",
+   "flags": [
+    "combined"
+   ],
+   "facts": {
+    "teams": 1008,
+    "columns": [
+     "Rank",
+     "Team",
+     "Citation",
+     "#Solved",
+     "Time"
+    ],
+    "top3": [
+     "Tsinghua University (Coldor)",
+     "Tsinghua University (Tsinghua - ShangriLa)",
+     "Peking University (Eccentrics)"
+    ],
+    "final_or_frozen": "final",
+    "has_times": true,
+    "has_tries": false,
+    "contest_named": "The 2007 ACM Asia Programming Contest - Beijing sponsored by IBM",
+    "language": "English"
+   },
+   "opened_full_copy": true
+  },
+  {
+   "n": 3,
+   "verdict": "confirm",
+   "roles": [
+    "rankings"
+   ],
+   "scope": null,
+   "confidence": "high",
+   "evidence": "Same Baylor standings page later capture, but columns are only Rank, Team, Citation (70 ranked + 938 Honorable Mention), no solved or time.",
+   "flags": [
+    "combined"
+   ],
+   "facts": {
+    "teams": 1008,
+    "columns": [
+     "Rank",
+     "Team",
+     "Citation"
+    ],
+    "top3": [
+     "Tsinghua University (Coldor)",
+     "Tsinghua University (Tsinghua - ShangriLa)",
+     "Peking University (Eccentrics)"
+    ],
+    "final_or_frozen": "final",
+    "has_times": false,
+    "has_tries": false,
+    "contest_named": "The 2007 ACM Asia Programming Contest - Beijing sponsored by IBM",
+    "language": "English"
+   },
+   "opened_full_copy": true
+  }
+ ],
+ "contest_facts": [
+  {
+   "fact": "date",
+   "value": "2007-11-11 (contest day; teams arrive 9 Nov, opening 10 Nov)",
+   "from": 1,
+   "pack_says": "2007-11-11"
+  },
+  {
+   "fact": "teams",
+   "value": "1008 listed (70 ranked, 938 Honorable Mention); this is far more than a single site, so the board looks multi-site or includes the online round",
+   "from": 2,
+   "pack_says": null
+  },
+  {
+   "fact": "problems",
+   "value": "max solved on board is 6; number of problems not stated in the sources",
+   "from": 2,
+   "pack_says": "10"
+  }
+ ],
+ "notes": "Source 3 is the same page as 2 but without solved/time, so role rankings (not standings) is the right one in my reading; the pack says standings. Source 2 rank/solved/time: 'Time' is blank for ranks 16+. The 1008-team count is suspicious for a Beijing regional with a 50-school online prelim; the board probably merges the on-site contest with the online/other-site teams (pack location lists six sites plus Online): needs a human look. Source 1 crawl is dated 2007-10-11, before the contest, so it shows no final results; its Result_CN.aspx is the online preliminary result (top 8 solved: Tsinghua THU Trip 8 solved, 694), a candidate source of its own. scoreboard.htm only redirects to acm.buaa.edu.cn (not captured)."
+}

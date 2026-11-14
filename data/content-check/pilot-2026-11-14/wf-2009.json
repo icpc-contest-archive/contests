@@ -1,0 +1,436 @@
+{
+ "contest": "wf-2009",
+ "rubric": 2,
+ "sources": [
+  {
+   "n": 1,
+   "verdict": "confirm",
+   "roles": [
+    "web"
+   ],
+   "scope": null,
+   "confidence": "high",
+   "evidence": "Crawl of icpc09.csc.kth.se, the KTH-hosted site of the 2009 World Finals in Stockholm (event, hotels, travel, live, wiki pages, problems.pdf).",
+   "flags": [],
+   "facts": {
+    "place": "Stockholm, Sweden (KTH)",
+    "host": "KTH Royal Institute of Technology",
+    "contest_named": "ICPC 2009 World Finals (icpc09.csc.kth.se)",
+    "language": "en",
+    "inside": [
+     {
+      "address": "http://icpc09.csc.kth.se/problems.pdf",
+      "is": "problemset",
+      "already_a_source": true
+     },
+     {
+      "address": "http://icpc09.csc.kth.se/live/",
+      "is": "scoreboard",
+      "already_a_source": false
+     }
+    ]
+   },
+   "opened_full_copy": false
+  },
+  {
+   "n": 2,
+   "verdict": "correct",
+   "roles": [
+    "frozen_scoreboard"
+   ],
+   "scope": null,
+   "confidence": "high",
+   "evidence": "Page 'world finals 2009' (zibada live-scoreboard script) states results are frozen 1 hour before the end and embeds JS data for 99 teams with per-problem time/success/attempts for 11 problems.",
+   "flags": [
+    "second-hand"
+   ],
+   "facts": {
+    "teams": 99,
+    "problems": 11,
+    "problem_labels": "A-K",
+    "final_or_frozen": "frozen (1 hour before end)",
+    "has_times": true,
+    "has_tries": true,
+    "contest_named": "world finals 2009 / ACM ICPC World Finals 2009",
+    "language": "en"
+   },
+   "opened_full_copy": true
+  },
+  {
+   "n": 3,
+   "verdict": "confirm",
+   "roles": [
+    "standings"
+   ],
+   "scope": null,
+   "confidence": "high",
+   "evidence": "cphof.org table of 100 teams (Rank, Country, Team, Score, Penalty, Prize) for ACM-ICPC 2009 World Finals; penalty is '?' from rank 14 on.",
+   "flags": [
+    "second-hand"
+   ],
+   "facts": {
+    "teams": 100,
+    "columns": [
+     "Rank",
+     "Country",
+     "Team",
+     "Score",
+     "Penalty",
+     "Prize"
+    ],
+    "top3": [
+     "St. Petersburg National Research University of IT, Mechanics and Optics (SPb IFMO 1)",
+     "Tsinghua University (Proxima)",
+     "St. Petersburg State University (SPb SU 1: Burunduchki)"
+    ],
+    "final_or_frozen": "final",
+    "has_times": true,
+    "has_tries": false,
+    "contest_named": "ACM-ICPC 2009 World Finals",
+    "language": "en"
+   },
+   "opened_full_copy": false
+  },
+  {
+   "n": 4,
+   "verdict": "confirm",
+   "roles": [
+    "standings"
+   ],
+   "scope": null,
+   "confidence": "high",
+   "evidence": "Table of 100 ranked teams (Rank, Team, Institution, Solved, Time, Medal, Citation, Site citation) from the icpc.global API archive for the 33rd World Finals.",
+   "flags": [],
+   "facts": {
+    "teams": 100,
+    "columns": [
+     "Rank",
+     "Team",
+     "Institution",
+     "Solved",
+     "Time",
+     "Medal",
+     "Citation",
+     "Site citation"
+    ],
+    "top3": [
+     "SPb IFMO 1 (St. Petersburg ITMO University)",
+     "Proxima (Tsinghua University)",
+     "SPb SU 1: Burunduchki (St. Petersburg State University)"
+    ],
+    "final_or_frozen": "final",
+    "has_times": true,
+    "has_tries": false,
+    "contest_named": "33rd Annual World Finals of the ACM International Collegiate Programming Contest",
+    "language": "en"
+   },
+   "opened_full_copy": false
+  },
+  {
+   "n": 5,
+   "verdict": "confirm",
+   "roles": [
+    "problemset"
+   ],
+   "scope": null,
+   "confidence": "high",
+   "evidence": "22-page PDF with Problems A-K statements, starting with 'A Careful Approach' and 'My Bad'.",
+   "flags": [],
+   "facts": {
+    "problems": 11,
+    "list": [
+     [
+      "A",
+      "A Careful Approach"
+     ],
+     [
+      "B",
+      "My Bad"
+     ],
+     [
+      "C",
+      "The Return of Carl"
+     ],
+     [
+      "D",
+      "Conduit Packing"
+     ],
+     [
+      "E",
+      "Fare and Balanced"
+     ],
+     [
+      "F",
+      "Deer-Proof Fence"
+     ],
+     [
+      "G",
+      "House of Cards"
+     ],
+     [
+      "H",
+      "The Ministers' Major Mess"
+     ],
+     [
+      "I",
+      "Struts and Springs"
+     ],
+     [
+      "J",
+      "Subway Timing"
+     ],
+     [
+      "K",
+      "Suffix-Replacement Grammars"
+     ]
+    ],
+    "material": [
+     "statements"
+    ],
+    "language": "en",
+    "contest_named": "2009 World Final Problem Set"
+   },
+   "opened_full_copy": true
+  },
+  {
+   "n": 6,
+   "verdict": "confirm",
+   "roles": [
+    "problemset"
+   ],
+   "scope": null,
+   "confidence": "high",
+   "evidence": "Byte-identical (same md5) to the 2009 World Final problem set PDF of source 5, 11 problems A-K.",
+   "flags": [],
+   "facts": {
+    "problems": 11,
+    "list": [
+     [
+      "A",
+      "A Careful Approach"
+     ],
+     [
+      "B",
+      "My Bad"
+     ],
+     [
+      "C",
+      "The Return of Carl"
+     ],
+     [
+      "D",
+      "Conduit Packing"
+     ],
+     [
+      "E",
+      "Fare and Balanced"
+     ],
+     [
+      "F",
+      "Deer-Proof Fence"
+     ],
+     [
+      "G",
+      "House of Cards"
+     ],
+     [
+      "H",
+      "The Ministers' Major Mess"
+     ],
+     [
+      "I",
+      "Struts and Springs"
+     ],
+     [
+      "J",
+      "Subway Timing"
+     ],
+     [
+      "K",
+      "Suffix-Replacement Grammars"
+     ]
+    ],
+    "material": [
+     "statements"
+    ],
+    "language": "en"
+   },
+   "opened_full_copy": true
+  },
+  {
+   "n": 7,
+   "verdict": "confirm",
+   "roles": [
+    "problemset"
+   ],
+   "scope": null,
+   "confidence": "high",
+   "evidence": "ICPC Live Archive category 'World Finals :: 2009 - Stockholm' listing 11 problems 4445-4455 with names and submission statistics.",
+   "flags": [],
+   "facts": {
+    "problems": 11,
+    "list": [
+     [
+      "A",
+      "A Careful Approach"
+     ],
+     [
+      "B",
+      "My Bad"
+     ],
+     [
+      "C",
+      "The Return of Carl"
+     ],
+     [
+      "D",
+      "Conduit Packing"
+     ],
+     [
+      "E",
+      "Fare and Balanced"
+     ],
+     [
+      "F",
+      "Deer-Proof Fence"
+     ],
+     [
+      "G",
+      "House of Cards"
+     ],
+     [
+      "H",
+      "The Ministers' Major Mess"
+     ],
+     [
+      "I",
+      "Struts and Springs"
+     ],
+     [
+      "J",
+      "Subway Timing"
+     ],
+     [
+      "K",
+      "Suffix-Replacement Grammars"
+     ]
+    ],
+    "material": [
+     "names-only"
+    ],
+    "language": "en",
+    "contest_named": "World Finals 2009 - Stockholm"
+   },
+   "opened_full_copy": false
+  },
+  {
+   "n": 8,
+   "verdict": "confirm",
+   "roles": [
+    "problemset"
+   ],
+   "scope": null,
+   "confidence": "high",
+   "evidence": "Baekjoon category 'ACM-ICPC World Finals 2009' listing 11 problems A-K (23223-23233) with English titles, all marked judging-not-ready.",
+   "flags": [],
+   "facts": {
+    "problems": 11,
+    "list": [
+     [
+      "A",
+      "A Careful Approach"
+     ],
+     [
+      "B",
+      "My Bad"
+     ],
+     [
+      "C",
+      "The Return of Carl"
+     ],
+     [
+      "D",
+      "Conduit Packing"
+     ],
+     [
+      "E",
+      "Fare and Balanced"
+     ],
+     [
+      "F",
+      "Deer-Proof Fence"
+     ],
+     [
+      "G",
+      "House of Cards"
+     ],
+     [
+      "H",
+      "The Ministers' Major Mess"
+     ],
+     [
+      "I",
+      "Struts and Springs"
+     ],
+     [
+      "J",
+      "Subway Timing"
+     ],
+     [
+      "K",
+      "Suffix-Replacement Grammars"
+     ]
+    ],
+    "material": [
+     "names-only"
+    ],
+    "language": "ko",
+    "contest_named": "ACM-ICPC World Finals 2009"
+   },
+   "opened_full_copy": false
+  },
+  {
+   "n": 9,
+   "verdict": "no-copy",
+   "roles": [],
+   "scope": null,
+   "confidence": "high",
+   "evidence": "copy is null",
+   "flags": [],
+   "facts": {},
+   "opened_full_copy": false
+  },
+  {
+   "n": 10,
+   "verdict": "no-copy",
+   "roles": [],
+   "scope": null,
+   "confidence": "high",
+   "evidence": "copy is null",
+   "flags": [],
+   "facts": {},
+   "opened_full_copy": false
+  }
+ ],
+ "contest_facts": [
+  {
+   "fact": "date",
+   "value": "2009-04-21",
+   "from": 3,
+   "pack_says": "2009-04-22"
+  },
+  {
+   "fact": "teams",
+   "value": "100",
+   "from": 4,
+   "pack_says": null
+  },
+  {
+   "fact": "problems",
+   "value": "11",
+   "from": 5,
+   "pack_says": "11"
+  }
+ ],
+ "notes": "Source 2 is filed as scoreboard but states it is frozen 1 hour before the end (its link to the official results is a separate address); the cphof page gives the date as April 21, 2009 vs 2009-04-22 in the pack. Source 5 and 6 are the same file. Source 10 (Logo-sketches.pdf, no copy in the pack) is present in the source 1 crawl and its name suggests a logo design file, not an editorial; the crawl also has a probably separate problems.pdf identical to source 5. cphof lacks penalties from rank 14."
+}

@@ -1,0 +1,136 @@
+{
+ "contest": "uzbekistan-2004",
+ "rubric": 2,
+ "sources": [
+  {
+   "n": 1,
+   "verdict": "confirm",
+   "roles": [
+    "web"
+   ],
+   "scope": null,
+   "confidence": "medium",
+   "evidence": "Crawl of the NEERC archive site (seed archive/2004.html, 150 pages across several years) whose 2004 page links Uzbekistan standings under Regional Contests; it is the northern Eurasia organiser's page, not a site of the Uzbek contest itself.",
+   "flags": [
+    "not-own-site",
+    "combined"
+   ],
+   "facts": {
+    "host": "NEERC / ITMO (neerc.ifmo.ru)",
+    "contest_named": "NEERC 2004 archive page, Regional Contests: Uzbekistan",
+    "inside": [
+     {
+      "address": "http://neerc.ifmo.ru/archive/2004/uzbekistan/standings.html",
+      "is": "scoreboard",
+      "already_a_source": true
+     }
+    ],
+    "language": "en"
+   },
+   "opened_full_copy": false
+  },
+  {
+   "n": 2,
+   "verdict": "correct",
+   "roles": [
+    "scoreboard"
+   ],
+   "scope": null,
+   "confidence": "high",
+   "evidence": "Standings page headed 'ACM ICPC 2004-2005, NEERC, Uzbekistan Subregional Contest' (status over, 6:30:00 of 6:30:00) with 65 team rows and problem columns A-K showing tries and times; byte-identical to the other copy.",
+   "flags": [],
+   "facts": {
+    "teams": 65,
+    "problems": 11,
+    "problem_labels": "A-K",
+    "columns": [
+     "Team",
+     "A",
+     "B",
+     "C",
+     "D",
+     "E",
+     "F",
+     "G",
+     "H",
+     "I",
+     "J",
+     "K",
+     "=",
+     "Time",
+     "Rank"
+    ],
+    "top3": [
+     "JIDU#2 (NAPSTER-UWED)",
+     "TUIT_OSI",
+     "TDTU#11(Tstu-01)"
+    ],
+    "final_or_frozen": "final",
+    "has_times": true,
+    "has_tries": true,
+    "contest_named": "ACM ICPC 2004-2005, NEERC, Uzbekistan Subregional Contest",
+    "language": "en"
+   },
+   "opened_full_copy": true
+  },
+  {
+   "n": 3,
+   "verdict": "correct",
+   "roles": [
+    "scoreboard"
+   ],
+   "scope": null,
+   "confidence": "high",
+   "evidence": "Standings page headed 'ACM ICPC 2004-2005, NEERC, Uzbekistan Subregional Contest' (status over, 6:30:00 of 6:30:00) with 65 team rows and problem columns A-K showing tries and times; byte-identical to the other copy.",
+   "flags": [],
+   "facts": {
+    "teams": 65,
+    "problems": 11,
+    "problem_labels": "A-K",
+    "columns": [
+     "Team",
+     "A",
+     "B",
+     "C",
+     "D",
+     "E",
+     "F",
+     "G",
+     "H",
+     "I",
+     "J",
+     "K",
+     "=",
+     "Time",
+     "Rank"
+    ],
+    "top3": [
+     "JIDU#2 (NAPSTER-UWED)",
+     "TUIT_OSI",
+     "TDTU#11(Tstu-01)"
+    ],
+    "final_or_frozen": "final",
+    "has_times": true,
+    "has_tries": true,
+    "contest_named": "ACM ICPC 2004-2005, NEERC, Uzbekistan Subregional Contest",
+    "language": "en"
+   },
+   "opened_full_copy": true
+  }
+ ],
+ "contest_facts": [
+  {
+   "fact": "season",
+   "value": "ACM ICPC 2004-2005 (NEERC subregional), contest length 6:30:00",
+   "from": 2,
+   "pack_says": "season 2005, date empty"
+  },
+  {
+   "fact": "teams",
+   "value": "65 team rows, 11 problems A-K, 741 runs, 179 accepted",
+   "from": 2,
+   "pack_says": null
+  }
+ ],
+ "notes": "Sources 2 and 3 are the same page (nerc.itmo.ru and neerc.ifmo.ru addresses, identical files); the role should be scoreboard, not standings, since it has a per-problem grid with tries and times. The page gives no contest date or place. Several team names repeat or are unofficial-looking (e.g. QarDU (Triada) appears twice); no sign of virtual participants. The crawl copy also holds the 2005 Uzbekistan page, which belongs to a different edition."
+}

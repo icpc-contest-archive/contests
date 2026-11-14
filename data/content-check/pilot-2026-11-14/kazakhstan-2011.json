@@ -1,0 +1,173 @@
+{
+ "contest": "kazakhstan-2011",
+ "rubric": 2,
+ "sources": [
+  {
+   "n": 1,
+   "verdict": "confirm",
+   "roles": [
+    "web"
+   ],
+   "scope": null,
+   "confidence": "medium",
+   "evidence": "Crawl of neerc.ifmo.ru starting at subregions/kazakhstan.html: NEERC archive pages and Kazakhstan Subregional standings of 2011, 2013, 2016 and other years, no site of its own for the 2011 edition.",
+   "flags": [
+    "combined",
+    "not-own-site"
+   ],
+   "facts": {
+    "inside": [
+     {
+      "address": "http://neerc.ifmo.ru/archive/2011/kazakhstan/standings.html",
+      "is": "scoreboard",
+      "already_a_source": true
+     }
+    ],
+    "host": "NEERC (ITMO)",
+    "language": "en",
+    "contest_named": "ACM ICPC 2011-2012, NEERC, Kazakhstan Subregional Contest"
+   },
+   "opened_full_copy": true
+  },
+  {
+   "n": 2,
+   "verdict": "confirm",
+   "roles": [
+    "scoreboard"
+   ],
+   "scope": null,
+   "confidence": "high",
+   "evidence": "Standings titled 'ACM ICPC 2011-2012, NEERC, Kazakhstan Subregional Contest', 5:00:00 of 5:00:00 status over, with columns Rank, Team, A-K and per-problem tries/times.",
+   "flags": [],
+   "facts": {
+    "teams": 63,
+    "problems": 11,
+    "problem_labels": "A-K",
+    "top3": [
+     "Kazakh-British TU 1",
+     "Kazakh-British TU 3",
+     "Kazakh-British TU 2"
+    ],
+    "columns": [
+     "Rank",
+     "Team",
+     "A",
+     "B",
+     "C",
+     "D",
+     "E",
+     "F",
+     "G",
+     "H",
+     "I",
+     "J",
+     "K",
+     "=",
+     "Time"
+    ],
+    "final_or_frozen": "final (5:00:00 of 5:00:00, status: over)",
+    "has_times": true,
+    "has_tries": true,
+    "contest_named": "ACM ICPC 2011-2012, NEERC, Kazakhstan Subregional Contest",
+    "language": "en"
+   },
+   "opened_full_copy": true
+  },
+  {
+   "n": 3,
+   "verdict": "correct",
+   "roles": [
+    "scoreboard"
+   ],
+   "scope": null,
+   "confidence": "high",
+   "evidence": "Byte-identical to s2 (same NEERC page on the older host), so it has per-problem tries and times, not per-team standings only.",
+   "flags": [],
+   "facts": {
+    "teams": 63,
+    "problems": 11,
+    "problem_labels": "A-K",
+    "top3": [
+     "Kazakh-British TU 1",
+     "Kazakh-British TU 3",
+     "Kazakh-British TU 2"
+    ],
+    "columns": [
+     "Rank",
+     "Team",
+     "A",
+     "B",
+     "C",
+     "D",
+     "E",
+     "F",
+     "G",
+     "H",
+     "I",
+     "J",
+     "K",
+     "=",
+     "Time"
+    ],
+    "final_or_frozen": "final (5:00:00 of 5:00:00, status: over)",
+    "has_times": true,
+    "has_tries": true,
+    "contest_named": "ACM ICPC 2011-2012, NEERC, Kazakhstan Subregional Contest",
+    "language": "en"
+   },
+   "opened_full_copy": true
+  },
+  {
+   "n": 4,
+   "verdict": "confirm",
+   "roles": [
+    "standings"
+   ],
+   "scope": null,
+   "confidence": "high",
+   "evidence": "Table of 55 teams (53 ranked plus 2 unranked) with columns Rank, Team, Institution, Solved, Time, Medal, Citation, no per-problem cells.",
+   "flags": [
+    "partial"
+   ],
+   "facts": {
+    "teams": 55,
+    "top3": [
+     "Kazakh-British TU 1 (Kazakh-British Technical University)",
+     "Kazakh-British TU 3 (Kazakh-British Technical University)",
+     "Kazakh-British TU 2 (Kazakh-British Technical University)"
+    ],
+    "columns": [
+     "Rank",
+     "Team",
+     "Institution",
+     "Solved",
+     "Time",
+     "Medal",
+     "Citation",
+     "Site citation"
+    ],
+    "final_or_frozen": "final",
+    "has_times": true,
+    "has_tries": false,
+    "contest_named": "The 2011 Kazakhstan Subregional Contest",
+    "language": "en"
+   },
+   "opened_full_copy": false
+  }
+ ],
+ "contest_facts": [
+  {
+   "fact": "teams",
+   "value": "63 ranked rows on the NEERC board vs 55 in the icpc.global archive",
+   "from": 2,
+   "pack_says": "55 teams (cms 760)"
+  },
+  {
+   "fact": "problems",
+   "value": "11 (A-K)",
+   "from": 2,
+   "pack_says": "count null, letters A-K"
+  }
+ ],
+ "notes": "s2 and s3 are the same file. s4 (55 teams) differs from the NEERC board (63 rows): penalty times differ (team 1: 823 vs 831; team 2: 876 vs 884; team 4: 527 vs 661 with a different team in rank 4), so s4 is not a plain copy; unclear which teams the extra 8 NEERC rows are. Documents do not state the contest date or place; pack says 2011-10-29, Almaty."
+}

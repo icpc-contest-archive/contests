@@ -1,0 +1,242 @@
+{
+ "contest": "nena-2002",
+ "rubric": 2,
+ "sources": [
+  {
+   "n": 1,
+   "verdict": "confirm",
+   "roles": [
+    "web"
+   ],
+   "scope": null,
+   "confidence": "high",
+   "evidence": "Crawl of cs.wsc.ma.edu (Westfield State, 76 pages) whose seed page is 'ACM Northeast North America Region' with links to sites, rules, director, dates and results for 2002-2003.",
+   "flags": [
+    "not-own-site"
+   ],
+   "facts": {
+    "host": "Westfield State College (cs.wsc.ma.edu), regional director's department site",
+    "contest_named": "ACM Northeast North America Region, Contest results for 2002-2003",
+    "inside": [
+     {
+      "address": "http://cs.wsc.ma.edu/~larry/acm/results.html",
+      "is": "scoreboard",
+      "already_a_source": true
+     },
+     {
+      "address": "http://cs.wsc.ma.edu/~larry/acm/prelim_results.html",
+      "is": "standings",
+      "already_a_source": false
+     },
+     {
+      "address": "http://cs.wsc.ma.edu/~larry/acm/boston_prelim_results.html",
+      "is": "standings",
+      "already_a_source": false
+     },
+     {
+      "address": "http://cs.wsc.ma.edu/~larry/acm/eastern_prelim_results.html",
+      "is": "standings",
+      "already_a_source": false
+     }
+    ]
+   },
+   "opened_full_copy": false
+  },
+  {
+   "n": 2,
+   "verdict": "confirm",
+   "roles": [
+    "scoreboard",
+    "problemset"
+   ],
+   "scope": null,
+   "confidence": "medium",
+   "evidence": "Per-team, per-problem grid (elapsed time and tries for Poly Space DNA Roots Elect City Mugs, 13 teams from harvard to wpi, 10:00-15:00) whose order matches the 2002 final in source 4, though the page is headed 'Results from last year' and 'Final Standings: 2002-2003'.",
+   "flags": [],
+   "facts": {
+    "teams": 13,
+    "problems": 7,
+    "problem_labels": "Poly, Space, DNA, Roots, Elect, City, Mugs (short names, no letters)",
+    "columns": [
+     "team",
+     "Poly",
+     "Space",
+     "DNA",
+     "Roots",
+     "Elect",
+     "City",
+     "Mugs",
+     "total"
+    ],
+    "top3": [
+     "harvard",
+     "unb",
+     "mit"
+    ],
+    "final_or_frozen": "final",
+    "has_times": true,
+    "has_tries": true,
+    "material": [
+     "names-only"
+    ],
+    "contest_named": "Northeast North America ACM Programming Contest Final Standings: 2002-2003",
+    "language": "en"
+   },
+   "opened_full_copy": false
+  },
+  {
+   "n": 3,
+   "verdict": "correct",
+   "roles": [
+    "scoreboard",
+    "problemset"
+   ],
+   "scope": null,
+   "confidence": "high",
+   "evidence": "Baylor-mirror copy of the same results.html: the same 13-team per-problem grid of times and tries (Poly Space DNA Roots Elect City Mugs), not a rank-only standings page.",
+   "flags": [],
+   "facts": {
+    "teams": 13,
+    "problems": 7,
+    "problem_labels": "Poly, Space, DNA, Roots, Elect, City, Mugs (short names, no letters)",
+    "columns": [
+     "team",
+     "Poly",
+     "Space",
+     "DNA",
+     "Roots",
+     "Elect",
+     "City",
+     "Mugs",
+     "total"
+    ],
+    "top3": [
+     "harvard",
+     "unb",
+     "mit"
+    ],
+    "final_or_frozen": "final",
+    "has_times": true,
+    "has_tries": true,
+    "material": [
+     "names-only"
+    ],
+    "contest_named": "Northeast North America ACM Programming Contest Final Standings: 2002-2003",
+    "language": "en"
+   },
+   "opened_full_copy": false
+  },
+  {
+   "n": 4,
+   "verdict": "correct",
+   "roles": [
+    "rankings"
+   ],
+   "scope": "final round plus preliminary sites",
+   "confidence": "high",
+   "evidence": "ICPC 'View Standings' page for 'The 2002 ACM Northeast North America Programming Contest' with Rank/Team/Citation columns only: final round at RIT 11/9/2002 (13 ranked teams) followed by preliminary sites Boston, Mount Allison, SUNY-Oswego, Western New England.",
+   "flags": [
+    "outside-participants"
+   ],
+   "facts": {
+    "teams": 13,
+    "columns": [
+     "Rank",
+     "Team",
+     "Citation"
+    ],
+    "top3": [
+     "Harvard University (Harvard)",
+     "University of New Brunswick (UNB Fredericton A)",
+     "Massachusetts Institute of Technology (MIT Engineers)"
+    ],
+    "has_times": false,
+    "has_tries": false,
+    "final_or_frozen": "final",
+    "contest_named": "The 2002 ACM Northeast North America Programming Contest sponsored by IBM",
+    "language": "en"
+   },
+   "opened_full_copy": false
+  },
+  {
+   "n": 5,
+   "verdict": "confirm",
+   "roles": [
+    "problemset"
+   ],
+   "scope": "Eastern Preliminary only (Western New England College, Springfield MA, 2002-10-19)",
+   "confidence": "high",
+   "evidence": "13-page PDF headed 'Northeast Regional Competition of the 2002-2003 ACM ICPC, Eastern Preliminary: Western New England College, Springfield, MA, October 19, 2002' with statements of Problem 1 Golfing USA and Problem 2 Deciphering bar codes.",
+   "flags": [
+    "division"
+   ],
+   "facts": {
+    "list": [
+     [
+      "1",
+      "Golfing USA"
+     ],
+     [
+      "2",
+      "Deciphering bar codes"
+     ]
+    ],
+    "material": [
+     "statements"
+    ],
+    "contest_named": "The Northeast Regional Competition of the 2002-2003 ACM International Collegiate Programming Contest, Eastern Preliminary",
+    "language": "en"
+   },
+   "opened_full_copy": false
+  },
+  {
+   "n": 6,
+   "verdict": "correct",
+   "roles": [
+    "problemset",
+    "scoreboard"
+   ],
+   "scope": null,
+   "confidence": "medium",
+   "evidence": "Page lists links to problem sets for finals (RIT_Contest_Questions_2002.pdf) and the Western, Boston, Atlantic and Eastern preliminaries, and also carries the same 13-team final grid as source 2, although headed 'Problems: 2001-2002'.",
+   "flags": [
+    "combined"
+   ],
+   "facts": {
+    "material": [
+     "names-only"
+    ],
+    "contest_named": "Northeast North America ACM Programming Contest Problems: 2001-2002 (heading; content matches the 2002 final)",
+    "language": "en"
+   },
+   "opened_full_copy": false
+  }
+ ],
+ "contest_facts": [
+  {
+   "fact": "final_date_place",
+   "value": "2002-11-09, Regional Finals at Rochester Institute of Technology",
+   "from": 4,
+   "pack_says": "2002-11-09"
+  },
+  {
+   "fact": "teams",
+   "value": "13 teams ranked in the final",
+   "from": 4,
+   "pack_says": null
+  },
+  {
+   "fact": "problems",
+   "value": "7 in the final (Poly, Space, DNA, Roots, Elect, City, Mugs)",
+   "from": 2,
+   "pack_says": "7: Golfing USA, Deciphering bar codes, A file packaging problem, How much can you do in a year?, Undo!, XXL Precision, A Very Dicey Situation"
+  },
+  {
+   "fact": "preliminary_sites",
+   "value": "Boston distributed 2002-10-26; Mount Allison 2002-10-18; SUNY-Oswego 2002-10-12; Western New England 2002-10-19",
+   "from": 4,
+   "pack_says": "location lists Boston, Rochester, Springfield, Sackville, Oswego"
+  }
+ ],
+ "notes": "The pack's problems_known list (Golfing USA ...) is the Eastern Preliminary set (source 5), not the final's problems, which are named Poly, Space, DNA, Roots, Elect, City, Mugs on the results grid. Sources 2, 3, 6 are headed 'last year' / '2001-2002' but their rows match the 2002 final in source 4; worth a human glance. The final problem PDF (RIT_Contest_Questions_2002.pdf) is linked from source 6 and is not a source yet. Source 1 is the regional director's department site (not the host of the final), so not-own-site is set as a precaution."
+}

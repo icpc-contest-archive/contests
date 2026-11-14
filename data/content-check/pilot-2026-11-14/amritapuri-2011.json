@@ -1,0 +1,123 @@
+{
+ "contest": "amritapuri-2011",
+ "rubric": 2,
+ "sources": [
+  {
+   "n": 1,
+   "verdict": "not-the-document",
+   "roles": [],
+   "scope": null,
+   "confidence": "high",
+   "evidence": "Crawl of 150 files is the general Amrita Vishwa Vidyapeetham university site (mostly modern pages); grep for 'icpc' finds nothing and the seed is only a 2006 campus image, so there is no ICPC site for this edition.",
+   "flags": [],
+   "facts": {
+    "language": "en"
+   },
+   "opened_full_copy": true
+  },
+  {
+   "n": 2,
+   "verdict": "correct",
+   "roles": [
+    "scoreboard"
+   ],
+   "scope": null,
+   "confidence": "medium",
+   "evidence": "Table of 146 ranked teams with per-problem A-J cells giving solve time and (false attempts) plus Solved and Points (penalty), titled 'ACM ICPC Asia-Amritapuri Onsite Contest Rankings, 2011'; it is a full scoreboard, so the separate standings role is redundant.",
+   "flags": [
+    "combined"
+   ],
+   "facts": {
+    "teams": 146,
+    "problems": 10,
+    "problem_labels": "A-J",
+    "top3": [
+     "Proof (Indian Institute of Technology - Delhi)",
+     "AlephNull (Chennai Mathematical Institute)",
+     "TuringMachine (International Institute of Information Technology - Hyderabad)"
+    ],
+    "columns": [
+     "Rank",
+     "Name",
+     "Insitution Name",
+     "A",
+     "B",
+     "C",
+     "D",
+     "E",
+     "F",
+     "G",
+     "H",
+     "I",
+     "J",
+     "Solved",
+     "Points"
+    ],
+    "final_or_frozen": "final",
+    "has_times": true,
+    "has_tries": true,
+    "contest_named": "ACM ICPC Asia-Amritapuri Onsite Contest Rankings, 2011",
+    "language": "en"
+   },
+   "opened_full_copy": false
+  },
+  {
+   "n": 3,
+   "verdict": "confirm",
+   "roles": [
+    "standings"
+   ],
+   "scope": null,
+   "confidence": "high",
+   "evidence": "Table of 146 teams with columns Rank, Team, Institution, Solved, Time, Medal, Citation, Site citation, rendered from icpc.global API archive (contest 806).",
+   "flags": [
+    "combined"
+   ],
+   "facts": {
+    "teams": 146,
+    "columns": [
+     "Rank",
+     "Team",
+     "Institution",
+     "Solved",
+     "Time",
+     "Medal",
+     "Citation",
+     "Site citation"
+    ],
+    "top3": [
+     "Proof (Indian Institute of Technology - Delhi)",
+     "AlephNull (Chennai Mathematical Institute)",
+     "TuringMachine (International Institute of Information Technology - Hyderabad)"
+    ],
+    "final_or_frozen": "final",
+    "has_times": true,
+    "has_tries": false,
+    "contest_named": "The 2011 ACM-ICPC Asia Amritapuri Regional Contest",
+    "language": "en"
+   },
+   "opened_full_copy": false
+  }
+ ],
+ "contest_facts": [
+  {
+   "fact": "teams",
+   "value": "146",
+   "from": 3,
+   "pack_says": null
+  },
+  {
+   "fact": "problems",
+   "value": "10 (A-J)",
+   "from": 2,
+   "pack_says": "10"
+  },
+  {
+   "fact": "location",
+   "value": "two sites: Amritapuri and Coimbatore (site citations name both)",
+   "from": 3,
+   "pack_says": "Amritapuri, Kerala, India; ... Coimbatore, Tamil Nadu, India"
+  }
+ ],
+ "notes": "Multisite contest: the API standings carry ranks 1-73 with ties and per-site champion citations (Proof at Amritapuri, AlephNull at Coimbatore), while the 2011 rankings page ranks all 146 teams 1-146 on one board; the two rank schemes differ. Source 1 is the university homepage, not an ICPC site."
+}
