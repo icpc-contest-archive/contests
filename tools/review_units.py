@@ -47,7 +47,6 @@ UNITS: dict[str, dict[str, tuple[str, bool, str]]] = {
         "cms_id": ("ICPC CMS id", False, "the number in the ICPC CMS, or: none"),
         "source": ("Source", True, ""),
         "division": ("Division", False, "the part of the contest this source covers, e.g. Division 1"),
-        "mirror": ("Mirror", True, "another address that shows the same page"),
         "none": ("There never was one", False, "say what there never was, and how you know"),
         "problemset": ("Problem set", False, "the id of the problem set it sat"),
         "letter": ("Letter", False, "the problem's letter in this contest, e.g. B"),

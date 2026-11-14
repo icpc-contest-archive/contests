@@ -53,9 +53,6 @@ def main() -> int:
             # resource model: {url, as_of} = "the site as it was at as_of" ->
             # capture_site snapshot mode (raw id_ fetches within that snapshot,
             # pages keyed by real url); a bare url is crawled live.
-            # also_at mirrors (bare URL or {url, as_of, note}) are not seeds: they are
-            # single-page capture targets (make_capture_queue.py, kind web-mirror), as
-            # mirrors[] were.
             if w["url"].startswith("http"):
                 seeds.append(w["url"])
                 snapshot = snapshot or w.get("as_of")

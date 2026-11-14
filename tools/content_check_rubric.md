@@ -30,6 +30,7 @@ Other:
 - `web`: a page or site by the organisers or the host about this edition (the series' site as it stood for this edition counts; so does the old CMS's "past regionals" page of a contest, icpc.baylor.edu/past/.../Regionals/...). NOT web: a single results page (that is a results source), somebody else's news article, a social-media post, a university's general homepage, a CMS finder page.
 - `problemset`: this contest's problems in any form: statements, a list of names, a judge's contest page.
 - `problem`: exactly one problem of this contest.
+- `report`: an account of the contest that is neither its website nor a results list: a news item, a press release, a history or wiki page, a post. (If it gives the order of teams it is ALSO `rankings`; if it lists the teams, also `teams`.) A university's general homepage or a CMS finder page is not a source at all: `correct` with roles `[]`.
 - `editorial`: solutions explained (slides, analysis, write-up). An archive of bare solutions or test data is not an editorial: it is a `problemset` (material: solutions, data).
 A document can have several roles (a page with the scoreboard and the problem list).
 A crawled website is ONE document with the role `web`, whatever pages it contains: do not add
@@ -60,7 +61,6 @@ shell, unrelated page, a different contest or year).
 - `division`: covers one division/part only (give it in `scope`).
 - `second-hand`: a results or contest account written by someone other than the organisers or host (news article, a team's university page, blog). Do NOT set it for problem sets on online judges or archives.
 - `not-own-site`: filed as `web` but it is not the contest's own site (a host's news page, a CMS page, a social-media post).
-- `mirror-differs`: an `also_at` address is plainly not the same site.
 - `year-reused`: the address serves a different edition now than the one meant.
 - `translated`: problem statements re-typed or translated by a third party.
 
@@ -81,7 +81,7 @@ source `n` it came from.
 Write `<pack dir>/verdict.json` (valid JSON, UTF-8), exactly this shape:
 
 ```json
-{"contest": "<id>", "rubric": 3,
+{"contest": "<id>", "rubric": 4,
  "sources": [{"n": 1, "verdict": "confirm", "roles": ["scoreboard"], "scope": null,
               "confidence": "high", "evidence": "…", "flags": [], "facts": {}, "opened_full_copy": false}],
  "contest_facts": [{"fact": "date", "value": "2013-11-24", "from": 2, "pack_says": "2013-11-23"}],

@@ -53,13 +53,15 @@ not the calendar date.
   the combined `south-na-2024` division contest, sharing its CMS ids. Both are real;
   counting or coverage tooling must dedupe along this edge.
 - `sources` — every address of the contest, one entry per URL with the **roles** it
-  serves: `{url, roles: [...], as_of?, also_at?, judge?, archived?, fetched?, url_state?,
-  url_checked?, note?}` (see *Resources* below). Roles: `web` (the contest website;
-  `also_at` lists mirrors of it), the result tiers in decreasing information order
+  serves: `{url, roles: [...], as_of?, judge?, archived?, fetched?, url_state?,
+  url_checked?, note?}` (see *Resources* below). Roles: `web` (the contest website; another
+  address of it is a `web` source of its own), the result tiers in decreasing information order
   `scoreboard` (full, per-problem) > `frozen_scoreboard` > `standings` (totals only) >
   `rankings` (order only), `teams` (a team list),
   `problemset` (the contest's problems, in whatever form the document gives them),
-  `problem` (one problem), and `editorial` (solutions explained after the contest: the jury's
+  `problem` (one problem), `report` (an account of the contest that is neither its website nor a
+  results list: a news item, a press release, a history page; common for the early years, and often
+  the only proof that a contest ran; added 2026-11-14), and `editorial` (solutions explained after the contest: the jury's
   solution slides or problem analysis, or somebody else's write-up; added 2026-11-14 — it names
   the problems by letter, so it also shows what the contest's problems were when the statements
   are lost). A role says what the document is, not where it is: a problem
@@ -71,8 +73,9 @@ not the calendar date.
   roles confirmed to have no source; a role in neither is not yet researched.
   `tools/catalogue.py` is the one reader (`by_role`, `has_role`, `best_result`, …).
 - `archived` is a **list**: one address is often captured under several roles or in
-  several runs, and every capture pointer is kept. `also_at` entries are a bare URL or
-  `{url, as_of}` when the mirror itself is a Wayback-era address.
+  several runs, and every capture pointer is kept. Two sources that are the same
+  document at two addresses are not linked in the data (`also_at` was dropped 2026-11-14): the site
+  reads it off the copies, which have the same checksum, and says so on the source page.
 - `sites` — where the contest was held: `[{location: <locations.yaml node id>, name?, date?,
   type?: administrative|online}]`, one entry per site (see *Locations*). The free-text
   `location` string stays alongside until `sites` covers every contest.
@@ -189,7 +192,7 @@ Three things used to be called "URL"; they are distinct.
 
 - A **locator** is a URL as an *address*, with no time attached:
   `http://icpc.baylor.edu/past/EarlyYears.html`. The catalogue holds locators only —
-  `sources[].url` and `sources[].also_at[]`. A locator has a *health*
+  `sources[].url`. A locator has a *health*
   (`url_state` at `url_checked`) but no content of its own; content exists only at a time.
   A locator may carry **`as_of`**, a timestamp meaning "the content we mean is what this
   address served at this time" — recorded when a result was found on the Wayback
@@ -446,7 +449,7 @@ unchanged. A link ending in `?review=1` switches review mode on for that browser
 A review travels as JSON, grouped by page so that it is short, one fact per line:
 `{"review": 2, "site": <build day>, "count": n, "confirm": {page: {unit: value}}, "correct": {page: {unit: {"saw", "to", "why"}}},
 "add": {page: [{"unit", "of", "to", "why", "file": {name, size, sha256}}]}}`, with only the parts that apply. A page is `kind/id`. A unit
-that an object has several of is written `unit which-one`, such as `letter p-ec3a0975`; a mirror and a site are named by themselves.
+that an object has several of is written `unit which-one`, such as `letter p-ec3a0975`; a site is named by itself.
 A review that names files starts with a `"reminder"` line for the reviewer.
 
 A review whose link stays within 4,500 characters is carried by the link, which fills the form's box. GitHub keeps a link of about 5,000

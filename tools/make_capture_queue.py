@@ -10,8 +10,6 @@ pinned_ts?, pivot}.
   Sources serving only web/teams, and the standings pages of the ICPC CMS (an app: their copies
   are rendered from the API data, tools/bake_icpc_standings.py), are not single-page capture targets
   (websites go through make_site_queue.py) and are left out.
-- also_at addresses of a web source are queued as kind `web-mirror` (the old mirrors[]);
-  an entry of the form {url, as_of} pins that snapshot, a bare URL gets a CDX pick.
 - raw_url: the origin URL (wayback links unwrapped)
 - pinned_ts: when the catalogue names a snapshot (`as_of`), use it
 - pivot: YYYYMMDD to anchor CDX snapshot selection — contest date when known,
@@ -29,7 +27,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 import sys  # noqa: E402
 sys.path.insert(0, str(ROOT / "tools"))
-from catalogue import RANK, RESULT_ROLES, also_at, archived, is_cms, load_contests, sources  # noqa: E402
+from catalogue import RANK, RESULT_ROLES, archived, is_cms, load_contests, sources  # noqa: E402
 from resources import unwrap  # noqa: E402
 
 # roles captured as single pages, in archive-layout priority order
@@ -92,13 +90,6 @@ def main() -> int:
                 add(kind, list(s["roles"]), s["url"], s.get("as_of"))
             elif fresh and capture_kind(s) is not None:
                 stats[f"left out: archived + checked within {args.fresh_days}d"] += 1
-            if "web" in s["roles"]:
-                # Q11 (2026-09-07): mirrors are first-class capture targets. A mirror's own
-                # as_of (when the entry is {url, as_of}) pins the snapshot; otherwise CDX pick
-                # around the pivot (the web source's as_of names a snapshot of *its* host, not
-                # the mirror's)
-                for m in also_at(s):
-                    add("web-mirror", ["web"], m["url"], m.get("as_of"))
     out = ROOT.parent / "archive" / f"capture-queue-{datetime.date.today().isoformat()}.json"
     out.write_text(json.dumps({"generated": datetime.date.today().isoformat(),
                                "queue": queue}, indent=1))

@@ -197,7 +197,7 @@ def main() -> int:
                 copy["digest"] = f"s{n}.txt"
                 copy["file"] = str(ARCHIVE / copy["path"])
             pack["sources"].append({"n": n, "url": s["url"], "roles": s["roles"], "scope": s.get("scope"), "judge": s.get("judge"),
-                                    "as_of": s.get("as_of"), "cms_page": is_cms(s), "also_at": s.get("also_at"), "note": s.get("note"),
+                                    "as_of": s.get("as_of"), "cms_page": is_cms(s), "note": s.get("note"),
                                     "live_state": s.get("url_state"), "copy": copy})
         (d / "pack.json").write_text(json.dumps(pack, indent=1, ensure_ascii=False))
         index.append({"contest": cid, "sources": len(pack["sources"]), "with_copy": sum(1 for x in pack["sources"] if x["copy"])})
