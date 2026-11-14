@@ -22,7 +22,7 @@
     website: [['web', 'website']],
     results: [['scoreboard', 'scoreboard'], ['frozen_scoreboard', 'frozen scoreboard'], ['standings', 'standings'],
               ['rankings', 'rankings'], ['teams', 'team list']],
-    problems: [['problemset', 'problem set'], ['judge_page', 'judge page'], ['problem', 'single problem']],
+    problems: [['problemset', 'problem set'], ['problem', 'single problem']],
   };
 
   // ---------- small helpers ----------

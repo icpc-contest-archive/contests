@@ -121,7 +121,7 @@ def main() -> int:
                 held.append((tok, year, url + f" — {cid} is marked upcoming, but QOJ mirrors its set: it ran"))
                 continue
             note = f"QOJ / Universal Cup (QOJ ICPC category tree {date}" + (f"; {extra}" if extra else "") + ")"
-            _s, changed = add_source(c, url, "judge_page", judge="qoj", note=note)
+            _s, changed = add_source(c, url, "problemset", judge="qoj", note=note)
             (applied if changed else already).append((cid, url, extra))
             if changed:
                 touched.add(sid)

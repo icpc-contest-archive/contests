@@ -84,8 +84,8 @@ def main() -> int:
                 if k in seen_addr:
                     err(f"{c['id']}: address listed twice in sources ({s['url']}); merge the roles")
                 seen_addr[k] = s["url"]
-                if ("judge_page" in s["roles"]) != bool(s.get("judge")):
-                    err(f"{c['id']}: source {s['url'][:80]}: judge_page role and `judge:` must go together")
+                if s.get("judge") and not ({"problemset", "problem"} & set(s["roles"])):
+                    err(f"{c['id']}: source {s['url'][:80]}: `judge:` belongs on a problemset or problem source")
                 if s.get("url_checked") and not s.get("url_state"):
                     err(f"{c['id']}: source {s['url'][:80]}: url_checked without url_state")
             for r in c.get("none") or []:

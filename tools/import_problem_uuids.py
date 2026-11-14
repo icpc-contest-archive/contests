@@ -50,7 +50,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
-from catalogue import Dumper, by_role, dump_series, load_series  # noqa: E402
+from catalogue import Dumper, by_role, dump_series, judge_sources, load_series  # noqa: E402
 
 # ---- problem sets (same conventions as tools/migrate_problemsets.py, which created them) ----
 SET_DIR = ROOT / "problemsets"
@@ -285,7 +285,7 @@ def main() -> int:
 
     kattis_sources: dict[str, list[str]] = defaultdict(list)  # a shared set is linked from several contests
     for cid, c in all_known.items():
-        for s in by_role(c, "judge_page"):
+        for s in judge_sources(c):
             if s.get("judge") != "kattis":
                 continue
             m = re.search(r"open\.kattis\.com/problem-sources/([^/?#]+)", s["url"])
