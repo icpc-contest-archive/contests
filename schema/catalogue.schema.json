@@ -195,10 +195,9 @@
     "icpc_standings",
     "teams",
     "problemset",
-    "problem",
-    "judge_page"
+    "problem"
    ],
-   "description": "what a source holds. Result roles rank scoreboard > frozen_scoreboard > standings > rankings > icpc_standings by information content; web = the contest website; teams = team list; problemset = the published set; problem = one problem's statement; judge_page = an online judge's page holding the contest's problems (requires `judge`)"
+   "description": "what a source holds. Result roles rank scoreboard > frozen_scoreboard > standings > rankings > icpc_standings by information content; web = the contest website; teams = team list; problemset = the contest's problems, in whatever form the document gives them (statements, a list of names, a judge's contest page); problem = one problem; a problemset or problem that is on an online judge carries `judge`"
   },
   "source": {
    "type": "object",
@@ -261,7 +260,7 @@
     "judge": {
      "type": "string",
      "pattern": "^[a-z][a-z0-9-]*$",
-     "description": "for judge_page: the judge id (kattis, livearchive, baekjoon, codeforces, ...)"
+     "description": "the online judge this problemset or problem source is on: an id of judges.yaml"
     },
     "archived": {
      "type": "array",

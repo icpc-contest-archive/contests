@@ -9,7 +9,7 @@ roles it serves:
       roles: [scoreboard, problemset]
       as_of: '20040117'            # optional: the content meant is what the address served then
       also_at: [http://mirror/..., {url: ..., as_of: ...}]  # other addresses serving the same content
-      judge: baekjoon              # judge_page only
+      judge: baekjoon              # the source is on this online judge (judges.yaml)
       archived: [rmc/rmc-2000/scoreboard/2026-09-07-.../page.html]   # every capture of this address
       url_state: dead              # health of the address at url_checked
       url_checked: '2026-11-02'
@@ -32,7 +32,7 @@ from resources import norm_key  # noqa: E402
 ROOT = Path(__file__).resolve().parent.parent
 
 ROLES = ("web", "scoreboard", "frozen_scoreboard", "standings", "rankings",
-         "icpc_standings", "teams", "problemset", "problem", "judge_page")
+         "icpc_standings", "teams", "problemset", "problem")
 RESULT_ROLES = ("scoreboard", "frozen_scoreboard", "standings", "rankings", "icpc_standings")
 RANK = {r: i for i, r in enumerate(ROLES)}
 HEADER = "# Maintained in-repo; last bulk edit: tools/{tool}.\n"
@@ -148,6 +148,18 @@ def by_role(c: dict, role: str) -> list[dict]:
 
 def has_role(c: dict, role: str) -> bool:
     return any(role in s["roles"] for s in sources(c))
+
+
+def judge_sources(c: dict) -> list[dict]:
+    """The sources of `c` that are on an online judge (`judge: <id>`)."""
+    return [s for s in sources(c) if s.get("judge")]
+
+
+def source_kind(s: dict) -> str:
+    """The archive's artifact kind for a source: its primary role, or `judge-<judge>` for a
+    problem set or problem that is on an online judge."""
+    r = primary_role(s)
+    return f"judge-{s['judge']}" if r in ("problemset", "problem") and s.get("judge") else r
 
 
 def researched(c: dict, role: str) -> bool:

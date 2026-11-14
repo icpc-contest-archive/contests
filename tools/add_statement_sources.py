@@ -7,7 +7,7 @@ text. Only a source of the contest gets a source page, shows on the contest's pa
 by the search box, is health-checked and is archived by the capture rounds. So every such
 statement is also made a source (DEFINITIONS.md, Provenance):
 
-  - a problem list on an online judge of judges.yaml (its contest_url)   -> judge_page, judge: <id>
+  - a problem list on an online judge of judges.yaml (its contest_url)   -> problemset, judge: <id>
   - anything else: a PDF, an archive, a page, a folder of statements     -> problemset
 
 Addresses are written the catalogue's way: a Wayback address becomes the original address
@@ -78,11 +78,11 @@ def statement_source(c: dict, url: str, judges: dict) -> tuple[dict, bool, str]:
     url, as_of = canonical(url)
     jid = judge_of(url, judges)
     had = find_source(c, url)
-    if had is not None and ("problemset" in had["roles"] or "judge_page" in had["roles"]):
-        return had, False, "judge_page" if "judge_page" in had["roles"] else "problemset"
+    if had is not None and ("problemset" in had["roles"] or "problem" in had["roles"]):
+        return had, False, "on-judge" if had.get("judge") else "problemset"
     if jid:
-        s, changed = add_source(c, url, "judge_page", judge=jid, as_of=as_of)
-        return s, changed, "judge_page"
+        s, changed = add_source(c, url, "problemset", judge=jid, as_of=as_of)
+        return s, changed, "on-judge"
     s, changed = add_source(c, url, "problemset", as_of=as_of)
     return s, changed, "problemset"
 
@@ -122,7 +122,7 @@ def main() -> int:
                  "set, as the statement its problem names were read from. It is now a source of the contest as well, so it has a source",
                  "page, is found by the search box and is archived by the next capture round.", "",
                  f"- sources added: {len(added)} ({sum(1 for x in added if x[1] == 'problemset')} problem sets, "
-                 f"{sum(1 for x in added if x[1] == 'judge_page')} judge pages)",
+                 f"{sum(1 for x in added if x[1] == 'on-judge')} judge pages)",
                  f"- statements that were a source already: {there}", f"- skipped: {len(skipped)}", "",
                  "## added", ""]
         for cid, role, url, as_of, was in added:
@@ -131,7 +131,7 @@ def main() -> int:
         if skipped:
             lines += ["", "## skipped", ""] + [f"- {x}" for x in skipped]
         (ROOT / "reports" / f"statement-sources-{a.date}.md").write_text("\n".join(lines) + "\n")
-    print(f"sources added: {len(added)} ({sum(1 for x in added if x[1] == 'judge_page')} judge pages), already there: {there}, "
+    print(f"sources added: {len(added)} ({sum(1 for x in added if x[1] == 'on-judge')} judge pages), already there: {there}, "
           f"skipped: {len(skipped)}, series files: {len(touched)}" + (" (dry run)" if a.dry_run else ""))
     for x in skipped:
         print("  skipped:", x)

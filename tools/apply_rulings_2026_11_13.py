@@ -119,7 +119,7 @@ def main() -> int:
             for cid in members:
                 ser, c = where[cid]
                 if not any(f"/gym/{g}" in s["url"] for s in c.get("sources") or []):
-                    add_source(c, f"https://codeforces.com/gym/{g}", "judge_page", judge="codeforces", note=f"{gname[g]} (problem hunt {DATE})"); touched.add(ser)
+                    add_source(c, f"https://codeforces.com/gym/{g}", "problemset", judge="codeforces", note=f"{gname[g]} (problem hunt {DATE})"); touched.add(ser)
     # 5.
     gym_fill("tunisia-2022", ["tunisia-2022"], "105020", "; the gym is named for the 2022 contest")
     gym_fill("greece-2025", ["greece-2025"], "106151", "; the gym is named for the Greek contest")

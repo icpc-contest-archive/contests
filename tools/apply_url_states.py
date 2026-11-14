@@ -43,7 +43,7 @@ def main() -> int:
     # source serving several roles): the most recent verdict per source wins, ties going to
     # the verdict made for the highest-ranked role (RANK: scoreboard before problemset ...)
     def rank(kind: str) -> int:
-        return RANK.get("judge_page" if kind.startswith("judge-") else kind, len(RANK))
+        return RANK.get("problemset" if kind.startswith("judge-") else kind, len(RANK))
 
     def better(a: dict, b: dict) -> bool:
         return ((a.get("checked") or ""), -rank(a["kind"])) > ((b.get("checked") or ""), -rank(b["kind"]))

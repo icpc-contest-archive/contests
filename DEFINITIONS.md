@@ -59,8 +59,11 @@ not the calendar date.
   `scoreboard` (full, per-problem) > `frozen_scoreboard` > `standings` (totals only) >
   `rankings` (order only) > `icpc_standings` (the CMS finder page,
   `https://icpc.global/regionals/finder/<abbrev>-<year>/standings`), `teams`,
-  `problemset`, `problem`, and `judge_page` (an online judge hosting the problems;
-  `judge: kattis|livearchive|baekjoon|codeforces`). A page that is both the results and
+  `problemset` (the contest's problems, in whatever form the document gives them) and
+  `problem` (one problem). A role says what the document is, not where it is: a problem
+  set or problem that is on an online judge carries `judge: <id of judges.yaml>`, and
+  that is all that marks it (the `judge_page` role was dropped 2026-11-14; the 2,609
+  sources that had it are problem sets). A page that is both the results and
   the problem set is one source with two roles. `archived` references the (separate)
   archive repo by `<contest-id>/<artifact>/<fetch-date>`. `none: [role, ...]` lists
   roles confirmed to have no source; a role in neither is not yet researched.
@@ -216,7 +219,7 @@ several contests: NCPC + UKIEPC 2013, shared North American sets):
   list is present the holdings must agree with it (validate.py checks).
 - **Judges.** `judges.yaml` at the repo root is the registry of online judges (id, name,
   url, `problem_url` pattern, status, `closed` date — Baekjoon closed 2026-04-28). A
-  contest's judge *pages* are sources with role `judge_page` (+ `judge: <id>`); a
+  contest's judge *pages* are its `problemset` sources that carry `judge: <id>`; a
   problem's judge links are its `judges: [{judge, url, id?, as_of?}]` list. Both refer to
   the registry by id.
 
@@ -343,8 +346,8 @@ trail. `provenance:` and `notes:` on a contest record where facts came from;
 A provenance note is free text and nothing reads it. A document that data was read from is therefore also recorded as a
 **source** of the contest, which gives it a source page, lets the search box find it and has the capture rounds archive it. For
 problem names read from a published statement, `tools/apply_statement_titles.py` does this itself, and
-`tools/add_statement_sources.py` backfills it from the sets' provenance notes: a problem list on a judge of `judges.yaml` becomes a
-`judge_page`, anything else a `problemset`; a Wayback address is written as the original address plus `as_of`, and a GitHub
+`tools/add_statement_sources.py` backfills it from the sets' provenance notes: each becomes a `problemset`, with `judge: <id>` when it is a problem list on a judge of
+`judges.yaml`; a Wayback address is written as the original address plus `as_of`, and a GitHub
 address with its branch, not `HEAD`.
 
 ## The site

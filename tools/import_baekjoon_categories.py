@@ -41,7 +41,7 @@ for sid, doc in load_series().items():
         for url, ts, title in pages:
             existed = find_source(c, url) is not None
             had_as_of = existed and bool(find_source(c, url).get("as_of"))
-            s, ch = add_source(c, url, "judge_page", judge="baekjoon", as_of=ts, **({} if existed else {"note": title}))
+            s, ch = add_source(c, url, "problemset", judge="baekjoon", as_of=ts, **({} if existed else {"note": title}))
             if ch:
                 changed = True
                 if not existed: stats["page appended"] += 1

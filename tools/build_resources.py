@@ -103,7 +103,7 @@ def main() -> int:
                                            "evidence": evidence, **extra})
 
     # ---- catalogue references ----
-    # one reference per source address: `kind` = the primary role (judge_page -> judge-<judge>;
+    # one reference per source address: `kind` = the primary role (a problem set or problem on a judge -> judge-<judge>;
     # kept under the old name `field` for consumers), `roles` = every role the address serves.
     # also_at addresses reference the locator as `mirror` of the web source.
     for c in load_contests().values():
@@ -125,8 +125,8 @@ def main() -> int:
 
         for s in sources(c):
             kind = primary_role(s)
-            if kind == "judge_page":
-                kind = f"judge-{s.get('judge') or 'unknown'}"
+            if kind in ("problemset", "problem") and s.get("judge"):
+                kind = f"judge-{s['judge']}"
             ref(s["url"], kind, s["roles"], s, s.get("as_of"))
             if "web" in s["roles"]:
                 for m in also_at(s):

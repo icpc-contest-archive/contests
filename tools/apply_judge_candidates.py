@@ -245,7 +245,7 @@ def main() -> int:
                 continue
             k = norm_key(url)
             present = next((s for s in sources(c) if norm_key(s["url"]) == k), None)
-            if present is not None and "judge_page" in present["roles"] and present.get("judge") == jid:
+            if present is not None and present.get("judge") == jid:
                 # same page, same judge: the source exists (a rerun, or an earlier import); nothing to add
                 mine = f"(judge hunt {HUNT_DATE}:" in (present.get("note") or "")
                 why = verdict(x)[1] if mine else "already a judge_page source from an earlier import"
@@ -261,7 +261,7 @@ def main() -> int:
                     stats["for ruling"] += 1
                     continue
                 note = f"{x.get('judge_name') or judge_names[jid]} (judge hunt {HUNT_DATE}: {x.get('evidence', '')})"
-                add_source(c, url, "judge_page", judge=jid, note=note)
+                add_source(c, url, "problemset", judge=jid, note=note)
                 stats["sources added"] += 1
                 stats[f"{jid}: sources added"] += 1
                 if sid == "non-mainline":

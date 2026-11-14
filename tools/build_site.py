@@ -62,7 +62,7 @@ import sys  # noqa: E402
 sys.path.insert(0, str(ROOT / "tools"))
 import review_units as R  # noqa: E402  (review mode: the units a reader can confirm, correct or add to)
 from resources import fmt_time, label as res_label, norm_key, unwrap, wayback_link  # noqa: E402
-from catalogue import (RANK, RESULT_ROLES, also_at, archived, best_result, by_role, has_role,  # noqa: E402
+from catalogue import (RANK, RESULT_ROLES, also_at, archived, best_result, by_role, has_role, judge_sources,  # noqa: E402
                        load_judges, load_locations, load_non_mainline, load_sets, location_chain,
                        set_letters, set_of, sources)
 import site_resources  # noqa: E402
@@ -309,7 +309,7 @@ def web_state(c) -> str:
 TIERS = (("scoreboard", "S"), ("frozen_scoreboard", "F"), ("standings", "St"), ("rankings", "R"), ("icpc_standings", "I"))
 TIER_LABEL = {"scoreboard": "scoreboard", "frozen_scoreboard": "frozen scoreboard", "standings": "standings",
               "rankings": "rankings", "icpc": "ICPC standings only", "none": "none"}
-ROLE_LABEL = {"icpc_standings": "ICPC standings", "judge_page": "judge page", "frozen_scoreboard": "frozen scoreboard",
+ROLE_LABEL = {"icpc_standings": "ICPC standings", "frozen_scoreboard": "frozen scoreboard",
               "problemset": "problem set", "web": "website"}
 HELD_KINDS = (("statement", "St", "statements"), ("data", "D", "test data"),
               ("solutions", "So", "solutions"), ("package", "P", "complete packages"))
@@ -1085,7 +1085,7 @@ def problems_cell(c: dict, rel: str) -> str:
         total, listed = set_counts(pb)
         lab = str(total) if total else ("set" if not listed else str(listed))
         return f'<a href="{rel}problemset/{esc(pb["id"])}.html" title="problem set {esc(pb["id"])}: {total or "?"} problems, {listed} listed by name">{lab}</a> ' + held_marks(pb)
-    if c.get("status") != "upcoming" and (has_role(c, "problemset") or has_role(c, "judge_page")):
+    if c.get("status") != "upcoming" and (has_role(c, "problemset") or has_role(c, "problem")):
         return '<span class="m l" title="a published problem set or a judge page is known; nothing recorded about the problems yet">src</span>'
     return ""
 
@@ -1094,7 +1094,7 @@ def problems_value(c: dict) -> str:
     pb = set_for(c)
     if pb:
         return {"complete": "listed", "partial": "partly listed", "none": "count only"}[set_list_state(pb)]
-    return "source only" if c.get("status") != "upcoming" and (has_role(c, "problemset") or has_role(c, "judge_page")) else "none"
+    return "source only" if c.get("status") != "upcoming" and (has_role(c, "problemset") or has_role(c, "problem")) else "none"
 
 
 def repo_link(pb: dict) -> str:
@@ -1307,7 +1307,7 @@ def status_chips(c: dict, cid: str, rel: str) -> str:
         full = pb.get("statement") == "full"
         chips.append(chip(text, "h" if full else "l", ("the problem archive holds every statement" if full else "the problem archive does not hold every statement")
                           + {"complete": "; every problem is listed by name", "partial": "; only some problems are listed by name", "none": "; the problems are not listed by name yet"}[state]))
-    elif c.get("status") != "upcoming" and (has_role(c, "problemset") or has_role(c, "judge_page")):
+    elif c.get("status") != "upcoming" and (has_role(c, "problemset") or has_role(c, "problem")):
         chips.append(chip("problems: source only", "l", "a published problem set or a judge page is known; nothing recorded about the problems yet"))
     elif c.get("status") != "upcoming":
         chips.append(chip("problems: none", "n", "nothing is known about this contest's problems"))
@@ -1469,7 +1469,7 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
     # ---- Problems ----
     b.append('<h2 id="problems">Problems</h2>')
     pb = set_for(c)
-    psrc = [s for s in sources(c) if "problemset" in s["roles"] or "judge_page" in s["roles"]]
+    psrc = [s for s in sources(c) if "problemset" in s["roles"] or "problem" in s["roles"]]
     if c.get("status") == "upcoming":
         b.append('<p class="empty">Not run yet — nothing about a contest\'s problems is published before it has run.</p>')
     elif not pb and not psrc:
@@ -1498,10 +1498,10 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
         if psrc:
             b.append(source_table(cid, psrc, rel, "problems"))
     if not upcoming:
-        b.append(R.slot("source", "add a problem set or a judge page", "problems", tag="p"))
+        b.append(R.slot("source", "add a problem set or a problem", "problems", tag="p"))
 
     # ---- everything else ----
-    others = [s for s in sources(c) if not (set(s["roles"]) & (set(RESULT_ROLES) | {"web", "problemset", "judge_page"}))]
+    others = [s for s in sources(c) if not (set(s["roles"]) & (set(RESULT_ROLES) | {"web", "problemset", "problem"}))]
     if others:
         b.append('<h2 id="other">Other sources</h2>' + source_table(cid, others, rel, "other"))
     if ev:
@@ -2035,7 +2035,7 @@ ALSO_AT: dict = defaultdict(list)    # source id -> [(mirror url, as_of, note)] 
 MIRROR_OF: dict = defaultdict(list)  # mirror's source id -> [primary url]
 SRC_ROLES: dict = defaultdict(set)   # source id -> roles it serves anywhere in the catalogue
 SRC_SCOPE: dict = defaultdict(set)   # source id -> the part(s) of a contest it covers (`scope`), when not the whole
-ROLE_PAGES = ["web", "scoreboard", "frozen_scoreboard", "standings", "rankings", "icpc_standings", "problemset", "judge_page", "teams", "mirror"]
+ROLE_PAGES = ["web", "scoreboard", "frozen_scoreboard", "standings", "rankings", "icpc_standings", "problemset", "problem", "teams", "mirror"]
 
 
 def index_sources(contests: dict) -> None:
@@ -2057,7 +2057,7 @@ def index_sources(contests: dict) -> None:
 
 def field_chip(field: str) -> str:
     if field.startswith("judge-"):
-        return f'<span class="chip">judge page · {esc(judge_name(field[6:]))}</span>'
+        return f'<span class="chip">problem set · {esc(judge_name(field[6:]))}</span>'
     return role_chip(field)
 
 
@@ -2131,14 +2131,11 @@ def best_open(cs: list[dict]) -> str:
 
 
 def serves_words(c: dict, rel: str) -> str:
-    """What a citation uses the address for, in words: `website`, `judge page on Kattis`."""
+    """What a citation uses the address for, in words: `website`, `problem set on Kattis`."""
     out = []
     for r in sorted(c["roles"], key=lambda r: RANK.get(r, 99)):
-        if r == "judge_page":
-            j = next((f[6:] for f in c["fields"] if f.startswith("judge-")), None)
-            out.append("judge page" + (f" on {judge_link(j, rel)}" if j and j != "unknown" else ""))
-        else:
-            out.append(esc(role_label(r)))
+        j = next((f[6:] for f in c["fields"] if f.startswith("judge-")), None) if r in ("problemset", "problem") else None
+        out.append(esc(role_label(r)) + (f" on {judge_link(j, rel)}" if j and j != "unknown" else ""))
     if "mirror" in c["fields"]:
         out = ["mirror of the website"]
     return ", ".join(out) or "source"
@@ -2323,7 +2320,7 @@ def judge_usage(contests: dict) -> tuple[dict, dict]:
             for j in r.get("judges") or []:
                 probs[j["judge"]].add(pid)
     for c in list(contests.values()) + NM:
-        for s in by_role(c, "judge_page"):
+        for s in judge_sources(c):
             pages[s.get("judge") or "judge"].append((c["id"], s))
     return probs, pages
 
@@ -2530,7 +2527,7 @@ def cov_flags(c: dict) -> dict:
     pb = set_for(c)
     bt = best_tier(c)
     return {"n": 1, "any": bt != "none", "pub": bt not in ("none", "icpc"), "sb": has_role(c, "scoreboard"),
-            "res_arch": results_held(c), "set": bool(pb), "stmt": pb.get("statement") == "full", "judge": has_role(c, "judge_page"),
+            "res_arch": results_held(c), "set": bool(pb), "stmt": pb.get("statement") == "full", "judge": bool(judge_sources(c)),
             "web": web_state(c) == "link", "web_arch": c["id"] in website_of, "date": bool(full_date(c)),
             "place": bool(held_at(c)[0]), "dark": bt == "none",
             "repo": bool(pb.get("repo")), **{k + "_full": pb.get(k) == "full" for k, *_ in HELD_KINDS}}
@@ -2939,7 +2936,7 @@ dashed if for some. A <b>UUID</b> is the identity of a problem's package; a prob
 
 <h2 id="sources">Sources</h2>
 <p class="intro">A <b>source</b> is one document a contest points at: an address, and what that address served for the contest (its website, scoreboard, frozen
-scoreboard, standings, rankings, ICPC standings, problem set, judge page or teams). It is the document that matters, not the address: addresses die and get reused, so a
+scoreboard, standings, rankings, ICPC standings, problem set, single problem or teams). It is the document that matters, not the address: addresses die and get reused, so a
 source that is no longer at its address names the time it is meant at (<i>as it was on 2007-11-05</i>).</p>
 <p class="intro">The same document can be found in up to <b>three places</b>, and every list of sources shows all three as one unit, always in this order:</p>
 {places_dl}
@@ -3160,6 +3157,7 @@ def build(out: Path):
                                                          ensure_ascii=False, separators=(",", ":")))
         for r in ROLE_PAGES:
             (out / "source" / "by-role" / f"{r}.html").write_text(source_list("../../", r))
+        stub(out / "source" / "by-role" / "judge_page.html", "problemset.html")  # the role was dropped 2026-11-14
         for k in ROLE_PAGES + ["index"]:
             tgt = f"../source/by-role/{k}.html" if k != "index" else "../source/index.html"
             stub(out / "resources" / f"{k}.html", tgt)

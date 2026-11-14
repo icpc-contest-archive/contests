@@ -74,7 +74,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
-from catalogue import Dumper, by_role, load_contests, load_judges, load_non_mainline, load_sets, set_id_of  # noqa: E402
+from catalogue import Dumper, by_role, judge_sources, load_contests, load_judges, load_non_mainline, load_sets, set_id_of  # noqa: E402
 from resources import norm_key  # noqa: E402
 
 SET_DIR = ROOT / "problemsets"
@@ -388,7 +388,7 @@ def main() -> int:
         if c is None:
             report["capture for a contest not in the catalogue (skipped)"].append(f"{rec['contest']}: {rec['url']}")
             continue
-        src = next((s for s in by_role(c, "judge_page") if norm_key(s["url"]) == norm_key(rec["url"])), None)
+        src = next((s for s in judge_sources(c) if norm_key(s["url"]) == norm_key(rec["url"])), None)
         if src is None:
             report["capture URL is not a judge_page source of its contest (skipped)"].append(f"{rec['contest']}: {rec['url']}")
             continue

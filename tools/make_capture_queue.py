@@ -32,18 +32,18 @@ from catalogue import RANK, RESULT_ROLES, also_at, archived, load_contests, sour
 from resources import unwrap  # noqa: E402
 
 # roles captured as single pages, in archive-layout priority order
-CAPTURE_ROLES = ("scoreboard", "frozen_scoreboard", "standings", "rankings", "problemset", "judge_page")
+CAPTURE_ROLES = ("scoreboard", "frozen_scoreboard", "standings", "rankings", "problemset", "problem")
 
 
 def capture_kind(s: dict, skip: set[str] = frozenset()) -> str | None:
     """Archive artifact kind for a source: its highest-ranked capturable role
-    (judge_page -> judge-<judge>), or None when nothing on it is captured this way.
+    (a problem set or problem on a judge -> judge-<judge>), or None when nothing on it is captured this way.
     Roles in `skip` are not considered."""
     roles = [r for r in s["roles"] if r in CAPTURE_ROLES and r not in skip]
     if not roles:
         return None
     r = min(roles, key=lambda r: RANK[r])
-    return f"judge-{s.get('judge') or 'unknown'}" if r == "judge_page" else r
+    return f"judge-{s['judge']}" if r in ("problemset", "problem") and s.get("judge") else r
 
 
 def main() -> int:
