@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
+# Maintained in-repo; last bulk edit: tools/content_check_inside.py.
 series:
   id: beijing
   name: ICPC Asia Beijing Regional Contest
@@ -335,6 +335,11 @@ contests:
     url_state: dead
     url_checked: '2026-11-01'
     note: from archived capture (external-standings)
+  - url: http://icpc.buaa.edu.cn/pages/Result_CN.aspx
+    roles:
+    - standings
+    as_of: '20071021004748'
+    note: found inside http://icpc.buaa.edu.cn/pages/ by the content check
   problems:
     set: beijing-2007
 - id: beijing-2008
@@ -512,6 +517,11 @@ contests:
     url_state: dead
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
+  - url: http://acm.pku.edu.cn/icpc_pku2015/final_scoreboard/scoreboard.html
+    roles:
+    - scoreboard
+    as_of: '20160814041509'
+    note: found inside http://acm.pku.edu.cn/icpc_pku2015/ by the content check
   - url: https://icpc.global/regionals/finder/Beijing-2016/standings
     roles:
     - standings
@@ -551,12 +561,27 @@ contests:
     url_state: dead
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
+  - url: http://acm.pku.edu.cn:80/icpc_pku2016/hihoCoder.html
+    roles:
+    - scoreboard
+    as_of: '20161223005011'
+    note: found inside http://acm.pku.edu.cn/icpc_pku2016/ by the content check
   - url: https://icpc.global/regionals/finder/Beijing-2017/standings
     roles:
     - standings
     archived:
     - beijing/beijing-2016/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 3044, 182 teams, DB fetch 2026-04-26)
+  - url: http://acm.pku.edu.cn:80/icpc_pku2016/schoolrank.txt
+    roles:
+    - standings
+    as_of: '20161012153429'
+    note: found inside http://acm.pku.edu.cn/icpc_pku2016/ by the content check
+  - url: http://acm.pku.edu.cn:80/icpc_pku2016/2016_awardlist.html
+    roles:
+    - rankings
+    as_of: '20170504092853'
+    note: found inside http://acm.pku.edu.cn/icpc_pku2016/ by the content check
   problems:
     set: beijing-2016
 - id: beijing-2017
@@ -622,6 +647,16 @@ contests:
     archived:
     - beijing/beijing-2018/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 3722, 181 teams, DB fetch 2026-04-26)
+  - url: http://acm.pku.edu.cn/icpc_pku2018/awardlist.html
+    roles:
+    - standings
+    as_of: '20191017080040'
+    note: found inside http://acm.pku.edu.cn/icpc_pku2018/ by the content check
+  - url: http://acm.pku.edu.cn:80/icpc_pku2018/2018onsite-teams.txt
+    roles:
+    - teams
+    as_of: '20181025035643'
+    note: found inside http://acm.pku.edu.cn/icpc_pku2018/ by the content check
   - url: https://qoj.ac/contest/2004
     roles:
     - problemset

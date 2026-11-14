@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
+# Maintained in-repo; last bulk edit: tools/content_check_inside.py.
 series:
   id: taiwan
   name: ICPC Asia Taichung Regional Programming Contest
@@ -642,6 +642,14 @@ contests:
     url_checked: '2026-11-14'
     note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
       2006 ACM Asia Programming Contest Kaohsiung Site
+  - url: https://guan.cse.nsysu.edu.tw/acm06/problems.pdf
+    roles:
+    - problemset
+    note: found inside http://guan.cse.nsysu.edu.tw/acm06 by the content check
+  - url: https://guan.cse.nsysu.edu.tw/acm06/testdata.txt
+    roles:
+    - problemset
+    note: found inside http://guan.cse.nsysu.edu.tw/acm06 by the content check
   problems:
     set: taiwan-2006
   provenance:
@@ -733,6 +741,11 @@ contests:
     url_state: dead
     url_checked: '2026-11-14'
     note: from archived capture (external-standings)
+  - url: http://icpc2008.ntu.edu.tw/problems.pdf
+    roles:
+    - problemset
+    as_of: '20090202134826'
+    note: found inside http://icpc2008.ntu.edu.tw/ by the content check
   problems:
     set: taiwan-2008
 - id: taiwan-2009
@@ -768,6 +781,11 @@ contests:
     archived:
     - taiwan/taiwan-2009/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 504, 90 teams, DB fetch 2026-04-26)
+  - url: http://icpc2009.nctu.edu.tw/record.html
+    roles:
+    - standings
+    as_of: '20090511001608'
+    note: found inside http://icpc2009.nctu.edu.tw/ by the content check
   problems:
     set: taiwan-2009
 - id: taiwan-2010
@@ -993,6 +1011,11 @@ contests:
     archived:
     - taiwan/taiwan-2014/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 2611, 70 teams, DB fetch 2026-04-26)
+  - url: http://icpc2014.pu.edu.tw/competition_team.php
+    roles:
+    - teams
+    as_of: '20151208161956'
+    note: found inside http://icpc2014.pu.edu.tw/ by the content check
   problems:
     set: taiwan-2014
 - id: taiwan-2015
@@ -1090,12 +1113,32 @@ contests:
     url_state: dead
     url_checked: '2026-11-14'
     note: as_of 20220928100238 for standings; from archived capture (external-standings)
+  - url: http://icpc2017.ndhu.edu.tw/files/11-1186-16288.php
+    roles:
+    - scoreboard
+    as_of: '20191114030541'
+    note: found inside https://icpc2017.ndhu.edu.tw/bin/home.php by the content check
+  - url: http://icpc2017.ndhu.edu.tw/files/11-1186-16553.php
+    roles:
+    - scoreboard
+    as_of: '20191114030453'
+    note: found inside https://icpc2017.ndhu.edu.tw/bin/home.php by the content check
   - url: https://icpc.global/regionals/finder/Hua-Lien-2018/standings
     roles:
     - standings
     archived:
     - taiwan/taiwan-2017/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 3411, 80 teams, DB fetch 2026-04-26)
+  - url: http://icpc2017.ndhu.edu.tw/ezfiles/186/1186/img/3475/0_ICPC2017.pdf
+    roles:
+    - problemset
+    as_of: '20191124140126'
+    note: found inside https://icpc2017.ndhu.edu.tw/bin/home.php by the content check
+  - url: http://icpc2017.ndhu.edu.tw/ezfiles/186/1186/img/3475/finalreport.pdf
+    roles:
+    - editorial
+    as_of: '20180713075037'
+    note: found inside https://icpc2017.ndhu.edu.tw/bin/home.php by the content check
   problems:
     set: taiwan-2017
 - id: taiwan-2018
@@ -1123,12 +1166,22 @@ contests:
     - taiwan/taiwan-2018/scoreboard/2026-09-01-wayback-1160cfd6/scoreboardRC.html
     url_state: dead
     url_checked: '2026-11-14'
+  - url: http://icpc2018.ntu.edu.tw/scoreboardTOPC.html
+    roles:
+    - scoreboard
+    as_of: '20181116071440'
+    note: found inside http://icpc2018.ntu.edu.tw/ by the content check
   - url: https://icpc.global/regionals/finder/Taipei-2019/standings
     roles:
     - standings
     archived:
     - taiwan/taiwan-2018/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 3738, 115 teams, DB fetch 2026-04-26)
+  - url: http://icpc2018.ntu.edu.tw/topc_team_list.html
+    roles:
+    - teams
+    as_of: '20210624152100'
+    note: found inside http://icpc2018.ntu.edu.tw/ by the content check
   - url: http://icpc2018.ntu.edu.tw/problem.html
     roles:
     - problemset
@@ -1177,6 +1230,16 @@ contests:
     archived:
     - taiwan/taiwan-2019/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 4181, 107 teams, DB fetch 2026-04-26)
+  - url: http://contest2019.icpc.tw/final-scoreboard/awards/
+    roles:
+    - rankings
+    as_of: '20200922131115'
+    note: found inside http://contest2019.icpc.tw/ by the content check
+  - url: http://contest2019.icpc.tw/onsite/team-selection/
+    roles:
+    - teams
+    as_of: '20200922144836'
+    note: found inside http://contest2019.icpc.tw/ by the content check
   - url: https://codeforces.com/gym/102460
     roles:
     - problemset
@@ -1236,12 +1299,24 @@ contests:
     - taiwan/taiwan-2020/scoreboard/20221023-wayback-3da6a55e/page.html
     url_state: live
     url_checked: '2026-11-14'
+  - url: https://icpc2020.ntub.edu.tw/final-scoreboard/
+    roles:
+    - scoreboard
+    note: found inside https://icpc2020.ntub.edu.tw/ by the content check
   - url: https://icpc.global/regionals/finder/Taipei-2021/standings
     roles:
     - standings
     archived:
     - taiwan/taiwan-2020/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 4325, 101 teams, DB fetch 2026-04-26)
+  - url: https://icpc2020.ntub.edu.tw/final-scoreboard/awards/
+    roles:
+    - rankings
+    note: found inside https://icpc2020.ntub.edu.tw/ by the content check
+  - url: https://icpc2020.ntub.edu.tw/onsite/team-selection/
+    roles:
+    - teams
+    note: found inside https://icpc2020.ntub.edu.tw/ by the content check
   - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Taiwan/2020%20Asia%20Taipei-Hsinchu%20Regional%20Contest/problems.pdf
     roles:
     - problemset
@@ -1272,6 +1347,10 @@ contests:
     as_of: '20221207170845'
     url_state: unknown
     url_checked: '2026-11-13'
+  - url: https://icpc2020.ntub.edu.tw/problem-set/
+    roles:
+    - problemset
+    note: found inside https://icpc2020.ntub.edu.tw/ by the content check
   - url: https://icpcarchive.github.io/Asia-Pacific/Taiwan/The-2020-ICPC-Asia-Taipei-Hsinchu-Site-Programming-Contest/tutorials_en.pdf
     roles:
     - editorial
@@ -1302,6 +1381,10 @@ contests:
     archived:
     - taiwan/taiwan-2021/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4872, 103 teams, DB fetch 2026-04-26)
+  - url: https://icpc2021.ntub.edu.tw/final-scoreboard/awards/
+    roles:
+    - rankings
+    note: found inside https://icpc2021.ntub.edu.tw/ by the content check
   - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Taiwan/2021%20Asia%20Taipei%20Regional%20Contest/problems.pdf
     roles:
     - problemset
@@ -1316,6 +1399,14 @@ contests:
     as_of: '20211201220628'
     url_state: live
     url_checked: '2026-11-14'
+  - url: https://icpc2021.ntub.edu.tw/wp-content/uploads/2021/12/main-with-hint.pdf
+    roles:
+    - problemset
+    note: found inside https://icpc2021.ntub.edu.tw/ by the content check
+  - url: https://icpc2021.ntub.edu.tw/wp-content/uploads/2021/12/main-1.pdf
+    roles:
+    - problemset
+    note: found inside https://icpc2021.ntub.edu.tw/ by the content check
   problems:
     set: taiwan-2021
 - id: taiwan-2022
@@ -1365,6 +1456,14 @@ contests:
     as_of: '20230324184238'
     url_state: unknown
     url_checked: '2026-11-13'
+  - url: https://icpc2022.ntub.edu.tw/wp-content/uploads/2022/11/ICPC2022-mainhint.pdf
+    roles:
+    - problemset
+    note: found inside https://icpc2022.ntub.edu.tw/ by the content check
+  - url: https://icpc2022.ntub.edu.tw/wp-content/uploads/2022/11/ICPC2022-main.pdf
+    roles:
+    - problemset
+    note: found inside https://icpc2022.ntub.edu.tw/ by the content check
   - url: https://icpcarchive.github.io/Asia-Pacific/Taiwan/The-2022-ICPC-Asia-Taoyuan-Regional-Programming-Contest/tutorials_en.pdf
     roles:
     - editorial
@@ -1400,12 +1499,20 @@ contests:
     - taiwan/taiwan-2023/scoreboard/20240723-wayback-1728c5ba/page.html
     url_state: live
     url_checked: '2026-11-14'
+  - url: https://icpc2023.ntub.edu.tw/?page_id=267
+    roles:
+    - scoreboard
+    note: found inside https://icpc2023.ntub.edu.tw/ by the content check
   - url: https://icpc.global/regionals/finder/Taipei-2024/standings
     roles:
     - standings
     archived:
     - taiwan/taiwan-2023/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 7504, 102 teams, DB fetch 2026-04-26)
+  - url: https://icpc2023.ntub.edu.tw/?page_id=290
+    roles:
+    - rankings
+    note: found inside https://icpc2023.ntub.edu.tw/ by the content check
   - url: https://icpc2023.ntub.edu.tw/wp-content/uploads/2023/10/ICPC2023-ProblemSet.pdf
     roles:
     - problemset
@@ -1431,6 +1538,10 @@ contests:
     - editorial
     url_state: live
     url_checked: '2026-11-14'
+  - url: https://icpc2023.ntub.edu.tw/wp-content/uploads/2023/10/ICPC2023-ProblemSet-Hint.pdf
+    roles:
+    - editorial
+    note: found inside https://icpc2023.ntub.edu.tw/ by the content check
   problems:
     set: taiwan-2023
 - id: taiwan-2024
@@ -1457,12 +1568,22 @@ contests:
     roles:
     - web
     as_of: '20250126084530'
+  - url: https://hpc.asia.edu.tw/icpc2024/final-scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20250126090052'
+    note: found inside https://hpc.asia.edu.tw/icpc2024/ by the content check
   - url: https://icpc.global/regionals/finder/Taipei-2025/standings
     roles:
     - standings
     archived:
     - taiwan/taiwan-2024/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 8742, 110 teams, DB fetch 2026-04-26)
+  - url: https://hpc.asia.edu.tw/icpc2024/final-scoreboard/awards/
+    roles:
+    - rankings
+    as_of: '20250126084938'
+    note: found inside https://hpc.asia.edu.tw/icpc2024/ by the content check
   - url: https://codeforces.com/contest/2041
     roles:
     - problemset
@@ -1520,6 +1641,10 @@ contests:
     archived:
     - taiwan/taiwan-2025/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 9395, 110 teams, DB fetch 2026-04-26)
+  - url: https://www.icpc.tw/2025/awards/
+    roles:
+    - rankings
+    note: found inside https://www.icpc.tw/2025/ by the content check
   - url: https://codeforces.com/contest/2172
     roles:
     - problemset
