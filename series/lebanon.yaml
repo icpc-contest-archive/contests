@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
+# Maintained in-repo; last bulk edit: tools/content_check_inside.py.
 series:
   id: lebanon
   name: ICPC Lebanese Collegiate Programming Contest
@@ -89,6 +89,16 @@ contests:
     archived:
     - lebanon/lebanon-2011/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 749, 15 teams, DB fetch 2026-04-26)
+  - url: http://www.aust.edu.lb:80/lcpc2011/results.html
+    roles:
+    - rankings
+    as_of: '20110806170631'
+    note: found inside http://www.aust.edu.lb/lcpc2011/index.html by the content check
+  - url: http://www.aust.edu.lb:80/lcpc2011/participants.html
+    roles:
+    - teams
+    as_of: '20110711153858'
+    note: found inside http://www.aust.edu.lb/lcpc2011/index.html by the content check
   - url: https://www.acmicpc.net/category/detail/1159
     roles:
     - problemset
@@ -98,6 +108,11 @@ contests:
     url_checked: '2026-11-14'
     note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
       LCPC 2011
+  - url: http://www.aust.edu.lb:80/lcpc2011/archive.html
+    roles:
+    - problemset
+    as_of: '20110807055308'
+    note: found inside http://www.aust.edu.lb/lcpc2011/index.html by the content check
   problems:
     set: lebanon-2011
   provenance:
@@ -175,6 +190,11 @@ contests:
     archived:
     - lebanon/lebanon-2014/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 2639, 21 teams, DB fetch 2026-04-26)
+  - url: http://www.cs.aub.edu.lb/lcpc14/index.php/pages/index/8/Participants/
+    roles:
+    - teams
+    as_of: '20150522220628'
+    note: found inside http://www.cs.aub.edu.lb/lcpc14/index.php by the content check
 - id: lebanon-2015
   season: 2016
   name: 2015 Lebanese Collegiate Programming Contest
@@ -207,6 +227,11 @@ contests:
     archived:
     - lebanon/lebanon-2015/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 2853, 22 teams, DB fetch 2026-04-26)
+  - url: http://www.aou.edu.lb/LCPC15/Participants.aspx
+    roles:
+    - teams
+    as_of: '20170726042117'
+    note: found inside http://www.aou.edu.lb/LCPC15/Default.aspx by the content check
 - id: lebanon-2016
   season: 2017
   name: 2016 Lebanese Collegiate Programming Contest
