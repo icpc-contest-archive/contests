@@ -1,0 +1,129 @@
+{
+ "contest": "beijing-2004",
+ "rubric": 2,
+ "sources": [
+  {
+   "n": 1,
+   "verdict": "confirm",
+   "roles": [
+    "web"
+   ],
+   "scope": null,
+   "confidence": "medium",
+   "evidence": "Crawl of the Peking University acm.pku.edu.cn site (POJ) as archived 2004-2006, containing contest pages and a 2004 'Contest Standing' grid with problems A-I, though the seed page is an unrelated PKU course page.",
+   "flags": [
+    "not-own-site"
+   ],
+   "facts": {
+    "host": "Peking University (acm.pku.edu.cn)",
+    "place": "Peking University",
+    "inside": [
+     {
+      "address": "http://acm.pku.edu.cn:80/contest/2004standing.htm",
+      "is": "scoreboard",
+      "already_a_source": false
+     },
+     {
+      "address": "http://acm.pku.edu.cn:80/Beijing-Standings.HTM",
+      "is": "standings",
+      "already_a_source": false
+     }
+    ],
+    "language": "zh/en"
+   },
+   "opened_full_copy": true
+  },
+  {
+   "n": 2,
+   "verdict": "confirm",
+   "roles": [
+    "standings"
+   ],
+   "scope": null,
+   "confidence": "high",
+   "evidence": "Baylor 'View Standings' page 'The 2004 ACM Asia Programming Contest - Beijing' with a Final Round board (11/14/2004), a mainland preliminary board (10/16/2004) and a one-team non-mainland board.",
+   "flags": [
+    "combined",
+    "partial"
+   ],
+   "facts": {
+    "teams": "about 353 preliminary + 62 final + 1 foreign-site rows (counted from table rows)",
+    "top3": [
+     "Shanghai Jiaotong University (Cappuccino)",
+     "Shanghai Jiaotong University (Accelerator)",
+     "Tsinghua University (JHVH), tied 2nd"
+    ],
+    "columns": [
+     "Rank",
+     "Team",
+     "Citation",
+     "#Solved",
+     "Time"
+    ],
+    "final_or_frozen": "final",
+    "has_times": true,
+    "has_tries": false,
+    "contest_named": "The 2004 ACM Asia Programming Contest - Beijing",
+    "language": "en"
+   },
+   "opened_full_copy": true
+  },
+  {
+   "n": 3,
+   "verdict": "confirm",
+   "roles": [
+    "problemset"
+   ],
+   "scope": null,
+   "confidence": "medium",
+   "evidence": "Baekjoon category 'Beijing Regional Contest 2004' listing problems A-I of which only C (Argus), E, F and H have titles shown, the rest blank.",
+   "flags": [
+    "second-hand",
+    "translated"
+   ],
+   "facts": {
+    "problems": 9,
+    "problem_labels": "A-I",
+    "list": [
+     [
+      "C",
+      "Argus"
+     ],
+     [
+      "E",
+      "정사각형과 점"
+     ],
+     [
+      "F",
+      "트리 색칠"
+     ],
+     [
+      "H",
+      "격자의 분리자"
+     ]
+    ],
+    "material": [
+     "names-only"
+    ],
+    "language": "ko",
+    "contest_named": "Beijing Regional Contest 2004"
+   },
+   "opened_full_copy": false
+  }
+ ],
+ "contest_facts": [
+  {
+   "fact": "date",
+   "value": "Final 2004-11-14; preliminary 2004-10-16",
+   "from": 2,
+   "pack_says": "2004-11-14"
+  },
+  {
+   "fact": "problems",
+   "value": "9 (A-I)",
+   "from": 3,
+   "pack_says": null
+  }
+ ],
+ "notes": "Source 2 mixes preliminary sites and the Final Round; pack location mentions Internet/Peking University/Direct to Finals. The crawl in source 1 holds 2004standing.htm (per-problem grid A-I, user ids PC04xxxx, penalty) and Beijing-Standings.HTM, both candidates for their own sources; which round 2004standing.htm covers was not determined. Source 1 role web is a series/host site, not a dedicated contest site."
+}

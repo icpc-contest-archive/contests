@@ -1,0 +1,169 @@
+{
+ "contest": "central-russia-2015",
+ "rubric": 2,
+ "sources": [
+  {
+   "n": 1,
+   "verdict": "confirm",
+   "roles": [
+    "web"
+   ],
+   "scope": null,
+   "confidence": "medium",
+   "evidence": "Crawl of the NEERC archive (seed page 'Northern Eurasia Contests / NEERC 2015') with a Central Russia entry, plus 2015 and 2016 subregional standings pages; the series' site, not a Central-specific site.",
+   "flags": [
+    "not-own-site",
+    "combined"
+   ],
+   "facts": {
+    "contest_named": "NEERC 2015 (Regional Contests: Central Russia, Standings)",
+    "host": "NEERC / ITMO (neerc.ifmo.ru)",
+    "inside": [
+     {
+      "address": "http://neerc.ifmo.ru/archive/2015/central/standings.html",
+      "is": "scoreboard",
+      "already_a_source": true
+     }
+    ],
+    "language": "en"
+   },
+   "opened_full_copy": false
+  },
+  {
+   "n": 2,
+   "verdict": "confirm",
+   "roles": [
+    "scoreboard"
+   ],
+   "scope": null,
+   "confidence": "high",
+   "evidence": "Standings 'Central Subregional 2015' with per-problem cells (+/-, tries, times) for A-K and 37 ranked teams, status over.",
+   "flags": [],
+   "facts": {
+    "teams": 37,
+    "problems": 11,
+    "problem_labels": "A-K",
+    "top3": [
+     "Rybinsk SATU #1",
+     "Yaroslavl SU 1",
+     "Prioksky SU 3"
+    ],
+    "columns": [
+     "Rank",
+     "Team",
+     "A",
+     "B",
+     "C",
+     "D",
+     "E",
+     "F",
+     "G",
+     "H",
+     "I",
+     "J",
+     "K",
+     "=",
+     "Time"
+    ],
+    "final_or_frozen": "final (5:00:00 of 5:00:00, status: over)",
+    "has_times": true,
+    "has_tries": true,
+    "contest_named": "Central Subregional 2015",
+    "language": "en"
+   },
+   "opened_full_copy": false
+  },
+  {
+   "n": 3,
+   "verdict": "correct",
+   "roles": [
+    "scoreboard"
+   ],
+   "scope": null,
+   "confidence": "high",
+   "evidence": "Same page as source 2 (identical size and digest): per-problem grid A-K with tries and times for 37 teams, so it is a scoreboard, not just standings.",
+   "flags": [],
+   "facts": {
+    "teams": 37,
+    "problems": 11,
+    "problem_labels": "A-K",
+    "top3": [
+     "Rybinsk SATU #1",
+     "Yaroslavl SU 1",
+     "Prioksky SU 3"
+    ],
+    "columns": [
+     "Rank",
+     "Team",
+     "A",
+     "B",
+     "C",
+     "D",
+     "E",
+     "F",
+     "G",
+     "H",
+     "I",
+     "J",
+     "K",
+     "=",
+     "Time"
+    ],
+    "final_or_frozen": "final (5:00:00 of 5:00:00, status: over)",
+    "has_times": true,
+    "has_tries": true,
+    "contest_named": "Central Subregional 2015",
+    "language": "en"
+   },
+   "opened_full_copy": false
+  },
+  {
+   "n": 4,
+   "verdict": "confirm",
+   "roles": [
+    "standings"
+   ],
+   "scope": null,
+   "confidence": "high",
+   "evidence": "API-archive table of 37 teams with Rank, Team, Institution, Solved, Time, Citation and no per-problem columns.",
+   "flags": [],
+   "facts": {
+    "teams": 37,
+    "columns": [
+     "Rank",
+     "Team",
+     "Institution",
+     "Solved",
+     "Time",
+     "Citation"
+    ],
+    "top3": [
+     "Rybinsk SATU #1 (Rybinsk State Aviation Technical University)",
+     "Yaroslavl SU 1 (Yaroslavl State University)",
+     "PSU 3 (Orel State University)"
+    ],
+    "final_or_frozen": "final (API archive)",
+    "has_times": true,
+    "has_tries": false,
+    "contest_named": "The 2015 Central Subregional Contest",
+    "language": "en"
+   },
+   "opened_full_copy": false
+  }
+ ],
+ "contest_facts": [
+  {
+   "fact": "teams",
+   "value": "37",
+   "from": 2,
+   "pack_says": "37 teams (cms)"
+  },
+  {
+   "fact": "problems",
+   "value": "11 (A-K); C and F unsolved by anyone",
+   "from": 2,
+   "pack_says": null
+  }
+ ],
+ "notes": "s2 and s3 are the same document at two hostnames (nerc.itmo.ru and neerc.ifmo.ru); s3 should be a mirror/also_at of s2 or be re-roled to scoreboard. Team names differ between s2 and s4 (e.g. Prioksky SU 3 vs PSU 3 / Orel State University) but ranks and scores agree. s1's copy shows the 2015 hub page and the site also holds 2016 pages."
+}

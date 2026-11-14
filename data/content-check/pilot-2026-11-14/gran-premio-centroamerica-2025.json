@@ -1,0 +1,95 @@
+{
+ "contest": "gran-premio-centroamerica-2025",
+ "rubric": 2,
+ "sources": [
+  {
+   "n": 1,
+   "verdict": "confirm",
+   "roles": [
+    "standings"
+   ],
+   "scope": null,
+   "confidence": "medium",
+   "evidence": "Resultados Oficiales page with a year selector (2026/2025) whose 2025 section has a 95-team 'Clasificatorio Detallado por Equipos 2025' table (Puesto, Pais, Universidad, Equipo, Problemas Resueltos, Penalizacion, per-date columns Fecha 1-4 and Repechaje), alongside a 2026 section.",
+   "flags": [
+    "year-reused",
+    "outside-participants"
+   ],
+   "facts": {
+    "teams": 95,
+    "columns": [
+     "Puesto",
+     "País",
+     "Universidad",
+     "Nombre Equipo",
+     "C",
+     "Problemas Resueltos",
+     "Penalización (Minutos)",
+     "Fecha 1-4 Problemas/Penalización",
+     "Repechaje Problemas/Penalización"
+    ],
+    "final_or_frozen": "final",
+    "has_times": true,
+    "has_tries": false,
+    "top3": [
+     "Instituto Tecnológico de Costa Rica campus Alajuela - No name yet",
+     "Universidad de Costa Rica - che mae",
+     "Instituto Tecnológico de Costa Rica campus Alajuela - 2Blue1Brown"
+    ],
+    "contest_named": "Clasificatorio Detallado por Equipos 2025",
+    "language": "es"
+   },
+   "opened_full_copy": false
+  },
+  {
+   "n": 2,
+   "verdict": "confirm",
+   "roles": [
+    "standings"
+   ],
+   "scope": null,
+   "confidence": "high",
+   "evidence": "Table of 88 teams with Rank, Team, Institution, Solved, Time, Medal, Citation, rendered from the icpc.global API archive for 'The 2025 ICPC Gran Premio de Centroamerica'.",
+   "flags": [],
+   "facts": {
+    "teams": 88,
+    "columns": [
+     "Rank",
+     "Team",
+     "Institution",
+     "Solved",
+     "Time",
+     "Medal",
+     "Citation",
+     "Site citation"
+    ],
+    "top3": [
+     "No name yet (Instituto Tecnológico de Costa Rica campus Alajuela)",
+     "che mae (Universidad de Costa Rica)",
+     "2Blue1Brown (Instituto Tecnológico de Costa Rica campus Alajuela)"
+    ],
+    "final_or_frozen": "final",
+    "has_times": true,
+    "has_tries": false,
+    "contest_named": "The 2025 ICPC Gran Premio de Centroamerica",
+    "language": "en"
+   },
+   "opened_full_copy": false
+  }
+ ],
+ "contest_facts": [
+  {
+   "fact": "teams",
+   "value": "88 (API standings)",
+   "from": 2,
+   "pack_says": "101"
+  },
+  {
+   "fact": "teams in qualifier",
+   "value": "95 teams in the 2025 clasificatorio table",
+   "from": 1,
+   "pack_says": "101"
+  }
+ ],
+ "notes": "s1 serves two years on one page (2025 and 2026 sections, live_state changed). Its 2025 section is the multi-date qualifier (Fecha 1-4 plus Repechaje) with 31 solved for the leader, not the Gran Premio final in s2 (24 solved, 88 teams), so the two show different results for the same teams; a human should decide whether s1 is the final or the qualifier. Pack date is empty and location reads 'Administrative Site Location'; neither source states the date or venue in the digests. Pack says 101 teams, sources show 95 (qualifier) and 88 (final)."
+}

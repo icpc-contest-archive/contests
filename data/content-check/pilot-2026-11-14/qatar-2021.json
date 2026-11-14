@@ -1,0 +1,49 @@
+{
+ "contest": "qatar-2021",
+ "rubric": 2,
+ "sources": [
+  {
+   "n": 1,
+   "verdict": "correct",
+   "roles": [
+    "rankings"
+   ],
+   "scope": null,
+   "confidence": "medium",
+   "evidence": "API-rendered table of 16 teams in rank order, but the Solved column holds implausible values (95-282), Time is empty and the Medal column holds numbers like 1112.0, so only the order is reliable.",
+   "flags": [],
+   "facts": {
+    "teams": 16,
+    "top3": [
+     "Baba Johns' (Carnegie Mellon University in Qatar)",
+     "NotSoSadBlood (Carnegie Mellon University in Qatar)",
+     "Snooty Tartans (Carnegie Mellon University in Qatar)"
+    ],
+    "columns": [
+     "Rank",
+     "Team",
+     "Institution",
+     "Solved",
+     "Time",
+     "Medal",
+     "Citation"
+    ],
+    "final_or_frozen": "final",
+    "has_times": false,
+    "has_tries": false,
+    "contest_named": "The 2021 ICPC Qatar Collegiate Programming Contest",
+    "language": "en"
+   },
+   "opened_full_copy": true
+  }
+ ],
+ "contest_facts": [
+  {
+   "fact": "teams",
+   "value": "16",
+   "from": 1,
+   "pack_says": "16 teams (cms 4783)"
+  }
+ ],
+ "notes": "standings.json shows problemsSolved=191 etc. and the numbers in 'medalCitation' (e.g. 1112.0); the numbers look like scores or points from another scoring system, mis-mapped by the API, not solved counts and times. A human should decide whether to keep standings (rank only) or rankings. Pack lists ICPC year 2022 / QCPC-2022 finder slug for a 2021 contest."
+}
