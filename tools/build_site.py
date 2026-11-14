@@ -1110,9 +1110,24 @@ def judge_name(jid: str) -> str:
     return (JUDGES.get(jid) or {}).get("name") or jid
 
 
-def judge_link(jid: str, rel: str) -> str:
-    """An online judge: its name linking to its page."""
+def judge_mark(jid: str, tag: str = "span", attrs: str = "", tip: str = "") -> str:
+    """An online judge as its logo (tools/site_assets/judges/<id>.png, drawn by a rule that
+    main() adds to site.css), or its short name when there is no logo. The judge's name is
+    the hover text. A closed judge's logo is greyed."""
+    j = JUDGES.get(jid) or {}
+    closed = " jc" if j.get("status") == "closed" else ""
+    title = f' title="{esc(tip or judge_name(jid))}"'
+    role = "" if tag == "a" else ' role="img"'
+    if (ASSETS / "judges" / f"{jid}.png").exists():
+        return f'<{tag} class="jl j-{esc(jid)}{closed}"{attrs}{title}{role} aria-label="{esc(j.get("short") or judge_name(jid))}"></{tag}>'
+    return f'<{tag} class="jl jt{closed}"{attrs}{title}>{esc(j.get("short") or judge_name(jid))}</{tag}>'
+
+
+def judge_link(jid: str, rel: str, logo: bool = False) -> str:
+    """An online judge linking to its page: by name in running text, by logo in a table."""
     if jid in JUDGES:
+        if logo:
+            return judge_mark(jid, "a", f' href="{rel}judge/{esc(jid)}.html"')
         return f'<a href="{rel}judge/{esc(jid)}.html">{esc(judge_name(jid))}</a>'
     return esc(jid)
 
@@ -1126,16 +1141,18 @@ def judge_closed_chip(jid: str) -> str:
 
 
 def problem_judge_links(p: dict, sep: str = " ", by_id: bool = False, tips: bool = True) -> str:
-    """A problem's online judges: each the judge's name (or, on the judge's own page, the
-    problem's id there), linking ↗ straight to the problem on the judge — the Wayback
+    """A problem's online judges: each the judge's logo (or, on the judge's own page, the
+    problem's id there), linking straight to the problem on the judge — the Wayback
     snapshot for a judge that has closed."""
     parts = []
     for j in p.get("judges") or []:
         url, as_of = j["url"], j.get("as_of")
         href = wayback_link(url, as_of) if as_of else url
         tip = res_label(url, as_of, 200) + (f" — {judge_name(j['judge'])} id {j['id']}" if j.get("id") else "") + (" (Wayback snapshot)" if as_of else "")
-        lab = (j.get("id") or "open") if by_id else judge_name(j["judge"])
-        parts.append(f'<a class="ext" href="{esc(href)}"' + (f' title="{esc(tip)}"' if tips else "") + f">{esc(lab)}</a>")
+        if by_id:
+            parts.append(f'<a class="ext" href="{esc(href)}"' + (f' title="{esc(tip)}"' if tips else "") + f'>{esc(j.get("id") or "open")}</a>')
+        else:
+            parts.append(judge_mark(j["judge"], "a", f' href="{esc(href)}"', f"{judge_name(j['judge'])} — {tip}" if tips else ""))
     return sep.join(parts)
 
 
@@ -1343,7 +1360,7 @@ def source_table(cid: str, entries: list[dict], rel: str, kind: str, extra_rows:
         if e.get("scope"):
             roles += R.U("division", chip(e["scope"], "sc", "this source covers one part of the contest, not all of it"), e["scope"], url)
         if e.get("judge"):
-            roles += f'<span class="chip">{judge_link(e["judge"], rel)}</span>' + judge_closed_chip(e["judge"])
+            roles += judge_link(e["judge"], rel, logo=True) + judge_closed_chip(e["judge"])
         note = esc(source_note(e))
         for m in also_at(e):
             note += (" · " if note else "") + "also at " + R.U("mirror", link_source(m["url"], rel, res_label(m["url"], m.get("as_of"), 60), m.get("as_of")), url, m["url"]) + " " + avail_marks(avail(m["url"], cid))
@@ -2057,7 +2074,7 @@ def index_sources(contests: dict) -> None:
 
 def field_chip(field: str) -> str:
     if field.startswith("judge-"):
-        return f'<span class="chip">problem set · {esc(judge_name(field[6:]))}</span>'
+        return f'<span class="chip">problem set</span>{judge_mark(field[6:])}'
     return role_chip(field)
 
 
@@ -2333,7 +2350,7 @@ def judge_status(j: dict) -> str:
 
 def judge_page(jid: str, j: dict, probs: set, pages: list, rel: str) -> str:
     ncon = len({c for c, _s in pages})
-    b = [crumbs(f'<a href="{rel}judge/index.html">Judges</a>'), f'<h1{R.at("judge", jid)}>{R.U("name", esc(j.get("name") or jid), j.get("name") or "")}</h1>',
+    b = [crumbs(f'<a href="{rel}judge/index.html">Judges</a>'), f'<h1{R.at("judge", jid)}>{judge_mark(jid)}{R.U("name", esc(j.get("name") or jid), j.get("name") or "")}</h1>',
          '<p class="status">' + R.U("status", judge_status(j), (j.get("status", "") + " " + str(j.get("closed") or "")).strip()) + "</p>",
          f'<div class="nums"><div><b>{num(ncon)}</b><span><a href="#contests">contests</a></span></div>'
          f'<div><b>{num(len(probs))}</b><span><a href="#problems">problems</a></span></div></div>',
@@ -2378,7 +2395,7 @@ def judge_page(jid: str, j: dict, probs: set, pages: list, rel: str) -> str:
 def judge_index(probs: dict, pages: dict, rel: str) -> str:
     rows = []
     for jid, j in JUDGES.items():
-        rows.append(f'<tr><td class="name">{judge_link(jid, rel)}<span class="sub">{esc(re.sub(r"^https?://", "", j["url"]).rstrip("/"))}</span></td>'
+        rows.append(f'<tr><td class="name">{judge_mark(jid)}{judge_link(jid, rel)}<span class="sub">{esc(re.sub(r"^https?://", "", j["url"]).rstrip("/"))}</span></td>'
                     f'<td class="nw" data-v="{esc(j.get("status", ""))}">{judge_status(j)}</td>'
                     f'<td class="num">{len({c for c, _s in pages.get(jid, [])})}</td><td class="num">{len(probs.get(jid, ()))}</td></tr>')
     unknown = [x for x in sorted(set(probs) | set(pages)) if x not in JUDGES]
@@ -2896,6 +2913,9 @@ def about_page() -> str:
      "(on a single problem also <b>IV</b>/<b>OV</b>, input and output validators). Filled green: for every problem. Amber: for some. Grey: none. Dashed: not recorded. "
      "The number before the marks is how many problems the contest had."),
     ('<span class="m l">src</span>', "A published problem set or judge page is known, but nothing about the problems has been recorded yet."),
+    (judge_mark("kattis") + judge_mark("codeforces") + judge_mark("baekjoon") + judge_mark("qoj"),
+     "An online judge, shown by its logo (its short name where it has none); hover for the name. Beside a problem the logo opens the problem "
+     "on that judge. Grey: the judge has closed, and the link goes to a Wayback snapshot."),
 ))
     body = f"""<h1>About</h1>
 <p class="lede">What is here, how to read it, and how to help.</p>
@@ -2995,6 +3015,9 @@ def build(out: Path):
     for sub in ("contest", "series", "season", "calendar", "problemset", "problem", "problems", "judge", "location", "source", "source/by-role", "assets"):
         (out / sub).mkdir(parents=True, exist_ok=True)
     shutil.copytree(ASSETS, out / "assets", dirs_exist_ok=True)
+    with (out / "assets" / "site.css").open("a") as css:   # one rule per judge logo (judge_mark)
+        css.write("\n/* ---- judge logos (generated) ---- */\n" + "".join(
+            f".j-{f.stem} {{ background-image:url(judges/{f.name}); }}\n" for f in sorted((ASSETS / "judges").glob("*.png"))))
     (out / "assets" / "units.js").write_text(R.units_js())  # the unit list for review mode
     (out / "build.json").write_text(json.dumps({"built": datetime.date.today().isoformat()}))
 
