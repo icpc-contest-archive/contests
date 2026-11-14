@@ -40,11 +40,6 @@ Lists are in `data/judge-links-2026-11-14/`, applied by `tools/import_judge_link
   the three BZOJ copies (179), CSU (97), FZU (71), HRBUST (54), HihoCoder (42), UESTC_old (12).
 - **Unclear hosts**: UESTC at cdoj.site (147 matches in 16 sets), HUST at hustoj.org (75). The
   original sites are gone; these are re-hosts and were not checked.
-- **Problem lists the catalogue lacks** (new problems, not links):
-  - SGU (acm.sgu.ru on Codeforces): NEERC Southern Subregional 2002 (9), 2003 (9), 2004 (11);
-    Northern Subregional 2002 (9). south-russia-2002/2003/2004 have no problem set today.
-  - KRSU: Kyrgyzstan Subregional 2005 (8, Russian titles); kyrgyzstan-2005 has no problem set.
-  - beecrowd: 24 Maratona / South America stragglers outside the matched runs.
 - **Needs matching by letter, not title**: LibreOJ World Finals 2018–2025 (97, Chinese titles);
   Luogu Nanjing 2022–2024, Jinan 2023 and World Finals 2022/2023 (Chinese titles).
 - **Not catalogue contests**: VNOJ provincial rounds (north/central/south, 2021–2024), TLX IDEAFUSE
@@ -54,6 +49,27 @@ Lists are in `data/judge-links-2026-11-14/`, applied by `tools/import_judge_link
   Minieye, UniversalOJ, Kilonova, CSG, ACdream, NBUT, TopCoder. (* vjudge carries no source for these;
   the judge itself was hunted directly on 2026-11-03.) UVA has no source field on vjudge either, so
   the sweep says nothing about it.
+
+## New problem lists (second round, same day)
+
+`tools/add_problem_lists_2026_11_14.py` created 110 problems in 22 sets, assigned by the judge's own
+source string rather than by title:
+
+- New sets: south-russia-2002 (9), south-russia-2003 (9), south-russia-2004 (11) from SGU;
+  kyrgyzstan-2005 (8, Russian titles) from KRSU.
+- Sets that had one or two names: wf-1995 (1 → 8), north-russia-2002 (2 → 9), beijing-2004 (1 → 9),
+  gny-2010 (1 → 9), gny-2003 (1 → 8), gny-2007 (1 → 8, with letters), mausa-2003 (1 → 6).
+- Sets completed to their count: cerc-2003, cerc-2000, cerc-2007, ctuo-2008, mcpc-2011, pacnw-2013,
+  rmc-2011, nordic-2005, ncna-2014; taiwan-2003 (3 → 8) and shanghai-2011 (8 → 10) have no count.
+
+SGU is registered as a judge (the acm.sgu.ru archive on Codeforces). Names taken from closed judges
+(FZU, HIT, CSU, HRBUST), from HUST's re-host and from KRSU carry no link. New sets get no count.
+Held back: Bailian's "Ural Collegiate Programming Contest" 1998-2000 groups (8, 8 and 7 problems) —
+not clear that these are the Eastern Subregional (urals-1998/1999/2000).
+
+After this, 877 of 2,527 contests that have run still have no problem list (95 from the 2000s, 326
+from the 2010s, 329 from the 2020s), and 113 more have fewer names than their count. 203 of the 877
+already have a problem-set source recorded that has not been read for names.
 
 ## Caveats
 
