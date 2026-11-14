@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""File the ICPC standings we already have on disk as copies of their `icpc_standings` sources.
+"""File the ICPC standings we already have on disk as copies of the CMS standings sources.
 
-An `icpc_standings` source is a page of the ICPC CMS (icpc.global/regionals/finder/<slug>/standings):
+A CMS standings source (catalogue.is_cms) is a page of the ICPC CMS (icpc.global/regionals/finder/<slug>/standings):
 a JavaScript app, so fetching the page stores an empty shell. The data behind it comes from the
 open API, and two dumps of it sit next to this repo:
     ../icpc_all_standings.json            (2,278 contests, DB fetch 2026-04-26)
@@ -10,7 +10,7 @@ Team-level fields only (team, institution, rank, solved, time, citations) — no
 
 The first pass (tools/legacy/bake_api_standings.py, 2026-09-04) rendered only the 286 contests
 whose ICPC standings were their *only* result. This does the rest: every contest that has an
-`icpc_standings` source without a copy and whose CMS id has rows in a dump gets
+CMS standings source without a copy and whose CMS id has rows in a dump gets
     ../archive/<series>/<contest>/standings/api-<date>/{standings.html, standings.json, manifest.json}
 an entry in ../archive/index.json (source icpc-api-archive, fetched = the dump date) and the
 capture path under the source's `archived:`. A third dump, ../icpc_standings_topup.json
@@ -33,7 +33,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
-from catalogue import add_archived, archived, by_role, dump_series, load_series, normalise_source  # noqa: E402
+from catalogue import add_archived, archived, cms_sources, dump_series, load_series, normalise_source  # noqa: E402
 
 BASE = ROOT.parent
 ARCHIVE = BASE / "archive"
@@ -96,7 +96,7 @@ def main() -> int:
     series = load_series()
     for sid, doc in series.items():
         for i, c in enumerate(doc["contests"]):
-            srcs = by_role(c, "icpc_standings")
+            srcs = cms_sources(c)
             if not srcs:
                 continue
             s = next((x for x in srcs if "icpc.global" in x["url"]), srcs[0])
@@ -149,7 +149,7 @@ def main() -> int:
         (ROOT / "data" / "icpc-standings-empty.json").write_text(json.dumps(
             {"what": "contests whose ICPC standings page holds nothing: the open API returned no rows for every CMS id of the contest",
              "tool": TOOL, "contests": dict(sorted(none_in_cms.items()))}, indent=1) + "\n")
-        print(f"{len(none_in_cms)} contests have an icpc_standings source and no standings in the CMS -> data/icpc-standings-empty.json")
+        print(f"{len(none_in_cms)} contests have a CMS standings source and no standings in the CMS -> data/icpc-standings-empty.json")
     if args.write and done:
         idx_p.write_text(json.dumps(idx, indent=1, ensure_ascii=False))
         for sid, doc in touched.items():

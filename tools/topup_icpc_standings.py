@@ -26,7 +26,7 @@ ROOT = Path(__file__).resolve().parent.parent
 BASE = ROOT.parent
 sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(BASE))
-from catalogue import archived, by_role, load_series  # noqa: E402
+from catalogue import archived, cms_sources, load_series  # noqa: E402
 import fetch_icpc_api_json as api  # noqa: E402
 
 OUT = BASE / "icpc_standings_topup.json"
@@ -44,7 +44,7 @@ def main() -> int:
     todo = []
     for doc in load_series().values():
         for c in doc["contests"]:
-            srcs = by_role(c, "icpc_standings")
+            srcs = cms_sources(c)
             if not srcs or any("/api-" in p for s in srcs for p in archived(s)):
                 continue
             m = re.search(r"/finder/(.+)-(\d{4})/standings", srcs[0]["url"])

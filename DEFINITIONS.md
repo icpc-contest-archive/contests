@@ -57,8 +57,7 @@ not the calendar date.
   url_checked?, note?}` (see *Resources* below). Roles: `web` (the contest website;
   `also_at` lists mirrors of it), the result tiers in decreasing information order
   `scoreboard` (full, per-problem) > `frozen_scoreboard` > `standings` (totals only) >
-  `rankings` (order only) > `icpc_standings` (the CMS finder page,
-  `https://icpc.global/regionals/finder/<abbrev>-<year>/standings`), `teams`,
+  `rankings` (order only), `teams` (a team list),
   `problemset` (the contest's problems, in whatever form the document gives them),
   `problem` (one problem), and `editorial` (solutions explained after the contest: the jury's
   solution slides or problem analysis, or somebody else's write-up; added 2026-11-14 — it names
@@ -131,9 +130,18 @@ and there each contest's citation is a source of its own, with its own time and 
 same thing by the address (the same `as_of`; without one, the same season). The page of such an
 address has a row per contest.
 
-**ICPC standings** (`icpc_standings`) are pages of the CMS — an app, so a fetched page is an empty
-shell. Their copies are rendered from the open API's data instead (`tools/bake_icpc_standings.py`,
-source `icpc-api-archive`, time = the dump's date).
+**ICPC standings** are the standings pages of the CMS
+(`https://icpc.global/regionals/finder/<abbrev>-<year>/standings`). They have no role of their own
+(the `icpc_standings` role was dropped 2026-11-14): such a page is filed by what it holds —
+`standings` when its rows give problems solved, `rankings` when they give ranks only, `teams` when
+they give neither — and that it is the CMS is read off its address (`catalogue.is_cms`). A page with
+no rows holds nothing and is not a source; `data/icpc-standings-empty.json` records those pages and
+when they were asked. The CMS is formally the official result. It is not often wrong, but it can be,
+and where it disagrees with another source it tends to be the one that is wrong.
+The pages are an app, so a fetched page is an empty shell: their copies are rendered from the open
+API's data instead (`tools/bake_icpc_standings.py`, source `icpc-api-archive`, time = the dump's
+date), and the capture rounds leave them alone. `reports/icpc-standings-mapped-2026-11-14.md` lists
+what each page became.
 
 **Sources: `scope`.** A source that covers one part of a contest, not all of it, says which:
 `scope: Division 1`. `tools/label_scopes.py` sets it from the archived capture (the Kattis filter
