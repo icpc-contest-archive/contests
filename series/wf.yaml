@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
 series:
   id: wf
   name: ACM Programming Contest World Finals
@@ -298,7 +298,6 @@ contests:
   sources:
   - url: http://icpc.baylor.edu/past/EarlyYears.html
     roles:
-    - web
     - rankings
     as_of: '20110102183612'
     archived:
@@ -306,6 +305,7 @@ contests:
     url_state: dead
     url_checked: '2026-11-01'
     note: added by url-hunt 2026-09-01 (wave2-europe)
+    scope: top 4
   - url: https://icpc.global/worldfinals/problems/1986-ICPC-World-Finals/1986.pdf
     roles:
     - problemset
@@ -328,7 +328,6 @@ contests:
   sources:
   - url: http://icpc.baylor.edu/past/EarlyYears.html
     roles:
-    - web
     - rankings
     as_of: '20110102183612'
     archived:
@@ -336,6 +335,7 @@ contests:
     url_state: dead
     url_checked: '2026-11-01'
     note: added by url-hunt 2026-09-01 (wave2-europe)
+    scope: top 4
   - url: https://icpc.global/worldfinals/problems/1987-ICPC-World-Finals/1987.pdf
     roles:
     - problemset
@@ -359,7 +359,6 @@ contests:
   sources:
   - url: http://icpc.baylor.edu/past/EarlyYears.html
     roles:
-    - web
     - rankings
     as_of: '20110102183612'
     archived:
@@ -367,6 +366,7 @@ contests:
     url_state: dead
     url_checked: '2026-11-01'
     note: added by url-hunt 2026-09-01 (wave2-europe)
+    scope: top 4
   - url: https://icpc.global/worldfinals/problems/1988-ICPC-World-Finals/1988.pdf
     roles:
     - problemset
@@ -386,7 +386,6 @@ contests:
   sources:
   - url: http://icpc.baylor.edu/past/EarlyYears.html
     roles:
-    - web
     - rankings
     as_of: '20110102183612'
     archived:
@@ -394,6 +393,7 @@ contests:
     url_state: dead
     url_checked: '2026-11-01'
     note: added by url-hunt 2026-09-01 (wave2-europe)
+    scope: top 6
   - url: https://icpc.global/worldfinals/problems/1989-ICPC-World-Finals/1989.pdf
     roles:
     - problemset
@@ -416,8 +416,9 @@ contests:
   sources:
   - url: http://icpc.baylor.edu/past/EarlyYears.html
     roles:
-    - web
+    - rankings
     as_of: '20110102183612'
+    scope: top 6
   - url: http://icpc.baylor.edu/Past/icpc91/finals/Standings.html
     roles:
     - rankings
@@ -577,6 +578,10 @@ contests:
   - url: https://icpc.global/community/history-icpc-1993
     roles:
     - web
+  - url: https://ciiwiki.ecs.baylor.edu/index.php/History_-_ICPC_1993
+    roles:
+    - web
+    note: moved from socal-1992 by the content check
   - url: http://icpc.baylor.edu/Past/icpc93/finals/Standings.html
     roles:
     - rankings
@@ -1022,7 +1027,7 @@ contests:
     url_checked: '2026-11-14'
   - url: http://acm.baylor.edu/acmicpc/about/Standings00.htm
     roles:
-    - standings
+    - rankings
     as_of: '20010519190845'
     archived:
     - wf/wf-2000/standings/20010519-wayback-e4f585bc/Standings00.htm
@@ -1146,7 +1151,7 @@ contests:
     url_checked: '2026-11-14'
   - url: http://icpc.baylor.edu/icpc/finals/Standings.html
     roles:
-    - standings
+    - rankings
     as_of: '20020406103146'
     note: added by url-hunt 2026-09-01 (cms-api)
     url_state: unknown
@@ -1167,11 +1172,12 @@ contests:
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/2817
     roles:
-    - problemset
+    - problem
     judge: baekjoon
     as_of: '20211208091031'
     url_state: dead
     url_checked: '2026-11-14'
+    scope: D Ferries
   problems:
     set: wf-2002
 - id: wf-2003
@@ -1370,9 +1376,6 @@ contests:
   parent: null
   next: wf-2007
   sources:
-  - url: https://news.icpc.global/wf2006/
-    roles:
-    - web
   - url: https://cphof.org/standings/icpc/2006
     roles:
     - standings
@@ -1398,6 +1401,11 @@ contests:
     archived:
     - wf/wf-2006/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 1092, 83 teams, DB fetch 2026-04-26)
+  - url: https://news.icpc.global/wf2006/
+    roles:
+    - rankings
+    - report
+    scope: champions
   - url: https://icpcarchive.github.io/ICPC-World-Finals/2006-ICPC-World-Finals/2006WorldFinalProblemSet.pdf
     roles:
     - problemset
@@ -1435,9 +1443,6 @@ contests:
   parent: null
   next: wf-2008
   sources:
-  - url: https://news.icpc.global/wf2007/
-    roles:
-    - web
   - url: https://zibada.guru/finals/2007/
     roles:
     - scoreboard
@@ -1460,6 +1465,11 @@ contests:
     archived:
     - wf/wf-2007/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 1161, 88 teams, DB fetch 2026-04-26)
+  - url: https://news.icpc.global/wf2007/
+    roles:
+    - rankings
+    - report
+    scope: champions
   - url: https://icpcarchive.github.io/ICPC-World-Finals/2007-ICPC-World-Finals/2007WorldFinalProblemSet.pdf
     roles:
     - problemset
@@ -1703,13 +1713,6 @@ contests:
     as_of: '20210927110434'
     url_state: dead
     url_checked: '2026-11-14'
-  - url: https://www.acmicpc.net/category/detail/2057
-    roles:
-    - problemset
-    judge: baekjoon
-    as_of: '20191209023653'
-    url_state: dead
-    url_checked: '2026-11-14'
   - url: https://open.kattis.com/problem-sources/ICPC%20World%20Finals%202010
     roles:
     - problemset
@@ -1724,6 +1727,13 @@ contests:
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: unknown
     url_checked: '2026-11-13'
+  - url: https://www.acmicpc.net/category/detail/2057
+    roles:
+    - problem
+    judge: baekjoon
+    as_of: '20191209023653'
+    url_state: dead
+    url_checked: '2026-11-14'
   problems:
     set: wf-2010
 - id: wf-2011
@@ -1776,9 +1786,6 @@ contests:
   parent: null
   next: wf-2012
   sources:
-  - url: https://news.icpc.global/wf2011/
-    roles:
-    - web
   - url: https://zibada.guru/finals/2011/
     roles:
     - scoreboard
@@ -1819,6 +1826,11 @@ contests:
     archived:
     - wf/wf-2011/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 575, 105 teams, DB fetch 2026-04-26)
+  - url: https://news.icpc.global/wf2011/
+    roles:
+    - rankings
+    - report
+    scope: champion
   - url: https://icpcarchive.github.io/ICPC-World-Finals/2011-ICPC-World-Finals/2011WorldFinalProblemSet.pdf
     roles:
     - problemset
@@ -3160,9 +3172,6 @@ contests:
   parent: null
   next: wf-2024
   sources:
-  - url: https://news.icpc.global/wf2023/
-    roles:
-    - web
   - url: https://zibada.guru/finals/2023/
     roles:
     - scoreboard
@@ -3191,6 +3200,11 @@ contests:
     archived:
     - wf/wf-2023/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 5366, 130 teams, DB fetch 2026-04-26)
+  - url: https://news.icpc.global/wf2023/
+    roles:
+    - rankings
+    - report
+    scope: champions
   - url: https://icpc.global/worldfinals/problems/2023-ICPC-World-Finals/icpc2023.pdf
     roles:
     - problemset

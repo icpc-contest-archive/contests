@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/import_scoreboard_titles_b.py (2026-11-14).
+# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
 series:
   id: lethbridge
   name: ICPC Lethbridge Collegiate Programming Contest
@@ -20,7 +20,6 @@ contests:
   - url: https://www.cs.uleth.ca/~cheng/LCPC/2013/
     roles:
     - web
-    - scoreboard
     as_of: '20181004210612'
     archived:
     - lethbridge/lethbridge-2013/scoreboard/2026-04-16-canada-west/2013-lethbridge-collegiate-programming-contest-2013.html
@@ -73,7 +72,7 @@ contests:
   - url: https://www.cs.uleth.ca/~cheng/LCPC/2014/
     roles:
     - web
-    - scoreboard
+    - rankings
     as_of: '20151013015734'
     archived:
     - lethbridge/lethbridge-2014/scoreboard/2026-04-16-canada-west/2014-lethbridge-collegiate-programming-contest-2014.html
@@ -81,6 +80,19 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: from archived capture (scoreboard)
+    scope: top 3 per division
+  - url: http://www.cs.uleth.ca/~cheng/LCPC/
+    roles:
+    - web
+    - rankings
+    as_of: '20150223123128'
+    archived:
+    - lethbridge/lethbridge-2014/external-standings/2026-04-15-external/content.html
+    - lethbridge/lethbridge-2014/standings/20150223-wayback-134442b6/page.html
+    url_state: replaced
+    url_checked: '2026-11-14'
+    note: from archived capture (external-standings)
+    scope: top 3 per division
   - url: https://www.cs.uleth.ca/~cheng/LCPC/2014/div1-official.html
     roles:
     - scoreboard
@@ -90,16 +102,6 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (agent-na)
-  - url: http://www.cs.uleth.ca/~cheng/LCPC/
-    roles:
-    - standings
-    as_of: '20150223123128'
-    archived:
-    - lethbridge/lethbridge-2014/external-standings/2026-04-15-external/content.html
-    - lethbridge/lethbridge-2014/standings/20150223-wayback-134442b6/page.html
-    url_state: replaced
-    url_checked: '2026-11-14'
-    note: from archived capture (external-standings)
   - url: https://icpc.global/regionals/finder/LethbridgeCPC-2015/standings
     roles:
     - rankings
@@ -136,7 +138,7 @@ contests:
   - url: https://www.cs.uleth.ca/~cheng/LCPC/2015/
     roles:
     - web
-    - scoreboard
+    - rankings
     as_of: '20181004210622'
     archived:
     - lethbridge/lethbridge-2015/scoreboard/2026-04-16-canada-west/2015-lethbridge-collegiate-programming-contest-2015.html
@@ -144,6 +146,7 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: from archived capture (scoreboard)
+    scope: top 3 per division
   - url: http://www.cs.uleth.ca/~cheng/LCPC/
     roles:
     - standings
@@ -177,7 +180,7 @@ contests:
   - url: https://www.cs.uleth.ca/~cheng/LCPC/2016/
     roles:
     - web
-    - scoreboard
+    - rankings
     as_of: '20181004210627'
     archived:
     - lethbridge/lethbridge-2016/scoreboard/2026-04-16-canada-west/2016-lethbridge-collegiate-programming-contest-2016.html
@@ -185,6 +188,7 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: from archived capture (scoreboard)
+    scope: top 3 per division
   - url: https://www.cs.uleth.ca/~cheng/LCPC/2016/div1.html
     roles:
     - scoreboard
@@ -216,8 +220,7 @@ contests:
   sources:
   - url: https://www.cs.uleth.ca/~cheng/LCPC/2017/
     roles:
-    - web
-    - scoreboard
+    - rankings
     as_of: '20181002010121'
     archived:
     - lethbridge/lethbridge-2017/scoreboard/2026-04-16-canada-west/2017-lethbridge-collegiate-programming-contest-2017.html
@@ -225,6 +228,7 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: from archived capture (scoreboard)
+    scope: top 3 per division
   problems:
     set: lethbridge-2017
   notes: The CMS has no date; 2 divisions (problem archive sheet)
@@ -242,7 +246,7 @@ contests:
   - url: https://www.cs.uleth.ca/~cheng/LCPC/2018/
     roles:
     - web
-    - scoreboard
+    - rankings
     as_of: '20190908102457'
     archived:
     - lethbridge/lethbridge-2018/scoreboard/2026-04-16-canada-west/2018-lethbridge-collegiate-programming-contest-2018.html
@@ -250,6 +254,7 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: from archived capture (scoreboard)
+    scope: top 3 per division
   problems:
     set: lethbridge-2018
   notes: 2 divisions (problem archive sheet)
@@ -269,8 +274,7 @@ contests:
     - web
   - url: https://www.cs.uleth.ca/~cheng/LCPC/
     roles:
-    - scoreboard
-    - problemset
+    - web
     as_of: '20191019104039'
     archived:
     - lethbridge/lethbridge-2019/scoreboard/2026-04-16-canada-west/2019-lethbridge-collegiate-programming-contest-2019.html
@@ -292,23 +296,6 @@ contests:
   cms_ids:
   - 4345
   next: lethbridge-2021
-  sources:
-  - url: https://www.cs.uleth.ca/~cheng/contest/2020.html
-    roles:
-    - standings
-    as_of: '20240120020900'
-    archived:
-    - lethbridge/lethbridge-2020/standings/20240120-wayback-458035e1/2020.html
-    - lethbridge/lethbridge-2020/standings/20261020-live-7781d86d/2020.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (round9-research)
-  - url: https://acpc20d1.kattis.com/contests/acpc20d1/problems
-    roles:
-    - problemset
-    scope: Division 1
-    url_state: live
-    url_checked: '2026-11-14'
   problems:
     set: lethbridge-2020
   notes: 'audit 2026-09-02: no trace found anywhere - suspected not held (registration shell); The CMS
@@ -322,23 +309,6 @@ contests:
   cms_ids:
   - 4681
   next: lethbridge-2022
-  sources:
-  - url: https://www.cs.uleth.ca/~cheng/contest/2021.html
-    roles:
-    - standings
-    as_of: '20240120020858'
-    archived:
-    - lethbridge/lethbridge-2021/standings/20240120-wayback-23672486/2021.html
-    - lethbridge/lethbridge-2021/standings/20261020-live-a19bb18c/2021.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (round9-research)
-  - url: https://acpc21d1.kattis.com/contests/acpc21d1/problems
-    roles:
-    - problemset
-    scope: Division 1
-    url_state: live
-    url_checked: '2026-11-14'
   problems:
     set: lethbridge-2021
   notes: 'audit 2026-09-02: no trace found anywhere - suspected not held (registration shell); The CMS
@@ -356,22 +326,6 @@ contests:
   - url: https://codeforces.com/blog/entry/109132
     roles:
     - web
-  - url: https://www.cs.uleth.ca/~cheng/contest/2022.html
-    roles:
-    - standings
-    as_of: '20250803032547'
-    archived:
-    - lethbridge/lethbridge-2022/standings/20250803-wayback-98f91b95/2022.html
-    - lethbridge/lethbridge-2022/standings/20261020-live-d2f43168/2022.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (round9-research)
-  - url: https://acpc22d1.kattis.com/contests/acpc22d1/problems
-    roles:
-    - problemset
-    scope: Division 1
-    url_state: live
-    url_checked: '2026-11-14'
   problems:
     set: lethbridge-2022
   notes: 'audit 2026-09-02: no trace found anywhere - suspected not held (registration shell); The CMS
@@ -385,24 +339,6 @@ contests:
   cms_ids:
   - 7454
   next: lethbridge-2024
-  sources:
-  - url: https://www.cs.uleth.ca/~cheng/contest/2023.html
-    roles:
-    - standings
-    as_of: '20250803032545'
-    archived:
-    - lethbridge/lethbridge-2023/standings/20250803-wayback-622bb7b9/2023.html
-    - lethbridge/lethbridge-2023/standings/20261020-live-e1ac5c3e/2023.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (round9-research)
-  - url: https://acpc23.kattis.com/contests/acpc23d1/problems
-    roles:
-    - problemset
-    scope: Division 1
-    as_of: '20241114063545'
-    url_state: live
-    url_checked: '2026-11-14'
   problems:
     set: lethbridge-2023
   notes: 'audit 2026-09-02: no trace found anywhere - suspected not held (registration shell); The CMS
@@ -414,7 +350,8 @@ contests:
   sources:
   - url: https://www.cs.uleth.ca/~cheng/contest/2024.html
     roles:
-    - standings
+    - rankings
+    - teams
     as_of: '20260212011455'
     archived:
     - lethbridge/lethbridge-2024/standings/20260212-wayback-bd7c27a5/2024.html
@@ -422,13 +359,7 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (round9-research)
-  - url: https://acpc24.kattis.com/contests/acpc24d1/problems
-    roles:
-    - problemset
-    scope: Division 1
-    as_of: '20260308174526'
-    url_state: live
-    url_checked: '2026-11-14'
+    scope: University of Lethbridge teams only
   notes: 'audit 2026-09-02: no trace found anywhere - suspected not held (registration shell)'
 - id: lethbridge-2025
   season: 2026
@@ -443,11 +374,6 @@ contests:
     - scoreboard
     archived:
     - lethbridge/lethbridge-2025/scoreboard/2026-09-01-live-2e4e1733/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-  - url: https://acpc25.kattis.com/contests/i4bbbd/problems
-    roles:
-    - problemset
     url_state: live
     url_checked: '2026-11-14'
   problems:

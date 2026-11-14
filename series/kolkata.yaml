@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/drop_icpc_standings.py.
+# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
 series:
   id: kolkata
   name: ACM-ICPC Asia Kolkata Regional Contest
@@ -118,9 +118,14 @@ contests:
   - url: http://icpckolkata.in
     roles:
     - web
-  - url: http://icpckolkata.in/2017/01/05/result-of-onsite-contest/
+  - url: https://icpc.global/regionals/finder/ICPC-Kolkata-2017/standings
     roles:
     - standings
+    archived:
+    - kolkata/kolkata-2016/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 3050, 92 teams, DB fetch 2026-04-26)
+  - url: http://icpckolkata.in/2017/01/05/result-of-onsite-contest/
+    roles:
     - rankings
     as_of: '20170109235316'
     archived:
@@ -130,12 +135,6 @@ contests:
     url_state: replaced
     url_checked: '2026-11-14'
     note: from archived capture (external-standings)
-  - url: https://icpc.global/regionals/finder/ICPC-Kolkata-2017/standings
-    roles:
-    - standings
-    archived:
-    - kolkata/kolkata-2016/standings/api-20261113/standings.html
-    note: rendered from the icpc.global API standings archive (cms 3050, 92 teams, DB fetch 2026-04-26)
   - url: https://www.codechef.com/ACM16KOL
     roles:
     - problemset

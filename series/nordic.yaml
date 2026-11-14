@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
 series:
   id: nordic
   name: ICPC Nordic Collegiate Programming Contest
@@ -22,8 +22,8 @@ contests:
   sources:
   - url: https://www.ida.liu.se/projects/progcontest/progsm/2002/
     roles:
-    - web
     - scoreboard
+    - problemset
     as_of: '20040105005213'
     archived:
     - nordic/nordic-2002/scoreboard/2026-09-01-live-f5efbd45/page.html
@@ -388,7 +388,7 @@ contests:
     url_checked: '2026-11-14'
   - url: http://www.csc.kth.se/contest/ncpc/2008/standings/?icpc
     roles:
-    - standings
+    - scoreboard
     as_of: '20081006224651'
     archived:
     - nordic/nordic-2008/external-standings/2026-04-15-external/content.html
@@ -397,6 +397,7 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: from archived capture (external-standings)
+    scope: ICPC-eligible teams only
   - url: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2008%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
     roles:
     - problemset
@@ -409,13 +410,6 @@ contests:
     as_of: '20190919131400'
     url_state: replaced
     url_checked: '2026-11-14'
-  - url: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202008%2C%20adapted%20from%20Andrew%20Stankevich%20Contest%2017%2C%20Petrozavodsk%2C%20February%202%2C%202006
-    roles:
-    - problemset
-    judge: kattis
-    as_of: '20220124103255'
-    url_state: replaced
-    url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/213
     roles:
     - problemset
@@ -424,6 +418,13 @@ contests:
     url_state: dead
     url_checked: '2026-11-14'
     note: NCPC 2008
+  - url: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202008%2C%20adapted%20from%20Andrew%20Stankevich%20Contest%2017%2C%20Petrozavodsk%2C%20February%202%2C%202006
+    roles:
+    - problem
+    judge: kattis
+    as_of: '20220124103255'
+    url_state: replaced
+    url_checked: '2026-11-14'
   problems:
     set: nordic-2008
 - id: nordic-2009
@@ -458,6 +459,16 @@ contests:
   - url: https://nordic.icpc.io/ncpc2009/
     roles:
     - web
+  - url: http://ncpc.idi.ntnu.no/ncpc2009
+    roles:
+    - web
+    as_of: '20100805090808'
+    archived:
+    - nordic/nordic-2009/external-standings/2026-04-15-external/content.html
+    - nordic/nordic-2009/standings/20100805-wayback-1775d79f/page.html
+    url_state: replaced
+    url_checked: '2026-11-14'
+    note: from archived capture (external-standings)
   - url: https://www.csc.kth.se/contest/ncpc/2009/standings/
     roles:
     - scoreboard
@@ -467,16 +478,6 @@ contests:
     - nordic/nordic-2009/scoreboard/20091011-wayback-b24f325c/page.html
     url_state: live
     url_checked: '2026-11-14'
-  - url: http://ncpc.idi.ntnu.no/ncpc2009
-    roles:
-    - standings
-    as_of: '20100805090808'
-    archived:
-    - nordic/nordic-2009/external-standings/2026-04-15-external/content.html
-    - nordic/nordic-2009/standings/20100805-wayback-1775d79f/page.html
-    url_state: replaced
-    url_checked: '2026-11-14'
-    note: from archived capture (external-standings)
   - url: https://icpc.global/regionals/finder/Nordic-2010/standings
     roles:
     - standings

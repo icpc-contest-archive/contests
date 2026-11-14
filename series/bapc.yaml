@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
 series:
   id: bapc
   name: ICPC Benelux Algorithm Programming Contest
@@ -102,7 +102,6 @@ contests:
   - url: http://www.bapc.nl/scoreboard.html
     roles:
     - scoreboard
-    - standings
     as_of: '20071231183534'
     archived:
     - bapc/bapc-2007/scoreboard/2026-09-01-wayback-05ab8f0d/scoreboard.html
@@ -225,6 +224,13 @@ contests:
     url_state: changed
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (dark-hunt-agent)
+  - url: https://icpcarchive.github.io/Europe/Northwestern-Europe/Benelux-Algorithm-Programming-Contest/The-2009-ICPC-Benelux-Algorithm-Programming-Contest-BAPC-2009/tutorials_en.pdf
+    roles:
+    - rankings
+    - editorial
+    url_state: live
+    url_checked: '2026-11-14'
+    scope: top 3 plus best business team
   - url: https://chipcie.wisv.ch/archive/2009/bapc/bapc2009.pdf
     roles:
     - problemset
@@ -254,11 +260,13 @@ contests:
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: unknown
     url_checked: '2026-11-13'
-  - url: https://icpcarchive.github.io/Europe/Northwestern-Europe/Benelux-Algorithm-Programming-Contest/The-2009-ICPC-Benelux-Algorithm-Programming-Contest-BAPC-2009/tutorials_en.pdf
+  - url: https://chipcie.wisv.ch/archive/2009/bapc/solutions.pdf
     roles:
     - editorial
+    as_of: '20240413151748'
     url_state: live
     url_checked: '2026-11-14'
+    note: moved from bapc-prelims-2009 by the content check
   problems:
     set: bapc-2009
 - id: bapc-2010
@@ -325,6 +333,20 @@ contests:
     - editorial
     url_state: live
     url_checked: '2026-11-14'
+  - url: https://chipcie.wisv.ch/archive/2010/bapc/solutions.pdf
+    roles:
+    - editorial
+    as_of: '20240531094928'
+    url_state: live
+    url_checked: '2026-11-14'
+    note: moved from bapc-prelims-2010 by the content check
+  - url: https://chipcie.wisv.ch/archive/2010/dkp/solutions.pdf
+    roles:
+    - editorial
+    as_of: '20240526143045'
+    url_state: live
+    url_checked: '2026-11-14'
+    note: moved from bapc-prelims-2010 by the content check
   problems:
     set: bapc-2010
 - id: bapc-2011
@@ -541,7 +563,7 @@ contests:
     url_checked: '2026-11-14'
   - url: http://bapc.eu/scoreboards/bapc/
     roles:
-    - standings
+    - scoreboard
     as_of: '20150205030531'
     archived:
     - bapc/bapc-2014/external-standings/2026-04-15-external/content.html
@@ -696,7 +718,7 @@ contests:
     url_checked: '2026-11-14'
   - url: http://2016.bapc.eu/en/results/
     roles:
-    - standings
+    - scoreboard
     as_of: '20171201043108'
     archived:
     - bapc/bapc-2016/external-standings/2026-04-15-external/content.html
@@ -1121,6 +1143,13 @@ contests:
     - editorial
     url_state: live
     url_checked: '2026-11-14'
+  - url: https://2021.bapc.eu/bapc2021-solutions.pdf
+    roles:
+    - editorial
+    as_of: '20211206122056'
+    url_state: dead
+    url_checked: '2026-11-14'
+    note: moved from bapc-prelims-2021 by the content check
   problems:
     set: bapc-2021
 - id: bapc-2022
@@ -1139,7 +1168,6 @@ contests:
   - url: https://2022.bapc.eu/
     roles:
     - web
-    - scoreboard
     as_of: '20241212073154'
     archived:
     - bapc/bapc-2022/scoreboard/2026-09-01-wayback-c68294b2/page.html
@@ -1155,7 +1183,7 @@ contests:
     note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://2022.bapc.eu/bapc/scoreboard/
     roles:
-    - standings
+    - scoreboard
     as_of: '20241212080327'
     archived:
     - bapc/bapc-2022/external-standings/2026-04-15-external/content.html
@@ -1337,7 +1365,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://chipcie.wisv.ch/archive/2024/bapc/scoreboard/
     roles:
-    - standings
+    - scoreboard
     as_of: '20260210085323'
     archived:
     - bapc/bapc-2024/external-standings/2026-04-15-external/content.html

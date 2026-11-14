@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/drop_icpc_standings.py.
+# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
 series:
   id: vietnam
   name: ICPC Asia Ho Chi Minh City Regional Contest
@@ -243,6 +243,16 @@ contests:
     - vietnam/vietnam-2015/scoreboard/2026-09-01-live-0b0cc8fc/scoreboard.html
     url_state: live
     url_checked: '2026-11-14'
+  - url: http://acmicpc-vietnam.github.io/2015/regional/scoreboard.html
+    roles:
+    - scoreboard
+    as_of: '20200701211130'
+    archived:
+    - vietnam/vietnam-2015/external-standings/2026-04-15-external/content.html
+    - vietnam/vietnam-2015/standings/20161216-wayback-bbe7aedb/scoreboard.html
+    url_state: dead
+    url_checked: '2026-11-14'
+    note: from archived capture (external-standings)
   - url: http://acm-icpc.olp.vn/results
     roles:
     - standings
@@ -251,16 +261,6 @@ contests:
     - vietnam/vietnam-2015/standings/2026-09-01-wayback-4f2fb07c/page.html
     url_state: dead
     url_checked: '2026-11-14'
-  - url: http://acmicpc-vietnam.github.io/2015/regional/scoreboard.html
-    roles:
-    - standings
-    as_of: '20200701211130'
-    archived:
-    - vietnam/vietnam-2015/external-standings/2026-04-15-external/content.html
-    - vietnam/vietnam-2015/standings/20161216-wayback-bbe7aedb/scoreboard.html
-    url_state: dead
-    url_checked: '2026-11-14'
-    note: from archived capture (external-standings)
   - url: https://icpc.global/regionals/finder/Hanoi-2016/standings
     roles:
     - standings
@@ -364,7 +364,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://hochiminh17.kattis.com/standings
     roles:
-    - standings
+    - scoreboard
     as_of: '20191117174335'
     archived:
     - vietnam/vietnam-2017/external-standings/2026-04-15-external/content.html

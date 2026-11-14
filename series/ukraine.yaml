@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
 series:
   id: ukraine
   name: ICPC Ukraine National Programming Contest
@@ -85,7 +85,7 @@ contests:
   sources:
   - url: http://olymp.sumdu.edu.ua/standings.php
     roles:
-    - standings
+    - scoreboard
     as_of: '20120110211534'
     archived:
     - ukraine/ukraine-2011/external-standings/2026-04-15-external/content.html
@@ -181,7 +181,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://vntu.edu.ua/images/aucpc2/result2013.pdf
     roles:
-    - rankings
+    - scoreboard
     as_of: '20150430222415'
     archived:
     - ukraine/ukraine-2013/rankings/2026-09-01-live-2e503a85/result2013.pdf
@@ -225,7 +225,6 @@ contests:
   - url: https://vntu.edu.ua/images/result.pdf
     roles:
     - scoreboard
-    - standings
     as_of: '20150504201020'
     archived:
     - ukraine/ukraine-2014/scoreboard/2026-09-01-live-14f70f2c/result.pdf
@@ -238,7 +237,7 @@ contests:
     note: from archived capture (external-standings)
   - url: https://vntu.edu.ua/images/aucpc2/result/res.pdf
     roles:
-    - standings
+    - scoreboard
     as_of: '20150319075106'
     archived:
     - ukraine/ukraine-2014/standings/20150319-wayback-70bd5bf4/res.pdf
@@ -246,15 +245,9 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (t2-ukraine-agent)
-  - url: https://icpc.global/regionals/finder/AUCPC-2015/standings
-    roles:
-    - standings
-    archived:
-    - ukraine/ukraine-2014/standings/api-20261113/standings.html
-    note: rendered from the icpc.global API standings archive (cms 2655, 134 teams, DB fetch 2026-04-26)
   - url: https://vntu.edu.ua/images/aucpc2/result/resultscenter.pdf
     roles:
-    - rankings
+    - scoreboard
     as_of: '20150319073511'
     archived:
     - ukraine/ukraine-2014/rankings/20150319-wayback-5dd5a739/resultscenter.pdf
@@ -262,9 +255,10 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (t2-ukraine-agent)
+    scope: Center region
   - url: https://vntu.edu.ua/images/aucpc2/result/resultseast.pdf
     roles:
-    - rankings
+    - scoreboard
     as_of: '20161213062049'
     archived:
     - ukraine/ukraine-2014/rankings/20161213-wayback-6ae21e96/resultseast.pdf
@@ -272,9 +266,10 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (t2-ukraine-agent)
+    scope: East region
   - url: https://vntu.edu.ua/images/aucpc2/result/resultssouth.pdf
     roles:
-    - rankings
+    - scoreboard
     as_of: '20150504201453'
     archived:
     - ukraine/ukraine-2014/rankings/20150504-wayback-98a6595c/resultssouth.pdf
@@ -282,9 +277,10 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (t2-ukraine-agent)
+    scope: South region
   - url: https://vntu.edu.ua/images/aucpc2/result/resultskyiv.pdf
     roles:
-    - rankings
+    - scoreboard
     as_of: '20150504202922'
     archived:
     - ukraine/ukraine-2014/rankings/20150504-wayback-bb68b410/resultskyiv.pdf
@@ -292,9 +288,10 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (t2-ukraine-agent)
+    scope: Kyiv region
   - url: https://vntu.edu.ua/images/aucpc2/result/resultswest.pdf
     roles:
-    - rankings
+    - scoreboard
     as_of: '20150504190743'
     archived:
     - ukraine/ukraine-2014/rankings/20150504-wayback-91b7844a/resultswest.pdf
@@ -302,6 +299,13 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (t2-ukraine-agent)
+    scope: West region
+  - url: https://icpc.global/regionals/finder/AUCPC-2015/standings
+    roles:
+    - standings
+    archived:
+    - ukraine/ukraine-2014/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 2655, 134 teams, DB fetch 2026-04-26)
 - id: ukraine-2015
   season: 2016
   name: 2015 All-Ukrainian Collegiate Programming Contest
@@ -432,7 +436,7 @@ contests:
     note: added by url-hunt 2026-09-01 (t2-ukraine-agent)
   - url: https://goo.gl/UFeodM
     roles:
-    - standings
+    - scoreboard
     as_of: '20250310200217'
     archived:
     - ukraine/ukraine-2017/external-standings/2026-04-15-external/content.html
@@ -443,19 +447,11 @@ contests:
     note: from archived capture (external-standings)
   - url: https://acmallukrainian.ho.ua/2017/2/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20180920154317'
     archived:
     - ukraine/ukraine-2017/standings/20180920-wayback-3834f30a/standings.html
     - ukraine/ukraine-2017/standings/20261023-live-3f82d3ef/standings.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (t2-ukraine-agent)
-  - url: https://www.kit.ontu.edu.ua/upload/file/olympics/student/1.pdf
-    roles:
-    - standings
-    archived:
-    - ukraine/ukraine-2017/standings/20261023-live-aaa0692f/1.pdf
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (t2-ukraine-agent)
@@ -512,21 +508,21 @@ contests:
   - url: https://www.facebook.com/au.acm.icpc
     roles:
     - web
-  - url: https://vntu.edu.ua/uk/acm/auspc-2/auspc2018/report2018.html
-    roles:
-    - web
-    url_state: live
-    url_checked: '2026-11-14'
-  - url: https://nubip.edu.ua/node/50140
-    roles:
-    - web
-    url_state: replaced
-    url_checked: '2026-11-14'
   - url: http://old.research.lnu.edu.ua/docs/nakaz-mon-2018-08-13_902.doc
     roles:
     - web
     url_state: live
     url_checked: '2026-11-14'
+  - url: http://acmallukrainian.ho.ua/2018/2/standings.html
+    roles:
+    - scoreboard
+    as_of: '20180920221638'
+    archived:
+    - ukraine/ukraine-2018/standings/2026-09-01-live-4b154207/standings.html
+    - ukraine/ukraine-2018/standings/20180920-wayback-0c84e4e2/standings.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (agent-europe)
   - url: https://www.facebook.com/au.acm.icpc/photos/pcb.2182446695159419/2182446001826155/?type=3&theater
     roles:
     - standings
@@ -536,26 +532,20 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: from archived capture (external-standings)
-  - url: http://acmallukrainian.ho.ua/2018/2/standings.html
+  - url: https://vntu.edu.ua/uk/acm/auspc-2/auspc2018/report2018.html
     roles:
-    - standings
-    as_of: '20180920221638'
-    archived:
-    - ukraine/ukraine-2018/standings/2026-09-01-live-4b154207/standings.html
-    - ukraine/ukraine-2018/standings/20180920-wayback-0c84e4e2/standings.html
+    - rankings
+    - report
     url_state: live
     url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (agent-europe)
-  - url: https://www.kit.ontu.edu.ua/upload/file/olympics/student/2.pdf
+    scope: site winners (top places per site)
+  - url: https://nubip.edu.ua/node/50140
     roles:
-    - standings
-    as_of: '20251010061315'
-    archived:
-    - ukraine/ukraine-2018/standings/20251010-wayback-31d3037e/2.pdf
-    - ukraine/ukraine-2018/standings/20261023-live-f136164b/2.pdf
-    url_state: live
+    - rankings
+    - report
+    url_state: replaced
     url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (t2-ukraine-agent)
+    scope: Kyiv (NUBiP) site, top places
   - url: http://acmallukrainian.ho.ua/2018/2/statements_ukr.pdf
     roles:
     - problemset
@@ -595,12 +585,9 @@ contests:
   parent: seerc-2019
   next: ukraine-2020
   sources:
-  - url: https://nubip.edu.ua/sites/default/files/u214/2019_acm_2nd_stage_northern_-_brief_report.pdf
-    roles:
-    - web
   - url: http://acmallukrainian.ho.ua/2019/2/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20190923230845'
     archived:
     - ukraine/ukraine-2019/standings/2026-09-01-live-4835e301/standings.html
@@ -608,22 +595,17 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (agent-europe)
-  - url: http://acmallukrainian.ho.ua/2019/3/standings.html
-    roles:
-    - standings
-    as_of: '20191026082657'
-    archived:
-    - ukraine/ukraine-2019/standings/20191026-wayback-acdc3081/standings.html
-    - ukraine/ukraine-2019/standings/20261023-live-9dfe29d8/standings.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (t2-ukraine-agent)
   - url: https://icpc.global/regionals/finder/AUCPC-2020/standings
     roles:
     - standings
     archived:
     - ukraine/ukraine-2019/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 4120, 301 teams, DB fetch 2026-04-26)
+  - url: https://nubip.edu.ua/sites/default/files/u214/2019_acm_2nd_stage_northern_-_brief_report.pdf
+    roles:
+    - rankings
+    - report
+    scope: Northern site, top 8 university and 8 school teams
   - url: http://acmallukrainian.ho.ua/2019/2/statements_eng.pdf
     roles:
     - problemset
@@ -663,20 +645,9 @@ contests:
   parent: seerc-2020
   next: ukraine-2021
   sources:
-  - url: https://vntu.edu.ua/uploads/2020/aucpc/problems_2020.pdf
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20211105185352'
-    archived:
-    - ukraine/ukraine-2020/scoreboard/2026-04-16-ukraine/2020-all-ukrainian-collegiate-programming-contest-2021.pdf
-    - ukraine/ukraine-2020/scoreboard/20211105-wayback-c2240617/problems_2020.pdf
-    url_state: live
-    url_checked: '2026-11-14'
-    note: from archived capture (scoreboard)
   - url: http://acmallukrainian.ho.ua/2020/2/standings.html?time_delay=3000
     roles:
-    - standings
+    - scoreboard
     as_of: '20211021155536'
     archived:
     - ukraine/ukraine-2020/external-standings/2026-04-15-external/content.html
@@ -685,6 +656,16 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: from archived capture (external-standings)
+  - url: https://vntu.edu.ua/uploads/2020/aucpc/problems_2020.pdf
+    roles:
+    - problemset
+    as_of: '20211105185352'
+    archived:
+    - ukraine/ukraine-2020/scoreboard/2026-04-16-ukraine/2020-all-ukrainian-collegiate-programming-contest-2021.pdf
+    - ukraine/ukraine-2020/scoreboard/20211105-wayback-c2240617/problems_2020.pdf
+    url_state: live
+    url_checked: '2026-11-14'
+    note: from archived capture (scoreboard)
   - url: https://eolymp.com/contests/ofcrcqt70t6v9aulu55ng51lts
     roles:
     - problemset
@@ -739,11 +720,6 @@ contests:
   - url: http://vntu.edu.ua/en
     roles:
     - web
-  - url: https://vntu.edu.ua/docs/icpc2021/ReportAll2021-2.pdf
-    roles:
-    - web
-    url_state: live
-    url_checked: '2026-11-14'
   - url: https://vntu.edu.ua/docs/icpc2021/Rank_St2-0.pdf
     roles:
     - scoreboard
@@ -756,7 +732,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://acmallukrainian.ho.ua/2021/2/standings.html
     roles:
-    - standings
+    - scoreboard
     archived:
     - ukraine/ukraine-2021/standings/20261023-live-a2393284/standings.html
     url_state: live
@@ -768,6 +744,13 @@ contests:
     archived:
     - ukraine/ukraine-2021/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 4912, 228 teams, DB fetch 2026-04-26)
+  - url: https://vntu.edu.ua/docs/icpc2021/ReportAll2021-2.pdf
+    roles:
+    - rankings
+    - report
+    url_state: live
+    url_checked: '2026-11-14'
+    scope: top 6 university and school teams overall and per site
   - url: http://acmallukrainian.ho.ua/2021/2/statements_eng.pdf
     roles:
     - problemset
@@ -810,6 +793,14 @@ contests:
   parent: seerc-2022
   next: ukraine-2023
   sources:
+  - url: https://acmallukrainian.ho.ua/2022/2/standings.html
+    roles:
+    - scoreboard
+    archived:
+    - ukraine/ukraine-2022/standings/20261023-live-1c2cd390/standings.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (t2-ukraine-agent)
   - url: https://olimp.vntu.edu.ua/uk/aucpc-reg/2022-au2u/rezultaty/
     roles:
     - standings
@@ -820,22 +811,6 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (agent-europe)
-  - url: https://acmallukrainian.ho.ua/2022/2/standings.html
-    roles:
-    - standings
-    archived:
-    - ukraine/ukraine-2022/standings/20261023-live-1c2cd390/standings.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (t2-ukraine-agent)
-  - url: https://acmallukrainian.ho.ua/2022/3/standings.html
-    roles:
-    - standings
-    archived:
-    - ukraine/ukraine-2022/standings/20261023-live-c6ee3f7c/standings.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (t2-ukraine-agent)
   - url: http://acmallukrainian.ho.ua/2022/2/statements_eng.pdf
     roles:
     - problemset
@@ -889,17 +864,9 @@ contests:
   sources:
   - url: https://acmallukrainian.ho.ua/2023/3/standings.html
     roles:
-    - standings
+    - scoreboard
     archived:
     - ukraine/ukraine-2023/standings/20261023-live-b80afcc7/standings.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (t2-ukraine-agent)
-  - url: https://acmallukrainian.ho.ua/2023/4/standings.html
-    roles:
-    - standings
-    archived:
-    - ukraine/ukraine-2023/standings/20261023-live-1057dadd/standings.html
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (t2-ukraine-agent)
@@ -943,43 +910,19 @@ contests:
   parent: seerc-2024
   next: ukraine-2025
   sources:
-  - url: https://icpc.algotester.com/uk/Contest/ViewScoreboard/4?group=2
+  - url: https://acmallukrainian.ho.ua/2024/2/standings.html
     roles:
-    - standings
+    - scoreboard
     archived:
-    - ukraine/ukraine-2024/standings/20261020-live-f580871f/page.html
+    - ukraine/ukraine-2024/standings/20261023-live-92c3c3fc/standings.html
     url_state: live
     url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (round9-research)
-  - url: https://icpc.algotester.com/en/Contest/ViewScoreboard/3?group=1&groupEx=30
-    roles:
-    - standings
-    archived:
-    - ukraine/ukraine-2024/standings/20261020-live-8d2bc90f/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (round9-research)
-  - url: https://icpc.algotester.com/uk/Contest/ViewScoreboard/2?group=2&groupEx=19
-    roles:
-    - standings
-    archived:
-    - ukraine/ukraine-2024/standings/20261020-live-3c92495b/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (round9-research)
+    note: added by url-hunt 2026-09-01 (t2-ukraine-agent)
   - url: https://icpc2024.algotester.com/uk/Contest/ViewScoreboard/4?showUnofficial=False
     roles:
     - standings
     archived:
     - ukraine/ukraine-2024/standings/20261023-live-c12e5b91/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (t2-ukraine-agent)
-  - url: https://acmallukrainian.ho.ua/2024/2/standings.html
-    roles:
-    - standings
-    archived:
-    - ukraine/ukraine-2024/standings/20261023-live-92c3c3fc/standings.html
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (t2-ukraine-agent)
@@ -1064,6 +1007,30 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://icpc.algotester.com/uk/Contest/ViewScoreboard/4?group=2
+    roles:
+    - standings
+    archived:
+    - ukraine/ukraine-2024/standings/20261020-live-f580871f/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (round9-research); moved from ukraine-2024 by the content check
+  - url: https://icpc.algotester.com/en/Contest/ViewScoreboard/3?group=1&groupEx=30
+    roles:
+    - standings
+    archived:
+    - ukraine/ukraine-2024/standings/20261020-live-8d2bc90f/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (round9-research); moved from ukraine-2024 by the content check
+  - url: https://icpc.algotester.com/uk/Contest/ViewScoreboard/2?group=2&groupEx=19
+    roles:
+    - standings
+    archived:
+    - ukraine/ukraine-2024/standings/20261020-live-3c92495b/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (round9-research); moved from ukraine-2024 by the content check
   - url: http://acmallukrainian.ho.ua/2025/2/statements_eng.pdf
     roles:
     - problemset

@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
 series:
   id: urals
   name: ICPC Ural Regional Contest
@@ -82,36 +82,38 @@ contests:
   - url: https://neerc.ifmo.ru/subregions/ural.html
     roles:
     - web
+  - url: https://sp.urfu.ru/chu/2003/
+    roles:
+    - web
+    as_of: '20201024180259'
+    url_state: live
+    url_checked: '2026-11-14'
   - url: http://neerc.ifmo.ru/past/2003/eastern/standings-day1.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20060518220213'
     archived:
     - urals/urals-2003/standings/2026-09-01-live-1c5e0f3e/standings-day1.html
     - urals/urals-2003/standings/20060518-wayback-b1980d44/standings-day1.html
     url_state: changed
     url_checked: '2026-11-14'
+    scope: Day 1 only
   - url: http://neerc.ifmo.ru/past/2003/eastern/standings-day2.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20101121025658'
     archived:
     - urals/urals-2003/standings/2026-09-01-wayback-d988165d/standings-day2.html
     - urals/urals-2003/standings/20260901-live-4b77a629/standings-day2.html
     url_state: live
     url_checked: '2026-11-14'
+    scope: Day 2 only
   - url: https://neerc.ifmo.ru/archive/2003/ural/standings.html
     roles:
     - standings
     url_state: dead
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
-  - url: https://sp.urfu.ru/chu/2003/
-    roles:
-    - problemset
-    as_of: '20201024180259'
-    url_state: live
-    url_checked: '2026-11-14'
 - id: urals-2004
   season: 2005
   name: 2004 Eastern Subregional Contest
@@ -124,7 +126,7 @@ contests:
     - web
   - url: https://nerc.itmo.ru/archive/2004/ural/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20260613062120'
     archived:
     - urals/urals-2004/standings/2026-09-01-live-008f9ccc/standings.html
@@ -149,7 +151,7 @@ contests:
     - web
   - url: https://nerc.itmo.ru/archive/2005/ural/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20220122050021'
     archived:
     - urals/urals-2005/standings/20220122-wayback-0ea200f0/standings.html
@@ -158,7 +160,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2005/ural/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20230326180231'
     archived:
     - urals/urals-2005/standings/20230326-wayback-88b6af0b/standings.html
@@ -184,7 +186,7 @@ contests:
     - web
   - url: https://nerc.itmo.ru/archive/2006/ural/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20230322025825'
     archived:
     - urals/urals-2006/standings/2026-09-01-live-831f8691/standings.html
@@ -193,7 +195,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2006/ural/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20191024061351'
     archived:
     - urals/urals-2006/standings/20191024-wayback-ea2d44de/standings.html
@@ -221,7 +223,7 @@ contests:
     - web
   - url: https://nerc.itmo.ru/archive/2007/ural/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20260610211914'
     archived:
     - urals/urals-2007/standings/2026-09-01-live-7365bd1c/standings.html
@@ -230,7 +232,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2007/ural/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20191027233628'
     archived:
     - urals/urals-2007/standings/20191027-wayback-6d439b89/standings.html
@@ -265,7 +267,7 @@ contests:
     - web
   - url: https://nerc.itmo.ru/archive/2008/ural/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20260613063337'
     archived:
     - urals/urals-2008/standings/2026-09-01-live-81d4bf61/standings.html
@@ -274,7 +276,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2008/ural/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20191002230420'
     archived:
     - urals/urals-2008/standings/20191002-wayback-e91206a2/standings.html
@@ -309,7 +311,7 @@ contests:
     - web
   - url: https://nerc.itmo.ru/archive/2009/ural/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20260613055413'
     archived:
     - urals/urals-2009/standings/2026-09-01-live-df0050e8/standings.html
@@ -318,7 +320,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2009/ural/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20191114123425'
     archived:
     - urals/urals-2009/standings/20191114-wayback-1f9ccf72/standings.html
@@ -363,7 +365,7 @@ contests:
     - web
   - url: https://nerc.itmo.ru/archive/2010/ural/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20230322041630'
     archived:
     - urals/urals-2010/standings/2026-09-01-live-81cb0b03/standings.html
@@ -372,7 +374,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2010/ural/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20230321204641'
     archived:
     - urals/urals-2010/standings/20230321-wayback-fe0ce5c4/standings.html
@@ -426,7 +428,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2011/ural/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20191025050324'
     archived:
     - urals/urals-2011/standings/20191025-wayback-8277837e/standings.html
@@ -487,7 +489,7 @@ contests:
     url_checked: '2026-11-14'
   - url: http://acm.urfu.ru/qf/2012/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20160429203152'
     archived:
     - urals/urals-2012/external-standings/2026-04-15-external/content.html
@@ -498,7 +500,7 @@ contests:
     note: from archived capture (external-standings)
   - url: https://neerc.ifmo.ru/archive/2012/ural/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20191025050354'
     archived:
     - urals/urals-2012/standings/20191025-wayback-f4338562/standings.html
@@ -568,7 +570,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2013/ural/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20191102005626'
     archived:
     - urals/urals-2013/standings/20191102-wayback-4f399c02/standings.html
@@ -621,7 +623,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2014/ural/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20230326183534'
     archived:
     - urals/urals-2014/standings/20230326-wayback-47de66d5/standings.html
@@ -680,7 +682,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2015/ural/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20191024070446'
     archived:
     - urals/urals-2015/standings/20191024-wayback-aa85f370/standings.html
@@ -730,7 +732,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2016/ural/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20191021074419'
     archived:
     - urals/urals-2016/standings/20191021-wayback-02d1e5e1/standings.html
@@ -780,7 +782,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2017/ural/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20191023124802'
     archived:
     - urals/urals-2017/standings/20191023-wayback-023f9950/standings.html
@@ -830,7 +832,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2018/ural/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20191022232238'
     archived:
     - urals/urals-2018/standings/20191022-wayback-c851d2a2/standings.html
@@ -880,7 +882,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2019/ural/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20191105155350'
     archived:
     - urals/urals-2019/standings/20191105-wayback-b342c554/standings.html
@@ -930,7 +932,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2020/ural/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20201128004850'
     archived:
     - urals/urals-2020/standings/20201128-wayback-993d878f/standings.html
@@ -980,7 +982,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2021/ural/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20220120054222'
     archived:
     - urals/urals-2021/standings/20220120-wayback-0fd9a091/standings.html
@@ -1030,7 +1032,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2022/ural/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20221201142734'
     archived:
     - urals/urals-2022/standings/20221201-wayback-67a150db/standings.html
@@ -1086,7 +1088,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2023/ural/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20231209185412'
     archived:
     - urals/urals-2023/standings/20231209-wayback-0ad73b72/standings.html
@@ -1146,7 +1148,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2024/ural/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20250121093158'
     archived:
     - urals/urals-2024/standings/20250121-wayback-741cdafb/standings.html
@@ -1218,7 +1220,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2025/ural/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20251217120421'
     archived:
     - urals/urals-2025/standings/20251217-wayback-cf085e94/standings.html

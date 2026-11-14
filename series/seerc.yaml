@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
 series:
   id: seerc
   name: ICPC Southeastern Europe Regional Contest
@@ -181,16 +181,6 @@ contests:
   - url: https://seerc.icpc.global/1998/
     roles:
     - web
-  - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_EU_SERC/1998/index.html
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20020725135123'
-    archived:
-    - seerc/seerc-1998/scoreboard/2026-04-16-archive/1998-southeastern-europe-programming-contest-1999.html
-    url_state: dead
-    url_checked: '2026-11-14'
-    note: from archived capture (scoreboard)
   - url: https://seerc.icpc.global/1998/standings98.htm
     roles:
     - standings
@@ -208,6 +198,15 @@ contests:
     url_state: dead
     url_checked: '2026-11-01'
     note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
+  - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_EU_SERC/1998/index.html
+    roles:
+    - problemset
+    as_of: '20020725135123'
+    archived:
+    - seerc/seerc-1998/scoreboard/2026-04-16-archive/1998-southeastern-europe-programming-contest-1999.html
+    url_state: dead
+    url_checked: '2026-11-14'
+    note: from archived capture (scoreboard)
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SERC/1998/index.html
     roles:
     - problemset
@@ -362,7 +361,7 @@ contests:
     url_checked: '2026-11-14'
   - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=454
     roles:
-    - standings
+    - rankings
     as_of: '20011224101436'
     archived:
     - seerc/seerc-2000/standings/20011224-wayback-03af540f/page.html
@@ -592,17 +591,17 @@ contests:
     as_of: '20211024113811'
     url_state: dead
     url_checked: '2026-11-14'
-  - url: https://www.acmicpc.net/category/detail/2725
-    roles:
-    - problemset
-    judge: baekjoon
-    as_of: '20211020195858'
-    url_state: dead
-    url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2001/Problems_SE_ACM_2001.zip
     roles:
     - problemset
     note: all statements (archive)
+  - url: https://www.acmicpc.net/category/detail/2725
+    roles:
+    - problem
+    judge: baekjoon
+    as_of: '20211020195858'
+    url_state: dead
+    url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2001/probleme/A.pdf
     roles:
     - problem
@@ -2622,7 +2621,7 @@ contests:
     - web
   - url: https://seerc.icpc.global/2017/results.htm
     roles:
-    - scoreboard
+    - standings
     archived:
     - seerc/seerc-2017/scoreboard/20260904-live-3a29bb56/results.htm
     url_state: live
@@ -2789,7 +2788,7 @@ contests:
     url_checked: '2026-11-14'
   - url: http://olymp.sumdu.edu.ua:8080/acm-real-2019.php
     roles:
-    - standings
+    - scoreboard
     as_of: '20220704000129'
     archived:
     - seerc/seerc-2019/external-standings/2026-04-15-external/content.html
@@ -2803,6 +2802,16 @@ contests:
     archived:
     - seerc/seerc-2019/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 4110, 101 teams, DB fetch 2026-04-26)
+  - url: http://acmallukrainian.ho.ua/2019/3/standings.html
+    roles:
+    - standings
+    as_of: '20191026082657'
+    archived:
+    - ukraine/ukraine-2019/standings/20191026-wayback-acdc3081/standings.html
+    - ukraine/ukraine-2019/standings/20261023-live-9dfe29d8/standings.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (t2-ukraine-agent); moved from ukraine-2019 by the content check
   - url: https://icpcarchive.github.io/Europe%20Contests/Southeastern%20Europe%20Regional%20Contest%20(SEERC)/2019%20Southeastern%20Europe%20Regional%20Contest/problems.pdf
     roles:
     - problemset
@@ -3026,6 +3035,14 @@ contests:
     archived:
     - seerc/seerc-2022/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 5417, 128 teams, DB fetch 2026-04-26)
+  - url: https://acmallukrainian.ho.ua/2022/3/standings.html
+    roles:
+    - standings
+    archived:
+    - ukraine/ukraine-2022/standings/20261023-live-c6ee3f7c/standings.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (t2-ukraine-agent); moved from ukraine-2022 by the content check
   - url: https://icpcarchive.github.io/Europe%20Contests/Southeastern%20Europe%20Regional%20Contest%20(SEERC)/2022%20Southeastern%20Europe%20Regional%20Contest/problems.pdf
     roles:
     - problemset
@@ -3097,6 +3114,14 @@ contests:
     archived:
     - seerc/seerc-2023/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 7568, 132 teams, DB fetch 2026-04-26)
+  - url: https://acmallukrainian.ho.ua/2023/4/standings.html
+    roles:
+    - standings
+    archived:
+    - ukraine/ukraine-2023/standings/20261023-live-1057dadd/standings.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (t2-ukraine-agent); moved from ukraine-2023 by the content check
   - url: https://icpcarchive.github.io/Europe%20Contests/Southeastern%20Europe%20Regional%20Contest%20(SEERC)/2023%20Southeastern%20Europe%20Regional%20Contest/problems.pdf
     roles:
     - problemset
@@ -3154,7 +3179,7 @@ contests:
     url_checked: '2026-11-14'
   - url: http://acm.ro/results.htm
     roles:
-    - standings
+    - scoreboard
     as_of: '20250312194116'
     archived:
     - seerc/seerc-2024/external-standings/2026-04-15-external/content.html
@@ -3164,7 +3189,7 @@ contests:
     note: from archived capture (external-standings)
   - url: https://seerc.icpc.global/2024/results.htm
     roles:
-    - standings
+    - scoreboard
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (t2-seerc-archive-agent)

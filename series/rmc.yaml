@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
 series:
   id: rmc
   name: ICPC North America Rocky Mountain Regional Contest
@@ -69,10 +69,6 @@ contests:
   cms_ids: []
   parent: wf-1993
   next: rmc-1993
-  sources:
-  - url: https://ciiwiki.ecs.baylor.edu/index.php/History_-_ICPC_1993
-    roles:
-    - web
 - id: rmc-1993
   season: 1994
   location: Metro State Denver
@@ -206,7 +202,6 @@ contests:
   - url: http://icpc.baylor.edu/past/icpc99/Regionals/RM98/Standings.htm
     roles:
     - scoreboard
-    - standings
     as_of: '20100710040129'
     archived:
     - rmc/rmc-1998/scoreboard/2026-09-01-live-ffc55199/Standings.htm
@@ -253,7 +248,7 @@ contests:
     as_of: '20000119052504'
   - url: http://faculty.fortlewis.edu/SZUECS_L/contest/acm99/FinalStandings.htm
     roles:
-    - standings
+    - scoreboard
     as_of: '20001212141300'
     archived:
     - rmc/rmc-1999/standings/2026-09-01-wayback-30bddc8c/FinalStandings.htm
@@ -261,7 +256,7 @@ contests:
     url_checked: '2026-11-14'
   - url: http://icpc.baylor.edu/past/icpc2000/regionals/RM99/Standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20020112020044'
     archived:
     - rmc/rmc-1999/standings/20020112-wayback-a2ad6663/Standings.html
@@ -304,7 +299,6 @@ contests:
   - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2000/index.html
     roles:
     - web
-    - scoreboard
     as_of: '20150109103933'
     archived:
     - rmc/rmc-2000/scoreboard/2026-04-16-rocky/2000-rocky-mountain-programming-contest-2000.html
@@ -385,7 +379,6 @@ contests:
   - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2001/index.html
     roles:
     - web
-    - scoreboard
     as_of: '20150109103937'
     archived:
     - rmc/rmc-2001/scoreboard/2026-04-16-rocky/2001-rocky-mountain-programming-contest-2001.html
@@ -406,6 +399,15 @@ contests:
     - rmc/rmc-2001/scoreboard/2026-09-01-live-f31426ce/scoreboard.html
     url_state: changed
     url_checked: '2026-11-14'
+  - url: http://www.mesastate.edu/acm/pc/2001/scoreboard.html
+    roles:
+    - scoreboard
+    as_of: '20020109191331'
+    note: added by url-hunt 2026-09-01 (cms-api)
+    url_state: dead
+    url_checked: '2026-11-14'
+    archived:
+    - rmc/rmc-2001/standings/20020109-wayback-cca713b0/scoreboard.html
   - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=502
     roles:
     - standings
@@ -416,15 +418,6 @@ contests:
     url_state: dead
     url_checked: '2026-11-01'
     note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-  - url: http://www.mesastate.edu/acm/pc/2001/scoreboard.html
-    roles:
-    - standings
-    as_of: '20020109191331'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: dead
-    url_checked: '2026-11-14'
-    archived:
-    - rmc/rmc-2001/standings/20020109-wayback-cca713b0/scoreboard.html
   - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2001/problems
     roles:
     - problemset
@@ -472,7 +465,6 @@ contests:
   - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2002/index.html
     roles:
     - web
-    - scoreboard
     as_of: '20150109104529'
     archived:
     - rmc/rmc-2002/scoreboard/2026-04-16-rocky/2002-rocky-mountain-programming-contest-2002.html
@@ -526,7 +518,6 @@ contests:
   - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2003/index.html
     roles:
     - web
-    - scoreboard
     as_of: '20150109104534'
     archived:
     - rmc/rmc-2003/scoreboard/2026-04-16-rocky/2003-rocky-mountain-programming-contest-2003.html
@@ -549,6 +540,15 @@ contests:
     - rmc/rmc-2003/scoreboard/20190917-wayback-b82fda11/scoreboard_final.html
     url_state: live
     url_checked: '2026-11-14'
+  - url: http://www.mesastate.edu/acm/rmrc/2003/scoreboard_final.html
+    roles:
+    - scoreboard
+    as_of: '20031224222134'
+    note: added by url-hunt 2026-09-01 (cms-api)
+    url_state: dead
+    url_checked: '2026-11-14'
+    archived:
+    - rmc/rmc-2003/standings/20031224-wayback-ac3e60a8/scoreboard_final.html
   - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandings131e.html?ContestID=644
     roles:
     - standings
@@ -558,20 +558,6 @@ contests:
     url_state: dead
     url_checked: '2026-11-01'
     note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-  - url: http://www.mesastate.edu/acm/rmrc/2003/scoreboard_final.html
-    roles:
-    - standings
-    as_of: '20031224222134'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: dead
-    url_checked: '2026-11-14'
-    archived:
-    - rmc/rmc-2003/standings/20031224-wayback-ac3e60a8/scoreboard_final.html
-  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2003/problems/prob1/statement.pdf
-    roles:
-    - problemset
-    url_state: live
-    url_checked: '2026-11-14'
   - url: http://www.mesastate.edu/acm/rmrc/2003/problems.html
     roles:
     - problemset
@@ -584,6 +570,11 @@ contests:
     judge: baekjoon
     as_of: '20201020083613'
     url_state: dead
+    url_checked: '2026-11-14'
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2003/problems/prob1/statement.pdf
+    roles:
+    - problem
+    url_state: live
     url_checked: '2026-11-14'
   problems:
     set: rmc-2003
@@ -648,7 +639,6 @@ contests:
   - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2005/index.html
     roles:
     - web
-    - scoreboard
     as_of: '20150109104153'
     archived:
     - rmc/rmc-2005/scoreboard/2026-04-16-rocky/2005-rocky-mountain-programming-contest-2005.html
@@ -667,7 +657,7 @@ contests:
     url_checked: '2026-11-14'
   - url: http://www.mesastate.edu/acm/rmrc/2005/scoreboard_byrank.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20060909072504'
     archived:
     - rmc/rmc-2005/external-standings/2026-04-15-external/content.html
@@ -708,7 +698,6 @@ contests:
   - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2006/index.html
     roles:
     - web
-    - scoreboard
     as_of: '20150109105024'
     archived:
     - rmc/rmc-2006/scoreboard/2026-04-16-rocky/2006-rocky-mountain-programming-contest-2006.html
@@ -725,7 +714,7 @@ contests:
     url_checked: '2026-11-14'
   - url: http://www.mesastate.edu/acm/rmrc/2006/scoreboard_byrank.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20081008012558'
     archived:
     - rmc/rmc-2006/external-standings/2026-04-15-external/content.html
@@ -767,7 +756,6 @@ contests:
   - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2007/index.html
     roles:
     - web
-    - scoreboard
     as_of: '20150109104158'
     archived:
     - rmc/rmc-2007/scoreboard/2026-04-16-rocky/2007-rocky-mountain-programming-contest-2007.html
@@ -775,6 +763,16 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: from archived capture (scoreboard)
+  - url: http://www.mesastate.edu/acm/rmrc/2007/index.html
+    roles:
+    - web
+    as_of: '20081015015220'
+    archived:
+    - rmc/rmc-2007/external-standings/2026-04-15-external/content.html
+    - rmc/rmc-2007/standings/20071027-wayback-d6fc21c6/index.html
+    url_state: dead
+    url_checked: '2026-11-14'
+    note: from archived capture (external-standings)
   - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2007/scoreboard_byrank.html
     roles:
     - scoreboard
@@ -784,16 +782,6 @@ contests:
     - rmc/rmc-2007/scoreboard/20190917-wayback-1e7a2b22/scoreboard_byrank.html
     url_state: live
     url_checked: '2026-11-14'
-  - url: http://www.mesastate.edu/acm/rmrc/2007/index.html
-    roles:
-    - standings
-    as_of: '20081015015220'
-    archived:
-    - rmc/rmc-2007/external-standings/2026-04-15-external/content.html
-    - rmc/rmc-2007/standings/20071027-wayback-d6fc21c6/index.html
-    url_state: dead
-    url_checked: '2026-11-14'
-    note: from archived capture (external-standings)
   - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2007/problems.zip
     roles:
     - problemset
@@ -828,7 +816,6 @@ contests:
   - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2008/index.html
     roles:
     - web
-    - scoreboard
     as_of: '20150109104203'
     archived:
     - rmc/rmc-2008/scoreboard/2026-04-16-rocky/2008-rocky-mountain-regional-contest-2008.html
@@ -880,7 +867,6 @@ contests:
   - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2009/index.html
     roles:
     - web
-    - scoreboard
     as_of: '20150109104209'
     archived:
     - rmc/rmc-2009/scoreboard/2026-04-16-rocky/2009-rocky-mountain-regional-contest-2009.html
@@ -888,16 +874,9 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: from archived capture (scoreboard)
-  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2009/scoreboard_byrank.html
-    roles:
-    - scoreboard
-    archived:
-    - rmc/rmc-2009/scoreboard/2026-09-01-live-ff48c5a6/scoreboard_byrank.html
-    url_state: live
-    url_checked: '2026-11-14'
   - url: http://org.mesastate.edu/acm/rmrc/2009/index.html
     roles:
-    - standings
+    - web
     as_of: '20111102131312'
     archived:
     - rmc/rmc-2009/external-standings/2026-04-15-external/content.html
@@ -905,6 +884,13 @@ contests:
     url_state: dead
     url_checked: '2026-11-14'
     note: from archived capture (external-standings)
+  - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2009/scoreboard_byrank.html
+    roles:
+    - scoreboard
+    archived:
+    - rmc/rmc-2009/scoreboard/2026-09-01-live-ff48c5a6/scoreboard_byrank.html
+    url_state: live
+    url_checked: '2026-11-14'
   - url: https://icpc.global/regionals/finder/Rocky-Mountain-2010/standings
     roles:
     - standings
@@ -945,7 +931,6 @@ contests:
   - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2010/index.html
     roles:
     - web
-    - scoreboard
     as_of: '20150109104215'
     archived:
     - rmc/rmc-2010/scoreboard/2026-04-16-rocky/2010-rocky-mountain-regional-contest-2010.html
@@ -953,6 +938,16 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: from archived capture (scoreboard)
+  - url: http://org.mesastate.edu/acm/rmrc/2010/index.html
+    roles:
+    - web
+    as_of: '20110823200338'
+    archived:
+    - rmc/rmc-2010/external-standings/2026-04-15-external/content.html
+    - rmc/rmc-2010/standings/20110823-wayback-720e1af7/index.html
+    url_state: dead
+    url_checked: '2026-11-14'
+    note: from archived capture (external-standings)
   - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2010/scoreboard_byrank.html
     roles:
     - scoreboard
@@ -962,16 +957,6 @@ contests:
     - rmc/rmc-2010/scoreboard/20240419-wayback-d40a4f9b/scoreboard_byrank.html
     url_state: live
     url_checked: '2026-11-14'
-  - url: http://org.mesastate.edu/acm/rmrc/2010/index.html
-    roles:
-    - standings
-    as_of: '20110823200338'
-    archived:
-    - rmc/rmc-2010/external-standings/2026-04-15-external/content.html
-    - rmc/rmc-2010/standings/20110823-wayback-720e1af7/index.html
-    url_state: dead
-    url_checked: '2026-11-14'
-    note: from archived capture (external-standings)
   - url: https://icpc.global/regionals/finder/Rocky-Mountain-2011/standings
     roles:
     - standings
@@ -1017,7 +1002,6 @@ contests:
   - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2011/index.html
     roles:
     - web
-    - scoreboard
     as_of: '20150109155029'
     archived:
     - rmc/rmc-2011/scoreboard/2026-04-16-rocky/2011-rocky-mountain-regional-contest-2011.html
@@ -1034,7 +1018,7 @@ contests:
     url_checked: '2026-11-14'
   - url: http://org.coloradomesa.edu/acm/rmrc/2011/scoreboard_byrank.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20130923223050'
     archived:
     - rmc/rmc-2011/external-standings/2026-04-15-external/content.html
@@ -1088,7 +1072,6 @@ contests:
   - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2012/index.html
     roles:
     - web
-    - scoreboard
     as_of: '20141201111508'
     archived:
     - rmc/rmc-2012/scoreboard/2026-04-16-rocky/2012-rocky-mountain-regional-contest-2012.html
@@ -1096,6 +1079,16 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: from archived capture (scoreboard)
+  - url: http://org.coloradomesa.edu/acm/rmrc/2012/index.html
+    roles:
+    - web
+    as_of: '20131031155908'
+    archived:
+    - rmc/rmc-2012/external-standings/2026-04-15-external/content.html
+    - rmc/rmc-2012/standings/20121104-wayback-794dbd46/index.html
+    url_state: dead
+    url_checked: '2026-11-14'
+    note: from archived capture (external-standings)
   - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2012/scoreboard_byrank.html
     roles:
     - scoreboard
@@ -1105,16 +1098,6 @@ contests:
     - rmc/rmc-2012/scoreboard/20190917-wayback-9f84db46/scoreboard_byrank.html
     url_state: live
     url_checked: '2026-11-14'
-  - url: http://org.coloradomesa.edu/acm/rmrc/2012/index.html
-    roles:
-    - standings
-    as_of: '20131031155908'
-    archived:
-    - rmc/rmc-2012/external-standings/2026-04-15-external/content.html
-    - rmc/rmc-2012/standings/20121104-wayback-794dbd46/index.html
-    url_state: dead
-    url_checked: '2026-11-14'
-    note: from archived capture (external-standings)
   - url: https://icpc.global/regionals/finder/Rocky-Mountain-2013/standings
     roles:
     - standings
@@ -1162,7 +1145,6 @@ contests:
   - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2013/index.html
     roles:
     - web
-    - scoreboard
     as_of: '20141201083942'
     archived:
     - rmc/rmc-2013/scoreboard/2026-04-16-rocky/2013-rocky-mountain-regional-contest-2013.html
@@ -1235,6 +1217,15 @@ contests:
   - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2014/index.html
     roles:
     - web
+  - url: http://www.coloradomesa.edu/~wmacevoy/rmrc/2014/index.html
+    roles:
+    - web
+    archived:
+    - rmc/rmc-2014/external-standings/2026-04-15-external/content.html
+    - rmc/rmc-2014/standings/20260901-live-5e19d936/index.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: from archived capture (external-standings)
   - url: https://org.coloradomesa.edu/~wmacevoy/rmrc/2014/scoreboard.html
     roles:
     - scoreboard
@@ -1244,15 +1235,6 @@ contests:
     - rmc/rmc-2014/scoreboard/20231118-wayback-a6c8856a/scoreboard.html
     url_state: live
     url_checked: '2026-11-14'
-  - url: http://www.coloradomesa.edu/~wmacevoy/rmrc/2014/index.html
-    roles:
-    - standings
-    archived:
-    - rmc/rmc-2014/external-standings/2026-04-15-external/content.html
-    - rmc/rmc-2014/standings/20260901-live-5e19d936/index.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: from archived capture (external-standings)
   - url: https://icpc.global/regionals/finder/Rocky-Mountain-2015/standings
     roles:
     - standings
@@ -1843,16 +1825,6 @@ contests:
   parent: nac-2023
   next: rmc-2023
   sources:
-  - url: https://rmc23.kattis.com/contests/rmc23/standings
-    roles:
-    - scoreboard
-    as_of: '20250714002824'
-    archived:
-    - rmc/rmc-2022/scoreboard/2026-09-01-live-9262ff8f/page.html
-    - rmc/rmc-2022/scoreboard/20250714-wayback-60975acc/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (agent-na)
   - url: https://icpc.global/regionals/finder/Rocky-Mountain-2023/standings
     roles:
     - standings
@@ -1985,6 +1957,14 @@ contests:
   - url: https://rm.na.icpc.global/
     roles:
     - web
+  - url: https://rmc.kattis.com/contests/rmc24/standings
+    roles:
+    - scoreboard
+    archived:
+    - rmc/rmc-2025/scoreboard/2026-09-01-live-58000b79/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: moved from rmc-2025 by the content check
   - url: https://icpc.global/regionals/finder/Rocky-Mountain-2025/standings
     roles:
     - standings
@@ -2051,16 +2031,9 @@ contests:
   - url: https://rm.na.icpc.global
     roles:
     - web
-  - url: https://rmc.kattis.com/contests/rmc24/standings
-    roles:
-    - scoreboard
-    archived:
-    - rmc/rmc-2025/scoreboard/2026-09-01-live-58000b79/page.html
-    url_state: live
-    url_checked: '2026-11-14'
   - url: https://rmc25.kattis.com/contests/rmc25/standings
     roles:
-    - standings
+    - scoreboard
     archived:
     - rmc/rmc-2025/external-standings/2026-04-15-external/content.html
     - rmc/rmc-2025/standings/20260901-live-e0211f80/page.html

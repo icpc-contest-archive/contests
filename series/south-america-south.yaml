@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
 series:
   id: south-america-south
   name: ICPC South America South Finals
@@ -38,7 +38,7 @@ contests:
     - web
   - url: http://www.dc.uba.ar/events/icpc/2008/standings-2008.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20100315135156'
     archived:
     - south-america-south/south-america-south-2008/external-standings/2026-04-15-external/content.html
@@ -245,11 +245,6 @@ contests:
     archived:
     - south-america-south/south-america-south-2012/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 1482, 151 teams, DB fetch 2026-04-26)
-  - url: https://icpcarchive.github.io/Latin%20American%20Contests/Latin%20American%20Regional%20Contest/2012%20Latin%20American%20Regional%20Contest/problems.pdf
-    roles:
-    - problemset
-    url_state: live
-    url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/564
     roles:
     - problemset
@@ -322,6 +317,12 @@ contests:
       used one shared problem set across all LA sites, so this mirror covers every 2013 LA finals contest.)'
     url_state: live
     url_checked: '2026-11-14'
+  - url: https://icpcarchive.github.io/Latin%20American%20Contests/Latin%20American%20Regional%20Contest/2012%20Latin%20American%20Regional%20Contest/problems.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-14'
+    note: moved from south-america-south-2012 by the content check
   problems:
     set: latam-2013
 - id: south-america-south-2014
