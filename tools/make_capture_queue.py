@@ -7,7 +7,8 @@ pinned_ts?, pivot}.
 - kind: the source's primary capturable role — scoreboard/frozen_scoreboard/standings/
   rankings/problemset, or judge-<judge> for judge pages — which names the archive
   layout <contest>/<kind>/...; `roles` lists every role the address serves.
-  Sources serving only web/icpc_standings/teams are not single-page capture targets
+  Sources serving only web/teams, and the standings pages of the ICPC CMS (an app: their copies
+  are rendered from the API data, tools/bake_icpc_standings.py), are not single-page capture targets
   (websites go through make_site_queue.py) and are left out.
 - also_at addresses of a web source are queued as kind `web-mirror` (the old mirrors[]);
   an entry of the form {url, as_of} pins that snapshot, a bare URL gets a CDX pick.
@@ -28,7 +29,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 import sys  # noqa: E402
 sys.path.insert(0, str(ROOT / "tools"))
-from catalogue import RANK, RESULT_ROLES, also_at, archived, load_contests, sources  # noqa: E402
+from catalogue import RANK, RESULT_ROLES, also_at, archived, is_cms, load_contests, sources  # noqa: E402
 from resources import unwrap  # noqa: E402
 
 # roles captured as single pages, in archive-layout priority order
@@ -40,7 +41,7 @@ def capture_kind(s: dict, skip: set[str] = frozenset()) -> str | None:
     (a problem set or problem on a judge -> judge-<judge>), or None when nothing on it is captured this way.
     Roles in `skip` are not considered."""
     roles = [r for r in s["roles"] if r in CAPTURE_ROLES and r not in skip]
-    if not roles:
+    if not roles or is_cms(s):
         return None
     r = min(roles, key=lambda r: RANK[r])
     return f"judge-{s['judge']}" if r in ("problemset", "problem") and s.get("judge") else r

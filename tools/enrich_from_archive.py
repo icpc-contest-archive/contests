@@ -26,7 +26,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 import sys  # noqa: E402
 sys.path.insert(0, str(ROOT / "tools"))
-from catalogue import add_archived, add_source, archived, by_role, dump_series, find_source, load_series  # noqa: E402
+from catalogue import add_archived, add_source, archived, by_role, cms_sources, dump_series, find_source, load_series  # noqa: E402
 from resources import unwrap  # noqa: E402
 ART_KEY = {"scoreboard": "scoreboard", "frozen_scoreboard": "frozen_scoreboard",
            "standings": "standings", "rankings": "rankings",
@@ -52,11 +52,11 @@ def main() -> int:
                     stats["skipped (content caveat)"] += 1
                     continue
                 if cap.get("source") == "icpc-api-archive" or re.match(r"^https?://icpc\.global/regionals/finder/", cap.get("url") or ""):
-                    # the ICPC-standings tier lives on the icpc_standings source (see migrate_finder_tier.py)
-                    cur = by_role(c, "icpc_standings")
+                    # a copy rendered from the API data belongs to the contest's CMS standings source
+                    cur = cms_sources(c)
                     obj = cur[0] if cur else None
                     if obj is None:
-                        obj, _ = add_source(c, cap["url"], "icpc_standings")
+                        obj, _ = add_source(c, cap["url"], "standings")
                     if add_archived(obj, cap["path"]):
                         stats["icpc_standings archived added"] += 1
                         changed = True

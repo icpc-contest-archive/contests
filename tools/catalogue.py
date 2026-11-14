@@ -21,6 +21,7 @@ Every tool reads the catalogue through these helpers so the shape lives in one p
 """
 from __future__ import annotations
 
+import re
 import sys
 from pathlib import Path
 
@@ -32,8 +33,11 @@ from resources import norm_key  # noqa: E402
 ROOT = Path(__file__).resolve().parent.parent
 
 ROLES = ("web", "scoreboard", "frozen_scoreboard", "standings", "rankings",
-         "icpc_standings", "teams", "problemset", "problem", "editorial")
-RESULT_ROLES = ("scoreboard", "frozen_scoreboard", "standings", "rankings", "icpc_standings")
+         "teams", "problemset", "problem", "editorial")
+RESULT_ROLES = ("scoreboard", "frozen_scoreboard", "standings", "rankings")
+# a standings page of the ICPC CMS. It has no role of its own: it is a standings, rankings or
+# teams source like any other, and that it is the CMS is read off its address.
+CMS_STANDINGS = re.compile(r"^https?://icpc\.global/regionals/finder/[^/?#]+/standings/?$", re.I)
 RANK = {r: i for i, r in enumerate(ROLES)}
 HEADER = "# Maintained in-repo; last bulk edit: tools/{tool}.\n"
 
@@ -148,6 +152,15 @@ def by_role(c: dict, role: str) -> list[dict]:
 
 def has_role(c: dict, role: str) -> bool:
     return any(role in s["roles"] for s in sources(c))
+
+
+def is_cms(s: dict) -> bool:
+    """Is this source a standings page of the ICPC CMS?"""
+    return bool(CMS_STANDINGS.match(s["url"]))
+
+
+def cms_sources(c: dict) -> list[dict]:
+    return [s for s in sources(c) if is_cms(s)]
 
 
 def judge_sources(c: dict) -> list[dict]:

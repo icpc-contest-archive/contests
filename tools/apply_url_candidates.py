@@ -7,7 +7,7 @@ artifact names the role the address gets:
                      DIFFERENT address, the candidate becomes an `also_at` mirror of it
                      (Q11, 2026-09-07: the era URL stays canonical, the mirror still reaches
                      the capture queue)
-  icpc_standings  -> role icpc_standings if the contest has none
+  icpc_standings  -> role standings (a CMS standings page) if the contest has no such page
   scoreboard/frozen_scoreboard/standings/rankings -> added unless the address already
                      carries a result role (an address with any result role is skipped)
   problemset      -> role problemset if the contest has none; with --append-problemset
@@ -29,7 +29,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
-from catalogue import RESULT_ROLES, add_source, also_at, by_role, dump_series, find_source, has_role, load_series  # noqa: E402
+from catalogue import RESULT_ROLES, add_source, also_at, by_role, cms_sources, dump_series, find_source, has_role, load_series  # noqa: E402
 from resources import norm_key, unwrap  # noqa: E402
 
 RES_KEYS = {"scoreboard", "frozen_scoreboard", "standings", "rankings"}
@@ -63,10 +63,11 @@ def main() -> int:
                 art_stat = art
                 # resource model: a wrapper URL is a locator + as_of, never stored as-is
                 url, as_of, _via = unwrap(url)
-                if art == "icpc_standings":
-                    if has_role(c, "icpc_standings"):
+                if art == "icpc_standings":   # a candidate CMS standings page: filed as standings until its content is read
+                    if cms_sources(c):
                         stats["skipped (icpc_standings present)"] += 1
                         continue
+                    art = "standings"
                 elif art == "web":
                     webs = by_role(c, "web")
                     if webs:

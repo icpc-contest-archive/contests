@@ -67,8 +67,8 @@ from catalogue import (RANK, RESULT_ROLES, also_at, archived, best_result, by_ro
                        set_letters, set_of, sources)
 import site_resources  # noqa: E402
 
-# the four published result tiers (RESULT_ROLES minus the CMS's own icpc_standings)
-RESULT_KINDS = tuple(r for r in RESULT_ROLES if r != "icpc_standings")
+# the four result tiers (a standings page of the ICPC CMS is filed by what it holds, like any other source)
+RESULT_KINDS = RESULT_ROLES
 
 RES = site_resources.Resources(ROOT)  # source/snapshot lookups (data/resources.json)
 lid = site_resources.lid
@@ -223,7 +223,7 @@ def num(n) -> str:
 
 
 def result_sources(c) -> list[dict]:
-    """Sources serving any of the four published result tiers (not icpc_standings),
+    """Sources serving any of the four result tiers,
     each once however many tiers it serves."""
     return [s for s in sources(c) if any(r in s["roles"] for r in RESULT_KINDS)]
 
@@ -290,13 +290,9 @@ def link_date(d, rel: str) -> str:
 
 def best_tier(c) -> str:
     """The ONE tier ladder used by the grid, coverage, wanted list and marks:
-    scoreboard > frozen_scoreboard > standings > rankings > icpc > none."""
+    scoreboard > frozen_scoreboard > standings > rankings > none."""
     br = best_result(c)
-    if not br:
-        return "none"
-    if br[0] == "icpc_standings":   # a standings page of the CMS with nothing on it is not a result
-        return "none" if all(lid(s["url"]) in EMPTY_STANDINGS and not archived(s) for s in br[1]) else "icpc"
-    return br[0]
+    return br[0] if br else "none"
 
 
 def web_state(c) -> str:
@@ -306,10 +302,10 @@ def web_state(c) -> str:
     return "none" if "web" in (c.get("none") or []) else "unknown"
 
 
-TIERS = (("scoreboard", "S"), ("frozen_scoreboard", "F"), ("standings", "St"), ("rankings", "R"), ("icpc_standings", "I"))
+TIERS = (("scoreboard", "S"), ("frozen_scoreboard", "F"), ("standings", "St"), ("rankings", "R"))
 TIER_LABEL = {"scoreboard": "scoreboard", "frozen_scoreboard": "frozen scoreboard", "standings": "standings",
-              "rankings": "rankings", "icpc": "ICPC standings only", "none": "none"}
-ROLE_LABEL = {"icpc_standings": "ICPC standings", "frozen_scoreboard": "frozen scoreboard",
+              "rankings": "rankings", "none": "none"}
+ROLE_LABEL = {"frozen_scoreboard": "frozen scoreboard",
               "problemset": "problem set", "web": "website"}
 HELD_KINDS = (("statement", "St", "statements"), ("data", "D", "test data"),
               ("solutions", "So", "solutions"), ("package", "P", "complete packages"))
@@ -319,7 +315,7 @@ def key_line(rel: str, *parts: str) -> str:
     """The key above a table. Parts: 'results', 'website', 'held', 'have', 'available'."""
     bits = []
     if "results" in parts:
-        bits.append("<b>S</b> scoreboard · <b>F</b> frozen scoreboard · <b>St</b> standings · <b>R</b> rankings · <b>I</b> ICPC standings (the CMS's own data)")
+        bits.append("<b>S</b> scoreboard · <b>F</b> frozen scoreboard · <b>St</b> standings · <b>R</b> rankings")
     if "website" in parts:
         bits.append("<b>W</b> website")
     if "results" in parts or "website" in parts:
@@ -446,11 +442,6 @@ def result_marks(c: dict, rel: str) -> str:
         e = next((x for x in entries if held_capture(x)), None)
         held = e is not None
         e = e or entries[0]
-        if key == "icpc_standings" and not held and all(lid(x["url"]) in EMPTY_STANDINGS for x in entries):
-            href = src_href(e["url"], rel)
-            tip = "ICPC standings — the page is empty: the ICPC API has no standings for this contest"
-            out.append(f'<a class="m n" href="{href}" title="{tip}">{letter}</a>' if href else f'<span class="m n" title="{tip}">{letter}</span>')
-            continue
         tip = role_label(key) + (" — archived copy held" if held else " — link only, not archived")
         parts = list(dict.fromkeys(x["scope"] for x in entries if x.get("scope")))
         if parts:
@@ -1303,7 +1294,7 @@ def status_chips(c: dict, cid: str, rel: str) -> str:
     elif bt == "none":
         chips.append(chip("results: none", "n", "no result source of any kind is known"))
     else:
-        held = results_held(c) or (bt == "icpc" and any(held_capture(e) for e in by_role(c, "icpc_standings")))
+        held = results_held(c)
         chips.append(chip(f"results: {TIER_LABEL[bt]}, " + ("archived" if held else "link only"), "h" if held else "l",
                           "the best result we know is a " + TIER_LABEL[bt].replace(" only", "") + ("; we hold an archived copy" if held else "; we only have the link, no archived copy yet")))
     ws = web_state(c)
@@ -2052,7 +2043,7 @@ ALSO_AT: dict = defaultdict(list)    # source id -> [(mirror url, as_of, note)] 
 MIRROR_OF: dict = defaultdict(list)  # mirror's source id -> [primary url]
 SRC_ROLES: dict = defaultdict(set)   # source id -> roles it serves anywhere in the catalogue
 SRC_SCOPE: dict = defaultdict(set)   # source id -> the part(s) of a contest it covers (`scope`), when not the whole
-ROLE_PAGES = ["web", "scoreboard", "frozen_scoreboard", "standings", "rankings", "icpc_standings", "problemset", "problem", "editorial", "teams", "mirror"]
+ROLE_PAGES = ["web", "scoreboard", "frozen_scoreboard", "standings", "rankings", "problemset", "problem", "editorial", "teams", "mirror"]
 
 
 def index_sources(contests: dict) -> None:
@@ -2520,8 +2511,7 @@ def location_index(rel: str) -> str:
 
 # ---- coverage ----
 COV_COLS = (
-    ("any", "any result", "any result source at all, counting the CMS's own ICPC standings"),
-    ("pub", "published", "a published scoreboard, standings or rankings (not just the CMS's data)"),
+    ("any", "any result", "any result source at all"),
     ("sb", "scoreboard", "a full per-problem scoreboard"),
     ("res_arch", "result archived", "we hold an archived copy of a published result"),
     ("set", "problem set", "the problem set is recorded"),
@@ -2543,7 +2533,7 @@ def season_of(c: dict) -> int:
 def cov_flags(c: dict) -> dict:
     pb = set_for(c)
     bt = best_tier(c)
-    return {"n": 1, "any": bt != "none", "pub": bt not in ("none", "icpc"), "sb": has_role(c, "scoreboard"),
+    return {"n": 1, "any": bt != "none", "sb": has_role(c, "scoreboard"),
             "res_arch": results_held(c), "set": bool(pb), "stmt": pb.get("statement") == "full", "judge": bool(judge_sources(c)),
             "web": web_state(c) == "link", "web_arch": c["id"] in website_of, "date": bool(full_date(c)),
             "place": bool(held_at(c)[0]), "dark": bt == "none",
@@ -2598,7 +2588,7 @@ def coverage_page(series_docs: dict, contests: dict) -> str:
          "is counted twice: do we know where it is, and do we hold a copy. Every table below uses the same eleven columns (hover a header for its definition) "
          f'and sorts on any of them. The worklist behind the gaps is <a href="wanted.html">most wanted</a>; the same data, one square per contest, is <a href="grid.html">the grid</a>.</p>',
          '<div class="nums" style="align-items:flex-start;gap:1rem 3rem">'
-         + funnel("Results", (("any", "any result source"), ("pub", "a published result"), ("sb", "a full scoreboard"), ("res_arch", "an archived copy")))
+         + funnel("Results", (("any", "any result source"), ("sb", "a full scoreboard"), ("res_arch", "an archived copy")))
          + funnel("Problems", (("set", "problem set recorded"), ("stmt", "every statement held"), ("judge", "on an online judge")))
          + funnel("Website", (("web", "address known"), ("web_arch", "archived")))
          + funnel("Basics", (("date", "full date known"), ("place", "placed in the location tree")))
@@ -2650,8 +2640,7 @@ def coverage_page(series_docs: dict, contests: dict) -> str:
 
 # ---- most wanted ----
 WANT_COLS = [  # (best tier held, column title, what is wanted)
-    ("none", "nothing", "no result of any kind, not even in the ICPC standings system"),
-    ("icpc", "ICPC standings only", "only the CMS's own result data (formally official, often wrong in practice) — the published scoreboard is wanted"),
+    ("none", "nothing", "no result of any kind"),
     ("rankings", "rankings only", "order of teams only — standings or scoreboard wanted"),
     ("standings", "standings only", "totals per team — the per-problem scoreboard wanted"),
     ("frozen_scoreboard", "frozen only", "frozen scoreboard — the final scoreboard wanted"),
@@ -2718,7 +2707,7 @@ def grid_page(series_docs: dict, contests: dict) -> str:
             return "c-up", "upcoming"
         return {"scoreboard": ("c-sb", "scoreboard"), "frozen_scoreboard": ("c-sb", "frozen scoreboard"),
                 "standings": ("c-res", "standings only"), "rankings": ("c-res", "rankings only"),
-                "icpc": ("c-ist", "ICPC standings only"), "none": ("c-none", "no result known")}[best_tier(c)]
+                "none": ("c-none", "no result known")}[best_tier(c)]
 
     def first_year(s):
         return (min(int(c["id"].rsplit("-", 1)[1]) for c in series_docs[s]["contests"]), s)
@@ -2752,7 +2741,7 @@ def grid_page(series_docs: dict, contests: dict) -> str:
     g.append("</tbody></table></div>")
     sw = 'style="display:inline-block;vertical-align:-2px"'
     legend = (f'<p class="key"><span class="cell c-sb" {sw}></span> scoreboard &nbsp; <span class="cell c-res" {sw}></span> standings or rankings &nbsp; '
-              f'<span class="cell c-ist" {sw}></span> ICPC standings only &nbsp; <span class="cell c-none" {sw}></span> no result known &nbsp; '
+              f'<span class="cell c-none" {sw}></span> no result known &nbsp; '
               f'<span class="cell c-up" {sw}></span> upcoming &nbsp; → the series continues under another name</p>')
     return page("The grid", "<h1>The grid</h1><p class=\"intro\">Every contest on one screen: a row per series, a column per year, "
                 "coloured by the best result we know. Click a square for the contest.</p>" + legend + "".join(g), "", "coverage.html")
@@ -2891,7 +2880,7 @@ def about_page() -> str:
     status_dl = dl((
     (chip("results: scoreboard, archived", "h"), "The best result we know and whether we hold a copy. The best result is one of, from most to least informative: "
      "<b>scoreboard</b> (every team, every problem), <b>frozen scoreboard</b> (as it stood when the board was frozen), <b>standings</b> (totals per team), "
-     "<b>rankings</b> (order only), <b>ICPC standings only</b> (just the CMS's own data — formally the official result, in practice the least reliable). "
+     "<b>rankings</b> (order only). A standings page of the ICPC CMS is one of these like any other source; where it disagrees with another source, it tends to be the one that is wrong. "
      "<b>archived</b> = we hold a copy; <b>link only</b> = we know the address but hold nothing."),
     (chip("results: none", "n"), "No result source of any kind is known. If we have other proof that the contest ran, it is under Evidence on its page."),
     (chip("website: archived", "h") + chip("website: link only", "l"), "The contest website's address is known; archived = we hold a crawl of it."),
@@ -2905,7 +2894,7 @@ def about_page() -> str:
 ))
     marks_dl = dl((
     ('<span class="m h">S</span><span class="m h">F</span><span class="m h">St</span><span class="m h">R</span><span class="m h">I</span>',
-     "Results: <b>S</b> scoreboard, <b>F</b> frozen scoreboard, <b>St</b> standings, <b>R</b> rankings, <b>I</b> ICPC standings. One mark per kind that exists."),
+     "Results: <b>S</b> scoreboard, <b>F</b> frozen scoreboard, <b>St</b> standings, <b>R</b> rankings. One mark per kind that exists."),
     ('<span class="m h">W</span>', "Website."),
     ('<span class="m h">filled</span> <span class="m l">outlined</span>', "Filled green: we hold an archived copy. Outlined amber: link only."),
     ('<span class="m h">St</span><span class="m l">D</span><span class="m n">So</span><span class="m u">P</span>',
@@ -2956,7 +2945,7 @@ dashed if for some. A <b>UUID</b> is the identity of a problem's package; a prob
 
 <h2 id="sources">Sources</h2>
 <p class="intro">A <b>source</b> is one document a contest points at: an address, and what that address served for the contest (its website, scoreboard, frozen
-scoreboard, standings, rankings, ICPC standings, problem set, single problem or teams). It is the document that matters, not the address: addresses die and get reused, so a
+scoreboard, standings, rankings, problem set, single problem, editorial or teams). It is the document that matters, not the address: addresses die and get reused, so a
 source that is no longer at its address names the time it is meant at (<i>as it was on 2007-11-05</i>).</p>
 <p class="intro">The same document can be found in up to <b>three places</b>, and every list of sources shows all three as one unit, always in this order:</p>
 {places_dl}
@@ -3180,6 +3169,7 @@ def build(out: Path):
                                                          ensure_ascii=False, separators=(",", ":")))
         for r in ROLE_PAGES:
             (out / "source" / "by-role" / f"{r}.html").write_text(source_list("../../", r))
+        stub(out / "source" / "by-role" / "icpc_standings.html", "standings.html")  # the role was dropped 2026-11-14
         stub(out / "source" / "by-role" / "judge_page.html", "problemset.html")  # the role was dropped 2026-11-14
         for k in ROLE_PAGES + ["index"]:
             tgt = f"../source/by-role/{k}.html" if k != "index" else "../source/index.html"
