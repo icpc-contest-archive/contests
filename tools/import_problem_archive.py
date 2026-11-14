@@ -51,6 +51,7 @@ import argparse
 import csv
 import datetime
 import hashlib
+import json
 import re
 import unicodedata
 from collections import Counter, defaultdict
@@ -160,11 +161,25 @@ APPLY_DATES = {"erc-1988", "nena-north-2008", "alberta-2023"}
 # Contests sheet is right — the rows are rewritten to match. For the partial cases the
 # sheet does not say WHICH problems; the letters below are inferred (noted on the problem).
 CONTEST_SHEET_WINS = {"nwerc-2010", "nwerc-2002", "nwerc-2001", "nwerc-2000", "bapc-2020", "germany-2020", "ukiepc-2020"}
+# Holdings checked against the repo itself: these win over the sheet's flags.
+# nzpc-2019 (2026-11-13): the statement-only PDF holds problems A-H only.
+CHECKED_HOLDINGS = {
+    "nzpc-2019": {"statement": "partial", "counts": {"statement": 8}},
+}
 PARTIAL_LETTERS = {  # (contest, kind) -> letters that HAVE it
     ("nwerc-2010", "data"): set("ABCDFGH"),       # the seven with packages
     ("nwerc-2010", "solutions"): set("ABCDFGH"),
     ("bapc-2020", "package"): set("ABCEFGHIJK"),  # all but D, the one problem not shared with ukiepc-2020
 }
+
+
+def org_repos() -> set[str]:
+    """Repo names in the org, from the newest frozen `gh repo list` export
+    (data/import/problem-archive-repos-<date>.json); empty when there is none:
+      gh repo list icpc-problem-archive --limit 1000 --json name,isPrivate,isEmpty,isArchived,pushedAt
+    """
+    files = sorted((ROOT / "data" / "import").glob("problem-archive-repos-*.json"))
+    return {r["name"] for r in json.loads(files[-1].read_text())} if files else set()
 
 
 def dump(doc, header: str) -> str:
@@ -354,6 +369,7 @@ def main() -> int:
 
     report: dict[str, list[str]] = defaultdict(list)
     stats: Counter = Counter()
+    repos = org_repos()
     today = datetime.date.today()
 
     # ---- build the problems block per mapped contest ----
@@ -369,11 +385,20 @@ def main() -> int:
         if repo:
             repo = re.sub(r"^https?://github\.com/", "", repo).strip("/")
             repo = repo if "/" in repo else f"{ORG}/{repo}"
-            blk["repo"] = repo
             name = repo.split("/", 1)[1]
+            if repos and repo.startswith(f"{ORG}/") and name not in repos:
+                if cid in repos:  # renamed to the contest id since the sheet was written
+                    report["repo renamed since the sheet (org name used)"].append(f"{cid}: sheet `{name}`")
+                    repo, name = f"{ORG}/{cid}", cid
+                else:
+                    report["sheet names a repo the org does not have (kept)"].append(f"{cid}: `{repo}`")
+            blk["repo"] = repo
             if name not in ("statement-only", cid):
                 report["repo named differently from the contest id"].append(
                     f"{cid}: repo `{repo}`" + (f" (sheet row `{sid}`)" if sid != cid else ""))
+        elif cid in repos:
+            blk["repo"] = f"{ORG}/{cid}"
+            report["repo exists in the org, sheet has none (repo recorded)"].append(cid)
         count = num(r["#P"])
         if count is not None:
             blk["count"] = count
@@ -393,6 +418,9 @@ def main() -> int:
                     counts[kind] = n
         if counts:
             blk["counts"] = counts
+        if cid in CHECKED_HOLDINGS:
+            blk.update(CHECKED_HOLDINGS[cid])
+            report["holdings checked against the repo (sheet overridden)"].append(f"{cid}: {CHECKED_HOLDINGS[cid]}")
         judges = [(key, u) for col, key in JUDGE_COLS for u in split_urls(r[col])]
         if judges:
             judge_pages[cid].extend(judges)
@@ -604,7 +632,7 @@ def main() -> int:
         c = contests.get(cid) or non_mainline[cid]
         for judge, u in pages:
             url, ts = parts(u)
-            _s, ch = add_source(c, url, "judge_page", judge=judge, as_of=ts)
+            _s, ch = add_source(c, url, "problemset", judge=judge, as_of=ts)
             if ch:
                 stats["judge pages added to sources"] += 1
                 if cid not in non_mainline:
