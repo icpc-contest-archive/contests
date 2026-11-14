@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/drop_icpc_standings.py.
+# Maintained in-repo; last bulk edit: tools/drop_also_at.py.
 series:
   id: dhaka
   name: ICPC Asia Dhaka Regional Contest
@@ -162,8 +162,9 @@ contests:
     roles:
     - web
     as_of: '20020923084502'
-    also_at:
-    - http://www.buet.ac.bd/
+  - url: http://www.buet.ac.bd/
+    roles:
+    - web
   - url: http://www.buet.ac.bd/acm/standings.html
     roles:
     - standings
@@ -237,9 +238,10 @@ contests:
     roles:
     - web
     as_of: '20060901161607'
-    also_at:
-    - url: http://www.buet.ac.bd/acmicpc/index.html
-      as_of: '20021229081741'
+  - url: http://www.buet.ac.bd/acmicpc/index.html
+    roles:
+    - web
+    as_of: '20021229081741'
   - url: http://www.buet.ac.bd/acmicpc/tableweb.htm
     roles:
     - scoreboard
@@ -321,9 +323,10 @@ contests:
     roles:
     - web
     as_of: '20050819081655'
-    also_at:
-    - url: http://www.buet.ac.bd/acmicpc/
-      as_of: '20031011091545'
+  - url: http://www.buet.ac.bd/acmicpc/
+    roles:
+    - web
+    as_of: '20031011091545'
   - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=664
     roles:
     - standings
@@ -1078,6 +1081,14 @@ contests:
     archived:
     - dhaka/dhaka-2019/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 4086, 187 teams, DB fetch 2026-04-26)
+  - url: https://algo.codemarshal.org/contests/icpc-dhaka-19-onsite-main
+    roles:
+    - problemset
+    note: site down; read from the Wayback Machine
+    url_state: dead
+    url_checked: '2026-11-14'
+  problems:
+    set: dhaka-2019
 - id: dhaka-2020
   season: 2021
   name: 2020 ICPC Asia Dhaka Regional Contest
@@ -1106,6 +1117,14 @@ contests:
     archived:
     - dhaka/dhaka-2020/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 4496, 108 teams, DB fetch 2026-04-26)
+  - url: https://algo.codemarshal.org/contests/icpc-dhaka-20
+    roles:
+    - problemset
+    note: site down; read from the Wayback Machine
+    url_state: dead
+    url_checked: '2026-11-14'
+  problems:
+    set: dhaka-2020
 - id: dhaka-2021
   season: 2022
   name: 2021 ICPC Asia Dhaka Regional Contest
@@ -1202,6 +1221,8 @@ contests:
     as_of: '20240223195600'
     url_state: live
     url_checked: '2026-11-14'
+  problems:
+    set: dhaka-2023
 - id: dhaka-2024
   season: 2025
   name: 2024 ICPC Asia Dhaka Regional Contest

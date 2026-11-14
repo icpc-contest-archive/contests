@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/drop_icpc_standings.py.
+# Maintained in-repo; last bulk edit: tools/drop_also_at.py.
 series:
   id: kanpur
   name: ICPC Asia Kanpur Regional Contest
@@ -158,9 +158,10 @@ contests:
     roles:
     - web
     as_of: '20020619094727'
-    also_at:
-    - url: http://www.cse.iitk.ac.in/users/acm/
-      as_of: '20010627232402'
+  - url: http://www.cse.iitk.ac.in/users/acm/
+    roles:
+    - web
+    as_of: '20010627232402'
   - url: http://www.cse.iitk.ac.in/acm2001/results.htm
     roles:
     - standings
@@ -225,9 +226,10 @@ contests:
     roles:
     - web
     as_of: '20060901165658'
-    also_at:
-    - url: http://www.cse.iitk.ac.in/users/acm/
-      as_of: '20010627232402'
+  - url: http://www.cse.iitk.ac.in/users/acm/
+    roles:
+    - web
+    as_of: '20010627232402'
   - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/www.cse.iitk.ac.in/users/acm/result.htm
     roles:
     - standings
@@ -687,6 +689,14 @@ contests:
     archived:
     - kanpur/kanpur-2020/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 4503, 288 teams, DB fetch 2026-04-26)
+  - url: https://algo.codemarshal.org/contests/kanpur_2020
+    roles:
+    - problemset
+    note: site down; read from the Wayback Machine
+    url_state: dead
+    url_checked: '2026-11-14'
+  problems:
+    set: kanpur-2020
 - id: kanpur-2021
   season: 2022
   name: 2021 ICPC Asia Kanpur Contest
