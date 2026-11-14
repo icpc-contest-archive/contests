@@ -17,6 +17,7 @@ import random
 import re
 import subprocess
 import sys
+import tempfile
 import warnings
 from collections import defaultdict
 from pathlib import Path
@@ -81,6 +82,17 @@ def pdf_digest(p: Path) -> str:
     except Exception as e:  # noqa: BLE001
         return f"pdf: could not be read ({e})"
     txt = re.sub(r"[ \t]+", " ", txt)
+    if len(txt.strip()) < 40:   # no text layer: a scan. Read the first two pages with OCR
+        try:
+            with tempfile.TemporaryDirectory() as td:
+                subprocess.run(["pdftoppm", "-r", "150", "-l", "2", "-gray", "-png", str(p), td + "/p"], capture_output=True, timeout=120)
+                ocr = "".join(subprocess.run(["tesseract", str(img), "-"], capture_output=True, text=True, timeout=120).stdout
+                              for img in sorted(Path(td).glob("p*.png")))
+            ocr = re.sub(r"[ \t]+", " ", ocr)
+            return (f"pdf: {pages.group(1) if pages else '?'} pages, a scan with no text layer; OCR of the first 2 pages "
+                    f"({len(ocr)} characters, expect misreadings):\n" + ocr[:TEXT_MAX + 1500])
+        except Exception as e:  # noqa: BLE001
+            return f"pdf: {pages.group(1) if pages else '?'} pages, a scan with no text layer; OCR failed ({e})"
     return f"pdf: {pages.group(1) if pages else '?'} pages; text of the first 4 pages ({len(txt)} characters" + \
         (", none: probably a scan" if len(txt.strip()) < 40 else "") + "):\n" + txt[:TEXT_MAX + 1500]
 
