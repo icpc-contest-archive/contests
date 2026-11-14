@@ -32,7 +32,7 @@ from resources import norm_key  # noqa: E402
 ROOT = Path(__file__).resolve().parent.parent
 
 ROLES = ("web", "scoreboard", "frozen_scoreboard", "standings", "rankings",
-         "icpc_standings", "teams", "problemset", "problem")
+         "icpc_standings", "teams", "problemset", "problem", "editorial")
 RESULT_ROLES = ("scoreboard", "frozen_scoreboard", "standings", "rankings", "icpc_standings")
 RANK = {r: i for i, r in enumerate(ROLES)}
 HEADER = "# Maintained in-repo; last bulk edit: tools/{tool}.\n"

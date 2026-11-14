@@ -59,8 +59,11 @@ not the calendar date.
   `scoreboard` (full, per-problem) > `frozen_scoreboard` > `standings` (totals only) >
   `rankings` (order only) > `icpc_standings` (the CMS finder page,
   `https://icpc.global/regionals/finder/<abbrev>-<year>/standings`), `teams`,
-  `problemset` (the contest's problems, in whatever form the document gives them) and
-  `problem` (one problem). A role says what the document is, not where it is: a problem
+  `problemset` (the contest's problems, in whatever form the document gives them),
+  `problem` (one problem), and `editorial` (solutions explained after the contest: the jury's
+  solution slides or problem analysis, or somebody else's write-up; added 2026-11-14 — it names
+  the problems by letter, so it also shows what the contest's problems were when the statements
+  are lost). A role says what the document is, not where it is: a problem
   set or problem that is on an online judge carries `judge: <id of judges.yaml>`, and
   that is all that marks it (the `judge_page` role was dropped 2026-11-14; the 2,609
   sources that had it are problem sets). A page that is both the results and

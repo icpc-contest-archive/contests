@@ -1486,7 +1486,7 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
     # ---- Problems ----
     b.append('<h2 id="problems">Problems</h2>')
     pb = set_for(c)
-    psrc = [s for s in sources(c) if "problemset" in s["roles"] or "problem" in s["roles"]]
+    psrc = [s for s in sources(c) if {"problemset", "problem", "editorial"} & set(s["roles"])]
     if c.get("status") == "upcoming":
         b.append('<p class="empty">Not run yet — nothing about a contest\'s problems is published before it has run.</p>')
     elif not pb and not psrc:
@@ -1518,7 +1518,7 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
         b.append(R.slot("source", "add a problem set or a problem", "problems", tag="p"))
 
     # ---- everything else ----
-    others = [s for s in sources(c) if not (set(s["roles"]) & (set(RESULT_ROLES) | {"web", "problemset", "problem"}))]
+    others = [s for s in sources(c) if not (set(s["roles"]) & (set(RESULT_ROLES) | {"web", "problemset", "problem", "editorial"}))]
     if others:
         b.append('<h2 id="other">Other sources</h2>' + source_table(cid, others, rel, "other"))
     if ev:
@@ -2052,7 +2052,7 @@ ALSO_AT: dict = defaultdict(list)    # source id -> [(mirror url, as_of, note)] 
 MIRROR_OF: dict = defaultdict(list)  # mirror's source id -> [primary url]
 SRC_ROLES: dict = defaultdict(set)   # source id -> roles it serves anywhere in the catalogue
 SRC_SCOPE: dict = defaultdict(set)   # source id -> the part(s) of a contest it covers (`scope`), when not the whole
-ROLE_PAGES = ["web", "scoreboard", "frozen_scoreboard", "standings", "rankings", "icpc_standings", "problemset", "problem", "teams", "mirror"]
+ROLE_PAGES = ["web", "scoreboard", "frozen_scoreboard", "standings", "rankings", "icpc_standings", "problemset", "problem", "editorial", "teams", "mirror"]
 
 
 def index_sources(contests: dict) -> None:
