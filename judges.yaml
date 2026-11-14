@@ -4,6 +4,7 @@
 judges:
 - id: kattis
   name: Kattis
+  short: Kattis
   url: https://open.kattis.com/
   problem_url: https://open.kattis.com/problems/{id}
   contest_url: https://open.kattis.com/problem-sources/{id}
@@ -13,6 +14,7 @@ judges:
   notes: Problem-source pages list a contest's problems; short names are the problem ids.
 - id: livearchive
   name: ICPC Live Archive
+  short: Live Archive
   url: https://onlinejudge.org/
   problem_url: https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem={id}
   contest_url: https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category={id}
@@ -22,6 +24,7 @@ judges:
   notes: Formerly icpcarchive.ecs.baylor.edu (same ids); category pages hold one contest each.
 - id: baekjoon
   name: Baekjoon Online Judge
+  short: Baekjoon
   url: https://www.acmicpc.net/
   problem_url: https://www.acmicpc.net/problem/{id}
   contest_url: https://www.acmicpc.net/category/detail/{id}
@@ -32,6 +35,7 @@ judges:
   notes: Service ended 2026-04-28 (서비스 종료); pages survive only in Wayback snapshots before that date.
 - id: codeforces
   name: Codeforces Gym
+  short: Codeforces
   url: https://codeforces.com/gyms
   problem_url: https://codeforces.com/gym/{id}
   contest_url: https://codeforces.com/gym/{id}
@@ -41,6 +45,7 @@ judges:
   notes: Gym pages need a login to view; ids are gym number (+ problem letter).
 - id: qoj
   name: QOJ / Universal Cup
+  short: QOJ
   url: https://qoj.ac/
   problem_url: https://qoj.ac/problem/{id}
   contest_url: https://qoj.ac/contest/{id}
@@ -55,6 +60,7 @@ judges:
     are Universal Cup replays, never the original results. Imported by tools/import_qoj_tree.py (reports/qoj-tree-2026-11-12.md).'
 - id: aoj
   name: Aizu Online Judge (AOJ)
+  short: AOJ
   url: https://onlinejudge.u-aizu.ac.jp/
   problem_url: https://onlinejudge.u-aizu.ac.jp/problems/{id}
   contest_url: https://onlinejudge.u-aizu.ac.jp/challenges/sources/ICPC/Regional/{id}
@@ -68,18 +74,21 @@ judges:
     regional not yet listed as of 2026-11-03.
 - id: beecrowd
   name: beecrowd (ex URI Online Judge)
+  short: beecrowd
   url: https://judge.beecrowd.com/
   problem_url: https://judge.beecrowd.com/en/problems/view/{id}
-  contest_url: https://judge.beecrowd.com/en/contests/{id}
   status: active
   statements: true
   submissions: true
-  notes: 'LOGIN REQUIRED (checked 2026-11-12 from a browser): every page — contests, problem list, single
-    problems — redirects to /login; sign-up is free (e-mail or social sign-in). Known to host Maratona
-    de Programacao (brazil-first-phase / brazil) problems as problems 1xxx-3xxx with a ''Maratona'' source;
-    nothing can be enumerated without an account.'
+  notes: 'The judge itself needs an account for every page (free sign-up), but each statement is public
+    at https://resources.beecrowd.com/repository/UOJ_{id}_en.html (UOJ_{id}.html for Portuguese) from
+    a normal browser (Cloudflare 403 to curl), with a "By <author or contest>" line. Problems 1000-3499
+    read that way 2026-11-14 (2,489 exist) and matched by title, English or Portuguese, to the catalogue:
+    Maratona first phase 2007-2019 and 2022, Latin America 2007-2022, South America 2002-2005, World Finals
+    2011-2015 and 2017, NCPC 2005-2019, ACPC 2004-2006. No contest pages.'
 - id: codechef
   name: CodeChef
+  short: CodeChef
   url: https://www.codechef.com/
   problem_url: https://www.codechef.com/problems/{id}
   contest_url: https://www.codechef.com/{id}
@@ -93,6 +102,7 @@ judges:
     probably not in the public list). Replay/mirror contests contain the official onsite problem set.'
 - id: dmoj
   name: DMOJ
+  short: DMOJ
   url: https://dmoj.ca/
   problem_url: https://dmoj.ca/problem/{id}
   contest_url: https://dmoj.ca/problems/?search={id}
@@ -106,6 +116,7 @@ judges:
     the "contest_url" is a problem-list search.'
 - id: eolymp
   name: Eolymp (ex e-olymp)
+  short: Eolymp
   url: https://eolymp.com/
   problem_url: https://eolymp.com/problems/{id}
   contest_url: https://eolymp.com/contests/{id}
@@ -123,6 +134,7 @@ judges:
     the ICPC regional.'
 - id: hdu
   name: HDU Online Judge (acm.hdu.edu.cn)
+  short: HDU
   url: https://acm.hdu.edu.cn/
   problem_url: https://acm.hdu.edu.cn/showproblem.php?pid={id}
   contest_url: https://acm.hdu.edu.cn/contests/contest_show.php?cid={id}
@@ -138,6 +150,7 @@ judges:
     flaky (connection resets).
 - id: luogu
   name: Luogu 洛谷 (Luògǔ)
+  short: Luogu
   url: https://www.luogu.com.cn/
   problem_url: https://www.luogu.com.cn/problem/{id}
   contest_url: https://www.luogu.com.cn/contest/{id}
@@ -152,6 +165,7 @@ judges:
     needs account.
 - id: nowcoder
   name: NowCoder 牛客竞赛 (Niúkè, 'cow guest')
+  short: NowCoder
   url: https://ac.nowcoder.com/
   problem_url: https://ac.nowcoder.com/acm/contest/{id}
   contest_url: https://ac.nowcoder.com/acm/contest/{id}
@@ -167,6 +181,7 @@ judges:
     for anonymous users on /acm/contest/{id}/{letter}.'
 - id: omegaup
   name: omegaUp
+  short: omegaUp
   url: https://omegaup.com/
   problem_url: https://omegaup.com/arena/problem/{id}/
   contest_url: https://omegaup.com/arena/{id}/
@@ -180,21 +195,24 @@ judges:
     ICPCMX2021, 2022-04-02) confirmed. Other years'' aliases not guessable; TCMM/Gran Premio contests
     not found.'
 - id: pintia
-  name: PTA 拼题A (Pīntí A, 'puzzle-piece problem A', pintia.cn)
+  name: PTA 拼题A (Pīntí A, 'puzzle-piece problem A', pintia.cn), home of the ZOJ problem set
+  short: PTA
   url: https://pintia.cn/
-  problem_url: https://pintia.cn/problem-sets/{id}/exam/problems/type/7
-  contest_url: https://pintia.cn/problem-sets/{id}
+  problem_url: https://pintia.cn/problem-sets/91827364500/exam/problems/type/7?problemSetProblemId={id}
   status: active
-  statements: false
+  statements: true
   submissions: true
-  notes: 'LOGIN REQUIRED (checked 2026-11-12 from a browser): the public dashboard lists only the textbook/practice
-    sets and the ZOJ Problem Set; /api/problem-sets answers 401 USER_NOT_LOGGED_IN. Contest problem sets
-    are, as far as the public pages show, visible only to accounts enrolled in them — not verified with
-    an account. /api/competitions/public lists XCPC scoreboards (2024-2026: CCPC, provincials, ICPC EC
-    online qualifiers). The China regional sets it ran are mirrored on QOJ, Codeforces gym, Luogu and
-    NowCoder — use those first.'
+  notes: 'Hosts the old ZOJ (Zhejiang University Online Judge) archive as the public "ZOJ Problem Set"
+    (set 91827364500; 3,179 problems, ZOJ numbers 1001-4179): statements open without an account, submitting
+    needs one. ZOJ number N has the address id 91827364500 + N - 1001 while numbers run unbroken; the
+    list is https://pintia.cn/api/problem-sets/91827364500/exam-problem-list?problem_type=PROGRAMMING&page=0&limit=100
+    (send Accept: application/json). The set keeps no source field, so the 135 regional sets found there
+    2026-11-14 were matched by title in runs of neighbouring ZOJ numbers. PTA''s own contest sets (the
+    China regionals it ran) stay visible only to enrolled accounts; /api/competitions/public lists XCPC
+    scoreboards.'
 - id: timus
   name: Timus Online Judge
+  short: Timus
   url: https://acm.timus.ru/
   problem_url: https://acm.timus.ru/problem.aspx?space=1&num={id}
   contest_url: https://acm.timus.ru/problemset.aspx?space={id}
@@ -209,6 +227,7 @@ judges:
     hosts the Ural *qualifier* rounds, not the regional itself.'
 - id: ucup
   name: Universal Cup judge (contest.ucup.ac, UOJ-based)
+  short: UCup
   url: https://contest.ucup.ac/contests
   problem_url: https://contest.ucup.ac/contest/{contest_id}/problem/{problem_id}
   contest_url: https://contest.ucup.ac/contest/{id}
@@ -221,6 +240,7 @@ judges:
     recorded. The ICPC-named mirrors live on qoj.ac, not here.'
 - id: vjudge
   name: Virtual Judge (vjudge.net)
+  short: vjudge
   url: https://vjudge.net/contest
   problem_url: https://vjudge.net/contest/{contest_id}#problem/{letter}
   contest_url: https://vjudge.net/contest/{id}
@@ -233,6 +253,7 @@ judges:
     other judges; link the origin judge instead. No candidates recorded.'
 - id: poj
   name: PKU JudgeOnline (POJ)
+  short: POJ
   url: http://poj.org/
   problem_url: http://poj.org/problem?id={id}
   contest_url: http://poj.org/searchproblem?field=source&key={id}
@@ -245,6 +266,7 @@ judges:
     contests by the harvest classification (_hunt/problems-2026-11-13/agents-out/).'
 - id: cats
   name: CATS (Far Eastern Federal University)
+  short: CATS
   url: https://imcs.dvfu.ru/cats/
   problem_url: https://imcs.dvfu.ru/cats/static/problem_text-cpid-{id}.html
   contest_url: https://imcs.dvfu.ru/cats/problems?cid={id}

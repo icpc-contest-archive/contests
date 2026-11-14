@@ -186,3 +186,13 @@ pre { background:var(--wash); padding:.6rem .8rem; border-radius:.35rem; overflo
 .rvo { display:none; }
 html.rv .rvo { display:revert; }
 header.site nav a#rv.on { color:var(--ink); font-weight:600; }
+
+/* ---- online judges: a logo instead of the name (build_site.judge_mark); the name is the hover text ---- */
+.jl { display:inline-block; width:1.3em; height:1.3em; margin:0 .3em 0 0; vertical-align:-.25em; border-radius:.15em;
+  background:center/contain no-repeat; text-decoration:none; }
+.jl.jt { width:auto; height:auto; vertical-align:baseline; padding:0 .35em; background:var(--wash); color:var(--ink);
+  font-size:.8em; font-weight:600; white-space:nowrap; }
+.jl.jc { filter:grayscale(1); opacity:.7; }
+a.jl:hover { box-shadow:0 0 0 2px var(--line); }
+h1 .jl { margin-right:.4em; }
+@media (prefers-color-scheme: dark) { .jl:not(.jt) { background-color:#fff; box-shadow:0 0 0 2px #fff; } }
