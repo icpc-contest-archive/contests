@@ -62,7 +62,7 @@ import sys  # noqa: E402
 sys.path.insert(0, str(ROOT / "tools"))
 import review_units as R  # noqa: E402  (review mode: the units a reader can confirm, correct or add to)
 from resources import fmt_time, label as res_label, norm_key, unwrap, wayback_link  # noqa: E402
-from catalogue import (RANK, RESULT_ROLES, also_at, archived, best_result, by_role, has_role, judge_sources,  # noqa: E402
+from catalogue import (RANK, RESULT_ROLES, archived, best_result, by_role, has_role, judge_sources,  # noqa: E402
                        load_judges, load_locations, load_non_mainline, load_sets, location_chain,
                        set_letters, set_of, sources)
 import site_resources  # noqa: E402
@@ -1353,8 +1353,6 @@ def source_table(cid: str, entries: list[dict], rel: str, kind: str, extra_rows:
         if e.get("judge"):
             roles += judge_link(e["judge"], rel, logo=True) + judge_closed_chip(e["judge"])
         note = esc(source_note(e))
-        for m in also_at(e):
-            note += (" · " if note else "") + "also at " + R.U("mirror", link_source(m["url"], rel, res_label(m["url"], m.get("as_of"), 60), m.get("as_of")), url, m["url"]) + " " + avail_marks(avail(m["url"], cid))
         rows.append(f"<tr><td>{roles}</td><td class=\"url\">{link_source(url, rel, res_label(url, as_of, 90), as_of or cap_time(cap_of(e)))}</td>"
                     + avail_cell(url, cid, e) + f"<td class=\"small muted\">{note}</td></tr>")
     rows += extra_rows or []
@@ -2039,16 +2037,14 @@ def problem_index(rel: str) -> str:
 
 
 # ---- sources (DEFINITIONS.md, Resources: source = locator, snapshot = resource, capture) ----
-ALSO_AT: dict = defaultdict(list)    # source id -> [(mirror url, as_of, note)] from the catalogue's also_at
-MIRROR_OF: dict = defaultdict(list)  # mirror's source id -> [primary url]
+_SAME: dict = {}                     # checksum of a held copy -> source ids holding it (same_as)
 SRC_ROLES: dict = defaultdict(set)   # source id -> roles it serves anywhere in the catalogue
 SRC_SCOPE: dict = defaultdict(set)   # source id -> the part(s) of a contest it covers (`scope`), when not the whole
-ROLE_PAGES = ["web", "scoreboard", "frozen_scoreboard", "standings", "rankings", "problemset", "problem", "editorial", "teams", "mirror"]
+ROLE_PAGES = ["web", "scoreboard", "frozen_scoreboard", "standings", "rankings", "problemset", "problem", "editorial", "teams", "report"]
 
 
 def index_sources(contests: dict) -> None:
-    ALSO_AT.clear()
-    MIRROR_OF.clear()
+    _SAME.clear()
     SRC_ROLES.clear()
     SRC_SCOPE.clear()
     for c in contests.values():
@@ -2057,10 +2053,6 @@ def index_sources(contests: dict) -> None:
             SRC_ROLES[k].update(s["roles"])
             if s.get("scope"):
                 SRC_SCOPE[k].add(s["scope"])
-            for m in also_at(s):
-                ALSO_AT[k].append((m["url"], m.get("as_of"), m.get("note")))
-                MIRROR_OF[lid(m["url"])].append(s["url"])
-                SRC_ROLES[lid(m["url"])].add("mirror")
 
 
 def field_chip(field: str) -> str:
@@ -2138,14 +2130,30 @@ def best_open(cs: list[dict]) -> str:
     return ""
 
 
+def same_as(k: str) -> list[str]:
+    """Other sources of which we hold a copy that is byte for byte a copy we hold of this one:
+    the same document at another address. Read off the copies' checksums, never stored."""
+    if not _SAME:
+        for o in RES.locs:
+            for x in copies(o):
+                cap = x.get("cap")
+                if cap and cap.get("sha256") and (cap.get("size") or 0) >= 1000:
+                    _SAME.setdefault(cap["sha256"], set()).add(o)
+        _SAME[""] = set()
+    out = set()
+    for x in copies(k):
+        cap = x.get("cap")
+        if cap and cap.get("sha256"):
+            out |= _SAME.get(cap["sha256"], set())
+    return sorted(out - {k})
+
+
 def serves_words(c: dict, rel: str) -> str:
     """What a citation uses the address for, in words: `website`, `problem set on Kattis`."""
     out = []
     for r in sorted(c["roles"], key=lambda r: RANK.get(r, 99)):
         j = next((f[6:] for f in c["fields"] if f.startswith("judge-")), None) if r in ("problemset", "problem") else None
         out.append(esc(role_label(r)) + (f" on {judge_link(j, rel)}" if j and j != "unknown" else ""))
-    if "mirror" in c["fields"]:
-        out = ["mirror of the website"]
     return ", ".join(out) or "source"
 
 
@@ -2274,12 +2282,11 @@ def source_page(k: str, L: dict, rel: str) -> str:
     b.append("".join(f'<span id="s-{esc(ts)}"></span>' for ts in res if ts not in shown))
 
     d = []
-    if ALSO_AT.get(k):
-        d.append("<dt>also at</dt><dd>" + "<br>".join(
-            link_source(mu, rel, res_label(mu, mts, 110), mts) + " " + avail_marks(avail(mu))
-            + (f' <span class="muted">— {esc(n)}</span>' if n else "") for mu, mts, n in ALSO_AT[k]) + "</dd>")
-    if MIRROR_OF.get(k):
-        d.append("<dt>mirror of</dt><dd>" + "<br>".join(link_source(pu, rel, pu[:110]) for pu in dict.fromkeys(MIRROR_OF[k])) + "</dd>")
+    same = same_as(k)
+    if same:
+        d.append('<dt title="a copy we hold of each is byte for byte the same">same document as</dt><dd>' + "<br>".join(
+            link_source(RES.locs[o]["url"], rel, RES.locs[o]["url"][:110]) for o in same[:12])
+            + (f' <span class="muted">and {len(same) - 12} more</span>' if len(same) > 12 else "") + "</dd>")
     d.append(f'<dt>source id</dt><dd><code>{k}</code></dd>')
     b.append('<dl class="facts small muted">' + "".join(d) + "</dl>")
     return page(host_label(url, 60), "\n".join(b), rel, "source/index.html")
@@ -2310,7 +2317,7 @@ def source_list(rel: str, role: str | None = None) -> str:
                     f'<td class="num">{len(copies(k))}</td></tr>')
     title = f"{role_label(role).capitalize()} sources" if role else "Sources"
     return page(title, f"<h1>{esc(title)}</h1>"
-                f'<p class="intro">{"Sources serving this role" if role else "Every address the catalogue knows, and its mirrors"}: {num(len(rows))}. '
+                f'<p class="intro">{"Sources serving this role" if role else "Every address the catalogue knows"}: {num(len(rows))}. '
                 "A <b>source</b> is an address as a contest means it: what it served for that contest. It can be found in up to three places — "
                 "at its address now, in the Wayback Machine, in our archive — and every list shows the three together. "
                 "The address, the snapshot and our copies are opened from the source's own page.</p>"
@@ -2945,7 +2952,7 @@ dashed if for some. A <b>UUID</b> is the identity of a problem's package; a prob
 
 <h2 id="sources">Sources</h2>
 <p class="intro">A <b>source</b> is one document a contest points at: an address, and what that address served for the contest (its website, scoreboard, frozen
-scoreboard, standings, rankings, problem set, single problem, editorial or teams). It is the document that matters, not the address: addresses die and get reused, so a
+scoreboard, standings, rankings, problem set, single problem, editorial, teams or report). It is the document that matters, not the address: addresses die and get reused, so a
 source that is no longer at its address names the time it is meant at (<i>as it was on 2007-11-05</i>).</p>
 <p class="intro">The same document can be found in up to <b>three places</b>, and every list of sources shows all three as one unit, always in this order:</p>
 {places_dl}
@@ -2984,7 +2991,7 @@ def source_words(k: str) -> str:
         return "no contest cites it now"
     roles = sorted({r for c in cits for r in c["roles"]}, key=lambda r: RANK.get(r, 99))
     ids = [c["contest"] for c in cits]
-    return (", ".join(role_label(r) for r in roles) or "mirror") + " of " + ", ".join(ids[:3]) + (f" and {len(ids) - 3} more" if len(ids) > 3 else "")
+    return (", ".join(role_label(r) for r in roles) or "source") + " of " + ", ".join(ids[:3]) + (f" and {len(ids) - 3} more" if len(ids) > 3 else "")
 
 
 # ---- build ----
@@ -3169,6 +3176,7 @@ def build(out: Path):
                                                          ensure_ascii=False, separators=(",", ":")))
         for r in ROLE_PAGES:
             (out / "source" / "by-role" / f"{r}.html").write_text(source_list("../../", r))
+        stub(out / "source" / "by-role" / "mirror.html", "web.html")  # also_at was dropped 2026-11-14
         stub(out / "source" / "by-role" / "icpc_standings.html", "standings.html")  # the role was dropped 2026-11-14
         stub(out / "source" / "by-role" / "judge_page.html", "problemset.html")  # the role was dropped 2026-11-14
         for k in ROLE_PAGES + ["index"]:

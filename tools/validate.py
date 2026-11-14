@@ -78,8 +78,6 @@ def main() -> int:
             seen_addr: dict[str, str] = {}
             for s in c.get("sources") or []:
                 check_locator(f"{c['id']}.sources", s)
-                for a in s.get("also_at") or []:
-                    check_locator(f"{c['id']}.sources.also_at", a)
                 k = norm_key(s["url"])
                 if k in seen_addr:
                     err(f"{c['id']}: address listed twice in sources ({s['url']}); merge the roles")

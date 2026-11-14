@@ -29,7 +29,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
-from catalogue import RESULT_ROLES, add_source, also_at, by_role, cms_sources, dump_series, find_source, has_role, load_series  # noqa: E402
+from catalogue import RESULT_ROLES, add_source, by_role, cms_sources, dump_series, find_source, has_role, load_series  # noqa: E402
 from resources import norm_key, unwrap  # noqa: E402
 
 RES_KEYS = {"scoreboard", "frozen_scoreboard", "standings", "rankings"}
@@ -72,13 +72,11 @@ def main() -> int:
                     webs = by_role(c, "web")
                     if webs:
                         w = webs[0]
-                        known = {norm_key(w["url"])} | {norm_key(m["url"]) for m in also_at(w)}
-                        if norm_key(url) in known or find_source(c, url) is not None:
+                        if find_source(c, url) is not None:
                             stats["skipped (web present)"] += 1
                             continue
-                        # also_at entries: bare URL, or {url, as_of} when the candidate pins a snapshot
-                        w.setdefault("also_at", []).append({"url": url, "as_of": as_of} if as_of else url)
-                        stats["applied mirror"] += 1
+                        add_source(c, url, "web", as_of=as_of)   # another address of the website: a web source of its own
+                        stats["applied additional web source"] += 1
                         changed = True
                         continue
                 elif art == "problemset":

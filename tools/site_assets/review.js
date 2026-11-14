@@ -22,7 +22,8 @@
     website: [['web', 'website']],
     results: [['scoreboard', 'scoreboard'], ['frozen_scoreboard', 'frozen scoreboard'], ['standings', 'standings'],
               ['rankings', 'rankings'], ['teams', 'team list']],
-    problems: [['problemset', 'problem set'], ['problem', 'single problem']],
+    problems: [['problemset', 'problem set'], ['problem', 'single problem'], ['editorial', 'editorial']],
+    other: [['report', 'report or news item'], ['teams', 'team list']],
   };
 
   // ---------- small helpers ----------
@@ -113,7 +114,7 @@
       else {
         c.append(btn('✓', () => agree(e), 'rvb ok', 'Confirm: ' + d.l));
         c.append(btn('✎', () => form(e, 'correct'), 'rvb fix', 'Correct: ' + d.l));
-        if (u === 'source' && KIND === 'contest') c.append(btn('⋯', () => sourceMore(e), 'rvb', 'Division or mirror of this source'));
+        if (u === 'source' && KIND === 'contest' && !(e.closest('tr') || doc).querySelector('.u[data-u=division]')) c.append(btn('⋯', () => sourceMore(e), 'rvb', 'Division of this source'));
       }
       e.after(c);
     }
@@ -160,7 +161,7 @@
         const ok = c && c.querySelector('.rvb.ok');
         if (ok) ok.setAttribute('aria-pressed', e.classList.contains('rv-ok'));
       }
-      // extra items of a source row (division, mirror) and of the page as a whole (duplicate, remark)
+      // extra items of a source row (division) and of the page as a whole (duplicate, remark)
       const bar = doc.getElementById('rvbar');
       if (bar) {
         bar.textContent = '';
@@ -231,7 +232,7 @@
     openModal((what === 'correct' ? 'Correct: ' : 'Add: ') + d.l, body);
   }
 
-  // division and mirror of one source row
+  // division of one source row
   function sourceMore(e) {
     const url = e.dataset.of, row = e.closest('tr') || doc;
     const one = (unit, label) => btn(label, () => {
@@ -240,8 +241,7 @@
       form(fake, 'add');
     });
     openModal('Source ' + short(url, 50), el('div', {},
-      row.querySelector('.u[data-u=division]') ? null : el('p', {}, one('division', 'Say which division it covers')),
-      el('p', {}, one('mirror', 'Add a mirror: the same page at another address'))));
+      el('p', {}, one('division', 'Say which division it covers'))));
   }
 
   // add a source to a section of a contest page: an address, or a file the reviewer has
@@ -264,7 +264,7 @@
       if (how === 'url') {
         const u = url.value.trim();
         if (!/^https?:\/\/[^\s/]+\.[^\s]+$/i.test(u)) return void (err.textContent = 'Please give a full address, starting with http:// or https://.');
-        const have = units().some(x => (x.dataset.u === 'source' || x.dataset.u === 'mirror') && x.dataset.of === u);
+        const have = units().some(x => x.dataset.u === 'source' && x.dataset.of === u);
         if (have) return void (err.textContent = 'This contest already lists that address. Use ✓ on its row to confirm it.');
         item.to.url = u;
       } else {

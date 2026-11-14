@@ -195,9 +195,10 @@
     "teams",
     "problemset",
     "problem",
-    "editorial"
+    "editorial",
+    "report"
    ],
-   "description": "what a source holds. Result roles rank scoreboard > frozen_scoreboard > standings > rankings by information content (a standings page of the ICPC CMS is filed by what it holds, like any other source); web = the contest website; teams = team list; problemset = the contest's problems, in whatever form the document gives them (statements, a list of names, a judge's contest page); problem = one problem; a problemset or problem that is on an online judge carries `judge`; editorial = solutions explained after the contest (the jury's solution slides or problem analysis, or somebody else's write-up)"
+   "description": "what a source holds. Result roles rank scoreboard > frozen_scoreboard > standings > rankings by information content (a standings page of the ICPC CMS is filed by what it holds, like any other source); web = the contest website; teams = team list; problemset = the contest's problems, in whatever form the document gives them (statements, a list of names, a judge's contest page); problem = one problem; a problemset or problem that is on an online judge carries `judge`; editorial = solutions explained after the contest (the jury's solution slides or problem analysis, or somebody else's write-up); report = an account of the contest that is neither its website nor a results list (a news item, a press release, a history page)"
   },
   "source": {
    "type": "object",
@@ -226,36 +227,6 @@
     },
     "as_of": {
      "$ref": "#/$defs/asOf"
-    },
-    "also_at": {
-     "type": "array",
-     "minItems": 1,
-     "items": {
-      "oneOf": [
-       {
-        "$ref": "#/$defs/url"
-       },
-       {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-         "url"
-        ],
-        "properties": {
-         "url": {
-          "$ref": "#/$defs/url"
-         },
-         "as_of": {
-          "$ref": "#/$defs/asOf"
-         },
-         "note": {
-          "type": "string"
-         }
-        }
-       }
-      ]
-     },
-     "description": "other addresses serving the same content (organiser archive copies, mirrors), bare or {url, as_of}; the capture queue fetches them, snapshots obtained there are snapshots of this source via that mirror"
     },
     "judge": {
      "type": "string",

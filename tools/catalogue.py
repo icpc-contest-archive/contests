@@ -8,7 +8,6 @@ roles it serves:
     - url: http://www.cs.colorado.edu/users/kena/acmpc/results.html
       roles: [scoreboard, problemset]
       as_of: '20040117'            # optional: the content meant is what the address served then
-      also_at: [http://mirror/..., {url: ..., as_of: ...}]  # other addresses serving the same content
       judge: baekjoon              # the source is on this online judge (judges.yaml)
       archived: [rmc/rmc-2000/scoreboard/2026-09-07-.../page.html]   # every capture of this address
       url_state: dead              # health of the address at url_checked
@@ -33,7 +32,7 @@ from resources import norm_key  # noqa: E402
 ROOT = Path(__file__).resolve().parent.parent
 
 ROLES = ("web", "scoreboard", "frozen_scoreboard", "standings", "rankings",
-         "teams", "problemset", "problem", "editorial")
+         "teams", "problemset", "problem", "editorial", "report")
 RESULT_ROLES = ("scoreboard", "frozen_scoreboard", "standings", "rankings")
 # a standings page of the ICPC CMS. It has no role of its own: it is a standings, rankings or
 # teams source like any other, and that it is the CMS is read off its address.
@@ -247,11 +246,6 @@ def add_archived(s: dict, path: str) -> bool:
     return True
 
 
-def also_at(s: dict) -> list[dict]:
-    """also_at entries normalised to dicts {url, as_of?, note?}."""
-    return [a if isinstance(a, dict) else {"url": a} for a in s.get("also_at") or []]
-
-
 def sort_sources(c: dict) -> None:
     """Stable order: by the primary role's rank, then by original position."""
     lst = c.get("sources")
@@ -261,7 +255,7 @@ def sort_sources(c: dict) -> None:
 
 def normalise_source(s: dict) -> dict:
     """Canonical key order for a source mapping."""
-    order = ("url", "roles", "scope", "judge", "as_of", "also_at", "archived", "fetched",
+    order = ("url", "roles", "scope", "judge", "as_of", "archived", "fetched",
              "url_state", "url_checked", "note")
     out = {k: s[k] for k in order if k in s}
     for k in s:

@@ -63,7 +63,7 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 import sys  # noqa: E402
 sys.path.insert(0, str(ROOT / "tools"))
-from catalogue import Dumper, add_source, also_at, by_role, dump_series, has_role, load_series  # noqa: E402
+from catalogue import Dumper, add_source, by_role, dump_series, has_role, load_series  # noqa: E402
 from resources import norm_key, unwrap  # noqa: E402
 
 # ---- problem sets (same conventions as tools/migrate_problemsets.py, which created them) ----
@@ -204,12 +204,8 @@ def parts(u: str) -> tuple[str, str | None]:
 
 
 def site_keys(c: dict) -> set[str]:
-    """Addresses that ARE the contest website: web sources and their also_at mirrors."""
-    out = set()
-    for w in by_role(c, "web"):
-        out.add(norm_key(w["url"]))
-        out.update(norm_key(m["url"]) for m in also_at(w))
-    return out
+    """Addresses that ARE the contest website: its web sources."""
+    return {norm_key(w["url"]) for w in by_role(c, "web")}
 
 
 def add_provenance(c: dict, line: str) -> bool:

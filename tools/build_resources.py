@@ -32,7 +32,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 ARCHIVE = ROOT.parent / "archive"
 sys.path.insert(0, str(ROOT / "tools"))
-from catalogue import also_at, archived, load_contests, primary_role, sources  # noqa: E402
+from catalogue import archived, load_contests, primary_role, sources  # noqa: E402
 from resources import canon_url, norm_key, ts_from, unwrap  # noqa: E402
 
 def lid(url: str) -> str:
@@ -128,9 +128,6 @@ def main() -> int:
             if kind in ("problemset", "problem") and s.get("judge"):
                 kind = f"judge-{s['judge']}"
             ref(s["url"], kind, s["roles"], s, s.get("as_of"))
-            if "web" in s["roles"]:
-                for m in also_at(s):
-                    ref(m["url"], "mirror", ["web"], m, m.get("as_of"))
 
     # ---- captures ----
     for cap in captures:
