@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
 series:
   id: ctuo
   name: ICPC CTU Open
@@ -53,11 +53,12 @@ contests:
     - web
   - url: https://contest.felk.cvut.cz/96prg/praha.html
     roles:
-    - standings
+    - scoreboard
     url_state: live
     url_checked: '2026-11-14'
     archived:
     - ctuo/ctuo-1996/standings/20261113-live-3398ab3d/praha.html
+    scope: Prague round
   - url: https://contest.felk.cvut.cz/96prg/ulohy2.html
     roles:
     - problemset
@@ -88,7 +89,7 @@ contests:
     - web
   - url: https://contest.felk.cvut.cz/97prg/results.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20020730233811'
     archived:
     - ctuo/ctuo-1997/standings/2026-09-01-live-c5fd09da/results.html
@@ -168,7 +169,6 @@ contests:
   - url: https://contest.felk.cvut.cz/99prg/solution.html
     roles:
     - problemset
-    - editorial
     url_state: live
     url_checked: '2026-11-14'
   - url: https://qoj.ac/contest/3666
@@ -202,7 +202,7 @@ contests:
     note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://contest.felk.cvut.cz/00prg/results.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20031101021500'
     archived:
     - ctuo/ctuo-2000/standings/2026-09-01-live-943a6dca/results.html
@@ -244,7 +244,7 @@ contests:
     - web
   - url: https://contest.felk.cvut.cz/01prg/results.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20011214084142'
     archived:
     - ctuo/ctuo-2001/standings/2026-09-01-live-438363d5/results.html
@@ -286,7 +286,7 @@ contests:
     - web
   - url: https://contest.felk.cvut.cz/02prg/rank.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20021211055240'
     archived:
     - ctuo/ctuo-2002/standings/2026-09-01-live-198921d6/rank.html
@@ -328,7 +328,7 @@ contests:
     - web
   - url: https://contest.felk.cvut.cz/03prg/rank.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20040518122819'
     archived:
     - ctuo/ctuo-2003/standings/2026-09-01-live-02ef8805/rank.html
@@ -370,7 +370,7 @@ contests:
     - web
   - url: https://contest.felk.cvut.cz/04prg/rank.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20041204111325'
     archived:
     - ctuo/ctuo-2004/standings/2026-09-01-live-56dc235d/rank.html
@@ -421,7 +421,7 @@ contests:
     - web
   - url: https://contest.felk.cvut.cz/05prg/rank.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20071012113616'
     archived:
     - ctuo/ctuo-2005/standings/2026-09-01-live-1c9b56a9/rank.html
@@ -816,17 +816,6 @@ contests:
   - url: https://contest.felk.cvut.cz/11prg/
     roles:
     - web
-  - url: https://contest.felk.cvut.cz/11prg/solved.html
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20120722203459'
-    archived:
-    - ctuo/ctuo-2011/scoreboard/20120722-wayback-2b46b0d7/solved.html
-    - ctuo/ctuo-2011/scoreboard/20260904-live-eb4cd841/solved.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://contest.felk.cvut.cz/11prg/rank.html
     roles:
     - standings
@@ -843,6 +832,16 @@ contests:
     archived:
     - ctuo/ctuo-2011/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 769, 87 teams, DB fetch 2026-04-26)
+  - url: https://contest.felk.cvut.cz/11prg/solved.html
+    roles:
+    - problemset
+    as_of: '20120722203459'
+    archived:
+    - ctuo/ctuo-2011/scoreboard/20120722-wayback-2b46b0d7/solved.html
+    - ctuo/ctuo-2011/scoreboard/20260904-live-eb4cd841/solved.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://open.kattis.com/problem-sources/CTU%20Open%202011
     roles:
     - problemset
@@ -900,17 +899,6 @@ contests:
   - url: https://contest.felk.cvut.cz/12prg/
     roles:
     - web
-  - url: https://contest.felk.cvut.cz/12prg/solved.html
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20130805020719'
-    archived:
-    - ctuo/ctuo-2012/scoreboard/20130805-wayback-c3f8bda2/solved.html
-    - ctuo/ctuo-2012/scoreboard/20260904-live-8174946b/solved.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://contest.felk.cvut.cz/12prg/rank/public/
     roles:
     - scoreboard
@@ -927,6 +915,16 @@ contests:
     archived:
     - ctuo/ctuo-2012/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 1319, 112 teams, DB fetch 2026-04-26)
+  - url: https://contest.felk.cvut.cz/12prg/solved.html
+    roles:
+    - problemset
+    as_of: '20130805020719'
+    archived:
+    - ctuo/ctuo-2012/scoreboard/20130805-wayback-c3f8bda2/solved.html
+    - ctuo/ctuo-2012/scoreboard/20260904-live-8174946b/solved.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://open.kattis.com/problem-sources/CTU%20Open%202012
     roles:
     - problemset
@@ -1004,17 +1002,6 @@ contests:
   - url: https://contest.felk.cvut.cz/13prg/
     roles:
     - web
-  - url: https://contest.felk.cvut.cz/13prg/solved.html
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20140322020845'
-    archived:
-    - ctuo/ctuo-2013/scoreboard/20140322-wayback-8f45a561/solved.html
-    - ctuo/ctuo-2013/scoreboard/20260904-live-4bf6fa75/solved.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://contest.felk.cvut.cz/13prg/rank.html
     roles:
     - scoreboard
@@ -1024,6 +1011,16 @@ contests:
     - ctuo/ctuo-2013/scoreboard/20140323-wayback-ee3009d1/rank.html
     url_state: live
     url_checked: '2026-11-14'
+  - url: https://contest.felk.cvut.cz/13prg/solved.html
+    roles:
+    - problemset
+    as_of: '20140322020845'
+    archived:
+    - ctuo/ctuo-2013/scoreboard/20140322-wayback-8f45a561/solved.html
+    - ctuo/ctuo-2013/scoreboard/20260904-live-4bf6fa75/solved.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://open.kattis.com/problem-sources/CTU%20Open%202013
     roles:
     - problemset
@@ -1090,17 +1087,6 @@ contests:
   - url: https://contest.felk.cvut.cz/14prg/
     roles:
     - web
-  - url: https://contest.felk.cvut.cz/14prg/solved.html
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20150407003153'
-    archived:
-    - ctuo/ctuo-2014/scoreboard/20150407-wayback-86493420/solved.html
-    - ctuo/ctuo-2014/scoreboard/20260904-live-2531ae2a/solved.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://contest.felk.cvut.cz/14prg/rank.html
     roles:
     - scoreboard
@@ -1116,6 +1102,16 @@ contests:
     archived:
     - ctuo/ctuo-2014/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 2667, 93 teams, DB fetch 2026-04-26)
+  - url: https://contest.felk.cvut.cz/14prg/solved.html
+    roles:
+    - problemset
+    as_of: '20150407003153'
+    archived:
+    - ctuo/ctuo-2014/scoreboard/20150407-wayback-86493420/solved.html
+    - ctuo/ctuo-2014/scoreboard/20260904-live-2531ae2a/solved.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://www.acmicpc.net/category/detail/1289
     roles:
     - problemset
@@ -1182,17 +1178,6 @@ contests:
   - url: https://contest.felk.cvut.cz/15prg/
     roles:
     - web
-  - url: https://contest.felk.cvut.cz/15prg/solved.html
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20151030004904'
-    archived:
-    - ctuo/ctuo-2015/scoreboard/20151030-wayback-9a42578d/solved.html
-    - ctuo/ctuo-2015/scoreboard/20260904-live-fcd18c37/solved.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://contest.felk.cvut.cz/15prg/rank.html
     roles:
     - scoreboard
@@ -1209,6 +1194,16 @@ contests:
     archived:
     - ctuo/ctuo-2015/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 2779, 84 teams, DB fetch 2026-04-26)
+  - url: https://contest.felk.cvut.cz/15prg/solved.html
+    roles:
+    - problemset
+    as_of: '20151030004904'
+    archived:
+    - ctuo/ctuo-2015/scoreboard/20151030-wayback-9a42578d/solved.html
+    - ctuo/ctuo-2015/scoreboard/20260904-live-fcd18c37/solved.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://open.kattis.com/problem-sources/CTU%20Open%202015
     roles:
     - problemset
@@ -1279,17 +1274,6 @@ contests:
   - url: https://contest.felk.cvut.cz/16prg/
     roles:
     - web
-  - url: https://contest.felk.cvut.cz/16prg/solved.html
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20170208192120'
-    archived:
-    - ctuo/ctuo-2016/scoreboard/20170208-wayback-f095b63a/solved.html
-    - ctuo/ctuo-2016/scoreboard/20260904-live-f88bac89/solved.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://contest.felk.cvut.cz/16prg/rank.html
     roles:
     - scoreboard
@@ -1306,6 +1290,16 @@ contests:
     archived:
     - ctuo/ctuo-2016/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 3113, 95 teams, DB fetch 2026-04-26)
+  - url: https://contest.felk.cvut.cz/16prg/solved.html
+    roles:
+    - problemset
+    as_of: '20170208192120'
+    archived:
+    - ctuo/ctuo-2016/scoreboard/20170208-wayback-f095b63a/solved.html
+    - ctuo/ctuo-2016/scoreboard/20260904-live-f88bac89/solved.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://www.acmicpc.net/category/detail/1575
     roles:
     - problemset
@@ -1363,17 +1357,6 @@ contests:
   - url: https://contest.felk.cvut.cz/17prg/
     roles:
     - web
-  - url: https://contest.felk.cvut.cz/17prg/solved.html
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20171105235130'
-    archived:
-    - ctuo/ctuo-2017/scoreboard/20171105-wayback-b449a18b/solved.html
-    - ctuo/ctuo-2017/scoreboard/20260904-live-669787b1/solved.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://contest.felk.cvut.cz/17prg/rank.html
     roles:
     - scoreboard
@@ -1390,6 +1373,16 @@ contests:
     archived:
     - ctuo/ctuo-2017/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 3325, 72 teams, DB fetch 2026-04-26)
+  - url: https://contest.felk.cvut.cz/17prg/solved.html
+    roles:
+    - problemset
+    as_of: '20171105235130'
+    archived:
+    - ctuo/ctuo-2017/scoreboard/20171105-wayback-b449a18b/solved.html
+    - ctuo/ctuo-2017/scoreboard/20260904-live-669787b1/solved.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://www.acmicpc.net/category/detail/1781
     roles:
     - problemset
@@ -1460,17 +1453,6 @@ contests:
   - url: https://contest.felk.cvut.cz/18prg/
     roles:
     - web
-  - url: https://contest.felk.cvut.cz/18prg/solved.html
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20190822143654'
-    archived:
-    - ctuo/ctuo-2018/scoreboard/20190822-wayback-fb1c4d0e/solved.html
-    - ctuo/ctuo-2018/scoreboard/20260904-live-a301e45e/solved.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://contest.felk.cvut.cz/18prg/rank.html
     roles:
     - scoreboard
@@ -1487,6 +1469,16 @@ contests:
     archived:
     - ctuo/ctuo-2018/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 3662, 77 teams, DB fetch 2026-04-26)
+  - url: https://contest.felk.cvut.cz/18prg/solved.html
+    roles:
+    - problemset
+    as_of: '20190822143654'
+    archived:
+    - ctuo/ctuo-2018/scoreboard/20190822-wayback-fb1c4d0e/solved.html
+    - ctuo/ctuo-2018/scoreboard/20260904-live-a301e45e/solved.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://www.acmicpc.net/category/detail/1940
     roles:
     - problemset
@@ -1555,17 +1547,6 @@ contests:
   - url: https://contest.felk.cvut.cz/19prg/
     roles:
     - web
-  - url: https://contest.felk.cvut.cz/19prg/solved.html
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20191113133343'
-    archived:
-    - ctuo/ctuo-2019/scoreboard/20191113-wayback-0a0d6d1e/solved.html
-    - ctuo/ctuo-2019/scoreboard/20260904-live-d240ee74/solved.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://contest.felk.cvut.cz/19prg/rank.html
     roles:
     - scoreboard
@@ -1582,6 +1563,16 @@ contests:
     archived:
     - ctuo/ctuo-2019/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 4137, 93 teams, DB fetch 2026-04-26)
+  - url: https://contest.felk.cvut.cz/19prg/solved.html
+    roles:
+    - problemset
+    as_of: '20191113133343'
+    archived:
+    - ctuo/ctuo-2019/scoreboard/20191113-wayback-0a0d6d1e/solved.html
+    - ctuo/ctuo-2019/scoreboard/20260904-live-d240ee74/solved.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://www.acmicpc.net/category/detail/2096
     roles:
     - problemset
@@ -1645,17 +1636,6 @@ contests:
   - url: https://contest.felk.cvut.cz/21prg/
     roles:
     - web
-  - url: https://contest.felk.cvut.cz/21prg/solved.html
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20220122172031'
-    archived:
-    - ctuo/ctuo-2021/scoreboard/20220122-wayback-ed0d3924/solved.html
-    - ctuo/ctuo-2021/scoreboard/20260904-live-120ddbd8/solved.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://contest.felk.cvut.cz/21prg/rank.html
     roles:
     - scoreboard
@@ -1672,6 +1652,16 @@ contests:
     archived:
     - ctuo/ctuo-2021/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 4895, 34 teams, DB fetch 2026-04-26)
+  - url: https://contest.felk.cvut.cz/21prg/solved.html
+    roles:
+    - problemset
+    as_of: '20220122172031'
+    archived:
+    - ctuo/ctuo-2021/scoreboard/20220122-wayback-ed0d3924/solved.html
+    - ctuo/ctuo-2021/scoreboard/20260904-live-120ddbd8/solved.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://open.kattis.com/problem-sources/CTU%20Open%202021
     roles:
     - problemset
@@ -1746,17 +1736,6 @@ contests:
   - url: https://contest.felk.cvut.cz/22prg/
     roles:
     - web
-  - url: https://contest.felk.cvut.cz/22prg/solved.html
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20221107203503'
-    archived:
-    - ctuo/ctuo-2022/scoreboard/20221107-wayback-9edefef6/solved.html
-    - ctuo/ctuo-2022/scoreboard/20260904-live-3e38ec9d/solved.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://contest.felk.cvut.cz/22prg/rank.html
     roles:
     - scoreboard
@@ -1773,6 +1752,16 @@ contests:
     archived:
     - ctuo/ctuo-2022/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 5392, 59 teams, DB fetch 2026-04-26)
+  - url: https://contest.felk.cvut.cz/22prg/solved.html
+    roles:
+    - problemset
+    as_of: '20221107203503'
+    archived:
+    - ctuo/ctuo-2022/scoreboard/20221107-wayback-9edefef6/solved.html
+    - ctuo/ctuo-2022/scoreboard/20260904-live-3e38ec9d/solved.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://www.acmicpc.net/category/detail/3225
     roles:
     - problemset
@@ -1840,17 +1829,6 @@ contests:
   - url: https://contest.felk.cvut.cz/23prg/
     roles:
     - web
-  - url: https://contest.felk.cvut.cz/23prg/solved.html
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20231128161026'
-    archived:
-    - ctuo/ctuo-2023/scoreboard/20231128-wayback-9c083443/solved.html
-    - ctuo/ctuo-2023/scoreboard/20260904-live-d6e4e903/solved.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://contest.felk.cvut.cz/23prg/rank.html
     roles:
     - scoreboard
@@ -1867,6 +1845,16 @@ contests:
     archived:
     - ctuo/ctuo-2023/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 7592, 68 teams, DB fetch 2026-04-26)
+  - url: https://contest.felk.cvut.cz/23prg/solved.html
+    roles:
+    - problemset
+    as_of: '20231128161026'
+    archived:
+    - ctuo/ctuo-2023/scoreboard/20231128-wayback-9c083443/solved.html
+    - ctuo/ctuo-2023/scoreboard/20260904-live-d6e4e903/solved.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://www.acmicpc.net/category/detail/4022
     roles:
     - problemset
@@ -1953,9 +1941,15 @@ contests:
     - ctuo/ctuo-2024/scoreboard/20260901-live-eb2d7956/rank.html
     url_state: live
     url_checked: '2026-11-14'
+  - url: https://icpc.global/regionals/finder/CTU-Open-2025/standings
+    roles:
+    - standings
+    archived:
+    - ctuo/ctuo-2024/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 8985, 80 teams, DB fetch 2026-04-26)
   - url: https://contest.felk.cvut.cz/24prg/solved.html
     roles:
-    - scoreboard
+    - problemset
     as_of: '20250117044740'
     archived:
     - ctuo/ctuo-2024/scoreboard/20250117-wayback-66446340/solved.html
@@ -1963,12 +1957,6 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (wave5-boards)
-  - url: https://icpc.global/regionals/finder/CTU-Open-2025/standings
-    roles:
-    - standings
-    archived:
-    - ctuo/ctuo-2024/standings/api-20261113/standings.html
-    note: rendered from the icpc.global API standings archive (cms 8985, 80 teams, DB fetch 2026-04-26)
   - url: https://contest.felk.cvut.cz/24prg/solved/ctu-open-problems.pdf
     roles:
     - problemset
@@ -2058,9 +2046,15 @@ contests:
     - ctuo/ctuo-2025/scoreboard/20260901-live-c5a365f5/rank.html
     url_state: live
     url_checked: '2026-11-14'
+  - url: https://icpc.global/regionals/finder/CTU-Open-2026/standings
+    roles:
+    - standings
+    archived:
+    - ctuo/ctuo-2025/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 9358, 81 teams, DB fetch 2026-04-26)
   - url: https://contest.felk.cvut.cz/25prg/solved.html
     roles:
-    - scoreboard
+    - problemset
     as_of: '20260218153029'
     archived:
     - ctuo/ctuo-2025/scoreboard/20260218-wayback-d851575e/solved.html
@@ -2068,12 +2062,6 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (wave5-boards)
-  - url: https://icpc.global/regionals/finder/CTU-Open-2026/standings
-    roles:
-    - standings
-    archived:
-    - ctuo/ctuo-2025/standings/api-20261113/standings.html
-    note: rendered from the icpc.global API standings archive (cms 9358, 81 teams, DB fetch 2026-04-26)
   - url: https://contest.felk.cvut.cz/25prg/solved/ctu-open-problems.pdf
     roles:
     - problemset
@@ -2144,19 +2132,19 @@ contests:
     url_checked: '2026-11-14'
     archived:
     - ctuo/ctuo-2026/scoreboard/20261113-live-cff75ba8/rank.html
-  - url: https://contest.felk.cvut.cz/26prg/solved.html
-    roles:
-    - scoreboard
-    url_state: live
-    url_checked: '2026-11-14'
-    archived:
-    - ctuo/ctuo-2026/scoreboard/20261113-live-bfb7632d/solved.html
   - url: https://icpc.global/regionals/finder/CTU-Open-2027/standings
     roles:
     - standings
     archived:
     - ctuo/ctuo-2026/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 9591, 73 teams, DB fetch 2026-11-13)
+  - url: https://contest.felk.cvut.cz/26prg/solved.html
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-14'
+    archived:
+    - ctuo/ctuo-2026/scoreboard/20261113-live-bfb7632d/solved.html
   - url: https://contest.felk.cvut.cz/26prg/solved/ctu-open-problems.pdf
     roles:
     - problemset

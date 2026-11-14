@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
 series:
   id: amritapuri
   name: ICPC Asia West Amritapuri Multisite Regional Contest
@@ -179,8 +179,6 @@ contests:
   - url: http://icpc.amrita.ac.in/2010/finals/2010OnsiteRankList.pdf
     roles:
     - scoreboard
-    - standings
-    - rankings
     as_of: '20111125101538'
     archived:
     - amritapuri/amritapuri-2010/scoreboard/2026-09-01-wayback-9e8e8069/2010OnsiteRankList.pdf
@@ -258,7 +256,6 @@ contests:
   - url: http://icpc.amrita.ac.in/2011/others/Asia-AmritapuriRankings2011.html
     roles:
     - scoreboard
-    - standings
     as_of: '20120116185059'
     archived:
     - amritapuri/amritapuri-2011/scoreboard/2026-09-01-wayback-f863d486/Asia-AmritapuriRankings2011.html
@@ -356,7 +353,6 @@ contests:
   - url: http://icpc.amrita.ac.in/2013/wp-content/uploads/2013/12/Amrita_Onsite_Final_Result.xlsx
     roles:
     - scoreboard
-    - rankings
     as_of: '20141002041639'
     archived:
     - amritapuri/amritapuri-2013/scoreboard/2026-09-01-wayback-9f50eb79/page.html
@@ -399,6 +395,16 @@ contests:
     roles:
     - web
     as_of: '20151020044031'
+  - url: http://icpc.amrita.ac.in/2014/downloads/ACMICPCAsiaAmritapuriOnsiteReional.pdf
+    roles:
+    - web
+    as_of: '20150927050547'
+    archived:
+    - amritapuri/amritapuri-2014/rankings/20150927-wayback-68d93cee/ACMICPCAsiaAmritapuriOnsiteReional.pdf
+    - amritapuri/amritapuri-2014/rankings/20150927-wayback-735d9a84/ACMICPCAsiaAmritapuriOnsiteReional.pdf
+    url_state: dead
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (wave5-wayback)
   - url: http://icpc.amrita.ac.in/2014/downloads/Scoreboard_2014AsiaAmritapuriSite.pdf
     roles:
     - scoreboard
@@ -421,16 +427,6 @@ contests:
     archived:
     - amritapuri/amritapuri-2014/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 2594, 258 teams, DB fetch 2026-04-26)
-  - url: http://icpc.amrita.ac.in/2014/downloads/ACMICPCAsiaAmritapuriOnsiteReional.pdf
-    roles:
-    - rankings
-    as_of: '20150927050547'
-    archived:
-    - amritapuri/amritapuri-2014/rankings/20150927-wayback-68d93cee/ACMICPCAsiaAmritapuriOnsiteReional.pdf
-    - amritapuri/amritapuri-2014/rankings/20150927-wayback-735d9a84/ACMICPCAsiaAmritapuriOnsiteReional.pdf
-    url_state: dead
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (wave5-wayback)
   - url: https://www.scribd.com/doc/250973844/ACM-ICPC-Amritapuri-2014
     roles:
     - problemset
@@ -717,7 +713,7 @@ contests:
   sources:
   - url: https://codeforces.com/blog/entry/93878
     roles:
-    - standings
+    - report
     as_of: '20211017073821'
     archived:
     - amritapuri/amritapuri-2020/standings/20211017-wayback-1cc3e777/page.html
@@ -842,11 +838,6 @@ contests:
   - url: https://amritaicpc.in/archive/icpc_Amritapuri_2025
     roles:
     - web
-  - url: https://amritaicpc.in/archive/icpc_Amritapuri_2025/onsite-winners
-    roles:
-    - web
-    url_state: live
-    url_checked: '2026-11-14'
   - url: https://amritaicpc.in/archive/icpc_Amritapuri_2025/halloffame
     roles:
     - web
@@ -880,6 +871,12 @@ contests:
     archived:
     - amritapuri/amritapuri-2025/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 9236, 309 teams, DB fetch 2026-11-13)
+  - url: https://amritaicpc.in/archive/icpc_Amritapuri_2025/onsite-winners
+    roles:
+    - rankings
+    url_state: live
+    url_checked: '2026-11-14'
+    scope: top 3
   - url: https://amritaicpc.in/data/ICPC_Amritapuri_2025___26.pdf
     roles:
     - problemset

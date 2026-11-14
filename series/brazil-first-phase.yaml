@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
 series:
   id: brazil-first-phase
   name: ICPC Brazil Sub-Regional (Primeira Fase)
@@ -17,7 +17,8 @@ contests:
     - web
   - url: https://maratona.sbc.org.br/hist/1996/index.html
     roles:
-    - standings
+    - scoreboard
+    - report
     as_of: '20200718005034'
     archived:
     - brazil-first-phase/brazil-first-phase-1996/standings/20200718-wayback-db0dc48e/index.html
@@ -328,12 +329,13 @@ contests:
     note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
   - url: https://maratona.sbc.org.br/hist/2008/primeira-fase/resultados/juizdefora/html/full.html
     roles:
-    - scoreboard
+    - standings
     archived:
     - brazil-first-phase/brazil-first-phase-2008/scoreboard/20261023-live-7d563947/full.html
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+    scope: Juiz de Fora site, first phase
   - url: https://maratona.sbc.org.br/hist/2008/primeira-fase
     roles:
     - rankings
@@ -1582,19 +1584,19 @@ contests:
   - url: https://maratona.sbc.org.br/hist/2016/index.html
     roles:
     - web
-  - url: https://maratona.sbc.org.br/hist/2016/primeira-fase/SB.pdf
-    roles:
-    - scoreboard
-    archived:
-    - brazil-first-phase/brazil-first-phase-2016/scoreboard/20261023-live-61a9d26d/SB.pdf
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
   - url: https://maratona.sbc.org.br/hist/2016/primeira-fase/SP-SaoPaulo.pdf
     roles:
     - scoreboard
     archived:
     - brazil-first-phase/brazil-first-phase-2016/scoreboard/20261023-live-939a931a/SP-SaoPaulo.pdf
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/2016/primeira-fase/SB.pdf
+    roles:
+    - standings
+    archived:
+    - brazil-first-phase/brazil-first-phase-2016/scoreboard/20261023-live-61a9d26d/SB.pdf
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
@@ -2664,6 +2666,14 @@ contests:
     - web
     url_state: live
     url_checked: '2026-11-14'
+  - url: https://maratona.sbc.org.br/hist/2022/primfase22/
+    roles:
+    - web
+    archived:
+    - brazil-first-phase/brazil-first-phase-2022/rankings/20261023-live-27ec67cb/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
   - url: https://maratona.sbc.org.br/hist/2022/primfase22/vitoria2022-report/Score.html
     roles:
     - scoreboard
@@ -2685,14 +2695,6 @@ contests:
     - scoreboard
     archived:
     - brazil-first-phase/brazil-first-phase-2022/scoreboard/20261023-live-fbdb2971/Score.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-  - url: https://maratona.sbc.org.br/hist/2022/primfase22/
-    roles:
-    - rankings
-    archived:
-    - brazil-first-phase/brazil-first-phase-2022/rankings/20261023-live-27ec67cb/page.html
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
@@ -2842,21 +2844,21 @@ contests:
   - url: https://www.youtube.com/watch?v=I1NiurdCdi4
     roles:
     - web
+  - url: https://maratona.sbc.org.br/hist/2023/primfase23/
+    roles:
+    - web
+    as_of: '20250718130816'
+    archived:
+    - brazil-first-phase/brazil-first-phase-2023/rankings/20250718-wayback-578d3ccc/page.html
+    - brazil-first-phase/brazil-first-phase-2023/rankings/20261023-live-0c358c30/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
   - url: https://maratona.sbc.org.br/hist/2023/primfase23/contest/Score.html
     roles:
     - scoreboard
     archived:
     - brazil-first-phase/brazil-first-phase-2023/scoreboard/20261023-live-942c56ef/Score.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-  - url: https://maratona.sbc.org.br/hist/2023/primfase23/
-    roles:
-    - rankings
-    as_of: '20250718130816'
-    archived:
-    - brazil-first-phase/brazil-first-phase-2023/rankings/20250718-wayback-578d3ccc/page.html
-    - brazil-first-phase/brazil-first-phase-2023/rankings/20261023-live-0c358c30/page.html
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
@@ -3025,6 +3027,14 @@ contests:
   - url: https://maratona.sbc.org.br/hist/2024/
     roles:
     - web
+  - url: https://maratona.sbc.org.br/hist/2024/primfase24.html
+    roles:
+    - web
+    archived:
+    - brazil-first-phase/brazil-first-phase-2024/rankings/20261023-live-d4c84cfb/primfase24.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
   - url: https://maratona.sbc.org.br/hist/2024/primfase24/reports/Score.html
     roles:
     - scoreboard
@@ -3041,14 +3051,16 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-  - url: https://maratona.sbc.org.br/hist/2024/primfase24.html
+  - url: https://scorelatam.naquadah.com.br/subbr-2024/
     roles:
-    - rankings
+    - scoreboard
+    as_of: '20250708045728'
     archived:
-    - brazil-first-phase/brazil-first-phase-2024/rankings/20261023-live-d4c84cfb/primfase24.html
+    - brazil/brazil-2024/scoreboard/20250708-wayback-056f987e/page.html
+    - brazil/brazil-2024/scoreboard/20260904-live-288bd14d/page.html
     url_state: live
     url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+    note: added by url-hunt 2026-09-01 (wave5-boards); moved from brazil-2024 by the content check
   - url: https://maratona.sbc.org.br/hist/2024/primfase24/contest-pf2024/maratona.pdf
     roles:
     - problemset
@@ -3058,11 +3070,6 @@ contests:
     roles:
     - editorial
     url_state: dead
-    url_checked: '2026-11-14'
-  - url: https://maratona.sbc.org.br/hist/2024/JoaoPessoa/icpcla24_solution_sketches.pdf
-    roles:
-    - editorial
-    url_state: live
     url_checked: '2026-11-14'
   provenance:
   - 'Maratona SBC 2024 year page (2024-2025): First phase ''ocorreu em 31 de agosto de 2024'' in 48 sites;
@@ -3220,6 +3227,14 @@ contests:
     - web
     url_state: changed
     url_checked: '2026-11-14'
+  - url: https://maratona.sbc.org.br/hist/2025/primeira-fase25.html
+    roles:
+    - web
+    archived:
+    - brazil-first-phase/brazil-first-phase-2025/rankings/20261023-live-9c0e5815/primeira-fase25.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
   - url: https://maratona.sbc.org.br/hist/2025/subbr-2025/index.html
     roles:
     - scoreboard
@@ -3228,14 +3243,16 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-  - url: https://maratona.sbc.org.br/hist/2025/primeira-fase25.html
+  - url: https://scorelatam.naquadah.com.br/subbr-2025/
     roles:
-    - rankings
+    - scoreboard
+    as_of: '20251112050107'
     archived:
-    - brazil-first-phase/brazil-first-phase-2025/rankings/20261023-live-9c0e5815/primeira-fase25.html
+    - brazil/brazil-2025/scoreboard/20251112-wayback-29ca8ed4/page.html
+    - brazil/brazil-2025/scoreboard/20260904-live-50bb49c3/page.html
     url_state: live
     url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+    note: added by url-hunt 2026-09-01 (wave5-boards); moved from brazil-2025 by the content check
   - url: https://scorelatam.naquadah.com.br/subbr-2025/maratona.pdf
     roles:
     - problemset
@@ -3469,6 +3486,7 @@ contests:
   - url: https://maratona.sbc.org.br/relatorio-icpc-latam-br-fp-2026/
     roles:
     - scoreboard
+    - problemset
     archived:
     - brazil-first-phase/brazil-first-phase-2026/scoreboard/20261023-live-6ada2d79/page.html
     url_state: live
@@ -3477,6 +3495,7 @@ contests:
   - url: https://scorelatam.naquadah.com.br/subbr-2026/
     roles:
     - scoreboard
+    - problemset
     as_of: '20261108134517'
     url_state: replaced
     url_checked: '2026-11-14'

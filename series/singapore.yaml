@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
 series:
   id: singapore
   name: ICPC Asia Singapore Regional Contest
@@ -31,7 +31,7 @@ contests:
     url_checked: '2026-11-14'
   - url: http://icpc.baylor.edu/past/icpc2001/Regionals/ViewRegionalStandings.asp?ContestID=446
     roles:
-    - standings
+    - rankings
     as_of: '20020112014446'
     archived:
     - singapore/singapore-2000/standings/20020112-wayback-4481d039/page.html
@@ -99,16 +99,6 @@ contests:
     - singapore/singapore-2001/standings/2026-09-01-wayback-726fc68a/SingaporeResults2001.htm
     url_state: dead
     url_checked: '2026-11-14'
-  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=511
-    roles:
-    - standings
-    as_of: '20020619091850'
-    archived:
-    - singapore/singapore-2001/standings/20020619-wayback-27c7d824/page.html
-    - singapore/singapore-2001/standings/20020619-wayback-d8ae9b73/page.html
-    url_state: dead
-    url_checked: '2026-11-01'
-    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
   - url: http://www.ntu.edu.sg/acm/results2001.htm
     roles:
     - standings
@@ -118,6 +108,16 @@ contests:
     url_checked: '2026-11-14'
     archived:
     - singapore/singapore-2001/standings/20011222-wayback-edea7b77/results2001.htm
+  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=511
+    roles:
+    - rankings
+    as_of: '20020619091850'
+    archived:
+    - singapore/singapore-2001/standings/20020619-wayback-27c7d824/page.html
+    - singapore/singapore-2001/standings/20020619-wayback-d8ae9b73/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
   - url: http://icpc.baylor.edu/past/icpc2002/Regionals/Singapor01/ProblemSets2001.pdf
     roles:
     - problemset
@@ -172,7 +172,6 @@ contests:
     - web
   - url: http://www.comp.nus.edu.sg/~acmicpc/result.html
     roles:
-    - standings
     - rankings
     as_of: '20100329162412'
     archived:
@@ -225,7 +224,7 @@ contests:
     url_checked: '2026-11-14'
   - url: http://asiasg15.kattis.com/standings
     roles:
-    - standings
+    - scoreboard
     as_of: '20161224013059'
     archived:
     - singapore/singapore-2015/external-standings/2026-04-15-external/content.html

@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
 series:
   id: south-russia
   name: ICPC Southern and Volga Russia Regional Contest
@@ -58,9 +58,6 @@ contests:
   parent: neerc-2001
   next: south-russia-2002
   sources:
-  - url: https://www.kgeorgiy.info/papers/Vasilev_VN__Kazakov_MA__Korneev_GA__Parfenov_VG__Stankevich_AS_--_NEERC_2001.pdf
-    roles:
-    - web
   - url: https://contest.sgu.ru/
     roles:
     - web
@@ -93,6 +90,16 @@ contests:
   - url: https://neerc.ifmo.ru/subregions/southern.html
     roles:
     - web
+  - url: https://neerc.ifmo.ru/archive/2003/southern/standings.html
+    roles:
+    - scoreboard
+    as_of: '20161030041829'
+    archived:
+    - south-russia/south-russia-2003/standings/20161030-wayback-1435343a/standings.html
+    - south-russia/south-russia-2003/standings/20260904-live-38cf9368/standings.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
   - url: https://nerc.itmo.ru/archive/2003/southern/standings.html
     roles:
     - standings
@@ -102,16 +109,6 @@ contests:
     - south-russia/south-russia-2003/standings/20230322-wayback-3bc706ae/standings.html
     url_state: live
     url_checked: '2026-11-14'
-  - url: https://neerc.ifmo.ru/archive/2003/southern/standings.html
-    roles:
-    - standings
-    as_of: '20161030041829'
-    archived:
-    - south-russia/south-russia-2003/standings/20161030-wayback-1435343a/standings.html
-    - south-russia/south-russia-2003/standings/20260904-live-38cf9368/standings.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (neerc-subregion-index)
   problems:
     set: south-russia-2003
 - id: south-russia-2004
@@ -126,7 +123,7 @@ contests:
     - web
   - url: https://nerc.itmo.ru/archive/2004/southern/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20260613061509'
     archived:
     - south-russia/south-russia-2004/standings/20260613-wayback-9be44236/standings.html
@@ -135,7 +132,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2004/southern/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20161030041657'
     archived:
     - south-russia/south-russia-2004/standings/20161030-wayback-d3716f58/standings.html
@@ -157,7 +154,7 @@ contests:
     - web
   - url: https://nerc.itmo.ru/archive/2005/southern/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20260613052506'
     archived:
     - south-russia/south-russia-2005/standings/20260613-wayback-96425429/standings.html
@@ -166,7 +163,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2005/southern/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20161030041703'
     archived:
     - south-russia/south-russia-2005/standings/20161030-wayback-ac793a97/standings.html
@@ -194,7 +191,7 @@ contests:
     - web
   - url: https://nerc.itmo.ru/archive/2006/southern/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20230322024612'
     archived:
     - south-russia/south-russia-2006/standings/20230322-wayback-a2b06b6d/standings.html
@@ -203,7 +200,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2006/southern/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20161030042308'
     archived:
     - south-russia/south-russia-2006/standings/20161030-wayback-6e7d69e9/standings.html
@@ -223,7 +220,7 @@ contests:
     - web
   - url: https://nerc.itmo.ru/archive/2007/southern/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20260610210511'
     archived:
     - south-russia/south-russia-2007/standings/20260610-wayback-0e62424c/standings.html
@@ -232,7 +229,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2007/southern/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20161030042239'
     archived:
     - south-russia/south-russia-2007/standings/20161030-wayback-417b8036/standings.html
@@ -276,7 +273,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://nerc.itmo.ru/archive/2008/southern/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20260613062240'
     archived:
     - south-russia/south-russia-2008/standings/20260613-wayback-cf52bd1f/standings.html
@@ -285,7 +282,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2008/southern/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20161030042314'
     archived:
     - south-russia/south-russia-2008/standings/20161030-wayback-34532680/standings.html
@@ -330,7 +327,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://nerc.itmo.ru/archive/2009/southern/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20260610145720'
     archived:
     - south-russia/south-russia-2009/standings/20260610-wayback-8fe86fe6/standings.html
@@ -339,7 +336,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2009/southern/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20161030042244'
     archived:
     - south-russia/south-russia-2009/standings/20161030-wayback-8656a33a/standings.html
@@ -385,7 +382,7 @@ contests:
     - web
   - url: https://nerc.itmo.ru/archive/2010/southern/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20230322040025'
     archived:
     - south-russia/south-russia-2010/standings/20230322-wayback-f7a9658b/standings.html
@@ -394,7 +391,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2010/southern/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20161030041624'
     archived:
     - south-russia/south-russia-2010/standings/20161030-wayback-652e8e78/standings.html
@@ -439,7 +436,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2011/southern/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20161030042250'
     archived:
     - south-russia/south-russia-2011/standings/20161030-wayback-ebf9b1bc/standings.html
@@ -489,7 +486,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2012/southern/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20161030042319'
     archived:
     - south-russia/south-russia-2012/standings/20161030-wayback-6b0ef67f/standings.html
@@ -540,7 +537,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2013/southern/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20161030041709'
     archived:
     - south-russia/south-russia-2013/standings/20161030-wayback-25a42711/standings.html
@@ -584,7 +581,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2014/southern/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20161030041714'
     archived:
     - south-russia/south-russia-2014/standings/20161030-wayback-cd3cbf75/standings.html
@@ -635,7 +632,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2015/southern/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20161030042255'
     archived:
     - south-russia/south-russia-2015/standings/20161030-wayback-85c9d9fd/standings.html
@@ -686,7 +683,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2016/southern/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20171025174045'
     archived:
     - south-russia/south-russia-2016/standings/20171025-wayback-208cd89d/standings.html
@@ -737,7 +734,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2017/southern/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20180920232612'
     archived:
     - south-russia/south-russia-2017/standings/20180920-wayback-024851a4/standings.html
@@ -848,7 +845,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://neerc.ifmo.ru/archive/2019/southern/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20230321215012'
     archived:
     - south-russia/south-russia-2019/standings/20230321-wayback-b86c4634/standings.html
@@ -1086,7 +1083,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://contest.sgu.ru/monitor/1
     roles:
-    - standings
+    - frozen_scoreboard
     as_of: '20260121222301'
     archived:
     - south-russia/south-russia-2025/external-standings/2026-04-15-external/content.html

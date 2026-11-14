@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
 series:
   id: scusa
   name: ICPC North America South Central Regional Contest
@@ -122,7 +122,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://groups.google.com/g/comp.org.acm/c/WqBIPKSnTUE
     roles:
-    - rankings
+    - standings
     archived:
     - scusa/scusa-1991/rankings/20261023-live-a9aa9610/page.html
     url_state: live
@@ -296,11 +296,6 @@ contests:
   parent: wf-1998
   next: scusa-1998
   sources:
-  - url: https://users.cs.duke.edu/~rodger/courses/cps149s/problems/week8/prob3.html
-    roles:
-    - problemset
-    url_state: live
-    url_checked: '2026-11-14'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_SouthCen/1997/index.html
     roles:
     - problemset
@@ -321,6 +316,11 @@ contests:
     as_of: '20191117093144'
     url_state: dead
     url_checked: '2026-11-14'
+  - url: https://users.cs.duke.edu/~rodger/courses/cps149s/problems/week8/prob3.html
+    roles:
+    - problem
+    url_state: live
+    url_checked: '2026-11-14'
   problems:
     set: scusa-1997
 - id: scusa-1998
@@ -338,16 +338,6 @@ contests:
     roles:
     - web
     as_of: '20100709212305'
-  - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_US_SouthCen/1998/index.html
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20010225204101'
-    archived:
-    - scusa/scusa-1998/scoreboard/2026-04-16-archive/1998-south-central-usa-programming-contest-1998.html
-    url_state: dead
-    url_checked: '2026-11-14'
-    note: from archived capture (scoreboard)
   - url: http://icpc.baylor.edu/past/icpc99/Regionals/SCUSA98/standings.htm
     roles:
     - standings
@@ -359,6 +349,15 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: as_of 20030518164322 for standings; added by url-hunt 2026-09-01 (cdx-baylor-regionals)
+  - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_US_SouthCen/1998/index.html
+    roles:
+    - problemset
+    as_of: '20010225204101'
+    archived:
+    - scusa/scusa-1998/scoreboard/2026-04-16-archive/1998-south-central-usa-programming-contest-1998.html
+    url_state: dead
+    url_checked: '2026-11-14'
+    note: from archived capture (scoreboard)
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_SouthCen/1998/index.html
     roles:
     - problemset
@@ -456,25 +455,6 @@ contests:
     as_of: '20010301202134'
     url_state: dead
     url_checked: '2026-11-14'
-  - url: https://acm2000.scusa.lsu.edu/problems/
-    roles:
-    - scoreboard
-    - problemset
-    archived:
-    - scusa/scusa-2000/scoreboard/2026-04-16-scusa/2000-south-central-usa-programming-contest-2000.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: from archived capture (scoreboard)
-  - url: http://acm2000.scusa.lsu.edu/full.html
-    roles:
-    - scoreboard
-    - standings
-    as_of: '20231130210304'
-    archived:
-    - scusa/scusa-2000/scoreboard/20231130-wayback-89f37df5/full.html
-    - scusa/scusa-2000/standings/20231130-wayback-89f37df5/full.html
-    url_state: dead
-    url_checked: '2026-11-14'
   - url: http://acm2000.scusa.lsu.edu/sumtime.html
     roles:
     - scoreboard
@@ -483,9 +463,18 @@ contests:
     - scusa/scusa-2000/scoreboard/20231130-wayback-a56f843c/sumtime.html
     url_state: dead
     url_checked: '2026-11-14'
-  - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=441
+  - url: http://acm2000.scusa.lsu.edu/full.html
     roles:
     - standings
+    as_of: '20231130210304'
+    archived:
+    - scusa/scusa-2000/scoreboard/20231130-wayback-89f37df5/full.html
+    - scusa/scusa-2000/standings/20231130-wayback-89f37df5/full.html
+    url_state: dead
+    url_checked: '2026-11-14'
+  - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=441
+    roles:
+    - rankings
     as_of: '20011222224247'
     archived:
     - scusa/scusa-2000/standings/20011222-wayback-965d1d26/page.html
@@ -493,6 +482,14 @@ contests:
     url_state: dead
     url_checked: '2026-11-01'
     note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: https://acm2000.scusa.lsu.edu/problems/
+    roles:
+    - problemset
+    archived:
+    - scusa/scusa-2000/scoreboard/2026-04-16-scusa/2000-south-central-usa-programming-contest-2000.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: from archived capture (scoreboard)
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_SouthCen/2000/index.html
     roles:
     - problemset
@@ -512,6 +509,13 @@ contests:
     as_of: '20211023043427'
     url_state: dead
     url_checked: '2026-11-14'
+  - url: http://icpc.baylor.edu/past/icpc2001/regionals/SEUSA00/Problems.pdf
+    roles:
+    - problemset
+    as_of: '20030323124315'
+    url_state: unknown
+    url_checked: '2026-11-13'
+    note: moved from seusa-2000 by the content check
   problems:
     set: scusa-2000
   provenance:
@@ -537,28 +541,18 @@ contests:
     as_of: '20010520154204'
     url_state: dead
     url_checked: '2026-11-14'
-  - url: https://acm2001.scusa.lsu.edu/problems/
+  - url: http://acm2001.scusa.lsu.edu/reports/sumtime.html
     roles:
     - scoreboard
-    - problemset
-    archived:
-    - scusa/scusa-2001/scoreboard/2026-04-16-scusa/2001-south-central-usa-programming-contest-2001.html
-    url_state: live
+    url_state: dead
     url_checked: '2026-11-14'
-    note: from archived capture (scoreboard)
   - url: http://acm2001.scusa.lsu.edu/reports/full.html
     roles:
-    - scoreboard
     - standings
     as_of: '20240221160025'
     archived:
     - scusa/scusa-2001/scoreboard/20240221-wayback-7821108d/full.html
     - scusa/scusa-2001/standings/20240221-wayback-7821108d/full.html
-    url_state: dead
-    url_checked: '2026-11-14'
-  - url: http://acm2001.scusa.lsu.edu/reports/sumtime.html
-    roles:
-    - scoreboard
     url_state: dead
     url_checked: '2026-11-14'
   - url: http://icpc.baylor.edu/past/icpc2004/RegReport/acm2001.csc.lsu.edu/reports/final.html
@@ -570,16 +564,6 @@ contests:
     url_state: dead
     url_checked: '2026-11-01'
     note: added by url-hunt 2026-09-01 (cdx-baylor-regreport)
-  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=506
-    roles:
-    - standings
-    as_of: '20020619090832'
-    archived:
-    - scusa/scusa-2001/standings/20020619-wayback-649333e5/page.html
-    - scusa/scusa-2001/standings/20020619-wayback-3abbb67d/page.html
-    url_state: dead
-    url_checked: '2026-11-01'
-    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
   - url: http://acm2001.csc.lsu.edu/reports/index.html
     roles:
     - standings
@@ -589,6 +573,24 @@ contests:
     url_checked: '2026-11-14'
     archived:
     - scusa/scusa-2001/standings/20011120-wayback-44f6b66d/index.html
+  - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=506
+    roles:
+    - rankings
+    as_of: '20020619090832'
+    archived:
+    - scusa/scusa-2001/standings/20020619-wayback-649333e5/page.html
+    - scusa/scusa-2001/standings/20020619-wayback-3abbb67d/page.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: https://acm2001.scusa.lsu.edu/problems/
+    roles:
+    - problemset
+    archived:
+    - scusa/scusa-2001/scoreboard/2026-04-16-scusa/2001-south-central-usa-programming-contest-2001.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: from archived capture (scoreboard)
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_SouthCen/2001/index.html
     roles:
     - problemset
@@ -639,15 +641,6 @@ contests:
     as_of: '20020924040038'
     url_state: dead
     url_checked: '2026-11-14'
-  - url: https://acm2002.scusa.lsu.edu/problems/
-    roles:
-    - scoreboard
-    - problemset
-    archived:
-    - scusa/scusa-2002/scoreboard/2026-04-16-scusa/2002-south-central-usa-programming-contest-2003.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: from archived capture (scoreboard)
   - url: http://acm2002.scusa.lsu.edu/results/summary.html
     roles:
     - scoreboard
@@ -667,15 +660,6 @@ contests:
     url_state: dead
     url_checked: '2026-11-01'
     note: added by url-hunt 2026-09-01 (cdx-baylor-mirror)
-  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandingsf3d2.html?ContestID=574
-    roles:
-    - standings
-    as_of: '20060901123201'
-    archived:
-    - scusa/scusa-2002/standings/20060901-wayback-3b260ba1/ViewRegionalStandingsf3d2.html
-    url_state: dead
-    url_checked: '2026-11-01'
-    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
   - url: http://acm2002.csc.lsu.edu/results/finals.html
     roles:
     - standings
@@ -685,6 +669,23 @@ contests:
     url_checked: '2026-11-14'
     archived:
     - scusa/scusa-2002/standings/20030104-wayback-1fddba99/finals.html
+  - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandingsf3d2.html?ContestID=574
+    roles:
+    - rankings
+    as_of: '20060901123201'
+    archived:
+    - scusa/scusa-2002/standings/20060901-wayback-3b260ba1/ViewRegionalStandingsf3d2.html
+    url_state: dead
+    url_checked: '2026-11-01'
+    note: added by url-hunt 2026-09-01 (cdx-viewstandings)
+  - url: https://acm2002.scusa.lsu.edu/problems/
+    roles:
+    - problemset
+    archived:
+    - scusa/scusa-2002/scoreboard/2026-04-16-scusa/2002-south-central-usa-programming-contest-2003.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: from archived capture (scoreboard)
   - url: http://icpc.baylor.edu/past/icpc2003/Regionals/Reports/acm2002.csc.lsu.edu/problems/index.html
     roles:
     - problemset
@@ -730,15 +731,6 @@ contests:
     as_of: '20030904172423'
     url_state: dead
     url_checked: '2026-11-14'
-  - url: https://acm2003.scusa.lsu.edu/problems/
-    roles:
-    - scoreboard
-    - problemset
-    archived:
-    - scusa/scusa-2003/scoreboard/2026-04-16-scusa/2003-south-central-usa-programming-contest-2003.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: from archived capture (scoreboard)
   - url: http://acm2003.scusa.lsu.edu/results/finals-no-extras.html
     roles:
     - standings
@@ -771,6 +763,14 @@ contests:
     url_checked: '2026-11-14'
     archived:
     - scusa/scusa-2003/standings/20040205-wayback-164b1afb/page.html
+  - url: https://acm2003.scusa.lsu.edu/problems/
+    roles:
+    - problemset
+    archived:
+    - scusa/scusa-2003/scoreboard/2026-04-16-scusa/2003-south-central-usa-programming-contest-2003.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: from archived capture (scoreboard)
   - url: http://acm2003.csc.lsu.edu/problems/
     roles:
     - problemset
@@ -810,17 +810,6 @@ contests:
   - url: http://acm2004.scusa.lsu.edu/
     roles:
     - web
-  - url: https://acm2004.scusa.lsu.edu/problems/
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20210413062257'
-    archived:
-    - scusa/scusa-2004/scoreboard/2026-04-16-scusa/2004-south-central-usa-programming-contest-2004.html
-    - scusa/scusa-2004/scoreboard/20210413-wayback-c4ccf042/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: from archived capture (scoreboard)
   - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=690
     roles:
     - standings
@@ -829,6 +818,16 @@ contests:
     - scusa/scusa-2004/standings/2026-09-01-wayback-097f353e/page.html
     url_state: dead
     url_checked: '2026-11-01'
+  - url: https://acm2004.scusa.lsu.edu/problems/
+    roles:
+    - problemset
+    as_of: '20210413062257'
+    archived:
+    - scusa/scusa-2004/scoreboard/2026-04-16-scusa/2004-south-central-usa-programming-contest-2004.html
+    - scusa/scusa-2004/scoreboard/20210413-wayback-c4ccf042/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: from archived capture (scoreboard)
   - url: https://www.acmicpc.net/category/detail/175
     roles:
     - problemset
@@ -859,17 +858,6 @@ contests:
   - url: http://acm2005.scusa.lsu.edu/
     roles:
     - web
-  - url: https://acm2005.scusa.lsu.edu/problems/
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20220925174457'
-    archived:
-    - scusa/scusa-2005/scoreboard/2026-04-16-scusa/2005-south-central-usa-programming-contest-2005.html
-    - scusa/scusa-2005/scoreboard/20220925-wayback-996a9a4c/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: from archived capture (scoreboard)
   - url: http://acm2005.scusa.lsu.edu/results/
     roles:
     - scoreboard
@@ -880,7 +868,7 @@ contests:
     url_checked: '2026-11-14'
   - url: http://acm2005.cct.lsu.edu/results/
     roles:
-    - standings
+    - scoreboard
     as_of: '20051119103955'
     archived:
     - scusa/scusa-2005/external-standings/2026-04-15-external/content.html
@@ -888,6 +876,16 @@ contests:
     url_state: dead
     url_checked: '2026-11-14'
     note: from archived capture (external-standings)
+  - url: https://acm2005.scusa.lsu.edu/problems/
+    roles:
+    - problemset
+    as_of: '20220925174457'
+    archived:
+    - scusa/scusa-2005/scoreboard/2026-04-16-scusa/2005-south-central-usa-programming-contest-2005.html
+    - scusa/scusa-2005/scoreboard/20220925-wayback-996a9a4c/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: from archived capture (scoreboard)
   - url: https://www.acmicpc.net/category/detail/174
     roles:
     - problemset
@@ -921,17 +919,6 @@ contests:
   - url: http://acm2006.scusa.lsu.edu/
     roles:
     - web
-  - url: https://acm2006.scusa.lsu.edu/problems/
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20191013233654'
-    archived:
-    - scusa/scusa-2006/scoreboard/2026-04-16-scusa/2006-south-central-usa-programming-contest-2006.html
-    - scusa/scusa-2006/scoreboard/20191013-wayback-4d37ec6e/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: from archived capture (scoreboard)
   - url: http://acm2006.scusa.lsu.edu/results/
     roles:
     - scoreboard
@@ -942,7 +929,7 @@ contests:
     url_checked: '2026-11-14'
   - url: http://acm2006.cct.lsu.edu/results/
     roles:
-    - standings
+    - scoreboard
     as_of: '20080905143344'
     archived:
     - scusa/scusa-2006/external-standings/2026-04-15-external/content.html
@@ -950,6 +937,16 @@ contests:
     url_state: dead
     url_checked: '2026-11-14'
     note: from archived capture (external-standings)
+  - url: https://acm2006.scusa.lsu.edu/problems/
+    roles:
+    - problemset
+    as_of: '20191013233654'
+    archived:
+    - scusa/scusa-2006/scoreboard/2026-04-16-scusa/2006-south-central-usa-programming-contest-2006.html
+    - scusa/scusa-2006/scoreboard/20191013-wayback-4d37ec6e/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: from archived capture (scoreboard)
   - url: https://www.acmicpc.net/category/detail/173
     roles:
     - problemset
@@ -982,17 +979,6 @@ contests:
   - url: http://acm2007.scusa.lsu.edu/
     roles:
     - web
-  - url: https://acm2007.scusa.lsu.edu/regional/
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20220704054924'
-    archived:
-    - scusa/scusa-2007/scoreboard/2026-04-16-scusa/2007-south-central-usa-programming-contest-2007.html
-    - scusa/scusa-2007/scoreboard/20220704-wayback-1b0e8ef6/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: from archived capture (scoreboard)
   - url: http://acm2007.scusa.lsu.edu/scoreboard/
     roles:
     - scoreboard
@@ -1003,7 +989,7 @@ contests:
     url_checked: '2026-11-14'
   - url: http://acm2007.cct.lsu.edu/scoreboard/
     roles:
-    - standings
+    - scoreboard
     as_of: '20080724104152'
     archived:
     - scusa/scusa-2007/external-standings/2026-04-15-external/content.html
@@ -1011,6 +997,16 @@ contests:
     url_state: dead
     url_checked: '2026-11-14'
     note: from archived capture (external-standings)
+  - url: https://acm2007.scusa.lsu.edu/regional/
+    roles:
+    - problemset
+    as_of: '20220704054924'
+    archived:
+    - scusa/scusa-2007/scoreboard/2026-04-16-scusa/2007-south-central-usa-programming-contest-2007.html
+    - scusa/scusa-2007/scoreboard/20220704-wayback-1b0e8ef6/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: from archived capture (scoreboard)
   - url: https://www.acmicpc.net/category/detail/172
     roles:
     - problemset
@@ -1041,17 +1037,6 @@ contests:
   - url: http://acm2008.scusa.lsu.edu/
     roles:
     - web
-  - url: https://acm2008.scusa.lsu.edu/results/problems/
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20230401064304'
-    archived:
-    - scusa/scusa-2008/scoreboard/2026-04-16-scusa/2008-south-central-usa-regional-programming-contest-2008.html
-    - scusa/scusa-2008/scoreboard/20230401-wayback-fcec3646/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: from archived capture (scoreboard)
   - url: http://acm2008.scusa.lsu.edu/results/scoreboard/
     roles:
     - scoreboard
@@ -1062,7 +1047,7 @@ contests:
     url_checked: '2026-11-14'
   - url: http://acm2008.cct.lsu.edu/results/scoreboard/
     roles:
-    - standings
+    - scoreboard
     as_of: '20090204022308'
     archived:
     - scusa/scusa-2008/external-standings/2026-04-15-external/content.html
@@ -1070,6 +1055,16 @@ contests:
     url_state: dead
     url_checked: '2026-11-14'
     note: from archived capture (external-standings)
+  - url: https://acm2008.scusa.lsu.edu/results/problems/
+    roles:
+    - problemset
+    as_of: '20230401064304'
+    archived:
+    - scusa/scusa-2008/scoreboard/2026-04-16-scusa/2008-south-central-usa-regional-programming-contest-2008.html
+    - scusa/scusa-2008/scoreboard/20230401-wayback-fcec3646/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: from archived capture (scoreboard)
   - url: https://www.acmicpc.net/category/detail/171
     roles:
     - problemset
@@ -1103,17 +1098,6 @@ contests:
   - url: http://ld2009.scusa.lsu.edu/
     roles:
     - web
-  - url: https://ld2009.scusa.lsu.edu/problems-regional/
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20220516115935'
-    archived:
-    - scusa/scusa-2009/scoreboard/2026-04-16-scusa/2009-south-central-usa-regional-programming-contest-2009.html
-    - scusa/scusa-2009/scoreboard/20220516-wayback-ebaab394/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: from archived capture (scoreboard)
   - url: http://ld2009.scusa.lsu.edu/scoreboard-regional/
     roles:
     - scoreboard
@@ -1124,7 +1108,7 @@ contests:
     url_checked: '2026-11-14'
   - url: http://acm2009.cct.lsu.edu/results/scoreboard-regional/
     roles:
-    - standings
+    - scoreboard
     as_of: '20100628105522'
     archived:
     - scusa/scusa-2009/external-standings/2026-04-15-external/content.html
@@ -1138,6 +1122,16 @@ contests:
     archived:
     - scusa/scusa-2009/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 562, 73 teams, DB fetch 2026-04-26)
+  - url: https://ld2009.scusa.lsu.edu/problems-regional/
+    roles:
+    - problemset
+    as_of: '20220516115935'
+    archived:
+    - scusa/scusa-2009/scoreboard/2026-04-16-scusa/2009-south-central-usa-regional-programming-contest-2009.html
+    - scusa/scusa-2009/scoreboard/20220516-wayback-ebaab394/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: from archived capture (scoreboard)
   - url: https://www.acmicpc.net/category/detail/170
     roles:
     - problemset
@@ -1169,17 +1163,6 @@ contests:
   - url: http://ld2010.scusa.lsu.edu/
     roles:
     - web
-  - url: https://ld2010.scusa.lsu.edu/problems-regional/
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20151129152343'
-    archived:
-    - scusa/scusa-2010/scoreboard/2026-04-16-scusa/2010-south-central-usa-regional-contest-2010.html
-    - scusa/scusa-2010/scoreboard/20151129-wayback-245afced/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: from archived capture (scoreboard)
   - url: http://ld2010.scusa.lsu.edu/scoreboard-regional/
     roles:
     - scoreboard
@@ -1204,6 +1187,16 @@ contests:
     archived:
     - scusa/scusa-2010/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 657, 68 teams, DB fetch 2026-04-26)
+  - url: https://ld2010.scusa.lsu.edu/problems-regional/
+    roles:
+    - problemset
+    as_of: '20151129152343'
+    archived:
+    - scusa/scusa-2010/scoreboard/2026-04-16-scusa/2010-south-central-usa-regional-contest-2010.html
+    - scusa/scusa-2010/scoreboard/20151129-wayback-245afced/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: from archived capture (scoreboard)
   problems:
     set: scusa-2010
   provenance:
@@ -1227,17 +1220,6 @@ contests:
   - url: http://ld2011.scusa.lsu.edu/
     roles:
     - web
-  - url: https://ld2011.scusa.lsu.edu/problems-regional/
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20151007021314'
-    archived:
-    - scusa/scusa-2011/scoreboard/2026-04-16-scusa/2011-south-central-usa-regional-contest-2011.html
-    - scusa/scusa-2011/scoreboard/20151007-wayback-fd2ad773/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: from archived capture (scoreboard)
   - url: http://ld2011.scusa.lsu.edu/scoreboard-regional/
     roles:
     - scoreboard
@@ -1253,6 +1235,16 @@ contests:
     archived:
     - scusa/scusa-2011/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 876, 68 teams, DB fetch 2026-04-26)
+  - url: https://ld2011.scusa.lsu.edu/problems-regional/
+    roles:
+    - problemset
+    as_of: '20151007021314'
+    archived:
+    - scusa/scusa-2011/scoreboard/2026-04-16-scusa/2011-south-central-usa-regional-contest-2011.html
+    - scusa/scusa-2011/scoreboard/20151007-wayback-fd2ad773/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: from archived capture (scoreboard)
   - url: https://www.acmicpc.net/category/detail/169
     roles:
     - problemset
@@ -1282,17 +1274,6 @@ contests:
   - url: http://ld2012.scusa.lsu.edu/
     roles:
     - web
-  - url: https://ld2012.scusa.lsu.edu/problems-regional/
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20140417033209'
-    archived:
-    - scusa/scusa-2012/scoreboard/2026-04-16-scusa/2012-south-central-usa-regional-contest-2012.html
-    - scusa/scusa-2012/scoreboard/20140417-wayback-7fa0e801/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: from archived capture (scoreboard)
   - url: http://ld2012.scusa.lsu.edu/scoreboard-regional/
     roles:
     - scoreboard
@@ -1317,6 +1298,16 @@ contests:
     archived:
     - scusa/scusa-2012/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 1384, 58 teams, DB fetch 2026-04-26)
+  - url: https://ld2012.scusa.lsu.edu/problems-regional/
+    roles:
+    - problemset
+    as_of: '20140417033209'
+    archived:
+    - scusa/scusa-2012/scoreboard/2026-04-16-scusa/2012-south-central-usa-regional-contest-2012.html
+    - scusa/scusa-2012/scoreboard/20140417-wayback-7fa0e801/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: from archived capture (scoreboard)
   - url: https://www.acmicpc.net/category/detail/4078
     roles:
     - problemset
@@ -1351,17 +1342,6 @@ contests:
   - url: http://ld2013.scusa.lsu.edu/
     roles:
     - web
-  - url: https://ld2013.scusa.lsu.edu/problems-regional/
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20240413001232'
-    archived:
-    - scusa/scusa-2013/scoreboard/2026-04-16-scusa/2013-south-central-usa-regional-contest-2013.html
-    - scusa/scusa-2013/scoreboard/20240413-wayback-592c0e97/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: from archived capture (scoreboard)
   - url: http://ld2013.scusa.lsu.edu/scoreboard-regional/
     roles:
     - scoreboard
@@ -1370,6 +1350,16 @@ contests:
     - scusa/scusa-2013/scoreboard/20160403-wayback-1284ce40/page.html
     url_state: dead
     url_checked: '2026-11-14'
+  - url: https://ld2013.scusa.lsu.edu/problems-regional/
+    roles:
+    - problemset
+    as_of: '20240413001232'
+    archived:
+    - scusa/scusa-2013/scoreboard/2026-04-16-scusa/2013-south-central-usa-regional-contest-2013.html
+    - scusa/scusa-2013/scoreboard/20240413-wayback-592c0e97/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: from archived capture (scoreboard)
   - url: https://www.acmicpc.net/category/detail/1166
     roles:
     - problemset
@@ -1400,17 +1390,6 @@ contests:
   - url: http://ld2014.scusa.lsu.edu/
     roles:
     - web
-  - url: https://ld2014.scusa.lsu.edu/problems-regional/
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20240617144708'
-    archived:
-    - scusa/scusa-2014/scoreboard/2026-04-16-scusa/2014-south-central-usa-regional-contest-2014.html
-    - scusa/scusa-2014/scoreboard/20240617-wayback-8536c2c8/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: from archived capture (scoreboard)
   - url: http://ld2014.scusa.lsu.edu/scoreboard-regional/
     roles:
     - scoreboard
@@ -1425,6 +1404,16 @@ contests:
     archived:
     - scusa/scusa-2014/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 2446, 62 teams, DB fetch 2026-04-26)
+  - url: https://ld2014.scusa.lsu.edu/problems-regional/
+    roles:
+    - problemset
+    as_of: '20240617144708'
+    archived:
+    - scusa/scusa-2014/scoreboard/2026-04-16-scusa/2014-south-central-usa-regional-contest-2014.html
+    - scusa/scusa-2014/scoreboard/20240617-wayback-8536c2c8/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: from archived capture (scoreboard)
   - url: https://www.acmicpc.net/category/detail/2616
     roles:
     - problemset
@@ -1494,17 +1483,6 @@ contests:
   - url: http://ld2015.scusa.lsu.edu/
     roles:
     - web
-  - url: http://ld2015.scusa.lsu.edu/problems-regional/
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20151114034033'
-    archived:
-    - scusa/scusa-2015/scoreboard/2026-04-16-scusa/2015-south-central-usa-regional-contest-2015.html
-    - scusa/scusa-2015/scoreboard/20151114-wayback-40287ca0/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: from archived capture (scoreboard)
   - url: http://ld2015.scusa.lsu.edu/scoreboard-regional/
     roles:
     - scoreboard
@@ -1519,6 +1497,16 @@ contests:
     archived:
     - scusa/scusa-2015/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 2832, 60 teams, DB fetch 2026-04-26)
+  - url: http://ld2015.scusa.lsu.edu/problems-regional/
+    roles:
+    - problemset
+    as_of: '20151114034033'
+    archived:
+    - scusa/scusa-2015/scoreboard/2026-04-16-scusa/2015-south-central-usa-regional-contest-2015.html
+    - scusa/scusa-2015/scoreboard/20151114-wayback-40287ca0/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: from archived capture (scoreboard)
   - url: https://www.acmicpc.net/category/detail/1415
     roles:
     - problemset
@@ -1554,17 +1542,6 @@ contests:
   - url: http://ld2016.scusa.lsu.edu/
     roles:
     - web
-  - url: https://ld2016.scusa.lsu.edu/problems-regional/
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20180122074530'
-    archived:
-    - scusa/scusa-2016/scoreboard/2026-04-16-scusa/2016-south-central-usa-regional-contest-2016.html
-    - scusa/scusa-2016/scoreboard/20180122-wayback-0937968e/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: from archived capture (scoreboard)
   - url: http://ld2016.scusa.lsu.edu/scoreboard-regional/
     roles:
     - scoreboard
@@ -1580,6 +1557,16 @@ contests:
     archived:
     - scusa/scusa-2016/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 3210, 67 teams, DB fetch 2026-04-26)
+  - url: https://ld2016.scusa.lsu.edu/problems-regional/
+    roles:
+    - problemset
+    as_of: '20180122074530'
+    archived:
+    - scusa/scusa-2016/scoreboard/2026-04-16-scusa/2016-south-central-usa-regional-contest-2016.html
+    - scusa/scusa-2016/scoreboard/20180122-wayback-0937968e/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: from archived capture (scoreboard)
   - url: https://www.acmicpc.net/category/detail/4080
     roles:
     - problemset
@@ -1613,17 +1600,6 @@ contests:
   - url: https://ld2017.scusa.lsu.edu/
     roles:
     - web
-  - url: https://ld2017.scusa.lsu.edu/problems-regional/
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20171219221556'
-    archived:
-    - scusa/scusa-2017/scoreboard/2026-04-16-scusa/2017-south-central-usa-regional-contest-2017.html
-    - scusa/scusa-2017/scoreboard/20171219-wayback-e55061e1/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: from archived capture (scoreboard)
   - url: http://ld2017.scusa.lsu.edu/scoreboard-regional/
     roles:
     - scoreboard
@@ -1638,6 +1614,16 @@ contests:
     archived:
     - scusa/scusa-2017/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 3266, 75 teams, DB fetch 2026-04-26)
+  - url: https://ld2017.scusa.lsu.edu/problems-regional/
+    roles:
+    - problemset
+    as_of: '20171219221556'
+    archived:
+    - scusa/scusa-2017/scoreboard/2026-04-16-scusa/2017-south-central-usa-regional-contest-2017.html
+    - scusa/scusa-2017/scoreboard/20171219-wayback-e55061e1/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: from archived capture (scoreboard)
   - url: https://www.acmicpc.net/category/detail/4081
     roles:
     - problemset
@@ -1682,7 +1668,7 @@ contests:
     url_checked: '2026-11-14'
   - url: http://ld2018.scusa.lsu.edu/standings-contest/
     roles:
-    - standings
+    - scoreboard
     as_of: '20231118005009'
     archived:
     - scusa/scusa-2018/external-standings/2026-04-15-external/content.html
@@ -1791,7 +1777,7 @@ contests:
     url_checked: '2026-11-14'
   - url: http://acm2020.scusa.lsu.edu/standings
     roles:
-    - standings
+    - scoreboard
     as_of: '20220117004110'
     archived:
     - scusa/scusa-2020/external-standings/2026-04-15-external/content.html
@@ -1881,9 +1867,16 @@ contests:
     - scusa/scusa-2021/scoreboard/2026-09-01-live-0217ee51/page.html
     url_state: live
     url_checked: '2026-11-14'
-  - url: http://acm2021.scusa.lsu.edu/results
+  - url: https://icpc.global/regionals/finder/SCUSA-2022/standings
     roles:
     - standings
+    archived:
+    - scusa/scusa-2021/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 4685, 67 teams, DB fetch 2026-04-26)
+  - url: http://acm2021.scusa.lsu.edu/results
+    roles:
+    - rankings
+    - report
     as_of: '20220705054538'
     archived:
     - scusa/scusa-2021/external-standings/2026-04-15-external/content.html
@@ -1891,12 +1884,7 @@ contests:
     url_state: dead
     url_checked: '2026-11-14'
     note: from archived capture (external-standings)
-  - url: https://icpc.global/regionals/finder/SCUSA-2022/standings
-    roles:
-    - standings
-    archived:
-    - scusa/scusa-2021/standings/api-20261113/standings.html
-    note: rendered from the icpc.global API standings archive (cms 4685, 67 teams, DB fetch 2026-04-26)
+    scope: top five of each division
   - url: https://www.acmicpc.net/category/816
     roles:
     - problemset

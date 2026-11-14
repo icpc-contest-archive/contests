@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/import_hub_lists.py (2026-11-14).
+# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
 series:
   id: romania
   name: ICPC Romania Programming Contest
@@ -102,7 +102,6 @@ contests:
   - url: http://acm.ro/Romania/results.htm
     roles:
     - scoreboard
-    - standings
     as_of: '20121215170652'
     archived:
     - romania/romania-2012/scoreboard/2026-09-01-wayback-bede95f7/results.htm
@@ -136,12 +135,13 @@ contests:
     - web
   - url: http://acm.ro/Romania/2013/results.htm
     roles:
-    - scoreboard
+    - standings
     as_of: '20130921120710'
     archived:
     - romania/romania-2013/scoreboard/20130921-wayback-21a4a05a/results.htm
     url_state: dead
     url_checked: '2026-11-14'
+    scope: Cluj and Timisoara subregions only
   - url: http://acm.ro/Romania/2013/problems.htm
     roles:
     - problemset
@@ -173,16 +173,6 @@ contests:
   - url: http://acm.ro/Romania/
     roles:
     - web
-  - url: https://www.infoarena.ro/onis-2014/clasament/runda-4
-    roles:
-    - scoreboard
-    as_of: '20141025081152'
-    archived:
-    - romania/romania-2014/external-standings/2026-04-15-external/content.html
-    - romania/romania-2014/scoreboard/20141025-wayback-ba2b5547/page.html
-    - romania/romania-2014/scoreboard/20260901-live-bbff171f/page.html
-    url_state: live
-    url_checked: '2026-11-14'
   - url: https://icpc.global/regionals/finder/Romania-2015/standings
     roles:
     - standings
@@ -448,13 +438,6 @@ contests:
   parent: seerc-2023
   next: romania-2024
   sources:
-  - url: https://codeforces.com/blog/entry/122235?locale=en
-    roles:
-    - web
-    - problemset
-    judge: codeforces
-    url_state: live
-    url_checked: '2026-11-14'
   - url: https://codeforces.com/gym/104782/standings
     roles:
     - scoreboard
@@ -470,6 +453,11 @@ contests:
     - problemset
     judge: codeforces
     as_of: '20231126215418'
+    url_state: live
+    url_checked: '2026-11-14'
+  - url: https://codeforces.com/blog/entry/122235?locale=en
+    roles:
+    - report
     url_state: live
     url_checked: '2026-11-14'
   problems:
@@ -524,7 +512,7 @@ contests:
     - web
   - url: https://docs.google.com/spreadsheets/d/e/2PACX-1vQfWzHvh1Uo_rvzyzzj7Kk6y2VKge6gtZgd024s7B7Wj53QaeOLer9X8NNvTXPu058leUDrAVnCPwUq/pubhtml/sheet?headers=false&gid=0
     roles:
-    - scoreboard
+    - standings
     archived:
     - romania/romania-2025/scoreboard/2026-09-01-live-bafd0bb8/page.html
     url_state: live

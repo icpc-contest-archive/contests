@@ -176,6 +176,15 @@ this edition, hold what its role says, and say with `scope` when it covers only 
   marked empty and captured again; when the address itself holds nothing, the source goes, as the
   empty CMS standings pages did.
 
+**An address that now shows another year (ruling 16).** Many contest sites live at one address
+and are overwritten each season. When our copy of such an address shows a different edition, what
+happens to the source depends on what the address once held: if the Wayback Machine or our archive
+has the right edition, the source stays and `as_of` names that capture; if the address was this
+contest's site but no copy of that edition survives, the source stays and is shown as lost; if
+nothing shows the address ever served this edition, the source is removed. A copy of the wrong
+edition is never by itself a reason to remove such a source. The content check lists these cases
+(`data/content-check/<run>/lists/year-reused.json`) instead of acting on them.
+
 **Sources: `scope`.** A source that covers one part of a contest, not all of it, says which:
 `scope: Division 1`. `tools/label_scopes.py` sets it from the archived capture (the Kattis filter
 heading, the page title), the address (`/div2/`, `acpc20d1.kattis.com`) or the note; the site shows

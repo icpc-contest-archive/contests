@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/drop_icpc_standings.py.
+# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
 series:
   id: gwalior-kanpur
   name: ACM-ICPC Asia Gwalior-Kanpur Regional Contest
@@ -32,9 +32,14 @@ contests:
   - url: http://www.cse.iitk.ac.in/users/acm
     roles:
     - web
-  - url: http://www.cse.iitk.ac.in/users/acm/result.html
+  - url: https://icpc.global/regionals/finder/Gwalior-Kanpur-2010/standings
     roles:
     - standings
+    archived:
+    - gwalior-kanpur/gwalior-kanpur-2009/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 497, 106 teams, DB fetch 2026-04-26)
+  - url: http://www.cse.iitk.ac.in/users/acm/result.html
+    roles:
     - rankings
     as_of: '20120628164318'
     archived:
@@ -44,12 +49,6 @@ contests:
     url_state: dead
     url_checked: '2026-11-14'
     note: from archived capture (external-standings); as_of 20091008001047 for rankings
-  - url: https://icpc.global/regionals/finder/Gwalior-Kanpur-2010/standings
-    roles:
-    - standings
-    archived:
-    - gwalior-kanpur/gwalior-kanpur-2009/standings/api-20261113/standings.html
-    note: rendered from the icpc.global API standings archive (cms 497, 106 teams, DB fetch 2026-04-26)
   - url: https://www.cse.iitk.ac.in/users/acm/archive/acm2009/PROBLEMS.pdf
     roles:
     - problemset

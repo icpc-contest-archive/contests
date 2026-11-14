@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
 series:
   id: torneo-chileno
   name: Torneo Chileno de Programación
@@ -193,15 +193,17 @@ contests:
   parent: south-america-south-2024
   next: torneo-chileno-2025
   sources:
-  - url: https://dcc.ing.uc.cl/exito-de-la-uc-en-el-5to-torneo-chileno-de-programacion-2024/
-    roles:
-    - web
   - url: https://icpc.global/regionals/finder/TCP-2025/standings
     roles:
     - standings
     archived:
     - torneo-chileno/torneo-chileno-2024/standings/api-20261113/standings.html
     note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://dcc.ing.uc.cl/exito-de-la-uc-en-el-5to-torneo-chileno-de-programacion-2024/
+    roles:
+    - rankings
+    - report
+    scope: UC teams only (places 1, 3, 15, 21)
   - url: https://scorelatam.naquadah.com.br/subch-2024/contest.pdf
     roles:
     - problemset
@@ -256,14 +258,14 @@ contests:
   - url: https://icpc.global/regionals/finder/TCP-2026
     roles:
     - web
-  - url: https://diario.uach.cl/informatica-uach-fue-sede-regional-del-torneo-chileno-de-programacion-2025/
-    roles:
-    - web
-    url_state: live
-    url_checked: '2026-11-14'
   - url: https://scorelatam.naquadah.com.br/subch-2025/statements.pdf
     roles:
     - problemset
+    url_state: live
+    url_checked: '2026-11-14'
+  - url: https://diario.uach.cl/informatica-uach-fue-sede-regional-del-torneo-chileno-de-programacion-2025/
+    roles:
+    - report
     url_state: live
     url_checked: '2026-11-14'
   notes: '49 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'

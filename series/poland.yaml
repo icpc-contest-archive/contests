@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
 series:
   id: poland
   name: ICPC Polish Collegiate Programming Contest
@@ -13,6 +13,12 @@ contests:
   parent: cerc-1996
   next: poland-1997
   sources:
+  - url: http://www.cs.put.poznan.pl/conferences/zawody1/index.html
+    roles:
+    - web
+    as_of: '20001211120100'
+    url_state: dead
+    url_checked: '2026-11-14'
   - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/88/
     roles:
     - rankings
@@ -21,15 +27,9 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (agent-europe)
-  - url: http://www.cs.put.poznan.pl/conferences/zawody1/index.html
-    roles:
-    - web
-    as_of: '20001211120100'
-    url_state: dead
-    url_checked: '2026-11-14'
   - url: http://www.cs.put.poznan.pl/conferences/zawody1/wyniki.html
     roles:
-    - standings
+    - rankings
     as_of: '20010717211627'
     url_state: dead
     url_checked: '2026-11-14'
@@ -51,14 +51,6 @@ contests:
   parent: cerc-1997
   next: poland-1998
   sources:
-  - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/87/
-    roles:
-    - rankings
-    archived:
-    - poland/poland-1997/rankings/2026-09-01-live-e0632bc3/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (agent-europe)
   - url: http://www.ci.pwr.wroc.pl/zawody/97/II_ozwz.html
     roles:
     - web
@@ -73,6 +65,14 @@ contests:
     url_checked: '2026-11-14'
     archived:
     - poland/poland-1997/scoreboard/20021230-wayback-e70abf18/ranking.html
+  - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/87/
+    roles:
+    - rankings
+    archived:
+    - poland/poland-1997/rankings/2026-09-01-live-e0632bc3/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (agent-europe)
   - url: http://www.ci.pwr.wroc.pl/zawody/97/zadania.html
     roles:
     - problemset
@@ -89,14 +89,6 @@ contests:
   parent: cerc-1998
   next: poland-1999
   sources:
-  - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/86/
-    roles:
-    - rankings
-    archived:
-    - poland/poland-1998/rankings/2026-09-01-live-78a6f6bb/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (agent-europe)
   - url: http://zawody.mimuw.edu.pl/98/index.html
     roles:
     - web
@@ -105,12 +97,20 @@ contests:
     url_checked: '2026-11-14'
   - url: http://zawody.mimuw.edu.pl/98/wyniki.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20010308201059'
     url_state: dead
     url_checked: '2026-11-14'
     archived:
     - poland/poland-1998/standings/20010308-wayback-5f229f23/wyniki.html
+  - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/86/
+    roles:
+    - rankings
+    archived:
+    - poland/poland-1998/rankings/2026-09-01-live-78a6f6bb/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (agent-europe)
   - url: http://zawody.mimuw.edu.pl/98/zadania.html
     roles:
     - problemset
@@ -127,14 +127,6 @@ contests:
   parent: cerc-1999
   next: poland-2000
   sources:
-  - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/85/
-    roles:
-    - rankings
-    archived:
-    - poland/poland-1999/rankings/2026-09-01-live-a918e936/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (agent-europe)
   - url: http://zawody.mimuw.edu.pl/99/index.html
     roles:
     - web
@@ -149,6 +141,14 @@ contests:
     url_checked: '2026-11-14'
     archived:
     - poland/poland-1999/scoreboard/20010814-wayback-4c9da022/wyniki.html
+  - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/85/
+    roles:
+    - rankings
+    archived:
+    - poland/poland-1999/rankings/2026-09-01-live-a918e936/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (agent-europe)
 - id: poland-2000
   season: 2001
   date: '2000-10-28'
@@ -156,20 +156,22 @@ contests:
   parent: cerc-2000
   next: poland-2001
   sources:
-  - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/84/
-    roles:
-    - rankings
-    archived:
-    - poland/poland-2000/rankings/2026-09-01-live-c1f741a1/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (agent-europe)
   - url: http://zawody.mimuw.edu.pl/index.html
     roles:
     - web
     as_of: '20010221171152'
     url_state: dead
     url_checked: '2026-11-14'
+  - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/84/
+    roles:
+    - rankings
+    - report
+    archived:
+    - poland/poland-2000/rankings/2026-09-01-live-c1f741a1/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (agent-europe)
+    scope: top 5
 - id: poland-2001
   season: 2002
   date: '2001-10-27'
@@ -177,14 +179,6 @@ contests:
   parent: cerc-2001
   next: poland-2002
   sources:
-  - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/83/
-    roles:
-    - rankings
-    archived:
-    - poland/poland-2001/rankings/2026-09-01-live-5caa215c/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (agent-europe)
   - url: http://zawody.ii.uni.wroc.pl/2001/
     roles:
     - web
@@ -199,6 +193,16 @@ contests:
     url_checked: '2026-11-14'
     archived:
     - poland/poland-2001/scoreboard/20021015-wayback-3dd8fda8/page.html
+  - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/83/
+    roles:
+    - rankings
+    - report
+    archived:
+    - poland/poland-2001/rankings/2026-09-01-live-5caa215c/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (agent-europe)
+    scope: top 3
   - url: http://zawody.ii.uni.wroc.pl/2001/zadania.phtml
     roles:
     - problemset
@@ -215,14 +219,6 @@ contests:
   parent: cerc-2002
   next: poland-2003
   sources:
-  - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/82/
-    roles:
-    - rankings
-    archived:
-    - poland/poland-2002/rankings/2026-09-01-live-47046fc8/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (agent-europe)
   - url: http://zawody.ii.uni.wroc.pl/2002/
     roles:
     - web
@@ -237,6 +233,14 @@ contests:
     url_checked: '2026-11-14'
     archived:
     - poland/poland-2002/scoreboard/20030830-wayback-5f904672/page.html
+  - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/82/
+    roles:
+    - rankings
+    archived:
+    - poland/poland-2002/rankings/2026-09-01-live-47046fc8/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (agent-europe)
   - url: http://zawody.ii.uni.wroc.pl/2002/zadania.phtml
     roles:
     - problemset
@@ -286,14 +290,6 @@ contests:
   parent: cerc-2004
   next: poland-2005
   sources:
-  - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/80/
-    roles:
-    - rankings
-    archived:
-    - poland/poland-2004/rankings/2026-09-01-live-5accbb53/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (agent-europe)
   - url: http://amppz.tcs.uj.edu.pl/2004/index.php.html
     roles:
     - web
@@ -308,6 +304,16 @@ contests:
     archived:
     - poland/poland-2004/scoreboard/20180419-wayback-43c73551/ranking.php.html
     - poland/poland-2004/scoreboard/20261114-live-6601a1de/ranking.php.html
+  - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/80/
+    roles:
+    - rankings
+    - report
+    archived:
+    - poland/poland-2004/rankings/2026-09-01-live-5accbb53/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (agent-europe)
+    scope: places 1,3,6,8 (MIMUW teams only)
   - url: http://amppz.tcs.uj.edu.pl/2004/tresci_zadan.php.html
     roles:
     - problemset
@@ -324,21 +330,6 @@ contests:
   parent: cerc-2005
   next: poland-2006
   sources:
-  - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/79/
-    roles:
-    - rankings
-    archived:
-    - poland/poland-2005/rankings/2026-09-01-live-53fcbcb3/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (agent-europe)
-  - url: https://www.acmicpc.net/category/detail/958
-    roles:
-    - problemset
-    judge: baekjoon
-    as_of: '20201125083954'
-    url_state: dead
-    url_checked: '2026-11-14'
   - url: http://amppz.tcs.uj.edu.pl/2005/index.php.html
     roles:
     - web
@@ -353,6 +344,23 @@ contests:
     archived:
     - poland/poland-2005/scoreboard/20160908-wayback-0111d784/ranking.php.html
     - poland/poland-2005/scoreboard/20261114-live-b1b98d29/ranking.php.html
+  - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/79/
+    roles:
+    - rankings
+    - report
+    archived:
+    - poland/poland-2005/rankings/2026-09-01-live-53fcbcb3/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (agent-europe)
+    scope: places 1,2,4,5,7 (MIMUW teams) plus top-7 narrative
+  - url: https://www.acmicpc.net/category/detail/958
+    roles:
+    - problemset
+    judge: baekjoon
+    as_of: '20201125083954'
+    url_state: dead
+    url_checked: '2026-11-14'
   - url: http://amppz.tcs.uj.edu.pl/2005/tresci_zadan.php.html
     roles:
     - problemset
@@ -376,14 +384,6 @@ contests:
   parent: cerc-2006
   next: poland-2007
   sources:
-  - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/78/
-    roles:
-    - rankings
-    archived:
-    - poland/poland-2006/rankings/2026-09-01-live-73dce68f/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (agent-europe)
   - url: http://amppz.tcs.uj.edu.pl/2006/index.php.html
     roles:
     - web
@@ -396,6 +396,16 @@ contests:
     url_checked: '2026-11-14'
     archived:
     - poland/poland-2006/scoreboard/20261114-live-ee07e34b/index.html
+  - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/78/
+    roles:
+    - rankings
+    - report
+    archived:
+    - poland/poland-2006/rankings/2026-09-01-live-73dce68f/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (agent-europe)
+    scope: places 1,2,4,6 (MIMUW teams)
   - url: http://amppz.tcs.uj.edu.pl/2006/tresci_zadan.php.html
     roles:
     - problemset
@@ -414,11 +424,13 @@ contests:
   - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/77/
     roles:
     - rankings
+    - report
     archived:
     - poland/poland-2007/rankings/2026-09-01-live-709535ae/page.html
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (agent-europe)
+    scope: places 1,2,5,8 (MIMUW teams)
   - url: https://www.acmicpc.net/category/detail/957
     roles:
     - problemset
@@ -445,11 +457,13 @@ contests:
   - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/76/
     roles:
     - rankings
+    - report
     archived:
     - poland/poland-2008/rankings/2026-09-01-live-466991b3/page.html
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (agent-europe)
+    scope: places 1,2,3,13,14 (MIMUW teams)
   - url: https://www.acmicpc.net/category/detail/956
     roles:
     - problemset
@@ -502,11 +516,13 @@ contests:
   - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/75/
     roles:
     - rankings
+    - report
     archived:
     - poland/poland-2009/rankings/2026-09-01-live-209c3998/page.html
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (agent-europe)
+    scope: places 1,2,3,8,9,10 (MIMUW teams)
   - url: http://amppz.wmi.amu.edu.pl/statistics.php
     roles:
     - problemset
@@ -540,11 +556,13 @@ contests:
   - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/74/
     roles:
     - rankings
+    - report
     archived:
     - poland/poland-2010/rankings/2026-09-01-live-d7faaf17/page.html
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (agent-europe)
+    scope: places 1,3,9,10 (MIMUW teams)
   - url: https://www.acmicpc.net/category/detail/955
     roles:
     - problemset
@@ -589,11 +607,13 @@ contests:
   - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/73/
     roles:
     - rankings
+    - report
     archived:
     - poland/poland-2011/rankings/2026-09-01-live-8570823f/page.html
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (agent-europe)
+    scope: medallists plus MIMUW teams (places 1,2,3,7,9)
   - url: http://amppz.mimuw.edu.pl/2011/amppz2011-problemset.pdf
     roles:
     - problemset
@@ -661,11 +681,13 @@ contests:
   - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/72/
     roles:
     - rankings
+    - report
     archived:
     - poland/poland-2012/rankings/2026-09-01-live-50557219/page.html
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (agent-europe)
+    scope: top 13
   - url: https://szkopul.edu.pl/task_archive/amppz/
     roles:
     - problemset
@@ -728,11 +750,13 @@ contests:
   - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/71/
     roles:
     - rankings
+    - report
     archived:
     - poland/poland-2013/rankings/2026-09-01-live-2343013b/page.html
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (agent-europe)
+    scope: top 5 plus MIMUW teams (1,6,8,9,10)
   - url: https://szkopul.edu.pl/task_archive/amppz/
     roles:
     - problemset
@@ -788,11 +812,13 @@ contests:
   - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/70/
     roles:
     - rankings
+    - report
     archived:
     - poland/poland-2014/rankings/2026-09-01-live-ec6ccfb7/page.html
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (agent-europe)
+    scope: MIMUW teams only (places 1,5,6,7,8,9)
   - url: https://szkopul.edu.pl/task_archive/amppz/
     roles:
     - problemset
@@ -854,11 +880,13 @@ contests:
   - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/69/
     roles:
     - rankings
+    - report
     archived:
     - poland/poland-2015/rankings/2026-09-01-live-ef5b9144/page.html
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (agent-europe)
+    scope: top 10 (places 1,2,4,7,10)
   - url: https://amppz.ii.uni.wroc.pl/files/amppz_problemset_en_2015.pdf
     roles:
     - problemset
@@ -1038,17 +1066,6 @@ contests:
   - url: https://amppz.tcs.uj.edu.pl/2019/
     roles:
     - web
-  - url: https://amppz.tcs.uj.edu.pl/2019/data.html
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20211125215428'
-    archived:
-    - poland/poland-2019/scoreboard/2026-04-16-amppz/2019-polish-collegiate-programming-contest-2019.html
-    - poland/poland-2019/scoreboard/20211125-wayback-ac1574e6/data.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: from archived capture (scoreboard)
   - url: https://amppz.tcs.uj.edu.pl/2019/ranking/
     roles:
     - scoreboard
@@ -1064,6 +1081,16 @@ contests:
     archived:
     - poland/poland-2019/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 4139, 45 teams, DB fetch 2026-04-26)
+  - url: https://amppz.tcs.uj.edu.pl/2019/data.html
+    roles:
+    - problemset
+    as_of: '20211125215428'
+    archived:
+    - poland/poland-2019/scoreboard/2026-04-16-amppz/2019-polish-collegiate-programming-contest-2019.html
+    - poland/poland-2019/scoreboard/20211125-wayback-ac1574e6/data.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: from archived capture (scoreboard)
   - url: https://www.acmicpc.net/category/detail/2118
     roles:
     - problemset
@@ -1098,7 +1125,7 @@ contests:
   - url: http://amppz.tcs.uj.edu.pl/2021/index.html
     roles:
     - web
-    - scoreboard
+    - rankings
     as_of: '20220926062503'
     archived:
     - poland/poland-2021/scoreboard/2026-04-16-amppz/2021-icpc-polish-collegiate-programming-contest-2021.html
@@ -1106,6 +1133,7 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: from archived capture (scoreboard)
+    scope: top 12 (medallists)
   - url: http://amppz.tcs.uj.edu.pl/2021/ranking/
     roles:
     - scoreboard
@@ -1163,7 +1191,7 @@ contests:
   - url: http://amppz.tcs.uj.edu.pl/
     roles:
     - web
-    - scoreboard
+    - standings
     as_of: '20230922120859'
     archived:
     - poland/poland-2022/scoreboard/2026-04-16-amppz/2022-icpc-polish-collegiate-programming-contest-2022.html
@@ -1171,6 +1199,7 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: from archived capture (scoreboard)
+    scope: top 12 (medallists)
   - url: https://amppz.tcs.uj.edu.pl/2022/ranking/
     roles:
     - scoreboard
@@ -1220,7 +1249,6 @@ contests:
   - url: https://scoreboard.amppz.edu.pl/?fbclid=IwAR3RAd_oY5VZussAcYqrfWNyDTlw7lCEBxRrGiD5QDV0PjrpVT32ggi-650
     roles:
     - scoreboard
-    - problemset
     as_of: '20240227072813'
     archived:
     - poland/poland-2023/scoreboard/2026-04-16-amppz/2023-icpc-polish-collegiate-programming-contest-2023.html
@@ -1258,8 +1286,8 @@ contests:
   sources:
   - url: https://www.mimuw.edu.pl/pl/aktualnosci/amppz-2024
     roles:
-    - web
     - rankings
+    - report
     as_of: '20241206003438'
     archived:
     - poland/poland-2024/rankings/20241206-wayback-29fcde4f/page.html
@@ -1267,6 +1295,7 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (wave2-europe)
+    scope: top 13 (medallists and first non-medal place)
   - url: https://qoj.ac/contest/1890
     roles:
     - problemset
@@ -1292,7 +1321,9 @@ contests:
   sources:
   - url: https://www.mimuw.edu.pl/pl/aktualnosci/amppz-2025
     roles:
-    - web
+    - rankings
+    - report
+    scope: top 12 (medallists)
   - url: http://ranking.amppz.edu.pl/
     roles:
     - rankings

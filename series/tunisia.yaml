@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
 series:
   id: tunisia
   name: ICPC Tunisian Collegiate Programming Contest
@@ -277,6 +277,14 @@ contests:
     archived:
     - tunisia/tunisia-2022/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 5483, 49 teams, DB fetch 2026-04-26)
+  - url: https://codeforces.com/gym/105020/my
+    roles:
+    - standings
+    archived:
+    - tunisia/tunisia-2024/standings/20261020-live-ed626b90/page.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (round9-research); moved from tunisia-2024 by the content check
   - url: https://codeforces.com/gym/105020
     roles:
     - problemset
@@ -323,15 +331,6 @@ contests:
   parent: acpc-2024
   next: tunisia-2025
   sources:
-  - url: https://acpcsb.acpc.global/TCPC2024/TCPC.html
-    roles:
-    - web
-    - scoreboard
-    archived:
-    - tunisia/tunisia-2024/scoreboard/20261020-live-79909b07/TCPC.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (board-upgrade-agent)
   - url: https://www.polytecsousse.tn/tcpc/
     roles:
     - web
@@ -342,19 +341,19 @@ contests:
     - web
     url_state: changed
     url_checked: '2026-11-14'
+  - url: https://acpcsb.acpc.global/TCPC2024/TCPC.html
+    roles:
+    - scoreboard
+    archived:
+    - tunisia/tunisia-2024/scoreboard/20261020-live-79909b07/TCPC.html
+    url_state: live
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (board-upgrade-agent)
   - url: https://acpcsb.acpc.global/TCPC2024/all.html
     roles:
-    - web
+    - scoreboard
     url_state: live
     url_checked: '2026-11-14'
-  - url: https://codeforces.com/gym/105020/my
-    roles:
-    - standings
-    archived:
-    - tunisia/tunisia-2024/standings/20261020-live-ed626b90/page.html
-    url_state: live
-    url_checked: '2026-11-14'
-    note: added by url-hunt 2026-09-01 (round9-research)
   - url: https://codeforces.com/blog/entry/135324
     roles:
     - standings

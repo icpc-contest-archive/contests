@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
 series:
   id: nzpc
   name: New Zealand Programming Contest
@@ -66,7 +66,7 @@ contests:
   sources:
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz04resultsFull.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20081018020838'
     archived:
     - nzpc/nzpc-2004/standings/20081018-wayback-4b30f86c/nz04resultsFull.html
@@ -124,7 +124,7 @@ contests:
   sources:
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz06results.pdf
     roles:
-    - standings
+    - scoreboard
     as_of: '20081018021213'
     archived:
     - nzpc/nzpc-2006/standings/20081018-wayback-4c61081e/nz06results.pdf
@@ -182,7 +182,7 @@ contests:
   sources:
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz08results.pdf
     roles:
-    - standings
+    - scoreboard
     as_of: '20081018021107'
     archived:
     - nzpc/nzpc-2008/standings/20081018-wayback-c6280629/nz08results.pdf
@@ -375,14 +375,14 @@ contests:
   sources:
   - url: https://nzprogcontest.org.nz/results/2015/
     roles:
-    - web
-    - scoreboard
+    - rankings
     as_of: '20230609203527'
     archived:
     - nzpc/nzpc-2015/scoreboard/2026-09-01-live-b7aef3e5/page.html
     - nzpc/nzpc-2015/scoreboard/20230609-wayback-dc65facd/page.html
     url_state: changed
     url_checked: '2026-11-14'
+    scope: category winners (5 categories)
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2015.pdf
     roles:
     - problemset
@@ -404,14 +404,14 @@ contests:
   sources:
   - url: https://nzprogcontest.org.nz/results/2016/
     roles:
-    - web
-    - scoreboard
+    - rankings
     as_of: '20230609215959'
     archived:
     - nzpc/nzpc-2016/scoreboard/2026-09-01-live-2e24afa5/page.html
     - nzpc/nzpc-2016/scoreboard/20230609-wayback-0e1cc6f8/page.html
     url_state: changed
     url_checked: '2026-11-14'
+    scope: category winners (5 categories)
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2016.pdf
     roles:
     - problemset
@@ -433,14 +433,14 @@ contests:
   sources:
   - url: https://nzprogcontest.org.nz/results/2017/
     roles:
-    - web
-    - scoreboard
+    - rankings
     as_of: '20230609205317'
     archived:
     - nzpc/nzpc-2017/scoreboard/2026-09-01-live-ede98ef7/page.html
     - nzpc/nzpc-2017/scoreboard/20230609-wayback-db19ade3/page.html
     url_state: changed
     url_checked: '2026-11-14'
+    scope: category winners (5 categories)
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2017.pdf
     roles:
     - problemset
@@ -462,14 +462,14 @@ contests:
   sources:
   - url: https://nzprogcontest.org.nz/results/2018/
     roles:
-    - web
-    - scoreboard
+    - rankings
     as_of: '20230609221351'
     archived:
     - nzpc/nzpc-2018/scoreboard/2026-09-01-live-c9d76b8d/page.html
     - nzpc/nzpc-2018/scoreboard/20230609-wayback-fd6ab902/page.html
     url_state: changed
     url_checked: '2026-11-14'
+    scope: category winners (5 categories)
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2018.pdf
     roles:
     - problemset
@@ -484,14 +484,14 @@ contests:
   sources:
   - url: https://nzprogcontest.org.nz/results/2019/
     roles:
-    - web
-    - scoreboard
+    - rankings
     as_of: '20230609210842'
     archived:
     - nzpc/nzpc-2019/scoreboard/2026-09-01-live-a4e82b01/page.html
     - nzpc/nzpc-2019/scoreboard/20230609-wayback-722c19a8/page.html
     url_state: changed
     url_checked: '2026-11-14'
+    scope: category winners (5 categories)
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2019.pdf
     roles:
     - problemset
@@ -506,14 +506,14 @@ contests:
   sources:
   - url: https://nzprogcontest.org.nz/results/2020/
     roles:
-    - web
-    - scoreboard
+    - rankings
     as_of: '20230609220718'
     archived:
     - nzpc/nzpc-2020/scoreboard/2026-09-01-live-808e8b09/page.html
     - nzpc/nzpc-2020/scoreboard/20230609-wayback-029af32a/page.html
     url_state: changed
     url_checked: '2026-11-14'
+    scope: category winners (5 categories)
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2020.pdf
     roles:
     - problemset
@@ -528,14 +528,14 @@ contests:
   sources:
   - url: https://nzprogcontest.org.nz/results/2021/
     roles:
-    - web
-    - scoreboard
+    - rankings
     as_of: '20230609210002'
     archived:
     - nzpc/nzpc-2021/scoreboard/2026-09-01-live-56f63bc6/page.html
     - nzpc/nzpc-2021/scoreboard/20230609-wayback-448f1916/page.html
     url_state: changed
     url_checked: '2026-11-14'
+    scope: category winners (5 categories)
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2021.pdf
     roles:
     - problemset
@@ -550,14 +550,14 @@ contests:
   sources:
   - url: https://nzprogcontest.org.nz/results/2022/
     roles:
-    - web
-    - scoreboard
+    - rankings
     as_of: '20230609222006'
     archived:
     - nzpc/nzpc-2022/scoreboard/2026-09-01-live-065afdab/page.html
     - nzpc/nzpc-2022/scoreboard/20230609-wayback-95f0b89f/page.html
     url_state: changed
     url_checked: '2026-11-14'
+    scope: category winners (5 categories)
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2022.pdf
     roles:
     - problemset
@@ -573,14 +573,14 @@ contests:
   sources:
   - url: https://nzprogcontest.org.nz/results/2023/
     roles:
-    - web
-    - scoreboard
+    - rankings
     as_of: '20231003235217'
     archived:
     - nzpc/nzpc-2023/scoreboard/2026-09-01-live-596abe28/page.html
     - nzpc/nzpc-2023/scoreboard/20231003-wayback-0b7b30f9/page.html
     url_state: changed
     url_checked: '2026-11-14'
+    scope: category winners (5 categories)
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2023.pdf
     roles:
     - problemset

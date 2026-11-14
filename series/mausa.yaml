@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
 series:
   id: mausa
   name: ICPC North America Mid-Atlantic Regional Contest
@@ -105,11 +105,6 @@ contests:
   - url: https://www.cs.drexel.edu/~popyack/ACM/contest.1997.html
     roles:
     - web
-  - url: http://www.eecis.udel.edu/~saunders/regional98/UDteams.html
-    roles:
-    - web
-    url_state: live
-    url_checked: '2026-11-14'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidAtl/1997/index.html
     roles:
     - problemset
@@ -157,16 +152,12 @@ contests:
   - url: http://midatl.cslab.vt.edu/
     roles:
     - web
-  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidAtl/1998/index.html
+  - url: http://www.eecis.udel.edu/~saunders/regional98/UDteams.html
     roles:
-    - scoreboard
-    - problemset
-    as_of: '20090713053229'
-    archived:
-    - mausa/mausa-1998/scoreboard/2026-04-16-archive/1998-mid-atlantic-usa-programming-contest-1998.html
-    url_state: dead
+    - web
+    url_state: live
     url_checked: '2026-11-14'
-    note: from archived capture (scoreboard)
+    note: moved from mausa-1997 by the content check
   - url: http://icpc.baylor.edu/past/icpc99/Regionals/MAUSA98/Standings.htm
     roles:
     - standings
@@ -187,6 +178,15 @@ contests:
     - mausa/mausa-1998/standings/2026-09-01-wayback-4c7d919d/standings.html
     url_state: changed
     url_checked: '2026-11-14'
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidAtl/1998/index.html
+    roles:
+    - problemset
+    as_of: '20090713053229'
+    archived:
+    - mausa/mausa-1998/scoreboard/2026-04-16-archive/1998-mid-atlantic-usa-programming-contest-1998.html
+    url_state: dead
+    url_checked: '2026-11-14'
+    note: from archived capture (scoreboard)
   - url: http://icpc.baylor.edu/past/icpc99/Regionals/MAUSA98/Problems.htm
     roles:
     - problemset
@@ -224,16 +224,16 @@ contests:
     roles:
     - web
     as_of: '20020111114617'
-  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidAtl/1999/index.html
+  - url: https://www.eecis.udel.edu/~saunders/regional99/contest.html
     roles:
-    - scoreboard
-    - problemset
-    as_of: '20090713050602'
+    - web
+    - standings
+    as_of: '19991109143237'
     archived:
-    - mausa/mausa-1999/scoreboard/2026-04-16-archive/1999-mid-atlantic-usa-programming-contest-1999.html
-    url_state: dead
+    - mausa/mausa-1999/standings/2026-09-01-live-cb6f6228/contest.html
+    - mausa/mausa-1999/standings/19991109-wayback-4c923bc7/contest.html
+    url_state: changed
     url_checked: '2026-11-14'
-    note: from archived capture (scoreboard)
   - url: http://icpc.baylor.edu/past/icpc2000/regionals/MAUSA99/Standings.html
     roles:
     - standings
@@ -244,15 +244,15 @@ contests:
     url_state: unknown
     url_checked: '2026-11-13'
     note: added by url-hunt 2026-09-01 (cdx-baylor-regionals)
-  - url: https://www.eecis.udel.edu/~saunders/regional99/contest.html
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidAtl/1999/index.html
     roles:
-    - standings
-    as_of: '19991109143237'
+    - problemset
+    as_of: '20090713050602'
     archived:
-    - mausa/mausa-1999/standings/2026-09-01-live-cb6f6228/contest.html
-    - mausa/mausa-1999/standings/19991109-wayback-4c923bc7/contest.html
-    url_state: changed
+    - mausa/mausa-1999/scoreboard/2026-04-16-archive/1999-mid-atlantic-usa-programming-contest-1999.html
+    url_state: dead
     url_checked: '2026-11-14'
+    note: from archived capture (scoreboard)
   - url: http://icpc.baylor.edu/past/icpc2000/Regionals/MAUSA99/Problems.pdf
     roles:
     - problemset
@@ -294,16 +294,6 @@ contests:
     as_of: '20020923031246'
     url_state: dead
     url_checked: '2026-11-14'
-  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidAtl/2000/index.html
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20090713043714'
-    archived:
-    - mausa/mausa-2000/scoreboard/2026-04-16-archive/2000-mid-atlantic-usa-programming-contest-2000.html
-    url_state: dead
-    url_checked: '2026-11-14'
-    note: from archived capture (scoreboard)
   - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=435
     roles:
     - standings
@@ -316,6 +306,15 @@ contests:
     url_state: unknown
     url_checked: '2026-11-13'
     note: added by url-hunt 2026-09-01 (cdx-viewstandings); as_of 20060901132440 for rankings
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidAtl/2000/index.html
+    roles:
+    - problemset
+    as_of: '20090713043714'
+    archived:
+    - mausa/mausa-2000/scoreboard/2026-04-16-archive/2000-mid-atlantic-usa-programming-contest-2000.html
+    url_state: dead
+    url_checked: '2026-11-14'
+    note: from archived capture (scoreboard)
   - url: http://icpc.baylor.edu/past/icpc2001/regionals/MAUSA00/Problems.pdf
     roles:
     - problemset
@@ -359,19 +358,8 @@ contests:
     roles:
     - web
     as_of: '20020118132406'
-  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidAtl/2001/index.html
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20090713052112'
-    archived:
-    - mausa/mausa-2001/scoreboard/2026-04-16-archive/2001-mid-atlantic-usa-programming-contest-2001.html
-    url_state: dead
-    url_checked: '2026-11-14'
-    note: from archived capture (scoreboard)
   - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=500
     roles:
-    - standings
     - rankings
     as_of: '20020619095916'
     archived:
@@ -383,13 +371,22 @@ contests:
     note: added by url-hunt 2026-09-01 (cdx-viewstandings); as_of 20090102025355 for rankings
   - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=500
     roles:
-    - standings
+    - rankings
     as_of: '20020203154046'
     note: added by url-hunt 2026-09-01 (cms-api)
     url_state: unknown
     url_checked: '2026-11-13'
     archived:
     - mausa/mausa-2001/standings/20020203-wayback-d14ccd00/page.html
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidAtl/2001/index.html
+    roles:
+    - problemset
+    as_of: '20090713052112'
+    archived:
+    - mausa/mausa-2001/scoreboard/2026-04-16-archive/2001-mid-atlantic-usa-programming-contest-2001.html
+    url_state: dead
+    url_checked: '2026-11-14'
+    note: from archived capture (scoreboard)
   - url: http://icpc.baylor.edu/past/icpc2002/Regionals/MAUSA01/problems.pdf
     roles:
     - problemset
@@ -411,7 +408,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/1096
     roles:
-    - problemset
+    - problem
     judge: baekjoon
     as_of: '20201019162822'
     url_state: dead
@@ -449,7 +446,6 @@ contests:
     - web
   - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandingsdb5c.html?ContestID=568
     roles:
-    - standings
     - rankings
     as_of: '20060901122207'
     archived:
@@ -460,7 +456,7 @@ contests:
     note: added by url-hunt 2026-09-01 (cdx-viewstandings); as_of 20090307020352 for rankings
   - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=568
     roles:
-    - standings
+    - rankings
     as_of: '20021220072625'
     note: added by url-hunt 2026-09-01 (cms-api)
     url_state: unknown
@@ -817,7 +813,6 @@ contests:
   - url: http://midatl.radford.edu/docs/scoreboard/summary.html
     roles:
     - scoreboard
-    - standings
     as_of: '20081225225052'
     archived:
     - mausa/mausa-2008/external-standings/2026-04-15-external/content.html
@@ -1363,7 +1358,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://mausa17.kattis.com/standings?filter=1146
     roles:
-    - standings
+    - scoreboard
     archived:
     - mausa/mausa-2017/external-standings/2026-04-15-external/content.html
     - mausa/mausa-2017/standings/20260901-live-4cf99495/page.html

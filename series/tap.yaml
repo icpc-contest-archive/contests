@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
 series:
   id: tap
   name: Torneo Argentino de Programación
@@ -23,9 +23,6 @@ contests:
   parent: south-america-south-2012
   next: tap-2013
   sources:
-  - url: https://www.unl.edu.ar/noticias/news/view/segundo_torneo_argentino_de_programaci%C3%B3n_1
-    roles:
-    - web
   - url: http://www.torneoprogramacion.com.ar/
     roles:
     - web
@@ -57,9 +54,6 @@ contests:
   parent: south-america-south-2013
   next: tap-2014
   sources:
-  - url: https://alejolp.blogspot.com/2013/07/3er-torneo-argentino-de-programacion.html
-    roles:
-    - web
   - url: http://www.torneoprogramacion.com.ar/
     roles:
     - web
@@ -70,6 +64,9 @@ contests:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
+  - url: https://alejolp.blogspot.com/2013/07/3er-torneo-argentino-de-programacion.html
+    roles:
+    - report
   notes: '55 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: tap-2014
   season: 2015
@@ -132,7 +129,9 @@ contests:
   sources:
   - url: https://www.dc.uba.ar/resultados-del-torneo-argentino-de-programacion-tap-2015/
     roles:
-    - standings
+    - rankings
+    - problemset
+    - report
     as_of: '20151005180510'
     archived:
     - tap/tap-2015/standings/20151005-wayback-2cc442ed/page.html
@@ -140,6 +139,7 @@ contests:
     url_state: replaced
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (round9-research)
+    scope: champions and site winners
   notes: '87 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: tap-2016
   season: 2017
@@ -310,12 +310,6 @@ contests:
   - 4465
   parent: south-america-south-2020
   next: tap-2021
-  sources:
-  - url: https://codeforces.com/group/YjFmW2O15Q/contest/102861
-    roles:
-    - problemset
-    url_state: live
-    url_checked: '2026-11-14'
   notes: '55 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: tap-2021
   season: 2022

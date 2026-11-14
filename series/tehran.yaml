@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
 series:
   id: tehran
   name: ICPC Asia Tehran Regional Contest
@@ -167,23 +167,24 @@ contests:
     url_state: dead
     url_checked: '2026-11-01'
     note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-  - url: http://sharif.edu/~acmicpc/standings.html
+  - url: http://swt.edu/~ch01/Rankings2001/Iranfullnums.htm
     roles:
     - standings
+    as_of: '20050220101621'
+    archived:
+    - tehran/tehran-2001/rankings/2026-09-01-wayback-62efe3c3/Iranfullnums.htm
+    url_state: dead
+    url_checked: '2026-11-14'
+  - url: http://sharif.edu/~acmicpc/standings.html
+    roles:
+    - rankings
     as_of: '20011208210244'
     note: added by url-hunt 2026-09-01 (cms-api)
     url_state: dead
     url_checked: '2026-11-14'
     archived:
     - tehran/tehran-2001/standings/20011208-wayback-74fbd99b/standings.html
-  - url: http://swt.edu/~ch01/Rankings2001/Iranfullnums.htm
-    roles:
-    - rankings
-    as_of: '20050220101621'
-    archived:
-    - tehran/tehran-2001/rankings/2026-09-01-wayback-62efe3c3/Iranfullnums.htm
-    url_state: dead
-    url_checked: '2026-11-14'
+    scope: qualifier, runner-up and best all-women team
   - url: https://icpc.sharif.edu/2001/problems.html
     roles:
     - problemset
@@ -444,20 +445,20 @@ contests:
     roles:
     - web
     as_of: '20250918000249'
-  - url: http://sharif.edu/~acmicpc/04/ranking/finals.html
-    roles:
-    - scoreboard
-    as_of: '20051027100656'
-    archived:
-    - tehran/tehran-2004/scoreboard/2026-09-01-wayback-41df20ca/finals.html
-    url_state: dead
-    url_checked: '2026-11-14'
   - url: http://sharif.edu/~acmicpc/04/ranking/sumtime.html
     roles:
     - scoreboard
     as_of: '20050909075251'
     archived:
     - tehran/tehran-2004/scoreboard/2026-09-01-wayback-f7c15d2d/sumtime.html
+    url_state: dead
+    url_checked: '2026-11-14'
+  - url: http://sharif.edu/~acmicpc/04/ranking/finals.html
+    roles:
+    - standings
+    as_of: '20051027100656'
+    archived:
+    - tehran/tehran-2004/scoreboard/2026-09-01-wayback-41df20ca/finals.html
     url_state: dead
     url_checked: '2026-11-14'
   - url: https://icpc.ir/2004/problems.html
@@ -498,15 +499,6 @@ contests:
     roles:
     - web
     as_of: '20181130213129'
-  - url: https://icpc.sharif.edu/2005/ranking/full.html
-    roles:
-    - scoreboard
-    as_of: '20250516110214'
-    archived:
-    - tehran/tehran-2005/scoreboard/2026-09-01-live-60f12027/full.html
-    - tehran/tehran-2005/scoreboard/2026-09-01-wayback-60f12027/full.html
-    url_state: live
-    url_checked: '2026-11-14'
   - url: https://icpc.sharif.edu/2005/ranking/sumtime.html
     roles:
     - scoreboard
@@ -514,6 +506,15 @@ contests:
     archived:
     - tehran/tehran-2005/scoreboard/2026-09-01-live-19def462/sumtime.html
     - tehran/tehran-2005/scoreboard/2026-09-01-wayback-19def462/sumtime.html
+    url_state: live
+    url_checked: '2026-11-14'
+  - url: https://icpc.sharif.edu/2005/ranking/full.html
+    roles:
+    - standings
+    as_of: '20250516110214'
+    archived:
+    - tehran/tehran-2005/scoreboard/2026-09-01-live-60f12027/full.html
+    - tehran/tehran-2005/scoreboard/2026-09-01-wayback-60f12027/full.html
     url_state: live
     url_checked: '2026-11-14'
   - url: https://icpc.ir/2005/problems.html
@@ -800,12 +801,6 @@ contests:
     url_checked: '2026-11-14'
     note: judge page (Baekjoon category, all problems with statements) — fallback, no published set found;
       Tehran Site 2010
-  - url: http://icpc.sharif.edu/2010/iipc/IC10-Solutions.ppt
-    roles:
-    - editorial
-    as_of: '20240731113500'
-    url_state: dead
-    url_checked: '2026-11-14'
   problems:
     set: tehran-2010
   provenance:
@@ -840,7 +835,7 @@ contests:
     url_checked: '2026-11-14'
   - url: http://acm.ut.ac.ir/sc/icpc-asia-region-tehran-site-2011-ranklist.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20140210101212'
     archived:
     - tehran/tehran-2011/external-standings/2026-04-15-external/content.html
@@ -1465,6 +1460,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://icpc.ir/2024/scoreboard/
     roles:
+    - scoreboard
     - standings
     as_of: '20250705021849'
     archived:
@@ -1527,6 +1523,7 @@ contests:
     url_checked: '2026-11-14'
   - url: https://icpc.sharif.edu/2025/scoreboard/
     roles:
+    - scoreboard
     - standings
     as_of: '20260219024814'
     archived:
