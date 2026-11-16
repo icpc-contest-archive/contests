@@ -153,8 +153,23 @@ def refs(v):
     return v if isinstance(v, list) else [v]
 
 
+RANDOM_OF_NAV = {f"{k}/index.html": (k, label) for k, label in RANDOM_KINDS}
+
+
+def random_link(body: str, rel: str, nav: str | None) -> str:
+    """Put a "Random <kind>" link beside the title of every list and object page of one kind."""
+    if nav not in RANDOM_OF_NAV or "<h1" not in body:
+        return body
+    k, label = RANDOM_OF_NAV[nav]
+    a = (f'<a class="rnd-kind" href="{rel}random.html#{k}" title="Open a random {label} page '
+         f'(the header Random and the key r then stay on {label} pages)">Random {label}</a>')
+    i = body.index("<h1")
+    return body[:i] + a + body[i:]
+
+
 def page(title: str, body: str, rel: str, nav: str | None = None) -> str:
     """One page. `nav` is the NAV href of the object list this page belongs to (highlighted)."""
+    body = random_link(body, rel, nav)
     links = "".join(f'<a href="{rel}{h}"' + (' class="on"' if h == nav else "") + f">{t}</a>" for h, t in NAV)
     links += '<span class="sep"></span>' + "".join(
         f'<a href="{rel}{h}"' + (' class="on"' if h == nav else "") + f">{t}</a>" for h, t in NAV2)
