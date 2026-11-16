@@ -15,6 +15,7 @@ registry/cms-triage.yaml     every excluded CMS id -> reason
 registry/non-mainline.yaml   real contests outside the hierarchy
 schema/catalogue.schema.json JSON Schema for the files above
 tools/                       importer, validator, site generator, local server
+tools/coverage.py            the one coverage record per contest (DEFINITIONS.md, Coverage)
 tools/site_assets/           the site's stylesheet, script and fonts (IBM Plex Sans, OFL)
 data/import/                 the sheet export this repo was seeded from
 CONVERSION-FIXES.md          what the import fixed, and what it deliberately didn't
@@ -26,6 +27,8 @@ CONVERSION-FIXES.md          what the import fixed, and what it deliberately did
 pip install pyyaml jsonschema
 python3 tools/validate.py         # schema + invariants; CI runs this on every push
 python3 tools/build_site.py       # static site -> site/
+python3 tools/coverage.py         # coverage of the catalogue as it stands, in numbers
+python3 tools/check_coverage_links.py   # every coverage number = the list behind its link
 python3 tools/serve.py            # browse locally; add ../archive for local replay
 ```
 

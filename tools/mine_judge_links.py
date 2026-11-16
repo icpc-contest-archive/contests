@@ -83,7 +83,7 @@ HELD_KINDS = ("statement", "data", "solutions", "package")
 TODAY = __import__("datetime").date.today().isoformat()
 SET_KEYS = ("id", "name", "repo", "count", "complete", "letters", *HELD_KINDS, "counts",
             "contests", "problems", "provenance", "notes")
-PROB_KEYS = ("id", "uuid", "aliases", "name", "short_name", "have", "status", "judges", "notes")
+PROB_KEYS = ("id", "uuid", "aliases", "name", "other_names", "short_name", "have", "status", "judges", "notes")
 JUDGE_ORDER = {"kattis": 0, "livearchive": 1, "codeforces": 2, "baekjoon": 3}
 LETTER = re.compile(r"^[A-Z][0-9]?$|^[0-9]{1,2}$")  # as schema/problemsets.schema.json
 LA_PROBLEM = "https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem={}"

@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/content_check_inside.py.
+# Maintained in-repo; last bulk edit: tools/fill_contains.py.
 series:
   id: poland
   name: ICPC Polish Collegiate Programming Contest
@@ -43,6 +43,8 @@ contests:
   - url: http://www.cs.put.poznan.pl/conferences/zawody1/zadania.html
     roles:
     - problemset
+    contains:
+    - names
     as_of: '20010717212001'
     note: problems A-G with solutions; the page for G was not captured
     url_state: dead
@@ -81,6 +83,8 @@ contests:
   - url: http://www.ci.pwr.wroc.pl/zawody/97/zadania.html
     roles:
     - problemset
+    contains:
+    - statement
     as_of: '20030522025906'
     note: eight Word files, problems/zadN/<letter>-task.doc
     url_state: dead
@@ -124,6 +128,9 @@ contests:
   - url: http://zawody.mimuw.edu.pl/98/zadania.html
     roles:
     - problemset
+    contains:
+    - statement
+    - data
     as_of: '20010218044604'
     note: statements (PostScript) and test files; two trial problems
     url_state: dead
@@ -231,6 +238,9 @@ contests:
   - url: http://zawody.ii.uni.wroc.pl/2001/zadania.phtml
     roles:
     - problemset
+    contains:
+    - statement
+    - data
     as_of: '20020927011733'
     note: statements (PostScript) and test data
     url_state: dead
@@ -278,6 +288,9 @@ contests:
   - url: http://zawody.ii.uni.wroc.pl/2002/zadania.phtml
     roles:
     - problemset
+    contains:
+    - statement
+    - data
     as_of: '20030830074524'
     note: statements (PDF) and test data; also five problems of the Wroclaw internal qualifier
     url_state: dead
@@ -311,6 +324,8 @@ contests:
   - url: http://zawody.ii.uni.wroc.pl/zadania.phtml
     roles:
     - problemset
+    contains:
+    - statement
     as_of: '20041204215729'
     note: statements (PDF); trial-day problem X
     url_state: dead
@@ -355,6 +370,8 @@ contests:
   - url: http://amppz.tcs.uj.edu.pl/2004/tresci_zadan.php.html
     roles:
     - problemset
+    contains:
+    - statement
     note: statements (PDF)
     url_state: live
     url_checked: '2026-11-14'
@@ -399,6 +416,8 @@ contests:
   - url: https://www.acmicpc.net/category/detail/958
     roles:
     - problemset
+    contains:
+    - names
     judge: baekjoon
     as_of: '20201125083954'
     url_state: dead
@@ -406,6 +425,8 @@ contests:
   - url: http://amppz.tcs.uj.edu.pl/2005/tresci_zadan.php.html
     roles:
     - problemset
+    contains:
+    - statement
     note: statements (PDF); trial problems X, Y, Z
     url_state: live
     url_checked: '2026-11-14'
@@ -413,6 +434,9 @@ contests:
   - url: http://amppz.tcs.uj.edu.pl/2005/wzorce_testy.php.html
     roles:
     - problemset
+    contains:
+    - data
+    - solutions
     note: model solutions and tests, one tar per problem
     url_state: live
     url_checked: '2026-11-14'
@@ -463,6 +487,8 @@ contests:
   - url: http://amppz.tcs.uj.edu.pl/2006/tresci_zadan.php.html
     roles:
     - problemset
+    contains:
+    - statement
     note: statements (PDF); trial problems X, Y, Z
     url_state: live
     url_checked: '2026-11-14'
@@ -488,6 +514,8 @@ contests:
   - url: https://www.acmicpc.net/category/detail/957
     roles:
     - problemset
+    contains:
+    - names
     judge: baekjoon
     as_of: '20201025142457'
     url_state: dead
@@ -521,6 +549,8 @@ contests:
   - url: https://www.acmicpc.net/category/detail/956
     roles:
     - problemset
+    contains:
+    - names
     judge: baekjoon
     as_of: '20201125085541'
     url_state: dead
@@ -625,6 +655,8 @@ contests:
   - url: https://www.acmicpc.net/category/detail/955
     roles:
     - problemset
+    contains:
+    - names
     judge: baekjoon
     as_of: '20201125090243'
     url_state: dead
@@ -681,12 +713,16 @@ contests:
   - url: http://amppz.mimuw.edu.pl/2011/amppz2011-problemset.pdf
     roles:
     - problemset
+    contains:
+    - statement
     as_of: '20121018081522'
     url_state: dead
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/954
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20201029144745'
     url_state: dead
@@ -701,6 +737,8 @@ contests:
   - url: http://amppz.mimuw.edu.pl/2011/amppz2011-tresci-zadan.pdf
     roles:
     - problemset
+    contains:
+    - statement
     as_of: '20170213102506'
     note: Polish statements
     url_state: dead
@@ -755,6 +793,8 @@ contests:
   - url: https://szkopul.edu.pl/task_archive/amppz/
     roles:
     - problemset
+    contains:
+    - names
     as_of: '20210508171159'
     url_state: changed
     url_checked: '2026-11-14'
@@ -762,6 +802,8 @@ contests:
   - url: https://www.acmicpc.net/category/detail/962
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20201028200414'
     url_state: dead
@@ -776,6 +818,8 @@ contests:
   - url: http://amppz.mimuw.edu.pl/2012/amppz2012-problemset.pdf
     roles:
     - problemset
+    contains:
+    - statement
     as_of: '20170822025722'
     note: English statements
     url_state: dead
@@ -783,6 +827,8 @@ contests:
   - url: http://amppz.mimuw.edu.pl/2012/amppz2012-tresci-zadan.pdf
     roles:
     - problemset
+    contains:
+    - statement
     as_of: '20170822025526'
     note: Polish statements
     url_state: dead
@@ -829,6 +875,8 @@ contests:
   - url: https://szkopul.edu.pl/task_archive/amppz/
     roles:
     - problemset
+    contains:
+    - names
     as_of: '20210508171159'
     url_state: changed
     url_checked: '2026-11-14'
@@ -836,6 +884,8 @@ contests:
   - url: https://www.acmicpc.net/category/detail/1192
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20201024154315'
     url_state: dead
@@ -850,6 +900,8 @@ contests:
   - url: http://amppz.mimuw.edu.pl/amppz2013-tresci-zadan.pdf
     roles:
     - problemset
+    contains:
+    - statement
     as_of: '20131030215454'
     note: Polish statements
     url_state: dead
@@ -896,6 +948,8 @@ contests:
   - url: https://szkopul.edu.pl/task_archive/amppz/
     roles:
     - problemset
+    contains:
+    - names
     as_of: '20210508171159'
     url_state: changed
     url_checked: '2026-11-14'
@@ -903,6 +957,8 @@ contests:
   - url: https://www.acmicpc.net/category/detail/1853
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20201022174656'
     url_state: dead
@@ -917,6 +973,8 @@ contests:
   - url: http://amppz.mimuw.edu.pl/amppz2014-tresci-zadan.pdf
     roles:
     - problemset
+    contains:
+    - statement
     as_of: '20141107020235'
     note: Polish statements
     url_state: dead
@@ -964,6 +1022,8 @@ contests:
   - url: https://amppz.ii.uni.wroc.pl/files/amppz_problemset_en_2015.pdf
     roles:
     - problemset
+    contains:
+    - statement
     url_state: live
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/3089
@@ -1012,11 +1072,15 @@ contests:
   - url: https://amppz.ii.uni.wroc.pl/files/amppz_problemset_en_2016.pdf
     roles:
     - problemset
+    contains:
+    - statement
     url_state: live
     url_checked: '2026-11-14'
   - url: https://qoj.ac/contest/916
     roles:
     - problemset
+    contains:
+    - names
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221203200748'
@@ -1057,11 +1121,15 @@ contests:
   - url: https://amppz.ii.uni.wroc.pl/files/amppz_problemset_en_2017.pdf
     roles:
     - problemset
+    contains:
+    - statement
     url_state: live
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/2212
     roles:
     - problemset
+    contains:
+    - names
     judge: baekjoon
     as_of: '20260421030150'
     url_state: dead
@@ -1106,12 +1174,16 @@ contests:
   - url: https://amppz.ii.uni.wroc.pl/files/amppz_problemset_en_2018.pdf
     roles:
     - problemset
+    contains:
+    - statement
     url_state: live
     url_checked: '2026-11-14'
     as_of: '20230712212728'
   - url: https://www.acmicpc.net/category/detail/2866
     roles:
     - problemset
+    contains:
+    - names
     judge: baekjoon
     as_of: '20220116110115'
     url_state: dead
@@ -1158,6 +1230,10 @@ contests:
   - url: https://amppz.tcs.uj.edu.pl/2019/data.html
     roles:
     - problemset
+    contains:
+    - statement
+    - data
+    - solutions
     as_of: '20211125215428'
     archived:
     - poland/poland-2019/scoreboard/2026-04-16-amppz/2019-polish-collegiate-programming-contest-2019.html
@@ -1168,6 +1244,8 @@ contests:
   - url: https://www.acmicpc.net/category/detail/2118
     roles:
     - problemset
+    contains:
+    - names
     judge: baekjoon
     as_of: '20230514151950'
     url_state: dead
@@ -1175,6 +1253,8 @@ contests:
   - url: https://qoj.ac/contest/559
     roles:
     - problemset
+    contains:
+    - names
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221003155859'
@@ -1241,6 +1321,8 @@ contests:
   - url: http://amppz.tcs.uj.edu.pl/2021/data/amppz-en.pdf
     roles:
     - problemset
+    contains:
+    - statement
     as_of: '20220817020014'
     url_state: live
     url_checked: '2026-11-14'
@@ -1253,6 +1335,8 @@ contests:
   - url: https://qoj.ac/contest/969
     roles:
     - problemset
+    contains:
+    - statement
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221203191232'
@@ -1311,12 +1395,16 @@ contests:
   - url: http://amppz.tcs.uj.edu.pl/2022/data/amppz-en.pdf
     roles:
     - problemset
+    contains:
+    - statement
     as_of: '20221126095853'
     url_state: live
     url_checked: '2026-11-14'
   - url: https://qoj.ac/contest/1103
     roles:
     - problemset
+    contains:
+    - statement
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20230324181611'
@@ -1374,6 +1462,8 @@ contests:
   - url: https://szkopul.edu.pl/task_archive/amppz/
     roles:
     - problemset
+    contains:
+    - names
     judge: szkopul
     url_state: changed
     url_checked: '2026-11-14'

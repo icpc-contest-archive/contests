@@ -55,10 +55,12 @@ not the calendar date.
 - `sources` — every address of the contest, one entry per URL with the **roles** it
   serves: `{url, roles: [...], as_of?, judge?, archived?, fetched?, url_state?,
   url_checked?, note?}` (see *Resources* below). Roles: `web` (the contest website; another
-  address of it is a `web` source of its own), the result tiers in decreasing information order
-  `scoreboard` (full, per-problem) > `frozen_scoreboard` > `standings` (totals only) >
-  `rankings` (order only), `teams` (a team list),
-  `problemset` (the contest's problems, in whatever form the document gives them),
+  address of it is a `web` source of its own), the results ladder in decreasing information order
+  `scoreboard` (full, per-problem) > `standings` (totals only) > `rankings` (order only) >
+  `teams` (a team list), and beside it `frozen_scoreboard` (the scoreboard as it stood at the
+  freeze: ancillary, not a level of the ladder — see *Coverage*),
+  `problemset` (the contest's problems, in whatever form the document gives them; `contains:`
+  says which: any of `names`, `statement`, `data`, `solutions`, `package`),
   `problem` (one problem), `report` (an account of the contest that is neither its website nor a
   results list: a news item, a press release, a history page; common for the early years, and often
   the only proof that a contest ran; added 2026-11-14), and `editorial` (solutions explained after the contest: the jury's
@@ -195,6 +197,86 @@ judge page shows it ran (ranked standings in the ICPC CMS count). A contest that
 view of a larger one (`subset_of`) follows the larger one. `tools/apply_ran_2026.py` did this for
 autumn 2026 from a frozen probe of the CMS and of last year's addresses with the year moved on.
 
+## Coverage
+
+What we hold of a contest is one **coverage record**, worked out in one place
+(`tools/coverage.py`, `Coverage.record`) and read by every page of the site. It tracks four
+things (rulings of 2026-11-15). **Have always means we hold a copy** — a copy that is the
+document, the `ours` of a source. An address we only know is a link, never counted as held.
+
+- **Results** — one level per contest, the highest it reaches on the ladder
+  **scoreboard > standings > rankings > team list > none**. Only the highest matters. The record
+  has the level we hold (`results`), the level any source gives (`results_known`), and `fetch`:
+  the known level when it is better than the held one (a copy is wanted). Beside the level, not
+  on the ladder: `frozen` (a frozen scoreboard, held or link only — it says how things stood at
+  the freeze, not how the contest ended, so a contest whose only result is a frozen scoreboard
+  has level none) and `partial` (the held level is reached only through sources with a `scope`:
+  one division, the top places; two or more division scopes together count as the whole).
+- **Problems** — not a ladder: six kinds, each on its own. *Problem metadata* (the problem
+  list itself, then `names`, `letters`, `short_names`, `uuids`: all / some / none, from the set's
+  problem list), and the material
+  `statement`, `data`, `solutions`, `package`, `editorial`, each **all / some / link only / none /
+  not recorded**. A complete `package` implies statement, data and solutions (never editorial);
+  that is derived, and `validate.py` refuses a set that says otherwise. Where the material comes
+  from does not matter: a kind counts when the problem archive holds it (the set's `statement:` …
+  `package:`), or when a `problemset`/`problem` source of any contest that used the set
+  `contains:` it and we hold a copy of that source (a `problemset` source gives it for all
+  problems, `problem` sources for some). *link only*: such a source is known, we hold no copy.
+  A source on an online judge is always link only for material: our copy of it is the judge's
+  list page, not the statements or data. *not recorded*: a source is known, but its `contains:`
+  is not. `editorial` is have-or-not per set, from `editorial` sources.
+  `contains:` was filled on 2026-11-15 from the content check's reading of our copies
+  (`tools/fill_contains.py`); `[]` means read, and it holds none of these.
+- **Website** — have or missing. Have = the contest has a `web` source and we hold a crawl or a
+  copy of it. Missing has two reasons, because the work differs: `no copy` (the address is known)
+  and `no address`. `confirmed none` (`none: [web]`) is not missing.
+- **Contest metadata** — a few kinds, each **have / missing / none**: `name`, `date` (the full
+  date), `location` (placed in the location tree), `cms` (CMS id; `[]` = none). *none* means
+  looked, and there is none: it is not missing. What a contest advances to (`parent`) and the
+  editions before and after it (`next`) are **not** coverage (ruling of 2026-11-15): "none" is a
+  valid answer for them, so they are never missing, only possibly wrong — a matter for
+  fact-checking (review mode), not for coverage.
+
+Everything is **counted in contests**: "statements: all" is the number of contests for which we
+hold every statement, not a number of problems. And *recorded* (problem metadata: what the
+catalogue lists) is not the same as *held* (material): a contest whose statement we hold can still
+have its problems unlisted.
+
+**Facets.** The questions above are one list, `coverage.FACETS`: 16 facets in five groups —
+Results (1); Problem metadata (the problem list, names, letters, short names, UUIDs); Problems
+(statements, test data, solutions, packages, editorial); Website (1); Contest metadata (name, full
+date, location, CMS id) — each with its answers in order, best first. Every view on the site is
+drawn from that list with one colour vocabulary (`build_site.facet_q`), which the marks in tables
+share: held (green), partly held or a lesser result (lime, amber, orange: the further from green,
+the less), known at an address with no copy (blue), missing (white — a hole), a source known but
+its contents not recorded (hatched), none exists (grey — not a hole).
+
+**Every category is a link, and it is a list of contests.** The contest list
+(`contest/index.html`) has a filter for every answer, addressable by name in the page address:
+`contest/index.html#f:status=ran&region=Europe&website=missing`. Names: `country`, `series`,
+`region`, `level`, `season`, `era`, `status`, `loc` (a node of the location tree; set by links
+only), `results`, `fetch`, `also` (frozen scoreboard, partial result, lost source), `problems`
+(the list), `statements`, `data`, `solutions`, `packages`, `editorial`, `pmeta`, `website`, `meta`.
+Filters combine. Anything on the site that counts contests — a segment of a bar, the label under
+it, a number — links to the list filtered to exactly those contests and carries its count
+(`data-n`); `tools/check_coverage_links.py` follows every such link of a built site and compares.
+Coverage counts contests that ran, so every such link carries `status=ran`. A category that is
+about a source (frozen scoreboard held, a source is lost) still opens contests: the source is one
+click further, on the contest's row.
+
+**Where coverage is shown — one design, everywhere.** A group of contests (the whole archive
+on `coverage.html`, a season, a series, a location with three or more contests) shows its coverage
+the same way and in the same order (`build_site.group_nums`, `coverage_section`): the headline
+numbers; then the panel, a bar per facet with its answers as linked labels, in three columns
+(results, website and contest metadata; problem metadata; problems); then *where* it is missing
+along the group's own axis — the archive and a location season by season (a strip per facet), a
+series edition by edition, a season contest by contest (a square per contest and facet). The
+members of the group (editions, the advancement tree, contests) come after. A table whose rows are
+groups (the series, season and location lists, the regions and series on `coverage.html`) carries
+the same bars in small (`group_cells`). A contest's page has its own card: a pill per facet and,
+in words, what is wanted. `wanted.html` counts what is missing by region, and `grid.html` colours
+every contest by any one facet (`grid.html#by=data`).
+
 ## Resources
 
 Three things used to be called "URL"; they are distinct.
@@ -261,13 +343,22 @@ several contests: NCPC + UKIEPC 2013, shared North American sets):
   usually equals the contest id but need not, e.g. `benelux-2022` for `bapc-2022`, and
   `statement-only` for statements only), `count`, `complete`, and one of `full` /
   `partial` / `none` for each kind of material: `statement`, `data`, `solutions`,
-  `package`, with `counts:` giving the exact number for kinds marked partial.
+  `package`, with `counts:` giving the exact number for kinds marked partial. These four say
+  what the problem archive holds; what we hold from anywhere is the coverage record
+  (*Coverage*).
+  `count` is the number of *distinct* problems: a problem used in two divisions counts once
+  (ruling 2026-11-15).
   `contests:` lists the contests that used the set, each with its own `letters:` map
   (letter → problem id; letters can differ between contests sharing a set);
-  `letters: unknown` on the set says no map is known for any contest. `problems:` lists
+  `letters: unknown` on the set says no map is known for any contest. A contest whose
+  divisions (or rounds) had problem sets of their own has `divisions:` instead of `letters:`
+  — division name → letter map, in the divisions' order; the site shows such a problem's
+  letter as `A/N` (its letter in each division, `–` where it was not in that division). `problems:` lists
   the problems when known (`id` = internal permanent `p-xxxxxxxx` id, the page key;
   `uuid` = the package's `problem.yaml` uuid, the same across sets that reuse the
-  problem; `name`, `short_name`, `have` (subset of statement, data, input_validator,
+  problem; `name` — the title in the organisers' statement where we hold it, which replaces
+  a judge's short title (ruling 2026-11-15); `other_names` — the other titles the problem
+  goes by (the judge's, or the statement's where `name` is the archive package's); `short_name`, `have` (subset of statement, data, input_validator,
   output_validator, solutions, package), `status: private`, `judges`, `notes`). When the
   list is present the holdings must agree with it (validate.py checks).
 - **Judges.** `judges.yaml` at the repo root is the registry of online judges (id, name,

@@ -1,7 +1,7 @@
 # Problem set (DEFINITIONS.md, Problems): holdings, member contests with letter maps, problems.
 id: latam-2011
 name: Latin America regional 2011
-complete: false
+count: 11
 contests:
 - contest: brazil-2011
   letters:
@@ -29,8 +29,6 @@ contests:
     K: p-ae921d64
     B: p-d5e894fe
     F: p-406e2740
-    L: p-b5ed5916
-    M: p-94a757b9
 - contest: central-america-2011
   letters:
     A: p-4f773e37
@@ -44,14 +42,14 @@ contests:
     K: p-ae921d64
     B: p-d5e894fe
     F: p-406e2740
-    L: p-b5ed5916
-    M: p-94a757b9
 - contest: south-america-north-2011
   letters:
     A: p-4f773e37
+    B: p-d5e894fe
     C: p-08cac074
     D: p-fc114331
     E: p-1d6fa874
+    F: p-406e2740
     G: p-d0261dfd
     H: p-533a7c93
     I: p-66a4aab6
@@ -60,9 +58,11 @@ contests:
 - contest: south-america-south-2011
   letters:
     A: p-4f773e37
+    B: p-d5e894fe
     C: p-08cac074
     D: p-fc114331
     E: p-1d6fa874
+    F: p-406e2740
     G: p-d0261dfd
     H: p-533a7c93
     I: p-66a4aab6
@@ -326,24 +326,6 @@ problems:
   - judge: spoj-br
     url: https://br.spoj.com/problems/FILE11/
     id: FILE11
-- id: p-b5ed5916
-  aliases:
-  - p-3727a93d
-  - p-51d59c60
-  name: Gates
-  judges:
-  - judge: codeforces
-    url: https://codeforces.com/gym/100540/problem/L
-    id: 100540/L
-- id: p-94a757b9
-  aliases:
-  - p-956787d9
-  - p-c8e0add7
-  name: Game
-  judges:
-  - judge: codeforces
-    url: https://codeforces.com/gym/100540/problem/M
-    id: 100540/M
 provenance:
 - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
 - online-judge pages (2026-11-02, tools/mine_judge_links.py)
@@ -351,6 +333,12 @@ provenance:
   one problem set for every site of the Latin America regional (tools/merge_problemsets.py)'
 - '2026-11-12: brazil-2011 joins: it is a site of this regional; the set filed under it mixed the regional''s
   problems with those of brazil-first-phase-2011 (tools/repair_brazil_finals.py)'
+- 'dropped as not part of the set (ruling 2026-11-16; on a judge only, not in the organisers'' document):
+  Gates (https://codeforces.com/gym/100540/problem/L); Game (https://codeforces.com/gym/100540/problem/M)'
+- problem names read from our copy of https://www.acmicpc.net/category/detail/565, https://codeforces.com/gym/100540
+  (tools/names_apply.py, 2026-11-16)
+- problem names read from our copy of https://www.acmicpc.net/category/detail/565, https://codeforces.com/gym/100540
+  (tools/names_apply.py, 2026-11-16)
 aliases:
 - brazil-2011
 - caribbean-2011

@@ -198,7 +198,7 @@
     "editorial",
     "report"
    ],
-   "description": "what a source holds. Result roles rank scoreboard > frozen_scoreboard > standings > rankings by information content (a standings page of the ICPC CMS is filed by what it holds, like any other source); web = the contest website; teams = team list; problemset = the contest's problems, in whatever form the document gives them (statements, a list of names, a judge's contest page); problem = one problem; a problemset or problem that is on an online judge carries `judge`; editorial = solutions explained after the contest (the jury's solution slides or problem analysis, or somebody else's write-up); report = an account of the contest that is neither its website nor a results list (a news item, a press release, a history page)"
+   "description": "what a source holds. The results ladder is scoreboard > standings > rankings > teams (a contest has one level, the highest it reaches); a frozen_scoreboard is kept beside the ladder, not on it (a standings page of the ICPC CMS is filed by what it holds, like any other source); web = the contest website; teams = team list; problemset = the contest's problems, in whatever form the document gives them (statements, a list of names, a judge's contest page); problem = one problem; a problemset or problem that is on an online judge carries `judge`; editorial = solutions explained after the contest (the jury's solution slides or problem analysis, or somebody else's write-up); report = an account of the contest that is neither its website nor a results list (a news item, a press release, a history page)"
   },
   "source": {
    "type": "object",
@@ -224,6 +224,20 @@
      "type": "string",
      "minLength": 1,
      "description": "the part of the contest this source covers, when it is not the whole contest: 'Division 1', 'Division 2'. Shown beside the role."
+    },
+    "contains": {
+     "type": "array",
+     "uniqueItems": true,
+     "items": {
+      "enum": [
+       "names",
+       "statement",
+       "data",
+       "solutions",
+       "package"
+      ]
+     },
+     "description": "what a problemset or problem source holds: names (the list of problem names and nothing more), statement, data, solutions, package (a complete package: it implies statement, data and solutions). [] = read, holds none of these. Absent = not recorded."
     },
     "as_of": {
      "$ref": "#/$defs/asOf"

@@ -84,6 +84,8 @@ def main() -> int:
                 seen_addr[k] = s["url"]
                 if s.get("judge") and not ({"problemset", "problem"} & set(s["roles"])):
                     err(f"{c['id']}: source {s['url'][:80]}: `judge:` belongs on a problemset or problem source")
+                if "contains" in s and not ({"problemset", "problem"} & set(s["roles"])):
+                    err(f"{c['id']}: source {s['url'][:80]}: `contains:` belongs on a problemset or problem source")
                 if s.get("url_checked") and not s.get("url_state"):
                     err(f"{c['id']}: source {s['url'][:80]}: url_checked without url_state")
             for r in c.get("none") or []:
@@ -272,6 +274,14 @@ def main() -> int:
                     err(f"problemsets/{sid_}.yaml: {m} letter {letter} -> {pid_} is not a problem of the set")
             if len(set(letters.values())) != len(letters):
                 err(f"problemsets/{sid_}.yaml: {m} maps two letters to one problem")
+            if e.get("divisions") and e.get("letters"):
+                err(f"problemsets/{sid_}.yaml: {m} has both letters and divisions — a contest with divisions keeps its letters per division")
+            for dname, dl in (e.get("divisions") or {}).items():
+                for letter, pid_ in dl.items():
+                    if pid_ not in ids:
+                        err(f"problemsets/{sid_}.yaml: {m} {dname} letter {letter} -> {pid_} is not a problem of the set")
+                if len(set(dl.values())) != len(dl):
+                    err(f"problemsets/{sid_}.yaml: {m} {dname} maps two letters to one problem")
         if len(members) != len(set(members)):
             err(f"problemsets/{sid_}.yaml: a contest is listed twice")
         n, cnt = len(probs), doc.get("count")
@@ -283,7 +293,7 @@ def main() -> int:
                 err(f"problemsets/{sid_}.yaml: {n} problems but no count (set count: {n}, or complete: false)")
             elif cnt != n:
                 err(f"problemsets/{sid_}.yaml: {n} problems listed but count {cnt} (mark complete: false if the list is partial)")
-        if probs and doc.get("letters") != "unknown" and not any(e.get("letters") for e in doc["contests"]):
+        if probs and doc.get("letters") != "unknown" and not any(e.get("letters") or e.get("divisions") for e in doc["contests"]):
             err(f"problemsets/{sid_}.yaml: problems listed but no contest has a letter map — add one or set letters: unknown")
         if doc.get("counts"):
             for k, v in doc["counts"].items():
@@ -291,6 +301,12 @@ def main() -> int:
                     err(f"problemsets/{sid_}.yaml: counts.{k} given but {k} is {doc.get(k)!r}")
                 if cnt is not None and not 0 < v < cnt:
                     err(f"problemsets/{sid_}.yaml: counts.{k}={v} not strictly between 0 and count={cnt}")
+        # a complete package holds its statement, data and solutions (DEFINITIONS.md, Coverage)
+        rank = {"none": 0, "partial": 1, "full": 2}
+        if doc.get("package") in rank:
+            for kind in ("statement", "data", "solutions"):
+                if doc.get(kind) in rank and rank[doc[kind]] < rank[doc["package"]]:
+                    err(f"problemsets/{sid_}.yaml: package is {doc['package']} but {kind} is {doc[kind]} — a package holds its {kind}")
         for kind in ("statement", "data", "solutions", "package"):
             if doc.get(kind) is None or not probs or not all("have" in p for p in probs) or doc.get("complete") is False:
                 continue

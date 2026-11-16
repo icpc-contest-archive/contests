@@ -17,7 +17,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - run: pip install -r pilot/requirements.txt
-      - run: python3 -m unittest tests.test_pilot_sync -v
+      - run: python3 -m unittest tests.test_pilot_sync tests.test_coverage -v
       - run: python3 tools/pilot_sync.py validate-config
       - run: python3 tools/validate.py
 
@@ -30,6 +30,7 @@ jobs:
         with: { python-version: "3.12" }
       - run: pip install pyyaml
       - run: python3 tools/build_site.py --out site
+      - run: python3 tools/check_coverage_links.py --site site
       - uses: actions/upload-pages-artifact@v3
         with: { path: site }
 

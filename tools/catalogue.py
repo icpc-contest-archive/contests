@@ -7,6 +7,7 @@ roles it serves:
     sources:
     - url: http://www.cs.colorado.edu/users/kena/acmpc/results.html
       roles: [scoreboard, problemset]
+      contains: [statement, data]  # problemset/problem sources: what the document holds (CONTAINS)
       as_of: '20040117'            # optional: the content meant is what the address served then
       judge: baekjoon              # the source is on this online judge (judges.yaml)
       archived: [rmc/rmc-2000/scoreboard/2026-09-07-.../page.html]   # every capture of this address
@@ -34,6 +35,13 @@ ROOT = Path(__file__).resolve().parent.parent
 ROLES = ("web", "scoreboard", "frozen_scoreboard", "standings", "rankings",
          "teams", "problemset", "problem", "editorial", "report")
 RESULT_ROLES = ("scoreboard", "frozen_scoreboard", "standings", "rankings")
+# The results ladder (2026-11-15): what we know of how a contest ended, best first. A contest has
+# ONE level, the highest it reaches. A frozen scoreboard is not on it: it says how things stood at
+# the freeze, not how they ended, so it is kept beside the level, not as one.
+RESULT_LADDER = ("scoreboard", "standings", "rankings", "teams")
+# What a `problemset` or `problem` source holds (`contains:`). `package` implies statement, data
+# and solutions; `names` is the list of problem names and nothing more.
+CONTAINS = ("names", "statement", "data", "solutions", "package")
 # a standings page of the ICPC CMS. It has no role of its own: it is a standings, rankings or
 # teams source like any other, and that it is the CMS is read off its address.
 CMS_STANDINGS = re.compile(r"^https?://icpc\.global/regionals/finder/[^/?#]+/standings/?$", re.I)
@@ -128,11 +136,32 @@ def set_of(c: dict, sets: dict[str, dict]) -> dict | None:
     return sets.get(sid) if sid else None
 
 
-def set_letters(doc: dict, cid: str) -> dict[str, str]:
-    """{letter: problem id} as used by contest `cid` in set `doc` ({} when unknown)."""
+def set_divisions(doc: dict, cid: str) -> dict[str, dict[str, str]]:
+    """{division: {letter: problem id}} for a contest whose divisions had problem sets of their own
+    ({} for a contest with one lettering)."""
     for m in doc.get("contests") or []:
         if m.get("contest") == cid:
-            return m.get("letters") or {}
+            return m.get("divisions") or {}
+    return {}
+
+
+def division_labels(divs: dict[str, dict[str, str]]) -> dict[str, str]:
+    """One label per problem of a contest with divisions: its letter in each division, in the
+    divisions' order, "A/N"; "–" where the problem was not in that division. One division: its letter."""
+    key = lambda t: (len(t[0]), t[0])  # noqa: E731
+    invs = [{pid: L for L, pid in lm.items()} for lm in divs.values()]
+    pids: list[str] = []
+    for lm in divs.values():
+        pids += [pid for _L, pid in sorted(lm.items(), key=key) if pid not in pids]
+    return {"/".join(inv.get(pid, "–") for inv in invs): pid for pid in pids}
+
+
+def set_letters(doc: dict, cid: str) -> dict[str, str]:
+    """{letter: problem id} as used by contest `cid` in set `doc` ({} when unknown). For a contest
+    with divisions the "letter" is the label of division_labels()."""
+    for m in doc.get("contests") or []:
+        if m.get("contest") == cid:
+            return division_labels(m["divisions"]) if m.get("divisions") else (m.get("letters") or {})
     return {}
 
 
@@ -184,8 +213,8 @@ def primary_role(s: dict) -> str:
 
 
 def best_result(c: dict) -> tuple[str, list[dict]] | None:
-    """(role, sources) for the most informative result role present, else None."""
-    for role in RESULT_ROLES:
+    """(level, sources) for the highest level of the results ladder present, else None."""
+    for role in RESULT_LADDER:
         lst = by_role(c, role)
         if lst:
             return role, lst
@@ -255,7 +284,7 @@ def sort_sources(c: dict) -> None:
 
 def normalise_source(s: dict) -> dict:
     """Canonical key order for a source mapping."""
-    order = ("url", "roles", "scope", "judge", "as_of", "archived", "fetched",
+    order = ("url", "roles", "scope", "contains", "judge", "as_of", "archived", "fetched",
              "url_state", "url_checked", "note")
     out = {k: s[k] for k in order if k in s}
     for k in s:

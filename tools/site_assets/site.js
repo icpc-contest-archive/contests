@@ -5,6 +5,11 @@
 
   /* ---- tables: click a header to sort; tables marked .flt (or 30+ rows) get a filter bar ----
      th[data-f]  -> a drop-down of that column's values
+     th[data-k]  -> the filter's name in a link: page.html#f:season=2024&website=missing
+                    (a column number works too: #f:6=2024)
+     th[data-g]  -> the drop-down goes on the second line of the bar ("Coverage")
+     th[data-o]  -> the order of the values in the drop-down, separated by | (the rest follow, sorted)
+     th[data-p]  -> no drop-down: a filter only a link sets (#f:loc=us-waco), shown as a button that removes it
      td[data-v]  -> the value to sort/filter by instead of the text
      td[data-vs] -> several filter values, separated by |                                    */
   const num = s => { const t = s.replace(/[%,\s]/g, ''); return t !== '' && !isNaN(t) ? parseFloat(t) : null; };
@@ -46,53 +51,87 @@
     box.setAttribute('aria-label', 'Filter rows');
     bar.appendChild(box);
     const sels = [];
+    const pins = [];   // {col, key, label, value, btn}
+    let bar2 = null;
     ths.forEach((th, i) => {
+      if (th.dataset.p !== undefined && !th.hasAttribute('data-f')) {
+        const pin = {col: i, key: th.dataset.k, label: th.dataset.p, value: '', btn: document.createElement('button')};
+        pin.btn.type = 'button'; pin.btn.className = 'fpin'; pin.btn.hidden = true; pin.btn.title = 'remove this filter';
+        pin.btn.addEventListener('click', () => { pin.value = ''; apply(); });
+        bar.appendChild(pin.btn); pins.push(pin);
+        return;
+      }
       if (!th.hasAttribute('data-f')) return;
       const cnt = new Map();
       rows.forEach(r => { for (const v of vals(r.cells[i])) cnt.set(v, (cnt.get(v) || 0) + 1); });
       if (cnt.size < 2) return;
-      const sel = document.createElement('select'); sel.dataset.col = i;
+      const sel = document.createElement('select'); sel.dataset.col = i; sel.dataset.key = th.dataset.k || String(i);
       const label = th.dataset.f || th.textContent.trim();
       sel.setAttribute('aria-label', 'Filter by ' + label);
       const all = document.createElement('option'); all.value = ''; all.textContent = label + ': all'; sel.appendChild(all);
-      Array.from(cnt.keys()).sort((a, b) => a.localeCompare(b, undefined, {numeric: true})).forEach(v => {
+      const order = (th.dataset.o || '').split('|').filter(Boolean);
+      const rank = v => { const r = order.indexOf(v); return r < 0 ? order.length : r; };
+      Array.from(cnt.keys()).sort((a, b) => rank(a) - rank(b) || a.localeCompare(b, undefined, {numeric: true})).forEach(v => {
         const o = document.createElement('option'); o.value = v || '—';
-        o.textContent = (v || '—') + ' (' + cnt.get(v) + ')'; sel.appendChild(o);
+        // on the Coverage line many filters share their values (all, some, missing): say whose it is
+        o.textContent = (th.dataset.g ? label + ': ' : '') + (v || '—') + ' (' + cnt.get(v) + ')'; sel.appendChild(o);
       });
-      bar.appendChild(sel); sels.push(sel);
+      if (th.dataset.g) {
+        if (!bar2) { bar2 = document.createElement('div'); bar2.className = 'fbar fbar2';
+          const lab = document.createElement('span'); lab.className = 'flab'; lab.textContent = 'Coverage'; bar2.appendChild(lab); }
+        bar2.appendChild(sel);
+      } else bar.appendChild(sel);
+      sels.push(sel);
     });
     const clear = document.createElement('button'); clear.type = 'button'; clear.textContent = 'Clear filters'; clear.hidden = true;
     bar.appendChild(clear);
     const count = document.createElement('span'); count.className = 'fcount'; bar.appendChild(count);
     const wrap = tbl.closest('.tw') || tbl;
     wrap.parentNode.insertBefore(bar, wrap);
+    if (bar2) wrap.parentNode.insertBefore(bar2, wrap);
     const useHash = !hashTable; if (useHash) hashTable = tbl;
     const apply = () => {
       const q = box.value.trim().toLowerCase(); let n = 0;
       const active = sels.filter(s => s.value);
+      sels.forEach(s => s.classList.toggle('on', !!s.value));
       rows.forEach(r => {
         let ok = !q || r.textContent.toLowerCase().includes(q);
         if (ok) for (const s of active) {
           const want = s.value === '—' ? '' : s.value;
           if (!vals(r.cells[+s.dataset.col]).includes(want)) { ok = false; break; }
         }
+        if (ok) for (const p of pins) if (p.value && !vals(r.cells[p.col]).includes(p.value)) { ok = false; break; }
         r.hidden = !ok; if (ok) n++;
       });
       count.textContent = n === rows.length ? rows.length.toLocaleString() + ' rows'
         : n.toLocaleString() + ' of ' + rows.length.toLocaleString() + ' rows';
-      clear.hidden = !(q || active.length);
+      pins.forEach(p => { p.btn.hidden = !p.value; p.btn.textContent = p.label + ': ' + p.value + ' \u00d7'; });
+      clear.hidden = !(q || active.length || pins.some(p => p.value));
       if (useHash) {
-        const h = active.map(s => s.dataset.col + '=' + encodeURIComponent(s.value)).join('&');
+        const h = pins.filter(p => p.value).map(p => p.key + '=' + encodeURIComponent(p.value))
+          .concat(active.map(s => s.dataset.key + '=' + encodeURIComponent(s.value))).join('&');
         if (h || location.hash.startsWith('#f:')) history.replaceState(null, '', h ? '#f:' + h : location.pathname + location.search);
       }
     };
-    if (useHash && location.hash.startsWith('#f:')) location.hash.slice(3).split('&').forEach(kv => {
-      const [c, v] = kv.split('='); const s = sels.find(s => s.dataset.col === c); if (s) s.value = decodeURIComponent(v || '');
-    });
+    const fromHash = () => {
+      if (!location.hash.startsWith('#f:')) return false;
+      sels.forEach(s => { s.value = ''; });
+      pins.forEach(p => { p.value = ''; });
+      location.hash.slice(3).split('&').forEach(kv => {
+        const i = kv.indexOf('='); const c = decodeURIComponent(i < 0 ? kv : kv.slice(0, i));
+        const v = decodeURIComponent(i < 0 ? '' : kv.slice(i + 1));
+        const p = pins.find(p => p.key === c);
+        if (p) { p.value = v; return; }
+        const s = sels.find(s => s.dataset.key === c) || sels.find(s => s.dataset.col === c);
+        if (s) s.value = v;
+      });
+      return true;
+    };
+    if (useHash) { fromHash(); window.addEventListener('hashchange', () => { if (fromHash()) apply(); }); }
     let t = null;
     box.addEventListener('input', () => { clearTimeout(t); t = setTimeout(apply, rows.length > 3000 ? 180 : 0); });
     sels.forEach(s => s.addEventListener('change', apply));
-    clear.addEventListener('click', () => { box.value = ''; sels.forEach(s => { s.value = ''; }); apply(); });
+    clear.addEventListener('click', () => { box.value = ''; sels.forEach(s => { s.value = ''; }); pins.forEach(p => { p.value = ''; }); apply(); });
     apply();
   });
 

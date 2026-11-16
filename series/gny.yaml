@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/content_check_inside.py.
+# Maintained in-repo; last bulk edit: tools/fill_contains.py.
 series:
   id: gny
   name: ICPC North America Greater New York Regional Contest
@@ -92,12 +92,16 @@ contests:
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_GreatNY/1997/index.html
     roles:
     - problemset
+    contains:
+    - package
     as_of: '20090713055745'
     url_state: dead
     url_checked: '2026-11-14'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=485
     roles:
     - problemset
+    contains:
+    - statement
     judge: livearchive
     as_of: '20211020152858'
     url_state: dead
@@ -141,6 +145,8 @@ contests:
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_GreatNY/1998/index.html
     roles:
     - problemset
+    contains:
+    - statement
     as_of: '20090713043553'
     archived:
     - gny/gny-1998/scoreboard/2026-04-16-archive/1998-greater-new-york-programming-contest-1998.html
@@ -150,6 +156,8 @@ contests:
   - url: http://icpc.baylor.edu/past/icpc99/Regionals/GNY98/problems.htm
     roles:
     - problemset
+    contains:
+    - names
     as_of: '20040131035248'
     url_state: unknown
     url_checked: '2026-11-13'
@@ -205,6 +213,9 @@ contests:
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_GreatNY/1999/index.html
     roles:
     - problemset
+    contains:
+    - statement
+    - data
     as_of: '20090713053109'
     archived:
     - gny/gny-1999/scoreboard/2026-04-16-archive/1999-greater-new-york-programming-contest-1999.html
@@ -214,6 +225,9 @@ contests:
   - url: http://icpc.baylor.edu/past/icpc2000/regionals/GNY99/Problems.html
     roles:
     - problemset
+    contains:
+    - statement
+    - data
     as_of: '20020111102906'
     url_state: unknown
     url_checked: '2026-11-13'
@@ -265,6 +279,10 @@ contests:
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_GreatNY/2000/index.html
     roles:
     - problemset
+    contains:
+    - statement
+    - data
+    - solutions
     as_of: '20090713044454'
     archived:
     - gny/gny-2000/scoreboard/2026-04-16-archive/2000-greater-new-york-programming-contest-2000.html
@@ -274,12 +292,16 @@ contests:
   - url: http://icpc.baylor.edu/past/icpc2001/regionals/GNY00/Problems.pdf
     roles:
     - problemset
+    contains:
+    - statement
     as_of: '20030323152408'
     url_state: unknown
     url_checked: '2026-11-13'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=76
     roles:
     - problemset
+    contains:
+    - statement
     judge: livearchive
     as_of: '20210926164713'
     url_state: dead
@@ -287,6 +309,8 @@ contests:
   - url: https://www.acmicpc.net/category/detail/727
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20191119230110'
     url_state: dead
@@ -350,6 +374,9 @@ contests:
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_GreatNY/2001/index.html
     roles:
     - problemset
+    contains:
+    - statement
+    - data
     as_of: '20090713062954'
     archived:
     - gny/gny-2001/scoreboard/2026-04-16-archive/2001-greater-new-york-programming-contest-2001.html
@@ -359,12 +386,17 @@ contests:
   - url: http://icpc.baylor.edu/past/icpc2002/regionals/GNY01/problems.html
     roles:
     - problemset
+    contains:
+    - statement
+    - data
     as_of: '20020701100757'
     url_state: unknown
     url_checked: '2026-11-13'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=105
     roles:
     - problemset
+    contains:
+    - names
     judge: livearchive
     as_of: '20211017100130'
     url_state: dead
@@ -372,6 +404,8 @@ contests:
   - url: https://www.acmicpc.net/category/detail/726
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20191122050634'
     url_state: dead
@@ -433,17 +467,24 @@ contests:
   - url: http://acmgnyr.org/year2002/problems.shtml
     roles:
     - problemset
+    contains:
+    - statement
+    - data
     url_state: live
     url_checked: '2026-11-14'
   - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/www.acmgnyr.org/year2002/problems.zip
     roles:
     - problemset
+    contains:
+    - statement
     as_of: '20070303141740'
     url_state: unknown
     url_checked: '2026-11-13'
   - url: https://www.acmicpc.net/category/detail/725
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20201031020247'
     url_state: dead
@@ -516,11 +557,17 @@ contests:
   - url: http://acmgnyr.org/year2003/problems.shtml
     roles:
     - problemset
+    contains:
+    - statement
+    - data
+    - solutions
     url_state: live
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/13
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20201019152207'
     url_state: dead
@@ -563,11 +610,17 @@ contests:
   - url: http://acmgnyr.org/year2004/problems.shtml
     roles:
     - problemset
+    contains:
+    - statement
+    - data
+    - solutions
     url_state: live
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/12
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20201025071347'
     url_state: dead
@@ -602,11 +655,17 @@ contests:
   - url: http://acmgnyr.org/year2005/problems.shtml
     roles:
     - problemset
+    contains:
+    - statement
+    - data
+    - solutions
     url_state: live
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/11
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20201024110449'
     url_state: dead
@@ -641,11 +700,17 @@ contests:
   - url: http://acmgnyr.org/year2006/problems.shtml
     roles:
     - problemset
+    contains:
+    - statement
+    - data
+    - solutions
     url_state: live
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/10
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20201027163715'
     url_state: dead
@@ -653,6 +718,8 @@ contests:
   - url: https://qoj.ac/contest/45
     roles:
     - problemset
+    contains:
+    - names
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221005114938'
@@ -688,11 +755,17 @@ contests:
   - url: http://acmgnyr.org/year2007/problems.shtml
     roles:
     - problemset
+    contains:
+    - statement
+    - data
+    - solutions
     url_state: live
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/9
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20201031041603'
     url_state: dead
@@ -725,11 +798,17 @@ contests:
   - url: http://acmgnyr.org/year2008/problems.shtml
     roles:
     - problemset
+    contains:
+    - statement
+    - data
+    - solutions
     url_state: live
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/8
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20191209081122'
     url_state: dead
@@ -768,11 +847,17 @@ contests:
   - url: http://acmgnyr.org/year2009/problems.shtml
     roles:
     - problemset
+    contains:
+    - statement
+    - data
+    - solutions
     url_state: live
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/7
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20201124171304'
     url_state: dead
@@ -815,11 +900,17 @@ contests:
   - url: http://acmgnyr.org/year2010/problems.shtml
     roles:
     - problemset
+    contains:
+    - statement
+    - data
+    - solutions
     url_state: live
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/6
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20191122072857'
     url_state: dead
@@ -861,11 +952,18 @@ contests:
   - url: http://acmgnyr.org/year2011/problems.shtml
     roles:
     - problemset
+    contains:
+    - statement
+    - data
+    - solutions
+    - package
     url_state: live
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/5
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20190819233255'
     url_state: dead
@@ -905,11 +1003,18 @@ contests:
   - url: http://acmgnyr.org/year2012/problems.shtml
     roles:
     - problemset
+    contains:
+    - statement
+    - data
+    - solutions
+    - package
     url_state: live
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/4
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20190720175336'
     url_state: dead
@@ -942,11 +1047,18 @@ contests:
   - url: http://acmgnyr.org/year2013/problems.shtml
     roles:
     - problemset
+    contains:
+    - statement
+    - data
+    - solutions
+    - package
     url_state: live
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/1170
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20190921024858'
     url_state: dead
@@ -954,6 +1066,8 @@ contests:
   - url: https://qoj.ac/contest/51
     roles:
     - problemset
+    contains:
+    - statement
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221005113418'
@@ -994,11 +1108,18 @@ contests:
   - url: http://acmgnyr.org/year2014/problems.shtml
     roles:
     - problemset
+    contains:
+    - statement
+    - data
+    - solutions
+    - package
     url_state: live
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/1301
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20201021153059'
     url_state: dead
@@ -1006,6 +1127,8 @@ contests:
   - url: https://open.kattis.com/problem-sources/2014%20Greater%20New%20York%20Region%20ACM%20Regional%20Contest
     roles:
     - problemset
+    contains:
+    - statement
     judge: kattis
     url_state: replaced
     url_checked: '2026-11-14'
@@ -1015,6 +1138,8 @@ contests:
   - url: https://qoj.ac/contest/52
     roles:
     - problemset
+    contains:
+    - statement
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20230324195350'
@@ -1054,11 +1179,18 @@ contests:
   - url: http://acmgnyr.org/year2015/problems.shtml
     roles:
     - problemset
+    contains:
+    - statement
+    - data
+    - solutions
+    - package
     url_state: live
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/1416
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20201024012454'
     url_state: dead
@@ -1066,6 +1198,8 @@ contests:
   - url: https://open.kattis.com/problem-sources/2015%20Greater%20New%20York%20Region%20ACM%20Regional%20Contest
     roles:
     - problemset
+    contains:
+    - statement
     judge: kattis
     url_state: replaced
     url_checked: '2026-11-14'
@@ -1075,6 +1209,8 @@ contests:
   - url: https://qoj.ac/contest/53
     roles:
     - problemset
+    contains:
+    - statement
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20230324184803'
@@ -1114,11 +1250,17 @@ contests:
   - url: http://acmgnyr.org/year2016/problems.shtml
     roles:
     - problemset
+    contains:
+    - statement
+    - data
+    - solutions
     url_state: live
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/1573
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20201021170852'
     url_state: dead
@@ -1126,6 +1268,8 @@ contests:
   - url: https://open.kattis.com/problem-sources/2016%20Greater%20New%20York%20Region%20ACM%20Regional%20Contest
     roles:
     - problemset
+    contains:
+    - statement
     judge: kattis
     url_state: replaced
     url_checked: '2026-11-14'
@@ -1135,6 +1279,8 @@ contests:
   - url: https://qoj.ac/contest/54
     roles:
     - problemset
+    contains:
+    - names
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20230605041343'
@@ -1182,11 +1328,17 @@ contests:
   - url: http://acmgnyr.org/year2017/problems.shtml
     roles:
     - problemset
+    contains:
+    - statement
+    - data
+    - solutions
     url_state: live
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/1813
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20191115153701'
     url_state: dead
@@ -1194,6 +1346,8 @@ contests:
   - url: https://open.kattis.com/problem-sources/2017%20Greater%20New%20York%20Region%20ACM%20Regional%20Contest
     roles:
     - problemset
+    contains:
+    - statement
     judge: kattis
     url_state: replaced
     url_checked: '2026-11-14'
@@ -1234,11 +1388,17 @@ contests:
   - url: http://acmgnyr.org/year2018/problems.shtml
     roles:
     - problemset
+    contains:
+    - statement
+    - data
+    - solutions
     url_state: live
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/1960
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20190723120311'
     url_state: dead
@@ -1278,11 +1438,17 @@ contests:
   - url: http://acmgnyr.org/year2019/problems.shtml
     roles:
     - problemset
+    contains:
+    - statement
+    - data
+    - solutions
     url_state: live
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/2099
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20220529024137'
     url_state: dead
@@ -1290,6 +1456,8 @@ contests:
   - url: https://open.kattis.com/problem-sources/2019%20ICPC%20Greater%20New%20York%20Regional%20Programming%20Contest
     roles:
     - problemset
+    contains:
+    - statement
     judge: kattis
     url_state: replaced
     url_checked: '2026-11-14'
@@ -1331,11 +1499,17 @@ contests:
   - url: http://acmgnyr.org/year2020/problems_all.shtml
     roles:
     - problemset
+    contains:
+    - statement
+    - data
+    - solutions
     url_state: live
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/2484
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20210511095012'
     url_state: dead
@@ -1375,11 +1549,17 @@ contests:
   - url: http://acmgnyr.org/year2021/problems_2021.shtml
     roles:
     - problemset
+    contains:
+    - statement
+    - data
+    - solutions
     url_state: live
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/3059
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20230514152058'
     url_state: dead
@@ -1387,6 +1567,8 @@ contests:
   - url: https://qoj.ac/contest/863
     roles:
     - problemset
+    contains:
+    - statement
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221129210901'
@@ -1439,6 +1621,10 @@ contests:
   - url: http://acmgnyr.org/year2022/problems_2022.shtml
     roles:
     - problemset
+    contains:
+    - statement
+    - data
+    - solutions
     url_state: live
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/3555
@@ -1450,6 +1636,8 @@ contests:
   - url: https://qoj.ac/contest/1126
     roles:
     - problemset
+    contains:
+    - statement
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20230324194408'
@@ -1600,6 +1788,10 @@ contests:
   - url: http://acmgnyr.org/year2024/problems/index.html
     roles:
     - problemset
+    contains:
+    - statement
+    - data
+    - solutions
     url_state: live
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/4342

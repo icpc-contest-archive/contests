@@ -25,6 +25,14 @@ Rules the pages are built by (also told to the reader on about.html):
   4. Every list page: title, one paragraph, key, filter bar, sortable table. Every object page:
      breadcrumb, title, status, facts, sections.
   5. One word per thing: location, level, results, problems, website, online judge, CMS id.
+  6. Coverage is one record per contest (tools/coverage.py, DEFINITIONS.md Coverage), and every
+     page reads it. Its questions are one list (coverage.FACETS); every view is drawn from it with
+     one colour per kind of answer (facet_q): the stacked bars of the coverage panel (the archive,
+     a season, a series, a location), a contest's coverage card, the matrices (a series by edition,
+     a season by contest), the strips through the seasons, the grid. Anything that counts contests
+     — a bar segment, a label, a number — is a link carrying its count (data-n) into the contest
+     list, filtered by name (#f:region=Europe&website=missing) to exactly those contests;
+     tools/check_coverage_links.py follows every such link and checks the count.
 
 Styles, script and fonts live in tools/site_assets/ and are copied to site/assets/.
 Old addresses (locator/, problemsets/, judges/, seasons.html, resources/, urls/, local.html,
@@ -62,13 +70,18 @@ import sys  # noqa: E402
 sys.path.insert(0, str(ROOT / "tools"))
 import review_units as R  # noqa: E402  (review mode: the units a reader can confirm, correct or add to)
 from resources import fmt_time, label as res_label, norm_key, unwrap, wayback_link  # noqa: E402
-from catalogue import (RANK, RESULT_ROLES, archived, best_result, by_role, has_role, judge_sources,  # noqa: E402
+from urllib.parse import quote  # noqa: E402
+from catalogue import (RANK, RESULT_LADDER, archived, by_role, has_role, judge_sources,  # noqa: E402
                        load_judges, load_locations, load_non_mainline, load_sets, location_chain,
-                       set_letters, set_of, sources)
+                       set_divisions, set_letters, set_of, sources)
+import coverage as CV  # noqa: E402  (the one coverage record per contest; every page reads it)
+from coverage import set_counts, set_list_state  # noqa: E402
 import site_resources  # noqa: E402
 
-# the four result tiers (a standings page of the ICPC CMS is filed by what it holds, like any other source)
-RESULT_KINDS = RESULT_ROLES
+# the result roles: the ladder (scoreboard > standings > rankings > team list), then the frozen
+# scoreboard, which is kept beside the ladder (a standings page of the ICPC CMS is filed by what it
+# holds, like any other source)
+RESULT_KINDS = RESULT_LADDER + ("frozen_scoreboard",)
 
 RES = site_resources.Resources(ROOT)  # source/snapshot lookups (data/resources.json)
 lid = site_resources.lid
@@ -202,10 +215,31 @@ def crumbs(*items: str) -> str:
     return '<p class="crumbs">' + " › ".join(items) + " ›</p>"
 
 
-def th(label: str, num: bool = False, f: bool | str = False, title: str | None = None) -> str:
-    """A header cell. `f` adds a drop-down filter on the column (a string names it in the filter bar)."""
-    a = (' class="num"' if num else "") + (f' data-f="{esc(f)}"' if isinstance(f, str) else (" data-f" if f else ""))
+def th(label: str, num: bool = False, f: bool | str = False, title: str | None = None,
+       k: str | None = None, g: bool = False, o: tuple | None = None, hid: bool = False) -> str:
+    """A header cell. `f` adds a drop-down filter on the column (a string names it in the filter bar);
+    `k` is the filter's name in a link (#f:k=value), `g` puts it on the bar's Coverage line, `o` is
+    the order of its values, `hid` hides the column (it is there for its filter only)."""
+    cls = " ".join(x for x in ("num" if num else "", "hid" if hid else "") if x)
+    a = (f' class="{cls}"' if cls else "") + (f' data-f="{esc(f)}"' if isinstance(f, str) else (" data-f" if f else ""))
+    a += (f' data-k="{esc(k)}"' if k else "") + (' data-g="c"' if g else "") + (f' data-o="{esc("|".join(o))}"' if o else "")
     return f"<th{a}" + (f' title="{esc(title)}"' if title else "") + f">{label}</th>"
+
+
+def flt_href(rel: str, f: dict) -> str:
+    """The contest list, filtered: flt_href(rel, {"season": 2024, "website": "missing"})."""
+    return f"{rel}contest/index.html#f:" + "&".join(f"{k}={quote(str(v), safe='')}" for k, v in f.items() if v not in (None, ""))
+
+
+RAN = {"status": "ran"}   # every coverage number counts contests that ran; so does every link behind one
+
+
+def n_link(n, rel: str, f: dict | None, text: str | None = None, title: str | None = None) -> str:
+    """A count that opens the contests it counts (`f`: the filters; None or a zero count = no link)."""
+    s = text if text is not None else num(n)
+    if not n or f is None:
+        return s
+    return f'<a class="nl" data-n="{n}" href="{esc(flt_href(rel, {**RAN, **f}))}"' + (f' title="{esc(title)}"' if title else "") + f">{s}</a>"
 
 
 def table(heads: list[str], rows: list[str], cls: str = "", tid: str | None = None) -> str:
@@ -225,12 +259,13 @@ def pct(part: int, total: int) -> int:
     return round(100 * part / total) if total else 0
 
 
-def pct_cell(part: int, total: int) -> str:
-    """A percentage with a bar; sorts numerically."""
+def pct_cell(part: int, total: int, rel: str = "", f: dict | None = None) -> str:
+    """A percentage with a bar; sorts numerically. With `f` it opens the contests it counts."""
     if not total:
         return '<td class="num muted" data-v="">–</td>'
     p = pct(part, total)
-    return f'<td class="num" data-v="{p}">{p}%<span class="bar"><i style="width:{p}%"></i></span></td>'
+    return (f'<td class="num" data-v="{p}" title="{num(part)} of {num(total)}">' + n_link(part, rel, f, f"{p}%")
+            + f'<span class="bar"><i style="width:{p}%"></i></span></td>')
 
 
 def num(n) -> str:
@@ -238,9 +273,31 @@ def num(n) -> str:
 
 
 def result_sources(c) -> list[dict]:
-    """Sources serving any of the four result tiers,
-    each once however many tiers it serves."""
+    """Sources serving any result role, each once however many it serves."""
     return [s for s in sources(c) if any(r in s["roles"] for r in RESULT_KINDS)]
+
+
+# ---- coverage: one record per contest (tools/coverage.py) ----
+COV: CV.Coverage | None = None
+_HELD: dict = {}
+
+
+def src_held(c: dict, s: dict) -> bool:
+    """We hold a copy of this source that is the document: the same answer as the `ours` mark
+    wherever the source is listed (avail)."""
+    k = (c["id"], s["url"])
+    if k not in _HELD:
+        _HELD[k] = avail(s["url"], c["id"], s)["ours"]["s"] == "yes"
+    return _HELD[k]
+
+
+def rec(c: dict) -> dict:
+    """The coverage record of a contest (coverage.Coverage.record)."""
+    return COV.record(c)
+
+
+def did_run(c: dict) -> bool:
+    return c.get("status") != "upcoming"
 
 
 def held_path(e: dict) -> str | None:
@@ -303,13 +360,6 @@ def link_date(d, rel: str) -> str:
     return esc(d)
 
 
-def best_tier(c) -> str:
-    """The ONE tier ladder used by the grid, coverage, wanted list and marks:
-    scoreboard > frozen_scoreboard > standings > rankings > none."""
-    br = best_result(c)
-    return br[0] if br else "none"
-
-
 def web_state(c) -> str:
     """'link' (a web source), 'none' (confirmed none: web under `none:`), 'unknown' (not researched)."""
     if has_role(c, "web"):
@@ -317,10 +367,10 @@ def web_state(c) -> str:
     return "none" if "web" in (c.get("none") or []) else "unknown"
 
 
-TIERS = (("scoreboard", "S"), ("frozen_scoreboard", "F"), ("standings", "St"), ("rankings", "R"))
-TIER_LABEL = {"scoreboard": "scoreboard", "frozen_scoreboard": "frozen scoreboard", "standings": "standings",
-              "rankings": "rankings", "none": "none"}
-ROLE_LABEL = {"frozen_scoreboard": "frozen scoreboard",
+# the marks of a results cell: the ladder, best first, then the frozen scoreboard beside it
+TIERS = (("scoreboard", "S"), ("standings", "St"), ("rankings", "R"), ("teams", "T"), ("frozen_scoreboard", "F"))
+TIER_LABEL = CV.LEVEL_LABEL
+ROLE_LABEL = {"frozen_scoreboard": "frozen scoreboard", "teams": "team list",
               "problemset": "problem set", "web": "website"}
 HELD_KINDS = (("statement", "St", "statements"), ("data", "D", "test data"),
               ("solutions", "So", "solutions"), ("package", "P", "complete packages"))
@@ -330,14 +380,16 @@ def key_line(rel: str, *parts: str) -> str:
     """The key above a table. Parts: 'results', 'website', 'held', 'have', 'available'."""
     bits = []
     if "results" in parts:
-        bits.append("<b>S</b> scoreboard · <b>F</b> frozen scoreboard · <b>St</b> standings · <b>R</b> rankings")
+        bits.append('<span class="m q4">S</span> scoreboard <span class="m q3">St</span> standings <span class="m q2">R</span> rankings '
+                    '<span class="m q1">T</span> team list · <b>F</b> frozen scoreboard')
     if "website" in parts:
         bits.append("<b>W</b> website")
     if "results" in parts or "website" in parts:
-        bits.append('<span class="m h">filled</span> we hold a copy <span class="m l">outlined</span> link only <span class="m n">grey</span> the page is empty')
+        bits.append('<span class="m h">filled</span> we hold a copy <span class="m k">outlined</span> link only <span class="m n">grey</span> the page is empty')
     if "held" in parts:
-        bits.append('problems: <b>St</b> statements · <b>D</b> test data · <b>So</b> solutions · <b>P</b> packages — '
-                    '<span class="m h">all</span> <span class="m l">some</span> <span class="m n">none</span> <span class="m u">not recorded</span> held by the problem archive')
+        bits.append('problems: <b>St</b> statements · <b>D</b> test data · <b>So</b> solutions · <b>P</b> packages · <b>E</b> editorial — '
+                    '<span class="m h">all</span> <span class="m l">some</span> held, in the problem archive or in a source we hold a copy of · '
+                    '<span class="m k">link only</span> <span class="m n">none</span> <span class="m u">not recorded</span>')
     if "have" in parts:
         bits.append('<b>St</b> statement · <b>D</b> test data · <b>IV</b>/<b>OV</b> input/output validator · <b>So</b> solutions · <b>P</b> package — '
                     '<span class="m h">held</span> <span class="m n">not held</span> <span class="m u">not recorded</span>')
@@ -446,6 +498,10 @@ def cap_of(e: dict) -> dict | None:
     return capture_info.get(held_path(e) or "")
 
 
+# a held result's mark has the colour of its level on the ladder, the same as in every bar and square
+MARK_Q = {"scoreboard": "q4", "standings": "q3", "rankings": "q2", "teams": "q1", "frozen_scoreboard": "q4"}
+
+
 def result_marks(c: dict, rel: str) -> str:
     """One mark per result tier present: filled = an archived copy is held, outlined = link
     only. Each mark links to the source page of the address that serves the tier."""
@@ -454,27 +510,84 @@ def result_marks(c: dict, rel: str) -> str:
         entries = by_role(c, key)
         if not entries:
             continue
-        e = next((x for x in entries if held_capture(x)), None)
+        e = next((x for x in entries if src_held(c, x)), None)
         held = e is not None
         e = e or entries[0]
-        tip = role_label(key) + (" — archived copy held" if held else " — link only, not archived")
+        tip = role_label(key) + (" — we hold a copy" if held else " — link only, no copy held")
         parts = list(dict.fromkeys(x["scope"] for x in entries if x.get("scope")))
         if parts:
             tip += " (" + ", ".join(parts) + ")"
         href = src_href(e["url"], rel, e.get("as_of") or cap_time(cap_of(e)))
-        out.append(f'<a class="m {"h" if held else "l"}" href="{href}" title="{tip}">{letter}</a>' if href
-                   else f'<span class="m {"h" if held else "l"}" title="{tip}">{letter}</span>')
+        cls = MARK_Q[key] if held else "k"
+        out.append(f'<a class="m {cls}" href="{href}" title="{tip}">{letter}</a>' if href
+                   else f'<span class="m {cls}" title="{tip}">{letter}</span>')
     return "".join(out)
 
 
+ERAS = (("to 1998", 0, 1998), ("1999–2007", 1999, 2007), ("2008–2015", 2008, 2015), ("2016 on", 2016, 9999))
+# the name of each component's filter in a link (#f:statements=missing)
+COMP_KEY = {"statement": "statements", "data": "data", "solutions": "solutions", "package": "packages", "editorial": "editorial"}
+
+
+def season_of(c: dict) -> int:
+    """The season (end year) of a contest; the id year stands in where none is recorded."""
+    return c.get("season") or int(c["id"].rsplit("-", 1)[1])
+
+
+def toks(*tokens: str) -> str:
+    """Filter values of one cell (data-vs)."""
+    return "|".join(t for t in tokens if t)
+
+
+RESULT_ORDER = tuple(TIER_LABEL[k] for k in CV.LEVELS) + ("any result", "no scoreboard", "upcoming")
+STATE_ORDER = CV.STATES + ("missing",)
+
+
 def results_value(c: dict) -> str:
-    """The filter value of a results cell."""
-    return "upcoming" if c.get("status") == "upcoming" else TIER_LABEL[best_tier(c)]
+    """The filter values of a results cell: the level we hold (the ladder), and `any result`."""
+    if not did_run(c):
+        return "upcoming"
+    lv = rec(c)["results"]
+    return toks(TIER_LABEL[lv], "any result" if lv != "none" else "", "no scoreboard" if lv != "scoreboard" else "")
 
 
-def results_held(c: dict) -> bool:
-    """We hold an archived copy of a published result (scoreboard, standings or rankings)."""
-    return any(held_capture(e) for e in result_sources(c))
+def fetch_value(c: dict) -> str:
+    """A better result than the one we hold is known at an address we have no copy of: its level."""
+    f = rec(c)["fetch"] if did_run(c) else ""
+    return toks(TIER_LABEL[f], "any") if f else ""
+
+
+def also_value(c: dict) -> str:
+    """What is said about a contest's results beside their level."""
+    if not did_run(c):
+        return ""
+    r = rec(c)
+    return toks(f"frozen scoreboard: {r['frozen']}" if r["frozen"] else "", "partial result" if r["partial"] else "",
+                "lost source" if any(not held for _u, _w, held in lost_locators(c)) else "")
+
+
+def component_value(c: dict, key: str) -> str:
+    """One kind of problem material: its state, and `missing` for anything short of all."""
+    if not did_run(c):
+        return ""
+    st = rec(c)["problems"][key]
+    return toks(st, "missing" if st != "all" else "")
+
+
+def pmeta_value(c: dict) -> str:
+    if not did_run(c):
+        return ""
+    pm = rec(c)["pmeta"]
+    return toks(*(f"{lab}: {pm[k]}" for k, lab in CV.PMETA), *(f"{lab}: missing" for k, lab in CV.PMETA if pm[k] != "all"))
+
+
+def meta_value(c: dict) -> str:
+    return toks(*(f"{lab}: {rec(c)['meta'][k]}" for k, lab in CV.META)) if did_run(c) else ""
+
+
+def era_of(c: dict) -> str:
+    s = season_of(c)
+    return next((lab for lab, lo, hi in ERAS if lo <= s <= hi), "")
 
 
 def website_cell(c: dict, rel: str, n: int = 24) -> str:
@@ -485,15 +598,20 @@ def website_cell(c: dict, rel: str, n: int = 24) -> str:
     webs = by_role(c, "web")
     if not webs:
         return ""
-    held = c["id"] in website_of
+    held = rec(c)["website"] == "have"
     s = webs[0]
     more = f' <span class="small muted" title="{len(webs)} website addresses">+{len(webs) - 1}</span>' if len(webs) > 1 else ""
-    return (f'<span class="m {"h" if held else "l"}" title="website — {"archived copy held" if held else "link only, not archived"}">W</span>'
+    return (f'<span class="m {"h" if held else "k"}" title="website — {"we hold a copy" if held else "link only, no copy held"}">W</span>'
             + link_source(s["url"], rel, host_label(s["url"], n), s.get("as_of")) + more)
 
 
+WEB_VALUES = {"have": "have", "no copy": "missing|missing: no copy", "no address": "missing|missing: no address", "confirmed none": "confirmed none"}
+WEB_ORDER = ("have", "missing", "missing: no copy", "missing: no address", "confirmed none")
+
+
 def website_value(c: dict) -> str:
-    return "archived" if c["id"] in website_of else {"link": "link only", "none": "confirmed none", "unknown": "not known"}[web_state(c)]
+    """Have (we hold a copy) or missing, and why it is missing."""
+    return WEB_VALUES[rec(c)["website"]]
 
 
 def cms_links(i) -> str:
@@ -848,6 +966,20 @@ def load_locations_tree(contests: dict) -> None:
             sub(nid)
 
 
+_LOC_OF: dict = {}
+
+
+def loc_tokens(c: dict) -> list[str]:
+    """Every node of the location tree a contest is counted under (its places and all they lie in):
+    exactly the nodes whose page lists it."""
+    if not _LOC_OF:
+        for nid, cids in LOC_SUB.items():
+            for cid in cids:
+                _LOC_OF.setdefault(cid, []).append(nid)
+        _LOC_OF[""] = []
+    return sorted(_LOC_OF.get(c["id"], []))
+
+
 def loc_link(nid: str, rel: str, label: str | None = None) -> str:
     """A location: its name linking to its page."""
     n = LOC.get(nid)
@@ -975,7 +1107,7 @@ def load_problem_sets():
             ent = PROBLEMS.setdefault(p["id"], {"rows": [], "apps": []})
             ent["rows"].append((sid, p))
             for m in doc.get("contests") or []:
-                inv = {pid: L for L, pid in (m.get("letters") or {}).items()}
+                inv = {pid: L for L, pid in set_letters(doc, m["contest"]).items()}
                 ent["apps"].append((sid, m["contest"], inv.get(p["id"])))
 
 
@@ -1046,41 +1178,21 @@ def set_own_contest(sid: str, doc: dict) -> bool:
     return set_members(doc) == [sid]
 
 
-def set_counts(doc: dict) -> tuple[int | None, int]:
-    """(how many problems the contest had, when known; how many are listed by name)."""
-    listed = len(doc.get("problems") or [])
-    return doc.get("count") or (listed if listed and doc.get("complete") is not False else None), listed
+STATE_CLS = {"all": "h", "some": "l", "link only": "k", "none": "n", "not recorded": "u"}
+STATE_TIP = {"all": "held for every problem", "some": "held for some problems", "link only": "a source that has it is known; we hold no copy",
+             "none": "none held, none known", "not recorded": "a source is known, but what it holds is not recorded"}
 
 
-def set_list_state(doc: dict) -> str:
-    """'complete' | 'partial' | 'none' — is the set's problem list there?"""
-    total, listed = set_counts(doc)
-    if not listed:
-        return "none"
-    return "partial" if doc.get("complete") is False or (total and listed < total) else "complete"
+def comp_marks(states: dict) -> str:
+    """One mark per kind of problem material (coverage.COMPONENTS), from wherever we have it:
+    the problem archive, or a source we hold a copy of."""
+    return "".join(f'<i class="m {STATE_CLS[states[k]]}" title="{what}: {STATE_TIP[states[k]]}">{letter}</i>' for k, letter, what in CV.COMPONENTS)
 
 
 def held_marks(pb: dict) -> str:
-    """What the problem archive holds for a set, one mark per kind of material:
-    all / some (n of count) / none / not recorded."""
-    out = []
-    for key, letter, what in HELD_KINDS:
-        st = pb.get(key)
-        if st is None:
-            out.append(f'<i class="m u" title="{what}: not recorded">{letter}</i>')
-            continue
-        n = (pb.get("counts") or {}).get(key)
-        cnt = pb.get("count")
-        detail = {"full": f"all {cnt} problems" if cnt else "every problem",
-                  "partial": f"{n} of {cnt} problems" if n is not None and cnt else "some problems",
-                  "none": "none held"}[st]
-        out.append(f'<i class="m { {"full": "h", "partial": "l", "none": "n"}[st]}" title="{what}: {detail}">{letter}</i>')
-    return "".join(out)
+    """The marks of a problem set (comp_marks of its coverage record)."""
+    return comp_marks(COV.set_record(pb["id"]))
 
-
-def held_value(pb: dict) -> str:
-    """Filter values of a held cell: the kinds held for every problem."""
-    return "|".join(w for k, _l, w in HELD_KINDS if pb.get(k) == "full") or ("none" if any(pb.get(k) for k, *_ in HELD_KINDS) else "not recorded")
 
 
 def problems_cell(c: dict, rel: str) -> str:
@@ -1092,15 +1204,16 @@ def problems_cell(c: dict, rel: str) -> str:
         lab = str(total) if total else ("set" if not listed else str(listed))
         return f'<a href="{rel}problemset/{esc(pb["id"])}.html" title="problem set {esc(pb["id"])}: {total or "?"} problems, {listed} listed by name">{lab}</a> ' + held_marks(pb)
     if c.get("status") != "upcoming" and (has_role(c, "problemset") or has_role(c, "problem")):
-        return '<span class="m l" title="a published problem set or a judge page is known; nothing recorded about the problems yet">src</span>'
+        return '<span class="m k" title="a published problem set or a judge page is known; nothing recorded about the problems yet">src</span>'
     return ""
 
 
 def problems_value(c: dict) -> str:
-    pb = set_for(c)
-    if pb:
-        return {"complete": "listed", "partial": "partly listed", "none": "count only"}[set_list_state(pb)]
-    return "source only" if c.get("status") != "upcoming" and (has_role(c, "problemset") or has_role(c, "problem")) else "none"
+    """The problem list: listed / partly listed / count only / source only / none, and `set recorded`."""
+    if not did_run(c):
+        return "upcoming"
+    st = rec(c)["set"]
+    return toks(st, "set recorded" if st not in ("source only", "none") else "no set", "not listed" if st != "listed" else "")
 
 
 def repo_link(pb: dict) -> str:
@@ -1204,36 +1317,32 @@ def problem_have_value(p: dict, doc: dict | None) -> str:
 
 # ---- content summaries: the same three numbers wherever contests are counted ----
 def content_counts(cs: list[dict]) -> dict:
-    """Counts over contests: how many ran, and for how many we hold each kind of content."""
-    ran = [c for c in cs if c.get("status") != "upcoming"]
-    return {"all": len(cs), "n": len(ran), "upcoming": len(cs) - len(ran),
-            "results": sum(1 for c in ran if results_held(c)),
-            "sets": sum(1 for c in ran if set_for(c)),
-            "web": sum(1 for c in ran if c["id"] in website_of)}
+    """How many of these contests there are, how many ran, how many are upcoming."""
+    n = sum(1 for c in cs if c.get("status") != "upcoming")
+    return {"all": len(cs), "n": n, "upcoming": len(cs) - n}
 
 
-CONTENT_HEADS = [
-    th("results", num=True, title="contests with an archived copy of a published result (scoreboard, standings or rankings)"), th("%", num=True),
-    th("problem sets", num=True, title="contests whose problem set is recorded (problem list or archive holdings)"), th("%", num=True),
-    th("websites", num=True, title="contests whose website we hold an archived copy of"), th("%", num=True)]
+# the coverage columns of a table whose rows are groups of contests (series, seasons, countries):
+# one small bar per question, the same bars as everywhere else. One or two questions per kind of content.
+INDEX_FACETS = ("results", "list", "statement", "website", "date")
 
 
-def content_cells(st: dict) -> str:
-    return "".join(f'<td class="num">{st[k]}</td>' + pct_cell(st[k], st["n"]) for k in ("results", "sets", "web"))
+def group_heads(keys: tuple = INDEX_FACETS) -> list[str]:
+    return [th(esc(CV.FACET[k][1]), title=f"{CV.FACET[k][1]}: the contests of the row split by answer; the percentage is the share in the best one "
+                                          f"({CV.FACET[k][3][0]}). Sorts on that share; a segment opens its contests.") for k in keys]
 
 
-def content_nums(st: dict, extra: str = "") -> str:
-    """The numbers strip of a group of contests (season, series, location, the whole archive):
-    how many ran, then for how many of those we hold each kind of content, with the share."""
-    def tile(n, label, of=None):
-        if of is None:
-            return f"<div><b>{num(n)}</b><span>{label}</span></div>"
-        share = f'{pct(n, of)}%' if of else "–"
-        return (f'<div><b>{num(n)} <i class="pc">{share}</i></b><span>{label}</span>'
-                f'<span class="meter" title="{num(n)} of the {num(of)} contests that ran"><i style="width:{pct(n, of)}%"></i></span></div>')
-    return ('<div class="nums">' + tile(st["n"], "contests ran" + (f' <span class="muted">+{st["upcoming"]} upcoming</span>' if st["upcoming"] else ""))
-            + tile(st["results"], "results", st["n"]) + tile(st["sets"], "problem sets", st["n"])
-            + tile(st["web"], "websites", st["n"]) + extra + "</div>")
+def group_cells(cs: list[dict], rel: str, scope: dict | None, keys: tuple = INDEX_FACETS) -> str:
+    """The coverage cells of one row: per question a small stacked bar and the share in the best answer."""
+    cs = [c for c in cs if did_run(c)]
+    n = len(cs)
+    if not n:
+        return "".join('<td class="gb muted" data-v="">–</td>' for _k in keys)
+    out = []
+    for k in keys:
+        p = pct(sum(1 for c in cs if good(c, k)), n)
+        out.append(f'<td class="gb" data-v="{p}">' + sbar(cs, k, rel, scope, "sm", False) + f'<span class="gp">{p}%</span></td>')
+    return "".join(out)
 
 
 # ---- contest rows: the one set of columns every table of contests picks from ----
@@ -1249,27 +1358,47 @@ def _c_contest_name(c, rel):
 CONTEST_COLS = {
     "contest": (th("contest"), _c_contest),
     "contest+name": (th("contest"), _c_contest_name),
-    "season": (th("season", f=True), lambda c, rel: f'<td class="nw" data-v="{c.get("season", "")}">{link_season(c.get("season"), rel)}</td>'),
+    "season": (th("season", f=True, k="season"), lambda c, rel: f'<td class="nw" data-v="{c.get("season", "")}">{link_season(c.get("season"), rel)}</td>'),
     "date": (th("date"), lambda c, rel: f'<td class="nw" data-v="{esc(c.get("date", ""))}">{link_date(c.get("date"), rel)}</td>'),
-    "location": (th("location", f="country"), lambda c, rel: f'<td data-vs="{esc("|".join(place_countries(c)))}">{place_cell(c, rel)}</td>'),
-    "series": (th("series", f=True), lambda c, rel: f'<td class="nw">{link_series(SERIES_OF[c["id"]], rel)}</td>'),
+    "location": (th("location", f="country", k="country"), lambda c, rel: f'<td data-vs="{esc("|".join(place_countries(c)))}">{place_cell(c, rel)}</td>'),
+    "series": (th("series", f=True, k="series"), lambda c, rel: f'<td class="nw">{link_series(SERIES_OF[c["id"]], rel)}</td>'),
     # series with its level and region underneath; the two hidden columns after it carry the filters
-    "series+": (th("series", f=True), lambda c, rel: (f'<td class="nw" data-v="{esc(SERIES_OF[c["id"]])}">{link_series(SERIES_OF[c["id"]], rel)}'
+    "series+": (th("series", f=True, k="series"), lambda c, rel: (f'<td class="nw" data-v="{esc(SERIES_OF[c["id"]])}">{link_series(SERIES_OF[c["id"]], rel)}'
                                                      f'<span class="sub">{esc(level_of(SERIES_OF[c["id"]]))} · {esc(SERIES_REGION.get(SERIES_OF[c["id"]], ""))}</span></td>')),
-    "region": (th("region", f=True), lambda c, rel: f'<td class="nw">{esc(SERIES_REGION.get(SERIES_OF[c["id"]], ""))}</td>'),
-    "level": (th("level", f=True), lambda c, rel: f'<td class="nw">{esc(level_of(SERIES_OF[c["id"]]))}</td>'),
-    "region-": ('<th class="hid" data-f>region</th>', lambda c, rel: f'<td class="hid">{esc(SERIES_REGION.get(SERIES_OF[c["id"]], ""))}</td>'),
-    "level-": ('<th class="hid" data-f>level</th>', lambda c, rel: f'<td class="hid">{esc(level_of(SERIES_OF[c["id"]]))}</td>'),
+    "region": (th("region", f=True, k="region"), lambda c, rel: f'<td class="nw">{esc(SERIES_REGION.get(SERIES_OF[c["id"]], ""))}</td>'),
+    "level": (th("level", f=True, k="level"), lambda c, rel: f'<td class="nw">{esc(level_of(SERIES_OF[c["id"]]))}</td>'),
+    "region-": (th("region", f=True, k="region", hid=True), lambda c, rel: f'<td class="hid">{esc(SERIES_REGION.get(SERIES_OF[c["id"]], ""))}</td>'),
+    "level-": (th("level", f=True, k="level", hid=True), lambda c, rel: f'<td class="hid">{esc(level_of(SERIES_OF[c["id"]]))}</td>'),
     "advances": (th("advances to"), lambda c, rel: '<td class="nw">' + ", ".join(link_contest(p, rel, False) for p in refs(c.get("parent"))) + "</td>"),
-    "results": (th("results", f=True), lambda c, rel: f'<td class="nw" data-v="{esc(results_value(c))}">{result_marks(c, rel)}</td>'),
-    "problems": (th("problems", f=True), lambda c, rel: f'<td class="nw" data-v="{esc(problems_value(c))}">{problems_cell(c, rel)}</td>'),
-    "website": (th("website", f=True), lambda c, rel: f'<td data-v="{esc(website_value(c))}">{website_cell(c, rel)}</td>'),
+    # the three kinds of content: what is shown is the marks; the filter is the coverage record (coverage.py)
+    "results": (th("results", f=True, k="results", g=True, o=RESULT_ORDER, title="the best result we hold a copy of"),
+                lambda c, rel: f'<td class="nw" data-vs="{esc(results_value(c))}">{result_marks(c, rel)}</td>'),
+    "problems": (th("problems", f="problem list", k="problems", g=True, o=CV.SET_STATES + ("set recorded", "no set", "not listed", "upcoming")),
+                 lambda c, rel: f'<td class="nw" data-vs="{esc(problems_value(c))}">{problems_cell(c, rel)}</td>'),
+    "website": (th("website", f=True, k="website", g=True, o=WEB_ORDER), lambda c, rel: f'<td data-vs="{esc(website_value(c))}">{website_cell(c, rel)}</td>'),
     "cms": (th("CMS id"), lambda c, rel: f'<td class="nw">{cms_cell(c)}</td>'),
+    # hidden columns: they are there for their filter (the contest list; every coverage number links into it)
+    "status-": (th("status", f=True, k="status", hid=True), lambda c, rel: f'<td class="hid">{"ran" if did_run(c) else "upcoming"}</td>'),
+    "era-": (th("era", f=True, k="era", hid=True, o=tuple(lab for lab, *_ in ERAS)), lambda c, rel: f'<td class="hid">{esc(era_of(c))}</td>'),
+    "fetch-": (th("fetch", f="known, not held", k="fetch", g=True, hid=True, o=RESULT_ORDER + ("any",),
+                  title="a better result than the one we hold is known at an address we have no copy of"),
+               lambda c, rel: f'<td class="hid" data-vs="{esc(fetch_value(c))}"></td>'),
+    "also-": (th("also", f="results also", k="also", g=True, hid=True), lambda c, rel: f'<td class="hid" data-vs="{esc(also_value(c))}"></td>'),
+    **{f"{key}-": (th(what, f=what, k=COMP_KEY[key], g=True, hid=True, o=STATE_ORDER),
+                   (lambda key: lambda c, rel: f'<td class="hid" data-vs="{esc(component_value(c, key))}"></td>')(key))
+       for key, _m, what in CV.COMPONENTS},
+    "pmeta-": (th("problem metadata", f="problem metadata", k="pmeta", g=True, hid=True,
+                  o=tuple(f"{lab}: {s}" for _k, lab in CV.PMETA for s in ("all", "some", "none", "missing"))),
+               lambda c, rel: f'<td class="hid" data-vs="{esc(pmeta_value(c))}"></td>'),
+    "meta-": (th("contest metadata", f="contest metadata", k="meta", g=True, hid=True,
+                 o=tuple(f"{lab}: {s}" for _k, lab in CV.META for s in ("have", "missing", "none"))),
+              lambda c, rel: f'<td class="hid" data-vs="{esc(meta_value(c))}"></td>'),
 }
-CONTEST_INDEX_COLS = ("contest+name", "date", "location", "series+", "region-", "level-", "season", "results", "problems", "website", "cms")
-SEASON_COL = CONTEST_INDEX_COLS.index("season")      # for links that open the contest table filtered
-REGION_COL = CONTEST_INDEX_COLS.index("region-")
-COUNTRY_COL = CONTEST_INDEX_COLS.index("location")
+CONTEST_COLS["loc-"] = ('<th class="hid" data-k="loc" data-p="location">location</th>',
+                        lambda c, rel: f'<td class="hid" data-vs="{esc("|".join(loc_tokens(c)))}"></td>')
+COVERAGE_COLS = ("loc-", "fetch-", "also-") + tuple(f"{key}-" for key, *_ in CV.COMPONENTS) + ("pmeta-", "meta-")
+CONTEST_INDEX_COLS = (("contest+name", "date", "location", "series+", "region-", "level-", "season", "era-", "status-",
+                       "results", "problems", "website", "cms") + COVERAGE_COLS)
 
 
 def contest_table(cs: list[dict], rel: str, cols: tuple[str, ...], cls: str = "", tid: str | None = None,
@@ -1298,49 +1427,18 @@ def evidence_lines(c: dict) -> list[str]:
 
 
 def status_chips(c: dict, cid: str, rel: str) -> str:
-    """The contest's status, one chip per kind of content, same words everywhere
-    (about.html#status lists every value)."""
+    """Under a contest's title: anything unusual as chips (upcoming, lost sources, copies only we hold),
+    then its coverage card: every question coverage asks, answered for this contest, and what is wanted."""
     chips = []
     if c.get("status") == "upcoming":
         chips.append(chip("upcoming", "n", "has not run yet"))
-    bt = best_tier(c)
-    if bt == "none" and c.get("status") == "upcoming":
-        pass
-    elif bt == "none":
-        chips.append(chip("results: none", "n", "no result source of any kind is known"))
-    else:
-        held = results_held(c)
-        chips.append(chip(f"results: {TIER_LABEL[bt]}, " + ("archived" if held else "link only"), "h" if held else "l",
-                          "the best result we know is a " + TIER_LABEL[bt].replace(" only", "") + ("; we hold an archived copy" if held else "; we only have the link, no archived copy yet")))
-    ws = web_state(c)
-    if ws == "link":
-        held = cid in website_of
-        chips.append(chip("website: " + ("archived" if held else "link only"), "h" if held else "l",
-                          "we hold a crawl of the contest website" if held else "the website address is known; no archived copy yet"))
-    elif ws == "none":
-        chips.append(chip("website: none", "n", "looked: this contest had no website of its own"))
-    else:
-        chips.append(chip("website: not known", "n", "no website address found yet — not the same as there being none"))
-    pb = set_for(c)
-    if pb:
-        total, listed = set_counts(pb)
-        state = set_list_state(pb)
-        text = {"complete": f"problems: {listed} listed", "partial": f"problems: {listed} of {total or '?'} listed",
-                "none": f"problems: {total or '?'}, not listed"}[state]
-        full = pb.get("statement") == "full"
-        chips.append(chip(text, "h" if full else "l", ("the problem archive holds every statement" if full else "the problem archive does not hold every statement")
-                          + {"complete": "; every problem is listed by name", "partial": "; only some problems are listed by name", "none": "; the problems are not listed by name yet"}[state]))
-    elif c.get("status") != "upcoming" and (has_role(c, "problemset") or has_role(c, "problem")):
-        chips.append(chip("problems: source only", "l", "a published problem set or a judge page is known; nothing recorded about the problems yet"))
-    elif c.get("status") != "upcoming":
-        chips.append(chip("problems: none", "n", "nothing is known about this contest's problems"))
     gone = [u for u, _w, held in lost_locators(c) if not held]
     only = [u for u, _w, held in lost_locators(c) if held]
     if gone:
         chips.append(chip(f"{len(gone)} lost", "x", "dead at its address, no Wayback snapshot, nothing held here: " + "; ".join(gone)))
     if only:
         chips.append(chip(f"{len(only)} only here", "h", "dead at its address and not in the Wayback Machine — our copy is the only one: " + "; ".join(only)))
-    return '<p class="status">' + "".join(chips) + " " + help_link("status", rel) + "</p>"
+    return ('<p class="status">' + "".join(chips) + " " + help_link("status", rel) + "</p>" if chips else "") + contest_coverage(c, rel)
 
 
 HUNT_STAMP = re.compile(r"\s*\((?:judge hunt|QOJ ICPC category tree) .*\)$")
@@ -1454,7 +1552,7 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
     webs = by_role(c, "web")
     if webs:
         b.append(source_table(cid, webs, rel, "web"))
-    elif web_state(c) == "none":
+    elif rec(c)["website"] == "confirmed none":
         b.append('<p class="empty">' + R.U("none", "This contest had no website of its own — looked for and confirmed.", "none", "website") + "</p>")
     else:
         b.append('<p class="empty">' + R.U("none", "No website known. Nobody has found an address yet; that is not the same as there being none.", "", "website") + "</p>")
@@ -1463,7 +1561,7 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
     # ---- Results ----
     b.append('<h2 id="results">Results</h2>')
     res_entries, seen = [], set()
-    for key in RESULT_ROLES:  # best tier first
+    for key in RESULT_KINDS:  # the ladder, best first, then the frozen scoreboard
         for e in by_role(c, key):
             if id(e) not in seen:
                 seen.add(id(e))
@@ -1482,7 +1580,7 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
     elif c.get("status") == "upcoming":
         b.append('<p class="empty">Not run yet.</p>')
     else:
-        b.append('<p class="empty">' + R.U("none", "No results found — no scoreboard, standings or rankings, not even in the ICPC CMS.", "", "results")
+        b.append('<p class="empty">' + R.U("none", "No results found — no scoreboard, standings, rankings or team list, not even in the ICPC CMS.", "", "results")
                  + (" What we do know is under Evidence below." if ev else "") + "</p>")
     if not upcoming:
         b.append(R.slot("source", "add a result source", "results", tag="p"))
@@ -1501,7 +1599,7 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
             others = [m for m in set_members(pb) if m != cid]
             b.append(f'<p>Problem set {R.U("problemset", set_link(pb["id"], rel), pb["id"])}: ' + (f"{total} problems" if total else "number of problems not known")
                      + (f", {listed} listed by name" if listed and set_list_state(pb) == "partial" else "")
-                     + f' &nbsp;{held_marks(pb)} <span class="small muted">what the problem archive holds — details on the set\'s page</span>'
+                     + f' &nbsp;{held_marks(pb)} <span class="small muted">what we hold of it — details on the set\'s page</span>'
                      + (' <span class="small muted">· shared with ' + ", ".join(contest_ref(x, rel) for x in others) + "</span>" if others else "") + "</p>")
             if (c.get("problems") or {}).get("note"):
                 b.append(f'<p class="note">{esc(c["problems"]["note"])}</p>')
@@ -1522,7 +1620,7 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
         b.append(R.slot("source", "add a problem set or a problem", "problems", tag="p"))
 
     # ---- everything else ----
-    others = [s for s in sources(c) if not (set(s["roles"]) & (set(RESULT_ROLES) | {"web", "problemset", "problem", "editorial"}))]
+    others = [s for s in sources(c) if not (set(s["roles"]) & (set(RESULT_KINDS) | {"web", "problemset", "problem", "editorial"}))]
     if others:
         b.append('<h2 id="other">Other sources</h2>' + source_table(cid, others, rel, "other"))
     if ev:
@@ -1581,7 +1679,11 @@ def series_page(sid: str, doc: dict, rel: str) -> str:
         d.append(f"<dt>notes</dt><dd>{esc(s['notes'])}</dd>")
     d.append("</dl>")
     b += d
-    b.append(content_nums(content_counts(doc["contests"])))
+    b.append(group_nums(doc["contests"], rel, {"series": sid}))
+    b.append('<p class="tabs">Jump to: <a href="#coverage">coverage</a> <a href="#where">edition by edition</a> <a href="#editions">editions</a></p>')
+    b.append(coverage_section(doc["contests"], rel, {"series": sid}, "this series", "Edition by edition",
+                              "A column per edition, oldest first; a row per question. A square opens the contest, <i>n missing</i> opens those editions as a list.",
+                              edition_matrix(doc["contests"], rel, {"series": sid})))
     b.append(f'<h2 id="editions">Editions <span class="n">{len(doc["contests"])}</span></h2>')
     b.append(R.slot("contest", "add a missing contest", tag="p"))
     b.append('<p class="note">The year in an id is the season label, not the date: here it names the '
@@ -1601,11 +1703,11 @@ def series_index(series_docs: dict, rel: str) -> str:
         rows.append(f'<tr><td class="name">{link_series(sid, rel)}<span class="sub">{esc(doc["series"].get("name", ""))}</span></td>'
                     f'<td class="nw">{esc(SERIES_REGION.get(sid, ""))}</td><td class="nw">{esc(level_of(sid))}</td>'
                     f'<td class="num">{st["n"]}</td><td class="nw" data-v="{y0}">{y0}–{y1}</td>'
-                    + content_cells(st) + f'<td class="small">{lineage_chips(doc, rel)}</td></tr>')
+                    + group_cells(doc["contests"], rel, {"series": sid}) + f'<td class="small">{lineage_chips(doc, rel)}</td></tr>')
     return page("Series", "<h1>Series</h1>"
                 f'<p class="intro">{len(series_docs)} series. A series is a line of editions under one name; when a contest was renamed or split, '
                 "the lineage column says what it continues from or as. The contest counts are editions that ran.</p>"
-                + table([th("series"), th("region", f=True), th("level", f=True), th("contests", num=True), th("years")] + CONTENT_HEADS + [th("lineage")],
+                + table([th("series"), th("region", f=True), th("level", f=True), th("contests", num=True), th("years")] + group_heads() + [th("lineage")],
                         rows, "flt"), rel, "series/index.html")
 
 
@@ -1688,12 +1790,16 @@ def season_page(season: int, members: list[str], rel: str) -> str:
             d.append("<dt>outside these dates</dt><dd>" + "; ".join(foot)
                      + ' <span class="muted">— part of this season, but run well apart from the rest of it. The dates above are those of the '
                        "season's main run, from its first cluster of contests to the World Finals, so one early or late contest does not stretch them.</span></dd>")
-    d.append(f'<dt>contests</dt><dd>{len(members)} — <a href="{rel}contest/index.html#f:{SEASON_COL}={season}">open them as a table</a></dd>')
+    d.append(f'<dt>contests</dt><dd>{len(members)} — <a href="{esc(flt_href(rel, {"season": season}))}">open them as a table</a></dd>')
     d.append("</dl>")
     body += d
     places = {n for c in cs for n in held_at(c)[0]}
     countries = {city_and_country(n)[1] for n in places} - {None}
-    body.append(content_nums(content_counts(cs), f"<div><b>{len(places)}</b><span>locations in {len(countries)} countries</span></div>"))
+    body.append(group_nums(cs, rel, {"season": season}, f'<div class="pt"><b>{len(places)}</b><span class="tl-l">locations in {len(countries)} countries</span></div>'))
+    body.append('<p class="tabs">Jump to: <a href="#coverage">coverage</a> <a href="#where">contest by contest</a> <a href="#hierarchy">who advances where</a></p>')
+    by_r = [(r, sorted((c for c in cs if SERIES_REGION.get(SERIES_OF[c["id"]]) == r), key=lambda c: c["id"])) for r in REGIONS]
+    body.append(coverage_section(cs, rel, {"season": season}, "this season's contests", "Contest by contest",
+                                 "A row per contest, a column per question. A square opens the contest.", contest_matrix(by_r, rel)))
     tree, unplaced, label = season_tree(season, members, rel)
     body.append('<h2 id="hierarchy">Who advances where</h2>')
     if tree:
@@ -1725,12 +1831,12 @@ def season_index(rel: str) -> str:
                     f'<td class="nw" data-v="{esc(wf.get("date", "")) if wf else ""}">{link_date(wf.get("date"), rel) if wf else ""}</td><td>{place_cell(wf, rel, 1) if wf else ""}</td>'
                     f'<td class="nw small">{esc(win[0]) + " to " + esc(win[1]) if win else ""}</td>'
                     f'<td class="num">{st["n"]}' + (f' <span class="small muted">+{st["upcoming"]}</span>' if st["upcoming"] else "") + "</td>"
-                    + content_cells(st) + "</tr>")
+                    + group_cells(cs, rel, {"season": season}) + "</tr>")
     return page("Seasons", "<h1>Seasons</h1>"
                 f'<p class="intro">{len(BY_SEASON)} seasons. A season runs from its first regional to the World Finals those regionals feed; '
                 "its page shows who advances where. The contest counts are contests that ran (upcoming ones after the +); "
                 "the percentages are shares of those.</p>"
-                + table([th("season"), th("World Finals"), th("date"), th("location"), th("season dates"), th("contests", num=True)] + CONTENT_HEADS, rows),
+                + table([th("season"), th("World Finals"), th("date"), th("location"), th("season dates"), th("contests", num=True)] + group_heads(), rows),
                 rel, "season/index.html")
 
 
@@ -1880,6 +1986,8 @@ def problemset_page(sid: str, doc: dict, rel: str) -> str:
     if not any(doc.get(k) for k, *_ in HELD_KINDS):
         chips.append(chip("archive holdings not recorded", "n", "what the ICPC Problem Archive holds for this set has not been entered"))
     b.append('<p class="status">' + "".join(chips) + " " + help_link("status-set", rel) + "</p>")
+    b.append(f'<p>{held_marks(doc)} <span class="small muted">what we hold of this set, from the problem archive (the chips above) '
+             "or from a source of one of its contests that we hold a copy of</span></p>")
     d = ['<dl class="facts">']
     d.append("<dt>used by</dt><dd>" + ", ".join(R.U("contest", contest_ref(m, rel), m, m) for m in members) + " " + R.slot("contest", "add a contest")
              + (' <span class="muted">— where it was published and where it can be solved online are on the contest page</span>' if any(m in CONTESTS for m in members) else "") + "</dd>")
@@ -1894,6 +2002,13 @@ def problemset_page(sid: str, doc: dict, rel: str) -> str:
                  + ' <span class="muted">— these were separate sets with the same problems; their addresses lead here</span></dd>')
     if doc.get("letters") == "unknown":
         d.append('<dt>letters</dt><dd class="muted">not known — the list came from an online judge, which does not keep contest letters</dd>')
+    for m in members:
+        dv = set_divisions(doc, m)
+        if dv:
+            d.append("<dt>divisions</dt><dd>" + (f"{contest_ref(m, rel)}: " if len(members) > 1 else "")
+                     + ", ".join(f"{esc(n)} ({len(lm)} problems)" for n, lm in dv.items())
+                     + (' <span class="small muted">— a problem in two divisions is one problem here; the # column gives its letter in each, in this order, – where it was not in that division</span>'
+                        if len(dv) > 1 else ' <span class="small muted">— the # column gives the letter in this division; the other divisions\' letters are not known</span>') + "</dd>")
     if doc.get("notes"):
         d.append(f"<dt>notes</dt><dd>{esc(doc['notes'])}</dd>")
     if doc.get("provenance"):
@@ -1977,6 +2092,10 @@ def problem_page(pid: str, ent: dict, rel: str) -> str:
     shorts = sorted({r["short_name"] for _s, r in rows if r.get("short_name")})
     if shorts:
         d.append("<dt>short name</dt><dd>" + ", ".join(f"<code>{esc(x)}</code>" for x in shorts) + "</dd>")
+    others = sorted({o for _s, r in rows for o in r.get("other_names") or []})
+    if others:
+        d.append("<dt>other titles</dt><dd>" + ", ".join(esc(x) for x in others)
+                 + ' <span class="small muted">— the same problem under another title (a judge\'s, or the statement\'s where the name here is the archive package\'s)</span></dd>')
     # `aliases` (ids merged into this one) are not shown: they are internal and only keep old addresses working
     notes = [r["notes"] for _s, r in rows if r.get("notes")] if not private else []
     if notes:
@@ -2000,21 +2119,25 @@ def problemset_index(rel: str) -> str:
                     f'<td class="num">{len(doc["contests"])}</td>'
                     f'<td class="nw" data-v="{fc.get("season", "")}">{link_season(fc.get("season"), rel)}</td><td class="nw">{esc(set_region(doc))}</td>'
                     f'<td class="num" data-v="{total or ""}">{count}</td><td class="nw">{ {"complete": "complete", "partial": "partial", "none": "none"}[state]}</td>'
-                    f'<td class="nw" data-vs="{esc(held_value(doc))}">{held_marks(doc)}</td><td class="nw">{repo_link(doc)}</td>'
-                    f'<td class="small muted">{esc(doc.get("notes", ""))}</td></tr>')
+                    f'<td class="nw">{held_marks(doc)}</td><td class="nw">{repo_link(doc)}</td>'
+                    f'<td class="small muted">{esc(doc.get("notes", ""))}</td>'
+                    + "".join(f'<td class="hid" data-vs="{esc(toks(st, "missing" if st != "all" else ""))}"></td>'
+                              for st in (COV.set_record(sid)[k] for k, *_ in CV.COMPONENTS)) + "</tr>")
     n_listed = sum(1 for d in SETS.values() if d.get("problems"))
     shared = [sid for sid, d in SETS.items() if len(d["contests"]) > 1]
     return page("Problem sets", "<h1>Problem sets</h1>"
                 f'<p class="intro">{num(len(SETS))} problem sets. Most belong to the one contest of the same id; '
                 f'{len(shared)} were sat by several contests, such as the Latin America regional, where every site has the same problems '
                 "(sort by <b>contests</b> to see them). "
-                "A set's page says what the ICPC Problem Archive holds for it; where the set was published and where it can be solved are on the contest page. "
+                "<b>Held</b> is what we hold of the set, kind by kind, from the ICPC Problem Archive or from a source we hold a copy of; "
+                "the set's page says which, and where the set was published and where it can be solved are on the contest page. "
                 f"<b>Problems</b> is how many the contest had; <b>list</b> says whether we know them by name — complete for {num(n_listed)} sets, "
                 "partial when only some are listed, none when only the archive's holdings are recorded.</p>"
                 + key_line(rel, "held")
                 + table([th("problem set"), th("contests", num=True, title="how many contests sat this set"), th("season", f=True), th("region", f=True),
                          th("problems", num=True), th("list", f="problem list"),
-                         th("held", f="held for every problem"), th("archive repo"), th("notes")], rows, "flt"),
+                         th("held"), th("archive repo"), th("notes")]
+                        + [th(what, f=what, k=COMP_KEY[key], g=True, hid=True, o=STATE_ORDER) for key, _m, what in CV.COMPONENTS], rows, "flt"),
                 rel, "problemset/index.html")
 
 
@@ -2455,8 +2578,8 @@ def location_page(nid: str, rel: str) -> str:
          + (" in " + R.U("parent", ", ".join(esc(x["name"]) for x in chain), n.get("parent") or "") if chain else "") + "</p>"]
     st = content_counts(cs)
     series = Counter(SERIES_OF[c["id"]] for c in cs)
-    b.append(content_nums(st, (f"<div><b>{ys[0]}–{ys[1]}</b><span>first to latest</span></div>" if ys else "")
-                          + f"<div><b>{len(series)}</b><span>series</span></div>"))
+    b.append(group_nums(cs, rel, {"loc": nid}, (f'<div class="pt"><b>{ys[0]}–{ys[1]}</b><span class="tl-l">first to latest</span></div>' if ys else "")
+                        + f'<div class="pt"><b>{len(series)}</b><span class="tl-l">series</span></div>'))
     d = ['<dl class="facts">']
     d.append(("<dt>also written</dt><dd>" if n.get("aliases") else '<dt class="rvo">also written</dt><dd class="rvo">')
              + ", ".join(R.U("aliases", esc(a), a, a) for a in n.get("aliases") or []) + " " + R.slot("aliases", "add another name") + "</dd>")
@@ -2474,6 +2597,12 @@ def location_page(nid: str, rel: str) -> str:
         d.append(f"<dt>notes</dt><dd>{esc(n['notes'])}</dd>")
     d.append(f'<dt>location id</dt><dd><code>{esc(nid)}</code></dd></dl>')
     b += d
+    if st["n"] >= 3:   # with fewer, the contest table below says it all
+        b.append('<p class="tabs">Jump to: <a href="#coverage">coverage</a> <a href="#where">season by season</a>'
+                 + (' <a href="#places">places</a>' if LOC_KIDS.get(nid) else "") + ' <a href="#contests">contests</a></p>')
+        b.append(coverage_section(cs, rel, {"loc": nid}, "the contests held here", "Season by season",
+                                  "A column per season, a row per question; each cell is that season's contests here split by answer, held at the bottom. "
+                                  "A cell opens the contests of that season that are missing it.", season_strips([c for c in cs if did_run(c)], rel, {"loc": nid})))
     kids = [k for k in LOC_KIDS.get(nid, [])]
     if kids:
         desc = [k for k in LOC if k != nid and any(x["id"] == nid for x in location_chain(LOC, k))] if n["type"] in ("country", "region") else kids
@@ -2513,7 +2642,7 @@ def location_index(rel: str) -> str:
                      f'<td class="nw" data-v="{ys[0] if ys else ""}">{f"{ys[0]}–{ys[1]}" if ys else ""}</td>'
                      f'<td class="num">{len(cities)}</td><td class="num">{sum(1 for k in desc if LOC[k]["type"] == "institution")}</td>'
                      f'<td class="small">{", ".join(loc_link(k, rel) + f" <span class=muted>{len(LOC_SUB.get(k, ()))}</span>" for k in cities[:4] if LOC_SUB.get(k))}</td>'
-                     + content_cells(st) + "</tr>")
+                     + group_cells(cs, rel, {"loc": nid}) + "</tr>")
     arows = [loc_row(nid, rel) for nid in sorted(LOC, key=lambda k: (-len(LOC_SUB.get(k, ())), LOC[k]["name"]))]
     return page("Locations", "<h1>Locations</h1>"
                 f'<p class="intro">Where contests were held, as one tree: {types["country"]} countries, {types["region"]} states and provinces, '
@@ -2523,7 +2652,7 @@ def location_index(rel: str) -> str:
                 f'<div><b>{num(types["city"])}</b><span>cities</span></div><div><b>{num(types["institution"])}</b><span>institutions</span></div></div>'
                 f'<p class="tabs"><a href="#countries">Countries</a> <a href="#all">Every location</a></p>'
                 f'<h2 id="countries">Countries <span class="n">{len(countries)}</span></h2>'
-                + table([th("country"), th("contests", num=True), th("years"), th("cities", num=True), th("institutions", num=True), th("most often in")] + CONTENT_HEADS, crows)
+                + table([th("country"), th("contests", num=True), th("years"), th("cities", num=True), th("institutions", num=True), th("most often in")] + group_heads(), crows)
                 + f'<h2 id="all">Every location <span class="n">{num(len(LOC))}</span></h2>'
                 + table([th("location"), th("type", f=True), th("in"), th("country", f=True), th("contests", num=True, title="contests held here or anywhere inside"),
                          th("exactly here", num=True, title="contests whose site is this very place"), th("first"), th("latest"), th("contains")], arows, "flt"),
@@ -2532,185 +2661,435 @@ def location_index(rel: str) -> str:
 
 
 # ---- coverage ----
-COV_COLS = (
-    ("any", "any result", "any result source at all"),
-    ("sb", "scoreboard", "a full per-problem scoreboard"),
-    ("res_arch", "result archived", "we hold an archived copy of a published result"),
-    ("set", "problem set", "the problem set is recorded"),
-    ("stmt", "statements", "the problem archive holds every statement"),
-    ("judge", "online judge", "the problems are on an online judge"),
-    ("web", "website", "a website address is known"),
-    ("web_arch", "website archived", "we hold a crawl of the website"),
-    ("date", "dated", "the full date is known"),
-    ("place", "placed", "placed in the location tree"),
+# One coverage record per contest (tools/coverage.py). Every number on these pages is the size of a
+# SHARE: the contests that ran and pass one filter of the contest list. The number and the list
+# behind its link are worked out from the same filter values, so they cannot disagree
+# (tools/check_coverage_links.py follows every counted link and checks).
+FILTER_VALUES = {
+    "results": results_value, "fetch": fetch_value, "also": also_value, "problems": problems_value,
+    "website": website_value, "pmeta": pmeta_value, "meta": meta_value,
+    **{COMP_KEY[key]: (lambda key: lambda c: component_value(c, key))(key) for key, *_ in CV.COMPONENTS},
+}
+_TOK: dict = {}
+
+
+def in_share(c: dict, f: dict) -> bool:
+    """Does this contest pass the filter `f` ({filter name: value}) of the contest list?"""
+    t = _TOK.setdefault(c["id"], {})
+    for k, v in f.items():
+        if k not in t:
+            t[k] = set(FILTER_VALUES[k](c).split("|"))
+        if v not in t[k]:
+            return False
+    return True
+
+
+def share(cs: list[dict], f: dict) -> int:
+    return sum(1 for c in cs if in_share(c, f))
+
+
+# ---- facets on a page: one colour vocabulary, one filter per answer ----
+FKEYS = [f[0] for f in CV.FACETS]
+GROUPS = list(dict.fromkeys(f[2] for f in CV.FACETS))   # Results, Problems, Problem metadata, Website, Metadata
+_PM = {k: lab for k, lab in CV.PMETA}
+_MT = {k: lab for k, lab in CV.META}
+WEB_TOKEN = {"have": "have", "no copy": "missing: no copy", "no address": "missing: no address", "confirmed none": "confirmed none"}
+# what an answer looks like: q4 held ... q1 a little held (shades of one green), ql a link we hold no copy of,
+# q0 nothing (a hole), qu not recorded (hatched), qx there is none to have (not a hole)
+Q_WORD = {"q4": "held", "q3": "held", "q2": "partly held", "q1": "partly held", "ql": "known, no copy", "q0": "missing", "qu": "not recorded", "qx": "none exists"}
+_ST: dict = {}
+
+
+def facet_q(key: str) -> tuple:
+    if key == "results":
+        return ("q4", "q3", "q2", "q1", "q0")
+    if key == "list":
+        return ("q4", "q2", "q1", "ql", "q0")
+    if key in COMP_KEY:
+        return ("q4", "q2", "ql", "q0", "qu")
+    if key == "website":
+        return ("q4", "ql", "q0", "qx")
+    return ("q4", "q2", "q0") if key in _PM else ("q4", "q0", "qx")
+
+
+def facet_filter(key: str, s: str) -> dict:
+    """The filter of the contest list that selects the contests whose answer to `key` is `s`."""
+    if key == "results":
+        return {"results": s}
+    if key == "list":
+        return {"problems": s}
+    if key in COMP_KEY:
+        return {COMP_KEY[key]: s}
+    if key == "website":
+        return {"website": WEB_TOKEN[s]}
+    return {"pmeta": f"{_PM[key]}: {s}"} if key in _PM else {"meta": f"{_MT[key]}: {s}"}
+
+
+def facet_missing(key: str) -> dict:
+    """The worklist of a facet: the contests that do not have its best answer (and could)."""
+    if key == "results":
+        return {"results": "no scoreboard"}
+    if key == "list":
+        return {"problems": "not listed"}
+    if key in COMP_KEY:
+        return {COMP_KEY[key]: "missing"}
+    if key == "website":
+        return {"website": "missing"}
+    return {"pmeta": f"{_PM[key]}: missing"} if key in _PM else {"meta": f"{_MT[key]}: missing"}
+
+
+def facet_anchor(key: str) -> str:
+    """Where on a contest's page a facet is shown."""
+    g = CV.FACET[key][2]
+    return {"Results": "#results", "Problems": "#problems", "Problem metadata": "#problems", "Website": "#website"}.get(g, "")
+
+
+def st(c: dict) -> dict:
+    """{facet: answer} of a contest."""
+    if c["id"] not in _ST:
+        _ST[c["id"]] = CV.states(rec(c))
+    return _ST[c["id"]]
+
+
+def good(c: dict, key: str) -> bool:
+    return st(c)[key] == CV.FACET[key][3][0]
+
+
+# ---- the stacked bar: one facet of a set of contests ----
+def sbar(cs: list[dict], key: str, rel: str, scope: dict | None, cls: str = "", inner: bool = True) -> str:
+    """One facet as a bar split by answer, best first. Every segment opens its contests
+    (`scope`: what picks these contests in the contest list; None = no links)."""
+    n = len(cs)
+    cnt = Counter(st(c)[key] for c in cs)
+    lab = CV.FACET[key][1]
+    segs = []
+    for s, q in zip(CV.FACET[key][3], facet_q(key)):
+        k = cnt[s]
+        if not k:
+            continue
+        tip = f"{lab}: {s} — {num(k)} of {num(n)} ({pct(k, n)}%)"
+        txt = num(k) if inner and k / n >= .04 * len(num(k)) + .03 else ""   # only where the segment is wide enough for it
+        if scope is None:
+            segs.append(f'<i class="{q}" style="flex:{k}" title="{esc(tip)}">{txt}</i>')
+        else:
+            segs.append(f'<a class="{q}" style="flex:{k}" data-n="{k}" href="{esc(flt_href(rel, {**RAN, **scope, **facet_filter(key, s)}))}" title="{esc(tip)}">{txt}</a>')
+    return f'<span class="sb{" " + cls if cls else ""}">' + "".join(segs) + "</span>"
+
+
+def schips(cs: list[dict], key: str, rel: str, scope: dict | None) -> str:
+    """The legend of a bar: a swatch, the answer and its count; each one opens its contests."""
+    cnt = Counter(st(c)[key] for c in cs)
+    out = []
+    for s, q in zip(CV.FACET[key][3], facet_q(key)):
+        k = cnt[s]
+        if not k:
+            continue
+        body = f'<i class="sw {q}"></i>{esc(s)} <b>{num(k)}</b>'
+        out.append(f'<span class="ch">{body}</span>' if scope is None else
+                   f'<a class="ch" data-n="{k}" href="{esc(flt_href(rel, {**RAN, **scope, **facet_filter(key, s)}))}">{body}</a>')
+    return '<div class="fc">' + "".join(out) + "</div>"
+
+
+RESULT_NOTES = (   # said about a contest's results beside their level: (label, filter, what it means)
+    ("a better result is known, not held", {"fetch": "any"}, "a source gives a higher level than the one we hold, and we have no copy of it"),
+    ("frozen scoreboard held", {"also": "frozen scoreboard: held"}, "the scoreboard as it stood at the freeze: kept beside the result, it does not say how the contest ended"),
+    ("frozen scoreboard, link only", {"also": "frozen scoreboard: link only"}, "a frozen scoreboard is known at an address; we hold no copy"),
+    ("partial result", {"also": "partial result"}, "the result we hold covers only a part of the contest: one division, the top places"),
+    ("a source is lost", {"also": "lost source"}, "dead at its address, not in the Wayback Machine, no copy here"),
 )
-ERAS = (("to 1998", 0, 1998), ("1999–2007", 1999, 2007), ("2008–2015", 2008, 2015), ("2016 on", 2016, 9999))
 
 
-def season_of(c: dict) -> int:
-    """The season (end year) of a contest; the id year stands in where none is recorded."""
-    return c.get("season") or int(c["id"].rsplit("-", 1)[1])
+# the panel's three columns: results, website and contest metadata; what is recorded about the problems; what is held of them
+PANEL_COLS = (("Results", "Website", "Contest metadata"), ("Problem metadata",), ("Problems",))
+GROUP_NOTE = {
+    "Problem metadata": "Contests, by what the catalogue records about their problems: the list itself, then names, letters, short names and UUIDs "
+                        "(<b>all</b> = for every problem of the contest). Recorded is not the same as held: we can hold a statement without its problems being listed yet.",
+    "Problems": "Contests, by what we hold of their problems — not a count of problems. <b>all</b> = for every problem of the contest, <b>some</b> = for part of them.",
+}
 
 
-def cov_flags(c: dict) -> dict:
-    pb = set_for(c)
-    bt = best_tier(c)
-    return {"n": 1, "any": bt != "none", "sb": has_role(c, "scoreboard"),
-            "res_arch": results_held(c), "set": bool(pb), "stmt": pb.get("statement") == "full", "judge": bool(judge_sources(c)),
-            "web": web_state(c) == "link", "web_arch": c["id"] in website_of, "date": bool(full_date(c)),
-            "place": bool(held_at(c)[0]), "dark": bt == "none",
-            "repo": bool(pb.get("repo")), **{k + "_full": pb.get(k) == "full" for k, *_ in HELD_KINDS}}
+def coverage_panel(cs: list[dict], rel: str, scope: dict | None) -> str:
+    """What we hold of a set of contests: every facet as a bar, every answer a link to its contests.
+    The same panel wherever contests are counted: the archive, a season, a series, a location."""
+    cs = [c for c in cs if did_run(c)]
+    n = len(cs)
+    if not n:
+        return '<p class="empty">No contest here has run yet.</p>'
+    cards = {}
+    for g in GROUPS:
+        keys = [f[0] for f in CV.FACETS if f[2] == g]
+        rows = [f'<p class="note gn">{GROUP_NOTE[g]}</p>'] if g in GROUP_NOTE else []
+        for key in keys:
+            lab = CV.FACET[key][1]
+            k = sum(1 for c in cs if good(c, key))
+            rows.append('<div class="fr">' + (f'<span class="fl">{esc(lab)}</span>' if len(keys) > 1 else "")
+                        + sbar(cs, key, rel, scope)
+                        + f'<span class="fp" title="{esc(lab)}: {esc(CV.FACET[key][3][0])} for {num(k)} of {num(n)} contests">{pct(k, n)}%</span></div>'
+                        + schips(cs, key, rel, scope))
+        if g == "Results":
+            notes = []
+            for lab, f, tip in RESULT_NOTES:
+                k = share(cs, f)
+                if k:
+                    notes.append(f'<span class="ch" title="{esc(tip)}">{esc(lab)} <b>{num(k)}</b></span>' if scope is None else
+                                 f'<a class="ch" data-n="{k}" href="{esc(flt_href(rel, {**RAN, **scope, **f}))}" title="{esc(tip)}">{esc(lab)} <b>{num(k)}</b></a>')
+            if notes:
+                rows.append('<div class="fc fn">' + "".join(notes) + "</div>")
+        cards[g] = f'<div class="cp-g cp-{len(keys)}"><h3>{esc(g)}</h3>' + "".join(rows) + "</div>"
+    return '<div class="cp">' + "".join('<div class="cp-c">' + "".join(cards[g] for g in col) + "</div>" for col in PANEL_COLS) + "</div>"
 
 
-def agg(flags) -> dict:
-    t: dict = defaultdict(int)
-    for f in flags:
-        for k, v in f.items():
-            t[k] += int(v)
-    return t
+def coverage_section(cs: list[dict], rel: str, scope: dict | None, what: str, where_title: str, where_note: str, where_html: str,
+                     title: str = "Coverage", hid: str = "coverage") -> str:
+    """The coverage of a group of contests, the same wherever it is shown and always in this order:
+    the key, the panel (what we hold, counted), then where it is missing along the group's own axis
+    (an archive or a location season by season, a series edition by edition, a season contest by contest)."""
+    return (f'<h2 id="{hid}">{title}</h2><p class="note">What we hold of {what}. One bar per question, split by answer; '
+            "every segment and every label under a bar opens those contests as a list.</p>" + COV_KEY + coverage_panel(cs, rel, scope)
+            + f'<h3 id="where">{where_title}</h3><p class="note">{where_note} White is a hole.</p>' + where_html)
 
 
-def cov_table(label: str, rows: list[tuple[str, dict]], cls: str = "", extra_heads: list[str] | None = None) -> str:
-    """One coverage table: a row per group, the same eleven shares in every table."""
-    heads = [th(label)] + (extra_heads or []) + [th("contests", num=True)] + [th(lab, num=True, title=tip) for _k, lab, tip in COV_COLS] \
-        + [th("nothing", num=True, title="contests with no result source of any kind")]
-    body = [f"<tr>{lab}<td class=\"num\">{t['n']}</td>" + "".join(pct_cell(t[k], t["n"]) for k, *_ in COV_COLS)
-            + f'<td class="num">{t["dark"] or ""}</td></tr>' for lab, t in rows]
+COV_KEY = ('<p class="key ck"><b>Every bar counts contests.</b> <i class="sw q4"></i> held <i class="sw q3"></i><i class="sw q2 j"></i><i class="sw q1 j"></i> partly held, or a lesser result '
+           '<i class="sw ql"></i> known at an address, no copy <i class="sw q0"></i> missing <i class="sw qu"></i> a source is known, not what it holds '
+           '<i class="sw qx"></i> none exists (not missing)</p>')
+
+
+# ---- a contest's own coverage: what we hold of it, what is wanted ----
+WANT_WORD = {"results": "a scoreboard", "list": "the list of problems", "statement": "the statements", "data": "the test data", "solutions": "solutions",
+             "package": "complete packages", "editorial": "an editorial", "names": "the problem names", "letters": "the problem letters",
+             "short_names": "short names", "uuids": "UUIDs", "website": "a copy of the website", "name": "the contest's name", "date": "the full date",
+             "location": "the location", "cms": "the CMS id"}
+
+
+def contest_coverage(c: dict, rel: str) -> str:
+    """The coverage card of one contest: every facet as a pill in the colour of its answer, then what is wanted."""
+    if not did_run(c):
+        return ""
+    s, r = st(c), rec(c)
+    groups, wanted = [], []
+    for g in GROUPS:
+        pills = []
+        for key in (f[0] for f in CV.FACETS if f[2] == g):
+            lab, sts, q = CV.FACET[key][1], CV.FACET[key][3], facet_q(key)
+            a = s[key]
+            cls = q[sts.index(a)]
+            text = a if key in ("results", "website") else (lab if a == sts[0] else f"{lab}: {a}")
+            if key == "website":
+                text = {"have": "held", "no copy": "address known, no copy", "no address": "no address known", "confirmed none": "had none"}[a]
+            pills.append(f'<a class="pl {cls}" href="{facet_anchor(key) or "#"}" title="{esc(lab)}: {esc(a)} — {Q_WORD[cls]}">{esc(text)}</a>')
+            if cls not in ("q4", "qx") and not (key in _PM and s["list"] in ("source only", "none")):
+                wanted.append("the website (no address known)" if key == "website" and a == "no address"
+                              else WANT_WORD[key] + (f" (we hold {a})" if key == "results" and a != "none" else ""))
+        if g == "Results":
+            if r["fetch"]:
+                pills.append(f'<a class="pl ql" href="#results" title="a {TIER_LABEL[r["fetch"]]} is known at an address; we hold no copy of it yet">{TIER_LABEL[r["fetch"]]}: link only</a>')
+            if r["frozen"]:
+                pills.append(f'<a class="pl {"q4" if r["frozen"] == "held" else "ql"}" href="#results" title="the scoreboard as it stood at the freeze; '
+                             f'kept beside the result, not counted as one">frozen scoreboard{"" if r["frozen"] == "held" else ": link only"}</a>')
+            if r["partial"]:
+                pills.append('<a class="pl q2" href="#results" title="the result we hold covers only a part of the contest: one division, the top places">partial</a>')
+        groups.append(f'<div class="cc-g"><b>{esc(g)}</b>' + "".join(pills) + "</div>")
+    want = ('<p class="cc-w"><b>Wanted</b> ' + ", ".join(esc(w) for w in wanted) + f'. <a href="{rel}about.html#contribute">Have any of it?</a></p>' if wanted
+            else '<p class="cc-w"><b>Complete</b> — we hold everything we track for this contest.</p>')
+    return '<div class="cc">' + "".join(groups) + want.replace("</p>", " " + help_link("status", rel, "what the colours mean") + "</p>") + "</div>"
+
+
+# ---- matrices: where exactly something is missing ----
+def _mcell(c: dict, key: str, rel: str) -> str:
+    if not did_run(c):
+        return '<td><i class="mc mu" title="upcoming"></i></td>'
+    sts, a = CV.FACET[key][3], st(c)[key]
+    q = facet_q(key)[sts.index(a)]
+    return (f'<td><a class="mc {q}" href="{rel}contest/{esc(c["id"])}.html{facet_anchor(key)}" '
+            f'title="{esc(c["id"])} — {esc(CV.FACET[key][1])}: {esc(a)}"></a></td>')
+
+
+def edition_matrix(cs: list[dict], rel: str, scope: dict) -> str:
+    """A series through time: a column per edition (oldest first), a row per facet. Holes are white.
+    A square opens the contest; a row's label opens the editions that are missing it."""
+    cs = sorted(cs, key=lambda c: (int(c["id"].rsplit("-", 1)[1]), c["id"]))
+    ran_cs = [c for c in cs if did_run(c)]
+    head = '<tr><th></th>' + "".join(f'<th class="vy"><a href="{rel}contest/{esc(c["id"])}.html" title="{esc(c["id"])}">{esc(c["id"].rsplit("-", 1)[1])}</a></th>' for c in cs) + "<th></th></tr>"
+    body = []
+    for g in GROUPS:
+        body.append(f'<tr class="mg"><td colspan="{len(cs) + 2}">{esc(g)}</td></tr>')
+        for key in (f[0] for f in CV.FACETS if f[2] == g):
+            miss = share(ran_cs, facet_missing(key))
+            body.append(f'<tr><td class="ml">{esc(CV.FACET[key][1])}</td>' + "".join(_mcell(c, key, rel) for c in cs)
+                        + '<td class="mn">' + (n_link(miss, rel, {**scope, **facet_missing(key)}, f"{miss} missing") if miss else '<span class="muted">complete</span>') + "</td></tr>")
+    return f'<div class="tw"><table class="mx nosort"><thead>{head}</thead><tbody>' + "".join(body) + "</tbody></table></div>"
+
+
+def contest_matrix(groups: list[tuple[str, list[dict]]], rel: str) -> str:
+    """Many contests of one time (a season): a row per contest, a column per facet."""
+    heads = '<tr><th></th>' + "".join(
+        f'<th class="vy{" gs" if i and CV.FACETS[i][2] != CV.FACETS[i - 1][2] else ""}">{esc(f[1])}</th>' for i, f in enumerate(CV.FACETS)) + "</tr>"
+    body = []
+    for name, cs in groups:
+        if not cs:
+            continue
+        body.append(f'<tr class="mg"><td colspan="{len(CV.FACETS) + 1}">{esc(name)}</td></tr>')
+        for c in cs:
+            cells = "".join(_mcell(c, f[0], rel).replace("<td>", '<td class="gs">', 1) if i and CV.FACETS[i][2] != CV.FACETS[i - 1][2] else _mcell(c, f[0], rel)
+                            for i, f in enumerate(CV.FACETS))
+            body.append(f'<tr><td class="ml">{link_contest(c["id"], rel)}</td>{cells}</tr>')
+    return f'<div class="tw"><table class="mx nosort">{"<thead>" + heads + "</thead>"}<tbody>' + "".join(body) + "</tbody></table></div>"
+
+
+def season_strips(cs: list[dict], rel: str, scope: dict) -> str:
+    """The archive through time: a row per facet, a column per season, each cell that season's contests
+    split by answer (held at the bottom). A cell opens the contests of that season that are missing it."""
+    by_s = defaultdict(list)
+    for c in cs:
+        by_s[season_of(c)].append(c)
+    seasons = sorted(by_s)
+    head = '<tr><th></th>' + "".join(f'<th class="vy">{link_season(s, rel, str(s)) if s in BY_SEASON else s}</th>' for s in seasons) + "</tr>"
+    body = []
+    for g in GROUPS:
+        body.append(f'<tr class="mg"><td colspan="{len(seasons) + 1}">{esc(g)}</td></tr>')
+        for key in (f[0] for f in CV.FACETS if f[2] == g):
+            sts, q = CV.FACET[key][3], facet_q(key)
+            cells = []
+            for s in seasons:
+                cnt = Counter(st(c)[key] for c in by_s[s])
+                n = len(by_s[s])
+                miss = share(by_s[s], facet_missing(key))
+                tip = f"{s - 1}–{s} · {CV.FACET[key][1]}: " + ", ".join(f"{a} {cnt[a]}" for a in sts if cnt[a]) + (f" — open the {miss} missing" if miss else " — complete")
+                segs = "".join(f'<i class="{qq}" style="flex:{cnt[a]}"></i>' for a, qq in zip(sts, q) if cnt[a])
+                f = {**scope, "season": s, **(facet_missing(key) if miss else {})}
+                cells.append(f'<td><a class="tc" data-n="{miss or n}" href="{esc(flt_href(rel, {**RAN, **f}))}" title="{esc(tip)}">{segs}</a></td>')
+            body.append(f'<tr><td class="ml">{esc(CV.FACET[key][1])}</td>' + "".join(cells) + "</tr>")
+    return f'<div class="tw"><table class="mx tl nosort"><thead>{head}</thead><tbody>' + "".join(body) + "</tbody></table></div>"
+
+
+GROUP_FACETS = ("results", "statement", "data", "solutions", "package", "editorial", "website", "date", "location")
+
+
+def group_bars(label: str, rows: list[tuple[str, list[dict], dict]], cls: str = "", extra_heads: list[str] | None = None) -> str:
+    """Groups of contests side by side (regions, series): a row per group, a small bar per facet.
+    Sorts on the share held; every segment opens its contests."""
+    heads = [th(label)] + (extra_heads or []) + [th("contests", num=True)] + group_heads(GROUP_FACETS)
+    body = [f'<tr>{lab}<td class="num">{n_link(len(cs), "", scope)}</td>{group_cells(cs, "", scope, GROUP_FACETS)}</tr>' for lab, cs, scope in rows]
     return table(heads, body, cls)
 
 
-def heat_table(title: str, key: str, ran: list[tuple[dict, dict]]) -> str:
-    """Region x era, one share per cell, shaded by how much we hold."""
-    rows = []
-    for r in REGIONS:
-        cells = []
-        for _lab, lo, hi in ERAS:
-            t = agg(f for c, f in ran if SERIES_REGION.get(SERIES_OF[c["id"]]) == r and lo <= season_of(c) <= hi)
-            if not t["n"]:
-                cells.append('<td class="hc muted">–</td>')
-                continue
-            p = pct(t[key], t["n"])
-            cells.append(f'<td class="hc" style="background:color-mix(in srgb,var(--held) {round(p * .6)}%,var(--paper))" '
-                         f'title="{t[key]} of {t["n"]} contests">{p}%</td>')
-        rows.append(f'<tr><td class="nw">{esc(r)}</td>' + "".join(cells) + "</tr>")
-    return (f'<div><h3>{title}</h3><table class="heat nosort"><thead><tr><th></th>'
-            + "".join(f'<th class="num">{esc(lab)}</th>' for lab, *_ in ERAS) + "</tr></thead><tbody>" + "".join(rows) + "</tbody></table></div>")
+# ---- the headline measures ----
+MEASURES = (   # every one counts contests: (label, the list of those that have it, the list of those that do not)
+    ("with a scoreboard", {"results": "scoreboard"}, {"results": "no scoreboard"}),
+    ("with any result", {"results": "any result"}, {"results": "none"}),
+    ("with every statement", {"statements": "all"}, {"statements": "missing"}),
+    ("with every package", {"packages": "all"}, {"packages": "missing"}),
+    ("with the website", {"website": "have"}, {"website": "missing"}),
+    ("with the full date", {"meta": "full date: have"}, {"meta": "full date: missing"}),
+)
+
+
+def headline_tiles(cs: list[dict], rel: str, scope: dict | None) -> str:
+    """The six headline numbers of a set of contests, each with two links: the contests that
+    have it, and the ones that do not."""
+    cs = [c for c in cs if did_run(c)]
+    n = len(cs)
+    tiles = []
+    for lab, have, miss in MEASURES:
+        k, m = share(cs, have), share(cs, miss)
+        tiles.append(f'<div class="pt"><b>{n_link(k, rel, None if scope is None else {**scope, **have})} <i class="pc">{pct(k, n)}%</i></b>'
+                     f'<span class="tl-l">{esc(lab)}</span><span class="meter"><i style="width:{pct(k, n)}%"></i></span>'
+                     + (f'<span class="tm">{n_link(m, rel, None if scope is None else {**scope, **miss}, f"{num(m)} missing")}</span>' if m else "") + "</div>")
+    return "".join(tiles)
+
+
+def group_nums(cs: list[dict], rel: str, scope: dict | None, extra: str = "") -> str:
+    """The numbers strip of a group of contests, the same wherever contests are counted (the archive, a
+    season, a series, a location): how many ran, then the six headline counts, each with its share and
+    the list of what is missing. `scope`: what picks these contests in the contest list; `extra`: more tiles."""
+    st = content_counts(cs)
+    first = (f'<div class="pt"><b>{n_link(st["n"], rel, scope)}</b><span class="tl-l">contests ran'
+             + (f' <span class="muted">+{st["upcoming"]} upcoming</span>' if st["upcoming"] else "") + "</span></div>")
+    return '<div class="pts">' + first + headline_tiles(cs, rel, scope) + extra + "</div>"
 
 
 def coverage_page(series_docs: dict, contests: dict) -> str:
-    ran = [(c, cov_flags(c)) for c in contests.values() if c.get("status") != "upcoming"]
-    tot = agg(f for _c, f in ran)
-    n = tot["n"]
-
-    def funnel(title, steps):
-        return (f"<div><h3>{title}</h3><table class=\"nosort heat\"><tbody>" + "".join(
-            f'<tr><td>{lab}</td><td class="num">{num(tot[k])}</td>' + pct_cell(tot[k], n) + "</tr>" for k, lab in steps) + "</tbody></table></div>")
+    cs = [c for c in contests.values() if did_run(c)]
+    n = len(cs)
     b = ["<h1>Coverage</h1>",
-         f'<p class="intro">How much of the {num(n)} contests that ran we can account for. Each of the three kinds of content — results, problems, website — '
-         "is counted twice: do we know where it is, and do we hold a copy. Every table below uses the same eleven columns (hover a header for its definition) "
-         f'and sorts on any of them. The worklist behind the gaps is <a href="wanted.html">most wanted</a>; the same data, one square per contest, is <a href="grid.html">the grid</a>.</p>',
-         '<div class="nums" style="align-items:flex-start;gap:1rem 3rem">'
-         + funnel("Results", (("any", "any result source"), ("sb", "a full scoreboard"), ("res_arch", "an archived copy")))
-         + funnel("Problems", (("set", "problem set recorded"), ("stmt", "every statement held"), ("judge", "on an online judge")))
-         + funnel("Website", (("web", "address known"), ("web_arch", "archived")))
-         + funnel("Basics", (("date", "full date known"), ("place", "placed in the location tree")))
-         + "</div>",
-         f'<p class="note">{num(tot["dark"])} contests have no result source of any kind. A website counts as known only when an address was found; '
-         "contests confirmed to have had no website are not counted as missing in the wanted list.</p>",
-         '<p class="tabs">Jump to: <a href="#where">where the holes are</a> <a href="#region">by region</a> <a href="#season">by season</a> '
-         '<a href="#series">by series</a> <a href="#holdings">problem archive holdings</a></p>',
-         '<h2 id="where">Where the holes are</h2><p class="note">Share of contests per region and era; darker is fuller. Eras are by season.</p>'
-         '<div class="nums" style="align-items:flex-start;gap:1rem 2.5rem">'
-         + heat_table("Results archived", "res_arch", ran) + heat_table("Problem set recorded", "set", ran) + heat_table("Website archived", "web_arch", ran) + "</div>"]
+         f'<p class="intro">What we hold of the {n_link(n, "", {})} contests that ran: results, problems, website and contest metadata. '
+         "<b>Held</b> always means we hold a copy; an address we only know is a link, and is shown as one. "
+         "<b>Everything here is a link</b>: a segment of a bar, a label under it, a square, a number all open the contest list filtered to exactly those contests, "
+         "where the filters can be combined further.</p>",
+         group_nums(cs, "", {}),
+         '<p class="tabs">Jump to: <a href="#hold">what we hold</a> <a href="#where">season by season</a> <a href="#region">by region</a> '
+         '<a href="#series">by series</a> · <a href="wanted.html">most wanted</a> <a href="grid.html">the grid</a></p>',
+         coverage_section(cs, "", {}, "the contests that ran", "Season by season",
+                          "A column per season, a row per question; each cell is that season's contests split by answer, held at the bottom. "
+                          "A cell opens the contests of that season that are missing it.", season_strips(cs, "", {}), title="What we hold", hid="hold")
+         + '<p class="note">A complete package counts as statement, test data and solutions too. Material counts wherever it comes from: the problem archive, '
+           "or a source we hold a copy of. A page on an online judge is a link, not a copy: what we hold of it is the judge's list of problems, not the statements.</p>"]
 
-    b.append('<h2 id="region">By region</h2>')
-    rows = [(f'<td class="nw">{esc(r)}</td>', agg(f for c, f in ran if SERIES_REGION.get(SERIES_OF[c["id"]]) == r)) for r in REGIONS]
-    rows.append(('<td class="nw"><b>all</b></td>', tot))
-    b.append(cov_table("region", rows))
+    b.append('<h2 id="region">By region</h2><p class="note">The percentage is the share in the best state; click a header to sort by it. Every segment opens its contests.</p>')
+    by_reg = {r: [c for c in cs if SERIES_REGION.get(SERIES_OF[c["id"]]) == r] for r in REGIONS}
+    rows = [(f'<td class="nw">{n_link(len(by_reg[r]), "", {"region": r}, esc(r))}</td>', by_reg[r], {"region": r}) for r in REGIONS]
+    rows.append(('<td class="nw"><b>all</b></td>', cs, {}))
+    b.append(group_bars("region", rows))
 
-    b.append('<h2 id="season">By season</h2>')
-    by_s = defaultdict(list)
-    for c, f in ran:
-        by_s[season_of(c)].append(f)
-    b.append(cov_table("season", [(f'<td class="nw" data-v="{s}">{link_season(s, "") if s in BY_SEASON else f"{s - 1}–{s}"}</td>', agg(by_s[s])) for s in sorted(by_s, reverse=True)]))
-
-    b.append('<h2 id="series">By series</h2><p class="note">Sorted by the number of contests with nothing at all — the top of this table is where a find matters most.</p>')
+    b.append('<h2 id="series">By series</h2><p class="note">Sorted by the number of contests we hold no result of — the top of this table is where a find matters most. '
+             "A series' own page shows it edition by edition.</p>")
     by_ser = defaultdict(list)
-    for c, f in ran:
-        by_ser[SERIES_OF[c["id"]]].append(f)
+    for c in cs:
+        by_ser[SERIES_OF[c["id"]]].append(c)
     srows = []
-    for s, fl in by_ser.items():
-        t = agg(fl)
+    for s, lst in by_ser.items():
         y0, y1 = series_years(series_docs[s])
-        srows.append((t["dark"], t["n"], s, (f'<td class="nw">{link_series(s, "")}</td><td class="nw">{esc(SERIES_REGION.get(s, ""))}</td>'
-                                              f'<td class="nw" data-v="{y0}">{y0}–{y1}</td>', t)))
-    b.append(cov_table("series", [r for *_x, r in sorted(srows, key=lambda x: (-x[0], -x[1], x[2]))], "flt",
-                       [th("region", f=True), th("years")]))
-
-    b.append('<h2 id="holdings">Problem archive holdings</h2><p class="note">What the ICPC Problem Archive holds, as a share of the contests that ran in each region: '
-             "a repo exists, and each kind of material is there for every problem of the set.</p>")
-    heads = [th("region"), th("contests", num=True), th("problem set", num=True, title="the problem set is recorded"), th("repo", num=True, title="a repo in the problem archive holds material")] \
-        + [th(w, num=True, title=f"{w} held for every problem") for _k, _l, w in HELD_KINDS]
-    hrows = []
-    for r in REGIONS + ["all"]:
-        t = tot if r == "all" else agg(f for c, f in ran if SERIES_REGION.get(SERIES_OF[c["id"]]) == r)
-        hrows.append(f'<tr><td class="nw">{"<b>all</b>" if r == "all" else esc(r)}</td><td class="num">{t["n"]}</td>' + pct_cell(t["set"], t["n"]) + pct_cell(t["repo"], t["n"])
-                     + "".join(pct_cell(t[k + "_full"], t["n"]) for k, *_ in HELD_KINDS) + "</tr>")
-    b.append(table(heads, hrows))
+        srows.append((share(lst, {"results": "none"}), len(lst), s, (f'<td class="nw">{link_series(s, "")}</td><td class="nw">{esc(SERIES_REGION.get(s, ""))}</td>'
+                                                                       f'<td class="nw" data-v="{y0}">{y0}–{y1}</td>', lst, {"series": s})))
+    b.append(group_bars("series", [r for *_x, r in sorted(srows, key=lambda x: (-x[0], -x[1], x[2]))], "flt", [th("region", f=True), th("years")]))
     return page("Coverage", "\n".join(b), "", "coverage.html")
 
 
-# ---- most wanted ----
-WANT_COLS = [  # (best tier held, column title, what is wanted)
-    ("none", "nothing", "no result of any kind"),
-    ("rankings", "rankings only", "order of teams only — standings or scoreboard wanted"),
-    ("standings", "standings only", "totals per team — the per-problem scoreboard wanted"),
-    ("frozen_scoreboard", "frozen only", "frozen scoreboard — the final scoreboard wanted"),
-]
-WEB_COLS = [("nolink", "no website known", "no website address found yet (contests confirmed to have had none are not listed)"),
-            ("noarch", "website not archived", "the address is known; we hold no copy"),
-            ("lost", "lost", "a source that is dead at its address, has no Wayback snapshot and was never captured here: gone unless someone kept a copy")]
+# ---- most wanted: what is missing, by region; every label and number opens its contests ----
+WANTED = (
+    ("Results", (
+        ("no result held", {"results": "none"}, "we hold no scoreboard, standings, rankings or team list"),
+        ("team list only", {"results": "team list"}, "who took part, not how it ended — any result is wanted"),
+        ("rankings only", {"results": "rankings"}, "the order of teams only — standings or a scoreboard wanted"),
+        ("standings only", {"results": "standings"}, "totals per team — the per-problem scoreboard wanted"),
+        ("better result known, not held", {"fetch": "any"}, "a source gives a higher level than the one we hold; a copy of it is wanted"),
+        ("partial result", {"also": "partial result"}, "what we hold covers one division or the top places only"),
+        ("a source is lost", {"also": "lost source"}, "dead at its address, not in the Wayback Machine, no copy here: gone unless someone kept one"))),
+    ("Website", (
+        ("no address", {"website": "missing: no address"}, "no website address found yet (contests confirmed to have had none are not counted)"),
+        ("address known, no copy", {"website": "missing: no copy"}, "the address is known; we hold no copy"))),
+    ("Problems", (
+        ("no problem set recorded", {"problems": "no set"}, "neither a list of the problems nor the archive's holdings"),
+        ("names not listed", {"pmeta": "names: none"}, "the problems are not listed by name"),
+        ("letters not known", {"pmeta": "letters: none"}, "which problem had which letter is not known"))
+        + tuple((f"{what} missing", {COMP_KEY[key]: "missing"}, f"we do not hold {what} for every problem") for key, _m, what in CV.COMPONENTS)),
+    ("Contest metadata", tuple((f"{lab} missing", {"meta": f"{lab}: missing"}, "") for _k, lab in CV.META)),
+)
 
 
 def wanted_page(series_docs: dict) -> str:
-    tot: dict = defaultdict(int)
-    sections = []
-    for g in REGIONS:
-        sec = []
-        for sname in sorted(series_docs):
-            if SERIES_REGION.get(sname) != g:
-                continue
-            cells = defaultdict(list)
-            for c in series_docs[sname]["contests"]:
-                if c.get("status") == "upcoming":
-                    continue
-                cid = c["id"]
-                bt = best_tier(c)
-                if bt != "scoreboard":
-                    cells[bt].append(link_contest(cid, "", False))
-                    tot[bt] += 1
-                ws = web_state(c)
-                if ws == "unknown":
-                    cells["nolink"].append(link_contest(cid, "", False))
-                    tot["nolink"] += 1
-                elif ws == "link" and cid not in website_of:
-                    cells["noarch"].append(link_contest(cid, "", False))
-                    tot["noarch"] += 1
-                gone = [u for u, _w, held in lost_locators(c) if not held]
-                if gone:
-                    cells["lost"].append(link_contest(cid, "", False) + f'<span class="small muted" title="{esc("; ".join(gone))}"> ×{len(gone)}</span>')
-                    tot["lost"] += 1
-            if cells:
-                sec.append(f'<tr><td class="nw">{link_series(sname, "")}</td>'
-                           + "".join(f'<td class="small ids">{" ".join(cells[k])}</td>' for k, *_ in WANT_COLS + WEB_COLS) + "</tr>")
-        if sec:
-            sections.append(f"<h2>{esc(g)}</h2>" + table([th("series")] + [th(t, title=w) for _k, t, w in WANT_COLS + WEB_COLS], sec, "nosort"))
+    cs = [c for c in CONTESTS.values() if did_run(c)]
+    by_r = {r: [c for c in cs if SERIES_REGION.get(SERIES_OF[c["id"]]) == r] for r in REGIONS}
+    heads = [th("what is missing")] + [th("all", num=True)] + [th(n_link(len(by_r[r]), "", {"region": r}, esc(r)), num=True) for r in REGIONS]
+    rows = []
+    for group, items in WANTED:
+        rows.append(f'<tr class="grp"><td colspan="{len(REGIONS) + 2}"><b>{group}</b></td></tr>')
+        for lab, f, tip in items:
+            k = share(cs, f)
+            cells = []
+            for r in REGIONS:
+                kr = share(by_r[r], f)
+                p = pct(kr, len(by_r[r]))
+                cells.append(f'<td class="num hw" style="background:color-mix(in srgb,var(--part) {round(p * .45)}%,var(--paper))" title="{kr} of {len(by_r[r])} contests in {esc(r)} ({p}%)">'
+                             + (n_link(kr, "", {"region": r, **f}) if kr else '<span class="muted">–</span>') + "</td>")
+            rows.append(f'<tr><td' + (f' title="{esc(tip)}"' if tip else "") + f'>{n_link(k, "", f, esc(lab)) if k else esc(lab)}</td>'
+                        f'<td class="num"><b>{n_link(k, "", f) if k else "–"}</b></td>' + "".join(cells) + "</tr>")
     body = ["<h1>Most wanted</h1>",
-            '<p class="intro">Every contest that ran, filed under the <b>best result we know</b> — from nothing at all up to a frozen scoreboard. Anything better is wanted; '
-            "a contest with a full scoreboard is not listed. The last three columns are about the website and about sources that are gone. "
-            f'Know where any of this lives? <a href="about.html#contribute">Tell us.</a></p>',
-            '<div class="nums">' + "".join(f"<div><b>{num(tot[k])}</b><span>{t}</span></div>" for k, t, _w in WANT_COLS + WEB_COLS) + "</div>"]
-    return page("Most wanted", "\n".join(body + sections), "", "coverage.html")
+            f'<p class="intro">What is missing, of the {num(len(cs))} contests that ran, by region; darker means a larger share of that region\'s contests. '
+            "Every label and every number opens the contest list filtered to exactly those contests; add a season or a series there to narrow it down. "
+            f'<a href="coverage.html">Coverage</a> has the other side: what we hold. Know where any of this lives? <a href="about.html#contribute">Tell us.</a></p>',
+            table(heads, rows, "nosort")]
+    return page("Most wanted", "\n".join(body), "", "coverage.html")
 
 
 # ---- the grid ----
@@ -2723,13 +3102,17 @@ def grid_page(series_docs: dict, contests: dict) -> str:
         for ev in doc["series"].get("lineage", []):
             if ev["type"] == "continues-as":
                 lineage_at[(sid, ev["year"])].append(ev["series"])
+    rq = facet_q("results")
 
-    def cell_class(c):
-        if c.get("status") == "upcoming":
-            return "c-up", "upcoming"
-        return {"scoreboard": ("c-sb", "scoreboard"), "frozen_scoreboard": ("c-sb", "frozen scoreboard"),
-                "standings": ("c-res", "standings only"), "rankings": ("c-res", "rankings only"),
-                "none": ("c-none", "no result known")}[best_tier(c)]
+    def cell(c):
+        cid = c["id"]
+        head = esc(cid) + (" · " + esc(c["date"]) if c.get("date") else "")
+        if not did_run(c):
+            return f'<td><a class="cell c-up" href="contest/{esc(cid)}.html" title="{head} — upcoming"></a></td>'
+        s = st(c)
+        code = CV.encode(rec(c))
+        return (f'<td><a class="cell {rq[int(code[0])]}" data-q="{code}" data-t="{head}" href="contest/{esc(cid)}.html" '
+                f'title="{head} — results: {esc(s["results"])}"></a></td>')
 
     def first_year(s):
         return (min(int(c["id"].rsplit("-", 1)[1]) for c in series_docs[s]["contests"]), s)
@@ -2737,7 +3120,7 @@ def grid_page(series_docs: dict, contests: dict) -> str:
               ("Championships", sorted((s for s in series_docs if s in CHAMPIONSHIPS), key=first_year))]
     for r in REGIONS[1:]:
         groups.append((r, sorted((s for s in series_docs if SERIES_REGION.get(s) == r and s not in CHAMPIONSHIPS and SERIES_TIER.get(s) != "world-finals"), key=first_year)))
-    g = ['<div class="tw" style="overflow-x:auto"><table class="grid"><thead><tr><th class="lbl"></th>']
+    g = ['<div class="tw" style="overflow-x:auto"><table class="grid" id="grid"><thead><tr><th class="lbl"></th>']
     g += [f"<th>{y}</th>" for y in range(y0, y1 + 1)]
     g.append("</tr></thead><tbody>")
     ncols = y1 - y0 + 2
@@ -2750,10 +3133,7 @@ def grid_page(series_docs: dict, contests: dict) -> str:
             for y in range(y0, y1 + 1):
                 cid = by_sy.get((sid, y))
                 if cid:
-                    cls, why = cell_class(contests[cid])
-                    cc = contests[cid]
-                    g.append(f'<td><a class="cell {cls}" href="contest/{esc(cid)}.html" '
-                             f'title="{esc(cid)}{" · " + esc(cc["date"]) if cc.get("date") else ""} — {why}"></a></td>')
+                    g.append(cell(contests[cid]))
                 elif lineage_at.get((sid, y)):
                     tgt = lineage_at[(sid, y)][0]
                     g.append(f'<td><a class="c-lin" href="series/{esc(tgt)}.html" title="continues as {esc(tgt)} ({y})">→</a></td>')
@@ -2761,12 +3141,20 @@ def grid_page(series_docs: dict, contests: dict) -> str:
                     g.append("<td></td>")
             g.append("</tr>")
     g.append("</tbody></table></div>")
-    sw = 'style="display:inline-block;vertical-align:-2px"'
-    legend = (f'<p class="key"><span class="cell c-sb" {sw}></span> scoreboard &nbsp; <span class="cell c-res" {sw}></span> standings or rankings &nbsp; '
-              f'<span class="cell c-none" {sw}></span> no result known &nbsp; '
-              f'<span class="cell c-up" {sw}></span> upcoming &nbsp; → the series continues under another name</p>')
-    return page("The grid", "<h1>The grid</h1><p class=\"intro\">Every contest on one screen: a row per series, a column per year, "
-                "coloured by the best result we know. Click a square for the contest.</p>" + legend + "".join(g), "", "coverage.html")
+    facets = [[k, CV.FACET[k][1], CV.FACET[k][2], list(CV.FACET[k][3]), list(facet_q(k))] for k in FKEYS]
+    pick = '<p class="key" id="gridby">Colour by: <select id="gridsel" aria-label="Colour the grid by">' + "".join(
+        f'<optgroup label="{esc(gr)}">' + "".join(f'<option value="{i}">{esc(lab)}</option>' for i, (k, lab, g2, *_x) in enumerate(facets) if g2 == gr) + "</optgroup>"
+        for gr in GROUPS) + '</select> <span id="gridkey"></span> &nbsp; <span class="cell c-up" style="display:inline-block;vertical-align:-2px"></span> upcoming &nbsp; → the series continues under another name</p>'
+    script = ("<script>(function(){var F=" + json.dumps(facets, separators=(",", ":")) + ";var sel=document.getElementById('gridsel'),key=document.getElementById('gridkey');"
+              "var cells=document.querySelectorAll('#grid a.cell[data-q]');"
+              "function paint(i){var f=F[i];cells.forEach(function(a){var s=+a.dataset.q.charAt(i);a.className='cell '+f[4][s];a.title=a.dataset.t+' \\u2014 '+f[1]+': '+f[3][s];});"
+              "key.innerHTML=f[3].map(function(s,j){return '<span class=\"cell '+f[4][j]+'\" style=\"display:inline-block;vertical-align:-2px\"></span> '+s;}).join(' &nbsp; ');"
+              "history.replaceState(null,'',i?'#by='+f[0]:location.pathname);}"
+              "sel.addEventListener('change',function(){paint(+sel.value);});"
+              "var m=/^#by=(\\w+)/.exec(location.hash),i0=m?F.findIndex(function(f){return f[0]===m[1];}):0;if(i0<0)i0=0;sel.value=i0;paint(i0);})();</script>")
+    return page("The grid", "<h1>The grid</h1><p class=\"intro\">Every contest on one screen: a row per series, a column per year. "
+                "Pick what the squares are coloured by — any of the questions coverage asks. Green is held, darker is more; white is a hole. "
+                "Click a square for the contest.</p>" + pick + "".join(g) + script, "", "coverage.html")
 
 
 # ---- appendices: CMS id ledger, non-mainline registry ----
@@ -2819,7 +3207,7 @@ def non_mainline_page() -> str:
 def landing_page(series_docs: dict, contests: dict) -> str:
     cs = list(contests.values())
     st = content_counts(cs)
-    dark = sum(1 for c in cs if c.get("status") != "upcoming" and best_tier(c) == "none")
+    dark = sum(1 for c in cs if did_run(c) and rec(c)["results"] == "none")
     n_caps = sum(len(R.get("captures") or []) for L in RES.locs.values() for R in L["resources"].values())
     tiles = [(len(BY_SEASON), "seasons", "season/index.html"), (len(series_docs), "series", "series/index.html"),
              (st["n"], "contests", "contest/index.html"), (len(SETS), "problem sets", "problemset/index.html"),
@@ -2835,14 +3223,14 @@ def landing_page(series_docs: dict, contests: dict) -> str:
             where = place_cell(wf, "", 1)
             finals = " · finals " + link_contest(wf["id"], "", False) + (" in " + where if where else "")
         srows.append("<li>" + link_season(s, "") + f' <span class="muted">{n_ran} contests{finals}</span></li>')
-    region_col = REGION_COL
     rrows = []
     for r in REGIONS:
         n = sum(1 for c in cs if SERIES_REGION.get(SERIES_OF[c["id"]]) == r and c.get("status") != "upcoming")
-        rrows.append(f'<li><a href="contest/index.html#f:{region_col}={esc(r.replace(" ", "%20").replace("&", "%26"))}">{esc(r)}</a> <span class="muted">{num(n)} contests</span></li>')
+        rrows.append(f'<li><a href="{esc(flt_href("", {"region": r}))}">{esc(r)}</a> <span class="muted">{num(n)} contests</span></li>')
     tiles_html = "".join(f'<div><b>{num(n)}</b><span><a href="{h}">{lab}</a></span></div>' for n, lab, h in tiles)
     srows_html, rrows_html = "".join(srows), "".join(rrows)
-    nums_html = content_nums(st)
+    nums_html = '<div class="pts">' + headline_tiles(cs, "", {}) + "</div>"
+    dark_html = n_link(dark, "", {"results": "none"})
     body = f"""<h1>ICPC contest archive</h1>
 <p class="lede">Every ICPC contest from which a team could advance toward a World Finals, back to 1977 — and where its website,
 its results and its problems can still be found: at the original address, in the Wayback Machine, or in this project's own archive.</p>
@@ -2850,7 +3238,8 @@ its results and its problems can still be found: at the original address, in the
 <p class="note">Search everything with the box at the top right (press <code>/</code>): contest and series ids, names, problems, places, CMS ids, website hosts.</p>
 <h2>What we hold</h2>
 {nums_html}
-<p class="note">Of the {num(st["n"])} contests that ran. {num(dark)} of them have no result of any kind yet, and {num(n_caps)} captures are stored in all.
+<p class="note">Of the {num(st["n"])} contests that ran; a number opens the contests it counts, and <i>missing</i> the ones still wanted.
+We hold no result at all for {dark_html} of them, and {num(n_caps)} captures are stored in all.
 <a href="coverage.html">Coverage</a> breaks this down by region, season and series; <a href="wanted.html">most wanted</a> is the list of what is missing.</p>
 <h2>Start somewhere</h2>
 <div class="cols">
@@ -2900,37 +3289,45 @@ def about_page() -> str:
     ('<a href="location/index.html">Location</a>', "Where contests were held: country, state or province, city, institution — one tree."),
 ))
     status_dl = dl((
-    (chip("results: scoreboard, archived", "h"), "The best result we know and whether we hold a copy. The best result is one of, from most to least informative: "
-     "<b>scoreboard</b> (every team, every problem), <b>frozen scoreboard</b> (as it stood when the board was frozen), <b>standings</b> (totals per team), "
-     "<b>rankings</b> (order only). A standings page of the ICPC CMS is one of these like any other source; where it disagrees with another source, it tends to be the one that is wrong. "
-     "<b>archived</b> = we hold a copy; <b>link only</b> = we know the address but hold nothing."),
-    (chip("results: none", "n"), "No result source of any kind is known. If we have other proof that the contest ran, it is under Evidence on its page."),
-    (chip("website: archived", "h") + chip("website: link only", "l"), "The contest website's address is known; archived = we hold a crawl of it."),
-    (chip("website: not known", "n") + chip("website: none", "n"), "<b>not known</b>: nobody has found an address yet. <b>none</b>: looked for, and the contest had no website of its own."),
-    (chip("problems: 12 listed", "h"), "We know the problems by name. Green when the problem archive holds every statement, amber when it does not. "
-     "<b>N of M listed</b> = only some are listed by name; <b>N, not listed</b> = only the number and the archive's holdings are recorded."),
-    (chip("problems: source only", "l") + chip("problems: none", "n"), "<b>source only</b>: a published problem set or a judge page is known, nothing recorded yet. <b>none</b>: nothing known."),
+    ('<span class="pl q4">scoreboard</span>', "<b>Held.</b> The first pill is the best result we hold a copy of. A contest has one level, the highest it reaches: "
+     "<b>scoreboard</b> (every team, every problem), <b>standings</b> (totals per team), <b>rankings</b> (order only), <b>team list</b> (who took part). "
+     "A standings page of the ICPC CMS is one of these like any other source; where it disagrees with another source, it tends to be the one that is wrong."),
+    ('<span class="pl q3">standings</span> <span class="pl q2">test data: some</span> <span class="pl q1">team list</span>',
+     "<b>Partly held, or a lesser result</b>: lime, amber, orange — the further from green, the less. For results these are the lower levels "
+     "(standings, rankings, team list); elsewhere amber means we hold it for some of the problems."),
+    ('<span class="pl ql">editorial: link only</span>', "<b>Known at an address, no copy held.</b> A page on an online judge counts as this for statements and data: "
+     "what we hold of it is the judge's list of problems, not the material."),
+    ('<span class="pl q0">packages: none</span>', "<b>Missing</b> — a hole. Everything white is something wanted."),
+    ('<span class="pl qu">solutions: not recorded</span>', "A source is known, but what it holds has not been recorded yet."),
+    ('<span class="pl qx">CMS id: none</span>', "<b>None exists</b>: looked, and there is none to have (no CMS entry; a contest that had no website). Not missing."),
+    ('<span class="pl q4">frozen scoreboard</span>', "The scoreboard as it stood at the freeze. It is kept beside the result, not counted as one: it does not say how the contest ended."),
+    ('<span class="pl q2">partial</span>', "The result we hold covers only a part of the contest: one division, the top places."),
+    ("<b>Wanted</b>", "Under the pills: everything that is not held and could be, in words."),
     (chip("2 lost", "x"), "Sources that are dead at their address, have no Wayback snapshot, and were never captured here. Gone unless someone kept a copy."),
     (chip("1 only here", "h"), "Dead at its address and not in the Wayback Machine, but we hold a copy — as far as we know the only one."),
     (chip("upcoming", "n"), "The contest has not run yet. Nothing about its problems is published before it has."),
 ))
     marks_dl = dl((
-    ('<span class="m h">S</span><span class="m h">F</span><span class="m h">St</span><span class="m h">R</span><span class="m h">I</span>',
-     "Results: <b>S</b> scoreboard, <b>F</b> frozen scoreboard, <b>St</b> standings, <b>R</b> rankings. One mark per kind that exists."),
+    ('<span class="m q4">S</span><span class="m q3">St</span><span class="m q2">R</span><span class="m q1">T</span><span class="m q4">F</span>',
+     "Results: <b>S</b> scoreboard, <b>St</b> standings, <b>R</b> rankings, <b>T</b> team list, and beside them <b>F</b> frozen scoreboard. One mark per kind that exists; "
+     "a mark we hold a copy of is filled in the colour of its level, the same colours as in every bar."),
     ('<span class="m h">W</span>', "Website."),
-    ('<span class="m h">filled</span> <span class="m l">outlined</span>', "Filled green: we hold an archived copy. Outlined amber: link only."),
-    ('<span class="m h">St</span><span class="m l">D</span><span class="m n">So</span><span class="m u">P</span>',
-     "Problems, what the ICPC Problem Archive holds: <b>St</b> statements, <b>D</b> test data, <b>So</b> solutions, <b>P</b> complete packages "
-     "(on a single problem also <b>IV</b>/<b>OV</b>, input and output validators). Filled green: for every problem. Amber: for some. Grey: none. Dashed: not recorded. "
+    ('<span class="m h">filled</span> <span class="m k">outlined</span>', "Filled green: we hold a copy. Outlined blue: link only."),
+    ('<span class="m h">St</span><span class="m l">D</span><span class="m k">So</span><span class="m n">P</span><span class="m u">E</span>',
+     "Problems, what we hold of each kind of material: <b>St</b> statements, <b>D</b> test data, <b>So</b> solutions, <b>P</b> complete packages, <b>E</b> editorial. "
+     "It counts wherever it comes from: the ICPC Problem Archive, or a source we hold a copy of. Filled green: for every problem. Amber: for some. "
+     "Blue outline: link only — a source that has it is known, we hold no copy (a page on an online judge is this: our copy is the judge's list, not the material). "
+     "Grey: none. Dashed: a source is known, but what it holds is not recorded. A complete package counts as statement, test data and solutions too. "
+     "On a single problem the marks say what the problem archive holds, with <b>IV</b>/<b>OV</b> for input and output validators. "
      "The number before the marks is how many problems the contest had."),
-    ('<span class="m l">src</span>', "A published problem set or judge page is known, but nothing about the problems has been recorded yet."),
+    ('<span class="m k">src</span>', "A published problem set or judge page is known, but nothing about the problems has been recorded yet."),
     (judge_mark("kattis") + judge_mark("codeforces") + judge_mark("baekjoon") + judge_mark("qoj"),
      "An online judge, shown by its logo (its short name where it has none); hover for the name. Beside a problem the logo opens the problem "
      "on that judge. Grey: the judge has closed, and the link goes to a Wayback snapshot."),
 ))
     body = f"""<h1>About</h1>
 <p class="lede">What is here, how to read it, and how to help.</p>
-<p class="tabs"><a href="#read">How to read this site</a> <a href="#status">Contest status</a> <a href="#marks">Marks</a>
+<p class="tabs"><a href="#read">How to read this site</a> <a href="#status">Contest status</a> <a href="#coverage">Coverage</a> <a href="#marks">Marks</a>
 <a href="#status-set">Problem sets</a> <a href="#sources">Sources</a> <a href="#contribute">Contribute</a> <a href="#local">Local archive</a> <a href="#data">Data</a></p>
 
 <h2 id="read">How to read this site</h2>
@@ -2951,8 +3348,25 @@ marked <span class="chip n">inferred</span>. A source that covers only part of a
 <p class="intro">For spot checks, <a href="random.html">Random</a> in the header (or the key <b>r</b>) opens a page picked at random.</p>
 
 <h2 id="status">Contest status</h2>
-<p class="intro">The chips under a contest's title — one per kind of content, plus anything unusual.</p>
+<p class="intro">The card under a contest's title answers every question <a href="#coverage">coverage</a> asks, for that contest: a pill per question,
+in the colour of its answer. The same colours are used in every bar, square and strip on the site.</p>
 {status_dl}
+
+<h2 id="coverage">Coverage</h2>
+<p class="intro">Coverage asks the same questions of every contest that ran, in four kinds. <b>Results</b>: one level per contest, the best we hold.
+<b>Problems</b>: what the catalogue records about them (<i>problem metadata</i>: the list, names, letters, short names, UUIDs) and what we hold of them
+(statements, test data, solutions, packages, editorial), each on its own. <b>Website</b>: held or missing. <b>Contest metadata</b>: name, full date, location, CMS id.
+<b>Held always means we hold a copy</b>; an address we only know is a link. <b>Everything is counted in contests</b>: “statements: all” is the number of contests
+for which we hold every statement, not a number of problems; and recorded is not the same as held, so a contest whose statements we hold can still have
+its problems unlisted. What a contest advances to and the editions before and after it are not part of coverage: “none” is a valid answer there, so they
+are never missing — they can only be wrong, which is what review mode is for.</p>
+<p class="intro">Wherever contests are counted — the <a href="coverage.html">whole archive</a>, a season, a series, a location — coverage is shown the same way and
+in the same order: the headline numbers, then a panel with a bar per question split by answer, then where it is missing along the group's own axis. <b>Every segment, every label under a bar, every square and every number is a link</b>: it opens the <a href="contest/index.html">contest list</a>
+filtered to exactly those contests. The filters are in the bar above that list, the coverage ones on its second line, and they combine; the page
+address carries them (<code>contest/index.html#f:region=Europe&amp;website=missing</code>), so a filtered list can be shared. To see <i>where</i> something is missing:
+a series' page has a square per edition and question, a season's page a square per contest and question, the coverage page and a location's page a strip per question
+season by season; in a table of series, seasons or countries each row carries the same bars in small;
+<a href="wanted.html">most wanted</a> counts what is missing by region, and <a href="grid.html">the grid</a> colours every contest by any one question.</p>
 
 <h2 id="marks">Marks</h2>
 <p class="intro">The small letters in tables. A mark links to the source it stands for.</p>
@@ -2960,7 +3374,7 @@ marked <span class="chip n">inferred</span>. A source that covers only part of a
 
 <h2 id="status-set">Problem sets</h2>
 <p class="intro">A problem set is nearly always the set of one contest and carries the same id; two sets were shared by two contests. The contest page says where the set
-was published and where it can be solved; the set's page says what the ICPC Problem Archive (a private collection of problem packages) holds. A set is
+was published and where it can be solved; the set's page says what we hold of it, and what of that is in the ICPC Problem Archive (a private collection of problem packages). A set is
 <b>listed</b> when we know its problems by name — completely, partly, or not at all, in which case only the count and the holdings are recorded. What is held for a
 single problem is recorded for few sets; elsewhere a problem's marks follow from its set: held if the set holds that kind for every problem, not held if for none,
 dashed if for some. A <b>UUID</b> is the identity of a problem's package; a problem reused in another contest keeps it.</p>
@@ -3069,6 +3483,12 @@ def build(out: Path):
     for cid, c in contests.items():
         if c.get("season"):
             BY_SEASON[c["season"]].append(cid)
+    global COV
+    _HELD.clear(); _ST.clear(); _TOK.clear(); _LOC_OF.clear()  # noqa: E702
+    # a website is held when the contest has a `web` source and we hold a crawl of it (or a copy of the source):
+    # a crawl seeded from a document that is not a website source (a PDF, a results page) is not a website
+    COV = CV.Coverage(series_docs, SETS, held=src_held, placed=lambda c: bool(held_at(c)[0]),
+                      web_held=lambda c: bool(by_role(c, "web")) and (c["id"] in website_of or any(src_held(c, s) for s in by_role(c, "web"))))
 
     # ---- contests, series, seasons ----
     for cid, c in contests.items():

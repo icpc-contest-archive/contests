@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
+# Maintained in-repo; last bulk edit: tools/fill_contains.py.
 series:
   id: seerc
   name: ICPC Southeastern Europe Regional Contest
@@ -40,6 +40,8 @@ contests:
   - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_EU_SERC/1995/index.html
     roles:
     - problemset
+    contains:
+    - statement
     as_of: '20040521141103'
     url_state: dead
     url_checked: '2026-11-14'
@@ -52,6 +54,8 @@ contests:
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=460
     roles:
     - problemset
+    contains:
+    - names
     judge: livearchive
     as_of: '20211024032642'
     url_state: dead
@@ -93,18 +97,24 @@ contests:
   - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_EU_SERC/1996/index.html
     roles:
     - problemset
+    contains:
+    - statement
     as_of: '20040525163355'
     url_state: dead
     url_checked: '2026-11-14'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SERC/1996/index.html
     roles:
     - problemset
+    contains:
+    - statement
     as_of: '19980202011704'
     url_state: dead
     url_checked: '2026-11-14'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=470
     roles:
     - problemset
+    contains:
+    - names
     judge: livearchive
     as_of: '20211017150105'
     url_state: dead
@@ -149,12 +159,16 @@ contests:
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SERC/1997/index.html
     roles:
     - problemset
+    contains:
+    - statement
     as_of: '19980425011525'
     url_state: dead
     url_checked: '2026-11-14'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=482
     roles:
     - problemset
+    contains:
+    - names
     judge: livearchive
     as_of: '20211201212002'
     url_state: dead
@@ -201,6 +215,8 @@ contests:
   - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_EU_SERC/1998/index.html
     roles:
     - problemset
+    contains:
+    - statement
     as_of: '20020725135123'
     archived:
     - seerc/seerc-1998/scoreboard/2026-04-16-archive/1998-southeastern-europe-programming-contest-1999.html
@@ -210,12 +226,16 @@ contests:
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SERC/1998/index.html
     roles:
     - problemset
+    contains:
+    - statement
     as_of: '20001003134817'
     url_state: dead
     url_checked: '2026-11-14'
   - url: http://icpc.baylor.edu/past/icpc99/Regionals/SEERC98/problems.htm
     roles:
     - problemset
+    contains:
+    - statement
     as_of: '20030718193116'
     url_state: unknown
     url_checked: '2026-11-13'
@@ -260,6 +280,8 @@ contests:
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SERC/1999/index.html
     roles:
     - problemset
+    contains:
+    - statement
     as_of: '20001003134828'
     url_state: dead
     url_checked: '2026-11-14'
@@ -272,6 +294,9 @@ contests:
   - url: https://seerc.icpc.global/1999/probl99.htm
     roles:
     - problemset
+    contains:
+    - statement
+    - package
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/1999/Problems_SE_ACM_1999.zip
@@ -283,42 +308,56 @@ contests:
   - url: https://seerc.icpc.global/1999/probleme/a.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem A
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/1999/probleme/b.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem B
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/1999/probleme/c.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem C
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/1999/probleme/d.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem D
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/1999/probleme/e.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem E
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/1999/probleme/f.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem F
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/1999/probleme/g.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem G
     url_state: live
     url_checked: '2026-11-14'
@@ -372,23 +411,33 @@ contests:
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SERC/2000/index.html
     roles:
     - problemset
+    contains:
+    - statement
+    - data
     as_of: '20020806032941'
     url_state: dead
     url_checked: '2026-11-14'
   - url: http://icpc.baylor.edu/past/icpc2001/regionals/SEERC00/Problems.pdf
     roles:
     - problemset
+    contains:
+    - statement
     as_of: '20030323164946'
     url_state: unknown
     url_checked: '2026-11-13'
   - url: https://seerc.icpc.global/2000/problems.htm
     roles:
     - problemset
+    contains:
+    - statement
+    - data
     url_state: live
     url_checked: '2026-11-14'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=71
     roles:
     - problemset
+    contains:
+    - names
     judge: livearchive
     as_of: '20211025062659'
     url_state: dead
@@ -456,48 +505,64 @@ contests:
   - url: https://seerc.icpc.global/2000/probleme/A.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem A
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2000/probleme/B.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem B
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2000/probleme/C.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem C
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2000/probleme/D.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem D
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2000/probleme/E.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem E
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2000/probleme/F.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem F
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2000/probleme/G.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem G
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2000/probleme/H.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem H
     url_state: live
     url_checked: '2026-11-14'
@@ -564,18 +629,27 @@ contests:
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SERC/2001/index.html
     roles:
     - problemset
+    contains:
+    - statement
+    - package
     as_of: '20020622020202'
     url_state: dead
     url_checked: '2026-11-14'
   - url: http://icpc.baylor.edu/past/icpc2002/Regionals/SEERC01/problems.html
     roles:
     - problemset
+    contains:
+    - statement
+    - package
     as_of: '20020619092418'
     url_state: unknown
     url_checked: '2026-11-13'
   - url: https://seerc.icpc.global/2001/problems.htm
     roles:
     - problemset
+    contains:
+    - statement
+    - package
     url_state: live
     url_checked: '2026-11-14'
   - url: http://www.cs.pub.ro/acm/problems.htm
@@ -587,6 +661,8 @@ contests:
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=100
     roles:
     - problemset
+    contains:
+    - statement
     judge: livearchive
     as_of: '20211024113811'
     url_state: dead
@@ -605,48 +681,64 @@ contests:
   - url: https://seerc.icpc.global/2001/probleme/A.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem A
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2001/probleme/B.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem B
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2001/probleme/C.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem C
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2001/probleme/D.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem D
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2001/probleme/E.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem E
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2001/probleme/F.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem F
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2001/probleme/G.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem G
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2001/probleme/H.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem H
     url_state: live
     url_checked: '2026-11-14'
@@ -719,17 +811,24 @@ contests:
   - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/SEERC02/problems.zip
     roles:
     - problemset
+    contains:
+    - statement
     as_of: '20051015004131'
     url_state: unknown
     url_checked: '2026-11-13'
   - url: https://seerc.icpc.global/2002/problems.htm
     roles:
     - problemset
+    contains:
+    - statement
+    - data
     url_state: live
     url_checked: '2026-11-14'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=130
     roles:
     - problemset
+    contains:
+    - names
     judge: livearchive
     as_of: '20210927094734'
     url_state: dead
@@ -737,6 +836,8 @@ contests:
   - url: https://www.acmicpc.net/category/detail/32
     roles:
     - problemset
+    contains:
+    - names
     judge: baekjoon
     as_of: '20171216082944'
     url_state: dead
@@ -752,48 +853,64 @@ contests:
   - url: https://seerc.icpc.global/2002/probleme/A.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem A
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2002/probleme/B.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem B
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2002/probleme/C.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem C
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2002/probleme/D.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem D
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2002/probleme/E.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem E
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2002/probleme/F.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem F
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2002/probleme/G.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem G
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2002/probleme/H.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem H
     url_state: live
     url_checked: '2026-11-14'
@@ -849,6 +966,8 @@ contests:
   - url: https://seerc.icpc.global/2003/problems.htm
     roles:
     - problemset
+    contains:
+    - names
     url_state: live
     url_checked: '2026-11-14'
   - url: http://www.acm.ro/problems.htm
@@ -860,6 +979,8 @@ contests:
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=161
     roles:
     - problemset
+    contains:
+    - names
     judge: livearchive
     as_of: '20211019180514'
     url_state: dead
@@ -867,6 +988,8 @@ contests:
   - url: https://www.acmicpc.net/category/detail/31
     roles:
     - problemset
+    contains:
+    - names
     judge: baekjoon
     as_of: '20201022002704'
     url_state: dead
@@ -878,54 +1001,72 @@ contests:
   - url: https://seerc.icpc.global/2003/probleme/A.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem A
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2003/probleme/B.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem B
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2003/probleme/C.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem C
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2003/probleme/D.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem D
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2003/probleme/E.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem E
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2003/probleme/F.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem F
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2003/probleme/G.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem G
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2003/probleme/H.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem H
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2003/probleme/I.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem I
     url_state: live
     url_checked: '2026-11-14'
@@ -964,11 +1105,15 @@ contests:
   - url: https://seerc.icpc.global/2004/problems.htm
     roles:
     - problemset
+    contains:
+    - names
     url_state: live
     url_checked: '2026-11-14'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=192
     roles:
     - problemset
+    contains:
+    - names
     judge: livearchive
     as_of: '20210927100142'
     url_state: dead
@@ -976,6 +1121,8 @@ contests:
   - url: https://www.acmicpc.net/category/detail/30
     roles:
     - problemset
+    contains:
+    - names
     judge: baekjoon
     as_of: '20191116205106'
     url_state: dead
@@ -983,6 +1130,8 @@ contests:
   - url: https://codeforces.com/gym/101461
     roles:
     - problemset
+    contains:
+    - statement
     judge: codeforces
     note: '2004-2005 ACM-ICPC Southeastern European Regional Programming Contest (SEERC 2004) (judge hunt
       2026-11-03: name+year: ''2004-2005 ACM-ICPC Southeastern European Regional Programming Contest (SEERC
@@ -1093,11 +1242,16 @@ contests:
   - url: https://seerc.icpc.global/2005/problems.htm
     roles:
     - problemset
+    contains:
+    - statement
+    - data
     url_state: live
     url_checked: '2026-11-14'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=224
     roles:
     - problemset
+    contains:
+    - names
     judge: livearchive
     as_of: '20210920122311'
     url_state: dead
@@ -1105,6 +1259,8 @@ contests:
   - url: https://www.acmicpc.net/category/detail/29
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20191114120751'
     url_state: dead
@@ -1112,6 +1268,8 @@ contests:
   - url: https://codeforces.com/gym/101467
     roles:
     - problemset
+    contains:
+    - statement
     judge: codeforces
     note: '2005-2006 ACM-ICPC Southeastern European Regional Programming Contest (SEERC 2005) (judge hunt
       2026-11-03: name+year: ''2005-2006 ACM-ICPC Southeastern European Regional Programming Contest (SEERC
@@ -1125,54 +1283,72 @@ contests:
   - url: https://seerc.icpc.global/2005/probleme/A.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem A
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2005/probleme/B.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem B
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2005/probleme/C.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem C
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2005/probleme/D.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem D
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2005/probleme/E.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem E
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2005/probleme/F.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem F
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2005/probleme/G.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem G
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2005/probleme/H.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem H
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2005/probleme/I.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem I
     url_state: live
     url_checked: '2026-11-14'
@@ -1214,11 +1390,16 @@ contests:
   - url: https://seerc.icpc.global/2006/problems.htm
     roles:
     - problemset
+    contains:
+    - statement
+    - data
     url_state: live
     url_checked: '2026-11-14'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=257
     roles:
     - problemset
+    contains:
+    - names
     judge: livearchive
     as_of: '20210918083438'
     url_state: dead
@@ -1226,6 +1407,8 @@ contests:
   - url: https://www.acmicpc.net/category/detail/28
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20190717151502'
     url_state: dead
@@ -1233,6 +1416,8 @@ contests:
   - url: https://codeforces.com/gym/101468
     roles:
     - problemset
+    contains:
+    - statement
     judge: codeforces
     note: '2006-2007 ACM-ICPC Southeastern European Regional Programming Contest (SEERC 2006) (judge hunt
       2026-11-03: name+year: ''2006-2007 ACM-ICPC Southeastern European Regional Programming Contest (SEERC
@@ -1247,54 +1432,72 @@ contests:
   - url: https://seerc.icpc.global/2006/probleme/a.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem A
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2006/probleme/b.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem B
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2006/probleme/c.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem C
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2006/probleme/d.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem D
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2006/probleme/e.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem E
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2006/probleme/f.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem F
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2006/probleme/g.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem G
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2006/probleme/h.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem H
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2006/probleme/i.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem I
     url_state: live
     url_checked: '2026-11-14'
@@ -1326,11 +1529,16 @@ contests:
   - url: https://seerc.icpc.global/2007/problems.htm
     roles:
     - problemset
+    contains:
+    - statement
+    - data
     url_state: live
     url_checked: '2026-11-14'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=291
     roles:
     - problemset
+    contains:
+    - names
     judge: livearchive
     as_of: '20211016220456'
     url_state: dead
@@ -1338,6 +1546,8 @@ contests:
   - url: https://www.acmicpc.net/category/detail/27
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20201028093020'
     url_state: dead
@@ -1349,54 +1559,72 @@ contests:
   - url: https://seerc.icpc.global/2007/probleme/a.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem A
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2007/probleme/b.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem B
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2007/probleme/c.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem C
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2007/probleme/d.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem D
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2007/probleme/e.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem E
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2007/probleme/f.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem F
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2007/probleme/g.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem G
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2007/probleme/h.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem H
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2007/probleme/i.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem I
     url_state: live
     url_checked: '2026-11-14'
@@ -1449,11 +1677,16 @@ contests:
   - url: https://seerc.icpc.global/2008/problems.htm
     roles:
     - problemset
+    contains:
+    - statement
+    - data
     url_state: live
     url_checked: '2026-11-14'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=327
     roles:
     - problemset
+    contains:
+    - statement
     judge: livearchive
     as_of: '20210924172950'
     url_state: dead
@@ -1461,6 +1694,8 @@ contests:
   - url: https://www.acmicpc.net/category/detail/26
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20171221120447'
     url_state: dead
@@ -1468,6 +1703,8 @@ contests:
   - url: https://codeforces.com/gym/101462
     roles:
     - problemset
+    contains:
+    - statement
     judge: codeforces
     note: '2008-2009 ACM-ICPC Southeastern European Regional Programming Contest (SEERC 2008) (judge hunt
       2026-11-03: name+year: ''2008-2009 ACM-ICPC Southeastern European Regional Programming Contest (SEERC
@@ -1481,54 +1718,72 @@ contests:
   - url: https://seerc.icpc.global/2008/probleme/a.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem A
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2008/probleme/b.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem B
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2008/probleme/c.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem C
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2008/probleme/d.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem D
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2008/probleme/e.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem E
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2008/probleme/f.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem F
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2008/probleme/g.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem G
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2008/probleme/h.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem H
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2008/probleme/i.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem I
     url_state: live
     url_checked: '2026-11-14'
@@ -1578,11 +1833,16 @@ contests:
   - url: https://seerc.icpc.global/2009/problems.htm
     roles:
     - problemset
+    contains:
+    - statement
+    - data
     url_state: live
     url_checked: '2026-11-14'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=363
     roles:
     - problemset
+    contains:
+    - names
     judge: livearchive
     as_of: '20211025082806'
     url_state: dead
@@ -1590,6 +1850,8 @@ contests:
   - url: https://www.acmicpc.net/category/detail/25
     roles:
     - problemset
+    contains:
+    - names
     judge: baekjoon
     as_of: '20201022125028'
     url_state: dead
@@ -1597,6 +1859,8 @@ contests:
   - url: https://codeforces.com/gym/101463
     roles:
     - problemset
+    contains:
+    - statement
     judge: codeforces
     note: '2009-2010 ACM-ICPC Southeastern European Regional Programming Contest (SEERC 2009) (judge hunt
       2026-11-03: name+year: ''2009-2010 ACM-ICPC Southeastern European Regional Programming Contest (SEERC
@@ -1610,66 +1874,88 @@ contests:
   - url: https://seerc.icpc.global/2009/prob/probleme/A.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem A
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2009/prob/probleme/B.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem B
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2009/prob/probleme/C.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem C
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2009/prob/probleme/D.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem D
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2009/prob/probleme/E.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem E
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2009/prob/probleme/F.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem F
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2009/prob/probleme/G.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem G
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2009/prob/probleme/H.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem H
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2009/prob/probleme/I.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem I
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2009/prob/probleme/J.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem J
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2009/prob/probleme/K.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem K
     url_state: live
     url_checked: '2026-11-14'
@@ -1719,11 +2005,16 @@ contests:
   - url: https://seerc.icpc.global/2010/problems.htm
     roles:
     - problemset
+    contains:
+    - statement
+    - data
     url_state: live
     url_checked: '2026-11-14'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=398
     roles:
     - problemset
+    contains:
+    - names
     judge: livearchive
     as_of: '20211027072704'
     url_state: dead
@@ -1731,6 +2022,8 @@ contests:
   - url: https://www.acmicpc.net/category/detail/24
     roles:
     - problemset
+    contains:
+    - names
     judge: baekjoon
     as_of: '20201020205127'
     url_state: dead
@@ -1738,6 +2031,8 @@ contests:
   - url: https://codeforces.com/gym/101464
     roles:
     - problemset
+    contains:
+    - statement
     judge: codeforces
     note: '2010-2011 ACM-ICPC Southeastern European Regional Programming Contest (SEERC 2010) (judge hunt
       2026-11-03: name+year: ''2010-2011 ACM-ICPC Southeastern European Regional Programming Contest (SEERC
@@ -1751,60 +2046,80 @@ contests:
   - url: https://seerc.icpc.global/2010/prob/probleme/A.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem A
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2010/prob/probleme/B.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem B
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2010/prob/probleme/C.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem C
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2010/prob/probleme/D.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem D
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2010/prob/probleme/E.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem E
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2010/prob/probleme/F.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem F
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2010/prob/probleme/G.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem G
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2010/prob/probleme/H.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem H
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2010/prob/probleme/I.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem I
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2010/prob/probleme/J.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem J
     url_state: live
     url_checked: '2026-11-14'
@@ -1856,11 +2171,16 @@ contests:
   - url: https://seerc.icpc.global/2011/problems.htm
     roles:
     - problemset
+    contains:
+    - statement
+    - data
     url_state: live
     url_checked: '2026-11-14'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=529
     roles:
     - problemset
+    contains:
+    - names
     judge: livearchive
     as_of: '20211127000334'
     url_state: dead
@@ -1868,6 +2188,8 @@ contests:
   - url: https://www.acmicpc.net/category/detail/23
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20190821225217'
     url_state: dead
@@ -1886,60 +2208,80 @@ contests:
   - url: https://seerc.icpc.global/2011/prob/probleme/A.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem A
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2011/prob/probleme/B.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem B
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2011/prob/probleme/C.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem C
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2011/prob/probleme/D.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem D
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2011/prob/probleme/E.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem E
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2011/prob/probleme/F.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem F
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2011/prob/probleme/G.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem G
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2011/prob/probleme/H.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem H
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2011/prob/probleme/I.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem I
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2011/prob/probleme/J.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem J
     url_state: live
     url_checked: '2026-11-14'
@@ -1993,11 +2335,16 @@ contests:
   - url: https://seerc.icpc.global/2012/problems.htm
     roles:
     - problemset
+    contains:
+    - statement
+    - data
     url_state: live
     url_checked: '2026-11-14'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=570
     roles:
     - problemset
+    contains:
+    - names
     judge: livearchive
     as_of: '20211017155825'
     url_state: dead
@@ -2005,6 +2352,8 @@ contests:
   - url: https://www.acmicpc.net/category/detail/22
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20201022011221'
     url_state: dead
@@ -2012,6 +2361,8 @@ contests:
   - url: https://codeforces.com/gym/101472
     roles:
     - problemset
+    contains:
+    - statement
     judge: codeforces
     note: '2012-2013 ACM-ICPC Southeastern European Regional Programming Contest (SEERC 2012) (judge hunt
       2026-11-03: name+year: ''2012-2013 ACM-ICPC Southeastern European Regional Programming Contest (SEERC
@@ -2033,60 +2384,80 @@ contests:
   - url: https://seerc.icpc.global/2012/prob/probleme/A.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem A
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2012/prob/probleme/B.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem B
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2012/prob/probleme/C.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem C
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2012/prob/probleme/D.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem D
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2012/prob/probleme/E.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem E
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2012/prob/probleme/F.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem F
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2012/prob/probleme/G.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem G
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2012/prob/probleme/H.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem H
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2012/prob/probleme/I.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem I
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2012/prob/probleme/J.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem J
     url_state: live
     url_checked: '2026-11-14'
@@ -2128,11 +2499,16 @@ contests:
   - url: https://seerc.icpc.global/2013/problems.htm
     roles:
     - problemset
+    contains:
+    - statement
+    - data
     url_state: live
     url_checked: '2026-11-14'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=613
     roles:
     - problemset
+    contains:
+    - names
     judge: livearchive
     as_of: '20210924181748'
     url_state: dead
@@ -2140,6 +2516,8 @@ contests:
   - url: https://www.acmicpc.net/category/detail/1149
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20191117101745'
     url_state: dead
@@ -2154,6 +2532,8 @@ contests:
   - url: https://seerc.icpc.global/2013/prob/probleme/Time%20Limits.pdf
     roles:
     - problemset
+    contains:
+    - data
     note: time limits
     url_state: live
     url_checked: '2026-11-14'
@@ -2164,60 +2544,80 @@ contests:
   - url: https://seerc.icpc.global/2013/prob/probleme/A.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem A
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2013/prob/probleme/B.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem B
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2013/prob/probleme/C.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem C
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2013/prob/probleme/D.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem D
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2013/prob/probleme/E.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem E
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2013/prob/probleme/F.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem F
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2013/prob/probleme/G.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem G
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2013/prob/probleme/H.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem H
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2013/prob/probleme/I.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem I
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2013/prob/probleme/J.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem J
     url_state: live
     url_checked: '2026-11-14'
@@ -2281,11 +2681,16 @@ contests:
   - url: https://seerc.icpc.global/2014/problems.htm
     roles:
     - problemset
+    contains:
+    - statement
+    - data
     url_state: live
     url_checked: '2026-11-14'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=656
     roles:
     - problemset
+    contains:
+    - names
     judge: livearchive
     as_of: '20210918080401'
     url_state: dead
@@ -2293,6 +2698,8 @@ contests:
   - url: https://www.acmicpc.net/category/detail/1293
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20201031020059'
     url_state: dead
@@ -2300,6 +2707,8 @@ contests:
   - url: https://codeforces.com/gym/101470
     roles:
     - problemset
+    contains:
+    - statement
     judge: codeforces
     note: '2014-2015 ACM-ICPC Southeastern European Regional Programming Contest (SEERC 2014) (judge hunt
       2026-11-03: name+year: ''2014-2015 ACM-ICPC Southeastern European Regional Programming Contest (SEERC
@@ -2321,60 +2730,80 @@ contests:
   - url: https://seerc.icpc.global/2014/prob/probleme/A.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem A
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2014/prob/probleme/B.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem B
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2014/prob/probleme/C.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem C
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2014/prob/probleme/D.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem D
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2014/prob/probleme/E.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem E
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2014/prob/probleme/F.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem F
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2014/prob/probleme/G.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem G
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2014/prob/probleme/H.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem H
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2014/prob/probleme/I.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem I
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2014/prob/probleme/J.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem J
     url_state: live
     url_checked: '2026-11-14'
@@ -2428,11 +2857,16 @@ contests:
   - url: https://seerc.icpc.global/2015/problems.htm
     roles:
     - problemset
+    contains:
+    - statement
+    - data
     url_state: live
     url_checked: '2026-11-14'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=700
     roles:
     - problemset
+    contains:
+    - statement
     judge: livearchive
     as_of: '20211128151139'
     url_state: dead
@@ -2440,6 +2874,8 @@ contests:
   - url: https://www.acmicpc.net/category/detail/1407
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20201019161549'
     url_state: dead
@@ -2458,60 +2894,80 @@ contests:
   - url: https://seerc.icpc.global/2015/prob/probleme/A.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem A
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2015/prob/probleme/B.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem B
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2015/prob/probleme/C.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem C
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2015/prob/probleme/D.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem D
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2015/prob/probleme/E.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem E
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2015/prob/probleme/F.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem F
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2015/prob/probleme/G.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem G
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2015/prob/probleme/H.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem H
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2015/prob/probleme/I.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem I
     url_state: live
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2015/prob/probleme/J.pdf
     roles:
     - problem
+    contains:
+    - statement
     note: problem J
     url_state: live
     url_checked: '2026-11-14'
@@ -2563,11 +3019,15 @@ contests:
   - url: https://seerc.icpc.global/2016/prob/probleme/acm2016problems.pdf
     roles:
     - problemset
+    contains:
+    - statement
     url_state: live
     url_checked: '2026-11-14'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=747
     roles:
     - problemset
+    contains:
+    - statement
     judge: livearchive
     as_of: '20211020164354'
     url_state: dead
@@ -2575,6 +3035,8 @@ contests:
   - url: https://www.acmicpc.net/category/detail/1571
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20190818025014'
     url_state: dead
@@ -2582,6 +3044,8 @@ contests:
   - url: https://codeforces.com/gym/101164
     roles:
     - problemset
+    contains:
+    - statement
     judge: codeforces
     note: '2016-2017 ACM-ICPC Southeastern European Regional Programming Contest (SEERC 2016) (judge hunt
       2026-11-03: name+year: ''2016-2017 ACM-ICPC Southeastern European Regional Programming Contest (SEERC
@@ -2645,11 +3109,15 @@ contests:
   - url: https://seerc.icpc.global/2017/prob/probleme2017acm.pdf
     roles:
     - problemset
+    contains:
+    - statement
     url_state: live
     url_checked: '2026-11-14'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=801
     roles:
     - problemset
+    contains:
+    - names
     judge: livearchive
     as_of: '20211019140745'
     url_state: dead
@@ -2657,6 +3125,8 @@ contests:
   - url: https://www.acmicpc.net/category/detail/1825
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20201028020658'
     url_state: dead
@@ -2664,6 +3134,8 @@ contests:
   - url: https://codeforces.com/gym/101669
     roles:
     - problemset
+    contains:
+    - statement
     judge: codeforces
     note: '2017-2018 ACM-ICPC Southeastern European Regional Programming Contest (SEERC 2017) (judge hunt
       2026-11-03: name+year: ''2017-2018 ACM-ICPC Southeastern European Regional Programming Contest (SEERC
@@ -2674,6 +3146,8 @@ contests:
   - url: https://qoj.ac/contest/540
     roles:
     - problemset
+    contains:
+    - statement
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: unknown
@@ -2729,11 +3203,15 @@ contests:
   - url: https://seerc.icpc.global/2018/prob/probleme2018acm.pdf
     roles:
     - problemset
+    contains:
+    - statement
     url_state: live
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/1939
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20190718063559'
     url_state: dead
@@ -2741,6 +3219,8 @@ contests:
   - url: https://codeforces.com/gym/101964
     roles:
     - problemset
+    contains:
+    - statement
     judge: codeforces
     note: '2018-2019 ACM-ICPC Southeastern European Regional Programming Contest (SEERC 2018) (judge hunt
       2026-11-03: name+year: ''2018-2019 ACM-ICPC Southeastern European Regional Programming Contest (SEERC
@@ -2751,6 +3231,8 @@ contests:
   - url: https://qoj.ac/contest/541
     roles:
     - problemset
+    contains:
+    - statement
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221003144214'
@@ -2815,11 +3297,15 @@ contests:
   - url: https://icpcarchive.github.io/Europe%20Contests/Southeastern%20Europe%20Regional%20Contest%20(SEERC)/2019%20Southeastern%20Europe%20Regional%20Contest/problems.pdf
     roles:
     - problemset
+    contains:
+    - statement
     url_state: live
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/2110
     roles:
     - problemset
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20230203041114'
     url_state: dead
@@ -2827,6 +3313,8 @@ contests:
   - url: https://codeforces.com/gym/102392
     roles:
     - problemset
+    contains:
+    - statement
     judge: codeforces
     note: '2019-2020 ICPC Southeastern European Regional Programming Contest (SEERC 2019) (judge hunt
       2026-11-03: name+year: ''2019-2020 ICPC Southeastern European Regional Programming Contest (SEERC
@@ -2837,6 +3325,8 @@ contests:
   - url: https://qoj.ac/contest/556
     roles:
     - problemset
+    contains:
+    - statement
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221207180312'
@@ -2889,6 +3379,8 @@ contests:
   - url: https://icpcarchive.github.io/Europe%20Contests/Southeastern%20Europe%20Regional%20Contest%20(SEERC)/2020%20Southeastern%20Europe%20Regional%20Contest/problems.pdf
     roles:
     - problemset
+    contains:
+    - statement
     url_state: live
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/2566
@@ -2900,6 +3392,8 @@ contests:
   - url: https://codeforces.com/gym/103102
     roles:
     - problemset
+    contains:
+    - names
     judge: codeforces
     note: '2020-2021 ICPC Southeastern European Regional Programming Contest (SEERC 2020) (judge hunt
       2026-11-03: name+year: ''2020-2021 ICPC Southeastern European Regional Programming Contest (SEERC
@@ -2910,6 +3404,8 @@ contests:
   - url: https://qoj.ac/contest/636
     roles:
     - problemset
+    contains:
+    - names
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221003154729'
@@ -2966,6 +3462,8 @@ contests:
   - url: https://icpcarchive.github.io/Europe%20Contests/Southeastern%20Europe%20Regional%20Contest%20(SEERC)/2021%20Southeastern%20Europe%20Regional%20Contest/problems.pdf
     roles:
     - problemset
+    contains:
+    - statement
     url_state: live
     url_checked: '2026-11-14'
   - url: https://www.acmicpc.net/category/detail/4106
@@ -2977,6 +3475,8 @@ contests:
   - url: https://codeforces.com/gym/103438
     roles:
     - problemset
+    contains:
+    - names
     judge: codeforces
     note: '2021 ICPC Southeastern Europe Regional Contest (judge hunt 2026-11-03: name+year: ''2021 ICPC
       Southeastern Europe Regional Contest'' -> season start 2021)'
@@ -3046,11 +3546,15 @@ contests:
   - url: https://icpcarchive.github.io/Europe%20Contests/Southeastern%20Europe%20Regional%20Contest%20(SEERC)/2022%20Southeastern%20Europe%20Regional%20Contest/problems.pdf
     roles:
     - problemset
+    contains:
+    - statement
     url_state: live
     url_checked: '2026-11-14'
   - url: https://codeforces.com/gym/104114
     roles:
     - problemset
+    contains:
+    - names
     judge: codeforces
     note: '2022 ICPC Southeastern Europe Regional Contest (judge hunt 2026-11-03: name+year: ''2022 ICPC
       Southeastern Europe Regional Contest'' -> season start 2022)'
@@ -3125,11 +3629,15 @@ contests:
   - url: https://icpcarchive.github.io/Europe%20Contests/Southeastern%20Europe%20Regional%20Contest%20(SEERC)/2023%20Southeastern%20Europe%20Regional%20Contest/problems.pdf
     roles:
     - problemset
+    contains:
+    - statement
     url_state: live
     url_checked: '2026-11-14'
   - url: https://codeforces.com/gym/105465
     roles:
     - problemset
+    contains:
+    - names
     judge: codeforces
     note: '2023 ICPC Southeastern Europe Regional Contest (The 2nd Universal Cup, Stage 14: Southeastern
       Europe) (judge hunt 2026-11-03: name+year: ''2023 ICPC Southeastern Europe Regional Contest (The
@@ -3204,6 +3712,8 @@ contests:
   - url: https://seerc.icpc.global/2024/ICPC%20SEERC%202024-2025%20-%20Problem%20Statements.pdf
     roles:
     - problemset
+    contains:
+    - statement
     url_state: live
     url_checked: '2026-11-14'
   - url: https://qoj.ac/contest/1849
@@ -3257,6 +3767,8 @@ contests:
   - url: https://seerc.euc.icpc.global/wp-content/uploads/2025/12/seerc2025-statements.pdf
     roles:
     - problemset
+    contains:
+    - statement
     as_of: '20260119124537'
     url_state: live
     url_checked: '2026-11-14'

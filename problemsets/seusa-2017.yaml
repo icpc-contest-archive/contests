@@ -1,25 +1,37 @@
 # Problem set (DEFINITIONS.md, Problems): holdings, member contests with letter maps, problems.
 id: seusa-2017
-count: 22
-complete: false
+count: 17
 statement: none
 data: none
 solutions: none
 package: none
 contests:
 - contest: seusa-2017
-  letters:
-    A: p-09937c6f
-    C: p-ae41bda6
-    D: p-98180460
-    E: p-533d13a7
-    F: p-310186de
-    G: p-ee044f56
-    I: p-6d8f47b3
-    J: p-029b7050
-    K: p-d6947853
-    B: p-b21f10fc
-    H: p-e8532861
+  divisions:
+    Division 1:
+      A: p-09937c6f
+      B: p-2d9367b5
+      C: p-ae41bda6
+      D: p-98180460
+      E: p-533d13a7
+      F: p-310186de
+      G: p-ee044f56
+      H: p-1b315bbf
+      I: p-6d8f47b3
+      J: p-029b7050
+      K: p-d6947853
+    Division 2:
+      A: p-b07be54d
+      B: p-69663015
+      C: p-5bc47572
+      D: p-c7b8a722
+      E: p-533d13a7
+      F: p-310186de
+      G: p-2a3bea2a
+      H: p-ee044f56
+      I: p-97743b50
+      J: p-6d8f47b3
+      K: p-029b7050
 problems:
 - id: p-09937c6f
   name: Ducks in a Row
@@ -32,11 +44,19 @@ problems:
     id: '15123'
     as_of: '20230514151837'
 - id: p-2d9367b5
+  aliases:
+  - p-b21f10fc
   name: Exciting Finish!
+  other_names:
+  - Enlarging Enthusiasm
   judges:
   - judge: livearchive
     url: https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=6238
     id: '8216'
+  - judge: baekjoon
+    url: https://www.acmicpc.net/problem/15105
+    id: '15105'
+    as_of: '20230514151837'
 - id: p-ae41bda6
   name: Flipping Out
   judges:
@@ -88,11 +108,19 @@ problems:
     id: '15107'
     as_of: '20230514151837'
 - id: p-1b315bbf
+  aliases:
+  - p-e8532861
   name: Security Badges
+  other_names:
+  - Security Badge
   judges:
   - judge: livearchive
     url: https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=6139
     id: '8117'
+  - judge: baekjoon
+    url: https://www.acmicpc.net/problem/15110
+    id: '15110'
+    as_of: '20230514151837'
 - id: p-6d8f47b3
   name: Star Arrangements
   judges:
@@ -122,20 +150,6 @@ problems:
   - judge: baekjoon
     url: https://www.acmicpc.net/problem/15116
     id: '15116'
-    as_of: '20230514151837'
-- id: p-b21f10fc
-  name: Enlarging Enthusiasm
-  judges:
-  - judge: baekjoon
-    url: https://www.acmicpc.net/problem/15105
-    id: '15105'
-    as_of: '20230514151837'
-- id: p-e8532861
-  name: Security Badge
-  judges:
-  - judge: baekjoon
-    url: https://www.acmicpc.net/problem/15110
-    id: '15110'
     as_of: '20230514151837'
 - id: p-b07be54d
   name: Congruent Numbers
@@ -182,3 +196,10 @@ problems:
 provenance:
 - ICPC Problem Archive progress sheet (2026-11-01)
 - online-judge pages (2026-11-02, tools/mine_judge_links.py)
+- problem names read from our copy of http://serjudging.vanb.org/wp-content/uploads/SER-2017-Problems-D1.pdf,
+  https://www.acmicpc.net/category/822 (tools/names_apply.py, 2026-11-16)
+- '“Enlarging Enthusiasm” and “Exciting Finish!” were one problem listed twice: now one, under the statement''s
+  title (ruling 2026-11-16, tools/names_apply.py)'
+- '“Security Badge” and “Security Badges” were one problem listed twice: now one, under the statement''s
+  title (ruling 2026-11-16, tools/names_apply.py)'
+- 'count 22 → 17: distinct problems, not the sum over the divisions (ruling 2026-11-16, tools/names_apply.py)'

@@ -105,6 +105,8 @@ a.m:hover { text-decoration:none; filter:brightness(.92); }
 .m.l { border-color:var(--part); color:var(--part); background:var(--part-bg); } /* known, not held / held in part */
 .m.n { border-color:var(--line); color:var(--muted); opacity:.75; }           /* none */
 .m.u { border:1px dashed var(--line); color:var(--muted); opacity:.75; }      /* not recorded */
+.m.k { border-color:var(--link); color:var(--link); }
+.m.q4, .m.q3, .m.q2, .m.q1 { border-color:transparent; }   /* a held result, in the colour of its level */                         /* a source is known; we hold no copy */
 .m.x { background:var(--lost); color:var(--paper); }                         /* lost */
 .av { white-space:nowrap; } .av .m { cursor:default; font-weight:600; }
 .av .m.n { text-decoration:line-through; }   /* not there — against dashed: nobody has looked */
@@ -136,6 +138,8 @@ tbody tr:hover { background:var(--wash); }
 .fbar input, .fbar select { padding:.3rem .5rem; font:inherit; font-size:.9rem; color:var(--ink); background:var(--paper);
   border:1px solid var(--line); border-radius:.35rem; max-width:15rem; }
 .fbar input { width:15rem; }
+.fbar2 { margin-top:0; }
+.fbar .flab { color:var(--muted); font-size:.86rem; }
 .fbar .fcount { margin-left:auto; color:var(--muted); font-size:.86rem; }
 .fbar button { padding:.3rem .6rem; font:inherit; font-size:.86rem; color:var(--link); background:none; border:1px solid var(--line);
   border-radius:.35rem; cursor:pointer; }
@@ -163,6 +167,90 @@ tbody tr:hover { background:var(--wash); }
 .c-ist { background:var(--part-bg); box-shadow:inset 0 0 0 1px var(--part); }
 .c-none { box-shadow:inset 0 0 0 1px var(--line); }
 .c-up { box-shadow:inset 0 0 0 1px var(--link); opacity:.55; }
+/* ---- coverage: an answer is a colour, the same wherever it is drawn (build_site.facet_q) ----
+   q4 held (green) · q3 q2 q1 partly held or a lesser result (lime, amber, orange: the further from green, the less) ·
+   ql known at an address, no copy (blue) · q0 missing (white: a hole) · qu a source is known, not what it holds (hatched) ·
+   qx none exists (grey: not a hole). The marks in tables use the same: .m.h held, .m.l partly, .m.k link only. */
+:root { --q3:#8fc15f; --q2:#ecbd4c; --q1:#ec9457; --ql:#8fb9ec; }
+@media (prefers-color-scheme: dark) { :root { --q3:#7fae55; --q2:#d6a63c; --q1:#d38246; --ql:#6f9fdd; } }
+.q4 { background:var(--held); color:#fff; }
+.q3 { background:var(--q3); color:#17212b; }
+.q2 { background:var(--q2); color:#17212b; }
+.q1 { background:var(--q1); color:#17212b; }
+.ql { background:var(--ql); color:#17212b; }
+.q0 { background:var(--paper); box-shadow:inset 0 0 0 1px var(--line); color:var(--muted); }
+.qu { background:repeating-linear-gradient(135deg, var(--line) 0 2px, var(--paper) 2px 6px); box-shadow:inset 0 0 0 1px var(--line); color:var(--ink); }
+.qx { background:var(--wash); color:var(--muted); }
+table.grid .cell.c-up { box-shadow:inset 0 0 0 1px var(--link); background:none; }
+#gridsel { padding:.2rem .4rem; font:inherit; color:var(--ink); background:var(--paper); border:1px solid var(--line); border-radius:.35rem; margin-right:.8rem; }
+/* the stacked bar: one question, split by answer; every segment is a link */
+.sb { display:flex; flex:1; min-width:9rem; height:1.4rem; border-radius:.3rem; overflow:hidden; font-size:.78rem; line-height:1.4rem;
+  font-variant-numeric:tabular-nums; }
+.sb a, .sb i { display:block; min-width:3px; text-align:center; font-style:normal; white-space:nowrap; overflow:hidden; text-decoration:none; }
+.sb a + a, .sb i + i, .sb a + i, .sb i + a { margin-left:1px; }
+.sb a:hover { filter:brightness(.88); text-decoration:none; }
+.sb.sm { display:inline-flex; flex:none; width:4.3rem; min-width:0; height:.72rem; vertical-align:middle; border-radius:.2rem; }
+/* the coverage panel: a card per kind of content, a bar per question, its answers as linked labels underneath */
+.cp { display:grid; grid-template-columns:repeat(auto-fit, minmax(24rem, 1fr)); gap:.2rem 2.8rem; margin:.5rem 0 1.3rem; max-width:104rem; align-items:start; }
+.cp-g { padding-bottom:1rem; }
+.cp-g h3 { margin:0 0 .1rem; }
+.cp-g .gn { margin:.15rem 0 .1rem; font-size:.82rem; }
+.sw.j { margin-left:-.22em; }
+.fr { display:flex; align-items:center; gap:.6rem; margin-top:.5rem; }
+.fl { flex:none; width:7.4rem; font-size:.92rem; }
+.fp { flex:none; width:2.8rem; text-align:right; font-size:.92rem; font-variant-numeric:tabular-nums; }
+.fc { display:flex; flex-wrap:wrap; gap:.05rem .95rem; margin:.2rem 0 0 8rem; font-size:.82rem; color:var(--muted); }
+.cp-1 .fc { margin-left:0; }
+.fc.fn { margin-top:.55rem; }
+.ch { color:var(--muted); white-space:nowrap; text-decoration:none; }
+.ch b { color:var(--ink); font-weight:600; font-variant-numeric:tabular-nums; }
+a.ch:hover, a.ch:hover b { color:var(--link); text-decoration:none; }
+.sw { display:inline-block; width:.74em; height:.74em; margin-right:.32em; border-radius:.16em; vertical-align:-.03em; }
+.ck .sw { margin-left:.7em; } .ck .sw:first-child { margin-left:0; }
+/* headline tiles */
+.pts { display:flex; flex-wrap:wrap; gap:.9rem 2.4rem; margin:.8rem 0 1rem; }
+.pt { min-width:8.2rem; }
+.pts { align-items:flex-start; }
+.pt b { display:block; font-size:1.45rem; font-weight:600; line-height:1.2; font-variant-numeric:tabular-nums; }
+.pt b .pc { font-style:normal; font-size:.62em; font-weight:400; color:var(--muted); margin-left:.15em; }
+.pt .tl-l { display:block; color:var(--muted); font-size:.86rem; }
+.pt .tm { display:block; margin-top:.2rem; font-size:.82rem; color:var(--muted); }
+/* a contest's own coverage card */
+.cc { display:flex; flex-wrap:wrap; gap:.4rem 1.7rem; max-width:96rem; margin:.4rem 0 1rem; padding:.6rem .85rem; border:1px solid var(--line); border-radius:.5rem; }
+.cc-g { display:flex; flex-wrap:wrap; align-items:center; gap:.25rem .3rem; }
+.cc-g > b { margin-right:.3rem; font-size:.84rem; font-weight:600; color:var(--muted); }
+.pl { display:inline-block; padding:.04em .55em; border-radius:.3em; font-size:.84rem; white-space:nowrap; text-decoration:none; }
+a.pl:hover { filter:brightness(.9); text-decoration:none; }
+.cc-w { flex-basis:100%; margin:.15rem 0 0; font-size:.92rem; }
+/* matrices: a square per contest and question (a series by edition, a season by contest), and the seasons as strips */
+table.mx { width:auto; border-collapse:separate; border-spacing:0; margin:.4rem 0 1rem; }
+table.mx th, table.mx td { padding:1px; border:0; background:none; vertical-align:middle; }
+table.mx thead th { position:static; }
+table.mx tbody tr:hover { background:none; }
+table.mx tbody tr:hover td.ml { color:var(--link); }
+.mc { display:block; width:14px; height:14px; border-radius:2px; }
+a.mc:hover, a.tc:hover { outline:2px solid var(--link); outline-offset:1px; }
+.mu { box-shadow:inset 0 0 0 1px var(--link); opacity:.5; }
+table.mx td.ml { padding-right:.7rem; white-space:nowrap; font-size:.88rem; }
+table.mx td.mn { padding-left:.7rem; white-space:nowrap; font-size:.82rem; color:var(--muted); }
+table.mx tr.mg td { padding-top:.55rem; font-size:.78rem; font-weight:600; color:var(--muted); }
+table.mx th.vy { writing-mode:vertical-rl; transform:rotate(180deg); padding:0 0 .3rem; font-size:.72rem; font-weight:400; text-align:left;
+  vertical-align:bottom; white-space:nowrap; }
+table.mx th.vy a { color:inherit; }
+table.mx .gs { padding-left:8px; }
+.tc { display:flex; flex-direction:column-reverse; box-sizing:border-box; width:14px; height:30px; border:1px solid var(--line); border-radius:2px; overflow:hidden; }
+.tc i { display:block; min-height:1px; box-shadow:none; }
+/* groups side by side (regions, series) */
+td.gb { white-space:nowrap; padding-left:.45rem; padding-right:.2rem; } .gp { display:inline-block; width:2.3rem; text-align:right; font-size:.84rem; color:var(--muted); }
+td.hw a.nl { text-decoration-color:transparent; }
+/* a filter the list is pinned to by a link (a location) */
+.fpin { padding:.25rem .55rem; font:inherit; font-size:.86rem; color:var(--link); background:none; border:1px solid var(--link); border-radius:.35rem; cursor:pointer; }
+.fbar select.on { border-color:var(--link); color:var(--link); }
+/* a count that opens the contests it counts */
+a.nl { color:inherit; text-decoration:underline; text-decoration-color:var(--line); text-underline-offset:.18em; }
+a.nl:hover { color:var(--link); text-decoration-color:var(--link); }
+table.heat tr.gap td { height:.5rem; border:0; }
+table.nosort tr.grp td { background:var(--wash); }
 .c-lin { color:var(--muted); font-size:.8em; text-align:center; display:block; width:14px; }
 table.heat { width:auto; }
 table.heat td.hc { text-align:right; min-width:4.6rem; }
