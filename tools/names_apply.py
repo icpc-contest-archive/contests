@@ -109,6 +109,9 @@ COUNT_OK = {
     "nzpc-2010": "the organisers' PDF has problems A–P",
     "hungary-2014": "the organisers' problem-set PDF has nine statements",
     "hungary-2016": "the organisers' problem-set PDF has ten statements",
+    "hungary-2009": "the organisers' problem-set PDF has ten statements",
+    "hungary-2011": "the organisers' problem-set PDF has ten statements",
+    "hungary-2013": "the organisers' problem-set PDF has ten statements",
 }
 # The document numbers its problems where the catalogue has a judge's letters: the document's numbering is taken.
 RELETTER = {"xian-2002"}
