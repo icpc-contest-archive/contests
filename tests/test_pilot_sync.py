@@ -106,6 +106,28 @@ class PilotSyncTests(unittest.TestCase):
             self.assertIn("scoreboard", rendered)
             self.assertIn("problemset", rendered)
 
+    def test_patch_preserves_unrelated_long_scalar_formatting(self):
+        submission = self.submission(source_url="https://example.org/new", roles="problemset")
+        long_note = "This deliberately long unrelated note must remain on one line when a source is added elsewhere in the contest catalogue."
+        yaml_text = (
+            "series:\n  id: gny\ncontests:\n"
+            "- id: gny-2024\n  note: " + long_note + "\n"
+            "- id: gny-2025\n  sources: []\n"
+        )
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "series").mkdir()
+            path = root / "series" / "gny.yaml"
+            path.write_text(yaml_text)
+            with mock.patch.object(pilot_sync, "ROOT", root), mock.patch.object(
+                pilot_sync, "yaml_blob_sha", return_value="a" * 40
+            ):
+                _, changed = pilot_sync.patch_catalogue(submission)
+            self.assertTrue(changed)
+            rendered = path.read_text()
+            self.assertIn("  note: " + long_note + "\n", rendered)
+            self.assertIn("  - url: https://example.org/new\n", rendered)
+
     def test_retry_reconciles_one_existing_pr_without_creating_a_duplicate(self):
         submission = self.submission(approval_token="signed")
 

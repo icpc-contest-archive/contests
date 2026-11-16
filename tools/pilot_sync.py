@@ -281,6 +281,9 @@ def patch_catalogue(submission: Submission) -> tuple[Path, bool]:
 
     roundtrip = YAML()
     roundtrip.preserve_quotes = True
+    # Catalogue files intentionally contain long scalar and URL lines.  Ruamel's
+    # default width would reflow unrelated entries whenever one source changes.
+    roundtrip.width = 4096
     data = roundtrip.load(path.read_text())
     contest = next((item for item in data["contests"] if item.get("id") == submission.get("contest_id")), None)
     if contest is None:
