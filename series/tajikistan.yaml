@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_no_sources_hunt.py.
+# Maintained in-repo; last bulk edit: tools/apply_no_sources_bycatch.py.
 series:
   id: tajikistan
   name: ICPC Tajikistan Regional Contest
@@ -65,15 +65,23 @@ contests:
   - 9169
   parent: nerc-2025
   sources:
+  - url: https://nerc.itmo.ru/archive/2025/tajikistan/standings.xml
+    roles:
+    - scoreboard
+    - problemset
+    note: 'by-catch of the no-sources hunt 2026-11-16: the NERC archive''s standings data, with the problems''
+      names'
+    contains:
+    - names
   - url: https://icpc.global/regionals/finder/TjRC-2026/standings
     roles:
     - standings
     archived:
     - tajikistan/tajikistan-2025/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 9169, 10 teams, DB fetch 2026-04-26)
-  notes: added from misclass audit 2026-09-02 (14 teams, 10 results in CMS)
   problems:
     set: north-russia-2025
+  notes: added from misclass audit 2026-09-02 (14 teams, 10 results in CMS)
 - id: tajikistan-2026
   season: 2027
   name: 2026 Tajikistan Regional Contest
