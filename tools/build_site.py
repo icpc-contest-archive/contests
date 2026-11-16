@@ -77,6 +77,7 @@ from catalogue import (RANK, RESULT_LADDER, archived, by_role, has_role, judge_s
 import coverage as CV  # noqa: E402  (the one coverage record per contest; every page reads it)
 from coverage import set_counts, set_list_state  # noqa: E402
 import site_resources  # noqa: E402
+import source_descriptions  # noqa: E402
 
 # the result roles: the ladder (scoreboard > standings > rankings > team list), then the frozen
 # scoreboard, which is kept beside the ladder (a standings page of the ICPC CMS is filed by what it
@@ -2344,6 +2345,8 @@ def source_page(k: str, L: dict, rel: str) -> str:
     if note:
         b.append(f'<p class="note">{esc(note)}</p>')
 
+    b.append(source_descriptions.block(url, cits, rel, contest_ref, help_link))
+
     # ---- the one place the address, a Wayback snapshot and our copies are linked ----
     b.append('<h2 id="where">Where to find it</h2>')
     if single or not cits:
@@ -3388,6 +3391,8 @@ source that is no longer at its address names the time it is meant at (<i>as it 
 <p class="intro">Any combination occurs: a scoreboard can be live, in the Wayback Machine and in our archive all at once, or only in one of them. A source's own page is
 the only place where the three are opened: the address, the snapshot that shows the document, and our copy. Links <a class="local" href="#local">marked local</a> need the
 local archive server (below). When several contests cite one address — a results page reused every year — its page has a row per contest, since each means a different time.</p>
+
+{source_descriptions.ABOUT}
 
 <h2 id="contribute">Contribute</h2>
 {R.about_text(REPO)}

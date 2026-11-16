@@ -1,0 +1,178 @@
+[
+ {
+  "contest": "shenyang-2015",
+  "n": 1,
+  "rating": "wrong",
+  "claims_checked": 16,
+  "errors": [
+   {
+    "claim": "No page in it is about the 2015 Shenyang regional.",
+    "found": "Two captures of the old-layout front page (http://acm.neu.edu.cn:80/ of 2015-11-27 and :80/? of 2016-08-07) are headed '2015年 ACM-ICPC区域赛 沈阳赛区Board' with the line 'Click the title above to see realtime ranklist' (link to http://219.216.123.12/summary.html, not in the copy); their menu lists the 2015 regional's arrangement, on-site notice, quota and online-contest pages (not fetched), and a sidebar lists the 2015 China sites including Shenyang, Northeastern University, 24-25 October.",
+    "severity": "wrong"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read site-manifest.json (150 files; 128 html + 1 text = 129 pages), listed title and headings of every HTML page with BeautifulSoup and read the text of the front-page captures and the posts named."
+ },
+ {
+  "contest": "wf-2002",
+  "n": 4,
+  "rating": "minor",
+  "claims_checked": 12,
+  "errors": [
+   {
+    "claim": "No date or place on the cover",
+    "found": "The PDF has no cover page: page 1 is Problem A under the running header. It is true that no date or place appears anywhere in the 18 pages.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo (18 pages) and pdftotext of the whole PDF; checked the nine problem letters, titles, 'Input: x.in' lines, sample blocks and header text with grep."
+ },
+ {
+  "contest": "taiwan-2000",
+  "n": 5,
+  "rating": "accurate",
+  "claims_checked": 10,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the table with BeautifulSoup (48 team rows: 27 ranked 1-10, 21 Honorable Mention, columns Rank/Team/Citation) and compared it row by row with the two icpc.baylor.edu past-regionals copies in the same contest folder (identical)."
+ },
+ {
+  "contest": "south-america-1999",
+  "n": 5,
+  "rating": "accurate",
+  "claims_checked": 9,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html with BeautifulSoup: breadcrumb, page date (Monday, 25 October 2021), the seven rows 5554-5560 with titles and the two statistics column pairs, menu and login box."
+ },
+ {
+  "contest": "mausa-2019",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 13,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed standings.html with BeautifulSoup: 160 data rows, the eight column headers, counts per Medal value (4/4/4, 77 Ranked, 71 Honorable as the last 71 rows), ranks 1-12 and row 1 (Swarthmore College, 8, 732)."
+ },
+ {
+  "contest": "central-america-2000",
+  "n": 2,
+  "rating": "wrong",
+  "claims_checked": 10,
+  "errors": [
+   {
+    "claim": "Accented letters in institution names are garbled in our copy.",
+    "found": "page.html is clean ISO-8859-1: the only non-ASCII bytes are F3, F1, E9, ED, E1 (ó ñ é í á), e.g. 'Universidad Aut\\xf3noma de Yucat\\xe1n', and it reads correctly as Latin-1 (no replacement characters, no '?'). The page declares no charset; the garbling is only in the text digest, which decoded the bytes with the wrong encoding.",
+    "severity": "wrong"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html with BeautifulSoup (56 team rows: 27 ranked 1-13 with 15 at 13th, 29 Honorable Mention; heading text) and inspected the raw non-ASCII bytes with python."
+ },
+ {
+  "contest": "nwerc-2013",
+  "n": 9,
+  "rating": "minor",
+  "claims_checked": 10,
+  "errors": [
+   {
+    "claim": "Each of the ten problems ... has one or more slides with a short problem statement and the solution idea in bullet points",
+    "found": "Only Absurdistan Roads, Diagrams & Tableaux, Highway of the Future and Jingle Balls ('Extended problem') have a problem-statement block; the slides for Battle for Silver, Card Trick, Exponential Towers, First Date, Grachten and Infix to Prefix give the solution only.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [
+   "'on the pages we read' is a hedge about the reading process; all 19 pages carry no date, host or author",
+   "'Jury slides' and 'NWERC 2013' are not stated anywhere in the PDF (the contest is known only from the address)"
+  ],
+  "how_checked": "pdfinfo (19 pages) and pdftotext -layout of every page; read each slide title, the sidebar and the Problem/Solution blocks, and grepped for dates, host and author."
+ },
+ {
+  "contest": "india-2016",
+  "n": 1,
+  "rating": "wrong",
+  "claims_checked": 20,
+  "errors": [
+   {
+    "claim": "A post titled Problems of India-Final 2016 contains only its title in our copy, with no statements or links.",
+    "found": "The category page 'Problems of India-Final 2016' shows a post titled 'Problems' (5 January 2017) whose body is a link 'Problems of India-Final 2016' to http://icpcindiafinal.in/problems.pdf. The PDF and the post page are not in the copy, but the link is.",
+    "severity": "wrong"
+   },
+   {
+    "claim": "Our copy holds 45 pages from a web archive crawl",
+    "found": "45 is the count of html/pdf/text files. 18 of them are GoDaddy domain-parking responses (17 stubs of 315-343 bytes saved for images, scripts, the style sheet and two page addresses, and one full parking page), 3 are favicon/robots files; 22 are pages of the site (two of them the same front page, one the suspended-account page) plus 2 PDFs.",
+    "severity": "minor"
+   },
+   {
+    "claim": "travel directions for Gwalior and Kolkata",
+    "found": "Both pages only link to a PDF. The Gwalior PDF (HowtoReachGwalior_Final.pdf) is in the copy; the Kolkata one (HowtoReachgnit.pdf) is not, so no Kolkata directions are in the copy.",
+    "severity": "minor"
+   },
+   {
+    "claim": "category pages for teams selected from the Amritapuri, Chennai and Kharagpur sites",
+    "found": "True, but understated: the Chennai and Kharagpur team lists themselves (tables of team name, institute, remark) are in the copy, on the category pages and on two post pages; the Amritapuri category page is empty.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [
+   {
+    "field": "contest_date",
+    "recorded": "2016-12-29",
+    "found": "The program schedule PDF in the copy puts registration, practice and inauguration on 29 December 2016 and the Main Contest on 30 December 2016, 10:00-15:00; the Important Dates page says 'India-Final Onsite Contest: 29-30 December, 2016'."
+   }
+  ],
+  "style": [],
+  "how_checked": "Read site-manifest.json (72 files), classified every html/pdf/text file by content, read the text and links of the front page and each page named with BeautifulSoup, and the schedule PDF with pdftotext."
+ },
+ {
+  "contest": "nwerc-2003",
+  "n": 9,
+  "rating": "wrong",
+  "claims_checked": 9,
+  "errors": [
+   {
+    "claim": "Only seven different problems are there, because Subway Tree System appears twice",
+    "found": "Subway Tree System appears once (one row, the string occurs once in the HTML). The duplicate is only in the text digest.",
+    "severity": "wrong"
+   },
+   {
+    "claim": "a table of eight rows",
+    "found": "The table has a header row and seven problem rows: Bridging Signals, Gladiators, Prison Rearrangement, Sightseeing Tour, Subway Tree System, Vase Collection, Who's the Boss?. Eight only if the header is counted.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html with BeautifulSoup under two parsers and counted tr tags and /problems/ links in the raw HTML; 'A Number Game' is absent from the page and present in other sources of the same contest."
+ },
+ {
+  "contest": "xian-2002",
+  "n": 5,
+  "rating": "minor",
+  "claims_checked": 12,
+  "errors": [
+   {
+    "claim": "links to the source and the original",
+    "found": "The column 정보 (info) holds plain labels 출처 (source) and 원문 (original text), plus 분류 (classification) on problem E; they are span badges, not links. The only links in a row go to the problem page and to two submission-status lists.",
+    "severity": "minor"
+   },
+   {
+    "claim": "problem A, whose title is given in Korean (Computing)",
+    "found": "The title is 계산기, which means Calculator.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html with BeautifulSoup: nine rows A-I, numbers 9813-9821, column headers, titles, the cells of the info column and every link in each row."
+ }
+]

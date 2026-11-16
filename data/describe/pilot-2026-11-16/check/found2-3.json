@@ -1,0 +1,130 @@
+[
+ {
+  "contest": "wf-2002",
+  "n": 4,
+  "rating": "accurate",
+  "claims_checked": 22,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo (18 pages) and pdftotext per page: header line, nine Problem A-I headings with titles, nine 'Input: <file>.in' lines, nine Sample Input/Output blocks, grep for date/place words found none."
+ },
+ {
+  "contest": "north-russia-2025",
+  "n": 6,
+  "rating": "minor",
+  "claims_checked": 14,
+  "errors": [
+   {
+    "claim": "each [of the twelve statements] with ... input and output format",
+    "found": "Problem E (Eight-Connected Figures) is interactive: it has an Input section and an 'Interaction Protocol' section, no Output section; the other eleven have Input and Output.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo (13 pages) and pdftotext per page: header lines on all 13 pages, twelve 'Problem X.' headings A-L, limits, Input/Output/Example/Note sections listed per problem."
+ },
+ {
+  "contest": "south-pacific-west-2015",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 12,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed standings.html with BeautifulSoup: 33 data rows, six columns (Rank, Team, Institution, Solved, Time, Citation), citation values per row, first row, intro line naming the icpc.global public API archive."
+ },
+ {
+  "contest": "taiwan-2000",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 14,
+  "errors": [],
+  "document_field_errors": [
+   {
+    "field": "times",
+    "recorded": false,
+    "found": "The table has a Penalty column (total penalty minutes, e.g. 735) for every team; the other standings in this sample with only a total Time column are recorded times=true, so false looks inconsistent (arguable: depends on what the field is defined to mean)."
+   }
+  ],
+  "style": [],
+  "how_checked": "Parsed Standings.html (iso-8859-1) with BeautifulSoup: 27 team rows, five columns, ranks 1-10 with ties, school counts (24 Taiwan, 2 CUHK, 1 Seoul), page text has only the heading 'Final Standings'."
+ },
+ {
+  "contest": "ctuo-2026",
+  "n": 6,
+  "rating": "minor",
+  "claims_checked": 13,
+  "errors": [
+   {
+    "claim": "Slides of the jury's presentation of solutions",
+    "found": "The slides read 'CTU Open 2026 / Presentation of solutions'; the word jury does not occur anywhere in the 357 pages and the PDF author field is empty.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo (357 pages) and pdftotext per page: listed slide-title changes (12 problem sections Vampires..Rope), topic-label slides, Task slides, complexity mentions, last slide text, grep for 'jury'."
+ },
+ {
+  "contest": "kyrgyzstan-2012",
+  "n": 4,
+  "rating": "accurate",
+  "claims_checked": 12,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed standings.html (windows-1251) with BeautifulSoup: 40 team rows, columns Team, A-F, =, Time, Rank, header and status lines, first row, zero img tags; sha256 equal to two other captures of the same address."
+ },
+ {
+  "contest": "nwerc-2008",
+  "n": 9,
+  "rating": "minor",
+  "claims_checked": 17,
+  "errors": [
+   {
+    "claim": "distances between polygons for White Water Rafting",
+    "found": "The slide is titled 'I - Rafting'; the name 'White Water Rafting' is not printed anywhere in the PDF.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [
+   "'so the extracted text repeats them' refers to text extraction, an internal processing matter rather than the document"
+  ],
+  "how_checked": "pdfinfo (21 pages, slide size) and full pdftotext read: cover text, sidebar order H I D J A F B C K E, two pages per problem, every Statistics line including K ('1 submission, ?? correct, first ??? minutes') and E ('0 submissions, 0 correct, first 0 minutes')."
+ },
+ {
+  "contest": "dhaka-2003",
+  "n": 7,
+  "rating": "accurate",
+  "claims_checked": 12,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html (utf-8) with BeautifulSoup: breadcrumb 'ACM-ICPC Dhaka Site Regional Contests :: 2003 - Dhaka', ten rows 12050-12059 with titles and submission/user figures, login form, menu with ICPC Live Archive, sponsor list; manifest assets are only css/js/images, no statements."
+ },
+ {
+  "contest": "nwerc-2013",
+  "n": 9,
+  "rating": "accurate",
+  "claims_checked": 16,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo (19 pages, empty title/author) and full pdftotext read: cover 'Problems' with ten names, slide counts per problem (A,D,F,H,J two; E four; B,C,G,I one), Prim's algorithm, Problem headings and complexity lines; no date, host, author or contest name on any page."
+ },
+ {
+  "contest": "wf-2017",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 20,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [
+   "'not in the crawl' is a process word (borderline; 'our copy' is used elsewhere)"
+  ],
+  "how_checked": "Read site-manifest.json (17 fetched) and files/: one HTML page parsed with BeautifulSoup (title, figures 133 / 46,381 / 2,948 / 103, date May 24, 2017, Rapid City, links, menu), one PDF (pdfinfo 6 pages, 'ICPC Policies and Procedures - April 16, 2018'), 15 image files by file type."
+ }
+]

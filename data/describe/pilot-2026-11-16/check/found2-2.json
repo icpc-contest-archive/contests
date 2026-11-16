@@ -1,0 +1,153 @@
+[
+ {
+  "contest": "wf-2017",
+  "n": 5,
+  "rating": "minor",
+  "claims_checked": 16,
+  "errors": [
+   {
+    "claim": "a table of the first team to solve each of the 12 problems with its time",
+    "found": "the table is headed only Problem / Team / Time (11 rows with a team and a minute, Scenery 'Not solved'); the words 'first' or 'first to solve' appear nowhere on the page, so the label is an inference",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [
+   {
+    "field": "contest_date",
+    "recorded": "2017-05-24",
+    "found": "borderline: the only date on the page is the stamp 'Last modified on 17:26 PM May 24, 2017'; the page does not state the contest date as such"
+   }
+  ],
+  "style": [],
+  "how_checked": "Parsed page.html (utf-8) with BeautifulSoup and counted rows of all five tables (12, 97, 12x2=24, 6, 12), checked headers, first/last rows and searched the HTML for 'first'."
+ },
+ {
+  "contest": "south-pacific-east-2017",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 17,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read site-manifest.json (7 pages, 0 unfetched) and the text, links and img tags of all 7 HTML files under files/; confirmed dates, sites, team lists, link targets and that only HTML is saved."
+ },
+ {
+  "contest": "ecna-2011",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 13,
+  "errors": [],
+  "document_field_errors": [
+   {
+    "field": "contest_date",
+    "recorded": "2011-10-22",
+    "found": "no date is printed anywhere in the copy: the page text outside the table is only the title and headings, and the two saved images (banner, rule line) carry no date"
+   }
+  ],
+  "style": [],
+  "how_checked": "Parsed standings.html (windows-1252) and counted 123 data rows, 9 problem columns, cell patterns (N/N, N/--, empty), 94 teams with solved>0 and 29 rows at rank 95; OCRed the banner asset for a date."
+ },
+ {
+  "contest": "palestine-2023",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 16,
+  "errors": [
+   {
+    "claim": "110 cells are marked pending judgement",
+    "found": "109 scoreboard cells carry the Pending class; the 110th occurrence is the legend cell itself",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Gunzipped page.html, parsed the table (72 ranked rows, problems A-P, summary row), counted cell classes per <center> element and read the legend and footer."
+ },
+ {
+  "contest": "brazil-2009",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 12,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo (3 pages) and pdftotext -layout; counted 51 ranks and 51 parenthesised totals, checked header (#, User, Name, A-K, Total), rows 1-2 and that no contest name or date is in the text or images."
+ },
+ {
+  "contest": "wf-2001",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 24,
+  "errors": [
+   {
+    "claim": "seeded at its page Results World Finals 2001",
+    "found": "site-manifest.json gives the seed as http://icpc.baylor.edu/icpc/finals/, and no saved file corresponds to that address; the Results World Finals 2001 page is saved under /community/results-2001 (first entry of the manifest)",
+    "severity": "minor"
+   },
+   {
+    "claim": "44 of those pages are empty shells of a script-driven site",
+    "found": "45: the 44 files of 863/870 bytes plus changeRequest.jsf?contestIdNum= (2624 bytes), which is the same kind of shell (body is only a noscript notice and an empty root div)",
+    "severity": "minor"
+   },
+   {
+    "claim": "The crawl covers the whole ICPC host",
+    "found": "the scope rule is whole-host, but the crawl stopped at 150 addresses; the manifest lists 3453 in-scope addresses as not fetched (page budget)",
+    "severity": "minor"
+   },
+   {
+    "claim": "the compete, community and regionals menus",
+    "found": "Compete and Community pages are saved (3 copies each); no Regionals page is in the crawl, 'Regionals' occurs only as a block of the navigation menu on other pages",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read site-manifest.json (150 pages, content types, sizes), classified every HTML file by title/body, parsed both copies of results-2001 (47 ranked, 10 with penalty, 17 honorable mention, 6 super-regions), the History 2001 page, about/2001/default.htm, pdfinfo of the fact sheets and the header of the results.asp XML."
+ },
+ {
+  "contest": "ctuo-2026",
+  "n": 1,
+  "rating": "wrong",
+  "claims_checked": 27,
+  "errors": [
+   {
+    "claim": "the PDFs for Park and Rope, four zip archives and an image were not fetched",
+    "found": "the manifest lists as not fetched: 7 PDFs (problem statements of Park, Rope, Shopping, Trains and Vampires, plus ctu-open-problems.pdf and presentation.pdf), 12 zip archives (3 data.zip 'file too large', 9 more for byte budget) and 4 images (r.gif, s.gif, t.gif, v.gif); 5 more addresses (4 logos, an .asx) returned 404",
+    "severity": "wrong"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read site-manifest.json (76 addresses, 71 files: 15 HTML, 7 PDF, 1 txt, 12 zip, images; 1010 unfetched = 914 submits, 73 home tgz, 23 others) and the text and links of index, contest, dates, news, trules, solved, rank and submits pages (914 submission rows counted)."
+ },
+ {
+  "contest": "amritapuri-2009",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 13,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed standings.html: 302 data rows, 6 columns, 39 ranked rows with place citations and tied ranks, 263 unranked rows all 0 solved and Honorable Mention; read the page's own provenance line."
+ },
+ {
+  "contest": "south-pacific-west-2015",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 16,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed WesternDivision.html: 35 team rows (32 + 2 + 1 with own ranks), problems A-K, summary row, both legends, heading 'Final Standings Last Update: Sun 23rd August 2015 using DOMjudge' and the results-page link target."
+ },
+ {
+  "contest": "wf-2000",
+  "n": 6,
+  "rating": "accurate",
+  "claims_checked": 9,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html (utf-8): breadcrumb 'World Finals :: 2000 - Orlando', 8 problem rows 5216-5223 with titles and the two statistics column pairs, menu tables and login form; capture directory holds only the page."
+ }
+]

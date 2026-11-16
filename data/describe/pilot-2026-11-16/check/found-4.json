@@ -1,0 +1,179 @@
+[
+ {
+  "contest": "moscow-2013",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 19,
+  "errors": [
+   {
+    "claim": "For Moscow it has the standings page of this edition and the one of the next year's Moscow subregional",
+    "found": "True as far as it goes, but the copy also holds Moscow subregional standings for 2003-2007 (http and https), 2008-2010 (https) and 2019: 17 more saved pages out of 139, none mentioned. The inventory reads as complete and is not.",
+    "severity": "minor"
+   },
+   {
+    "claim": "Our copy holds 139 pages and files",
+    "found": "142 files are saved (120 HTML, 19 PDF, 3 XML run logs); 139 is the HTML+PDF count only. The manifest lists 150 addresses, 8 of which failed.",
+    "severity": "minor"
+   },
+   {
+    "claim": "the 2013 page also links problem statements and tests for some regions",
+    "found": "Only one regional contest (Northwestern Russia) has statements, tests, archive and log links on the 2013 page, besides the finals; every other region has a standings link only. The 2014 page has the same extras for Northwestern Russia.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read site-manifest.json (addresses, types, failures), parsed the 2013 and 2014 yearly pages and their links, counted rows of the Moscow 2013 standings table with BeautifulSoup (210 team rows, A-L), opened the finals statement and review PDFs with pdftotext/pdfinfo and listed every Moscow address in the manifest."
+ },
+ {
+  "contest": "ctuo-2026",
+  "n": 1,
+  "rating": "wrong",
+  "claims_checked": 24,
+  "errors": [
+   {
+    "claim": "some accented characters are garbled",
+    "found": "Not in the copy. Every HTML page declares its charset (iso-8859-2 or utf-8) and decodes cleanly: the front page reads 'Žilina and Košice' correctly, team and contestant names on rank.html and submits.html are intact. The garbling exists only in the text digest, which decoded the bytes with the wrong charset.",
+    "severity": "wrong"
+   },
+   {
+    "claim": "Our copy holds 76 files and 23 pages",
+    "found": "71 files are saved; 76 is the number of addresses tried, 5 of which returned 404 (four sponsor logos and an .asx file). 23 pages (15 HTML, 7 PDF, 1 text) is right.",
+    "severity": "minor"
+   },
+   {
+    "claim": "The news page still carries entries from 2024 and 2025 beside the 2026 ones",
+    "found": "The 2024 entries and four of the 2025 entries sit inside an HTML comment and are not displayed. The visible page shows three entries: one dated 22.10.2025 and two dated 2026.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [
+   {
+    "field": "contest_date",
+    "recorded": "2026-10-23",
+    "found": "23 October is registration, opening and practice; the dates page puts the contest itself on Saturday 24 October 2026, 10:00-15:00. Correct only if the field means first day of the event."
+   }
+  ],
+  "style": [],
+  "how_checked": "Read site-manifest.json and counted saved files, decoded all 15 HTML pages with their declared charsets and scanned the non-ASCII characters, read the front, dates, news (source and visible text), technical rules, contest, rank, solved and submits pages."
+ },
+ {
+  "contest": "kharagpur-2012",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 12,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [
+   "'rendered by our own tools' names internal tooling; the page itself only says it was rendered from the icpc.global public API archive."
+  ],
+  "how_checked": "Parsed the table with BeautifulSoup: 40 team rows, citations First to Twentieth Place on ranks 1-20, Honorable Mention on 21-26, 14 rows with 0 solved, no rank and no citation; header line read for ICPC year 2013."
+ },
+ {
+  "contest": "central-america-2000",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 15,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read site-manifest.json (4 saved pages, home-page link offsite), the seed page text and links, the roster page (grouped by contest site, coach and contestants, 'Teams as of 7/5/2002'), the standings page, and pdfinfo on the problems PDF (8 pages)."
+ },
+ {
+  "contest": "brazil-2009",
+  "n": 2,
+  "rating": "minor",
+  "claims_checked": 13,
+  "errors": [
+   {
+    "claim": "It lists 52 teams",
+    "found": "51 teams: the rank column runs 1 to 51 without gaps (15 rows on page 1, 19 on page 2, 17 on page 3) and there are 51 penalty totals in parentheses.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [
+   {
+    "field": "teams",
+    "recorded": 52,
+    "found": 51
+   }
+  ],
+  "style": [],
+  "how_checked": "pdfinfo for the page count, pdftotext -bbox to read the rank column and the parenthesised totals by position on each page, pdftotext -layout for header, columns, the first two rows and a search for any contest name or date."
+ },
+ {
+  "contest": "armenia-2012",
+  "n": 3,
+  "rating": "wrong",
+  "claims_checked": 17,
+  "errors": [
+   {
+    "claim": "Five teams carry an asterisk and no rank",
+    "found": "Five teams carry an asterisk, but each has a rank number in the Rank column: Quantum 7, Physmath 2 8, Yerevan SU reserve 10, Physmath 1 13, Gyumri school team 14. Ranks run 1 to 23 with no blanks.",
+    "severity": "wrong"
+   },
+   {
+    "claim": "Nobody solved problems C and I",
+    "found": "True but incomplete: problem K also has 0 accepted (4 runs, all rejected). C and I are the two problems with no submissions at all.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed every row of the standings table and the five totals rows with BeautifulSoup, read the header block and the script."
+ },
+ {
+  "contest": "lebanon-2015",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 20,
+  "errors": [],
+  "document_field_errors": [
+   {
+    "field": "contest_date",
+    "recorded": "2015-09-18",
+    "found": "The site gives 18-19 September 2015 for the event and says the actual contest took place on Saturday 19 September; the 18th is registration, opening and practice. Correct only if the field means first day of the event."
+   }
+  ],
+  "style": [],
+  "how_checked": "Read site-manifest.json (7 saved pages, style sheets and images 404), the text of all seven pages, counted 22 team blocks with coach and three contestants on the participants page and 22 data rows in the results table."
+ },
+ {
+  "contest": "uzbekistan-2022",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 14,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the standings table with BeautifulSoup: 159 team rows, columns Rank, Team, A-M, =, Time, Qual, five totals rows; read the header (Uzbekistan Regional Contest 2023, 5:00:00 of 5:00:00, status over) and the first row."
+ },
+ {
+  "contest": "kyrgyzstan-2012",
+  "n": 4,
+  "rating": "wrong",
+  "claims_checked": 11,
+  "errors": [
+   {
+    "claim": "the style sheet is not in our copy",
+    "found": "The style sheet is saved with this capture: assets/6a129793e1b0f1a2.css (1534 bytes, the neerc.ifmo.ru standings.css) sits beside standings.html and the capture manifest lists it as the asset for ../../../standings.css. Only the HTML file on its own lacks it. A small matter, but the statement of absence is false.",
+    "severity": "wrong"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [
+   "'Same final scoreboard as the other copy' leans on another description and does not say which copy; there are three other captures of this page."
+  ],
+  "how_checked": "Parsed the table (40 team rows, A-F, =, Time, Rank; first row 3 solved, 246), read the header block, listed the capture directory and its manifest, and compared the table cell by cell with the three other captures of the same page (identical)."
+ },
+ {
+  "contest": "ecna-2004",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 12,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the table with BeautifulSoup: 133 team rows, columns Rank, Team, A-H, Solved, Penalty; checked the first row, that all 14 teams with 0 solved have rank 120, the attempts/-- cell form, and searched the page for any site column or label."
+ }
+]

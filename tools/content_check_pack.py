@@ -37,16 +37,37 @@ def body(p: Path) -> bytes:
     return gzip.decompress(b) if b[:2] == b"\x1f\x8b" else b
 
 
+def decode(raw: bytes) -> tuple[str, str]:
+    """The text of a page and how its encoding was found: the charset the page declares, else
+    UTF-8 when it decodes cleanly, else a guess. (Trying UTF-8, GB18030, CP1251 in turn turned
+    every Latin-1 page with an accent into garbage, which readers then took for a damaged copy.)"""
+    m = re.search(rb"charset\s*=\s*[\"']?\s*([\w.:-]+)", raw[:4096], re.I)
+    if m:
+        try:
+            text = raw.decode(m.group(1).decode("ascii", "replace"), "replace")
+            if text.count("\ufffd") <= len(text) // 200:
+                return text, f"{m.group(1).decode('ascii', 'replace').lower()} (declared by the page)"
+        except LookupError:
+            pass
+    try:
+        return raw.decode("utf-8"), "utf-8"
+    except UnicodeDecodeError:
+        pass
+    try:
+        from charset_normalizer import from_bytes
+        best = from_bytes(raw[:300_000]).best()
+        if best:
+            return raw.decode(best.encoding, "replace"), f"{best.encoding} (guessed: the page declares none)"
+    except ImportError:
+        pass
+    return raw.decode("latin-1"), "latin-1 (assumed: the page declares none)"
+
+
 def html_digest(raw: bytes) -> str:
     from bs4 import BeautifulSoup
-    for enc in ("utf-8", "gb18030", "cp1251", "latin-1"):
-        try:
-            text = raw.decode(enc)
-            break
-        except UnicodeDecodeError:
-            continue
+    text, enc = decode(raw)
     soup = BeautifulSoup(text, "lxml")
-    out = [f"title: {(soup.title.string or '').strip() if soup.title else ''}"]
+    out = [f"title: {(soup.title.string or '').strip() if soup.title else ''}", f"encoding: {enc}"]
     frames = [f.get("src") for f in soup.find_all(["frame", "iframe"]) if f.get("src")]
     if frames:
         out.append(f"frames: {frames[:8]}")
@@ -61,8 +82,9 @@ def html_digest(raw: bytes) -> str:
         rows = t.find_all("tr")
         cells = lambda r: [c.get_text(" ", strip=True)[:40] for c in r.find_all(["th", "td"])][:30]
         width = max((len(r.find_all(["th", "td"])) for r in rows), default=0)
-        out.append(f"table {i + 1}: {len(rows)} rows, up to {width} columns")
-        show = rows[:ROWS_HEAD] + ([None] if len(rows) > ROWS_HEAD + ROWS_TAIL else []) + (rows[-ROWS_TAIL:] if len(rows) > ROWS_HEAD else [])
+        out.append(f"table {i + 1}: {len(rows)} rows ({sum(1 for r in rows if r.find('td'))} with data cells), up to {width} columns")
+        # (rows[:6] + rows[-3:] showed a row twice in a table of 7 to 9 rows)
+        show = rows if len(rows) <= ROWS_HEAD + ROWS_TAIL else rows[:ROWS_HEAD] + [None] + rows[-ROWS_TAIL:]
         for r in show:
             out.append("  ..." if r is None else "  " + " ¦ ".join(cells(r)))
     links = soup.find_all("a", href=True)
@@ -106,7 +128,9 @@ def digest(p: Path) -> str:
         if man.exists():
             m = json.loads(man.read_text())
             pages = [(u, e) for u, e in m["pages"].items() if e.get("ctype", "").startswith(("text/html", "application/pdf", "text/plain"))]
-            out = [f"crawled website: seed {m.get('seeds')}, {len(m['pages'])} files, {len(pages)} pages (html/pdf/text). Pages, as file <- address:"]
+            saved = sum(1 for e in m["pages"].values() if e.get("file") and (p / "files" / e["file"]).exists())
+            out = [f"crawled website: seed {m.get('seeds')}, {len(m['pages'])} addresses fetched, {saved} files saved, "
+                   f"{len(pages)} of the addresses are pages (html/pdf/text). Pages, as file <- address:"]
             out += [f"  files/{e['file']} <- {u} ({e.get('size')} bytes)" for u, e in sorted(pages, key=lambda x: x[1].get("depth", 9))[:60]]
             if len(pages) > 60:
                 out.append(f"  ... and {len(pages) - 60} more (site-manifest.json has them all)")

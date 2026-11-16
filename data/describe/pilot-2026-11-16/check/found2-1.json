@@ -1,0 +1,136 @@
+[
+ {
+  "contest": "wf-1978",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 13,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed EarlyYears.html with BeautifulSoup and read all 21 year entries (1977-1997), the heading, the compile date, the request text and the 1978 entry; listed the capture directory."
+ },
+ {
+  "contest": "india-2016",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 24,
+  "errors": [
+   {
+    "claim": "The post Problems of India-Final 2016 consists of its title only",
+    "found": "The post is titled 'Problems' (5 January 2017) and its body is one line, 'Problems of India-Final 2016', which is a link to http://icpcindiafinal.in/problems.pdf; the PDF is indeed not in the copy, but the post is a link, not a bare title.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read site-manifest.json (72 pages, 72 files), ran file(1) on every asset, extracted text of every HTML page, counted rows of both team tables (25 teams each) and ran pdfinfo/pdftotext on both PDFs (2 pages each; main contest 30 December 2016)."
+ },
+ {
+  "contest": "south-africa-2003",
+  "n": 3,
+  "rating": "minor",
+  "claims_checked": 12,
+  "errors": [
+   {
+    "claim": "Teams with equal results share a rank",
+    "found": "Only the five teams with 0 solved share a rank (43). With the Time column empty, teams showing the same solved count otherwise have distinct ranks (ranks 3, 4, 5 all have 3 solved; ranks 13-42 all have 1 solved), and ranks 6, 25, 26 and 36 do not occur in the list.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html, counted the 43 data rows of the standings table, listed every rank/solved/time cell and the set of institutions."
+ },
+ {
+  "contest": "nwerc-2003",
+  "n": 9,
+  "rating": "accurate",
+  "claims_checked": 8,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html and listed the table header and its 7 problem rows; the statement that A Number Game is the eighth problem is not on this page but was confirmed in the contest's problem set PDF held elsewhere in the archive (H - A number game)."
+ },
+ {
+  "contest": "poland-2004",
+  "n": 5,
+  "rating": "accurate",
+  "claims_checked": 9,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Decoded tresci_zadan.php.html as UTF-8, listed all links (ten PDFs A-J plus the tar.gz), read the header, listed the capture directory, and listed the tar.gz held in the website copy (ten PDFs)."
+ },
+ {
+  "contest": "shenyang-2015",
+  "n": 1,
+  "rating": "wrong",
+  "claims_checked": 22,
+  "errors": [
+   {
+    "claim": "No page in it is about the 2015 Shenyang regional; the older home page only links to a \"2015 ACM-ICPC regional Shenyang Board\" on another server",
+    "found": "The older home page (captures of 27 Nov 2015 and 7 Aug 2016) is itself headed with the 2015 regional board title, carries a menu '2015 ACM-ICPC regional, Shenyang site arrangements' with four sub-items (onsite notes, quota allocation, onsite notice, online-contest notes; those pages, page_id 81/136/150/157/123, are not in the copy), and prints a sidebar list of the 2015 China sites that names the Shenyang site at Northeastern University on 24-25 October. The same sidebar is on other pages of the older layout. So the copy does state the host and dates of the 2015 regional; it is not only a link.",
+    "severity": "wrong"
+   },
+   {
+    "claim": "Our copy holds 150 files, 129 of them pages",
+    "found": "150 files; 128 were served as text/html according to the manifest (the rest: 6 JSON, 5 XML, 4 RSS, 2 PNG, 1 icon, 1 .doc, 1 text, 1 RSD, 1 OpenSearch). Six of the 128 are not real pages (redirect stubs and one-line error messages of 16 to 381 bytes).",
+    "severity": "minor"
+   },
+   {
+    "claim": "a software download directory with one file",
+    "found": "The directory listing page names three files (1466.jpg, 1468.doc, 1471.jpg) and ten subfolders; one of them, 1468.doc, is held in the copy. True of the copy, not of the directory as listed.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read site-manifest.json (150 pages, counted by content type), extracted title and text of every HTML page, listed links of both home-page layouts, searched all files for 2015-regional strings, checked the /soft/ listing, forum thread dates and the problem page ids (1001-1036, all 36 present)."
+ },
+ {
+  "contest": "werc-1994",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 9,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read the whole 693-byte index.html and listed the capture directory (index.html and manifest only)."
+ },
+ {
+  "contest": "beijing-2014",
+  "n": 4,
+  "rating": "minor",
+  "claims_checked": 15,
+  "errors": [
+   {
+    "claim": "ties share a rank",
+    "found": "163 rows carry 105 distinct ranks (1 to 106). 35 ranks are shared, but only one of them (rank 30, two teams with 6 solved, time 895) is a tie; the other 34 are shared by teams with different times, and rank 32 is shared by a team with 6 solved and four teams with 5 solved. Shared ranks in this table are not ties in the results shown.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed standings.html, counted the 163 data rows, tallied the Medal and Citation columns (17/30/57/59; 43 citations), grouped rows by rank, and counted rows and asterisks in the organisers' ranklist held in the scoreboard copy (182 team rows, 19 starred)."
+ },
+ {
+  "contest": "xian-2002",
+  "n": 5,
+  "rating": "accurate",
+  "claims_checked": 11,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html as UTF-8 and listed the table header and all nine rows (numbers 9813-9821, letters A-I, titles, labels, counts), plus the surrounding menu text."
+ },
+ {
+  "contest": "naq-2016",
+  "n": 6,
+  "rating": "accurate",
+  "claims_checked": 10,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html as UTF-8, listed the table header and all twelve rows (13288-13299, A-L, titles, labels including the special-judge label on B and I, counts) and listed the capture directory (style sheets and images only)."
+ }
+]

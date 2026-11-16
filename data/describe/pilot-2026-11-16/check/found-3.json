@@ -1,0 +1,160 @@
+[
+ {
+  "contest": "palestine-2023",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 17,
+  "errors": [
+   {
+    "claim": "110 cells are still pending",
+    "found": "109 team cells carry the Pending class; the 110th element with that class is the legend cell 'Pending judgement' itself",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Gunzipped page.html, parsed the three tables with BeautifulSoup, counted team rows (72), problem columns (A-P), cell classes per element, and read legend, totals row and footer."
+ },
+ {
+  "contest": "nanjing-2019",
+  "n": 4,
+  "rating": "minor",
+  "claims_checked": 10,
+  "errors": [
+   {
+    "claim": "each with ... the number of accepted solutions",
+    "found": "the count column (x1366 etc.) is titled 'Participants solved the problem': it counts participants who solved, not accepted solutions",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html: 11 problem rows A-K with the listed names, all 512 MB, phase 'Finished', 'Statements (en)' link to statements.pdf; assets directory holds only css/js/png, no PDF or statements."
+ },
+ {
+  "contest": "ecna-2011",
+  "n": 2,
+  "rating": "minor",
+  "claims_checked": 11,
+  "errors": [
+   {
+    "claim": "122 teams",
+    "found": "123 team rows with 123 distinct names (94 ranked 1-94, 29 at rank 95)",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [
+   {
+    "field": "teams",
+    "recorded": 122,
+    "found": 123
+   },
+   {
+    "field": "contest_date",
+    "recorded": "2011-10-22",
+    "found": "not stated in the copy; the page gives only the year 2011"
+   }
+  ],
+  "style": [],
+  "how_checked": "Parsed standings.html, counted rows whose first cell is a number, checked header columns, cell formats (N/N, N/--, blank), first row and the rank-95 group, and searched the HTML for any date."
+ },
+ {
+  "contest": "north-russia-2025",
+  "n": 6,
+  "rating": "minor",
+  "claims_checked": 11,
+  "errors": [
+   {
+    "claim": "twelve statements ... each with ... input and output format",
+    "found": "Problem E (Eight-Connected Figures) is interactive: it has an Input section and an 'Interaction Protocol' section, no Output section; the other eleven have Input and Output",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo (13 pages) and pdftotext -layout: counted page headers (13 with contest name, St Petersburg, November 15, 2025), problem headings A-L, limits, Input/Output/Example/Note sections per problem."
+ },
+ {
+  "contest": "south-pacific-1994",
+  "n": 2,
+  "rating": "minor",
+  "claims_checked": 9,
+  "errors": [
+   {
+    "claim": "names ... the Australian champion (University of Melbourne, 5 points, team name unknown) with member names",
+    "found": "for the Australian champion the page says '(Team members not known)' and gives two alternative sets of three names joined by OR; only the New Zealand champion's members are given as known",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html: headings, main text, all links (Download points to regionalresults1994.pdf, not in the copy), zero tables, image and menu link targets."
+ },
+ {
+  "contest": "werc-1992",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 10,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html: breadcrumb 'Root :: Regionals 1992 :: Europe - Northwestern', page date 'Sunday, 17 October 2021', eight problem rows 5570-5577 with the listed titles and four statistics columns, menu and login form; the copy is the single page."
+ },
+ {
+  "contest": "south-africa-2003",
+  "n": 3,
+  "rating": "minor",
+  "claims_checked": 12,
+  "errors": [
+   {
+    "claim": "Teams with equal results share a rank",
+    "found": "only the five teams with 0 solved share a rank (43); teams with the same number solved have separate ranks (3, 4, 5 all with 3 solved; 13-42 all with 1 solved). The description also does not say that rank numbers 6, 25, 26 and 36 are absent from the table, so the 43 rows do not form a complete sequence up to rank 43",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html: 43 data rows, five columns (Rank, Team, Citation, #Solved, Time), Time empty in every row, institutions tallied (Cape Town 13, Pretoria 13, Witwatersrand 10, Rhodes 6, Port Elizabeth 1), rank sequence listed."
+ },
+ {
+  "contest": "lebanon-2015",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 12,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html: one results table of 22 rows with the six named columns, first row Khawarizmi 8/685, last two rows 3 solved, no medal or award markup, menu and footer present, no assets stored."
+ },
+ {
+  "contest": "jinhua-2012",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 14,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read site-manifest.json (150 files: 145 html + robots.txt = 146 pages, plus 1 css, 1 jpg, 1 png, 1 ico) and the home page (menu, three news links, four regional labels, contact block); tallied all page addresses (home twice, CLanguage 132, DataStruct 12) and the dates inside them (2013-2020, apart from six problem-list entries dated 2012-7-13); none of the menu or news targets is in the copy. Small notes, not counted as errors: the Chengdu entry's link target is '#', and the home page was captured in May 2012."
+ },
+ {
+  "contest": "south-africa-2005",
+  "n": 2,
+  "rating": "minor",
+  "claims_checked": 12,
+  "errors": [
+   {
+    "claim": "Teams with equal results share a rank",
+    "found": "teams with the same number solved mostly have separate ranks (2, 3, 4 all with 4 solved; 5-8 with 3 solved); the two teams at rank 25 have different results (2 solved and 1 solved); only the pair at rank 22 and the eleven at rank 38 share a rank with equal solved counts",
+    "severity": "minor"
+   },
+   {
+    "claim": "The first places carry citations giving the overall place and the place within the host site ...; later citations give only the place",
+    "found": "rank 6 among the first places has only 'Sixth Place'; ranks 11, 19 and 20 give only a place within a site ('3rd at UP', '1st at KZN', '2nd at KZN'), not the overall place",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html: 48 data rows, five columns, Time empty in every row, all citations and the rank sequence listed, 11 rows at rank 38 with 0 solved."
+ }
+]

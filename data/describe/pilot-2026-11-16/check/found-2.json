@@ -1,0 +1,147 @@
+[
+ {
+  "contest": "wf-2017",
+  "n": 5,
+  "rating": "minor",
+  "claims_checked": 16,
+  "errors": [
+   {
+    "claim": "a table giving the first team to solve each problem with its time",
+    "found": "the table has 12 problem rows; 11 give a team and a minute, the last (Scenery) reads \"Not solved\" with no team or time",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [
+   {
+    "field": "contest_date",
+    "recorded": "2017-05-24",
+    "found": "the page states no contest date; the only date is the footer \"Last modified on 17:26 PM May 24, 2017\""
+   }
+  ],
+  "style": [],
+  "how_checked": "Parsed all five tables of page.html with BeautifulSoup: medal table 12 rows (gold/silver/bronze row classes), second table 97 rows from place 13 with 7 solved to place 56 with 4, 24 honorable mentions, 6 region champions, 12 first-solve rows."
+ },
+ {
+  "contest": "taiwan-2002",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 10,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed standings.html: 60 team rows with Rank, Team (institution=>team), Citation, #Solved, Time; row 1 ZhongShan University=>Bearcat, 6, 723; compared all rows with the copy of the guan.cse.nsysu.edu.tw page in the same contest folder (identical)."
+ },
+ {
+  "contest": "rmc-2010",
+  "n": 4,
+  "rating": "accurate",
+  "claims_checked": 12,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed standings.html: 52 team rows, six columns, citations First Place to Forty-eighth Place, five teams with 0 solved at rank 48, top three rows and the rendered-from-API note checked against standings.json."
+ },
+ {
+  "contest": "nwerc-2008",
+  "n": 9,
+  "rating": "minor",
+  "claims_checked": 13,
+  "errors": [
+   {
+    "claim": "distances between polygons for White Water Rafting",
+    "found": "the slide is headed \"I - Rafting\"; the words \"White Water\" appear nowhere in the PDF",
+    "severity": "minor"
+   },
+   {
+    "claim": "the figures and diagrams may not extract as text",
+    "found": "the PDF has no figures or diagrams: no embedded images (pdfimages lists none) and each page draws only two filled rectangles and one shared form object (the slide frame and sidebar); all slides are text bullets",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [
+   {
+    "field": "title",
+    "recorded": "Solutions",
+    "found": "cover and PDF metadata read \"NWERC 2008 Solutions to the problems\"; \"Solutions\" alone is the short title in the sidebar"
+   }
+  ],
+  "style": [
+   "second paragraph talks about text extraction of the PDF (an internal processing matter) rather than the document"
+  ],
+  "how_checked": "pdfinfo (21 pages), pdftotext of every page, pdfimages and page content streams; ten problems H I D J A F B C K E, each on two overlay pages, all ten with a Statistics line (K and E with placeholder values)."
+ },
+ {
+  "contest": "acpc-1999",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 14,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [
+   "names an individual (the page maintainer, Sidi Ali Maelainin), who is not the author of a report or editorial; his affiliation is not stated on the page, only implied by the mail address"
+  ],
+  "how_checked": "Read site-manifest.json (3 pages, 7 images fetched, Tour/index.html 404, one image failed), the home page HTML, Standings.html (16 team rows: Rank, Team, Solved, Total time) and Problems.pdf (9 pages, Problem 1 to Problem 7, cover says 7 problems and 9 pages)."
+ },
+ {
+  "contest": "erc-1989",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 11,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html: breadcrumb Root :: Regionals 1989 :: Europe - Northwestern, page date Monday 27 September 2021, four rows 5566-5569 with submissions and user columns; the four titles compared with Problems A-D of the contest problemset.pdf in the same contest folder."
+ },
+ {
+  "contest": "wf-2012",
+  "n": 4,
+  "rating": "minor",
+  "claims_checked": 17,
+  "errors": [
+   {
+    "claim": "\"Monkey Stats\" give solving teams over attempting teams per problem with a percentage",
+    "found": "the denominator is the total number of tries on the problem, not the number of attempting teams: e.g. B shows 110/202 (54%) while only 111 of the 112 teams attempted B and their tries sum to 202 (same for every problem: A 2/51 with 12 attempting teams, E 31/300 with 51)",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the scoreboard table of page.html: 112 team rows ranked 1-112, columns Rk, Team, Slv., Time, A-L, cells as tries + minute or tries + --; recomputed per-problem solved, attempting teams and tries and compared with the Monkey Stats rows; checked legend and the two mirror links."
+ },
+ {
+  "contest": "central-america-2000",
+  "n": 4,
+  "rating": "accurate",
+  "claims_checked": 8,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read the whole 313-byte index.html: heading Central American Regionals 2000, one link Problems.pdf (62 kByte), a Comments mail link, Last update Wed Feb 6 2002; the copy folder holds only index.html and its manifest."
+ },
+ {
+  "contest": "dhaka-2003",
+  "n": 7,
+  "rating": "minor",
+  "claims_checked": 11,
+  "errors": [
+   {
+    "claim": "on the UVa Online Judge (ICPC Live Archive)",
+    "found": "the page is the Online Judge at onlinejudge.org (title \"Online Judge\", category \"ACM-ICPC Dhaka Site Regional Contests :: 2003 - Dhaka\"); ICPC Live Archive is a different site that the page only links to in its main menu (livearchive.onlinejudge.org)",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html: ten rows 12050-12059 with titles, submissions and user columns, login form, menus and sponsor block; problem links point to show_problem pages not among the copy assets (css, js, images only)."
+ },
+ {
+  "contest": "brazil-first-phase-2021",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 15,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the score table of score.html: 1145 rows including the header, 513 rows in the Brasil group ranked 1-513 with 513 distinct logins, columns #, User/Site, Name, A-N, Total, first row [IMPA] Last Chance 9 (1195); 26 further state and region groups in which all 513 teams reappear (395 once, 118 twice); the word final is not on the page itself."
+ }
+]
