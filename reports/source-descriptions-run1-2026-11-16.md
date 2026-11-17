@@ -4,33 +4,32 @@ Run of 2026-11-16, rubric 1 (`tools/describe_rubric.md`). Applied.
 
 | | |
 | --- | --- |
-| contests read | 1,480 |
+| contests read | 1,569 |
 | contests with nothing held | 75 |
-| sources | 7,260 |
-| no copy | 882 |
-| read | 6,378 |
-| first readings | 470 |
-| described | 6,049 |
+| sources | 7,670 |
+| no copy | 928 |
+| read | 6,742 |
+| first readings | 496 |
+| described | 6,402 |
 | description held (low confidence or source gone) | 8 |
-| verdict confirm | 5,785 |
-| verdict correct | 272 |
-| verdict not-the-document | 209 |
-| verdict wrong-contest | 104 |
-| verdict cannot-tell | 8 |
-| disagrees with the earlier reader | 105 |
-| blank date filled | 8 |
-| blank location filled | 3 |
+| verdict confirm | 6,125 |
+| verdict correct | 285 |
+| verdict not-the-document | 218 |
+| verdict wrong-contest | 105 |
+| verdict cannot-tell | 9 |
+| disagrees with the earlier reader | 110 |
+| blank location filled | 11 |
 | contest facts fills-blank | 28 |
-| contest facts conflict | 311 |
-| contest facts same | 274 |
-| contest facts listed | 1,052 |
+| contest facts conflict | 328 |
+| contest facts same | 297 |
+| contest facts listed | 1,116 |
 | words per description | 105 |
 
-Not finished: 913 contests: pacnw-2003, pacnw-2004, pacnw-2005, pacnw-2006, pacnw-2007, pacnw-2008, pacnw-2009, pacnw-2010, pacnw-2011, pacnw-2012, pacnw-2013, pacnw-2014, pacnw-2015, pacnw-2016, pacnw-2017, pacnw-2018, pacnw-2019, pacnw-2020, pacnw-2021, pacnw-2022, pacnw-2023, pacnw-2024, pacnw-2025, pakistan-2014, pakistan-2015, pakistan-2016, pakistan-2017, pakistan-2019, pakistan-2020, pakistan-2021, pakistan-2022, pakistan-2023, pakistan-2024, pakistan-2025, palestine-2013, palestine-2014, palestine-2015, palestine-2016, palestine-2017, palestine-2018.
+Not finished: 824 contests: poland-2013, poland-2014, poland-2015, poland-2016, poland-2017, poland-2019, poland-2022, poland-2023, poland-2024, poland-2025, pyongyang-2016, qatar-2020, qatar-2021, qatar-2022, qatar-2023, qingdao-2017, rmc-1993, rmc-1995, rmc-1996, rmc-1997, rmc-2004, rmc-2005, rmc-2012, rmc-2015, rmc-2016, rmc-2017, rmc-2018, rmc-2019, rmc-2020, rmc-2021, rmc-2022, rmc-2023, rmc-2024, rmc-2025, rmc-2026, romania-2010, romania-2011, romania-2012, romania-2013, romania-2014.
 Results that do not check: 0.
 
 
-## Second reading: 625 sources to look at
+## Second reading: 650 sources to look at
 
 The reader did not confirm the catalogue, or disagrees with the content check of 2026-11-14. Nothing here was applied.
 
@@ -661,8 +660,33 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | oman-southern-2025 | https://mtcit.gov.om/media-4/news-announcements-11/news-85/oman-progra | web | wrong-contest (high) | wrong-contest | Ministry news item of 10 April 2025 on the national Oman Collegiate Programming Contest 2025 final (65 teams, regional preliminaries in Sohar, Nizwa and Muscat); no Southern sub-region contest is mentioned. |
 | pacnw-1999 | http://www.acmicpc-pacnw.org/Standings/1998/98Results.htm | scoreboard | wrong-contest (high) | wrong-contest | The standings page is headed 'Saturday November 14, 1998' and 'Final Standings' with 57 team rows, which is the 1998 contest. |
 | pacnw-1999 | http://icpc.baylor.edu/past/icpc2000/regionals/PacNW99/Problems.html | problemset | correct → scoreboard (high) | same-as | The page is the same PC^2 'Contest Reports/Stats' report as source 2, with one added menu link, Download Problems. |
+| pacnw-2004 | https://open.kattis.com/problem-sources/Pacific%20Northwest%20Regional | problemset | not-the-document (high) | not-the-document | Kattis problem-sources page for Pacific Northwest Regional Contest 2004 shows an empty list with 'No data found'. |
+| pacnw-2008 | http://www.acmicpc-pacnw.org/ProblemSet/2008/runs%20report.txt | scoreboard | correct → no role (medium) | cannot-tell | Text file of 752 run lines (team, problem, language, judgement) with no table of teams, problems solved or times. |
+| pacnw-2014 | http://www.acmicpc-pacnw.org/results.htm | web+standings | correct → no role (high) | correct →  | Results index of the series site listing editions from 2025 back to 1994, with a 2014 entry that only links to the standings, problem set and solutions. |
+| pacnw-2015 | http://www.acmicpc-pacnw.org/results.htm | web+standings | correct → web (medium) | correct →  | The earlier reader gave no roles; I read the page as the series website's results index, which has an entry and links for this edition. |
+| pacnw-2016 | http://www.acmicpc-pacnw.org/results.htm | web+standings | correct → web (medium) | correct →  | The earlier reader gave no roles; I read the page as the series website's results index, which has an entry and links for this edition. |
+| pacnw-2017 | http://www.acmicpc-pacnw.org/results.htm | web+standings | correct → web (high) | correct → web | The page is the series site's Results index, a list of years from 2025 back to 1994 with links per year, not a standings table. |
+| pacnw-2018 | http://www.acmicpc-pacnw.org/results.htm | web+standings | correct → web (high) | correct → web | The page is the series site's Results index, a list of years from 2025 back to 1994 with links per year, not a standings table. |
+| pacnw-2019 | http://www.acmicpc-pacnw.org/results.htm | web+standings | correct → web (medium) | correct → web | The page is the Results index of the Pacific Northwest regional's series site, listing result and problem links for editions from 1994 to 2025, with no standings table of its own. |
+| pacnw-2024 | http://acmicpc-pacnw.org/ProblemSet/2024/problems-D1_all.pdf | problemset | cannot-tell (low) | cannot-tell | The copy is a PDF cut off at 1,048,576 bytes without startxref or trailer; poppler, qpdf and Ghostscript read no page and no text. |
+| pacnw-2025 | http://acmicpc-pacnw.org/results.htm | standings | correct → web (medium) | correct →  | The earlier reader gave it no role as a series index page; it is a page of the contest organisers' own site that covers this edition, so I give it the role web. |
+| pakistan-2016 | https://sites.google.com/site/icpclahore/ | web+standings | not-the-document (high) | not-the-document | The page is titled 'Google Drive: Sign-in' and holds only a Google sign-in form. |
+| pakistan-2023 | https://www.giki.edu.pk/icpc | web+standings | wrong-contest (high) | wrong-contest | The page announces the 2026 ICPC Asia Topi Online Preliminary Programming Contest (24-25 October 2026, registration 23 August to 30 September 2026) and holds no 2023 results. |
+| palestine-2014 | https://staff.ppu.edu/mousa/pcpc-palestinian-collegiate-programming-co | web | not-the-document (medium) | not-the-document | The 150 files are Facebook front pages from 2007 and staff profile pages of Palestine Polytechnic University, and none of them contains the words Collegiate or PCPC. |
+| palestine-2018 | https://staff.ppu.edu/mousa/pcpc-palestinian-collegiate-programming-co | web | not-the-document (high) | not-the-document | The 149 saved pages are Facebook front pages and staff pages of Palestine Polytechnic University, and none of them contains the words Collegiate, PCPC or ICPC. |
+| philippines-national-2014 | https://www.gmanetwork.com/news/cbb/content/382688/ateneo-dominates-ac | rankings | correct → report+rankings (high) | none | The page is a GMA News Online article published October 8, 2014 naming the 2014 Philippine National Programming Competition and the places of four teams. |
+| philippines-national-2014 | https://theguidon.com/2014/11/progvar-teams-nab-top-spots-national-com | rankings | correct → report+rankings (high) | none | The page is a The GUIDON article published November 11, 2014 on the ACM-ICPC national contest held at the Ateneo de Naga University on September 6, giving the top five places except third. |
+| poland-2003 | https://www.mimuw.edu.pl/pl/osiagniecia/edycja/81/ | web | not-the-document (high) | not-the-document | The copy is a crawl of the University of Warsaw faculty site (mimuw.edu.pl) whose seed is an unrelated 2022 news item and which holds no page about the 2003 contest. |
+| poland-2009 | http://amppz.wmi.amu.edu.pl/ | web | confirm (medium) | wrong-contest | The earlier reader judged the site to be of another edition because its root now serves 2010, but our copy also holds the pages of the 2009 edition under /2009/ and a 2009 statistics page. |
+| poland-2011 | http://amppz.mimuw.edu.pl/?subpage=wyniki | standings | not-the-document (high) | not-the-document | The copy is a 949-byte page titled MIMUW that lists mail and mailing-list services of a university machine and holds no contest content. |
+| poland-2018 | http://www.amppz.ii.uni.wroc.pl/ranking2018/ranking.html | standings | correct → scoreboard (high) | confirm | The table has 51 team rows with columns A to M holding cells such as 'AC 122' +0' and 'WA 299' (7)'. |
+| poland-2021 | http://amppz.tcs.uj.edu.pl/2021/index.html | web+rankings | correct → web+standings (high) | correct → web+rankings | The earlier reader gave the roles web and rankings, but the 12-row medal table gives problems solved and time per team, which makes it partial standings. |
+| qingdao-2016 | http://acm.upc.edu.cn | web+standings | not-the-document (high) | not-the-document | The copy is a 109-character login page of the i上编程 site (HUSTOJ) with no contest content. |
+| qingdao-2018 | http://acm.upc.edu.cn | web+standings | not-the-document (high) | not-the-document | The copy is a login page of the i上编程 site (HUSTOJ) with 109 characters of text and no contest content. |
+| qingdao-2018 | https://open.kattis.com/problem-sources/The%202018%20ICPC%20Asia%20Qin | problemset | not-the-document (high) | not-the-document | The Kattis problem-sources page shows 'No data found' and lists no problems. |
+| rmc-1991 | https://groups.google.com/g/comp.org.acm/c/zfXteOBye3k | rankings+report | correct → report (high) | none | Google Groups page of two comp.org.acm posts dated Nov 12 and 13, 1991 arguing about the 1991 Mountain Region Contest, with no team results or ranking in the text. |
 
-## Contest facts: 339 that fill a blank or differ
+## Contest facts: 356 that fill a blank or differ
 
 | contest | fact | document says | catalogue | confidence | applied | where it is stated |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -977,6 +1001,23 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | oman-2023 | location | Sultan Qaboos University | Oman | high | no | The news item says the contest was held at Sultan Qaboos University. |
 | oman-2025 | date | 2025-04-09 | 2025-04-10 | medium | no | The blog post says the actual competition is on April 9, 2025 after a practice contest on April 8; the ministry news item is dated 10 April 2025. |
 | oman-2025 | location | Sultan Qaboos University | oman; Oman | medium | no | The blog post says the final round is held at Sultan Qaboos University. |
+| pacnw-2003 | location | CSU Fresno, Fresno CA; Portland State University, Portland O | CSU-Fresno; Portland State University | high | no | The home page lists the sites SOUTH CSU Fresno, NORTH Portland State University and HAWAII BYU Hawaii in Laie. |
+| pacnw-2012 | date | 2012-11-03 | 2012-11-04 | high | no | The cover of the statements PDF reads 'November 3rd, 2012'. |
+| pacnw-2013 | date | 2013-11-02 | 2013-11-03 | high | no | The cover of the statements PDF reads 'November 2nd, 2013'. |
+| philippines-national-2014 | location | Ateneo de Naga University | (sites) | high | no | the article says the contest was held at the Ateneo de Naga University on September 6. |
+| philippines-national-2015 | date | 2015-10-19 | 2015-09-05 | medium | no | The post lists the onsite final round of the National Programming Contest for Monday, 19 October 2015; 5 September 2015 is given there for the Visayas invitatio |
+| philippines-national-2015 | location | University of St. Louis, Tuguegarao City, Cagayan Province | (sites) | medium | no | The post names it as venue/host of the onsite final round. |
+| poland-2003 | date | 2003-10-24 | 2003-10-25 | medium | no | The heading gives the contest as 24-25 października 2003 (24-25 October 2003). |
+| poland-2004 | location | Kraków | Instytut Informatyki, Uniwersytet Jagielloński, Kr | high | no | The site heading reads Kraków, 22-23 października 2004 r. |
+| poland-2008 | location | Poznań | (sites) | high | no | the report says the championship was held in Poznań |
+| poland-2009 | location | Faculty of Mathematics and Computer Science, Adam Mickiewicz | Administrative Site Location; Amam Mickiewicz Univ | high | no | the 2009 announcement says the contest takes place at that faculty in Poznań |
+| poland-2010 | location | Faculty of Mathematics and Informatics, Adam Mickiewicz Univ | Administrative Site Location; Amam Mickiewicz Univ | high | no | The front page says the contest takes place at the Faculty of Mathematics and Informatics of Adam Mickiewicz University in Poznan. |
+| poland-2011 | date | 2011-10-30 | 2011-10-31 | high | no | The report and the solution slides give 30 October 2011 as the contest day; the programme page puts registration on 28 October, the practice session on 29 Octob |
+| poland-2011 | location | Faculty of Management, University of Warsaw, Warsaw | Administrative Site Location | high | no | The venue page names the Faculty of Management of the University of Warsaw, Szturmowa 1/3, Warsaw, as the place of the contest. |
+| poland-2012 | location | Faculty of Management, University of Warsaw | Administrative Site Location | high | no | the report says the contest took place at the Wydział Zarządzania Uniwersytetu Warszawskiego |
+| poland-2018 | date | 2018-10-26 | 2018-10-27 | medium | no | The running header of the problem set reads 'Wrocław, 26–27 October 2018'. |
+| poland-2018 | location | Wrocław | Administrative Site Location | high | no | The running header of the problem set reads 'Wrocław, 26–27 October 2018'. |
+| poland-2021 | location | Jagiellonian University, Kraków | Administrative Site Location | high | no | the page header reads Kraków, 6-7 listopada 2021 and it says the host is the Jagiellonian University in Kraków. |
 | alberta-2006 | location | University of Alberta, University of Calgary and University  | — | medium | no | the problem index says the contest is a joint effort of the three universities. |
 | bapc-prelims-2025 | date | 2025-09-20 | — | medium | no | The preliminaries page lists the local contests under the dates 20 September, 26 September and 27 September 2025 and says they run between the 20th and 28th. |
 | brazil-first-phase-1996 | location | DCC-UFMG, Belo Horizonte | — | medium | no | The history page says the first Maratona was organised at the Federal University of Minas Gerais, under the heading Belo Horizonte. |
@@ -992,16 +1033,16 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | greece-2024 | date | 2024-10-18 | — | medium | no | The Greek registration page states 'Ημερομηνία Διεξαγωγής: 18-19 Οκτωβρίου 2024'. |
 | neerc-1997 | location | St.Petersburg-Barnaul | — | medium | no | The problem list page is headed St.Petersburg-Barnaul, 26 Nov 1997. |
 | north-russia-2007 | location | St Petersburg | — | medium | no | the PDF header gives 'St Petersburg' as the place, without naming the host institution |
-| norway-2000 | location | Universitetet i Bergen, Universitetet i Oslo, Høyskolen i St | — | high | yes | The front page lists these four sites with a contact person each. |
-| norway-2001 | location | Høgskolen i Molde, Høyskolen i Stavanger, Høgskolen i Sør-Tr | — | high | yes | The front page lists these seven sites, each with a contact person. |
-| nwerc-1997 | location | Delft University of Technology, Delft | — | high | yes | The outline page says the contest is held at the faculty of computer science of the Delft University of Technology in the Netherlands on 22 and 23 November 1997 |
-| nwerc-2005 | date | 2005-11-13 | — | high | yes | The schedule page gives Sunday 13 November 2005 as the contest day (10.00-15.00); the site announces 11-13 November. |
-| nzpc-1998 | date | 1998-10-10 | — | high | yes | Every page header of the problem set reads 'NZ programming Contest 10/10/98'. |
 | nzpc-2000 | date | 2000-08-05 | — | medium | no | The results text says the contest was held 'Aug 5th' and its title names the 2000 contest. |
-| nzpc-2005 | date | 2005-08-13 | — | high | yes | the running header of every page reads 'New Zealand Programming Contest 2005 13 August 2005' |
-| nzpc-2006 | date | 2006-08-05 | — | high | yes | the page header reads 'New Zealand Programming Contest 2006 5 August 2006' |
 | nzpc-2023 | date | 2023-08-19 | — | medium | no | The results page says the contest was held on Saturday 19th August, under a 2023 heading. |
-| pacnw-1994 | date | 1994-11-19 | — | high | yes | The page states 'Contest date: November 19, 1994'. |
-| pacnw-1995 | date | 1995-11-18 | — | high | yes | The page states 'Contest date: November 18, 1995'. |
-| pacnw-1996 | date | 1996-11-23 | — | high | yes | The page states 'Contest date: November 23, 1996'. |
-| pacnw-1997 | date | 1997-11-15 | — | high | yes | The results page is headed 'Nov 15, 1997'. |
+| poland-1996 | location | Instytut Informatyki, Politechnika Poznanska, Poznan | — | high | yes | The progress page says the contest is held at the Institute of Computer Science of Poznan University of Technology. |
+| poland-1997 | location | Politechnika Wrocławska, Wrocław | — | high | yes | The rules say the contest is held at the Faculty Computer Science Department of Wrocław University of Technology, Wrocław. |
+| poland-1998 | location | Instytut Informatyki, Uniwersytet Warszawski, Warszawa | — | high | yes | The introduction says the contest is held at the Institute of Informatics of the Faculty of Mathematics, Informatics and Mechanics of the University of Warsaw. |
+| poland-1999 | location | Warszawa, Wydział Matematyki, Informatyki i Mechaniki, Unive | — | high | yes | The details page says the contest is held in the computer laboratory of the faculty at ul. Banacha 2; the heading says Warszawa. |
+| poland-2000 | location | Warszawa, Wydział Matematyki, Informatyki i Mechaniki, Unive | — | high | yes | The details page says the contest is held in the computer laboratory of the faculty at ul. Banacha 2. |
+| poland-2001 | location | Wrocław, Instytut Informatyki, University of Wrocław, ul. Pr | — | high | yes | The programme page says the contest is held at the Institute of Informatics, ul. Przesmyckiego 20; the directions page says University of Wrocław. |
+| poland-2002 | location | Wrocław, Instytut Informatyki, University of Wrocław, ul. Pr | — | high | yes | The programme page says the contest is held at the Institute of Informatics, ul. Przesmyckiego 20; the heading says Wrocław. |
+| poland-2003 | location | Wrocław | — | high | yes | The heading reads Wrocław, 24-25 października 2003 r. |
+| poland-2005 | location | Kraków | — | high | yes | The site heading reads Kraków, 28-29 października 2005 r. |
+| poland-2006 | location | Jagiellonian University, Kraków | — | high | yes | the site header reads 'Kraków, 3-4 listopada 2006 r.' and the organiser is the Faculty of Mathematics and Computer Science of Jagiellonian University |
+| poland-2007 | location | Poznań | — | high | yes | the report says the championship was held in Poznań on 26-27 October 2007 |
