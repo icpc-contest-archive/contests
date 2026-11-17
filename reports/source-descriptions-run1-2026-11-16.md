@@ -4,33 +4,32 @@ Run of 2026-11-16, rubric 1 (`tools/describe_rubric.md`). Applied.
 
 | | |
 | --- | --- |
-| contests read | 1,142 |
+| contests read | 1,255 |
 | contests with nothing held | 75 |
-| sources | 5,398 |
-| no copy | 663 |
-| read | 4,735 |
-| first readings | 367 |
-| described | 4,473 |
-| description held (low confidence or source gone) | 5 |
-| verdict confirm | 4,259 |
-| verdict correct | 219 |
-| verdict not-the-document | 161 |
-| verdict wrong-contest | 88 |
+| sources | 6,074 |
+| no copy | 757 |
+| read | 5,317 |
+| first readings | 386 |
+| described | 5,017 |
+| description held (low confidence or source gone) | 6 |
+| verdict confirm | 4,792 |
+| verdict correct | 231 |
+| verdict not-the-document | 190 |
+| verdict wrong-contest | 96 |
 | verdict cannot-tell | 8 |
-| disagrees with the earlier reader | 95 |
-| blank date filled | 3 |
-| blank location filled | 1 |
-| contest facts fills-blank | 17 |
-| contest facts conflict | 255 |
-| contest facts same | 176 |
-| contest facts listed | 783 |
-| words per description | 107 |
+| disagrees with the earlier reader | 100 |
+| blank date filled | 1 |
+| contest facts fills-blank | 15 |
+| contest facts conflict | 280 |
+| contest facts same | 215 |
+| contest facts listed | 885 |
+| words per description | 106 |
 
-Not finished: 1251 contests: moscow-2012, moscow-2013, moscow-2014, moscow-2015, moscow-2016, moscow-2017, moscow-2018, moscow-2019, moscow-2020, moscow-2021, moscow-2022, moscow-2023, moscow-2024, moscow-2025, moscow-2026, mudanjiang-2014, myanmar-mcpc-2017, myanmar-mcpc-2018, myanmar-mcpc-2019, nac-2020, nac-2021, nac-2022, nac-2023, nac-2024, nac-2025, nac-2026, nadc-2021, nanchang-2019, nanjing-2007, nanjing-2013, nanjing-2018, nanjing-2020, nanjing-2021, nanjing-2022, nanjing-2023, nanjing-2024, nanjing-2025, nanjing-2026, nanning-2017, naq-2012.
+Not finished: 1138 contests: nena-2002, nena-2003, nena-2004, nena-2005, nena-2006, nena-2007, nena-2008, nena-2009, nena-2010, nena-2011, nena-2012, nena-2013, nena-2014, nena-2015, nena-2016, nena-2017, nena-2018, nena-2019, nena-2020, nena-2021, nena-2022, nena-2023, nena-2024, nena-2025, nena-2026, nena-atlantic-2008, nena-atlantic-2009, nena-atlantic-2010, nena-atlantic-2011, nena-atlantic-2012, nena-atlantic-2013, nena-atlantic-2014, nena-atlantic-2015, nena-atlantic-2016, nena-atlantic-2017, nena-atlantic-2018, nena-atlantic-2019, nena-central-2008, nena-central-2009, nena-central-2010.
 Results that do not check: 0.
 
 
-## Second reading: 504 sources to look at
+## Second reading: 554 sources to look at
 
 The reader did not confirm the catalogue, or disagrees with the content check of 2026-11-14. Nothing here was applied.
 
@@ -540,8 +539,58 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | morocco-2018 | https://ensias.um5.ac.ma/page/nos-%C3%A9l%C3%A8ves-se-distinguent-une- | web | correct → report (high) | wrong-contest | The earlier reader gave no roles (not a source), while the page is a school news item about this contest's 2018 edition with an account of one team's result, so I read it as a report. |
 | morocco-2021 | https://github.com/CODE-BR3AKER/MCPC2021/blob/HEAD/problems/MCPC'21%20 | problemset | not-the-document (high) | not-the-document | The page is GitHub's file viewer for 'MCPC'21 Contest.pdf (2.74 MB) with only the text 'Loading' and 'Viewer requires iframe', and no PDF is saved with it. |
 | morocco-2023 | https://www.uir.ac.ma/en/actualite/mcpc-programming-competition | web | not-the-document (high) | correct →  | The crawl holds 150 files of the Université Internationale de Rabat website (seed an IHECS Afrique news page of the 2023-2024 school year, home pages, news items) and none of them mentions MCPC, the Moroccan Collegiate P |
+| nanjing-2013 | http://icpc.njust.edu.cn/regional | web | correct → no role (medium) | confirm | The earlier reader kept the role web with low confidence and a not-own-site flag; I find nothing in the copy about the November 2013 regional itself, so the site is not a source of this contest. |
+| nanjing-2020 | https://open.kattis.com/problem-sources/2020-2021%20ACM-ICPC%2C%20Asia | problemset | not-the-document (high) | not-the-document | Kattis problem-sources page for the contest with an empty list reading No data found. |
+| nanjing-2020 | https://ac.nowcoder.com/acm/contest/10272 | problemset | not-the-document (high) | not-the-document | NowCoder site shell with a loading notice, login links and footer, and no contest content. |
+| nanjing-2021 | https://open.kattis.com/problem-sources/The%202021%20ICPC%20Asia%20Nan | problemset | not-the-document (high) | not-the-document | Kattis problem-sources page with an empty list reading No data found. |
+| nanjing-2025 | https://codeforces.com/gym/106084/standings | scoreboard | wrong-contest (high) | wrong-contest | Codeforces gym page titled '2025 ICPC Asia Taiwan Online Programming Contest' with problems A to L and National Taiwan University teams on top; the word Nanjing does not occur in it. |
+| nanjing-2026 | https://board.xcpcio.com/icpc/51st/nanjing | scoreboard | not-the-document (high) | none | The page is an empty application shell: a title, meta tags and script files, an empty app element and only a noscript line asking to enable JavaScript, with no scoreboard. |
+| nanjing-2026 | https://board.xcpcio.com/data/icpc/51st/nanjing/config.json | scoreboard | correct → no role (medium) | none | The file holds only contest settings (name, times, problem labels, medal counts) and no team or result rows. |
+| nanjing-2026 | https://board.xcpcio.com/data/icpc/51st/nanjing/organizations.json | teams | correct → no role (medium) | none | The file is a lookup list of 198 institution ids and names, not a list of teams. |
+| nanning-2017 | http://acm.gxu.edu.cn | web+standings | correct → web (medium) | not-the-document | The earlier reader took the copy for an empty Vue app shell, but the seed page of our copy is a full ranklist of this contest and 14 other pages are 2017 contest pages; the root-page captures of 2018 to 2024 are domain-p |
+| naq-2014 | https://naq14.kattis.com/standings | scoreboard | not-the-document (medium) | not-the-document | Kattis standings page for North America Qualifier 2014 holds only the contest header and a list of institution names; no team rows, and the page says no teams have registered yet. |
+| naq-2016 | https://naq16.kattis.com/standings | scoreboard | not-the-document (high) | not-the-document | The Kattis standings page lists affiliations in a filter and says 'No teams have registered yet', with no standings table. |
+| naq-2021 | https://naq21.kattis.com/standings | standings | correct → scoreboard (high) | correct → scoreboard | Kattis naq21 standings page with columns Team, Slv., Time and A to N, filtered to Academy of Public Administration (Azerbaijan), one row. |
+| naq-2023 | https://naq23.kattis.com/contests/naq23-fall/problems | problemset | not-the-document (high) | not-the-document | The Kattis problems page of the contest says 'No problems available.' and holds only the contest header. |
+| ncna-1993 | https://www.oocities.org/siliconvalley/park/7588/programcontest.html | web | not-the-document (high) | not-the-document | The saved site holds 150 pages, all from one personal problem-archive host, and none from the page address given for this source. |
+| ncna-1993 | http://www.karrels.org/Ed/ACM/ | web | correct → no role (high) | correct →  | Index page titled 'Ed's Programming Contest Problem Archive', marked 'Not an official ACM page', linking problem sets of many contests and years. |
+| ncna-1994 | https://open.kattis.com/problem-sources/ACM%20North%20Central%20Progra | problemset | not-the-document (high) | not-the-document | The Kattis problem-sources page for this contest shows No data found and an empty problem table. |
+| ncna-1995 | https://open.kattis.com/problem-sources/ACM%20North%20Central%20Region | problemset | not-the-document (high) | not-the-document | The Kattis problem-sources page for this contest shows No data found and an empty problem table. |
+| ncna-1997 | https://open.kattis.com/problem-sources/North%20Central%20Regionals%20 | problemset | not-the-document (high) | not-the-document | The Kattis problem-sources page for this contest shows No data found and an empty problem table. |
+| ncna-2000 | http://cs.unomaha.edu/acmregn/index.html | web | wrong-contest (high) | wrong-contest | The seed page announces the regional contest of Saturday, October 31, 2009 and links its results and problem statements; no page of the crawl is about the 2000 contest. |
+| ncna-2000 | http://cs.unomaha.edu/acmregn/ | web | wrong-contest (high) | not-the-document | The earlier reader found a department homepage; this copy is the 2007 contest announcement page of the regional (belongs to ncna-2007), so it is a wrong-contest page, not a homepage. |
+| ncna-2000 | http://cs.unomaha.edu/~acmregn/rankorder.html | scoreboard | not-the-document (high) | not-the-document | Page titled 'Department of Computer Science / University of Nebraska at Omaha', a current department homepage with no contest content. |
+| ncna-2003 | http://cs.unomaha.edu/~acmregn/rankorder.html | scoreboard | not-the-document (high) | not-the-document | The copy is the current homepage of the Department of Computer Science of the University of Nebraska at Omaha, with menus, grant news and contact details, and no ranking table. |
+| ncna-2004 | http://cs.unomaha.edu/~acmregn/rankorder.html | scoreboard | not-the-document (high) | not-the-document | The copy is the current homepage of the Department of Computer Science of the University of Nebraska at Omaha, with no rank order or contest content. |
+| ncna-2005 | http://csalpha.ist.unomaha.edu/~acmregn/contst06/stand06.html | standings | correct → problemset (medium) | correct → problemset | The page holds only a link to the official standings and links to Problem 1 to Problem 9 as PDF files, with no results of its own. |
+| ncna-2007 | http://cs.unomaha.edu/~acmregn/rankorder.html | scoreboard | not-the-document (high) | not-the-document | The copy is the current homepage of the Department of Computer Science of the University of Nebraska at Omaha, with no contest content. |
+| ncna-2007 | http://cs.unomaha.edu/acmregn/standings2007.html | standings | not-the-document (high) | not-the-document | The copy is the current homepage of the Department of Computer Science of the University of Nebraska at Omaha, with no contest content. Same file as source 2. |
+| ncna-2008 | http://cs.unomaha.edu/~acmregn/reports/20081115/Standings.html | scoreboard+standings | not-the-document (high) | not-the-document | The copy is the current homepage of the Department of Computer Science of the University of Nebraska at Omaha, with no contest content. |
+| ncna-2008 | http://cs.unomaha.edu/~acmregn/rankorder.html | scoreboard | not-the-document (high) | not-the-document | The copy is the current homepage of the Department of Computer Science of the University of Nebraska at Omaha, with no contest content. |
+| ncna-2009 | http://cs.unomaha.edu/~acmregn/rankorder.html | scoreboard | not-the-document (high) | not-the-document | The copy is the current University of Nebraska at Omaha Department of Computer Science homepage, with no results. |
+| ncna-2009 | http://cs.unomaha.edu/~acmregn/problems/problems.html | problemset | not-the-document (high) | none | The copy is the current University of Nebraska at Omaha Department of Computer Science homepage, with no problems. |
+| ncna-2010 | http://cs.unomaha.edu/~acmregn/rankorder.html | scoreboard+standings | not-the-document (high) | not-the-document | The copy is the current University of Nebraska at Omaha Department of Computer Science homepage, with no results or problems. |
+| ncna-2010 | http://cs.unomaha.edu/acmregn/problems10/problems.html | problemset | not-the-document (high) | not-the-document | The copy is the current University of Nebraska at Omaha Department of Computer Science homepage, with no results or problems. |
+| ncna-2011 | http://cs.unomaha.edu/~acmregn/reports/20111112/Standings.html | scoreboard+standings | not-the-document (high) | not-the-document | The copy is the current University of Nebraska at Omaha Department of Computer Science homepage, with no results. |
+| ncna-2011 | http://cs.unomaha.edu/~acmregn/rankorder.html | scoreboard | not-the-document (high) | not-the-document | The copy is the current University of Nebraska at Omaha Department of Computer Science homepage, with no results. |
+| ncna-2015 | https://open.kattis.com/problem-sources/2015%20ACM%20North%20Central%2 | problemset | not-the-document (high) | not-the-document | The Kattis problem-sources page for the 2015 contest shows the filter bar and No data found, with no problems listed. |
+| ncna-2026 | https://open.kattis.com/problem-sources/ICPC%20NCNA%20Regionals%202026 | problemset | not-the-document (high) | not-the-document | Kattis problem-source page 'Problems from ICPC NCNA Regionals 2026 2026' shows 'No data found' with an empty problem list. |
+| ncna-2026 | https://open.kattis.com/problem-sources/North%20Central%20Regional%20P | problemset | not-the-document (high) | not-the-document | Kattis problem-source page 'Problems from North Central Regional Programming Contest 2026' shows 'No data found' with an empty problem list. |
+| neerc-1996 | https://open.kattis.com/problem-sources/North%20Eastern%20European%20R | problemset | not-the-document (high) | not-the-document | Kattis problem-source page for North Eastern European Regionals 1996 shows 'No data found' with an empty problem list. |
+| neerc-2001 | http://neerc.ifmo.ru/ | web | not-the-document (high) | correct →  | The page is a bare frameset titled 'NEERC home page' whose three frames (header, Information/index.shtml, footer) are not in the copy, so it holds no text. |
+| neerc-2001 | http://neerc.ifmo.ru/Regional/results.html | standings | correct → scoreboard (high) | confirm | Final Standings of November 28, 2001: 99 team rows with an A to H cell per team (+/- and wrong tries), a solved count, time and rank. |
+| neerc-2002 | http://icpc.baylor.edu/past/icpc2003/regionals/Reports/neerc.ifmo.ru/R | standings | correct → scoreboard (high) | confirm | Table of 116 team rows with ID, Team, A to I, =, Time, Rank under the heading ACM ICPC 2002-2003 NEERC, status over. |
+| neerc-2005 | http://neerc.ifmo.ru/regional/standings/standings-with-time.html | standings | wrong-contest (high) | wrong-contest | The page is headed 'ACM ICPC 2011-2012, NEERC' with problems A to L, so it is the standings of the 2011 edition (neerc-2011), not of 2005. |
+| neerc-2006 | http://neerc.ifmo.ru/regional/standings/standings-with-time.html | standings | wrong-contest (high) | wrong-contest | The page is headed 'ACM ICPC 2011-2012, NEERC' with problems A to L, so it is the standings of the 2011 edition (neerc-2011), not of 2006. |
+| neerc-2007 | http://neerc.ifmo.ru/information/standings.html | standings | wrong-contest (high) | wrong-contest | The page is headed 'ACM ICPC 2016-2017, Northeastern European Regional Contest' and has 13 problem columns A to M. It belongs to neerc-2016. |
+| nena-1997 | http://cs.wsc.ma.edu/acm/results.html | scoreboard | wrong-contest (high) | wrong-contest | The page is titled Championship Round Results (1998-9) and ends with Last updated October 26, 1998, which fits the 1998 edition (nena-1998), not 1997. |
+| nena-1998 | https://www.cs.rit.edu/~icpc/questions/RIT_1998.pdf | problemset | correct → no role (medium) | correct →  | The PDF holds six problems (Where are we?, Who is on first?, Y2K, Bits and bits and bits and ..., Back to BASIC?, In, Out, or on the Edge?) that are not the six of the regional final's set, and it names no contest. |
+| nena-1999 | https://www.cs.rit.edu/~icpc/questions/RIT_1999.pdf | problemset | wrong-contest (high) | wrong-contest | The PDF has six problems, The Return of the Roman Empire to Pentominos, whose text matches the 1998 regional set (nena-1998) and none of the seven 1999 problems from Cubism to Cell growth. |
+| nena-2000 | http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.a | standings+rankings | correct → rankings (high) | correct → rankings | Table columns are only Rank, Team and Citation (First Place, Second Place, Honorable Mention), with no solved counts or times. |
+| nena-2000 | https://www.cs.rit.edu/~icpc/questions/RIT_2000.pdf | problemset | confirm (medium) | correct →  | The earlier reader found no regional problem in it and gave no roles; it has seven problems, matching the seven columns of the Rochester Institute of Technology preliminary scoreboard, so I take it as that site's problem |
+| nena-2001 | http://icpc.baylor.edu/past/icpc2002/regionals/ViewRegionalStandings.a | standings+rankings | correct → rankings (high) | correct → standings | The earlier reader gave the role standings; the page has only Rank, Team and Citation with no solved counts or times, so it is a rankings page. |
 
-## Contest facts: 272 that fill a blank or differ
+## Contest facts: 295 that fill a blank or differ
 
 | contest | fact | document says | catalogue | confidence | applied | where it is stated |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -800,6 +849,31 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | mexico-2025 | date | 2025-11-08 | 2025-11-07 | medium | no | the cover of the shared Latin American problem set reads November 08, 2025; no Mexico-specific document in our copy gives a day |
 | mexico-2026 | location | Escuela Superior de Cómputo (ESCOM), Instituto Politécnico N | (sites) | high | no | The home page says the 2026 Regional is held at ESCOM of the IPN in Mexico City. |
 | moscow-2008 | location | Moscow State University, Moscow | Moscow | high | no | The programme page gives Moscow, MSU, 25-26 October 2008. |
+| moscow-2015 | location | Moscow State University, Moscow Institute of Physics and Tec | Administrative Site Location; Moscow | medium | no | The gym page says the contest was hosted by these three institutions. |
+| moscow-2017 | location | Moscow Institute of Physics and Technology (Dolgoprudny) and | Administrative Site Location; Moscow | medium | no | The home page says the second stage takes place at Dolgoprudny (MIPT) and Moscow (MSU) on 22.10.2017. |
+| moscow-2022 | location | FizTekhPark, Moscow | Moscow; Administrative Site Location | medium | no | The 2022 page says the main round took place at the FizTekhPark site. |
+| moscow-2024 | location | Moscow, VK office | Moscow; Administrative Site Location | medium | no | The home page says the main round on 17 November 2024 was held at the Moscow office of VK, the contest's strategic partner. |
+| moscow-2025 | location | Moscow, Skolkovo Institute of Science and Technology | Moscow; Administrative Site Location | medium | no | The home page says the main round on 23 November was held at the Skolkovo Institute of Science and Technology. |
+| myanmar-mcpc-2017 | date | 2017-10-26 | 2017-10-25 | high | no | The problem set cover is dated October 26, 2017 and the announcement page gives rehearsal day 25 October and contest day 26 October 2017. |
+| myanmar-mcpc-2019 | location | Yangon, Myanmar (University of Computer Studies, Yangon) | Philippines | high | no | The page says UCSY will host the contest, and gives the UCSY address in Yangon, Myanmar. |
+| nac-2021 | date | 2021-08-14 | 2021-08-15 | medium | no | The Kattis standings page lists Start 2021-08-14 11:00 EDT and End 2021-08-14 14:30 EDT. |
+| nac-2022 | date | 2022-05-30 | 2022-05-31 | high | no | The Kattis page shows Start 2022-05-30 10:00 EDT and End 2022-05-30 15:00 EDT. |
+| nac-2026 | date | 2026-03-22 | 2026-03-23 | medium | no | the cover of the solutions slides reads March 22, 2026; the scoreboard was generated on March 23, 2026. |
+| nanjing-2007 | location | Nanjing University of Aeronautics and Astronautics, Nanjing | Internet; Hangzhou; NUAA; FuDan,ShangHai; Nanjing  | high | no | The page header reads 'hosted by Nanjing University of Aeronautics and Astronautics Nanjing, China October 28, 2007'. |
+| nanjing-2020 | date | 2020-12-20 | 2020-11-28 | high | no | The cover of the problem set reads Contest Session, December 20, 2020, and the page headers repeat 2020/12/20. |
+| nanjing-2021 | date | 2021-12-04 | 2021-12-05 | high | no | The cover of the problem set reads Contest Session, December 4, 2021, and the page headers repeat 2021/12/04. |
+| nanjing-2026 | location | Nanjing University of Aeronautics and Astronautics, Jiangjun | (sites) | high | no | The news item says the contest was held at the Jiangjun Road campus of Nanjing University of Aeronautics and Astronautics; the allocation notice says the same. |
+| naq-2018 | date | 2018-10-06 | 2018-10-16 | high | no | The About section and the FAQ state the contest on October 6, 2018, 11:00 - 16:00 (CDT), and the solution slides are dated October 6, 2018. |
+| naq-2021 | date | 2022-01-22 | 2022-02-11 | high | no | The 2021-22 page says the NAQ was on January 22, 2022, 1-6 pm CT, and the post-contest results say 'held on January 22, 2022'. |
+| neerc-1999 | date | 1999-11-23 | 1999-11-24 | high | no | the results page subtitle reads St. Petersburg, 23 Nov 1999 10:03..15:03. |
+| neerc-2001 | location | St. Petersburg IFMO, St. Petersburg, Russia | Far Eastern SU; St. Petersburg IFMO; St. Petersbur | high | no | the front page reads 'hosted by St. Petersburg IFMO, Sablinskaya, 14, St. Petersburg, 197101, Russia' |
+| neerc-2010 | date | 2010-11-24 | 2010-11-23 | high | no | The cover of the problem PDF reads November 24, 2010, and the schedule page puts the contest on Wednesday, November 24 from 10:00 to 15:00. |
+| neerc-2011 | date | 2011-11-27 | 2011-11-26 | high | no | The problem set header reads November 27, 2011 and the schedule page puts the contest on Sunday, November 27, 2011. |
+| neerc-2012 | date | 2012-12-02 | 2012-12-01 | high | no | The problem set header reads December 2, 2012 and the schedule page puts the contest on Sunday, December 2, 2012. |
+| neerc-2013 | date | 2013-12-01 | 2013-11-30 | medium | no | The problem set header reads 'December 1, 2013' and the website schedule puts the contest on Sunday, December 1 with practice on November 30. |
+| nena-1998 | location | Westfield State College, Westfield, MA | (sites) | high | no | The sites page lists Regional Final: Westfield State College, and the director page gives the address Westfield, MA. |
+| nena-2000 | date | 2000-11-06 | 2000-11-04 | medium | no | The final round heading reads Westfield State College - 11/6/2000, and the dates page of the website says Regional Final: Nov. 6, while the rules page says Nov. |
+| nena-2000 | location | Westfield State College, Westfield, MA | Cambridge, MA; Rochester, NY; Westfield State Coll | high | no | The rules page lists the Championship Site as Westfield State College, Westfield, MA; the final round heading of the standings also names Westfield State Colleg |
 | alberta-2006 | location | University of Alberta, University of Calgary and University  | — | medium | no | the problem index says the contest is a joint effort of the three universities. |
 | bapc-prelims-2025 | date | 2025-09-20 | — | medium | no | The preliminaries page lists the local contests under the dates 20 September, 26 September and 27 September 2025 and says they run between the 20th and 28th. |
 | brazil-first-phase-1996 | location | DCC-UFMG, Belo Horizonte | — | medium | no | The history page says the first Maratona was organised at the Federal University of Minas Gerais, under the heading Belo Horizonte. |
@@ -813,7 +887,5 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | erc-1987 | location | London | — | medium | no | The item says the contest was held in London. |
 | erc-1990 | location | Eindhoven | — | medium | no | The archive index row reads 'ERC 1990, Eindhoven, November 3'. |
 | greece-2024 | date | 2024-10-18 | — | medium | no | The Greek registration page states 'Ημερομηνία Διεξαγωγής: 18-19 Οκτωβρίου 2024'. |
-| lethbridge-2025 | location | University of Lethbridge, University Hall D519 | — | high | yes | The front page states 'Location: University Hall D519' under the University of Lethbridge contest. |
-| mcpc-1995 | date | 1995-11-04 | — | high | yes | The front page reads '1995 Regional Programming Contest Saturday, November 4, 1995'. |
-| mcpc-1996 | date | 1996-11-02 | — | high | yes | The satellite site heading reads 'Satellite Site Locations for the November 2, 1996 Regional Contest'. |
-| mcpc-1997 | date | 1997-11-01 | — | high | yes | The front page reads 'SATURDAY, NOVEMBER 1, 1997'. |
+| neerc-1997 | date | 1997-11-26 | — | high | yes | The problem list page is headed St.Petersburg-Barnaul, 26 Nov 1997. |
+| neerc-1997 | location | St.Petersburg-Barnaul | — | medium | no | The problem list page is headed St.Petersburg-Barnaul, 26 Nov 1997. |
