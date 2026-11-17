@@ -4,32 +4,32 @@ Run of 2026-11-16, rubric 1 (`tools/describe_rubric.md`). Applied.
 
 | | |
 | --- | --- |
-| contests read | 180 |
+| contests read | 312 |
 | contests with nothing held | 75 |
-| sources | 832 |
-| no copy | 92 |
-| read | 740 |
-| first readings | 61 |
-| described | 699 |
-| verdict confirm | 678 |
-| verdict correct | 21 |
-| verdict not-the-document | 28 |
-| verdict wrong-contest | 12 |
-| verdict cannot-tell | 1 |
-| disagrees with the earlier reader | 11 |
+| sources | 1,485 |
+| no copy | 179 |
+| read | 1,306 |
+| first readings | 133 |
+| described | 1,222 |
+| verdict confirm | 1,161 |
+| verdict correct | 61 |
+| verdict not-the-document | 53 |
+| verdict wrong-contest | 29 |
+| verdict cannot-tell | 2 |
+| disagrees with the earlier reader | 31 |
 | blank date filled | 5 |
-| blank location filled | 2 |
-| contest facts fills-blank | 8 |
-| contest facts conflict | 35 |
-| contest facts same | 19 |
-| contest facts listed | 101 |
-| words per description | 101 |
+| blank location filled | 1 |
+| contest facts fills-blank | 9 |
+| contest facts conflict | 63 |
+| contest facts same | 33 |
+| contest facts listed | 173 |
+| words per description | 108 |
 
-Not finished: 2213 contests: bapc-prelims-2022, bapc-prelims-2023, bapc-prelims-2024, bapc-prelims-2025, bapc-prelims-2026, beijing-2002, beijing-2003, beijing-2004, beijing-2005, beijing-2006, beijing-2007, beijing-2008, beijing-2011, beijing-2015, beijing-2016, beijing-2017, beijing-2018, benin-2016, benin-2017, benin-2019, benin-2020, benin-2021, bolivia-national-2009, bolivia-national-2010, bolivia-national-2011, bolivia-national-2012, bolivia-national-2015, bolivia-national-2016, bolivia-national-2017, bolivia-national-2018, bolivia-national-2019, bolivia-national-2020, bolivia-national-2021, bolivia-national-2022, bolivia-national-2023, bolivia-national-2024, bolivia-national-2025, bolivia-national-2026, bombay-2003, bombay-2004.
+Not finished: 2081 contests: central-america-2011, central-america-2012, central-america-2013, central-america-2014, central-america-2015, central-america-2016, central-america-2017, central-america-2018, central-america-2019, central-america-2020, central-america-2021, central-america-2022, central-america-2024, central-america-2025, central-america-2026, central-russia-1998, central-russia-1999, central-russia-2000, central-russia-2001, central-russia-2002, central-russia-2003, central-russia-2004, central-russia-2005, central-russia-2006, central-russia-2007, central-russia-2008, central-russia-2009, central-russia-2010, central-russia-2011, central-russia-2012, central-russia-2013, central-russia-2014, central-russia-2015, central-russia-2016, central-russia-2017, central-russia-2018, central-russia-2019, central-russia-2020, central-russia-2021, central-russia-2022.
 Results that do not check: 0.
 
 
-## Second reading: 69 sources to look at
+## Second reading: 153 sources to look at
 
 The reader did not confirm the catalogue, or disagrees with the content check of 2026-11-14. Nothing here was applied.
 
@@ -104,8 +104,92 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | bapc-prelims-2014 | http://bapc.eu/ | standings | wrong-contest (high) | wrong-contest | The page is titled 'BAPC 2026' and announces the edition of 31 October 2026 at Leiden University, with no content about the 2014 preliminaries. |
 | bapc-prelims-2020 | https://2020.bapc.eu/scoreboard-preliminaries | scoreboard | not-the-document (high) | not-the-document | The copy is the homepage of the study association W.I.S.V. 'Christiaan Huygens' (TU Delft) with its calendar and news, and contains neither a scoreboard nor any mention of BAPC. |
 | bapc-prelims-2021 | https://commissies.ch.tudelft.nl/chipcie/archief/2021/dapc/full-scoreb | standings | not-the-document (high) | not-the-document | The copy is the homepage of the study association W.I.S.V. 'Christiaan Huygens' (TU Delft) with its calendar and news, and contains no scoreboard. |
+| bapc-prelims-2025 | https://2025.bapc.eu/main/solutions.pdf | editorial | wrong-contest (high) | wrong-contest | The 31-page PDF is headed 'Benelux Algorithm Programming Contest (BAPC) 2025, Solutions presentation, October 25, 2025' and covers the main contest problems K 'Knowing the Clock' and J 'Jacobi Numbers', not the prelimina |
+| bapc-prelims-2026 | https://open.kattis.com/problem-sources/Benelux%20Algorithm%20Programm | problemset | not-the-document (high) | not-the-document | The Kattis problem-source page 'Problems from Benelux Algorithm Programming Contest (BAPC) preliminaries 2026' has an empty table that reads 'No data found'. |
+| beijing-2002 | http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu | standings+rankings | correct → standings (high) | correct → standings | Table of 91 rows with columns Rank, Team, Citation under the heading 'The 2002 ACM Asia Programming Contest - Beijing sponsored by IBM'. |
+| beijing-2016 | http://acm.pku.edu.cn:80/icpc_pku2016/schoolrank.txt | standings | correct → no role (high) | none | Text file of 224 schools, each with a rank and a number from 9 down to 0, linked from the site as the online-round school ranking (网赛校排名); its top school has 9, more than the 8 of the best on-site team. |
+| bolivia-national-2010 | https://groups.google.com/g/acm-icpc-bolivia/c/Bu3UPh7O6S8/m/fSv_Hg09o | web | wrong-contest (high) | wrong-contest | A Google Groups message thread of 25 April 2010 titled 'Repercusiones Tercer Online', about the third online training contest, not the preliminary contest of the pack. |
+| bolivia-national-2012 | https://groups.google.com/g/acm-icpc-bolivia/c/osL42EnwLFo | web | correct → teams+standings (medium) | correct → teams+standings | Google Groups post of 17 September 2012 titled 'Clasificados a la Final Latinoamericana 2012' with a table of 53 team rows by department with university, problems solved and status. |
+| bolivia-national-2015 | https://icpc.global/regionals/finder/Bolivia-Preliminary-2016 | web | not-the-document (high) | none | The copy holds only icpcbolivia.org pages reading 'This domain name has been registered with Gandi.net'; no page of the icpc.global address was saved. |
+| bolivia-national-2015 | https://icpcbolivia.org/ | web | not-the-document (high) | wrong-contest | The page reads 'icpcbolivia.org is unavailable' under 'This domain name has been registered with Gandi.net'. |
+| bolivia-national-2016 | https://icpc.global/regionals/finder/Bolivia-Preliminary-2017 | web | not-the-document (high) | none | The page is headed 'This domain name has been registered with Gandi.net' and says the domain is unavailable. |
+| bolivia-national-2016 | https://icpcbolivia.org/ | web | not-the-document (high) | wrong-contest | The earlier reader saw a live page of a later edition (wrong-contest); our copy is a domain-registrar parking page that names no contest. |
+| bolivia-national-2017 | https://icpc.global/regionals/finder/Bolivia-Preliminary-2018 | web | not-the-document (high) | none | The saved pages of the ICPC site contain only the empty application shell titled 'The ICPC International Collegiate Programming Contest', with no contest content. |
+| bolivia-national-2017 | https://icpcbolivia.org/ | web | not-the-document (high) | wrong-contest | The earlier reader saw a live page of a later edition (wrong-contest); our copy is a domain-registrar parking page that names no contest. |
+| bolivia-national-2018 | https://icpc.global/regionals/finder/Bolivia-Preliminary-2019 | web | not-the-document (high) | none | The saved pages of the ICPC site contain only the empty application shell titled 'The ICPC International Collegiate Programming Contest', with no contest content. |
+| bolivia-national-2018 | https://icpcbolivia.org/ | web | not-the-document (high) | wrong-contest | The earlier reader saw a live page of a later edition (wrong-contest); our copy is a domain-registrar parking page that names no contest. |
+| bolivia-national-2019 | https://icpc.global/regionals/finder/Bolivia-Preliminary-2020 | web | not-the-document (high) | none | The saved pages of the ICPC site contain only the empty application shell titled 'The ICPC International Collegiate Programming Contest', with no contest content. |
+| bolivia-national-2019 | https://icpcbolivia.org/ | web | not-the-document (high) | wrong-contest | The earlier reader saw a live page of a later edition (wrong-contest); our copy is a domain-registrar parking page that names no contest. |
+| bolivia-national-2020 | https://icpc.global/regionals/finder/Bolivia-Preliminary-2021 | web | not-the-document (high) | none | The page is headed 'This domain name has been registered with Gandi.net' and says the domain is unavailable. |
+| bolivia-national-2020 | https://icpcbolivia.org/ | web | not-the-document (high) | wrong-contest | The earlier reader saw a live page of a later edition (wrong-contest); our copy is a domain-registrar parking page that names no contest. |
+| bolivia-national-2021 | https://icpc.global/regionals/finder/Bolivia-Preliminary-2022 | web | not-the-document (high) | none | The page is headed 'This domain name has been registered with Gandi.net' and says the domain is unavailable. |
+| bolivia-national-2021 | https://icpcbolivia.org/ | web | not-the-document (high) | wrong-contest | The earlier reader saw a live page of a later edition (wrong-contest); our copy is a domain-registrar parking page that names no contest. |
+| bolivia-national-2022 | https://icpc.global/regionals/finder/Bolivia-Preliminary-2023 | web | not-the-document (high) | none | The page is headed 'This domain name has been registered with Gandi.net' and says the domain is unavailable. |
+| bolivia-national-2022 | https://icpcbolivia.org/ | web | not-the-document (high) | wrong-contest | The earlier reader saw a live page of a later edition (wrong-contest); our copy is a domain-registrar parking page that names no contest. |
+| bolivia-national-2023 | https://icpc.global/regionals/finder/Bolivia-Preliminary-2024 | web | not-the-document (high) | none | The page is headed 'This domain name has been registered with Gandi.net' and says the domain is unavailable. |
+| bolivia-national-2023 | https://icpcbolivia.org/ | web | not-the-document (high) | wrong-contest | The earlier reader saw a live page of a later edition (wrong-contest); our copy is a domain-registrar parking page that names no contest. |
+| bolivia-national-2025 | https://icpc.global/regionals/finder/Bolivia-Preliminary-2026 | web | wrong-contest (medium) | none | The site is the 2026 edition (Fase Nacional 1 and 2 of 2026, 2026 results and rules); the 2025 contest appears only in passing mentions on the about page, a gallery caption and a blog index entry whose page is not in our |
+| bolivia-national-2025 | https://icpcbolivia.org/ | web | not-the-document (high) | wrong-contest | The copy is a registrar parking page reading 'This domain name has been registered with Gandi.net ... icpcbolivia.org is unavailable'. |
+| brazil-2010 | http://maratona.ime.usp.br/resultados10/ | standings | correct → rankings (medium) | correct → rankings | The page 'Resultados Finais' names the champion and the ten medal teams in order but has no table of all teams. |
+| brazil-2012 | https://eolymp.com/contests/3388 | problemset | not-the-document (high) | cannot-tell | The earlier reader said cannot-tell; the page is a sign-in wall showing no problems, so I judge it not a document of the contest. |
+| brazil-2012 | https://maratona.sbc.org.br/hist/2012/primeira-fase/solucoes.pdf | editorial | correct → problemset+editorial (medium) | none | The cover reads Maratona de Programação da SBC 2012, Sub-Regional Brasil do ACM ICPC, 15 de Setembro de 2012, Caderno de Problemas e Soluções, and each of its 12 problems has a statement and a Solução section. |
+| brazil-2013 | https://eolymp.com/contests/3423 | problemset | not-the-document (high) | cannot-tell | The earlier reader said cannot-tell; the page is a sign-in wall showing no problems, so I judge it not a document of the contest. |
+| brazil-2014 | http://maratona.ime.usp.br/resultados14/ | standings | correct → rankings+problemset (medium) | correct → web+rankings | The earlier reader gave it the roles web and rankings; I see a single results page, which is not a website, and its list of problem names and authors makes it also a problemset. |
+| brazil-2015 | http://maratona.ime.usp.br/resultados15/ | standings | correct → rankings+problemset (medium) | correct → web+rankings | The earlier reader gave it the roles web and rankings; I see a single results page, which is not a website, and its list of problem names and authors makes it also a problemset. |
+| brazil-2016 | http://maratona.ime.usp.br/resultados16/ | web+rankings+problemset | correct → rankings+problemset (medium) | correct → web+rankings+problemset | The earlier reader also gave it the role web; I see a single results page, which is a results source and not a website. |
+| brazil-2017 | https://maratona.sbc.org.br/hist/2016/resultados/reports/detailed-scor | scoreboard | wrong-contest (high) | wrong-contest | Page is a BOCA final scoreboard with ten problem columns A B C D F G H I J K (no E), a 2003-2015 BOCA copyright and an address path under hist/2016, not the thirteen problems A-M of this contest. |
+| brazil-2018 | http://maratona.ime.usp.br/ | standings | correct → web (medium) | correct → web | Page titled 'XXIII Maratona de Programação' is a menu page with links (results, slots, rules, registration) and contains no results table. |
+| brazil-2020 | http://maratona.ime.usp.br | web+standings | wrong-contest (high) | not-the-document | The earlier reader saw a one-line redirect page, whereas our copy holds 150 addresses of the institute's site and old Maratona pages, none about the 2020 final. |
+| brazil-2020 | https://scorelatam.naquadah.com.br/subbr-2020/ | scoreboard | wrong-contest (medium) | wrong-contest | BOCA 'Final Scoreboard' with 1178 teams and fifteen problems A to O from sites coded AR, BR, CR and MX, whereas the 2020 final has fourteen problems A to N. |
+| brazil-2021 | https://scorelatam.naquadah.com.br/subbr-2021/ | scoreboard | wrong-contest (medium) | wrong-contest | BOCA 'Brazilian Sub-Regional 2021' board with 767 teams and 14 problems A to N from sites coded BR, MX, AR and CR, i.e. the first phase of 30 October 2021, not the A to M final. |
+| brazil-2022 | http://maratona.sbc.org.br | web+standings | correct → web (high) | not-the-document | The earlier reader found only a bare front page with no content; our copy has since been replaced and now holds the 2022 edition page, so it is a website of this edition, not an empty shell. |
+| brazil-2022 | https://scorelatam.naquadah.com.br/subbr-2022/ | scoreboard | wrong-contest (high) | wrong-contest | BOCA page titled 'Brazilian Sub-Regional 2022' with a scoreboard of 14 problems A to N and 1035 team accounts, not the 13-problem final in Campo Grande. |
+| brazil-2023 | http://maratona.sbc.org.br | web+standings | correct → web (high) | not-the-document | The earlier reader found only a bare front page with no content; our copy has since been replaced and now holds the 2023 edition page and its contest pages, so it is a website of this edition. |
+| brazil-2023 | https://scorelatam.naquadah.com.br/subbr-2023/ | scoreboard | wrong-contest (high) | wrong-contest | BOCA page titled 'Brazilian Sub-Regional 2023' with a scoreboard of 1157 team accounts from many local sites, the first phase and not the Brazil Finals in Chapecó. |
+| brazil-2024 | https://scorelatam.naquadah.com.br/subbr-2024/ | scoreboard | wrong-contest (high) | wrong-contest | BOCA scoreboard headed 'The 2024 ICPC South America/Brazil First Phase', the Brazilian first-phase contest, not the Brazilian final. |
+| brazil-2025 | https://scorelatam.naquadah.com.br/subbr-2025/ | scoreboard | wrong-contest (high) | wrong-contest | BOCA scoreboard headed 'The 2025 ICPC South America/Brazil First Phase' with problem columns A to M, the Brazilian first phase and not the Brazilian final. |
+| brazil-first-phase-2008 | https://maratona.sbc.org.br/hist/2008/primeira-fase | rankings | correct → web (medium) | correct → web | Page headed Resultados da primeira fase e vagas para a final holds a table of sites with slot counts, qualified teams and result links, not an order of teams. |
+| brazil-first-phase-2009 | https://maratona.sbc.org.br/hist/2009/primeira-fase | rankings | correct → web (medium) | correct → web | Page headed Resultados da primeira fase e vagas para a final holds a table of sites with slot counts, qualified teams and result links, not an order of teams. |
+| brazil-first-phase-2010 | https://maratona.sbc.org.br/hist/2010/primeira-fase/erechim/placar.pdf | scoreboard | correct → standings (high) | none | One-page BOCA 'Final Scoreboard' with only the columns #, User, Name and Total ('solved (penalty)') for 16 rows, no per-problem columns. |
+| brazil-first-phase-2010 | https://maratona.sbc.org.br/hist/2010/primeira-fase | rankings | correct → web (medium) | correct → web | Organisers' page 'Resultados da primeira fase e vagas para final': a table of 43 sites with slots and qualified team names, linking each site's results, not a ranking of teams. |
+| brazil-first-phase-2011 | https://maratona.sbc.org.br/hist/2011/primeira-fase | rankings | correct → web (medium) | correct → web | Organisers' page 'Resultados da primeira fase e vagas para a final brasileira': a table of 44 sites with slots and qualified team names and a Placar link per site, not a ranking of teams. |
+| brazil-first-phase-2012 | https://maratona.sbc.org.br/hist/2012/primeira-fase | rankings | correct → web (medium) | correct → web | The page is headed 'Vagas para a final brasileira' and holds the first-phase problem links, slot rules and a table of sites with qualified teams, not an ordered list of teams. |
+| brazil-first-phase-2013 | https://maratona.sbc.org.br/hist/2013/primeira-fase/ | rankings | correct → web (medium) | correct → problemset+teams | The earlier reader gave the roles problemset and teams; I read it as a page of the organisers about the first phase (problems, rules and qualified teams per site), so web. |
+| brazil-first-phase-2014 | https://maratona.sbc.org.br/hist/2014/primeira-fase/ | rankings | correct → problemset+teams (medium) | correct → problemset+teams | Page lists the 11 problems with zip links and a table of sites with the teams qualified for the Brazilian final, not an ordered ranking. |
+| brazil-first-phase-2015 | https://maratona.sbc.org.br/hist/2015/primeira-fase | rankings | correct → problemset+teams (medium) | correct → problemset+teams | Page lists the 12 problems with zip links and tables of sites with the teams qualified for the Brazilian final, not an ordered ranking. |
+| brazil-first-phase-2016 | https://maratona.sbc.org.br/hist/2016/primeira-fase | rankings | correct → problemset+teams (medium) | correct → problemset+teams | Page lists the 12 problems with info sheets and test-data links and tables of sites with the teams qualified for the Brazilian final, not an ordered ranking. |
+| brazil-first-phase-2017 | https://maratona.sbc.org.br/hist/2017/resultados/resultadoLatam.pdf | standings | wrong-contest (high) | none | The 12-page BOCA printout is headed 'BOCA LATAM ACM ICPC November 2017 - Updated Final Scoreboard' and ranks 442 teams from many Latin American countries, so it is the Latin American regional contest, not the Brazilian f |
+| brazil-first-phase-2017 | https://maratona.sbc.org.br/hist/2017/vagas17.html | rankings | correct → web (medium) | correct → web | Page 'Vagas para a final brasileira' on the first-phase site of XXII Maratona de Programação with links to problems and scoreboards and tables of qualified teams per site, not an ordered list of teams. |
+| brazil-first-phase-2018 | https://maratona.sbc.org.br/hist/2018/resultados18/ | standings | wrong-contest (medium) | none | The page is headed 'Resultados da Final Brasileira 2018' (final held in Salvador on 9 and 10 November 2018) and reports the Brazilian final and the Latin American contest, not the 15 September first phase. |
+| brazil-first-phase-2018 | https://maratona.sbc.org.br/hist/2018/primfase18.html | rankings | correct → web (medium) | correct → web | Page 'Vagas para a final brasileira' on the first-phase section of the XXIII Maratona de Programação with links to problems and scoreboards and tables of qualified teams per site, not an ordered list of teams. |
+| brazil-first-phase-2020 | https://maratona.sbc.org.br/hist/2020/primfase20.html | rankings | correct → web (high) | correct → web | Organisers' page 'Primeira Fase 2020' with schedule, jury, problem authors, links to problems and reports, and tables of qualified teams per site; no ordered ranking. |
+| brazil-first-phase-2020 | https://maratona.sbc.org.br/hist/2020/final20/resultados/contest/pdfs/ | problemset | wrong-contest (high) | none | The cover reads 'International Collegiate Programming Contest 2020, Latin American Regional Contests, July 10, 2021, Contest Session', 14 problems A to N, which are not the 15 first-phase problems of 14 November 2020. |
+| brazil-first-phase-2021 | https://maratona.sbc.org.br/hist/2021/primfase21.html | rankings | correct → web (medium) | correct → web | Organisers' page 'XXVI Maratona de Programação - Primeira Fase' with links to problems and scoreboards and tables of qualified teams by state, not an ordered ranking. |
+| brazil-first-phase-2021 | https://maratona.sbc.org.br/hist/2021/resultados21/icpcla.pdf | problemset | wrong-contest (high) | none | The cover reads 'International Collegiate Programming Contest 2021 Latin American Regional Contests, April 2, 2022, Contest Session' with 13 problems A to M, not the 30 October 2021 first-phase set of 14 problems A to N. |
+| brazil-first-phase-2022 | https://www.youtube.com/watch?v=tXyFdZgKi7o | web | not-the-document (high) | not-the-document | The copy holds only generic YouTube front pages plus pages of the organisers' site; no watch page of the warm-up video is among them. |
+| brazil-first-phase-2022 | https://www.youtube.com/watch?v=cThhHujQTeE | web | not-the-document (high) | correct →  | The page is titled 'Aquecimento da Primeira Fase - Maratona SBC 2022/23 - YouTube' but its visible text is 226 characters of footer links, with no video description or other content. |
+| brazil-first-phase-2022 | https://maratona.sbc.org.br/hist/2022/primfase22/vitoria2022-report/Sc | scoreboard | confirm (medium) | wrong-contest | The earlier reader called it a wrong contest, a separate extra contest; the first-phase page of this edition says the Vitória site held its first phase again on 19 November 2022 and gives this report as its results, so i |
+| brazil-first-phase-2023 | https://www.youtube.com/watch?v=I1NiurdCdi4 | web | not-the-document (high) | not-the-document | The YouTube address returned status 404 in our copy; every address held under it is a page or asset of maratona.sbc.org.br. |
+| brazil-first-phase-2026 | https://www.flickr.com/photos/203496631@N03/sets/72177720335397698 | web | correct → report (medium) | correct → report | Flickr album 'Primeira Fase 2026' whose description reads 'Brazilian First Phase, August 29, 2026', with 223 photos and 5 videos; it is a photo album, not the contest's own site. |
+| brazil-first-phase-2026 | https://maratona.sbc.org.br/resultados.html | rankings | correct → web (medium) | correct → rankings | The earlier reader read it as a partial ranking of qualified teams; it gives no order of teams but is the organisers' page on this edition (sites, account, documents, qualified teams), so I read it as web. |
+| bulgaria-2012 | http://bcpc.eu/XXIV/?page=classification | standings | correct → no role (high) | correct →  | The copy of the classification address is byte-identical to the 3012-byte home page of the site and holds no standings table. |
+| bulgaria-2012 | http://bcpc.eu/XXIV/files/authors.zip | editorial | correct → problemset (high) | none | The ZIP holds 39 files: source code, input and output files for tasks A to K, with no explanatory text, which makes it material of the problem set and not an editorial. |
+| bulgaria-2013 | http://bcpc.eu/XXV/results.html | rankings | correct → standings (medium) | none | The table has 14 rows with rank, university, solved tasks and time, which gives solved counts and not only the order. |
+| caribbean-2014 | https://www.acmicpc.net/category/detail/1297 | problemset | cannot-tell (medium) | cannot-tell | The category page 'Latin America Regional Contests 2014' lists 14 slots (A to K and PA to PC) with empty titles, each marked deleted (삭제) with 0 submissions, so no problem content is shown. |
+| caribbean-2017 | https://coj-forum.uci.cu/viewforum.php?f=77 | web+standings | correct → web (medium) | correct → web | The page is the '2017' sub-forum of the COJ Forum, headed 'The 2017 ACM-ICPC Caribbean Regional Contest', with site sub-forums and FC2017 topic titles but no results table. |
+| caribbean-2018 | https://coj-forum.uci.cu/viewforum.php?f=105 | web | correct → no role (medium) | correct →  | The seed page is the index page of the COJ Forum, saved several times between December 2018 and May 2019, whose only mention of the Caribbean Finals is a category line and a jump-box list; none of the saved pages or foru |
+| caribbean-national-2013 | https://www.icpccaribe.org/ | web | correct → no role (medium) | correct →  | Home page of the ICPC Caribe site shows the 2019 Caribbean Finals notice and the site menu, with nothing about the 2013 National Contests. |
+| caribbean-national-2014 | https://www.icpccaribe.org/ | web | correct → no role (medium) | correct →  | Home page of the ICPC Caribe site shows the 2019 Caribbean Finals notice and the site menu, with nothing about the 2014 National Contests. |
+| caribbean-national-2015 | https://www.icpccaribe.org/ | web | correct → no role (medium) | correct →  | Home page of the ICPC Caribe site shows the 2019 Caribbean Finals notice and the site menu, with nothing about the 2015 National Contests. |
+| caribbean-national-2016 | https://www.icpccaribe.org/ | web | correct → no role (medium) | correct →  | The live home page shows the November 2019 Caribbean Final and the site menu, with nothing about the 2016 Caribbean National Contests. |
+| caribbean-national-2017 | https://www.icpccaribe.org/ | web | correct → no role (medium) | correct →  | The live home page shows the November 2019 Caribbean Final and the site menu, with nothing about the 2017 Caribbean National Contests. |
+| caribbean-national-2018 | https://www.icpccaribe.org/ | web | correct → no role (medium) | correct →  | The live home page shows the November 2019 Caribbean Final and the site menu, with nothing about the 2018 Caribbean National Contests. |
+| caribbean-national-2019 | https://www.icpccaribe.org/ | web | correct → no role (medium) | confirm | The earlier reader confirmed it as a web source of the edition; the page covers only the later Caribbean Final of November 2019 and the site menu, with no content of the National Contests held on 5 October 2019. |
+| central-america-1997 | https://www.icpccaribe.org/icpc-latam/concursos-regionales-acm-icpc-de | web | correct → report+rankings (medium) | correct → report+rankings | The page is a history page for the Mexico and Central America regionals 1997 to 2016, and its 1997 section gives a regional director and one podium entry with an unknown number solved. |
+| central-america-2002 | http://icpc.baylor.edu/past/icpc2003/regionals/Reports/orion.qro.itesm | web | wrong-contest (medium) | none | The 13 pages of the ITESM Queretaro ACM chapter site in the copy concern a local contest of April 2003 and regional contests of 2003 or later (agenda of 8 and 9 November, X Concurso 2005, six problem documents none of wh |
+| central-america-2005 | http://khalo.qro.itesm.mx/~acm/resultados.php | standings | wrong-contest (medium) | wrong-contest | The board of 126 teams has different teams and winners (Poor Dogs 5 solved, 696) from the 2005 standings, includes a team named TIMOGA2006, and is the results page of the chapter site whose current pages are the 2006 edi |
 
-## Contest facts: 43 that fill a blank or differ
+## Contest facts: 72 that fill a blank or differ
 
 | contest | fact | document says | catalogue | confidence | applied | where it is stated |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -144,11 +228,40 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | bapc-2025 | location | Delft University of Technology, Delft | TU Delft; Administrative Site Location | high | no | The front page says the contest was held on the campus of the Delft University of Technology and the location page names Education Building 35. |
 | bapc-2026 | location | Leiden University, Gorlaeus building, Leiden | (sites) | high | no | The home page says the contest is on the Leiden University campus and the location page says the Gorleaus building, Einsteinweg 55, Leiden. |
 | bapc-prelims-2021 | date | 2021-10-09 | 2021-10-16 | medium | no | The registration page says most preliminaries are held on Saturday 9 October, with Groningen and Mons on 16 October, and the schedule page lists 9 October for t |
+| bolivia-national-2009 | location | Universidad Autónoma Gabriel René Moreno (UAGRM), Santa Cruz | Universidad San Francisco Xavier de Chuquisaca | medium | no | The page 'Detalles Generales de la Competencia 2009' names UAGRM - Santa Cruz as the host university of ACM-ICPC Bolivia 2009. |
+| bolivia-national-2024 | date | 2024-09-03 | 2024-08-30 | medium | no | The page heading reads 'September 3, 2024'. |
+| brazil-2006 | date | 2006-11-10 | 2006-11-12 | high | no | The front page states 'Final Brasileira: 10 e 11 de novembro de 2006'. |
+| brazil-2007 | date | 2007-11-09 | 2007-11-10 | high | no | The front page states 'Final Brasileira: 9 e 10 de novembro de 2007'. |
+| brazil-2007 | location | Federal University of Minas Gerais (UFMG), Belo Horizonte | Dourados, MS; Florianópolis, SC; Campinas, SP; Rio | high | no | The front page says the final was held at the Universidade Federal de Minas Gerais in Belo Horizonte, in the Reitoria hall. |
+| brazil-2008 | date | 2008-11-14 | 2008-11-15 | high | no | The front page says the Brazilian final was held on 14 and 15 November 2008, and the problem set is dated 14th-15th November 2008. |
+| brazil-2012 | date | 2012-11-09 | 2012-11-10 | medium | no | the front page reads Final Brasileira: 9 e 10 de novembro de 2012 |
+| brazil-2013 | date | 2013-11-08 | 2013-11-10 | medium | no | the front page reads Final Brasileira: 8 e 9 de novembro de 2013 |
+| brazil-2014 | location | Universidade de Fortaleza (UNIFOR), Fortaleza | Fortaleza, CE; Administrative Site Location | high | no | The results page says the Brazilian final took place in Fortaleza, Ceará, on the UNIFOR campus. |
+| brazil-2015 | location | Faculdade IBTA, São Paulo | São Paulo, SP; Administrative Site Location | high | no | The results page says the 2015 Brazilian final was hosted by Faculdade IBTA, with a photo taken in São Paulo. |
+| brazil-2016 | location | Belo Horizonte (UFMG, CEFET-MG and PUC-Minas) | Belo Horizonte, MG; Administrative Site Location | high | no | The results page says the final was held in Belo Horizonte, MG, hosted by UFMG, CEFET-MG and PUC-Minas. |
+| brazil-2019 | date | 2019-11-08 | 2019-11-07 | medium | no | The cover of the problem set reads 'November 8th-9th, 2019' for the Latin American regional contests. |
+| brazil-2021 | date | 2022-04-02 | 2022-04-01 | medium | no | The Latin American problem set PDF for the contest session is dated April 2, 2022 and the opening slides say 'Gramado, 1 e 2 de abril de 2022'; April 1 was the  |
+| brazil-2021 | location | Gramado, Rio Grande do Sul (hosted by Universidade Federal d | Gramado, RS; Administrative Site Location | medium | no | The 2021 page says the Brazilian final was held in Gramado, Rio Grande do Sul, with Universidade Federal do Rio Grande do Sul as organiser. |
+| brazil-2022 | date | 2023-03-18 | 2023-03-16 | medium | no | The cover of the problem set reads 'March 18, 2023' as the date of the Latin American Regional Contests. |
+| brazil-2023 | date | 2023-10-21 | 2023-10-19 | medium | no | The cover of the problem set reads 'October 21, 2023' as the date of the Latin American Regional Contests. |
+| brazil-2024 | location | IFPB, João Pessoa, Paraíba | Campina Grande, PB; Administrative Site Location | high | no | The seed page says the 2024 Brazilian final was held in João Pessoa, Paraíba, hosted by IFPB. |
+| brazil-2025 | location | FECAP, São Paulo (Liberdade) | Campina Grande, PB; Administrative Site Location | high | no | The final's page says the Brazilian final was held in the Liberdade district of São Paulo, 6 to 9 November 2025, at FECAP. |
+| brazil-first-phase-2008 | date | 2008-09-20 | 2008-11-15 | high | no | The cover of the problem set reads 20 de Setembro de 2008; the website gives the first phase as 20 September 2008 and the Brazilian final as 14 and 15 November  |
+| brazil-first-phase-2010 | date | 2010-09-18 | 2011-09-17 | high | no | The front page header reads 'Primeira Fase: 18 de setembro de 2010' and the problem booklet cover reads '18 de Setembro de 2010'. |
+| brazil-first-phase-2017 | date | 2017-09-09 | 2017-05-31 | high | no | The front page of the site states 'Primeira Fase: 9 de setembro de 2017'. |
+| bulgaria-2011 | date | 2011-05-14 | 2011-05-15 | high | no | The programme page puts the contest on Saturday 14.05.2011 from 10:00 to 15:00 and an excursion on Sunday 15.05.2011. |
+| bulgaria-2011 | location | Shumen University 'Episkop Konstantin Preslavski', Shumen | Administrative Site Location; Shumen | high | no | The site names Shumen University 'Episkop Konstantin Preslavski' as host and the invitation gives Shumen as the place. |
+| bulgaria-2013 | location | National Palace of Culture, Sofia | (sites) | high | no | The home page says the contest takes place at the National Palace of Culture in Sofia, hall 8. |
+| caribbean-2012 | date | 2012-11-09 | 2012-11-10 | medium | no | The home page highlights Concurso Regional 2012, 9 y 10 de noviembre de 2012. |
+| central-america-1998 | date | 1998-11-14 | 1998-10-24 | medium | no | The standings page is headed Zacatecas Nov-14-'98. |
+| central-america-2000 | date | 2000-10-06 | 2000-10-08 | high | no | The page gives Date of Contest: 6 - 8 October 2000. |
+| central-america-2002 | date | 2002-11-09 | 2002-11-10 | medium | no | The heading reads 9 y 10 de Noviembre de 2002, so the contest ran on two days starting 9 November. |
 | alberta-2006 | location | University of Alberta, University of Calgary and University  | — | medium | no | the problem index says the contest is a joint effort of the three universities. |
-| alberta-2008 | date | 2008-10-18 | — | high | yes | The scoreboard page reads 'Contest of Saturday, October 18, 2008 11:00 to 16:00 MDT'. |
-| alberta-2024 | date | 2024-10-26 | — | high | yes | The Kattis standings page gives start 2024-10-26 19:30 CEST; the website says Saturday, October 26th but prints the year 2023. |
-| alberta-2024 | location | University of Calgary, Calgary | — | high | yes | The website places the contest in the CPSC lab of the Math Science building at the University of Calgary. |
-| bapc-2005 | date | 2005-10-22 | — | high | yes | The home page says the contest is held Saturday 22 October 2005 and the contest problem set is dated October 22, 2005. |
-| bapc-2005 | location | Delft University of Technology, Delft | — | high | yes | The home page says the contest is held in Delft and the rules place it at the faculty of Electrical Engineering, Mathematics and Computer Science of TU Delft. |
-| bapc-2025 | date | 2025-10-25 | — | high | yes | The front page states the 2025 edition of the BAPC was held on the 25th of October, 2025. |
-| bapc-prelims-2010 | date | 2010-10-02 | — | high | yes | The cover page of the problem set reads 'Preliminaries 2 October 2010'. |
+| bapc-prelims-2025 | date | 2025-09-20 | — | medium | no | The preliminaries page lists the local contests under the dates 20 September, 26 September and 27 September 2025 and says they run between the 20th and 28th. |
+| bolivia-national-2026 | date | 2026-08-29 | — | high | yes | The home page and the Phase 1 results page give 29 August 2026 as the date of National Phase 1 (Phase 2 on 19 September). |
+| brazil-first-phase-1996 | date | 1996-11-28 | — | high | yes | The announcement page gives the programming contest as 28 e 29/11/96. |
+| brazil-first-phase-1996 | location | DCC-UFMG, Belo Horizonte | — | medium | no | The history page says the first Maratona was organised at the Federal University of Minas Gerais, under the heading Belo Horizonte. |
+| brazil-first-phase-1997 | date | 1997-12-13 | — | high | yes | The problem set cover reads Contest Session, December 13, 1997; the website says 12 a 14 de dezembro de 1997. |
+| brazil-first-phase-1997 | location | University of Campinas (Instituto de Computação), Campinas | — | high | yes | The cover names Institute of Computing, University of Campinas, Brasil. |
+| brazil-first-phase-2026 | date | 2026-08-29 | — | high | yes | The page says the first phase of 2026 took place on 29 August. |
+| bulgaria-2013 | date | 2013-05-18 | — | high | yes | The programme page puts the contest on Saturday 18.05, 10:00 to 15:00, and the home page announces 17 and 18 May 2013. |
