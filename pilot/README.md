@@ -21,7 +21,8 @@ dirty PR uses `CONFLICT`.
 
 Create the columns named in `pilot/config.yaml`. The Form should collect the
 human-entered fields `series_id`, `contest_id`, `source_url`, `roles`, and
-`note`; include `judge` when `roles` contains `judge_page`. The remaining
+`note`; `judge` (an id of `judges.yaml`) only for a `problemset` or `problem`
+source on an online judge. The remaining
 columns are controlled by Apps Script or GitHub Actions.
 
 The polling workflow first writes `base_blob_sha` for a submitted row. An
@@ -67,8 +68,8 @@ most one PR. Existing source URLs are merged by role and never duplicated.
 
 The worker compares the approved `base_blob_sha` with the current authoritative
 series file. A mismatch becomes `CONFLICT`; the reviewer must inspect the new
-YAML, return the row to `SUBMITTED`, let polling seed the new revision, and
-approve again.
+YAML and return the row to `SUBMITTED`; the next poll records the new revision
+(and clears the old approval), and the reviewer approves again.
 
 `PUBLISHED` is written only after the PR is merged and GitHub reports a
 successful deployment of the merged SHA to the `github-pages` environment.

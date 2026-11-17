@@ -25,7 +25,9 @@ from pathlib import Path
 from typing import Any
 
 import yaml
-from ruamel.yaml import YAML
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import catalogue  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "pilot" / "config.yaml"
@@ -52,6 +54,9 @@ def load_config(path: Path = CONFIG_PATH) -> dict[str, Any]:
         raise PilotError("unsupported pilot config version")
     if not config.get("allowed_series") or not config.get("headers"):
         raise PilotError("pilot config requires allowed_series and headers")
+    unknown = [role for role in config.get("allowed_roles") or [] if role not in catalogue.ROLES]
+    if not config.get("allowed_roles") or unknown:
+        raise PilotError("allowed_roles must be catalogue roles; unknown: " + ", ".join(unknown))
     return config
 
 
@@ -228,13 +233,12 @@ def validate_submission(submission: Submission, config: dict[str, Any]) -> None:
     if not roles or any(role not in config["allowed_roles"] for role in roles):
         raise PilotError("roles contains a missing or unsupported role")
     judge = submission.get("judge")
-    if "judge_page" in roles:
+    if judge:
+        if not {"problemset", "problem"} & set(roles):
+            raise PilotError("judge is only valid on a problemset or problem source")
         judges = yaml.safe_load((ROOT / "judges.yaml").read_text()).get("judges", [])
-        known_judges = {item.get("id") for item in judges}
-        if not judge or judge not in known_judges:
-            raise PilotError("judge_page requires a judge ID from judges.yaml")
-    elif judge:
-        raise PilotError("judge is only valid when roles contains judge_page")
+        if judge not in {item.get("id") for item in judges}:
+            raise PilotError("judge must be a judge ID from judges.yaml")
     allowed_reviewers = {
         value.strip().lower() for value in os.environ.get("PILOT_REVIEWERS", "").split(",") if value.strip()
     }
@@ -258,15 +262,23 @@ def yaml_blob_sha(path: Path, revision: str = "HEAD") -> str:
 
 
 def seed_base_revision(sheet: SheetClient, submission: Submission, config: dict[str, Any]) -> bool:
-    if submission.get("base_blob_sha") or submission.get("review_status") not in {"", "SUBMITTED"}:
+    """Keep an unapproved row's base revision current, so an approval always signs the latest
+    series file. This is also how a CONFLICT row recovers: set it back to SUBMITTED, and the next
+    poll records the new revision for the reviewer to approve."""
+    if submission.get("review_status") not in {"", "SUBMITTED"}:
         return False
     series_id = submission.get("series_id")
     path = ROOT / "series" / f"{series_id}.yaml"
     if series_id not in config["allowed_series"] or not path.exists():
+        if submission.get("error") == "Invalid pilot series":
+            return False
         sheet.update(submission, {"publication_status": "FAILED", "error": "Invalid pilot series", "updated_at": now()})
         return True
+    current = yaml_blob_sha(path)
+    if submission.get("base_blob_sha") == current and submission.get("publication_status") == "PENDING_REVIEW":
+        return False
     sheet.update(submission, {
-        "base_blob_sha": yaml_blob_sha(path), "publication_status": "PENDING_REVIEW",
+        "base_blob_sha": current, "approval_token": "", "publication_status": "PENDING_REVIEW",
         "error": "", "updated_at": now(),
     })
     return True
@@ -279,42 +291,28 @@ def patch_catalogue(submission: Submission) -> tuple[Path, bool]:
     if actual != expected:
         raise PilotError(f"base revision conflict: expected {expected}, found {actual}")
 
-    roundtrip = YAML()
-    roundtrip.preserve_quotes = True
-    # Catalogue files intentionally contain long scalar and URL lines.  Ruamel's
-    # default width would reflow unrelated entries whenever one source changes.
-    roundtrip.width = 4096
-    data = roundtrip.load(path.read_text())
+    # Write the file exactly as the catalogue's own tools do (tools/catalogue.py: PyYAML, width
+    # 100), so a pilot PR changes only the contest it touches. Leading comment lines are kept.
+    text = path.read_text()
+    lines = text.splitlines(keepends=True)
+    header = "".join(line for line in lines[:next((i for i, l in enumerate(lines) if not l.startswith("#")), len(lines))])
+    data = yaml.safe_load(text)
     contest = next((item for item in data["contests"] if item.get("id") == submission.get("contest_id")), None)
     if contest is None:
         raise PilotError("contest_id is not present in the selected series")
-    sources = contest.setdefault("sources", [])
-    source_url = submission.get("source_url")
     roles = [role.strip() for role in submission.get("roles").split(",") if role.strip()]
-    existing = next((item for item in sources if item.get("url") == source_url), None)
-    if existing:
-        before = json.dumps(existing, sort_keys=True)
-        judge = submission.get("judge")
-        if judge and existing.get("judge") not in {None, judge}:
-            raise PilotError("existing source URL has a different judge")
-        existing_roles = list(existing.get("roles") or [])
-        existing["roles"] = existing_roles + [role for role in roles if role not in existing_roles]
-        if judge and not existing.get("judge"):
-            existing["judge"] = judge
-        if submission.get("note") and not existing.get("note"):
-            existing["note"] = submission.get("note")
-        changed = before != json.dumps(existing, sort_keys=True)
-    else:
-        entry: dict[str, Any] = {"url": source_url, "roles": roles}
-        if submission.get("judge"):
-            entry["judge"] = submission.get("judge")
-        if submission.get("note"):
-            entry["note"] = submission.get("note")
-        sources.append(entry)
-        changed = True
+    judge = submission.get("judge")
+    existing = catalogue.find_source(contest, submission.get("source_url"))
+    if existing and judge and existing.get("judge") not in {None, judge}:
+        raise PilotError("existing source URL has a different judge")
+    changed = False
+    for role in roles:
+        _, role_changed = catalogue.add_source(
+            contest, submission.get("source_url"), role, judge=judge, note=submission.get("note"))
+        changed = changed or role_changed
     if changed:
-        with path.open("w") as handle:
-            roundtrip.dump(data, handle)
+        body = yaml.dump(data, Dumper=catalogue.Dumper, sort_keys=False, allow_unicode=True, width=100)
+        path.write_text(header + body)
     return path, changed
 
 
@@ -336,12 +334,16 @@ def open_or_reconcile_pr(sheet: SheetClient, github: GitHubClient, submission: S
         })
         return
 
-    run("git", "checkout", "--detach", "origin/main")
+    # --force: drop whatever an earlier failed submission (or validate.py's reports) left behind.
+    run("git", "checkout", "--force", "--detach", "origin/main")
     path, changed = patch_catalogue(submission)
     if not changed:
         sheet.update(submission, {"publication_status": "NO_CHANGE", "error": "Source already present", "updated_at": now()})
         return
-    run(sys.executable, "tools/validate.py")
+    checked = run(sys.executable, "tools/validate.py", check=False)
+    if checked.returncode != 0:
+        errors = [line.strip() for line in (checked.stdout + checked.stderr).splitlines() if "ERROR" in line]
+        raise PilotError("validate.py failed: " + ("; ".join(errors) or checked.stderr.strip()[-300:]))
     run("git", "checkout", "-B", branch)
     run("git", "add", str(path.relative_to(ROOT)))
     run("git", "-c", "user.name=icpc-pilot[bot]", "-c", "user.email=icpc-pilot[bot]@users.noreply.github.com",

@@ -1,3 +1,4 @@
+import difflib
 import hashlib
 import hmac
 import os
@@ -73,20 +74,29 @@ class PilotSyncTests(unittest.TestCase):
             submission.values["approval_token"] = pilot_sync.approval_signature(submission, "secret")
             pilot_sync.validate_submission(submission, config)
 
-    def test_validate_judge_page_against_registry(self):
+    def test_validate_judge_only_on_problemset_and_against_registry(self):
         config = pilot_sync.load_config()
-        submission = self.submission(roles="judge_page", judge="not-a-real-judge")
-        with mock.patch.dict(os.environ, {
-            "PILOT_REVIEWERS": "reviewer@example.org",
-            "PILOT_APPROVAL_HMAC_SECRET": "secret",
-        }):
-            submission.values["approval_token"] = pilot_sync.approval_signature(submission, "secret")
-            with self.assertRaisesRegex(pilot_sync.PilotError, "judge ID"):
-                pilot_sync.validate_submission(submission, config)
-
-            submission.values["judge"] = "kattis"
+        env = {"PILOT_REVIEWERS": "reviewer@example.org", "PILOT_APPROVAL_HMAC_SECRET": "secret"}
+        with mock.patch.dict(os.environ, env):
+            for roles, judge, error in [("problemset", "not-a-real-judge", "judges.yaml"),
+                                        ("scoreboard", "kattis", "problemset or problem"),
+                                        ("judge_page", "kattis", "unsupported role")]:
+                submission = self.submission(roles=roles, judge=judge)
+                submission.values["approval_token"] = pilot_sync.approval_signature(submission, "secret")
+                with self.assertRaisesRegex(pilot_sync.PilotError, error):
+                    pilot_sync.validate_submission(submission, config)
+            submission = self.submission(roles="problemset", judge="kattis")
             submission.values["approval_token"] = pilot_sync.approval_signature(submission, "secret")
             pilot_sync.validate_submission(submission, config)
+
+    def test_config_roles_are_catalogue_roles(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "config.yaml"
+            config = pilot_sync.yaml.safe_load(pilot_sync.CONFIG_PATH.read_text())
+            config["allowed_roles"].append("icpc_standings")
+            path.write_text(pilot_sync.yaml.safe_dump(config))
+            with self.assertRaisesRegex(pilot_sync.PilotError, "icpc_standings"):
+                pilot_sync.load_config(path)
 
     def test_patch_deduplicates_source_and_merges_roles(self):
         submission = self.submission(source_url="https://example.org/results", roles="problemset")
@@ -106,27 +116,66 @@ class PilotSyncTests(unittest.TestCase):
             self.assertIn("scoreboard", rendered)
             self.assertIn("problemset", rendered)
 
-    def test_patch_preserves_unrelated_long_scalar_formatting(self):
-        submission = self.submission(source_url="https://example.org/new", roles="problemset")
-        long_note = "This deliberately long unrelated note must remain on one line when a source is added elsewhere in the contest catalogue."
-        yaml_text = (
-            "series:\n  id: gny\ncontests:\n"
-            "- id: gny-2024\n  note: " + long_note + "\n"
-            "- id: gny-2025\n  sources: []\n"
-        )
-        with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
-            (root / "series").mkdir()
-            path = root / "series" / "gny.yaml"
-            path.write_text(yaml_text)
-            with mock.patch.object(pilot_sync, "ROOT", root), mock.patch.object(
-                pilot_sync, "yaml_blob_sha", return_value="a" * 40
-            ):
-                _, changed = pilot_sync.patch_catalogue(submission)
-            self.assertTrue(changed)
-            rendered = path.read_text()
-            self.assertIn("  note: " + long_note + "\n", rendered)
-            self.assertIn("  - url: https://example.org/new\n", rendered)
+    def test_patch_on_real_catalogue_changes_only_the_new_source(self):
+        for series_id, contest_id in [("socal", "socal-2023"), ("gny", "gny-2023"), ("mcpc", "mcpc-2023")]:
+            submission = self.submission(series_id=series_id, contest_id=contest_id,
+                                         source_url="https://example.org/new", roles="problemset", note="")
+            original = (pilot_sync.ROOT / "series" / f"{series_id}.yaml").read_text()
+            with tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+                (root / "series").mkdir()
+                path = root / "series" / f"{series_id}.yaml"
+                path.write_text(original)
+                with mock.patch.object(pilot_sync, "ROOT", root), mock.patch.object(
+                    pilot_sync, "yaml_blob_sha", return_value="a" * 40
+                ):
+                    _, changed = pilot_sync.patch_catalogue(submission)
+                self.assertTrue(changed)
+                rendered = path.read_text()
+            changes = [line for line in difflib.unified_diff(original.splitlines(), rendered.splitlines(), n=0)
+                       if line[:1] in "+-" and line[:3] not in {"+++", "---"}]
+            self.assertEqual(changes, ["+  - url: https://example.org/new", "+    roles:", "+    - problemset"],
+                             series_id)
+
+    def test_unapproved_row_follows_the_current_revision(self):
+        submission = self.submission(review_status="SUBMITTED", base_blob_sha="c" * 40,
+                                     publication_status="CONFLICT", approval_token="old")
+
+        class Sheet:
+            def update(self, item, updates):
+                item.values.update({key: str(value) for key, value in updates.items()})
+
+        config = pilot_sync.load_config()
+        with mock.patch.object(pilot_sync, "yaml_blob_sha", return_value="d" * 40):
+            self.assertTrue(pilot_sync.seed_base_revision(Sheet(), submission, config))
+            self.assertEqual(submission.get("base_blob_sha"), "d" * 40)
+            self.assertEqual(submission.get("publication_status"), "PENDING_REVIEW")
+            self.assertEqual(submission.get("approval_token"), "")
+            self.assertFalse(pilot_sync.seed_base_revision(Sheet(), submission, config))
+        submission.values["review_status"] = "APPROVED"
+        self.assertFalse(pilot_sync.seed_base_revision(Sheet(), submission, config))
+
+    def test_validation_failure_is_reported_and_tree_is_reset(self):
+        submission = self.submission(approval_token="signed")
+        calls = []
+
+        def fake_run(*args, check=True):
+            calls.append(args)
+            failed = "tools/validate.py" in args
+            return mock.Mock(returncode=1 if failed else 0, stdout="  ERROR: gny.yaml: bad role\n" if failed else "",
+                             stderr="")
+
+        class GitHub:
+            def existing_pull(self, branch):
+                return None
+
+        with mock.patch.object(pilot_sync, "validate_submission"), \
+             mock.patch.object(pilot_sync, "patch_catalogue",
+                               return_value=(pilot_sync.ROOT / "series" / "gny.yaml", True)), \
+             mock.patch.object(pilot_sync, "run", side_effect=fake_run):
+            with self.assertRaisesRegex(pilot_sync.PilotError, "ERROR: gny.yaml: bad role"):
+                pilot_sync.open_or_reconcile_pr(object(), GitHub(), submission)
+        self.assertEqual(calls[0], ("git", "checkout", "--force", "--detach", "origin/main"))
 
     def test_retry_reconciles_one_existing_pr_without_creating_a_duplicate(self):
         submission = self.submission(approval_token="signed")
@@ -159,7 +208,7 @@ class PilotSyncTests(unittest.TestCase):
                  pilot_sync, "patch_catalogue",
                  return_value=(pilot_sync.ROOT / "series" / "gny.yaml", True),
              ), \
-             mock.patch.object(pilot_sync, "run"):
+             mock.patch.object(pilot_sync, "run", return_value=mock.Mock(returncode=0, stdout="", stderr="")):
             pilot_sync.open_or_reconcile_pr(Sheet(), github, submission)
             pilot_sync.open_or_reconcile_pr(Sheet(), github, submission)
 
