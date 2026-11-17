@@ -4,32 +4,33 @@ Run of 2026-11-16, rubric 1 (`tools/describe_rubric.md`). Applied.
 
 | | |
 | --- | --- |
-| contests read | 1,255 |
+| contests read | 1,390 |
 | contests with nothing held | 75 |
-| sources | 6,074 |
-| no copy | 757 |
-| read | 5,317 |
-| first readings | 386 |
-| described | 5,017 |
-| description held (low confidence or source gone) | 6 |
-| verdict confirm | 4,792 |
-| verdict correct | 231 |
-| verdict not-the-document | 190 |
-| verdict wrong-contest | 96 |
+| sources | 6,706 |
+| no copy | 830 |
+| read | 5,876 |
+| first readings | 420 |
+| described | 5,568 |
+| description held (low confidence or source gone) | 7 |
+| verdict confirm | 5,326 |
+| verdict correct | 249 |
+| verdict not-the-document | 194 |
+| verdict wrong-contest | 99 |
 | verdict cannot-tell | 8 |
-| disagrees with the earlier reader | 100 |
-| blank date filled | 1 |
-| contest facts fills-blank | 15 |
-| contest facts conflict | 280 |
-| contest facts same | 215 |
-| contest facts listed | 885 |
+| disagrees with the earlier reader | 105 |
+| blank date filled | 6 |
+| blank location filled | 3 |
+| contest facts fills-blank | 24 |
+| contest facts conflict | 293 |
+| contest facts same | 257 |
+| contest facts listed | 978 |
 | words per description | 106 |
 
-Not finished: 1138 contests: nena-2002, nena-2003, nena-2004, nena-2005, nena-2006, nena-2007, nena-2008, nena-2009, nena-2010, nena-2011, nena-2012, nena-2013, nena-2014, nena-2015, nena-2016, nena-2017, nena-2018, nena-2019, nena-2020, nena-2021, nena-2022, nena-2023, nena-2024, nena-2025, nena-2026, nena-atlantic-2008, nena-atlantic-2009, nena-atlantic-2010, nena-atlantic-2011, nena-atlantic-2012, nena-atlantic-2013, nena-atlantic-2014, nena-atlantic-2015, nena-atlantic-2016, nena-atlantic-2017, nena-atlantic-2018, nena-atlantic-2019, nena-central-2008, nena-central-2009, nena-central-2010.
+Not finished: 1003 contests: north-russia-2017, north-russia-2018, north-russia-2019, north-russia-2020, north-russia-2021, north-russia-2022, north-russia-2023, north-russia-2024, north-russia-2025, north-russia-2026, norway-2000, norway-2001, nwerc-1995, nwerc-1996, nwerc-1997, nwerc-1998, nwerc-1999, nwerc-2000, nwerc-2001, nwerc-2002, nwerc-2003, nwerc-2004, nwerc-2005, nwerc-2006, nwerc-2007, nwerc-2008, nwerc-2009, nwerc-2010, nwerc-2011, nwerc-2012, nwerc-2013, nwerc-2014, nwerc-2015, nwerc-2016, nwerc-2017, nwerc-2018, nwerc-2019, nwerc-2020, nwerc-2021, nwerc-2022.
 Results that do not check: 0.
 
 
-## Second reading: 554 sources to look at
+## Second reading: 582 sources to look at
 
 The reader did not confirm the catalogue, or disagrees with the content check of 2026-11-14. Nothing here was applied.
 
@@ -589,8 +590,36 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | nena-2000 | http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.a | standings+rankings | correct → rankings (high) | correct → rankings | Table columns are only Rank, Team and Citation (First Place, Second Place, Honorable Mention), with no solved counts or times. |
 | nena-2000 | https://www.cs.rit.edu/~icpc/questions/RIT_2000.pdf | problemset | confirm (medium) | correct →  | The earlier reader found no regional problem in it and gave no roles; it has seven problems, matching the seven columns of the Rochester Institute of Technology preliminary scoreboard, so I take it as that site's problem |
 | nena-2001 | http://icpc.baylor.edu/past/icpc2002/regionals/ViewRegionalStandings.a | standings+rankings | correct → rankings (high) | correct → standings | The earlier reader gave the role standings; the page has only Rank, Team and Citation with no solved counts or times, so it is a rankings page. |
+| nena-2002 | http://icpc.baylor.edu/past/icpc2003/regionals/Reports/cs.wsc.ma.edu/_ | standings | correct → scoreboard (high) | correct → scoreboard | Mirror of the same page; the text matches source 2 except for the logo address and added mirroring comments. |
+| nena-2002 | http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu | standings+rankings | correct → standings (medium) | correct → standings | View Standings page with rank, team and citation for the final (13 teams) and four preliminary sites, no solved counts. |
+| nena-2002 | http://cs.wsc.ma.edu/~larry/acm/problems.html | problemset | correct → problemset+scoreboard (medium) | confirm | The earlier reader took the page for a problem set only; it also holds the 2002 final grid of 13 teams by seven problems. |
+| nena-2005 | http://www.cs.rit.edu/~icpc | web | correct → no role (medium) | correct →  | The seed page is the RIT Computer Science department 'Website Posting FAQ' and the crawl holds department pages (people, news, advising), with only a later news item about the regional contest. |
+| nena-2010 | http://www.cs.rit.edu/~icpc | web | correct → no role (high) | correct →  | The seed page is the RIT Computer Science department 'Website Posting FAQ'; the crawl holds department pages and only a news item about a regional contest hosted at RIT. |
+| nena-2011 | http://www.cs.rit.edu/~icpc | web | correct → no role (high) | correct →  | The seed page is the RIT Computer Science department calendar for 2012, and the crawl holds department pages with no page about the 2011 contest. |
+| nena-2012 | http://www.cs.rit.edu/~icpc | web | correct → no role (medium) | correct →  | The seed is the RIT Computer Science department calendar for 2012 and the site pages are department pages (advising, people, news); the only contest mention is a headline in a news listing whose article is not in our cop |
+| nena-2013 | http://www.cs.rit.edu/~icpc/ | web | correct → no role (medium) | correct →  | The seed is the RIT Computer Science department calendar for 2014 and the pages are department pages (advising, handbooks, scholarship news); the only contest mentions are a news headline and a high school programming co |
+| nena-2014 | http://www.cs.rit.edu/~icpc/finals.html | web | correct → no role (medium) | correct →  | The seed finals page was not captured as a contest page; the saved pages are RIT Computer Science department pages (calendars 2014 and 2015, advising, news) with only a news teaser about the regional. |
+| nena-2015 | http://www.cs.rit.edu/~icpc | web | correct → no role (medium) | correct →  | The saved pages are RIT Computer Science department pages (calendar 2015, news, advising); the only contest mentions are a news headline and an item on the department's high school programming contest. |
+| nena-2019 | https://open.kattis.com/contests/nena19open | standings | correct → problemset (medium) | wrong-contest | Kattis contest page titled 'ICPC Northeast North America Regional Contest 2019 — Open Division' with a table of problems A to J and a link to standings, but no standings table in the copy. |
+| nena-atlantic-2008 | http://www.umoncton.ca/apics-cipas08/html/competitions.html | web | not-the-document (high) | none | The saved files are personal and research pages on the Dalhousie computer science web host; none of them is from the umoncton.ca APICS 2008 site or any other page of the contest. |
+| nena-atlantic-2008 | https://web.cs.dal.ca/~dpc/atlantic.html | web | correct → no role (medium) | correct →  | Index page headed Atlantic Division Preliminary Contests with one entry per year, where 2008 reads APICS 2008, Oct 17-19, 2008, Universite de Moncton, with a link to that contest's website. |
+| nena-atlantic-2019 | https://open.kattis.com/contests/xfokus/problems | problemset | wrong-contest (high) | wrong-contest | Kattis contest page titled '2020 Atlantic Canadian Programming Competition', starting 2020-10-31, with nine problems A to I. |
+| nena-north-2019 | https://open.kattis.com/contests/nena19open | standings | wrong-contest (high) | wrong-contest | The page is the Kattis contest ICPC Northeast North America Regional Contest 2019 - Open Division, held 2019-11-09 with problems A to J, not the Quebec qualifier of 2019-10-26. |
+| nena-west-2009 | http://www.cs.fredonia.edu/acm/ | web | confirm (high) | correct →  | The earlier reader saw only the department pages and took the copy for no contest website; the page under the ACM address (the seed) is the announcement of this contest. |
+| nena-west-2010 | http://www.cs.rit.edu/~icpc/ | web | correct → no role (medium) | correct →  | The crawl is the RIT Department of Computer Science site (FAQ, news, people) and its only contest items are news about the regional held at RIT, not the SUNY Oswego contest. |
+| nerc-2021 | http://nerc.itmo.ru/archive/2021.html | web | confirm (medium) | correct →  | The earlier reader judged it a resource finder and not a source of this contest (roles empty); the page is the series site's archive page for the 2021 edition, with the edition's resources and the regional contests liste |
+| nerc-2022 | http://nerc.itmo.ru/archive/2022.html | web | confirm (medium) | correct →  | The earlier reader gave no roles and took the page for a resource finder rather than a site about the edition; the page is the series site's section headed NERC 2022, which I kept as a web role. |
+| nigeria-2016 | http://www.mapcom-group.com/index.php?menu=cnp | web | wrong-contest (medium) | confirm | The earlier reader confirmed the site from the contest dashboard listing the Nigerien contest, but in our copy that dashboard is inside an HTML comment with dead links, and no page or PDF is about the Nigerien edition. |
+| nigeria-2016 | https://github.com/kitihounel/competitive-programming-africa/blob/mast | problemset | not-the-document (high) | not-the-document | The file is a GitHub viewer page for problems-ngcpc-2016.pdf, an HTML page with navigation menus and no problem text. |
+| nigeria-2017 | https://github.com/kitihounel/competitive-programming-africa/blob/mast | problemset | not-the-document (high) | not-the-document | The file is a GitHub viewer page for problems-west-africa-2017.pdf, an HTML page with navigation menus and no problem text. |
+| nigeria-2019 | http://www.nmcabuja.org/ | web | correct → no role (medium) | correct →  | A search of all saved files finds no page about the 2019 Nigerian Collegiate Programming Contest; the pages are the general site of the National Mathematical Centre, Abuja, with a menu link to a Nigerian Universities Com |
+| nordic-2005 | http://www.nada.kth.se/contest/ncpc/2005/final/ncpc.html | scoreboard | not-the-document (high) | not-the-document | The copy is a KTH notice 'Dessa webbsidor finns inte längre / These pages are no longer available' for the dismissed site www.nada.kth.se. |
+| nordic-2015 | https://nordic.icpc.io/ncpc2015/reg.html | teams | correct → web (high) | none | The page is titled 'Nordic Collegiate Programming Contest 2015' with the heading 'Registration Process' and holds instructions for registering a team, not a list of teams. |
+| nordic-2016 | https://nordic.icpc.io/ncpc2016/reg.html | teams | correct → web (high) | none | Page titled 'Nordic Collegiate Programming Contest 2016' headed 'Registration Process' with instructions for team captains and no list of teams. |
+| nordic-2017 | https://nordic.icpc.io/ncpc2017/reg.html | teams | correct → web (medium) | none | Page headed 'Registration Process' with step-by-step instructions for registering a team in the ICPC registration system, not a list of teams. |
+| nordic-2025 | https://nordic.icpc.io/ncpc2025/sites | teams | correct → web (medium) | none | The page lists 25 host universities with their countries and confirmation status, not participating teams. |
 
-## Contest facts: 295 that fill a blank or differ
+## Contest facts: 317 that fill a blank or differ
 
 | contest | fact | document says | catalogue | confidence | applied | where it is stated |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -874,6 +903,19 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | nena-1998 | location | Westfield State College, Westfield, MA | (sites) | high | no | The sites page lists Regional Final: Westfield State College, and the director page gives the address Westfield, MA. |
 | nena-2000 | date | 2000-11-06 | 2000-11-04 | medium | no | The final round heading reads Westfield State College - 11/6/2000, and the dates page of the website says Regional Final: Nov. 6, while the rules page says Nov. |
 | nena-2000 | location | Westfield State College, Westfield, MA | Cambridge, MA; Rochester, NY; Westfield State Coll | high | no | The rules page lists the Championship Site as Westfield State College, Westfield, MA; the final round heading of the standings also names Westfield State Colleg |
+| nena-atlantic-2016 | location | Cape Breton University, Sydney, Nova Scotia | Wolfville, NS; Administrative Site Location | high | no | The page says CBU hosts the conference on October 14 and 15, welcomes attendees to Sydney, and gives the university address in Sydney, Nova Scotia. |
+| nena-atlantic-2018 | location | Université de Moncton, Moncton, NB | Administrative Site Location; Moncton, NB | medium | no | The PDF heading names Université de Moncton. |
+| nena-central-2008 | location | Western New England College, Springfield, MA | Administrative Site Location | high | no | The header names Western New England College Site, Springfield, MA. |
+| nena-central-2009 | location | Western New England College, Springfield, MA | Administrative Site Location | high | no | The header names Western New England College Site, Springfield, MA. |
+| nena-central-2010 | location | Western New England College, Springfield, MA | Administrative Site Location | high | no | The header names Western New England College Site, Springfield, MA. |
+| nena-west-2009 | location | SUNY Fredonia, Fredonia, NY | SUNY Fredonia; Administrative Site Location | high | no | The cover names SUNY Fredonia, Fredonia, NY. |
+| nerc-2020 | location | St. Petersburg, Minsk, Tbilisi, Riga (onsite round, 4 April  | Tbilisi; Almaty; St Petersburg; Barnaul; Administr | high | no | The running header of the onsite statements reads St. Petersburg, Minsk, Tbilisi, Riga - April 4th, 2021. |
+| nerc-2021 | date | 2022-04-13 | 2022-04-12 | high | no | every page of the statements PDF is headed 'April 13th, 2022'. |
+| nerc-2022 | location | St. Petersburg, Barnaul, Kutaisi, Almaty | Almaty; St Petersburg; Administrative Site Locatio | medium | no | The page header of the statements names St. Petersburg, Barnaul, Kutaisi, Almaty; the pack lists Tbilisi instead of Kutaisi. |
+| nerc-2023 | location | St. Petersburg, Novosibirsk, Astana, Kutaisi | Administrative Site Location; Kutaisi; Kazakhstan; | medium | no | The page header of the statements names St. Petersburg, Novosibirsk, Astana, Kutaisi. |
+| nerc-2024 | location | St. Petersburg, Novosibirsk, Astana, Tbilisi | Kazakhstan; Tbilisi; Novosibirsk; St Petersburg; A | high | no | The page header of every page names these four cities. |
+| nerc-2025 | date | 2025-12-17 | 2025-12-15 | high | no | The statements header reads December 17th, 2025. |
+| nerc-2025 | location | St. Petersburg, Novosibirsk, Almaty, Tbilisi | (sites) | high | no | The statements header names these four cities. |
 | alberta-2006 | location | University of Alberta, University of Calgary and University  | — | medium | no | the problem index says the contest is a joint effort of the three universities. |
 | bapc-prelims-2025 | date | 2025-09-20 | — | medium | no | The preliminaries page lists the local contests under the dates 20 September, 26 September and 27 September 2025 and says they run between the 20th and 28th. |
 | brazil-first-phase-1996 | location | DCC-UFMG, Belo Horizonte | — | medium | no | The history page says the first Maratona was organised at the Federal University of Minas Gerais, under the heading Belo Horizonte. |
@@ -887,5 +929,14 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | erc-1987 | location | London | — | medium | no | The item says the contest was held in London. |
 | erc-1990 | location | Eindhoven | — | medium | no | The archive index row reads 'ERC 1990, Eindhoven, November 3'. |
 | greece-2024 | date | 2024-10-18 | — | medium | no | The Greek registration page states 'Ημερομηνία Διεξαγωγής: 18-19 Οκτωβρίου 2024'. |
-| neerc-1997 | date | 1997-11-26 | — | high | yes | The problem list page is headed St.Petersburg-Barnaul, 26 Nov 1997. |
 | neerc-1997 | location | St.Petersburg-Barnaul | — | medium | no | The problem list page is headed St.Petersburg-Barnaul, 26 Nov 1997. |
+| nena-2013 | date | 2013-11-16 | — | high | yes | The PDF heading reads 'Rochester Institute of Technology, November 16, 2013'. |
+| nena-north-2015 | date | 2015-10-17 | — | high | yes | The page gives Date & Time: October 17, 2015, 11:00 am to 5:30 pm. |
+| nena-north-2018 | date | 2018-10-13 | — | high | yes | The page states 'Date & Time: October 13, 2018, 11:00 am to 5:30 pm'. |
+| nena-west-2009 | date | 2009-10-17 | — | high | yes | The cover of the questions PDF reads October 17, 2009. |
+| nordic-2002 | location | Linköping, Lund, Stockholm and Umeå | — | high | yes | The page says the contest was held in Linköping, Lund, Stockholm and Umeå on 28 September 2002. |
+| nordic-2003 | location | Linköping, Lund, Stockholm and Umeå | — | high | yes | The front page names these four places as where the contest was held. |
+| north-russia-2006 | date | 2006-11-05 | — | high | yes | The PDF heading reads St Petersburg, November 5, 2006. |
+| north-russia-2006 | location | St Petersburg | — | high | yes | The PDF heading names St Petersburg. |
+| north-russia-2007 | date | 2007-10-28 | — | high | yes | every page of the problems PDF is headed 'St Petersburg, October 28, 2007' |
+| north-russia-2007 | location | St Petersburg | — | medium | no | the PDF header gives 'St Petersburg' as the place, without naming the host institution |
