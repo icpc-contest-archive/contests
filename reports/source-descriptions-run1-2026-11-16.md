@@ -4,31 +4,32 @@ Run of 2026-11-16, rubric 1 (`tools/describe_rubric.md`). Applied.
 
 | | |
 | --- | --- |
-| contests read | 831 |
+| contests read | 1,002 |
 | contests with nothing held | 75 |
-| sources | 4,011 |
-| no copy | 466 |
-| read | 3,545 |
-| first readings | 297 |
-| described | 3,374 |
-| verdict confirm | 3,205 |
-| verdict correct | 169 |
-| verdict not-the-document | 106 |
-| verdict wrong-contest | 57 |
+| sources | 4,721 |
+| no copy | 564 |
+| read | 4,157 |
+| first readings | 338 |
+| described | 3,932 |
+| description held (low confidence or source gone) | 4 |
+| verdict confirm | 3,748 |
+| verdict correct | 188 |
+| verdict not-the-document | 139 |
+| verdict wrong-contest | 74 |
 | verdict cannot-tell | 8 |
-| disagrees with the earlier reader | 58 |
+| disagrees with the earlier reader | 70 |
 | blank date filled | 2 |
 | contest facts fills-blank | 15 |
-| contest facts conflict | 205 |
-| contest facts same | 142 |
-| contest facts listed | 558 |
+| contest facts conflict | 237 |
+| contest facts same | 156 |
+| contest facts listed | 683 |
 | words per description | 107 |
 
-Not finished: 1562 contests: japan-2019, japan-2020, japan-2021, japan-2022, japan-2023, japan-2024, japan-2025, jiaozuo-2018, jinan-2020, jinan-2021, jinan-2022, jinan-2023, jordan-2011, jordan-2012, jordan-2013, jordan-2014, jordan-2015, jordan-2016, jordan-2017, jordan-2018, jordan-2019, jordan-2020, jordan-2021, jordan-2022, jordan-2023, jordan-2024, jordan-2025, jordan-2026, kabul-2017, kabul-2018, kabul-2019, kabul-2020, kabul-2023, kabul-2024, kabul-2025, kabul-2026, kanpur-1999, kanpur-2000, kanpur-2001, kanpur-2002.
+Not finished: 1391 contests: kyrgyzstan-2019, kyrgyzstan-2020, kyrgyzstan-2021, kyrgyzstan-2022, kyrgyzstan-2023, kyrgyzstan-2024, kyrgyzstan-2025, kyrgyzstan-2026, lac-2024, lac-2025, lethbridge-2014, lethbridge-2015, lethbridge-2016, lethbridge-2017, lethbridge-2018, lethbridge-2019, lethbridge-2020, lethbridge-2021, lethbridge-2022, lethbridge-2023, lethbridge-2024, lethbridge-2025, macau-2020, macau-2021, macau-2023, malaysia-national-2013, malaysia-national-2014, malaysia-national-2016, malaysia-national-2018, malaysia-national-2019, manila-2002, manila-2003, manila-2004, manila-2005, manila-2006, manila-2009, manila-2011, manila-2016, manila-2017, manila-2019.
 Results that do not check: 0.
 
 
-## Second reading: 360 sources to look at
+## Second reading: 435 sources to look at
 
 The reader did not confirm the catalogue, or disagrees with the content check of 2026-11-14. Nothing here was applied.
 
@@ -394,8 +395,83 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | japan-2014 | https://icpc.jp/2014/regional/teams/ | teams | correct → no role (high) | none | The page has only the heading 'Teams' and the words 'See the list here', a link to a Baylor reservations page, and no list of teams. |
 | japan-2017 | https://icpc.jp/2017/regional/world-finals-teams/ | rankings | correct → report (medium) | none | The page names three universities selected for the 2018 World Finals with the reason for each, and gives no list of teams or order of results. |
 | japan-2017 | https://icpc.jp/2017/domestic/results/ | rankings | correct → standings (medium) | none | The page is the results table of the 14 July 2017 national qualifier (391 team rows, 43 marked as selected for the Tsukuba regional), not of the regional contest itself. |
+| japan-2019 | https://icpc.jp/2019/regional/contest-documents/ | problemset | correct → no role (medium) | none | Page 'Contest Documents' of the icpc.jp site that only links two PDFs, a contest program and a contest information sheet, and contains no problems. |
+| japan-2019 | https://icpc.jp/2019/regional/commentaries-and-data-from-judges/ | editorial | correct → no role (medium) | none | Page 'Commentaries and Data from Judges' of the icpc.jp site that only links the commentaries PDF and a data archive and holds no solutions itself. |
+| japan-2022 | https://icpc.jp/2022/regional/contest-documents/ | problemset | correct → web (medium) | none | Page titled 'ICPC Asia Yokohama Regional Contest Documents' of the organisers' site, which lists two PDFs (Contest Program, Contest Information) and links the problem notes and coaches' information, but holds no problems |
+| jinan-2020 | https://ac.nowcoder.com/acm/contest/10662 | problemset | not-the-document (high) | not-the-document | Page holds 463 characters of NowCoder menus and footer and a loading placeholder, with no contest content. |
+| jordan-2011 | http://www.acmacpc.org/jordan | web+standings | wrong-contest (high) | wrong-contest | The page announces '2014 JCPC will be held at Applied Sciences University (ASU) 31/10 - 1/11/2014' and holds no 2011 content beyond menu links to the archive. |
+| jordan-2012 | http://jordan.acmacpc.org/Archive/JCPCarchive.html | standings | correct → no role (high) | correct →  | Archive index page of the series site with two rows, 2012 and 2011, each linking a problem-set zip and a results summary. |
+| kabul-2020 | https://icpc.kateb.edu.af/ | web+standings | not-the-document (high) | not-the-document | The held copy is an Indonesian online-gambling advertisement page titled DOLANTOGEL inside a marketplace template, with no ICPC content. |
+| kabul-2023 | http://icpc.kateb.edu.af/ | standings | not-the-document (high) | not-the-document | The held copy is an Indonesian online-gambling advertisement page titled DOLANTOGEL inside a marketplace template, with no ICPC content. |
+| kabul-2024 | http://icpc.kateb.edu.af/ | standings | not-the-document (high) | not-the-document | The held copy is an Indonesian online-gambling advertisement page titled DOLANTOGEL inside a marketplace template, with no ICPC content. |
+| kabul-2025 | http://icpc.kateb.edu.af/ | standings | not-the-document (high) | not-the-document | The copy is an Indonesian online-gambling (togel) advertisement page in a marketplace template, with no ICPC content. |
+| kanpur-2001 | http://www.acm.inf.ethz.ch/ProblemSetArchive/B_VV_Asian/2001/Kanpur/ | problemset | correct → no role (high) | correct →  | 351-byte page 'Asian Regionals 2001 -- Kanpur Site' with one link to problemset2001.pdf and no problem text. |
+| kanpur-2001 | http://www.cse.iitk.ac.in/acm2001/problems.htm | problemset | correct → no role (high) | correct →  | Page 'ACM ICPC Problems 2001' holds only links to the problems as ps.gz and pdf files, no problem text. |
+| kanpur-2004 | http://www.cse.iitk.ac.in/users/acm/directrep.html | web | correct → report (high) | correct → report | Page 'Report from the Contest Director' on the 6th ACM ICPC Asia Region Kanpur Site, with one further page, the results table. |
+| kanpur-2006 | http://www.cse.iitk.ac.in/users/acm | web | wrong-contest (medium) | correct →  | The site copy holds the department's pages and ICPC Kanpur site pages of 2000 to 2004, and no page about the 2006 contest. |
+| kanpur-2007 | http://www.cse.iitk.ac.in/users/acm | web | wrong-contest (medium) | correct →  | The site copy holds department pages and the ACM ICPC Kanpur pages of the 2000 to 2004 editions only, with nothing about a 2007 contest. |
+| kanpur-2008 | http://www.cse.iitk.ac.in/users/acm | web | wrong-contest (medium) | correct →  | The site copy holds department pages (including 2008 admissions pages) and ICPC Kanpur site pages of 2000 to 2004 only, with nothing about the 2008 contest. |
+| kanpur-2008 | https://www.cse.iitk.ac.in/users/acm/archive/acm2008/ranks.html | rankings | confirm (high) | correct → standings | The earlier reader gave the roles as standings; this page carries only rank, institute and team name, with no solved counts or times, so the roles are rankings. |
+| kanpur-2010 | http://www.cse.iitk.ac.in/users/acm | web | wrong-contest (medium) | correct →  | The site copy holds department pages and ICPC Kanpur site pages of 2000 to 2004 only, with no page about the 2010 contest. |
+| kanpur-2010 | http://www.cse.iitk.ac.in/users/acm/Result.html | standings | correct → web+standings (medium) | correct → web+standings+teams | The earlier reader also gave the role teams and the scope top 10; I take the 10-row result table plus the Honorable Mention list as the page's standings, with no separate team list. |
+| kanpur-2011 | http://www.cse.iitk.ac.in/users/acm | web | wrong-contest (medium) | correct →  | The site copy holds department pages and ICPC Kanpur site pages of 2000 to 2004 only, with no page about the 2011 contest. |
+| kanpur-2011 | http://www.cse.iitk.ac.in/users/acm/result.html | standings+rankings | correct → web+rankings (medium) | correct → web+standings | The earlier reader gave the roles web and standings; the page carries only rank, team and institute, with no solved counts or times, so I give rankings. The earlier reader also counted 21 Honorable Mention teams; the lis |
+| kanpur-2012 | http://www.cse.iitk.ac.in/users/acm | web | wrong-contest (medium) | correct →  | The seed is the IIT Kanpur CSE department home page (last modified January 2015) and the ACM pages in it are of the 2001, 2003 and 2004 editions, none of 2012. |
+| kanpur-2012 | http://cse.iitk.ac.in/users/acm/rank.html | standings | correct → web+standings (high) | correct → web+standings | The page is the Kanpur Site 2012 home page with registration and contest dates, a 33-row ranked table (Institute, Team Name, Rank) and an unranked Honorable Mention table of 26 teams. |
+| kanpur-2013 | http://www.cse.iitk.ac.in/users/acm | web | wrong-contest (medium) | correct →  | The seed is the IIT Kanpur CSE department home page (last modified January 2015) and the ACM ICPC pages in the crawl are of the 2001 to 2004 editions; no page is about the 2013 contest. |
+| kanpur-2013 | https://www.cse.iitk.ac.in/users/acm/Result.pdf | rankings | correct → standings (high) | correct → standings | 2-page PDF titled Result of ACM ICPC Asia Region Kanpur Site - 2013 with 13 ranked teams (Team Name, Institute Name, Rank) and an unranked Honorable Mention list. |
+| kanpur-2013 | https://www.codechef.com/KAN13ACM | problemset | not-the-document (high) | not-the-document | The saved page titled Contest Page / CodeChef holds only the site footer and the roadmap, career and compiler menus, with no problem text. |
+| kanpur-2019 | https://www.codechef.com/KA19MOS | problemset | not-the-document (high) | not-the-document | The saved page titled Contest Page / CodeChef holds only the site footer, roadmap and compiler menus, with no problem text. |
+| kanpur-2023 | https://kanpur.indiaicpc.in/?page_id=1091 | standings | wrong-contest (high) | wrong-contest | The copy is the ICPC Kanpur Regional 2026 multi-site home page (Kanpur, Gandhinagar, Pune) with no standings table. |
+| kanpur-2024 | http://kanpur.indiaicpc.in/index.php?page=results2024 | standings | wrong-contest (high) | wrong-contest | The copy is the ICPC Kanpur Regional 2026 multi-site home page, an HTML page and not a standings table. |
+| kanpur-2024 | https://kanpur.indiaicpc.in/?page_id=1250 | standings | wrong-contest (high) | wrong-contest | The copy is the ICPC Kanpur Regional 2026 multi-site home page, an HTML page and not a standings table. |
+| kanpur-2024 | https://kanpur.indiaicpc.in/Problem_Set2024.pdf | problemset | wrong-contest (high) | none | The copy is the ICPC Kanpur Regional 2026 multi-site home page, an HTML page and not a problem set. |
+| kanpur-2024 | http://kanpur.indiaicpc.in/Director_Report24.pdf | report | wrong-contest (high) | none | The copy is the ICPC Kanpur Regional 2026 multi-site home page, an HTML page and not a report. |
+| kanpur-2025 | http://kanpur.indiaicpc.in/ranklist25.pdf | scoreboard | not-the-document (high) | correct → scoreboard | The earlier reader saw a PDF ranklist of 101 teams; our current copy of this address is the 2026 homepage in HTML (the real ranklist PDF is in the website crawl). |
+| kanpur-2025 | https://www.codechef.com/ICPCKANRP25 | problemset | not-the-document (high) | not-the-document | CodeChef contest page shell with only footer and menu text and no problems. |
+| kazakhstan-2003 | https://neerc.ifmo.ru/subregions/kazakhstan.html | web | confirm (low) | correct →  | The earlier reader gave roles [] because the copy is the NEERC archive and not a site of the Kazakhstan contest; I confirm web because it holds the 2003 NEERC page and the Kazakhstan 2003 standings. |
+| kazakhstan-2004 | https://neerc.ifmo.ru/subregions/kazakhstan.html | web | confirm (low) | correct →  | The earlier reader gave roles [] because the copy is the NEERC archive and not a site of the Kazakhstan contest; I confirm web because it holds the NEERC 2004 page and the Kazakhstan 2004 standings. |
+| kazakhstan-2025 | https://cpfed.kz/ | web | correct → no role (medium) | confirm | The earlier reader kept the role web; the site is the federation's general site with no page of this edition, so it is not a source of this contest. |
+| kharagpur-2013 | https://www.codechef.com/KGP13ACM | problemset | not-the-document (high) | not-the-document | The saved CodeChef page holds only site footer, roadmaps and compiler links, with no contest or problem content. |
+| kharagpur-2014 | https://www.codechef.com/KGP14ROS | problemset | not-the-document (high) | not-the-document | The saved CodeChef page holds only site footer, roadmaps and compiler links, with no contest or problem content. |
+| kharagpur-2016 | https://www.codechef.com/ACM16KGP | problemset | not-the-document (high) | not-the-document | The page is a CodeChef page with only menus, a footer and a cookie notice, titled Contest Page, with no contest data. |
+| kharagpur-2016 | https://www.codechef.com/KGP16MOS | problemset | not-the-document (high) | not-the-document | The page is the same CodeChef shell titled Contest Page, with menus, footer and cookie notice only and no problems. |
+| kharagpur-2017 | https://www.codechef.com/KGP17ROL | problemset | not-the-document (high) | not-the-document | The page is a CodeChef shell titled Contest Page with only menus and footer, no contest data. |
+| kharagpur-2018 | https://www.codechef.com/KGP18ROL | problemset | not-the-document (high) | not-the-document | The page is a CodeChef shell titled Contest Page with only menus and footer, no problems. |
+| kharagpur-2019 | http://acm.iitkgp.ac.in/ | web+standings | correct → web (high) | correct → web | The single page is the site's home page with announcements on selected teams and fees due Nov. 15, 2019, and it holds no ranking table, only a menu entry IITKGP Ranks. |
+| kharagpur-2019 | https://www.codechef.com/public/rankings/ICPCKH19 | scoreboard | not-the-document (high) | not-the-document | The CodeChef page titled ICPC Asia Kharagpur Onsite Round 2019 has a table of one cell holding the contest title and no rank rows. |
+| kharagpur-2019 | https://www.codechef.com/KH19MOS | problemset | not-the-document (high) | not-the-document | The page is a CodeChef shell titled Contest Page with only menus and footer, no problems. |
+| kolkata-2005 | http://www.cse.iitk.ac.in/users/acm/ | web | wrong-contest (medium) | correct →  | The crawl is the IIT Kanpur CSE department site; its ACM ICPC pages cover the 2001, 2002, 2003 and 2004 Kanpur-site contests, and none of the pages I read is about the 2005 Kolkata contest. |
+| kolkata-2015 | https://www.codechef.com/KOL15MOS | problemset | not-the-document (medium) | not-the-document | The copy is a generic CodeChef 'Contest Page' shell with company address, roadmaps and compiler links, and no contest name or problems. |
+| kolkata-2016 | https://www.codechef.com/ACM16KOL | problemset | not-the-document (medium) | not-the-document | The copy is a generic CodeChef 'Contest Page' shell with company address, roadmaps and compiler links, and no contest name or problems. |
+| kolkata-2016 | https://www.codechef.com/KOL16MOS | problemset | not-the-document (medium) | not-the-document | The copy is a generic CodeChef 'Contest Page' shell with company address, roadmaps and compiler links, and no contest name or problems. |
+| kolkata-kanpur-2017 | https://www.codechef.com/KOL17ROL | problemset | not-the-document (medium) | not-the-document | The copy is a generic CodeChef 'Contest Page' shell with company address, roadmaps and compiler links, and no contest name or problems. |
+| kolkata-kanpur-2018 | https://www.codechef.com/KOL18ROL | problemset | not-the-document (high) | not-the-document | The copy is a CodeChef 'Contest Page' shell with an address, roadmap and compiler links and a footer, and no contest name, problems or results. |
+| korea-2011 | http://acm.kaist.ac.kr/phpBB3/viewtopic.php?f=25&t=657 | standings | not-the-document (high) | not-the-document | The page is a phpBB 'ACM ICPC • Information' page that says 'You are not authorised to read this forum'. |
+| korea-2012 | https://icpckorea.org/2012-daejeon/regional | web | confirm (high) | correct → web+standings | The earlier reader added the role standings, but this is one page of a series site, so it stays a website whose page carries a standings table. |
+| korea-2012 | http://acm.kaist.ac.kr/phpBB3/viewtopic.php?f=28&t=695 | standings | not-the-document (high) | not-the-document | The page is a forum notice reading 'You are not authorised to read this forum', with no standings. |
+| korea-2013 | https://icpckorea.org/2013-daejeon/regional | web | confirm (high) | correct → web+standings | The earlier reader added the role standings, but this is one page of a series site, so it stays a website whose page carries a standings table. |
+| korea-2014 | https://icpckorea.org/2014-daejeon/regional | web | confirm (high) | correct → web+standings | The earlier reader added the role standings, but this is one page of a series site, so it stays a website whose page carries a standings table. |
+| korea-2016 | https://icpckorea.org/2016/REGIONAL/scoreboard.html | scoreboard | not-the-document (high) | not-the-document | The page is a Spotboard shell reading 'Loading... Please Wait' with clock xx:xx, 'Page 1 of ?' and no team or problem data in the file. |
+| korea-2018 | http://icpckorea.org/2018/regional/scoreboard/ | scoreboard+standings | not-the-document (high) | not-the-document | The page is an empty Spotboard shell reading 'Loading... Please Wait' with no team or problem data in the file. |
+| korea-2019 | https://icpckorea.org/2019/regional/scoreboard/ | scoreboard+standings | not-the-document (high) | not-the-document | The page is an empty Spotboard shell reading 'Loading... Please Wait' with no team or problem data in the file. |
+| korea-2020 | http://static.icpckorea.net/2020/scoreboard_terpin/ | scoreboard | not-the-document (high) | not-the-document | The page is the Spotboard application shell showing 'Loading... Please Wait' and 'Page 1 of ?', with no team or problem data. |
+| korea-2021 | http://static.icpckorea.net/2021/scoreboard_regional/ | scoreboard | not-the-document (high) | not-the-document | The page is the Spotboard application shell showing 'Loading... Please Wait' and 'Page 1 of ?', with no team or problem data. |
+| korea-2022 | http://static.icpckorea.net/20221119/scoreboard/ | scoreboard | not-the-document (high) | not-the-document | The page is the Spotboard application shell showing only 'Loading... Please Wait' and 'Page 1 of ?', with no team or problem data in the file. |
+| korea-2023 | http://static.icpckorea.net/2023/regional/scoreboard/ | scoreboard | not-the-document (high) | not-the-document | The page is the Spotboard application shell showing only 'Loading... Please Wait' and 'Page 1 of ?', with no team or problem data in the file. |
+| korea-2023 | https://icpckorea.org/archives/2971 | problemset | correct → no role (medium) | correct →  | Notice '2023 ICPC Seoul Regional – Problemset, Standings' dated 2023-11-25 containing only links to the problem set, scoreboards and mirror contest plus the start times, no problems or results itself. |
+| korea-2024 | http://static.icpckorea.net/2024/regional/scoreboard/ | scoreboard | not-the-document (high) | not-the-document | The page is an empty Spotboard shell reading 'Loading... Please Wait' with no team or problem data. |
+| korea-2025 | http://static.icpckorea.net/2025/regional/scoreboard/ | scoreboard | not-the-document (high) | not-the-document | The page is an empty Spotboard shell reading 'Loading... Please Wait' with no team or problem data. |
+| kuala-lumpur-2014 | http://www.iium.edu.my/acmicpc/2014/files/icpc-regional-2014-analysis- | editorial | correct → report (high) | none | Ten-page PowerPoint slide set titled 'ACM-ICPC - Regional Asia Kuala Lumpur Contest 2014 Analysis' with setters, difficulty levels, judges' feedback and statistics, and no explanation of solutions. |
+| kunming-2020 | https://ac.nowcoder.com/acm/contest/12548 | problemset | correct → web (medium) | not-the-document | The earlier reader saw a page shell with no contest content; our copy now holds the contest's announcement text (dates, rules, platform, compilers), so it is a contest page rather than an empty shell, and it has no probl |
+| kunming-2021 | https://ac.nowcoder.com/acm/contest/32708 | problemset | correct → web (medium) | not-the-document | The earlier reader saw a page shell with no contest content; our copy now holds the organisers' requirements text for this contest, and it has no problems. |
+| kyrgyzstan-2010 | http://neerc.ifmo.ru/ | web | correct → no role (medium) | correct →  | The seed page of the 2010 season says "No information is available" for Kyrgyzstan and the crawl holds no Kyrgyzstan page of 2010. |
+| kyrgyzstan-2018 | https://neerc.ifmo.ru/subregions/kyrgyzstan.html | web | wrong-contest (high) | correct →  | The page is the Kyrgyzstan Regional Contest page with contest dates 03 Oct 2026 and 31 Oct 2026, and in its archive list the heading 2018 has no standings link. |
+| kyrgyzstan-2018 | https://github.com/iensen/olymp.krsu.edu.kg | web | wrong-contest (high) | correct →  | GitHub repository page whose folders are checkers, problem_statements/subregional_2015 and .gitignore; the text does not mention 2018. |
+| lebanon-2009 | https://www.bau.edu.lb/Science/Event/The-Lebanese-Collegiate-Programmi | web | wrong-contest (high) | wrong-contest | The article is dated 04 October 2019 and reports the Lebanese Collegiate Programming Competition held on October 4, 2019 (37 teams, ICPC in Moscow); nothing in it is about the 2009 edition beyond saying the competition h |
+| lebanon-2018 | https://news.lau.edu.lb/2018/computer-science-students-win-battle-of-t | web | correct → no role (high) | correct →  | The 150 saved pages are the LAU News 2018 archive index and news articles; none mentions the Lebanese Collegiate Programming Contest, and the article named as the seed is not among them. |
 
-## Contest facts: 220 that fill a blank or differ
+## Contest facts: 252 that fill a blank or differ
 
 | contest | fact | document says | catalogue | confidence | applied | where it is stated |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -604,6 +680,38 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | japan-2015 | location | Tsukuba Capio, Tsukuba (host: University of Tsukuba) | Tsukuba | high | no | The regional front page names University of Tsukuba as host school and Tsukuba Capio as the venue of the opening ceremony, contest and award ceremony. |
 | japan-2016 | location | Tsukuba International Congress Center, Tsukuba | Tsukuba | high | no | The front page says the contest was held at the Tsukuba International Congress Center. |
 | japan-2017 | location | Tsukuba Capio, Tsukuba (host: Tsukuba-Gakuin University) | Tsukuba | high | no | The front page says the contest was held at Tsukuba Capio and names Tsukuba-Gakuin University as host university. |
+| japan-2019 | date | 2019-11-17 | 2019-11-18 | high | no | The contest page lists 'Nov. 17 (Sun)' with the regional contest from 9:30 to 14:30, and the problem set PDF is headed 2019-11-17. |
+| japan-2020 | location | Online | Administrative Site Location; Yokohama | high | no | The regional page says the contest was run fully online on 16-17 March 2021 and the rules require each contestant to sit in a private room. |
+| japan-2022 | location | Yokohama Sanbo Hall, Yokohama | Yokohama; Administrative Site Location | high | no | the front page names Yokohama Sanbo Hall, 2 Yamashita-cho, Naka-ku, Yokohama as the venue. |
+| japan-2023 | location | Yokohama Sanbo Hall, Yokohama | Administrative Site Location; Yokohama | high | no | the front page schedule names Yokohama Sanbo Hall for both days. |
+| japan-2024 | location | Yokohama Sanbo Hall, Yokohama | Administrative Site Location; Yokohama | high | no | The regional page gives Yokohama Sanbo Hall, 2 Yamashita-cho, Naka-ku, Yokohama as the venue. |
+| japan-2025 | location | Yokohama Sanbo Hall, Yokohama | Administrative Site Location; Yokohama | high | no | The regional page gives Yokohama Sanbo Hall, 2 Yamashita-cho, Naka-ku, Yokohama as the venue. |
+| jinan-2020 | location | Qilu University of Technology (Shandong Academy of Sciences) | Administrative Site Location; NanchangOnsite | medium | no | Each page header of the problem set names Qilu University of Technology (Shandong Academy of Sciences); the city is not stated beside it. |
+| jordan-2012 | date | 2012-11-09 | 2012-11-17 | medium | no | the archive page gives the 2012 JCPC as 09-10/11/2012. |
+| jordan-2013 | location | Applied Sciences University (ASU), Jordan | Jordan | medium | no | the front page and About page say the contest is held at Applied Sciences University (ASU) on 15 and 16 November 2013. |
+| kanpur-2001 | date | 2001-12-05 | 2001-12-06 | high | no | The page states 'Date of Contest: 5 - 6 December 2001'. |
+| kanpur-2002 | date | 2002-12-06 | 2002-12-07 | high | no | The home page and the standings page give the contest as '6 - 7 December, 2002'. |
+| kharagpur-2013 | location | Indian Institute of Technology Kharagpur, Kharagpur | Administrative Site Location; India Kharagpur | high | no | The problem set cover names IIT Kharagpur. |
+| kharagpur-2014 | location | Indian Institute of Technology Kharagpur, Kharagpur | Administrative Site Location; India Kharagpur | high | no | The problem set cover names IIT Kharagpur. |
+| kharagpur-2016 | date | 2016-12-17 | 2016-12-18 | high | no | The 2016 contest director's report says the contest started at 9 AM on December 17, after a practice session on 16 December. |
+| kolkata-2015 | location | National Institute of Technical Teachers' Training and Resea | Kolkata | high | no | The home page and the PDFs footer state the event was hosted by NITTTR, Kolkata. |
+| kolkata-kanpur-2018 | date | 2018-12-21 | 2018-12-22 | medium | no | The important dates page gives the Kolkata-Kanpur Site Contest as 21-22 December 2018. |
+| kolkata-roorkee-2003 | location | IIT Roorkee and Jadavpur University, Kolkata | IIT-Roorkee; IIT-Kanpur; Jadavpur Univ- Kolkata | high | no | The director's report says the contest was conducted at two places, Indian Institute of Technology Roorkee and Jadavpur University Kolkata, with IIT Kanpur as t |
+| korea-2000 | date | 2000-11-05 | 2000-11-06 | high | no | The contest information page states 'Date of Contest: 5 - 6 November 2000'. |
+| korea-2000 | location | Korea Advanced Institute of Science and Technology (KAIST),  | KAIST-Seoul-Taejon | medium | no | The contest information page says it was hosted by Korea Advanced Institute of Science and Technology; the standings page is headed Taejon. |
+| korea-2001 | date | 2001-11-03 | 2001-11-04 | high | no | The front page states 'Date of Contest: 3 - 4 November 2001'. |
+| korea-2009 | date | 2009-11-04 | 2009-11-06 | medium | no | The page of the contest website states 'Date: 2009. 11. 04 – 05'. |
+| korea-2011 | date | 2011-11-04 | 2011-11-05 | low | no | The announcement of 2011-08-22 gives the on-site contest as Nov. 04~05 at the ICC Campus, KAIST, Daejeon, marked tentative. |
+| korea-2012 | date | 2012-11-02 | 2012-11-03 | medium | no | The edition page reads 'Date: 2012. 11. 02 - 03'; the first day is given. |
+| korea-2013 | date | 2013-11-01 | 2013-11-02 | medium | no | The edition page reads 'Date: 2013. 11. 01 - 02'; the first day is given. |
+| korea-2014 | date | 2014-11-07 | 2014-11-08 | medium | no | The edition page reads 'Date: 2014. 11. 07 - 08'; the first day is given. |
+| korea-2026 | location | KINTEX, Goyang, Gyeonggi-do | (sites) | high | no | The 2026 Seoul Regional page gives the venue as KINTEX, Gyeonggi-do, and the teams notice says KINTEX, Goyang. |
+| kunming-2021 | date | 2022-04-17 | 2022-04-10 | high | no | The problem set header reads 'Online, April 17, 2022' and the editorial cover is dated April 17, 2022. |
+| kuwait-2017 | location | Gulf University for Science and Technology (GUST) | Administrative Site Location; Gulf; Kuwait | medium | no | The History page reads 'KCPC-2017 : Host : GUST (Gulf University for Science and Technology)'. |
+| kuwait-2026 | location | American University of Kuwait, Kuwait | (sites) | medium | no | The article says AUK hosted the contest; the page footer gives its address in Salmiya, Kuwait. |
+| lebanon-2011 | location | American University of Science & Technology (AUST), Beirut | LCPC; Administrative Site Location | high | no | The home page says the contest takes place in Block B, Conference Hall of the Beirut campus of AUST. |
+| lebanon-2014 | location | American University of Beirut, Beirut | Administrative Site Location; lebanon | medium | no | The home page says the contest is held at the American University of Beirut. |
+| lebanon-2015 | location | Arab Open University (Badaro), Beirut | lebanon; Administrative Site Location | medium | no | The About page says the contest is held at the Arab Open University (Badaro). |
 | alberta-2006 | location | University of Alberta, University of Calgary and University  | — | medium | no | the problem index says the contest is a joint effort of the three universities. |
 | bapc-prelims-2025 | date | 2025-09-20 | — | medium | no | The preliminaries page lists the local contests under the dates 20 September, 26 September and 27 September 2025 and says they run between the 20th and 28th. |
 | brazil-first-phase-1996 | location | DCC-UFMG, Belo Horizonte | — | medium | no | The history page says the first Maratona was organised at the Federal University of Minas Gerais, under the heading Belo Horizonte. |
@@ -616,6 +724,6 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | ecna-2023 | date | 2023-10-21 | — | medium | no | The front page section 2023 - 2024 Regional Programming Contest reads Date: Saturday, October 21, 2023 (the Kattis board states a start of 2023-10-29). |
 | erc-1987 | location | London | — | medium | no | The item says the contest was held in London. |
 | erc-1990 | location | Eindhoven | — | medium | no | The archive index row reads 'ERC 1990, Eindhoven, November 3'. |
-| gny-2024 | date | 2024-11-10 | — | high | yes | The front page and rules page state Sunday, November 10, 2024. |
-| gny-2025 | date | 2025-11-09 | — | high | yes | The front page reads 'Sunday, November 9, 2025'. |
 | greece-2024 | date | 2024-10-18 | — | medium | no | The Greek registration page states 'Ημερομηνία Διεξαγωγής: 18-19 Οκτωβρίου 2024'. |
+| jinan-2020 | date | 2020-12-27 | — | high | yes | The cover of the problem set PDF reads December 27, 2020 and the page headers read 2020/12/27. |
+| kuwait-2026 | date | 2026-10-22 | — | high | yes | The article says the contest was held on October 22 and 24, 2026. |
