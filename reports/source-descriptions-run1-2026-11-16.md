@@ -4,32 +4,32 @@ Run of 2026-11-16, rubric 1 (`tools/describe_rubric.md`). Applied.
 
 | | |
 | --- | --- |
-| contests read | 312 |
+| contests read | 444 |
 | contests with nothing held | 75 |
-| sources | 1,485 |
-| no copy | 179 |
-| read | 1,306 |
-| first readings | 133 |
-| described | 1,222 |
-| verdict confirm | 1,161 |
-| verdict correct | 61 |
-| verdict not-the-document | 53 |
-| verdict wrong-contest | 29 |
+| sources | 2,089 |
+| no copy | 250 |
+| read | 1,839 |
+| first readings | 168 |
+| described | 1,731 |
+| verdict confirm | 1,630 |
+| verdict correct | 101 |
+| verdict not-the-document | 72 |
+| verdict wrong-contest | 34 |
 | verdict cannot-tell | 2 |
-| disagrees with the earlier reader | 31 |
-| blank date filled | 5 |
+| disagrees with the earlier reader | 39 |
+| blank date filled | 15 |
 | blank location filled | 1 |
-| contest facts fills-blank | 9 |
-| contest facts conflict | 63 |
-| contest facts same | 33 |
-| contest facts listed | 173 |
+| contest facts fills-blank | 22 |
+| contest facts conflict | 99 |
+| contest facts same | 49 |
+| contest facts listed | 273 |
 | words per description | 108 |
 
-Not finished: 2081 contests: central-america-2011, central-america-2012, central-america-2013, central-america-2014, central-america-2015, central-america-2016, central-america-2017, central-america-2018, central-america-2019, central-america-2020, central-america-2021, central-america-2022, central-america-2024, central-america-2025, central-america-2026, central-russia-1998, central-russia-1999, central-russia-2000, central-russia-2001, central-russia-2002, central-russia-2003, central-russia-2004, central-russia-2005, central-russia-2006, central-russia-2007, central-russia-2008, central-russia-2009, central-russia-2010, central-russia-2011, central-russia-2012, central-russia-2013, central-russia-2014, central-russia-2015, central-russia-2016, central-russia-2017, central-russia-2018, central-russia-2019, central-russia-2020, central-russia-2021, central-russia-2022.
+Not finished: 1949 contests: croatia-2024, croatia-2025, ctuo-1995, ctuo-1996, ctuo-1997, ctuo-1998, ctuo-1999, ctuo-2000, ctuo-2001, ctuo-2002, ctuo-2003, ctuo-2004, ctuo-2005, ctuo-2006, ctuo-2007, ctuo-2008, ctuo-2009, ctuo-2010, ctuo-2011, ctuo-2012, ctuo-2013, ctuo-2014, ctuo-2015, ctuo-2016, ctuo-2017, ctuo-2018, ctuo-2019, ctuo-2021, ctuo-2022, ctuo-2023, ctuo-2024, ctuo-2025, cuba-2010, cyprus-2018, cyprus-2019, cyprus-2025, cyprus-2026, dalian-2011, dalian-2016, dhaka-1997.
 Results that do not check: 0.
 
 
-## Second reading: 153 sources to look at
+## Second reading: 222 sources to look at
 
 The reader did not confirm the catalogue, or disagrees with the content check of 2026-11-14. Nothing here was applied.
 
@@ -188,8 +188,77 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | central-america-1997 | https://www.icpccaribe.org/icpc-latam/concursos-regionales-acm-icpc-de | web | correct → report+rankings (medium) | correct → report+rankings | The page is a history page for the Mexico and Central America regionals 1997 to 2016, and its 1997 section gives a regional director and one podium entry with an unknown number solved. |
 | central-america-2002 | http://icpc.baylor.edu/past/icpc2003/regionals/Reports/orion.qro.itesm | web | wrong-contest (medium) | none | The 13 pages of the ITESM Queretaro ACM chapter site in the copy concern a local contest of April 2003 and regional contests of 2003 or later (agenda of 8 and 9 November, X Concurso 2005, six problem documents none of wh |
 | central-america-2005 | http://khalo.qro.itesm.mx/~acm/resultados.php | standings | wrong-contest (medium) | wrong-contest | The board of 126 teams has different teams and winners (Poor Dogs 5 solved, 696) from the 2005 standings, includes a team named TIMOGA2006, and is the results page of the chapter site whose current pages are the 2006 edi |
+| central-america-2012 | https://eolymp.com/contests/3388 | problemset | not-the-document (high) | cannot-tell | The earlier reader said cannot-tell with role problemset; I judge it a sign-in wall since the copy holds no problem, statement or list. |
+| central-america-2013 | https://eolymp.com/contests/3423 | problemset | not-the-document (high) | cannot-tell | The earlier reader said cannot-tell with role problemset; I judge it a sign-in wall since the copy holds no problem, statement or list. |
+| central-america-2014 | https://www.acmicpc.net/category/detail/1297 | problemset | not-the-document (high) | correct →  | Baekjoon category page Latin America Regional Contests 2014 lists 14 problems A to K, PA, PB and PC, all marked as deleted (삭제) with no title. |
+| central-russia-1998 | https://neerc.ifmo.ru/subregions/central.html | web | wrong-contest (high) | wrong-contest | Our copy holds the NEERC archive pages for 1998 and 1999 and the finals standings headed ACM ICPC 1998-1999 NEERC (Moscow State University 1 first, problems A to H); the Central Subregional page it was meant to start fro |
+| central-russia-1998 | https://acm.timus.ru/problemset.aspx?space=1&tag=qf | web | correct → no role (high) | correct →  | Table of 86 Timus problems from the NEERC quarterfinals with sources 2000 to 2003 Central, 2001 Northern and 2006 to 2009 Eastern Subregional; none is from 1998. |
+| central-russia-1999 | https://acm.timus.ru/problemset.aspx?space=1&tag=qf | web | wrong-contest (high) | correct →  | The problem archive page lists 86 problems from NEERC Central Subregional 2000 to 2003 (plus other subregionals up to 2009) and none from 1999. |
+| central-russia-2000 | http://neerc.ifmo.ru/* | web | confirm (medium) | not-the-document | The earlier reader saw the Internet Archive landing page, but our copy now is a crawl of the NEERC archive site with the 2000 Central Subregion page and its results. |
+| central-russia-2010 | http://rgata.ru | web | confirm (medium) | correct →  | The earlier reader found no 2010 contest page among 9 files and gave no roles; our copy holds 34 files including the 2010 rules and the 2010 student and school results. |
+| central-russia-2019 | https://neerc.ifmo.ru/subregions/central.html | web | confirm (medium) | correct →  | The earlier reader judged the copy not to be this regional's own site and gave no role; it is a series archive site that holds this edition's Central Russia 2019 standings page, so by the series-site rule it is confirmed |
+| cerc-1995 | http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_CERC/1995/index.html | web+problemset | correct → problemset (medium) | correct → problemset | Page titled 'CERC 1995' whose only content is the heading 'Central European Regional Contest 1995' and links to problems.ps and problems.ps.Z. |
+| cerc-1995 | https://open.kattis.com/problem-sources/Central%20European%20Regional% | problemset | not-the-document (high) | not-the-document | Kattis problem-sources page 'Problems from Central European Regional Contest 1995' shows 'No data found' and no problems. |
+| cerc-1996 | http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_CERC/1996/index.html | web+problemset | correct → problemset (medium) | correct → problemset | Page titled 'B_EU_CERC 1996' whose only content is the heading 'Central European Regionals 1996' and links to cr96.ps, cr96.ps.Z and cr96.ps.gz. |
+| cerc-1997 | http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_CERC/1997/index.html | web+problemset | correct → problemset (medium) | correct → problemset | Page titled 'B_EU_CERC 1997' whose only content is the heading 'Central European Regionals 1997' and links to cerc97.ps and cerc97.ps.Z. |
+| cerc-1997 | https://open.kattis.com/problem-sources/Central%20European%20Regional% | problemset | not-the-document (high) | correct →  | Kattis problem-sources page 'Problems from Central European Regional Contest 1997' shows 'No data found' and no problems. |
+| cerc-1998 | http://icpc.baylor.edu/past/icpc99/Regionals/CERC98/Standings.htm | standings | correct → scoreboard (high) | correct → scoreboard | Table of 44 team rows with a per-problem solved string (alt text, e.g. abcd--ghi) and time: same page as source 2, so a scoreboard rather than standings. |
+| cerc-1998 | https://open.kattis.com/problem-sources/Central%20European%20Regional% | problemset | correct → no role (medium) | correct →  | Kattis problem-sources page for the source 'Central European Regional Contest 1998' shows 'No data found' with no problems listed. |
+| cerc-1999 | http://icpc.baylor.edu/past/icpc2000/regionals/CERC99/Standings.html | standings | correct → scoreboard (high) | correct → scoreboard | Same page as source 2: 47 team rows with a per-problem solved string and a per-team per-problem grid of result counts, so a scoreboard rather than standings. |
+| cerc-2000 | http://contest.felk.cvut.cz/ | web | confirm (medium) | correct →  | The earlier reader found a current CTU Open 2023-2026 homepage, but our copy is a single page of the site as it stood in 2000 with news up to 2000/10/26 about CERC 2000. |
+| cerc-2000 | http://contest.felk.cvut.cz:80/00cerc/statistics.html | standings | correct → no role (high) | none | The page is headed 'Statistics' and holds a table of submission outcomes per problem and lists of run times of accepted solutions, with no team standings. |
+| cerc-2001 | http://cepc.mimuw.edu.pl/ | web | not-the-document (medium) | not-the-document | The copy is a 284-byte frameset titled with the contest name whose two frames, a menu and a welcome page, are not in it, so it holds no contest content. |
+| cerc-2002 | http://cepc.mimuw.edu.pl/ | web+scoreboard | not-the-document (high) | not-the-document | The copy is a short page titled MIMUW in Polish listing the services of a university server, mail and a mailing-list server, with no contest content. |
+| cerc-2003 | http://cepc.mimuw.edu.pl/ | web+scoreboard | not-the-document (high) | not-the-document | The page is a MIMUW services page (heading 'Usługi dostępne na naszej maszynie') with links to mail and mailing-list servers and no contest content. |
+| cerc-2004 | http://icpc.cs.bme.hu/main.php?p=2 | scoreboard+problemset | correct → no role (high) | correct →  | The page is headed 'News' and is a dated list of announcements from October 2004 to November 2006, not a scoreboard or problem set. |
+| cerc-2005 | http://icpc.cs.bme.hu/main.php?p=2 | scoreboard+problemset | correct → no role (high) | correct →  | The page is headed 'News' and is a dated list of announcements from October 2004 to November 2006, not a scoreboard or problem set. |
+| cerc-2006 | http://icpc.cs.bme.hu/main.php?p=2 | scoreboard+problemset | correct → no role (high) | correct →  | The page is headed 'News' and is a dated list of announcements from October 2004 to November 2006, not a scoreboard or problem set. |
+| cerc-2006 | http://icpc.cs.bme.hu/main.php?p=12 | standings | correct → scoreboard (high) | correct → scoreboard | The page holds a section headed 'Results of the CERC 2006' with a table of 62 teams with place, team, points, time and task letters. |
+| cerc-2007 | https://contest.felk.cvut.cz/07cerc/contest.html | problemset | correct → no role (medium) | correct →  | The page holds only three menu entries (problems and solutions, final rank, submitted solutions) that link to other pages and no problems. |
+| cerc-2007 | http://contest.felk.cvut.cz/07cerc/solved/ | problemset | correct → no role (medium) | none | Apache index of /07cerc/solved listing only ten folder names b to w and no problem text. |
+| cerc-2008 | http://cepc08.ii.uni.wroc.pl/index.html | web | confirm (medium) | cannot-tell | The earlier reader could not tell because the seed page is the 2010 front page; the copy also holds 68 pages of the 2008 edition (news, schedule, problems, standings), so it is the contest's site. |
+| cerc-2009 | http://informatyka.wroc.pl/node/309 | standings | correct → scoreboard+report (medium) | correct → scoreboard+report | News item 'Wyniki CEPC 2009' with a 75-row table of points, time and solved letters plus the member lists of the first ten teams. |
+| cerc-2009 | http://cepc09.ii.uni.wroc.pl/ranking.html | rankings | correct → no role (medium) | none | Page headed Online Ranking with two sentences and no table; the ranking is only linked to another site. |
+| cerc-2009 | https://www.acmicpc.net/category/detail/950 | problemset | correct → no role (medium) | correct →  | Baekjoon category 'CERC 2009' with 11 rows A to K, all with empty titles, marked deleted and 0 solved. |
+| cerc-2010 | http://cepc10.ii.uni.wroc.pl/solutions.html | editorial | correct → no role (high) | none | Early capture of the solutions page that only announces an informal post-CERC'10 contest and says tasks, tests and solutions will be published after 27 November. |
+| cerc-2011 | https://contest.felk.cvut.cz/11cerc/rank.html | standings | correct → scoreboard (high) | confirm | The earlier reader filed it as standings, but each team row carries a ten-slot per-problem solved marker (letters for solved problems, blanks for unsolved), so it is a solved-only scoreboard. |
+| cerc-2011 | http://contest.felk.cvut.cz:80/11cerc/solved/rank.pdf | standings | correct → no role (medium) | none | One-page PDF headed 'Final rank CERC Cipher Contest' with passwords and envelopes scores, a separate side contest and not the programming contest's results. |
+| cerc-2011 | https://contest.felk.cvut.cz/11cerc/solved/intro.pdf | editorial | correct → problemset (medium) | none | One-page PDF with the cover 'Central Europe Regional Contest 2011 / Contest Ciphers' saying the problem set consists of 11 sheets and contains 10 problems. |
+| cerc-2012 | https://cerc.tcs.uj.edu.pl/2012/report.html | rankings | correct → report+rankings (high) | none | Page headed 'The 2012 ACM-ICPC Central Europe Regional Contest - Final report' that tells how the day went and lists the top five teams with problems solved and total time. |
+| cerc-2013 | https://cerc.tcs.uj.edu.pl/2013/report.html | rankings | correct → report+rankings (high) | none | Page headed 'Final report' states the contest was held 15-17 November 2013 with 72 teams and lists the top five teams. |
+| cerc-2015 | http://cerc.hsin.hr/index.php?page=results | standings | wrong-contest (high) | wrong-contest | The page is titled CERC 2017 (Zagreb, November 17-19) and its 69-team table is the 2017 board, with History links to CERC 2015 and 2016. |
+| cerc-2016 | http://cerc.hsin.hr/index.php?page=results | standings | wrong-contest (high) | wrong-contest | The page is titled CERC 2017 (Zagreb, November 17-19) and its 69-team table is the 2017 board, with History links to CERC 2015 and 2016. |
+| changchun-2012 | http://acm.nenu.edu.cn:8080/BoardWeb/ | standings | not-the-document (high) | not-the-document | The page shows only 'One moment, Loading...' and empty placeholder fields for team, school, coach and members; our copy holds no ranking data. |
+| chengdu-2007 | http://acm.xhu.edu.cn/precont-result.htm | standings | not-the-document (high) | none | The page shows only a heading 'Results' (竞赛结果) and the words 'under construction' (正在建设中) between the site menu and the copyright line. |
+| chengdu-2025 | https://icpc-iiitdm.vercel.app/Icpc%202025/ICPC%20Chennai%20Onsite%202 | standings | wrong-contest (high) | wrong-contest | Two-page ranklist whose teams are all Indian institutions with handles icpcchnos25xx and problems coded DISTRE, CONN3 and so on, and whose address names an ICPC Chennai Onsite 2025 final ranklist. |
+| chennai-2015 | https://www.codechef.com/ACM15CHN | problemset | not-the-document (high) | not-the-document | The copy is a CodeChef page titled Contest Page whose only text is the site footer, menus and a cookie notice, with no contest content. |
+| chennai-2015 | https://www.codechef.com/CHN15MOS | problemset | not-the-document (high) | not-the-document | The copy is a CodeChef page titled Contest Page whose only text is the site footer, menus and a cookie notice, with no contest content. |
+| chennai-2015 | https://www.codechef.com/CHN15MRP | problemset | not-the-document (high) | not-the-document | The copy is a CodeChef page titled Contest Page whose only text is the site footer, menus and a cookie notice, with no contest content. |
+| chennai-2016 | https://www.codechef.com/ACM16CHN | problemset | not-the-document (high) | not-the-document | Our copy is a CodeChef page with only a header, menus and footer, and no contest content. |
+| chennai-2016 | https://www.codechef.com/CHN16MOS | problemset | not-the-document (high) | not-the-document | Our copy is a CodeChef page with only a header, menus and footer, and no contest content. |
+| chennai-2017 | http://icpc.hindustanuniv.ac.in/results.html | standings | correct → no role (high) | correct →  | The page is a menu of six links to PDFs and holds no results itself. |
+| chennai-2017 | https://www.codechef.com/CHN17ROL | problemset | not-the-document (high) | not-the-document | Our copy is a CodeChef page with only menus and footer, and no contest content. |
+| chennai-2024 | https://icpc-iiitdm.vercel.app/results | standings | correct → no role (high) | correct →  | The page links to the rank list workbook and notes on the selected teams but holds no results. |
+| chennai-2024 | https://www.codechef.com/ICPCCHNOS24 | problemset | not-the-document (high) | not-the-document | Our copy is a CodeChef page with only menus and footer, and no contest content. |
+| chennai-2025 | https://www.codechef.com/ICPCCHNOS25 | problemset | not-the-document (high) | not-the-document | Our copy is a CodeChef page with only menus and footer, and no contest content. |
+| chennai-2025 | https://www.codechef.com/ICPCCHNRP25 | problemset | not-the-document (high) | not-the-document | Our copy is a CodeChef page with only menus and footer, and no contest content. |
+| coimbatore-2006 | http://www.amrita.edu/icpc/2006/viewreg.html | standings | correct → teams (high) | none | Page headed Registered Teams, stating that registration is closed, with 90 numbered rows of team name and institute and no results. |
+| coimbatore-2006 | http://www.amrita.edu/icpc/2006/DirectorsReportICPC.pdf | editorial | correct → report (high) | none | One-page PDF titled Director's report, ICPC 2006, Asia-Coimbatore Site, an account of the contest by the regional contest director, not an explanation of solutions. |
+| colombia-maraton-2010 | https://www.economiaymercados.com/mymit/joom1515/index.php?option=com_ | web | correct → no role (high) | correct →  | The seed is the front page (Portada) of Economia y Mercados, a Colombian technology news site with items from 2010 to 2021, and no file of our copy mentions the marathon. |
+| colombia-maraton-2011 | https://www.portafolio.co/negocios/empresas/maraton-nacional-programac | web | correct → no role (medium) | correct →  | The five pages are captures of the Portafolio.co front page (two show dates, 7 October 2011 and 15 August 2013), and no page contains the words maraton or programacion. |
+| colombia-maraton-2018 | https://acis.org.co/portal/content/xxxii-maraton-nacional-de-programac | web | correct → no role (medium) | correct →  | None of the 23 files is a page of the XXXII marathon: they are a March 2018 clarification letter, a results page headed XXXIII 2019, a 2018 Latin American regional scoreboard and other ACIS files. |
+| croatia-2009 | https://hsin.hr/studenti2009/izvjesce.pdf | scoreboard | correct → scoreboard+report (high) | none | Two-page PDF headed IZVJEŠTAJ with a prose account of the contest and a table of 15 teams against ZAD1 to ZAD9 with times and bracketed tries. |
+| croatia-2011 | https://hsin.hr/studenti2011/izvjesce.pdf | scoreboard | correct → rankings+report (high) | none | Four-page PDF headed IZVJEŠĆE with an account of the contest and a table of 30 teams giving rank, team number, members with year of study and faculty, number solved and team time. |
+| croatia-2012 | https://hsin.hr/studenti2012/izvjesce.pdf | rankings | correct → report+standings (medium) | none | PDF of 5 pages headed 'STUDENTSKO TIMSKO INFORMATIČKO NATJECANJE HRVATSKIH SVEUČILIŠTA – STIN 2012. - IZVJEŠĆE' with a ranked table of 26 teams giving problems solved and total time. |
+| croatia-2012 | https://hsin.hr/studenti2012/prijave.php | teams | correct → web (high) | none | The page is headed 'Natjecanje timova studenata informatičara hrvatskih sveučilišta 2012 / Prijave' and is the registration notice (deadline, team rules, 9 problems in 5 hours); it holds no list of teams. |
+| croatia-2013 | https://hsin.hr/studenti2013/prijave.php | teams | correct → web (high) | none | The page is headed 'Natjecanje timova studenata informatičara hrvatskih sveučilišta 2013 / Prijave' and is the registration notice (deadline, team rules, 9 problems in 5 hours); it holds no list of teams. |
+| croatia-2014 | https://hsin.hr/studenti2014/prijave.php | teams | correct → web (high) | none | Page titled 'Natjecanje timova studenata informatičara hrvatskih sveučilišta 2014 / Prijave' with registration instructions, dates, rules and committees; it contains no list of teams. |
+| croatia-2015 | https://hsin.hr/studenti2015/prijave.php | teams | correct → web (high) | none | Page titled 'Natjecanje timova studenata informatičara hrvatskih sveučilišta 2015 / Prijave' with registration instructions, rules and committees; it contains no list of teams. |
+| croatia-2016 | https://hsin.hr/studenti2016/prijave.php | teams | correct → web (high) | none | The page is the registration call (who may enter, deadline 19 October, contact details, rules) and contains no list of teams; the list of 35 teams is on the announcement page instead. |
+| croatia-2017 | https://hsin.hr/studenti2017/prijave.php | teams | correct → web (high) | none | The page is the registration call (who may enter, deadline 19 October, contact details, rules) and contains no list of teams; the list of 31 teams is on the announcement page instead. |
+| croatia-2018 | https://hsin.hr/studenti2018/prijave.php | teams | correct → web (high) | none | The page is the registration call (who may enter, deadline 25 October, contact details, rules) and contains no list of teams; the list of 41 teams is on the announcement page instead. |
 
-## Contest facts: 72 that fill a blank or differ
+## Contest facts: 121 that fill a blank or differ
 
 | contest | fact | document says | catalogue | confidence | applied | where it is stated |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -256,12 +325,61 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | central-america-1998 | date | 1998-11-14 | 1998-10-24 | medium | no | The standings page is headed Zacatecas Nov-14-'98. |
 | central-america-2000 | date | 2000-10-06 | 2000-10-08 | high | no | The page gives Date of Contest: 6 - 8 October 2000. |
 | central-america-2002 | date | 2002-11-09 | 2002-11-10 | medium | no | The heading reads 9 y 10 de Noviembre de 2002, so the contest ran on two days starting 9 November. |
+| central-america-2015 | date | 2015-11-14 | 2015-11-13 | medium | no | The agenda for the Mexico site lists Saturday 14 November 2015, 11:00 to 16:00, as the Regional Eliminatoria ACM ICPC 2015 (Friday 13 November is registration,  |
+| central-russia-2012 | date | 2012-10-17 | 2012-10-18 | medium | no | The problem set cover reads 'Rybinsk, October 17-18-2012'. |
+| cerc-1998 | location | Czech Technical University in Prague | (sites) | medium | no | The cover of the problem set names the Dept. of Computer Science, Czech Technical University in Prague. |
+| cerc-2000 | date | 2000-11-11 | 2000-11-12 | high | no | The schedule page puts the contest on Saturday 11th from 10:00 to 15:00, the front page says the contest was held on November 10th and 11th, and the problem sta |
+| cerc-2000 | location | Czech Technical University in Prague, Faculty of Electrical  | Prague | high | no | The header of the problem statements reads Czech Technical University in Prague, Dept. of Computer Science, Faculty of Electrical Engineering. |
+| cerc-2001 | date | 2001-11-18 | 2001-11-19 | medium | no | The schedule page has the contest on Sunday, and the fees page refers to 'the contest on Sunday, November 18, 2001'; the rules give 16-19 November as the contes |
+| cerc-2001 | location | Faculty of Mathematics, Informatics and Mechanics, Warsaw Un | Warsaw | high | no | The welcome page says the site is hosted by that faculty and the rules say the contest is held at Warsaw University. |
+| cerc-2010 | location | Institute of Computer Science, University of Wroclaw, Wrocla | Administrative Site Location; University of Wroc?a | high | no | the site header reads 'November 19-21, 2010 Wroclaw, Poland' and the footer 'Institute of Computer Science University of Wroclaw, Poland'. |
+| cerc-2011 | location | Czech Technical University in Prague, Faculty of Electrical  | Prague; Administrative Site Location | high | no | The home page says the contest is organised by the Czech Technical University in Prague, Faculty of Electrical Engineering, and the schedule uses rooms of CTU F |
+| cerc-2012 | location | Faculty of Mathematics and Computer Science, Jagiellonian Un | Administrative Site Location; Kraków, Poland | high | no | The final report says the contest took place at the Faculty of Mathemathics and Computer Science building, hosted by the Theoretical Computer Science Department |
+| cerc-2013 | location | Jagiellonian University, Kraków, Poland | Administrative Site Location; Kraków, Poland | high | no | The final report says the contest was hosted by the Theoretical Computer Science Department at Jagiellonian University in Kraków. |
+| cerc-2014 | location | Jagiellonian University, Kraków | Administrative Site Location; Kraków, Poland | high | no | The website states the contest was hosted by the Theoretical Computer Science Department at Jagiellonian University in Kraków. |
+| changchun-2012 | date | 2012-10-14 | 2012-10-15 | high | no | The ranklist header reads 'Start: 2012/10/14 09:00' and the website's contest-day blog posts are dated 14 October 2012. |
+| changchun-2013 | location | Jilin University, Changchun | Jilin University; Asia China Changchun | high | no | The front page gives the venue as the Jilin University central campus, Qianjin Street 2699, Changchun. |
+| changchun-2015 | location | Northeast Normal University, Changchun | Changchun | high | no | The site is headed Northeast Normal University and its schedule places the contest in the university's sports hall. |
+| changsha-2013 | location | Hunan University, Changsha | Asia Changsha; Asia China | high | no | The site is headed 2013 ACM-ICPC Asia Regional Contest Hunan University(Changsha, China). |
+| chennai-2024 | date | 2025-01-03 | 2025-01-04 | medium | no | The page announces the onsite contest to be held on 3rd and 4th January 2025. |
+| coimbatore-2006 | location | Amrita Vishwa Vidyapeetham, Coimbatore | Internet; Coimbatore | high | no | The front page and the regional contest page say the contest is held at Amrita Vishwa Vidyapeetham, Coimbatore. |
+| colombia-maraton-2011 | date | 2011-10-08 | 2011-09-08 | high | no | The page heading states 'October 8, 2011'. |
+| colombia-maraton-2012 | location | Universidad de los Andes (Uniandes), Bogotá, with sites in B | Colombia | medium | no | The page says the contest has sites in six cities, that the Bogotá site competes at Uniandes and that the event is organised from Uniandes. |
+| colombia-maraton-2013 | date | 2013-09-15 | 2013-09-14 | high | no | The page heading states 'September 15, 2013'. |
+| colombia-maraton-2018 | date | 2018-09-15 | 2018-08-01 | high | no | The page heading states 'September 15th, 2018'. |
+| croatia-2009 | location | Faculty of Electrical Engineering and Computing (FER), Zagre | (sites) | high | no | The report says the contest was held at the Fakultet elektrotehnike i računarstva, Unska 3, Zagreb. |
+| croatia-2010 | location | Faculty of Electrical Engineering and Computing (FER), Zagre | (sites) | high | no | The announcement page says the contest is held at the Fakultet elektrotehnike i računarstva, Unska 3, Zagreb. |
+| croatia-2011 | location | Faculty of Electrical Engineering and Computing (FER), Zagre | (sites) | high | no | The report says the contest was held at the Fakultet elektrotehnike i računarstva in Zagreb. |
+| croatia-2012 | location | Faculty of Electrical Engineering and Computing (FER), Zagre | (sites) | high | no | The registration page says the contest is held at FER in Zagreb. |
+| croatia-2013 | location | Faculty of Electrical Engineering and Computing (FER), Zagre | (sites) | high | no | The registration page says the contest is held at FER in Zagreb. |
+| croatia-2014 | location | Fakultet elektrotehnike i računarstva, Zagreb | (sites) | high | no | The front page and the announcement name the Faculty of Electrical Engineering and Computing, University of Zagreb. |
+| croatia-2015 | location | Zagreb, Osijek and Dubrovnik (universities) | Zagreb, Croatia | high | no | The front page header reads 'Zagreb / Osijek / Dubrovnik' and the announcement says the competition is held at the universities of Zagreb, Osijek and Dubrovnik. |
+| croatia-2016 | location | Zagreb, Osijek, Dubrovnik, Rijeka and Pula (universities) | Croatia | high | no | The front page and announcement name the universities in Zagreb, Osijek, Dubrovnik, Rijeka and Pula as the sites. |
+| croatia-2017 | location | Zagreb, Osijek, Rijeka and Pula (universities) | Croatia | high | no | The front page and announcement name the universities in Zagreb, Osijek, Rijeka and Pula as the sites. |
+| croatia-2019 | location | Zagreb, Osijek, Rijeka and Pula | (sites) | high | no | The front page names Zagreb / Osijek / Rijeka / Pula. |
+| croatia-2020 | location | Zagreb, Osijek, Rijeka and Pula | (sites) | high | no | The front page names Zagreb / Osijek / Rijeka / Pula. |
+| croatia-2021 | location | Zagreb, Osijek, Rijeka and Pula | (sites) | high | no | The front page names Zagreb / Osijek / Rijeka / Pula; the application page says the contest is held online. |
+| croatia-2022 | location | Zagreb, Osijek, Rijeka and Pula | (sites) | high | no | The front page names Zagreb / Osijek / Rijeka / Pula; the application page says the contest is held online. |
+| croatia-2023 | location | Zagreb, Rijeka and Pula | (sites) | high | no | The front page names Zagreb / Rijeka / Pula; the application page says the contest is held online. |
 | alberta-2006 | location | University of Alberta, University of Calgary and University  | — | medium | no | the problem index says the contest is a joint effort of the three universities. |
 | bapc-prelims-2025 | date | 2025-09-20 | — | medium | no | The preliminaries page lists the local contests under the dates 20 September, 26 September and 27 September 2025 and says they run between the 20th and 28th. |
-| bolivia-national-2026 | date | 2026-08-29 | — | high | yes | The home page and the Phase 1 results page give 29 August 2026 as the date of National Phase 1 (Phase 2 on 19 September). |
-| brazil-first-phase-1996 | date | 1996-11-28 | — | high | yes | The announcement page gives the programming contest as 28 e 29/11/96. |
 | brazil-first-phase-1996 | location | DCC-UFMG, Belo Horizonte | — | medium | no | The history page says the first Maratona was organised at the Federal University of Minas Gerais, under the heading Belo Horizonte. |
-| brazil-first-phase-1997 | date | 1997-12-13 | — | high | yes | The problem set cover reads Contest Session, December 13, 1997; the website says 12 a 14 de dezembro de 1997. |
-| brazil-first-phase-1997 | location | University of Campinas (Instituto de Computação), Campinas | — | high | yes | The cover names Institute of Computing, University of Campinas, Brasil. |
-| brazil-first-phase-2026 | date | 2026-08-29 | — | high | yes | The page says the first phase of 2026 took place on 29 August. |
-| bulgaria-2013 | date | 2013-05-18 | — | high | yes | The programme page puts the contest on Saturday 18.05, 10:00 to 15:00, and the home page announces 17 and 18 May 2013. |
+| central-america-2022 | date | 2023-03-18 | — | high | yes | the problem set cover reads March 18, 2023 |
+| central-russia-2000 | date | 2000-10-04 | — | high | yes | The Central Subregion page says the contest was held in Rybinsk on October 4, 2000. |
+| central-russia-2000 | location | Rybinsk SAAT, Rybinsk | — | medium | no | The page gives Host: Rybinsk, Host university: Rybinsk SAAT, and says the contest was held in Rybinsk. |
+| central-russia-2003 | date | 2003-10-16 | — | high | yes | The Timus contest page is titled 'Quarterfinal, Rybinsk, October 16 2003'. |
+| cerc-2024 | date | 2024-12-15 | — | high | yes | The slide deck is dated December 15, 2024, and the website schedule puts The Contest on Sunday 15 December 2024. |
+| cerc-2025 | date | 2025-12-07 | — | high | yes | The slide deck is dated December 7, 2025. |
+| croatia-2007 | date | 2007-10-20 | — | high | yes | The home page, results page and problems PDF all give 20. listopada 2007. |
+| croatia-2007 | location | Faculty of Science, Mathematics Department, Zagreb | — | medium | no | The announcement gives the venue as Prirodoslovno-matematički fakultet - Matematički odjel, Bijenička cesta 30, Zagreb. |
+| croatia-2008 | date | 2008-10-25 | — | high | yes | The home page and results page give 25. listopada 2008. |
+| croatia-2008 | location | Faculty of Electrical Engineering and Computing, Zagreb | — | medium | no | The announcement gives the venue as Fakultet elektrotehnike i računarstva, Unska 3, Zagreb. |
+| croatia-2009 | date | 2009-10-17 | — | high | yes | The front page and the report state 'Zagreb, 17. listopada 2009.' |
+| croatia-2011 | date | 2011-10-15 | — | high | yes | The front page and the report state 'Zagreb, 15. listopada 2011.' |
+| croatia-2013 | date | 2013-10-26 | — | high | yes | The front page and results page give Zagreb, 26 October 2013. |
+| croatia-2014 | date | 2014-10-19 | — | high | yes | The front page header reads '19. i 26. listopada 2014.' (two rounds; first day given). |
+| croatia-2018 | location | Zagreb, Osijek, Rijeka and Pula (universities) | — | high | yes | The front page and announcement name the universities in Zagreb, Osijek, Rijeka and Pula as the sites. |
+| croatia-2020 | date | 2020-11-29 | — | high | yes | The front page reads 'nedjelja, 29. studenog 2020.' |
+| croatia-2021 | date | 2021-12-12 | — | high | yes | The front page reads 'nedjelja, 12. prosinca 2021.' |
+| croatia-2022 | date | 2022-11-06 | — | high | yes | The front page reads 'nedjelja, 6. studenog 2022.' |
+| croatia-2023 | date | 2023-11-19 | — | high | yes | The front page reads 'nedjelja, 19. studenog 2023.' |
