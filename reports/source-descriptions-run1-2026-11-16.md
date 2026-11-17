@@ -4,32 +4,31 @@ Run of 2026-11-16, rubric 1 (`tools/describe_rubric.md`). Applied.
 
 | | |
 | --- | --- |
-| contests read | 706 |
+| contests read | 831 |
 | contests with nothing held | 75 |
-| sources | 3,373 |
-| no copy | 373 |
-| read | 3,000 |
-| first readings | 231 |
-| described | 2,853 |
-| verdict confirm | 2,715 |
-| verdict correct | 138 |
-| verdict not-the-document | 98 |
-| verdict wrong-contest | 45 |
-| verdict cannot-tell | 4 |
-| disagrees with the earlier reader | 51 |
-| blank date filled | 11 |
-| blank location filled | 4 |
-| contest facts fills-blank | 27 |
-| contest facts conflict | 144 |
-| contest facts same | 112 |
-| contest facts listed | 476 |
+| sources | 4,011 |
+| no copy | 466 |
+| read | 3,545 |
+| first readings | 297 |
+| described | 3,374 |
+| verdict confirm | 3,205 |
+| verdict correct | 169 |
+| verdict not-the-document | 106 |
+| verdict wrong-contest | 57 |
+| verdict cannot-tell | 8 |
+| disagrees with the earlier reader | 58 |
+| blank date filled | 2 |
+| contest facts fills-blank | 15 |
+| contest facts conflict | 205 |
+| contest facts same | 142 |
+| contest facts listed | 558 |
 | words per description | 107 |
 
-Not finished: 1687 contests: gny-2011, gny-2012, gny-2013, gny-2014, gny-2015, gny-2016, gny-2017, gny-2018, gny-2019, gny-2020, gny-2021, gny-2022, gny-2023, gny-2024, gny-2025, gny-2026, gran-premio-centroamerica-2018, gran-premio-centroamerica-2019, gran-premio-centroamerica-2020, gran-premio-centroamerica-2021, gran-premio-centroamerica-2022, gran-premio-centroamerica-2023, gran-premio-centroamerica-2025, gran-premio-centroamerica-2026, gran-premio-mexico-2015, gran-premio-mexico-2016, gran-premio-mexico-2017, gran-premio-mexico-2018, gran-premio-mexico-2019, gran-premio-mexico-2020, gran-premio-mexico-2021, gran-premio-mexico-2022, gran-premio-mexico-2023, gran-premio-mexico-2024, gran-premio-mexico-2025, gran-premio-mexico-2026, greece-2023, greece-2024, greece-2025, greece-2026.
+Not finished: 1562 contests: japan-2019, japan-2020, japan-2021, japan-2022, japan-2023, japan-2024, japan-2025, jiaozuo-2018, jinan-2020, jinan-2021, jinan-2022, jinan-2023, jordan-2011, jordan-2012, jordan-2013, jordan-2014, jordan-2015, jordan-2016, jordan-2017, jordan-2018, jordan-2019, jordan-2020, jordan-2021, jordan-2022, jordan-2023, jordan-2024, jordan-2025, jordan-2026, kabul-2017, kabul-2018, kabul-2019, kabul-2020, kabul-2023, kabul-2024, kabul-2025, kabul-2026, kanpur-1999, kanpur-2000, kanpur-2001, kanpur-2002.
 Results that do not check: 0.
 
 
-## Second reading: 301 sources to look at
+## Second reading: 360 sources to look at
 
 The reader did not confirm the catalogue, or disagrees with the content check of 2026-11-14. Nothing here was applied.
 
@@ -336,8 +335,67 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | germany-2022 | https://open.kattis.com/problem-sources/German%20Collegiate%20Programm | problemset | not-the-document (high) | not-the-document | The Kattis page titled Problems from German Collegiate Programming Contest 2022 shows an empty problem table with the text No data found. |
 | gny-2002 | https://open.kattis.com/problem-sources/Greater%20New%20York%20Program | problemset | not-the-document (high) | not-the-document | The page is headed 'Problems from Greater New York Programming Contest 2002' but its list of problems reads 'No data found'. |
 | gny-2003 | https://open.kattis.com/problem-sources/ACM%20Greater%20New%20York%20P | problemset | not-the-document (high) | not-the-document | The page is headed 'Problems from ACM Greater New York Programming Contest 2003' but its list of problems reads 'No data found'. |
+| gran-premio-centroamerica-2019 | https://icpc.global/regionals/finder/GP-Centroamerica-2020 | web | wrong-contest (high) | none | The copy is the series site as archived in July 2025: its pages announce the 2025 Clasificatorio dates and the Gran Premio CA of 8 November 2025, its results page is the 2025 qualifier, and the string 2019 appears in non |
+| gran-premio-centroamerica-2019 | https://icpccentroamerica.org/ | web | wrong-contest (high) | wrong-contest | The earlier reader saw a page announcing the 2026 qualifier (18 April 2026); our current copy is the 2025 season, but in both cases it is not the 2019 edition. |
+| gran-premio-centroamerica-2020 | https://icpc.global/regionals/finder/GP-Centroamerica-2021 | web | wrong-contest (high) | none | The copy is the series site as archived in July 2025: its pages announce the 2025 Clasificatorio dates and the Gran Premio CA of 8 November 2025, its results page is the 2025 qualifier, and the string 2020 appears in non |
+| gran-premio-centroamerica-2020 | https://icpccentroamerica.org/ | web | wrong-contest (high) | wrong-contest | The earlier reader saw a page announcing the 2026 qualifier and the Gran Premio CA of 7 November 2026; our current copy is the 2025 season, but in both cases it is not the 2020 edition. |
+| gran-premio-centroamerica-2021 | https://icpc.global/regionals/finder/GP-Centroamerica-2022 | web | wrong-contest (high) | none | The copy is the series site as archived in July 2025: its pages announce the 2025 Clasificatorio dates and the Gran Premio CA of 8 November 2025, its results page is the 2025 qualifier, and the string 2021 appears in non |
+| gran-premio-centroamerica-2021 | https://icpccentroamerica.org/ | web | wrong-contest (high) | wrong-contest | The earlier reader saw a page announcing the 2026 qualifier and the Gran Premio CA of 7 November 2026; our current copy is the 2025 season, but in both cases it is not the 2021 edition. |
+| gran-premio-centroamerica-2023 | https://icpc.global/regionals/finder/GP-Centroamerica-2024 | web | wrong-contest (high) | none | The copy is the series site as archived in July 2025: its pages announce the 2025 Clasificatorio dates and the Gran Premio CA of 8 November 2025, its results page is the 2025 qualifier, and the string 2023 appears in non |
+| gran-premio-mexico-2015 | https://eventos.iteso.mx/acm/primera-fase-gran-premio-de-mexico-centro | standings | cannot-tell (low) | cannot-tell | The page has only a link to a standings PDF and an image hosted on another server, neither of which is in our copy, so no standings can be seen. |
+| gran-premio-mexico-2016 | https://eventos.iteso.mx/acm/primera-fase-gran-premio-de-mexico-centro | standings | confirm (medium) | cannot-tell | The earlier reader found no standings on the page; the picture in our copy is a standings-style table, though it is too small to read in full. |
+| gran-premio-mexico-2017 | https://eventos.iteso.mx/acm/1-primera-fase-gran-premio-de-mexico-y-ce | standings | confirm (medium) | cannot-tell | The earlier reader found no standings on the page; the picture in our copy is a cumulative-results table, though it is too small to read in full. |
+| gran-premio-mexico-2018 | https://eventos.iteso.mx/acm/1-primera-fase-gran-premio-de-mexico/sobr | standings | cannot-tell (medium) | cannot-tell | The page's only content is a photograph of a screen showing a live-style scoreboard of teams with ITESO in their names and per-problem marks, not an accumulated table, and the linked PDF is not in our copy. |
+| gran-premio-mexico-2019 | https://eventos.iteso.mx/acm/1-primera-fase-gran-premio-de-mexico-2/so | standings | cannot-tell (medium) | cannot-tell | The page's only content is a picture of a scoreboard with team names and per-problem marks, and the linked cumulative-results PDF is not in our copy. |
+| gran-premio-mexico-2020 | https://icpc.global/regionals/finder/mcapgp-2021 | web | not-the-document (high) | none | The copy's seed page for this address is recorded as a 404 error, and the only page saved with it is the ITESO page that is source 2. |
+| gran-premio-mexico-2023 | https://icpc.global/regionals/finder/mcapgp-2024 | web | not-the-document (medium) | none | The saved response for this address is a 404 error (status 404 in the capture record); the only page in our copy is the ITESO qualification page, which belongs to another address. |
+| gran-premio-mexico-2025 | https://icpc.global/regionals/finder/mcapgp-2026 | web | not-the-document (medium) | none | The saved response for this address is a 404 error (status 404 in the capture record); the only page in our copy is the ITESO qualification page, which belongs to another address. |
+| gran-premio-mexico-2026 | https://codeforces.com/gym/106495/standings | standings | correct → scoreboard (high) | confirm | Codeforces gym 106495 standings table with columns #, Who, =, Penalty and problems A to L, with per-problem + and - cells and times. |
+| gwalior-2017 | https://www.codechef.com/GWR17ROL | problemset | not-the-document (high) | not-the-document | The copy is the CodeChef Contest Page shell with only the footer, roadmap and compiler links, and no contest, problem or result content. |
+| gwalior-kanpur-2009 | http://www.cse.iitk.ac.in/users/acm | web | wrong-contest (medium) | correct →  | The crawl is the IIT Kanpur CSE department site: its ACM ICPC pages are of the Kanpur site contests of 2001 to 2004, and none is about the 2009 Gwalior-Kanpur contest. |
+| gwalior-pune-2018 | https://www.codechef.com/GWR18ROL | problemset | not-the-document (high) | not-the-document | The copy is the CodeChef contest-page shell with unfilled template placeholders such as {{problemName}} and only footer and menu text. |
+| gwalior-pune-2019 | https://www.codechef.com/GW19MOS | problemset | not-the-document (high) | not-the-document | The copy is the CodeChef contest-page shell with unfilled template placeholders and only menu and footer text. |
+| harbin-2008 | http://acm.hrbeu.edu.cn/regional | web | correct → no role (medium) | correct →  | The copy is the Harbin Engineering University online judge with advertisement pages and a results page of the 2010 (35th) Harbin onsite contest; its contest list names three 2008 Asia Harbin Regional online contests but  |
+| harbin-2009 | https://github.com/xcpcio/board-data | standings | correct → no role (high) | correct →  | The copy is the root page of the GitHub repository xcpcio/board-data with a folder listing and readme, not a document of this contest. |
+| harbin-2009 | http://board.acmicpc.info/icpc2010/hrbeu_onsite.php | standings | wrong-contest (high) | wrong-contest | Page titled 2010 哈尔滨赛区现场赛 - Ranklist whose menu dates the Harbin onsite 2010.09.26 and marks the 2009 Harbin onsite as missing (缺失); belongs to harbin-2010. |
+| harbin-2009 | https://acm.sdut.edu.cn/acmss/icpc/2010/tianjin/index.html | standings | wrong-contest (high) | wrong-contest | Ranklist titled 2010 天津赛区现场赛 (2010 Tianjin onsite) of Tianjin teams; belongs to tianjin-2010. |
+| harbin-2009 | https://rl.algoux.org/ranklist/icpc2010harbin | standings | wrong-contest (high) | wrong-contest | Ranklist headed The 2010 ACM-ICPC Asia Harbin Regional Contest (Harbin Engineering University) dated 2010-09-26; belongs to harbin-2010. |
+| harbin-2010 | https://rl.algoux.org/ranklist/icpc2010harbin | standings | correct → frozen_scoreboard (high) | wrong-contest | RankLand ranklist of The 2010 ACM-ICPC Asia Harbin Regional Contest with 126 team rows and attempts/time cells for A-J; the scores and times equal the frozen board of source 2. |
+| hong-kong-2016 | http://www.cse.cuhk.edu.hk/~acmicpc/onsite.html | web | correct → no role (high) | correct →  | The copy holds 148 pages of the CUHK computer science department's site (home page, seminars, news, achievements, course pages); no page is about the 2016 Hong Kong regional. |
+| hungary-2012 | http://www.inf.u-szeged.hu/acm/korabbi-versenyek | web | correct → no role (high) | correct →  | Crawl of Szeged and BME department sites (an ICLP 2012 conference page, course material, staff pages) with nothing about a Hungarian ACM programming contest in 2012. |
+| hungary-2012 | http://cs.bme.hu/~ngg/ACM | web | correct → no role (medium) | correct →  | Live page 'ACM programozási verseny' of the BME department in its spring 2022 state (selection for CERC 2021, preparation course), no mention of the 2012 contest. |
+| hungary-2015 | https://icpc.global/regionals/finder/HACM-2016 | web | cannot-tell (medium) | none | The copy is a crawl whose files hold no page from the icpc.global finder address, only a 2025 BME site and ELTE portal pages, so the page itself cannot be read. |
+| hungary-2015 | https://cs.bme.hu/icpc/ | web | correct → no role (high) | correct →  | The BME ICPC site in our copy is the 2025 'ICPC @ BME' site with results tables for 2023 to 2025 and 2024 posts, with nothing about the 2015 contest. |
+| hungary-2015 | https://versenyek.inf.elte.hu/versenyek/orszagos-acm-verseny/ | web | confirm (high) | correct →  | The earlier reader saw the 2019 state of the page ('ACM programozási verseny 2019.') and found no 2015 content; our copy is now the June 2016 state, headed 2015, with the 2015 contest details. |
+| hungary-2016 | https://versenyek.inf.elte.hu/2016/ | web | correct → no role (medium) | correct →  | The seed page is the year archive 'Év: 2016' of the ELTE competitions news portal, mixing posts about several competitions. |
+| hungary-2022 | https://versenyek.inf.elte.hu/2022/ | web | correct → report+rankings (medium) | correct → report+rankings | The seed is the year archive 'Év: 2022' of the ELTE portal; its 18 October 2022 'ICPC beszámoló' post gives 36 teams, 13 problems and the top three. |
+| hungary-2022 | https://domjudge.cms.inf.elte.hu/public | scoreboard+problemset | wrong-contest (high) | wrong-contest | The scoreboard is headed 'ICPC Hungary 2026 final standings' (hcpc2026) and lists 2026 teams, not the 2022 contest. |
+| india-2016 | http://icpcindiafinal.in/teams-selected-for-india-final-all-4-sites/ | teams | correct → no role (medium) | none | The post 'Teams selected for India-Final (all 4 sites)' dated 28 December 2016 holds registration instructions and links the team list as a separate PDF, with no teams on the page. |
+| india-2016 | https://www.codechef.com/ACM16INF | problemset | not-the-document (high) | not-the-document | Page titled 'Contest Page / CodeChef' holds only the site's footer, roadmap and compiler menus, with no contest content. |
+| india-2016 | https://www.codechef.com/INF16MOS | problemset | not-the-document (high) | not-the-document | Page titled 'Contest Page / CodeChef' holds only the site's footer and menus; no problem, title or contest text appears in its visible text. |
+| india-2016 | http://icpcindiafinal.in/category/problems-of-india-final-2016/ | problemset | correct → no role (medium) | none | Category page 'Problems of India-Final 2016' whose only content is one link to problems.pdf, which is not in the copy. |
+| jakarta-2009 | https://competition.binus.ac.id/icpc2009/index/top50inc | rankings | correct → teams (medium) | none | Page headed 'TOP 50 Indonesia National Contest' listing 50 numbered Indonesian teams said to advance to the 2009 Asia Jakarta Regional Contest, with no solved counts or times. |
+| jakarta-2009 | https://competition.binus.ac.id/icpc2009/icpc2009_report.pdf | editorial | correct → report (high) | none | Two-page PDF titled 'The 2009 ACM ICPC Asia Jakarta Regional Contest, October 20th - 21st, 2009' giving an account of preparation, practice, final round and awards, with no solutions. |
+| jakarta-2010 | https://competition.binus.ac.id/icpc2010/index/top50inc | rankings | correct → teams (medium) | none | Page headed TOP 50 Indonesia National Contest, a numbered table of 50 Indonesian teams with university that advance to the 2010 Asia Jakarta Regional Contest, with no results for the regional itself. |
+| jakarta-2010 | https://competition.binus.ac.id/icpc2010/icpcreport2010.pdf | editorial | correct → report+rankings (medium) | none | Two-page PDF titled The 2010 ACM ICPC Asia Jakarta Regional Contest that narrates the contest (introduction, registration, ceremonies, final round, awards) and names the winning teams; it is a report, not an editorial. |
+| jakarta-2012 | https://competition.binus.ac.id/icpc2012/index/top50inc | rankings | correct → teams (medium) | none | Page headed TOP 50 Indonesia National Contest, a table of 50 Indonesian teams with rank and university, with no results for the regional contest itself. |
+| jakarta-2012 | https://competition.binus.ac.id/icpc2012/icpc_report_2012.pdf | editorial | correct → report+rankings (medium) | none | Two-page PDF titled The 2012 ACM ICPC Asia Jakarta Regional Contest that narrates the contest (introduction, registration, ceremonies, final round, awards, excursion) and names the winning teams; it is a report, not an e |
+| jakarta-2013 | https://competition.binus.ac.id/icpc2013/ACM_ICPC_Asia_Jakarta_Report_ | editorial | correct → report (high) | none | Two-page PDF headed 'The 2013 ACM ICPC Asia Jakarta Regional Contest, October 23-25, 2013' narrating the event. |
+| jakarta-2014 | https://competition.binus.ac.id/icpc2014/ACM_ICPC_Asia_Jakarta_2014_Re | editorial | correct → report (high) | none | Two-page PDF headed 'The 2014 ACM ICPC Asia Jakarta Regional Contest, December 4-6, 2014' narrating the event. |
+| jakarta-2015 | https://competition.binus.ac.id/icpc2015/report_2015.pdf | editorial | correct → report (high) | none | Two-page PDF headed 'The 2015 ACM ICPC Asia Jakarta Regional Contest, November 7-9, 2015' narrating the event. |
+| japan-2001 | http://www.fun.ac.jp/icpc/Problems.html | problemset | confirm (medium) | correct →  | The earlier reader treated it as a finder page with no roles; it is a page of links to the problem set PDF and the data files of this contest. |
+| japan-2003 | http://www.u-aizu.ac.jp/conference/ACM/ | web | correct → no role (high) | correct →  | The 150 saved pages are the general website of the University of Aizu (homepage, admissions, access, alumni, many notice and guide PDFs) and none mentions the 2003 contest. |
+| japan-2007 | http://www.logos.ic.i.u-tokyo.ac.jp/icpc2007/jp/domestic/result.html | rankings | correct → standings (medium) | none | Table of 134 rows with rank, ID, team name, school, problems solved and time for the Japanese domestic contest of 6 July 2007, so it gives solved and time per team but not a bare order. |
+| japan-2008 | http://sparth.u-aizu.ac.jp/icpc2008/d_result.php | rankings | correct → standings (medium) | none | Page of the Japanese domestic contest with a table of 139 rows (rank, team id, nickname, university, solved, time) and a list of 122 Honorable mention teams. |
+| japan-2008 | http://sparth.u-aizu.ac.jp/icpc2008/b_result.php | rankings | correct → web (medium) | none | Page headed 'For beginners', in Japanese, explaining how domestic contest results are ranked and how the domestic contest is run; it holds no results table. |
+| japan-2010 | http://icpc2010.honiden.nii.ac.jp/domestic-contest/result | rankings | correct → standings (medium) | none | The page is headed 予選結果 (preliminary results) with a table of 101 teams giving rank, nickname, university, solved and time, plus a list of 186 further teams, and it covers the domestic contest, not the regional. |
+| japan-2011 | http://icpc2011.ait.kyushu-u.ac.jp/domestic-contest/result | rankings | correct → standings (medium) | none | The page is headed Result and holds a table of 100 teams with rank, nickname, university, solved and time plus a list of 211 teams under Honorable mention, for the domestic contest rather than the regional. |
+| japan-2011 | http://icpc2011.ait.kyushu-u.ac.jp/domestic-contest/problems | problemset | correct → no role (medium) | correct →  | The page under the domestic contest holds only two links, one to a page of problems and one to an archive of inputs and outputs, and no problem text. |
+| japan-2014 | https://icpc.jp/2014/regional/teams/ | teams | correct → no role (high) | none | The page has only the heading 'Teams' and the words 'See the list here', a link to a Baylor reservations page, and no list of teams. |
+| japan-2017 | https://icpc.jp/2017/regional/world-finals-teams/ | rankings | correct → report (medium) | none | The page names three universities selected for the 2018 World Finals with the reason for each, and gives no list of teams or order of results. |
+| japan-2017 | https://icpc.jp/2017/domestic/results/ | rankings | correct → standings (medium) | none | The page is the results table of the 14 July 2017 national qualifier (391 team rows, 43 marked as selected for the Tsukuba regional), not of the regional contest itself. |
 
-## Contest facts: 171 that fill a blank or differ
+## Contest facts: 220 that fill a blank or differ
 
 | contest | fact | document says | catalogue | confidence | applied | where it is stated |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -485,6 +543,67 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | gny-2000 | location | Kean University, Union, NJ | Union, NJ | high | no | The home page header reads 'Kean University in Union, NJ'. |
 | gny-2001 | date | 2001-10-28 | 2001-10-18 | high | no | The home page header reads 'Sunday, October 28, 2001'. |
 | gny-2001 | location | Nassau Community College, Garden City, NY | Garden City, NJ | high | no | The home page header reads 'Nassau Community College in Garden City, NY'. |
+| gny-2011 | location | Adelphi University, Garden City, NY | Administrative Site Location; Garden City, NY | high | no | The front page reads 'Hosted by: Adelphi University, Garden City, NY'. |
+| gny-2012 | location | Stony Brook University, Stony Brook, NY | Stony Brook, NY; Administrative Site Location | high | no | The front page reads 'Hosted by: Stony Brook University, Stony Brook, NY'. |
+| gny-2013 | location | Yale University, New Haven, CT | New Haven, CT; Administrative Site Location | high | no | The front page header reads 'Sunday, October 27, 2013, Yale University, New Haven, CT'. |
+| gny-2016 | location | Manhattan College, The Bronx, NY | 3840 Corlear Ave, Bronx, NY; Administrative Site L | high | no | The front page header reads 'Manhattan College (The Bronx)' and 'Hosted by: Manhattan College Department of Computer Science'. |
+| gny-2025 | location | Columbia University | Columbia University; Administrative Site Location | high | no | The front page says 'Hosted by: Columbia University'. |
+| gny-2026 | location | Touro University, Times Square Campus | (sites) | high | no | The home page says 'Host: Touro University, Times Square Campus'. |
+| guangzhou-2003 | location | Zhongshan (Sun Yat-sen) University, Guangzhou | Guangzhou - Asia | high | no | The cover says hosted by Zhongshan (Sun Yat-sen) University, Guangzhou. |
+| gwalior-2014 | location | ABV-Indian Institute of Information Technology & Management, | Gwalior; Administrative Site Location | high | no | The list of selected teams says the onsite contest is held at ABV-Indian Institute of Information Technology & Management, Gwalior, India. |
+| gwalior-pune-2021 | date | 2022-10-03 | 2022-10-04 | medium | no | The page lists the regional round as 3rd and 4th October, 2022. |
+| hefei-2008 | location | University of Science and Technology of China, Hefei (West C | Hefei; Asia Hefei Regional; Administrative Site Lo | high | no | the schedule page puts the opening ceremony and the contest at the 西区学生活动中心 of the University of Science and Technology of China |
+| hefei-2023 | date | 2023-11-26 | 2023-10-31 | high | no | Each page of the problem PDF is headed 'Hefei, China, Nov. 26, 2023'. |
+| hong-kong-2019 | location | National Supercomputing Center in Shenzhen, Shenzhen | Hong Kong | high | no | The venue line of the website's front page gives the address of the National Supercomputing Center in Shenzhen (Nanshan District), in Chinese. |
+| hong-kong-2022 | location | The Chinese University of Hong Kong, Hong Kong | Hong Kong; Administrative Site Location; Macau | high | no | Each page header of the problem set reads 'The Chinese University of Hong Kong, January, 14, 2023'. |
+| india-2016 | location | ABV-IIITM Gwalior and GNIT Kolkata | Administrative Site Location | high | no | The home page says the contest is held at GNIT Kolkata and ABV IIITM Gwalior. |
+| jakarta-2009 | location | BINUS University, Jakarta | Jakarta, October 21st 2008; Jakarta, October 14th  | high | no | The report says the final round was held at BINUS University. |
+| jakarta-2010 | location | BINUS University, Jakarta | Jakarta; Jakarta, December 1st 2010 | high | no | The report states that the final round was held at BINUS University; the website is that university's. |
+| jakarta-2012 | date | 2012-10-17 | 2012-10-18 | high | no | The report states the final round was held on Wednesday October 17, 2012, and the scoreboard is stamped 17 October 2012; the excursion was on the 18th. |
+| jakarta-2012 | location | BINUS University, Jakarta | Jakarta | high | no | The report states the final round was held at BINUS University. |
+| jakarta-2013 | date | 2013-10-24 | 2013-10-25 | high | no | The report says the final round was held on Thursday 24 October 2013, within an event series of 23 to 25 October. |
+| jakarta-2013 | location | BINUS University, Anggrek Campus, Jakarta | Jakarta; Jakarta, Indonesia | high | no | The rundown page gives the venue as Anggrek Campus, Bina Nusantara University. |
+| jakarta-2014 | date | 2014-12-05 | 2014-12-06 | high | no | The report says the final round was held on Friday 5 December 2014, within an event series of 4 to 6 December. |
+| jakarta-2014 | location | BINUS University, Jakarta | On-Line; Administrative Site Location; Jakarta; Ja | high | no | The report says the final round was held at BINUS University. |
+| jakarta-2015 | date | 2015-11-08 | 2015-11-09 | high | no | The report says the final round was held on Sunday 8 November 2015, within an event series of 7 to 9 November. |
+| jakarta-2015 | location | BINUS University, Jakarta | Jakarta, Indonesia | high | no | The report says the final round was held at BINUS University. |
+| jakarta-2016 | date | 2016-11-06 | 2016-11-07 | high | no | The report PDF is headed 'November 6th - 7th, 2016' and says the final round was held on Sunday November 6th; the run-down page is dated 6 November 2016. |
+| jakarta-2017 | date | 2017-11-12 | 2017-11-13 | high | no | The run-down page lists the programming contest on 12 November 2017 (Day 2), 10.00-15.00; 11 November is day 1 (briefing) and 13 November day 3 (excursion). |
+| jakarta-2017 | location | BINUS University, Anggrek Campus, Jakarta | Jakarta, Indonesia | high | no | The run-down page gives the venue as Anggrek Campus, BINUS University. |
+| jakarta-2018 | date | 2018-11-11 | 2018-11-12 | high | no | The run-down page lists the contest on 11 November 2018 (Day 2), 10.00-15.00; the scoreboard's last-update line is 11 Nov 2018 15:12. |
+| jakarta-2018 | location | BINUS University, Anggrek Campus, Jakarta | Jakarta, Indonesia | high | no | The run-down page gives the venue as Anggrek Campus, BINUS University. |
+| jakarta-2019 | date | 2019-10-27 | 2019-10-28 | medium | no | The rundown page puts the contest proper (10.00-15.00) on Day 2, 27 October 2019, within the 26-28 October event. |
+| jakarta-2019 | location | BINUS University (Anggrek Campus), Jakarta | Administrative Site Location; Jakarta, Indonesia | high | no | The rundown and how-to-get-there pages name Anggrek Campus, BINUS University, Jl. Kebon Jeruk Raya, Jakarta Barat. |
+| jakarta-2021 | location | BINUS University, Jakarta (held online) | Jakarta, Indonesia; Administrative Site Location | medium | no | the front page calls it an online contest of BINUS University. |
+| jakarta-2022 | location | Anggrek Campus, BINUS University, Jakarta | Jakarta, Indonesia; Administrative Site Location | high | no | the rundown page gives the venue as Anggrek Campus, BINUS University. |
+| jakarta-2023 | date | 2023-12-03 | 2023-12-04 | high | no | The rundown lists the contest itself on Day 2, 3 December 2023, 10.00-15.00; 4 December is the excursion day. |
+| jakarta-2023 | location | BINUS University (Anggrek Campus), Jakarta | Administrative Site Location; Jakarta, Indonesia | medium | no | The rundown gives the venue as Anggrek Campus, BINUS University. |
+| jakarta-2024 | date | 2024-12-01 | 2024-12-02 | high | no | The rundown lists the contest itself on Day 2, 1 December 2024, 10.00-15.00; 2 December is the excursion day. |
+| jakarta-2024 | location | BINUS University (Anggrek Campus), Jakarta | Jakarta, Indonesia; Administrative Site Location | medium | no | The rundown gives the venue as Anggrek Campus, BINUS University. |
+| jakarta-2025 | date | 2025-11-23 | 2025-11-24 | medium | no | The rundown page lists the contest from 10.00 to 15.00 on Day 2, 23 November 2025, and the excursion on 24 November 2025. |
+| japan-1998 | location | Waseda University, Tokyo | (sites) | high | no | The heading reads Tokyo Site (Nov. 23, 1998, Waseda University). |
+| japan-2000 | location | EPOCAL Tsukuba International Congress Center, Tsukuba | Tsukuba Site | high | no | The home page names the contest as held 11-12 November 2000 at EPOCAL Tsukuba International Congress Center. |
+| japan-2001 | location | Future University - Hakodate, Hakodate | Hakodate Site | high | no | The announcement reads 'Asia Regional Contest, Japan Hakodate 10-11 November 2001 at Future University - Hakodate'. |
+| japan-2002 | date | 2002-11-03 | 2002-11-04 | medium | no | The front page says the Kanazawa Regional Contest is held on November 3rd (Sun) and 4th (M) and gives November 3rd, 2002 as the date of the regional contest. |
+| japan-2004 | location | Center for Information Technology, Ehime University, Matsuya | Ehime Site; To Be Selected; Internet | high | no | The outline page gives the site as Center for Information Technology, Ehime Univ., Matsuyama city, Ehime prefecture. |
+| japan-2005 | location | Tokyo University of Technology, Hachioji, Tokyo | Tokyo; Internet | high | no | The regional outline page gives the site as Tokyo University of Technology, 1404-1 Katakura-cho, Hachioji-shi, Tokyo. |
+| japan-2006 | location | Keio University, Yagami Campus, Yokohama | Internet; Yokohama | high | no | The overview page gives the place as Keio University, Yagami Campus (3-14-1 Hiyoshi, Kohoku-ku, Yokohama). |
+| japan-2007 | location | The University of Tokyo (contest site: National Olympic Memo | Tokyo, Japan | high | no | The home page says hosted by The University of Tokyo, contest site National Olympic Memorial Youth Center. |
+| japan-2008 | location | The University of Aizu, Aizu-Wakamatsu | Aizu-Wakamatsu | medium | no | The regional overview says hosted by The University of Aizu, place: Auditorium of The University of Aizu. |
+| japan-2009 | location | National Olympics Memorial Youth Center, Tokyo; host Waseda  | Tokyo, Japan | high | no | The seed page states 'Site: National Olympics Memorial Youth Center' and 'Host: Waseda University, Japan'. |
+| japan-2010 | location | Academic Society Center, National Institute of Informatics,  | Administrative Site Location; Tokyo, Japan | high | no | The regional contest outline page gives the venue as 学術総合センター・国立情報学研究所, 2-1-2 Hitotsubashi, Chiyoda, Tokyo. |
+| japan-2011 | date | 2011-11-13 | 2011-11-14 | high | no | The problem set PDF is headed 2011-11-13 and the time table of the website puts the contest on Sunday 13 November, 9:20 to 14:20. |
+| japan-2011 | location | INAMORI Center, Kyushu University, Fukuoka | Administrative Site Location; Fukuoka, Japan | high | no | The home page gives the location of the regional contest as INAMORI Center, Kyushu University. |
+| japan-2012 | date | 2012-11-18 | 2012-11-19 | high | no | every page of the problem PDF is headed 'Asia Regional Contest, Tokyo, 2012-11-18' and the site schedule puts the Asia Regional Contest on Sunday 18 November. |
+| japan-2012 | location | National Olympics Memorial Youth Center, Tokyo (host: Tokyo  | Administrative Site Location | high | no | the regional contest outline page gives Site: National Olympics Memorial Youth Center and Host: Tokyo Institute of Technology. |
+| japan-2013 | date | 2013-11-24 | 2013-11-25 | high | no | the first page of each problem in the problem PDF is headed 'Asia Regional Contest, Aizu, 2013-11-24' and the site schedule puts the contest on Sunday 24 Novemb |
+| japan-2013 | location | University of Aizu, Aizu-Wakamatsu | Japan; Asia Aizu Site | medium | no | the regional overview gives the Auditorium of The University of Aizu as place and the schedule has events in Aizu Wakamatsu. |
+| japan-2014 | date | 2014-10-19 | 2014-10-20 | high | no | The front page says the event ran 18-20 October 2014 and that the contest took place on 19 October (18 October trial use, 20 October excursion). |
+| japan-2014 | location | National Olympics Memorial Youth Center, Tokyo (host: Waseda | Asia, Tokyo | high | no | The front page names the host as Waseda University and the International Information Science Foundation and the venue as the National Olympics Memorial Youth Ce |
+| japan-2015 | date | 2015-11-29 | 2015-11-30 | high | no | The regional front page and timetable put the contest (09:20 to 14:20) on Sunday 29 November 2015; 30 November is the excursion. |
+| japan-2015 | location | Tsukuba Capio, Tsukuba (host: University of Tsukuba) | Tsukuba | high | no | The regional front page names University of Tsukuba as host school and Tsukuba Capio as the venue of the opening ceremony, contest and award ceremony. |
+| japan-2016 | location | Tsukuba International Congress Center, Tsukuba | Tsukuba | high | no | The front page says the contest was held at the Tsukuba International Congress Center. |
+| japan-2017 | location | Tsukuba Capio, Tsukuba (host: Tsukuba-Gakuin University) | Tsukuba | high | no | The front page says the contest was held at Tsukuba Capio and names Tsukuba-Gakuin University as host university. |
 | alberta-2006 | location | University of Alberta, University of Calgary and University  | — | medium | no | the problem index says the contest is a joint effort of the three universities. |
 | bapc-prelims-2025 | date | 2025-09-20 | — | medium | no | The preliminaries page lists the local contests under the dates 20 September, 26 September and 27 September 2025 and says they run between the 20th and 28th. |
 | brazil-first-phase-1996 | location | DCC-UFMG, Belo Horizonte | — | medium | no | The history page says the first Maratona was organised at the Federal University of Minas Gerais, under the heading Belo Horizonte. |
@@ -494,21 +613,9 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | ctuo-1996 | location | CTU Prague, Faculty of Electrical Engineering (Department of | — | medium | no | The front page says the contest was held at the premises of the Department of Computers of FEL CVUT. |
 | ctuo-1999 | location | CTU Prague, Faculty of Electrical Engineering, Department of | — | medium | no | the English text says it was held at CTU Prague, FEE, Department of Computer Science and Engineering; the Czech text says Prague and Ostrava. |
 | east-siberia-2010 | date | 2010-10-29 | — | medium | no | the page gives 28 to 30 October 2010 for the event and 29 October as the main round |
-| ecna-2016 | date | 2016-10-29 | — | high | yes | the final report on the home page says the contest was held on Saturday, October 29, 2016 |
 | ecna-2023 | date | 2023-10-21 | — | medium | no | The front page section 2023 - 2024 Regional Programming Contest reads Date: Saturday, October 21, 2023 (the Kattis board states a start of 2023-10-29). |
-| ecna-2024 | date | 2024-11-10 | — | high | yes | The Kattis page reads Start 2024-11-10 11:00 EST. |
-| ecna-2025 | date | 2025-11-09 | — | high | yes | The Kattis page reads Start 2025-11-09 11:15 EST. |
 | erc-1987 | location | London | — | medium | no | The item says the contest was held in London. |
-| erc-1988 | location | Eindhoven University of Technology, Eindhoven, The Netherlan | — | high | yes | The cover reads 'Held at Eindhoven University of Technology, The Netherlands'. |
 | erc-1990 | location | Eindhoven | — | medium | no | The archive index row reads 'ERC 1990, Eindhoven, November 3'. |
-| far-east-russia-2000 | location | Vladivostok, Far-Eastern State University | — | high | yes | The page NEERC 2000 Far-Eastern Subregion states Host: Vladivostok and Host university: Far-Eastern State University. |
-| georgia-2007 | date | 2007-10-28 | — | high | yes | The header of every page of the problem PDF reads 'Batumi, Tashkent, October 28, 2007'. |
-| germany-2021 | date | 2021-06-26 | — | high | yes | The website says the contest was held online on June 26th; the problem set cover reads June 26th. |
-| germany-2022 | date | 2022-06-25 | — | high | yes | the cover reads German Collegiate Programming Contest 2022 and June 25th |
-| germany-2023 | date | 2023-06-17 | — | high | yes | the home page says the contest has taken place on June 17, 2023 |
-| germany-2024 | date | 2024-06-22 | — | high | yes | the home page says the contest has taken place on June 22, 2024 |
-| germany-2025 | date | 2025-07-05 | — | high | yes | the home page says the contest has taken place on July 05, 2025 |
-| gny-1994 | location | SUNY Old Westbury, Old Westbury, NY | — | high | yes | the Greater New York entry gives CONTEST SITE: SUNY Old Westbury; source 1 says Old Westbury, NY |
-| gny-1995 | date | 1995-11-05 | — | high | yes | The Greater New York entry reads 'Contest Date: 05 Nov 95'. |
-| gny-1997 | date | 1997-11-09 | — | high | yes | The page states 'November 9, 1997'. |
-| gny-1997 | location | United States Military Academy, West Point, NY | — | high | yes | The page states 'United States Military Academy at West Point, NY'. |
+| gny-2024 | date | 2024-11-10 | — | high | yes | The front page and rules page state Sunday, November 10, 2024. |
+| gny-2025 | date | 2025-11-09 | — | high | yes | The front page reads 'Sunday, November 9, 2025'. |
+| greece-2024 | date | 2024-10-18 | — | medium | no | The Greek registration page states 'Ημερομηνία Διεξαγωγής: 18-19 Οκτωβρίου 2024'. |
