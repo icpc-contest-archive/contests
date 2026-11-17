@@ -4,32 +4,32 @@ Run of 2026-11-16, rubric 1 (`tools/describe_rubric.md`). Applied.
 
 | | |
 | --- | --- |
-| contests read | 444 |
+| contests read | 569 |
 | contests with nothing held | 75 |
-| sources | 2,089 |
-| no copy | 250 |
-| read | 1,839 |
-| first readings | 168 |
-| described | 1,731 |
-| verdict confirm | 1,630 |
-| verdict correct | 101 |
-| verdict not-the-document | 72 |
-| verdict wrong-contest | 34 |
+| sources | 2,728 |
+| no copy | 318 |
+| read | 2,410 |
+| first readings | 202 |
+| described | 2,292 |
+| verdict confirm | 2,169 |
+| verdict correct | 123 |
+| verdict not-the-document | 80 |
+| verdict wrong-contest | 36 |
 | verdict cannot-tell | 2 |
-| disagrees with the earlier reader | 39 |
-| blank date filled | 15 |
-| blank location filled | 1 |
-| contest facts fills-blank | 22 |
-| contest facts conflict | 99 |
-| contest facts same | 49 |
-| contest facts listed | 273 |
+| disagrees with the earlier reader | 41 |
+| blank date filled | 17 |
+| blank location filled | 4 |
+| contest facts fills-blank | 30 |
+| contest facts conflict | 135 |
+| contest facts same | 86 |
+| contest facts listed | 376 |
 | words per description | 108 |
 
-Not finished: 1949 contests: croatia-2024, croatia-2025, ctuo-1995, ctuo-1996, ctuo-1997, ctuo-1998, ctuo-1999, ctuo-2000, ctuo-2001, ctuo-2002, ctuo-2003, ctuo-2004, ctuo-2005, ctuo-2006, ctuo-2007, ctuo-2008, ctuo-2009, ctuo-2010, ctuo-2011, ctuo-2012, ctuo-2013, ctuo-2014, ctuo-2015, ctuo-2016, ctuo-2017, ctuo-2018, ctuo-2019, ctuo-2021, ctuo-2022, ctuo-2023, ctuo-2024, ctuo-2025, cuba-2010, cyprus-2018, cyprus-2019, cyprus-2025, cyprus-2026, dalian-2011, dalian-2016, dhaka-1997.
+Not finished: 1824 contests: ecna-2014, ecna-2015, ecna-2016, ecna-2017, ecna-2018, ecna-2019, ecna-2020, ecna-2021, ecna-2022, ecna-2023, ecna-2024, ecna-2025, ecna-2026, egypt-2008, egypt-2009, egypt-2010, egypt-2011, egypt-2012, egypt-2013, egypt-2014, egypt-2015, egypt-2016, egypt-2017, egypt-2018, egypt-2019, egypt-2020, egypt-2021, egypt-2022, egypt-2023, egypt-2024, egypt-2025, egypt-2026, erc-1984, erc-1985, erc-1987, erc-1988, erc-1990, erc-1991, ethiopia-2016, ethiopia-2017.
 Results that do not check: 0.
 
 
-## Second reading: 222 sources to look at
+## Second reading: 254 sources to look at
 
 The reader did not confirm the catalogue, or disagrees with the content check of 2026-11-14. Nothing here was applied.
 
@@ -257,8 +257,40 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | croatia-2016 | https://hsin.hr/studenti2016/prijave.php | teams | correct → web (high) | none | The page is the registration call (who may enter, deadline 19 October, contact details, rules) and contains no list of teams; the list of 35 teams is on the announcement page instead. |
 | croatia-2017 | https://hsin.hr/studenti2017/prijave.php | teams | correct → web (high) | none | The page is the registration call (who may enter, deadline 19 October, contact details, rules) and contains no list of teams; the list of 31 teams is on the announcement page instead. |
 | croatia-2018 | https://hsin.hr/studenti2018/prijave.php | teams | correct → web (high) | none | The page is the registration call (who may enter, deadline 25 October, contact details, rules) and contains no list of teams; the list of 41 teams is on the announcement page instead. |
+| ctuo-1995 | https://contest.felk.cvut.cz/95prg/results.html | standings | correct → scoreboard (medium) | correct → scoreboard | The page shows only a JPEG of a printed list whose rows give a team name, a string of solved problem letters and a time. |
+| ctuo-1996 | https://contest.felk.cvut.cz/96prg/local.html | standings | correct → scoreboard (medium) | none | Table of 16 team rows headed 'Vysledky lokalniho kola' with a string of solved problem letters and a time per team, the same layout as the Prague round results. |
+| ctuo-1998 | https://contest.felk.cvut.cz/98prg/results.html | standings | correct → scoreboard (medium) | correct → scoreboard | Table of 31 teams with a Problems cell per team whose image alternative text lists the solved problems (for example '8 ztnprvlm'), plus a time column and statistics tables. |
+| ctuo-1999 | https://contest.felk.cvut.cz/99prg/submits.html | scoreboard | correct → no role (medium) | none | Table of 311 submissions with time, team, university, problem file and result, but no per-team or per-problem standing. |
+| ctuo-1999 | https://contest.felk.cvut.cz/99prg/results.html | standings | correct → scoreboard (medium) | correct → scoreboard | Table of 25 ranked teams with total time and an eight-character per-problem solved string, followed by submit statistics per problem. |
+| ctuo-2000 | https://contest.felk.cvut.cz/00prg/rank.html | scoreboard | correct → frozen_scoreboard (medium) | correct → frozen_scoreboard | The page carries 'Report time: 14:25:40 Running time: 04:24:01' and its table of 22 teams differs from the results page (the first team has 5 solved here, 6 there). |
+| ctuo-2000 | https://contest.felk.cvut.cz/00prg/submits/submits.html | scoreboard | correct → no role (medium) | none | The page is a numbered log of 311 individual submits with time, team, problem and verdict, not a table of teams against problems. |
+| ctuo-2006 | https://contest.felk.cvut.cz/06prg/rank.html | standings | correct → scoreboard (high) | correct → scoreboard | Table of 49 ranked teams with total time and, for each team, nine problem positions A to I filled with a letter icon when solved or an empty icon when not. |
+| ctuo-2006 | https://contest.felk.cvut.cz/06prg/RANK.txt | standings | correct → scoreboard (high) | none | Plain-text 'final standings' table of 49 teams with rank, team, institution, time, number solved and a nine-character string of solved problem letters. |
+| ctuo-2014 | https://contest.felk.cvut.cz/14prg/solved/intro.pdf | editorial | correct → problemset (medium) | none | Two-page PDF headed 'CTU Open Contest 2014' that introduces the problem set and says it has eleven sheets with ten problems. |
+| dhaka-2001 | http://www.buet.ac.bd/ | web | not-the-document (high) | not-the-document | The page is the general homepage of Bangladesh University of Engineering and Technology, with menus for academics, admission and students and only a menu link 'ACM/ICPC-BD, 2001'; it holds no contest content. |
+| dhaka-2006 | http://www.northsouth.edu/acm/Report_Dhaka_Site.pdf | web | correct → report+rankings (medium) | confirm | The earlier reader filed it as a website (web); it is a one-page report by the host, not a site, and it gives the top three places. |
+| dhaka-2008 | http://www.northsouth.edu/acm/Report_Dhaka_Site_2008.pdf | rankings | correct → report+rankings (medium) | none | Two-page PDF headed 'Report' by North South University on the 2008 Asia Regional Dhaka Site Event, which names the top three teams. |
+| dhaka-2014 | http://www.icpc.bubt.edu.bd/2014/?icpcpg=onSitStndng | standings | not-the-document (high) | not-the-document | Page of the contest site with only the menu and site boilerplate, no standings table. |
+| east-na-2026 | https://open.kattis.com/problem-sources/2026%20North%20America%20East% | problemset | not-the-document (high) | not-the-document | The page titled Problems from 2026 North America East Division Contest has an empty problem table with the text No data found. |
+| east-siberia-2002 | http://neerc.ifmo.ru/Subregions/east-siberian.html | scoreboard | wrong-contest (high) | correct → scoreboard | The earlier reader confirmed it as the 2002 scoreboard; its 17 rows match the 2001 contest's results (23 October 2001, Krasnoyarsk State Technical University first with 4 solved, Siberian State Technology University seco |
+| east-siberia-2023 | https://ikit.sfu-kras.ru/olimp/icpc | web | correct → no role (medium) | correct →  | The 150 pages are the institute's general site with a history page of the ACM olympiad and season pages for 2000, 2010 and 2015, and nothing about the 2023 edition. |
+| east-siberia-2024 | https://ikit.sfu-kras.ru/olimp/icpc | web | correct → no role (medium) | correct →  | The 150 pages are the institute's general site with a history page of the ACM olympiad and season pages for 2000, 2010 and 2015, and nothing about the 2024 edition. |
+| east-siberia-2025 | https://ikit.sfu-kras.ru/olimp/icpc | web | correct → no role (medium) | correct →  | The 150 pages are the institute's general site with a history page of the ACM olympiad and season pages for 2000, 2010 and 2015, and nothing about the 2025 edition. |
+| ecna-1989 | https://usenetarchives.com/view.php?id=uw.general&mid=PDExNTUyQHdhdGNn | web | correct → no role (high) | none | The 148 saved files are the front, group-list, search and statistics pages of a general Usenet archive site; a search of all of them finds no mention of the East Central contest, and the Usenet post named in the address  |
+| ecna-1989 | https://icpc-ecna.ysu.edu/PastResults/ | standings | correct → no role (high) | correct →  | Directory listing 'Index of /PastResults' with only year folders 2000/ to 2021/; nothing for 1989. |
+| ecna-1993 | https://open.kattis.com/problem-sources/1993%20East-Central%20Regional | problemset | not-the-document (high) | not-the-document | The page is headed Problems from 1993 East-Central Regionals but its list is empty and the page says No data found. |
+| ecna-1994 | https://usenetarchives.com/view.php?id=comp.org.acm&mid=PEN6NnVxdi5Kbn | web+scoreboard | not-the-document (high) | none | Our copy is 148 files of the general UsenetArchives.com site (front pages, group lists, sitemaps); neither seed address was saved and no file mentions this contest. |
+| ecna-1994 | https://open.kattis.com/problem-sources/1994%20East-Central%20Regional | problemset | not-the-document (high) | not-the-document | The page is headed Problems from 1994 East-Central Regionals but its list is empty and the page says No data found. |
+| ecna-1997 | https://open.kattis.com/problem-sources/East%20Central%20Regionals%201 | problemset | not-the-document (high) | not-the-document | Kattis page 'Problems from East Central Regionals 1997' whose problem list reads 'No data found'. |
+| ecna-1999 | https://open.kattis.com/problem-sources/East%20Central%20Regional%20Co | problemset | not-the-document (high) | not-the-document | Kattis page 'Problems from East Central Regional Contest 1999' whose problem table reads 'No data found'. |
+| ecna-2005 | http://acm.ashland.edu/2005/standings.html | standings | correct → scoreboard (high) | same-as | Table of 132 team rows with the same teams, cells and ranks as the other standings page, headed 'Final Standings'. |
+| ecna-2006 | http://acm.ashland.edu/2006/standings.html | standings | correct → scoreboard (high) | same-as | Table of 135 team rows with A to H as tries/minutes, identical to source 2, so a scoreboard and not bare standings. |
+| ecna-2007 | http://acm.ashland.edu/2007/standings.html | standings | correct → scoreboard (high) | same-as | Table of 114 team rows with A to H as tries/minutes, identical to source 2, so a scoreboard and not bare standings. |
+| ecna-2008 | http://acm.ashland.edu/2008/standings.html | standings | correct → scoreboard (high) | same-as | The table has the same 124 team rows with per-problem cells for A to H (attempts/minute) as source 2, so it is a scoreboard and not bare standings. |
+| ecna-2010 | http://acm.ashland.edu/2011/standings.html | standings | wrong-contest (high) | wrong-contest | The page is titled 'The 2011 ACM ECNA Regional Programming Contest', headed 'The 2011 ACM-ICPC East Central North America Regional Programming Contest Detailed Final Standings', with problem columns A to I and 123 ranked |
+| ecna-2011 | https://icpc-ecna.ysu.edu/PastResults/2011/top15Overall.html | rankings | correct → standings (medium) | none | Page titled 'Top 15 Teams (Overall Standing)' with 15 rows of final rank, team name, institute name, problems solved and total time in minutes. |
 
-## Contest facts: 121 that fill a blank or differ
+## Contest facts: 165 that fill a blank or differ
 
 | contest | fact | document says | catalogue | confidence | applied | where it is stated |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -361,25 +393,69 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | croatia-2021 | location | Zagreb, Osijek, Rijeka and Pula | (sites) | high | no | The front page names Zagreb / Osijek / Rijeka / Pula; the application page says the contest is held online. |
 | croatia-2022 | location | Zagreb, Osijek, Rijeka and Pula | (sites) | high | no | The front page names Zagreb / Osijek / Rijeka / Pula; the application page says the contest is held online. |
 | croatia-2023 | location | Zagreb, Rijeka and Pula | (sites) | high | no | The front page names Zagreb / Rijeka / Pula; the application page says the contest is held online. |
+| ctuo-1995 | date | 1995-05-12 | 1995-05-13 | high | no | The front page says the contest was held on May 12th and 13th, 1995; the results image is dated 13 May 1995. |
+| ctuo-2000 | date | 2000-10-20 | 2000-10-21 | medium | no | The front page says the contest took place on 20 and 21 October 2000; the submit times of 10.33 to 15.24 do not say which day. |
+| ctuo-2001 | date | 2001-10-26 | 2001-10-27 | medium | no | The front page says the contest took place on 26 and 27 October 2001. |
+| ctuo-2002 | date | 2002-10-25 | 2002-10-26 | medium | no | The front page says the contest took place on 25 and 26 October 2002. |
+| ctuo-2009 | date | 2009-10-16 | 2009-10-17 | medium | no | The front page says the contest took place on 16 and 17 October 2009. |
+| ctuo-2010 | date | 2010-10-22 | 2010-10-23 | medium | no | The front page says the contest took place on 22 and 23 October 2010; the schedule gives Friday 22 for registration and a practice round and Saturday 23 for the |
+| cyprus-2018 | location | University of Cyprus, Nicosia | Cyprus; Administrative Site Location | high | no | the page states that the competition took place on 29 September 2018 at the University of Cyprus and gives the venue address in Nicosia |
+| cyprus-2019 | location | UCLan Cyprus, Pyla, Larnaka | Administrative Site Location; Cyprus | high | no | The Technical Details text names 8 June 2019 at UCLan Cyprus and the Venue section gives 12-14 University Avenue, Pyla, Larnaka. |
+| cyprus-2025 | date | 2025-10-18 | 2025-10-17 | high | no | The page heading reads October 18th 2025 and the Technical Details paragraph says 18th of October 2025, at UCLan Cyprus. |
+| dalian-2011 | date | 2011-09-25 | 2011-09-23 | high | no | The ranklist states the start as 2011/9/25 09:00, and the schedule page of the site lists the official contest on 25 September (23 September is registration). |
+| dhaka-1998 | location | North South University, Dhaka, Bangladesh | (sites) | high | no | The heading names the Dhaka Site, November 17, 1998, North South University, Dhaka, Bangladesh. |
+| dhaka-1999 | date | 1999-11-24 | 1999-11-25 | high | no | The heading of the standings reads November 24, 1999 and the page ends Created 11-24-1999 14:20:51. |
+| dhaka-2002 | date | 2002-11-27 | 2002-11-28 | high | no | the home page gives 'When November 27 & 28, 2002'. |
+| dhaka-2006 | location | North South University, Dhaka | Dhaka, Bangladesh; Internet; East West University | medium | no | The report is headed North South University and says the Final Round was held at North South University. |
+| dhaka-2007 | date | 2007-11-11 | 2007-12-08 | low | no | The standings page dates the Final Round and the Preliminary Site table 11/11/2007, while the scoreboard page says last updated 8 Dec 2007. |
+| dhaka-2012 | location | Radisson Blu Water Garden Hotel, Dhaka (host: Daffodil Inter | Dhaka | high | no | The home page names the venue and host; the news page gives contest day 8 December 2012. |
+| dhaka-2014 | location | Bangladesh University of Business and Technology (BUBT), Dha | Dhaka | high | no | The schedule page says the event is hosted by Bangladesh University of Business AND Technology and gives the on-site contest on Saturday, December 06, 2014. |
+| dhaka-2021 | location | Bangladesh University of Business and Technology (BUBT), Dha | Administrative Site Location; Dhaka | medium | no | The schedule of events places the contest in building B-02 at BUBT Premises and the home page says hosted by BUBT. |
+| dhaka-2022 | location | Green University of Bangladesh | Administrative Site Location; Dhaka | high | no | The scoreboard title reads 'hosted by GREEN UNIVERSITY OF BANGLADESH'. |
+| east-siberia-2008 | date | 2008-10-25 | 2008-10-26 | high | no | The page text gives the contest as held from 25 to 27 October 2008 in Krasnoyarsk. |
+| east-siberia-2008 | location | Institute of Space and Information Technology, Siberian Fede | Krasonyarsk | high | no | The page text names the institute as the base in Krasnoyarsk. |
+| east-siberia-2009 | location | Siberian Federal University, Institute of Space and Informat | Administrative Site Location; Krasonyarsk | high | no | the page says the quarterfinal is held in Krasnoyarsk at the institute (ИКИТ) of Siberian Federal University |
+| east-siberia-2010 | location | Siberian Federal University, Institute of Space and Informat | Krasonyarsk; Administrative Site Location | high | no | the page says the contest is held in Krasnoyarsk at the institute of Siberian Federal University |
+| east-siberia-2011 | location | Siberian Federal University, Institute of Space and Informat | Krasonyarsk; Administrative Site Location | high | no | the page says the contest is held in Krasnoyarsk at the institute of Siberian Federal University |
+| east-siberia-2012 | location | Siberian Federal University, Institute of Space and Informat | Krasonyarsk; Administrative Site Location | high | no | the page says the contest is held in Krasnoyarsk at the institute of Siberian Federal University |
+| east-siberia-2013 | location | Siberian Federal University, Institute of Space and Informat | Administrative Site Location; Krasonyarsk | high | no | the page says the contest is held in Krasnoyarsk at the institute of Siberian Federal University |
+| east-siberia-2016 | date | 2016-10-30 | 2016-10-31 | high | no | The page lists 30.10.2016 as the main round and 31.10.2016 as the closing, within the event days 29-31 October 2016. |
+| east-siberia-2017 | location | Siberian Federal University, Krasnoyarsk (second site: Irkut | Administrative Site Location; Krasonyarsk | high | no | The season page says the main round is held at two sites, Krasnoyarsk at the Institute of Space and Informatic Technologies and Irkutsk at Irkutsk State Univers |
+| east-siberia-2018 | date | 2018-11-10 | 2018-10-22 | high | no | The season page lists the main round on 10.11.2018, with opening and trial round on 09.11.2018 and closing on 11.11.2018. |
+| east-siberia-2018 | location | Siberian Federal University, Krasnoyarsk (also sites in Ulan | Krasonyarsk; Administrative Site Location | high | no | The season page says the main round takes place at Krasnoyarsk (ИКИТ СФУ), Ulan-Ude (Buryat State University) and Irkutsk (Irkutsk State University). |
+| east-siberia-2019 | date | 2019-11-16 | 2019-10-06 | high | no | The season page gives 16.11.2019 as the main round, with opening and trial round on 15.11.2019 and closing on 17.11.2019. |
+| east-siberia-2019 | location | Siberian Federal University, Krasnoyarsk (also sites in Ulan | Administrative Site Location; Krasonyarsk | high | no | The season page lists five sites, the first being Krasnoyarsk at the Institute of Space and Informatic Technologies. |
+| east-siberia-2020 | location | Siberian Federal University, Krasnoyarsk (remote; also sites | Krasonyarsk; Administrative Site Location | high | no | The season page says it is held remotely, and lists the sites Krasnoyarsk (remote only), Irkutsk, Ulan-Ude, Chita and Norilsk. |
+| ecna-1996 | location | University of Notre Dame | Notre Dame | high | no | The page states 'University of Notre Dame' under the contest title. |
+| ecna-1997 | location | University of Notre Dame | Notre Dame | high | no | The page states 'University of Notre Dame' under the contest title. |
+| ecna-1998 | location | University of Waterloo | (sites) | high | no | The cover of the problem set PDF names the University of Waterloo. |
 | alberta-2006 | location | University of Alberta, University of Calgary and University  | — | medium | no | the problem index says the contest is a joint effort of the three universities. |
 | bapc-prelims-2025 | date | 2025-09-20 | — | medium | no | The preliminaries page lists the local contests under the dates 20 September, 26 September and 27 September 2025 and says they run between the 20th and 28th. |
 | brazil-first-phase-1996 | location | DCC-UFMG, Belo Horizonte | — | medium | no | The history page says the first Maratona was organised at the Federal University of Minas Gerais, under the heading Belo Horizonte. |
-| central-america-2022 | date | 2023-03-18 | — | high | yes | the problem set cover reads March 18, 2023 |
-| central-russia-2000 | date | 2000-10-04 | — | high | yes | The Central Subregion page says the contest was held in Rybinsk on October 4, 2000. |
 | central-russia-2000 | location | Rybinsk SAAT, Rybinsk | — | medium | no | The page gives Host: Rybinsk, Host university: Rybinsk SAAT, and says the contest was held in Rybinsk. |
-| central-russia-2003 | date | 2003-10-16 | — | high | yes | The Timus contest page is titled 'Quarterfinal, Rybinsk, October 16 2003'. |
-| cerc-2024 | date | 2024-12-15 | — | high | yes | The slide deck is dated December 15, 2024, and the website schedule puts The Contest on Sunday 15 December 2024. |
-| cerc-2025 | date | 2025-12-07 | — | high | yes | The slide deck is dated December 7, 2025. |
-| croatia-2007 | date | 2007-10-20 | — | high | yes | The home page, results page and problems PDF all give 20. listopada 2007. |
 | croatia-2007 | location | Faculty of Science, Mathematics Department, Zagreb | — | medium | no | The announcement gives the venue as Prirodoslovno-matematički fakultet - Matematički odjel, Bijenička cesta 30, Zagreb. |
-| croatia-2008 | date | 2008-10-25 | — | high | yes | The home page and results page give 25. listopada 2008. |
 | croatia-2008 | location | Faculty of Electrical Engineering and Computing, Zagreb | — | medium | no | The announcement gives the venue as Fakultet elektrotehnike i računarstva, Unska 3, Zagreb. |
-| croatia-2009 | date | 2009-10-17 | — | high | yes | The front page and the report state 'Zagreb, 17. listopada 2009.' |
-| croatia-2011 | date | 2011-10-15 | — | high | yes | The front page and the report state 'Zagreb, 15. listopada 2011.' |
-| croatia-2013 | date | 2013-10-26 | — | high | yes | The front page and results page give Zagreb, 26 October 2013. |
-| croatia-2014 | date | 2014-10-19 | — | high | yes | The front page header reads '19. i 26. listopada 2014.' (two rounds; first day given). |
-| croatia-2018 | location | Zagreb, Osijek, Rijeka and Pula (universities) | — | high | yes | The front page and announcement name the universities in Zagreb, Osijek, Rijeka and Pula as the sites. |
-| croatia-2020 | date | 2020-11-29 | — | high | yes | The front page reads 'nedjelja, 29. studenog 2020.' |
-| croatia-2021 | date | 2021-12-12 | — | high | yes | The front page reads 'nedjelja, 12. prosinca 2021.' |
-| croatia-2022 | date | 2022-11-06 | — | high | yes | The front page reads 'nedjelja, 6. studenog 2022.' |
-| croatia-2023 | date | 2023-11-19 | — | high | yes | The front page reads 'nedjelja, 19. studenog 2023.' |
+| ctuo-1996 | location | CTU Prague, Faculty of Electrical Engineering (Department of | — | medium | no | The front page says the contest was held at the premises of the Department of Computers of FEL CVUT. |
+| ctuo-1999 | location | CTU Prague, Faculty of Electrical Engineering, Department of | — | medium | no | the English text says it was held at CTU Prague, FEE, Department of Computer Science and Engineering; the Czech text says Prague and Ostrava. |
+| ctuo-2024 | date | 2024-10-19 | — | high | yes | the schedule page lists the contest session 10:00 - 15:00 on Saturday 19 October 2024, after practice on 18 October |
+| ctuo-2025 | date | 2025-11-08 | — | high | yes | the schedule page lists the contest session 10:00 - 15:00 on Saturday 8 November 2025, after practice on 7 November |
+| east-na-2023 | date | 2023-10-29 | — | high | yes | The page states Start 2023-10-29 11:05 EDT and End 2023-10-29 16:05 EDT. |
+| east-na-2024 | date | 2024-11-10 | — | high | yes | The page states Start 2024-11-10 11:00 EST and End 2024-11-10 16:00 EST. |
+| east-na-2025 | date | 2025-11-09 | — | high | yes | The page states Start 2025-11-09 11:15 EST and End 2025-11-09 16:15 EST. |
+| east-siberia-2001 | date | 2001-10-23 | — | high | yes | The heading states the regional stage was held on 23 October 2001. |
+| east-siberia-2002 | date | 2002-10-27 | — | high | yes | The heading states the regional stage was held on 27 October 2002. |
+| east-siberia-2003 | date | 2003-11-01 | — | high | yes | The page text says the regional stage was held 1-3 November 2003 at KGTU. |
+| east-siberia-2004 | date | 2004-10-31 | — | high | yes | The page text says the regional stage was held 31 October 2004 at KGTU. |
+| east-siberia-2005 | date | 2005-10-30 | — | high | yes | The page text says the regional stage was held 30 October 2005 at KGTU. |
+| east-siberia-2006 | date | 2006-11-04 | — | high | yes | The page text says the regional stage was held 4-6 November 2006 at KGTU. |
+| east-siberia-2007 | date | 2007-10-27 | — | high | yes | The page text says the regional stage was held 27-29 October 2007 in Krasnoyarsk. |
+| east-siberia-2007 | location | Polytechnic Institute of Siberian Federal University, Krasno | — | high | yes | The page text names the Polytechnic Institute of Siberian Federal University in Krasnoyarsk as the base. |
+| east-siberia-2010 | date | 2010-10-29 | — | medium | no | the page gives 28 to 30 October 2010 for the event and 29 October as the main round |
+| ecna-1993 | date | 1993-11-05 | — | high | yes | the cover reads '5-6 November 1993' |
+| ecna-1993 | location | University of Waterloo | — | high | yes | the cover says 'held at The University of Waterloo' |
+| ecna-1994 | date | 1994-11-11 | — | high | yes | the index page says 'held at The University of Waterloo 11-12 November 1994' |
+| ecna-1994 | location | University of Waterloo | — | high | yes | the index page says 'held at The University of Waterloo' |
+| ecna-1995 | date | 1995-11-11 | — | high | yes | the contest page says the contest was held on Saturday November 11, 1995 |
+| ecna-1995 | location | Michigan State University, East Lansing | — | high | yes | the contest page and call for participation name Michigan State University in East Lansing as host |
+| ecna-1996 | date | 1996-10-26 | — | high | yes | The page states 'October 26, 1996' under the contest title. |
+| ecna-1997 | date | 1997-11-08 | — | high | yes | The page states 'November 8, 1997' under the contest title. |
