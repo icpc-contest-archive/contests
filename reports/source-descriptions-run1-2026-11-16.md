@@ -4,32 +4,33 @@ Run of 2026-11-16, rubric 1 (`tools/describe_rubric.md`). Applied.
 
 | | |
 | --- | --- |
-| contests read | 1,002 |
+| contests read | 1,142 |
 | contests with nothing held | 75 |
-| sources | 4,721 |
-| no copy | 564 |
-| read | 4,157 |
-| first readings | 338 |
-| described | 3,932 |
-| description held (low confidence or source gone) | 4 |
-| verdict confirm | 3,748 |
-| verdict correct | 188 |
-| verdict not-the-document | 139 |
-| verdict wrong-contest | 74 |
+| sources | 5,398 |
+| no copy | 663 |
+| read | 4,735 |
+| first readings | 367 |
+| described | 4,473 |
+| description held (low confidence or source gone) | 5 |
+| verdict confirm | 4,259 |
+| verdict correct | 219 |
+| verdict not-the-document | 161 |
+| verdict wrong-contest | 88 |
 | verdict cannot-tell | 8 |
-| disagrees with the earlier reader | 70 |
-| blank date filled | 2 |
-| contest facts fills-blank | 15 |
-| contest facts conflict | 237 |
-| contest facts same | 156 |
-| contest facts listed | 683 |
+| disagrees with the earlier reader | 95 |
+| blank date filled | 3 |
+| blank location filled | 1 |
+| contest facts fills-blank | 17 |
+| contest facts conflict | 255 |
+| contest facts same | 176 |
+| contest facts listed | 783 |
 | words per description | 107 |
 
-Not finished: 1391 contests: kyrgyzstan-2019, kyrgyzstan-2020, kyrgyzstan-2021, kyrgyzstan-2022, kyrgyzstan-2023, kyrgyzstan-2024, kyrgyzstan-2025, kyrgyzstan-2026, lac-2024, lac-2025, lethbridge-2014, lethbridge-2015, lethbridge-2016, lethbridge-2017, lethbridge-2018, lethbridge-2019, lethbridge-2020, lethbridge-2021, lethbridge-2022, lethbridge-2023, lethbridge-2024, lethbridge-2025, macau-2020, macau-2021, macau-2023, malaysia-national-2013, malaysia-national-2014, malaysia-national-2016, malaysia-national-2018, malaysia-national-2019, manila-2002, manila-2003, manila-2004, manila-2005, manila-2006, manila-2009, manila-2011, manila-2016, manila-2017, manila-2019.
+Not finished: 1251 contests: moscow-2012, moscow-2013, moscow-2014, moscow-2015, moscow-2016, moscow-2017, moscow-2018, moscow-2019, moscow-2020, moscow-2021, moscow-2022, moscow-2023, moscow-2024, moscow-2025, moscow-2026, mudanjiang-2014, myanmar-mcpc-2017, myanmar-mcpc-2018, myanmar-mcpc-2019, nac-2020, nac-2021, nac-2022, nac-2023, nac-2024, nac-2025, nac-2026, nadc-2021, nanchang-2019, nanjing-2007, nanjing-2013, nanjing-2018, nanjing-2020, nanjing-2021, nanjing-2022, nanjing-2023, nanjing-2024, nanjing-2025, nanjing-2026, nanning-2017, naq-2012.
 Results that do not check: 0.
 
 
-## Second reading: 435 sources to look at
+## Second reading: 504 sources to look at
 
 The reader did not confirm the catalogue, or disagrees with the content check of 2026-11-14. Nothing here was applied.
 
@@ -468,10 +469,79 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | kyrgyzstan-2010 | http://neerc.ifmo.ru/ | web | correct → no role (medium) | correct →  | The seed page of the 2010 season says "No information is available" for Kyrgyzstan and the crawl holds no Kyrgyzstan page of 2010. |
 | kyrgyzstan-2018 | https://neerc.ifmo.ru/subregions/kyrgyzstan.html | web | wrong-contest (high) | correct →  | The page is the Kyrgyzstan Regional Contest page with contest dates 03 Oct 2026 and 31 Oct 2026, and in its archive list the heading 2018 has no standings link. |
 | kyrgyzstan-2018 | https://github.com/iensen/olymp.krsu.edu.kg | web | wrong-contest (high) | correct →  | GitHub repository page whose folders are checkers, problem_statements/subregional_2015 and .gitignore; the text does not mention 2018. |
+| kyrgyzstan-2020 | https://olymp.krsu.kg/conteststandings/313 | web+scoreboard | not-the-document (medium) | none | The 25 pages from the judge's address are 909-byte empty app shells titled KRSU Online Judge; the crawl holds Kyrgyzstan standings of other years but none of 2020, its NERC 2020 archive pages do not mention Kyrgyzstan an |
+| kyrgyzstan-2020 | https://neerc.ifmo.ru/subregions/kyrgyzstan.html | web | correct → no role (high) | correct →  | The page announces contest dates of 03 Oct and 31 Oct 2026 and its archive list gives no standings link for 2020. |
+| kyrgyzstan-2020 | https://github.com/iensen/olymp.krsu.edu.kg | web | correct → no role (high) | correct →  | The repository front page shows only the folders checkers and problem_statements/subregional_2015 and a .gitignore file. |
+| kyrgyzstan-2021 | https://olymp.krsu.edu.kg/HomeSubregion.aspx | web | confirm (medium) | correct →  | The earlier reader judged only the seed page, a 2013 capture with 2012-2013 news, and found nothing of 2021; other pages of our copy (home page and contests list captured in January 2022) do announce and list the 2021 co |
+| kyrgyzstan-2023 | https://olymp.krsu.edu.kg | web | wrong-contest (medium) | confirm | The earlier reader confirmed it as the series site, but no file of this copy mentions 2023 or any page of this edition. |
+| kyrgyzstan-2024 | https://olymp.krsu.edu.kg/regionals/regionals | web | wrong-contest (medium) | confirm | The earlier reader confirmed it as the series site, but no page of our copy mentions 2023 to 2026 or the 2024 edition; the content is of 2005-2013 and one contest list reaching 2022. |
+| kyrgyzstan-2025 | https://olymp.krsu.edu.kg/regionals/regionals | web | wrong-contest (medium) | confirm | The earlier reader confirmed it as the series site, but I searched the pages of the copy and none is about the 2025 edition; the content is of 2005-2013 and one list of 2022. |
 | lebanon-2009 | https://www.bau.edu.lb/Science/Event/The-Lebanese-Collegiate-Programmi | web | wrong-contest (high) | wrong-contest | The article is dated 04 October 2019 and reports the Lebanese Collegiate Programming Competition held on October 4, 2019 (37 teams, ICPC in Moscow); nothing in it is about the 2009 edition beyond saying the competition h |
 | lebanon-2018 | https://news.lau.edu.lb/2018/computer-science-students-win-battle-of-t | web | correct → no role (high) | correct →  | The 150 saved pages are the LAU News 2018 archive index and news articles; none mentions the Lebanese Collegiate Programming Contest, and the article named as the seed is not among them. |
+| lethbridge-2014 | http://www.cs.uleth.ca/~cheng/LCPC/ | web+rankings | correct → no role (high) | same-as | The earlier reader found the 2014 contest page with the top three per division; our copy has since been replaced by a bare directory index of the series folder. |
+| lethbridge-2015 | http://www.cs.uleth.ca/~cheng/LCPC/ | standings | correct → web (high) | correct → web | Page captured on 2015-10-13 with the 2015 contest information (When: October 10, 2015) and links to 2014 and 2013 results only. |
+| lethbridge-2020 | https://www.cs.uleth.ca/~cheng/contest/2020.html | standings | wrong-contest (high) | wrong-contest | Page titled 'University of Lethbridge 2020 Teams' lists the University of Lethbridge teams, their ranks at the Rocky Mountain Regional and links to the scoreboards of the Alberta Collegiate Programming Contest and the No |
+| lethbridge-2021 | https://www.cs.uleth.ca/~cheng/contest/2021.html | standings | wrong-contest (high) | wrong-contest | Page titled 'University of Lethbridge 2021 Teams' lists the University of Lethbridge teams, their ranks at the Rocky Mountain Regional and links to the Alberta Collegiate Programming Contest scoreboards; the text never m |
+| lethbridge-2022 | https://www.cs.uleth.ca/~cheng/contest/2022.html | standings | wrong-contest (high) | wrong-contest | The page is titled 'University of Lethbridge 2022 Teams' and lists the university's five teams and their ranks at the Alberta Collegiate Programming Contest and the Rocky Mountain Regional Contest, not a Lethbridge Colle |
+| lethbridge-2023 | https://www.cs.uleth.ca/~cheng/contest/2023.html | standings | wrong-contest (high) | wrong-contest | The page is titled 'University of Lethbridge 2023 Teams' and lists the university's four teams and their ranks at the Alberta Collegiate Programming Contest and the Rocky Mountain Regional Contest, not a Lethbridge Colle |
+| lethbridge-2024 | https://www.cs.uleth.ca/~cheng/contest/2024.html | rankings+teams | wrong-contest (medium) | correct → teams+rankings | The earlier reader took the page as teams and rankings of this contest; the page is about the university's teams at the Alberta and Rocky Mountain contests and names no Lethbridge Collegiate Programming Contest. |
+| macau-2023 | https://codeforces.com/gym/104891/standings | scoreboard | wrong-contest (medium) | wrong-contest | The Codeforces gym is titled 'The 2023 ICPC Asia Macau Regional Contest (The 2nd Universal Cup. Stage 15: Macau)' and its 171-team table is led by USA1 and HoMaMaOvO, with the regional's teams only embedded as 'Instituti |
+| malaysia-national-2014 | https://fik.unisza.edu.my/index.php?option=com_content&view=article&id | rankings | correct → report (high) | none | News item of a Malaysian university's faculty of informatics, in Malay, giving only the placings of its own two teams (21 of 61 and 25 of 61), not an order of teams. |
+| manila-2002 | http://www.dledge.com/acm/ | standings | not-the-document (high) | not-the-document | The copy is a parked-domain page that only links to a domain sponsor landing page for dledge.com. |
+| manila-2005 | http://acm.ateneo.edu/summary.html | standings | wrong-contest (high) | wrong-contest | The page is titled '2006 Asia Programming Contest - Manila // Contest Results' and holds only a link to the 2006 contest's page. |
+| manila-2019 | https://curry.ateneo.net/icpcmanila2019 | standings | not-the-document (high) | not-the-document | The page is a scoreboard shell titled Nice ICPC-style Scoreboard by kevinsogo with placeholder dots and no table rows, its data loaded by script. |
+| mathura-2022 | https://kanpurarchive2022.indiaicpc.in/?page_id=698 | rankings | correct → teams (high) | none | Page titled Result of Preliminary Online Contest holds tables of team name, institute and on-site city for 151 selected teams and a waiting list of 15, with no scores or ranks. |
+| mausa-1994 | https://www.eecis.udel.edu/~saunders/regional95/94region-scores.ps | standings | correct → scoreboard (medium) | correct → scoreboard | Three-page PostScript, read by rendering and OCR, headed Mid-Atlantic Regional Final Results, with a table giving per team the problems solved, penalties and attempts:solution time for problems 1 to 8. |
+| mausa-1996 | https://open.kattis.com/problem-sources/1996%20Mid-Atlantic%20Regional | problemset | not-the-document (high) | not-the-document | Kattis problem-sources page titled Problems from 1996 Mid-Atlantic Regionals whose list reads No data found, so it shows no problems. |
+| mausa-1998 | http://www.eecis.udel.edu/~saunders/regional98/UDteams.html | web | correct → report (medium) | wrong-contest | The earlier reader gave no roles because the copy was filed under another contest; the page belongs to the 1998 edition and is a short account of two teams' placings. |
+| mausa-2000 | http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.a | standings+rankings | correct → standings (medium) | correct → standings | The table has 137 team rows with the columns Rank, Team and Citation and no solved counts, under the heading 'The 2000 ACM Mid-Atlantic USA Programming Contest sponsored by IBM'. |
+| mausa-2001 | http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.a | rankings | correct → standings (medium) | correct → rankings | The earlier reader gave the role rankings; the page lists all 136 teams with a rank and a citation for each of the first 89 places, which is the shape the rubric calls standings. |
+| mausa-2001 | http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?Contes | rankings | correct → standings (medium) | correct → rankings | The earlier reader gave the role rankings; the page lists all 136 teams with a rank and a citation for each of the first 89 places, which is the shape the rubric calls standings. |
+| mausa-2002 | http://midatl.cs.vt.edu:80/solutions/MidAtlantic2002-final.pdf | editorial | correct → problemset (high) | none | Same 17-page problem set with the same eight problems A to H, differing from source 8 in small wording changes that follow the clarifications issued during the contest. |
+| mausa-2002 | http://midatl.cs.vt.edu:80/judges-comments1.htm | editorial | wrong-contest (high) | none | The page is headed 2003 Mid-Atlantic Region Judges' Comments and ends with "Last modified: Tue Nov 18 15:44:23 EST 2003"; its comments discuss problems A to H of the 2003 contest. |
+| mausa-2005 | https://open.kattis.com/problem-sources/2005%20Mid-Atlantic%20Regional | problemset | not-the-document (high) | not-the-document | Kattis problem-sources page titled 'Problems from 2005 Mid-Atlantic Regional Programming Contest' that shows 'No data found' in place of a problem list. |
+| mausa-2009 | https://open.kattis.com/problem-sources/2009%20Mid-Atlantic%20Regional | problemset | not-the-document (high) | cannot-tell | The earlier reader answered cannot-tell with the roles unchanged; the copy shows an empty problem list ('No data found'), so it holds no problem set. |
+| mausa-2010 | https://open.kattis.com/problem-sources/Problem%20A%20of%20ICPC%20Mid- | problemset | not-the-document (high) | cannot-tell | The earlier reader said cannot-tell; the page has no problem rows at all and reads 'No data found', so it holds no problem set. |
+| mausa-2010 | https://open.kattis.com/problem-sources/Problem%20B%20of%20ICPC%20Mid- | problemset | not-the-document (high) | cannot-tell | The earlier reader said cannot-tell; the page has no problem rows at all and reads 'No data found', so it holds no problem set. |
+| mausa-2010 | https://open.kattis.com/problem-sources/Problem%20C%20of%20ICPC%20Mid- | problemset | not-the-document (high) | cannot-tell | The earlier reader said cannot-tell; the page has no problem rows at all and reads 'No data found', so it holds no problem set. |
+| mausa-2010 | https://open.kattis.com/problem-sources/Problem%20D%20of%20ICPC%20Mid- | problemset | not-the-document (high) | cannot-tell | The earlier reader said cannot-tell; the page has no problem rows at all and reads 'No data found', so it holds no problem set. |
+| mausa-2010 | https://open.kattis.com/problem-sources/Problem%20E%20of%20ICPC%20Mid- | problemset | not-the-document (high) | cannot-tell | The earlier reader said cannot-tell; the page has no problem rows at all and reads 'No data found', so it holds no problem set. |
+| mausa-2010 | https://open.kattis.com/problem-sources/Problem%20F%20of%20ICPC%20Mid- | problemset | not-the-document (high) | cannot-tell | The earlier reader said cannot-tell; the page has no problem rows at all and reads 'No data found', so it holds no problem set. |
+| mausa-2010 | https://open.kattis.com/problem-sources/Problem%20G%20of%20ICPC%20Mid- | problemset | not-the-document (high) | cannot-tell | The earlier reader said cannot-tell; the page has no problem rows at all and reads 'No data found', so it holds no problem set. |
+| mausa-2010 | https://open.kattis.com/problem-sources/Problem%20H%20of%20ICPC%20Mid- | problemset | not-the-document (high) | cannot-tell | The earlier reader said cannot-tell; the page has no problem rows at all and reads 'No data found', so it holds no problem set. |
+| mausa-2011 | http://midatl.radford.edu/docs/scoreboard.acm2011/summary.html | scoreboard+standings | correct → scoreboard (high) | confirm | Table of 164 team rows headed Rank, Name, Solved, Time, A to H and Total att/solv, with attempts/time in each problem cell. |
+| mausa-2012 | http://midatl.radford.edu/docs/scoreboard/summary.html | scoreboard+standings | correct → scoreboard (high) | correct → scoreboard | Table of 173 team rows titled 'The 2012 Mid-Atlantic USA Regional Contest' with Rank, Name, Solved, Time and per-problem attempts/time cells for A to H. |
+| mausa-2014 | https://www.cs.odu.edu/~zeil/icpc/scoreboard2014.html | scoreboard+standings | correct → scoreboard (high) | correct → scoreboard | Table headed 'ACM ICPC, Mid-Atlantic Regional, 2014' with 188 team rows, Rank, Name, Solved, Time and an attempts and a time column for each problem A to H. |
+| mausa-2015 | http://midatl.radford.edu/scoreboard/summary.html | scoreboard+standings | correct → scoreboard (high) | correct → scoreboard | Table of 185 team rows titled 'The 2015 Mid-Atlantic USA Regional Contest' with Rank, Name, Solved, Time and per-problem attempts/time cells for A to H. |
+| mausa-2024 | https://nasouth24.kattis.com/ | standings | correct → no role (high) | correct →  | Kattis contest list headed Contests with eight contests and their length, end time, number of teams and number of problems, and no standings. |
+| mausa-2024 | https://sites.radford.edu/~acm/midatl/problem-set-links.html | problemset | correct → no role (high) | none | The page lists Kattis problem and scoreboard links for the 2023 contest and earlier ones back to 2012 and none for 2024. |
+| mcerc-1999 | https://open.kattis.com/problem-sources/Mid-Central%20European%20Regio | problemset | not-the-document (high) | not-the-document | The Kattis page for this problem source says No data found and lists no problems. |
+| mcpc-1993 | https://open.kattis.com/problem-sources/1993%20ACM%20Mid-Central%20Reg | problemset | not-the-document (high) | not-the-document | Kattis problem-sources page headed 'Problems from 1993 ACM Mid-Central Regional Programming Contest' whose problem table holds only 'No data found'. |
+| mcpc-1995 | http://www.harding.edu/%7Eacm95/standings.html | scoreboard | confirm (high) | correct → standings | The earlier reader called it standings; the page gives a per-problem column with the solve time for each of the seven problems, so it is a scoreboard without attempt counts. |
+| mcpc-1996 | https://open.kattis.com/problem-sources/Mid%20Central%20Regionals%2019 | problemset | not-the-document (high) | not-the-document | The Kattis page 'Problems from Mid Central Regionals 1996' shows an empty list with the text 'No data found'. |
+| mcpc-1997 | https://open.kattis.com/problem-sources/Mid%20Central%20Regionals%2019 | problemset | not-the-document (high) | not-the-document | The Kattis page 'Problems from Mid Central Regionals 1997' shows an empty list with the text 'No data found'. |
+| mcpc-2001 | http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.a | standings+rankings | correct → standings (medium) | correct → standings | View Standings table of 98 team rows with columns Rank, Team and Citation, the last 60 teams marked Honorable Mention without a rank. |
+| mcpc-2002 | http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu | standings+rankings | correct → rankings (medium) | correct → standings | The earlier reader called it standings; it gives only rank, team and citation with no solved counts or times, which the rubric calls rankings. |
+| mcpc-2002 | http://cs.smsu.edu/~mcpc/02siteLocator.html | teams | correct → web (medium) | none | Page lists nine numbered contest sites by host university with links to site pages and the hours 1230-1730 CST; it lists no teams. |
+| mcpc-2003 | http://www.cs.smsu.edu/~mcpc/ | web+standings+problemset | correct → web (high) | wrong-contest | The earlier reader judged the copy to be the 1999-2000 site; the crawl holds many pages of this edition (2003 home page, schedule, archives/2003 problem pages), and the 1999 page is only one older page among them. |
+| mcpc-2003 | http://icpc.baylor.edu/past/icpc2004/RegReport/grok.smsu.edu/_score/mc | scoreboard | correct → no role (medium) | correct →  | Page titled '2003 ACM Mid-Central USA Programming Contest Standings' contains only 11 links (Regional Standings and ten local sites) and no results. |
+| mcpc-2005 | http://mcpc.cs.rockhurst.edu/archives.html | standings | correct → no role (high) | correct →  | The page is the series archives index with links to zip files per year and a 'final standings' link for 2006, and holds no results of its own. |
+| mcpc-2006 | http://mcpc.cs.rockhurst.edu/contest/cgi-bin/mcpc2006.cgi | standings | correct → no role (high) | correct →  | The page is only a title and links to a regional standings view and nine local site standings views, with no results of its own. |
+| mcpc-2007 | http://score.cigas.net/cgi-bin/mcpc2007.cgi | standings | correct → no role (high) | correct →  | The page is only a title and links to a regional standings view and nine local site standings views, with no results of its own. |
+| mcpc-2009 | http://mcicpc.cs.atu.edu/reports/mcpc2010.final.html | standings | wrong-contest (high) | wrong-contest | The page is titled 2010 ACM Mid-Central USA Programming Contest Standings and shows 2010 results, a different edition (mcpc-2010). |
+| mcpc-2011 | https://mcicpc.cs.atu.edu/reports/mcpc2011.final.html | scoreboard+standings | correct → scoreboard (high) | confirm | The earlier reader kept the roles scoreboard and standings; the page has a time per team and problem, so it is a scoreboard alone. |
+| mcpc-2013 | https://open.kattis.com/problem-sources/2013%20ICPC%20North%20America% | problemset | not-the-document (high) | not-the-document | The Kattis page titled Problems from 2013 ICPC North America Mid-Central Regional shows an empty list reading No data found. |
+| mcpc-2018 | http://www.icpc-midcentral.us/ | web | correct → no role (medium) | correct →  | The 22 saved files are one stylesheet and 21 zip archives named mcpc1992 to mcpc2014, none for 2018. |
+| mcpc-2025 | https://mc.na.icpc.global/ | web | wrong-contest (high) | confirm | The earlier reader confirmed it as this edition's site with a year-reused flag; I find nothing else in the copy about the 2025 edition, so it belongs to the 2026–2027 edition (mcpc-2026). |
+| mcpc-2026 | https://open.kattis.com/problem-sources/Mid-Central%20Regional%20Progr | problemset | not-the-document (high) | not-the-document | The Kattis problem-source page for Mid-Central Regional Programming Contest 2026 shows an empty table and the text No data found. |
+| mexico-2019 | http://scorelatam.naquadah.com.br/ | standings | correct → no role (high) | correct →  | The page is a 'LATAM Competitions' index of links to the editions of PdA, LATAM and other contests, with no results or contest content. |
+| mexico-2026 | https://scorelatam.naquadah.com.br/latam-2026/ | scoreboard | correct → scoreboard+problemset (high) | correct → scoreboard+problemset | Page titled 'The 2026 ICPC Latin America Regional Finals' with a 563-row team table with columns A to M and a 13-row table of problems with authors and statement links. |
+| morocco-2012 | http://morocco.acmacpc.org/ | web | wrong-contest (medium) | confirm | The earlier reader confirmed the site; I found that the one page in our copy is about the 2013 edition and its menu entry 'MCPC 2012' leads to a page that is not in our copy. |
+| morocco-2018 | https://ensias.um5.ac.ma/page/nos-%C3%A9l%C3%A8ves-se-distinguent-une- | web | correct → report (high) | wrong-contest | The earlier reader gave no roles (not a source), while the page is a school news item about this contest's 2018 edition with an account of one team's result, so I read it as a report. |
+| morocco-2021 | https://github.com/CODE-BR3AKER/MCPC2021/blob/HEAD/problems/MCPC'21%20 | problemset | not-the-document (high) | not-the-document | The page is GitHub's file viewer for 'MCPC'21 Contest.pdf (2.74 MB) with only the text 'Loading' and 'Viewer requires iframe', and no PDF is saved with it. |
+| morocco-2023 | https://www.uir.ac.ma/en/actualite/mcpc-programming-competition | web | not-the-document (high) | correct →  | The crawl holds 150 files of the Université Internationale de Rabat website (seed an IHECS Afrique news page of the 2023-2024 school year, home pages, news items) and none of them mentions MCPC, the Moroccan Collegiate P |
 
-## Contest facts: 252 that fill a blank or differ
+## Contest facts: 272 that fill a blank or differ
 
 | contest | fact | document says | catalogue | confidence | applied | where it is stated |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -709,9 +779,27 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | kunming-2021 | date | 2022-04-17 | 2022-04-10 | high | no | The problem set header reads 'Online, April 17, 2022' and the editorial cover is dated April 17, 2022. |
 | kuwait-2017 | location | Gulf University for Science and Technology (GUST) | Administrative Site Location; Gulf; Kuwait | medium | no | The History page reads 'KCPC-2017 : Host : GUST (Gulf University for Science and Technology)'. |
 | kuwait-2026 | location | American University of Kuwait, Kuwait | (sites) | medium | no | The article says AUK hosted the contest; the page footer gives its address in Salmiya, Kuwait. |
+| lac-2024 | date | 2024-03-17 | 2024-03-19 | high | no | The cover page of the problem set reads 'Contest Session March 17, 2024'. |
+| lac-2025 | date | 2025-03-16 | 2025-03-17 | high | no | The cover page of the problem set reads 'Contest Session March 16, 2025'. |
 | lebanon-2011 | location | American University of Science & Technology (AUST), Beirut | LCPC; Administrative Site Location | high | no | The home page says the contest takes place in Block B, Conference Hall of the Beirut campus of AUST. |
 | lebanon-2014 | location | American University of Beirut, Beirut | Administrative Site Location; lebanon | medium | no | The home page says the contest is held at the American University of Beirut. |
 | lebanon-2015 | location | Arab Open University (Badaro), Beirut | lebanon; Administrative Site Location | medium | no | The About page says the contest is held at the Arab Open University (Badaro). |
+| lethbridge-2018 | date | 2018-09-28 | 2018-09-29 | high | no | The page states 'Date : September 28, 2018' under Location and Time. |
+| macau-2021 | location | University of Macau (online), with a Hong Kong site at the C | Administrative Site Location; Macau; Hong Kong | high | no | The home page gives 'Venue: University of Macau (Online)' and the schedule table has columns for the Macau and HK (CUHK) sites. |
+| macau-2023 | location | University of Macau, Macau | Hong Kong; Macau; Administrative Site Location | high | no | The home page states 'Venue: University of Macau' and the invitation letter names the University of Macau, Macau. |
+| malaysia-national-2014 | location | Universiti Teknologi PETRONAS, Tronoh, Perak | (sites) | high | no | The news item says the contest was held at Universiti Teknologi PETRONAS, Tronoh, Perak. |
+| malaysia-national-2016 | location | International Islamic University Malaysia, Kuala Lumpur | (sites) | high | no | The home page gives 'Venue International Islamic University Malaysia, Kuala Lumpur'. |
+| manila-2006 | location | Holiday Inn Hotel, Ortigas, Metro Manila | Ateneo University; AdMU Computer Science Asso | high | no | The main page gives the venue as Holiday Inn Hotel, Ortigas, Metro Manila, Philippines, hosted by Ateneo de Manila University. |
+| manila-2016 | date | 2016-12-15 | 2016-12-16 | high | no | The program flow page lists the contest proper on Thursday, 15 December 2016, and the scoreboard was last updated on Thu Dec 15. |
+| manila-2016 | location | Ateneo de Manila University, Loyola Heights, Quezon City | Pacific and Indochina Peninsula | medium | no | The about page says Ateneo de Manila University hosts the contest at the Loyola Heights Campus. |
+| manila-2019 | date | 2019-12-14 | 2019-12-15 | high | no | The scoreboard page header reads 'Ateneo de Manila University December 14–15, 2019'. |
+| mathura-2022 | location | GLA University, Mathura and CSJM University, Kanpur | Administrative Site Location | high | no | The People and Important Dates pages name GLA University, Mathura and CSJM University, Kanpur as the two centres. |
+| mausa-1998 | location | Virginia Tech, Blacksburg, Virginia | (sites) | medium | no | The directions page says Virginia Tech is in Blacksburg and the contest is held in McBryde Hall; the sites page names six other sites. |
+| mausa-2021 | date | 2022-02-26 | 2022-02-06 | high | no | The Kattis page header gives Start 2022-02-26 13:00 EST and the editorial is dated February 26, 2022. |
+| mexico-2022 | date | 2023-03-18 | 2023-03-17 | medium | no | the cover of the Latin American problem set reads March 18, 2023; it is the shared date of the Latin American contests, not stated for Mexico alone |
+| mexico-2025 | date | 2025-11-08 | 2025-11-07 | medium | no | the cover of the shared Latin American problem set reads November 08, 2025; no Mexico-specific document in our copy gives a day |
+| mexico-2026 | location | Escuela Superior de Cómputo (ESCOM), Instituto Politécnico N | (sites) | high | no | The home page says the 2026 Regional is held at ESCOM of the IPN in Mexico City. |
+| moscow-2008 | location | Moscow State University, Moscow | Moscow | high | no | The programme page gives Moscow, MSU, 25-26 October 2008. |
 | alberta-2006 | location | University of Alberta, University of Calgary and University  | — | medium | no | the problem index says the contest is a joint effort of the three universities. |
 | bapc-prelims-2025 | date | 2025-09-20 | — | medium | no | The preliminaries page lists the local contests under the dates 20 September, 26 September and 27 September 2025 and says they run between the 20th and 28th. |
 | brazil-first-phase-1996 | location | DCC-UFMG, Belo Horizonte | — | medium | no | The history page says the first Maratona was organised at the Federal University of Minas Gerais, under the heading Belo Horizonte. |
@@ -725,5 +813,7 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | erc-1987 | location | London | — | medium | no | The item says the contest was held in London. |
 | erc-1990 | location | Eindhoven | — | medium | no | The archive index row reads 'ERC 1990, Eindhoven, November 3'. |
 | greece-2024 | date | 2024-10-18 | — | medium | no | The Greek registration page states 'Ημερομηνία Διεξαγωγής: 18-19 Οκτωβρίου 2024'. |
-| jinan-2020 | date | 2020-12-27 | — | high | yes | The cover of the problem set PDF reads December 27, 2020 and the page headers read 2020/12/27. |
-| kuwait-2026 | date | 2026-10-22 | — | high | yes | The article says the contest was held on October 22 and 24, 2026. |
+| lethbridge-2025 | location | University of Lethbridge, University Hall D519 | — | high | yes | The front page states 'Location: University Hall D519' under the University of Lethbridge contest. |
+| mcpc-1995 | date | 1995-11-04 | — | high | yes | The front page reads '1995 Regional Programming Contest Saturday, November 4, 1995'. |
+| mcpc-1996 | date | 1996-11-02 | — | high | yes | The satellite site heading reads 'Satellite Site Locations for the November 2, 1996 Regional Contest'. |
+| mcpc-1997 | date | 1997-11-01 | — | high | yes | The front page reads 'SATURDAY, NOVEMBER 1, 1997'. |
