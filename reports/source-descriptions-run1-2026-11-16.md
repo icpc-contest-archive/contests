@@ -4,32 +4,32 @@ Run of 2026-11-16, rubric 1 (`tools/describe_rubric.md`). Applied.
 
 | | |
 | --- | --- |
-| contests read | 569 |
+| contests read | 706 |
 | contests with nothing held | 75 |
-| sources | 2,728 |
-| no copy | 318 |
-| read | 2,410 |
-| first readings | 202 |
-| described | 2,292 |
-| verdict confirm | 2,169 |
-| verdict correct | 123 |
-| verdict not-the-document | 80 |
-| verdict wrong-contest | 36 |
-| verdict cannot-tell | 2 |
-| disagrees with the earlier reader | 41 |
-| blank date filled | 17 |
+| sources | 3,373 |
+| no copy | 373 |
+| read | 3,000 |
+| first readings | 231 |
+| described | 2,853 |
+| verdict confirm | 2,715 |
+| verdict correct | 138 |
+| verdict not-the-document | 98 |
+| verdict wrong-contest | 45 |
+| verdict cannot-tell | 4 |
+| disagrees with the earlier reader | 51 |
+| blank date filled | 11 |
 | blank location filled | 4 |
-| contest facts fills-blank | 30 |
-| contest facts conflict | 135 |
-| contest facts same | 86 |
-| contest facts listed | 376 |
-| words per description | 108 |
+| contest facts fills-blank | 27 |
+| contest facts conflict | 144 |
+| contest facts same | 112 |
+| contest facts listed | 476 |
+| words per description | 107 |
 
-Not finished: 1824 contests: ecna-2014, ecna-2015, ecna-2016, ecna-2017, ecna-2018, ecna-2019, ecna-2020, ecna-2021, ecna-2022, ecna-2023, ecna-2024, ecna-2025, ecna-2026, egypt-2008, egypt-2009, egypt-2010, egypt-2011, egypt-2012, egypt-2013, egypt-2014, egypt-2015, egypt-2016, egypt-2017, egypt-2018, egypt-2019, egypt-2020, egypt-2021, egypt-2022, egypt-2023, egypt-2024, egypt-2025, egypt-2026, erc-1984, erc-1985, erc-1987, erc-1988, erc-1990, erc-1991, ethiopia-2016, ethiopia-2017.
+Not finished: 1687 contests: gny-2011, gny-2012, gny-2013, gny-2014, gny-2015, gny-2016, gny-2017, gny-2018, gny-2019, gny-2020, gny-2021, gny-2022, gny-2023, gny-2024, gny-2025, gny-2026, gran-premio-centroamerica-2018, gran-premio-centroamerica-2019, gran-premio-centroamerica-2020, gran-premio-centroamerica-2021, gran-premio-centroamerica-2022, gran-premio-centroamerica-2023, gran-premio-centroamerica-2025, gran-premio-centroamerica-2026, gran-premio-mexico-2015, gran-premio-mexico-2016, gran-premio-mexico-2017, gran-premio-mexico-2018, gran-premio-mexico-2019, gran-premio-mexico-2020, gran-premio-mexico-2021, gran-premio-mexico-2022, gran-premio-mexico-2023, gran-premio-mexico-2024, gran-premio-mexico-2025, gran-premio-mexico-2026, greece-2023, greece-2024, greece-2025, greece-2026.
 Results that do not check: 0.
 
 
-## Second reading: 254 sources to look at
+## Second reading: 301 sources to look at
 
 The reader did not confirm the catalogue, or disagrees with the content check of 2026-11-14. Nothing here was applied.
 
@@ -289,8 +289,55 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | ecna-2008 | http://acm.ashland.edu/2008/standings.html | standings | correct → scoreboard (high) | same-as | The table has the same 124 team rows with per-problem cells for A to H (attempts/minute) as source 2, so it is a scoreboard and not bare standings. |
 | ecna-2010 | http://acm.ashland.edu/2011/standings.html | standings | wrong-contest (high) | wrong-contest | The page is titled 'The 2011 ACM ECNA Regional Programming Contest', headed 'The 2011 ACM-ICPC East Central North America Regional Programming Contest Detailed Final Standings', with problem columns A to I and 123 ranked |
 | ecna-2011 | https://icpc-ecna.ysu.edu/PastResults/2011/top15Overall.html | rankings | correct → standings (medium) | none | Page titled 'Top 15 Teams (Overall Standing)' with 15 rows of final rank, team name, institute name, problems solved and total time in minutes. |
+| ecna-2018 | https://icpc-ecna.ysu.edu/PastResults/2018/Final-2018.pdf | rankings | correct → report (high) | none | Two-page PDF headed Final Report that tells the day and issues but holds no list of teams or ranks. |
+| ecna-2020 | http://icpc-ecna.ysu.edu/scoreboard.html | standings | wrong-contest (high) | wrong-contest | The page is headed 'The 2021 ICPC East Central North America Regional Programming Contest' and says the Kattis scoreboard link will come before the contest. |
+| egypt-2011 | https://aast.edu/en/centers/ric/contenttemp.php?page_id=41100066 | web | correct → no role (high) | correct →  | The 150 saved files are pages of the general website of the Arab Academy for Science, Technology and Maritime Transport (colleges, about pages, sitemap) and Facebook sign-in pages; none is about the contest. |
+| egypt-2019 | https://github.com/Mohannad-Elsayed/ECPC-Past-Contest/blob/master/Driv | problemset | not-the-document (high) | not-the-document | The saved file is a GitHub page for a file in a repository, with the site's navigation and scripts and no contest text. |
+| egypt-2020 | https://github.com/Mohannad-Elsayed/ECPC-Past-Contest/blob/master/Driv | problemset | not-the-document (high) | not-the-document | The saved file is a GitHub page for a file in a repository, with the site's navigation and scripts and no contest text. |
+| egypt-2021 | https://github.com/Mohannad-Elsayed/ECPC-Past-Contest/blob/master/ecpc | problemset | not-the-document (high) | not-the-document | The saved file is a GitHub page for a file in a repository, with navigation, an embedded viewer frame and no contest text. |
+| egypt-2022 | https://acpcsb.acpc.global/ecpc2022/summary.html | frozen_scoreboard | correct → scoreboard (high) | correct → scoreboard | PC^2 summary scoreboard of 273 rows with cells A to N, last updated 27 Aug 2022 14:04 GMT, no pending cells. |
+| egypt-2022 | https://github.com/AliElgamal9/ECPC2022/blob/main/ecpc%202022%20proble | problemset | not-the-document (high) | not-the-document | The saved file is a GitHub page for a PDF in a repository, with navigation, an embedded viewer frame and no contest text. |
+| egypt-2023 | https://scoreboard.acpc.global/ecpc2023/ | web+frozen_scoreboard | correct → frozen_scoreboard (high) | correct → frozen_scoreboard | One PC^2 scoreboard table of 238 team rows with per-problem cells A-O and a footer 'Last updated Sat Aug 19 13:34:24 GMT 2023', with no site pages around it. |
+| egypt-2024 | https://github.com/Mohannad-Elsayed/ECPC-Past-Contest/blob/master/2024 | problemset | not-the-document (high) | not-the-document | The file named ECPC24.pdf is an HTML page, the GitHub file-view page titled 'ECPC-Past-Contest/2024/ECPC24.pdf at master', with no PDF content. |
+| egypt-2026 | https://acpcsb.acpc.global/ECPC2026/all.html | web | correct → frozen_scoreboard (high) | correct → frozen_scoreboard | The four saved pages are PC^2 scoreboard views (All groups, ECPC, Unofficial, Official summary) of the 2026 contest, each with the banner 'Scoreboard is frozen' and no contest-site pages. |
+| erc-1984 | https://issues.felixonline.co.uk/felix_692.pdf | rankings | cannot-tell (medium) | none | Our copy is an issue of the Imperial College newspaper Felix cut off at exactly 1,048,576 bytes with no page index, so only the first page image can be read, and that page (letters and an estates column) does not mention |
+| erc-1985 | https://issues.felixonline.co.uk/felix_720.pdf | rankings | cannot-tell (medium) | none | Our copy is an issue of the Imperial College newspaper Felix cut off at exactly 1,048,576 bytes with no page index, so only the first page image can be read, and that page (Union planning group news, copyright line FELIX |
+| erc-1985 | https://issues.felixonline.co.uk/felix_728.pdf | rankings+report | correct → report (high) | none | Page 4 of this 15-page issue of Felix (Friday 24 January) carries a news item 'All Four Won' about an Imperial College team that won the European finals of the ACM programming contest in November and qualified for the wo |
+| erc-1987 | http://resolver.kb.nl/resolve?urn=KBPERS01:003488009:mpeg21:a00070:ocr | rankings+report | correct → report (medium) | none | A 638-byte text of a Dutch newspaper item about a team that came second in a European programming contest in London with 17 teams; it gives no ranking of other teams and prints no year. |
+| erc-1990 | https://usenetarchives.com/view.php?id=dnet.general&mid=PDQzNDBAdHVtaW | web | not-the-document (high) | none | The copy holds pages of chipcie.wisv.ch (the CHipCie Problem Set Archive) and PDFs of Dutch contests, with no page from usenetarchives.com and nothing posted there about this contest. |
+| erc-1990 | https://nwerc.eu/ | web | wrong-contest (high) | wrong-contest | The earlier reader saw a newer version of this address (NWERC 2026, Karlsruhe); our copy is the NWERC 2009 page, so the document belongs to nwerc-2009, not nwerc-2026, but neither is about ERC 1990. |
+| erc-1990 | https://chipcie.wisv.ch/archive/ | web | correct → no role (medium) | correct →  | The page is the index of the CHipCie Problem Set Archive listing many contests, with one row 'ERC 1990, Eindhoven, November 3' that links a problem set and a scoreboard. |
+| ethiopia-2019 | https://et.linkedin.com/posts/ethiopian-collegiate-programming-contest | web | not-the-document (high) | none | The 150 saved pages are LinkedIn company profiles of unrelated Ethiopian organisations and Telegram contact stubs, and none mentions a programming contest, ETCPC or ICPC. |
+| ethiopia-2019 | https://t.me/s/etcpc | web | wrong-contest (high) | wrong-contest | The Telegram channel preview shows recent posts of the 10th Ethiopian Collegiate Programming Contest (live scoreboard update with AAU, AASTU teams), not the 2019 edition. |
+| ethiopia-2020 | https://github.com/mukerem/EthCPC2020/blob/HEAD/EthCPC_2020_Problem.pd | problemset | not-the-document (high) | cannot-tell | The earlier reader gave cannot-tell and kept the role problemset; the file is a GitHub viewer page with the 2.56 MB PDF not in it, so I judge it not to be the document. |
+| ethiopia-2021 | https://github.com/mukerem/ICPC-Journey/tree/master/EtCPC%202021/Probl | problemset | not-the-document (high) | cannot-tell | The earlier reader gave cannot-tell and kept the role problemset; the copy is a GitHub viewer page with the 2.67 MB PDF not in it, so I judge it not to be the document. |
+| ethiopia-2022 | https://et.linkedin.com/posts/ethiopian-collegiate-programming-contest | web | not-the-document (high) | none | All 150 pages of the crawl are Telegram stub pages (contact, join-group and view-channel prompts) for unrelated names and numbers; neither seed address (the LinkedIn post, the etcpc channel) was fetched. |
+| ethiopia-2022 | https://t.me/s/etcpc | web | wrong-contest (high) | correct →  | The feed holds only EtCPC 2026 posts (eligibility notice, contest-day schedule, 11th ETCPC at Adama Science and Technology University, results); the text '2022' does not occur in it. |
+| far-east-russia-1998 | https://ikit.sfu-kras.ru/acm | web | correct → no role (high) | correct →  | All 150 pages in our copy are pages of the CATS system at imcs.dvfu.ru (147 about pages, 2 start pages, 1 compilers page) and none contains the year 1998. |
+| far-east-russia-1998 | https://imcs.dvfu.ru/cats/wiki?name=icpc | web | wrong-contest (medium) | confirm | The earlier reader confirmed the page as the series website; the copy's archive list starts at 2003 and the page does not mention 1998, so it is not a document of the 1998 edition. |
+| far-east-russia-1998 | https://neerc.ifmo.ru/subregions/far-eastern.html | web | wrong-contest (medium) | confirm | The earlier reader confirmed the page as a series page naming 1998 without a link; the copy holds nothing of the 1998 edition (the year is a bare label in the archive list), and it describes the 2026 contests, so I judge |
+| far-east-russia-2001 | https://www.kgeorgiy.info/papers/Vasilev_VN__Kazakov_MA__Korneev_GA__P | web | wrong-contest (high) | correct →  | The 7-page Russian paper reports the 2001-2002 semifinal of the Northern Eurasia group held in St Petersburg (24-29 November 2001) with its top 20 teams, and names the Far Eastern group only once in a list of eight quart |
+| far-east-russia-2003 | https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=3991;clist=39 | scoreboard | confirm (high) | not-the-document | The earlier reader saw no team rows in the rendered table, but the rows are in the page's embedded script and our copy holds all 21 teams. |
+| far-east-russia-2004 | https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=509770;clist= | scoreboard | confirm (high) | not-the-document | The earlier reader saw no team rows in the rendered table, but the rows are in the page's embedded script and our copy holds all 23 teams. |
+| far-east-russia-2005 | https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=537878;clist= | scoreboard | confirm (high) | not-the-document | The earlier reader saw no team rows in the rendered table, but the rows are in the page's embedded script and our copy holds all 20 teams. |
+| far-east-russia-2006 | https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=565452;clist= | scoreboard | not-the-document (high) | not-the-document | The page titled ACM 2006 has only a header row and a per-problem statistics row, with no team rows. |
+| far-east-russia-2012 | https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=869774;clist= | scoreboard | not-the-document (high) | correct →  | The rank table has the header A to J and one row of attempt statistics, with no team rows. |
+| far-east-russia-2013 | https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=904847;clist= | scoreboard | not-the-document (high) | correct →  | The rank table has the header A to J and one row of attempt statistics, with no team rows. |
+| far-east-russia-2014 | https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=958810;clist= | scoreboard | not-the-document (high) | correct →  | The rank table has the header A to I and one row of attempt statistics, with no team rows. |
+| far-east-russia-2015 | https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=1013317;clist | scoreboard | correct → no role (high) | correct →  | Rank table titled ACM 2015 whose body holds only a row of attempt statistics per problem, with no team rows. |
+| far-east-russia-2016 | https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=1089459;clist | scoreboard | correct → no role (high) | correct →  | Rank table titled ACM 2016 whose body holds only a row of attempt statistics per problem, with no team rows. |
+| far-east-russia-2017 | https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=1206924;clist | scoreboard | correct → no role (high) | confirm | The earlier reader confirmed it as a scoreboard with top three teams, but the copy's rank table contains only the header and one attempt-statistics row, with no team rows. |
+| far-east-russia-2022 | https://imcs.dvfu.ru/cats/rank_table?cid=6143148;hide_ooc=1;lang=en | standings | not-the-document (high) | not-the-document | The page is the CATS rank table of the generic Archive contest, whose frame holds no team rows. |
+| fuzhou-2011 | http://acm.fjnu.edu.cn/icpc | web | correct → no role (high) | correct →  | Titled FJNU Online Judge on its pages (problem list, status, user profiles, contest list), with captures from 2007 to 2016, and no page of the 2011 Fuzhou regional itself. |
+| georgia-2020 | https://official.contest.yandex.ru/geo2020/contest/23213/standings | standings | correct → scoreboard (high) | confirm | The earlier reader called it standings; the page has a sign, tries and time per problem for every team, which makes it a scoreboard. |
+| germany-2012 | http://gcpc.nwerc.eu/ | standings | wrong-contest (high) | wrong-contest | The copy is the home page of GCPC 2026, organised by CPUlm, with the contest on June 13, 2026, and has no 2012 content. |
+| germany-2014 | http://gcpc.nwerc.eu/index.php | standings | correct → web (high) | correct → web | The page is headed ACM ICPC meets FAU and has a GCPC 2014 section with a few sentences about the contest and winner, but no standings table. |
+| germany-2015 | http://gcpc.nwerc.eu/ | standings | wrong-contest (high) | wrong-contest | The copy is the GCPC 2026 website, announcing a contest on June 13, 2026. |
+| germany-2022 | https://open.kattis.com/problem-sources/German%20Collegiate%20Programm | problemset | not-the-document (high) | not-the-document | The Kattis page titled Problems from German Collegiate Programming Contest 2022 shows an empty problem table with the text No data found. |
+| gny-2002 | https://open.kattis.com/problem-sources/Greater%20New%20York%20Program | problemset | not-the-document (high) | not-the-document | The page is headed 'Problems from Greater New York Programming Contest 2002' but its list of problems reads 'No data found'. |
+| gny-2003 | https://open.kattis.com/problem-sources/ACM%20Greater%20New%20York%20P | problemset | not-the-document (high) | not-the-document | The page is headed 'Problems from ACM Greater New York Programming Contest 2003' but its list of problems reads 'No data found'. |
 
-## Contest facts: 165 that fill a blank or differ
+## Contest facts: 171 that fill a blank or differ
 
 | contest | fact | document says | catalogue | confidence | applied | where it is stated |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -429,6 +476,15 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | ecna-1996 | location | University of Notre Dame | Notre Dame | high | no | The page states 'University of Notre Dame' under the contest title. |
 | ecna-1997 | location | University of Notre Dame | Notre Dame | high | no | The page states 'University of Notre Dame' under the contest title. |
 | ecna-1998 | location | University of Waterloo | (sites) | high | no | The cover of the problem set PDF names the University of Waterloo. |
+| egypt-2012 | date | 2012-11-01 | 2012-11-02 | high | no | The home page says ECPC 2012 is hosted in Alexandria 'in 1,2 November 2012'. |
+| erc-1990 | date | 1990-11-03 | 1990-11-02 | high | no | The standings sheet is stamped 'Sat Nov 3 18:21:26 1990' and the problem set header reads 'November 3, 1990'. |
+| euc-2025 | location | University of Porto, Porto | Prague; Administrative Site Location; The 2024 ICP | high | no | The 2025 home page and rules page say the championship is hosted by University of Porto and the health policy page speaks of travel to Porto. |
+| euc-2026 | location | University of Warsaw, Warsaw | The 2026 ICPC Europe Championship; Prague; Adminis | high | no | The rules page says the championship is hosted by the University of Warsaw from 6-8 February 2026 and the schedule page is headed Warsaw. |
+| gny-1998 | location | Bloomfield College, Bloomfield, NJ | (sites) | high | no | The home page states 'Bloomfield College in Bloomfield, NJ'. |
+| gny-1999 | location | United States Military Academy, West Point, NY | West Point, N.Y. | high | no | The home page states 'United States Military Academy at West Point, NY'. |
+| gny-2000 | location | Kean University, Union, NJ | Union, NJ | high | no | The home page header reads 'Kean University in Union, NJ'. |
+| gny-2001 | date | 2001-10-28 | 2001-10-18 | high | no | The home page header reads 'Sunday, October 28, 2001'. |
+| gny-2001 | location | Nassau Community College, Garden City, NY | Garden City, NJ | high | no | The home page header reads 'Nassau Community College in Garden City, NY'. |
 | alberta-2006 | location | University of Alberta, University of Calgary and University  | — | medium | no | the problem index says the contest is a joint effort of the three universities. |
 | bapc-prelims-2025 | date | 2025-09-20 | — | medium | no | The preliminaries page lists the local contests under the dates 20 September, 26 September and 27 September 2025 and says they run between the 20th and 28th. |
 | brazil-first-phase-1996 | location | DCC-UFMG, Belo Horizonte | — | medium | no | The history page says the first Maratona was organised at the Federal University of Minas Gerais, under the heading Belo Horizonte. |
@@ -437,25 +493,22 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | croatia-2008 | location | Faculty of Electrical Engineering and Computing, Zagreb | — | medium | no | The announcement gives the venue as Fakultet elektrotehnike i računarstva, Unska 3, Zagreb. |
 | ctuo-1996 | location | CTU Prague, Faculty of Electrical Engineering (Department of | — | medium | no | The front page says the contest was held at the premises of the Department of Computers of FEL CVUT. |
 | ctuo-1999 | location | CTU Prague, Faculty of Electrical Engineering, Department of | — | medium | no | the English text says it was held at CTU Prague, FEE, Department of Computer Science and Engineering; the Czech text says Prague and Ostrava. |
-| ctuo-2024 | date | 2024-10-19 | — | high | yes | the schedule page lists the contest session 10:00 - 15:00 on Saturday 19 October 2024, after practice on 18 October |
-| ctuo-2025 | date | 2025-11-08 | — | high | yes | the schedule page lists the contest session 10:00 - 15:00 on Saturday 8 November 2025, after practice on 7 November |
-| east-na-2023 | date | 2023-10-29 | — | high | yes | The page states Start 2023-10-29 11:05 EDT and End 2023-10-29 16:05 EDT. |
-| east-na-2024 | date | 2024-11-10 | — | high | yes | The page states Start 2024-11-10 11:00 EST and End 2024-11-10 16:00 EST. |
-| east-na-2025 | date | 2025-11-09 | — | high | yes | The page states Start 2025-11-09 11:15 EST and End 2025-11-09 16:15 EST. |
-| east-siberia-2001 | date | 2001-10-23 | — | high | yes | The heading states the regional stage was held on 23 October 2001. |
-| east-siberia-2002 | date | 2002-10-27 | — | high | yes | The heading states the regional stage was held on 27 October 2002. |
-| east-siberia-2003 | date | 2003-11-01 | — | high | yes | The page text says the regional stage was held 1-3 November 2003 at KGTU. |
-| east-siberia-2004 | date | 2004-10-31 | — | high | yes | The page text says the regional stage was held 31 October 2004 at KGTU. |
-| east-siberia-2005 | date | 2005-10-30 | — | high | yes | The page text says the regional stage was held 30 October 2005 at KGTU. |
-| east-siberia-2006 | date | 2006-11-04 | — | high | yes | The page text says the regional stage was held 4-6 November 2006 at KGTU. |
-| east-siberia-2007 | date | 2007-10-27 | — | high | yes | The page text says the regional stage was held 27-29 October 2007 in Krasnoyarsk. |
-| east-siberia-2007 | location | Polytechnic Institute of Siberian Federal University, Krasno | — | high | yes | The page text names the Polytechnic Institute of Siberian Federal University in Krasnoyarsk as the base. |
 | east-siberia-2010 | date | 2010-10-29 | — | medium | no | the page gives 28 to 30 October 2010 for the event and 29 October as the main round |
-| ecna-1993 | date | 1993-11-05 | — | high | yes | the cover reads '5-6 November 1993' |
-| ecna-1993 | location | University of Waterloo | — | high | yes | the cover says 'held at The University of Waterloo' |
-| ecna-1994 | date | 1994-11-11 | — | high | yes | the index page says 'held at The University of Waterloo 11-12 November 1994' |
-| ecna-1994 | location | University of Waterloo | — | high | yes | the index page says 'held at The University of Waterloo' |
-| ecna-1995 | date | 1995-11-11 | — | high | yes | the contest page says the contest was held on Saturday November 11, 1995 |
-| ecna-1995 | location | Michigan State University, East Lansing | — | high | yes | the contest page and call for participation name Michigan State University in East Lansing as host |
-| ecna-1996 | date | 1996-10-26 | — | high | yes | The page states 'October 26, 1996' under the contest title. |
-| ecna-1997 | date | 1997-11-08 | — | high | yes | The page states 'November 8, 1997' under the contest title. |
+| ecna-2016 | date | 2016-10-29 | — | high | yes | the final report on the home page says the contest was held on Saturday, October 29, 2016 |
+| ecna-2023 | date | 2023-10-21 | — | medium | no | The front page section 2023 - 2024 Regional Programming Contest reads Date: Saturday, October 21, 2023 (the Kattis board states a start of 2023-10-29). |
+| ecna-2024 | date | 2024-11-10 | — | high | yes | The Kattis page reads Start 2024-11-10 11:00 EST. |
+| ecna-2025 | date | 2025-11-09 | — | high | yes | The Kattis page reads Start 2025-11-09 11:15 EST. |
+| erc-1987 | location | London | — | medium | no | The item says the contest was held in London. |
+| erc-1988 | location | Eindhoven University of Technology, Eindhoven, The Netherlan | — | high | yes | The cover reads 'Held at Eindhoven University of Technology, The Netherlands'. |
+| erc-1990 | location | Eindhoven | — | medium | no | The archive index row reads 'ERC 1990, Eindhoven, November 3'. |
+| far-east-russia-2000 | location | Vladivostok, Far-Eastern State University | — | high | yes | The page NEERC 2000 Far-Eastern Subregion states Host: Vladivostok and Host university: Far-Eastern State University. |
+| georgia-2007 | date | 2007-10-28 | — | high | yes | The header of every page of the problem PDF reads 'Batumi, Tashkent, October 28, 2007'. |
+| germany-2021 | date | 2021-06-26 | — | high | yes | The website says the contest was held online on June 26th; the problem set cover reads June 26th. |
+| germany-2022 | date | 2022-06-25 | — | high | yes | the cover reads German Collegiate Programming Contest 2022 and June 25th |
+| germany-2023 | date | 2023-06-17 | — | high | yes | the home page says the contest has taken place on June 17, 2023 |
+| germany-2024 | date | 2024-06-22 | — | high | yes | the home page says the contest has taken place on June 22, 2024 |
+| germany-2025 | date | 2025-07-05 | — | high | yes | the home page says the contest has taken place on July 05, 2025 |
+| gny-1994 | location | SUNY Old Westbury, Old Westbury, NY | — | high | yes | the Greater New York entry gives CONTEST SITE: SUNY Old Westbury; source 1 says Old Westbury, NY |
+| gny-1995 | date | 1995-11-05 | — | high | yes | The Greater New York entry reads 'Contest Date: 05 Nov 95'. |
+| gny-1997 | date | 1997-11-09 | — | high | yes | The page states 'November 9, 1997'. |
+| gny-1997 | location | United States Military Academy, West Point, NY | — | high | yes | The page states 'United States Military Academy at West Point, NY'. |
