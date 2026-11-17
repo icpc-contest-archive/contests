@@ -230,6 +230,7 @@ def main() -> int:
     ap.add_argument("--name")
     ap.add_argument("--date", default=datetime.date.today().isoformat())
     ap.add_argument("--write", action="store_true")
+    ap.add_argument("--revised-only", action="store_true", help="leave out a contest whose result has no revision.json beside it yet")
     ap.add_argument("--fill-blanks", action="store_true", help="with --write: also write the blank dates and locations into the series files")
     a = ap.parse_args()
     if a.check:
@@ -259,7 +260,10 @@ def main() -> int:
             n["contests with nothing held"] += 1
             continue
         p = run / cid / "result.json"
-        if not p.exists():
+        if not x.get("unread", 1):
+            n["contests read by an earlier round"] += 1
+            continue
+        if not p.exists() or (a.revised_only and not (run / cid / "revision.json").exists()):
             missing.append(cid)
             continue
         pack = json.loads((run / cid / "pack.json").read_text())
