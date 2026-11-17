@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: tools/describe_apply.py.
 series:
   id: poland
   name: ICPC Polish Collegiate Programming Contest
@@ -350,6 +350,7 @@ contests:
 - id: poland-2004
   season: 2005
   date: '2004-10-23'
+  location: Instytut Informatyki, Uniwersytet Jagielloński, Kraków
   cms_ids: []
   parent: cerc-2004
   next: poland-2005
@@ -362,39 +363,41 @@ contests:
   - url: http://amppz.tcs.uj.edu.pl/2004/ranking.php.html
     roles:
     - scoreboard
-    url_state: live
-    url_checked: '2026-11-16'
     as_of: '20180419132401'
     archived:
     - poland/poland-2004/scoreboard/20180419-wayback-43c73551/ranking.php.html
     - poland/poland-2004/scoreboard/20261114-live-6601a1de/ranking.php.html
+    url_state: live
+    url_checked: '2026-11-16'
   - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/80/
     roles:
     - rankings
     - report
+    scope: places 1,3,6,8 (MIMUW teams only)
     archived:
     - poland/poland-2004/rankings/2026-09-01-live-5accbb53/page.html
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (agent-europe)
-    scope: places 1,3,6,8 (MIMUW teams only)
   - url: http://amppz.tcs.uj.edu.pl/2004/druzyny.php.html
     roles:
     - teams
-    note: found inside http://amppz.tcs.uj.edu.pl/2004/index.php.html by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside http://amppz.tcs.uj.edu.pl/2004/index.php.html by the content check
   - url: http://amppz.tcs.uj.edu.pl/2004/tresci_zadan.php.html
     roles:
     - problemset
     contains:
     - statement
-    note: statements (PDF)
+    as_of: '20180419132826'
     url_state: live
     url_checked: '2026-11-16'
-    as_of: '20180419132826'
+    note: statements (PDF)
   problems:
     set: poland-2004
+  provenance:
+  - location read from https://www.mimuw.edu.pl/pl/osiagniecia/edycja/80/ (description round 2026-11-17)
 - id: poland-2005
   season: 2006
   date: '2005-10-29'

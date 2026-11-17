@@ -15,13 +15,10 @@ Run of 2026-11-16, rubric 1 (`tools/describe_rubric.md`). Applied.
 | verdict not-the-document | 5 |
 | verdict wrong-contest | 4 |
 | disagrees with the earlier reader | 4 |
-| blank date that a document fills (not written: --fill-blanks) | 5 |
-| blank location that a document fills (not written: --fill-blanks) | 2 |
-| contest facts fills-blank | 7 |
 | contest facts conflict | 23 |
-| contest facts same | 30 |
+| contest facts same | 37 |
 | contest facts listed | 122 |
-| words per description | 107 |
+| words per description | 105 |
 
 Not finished: 0 contests.
 Results that do not check: 0.
@@ -57,7 +54,7 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | brazil-first-phase-2021 | https://maratona.sbc.org.br/hist/2021/primfase21.html | rankings | correct → web (medium) | correct → web | Organisers' 'Primeira Fase' page with the jury, authors, problem and report links, and tables of qualified teams by site, not an ordered ranking. |
 | wf-1979 | http://icpc.baylor.edu/past/EarlyYears.html | web+rankings | correct → rankings (medium) | correct → rankings | The 'The early years' page lists finalists per year and its 1979 entry, 'February 21, 1979, Dayton, Ohio', names four universities in order, so it is a ranking and not the contest's own website. |
 
-## Contest facts: 30 that fill a blank or differ
+## Contest facts: 23 that fill a blank or differ
 
 | contest | fact | document says | catalogue | confidence | applied | where it is stated |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -84,10 +81,3 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | wf-2012 | location | University of Warsaw, Warsaw | Warsaw, Poland | high | no | The news page says it was hosted by University of Warsaw in Warsaw, Poland. |
 | wf-2017 | location | Rapid City, South Dakota, USA | Rapid City, SD, USA | high | no | The page names Rapid City, South Dakota, USA. |
 | wf-2019 | date | 2019-04-04 | 2019-04-05 | medium | no | The Hall of Fame page header gives 'Date: April 4, 2019'. |
-| brazil-first-phase-2021 | date | 2021-10-30 | — | high | no | The page states the first phase took place online on 30 October 2021. |
-| central-america-2023 | date | 2023-10-21 | — | high | no | The cover of the problem set reads October 21, 2023. |
-| erc-1989 | date | 1989-11-10 | — | high | no | Each page header reads 'ACM Scholastic Programming Contest, November 10, 1989'. |
-| poland-2004 | location | Instytut Informatyki, Uniwersytet Jagielloński, Kraków | — | high | no | The home page gives Kraków, 22-23 October 2004; the report on the faculty page says the Institute of Informatics of the Jagiellonian University organised it. |
-| urals-2002 | date | 2002-04-22 | — | high | no | The text says the championship ran from 22 to 27 April 2002. |
-| urals-2002 | location | South Ural State University | — | high | no | The text says it was held at South Ural State University. |
-| werc-1992 | date | 1992-11-15 | — | high | no | The header of every problem page reads 'ACM Scholastic Programming Contest, November 15, 1992'. |

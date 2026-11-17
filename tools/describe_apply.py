@@ -54,7 +54,10 @@ WORDS_MAX, WORDS_MIN, PARAS_MAX = 260, 15, 3
 # what a description must not say: our plumbing, and praise
 PLUMBING = [(r"\bpack(\.json)?\b", "the pack"), (r"\bdigest\b", "the digest"), (r"\bthe catalogue\b", "the catalogue"),
             (r"\bearlier (reader|verdict|check)\b", "the earlier reader"), (r"/mnt/|/sessions/|\.json\b|\bs\d+\.txt\b", "a path on our disk"),
-            (r"https?://|\bwww\.", "an address"), (r"\bverdict\b", "the verdict"), (r"\bI (saw|opened|read|could|cannot|did)\b", "yourself")]
+            (r"https?://|\bwww\.", "an address"), (r"\bverdict\b", "the verdict"), (r"\bI (saw|opened|read|could|cannot|did)\b", "yourself"),
+            # where a page of ours got its data is not said on the site (ruling of 2026-11-16)
+            (r"\b(public )?API\b|\brebuilt from\b|\b(a )?rendering (made|of)\b|\bmade for the archive\b|\bnot the original page\b|\bproduced from the data\b|\bour (own )?tools\b",
+             "how a page of ours was made")]
 PRAISE = r"\b(comprehensive|valuable|invaluable|insightful|interesting|impressive|rich|detailed overview|provides an overview|offers insight|a wealth of)\b"
 OPENERS = r"^(this|the) (document|source|page|file|copy) (is|contains|shows|provides|presents)\b"
 MARKDOWN = r"(?m)^\s*(#{1,6} |[-*•] |\d+\. |>|```)|\*\*|\]\("
@@ -159,6 +162,21 @@ def check(pack: dict, res: dict) -> list[str]:
         elif f["fact"] == "date" and not re.fullmatch(r"\d{4}-\d\d-\d\d", str(f["value"])):
             out.append(f"contest_facts: a date must be YYYY-MM-DD, got {f['value']!r} (leave it out if the document gives no full date)")
     return out
+
+
+def put(c: dict, key: str, value) -> None:
+    """Set a contest's field in place, a new one where the catalogue's key order has it, without
+    moving any other key (so a filled blank is a one-line change in the series file)."""
+    if key in c:
+        c[key] = value
+        return
+    order = list(cat.CONTEST_KEY_ORDER)
+    after = set(order[order.index(key) + 1:]) if key in order else set()
+    items = list(c.items())
+    at = next((i for i, (k, _v) in enumerate(items) if k in after), len(items))
+    items.insert(at, (key, value))
+    c.clear()
+    c.update(items)
 
 
 class Lit(str):
@@ -307,8 +325,8 @@ def main() -> int:
                         y = int(cid.rsplit("-", 1)[1])
                         ok = abs(int(str(f["value"])[:4]) - y) <= 1
                     if ok and (fact, cid) not in touched:
-                        c[fact] = str(f["value"]).strip()
-                        c.setdefault("provenance", []).append(f"{fact} read from {src} (description round {a.date})")
+                        put(c, fact, str(f["value"]).strip())
+                        put(c, "provenance", (c.get("provenance") or []) + [f"{fact} read from {src} (description round {a.date})"])
                         touched.add((fact, cid))
                         row["applied"] = bool(a.write and a.fill_blanks)
                         row["would_fill"] = True
@@ -334,7 +352,6 @@ def main() -> int:
             files += 1
         filled = {cid for _, cid in touched} if a.fill_blanks else set()
         for sid in sorted({where[cid][0] for cid in filled}):
-            series[sid]["contests"] = [cat.normalise_contest(k) if k["id"] in filled else k for k in series[sid]["contests"]]
             cat.dump_series(sid, series[sid], "describe_apply.py")
         print(f"written: {files} description files, {len({where[cid][0] for cid in filled})} series files")
     # ---- report ----

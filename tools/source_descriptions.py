@@ -94,6 +94,6 @@ def block(url: str, cits: list[dict], rel: str, contest_ref, help_link) -> str:
         fx = facts(e)
         if fx:
             b.append('<dl class="facts">' + "".join(f"<dt>{k}</dt><dd>{v}</dd>" for k, v in fx) + "</dl>")
-        b.append(f'<p class="note">Written by an automated reader from our copy on {html.escape(str(e.get("read") or ""))}. It says what the copy '
-                 f'shows, and it can be wrong. {help_link("descriptions", rel, "how descriptions are made")}</p>')
+        b.append('<p class="note">Written by an automated reader from our copy. It says what the copy shows, and it can be wrong. '
+                 f'{help_link("descriptions", rel, "how descriptions are made")}</p>')
     return "\n".join(b)

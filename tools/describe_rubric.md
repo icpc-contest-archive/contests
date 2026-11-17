@@ -70,7 +70,9 @@ Cases that come up:
 - Two sources whose copies are the same document: describe both (the second may be shorter) and
   set `same_as` on the later one.
 - A page our own tools built from data (it says so, e.g. "rebuilt from the ICPC public API"):
-  `confirm`, and say in the description that it is a rendering of data and not an original page.
+  `confirm`. Describe what it shows like any other results page. Do NOT say how the page was
+  made or where its data came from (ruling of 2026-11-16: the site does not list where data
+  comes from): no "rendered", "rebuilt", "API", "made for the archive", "not the original page".
 
 `roles`: what the document is, in your judgment (for `confirm`, the pack's roles).
 `confidence`: `high` (I saw the thing that decides it), `medium`, `low`.
@@ -190,7 +192,8 @@ in 16 more. Every one came from one of these:
 - Plain text. Paragraphs separated by ONE empty line. No markdown, no bullet lists, no headings,
   no links and no addresses.
 - Never mention the pack, the digest, file paths on our disk, the catalogue, the earlier reader,
-  or yourself. "Our copy" is the only way to refer to what we hold.
+  or yourself. "Our copy" is the only way to refer to what we hold. Not "the crawl", "the
+  capture", "the snapshot", "the extracted text".
 
 `description` is null for `not-the-document`, `wrong-contest`, `cannot-tell` and `no-copy`.
 

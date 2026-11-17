@@ -67,6 +67,17 @@ def build(job: tuple) -> dict:
     return r
 
 
+def load_read() -> dict:
+    """{(contest, norm_key(address)): copy path} for every source a description round has read
+    (data/describe/<run>/verdicts/<series>.json), described or not."""
+    out = {}
+    for f in sorted((ROOT / "data" / "describe").glob("*/verdicts/*.json")):
+        for cid, v in json.loads(f.read_text()).items():
+            for s in v.get("sources") or []:
+                out[(cid, norm_key(s["url"]))] = s.get("copy")
+    return out
+
+
 def described(cid: str, c: dict) -> set:
     """Addresses of this contest that have a description (norm keys)."""
     f = ROOT / "data" / "source-descriptions" / c["_series"] / f"{cid}.yaml"
@@ -124,23 +135,26 @@ def main() -> int:
                 pool.terminate()
                 break
     left = [cid for cid in pick if not (out / cid / "pack.json").exists()]
-    index = []
+    index, read = [], load_read()
     for cid in pick:
         p = out / cid / "pack.json"
         if p.exists():
             srcs = json.loads(p.read_text())["sources"]
             index.append({"contest": cid, "sources": len(srcs), "with_copy": sum(1 for x in srcs if x["copy"]),
-                          "first_reading": sum(1 for x in srcs if x["copy"] and not x.get("earlier"))})
+                          "first_reading": sum(1 for x in srcs if x["copy"] and not x.get("earlier")),
+                          # held sources no description round has read in the copy we hold now
+                          "unread": sum(1 for x in srcs if x["copy"] and read.get((cid, norm_key(x["url"]))) != x["copy"]["path"])})
     (out / "index.json").write_text(json.dumps(index, indent=1))
     print(f"built {done} now; {len(index)} of {len(pick)} packs exist, {len(left)} left; {sum(x['sources'] for x in index)} sources, "
-          f"{sum(x['with_copy'] for x in index)} with a copy ({sum(x['first_reading'] for x in index)} never read) -> {out}")
+          f"{sum(x['with_copy'] for x in index)} with a copy ({sum(x['first_reading'] for x in index)} not in the content check, "
+          f"{sum(x['unread'] for x in index)} not read by a description round) -> {out}")
     if not left:
         bd = out / "batches"
         bd.mkdir(exist_ok=True)
         batches, cur, n = [], [], 0.0
         for x in sorted(index, key=lambda x: x["contest"]):
-            if not x["with_copy"]:
-                continue   # nothing to read: the applier needs no result for it
+            if not x["unread"]:
+                continue   # nothing new to read: the applier needs no result for it
             w = x["with_copy"] + 0.1 * (x["sources"] - x["with_copy"])
             if cur and (n + w > args.batch_sources or len(cur) >= 8):
                 batches.append(cur)
