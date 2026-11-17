@@ -4,33 +4,33 @@ Run of 2026-11-16, rubric 1 (`tools/describe_rubric.md`). Applied.
 
 | | |
 | --- | --- |
-| contests read | 1,390 |
+| contests read | 1,480 |
 | contests with nothing held | 75 |
-| sources | 6,706 |
-| no copy | 830 |
-| read | 5,876 |
-| first readings | 420 |
-| described | 5,568 |
-| description held (low confidence or source gone) | 7 |
-| verdict confirm | 5,326 |
-| verdict correct | 249 |
-| verdict not-the-document | 194 |
-| verdict wrong-contest | 99 |
+| sources | 7,260 |
+| no copy | 882 |
+| read | 6,378 |
+| first readings | 470 |
+| described | 6,049 |
+| description held (low confidence or source gone) | 8 |
+| verdict confirm | 5,785 |
+| verdict correct | 272 |
+| verdict not-the-document | 209 |
+| verdict wrong-contest | 104 |
 | verdict cannot-tell | 8 |
 | disagrees with the earlier reader | 105 |
-| blank date filled | 6 |
+| blank date filled | 8 |
 | blank location filled | 3 |
-| contest facts fills-blank | 24 |
-| contest facts conflict | 293 |
-| contest facts same | 257 |
-| contest facts listed | 978 |
-| words per description | 106 |
+| contest facts fills-blank | 28 |
+| contest facts conflict | 311 |
+| contest facts same | 274 |
+| contest facts listed | 1,052 |
+| words per description | 105 |
 
-Not finished: 1003 contests: north-russia-2017, north-russia-2018, north-russia-2019, north-russia-2020, north-russia-2021, north-russia-2022, north-russia-2023, north-russia-2024, north-russia-2025, north-russia-2026, norway-2000, norway-2001, nwerc-1995, nwerc-1996, nwerc-1997, nwerc-1998, nwerc-1999, nwerc-2000, nwerc-2001, nwerc-2002, nwerc-2003, nwerc-2004, nwerc-2005, nwerc-2006, nwerc-2007, nwerc-2008, nwerc-2009, nwerc-2010, nwerc-2011, nwerc-2012, nwerc-2013, nwerc-2014, nwerc-2015, nwerc-2016, nwerc-2017, nwerc-2018, nwerc-2019, nwerc-2020, nwerc-2021, nwerc-2022.
+Not finished: 913 contests: pacnw-2003, pacnw-2004, pacnw-2005, pacnw-2006, pacnw-2007, pacnw-2008, pacnw-2009, pacnw-2010, pacnw-2011, pacnw-2012, pacnw-2013, pacnw-2014, pacnw-2015, pacnw-2016, pacnw-2017, pacnw-2018, pacnw-2019, pacnw-2020, pacnw-2021, pacnw-2022, pacnw-2023, pacnw-2024, pacnw-2025, pakistan-2014, pakistan-2015, pakistan-2016, pakistan-2017, pakistan-2019, pakistan-2020, pakistan-2021, pakistan-2022, pakistan-2023, pakistan-2024, pakistan-2025, palestine-2013, palestine-2014, palestine-2015, palestine-2016, palestine-2017, palestine-2018.
 Results that do not check: 0.
 
 
-## Second reading: 582 sources to look at
+## Second reading: 625 sources to look at
 
 The reader did not confirm the catalogue, or disagrees with the content check of 2026-11-14. Nothing here was applied.
 
@@ -618,8 +618,51 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | nordic-2016 | https://nordic.icpc.io/ncpc2016/reg.html | teams | correct → web (high) | none | Page titled 'Nordic Collegiate Programming Contest 2016' headed 'Registration Process' with instructions for team captains and no list of teams. |
 | nordic-2017 | https://nordic.icpc.io/ncpc2017/reg.html | teams | correct → web (medium) | none | Page headed 'Registration Process' with step-by-step instructions for registering a team in the ICPC registration system, not a list of teams. |
 | nordic-2025 | https://nordic.icpc.io/ncpc2025/sites | teams | correct → web (medium) | none | The page lists 25 host universities with their countries and confirmation status, not participating teams. |
+| nwerc-1995 | https://chipcie.wisv.ch/archive/nwerc/ | web | correct → no role (medium) | correct →  | Seed is the CHipCie NWERC Problem Set Archive index covering contests from 1988 to 2023, with one row for NWERC 1995; it is not the contest's own site. |
+| nwerc-1996 | https://chipcie.wisv.ch/archive/nwerc/ | web | correct → no role (medium) | correct →  | Seed is the CHipCie NWERC Problem Set Archive index covering contests from 1988 to 2023, with one row for NWERC 1996; it is not the contest's own site. |
+| nwerc-1996 | https://open.kattis.com/problem-sources/North%20Western%20Europe%20Reg | problemset | not-the-document (high) | not-the-document | Kattis problem-sources page titled Problems from North Western Europe Regionals 1996 whose problem list says No data found. |
+| nwerc-2002 | https://commissies.ch.tudelft.nl/chipcie/ekp/ekp2002/problems.html | scoreboard+problemset | not-the-document (high) | correct →  | The copy is the 2026 homepage of the W.I.S.V. 'Christiaan Huygens' study association (Lustrum calendar, Board 70), not a page of the 2002 contest. |
+| nwerc-2002 | http://ch.tudelft.nl/~chipcie/ekp/ekp2002/problems.html | problemset | correct → web (medium) | correct → web | Short page headed 'NWERC 2002 - Summary page' with site data (date 15-17 November 2002, TU-Delft, 54 teams) and four links, and no problem statements. |
+| nwerc-2002 | https://open.kattis.com/problem-sources/ACM%20Northwestern%20Europe%20 | problemset | not-the-document (high) | not-the-document | The Kattis page 'Problems from ACM Northwestern Europe Programming Contest 2002' shows 'No data found' in place of a problem list. |
+| nwerc-2004 | https://fileadmin.cs.lth.se/contest/nwerc/ | web+scoreboard | not-the-document (high) | not-the-document | The copy is a frameset shell (frames top.html, menu.html, main.html) whose only text is a Swedish notice that the page uses frames. |
+| nwerc-2004 | https://open.kattis.com/problem-sources/NWERC%202004 | problemset | not-the-document (high) | not-the-document | Kattis page 'Problems from NWERC 2004' whose problem table reads No data found. |
+| nwerc-2004 | https://open.kattis.com/problem-sources/Peter%20Kluit%20-%20North%20We | problemset | not-the-document (high) | not-the-document | Kattis page 'Problems from Peter Kluit - North Western European Regionals 2004' whose problem table reads No data found. |
+| nwerc-2005 | http://www.nada.kth.se/contest/nwerc/2005/report/Standings.html | standings | not-the-document (high) | not-the-document | The page is a KTH 'Dismissed site: www.nada.kth.se' notice saying the pages no longer exist. |
+| nwerc-2005 | https://open.kattis.com/problem-sources/NWERC%202005 | problemset | not-the-document (high) | not-the-document | The Kattis source page 'Problems from NWERC 2005' has a table that says 'No data found'. |
+| nwerc-2009 | http://2009.nwerc.eu/results.php | scoreboard+problemset | correct → rankings (medium) | correct → rankings | Short results index page that names only the winner 'deFAUlt' with 8 problems and 820 minutes, plus links to the final standings, problem set, solution outlines and data files. |
+| nwerc-2009 | http://www.nwerc.eu/ | standings | wrong-contest (high) | wrong-contest | The page is headed 'Northwestern Europe Regional Contest 2026' and describes NWERC 2026 organized by Karlsruhe Institute of Technology on 27-29 November 2026. |
+| nwerc-2010 | http://2010.nwerc.eu/results.php | web+scoreboard | correct → rankings (medium) | correct → rankings | The Results page of the NWERC 2010 site links to the standings, problem set, solutions and test data, and itself names only the winner, deFAUlt of Friedrich-Alexander-University Erlangen-Nuremberg. |
+| nwerc-2011 | http://www.nwerc.eu/ | web+scoreboard | wrong-contest (high) | wrong-contest | The copy is the nwerc.eu home page titled 'Northwestern Europe Regional Contest 2026', organized by Karlsruhe Institute of Technology for 27-29 November 2026. |
+| nwerc-2011 | http://www.nwerc.eu/score/index.html | standings | wrong-contest (high) | wrong-contest | The heading reads 'Scoreboard NWERC 2010 contest final standings' and the table has 67 team rows led by deFAUlt, a different edition. |
+| nwerc-2016 | http://nwerc2016-scoreboard.bath.ac.uk/static/scoreboard/static.html | scoreboard+standings | correct → scoreboard (high) | correct → scoreboard | Page titled 'Scoreboard NWERC 2016 final standings' with 114 team rows and per-problem cells A to K holding attempts/minutes, plus a summary row. |
+| nwerc-2016 | https://people.bath.ac.uk/masjhd/2016.NWERC/nwerc2016-scoreboard/ | scoreboard | not-the-document (high) | none | The copy is the University of Bath home page (strategy, events and news of November 2026), with no scoreboard. |
+| nwerc-2016 | https://people.bath.ac.uk/masjhd/2016.NWERC/nwerc2016practice.pdf | problemset | not-the-document (high) | none | The copy is HTML, not a PDF: the University of Bath home page with 2026 news, no practice problems. |
+| nwerc-2016 | https://people.bath.ac.uk/masjhd/2016.NWERC/nwerc2016slides.pdf | editorial | not-the-document (high) | none | The copy is HTML, not a PDF: the University of Bath home page with 2026 news, no slides. |
+| nwerc-2017 | https://people.bath.ac.uk/masjhd/NWERC/news/index.html | problemset | correct → no role (high) | correct →  | The copy is the University of Bath main homepage (QS World University Rankings 2027, events), with nothing about NWERC. |
+| nwerc-2022 | https://2022.nwerc.eu/main/scoreboard | standings | correct → scoreboard (high) | correct → scoreboard | Same DOMjudge final scoreboard layout as source 2 with problems A to L and times and tries per cell, so it is a scoreboard and not standings; the file stops after rank 97. |
+| nwerc-2022 | https://2022.nwerc.eu/main/problem-slides.pdf | editorial | correct → problemset (high) | none | 12-slide PDF with one summary slide per problem A to L (time limit, author, short restatement and sample illustration) and no solution content, so it is a problem presentation and not an editorial. |
+| nwerc-2023 | https://2023.nwerc.eu/main/scoreboard | standings | correct → scoreboard (high) | correct → scoreboard | The page is the DOMjudge scoreboard with per-problem cells A-L carrying times and tries; its first 98 team rows match source 2 row for row, and the file stops at 1 MB inside the 99th row. |
+| nwerc-2023 | https://2023.nwerc.eu/main/problem-slides.pdf | editorial | correct → problemset (medium) | none | 12-page Beamer PDF with one page per problem A to L, each with a time limit, a problem author and a short summary of the task. |
+| nwerc-2025 | https://2025.nwerc.eu/live | scoreboard | correct → web (medium) | none | The Live page of the contest site holds only a link to scoreboard.2025.nwerc.eu and four YouTube stream links, no results table. |
+| nzpc-2005 | https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz05results.pd | standings | correct → scoreboard (high) | correct → scoreboard | One-page PDF titled 'NEW ZEALAND PROGRAMMING CONTEST 2005 – FINAL RESULTS' with problem columns A to P, per-team tries and totals, so it is a scoreboard not standings. |
+| nzpc-2007 | https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz07results.pd | standings | correct → scoreboard (high) | correct → scoreboard | One-page PDF 'Results of the NZPC 2007' with a column per problem A to P, a worth row, and Total and Solved columns for 50 teams, so it is a scoreboard not standings. |
+| nzpc-2009 | https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz09results.pd | standings | correct → scoreboard (medium) | correct → scoreboard | One-page scan with scoreboards headed Tertiary Senior, Tertiary Intermediate and Tertiary Junior Category, with columns A to O. |
+| nzpc-2010 | https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz10results.pd | standings | correct → scoreboard (medium) | correct → scoreboard | 3-page scan with scoreboards for Tertiary Senior, Intermediate and Junior Categories, each with problem columns worth 3 to 100 points. |
+| nzpc-2011 | https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz11results.pd | standings | correct → scoreboard (medium) | correct → scoreboard | 5-page scan titled New Zealand Programming Contest Scoreboard with one scoreboard per category, each with problem columns. |
+| nzpc-2012 | https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz12results.pd | standings | correct → scoreboard (medium) | correct → scoreboard | 5-page scan headed New Zealand Programming Contest 2012 with one scoreboard per category, each with problem columns. |
+| nzpc-2013 | https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz13results.pd | standings | correct → scoreboard (medium) | correct → scoreboard | 5-page scan with Final Scoreboard pages for Tertiary Open, Intermediate, Junior, School and Open Categories. |
+| oman-2021 | https://unizwa.edu.om/index.php?deptname=&lang=en&newsid=3722 | web | correct → report (high) | wrong-contest | University of Nizwa news item about 'The 8th Oman Collegiate Programming Contest (OCPC2021)' held at Sultan Qaboos University on 5-6 November 2021; it is a university's own news page, not the contest's website. |
+| oman-2023 | https://www.linkedin.com/posts/mahmood-al-dhahli-9873a8278_icpc-icpc20 | web | not-the-document (high) | not-the-document | The seed page is the LinkedIn Sign Up and security verification page, not a post. |
+| oman-2025 | https://mtcit.gov.om/media-4/news-announcements-11/news-85/oman-progra | web | correct → report+rankings (high) | wrong-contest | Ministry news item of 10 April 2025 on the conclusion of the Oman Collegiate Programming Contest 2025 naming the top three teams; it is a news page, not the contest's own site. |
+| oman-2025 | https://ocmt.odoo.com/blog/news-and-activities-1/the-codebreakers-qual | web | correct → report (high) | wrong-contest | Blog post dated March 11, 2025 on the Oman College of Management and Technology site announcing that its team qualified for the OCPC 2025 final round at Sultan Qaboos University on 8-9 April 2025. |
+| oman-capital-2025 | https://icpc.global/regionals/finder/OCPCCap-2026 | web | not-the-document (high) | none | The seed page is the empty ICPC site app shell (title only, noscript notice, no content); the second address in the capture is a Facebook page whose saved text is only its title. |
+| oman-capital-2026 | https://icpc.global/regionals/finder/OCPCCap-2027 | web | not-the-document (high) | none | The seed page is the empty ICPC site app shell (title only, noscript notice, no content); the second address in the capture is a Facebook page whose saved text is only its title. |
+| oman-southern-2025 | https://www.facebook.com/SultanateOfOmanCPC/ | web | not-the-document (high) | none | The saved Facebook page of the series holds only its title (OCPC Oman Collegiate Programming Contest) with no posts or readable content. |
+| oman-southern-2025 | https://mtcit.gov.om/media-4/news-announcements-11/news-85/oman-progra | web | wrong-contest (high) | wrong-contest | Ministry news item of 10 April 2025 on the national Oman Collegiate Programming Contest 2025 final (65 teams, regional preliminaries in Sohar, Nizwa and Muscat); no Southern sub-region contest is mentioned. |
+| pacnw-1999 | http://www.acmicpc-pacnw.org/Standings/1998/98Results.htm | scoreboard | wrong-contest (high) | wrong-contest | The standings page is headed 'Saturday November 14, 1998' and 'Final Standings' with 57 team rows, which is the 1998 contest. |
+| pacnw-1999 | http://icpc.baylor.edu/past/icpc2000/regionals/PacNW99/Problems.html | problemset | correct → scoreboard (high) | same-as | The page is the same PC^2 'Contest Reports/Stats' report as source 2, with one added menu link, Download Problems. |
 
-## Contest facts: 317 that fill a blank or differ
+## Contest facts: 339 that fill a blank or differ
 
 | contest | fact | document says | catalogue | confidence | applied | where it is stated |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -916,6 +959,24 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | nerc-2024 | location | St. Petersburg, Novosibirsk, Astana, Tbilisi | Kazakhstan; Tbilisi; Novosibirsk; St Petersburg; A | high | no | The page header of every page names these four cities. |
 | nerc-2025 | date | 2025-12-17 | 2025-12-15 | high | no | The statements header reads December 17th, 2025. |
 | nerc-2025 | location | St. Petersburg, Novosibirsk, Almaty, Tbilisi | (sites) | high | no | The statements header names these four cities. |
+| north-russia-2025 | location | St. Petersburg ITMO University, St Petersburg | St Petersburg; Administrative Site Location | high | no | The Northwestern Russia entry gives St. Petersburg ITMO University as host and an address in St Petersburg. |
+| north-russia-2026 | location | St Petersburg | (sites) | high | no | The running header of the statements reads St Petersburg, November 14, 2026. |
+| nwerc-1998 | location | Hogeschool 's-Hertogenbosch | (sites) | high | no | The page says the contest was hosted by Hogeschool 's-Hertogenbosch. |
+| nwerc-1999 | date | 1999-11-13 | 1999-11-14 | high | no | The page gives the date of the contest as 13 - 14 November 1999 (first day given here). |
+| nwerc-1999 | location | Hogeschool 's-Hertogenbosch | 's-Hertogenbosch | high | no | The page says the contest was hosted by Hogeschool 's-Hertogenbosch. |
+| nwerc-2003 | location | Lund Institute of Technology, Lund | Lund | high | no | The PDF cover reads Lund Institute of Technology, Lund, Sweden. |
+| nwerc-2009 | location | Friedrich-Alexander-University Erlangen-Nuremberg, Nuremberg | Administrative Site Location; Nuremberg | high | no | The header of the twelve site pages reads 'Hosted by Friedrich-Alexander-University Erlangen-Nuremberg' and the slides name Nuremberg, Germany. |
+| nwerc-2010 | location | Jacobs University Bremen | Administrative Site Location; Bremen | high | no | The results page says the contest was hosted by Jacobs University Bremen. |
+| nwerc-2011 | location | Jacobs University Bremen, Bremen, Germany | Bremen; Administrative Site Location | high | no | Every page of the website is headed 'Hosted by Jacobs University Bremen' and the location page gives its address in Bremen. |
+| nwerc-2012 | location | Delft University of Technology, Delft | Administrative Site Location; Delft, the Neterland | high | no | The welcome text reads 'hosted by the Delft University of Technology' and the Location page gives the full address Drebbelweg 5, 2628 CM Delft. |
+| nwerc-2013 | location | Delft University of Technology, Delft, the Netherlands | Delft, the Neterlands; Administrative Site Locatio | high | no | The welcome page says the contest is hosted by the Delft University of Technology, and the contact and location pages give addresses in Delft, the Netherlands. |
+| nwerc-2014 | location | Linköping University, Linköping, Sweden | Administrative Site Location; Linköping University | high | no | The welcome page says the contest took place at Linköping University, Sweden; the location page names the main campus in Linköping. |
+| nwerc-2020 | date | 2021-03-28 | 2021-03-27 | high | no | The scoreboard header reads 'NWERC 2020 Start 2021-03-28 11:00 CEST', and the problem set cover reads March 28, 2021; the practice session was on March 27. |
+| nwerc-2024 | location | Delft University of Technology, Delft | Administrative Site Location; Reykjavík University | medium | no | The front page says the contest was held on the campus of Delft University of Technology. |
+| nwerc-2025 | location | Karlsruhe Institute of Technology, Karlsruhe | Reykjavík University; Administrative Site Location | high | no | The home page says NWERC 2025 is organized by Karlsruhe Institute of Technology and the Location page says it is held at KIT Campus South. |
+| oman-2023 | location | Sultan Qaboos University | Oman | high | no | The news item says the contest was held at Sultan Qaboos University. |
+| oman-2025 | date | 2025-04-09 | 2025-04-10 | medium | no | The blog post says the actual competition is on April 9, 2025 after a practice contest on April 8; the ministry news item is dated 10 April 2025. |
+| oman-2025 | location | Sultan Qaboos University | oman; Oman | medium | no | The blog post says the final round is held at Sultan Qaboos University. |
 | alberta-2006 | location | University of Alberta, University of Calgary and University  | — | medium | no | the problem index says the contest is a joint effort of the three universities. |
 | bapc-prelims-2025 | date | 2025-09-20 | — | medium | no | The preliminaries page lists the local contests under the dates 20 September, 26 September and 27 September 2025 and says they run between the 20th and 28th. |
 | brazil-first-phase-1996 | location | DCC-UFMG, Belo Horizonte | — | medium | no | The history page says the first Maratona was organised at the Federal University of Minas Gerais, under the heading Belo Horizonte. |
@@ -930,13 +991,17 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | erc-1990 | location | Eindhoven | — | medium | no | The archive index row reads 'ERC 1990, Eindhoven, November 3'. |
 | greece-2024 | date | 2024-10-18 | — | medium | no | The Greek registration page states 'Ημερομηνία Διεξαγωγής: 18-19 Οκτωβρίου 2024'. |
 | neerc-1997 | location | St.Petersburg-Barnaul | — | medium | no | The problem list page is headed St.Petersburg-Barnaul, 26 Nov 1997. |
-| nena-2013 | date | 2013-11-16 | — | high | yes | The PDF heading reads 'Rochester Institute of Technology, November 16, 2013'. |
-| nena-north-2015 | date | 2015-10-17 | — | high | yes | The page gives Date & Time: October 17, 2015, 11:00 am to 5:30 pm. |
-| nena-north-2018 | date | 2018-10-13 | — | high | yes | The page states 'Date & Time: October 13, 2018, 11:00 am to 5:30 pm'. |
-| nena-west-2009 | date | 2009-10-17 | — | high | yes | The cover of the questions PDF reads October 17, 2009. |
-| nordic-2002 | location | Linköping, Lund, Stockholm and Umeå | — | high | yes | The page says the contest was held in Linköping, Lund, Stockholm and Umeå on 28 September 2002. |
-| nordic-2003 | location | Linköping, Lund, Stockholm and Umeå | — | high | yes | The front page names these four places as where the contest was held. |
-| north-russia-2006 | date | 2006-11-05 | — | high | yes | The PDF heading reads St Petersburg, November 5, 2006. |
-| north-russia-2006 | location | St Petersburg | — | high | yes | The PDF heading names St Petersburg. |
-| north-russia-2007 | date | 2007-10-28 | — | high | yes | every page of the problems PDF is headed 'St Petersburg, October 28, 2007' |
 | north-russia-2007 | location | St Petersburg | — | medium | no | the PDF header gives 'St Petersburg' as the place, without naming the host institution |
+| norway-2000 | location | Universitetet i Bergen, Universitetet i Oslo, Høyskolen i St | — | high | yes | The front page lists these four sites with a contact person each. |
+| norway-2001 | location | Høgskolen i Molde, Høyskolen i Stavanger, Høgskolen i Sør-Tr | — | high | yes | The front page lists these seven sites, each with a contact person. |
+| nwerc-1997 | location | Delft University of Technology, Delft | — | high | yes | The outline page says the contest is held at the faculty of computer science of the Delft University of Technology in the Netherlands on 22 and 23 November 1997 |
+| nwerc-2005 | date | 2005-11-13 | — | high | yes | The schedule page gives Sunday 13 November 2005 as the contest day (10.00-15.00); the site announces 11-13 November. |
+| nzpc-1998 | date | 1998-10-10 | — | high | yes | Every page header of the problem set reads 'NZ programming Contest 10/10/98'. |
+| nzpc-2000 | date | 2000-08-05 | — | medium | no | The results text says the contest was held 'Aug 5th' and its title names the 2000 contest. |
+| nzpc-2005 | date | 2005-08-13 | — | high | yes | the running header of every page reads 'New Zealand Programming Contest 2005 13 August 2005' |
+| nzpc-2006 | date | 2006-08-05 | — | high | yes | the page header reads 'New Zealand Programming Contest 2006 5 August 2006' |
+| nzpc-2023 | date | 2023-08-19 | — | medium | no | The results page says the contest was held on Saturday 19th August, under a 2023 heading. |
+| pacnw-1994 | date | 1994-11-19 | — | high | yes | The page states 'Contest date: November 19, 1994'. |
+| pacnw-1995 | date | 1995-11-18 | — | high | yes | The page states 'Contest date: November 18, 1995'. |
+| pacnw-1996 | date | 1996-11-23 | — | high | yes | The page states 'Contest date: November 23, 1996'. |
+| pacnw-1997 | date | 1997-11-15 | — | high | yes | The results page is headed 'Nov 15, 1997'. |
