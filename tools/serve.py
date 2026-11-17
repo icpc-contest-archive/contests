@@ -370,7 +370,8 @@ def main() -> int:
         build_site.build(ROOT / "site")
 
     Handler.mounts = {"": ROOT / "site"}
-    for name, p in (("replay", REPLAY), ("archive", ARCHIVE)):
+    shards = sorted(p for p in ROOT.parent.glob("replay-[0-9]*") if p.is_dir())   # the later shards of the replay tree
+    for name, p in [("replay", REPLAY), ("archive", ARCHIVE)] + [(p.name, p) for p in shards]:
         if p.is_dir():
             Handler.mounts[f"/{name}/"] = p
             print(f"mounted ../{name} at /{name}/")

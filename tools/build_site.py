@@ -884,7 +884,7 @@ def open_copy(x: dict | None) -> str:
         w = x["site"]
         return local_link(f"site/{w['contest']}/{w['dir'].rsplit('/', 1)[-1]}/", "open the archived website")
     if x["cap"].get("replay"):
-        return f'<a class="ext" href="{REPLAY_BASE}/{esc(x["cap"]["replay"])}">open our copy</a>'
+        return f'<a class="ext" href="{replay_url(x["cap"]["replay"])}">open our copy</a>'
     return local_link("archive/" + x["cap"]["path"], "open our copy")
 
 
@@ -1171,6 +1171,14 @@ SETS: dict = {}       # set id -> parsed problemsets/<set-id>.yaml
 JUDGES: dict = {}     # judge id -> judges.yaml entry
 PROBLEMS: dict = {}   # problem id -> {"rows": [(set id, problem row)], "apps": [(set id, contest id, letter|None)]}
 REPLAY_LOOKUP: dict = {}  # (contest, norm_key(url)) -> baked replay path, filled by build()
+REPLAY_REPO: dict = {}    # baked replay path -> the repository of its shard, when not the first ("replay-2"; replay/tools/bake.py SHARDS)
+
+
+def replay_url(path: str) -> str:
+    """The public address of a baked page: the replay tree is split over several Pages repositories
+    by the contest's year, replay, replay-2, ... (REPLAY_BASE is the first one's address)."""
+    repo = REPLAY_REPO.get(path, "replay")
+    return f"{REPLAY_BASE}{repo.removeprefix('replay')}/{esc(path)}"
 REPLAY_PROBLEMSET: dict = {}  # the same, problem-set pages only
 PROBLEMSET_CAPS: dict = {}  # (contest, norm_key(url)) -> archive path of a held problem-set capture (not published)
 JUDGE_CAPS: dict = {}  # (contest, norm_key(url)) -> archive path of a held judge-page capture (private, like problem sets)
@@ -3454,10 +3462,13 @@ def build(out: Path):
     (out / "build.json").write_text(json.dumps({"built": datetime.date.today().isoformat()}))
 
     REPLAY_LOOKUP.clear()
+    REPLAY_REPO.clear()
     REPLAY_PROBLEMSET.clear()
     REPLAY_BY_CONTEST.clear()
     if aux["replay-index"]:
         for e in aux["replay-index"]["pages"]:
+            if e.get("repo") and e["repo"] != "replay":
+                REPLAY_REPO[e["path"]] = e["repo"]
             if e.get("url"):
                 k = (e["contest"], norm_key(e["url"]))
                 REPLAY_LOOKUP[k] = e["path"]
