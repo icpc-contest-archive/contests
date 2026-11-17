@@ -284,7 +284,7 @@ def sort_sources(c: dict) -> None:
 
 def normalise_source(s: dict) -> dict:
     """Canonical key order for a source mapping."""
-    order = ("url", "roles", "scope", "contains", "judge", "as_of", "archived", "fetched",
+    order = ("url", "roles", "problem", "scope", "contains", "judge", "as_of", "archived", "fetched",
              "url_state", "url_checked", "note")
     out = {k: s[k] for k in order if k in s}
     for k in s:

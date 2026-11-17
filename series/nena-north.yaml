@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_no_sources_hunt.py.
+# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
 series:
   id: nena-north
   name: Northern Preliminary Contest
@@ -28,17 +28,21 @@ contests:
     contains:
     - statement
     url_state: live
-    url_checked: '2026-11-14'
+    url_checked: '2026-11-16'
   - url: http://acm.cs.mcgill.ca/prelim2008/Questions.pdf
     roles:
     - problemset
     as_of: '20101227023214'
     note: found inside http://acm.cs.mcgill.ca/prelim2008/index.html by the content check
+    url_state: dead
+    url_checked: '2026-11-16'
   - url: http://acm.cs.mcgill.ca/prelim2008/Solutions.pdf
     roles:
     - editorial
     as_of: '20101227023158'
     note: found inside http://acm.cs.mcgill.ca/prelim2008/index.html by the content check
+    url_state: dead
+    url_checked: '2026-11-16'
   provenance:
   - ICPC Problem Archive progress sheet (2026-11-01)
   problems:
@@ -68,8 +72,8 @@ contests:
   - url: https://www.cs.rit.edu/~icpc/questions/2009/Potsdam_2009.pdf
     roles:
     - problemset
-    url_state: unknown
-    url_checked: '2026-11-14'
+    url_state: live
+    url_checked: '2026-11-16'
   problems:
     set: nena-north-2009
 - id: nena-north-2011
@@ -119,8 +123,8 @@ contests:
   - url: https://www.cs.rit.edu/~icpc/questions/2012/Clarkson_2012.pdf
     roles:
     - problemset
-    url_state: unknown
-    url_checked: '2026-11-14'
+    url_state: live
+    url_checked: '2026-11-16'
   problems:
     set: nena-north-2012
 - id: nena-north-2013
@@ -142,8 +146,8 @@ contests:
   - url: https://www.cs.rit.edu/~icpc/questions/2013/Clarkson_2013.pdf
     roles:
     - problemset
-    url_state: unknown
-    url_checked: '2026-11-14'
+    url_state: changed
+    url_checked: '2026-11-16'
   problems:
     set: nena-north-2013
 - id: nena-north-2014
@@ -169,8 +173,8 @@ contests:
   - url: https://www.cs.rit.edu/~icpc/questions/2014/Clarkson_2014.pdf
     roles:
     - problemset
-    url_state: unknown
-    url_checked: '2026-11-14'
+    url_state: live
+    url_checked: '2026-11-16'
   problems:
     set: nena-north-2014
 - id: nena-north-2015
@@ -197,8 +201,8 @@ contests:
   - url: https://www.cs.rit.edu/~icpc/questions/2015/Clarkson_2015.pdf
     roles:
     - problemset
-    url_state: unknown
-    url_checked: '2026-11-14'
+    url_state: live
+    url_checked: '2026-11-16'
   problems:
     set: nena-north-2015
 - id: nena-north-2016
@@ -292,17 +296,29 @@ contests:
     - nena-north/nena-north-2019/standings/20201030-wayback-94c6a552/page.html
     - nena-north/nena-north-2019/standings/20261020-live-87f7a4a5/page.html
     url_state: replaced
-    url_checked: '2026-11-14'
+    url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (t2-dark-agent)
   - url: https://mcgill19.kattis.com/contests/mcgill19/standings
     roles:
     - scoreboard
     note: found inside https://mcgill19.kattis.com/contests/mcgill19 by the content check
+    as_of: '20221007002704'
+    url_state: live
+    url_checked: '2026-11-16'
+  - url: https://open.kattis.com/contests/nena19open
+    roles:
+    - standings
+    as_of: '20191121170630'
+    archived:
+    - nena-north/nena-north-2019/standings/20191121-wayback-a00c4316/page.html
+    - nena-north/nena-north-2019/standings/20261020-live-fec9d633/page.html
+    note: from archived capture (standings)
   - url: https://mcgill19.kattis.com/contests/mcgill19/teams
     roles:
     - teams
     url_state: changed
-    url_checked: '2026-11-14'
+    url_checked: '2026-11-16'
+    as_of: '20221006234731'
   - url: https://mcgill19.kattis.com/contests/mcgill19/problems
     roles:
     - problemset
@@ -310,6 +326,6 @@ contests:
     - names
     as_of: '20221006231439'
     url_state: changed
-    url_checked: '2026-11-14'
+    url_checked: '2026-11-16'
   problems:
     set: nena-north-2019

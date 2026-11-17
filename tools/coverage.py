@@ -61,6 +61,8 @@ def set_list_state(doc: dict) -> str:
     total, listed = set_counts(doc)
     if not listed:
         return "none"
+    if doc.get("count") and listed >= doc["count"]:
+        return "complete"   # as many listed as the contest had: complete, whatever a stale `complete: false` says
     return "partial" if doc.get("complete") is False or (total and listed < total) else "complete"
 
 
@@ -168,9 +170,12 @@ class Coverage:
         probs = doc.get("problems") or []
         n = len(probs)
         letters = set(set_letters(doc, c["id"]).values())
+        labels = next((m.get("labels") for m in doc.get("contests") or [] if m.get("contest") == c["id"]), None) or []
         state = set_list_state(doc)
         pmeta = {"names": {"complete": "all", "partial": "some", "none": "none"}[state],
-                 "letters": ("all" if state == "complete" and all(p["id"] in letters for p in probs) else "some") if letters else "none",
+                 # the letters alone (`labels`, read off a scoreboard) count when the problems are not listed
+                 "letters": ("all" if state == "complete" and all(p["id"] in letters for p in probs) else "some") if letters
+                 else ("all" if not probs and len(labels) == (doc.get("count") or len(labels)) else "some") if labels else "none",
                  "short_names": _share(sum(1 for p in probs if p.get("short_name")), n) if state == "complete" or not n
                  else ("some" if any(p.get("short_name") for p in probs) else "none"),
                  "uuids": _share(sum(1 for p in probs if p.get("uuid")), n) if state == "complete" or not n

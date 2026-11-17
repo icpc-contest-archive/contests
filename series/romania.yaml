@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_no_sources_hunt.py.
+# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
 series:
   id: romania
   name: ICPC Romania Programming Contest
@@ -44,7 +44,7 @@ contests:
     - romania/romania-2010/standings/2026-09-01-wayback-6c28ee71/results.htm
     - romania/romania-2010/external-standings/2026-04-15-external/content.html
     url_state: dead
-    url_checked: '2026-11-14'
+    url_checked: '2026-11-16'
     note: from archived capture (external-standings)
   - url: https://icpc.global/regionals/finder/Romania-2011/standings
     roles:
@@ -75,13 +75,15 @@ contests:
     archived:
     - romania/romania-2011/external-standings/2026-04-15-external/content.html
     url_state: dead
-    url_checked: '2026-11-14'
+    url_checked: '2026-11-16'
   - url: https://icpc.global/regionals/finder/Romania-2012/standings
     roles:
     - standings
     archived:
     - romania/romania-2011/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 775, 53 teams, DB fetch 2026-04-26)
+  problems:
+    set: romania-2011
 - id: romania-2012
   season: 2013
   name: 2012 Romania Programming Contest
@@ -108,7 +110,7 @@ contests:
     - romania/romania-2012/external-standings/2026-04-15-external/content.html
     - romania/romania-2012/standings/20121015-wayback-29a4939d/results.htm
     url_state: dead
-    url_checked: '2026-11-14'
+    url_checked: '2026-11-16'
     note: from archived capture (external-standings)
   - url: https://icpc.global/regionals/finder/Romania-2013/standings
     roles:
@@ -116,6 +118,8 @@ contests:
     archived:
     - romania/romania-2012/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 1327, 71 teams, DB fetch 2026-04-26)
+  problems:
+    set: romania-2012
 - id: romania-2013
   season: 2014
   name: 2013 Romania Programming Contest
@@ -139,8 +143,9 @@ contests:
     as_of: '20130921120710'
     archived:
     - romania/romania-2013/scoreboard/20130921-wayback-21a4a05a/results.htm
+    - romania/romania-2013/standings/20130921-wayback-21a4a05a/results.htm
     url_state: dead
-    url_checked: '2026-11-14'
+    url_checked: '2026-11-16'
     scope: Cluj and Timisoara subregions only
   - url: http://acm.ro/Romania/2013/problems.htm
     roles:
@@ -149,13 +154,13 @@ contests:
     - names
     as_of: '20131005095203'
     url_state: dead
-    url_checked: '2026-11-14'
+    url_checked: '2026-11-16'
   - url: http://acm.tju.edu.cn/toj/vcontest/contest9268.html
     roles:
     - problemset
     as_of: '20130717155702'
-    url_state: unknown
-    url_checked: '2026-11-14'
+    url_state: replaced
+    url_checked: '2026-11-16'
   problems:
     set: romania-2013
 - id: romania-2014
@@ -181,6 +186,15 @@ contests:
     archived:
     - romania/romania-2014/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 2649, 48 teams, DB fetch 2026-04-26)
+  - url: http://www.infoarena.ro/onis-2014/clasament/runda-4
+    roles:
+    - standings
+    archived:
+    - romania/romania-2014/external-standings/2026-04-15-external/content.html
+    - romania/romania-2014/scoreboard/20141025-wayback-ba2b5547/page.html
+    - romania/romania-2014/scoreboard/20260901-live-bbff171f/page.html
+    note: from archived capture (external-standings)
+    as_of: '20141025081152'
 - id: romania-2015
   season: 2016
   name: 2015 Romania Programming Contest
@@ -207,7 +221,7 @@ contests:
     - romania/romania-2015/standings/20121215-wayback-20789771/results.htm
     - romania/romania-2015/standings/20121215-wayback-bd6fa889/results.htm
     url_state: dead
-    url_checked: '2026-11-14'
+    url_checked: '2026-11-16'
     note: from archived capture (external-standings)
   - url: https://icpc.global/regionals/finder/Romania-2016/standings
     roles:
@@ -246,7 +260,7 @@ contests:
     - data
     as_of: '20180710174007'
     url_state: dead
-    url_checked: '2026-11-14'
+    url_checked: '2026-11-16'
 - id: romania-2017
   season: 2018
   name: 2017 Romania Programming Contest
@@ -269,7 +283,7 @@ contests:
     - names
     as_of: '20170531003417'
     url_state: live
-    url_checked: '2026-11-14'
+    url_checked: '2026-11-16'
   - url: https://www.infoarena.ro/acm-icpc-nationala-2017/clasament
     roles:
     - scoreboard
@@ -279,7 +293,7 @@ contests:
     - romania/romania-2017/scoreboard/20170531-wayback-8d18d7fd/page.html
     - romania/romania-2017/scoreboard/20260901-live-6f2666a3/page.html
     url_state: live
-    url_checked: '2026-11-14'
+    url_checked: '2026-11-16'
   - url: https://icpc.global/regionals/finder/Romania-2018/standings
     roles:
     - standings
@@ -310,7 +324,7 @@ contests:
     - names
     as_of: '20190719194306'
     url_state: live
-    url_checked: '2026-11-14'
+    url_checked: '2026-11-16'
   - url: https://www.infoarena.ro/acm-icpc-nationala-2018/clasament
     roles:
     - scoreboard
@@ -320,7 +334,7 @@ contests:
     - romania/romania-2018/scoreboard/20190818-wayback-c041e3d4/page.html
     - romania/romania-2018/scoreboard/20260901-live-7ba5d1de/page.html
     url_state: live
-    url_checked: '2026-11-14'
+    url_checked: '2026-11-16'
   - url: https://icpc.global/regionals/finder/Romania-2019/standings
     roles:
     - standings
@@ -351,7 +365,7 @@ contests:
     - names
     as_of: '20191121205447'
     url_state: live
-    url_checked: '2026-11-14'
+    url_checked: '2026-11-16'
   - url: https://www.infoarena.ro/rcpc-2019/clasament
     roles:
     - scoreboard
@@ -361,7 +375,7 @@ contests:
     - romania/romania-2019/scoreboard/20200805-wayback-99c4a55a/page.html
     - romania/romania-2019/scoreboard/20260901-live-28d24cfe/page.html
     url_state: live
-    url_checked: '2026-11-14'
+    url_checked: '2026-11-16'
   - url: https://icpc.global/regionals/finder/Romania-2020/standings
     roles:
     - standings
@@ -406,7 +420,7 @@ contests:
     - romania/romania-2021/standings/20260901-live-5f12df3c/page.html
     - romania/romania-2021/standings/20261023-live-43a2234f/page.html
     url_state: live
-    url_checked: '2026-11-14'
+    url_checked: '2026-11-16'
     note: from archived capture (external-standings)
   problems:
     set: romania-2021
@@ -433,7 +447,7 @@ contests:
     - romania/romania-2022/standings/20260901-live-86bb914a/page.html
     - romania/romania-2022/standings/20261023-live-abe3d92d/page.html
     url_state: live
-    url_checked: '2026-11-14'
+    url_checked: '2026-11-16'
     note: from archived capture (external-standings)
 - id: romania-2023
   season: 2024
@@ -456,8 +470,8 @@ contests:
     archived:
     - romania/romania-2023/scoreboard/20231128-wayback-55b965ac/page.html
     - romania/romania-2023/scoreboard/20260901-live-2602f3d2/page.html
-    url_state: live
-    url_checked: '2026-11-14'
+    url_state: replaced
+    url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (wave2-europe)
   - url: https://codeforces.com/gym/104782
     roles:
@@ -466,8 +480,8 @@ contests:
     - statement
     judge: codeforces
     as_of: '20231126215418'
-    url_state: live
-    url_checked: '2026-11-14'
+    url_state: replaced
+    url_checked: '2026-11-16'
   - url: https://codeforces.com/blog/entry/122235?locale=en
     roles:
     - report
@@ -498,15 +512,17 @@ contests:
     archived:
     - romania/romania-2024/scoreboard/2026-09-01-live-2b7a1e87/page.html
     url_state: live
-    url_checked: '2026-11-14'
+    url_checked: '2026-11-16'
   - url: https://docs.google.com/spreadsheets/d/e/2PACX-1vQBUEgqUDyC2mCG_iqpQys46Ueio_UObJwYsyyDc6ivnLHY29jxnxGV7tQZf1QIufYbHWKO56VMetsT/pubhtml?urp=gmail_link
     roles:
     - standings
     archived:
     - romania/romania-2024/external-standings/2026-04-15-external/content.html
     url_state: live
-    url_checked: '2026-11-14'
+    url_checked: '2026-11-16'
     note: from archived capture (external-standings)
+  problems:
+    set: romania-2024
 - id: romania-2025
   season: 2026
   name: 2025 ICPC Romania Programming Contest
@@ -529,7 +545,7 @@ contests:
     archived:
     - romania/romania-2025/scoreboard/2026-09-01-live-bafd0bb8/page.html
     url_state: live
-    url_checked: '2026-11-14'
+    url_checked: '2026-11-16'
   - url: https://events.info.uaic.ro/romanian-collegiate-programming-contest/results.html
     roles:
     - standings
@@ -539,7 +555,7 @@ contests:
     - romania/romania-2025/standings/20251221-wayback-9c429def/results.html
     - romania/romania-2025/standings/20260901-live-18e7beb1/results.html
     url_state: live
-    url_checked: '2026-11-14'
+    url_checked: '2026-11-16'
     note: from archived capture (external-standings)
 - id: romania-2026
   season: 2027

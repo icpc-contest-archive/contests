@@ -84,6 +84,8 @@ def main() -> int:
                 seen_addr[k] = s["url"]
                 if s.get("judge") and not ({"problemset", "problem"} & set(s["roles"])):
                     err(f"{c['id']}: source {s['url'][:80]}: `judge:` belongs on a problemset or problem source")
+                if "problem" in s and "problem" not in s["roles"]:
+                    err(f"{c['id']}: source {s['url'][:80]}: `problem:` (a letter) belongs on a problem source")
                 if "contains" in s and not ({"problemset", "problem"} & set(s["roles"])):
                     err(f"{c['id']}: source {s['url'][:80]}: `contains:` belongs on a problemset or problem source")
                 if s.get("url_checked") and not s.get("url_state"):
@@ -274,6 +276,10 @@ def main() -> int:
                     err(f"problemsets/{sid_}.yaml: {m} letter {letter} -> {pid_} is not a problem of the set")
             if len(set(letters.values())) != len(letters):
                 err(f"problemsets/{sid_}.yaml: {m} maps two letters to one problem")
+            if e.get("labels") and (e.get("letters") or e.get("divisions")):
+                err(f"problemsets/{sid_}.yaml: {m} has both labels and a letter map — labels are for a contest whose problems are not listed")
+            if e.get("labels") and doc.get("count") and len(e["labels"]) != doc["count"]:
+                err(f"problemsets/{sid_}.yaml: {m} has {len(e['labels'])} labels but the set counts {doc['count']} problems")
             if e.get("divisions") and e.get("letters"):
                 err(f"problemsets/{sid_}.yaml: {m} has both letters and divisions — a contest with divisions keeps its letters per division")
             for dname, dl in (e.get("divisions") or {}).items():

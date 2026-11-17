@@ -7,7 +7,8 @@ pinned_ts?, pivot}.
 - kind: the source's primary capturable role — scoreboard/frozen_scoreboard/standings/
   rankings/problemset, or judge-<judge> for judge pages — which names the archive
   layout <contest>/<kind>/...; `roles` lists every role the address serves.
-  Sources serving only web/teams, and the standings pages of the ICPC CMS (an app: their copies
+  A team list or report on a page of its own is captured as teams/report. Sources serving only
+  web (or web plus a team list), and the standings pages of the ICPC CMS (an app: their copies
   are rendered from the API data, tools/bake_icpc_standings.py), are not single-page capture targets
   (websites go through make_site_queue.py) and are left out.
 - raw_url: the origin URL (wayback links unwrapped)
@@ -32,14 +33,21 @@ from resources import unwrap  # noqa: E402
 
 # roles captured as single pages, in archive-layout priority order
 CAPTURE_ROLES = ("scoreboard", "frozen_scoreboard", "standings", "rankings", "problemset", "problem", "editorial")
+# captured as single pages only when the address serves none of the roles above (2026-11-15): a team
+# list or a report on its own page. Kept apart so an address that also serves a role above keeps its kind.
+FALLBACK_ROLES = ("teams", "report")
 
 
 def capture_kind(s: dict, skip: set[str] = frozenset()) -> str | None:
     """Archive artifact kind for a source: its highest-ranked capturable role
     (a problem set or problem on a judge -> judge-<judge>), or None when nothing on it is captured this way.
     Roles in `skip` are not considered."""
+    if is_cms(s):
+        return None
     roles = [r for r in s["roles"] if r in CAPTURE_ROLES and r not in skip]
-    if not roles or is_cms(s):
+    if not roles and not any(r in CAPTURE_ROLES or r == "web" for r in s["roles"]):
+        roles = [r for r in s["roles"] if r in FALLBACK_ROLES]
+    if not roles:
         return None
     r = min(roles, key=lambda r: RANK[r])
     return f"judge-{s['judge']}" if r in ("problemset", "problem") and s.get("judge") else r

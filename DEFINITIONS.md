@@ -61,7 +61,7 @@ not the calendar date.
   freeze: ancillary, not a level of the ladder — see *Coverage*),
   `problemset` (the contest's problems, in whatever form the document gives them; `contains:`
   says which: any of `names`, `statement`, `data`, `solutions`, `package`),
-  `problem` (one problem), `report` (an account of the contest that is neither its website nor a
+  `problem` (one problem; `problem: <letter>` says which, so that the source's page can link it), `report` (an account of the contest that is neither its website nor a
   results list: a news item, a press release, a history page; common for the early years, and often
   the only proof that a contest ran; added 2026-11-14), and `editorial` (solutions explained after the contest: the jury's
   solution slides or problem analysis, or somebody else's write-up; added 2026-11-14 — it names
@@ -99,41 +99,62 @@ not the calendar date.
   (`continues-as` / `continues-from` with the boundary year), `aliases` (old ids), and
   `rotating_host` (Asia host-city series where year gaps are structural).
 
-### Sources (2026-11-13: one model)
+### Sources (2026-11-13: one model; 2026-11-16: an address at a time)
 
-A **source** is one document a contest points at: an address, *as the contest means it* — what
-the address served for that contest. It is the document that matters, not the address: addresses
-die and get reused, so a source that is no longer at its address carries the time it is meant at
-(`as_of`). One entry of a contest's `sources:` is one source.
+A **source** is an address at a point in time: one document a contest points at, what the address
+served for that contest. It is the document that matters, not the address: addresses die and get
+reused, so a source that is no longer at its address carries the time it is meant at (`as_of`).
+One entry of a contest's `sources:` is one source, and its `roles` are its **type**.
 
-The same document can be found in up to **three places**, and the site shows the three together,
-always in this order, wherever a source is listed (`avail()` in `tools/build_site.py`):
+The same document can be found in up to **three places**. The site shows the three together,
+always in this order and under these names, wherever a source is listed (`avail()` in
+`tools/build_site.py`). One vocabulary, one colour per kind of answer, the same for every mark,
+chip, pill, key and filter:
 
-| place | what is asked | values |
-| --- | --- | --- |
-| **live** — the address now | does it still serve the document? | live · changed · blocked · replaced · dead · could not tell · not checked |
-| **WB** — the Wayback Machine | does a snapshot show the document? which one? | snapshot · empty snapshot · no snapshot · excluded · not checked |
-| **ours** — our archive | do we hold a copy that is the document? | held · empty copy · missing |
+| place | green: it is there | amber: there, in doubt | red: confirmed not there | blue: not done yet | grey: does not apply |
+| --- | --- | --- | --- | --- | --- |
+| **address** — the address now | live | changed · blocked · unverified · empty | dead · replaced | not checked | |
+| **Wayback** — the Wayback Machine | snapshot | bad snapshot | no snapshot · excluded | not checked | n/a |
+| **archive** — our archive | held | bad copy | lost | not captured | n/a |
 
-Any combination occurs. *lost* = dead at its address, no snapshot, no copy. *blocked* = the server
-answered but turned our fetcher away (HTTP 401/403, a certificate it does not trust): the live check
-records `dead`, the site shows what it is, and it never counts toward *lost*. *empty* (snapshot or
-copy) = something was stored, but it is not the document: an error page, a login wall, the shell of
-an app that shows nothing without a browser (`archive/tools/audit_not_there.py` decides;
-`content_caveat` records it).
+The label of a mark is the place and never changes (it is never struck through); the colour is the
+answer. *blocked* = the server answered but turned our fetcher away (HTTP 401/403, a certificate it
+does not trust): the live check records `dead`, the site shows what it is, and it never counts
+toward *lost*. *unverified* = the address answers and there was nothing to compare the page with
+(the checker's `unknown`). *bad* (snapshot or copy) = something was stored, but it is not the
+document: an error page, a login wall, the shell of an app (`archive/tools/audit_not_there.py`
+decides; `content_caveat` records it). *lost* = gone from its address, no snapshot, no copy; *not
+captured* = no copy yet while there is still somewhere to take one from. *n/a*: the Wayback Machine
+for a standings page of the ICPC CMS (an app: a snapshot of it shows nothing), our archive for a
+page that is empty. *changed* is judged on the tables of a results page before the whole page
+(`archive/tools/capture_urls.py` 2.20, `tools/rejudge_changed.py`): a scoreboard whose table is what
+it was is live, whatever the site did to its header and menus.
 
 A **copy** is what we hold: a capture of one page, or a crawl of a website, taken from the address
-or from a Wayback snapshot, with the time it shows. The source page lists them under *Copies in our
-archive*. The words *snapshot* and *capture* remain in the tools (a snapshot is an address at one
-time; a capture is one stored fetch), and the code and the paragraphs below still say *locator* for
-the address and *resource* for an address at a time.
+or from a Wayback snapshot, with the time it shows. Only the **current copy** is shown and linked,
+the one that counts: the newest the public replay serves, else a crawled website, else the newest
+capture (when the address has since changed, the copy nearest the source's time). Earlier copies
+stay in the archive, for debugging, and are not listed on the site; nor are the files that were
+fetched and judged not to be the document. The words *snapshot* and *capture* remain in the tools
+(a snapshot is an address at one time; a capture is one stored fetch), and the code and the
+paragraphs below still say *locator* for the address and *resource* for an address at a time.
 
-**One address, several sources.** 9,551 of 10,327 addresses are cited by one contest: address and
-source coincide. 440 are cited by several — a results page reused every year, a joint scoreboard —
-and there each contest's citation is a source of its own, with its own time and its own copies
-(`copies_for`): a copy belongs to the contest it was captured for, or to a contest that means the
-same thing by the address (the same `as_of`; without one, the same season). The page of such an
-address has a row per contest.
+**One address, several sources.** Most addresses are cited by one contest: address and source
+coincide, and the source's id is the address's (`source/<id>/`). An address several contests cite
+is one source per time it is meant at (`index_docs`): contests that name the same `as_of`, and
+contests of one season (a joint contest, a shared problem set), mean the same document and share
+the source; a page reused year after year is a source per year, each with its own page, its own
+copies, and links to the others (*same address, other times*). The time of a citation is its
+`as_of`, else the Wayback snapshot its own copy was taken from, else none (the address as it is,
+which keeps the address's id; a source with a time has an id of its own, the hash of address and
+time). 170 of 11,234 addresses are several sources (2026-11-16).
+
+**What a source page says** is facts, each one a link, and no free text: its type (to the list of
+sources of that type), its contest, and for a problem set, problem or editorial the problem set
+and, with `problem: <letter>`, the problem; what it holds (`contains`), the format of the current
+copy, and where it is found. `note` and `notes` fields, the evidence of a check and the internal
+ids are not shown anywhere on the site (ruling of 2026-11-16): they say where data came from and
+how, which is bookkeeping.
 
 **ICPC standings** are the standings pages of the CMS
 (`https://icpc.global/regionals/finder/<abbrev>-<year>/standings`). They have no role of their own
@@ -350,6 +371,9 @@ several contests: NCPC + UKIEPC 2013, shared North American sets):
   (ruling 2026-11-15).
   `contests:` lists the contests that used the set, each with its own `letters:` map
   (letter → problem id; letters can differ between contests sharing a set);
+  `labels: [A, B, …]` on a member holds the letters alone, read off the contest's scoreboard,
+  while the problems are not listed (a scoreboard has a column per problem, so a contest whose
+  scoreboard we hold always has at least a `count` and `labels`: tools/letters_from_scoreboards.py);
   `letters: unknown` on the set says no map is known for any contest. A contest whose
   divisions (or rounds) had problem sets of their own has `divisions:` instead of `letters:`
   — division name → letter map, in the divisions' order; the site shows such a problem's
@@ -510,18 +534,21 @@ address with its branch, not `HEAD`.
    Deliberate, marked exceptions: a problem's judge links, a contest's CMS links, a
    judge's own site.
 3. **Three kinds of content per contest** — website, results, problems — always in that
-   order and always present, with one status vocabulary: *held* (green, filled), *known
-   but not held* (amber, outlined), *none* (grey), *lost* (red: dead at its address, no
-   Wayback snapshot, nothing held).
-   A source's availability is one unit of three marks, `live · WB · ours` (above, *Sources*),
+   order and always present. **One set of colours everywhere** (every pill, mark, bar and
+   square; ruling of 2026-11-16): green = we hold it / it is there; amber = partly, or in doubt;
+   blue = known but not ours yet, or not done yet (pending work); red = lost, confirmed not
+   available; grey = none exists, or does not apply; white = missing and wanted; hatched = not
+   recorded. The card at the top of a contest, problem set and source page is the same component.
+   A source's availability is one unit of three marks, `address · Wayback · archive` (above, *Sources*),
    shown wherever a source is listed; the checks behind it stay in `data/resources.json`
    and are not shown.
 4. **One anatomy.** List page: title, one paragraph, key, filter bar, sortable table.
    Object page: breadcrumb, title, status chips, facts, sections. Tables of contests
    pick their columns from one set (`CONTEST_COLS`); groups of contests (a season, a
    series, a location) show the same three counts with percentages.
-5. **One word per thing**: location, level, results, problems, website, online judge,
-   CMS id.
+5. **One word per thing**: location, level, results, problems, website, online judge
+   (never just "judge" in a label or heading), CMS id, type (of a source), address · Wayback ·
+   archive (the three places).
 
 ## Review mode
 

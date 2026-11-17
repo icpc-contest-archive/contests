@@ -142,6 +142,17 @@ class FacetTests(unittest.TestCase):
             self.assertIn(s[key], answers)
         self.assertEqual((s["results"], s["statement"], s["website"], s["date"]), ("standings", "all", "no address", "missing"))
 
+    def test_letters_read_off_a_scoreboard_count_without_a_problem_list(self):
+        c = {"id": "s-2001", "problems": {"set": "s-2001"}, "sources": []}
+        sets = {"s-2001": {"id": "s-2001", "count": 3, "contests": [{"contest": "s-2001", "labels": ["A", "B", "C"]}]}}
+        r = cov([c], sets).record(c)
+        self.assertEqual((r["set"], r["pmeta"]["letters"], r["pmeta"]["names"]), ("count only", "all", "none"))
+
+    def test_a_list_as_long_as_its_count_is_complete_whatever_the_flag_says(self):
+        doc = {"id": "x", "count": 2, "complete": False, "problems": [{"id": "p-1", "name": "a"}, {"id": "p-2", "name": "b"}]}
+        self.assertEqual(CV.set_list_state(doc), "complete")
+        self.assertEqual(CV.set_list_state({**doc, "count": 3}), "partial")
+
     def test_code_is_one_digit_per_facet(self):
         c = {"id": "s-2001", "name": "X", "sources": [src("a", ["scoreboard"], True)]}
         code = CV.encode(cov([c]).record(c))

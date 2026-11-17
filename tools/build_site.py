@@ -54,6 +54,7 @@ from __future__ import annotations
 
 import argparse
 import datetime
+import hashlib
 import html
 import json
 import os
@@ -71,9 +72,9 @@ sys.path.insert(0, str(ROOT / "tools"))
 import review_units as R  # noqa: E402  (review mode: the units a reader can confirm, correct or add to)
 from resources import fmt_time, label as res_label, norm_key, unwrap, wayback_link  # noqa: E402
 from urllib.parse import quote  # noqa: E402
-from catalogue import (RANK, RESULT_LADDER, archived, by_role, has_role, judge_sources,  # noqa: E402
+from catalogue import (CMS_STANDINGS, RANK, RESULT_LADDER, archived, find_source, by_role, has_role, judge_sources,  # noqa: E402
                        load_judges, load_locations, load_non_mainline, load_sets, location_chain,
-                       set_divisions, set_letters, set_of, sources)
+                       set_divisions, set_id_of, set_letters, set_of, sources)
 import coverage as CV  # noqa: E402  (the one coverage record per contest; every page reads it)
 from coverage import set_counts, set_list_state  # noqa: E402
 import site_resources  # noqa: E402
@@ -120,7 +121,7 @@ def level_of(sid: str) -> str:
 # ---- page chrome ----
 NAV = (("season/index.html", "Seasons"), ("series/index.html", "Series"), ("contest/index.html", "Contests"),
        ("problemset/index.html", "Problem sets"), ("problem/index.html", "Problems"), ("source/index.html", "Sources"),
-       ("judge/index.html", "Judges"), ("location/index.html", "Locations"))
+       ("judge/index.html", "Online judges"), ("location/index.html", "Locations"))
 NAV2 = (("coverage.html", "Coverage"), ("about.html", "About"))
 
 
@@ -197,10 +198,8 @@ def page(title: str, body: str, rel: str, nav: str | None = None) -> str:
 <nav>{links}</nav>
 <div class="search"><input id="q" type="search" placeholder="Search — press /" autocomplete="off" aria-label="Search the archive"><div id="hits" class="hits"></div></div></header>
 <main>{body}
-<footer class="site">Every ICPC contest from which a team could advance toward a World Finals. Something missing or wrong?
-<a href="{rel}about.html#contribute">Tell us</a> · <a href="{rel}about.html#read">How to read this site</a> ·
-<a href="{rel}random.html">Random page</a> ·
-Data: <a class="ext" href="{REPO}">icpc-contest-archive/contests</a></footer></main>
+<footer class="site">Something missing or wrong? <a href="{rel}about.html#contribute">Tell us</a> ·
+<a href="{rel}about.html#read">How to read this site</a> · <a href="{rel}random.html">Random page</a></footer></main>
 <script src="{rel}assets/site.js" defer></script></body></html>"""
 
 
@@ -375,6 +374,8 @@ ROLE_LABEL = {"frozen_scoreboard": "frozen scoreboard", "teams": "team list",
               "problemset": "problem set", "web": "website"}
 HELD_KINDS = (("statement", "St", "statements"), ("data", "D", "test data"),
               ("solutions", "So", "solutions"), ("package", "P", "complete packages"))
+# what a problem set or problem source holds (`contains:`), in the words of a page
+CONTAINS = (("names", "problem names"), ("statement", "statements"), ("data", "test data"), ("solutions", "solutions"), ("package", "complete packages"))
 
 
 def key_line(rel: str, *parts: str) -> str:
@@ -395,9 +396,9 @@ def key_line(rel: str, *parts: str) -> str:
         bits.append('<b>St</b> statement · <b>D</b> test data · <b>IV</b>/<b>OV</b> input/output validator · <b>So</b> solutions · <b>P</b> package — '
                     '<span class="m h">held</span> <span class="m n">not held</span> <span class="m u">not recorded</span>')
     if "available" in parts:
-        bits.append('where a source can be found — <b>live</b> at its address now · <b>WB</b> in the Wayback Machine · <b>ours</b> in our archive: '
-                    '<span class="m h">there</span> <span class="m l">there, but changed or empty</span> <span class="m n">not there</span> '
-                    '<span class="m u">not checked</span>')
+        bits.append('where a source is found — at its <b>address</b> now · in the <b>Wayback</b> Machine · in our <b>archive</b>: '
+                    '<span class="m h">there</span> <span class="m l">there, in doubt</span> <span class="m x">confirmed not there</span> '
+                    '<span class="m p">not done yet</span> <span class="m n">does not apply</span>')
     return '<p class="key">' + " &nbsp;·&nbsp; ".join(bits) + " " + help_link("marks", rel) + "</p>"
 
 
@@ -435,22 +436,11 @@ def load():
 
 
 
-def src_href(url: str, rel: str, ts: str | None = None) -> str | None:
-    """The source page of an address (source/<id>/index.html), with a #s-<ts> anchor on the
-    snapshot when `ts` (or a prefix of it — a partial as_of) names one; None when unknown."""
-    k = lid(url)
-    L = RES.locs.get(k)
-    if not L:
-        return None
-    h = f"{rel}source/{k}/index.html"
-    if ts:
-        ts = str(ts)
-        if ts in L["resources"]:
-            return h + f"#s-{ts}"
-        for t in L["resources"]:
-            if t.startswith(ts) or ts.startswith(t):
-                return h + f"#s-{t}"
-    return h
+def src_href(url: str, rel: str, ts: str | None = None, cid: str | None = None) -> str | None:
+    """The page of a source (source/<id>/index.html): the one `cid` means by the address when the
+    address has several (one per time it is meant at); None when the address is unknown."""
+    d = doc_for(url, cid)
+    return f"{rel}source/{d['id']}/index.html" if d else None
 
 
 def host_label(url: str, n: int = 30) -> str:
@@ -458,12 +448,12 @@ def host_label(url: str, n: int = 30) -> str:
     return h if len(h) <= n else h[:n - 1] + "…"
 
 
-def link_source(url: str, rel: str, label: str | None = None, ts=None) -> str:
-    """A source: its label linking to the SOURCE PAGE (snapshot anchor when `ts` names one).
+def link_source(url: str, rel: str, label: str | None = None, ts=None, cid: str | None = None) -> str:
+    """A source: its label linking to the SOURCE PAGE (the one `cid` means, when the address has several).
     The address itself is linked from the source page only. A source the resource graph does
     not know yet (data/resources.json older than the catalogue) falls back to the address ↗."""
     lab = esc(label if label is not None else host_label(url))
-    href = src_href(url, rel, ts)
+    href = src_href(url, rel, ts, cid)
     if href:
         return f'<a href="{href}" title="{esc(res_label(url, ts, 200))}">{lab}</a>'
     return f'<a class="ext" href="{esc(url)}" title="{esc(url)} — no source page yet (rebuild data/resources.json)">{lab}</a>'
@@ -518,7 +508,7 @@ def result_marks(c: dict, rel: str) -> str:
         parts = list(dict.fromkeys(x["scope"] for x in entries if x.get("scope")))
         if parts:
             tip += " (" + ", ".join(parts) + ")"
-        href = src_href(e["url"], rel, e.get("as_of") or cap_time(cap_of(e)))
+        href = src_href(e["url"], rel, e.get("as_of"), c["id"])
         cls = MARK_Q[key] if held else "k"
         out.append(f'<a class="m {cls}" href="{href}" title="{tip}">{letter}</a>' if href
                    else f'<span class="m {cls}" title="{tip}">{letter}</span>')
@@ -603,7 +593,7 @@ def website_cell(c: dict, rel: str, n: int = 24) -> str:
     s = webs[0]
     more = f' <span class="small muted" title="{len(webs)} website addresses">+{len(webs) - 1}</span>' if len(webs) > 1 else ""
     return (f'<span class="m {"h" if held else "k"}" title="website — {"we hold a copy" if held else "link only, no copy held"}">W</span>'
-            + link_source(s["url"], rel, host_label(s["url"], n), s.get("as_of")) + more)
+            + link_source(s["url"], rel, host_label(s["url"], n), s.get("as_of"), c["id"]) + more)
 
 
 WEB_VALUES = {"have": "have", "no copy": "missing|missing: no copy", "no address": "missing|missing: no address", "confirmed none": "confirmed none"}
@@ -648,32 +638,15 @@ def cap_time(cap: dict):
 # A source is an address as a contest means it: what the address served for that contest. The
 # same document can be found in up to three places, and every listing of a source shows all
 # three as one unit:  live (the address, now) · WB (the Wayback Machine) · ours (our archive).
-AV_CLS = {"yes": "h", "part": "l", "no": "n", "unknown": "u"}
-AV_PLACES = (("live", "live", "the address now"), ("wb", "WB", "Wayback Machine"), ("ours", "ours", "our archive"))
-
-
-LIVE_EVIDENCE = (
-    (r"nodename nor servname|Name or service not known|getaddrinfo|rep=4", "the host name no longer exists"),
-    (r"CERTIFICATE_VERIFY_FAILED", "the server's certificate could not be verified by our fetcher — it may still open in a browser"),
-    (r"HTTP 404", "the server answers “not found” (404)"),
-    (r"HTTP 403", "the server refuses our fetcher (403) — it may still open in a browser"),
-    (r"HTTP 401", "the server asks for a login (401)"),
-    (r"HTTP (5\d\d)", "the server reports an error (5xx)"),
-    (r"timed out|rep=6", "no answer (timed out)"),
-    (r"refused|rep=5", "the connection was refused"),
-    (r"SSL|TLS", "the secure connection failed"),
-    (r"RemoteDisconnected|reset", "the server closed the connection"),
-    (r"never mentions year", "it answers, but never names the contest's year — a different page now, or an app that shows nothing without a browser"),
-    (r"app shell answers", "it answers; the page is an app, so only a browser shows its content"),
-)
-
-
-def plain_live(ev: str | None) -> str:
-    """The last live check's finding in words a reader can use (the raw error stays in the data)."""
-    for rx, words in LIVE_EVIDENCE:
-        if re.search(rx, ev or ""):
-            return words
-    return ev or ""
+# One vocabulary for the three places, used by every mark, chip, pill, key and filter (ruling of 2026-11-16):
+#   place     green (it is there)   amber (there, in doubt)                  red (confirmed not there)   blue (not done yet)   grey (does not apply)
+#   address   live                  changed · blocked · unverified · empty   dead · replaced             not checked
+#   Wayback   snapshot              bad snapshot                             no snapshot · excluded      not checked           n/a
+#   archive   held                  bad copy                                 lost                        not captured          n/a
+# The label of a mark is the place and never changes; its colour is the answer.
+AV_CLS = {"yes": "h", "part": "l", "no": "x", "pending": "p", "na": "n"}       # .m and .chip classes
+AV_Q = {"yes": "q4", "part": "q2", "no": "qr", "pending": "ql", "na": "qx"}    # pill classes: the colours of every coverage bar
+AV_PLACES = (("live", "address", "the address now"), ("wb", "Wayback", "the Wayback Machine"), ("ours", "archive", "our archive"))
 
 
 def plain_why(ev: str | None) -> str:
@@ -703,16 +676,27 @@ def plain_why(ev: str | None) -> str:
     if re.search(r"\b(empty|tiny)\b", ev):
         return pre + "an empty file"
     return ev
-LIVE_WORD = {"live": "live", "changed": "changed", "replaced": "replaced", "dead": "dead", "unknown": "could not tell", "blocked": "blocked"}
+LIVE_WORD = {"live": "live", "changed": "changed", "blocked": "blocked", "unknown": "unverified", "replaced": "replaced", "dead": "dead"}
+LIVE_S = {"live": "yes", "changed": "part", "blocked": "part", "unknown": "part", "replaced": "no", "dead": "no"}
 BLOCKED = re.compile(r"HTTP (401|403|412|4[5-9]\d)|CERTIFICATE_VERIFY_FAILED")   # the server answered; our fetcher was turned away
-LIVE_TIP = {
-    "live": "the address still serves this",
-    "changed": "the address answers, but what it serves has drifted, or is an app that shows nothing without a browser",
-    "replaced": "something else lives at the address now",
-    "dead": "the address no longer answers",
-    "unknown": "the address answered, but there was nothing to judge it against",
-    "blocked": "the server answers but turns our fetcher away (a 403, or a certificate it does not trust) — it may still open in a browser",
+PLACE_TIP = {   # the sentence behind each word, the same wherever the word is shown
+    "live": "the address still serves the document",
+    "changed": "the address answers, but what it serves differs from the document; it needs a look",
+    "blocked": "the server answers but turns our fetcher away; it may still open in a browser",
+    "unverified": "the address answers, but there was nothing to compare the page against",
     "empty": "the page answers, but there is nothing on it",
+    "replaced": "something else is at the address now",
+    "dead": "the address no longer answers",
+    "snapshot": "a Wayback snapshot shows the document",
+    "bad snapshot": "a snapshot exists, but what it holds is not the document",
+    "no snapshot": "the Wayback Machine has no snapshot of this address",
+    "excluded": "the Wayback Machine refuses to serve this address",
+    "held": "we hold a copy",
+    "bad copy": "we fetched it, but what came back is not the document",
+    "lost": "gone from its address, not in the Wayback Machine, and we hold no copy",
+    "not captured": "we hold no copy yet",
+    "not checked": "nobody has looked yet",
+    "n/a": "does not apply",
 }
 EXTRA_HELD: dict = defaultdict(list)   # source id -> copies the resource graph files under another address
 EMPTY_STANDINGS: dict = {}   # source id -> date asked: ICPC standings pages the open API has no rows for (data/icpc-standings-empty.json)
@@ -786,23 +770,87 @@ def copies(k: str) -> list[dict]:
     return _COPIES[k]
 
 
-def copies_for(k: str, cid: str | None = None) -> list[dict]:
-    """The copies that are this contest's document. An address cited by one contest has one
-    document. An address several contests cite (a page reused every year) has one per contest:
-    a copy counts when it was captured for this contest, or for a contest that means the same
-    thing by the address (the same `as_of`; with none, the same season — a joint contest)."""
-    cs = copies(k)
-    cits = {c["contest"]: c for c in citations(k)}
-    if cid is None or len(cits) <= 1:
+# ---- sources: an address at a time (ruling of 2026-11-13; one page each since 2026-11-16) ----
+DOCS: dict = {}      # source id -> {"id", "k" (address id), "url", "time", "cits": the citations that mean this document}
+DOCS_OF: dict = {}   # address id -> its sources, oldest first; the one with no time (the address as it is) last
+DOC_FOR: dict = {}   # (address id, contest id) -> source id
+DOC_ALIAS: dict = {}  # address id -> source id, for an address whose every source names a time (the old page address leads to the latest)
+
+
+def _cit_time(k: str, c: dict) -> str | None:
+    """The time a citation means the address at: the catalogue's `as_of`, else the Wayback snapshot
+    its own copy was taken from, else None (the address as it is)."""
+    if c["as_of"]:
+        return str(c["as_of"])
+    own = sorted(x["ts"] for x in copies(k) if x["via"] == "wayback" and x["ts"] != "unknown"
+                 and (x["contest"] == c["contest"] or (x.get("cap") and x["cap"]["path"] in c["archived"])))
+    return own[0] if own else None
+
+
+def index_docs() -> None:
+    """Split every address into its sources. A source is an address at a time. One address cited by
+    one contest is one source. An address several contests cite is one source per time it is meant
+    at: contests that name the same time, and contests of one season (a joint contest, a shared
+    problem set), mean the same document; a page reused year after year is a source per year."""
+    DOCS.clear(); DOCS_OF.clear(); DOC_FOR.clear(); DOC_ALIAS.clear()  # noqa: E702
+    for k, L in RES.locs.items():
+        cits = citations(k)
+        groups: dict = {}
+        if len(cits) <= 1:
+            groups[(str(cits[0]["as_of"]) if cits and cits[0]["as_of"] else None)] = list(cits)
+        else:
+            season = lambda c: (CONTESTS.get(c["contest"]) or {}).get("season")  # noqa: E731
+            times = {c["contest"]: _cit_time(k, c) for c in cits}
+            # times read off copies (not named by the catalogue) on one day are one visit to the page: one source
+            first: dict = {}
+            for c in cits:
+                t = times[c["contest"]]
+                if t and not c["as_of"] and len(t) >= 8:
+                    first[t[:8]] = min(first.get(t[:8], t), t)
+            for c in cits:
+                t = times[c["contest"]]
+                if t and not c["as_of"] and len(t) >= 8:
+                    times[c["contest"]] = first[t[:8]]
+            of_season: dict = {}
+            for named in (True, False):   # a time the catalogue names wins over one read off a copy
+                for c in cits:
+                    if bool(c["as_of"]) == named and times[c["contest"]] and season(c):
+                        of_season.setdefault(season(c), times[c["contest"]])
+            for c in cits:
+                t = times[c["contest"]] if c["as_of"] else of_season.get(season(c), times[c["contest"]])
+                groups.setdefault(t, []).append(c)
+        order = sorted(groups, key=lambda t: (t is None, t or ""))
+        docs = []
+        for t in order:
+            sid = k if (len(order) == 1 or t is None) else hashlib.sha256(f"{L['key']}@{t}".encode()).hexdigest()[:12]
+            d = {"id": sid, "k": k, "url": L["url"], "time": t, "cits": groups[t]}
+            DOCS[sid] = d
+            docs.append(d)
+            for c in groups[t]:
+                DOC_FOR[(k, c["contest"])] = sid
+        DOCS_OF[k] = docs
+        if k not in DOCS:
+            DOC_ALIAS[k] = docs[-1]["id"]
+
+
+def doc_for(url: str, cid: str | None = None) -> dict | None:
+    """The source a contest means by an address; with no contest, the address as it is (else its latest)."""
+    k = lid(url)
+    ds = DOCS_OF.get(k)
+    if not ds:
+        return None
+    return DOCS.get(DOC_FOR.get((k, cid))) or ds[-1]
+
+
+def doc_copies(d: dict) -> list[dict]:
+    """The copies we hold of one source: every copy of the address when it is its only source, else
+    the copies captured for the contests that mean this source."""
+    cs = copies(d["k"])
+    if len(DOCS_OF[d["k"]]) == 1:
         return cs
-    me = cits.get(cid)
-    own = [x for x in cs if x["contest"] == cid or (me and x.get("cap") and x["cap"]["path"] in me["archived"])]
-    if own or not me:
-        return own
-    season = (CONTESTS.get(cid) or {}).get("season")
-    same = {o for o, c in cits.items() if o != cid and c["as_of"] == me["as_of"]
-            and (me["as_of"] or (season and (CONTESTS.get(o) or {}).get("season") == season))}
-    return [x for x in cs if x["contest"] in same]
+    mine = {c["contest"] for c in d["cits"]}
+    paths = {p for c in d["cits"] for p in c["archived"]}
+    return [x for x in cs if x["contest"] in mine or (x.get("cap") and x["cap"]["path"] in paths)]
 
 
 def _nearest(tss: list[str], want: str | None) -> str:
@@ -812,85 +860,119 @@ def _nearest(tss: list[str], want: str | None) -> str:
     return min(tss, key=lambda t: abs(int(str(t).ljust(14, "0")[:14]) - w))
 
 
+def current_copy(cs: list[dict], want: str | None = None) -> dict | None:
+    """The one copy that counts, of those we hold: the newest the public replay serves, else a crawled
+    website, else the newest capture. `want` (a time) picks the copy nearest that time instead: used
+    when the address has since changed, so that a late fetch does not stand in for the document."""
+    if not cs:
+        return None
+    if want:
+        dated = [x for x in cs if x["ts"] != "unknown"]
+        if dated:
+            near = _nearest([x["ts"] for x in dated], want)
+            return next(x for x in dated if x["ts"] == near)
+    order = sorted(cs, key=lambda x: (x["ts"] != "unknown", x["ts"]), reverse=True)
+    return (next((x for x in order if x["kind"] == "capture" and x["cap"].get("replay")), None)
+            or next((x for x in order if x["kind"] == "website"), None) or order[0])
+
+
+def open_copy(x: dict | None) -> str:
+    """The link that opens a copy (a source's own page is the only place it appears)."""
+    if not x:
+        return ""
+    if x["kind"] == "website":
+        w = x["site"]
+        return local_link(f"site/{w['contest']}/{w['dir'].rsplit('/', 1)[-1]}/", "open the archived website")
+    if x["cap"].get("replay"):
+        return f'<a class="ext" href="{REPLAY_BASE}/{esc(x["cap"]["replay"])}">open our copy</a>'
+    return local_link("archive/" + x["cap"]["path"], "open our copy")
+
+
+def _place(s: str, word: str, tip: str | None = None, **more) -> dict:
+    return {"s": s, "word": word, "tip": tip or PLACE_TIP[word], **more}
+
+
 def avail(url: str, cid: str | None = None, e: dict | None = None) -> dict:
-    """Where a source can be found. {"live": .., "wb": .., "ours": .., "lost": bool}; each place is
-    {"s": yes|part|no|unknown, "word": the one-word status, "tip": the sentence behind it} and the
-    Wayback entry also has "ts" (the snapshot to open, when one is known). `cid` picks the
-    contest's own document when several contests cite the address; `e` is the catalogue entry
-    when the caller has it (its own health verdict and `as_of` win)."""
+    """Where a source can be found. {"live": .., "wb": .., "ours": .., "lost": bool, "current": the
+    copy that counts}; each place is {"s": yes|part|no|pending|na, "word": its one word, "tip": the
+    sentence behind it}; the address also has "checked", the Wayback entry "ts" (the snapshot to
+    open), ours "ts" (the time its copy shows). `cid` picks the contest's own source when the
+    address has several; `e` is the catalogue entry when the caller has it (its verdict wins)."""
     k = lid(url)
     L = RES.locs.get(k)
-    if not L:
-        un = {"s": "unknown", "word": "not checked", "tip": "not in the resource graph yet (rebuild data/resources.json)"}
-        return {"live": dict(un), "wb": dict(un, ts=None), "ours": {"s": "no", "word": "missing", "tip": "no copy in our archive"}, "lost": False, "copies": []}
-    cit = next((c for c in citations(k) if c["contest"] == cid), None) if cid else None
+    d = doc_for(url, cid)
+    if not L or not d:
+        return {"live": _place("pending", "not checked", checked=None), "wb": _place("pending", "not checked", ts=None),
+                "ours": _place("pending", "not captured", ts=None), "lost": False, "copies": [], "current": None, "doc": None}
+    cit = next((c for c in d["cits"] if c["contest"] == cid), None) or (d["cits"][0] if d["cits"] else None)
     h = L.get("health") or {}
     st = (e or {}).get("url_state") or (cit or {}).get("state") or h.get("state")
     when = (e or {}).get("url_checked") or (cit or {}).get("checked") or h.get("checked")
     if st == "dead" and h.get("state") == "dead" and BLOCKED.search(h.get("evidence") or ""):
         st = "blocked"   # recorded as dead by the live check; shown as what it is
-    live = {"s": {"live": "yes", "changed": "part", "blocked": "part", "replaced": "no", "dead": "no"}.get(st, "unknown"),
-            "word": LIVE_WORD.get(st, "not checked"),
-            "tip": (LIVE_TIP.get(st, "the address has not been checked yet") + (f" (checked {when})" if when else "")),
-            "checked": when, "evidence": h.get("evidence") if h.get("state") == (st if st != "blocked" else "dead") else None}
-    cs = copies_for(k, cid)
-    probes = [p for p in L.get("probes") or [] if p.get("outcome") == "junk" and (cid is None or p.get("contest") in (None, cid) or len(citations(k)) <= 1)]
-    as_of = (e or {}).get("as_of") or (cit or {}).get("as_of") or (None if cid else next((c["as_of"] for c in citations(k) if c["as_of"]), None))
+    live = _place(LIVE_S[st], LIVE_WORD[st], checked=when) if st in LIVE_S else _place("pending", "not checked", checked=None)
+    cs = doc_copies(d)
+    mine = {c["contest"] for c in d["cits"]}
+    one = len(DOCS_OF[k]) == 1
+    probes = [p for p in L.get("probes") or [] if p.get("outcome") == "junk" and (one or p.get("contest") in mine or p.get("contest") is None)]
+    as_of = (e or {}).get("as_of") or (cit or {}).get("as_of") or d["time"]
     wb_held = sorted(x["ts"] for x in cs if x["via"] == "wayback" and x["ts"] != "unknown")
     wb_junk = [p for p in probes if p.get("via") == "wayback"]
     w = L.get("wayback") or {}
     wm = re.search(r"\((\d{8,14})\)", w.get("evidence") or "")
     if wb_held:
-        ts = _nearest(wb_held, as_of)
-        wb = {"s": "yes", "word": "snapshot", "ts": ts, "tip": f"snapshot of {fmt_time(ts)} — the one our copy was taken from"}
+        wb = _place("yes", "snapshot", ts=_nearest(wb_held, as_of))
     elif wb_junk:
-        wb = {"s": "part", "word": "empty snapshot", "ts": wb_junk[-1].get("ts"),
-              "tip": "a snapshot exists, but what it holds is not the document: " + plain_why(wb_junk[-1].get("evidence"))[:160]}
+        wb = _place("part", "bad snapshot", PLACE_TIP["bad snapshot"] + ": " + plain_why(wb_junk[-1].get("evidence"))[:160], ts=wb_junk[-1].get("ts"))
     elif as_of:
-        wb = {"s": "yes", "word": "snapshot", "ts": as_of, "tip": f"snapshot of {fmt_time(as_of)}, named by the catalogue; we have not captured it"}
+        wb = _place("yes", "snapshot", ts=as_of)
+    elif CMS_STANDINGS.match(url):
+        wb = _place("na", "n/a", "does not apply: the page is an app, and a snapshot of it shows nothing", ts=None)
     elif w.get("state") == "ok":
-        ts = wm.group(1) if wm else None
-        wb = {"s": "yes", "word": "snapshot", "ts": ts, "tip": "a snapshot is served" + (f" ({fmt_time(ts)})" if ts else "") + (f" — checked {w['checked']}" if w.get("checked") else "")}
+        wb = _place("yes", "snapshot", ts=wm.group(1) if wm else None)
     elif w.get("state") == "none":
-        wb = {"s": "no", "word": "no snapshot", "ts": None, "tip": "the Wayback Machine has no snapshot of this address" + (f" (checked {w['checked']})" if w.get("checked") else "")}
+        wb = _place("no", "no snapshot", ts=None)
     elif w.get("state") == "excluded":
-        wb = {"s": "no", "word": "excluded", "ts": None, "tip": "the Wayback Machine refuses to serve this address (excluded by policy)"}
+        wb = _place("no", "excluded", ts=None)
     else:
-        wb = {"s": "unknown", "word": "not checked", "ts": None,
-              "tip": "nobody has looked in the Wayback Machine for this address yet" if not w.get("state") else "the last Wayback check failed (throttled); not known"}
+        wb = _place("pending", "not checked", ts=None)
     ours_junk = [p for p in probes if p.get("path") or p.get("dir")]
+    cur = None
     if cs:
-        last = max(cs, key=lambda x: (x["ts"] != "unknown", x["ts"]))
-        ours = {"s": "yes", "word": "held", "n": len(cs),
-                "tip": (f"{len(cs)} copies" if len(cs) > 1 else "one copy") + f"; the latest shows {fmt_time(last['ts']) if last['ts'] != 'unknown' else 'an unknown time'}, "
-                       + ("from the Wayback Machine" if last["via"] == "wayback" else "from the ICPC standings data" if last["via"] in ("api-dump", "icpc-api-archive") else "fetched from the address")
-                       + (f" ({last['site'].get('html_pages') or last['site'].get('pages')} pages)" if last["kind"] == "website" else "")}
+        cur = current_copy(cs, as_of if st in ("changed", "replaced") else None)
+        ours = _place("yes", "held", ts=cur["ts"] if cur["ts"] != "unknown" else None)
+    elif k in EMPTY_STANDINGS:
+        live = _place("part", "empty", checked=when)
+        ours = _place("na", "n/a", "does not apply: the page is empty, there is nothing to hold", ts=None)
     elif ours_junk:
-        ours = {"s": "part", "word": "empty copy", "n": 0,
-                "tip": "we fetched it, but what came back is not the document: " + plain_why(ours_junk[-1].get("evidence"))[:160]}
+        ours = _place("part", "bad copy", PLACE_TIP["bad copy"] + ": " + plain_why(ours_junk[-1].get("evidence"))[:160], ts=None)
+    elif live["s"] == "no" and wb["s"] == "no":
+        ours = _place("no", "lost", ts=None)
     else:
-        ours = {"s": "no", "word": "missing", "n": 0, "tip": "no copy in our archive"}
-    if k in EMPTY_STANDINGS and not cs:
-        said = f"the ICPC API has no standings for this contest (asked {EMPTY_STANDINGS[k]})"
-        live = dict(live, s="part", word="empty", tip="the page answers, but there is nothing on it: " + said, evidence=None)
-        ours = dict(ours, tip="nothing to capture — the page is empty: " + said)
-    lost = live["s"] == "no" and wb["s"] == "no" and ours["s"] != "yes"
-    return {"live": live, "wb": wb, "ours": ours, "lost": lost, "copies": cs}
+        ours = _place("pending", "not captured", PLACE_TIP["not captured"] + (
+            "; the address turns our fetcher away, so it needs a browser" if live["word"] == "blocked" else
+            "; it can be captured from the address" if live["s"] in ("yes", "part") else
+            "; it can be captured from the Wayback snapshot" if wb["s"] == "yes" else ""), ts=None)
+    return {"live": live, "wb": wb, "ours": ours, "lost": ours["word"] == "lost", "copies": cs, "current": cur, "doc": d}
 
 
 def avail_marks(a: dict) -> str:
-    """The unit: three marks, always in the order live · WB · ours. Green = it is there, amber =
-    something is there but not quite the document, grey = not there, dashed = nobody has looked."""
-    out = "".join(f'<span class="m {AV_CLS[a[key]["s"]]}" title="{esc(full + ": " + a[key]["word"] + " — " + a[key]["tip"])}">{lab}</span>'
-                  for key, lab, full in AV_PLACES)
-    if a["lost"]:
-        out += chip("lost", "x", "dead at its address, not in the Wayback Machine, and we hold no copy")
-    return f'<span class="av">{out}</span>'
+    """The unit: three marks, always address · Wayback · archive. The label is the place; the colour
+    is the answer (green there, amber in doubt, red confirmed not there, blue not done yet, grey n/a)."""
+    return '<span class="av">' + "".join(
+        f'<span class="m {AV_CLS[a[key]["s"]]}" title="{esc(full + ": " + a[key]["word"] + " — " + a[key]["tip"])}">{lab}</span>'
+        for key, lab, full in AV_PLACES) + "</span>"
+
+
+def avail_pills(a: dict) -> str:
+    """The same three answers as pills with their words, for the card at the top of a source's page."""
+    return "".join(f'<a class="pl {AV_Q[a[key]["s"]]}" href="#where" title="{esc(full + ": " + a[key]["tip"])}">{lab}: {esc(a[key]["word"])}</a>'
+                   for key, lab, full in AV_PLACES)
 
 
 def avail_values(a: dict) -> str:
     """The filter values of an availability cell (one per place)."""
-    return f'live: {a["live"]["word"]}|WB: {a["wb"]["word"]}|ours: {a["ours"]["word"]}' + ("|lost" if a["lost"] else "")
+    return "|".join(f'{lab}: {a[key]["word"]}' for key, lab, _full in AV_PLACES)
 
 
 def avail_cell(url: str, cid: str | None = None, e: dict | None = None) -> str:
@@ -898,8 +980,8 @@ def avail_cell(url: str, cid: str | None = None, e: dict | None = None) -> str:
     return f'<td class="nw" data-vs="{esc(avail_values(a))}">{avail_marks(a)}</td>'
 
 
-AVAIL_TH = ('<th data-f="available" title="where the source can be found: live = at its address now, WB = in the Wayback Machine, '
-            'ours = in our archive">live · WB · ours</th>')
+AVAIL_TH = ('<th data-f="found at" title="where the source can be found: at its address now, in the Wayback Machine, in our archive">'
+            "address · Wayback · archive</th>")
 
 
 
@@ -1170,6 +1252,12 @@ def problem_link(pid: str, rel: str, label: str | None = None) -> str:
     return f'<a href="{rel}problem/{esc(pid)}.html">{esc(label or problem_name(pid))}</a>'
 
 
+def set_labels(doc: dict, cid: str) -> list[str]:
+    """The letters alone that a contest's problems carried (`labels`, read off its scoreboard),
+    for a set whose problems are not listed."""
+    return next((m.get("labels") for m in doc.get("contests") or [] if m.get("contest") == cid), None) or []
+
+
 def set_members(doc: dict) -> list[str]:
     return [m["contest"] for m in doc.get("contests") or []]
 
@@ -1205,7 +1293,7 @@ def problems_cell(c: dict, rel: str) -> str:
         lab = str(total) if total else ("set" if not listed else str(listed))
         return f'<a href="{rel}problemset/{esc(pb["id"])}.html" title="problem set {esc(pb["id"])}: {total or "?"} problems, {listed} listed by name">{lab}</a> ' + held_marks(pb)
     if c.get("status") != "upcoming" and (has_role(c, "problemset") or has_role(c, "problem")):
-        return '<span class="m k" title="a published problem set or a judge page is known; nothing recorded about the problems yet">src</span>'
+        return '<span class="m k" title="a published problem set or a page on an online judge is known; nothing recorded about the problems yet">src</span>'
     return ""
 
 
@@ -1257,7 +1345,7 @@ def judge_closed_chip(jid: str) -> str:
     if j.get("status") != "closed":
         return ""
     return " " + chip("closed" + (f' {j["closed"]}' if j.get("closed") else ""), "n",
-                      j.get("notes") or "this judge has shut down; its pages survive only in Wayback snapshots")
+                      "this online judge has shut down; its pages survive only in Wayback snapshots")
 
 
 def problem_judge_links(p: dict, sep: str = " ", by_id: bool = False, tips: bool = True) -> str:
@@ -1421,10 +1509,19 @@ BOILERPLATE = re.compile(r"^(ICPC Problem Archive progress sheet|Baekjoon ICPC c
                          r"Kattis problem export|problem list from the )")
 
 
+STAMP = re.compile(r"\s*\[(?:existence hunt|url[- ]hunt|content check|judge hunt)[^\]]*\]")   # which pass of ours found a line
+BOOKKEEPING = re.compile(r"\bruling \d{4}-|misclass audit|icpc-history|icpc-nopii|master_contests|problem archive sheet|\btools/\w+\.py")
+
+
 def evidence_lines(c: dict) -> list[str]:
     """The hand-collected lines of `provenance` (where a date came from, proof that a dark
     contest ran). Import stamps about the problem set are not evidence about the contest."""
-    return [x for x in refs(c.get("provenance")) if not BOILERPLATE.match(str(x))]
+    out = []
+    for x in refs(c.get("provenance")):
+        x = STAMP.sub("", str(x)).strip()
+        if x and not BOILERPLATE.match(x) and not BOOKKEEPING.search(x):
+            out.append(x)
+    return out
 
 
 def status_chips(c: dict, cid: str, rel: str) -> str:
@@ -1445,32 +1542,31 @@ def status_chips(c: dict, cid: str, rel: str) -> str:
 HUNT_STAMP = re.compile(r"\s*\((?:judge hunt|QOJ ICPC category tree) .*\)$")
 
 
-def source_note(e: dict) -> str:
-    """A source's note for display: the import stamp of a judge hunt and a note that only
-    repeats the judge's name say nothing to a reader."""
-    note = HUNT_STAMP.sub("", e.get("note") or "").strip()
-    return "" if e.get("judge") and note in (judge_name(e["judge"]), (JUDGES.get(e["judge"]) or {}).get("name", "")) else note
-
-
+def source_time(e: dict, cid: str | None) -> str | None:
+    """The time a contest means a source at: the catalogue's `as_of`, else the time of the source
+    the contest means when the address has several."""
+    return e.get("as_of") or (doc_for(e["url"], cid) or {}).get("time")
 
 
 def source_table(cid: str, entries: list[dict], rel: str, kind: str, extra_rows: list[str] | None = None) -> str:
-    """The sources of one kind on a contest page: what each serves, the address (to its source
-    page), and where it can be found — live, in the Wayback Machine, in our archive — as one
-    unit. Nothing here leaves the site; the copies are opened from the source's own page."""
+    """The sources of one kind on a contest page: the type of each (and which problem, which part
+    of the contest, which online judge), the source (to its own page), and where it is found —
+    at its address, in the Wayback Machine, in our archive — as one unit. Nothing here leaves
+    the site; a copy is opened from the source's own page."""
     rows = []
     for e in entries:
-        url, as_of = e["url"], e.get("as_of")
+        url = e["url"]
         roles = R.U("source", "".join(role_chip(r) for r in sorted(e["roles"], key=lambda r: RANK[r])), " ".join(sorted(e["roles"])), url)
+        if e.get("problem"):
+            roles += f'<b title="problem {esc(e["problem"])}">{esc(e["problem"])}</b> '
         if e.get("scope"):
             roles += R.U("division", chip(e["scope"], "sc", "this source covers one part of the contest, not all of it"), e["scope"], url)
         if e.get("judge"):
             roles += judge_link(e["judge"], rel, logo=True) + judge_closed_chip(e["judge"])
-        note = esc(source_note(e))
-        rows.append(f"<tr><td>{roles}</td><td class=\"url\">{link_source(url, rel, res_label(url, as_of, 90), as_of or cap_time(cap_of(e)))}</td>"
-                    + avail_cell(url, cid, e) + f"<td class=\"small muted\">{note}</td></tr>")
+        t = source_time(e, cid)
+        rows.append(f"<tr><td>{roles}</td><td class=\"url\">{link_source(url, rel, res_label(url, t, 90), t, cid)}</td>" + avail_cell(url, cid, e) + "</tr>")
     rows += extra_rows or []
-    return table([th("serves"), th("source"), AVAIL_TH, th("note")], rows, "nosort")
+    return table([th("type"), th("source"), AVAIL_TH], rows, "nosort")
 
 
 def contest_page(cid: str, c: dict, rel: str) -> str:
@@ -1543,8 +1639,6 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
         d.append('<dt>CMS id</dt><dd class="muted">' + R.U("cms_id", "none", "none") + "</dd>")
     else:
         d.append(R.row("cms_id", "CMS id"))
-    if c.get("notes"):
-        d.append(f"<dt>notes</dt><dd>{esc(c['notes'])}</dd>")
     d.append("</dl>")
     b += d
 
@@ -1573,8 +1667,8 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
         if e["path"] in matched or e.get("artifact") == "problemset" or not e.get("url"):
             continue
         matched.add(e["path"])
-        extra.append(f'<tr><td>{role_chip(e["artifact"])}</td><td class="url">{link_source(e["url"], rel, res_label(e["url"], None, 90))}</td>'
-                     + avail_cell(e["url"], cid) + '<td class="small muted">held, not yet listed as a source of this contest</td></tr>')
+        extra.append(f'<tr><td>{role_chip(e["artifact"])}{chip("not listed yet", "n", "we hold a copy; it is not yet listed as a source of this contest")}</td>'
+                     f'<td class="url">{link_source(e["url"], rel, res_label(e["url"], None, 90), None, cid)}</td>' + avail_cell(e["url"], cid) + "</tr>")
     ev = evidence_lines(c)
     if res_entries or extra:
         b.append(source_table(cid, res_entries, rel, "results", extra))
@@ -1602,9 +1696,10 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
                      + (f", {listed} listed by name" if listed and set_list_state(pb) == "partial" else "")
                      + f' &nbsp;{held_marks(pb)} <span class="small muted">what we hold of it — details on the set\'s page</span>'
                      + (' <span class="small muted">· shared with ' + ", ".join(contest_ref(x, rel) for x in others) + "</span>" if others else "") + "</p>")
-            if (c.get("problems") or {}).get("note"):
-                b.append(f'<p class="note">{esc(c["problems"]["note"])}</p>')
             probs = set_problems_in_order(pb, cid)
+            if not probs and set_labels(pb, cid):
+                b.append("<p>Letters: " + " · ".join(f"<b>{esc(x)}</b>" for x in set_labels(pb, cid))
+                         + ' <span class="small muted">— the problems are not listed by name yet</span></p>')
             if probs:
                 b.append('<p class="cols">' + "<br>".join(
                     R.U("letter", f'<b>{esc(L or "?")}</b>', L or "", p["id"], p["name"]) + f' &nbsp;{problem_link(p["id"], rel, p["name"])}'
@@ -1676,8 +1771,6 @@ def series_page(sid: str, doc: dict, rel: str) -> str:
         d.append("<dt>host</dt><dd>" + R.U("rotating_host", 'rotates between cities <span class="muted">— gaps between years are expected</span>', "yes") + "</dd>")
     else:
         d.append(R.row("rotating_host", "host", "not recorded as rotating"))
-    if s.get("notes"):
-        d.append(f"<dt>notes</dt><dd>{esc(s['notes'])}</dd>")
     d.append("</dl>")
     b += d
     b.append(group_nums(doc["contests"], rel, {"series": sid}))
@@ -1949,17 +2042,29 @@ def set_letter_cells(doc: dict) -> list[tuple[str, dict]]:
     return rows
 
 
-def data_from(lines: list) -> str:
-    """Import stamps, shortened: where a set's rows came from."""
-    out = []
-    for x in dict.fromkeys(lines or []):
-        x = re.sub(r"^problem list from the (\w+) judge page \((\S+?)\).*$", r"the \1 judge page", str(x))
-        out.append(x)
-    return "; ".join(esc(x) for x in dict.fromkeys(out))
+def set_card(sid: str, doc: dict, rel: str) -> str:
+    """The card at the top of a problem set's page: the same pills, in the same colours and the same
+    order, as the problem part of a contest's coverage card (what the catalogue records about the
+    problems, then what we hold of them, from the problem archive or from a source we hold)."""
+    members = set_members(doc)
+    fc = set_first_contest(doc)
+    pr = COV.problems(fc if fc and set_id_of(fc) == sid else {"id": (members or [sid])[0], "problems": {"set": sid}, "sources": []})
+    s = {"list": pr["set"], **pr["pmeta"], **pr["problems"]}
+    groups = []
+    for g in ("Problem metadata", "Problems"):
+        pills = []
+        for key in (x[0] for x in CV.FACETS if x[2] == g):
+            lab, sts, q = CV.FACET[key][1], CV.FACET[key][3], facet_q(key)
+            a = s[key]
+            cls = q[sts.index(a)]
+            pill = f'<span class="pl {cls}" title="{esc(lab)}: {esc(a)} — {Q_WORD[cls]}">{esc(lab if a == sts[0] else f"{lab}: {a}")}</span>'
+            pills.append(R.U("complete", pill, set_list_state(doc)) if key == "list" else pill)
+        groups.append(f'<div class="cc-g"><b>{esc(g)}</b>' + "".join(pills) + "</div>")
+    return '<div class="cc">' + "".join(groups) + " " + help_link("status", rel, "what the colours mean") + "</div>"
 
 
 def problemset_page(sid: str, doc: dict, rel: str) -> str:
-    """problemset/<set-id>.html — what the problem archive holds for a set, problem by
+    """problemset/<set-id>.html — a problem set: what is recorded and held of it, problem by
     problem. Where the set was published and where it can be solved are sources of the
     contest and stay on the contest page."""
     members = set_members(doc)
@@ -1972,37 +2077,34 @@ def problemset_page(sid: str, doc: dict, rel: str) -> str:
         b.append(f'<p class="lede">{R.U("name", esc(doc["name"]), doc["name"])}</p>')
     else:
         b.append('<p class="lede">' + R.U("name", "The problem set of " + " and ".join(esc((CONTESTS.get(m) or {}).get("name") or m) for m in members[:2]), "") + "</p>")
-    chips = [chip({"complete": f"{listed} problems listed", "partial": f"{listed} of {total or '?'} problems listed",
-                   "none": (f"{total} problems, not listed" if total else "problems not listed")}[state],
-                  {"complete": "h", "partial": "l", "none": "l"}[state],
-                  {"complete": "every problem of the set is listed by name", "partial": "only some of the problems are listed by name",
-                   "none": "only the archive's holdings are recorded; the problems are not listed by name yet"}[state])]
-    chips[0] = R.U("complete", chips[0], state)
-    for key, _l, what in HELD_KINDS:
-        st = doc.get(key)
-        if st:
-            n = (doc.get("counts") or {}).get(key)
-            chips.append(chip(f"{what}: " + {"full": "all", "partial": f"{n} of {doc.get('count')}" if n is not None else "some", "none": "none"}[st],
-                              {"full": "h", "partial": "l", "none": "n"}[st], f"{what} held by the problem archive"))
-    if not any(doc.get(k) for k, *_ in HELD_KINDS):
-        chips.append(chip("archive holdings not recorded", "n", "what the ICPC Problem Archive holds for this set has not been entered"))
-    b.append('<p class="status">' + "".join(chips) + " " + help_link("status-set", rel) + "</p>")
-    b.append(f'<p>{held_marks(doc)} <span class="small muted">what we hold of this set, from the problem archive (the chips above) '
-             "or from a source of one of its contests that we hold a copy of</span></p>")
+    b.append(set_card(sid, doc, rel))
     d = ['<dl class="facts">']
-    d.append("<dt>used by</dt><dd>" + ", ".join(R.U("contest", contest_ref(m, rel), m, m) for m in members) + " " + R.slot("contest", "add a contest")
-             + (' <span class="muted">— where it was published and where it can be solved online are on the contest page</span>' if any(m in CONTESTS for m in members) else "") + "</dd>")
+    d.append(f'<dt>contest{"s" if len(members) > 1 else ""}</dt><dd>' + ", ".join(R.U("contest", contest_ref(m, rel), m, m) for m in members) + " " + R.slot("contest", "add a contest") + "</dd>")
     if fc.get("season"):
         d.append(f"<dt>season</dt><dd>{link_season(fc['season'], rel)}</dd>")
     d.append("<dt>problems</dt><dd>" + R.U("count", str(total) if total else '<span class="muted">number not known</span>', total or "")
              + (f' <span class="muted">— {listed} listed by name below</span>' if state == "partial" else "") + "</dd>")
-    if doc.get("repo"):
-        d.append(f"<dt>archive repo</dt><dd>{repo_link(doc)} <span class=\"muted\">in the ICPC Problem Archive (private)</span></dd>")
+    arch = []
+    for key, _l, what in HELD_KINDS:
+        st = doc.get(key)
+        if st:
+            n = (doc.get("counts") or {}).get(key)
+            arch.append(f"{what}: " + {"full": "all", "partial": f"{n} of {doc.get('count')}" if n is not None else "some", "none": "none"}[st])
+    d.append('<dt title="what the ICPC Problem Archive holds for this set">problem archive</dt><dd>'
+             + (", ".join(esc(x) for x in arch) if arch else '<span class="muted">holdings not recorded</span>')
+             + (f" · {repo_link(doc)} <span class=\"muted\">(private)</span>" if doc.get("repo") else "") + "</dd>")
     if doc.get("aliases"):
         d.append('<dt>replaces</dt><dd class="small">' + ", ".join(esc(a) for a in doc["aliases"])
                  + ' <span class="muted">— these were separate sets with the same problems; their addresses lead here</span></dd>')
+    with_letters = [m for m in members if set_letters(doc, m)]
+    same_letters = len({json.dumps(set_letters(doc, m), sort_keys=True) for m in with_letters}) == 1
+    lab = [(m, set_labels(doc, m)) for m in members if set_labels(doc, m)]
     if doc.get("letters") == "unknown":
         d.append('<dt>letters</dt><dd class="muted">not known — the list came from an online judge, which does not keep contest letters</dd>')
+    elif lab and not doc.get("problems"):
+        d.append("<dt>letters</dt><dd>" + "<br>".join((f"{contest_ref(m, rel)}: " if len(members) > 1 else "") + " · ".join(f"<b>{esc(x)}</b>" for x in ls) for m, ls in lab) + "</dd>")
+    elif len(members) > 1 and with_letters and len(with_letters) < len(members):
+        d.append('<dt>letters</dt><dd>not recorded for ' + ", ".join(contest_ref(m, rel) for m in members if m not in with_letters) + "</dd>")
     for m in members:
         dv = set_divisions(doc, m)
         if dv:
@@ -2010,15 +2112,9 @@ def problemset_page(sid: str, doc: dict, rel: str) -> str:
                      + ", ".join(f"{esc(n)} ({len(lm)} problems)" for n, lm in dv.items())
                      + (' <span class="small muted">— a problem in two divisions is one problem here; the # column gives its letter in each, in this order, – where it was not in that division</span>'
                         if len(dv) > 1 else ' <span class="small muted">— the # column gives the letter in this division; the other divisions\' letters are not known</span>') + "</dd>")
-    if doc.get("notes"):
-        d.append(f"<dt>notes</dt><dd>{esc(doc['notes'])}</dd>")
-    if doc.get("provenance"):
-        d.append(f'<dt>data from</dt><dd class="small muted">{data_from(doc["provenance"])}</dd>')
     d.append("</dl>")
     b += d
     probs = doc.get("problems") or []
-    with_letters = [m for m in members if set_letters(doc, m)]
-    same_letters = len({json.dumps(set_letters(doc, m), sort_keys=True) for m in with_letters}) == 1
     if probs:
         b.append(f'<h2 id="problems">Problems <span class="n">{len(probs)}' + (f" of {total}" if state == "partial" and total else "") + "</span></h2>")
         if len(members) > 1 and len(with_letters) > 1 and not same_letters:
@@ -2036,13 +2132,8 @@ def problemset_page(sid: str, doc: dict, rel: str) -> str:
         b.append('<h2 id="problems">Problems</h2><p class="empty">The problems of this set are not listed by name yet'
                  + (f" — {total} problems; only what the archive holds is recorded." if total else ".") + "</p>")
     b.append(R.slot("member", "add a missing problem", tag="p"))
-    if len(members) > 1 and same_letters:
-        without = [m for m in members if m not in with_letters]
-        b.append('<h2 id="letters">Letters per contest</h2><p>'
-                 + (f"The {len(with_letters)} contests with a recorded lettering used the same letters, the ones in the # column"
-                    if len(with_letters) > 1 else f"{contest_ref(with_letters[0], rel)} used the letters in the # column")
-                 + (". No lettering is recorded for " + ", ".join(contest_ref(m, rel) for m in without) if without else "") + ".</p>")
-    elif len(members) > 1:
+    # the letters contest by contest, only where they differ: contests that sat the set under the same letters need no table
+    if len(with_letters) > 1 and not same_letters:
         b.append('<h2 id="letters">Letters per contest</h2>')
         for m in members:
             lm = set_letters(doc, m)
@@ -2087,6 +2178,10 @@ def problem_page(pid: str, ent: dict, rel: str) -> str:
         else:
             src = "the problem archive's holdings for this set have not been entered yet"
         d.append(f"<dt>held</dt><dd>{problem_have_marks(have_row or p, first_doc)} <span class=\"small muted\">— {src}</span></dd>")
+    repos = [(s, SETS[s]) for s, _r in rows if (SETS.get(s) or {}).get("repo")]
+    if repos and not private:
+        d.append("<dt>problem archive</dt><dd>" + "<br>".join(
+            f'{repo_link(doc)} <span class="muted">(private) — the repository of problem set {set_link(s, rel)}; the problem is in it</span>' for s, doc in repos) + "</dd>")
     uuids = sorted({r["uuid"] for _s, r in rows if r.get("uuid")})
     d.append("<dt>UUID</dt><dd>" + (", ".join(f"<code>{esc(u)}</code>" for u in uuids) if uuids
                                     else '<span class="muted">none yet — the problem has no package in the archive</span>') + "</dd>")
@@ -2098,9 +2193,6 @@ def problem_page(pid: str, ent: dict, rel: str) -> str:
         d.append("<dt>other titles</dt><dd>" + ", ".join(esc(x) for x in others)
                  + ' <span class="small muted">— the same problem under another title (a judge\'s, or the statement\'s where the name here is the archive package\'s)</span></dd>')
     # `aliases` (ids merged into this one) are not shown: they are internal and only keep old addresses working
-    notes = [r["notes"] for _s, r in rows if r.get("notes")] if not private else []
-    if notes:
-        d.append("<dt>notes</dt><dd>" + "; ".join(esc(x) for x in dict.fromkeys(notes)) + "</dd>")
     d.append("</dl>")
     b += d
     if not private:
@@ -2121,7 +2213,6 @@ def problemset_index(rel: str) -> str:
                     f'<td class="nw" data-v="{fc.get("season", "")}">{link_season(fc.get("season"), rel)}</td><td class="nw">{esc(set_region(doc))}</td>'
                     f'<td class="num" data-v="{total or ""}">{count}</td><td class="nw">{ {"complete": "complete", "partial": "partial", "none": "none"}[state]}</td>'
                     f'<td class="nw">{held_marks(doc)}</td><td class="nw">{repo_link(doc)}</td>'
-                    f'<td class="small muted">{esc(doc.get("notes", ""))}</td>'
                     + "".join(f'<td class="hid" data-vs="{esc(toks(st, "missing" if st != "all" else ""))}"></td>'
                               for st in (COV.set_record(sid)[k] for k, *_ in CV.COMPONENTS)) + "</tr>")
     n_listed = sum(1 for d in SETS.values() if d.get("problems"))
@@ -2137,7 +2228,7 @@ def problemset_index(rel: str) -> str:
                 + key_line(rel, "held")
                 + table([th("problem set"), th("contests", num=True, title="how many contests sat this set"), th("season", f=True), th("region", f=True),
                          th("problems", num=True), th("list", f="problem list"),
-                         th("held"), th("archive repo"), th("notes")]
+                         th("held"), th("archive repo")]
                         + [th(what, f=what, k=COMP_KEY[key], g=True, hid=True, o=STATE_ORDER) for key, _m, what in CV.COMPONENTS], rows, "flt"),
                 rel, "problemset/index.html")
 
@@ -2194,83 +2285,51 @@ def index_sources(contests: dict) -> None:
                 SRC_SCOPE[k].add(s["scope"])
 
 
-def field_chip(field: str) -> str:
-    if field.startswith("judge-"):
-        return f'<span class="chip">problem set</span>{judge_mark(field[6:])}'
-    return role_chip(field)
+def role_link(r: str, rel: str) -> str:
+    """A source type as a chip that opens the list of sources of that type."""
+    return f'<a class="chip" href="{rel}source/by-role/{r}.html" title="every {esc(role_label(r))} source">{esc(role_label(r))}</a>'
 
 
-def capture_table(caps: list[dict], url: str, rel: str, with_contest: bool = False) -> str:
-    """The captures that make up one copy: when each was fetched and from where, what it is,
-    and the links that open it."""
-    rows = []
-    for c in caps:
-        flags = []
-        if c.get("wrapper_fetched"):
-            flags.append(chip("wrapper", "n", "fetched through the Wayback wrapper rather than the raw id_ endpoint; Wayback chrome is stripped at bake/playback"))
-        links = []
-        if c.get("replay"):
-            links.append(f'<a class="ext" href="{REPLAY_BASE}/{esc(c["replay"])}">our copy</a>')
-        links.append(local_link("archive/" + c["path"], "raw file"))
-        fu = c.get("fetch_url") or url
-        via = {"live": "the address", "wayback": "Wayback Machine", "icpc-api-archive": "ICPC standings data", "direct": "import"}.get(c.get("source") or "", c.get("source") or "")
-        rows.append("<tr>" + (f'<td class="nw">{contest_ref(c["contest"], rel)}</td>' if with_contest else "")
-                    + f'<td class="nw">{esc(str(c.get("fetched") or "")[:16].replace("T", " "))}</td>'
-                    f'<td><a class="ext" href="{esc(fu)}" title="{esc(fu)}">{esc(via)}</a> {" ".join(flags)}</td>'
-                    f'<td>{esc(c["artifact"].replace("_", " "))}</td>'
-                    f'<td>{esc((c.get("content_type") or "").split(";")[0])}</td><td class="num">{num(c["size"]) if c.get("size") else ""}</td>'
-                    f'<td><code title="sha256 {esc(c.get("sha256") or "")} · {esc(c["path"])}">{esc((c.get("sha256") or "")[:12])}</code></td>'
-                    f'<td class="nw">{" · ".join(links)}</td></tr>')
-    return table(([th("contest")] if with_contest else []) + [th("fetched"), th("fetched from"), th("filed as"), th("type"), th("size", num=True),
-                 th("sha256"), th("open")], rows, "nosort small")
+def doc_roles(d: dict) -> list[str]:
+    return sorted({r for c in d["cits"] for r in c["roles"]}, key=lambda r: RANK.get(r, 99))
 
 
-def website_crawl(site: dict, rel: str) -> str:
-    """A crawled website under one snapshot: mode, scope, size, playback, and its page list."""
-    d = ['<dl class="facts small">', f'<dt>website crawl</dt><dd>{contest_ref(site["contest"], rel)} · mode {esc(site.get("mode") or "")}'
-         + (" " + chip("legacy wrapper", "n", "crawl seeded with a Wayback wrapper URL before the resource model; Wayback chrome stripped at playback") if site.get("legacy_wrapper") else "")
-         + f' · fetched {esc(str(site.get("fetched") or "")[:16].replace("T", " "))}' + (f' ({esc(site.get("tool"))})' if site.get("tool") else "") + "</dd>"]
-    if site.get("scopes"):
-        d.append("<dt>scope</dt><dd>" + "; ".join(
-            f'{esc(s.get("host", ""))}{esc(s.get("path", ""))} <span class="muted">({esc(s.get("rule", ""))})</span>' for s in site["scopes"]) + "</dd>")
-    d.append(f'<dt>size</dt><dd>{site.get("pages") or 0} pages ({site.get("html_pages") or 0} html), {round((site.get("bytes") or 0) / 1e6, 1)} MB'
-             + (f'; {site["unfetched"]} in scope not fetched, {site["offsite"]} offsite links' if "unfetched" in site else "") + "</dd>")
-    cap_dir = site["dir"].rsplit("/", 1)[-1]
-    d.append("<dt>open</dt><dd>" + local_link(f"site/{site['contest']}/{cap_dir}/", "archived website") + " · "
-             + local_link("archive/" + site["dir"] + "/", "raw files") + "</dd>")
-    d.append("</dl>")
-    pl = site.get("page_list")
-    if pl:
-        rows = []
-        for u, status, size, pts, ctype in sorted(pl, key=lambda x: str(x[0])):
-            pl_link = " " + local_link(f"site/{site['contest']}/{cap_dir}/{u}", "our copy") if str(status) == "200" else ""
-            rows.append(f'<tr><td class="url"><a class="ext" href="{esc(u)}">{esc(u[:110])}</a>{pl_link}</td><td>{esc(status)}</td><td>{esc(ctype or "")}</td>'
-                        f'<td class="num">{size or ""}</td><td class="nw">{esc(fmt_time(pts)) if pts else ""}</td></tr>')
-        d.append(f'<details><summary class="small">{len(pl)} pages</summary>'
-                 + table([th("address"), th("status"), th("type"), th("size", num=True), th("snapshot")], rows, "nosort small") + "</details>")
-    return "\n".join(d)
+def doc_entries(d: dict) -> list[tuple[dict, dict]]:
+    """(contest, its catalogue entry for the address) for every contest that means this source."""
+    out = []
+    for c in d["cits"]:
+        con = CONTESTS.get(c["contest"]) or next((x for x in NM if x["id"] == c["contest"]), None)
+        e = find_source(con, d["url"]) if con else None
+        if con and e:
+            out.append((con, e))
+    return out
 
 
-def best_open(cs: list[dict]) -> str:
-    """The links that open the best copy among `cs` (a source's own page is the only place they
-    appear): the newest capture the public replay serves, else a crawled website on the local
-    archive server, else a raw capture."""
-    order = sorted(cs, key=lambda x: (x["ts"] != "unknown", x["ts"]), reverse=True)
-    for x in order:
-        if x["kind"] == "capture" and x["cap"].get("replay"):
-            return f'<a class="ext" href="{REPLAY_BASE}/{esc(x["cap"]["replay"])}">open our copy</a>'
-    for x in order:
-        if x["kind"] == "website":
-            w = x["site"]
-            return local_link(f"site/{w['contest']}/{w['dir'].rsplit('/', 1)[-1]}/", "open the archived website")
-    for x in order:
-        if x["kind"] == "capture":
-            return local_link("archive/" + x["cap"]["path"], "open our copy")
-    return ""
+def doc_label(d: dict, n: int = 90) -> str:
+    return res_label(d["url"], d["time"], n)
+
+
+FORMATS = (("application/pdf", "PDF"), ("text/html", "web page"), ("application/xhtml", "web page"), ("text/plain", "plain text"),
+           ("application/postscript", "PostScript"), ("application/msword", "Word document"), ("wordprocessingml", "Word document"),
+           ("application/rtf", "RTF"), ("text/rtf", "RTF"), ("gzip", "gzip archive"), ("zip", "zip archive"), ("x-tar", "tar archive"), ("rar", "rar archive"), ("octet-stream", "file of unrecorded type"),
+           ("spreadsheet", "spreadsheet"), ("ms-excel", "spreadsheet"), ("text/csv", "CSV"), ("application/json", "JSON"), ("image/", "image"),
+           ("text/xml", "XML"), ("application/xml", "XML"), ("x-tex", "TeX"), ("x-dvi", "DVI"))
+
+
+def copy_format(x: dict | None) -> str:
+    """What kind of file the copy that counts is: PDF, web page, a crawled website."""
+    if not x:
+        return ""
+    if x["kind"] == "website":
+        w = x["site"]
+        n = w.get("html_pages") or w.get("pages") or 0
+        return f"website, {n} pages" if n else "website"
+    ct = (x["cap"].get("content_type") or "").lower()
+    return next((lab for key, lab in FORMATS if key in ct), ct.split(";")[0])
 
 
 def same_as(k: str) -> list[str]:
-    """Other sources of which we hold a copy that is byte for byte a copy we hold of this one:
+    """Other addresses of which we hold a copy that is byte for byte a copy we hold of this one:
     the same document at another address. Read off the copies' checksums, never stored."""
     if not _SAME:
         for o in RES.locs:
@@ -2287,183 +2346,124 @@ def same_as(k: str) -> list[str]:
     return sorted(out - {k})
 
 
-def serves_words(c: dict, rel: str) -> str:
-    """What a citation uses the address for, in words: `website`, `problem set on Kattis`."""
-    out = []
-    for r in sorted(c["roles"], key=lambda r: RANK.get(r, 99)):
-        j = next((f[6:] for f in c["fields"] if f.startswith("judge-")), None) if r in ("problemset", "problem") else None
-        out.append(esc(role_label(r)) + (f" on {judge_link(j, rel)}" if j and j != "unknown" else ""))
-    return ", ".join(out) or "source"
-
-
 def place_rows(url: str, a: dict) -> list[str]:
-    """The three places as table rows: status, what is known, the link that opens it."""
+    """The three places as table rows: the place, its answer (the same word and colour as its mark),
+    what is known, and the link that opens it. No free text: every cell is a fixed word or a date."""
     live, wb, ours = a["live"], a["wb"], a["ours"]
-    ccls = {"yes": "h", "part": "l", "no": "n", "unknown": "n"}
-    det = (f'checked {esc(live["checked"])}' if live.get("checked") else "not checked yet") + (f' — {esc(plain_live(live["evidence"]))}' if live.get("evidence") else "")
-    rows = [f'<tr><th>The address now</th><td>{chip(live["word"], ccls[live["s"]], LIVE_TIP.get(live["word"]))}</td><td class="small">{det}</td>'
-            f'<td class="nw"><a class="ext" href="{esc(url)}">open the address</a></td></tr>']
-    if wb.get("ts") and wb["s"] != "no":
-        wlink = f'<a class="ext" href="{esc(wayback_link(url, wb["ts"]))}">open the snapshot</a>'
-    elif wb["s"] == "unknown":
-        wlink = f'<a class="ext" href="{esc(wayback_link(url))}">look for snapshots</a>'
-    else:
-        wlink = ""
-    rows.append(f'<tr><th>Wayback Machine</th><td>{chip(wb["word"], ccls[wb["s"]])}</td><td class="small">{esc(wb["tip"])}</td><td class="nw">{wlink}</td></tr>')
-    if ours["s"] == "no":
-        tip = "nothing captured yet" + (" — the address turns our fetcher away; it needs a browser, or a fetcher that trusts its certificate" if live["word"] == "blocked" else
-                                        " — it can be captured from the address" if live["s"] in ("yes", "part") else
-                                        " — it can be captured from the Wayback snapshot" if wb["s"] == "yes" else
-                                        " — and nowhere left to capture it from" if a["lost"] else "")
-    else:
-        tip = ours["tip"]
-    rows.append(f'<tr><th>Our archive</th><td>{chip(ours["word"], "x" if a["lost"] else ccls[ours["s"]])}</td><td class="small">{esc(tip)}</td>'
-                f'<td class="nw">{best_open(a["copies"])}</td></tr>')
+    rows = []
+    for (key, _lab, full), p in zip(AV_PLACES, (live, wb, ours)):
+        if key == "live":
+            what = p["tip"] + (f' (checked {p["checked"]})' if p.get("checked") else "")
+            link = f'<a class="ext" href="{esc(url)}">open the address</a>'
+        elif key == "wb":
+            what = f'snapshot of {fmt_time(p["ts"])}' if p["s"] == "yes" and p.get("ts") else p["tip"]
+            link = (f'<a class="ext" href="{esc(wayback_link(url, p["ts"]))}">open the snapshot</a>' if p.get("ts") and p["s"] in ("yes", "part")
+                    else f'<a class="ext" href="{esc(wayback_link(url))}">look for snapshots</a>' if p["s"] == "pending" else "")
+        else:
+            what = (f'copy of {fmt_time(p["ts"])}' if p.get("ts") else "copy of an unknown time") if p["s"] == "yes" else p["tip"]
+            link = open_copy(a["current"])
+        rows.append(f'<tr><th>{esc(full[0].upper() + full[1:])}</th><td>{chip(p["word"], AV_CLS[p["s"]], p["tip"])}</td>'
+                    f'<td class="small">{esc(what)}</td><td class="nw">{link}</td></tr>')
     return rows
 
 
-def source_page(k: str, L: dict, rel: str) -> str:
-    """One source: what it is (which contest's what), then the three places it can be found —
-    the address now, the Wayback Machine, our archive — and the copies we hold. An address that
-    several contests cite gets a row per contest, since each means a different time."""
-    url = L["url"]
-    cits = citations(k)
-    single = cits[0] if len(cits) == 1 else None
-    a = avail(url, single["contest"] if single else None)
-    scope = "".join(chip(x, "sc", "this source covers one part of the contest, not all of it") for x in sorted(SRC_SCOPE.get(k, ())))
-    if single:
-        lede = (f'The {serves_words(single, rel)} {scope}of {contest_ref(single["contest"], rel)}'
-                + (f', as it was on {esc(fmt_time(single["as_of"]))}' if single["as_of"] else "") + ".")
-    elif cits:
-        lede = f"An address {len(cits)} contests cite. Each means what it served for that contest, so each has a row of its own below."
+def source_page(d: dict, rel: str) -> str:
+    """One source: an address at a time. What it is, as linked facts (type, contest, problem set,
+    problem), and the three places it can be found: the address now, the Wayback Machine, our
+    archive. Of our copies only the one that counts is linked; the others stay in the archive."""
+    k, url = d["k"], d["url"]
+    cits = d["cits"]
+    ents = doc_entries(d)
+    a = avail(url, cits[0]["contest"] if cits else None)
+    roles = doc_roles(d)
+    at = f' <span class="at">(at {esc(fmt_time(d["time"]))})</span>' if d["time"] else ""
+    b = [crumbs(f'<a href="{rel}source/index.html">Sources</a>', *[f'<a href="{rel}source/by-role/{r}.html">{esc(role_label(r))}</a>' for r in roles[:1]]),
+         f"<h1{R.at('source', d['id'])}>{esc(url)}{at}</h1>",
+         f'<div class="cc"><div class="cc-g"><b>Found at</b>{avail_pills(a)}</div> {help_link("sources", rel, "what the colours mean")}</div>',
+         R.line("moved", "Not recorded as moved to another address")]
+
+    # ---- what it is: facts, every one a link ----
+    fx = ['<dl class="facts">']
+    if roles:
+        scopes = sorted({e["scope"] for _c, e in ents if e.get("scope")})
+        judges = sorted({e["judge"] for _c, e in ents if e.get("judge")})
+        fx.append("<dt>type</dt><dd>" + "".join(role_link(r, rel) for r in roles)
+                  + "".join(chip(x, "sc", "this source covers one part of the contest, not all of it") for x in scopes)
+                  + ("".join(f" on {judge_link(j, rel)}" for j in judges if j in JUDGES)) + "</dd>")
     else:
-        lede = "No contest cites this address now; what we hold of it was filed under an earlier catalogue entry."
-    b = [crumbs(f'<a href="{rel}source/index.html">Sources</a>'), f"<h1{R.at('source', k)}>{esc(url)}</h1>", f'<p class="lede">{lede}</p>',
-         R.line("moved", "Not recorded as moved to another address"),
-         '<p class="status">' + avail_marks(a) + " " + help_link("sources", rel) + "</p>"]
-    note = HUNT_STAMP.sub("", (single or {}).get("note") or "").strip()
-    if note:
-        b.append(f'<p class="note">{esc(note)}</p>')
+        fx.append('<dt>type</dt><dd class="muted">not recorded: no contest lists this address now</dd>')
+    if cits:
+        fx.append(f'<dt>contest{"s" if len(cits) > 1 else ""}</dt><dd>' + ", ".join(contest_ref(c["contest"], rel) for c in cits) + "</dd>")
+    if {"problemset", "problem", "editorial"} & set(roles):
+        sets = list(dict.fromkeys(s["id"] for s in (set_for(c) for c, _e in ents) if s))
+        fx.append("<dt>problem set</dt><dd>" + (", ".join(set_link(s, rel) for s in sets) if sets else '<span class="muted">none recorded yet</span>') + "</dd>")
+        probs = []
+        for c, e in ents:
+            if not e.get("problem"):
+                continue
+            doc = set_for(c)
+            pid = set_letters(doc, c["id"]).get(e["problem"]) if doc else None
+            probs.append(f'<b>{esc(e["problem"])}</b> ' + (problem_link(pid, rel) if pid else '<span class="muted">not in the problem list yet</span>'))
+        if probs:
+            fx.append("<dt>problem</dt><dd>" + ", ".join(dict.fromkeys(probs)) + "</dd>")
+        held = {x for _c, e in ents for x in (e.get("contains") or [])}
+        holds = [x for x, _w in CONTAINS if x in held]
+        if holds:
+            fx.append("<dt>holds</dt><dd>" + ", ".join(esc(dict(CONTAINS).get(x, x)) for x in holds) + "</dd>")
+    fmt = copy_format(a["current"])
+    if fmt:
+        fx.append(f"<dt>format</dt><dd>{esc(fmt)}</dd>")
+    others = [o for o in DOCS_OF[k] if o["id"] != d["id"]]
+    if others:
+        fx.append('<dt>same address, other times</dt><dd>' + "<br>".join(
+            f'<a href="{rel}source/{o["id"]}/index.html">{esc(fmt_time(o["time"]) if o["time"] else "as it is now")}</a> <span class="muted">·</span> '
+            + ", ".join(contest_ref(c["contest"], rel) for c in o["cits"][:4]) + (f' <span class="muted">+{len(o["cits"]) - 4}</span>' if len(o["cits"]) > 4 else "")
+            for o in others) + "</dd>")
+    same = same_as(k)
+    if same:
+        fx.append('<dt title="a copy we hold of each is byte for byte the same">same document at</dt><dd>' + "<br>".join(
+            link_source(RES.locs[o]["url"], rel, RES.locs[o]["url"][:110]) for o in same[:12])
+            + (f' <span class="muted">and {len(same) - 12} more</span>' if len(same) > 12 else "") + "</dd>")
+    fx.append("</dl>")
+    b += fx
 
     b.append(source_descriptions.block(url, cits, rel, contest_ref, help_link))
 
-    # ---- the one place the address, a Wayback snapshot and our copies are linked ----
-    b.append('<h2 id="where">Where to find it</h2>')
-    if single or not cits:
-        b.append('<div class="tw"><table class="where nosort"><tbody>' + "\n".join(place_rows(url, a)) + "</tbody></table></div>")
-    else:
-        b.append('<div class="tw"><table class="where nosort"><tbody>' + place_rows(url, a)[0] + "</tbody></table></div>")
-        ccls = {"yes": "h", "part": "l", "no": "n", "unknown": "n"}
-        rows = []
-        for c in cits:
-            ac = avail(url, c["contest"])
-            wb, ours = ac["wb"], ac["ours"]
-            wl = f' <a class="ext" href="{esc(wayback_link(url, wb["ts"]))}">open the snapshot</a>' if wb.get("ts") and wb["s"] != "no" else ""
-            rows.append(f'<tr><td class="nw">{contest_ref(c["contest"], rel)}</td><td>{serves_words(c, rel)}</td>'
-                        f'<td class="nw">{esc(fmt_time(c["as_of"])) if c["as_of"] else "<span class=muted>no time named</span>"}</td>'
-                        f'<td class="nw">{chip(ac["live"]["word"], ccls[ac["live"]["s"]], ac["live"]["tip"])}</td>'
-                        f'<td>{chip(wb["word"], ccls[wb["s"]], wb["tip"])}{wl}</td>'
-                        f'<td>{chip(ours["word"], "x" if ac["lost"] else ccls[ours["s"]], ours["tip"])} {best_open(ac["copies"])}</td></tr>')
-        b.append('<p class="note">The address is one, the documents are several: what it served for each contest. '
-                 "For each, whether the address still serves it, the Wayback snapshot that shows it, and our copy.</p>"
-                 + table([th("contest"), th("serves"), th("as it was on"), th("the address now"), th("Wayback Machine"), th("our archive")], rows, "nosort"))
-
-    # ---- our copies ----
-    res = L["resources"]
-    held = copies(k)
-    shown = set()
-    b.append(f'<h2 id="copies">Copies in our archive <span class="n">{len(held)}</span></h2>')
-    if not held:
-        b.append('<p class="empty">None.</p>')
-    by_ts: dict = defaultdict(list)
-    for x in held:
-        by_ts[x["ts"]].append(x)
-    for ts in sorted(by_ts, key=lambda t: (t == "unknown", t)):
-        xs = by_ts[ts]
-        via = xs[0]["via"]
-        when = fmt_time(ts) if ts != "unknown" else "an unknown time"
-        if via == "wayback":
-            head = f"The Wayback snapshot of {esc(when)}"
-            extra = f' <a class="ext small" href="{esc(wayback_link(url, ts))}">the snapshot</a>' if ts != "unknown" else ""
-        elif via in ("api-dump", "icpc-api-archive"):
-            head, extra = f"The ICPC standings data as of {esc(when)}", ""
-        else:
-            head, extra = f"The address as it was on {esc(when)}", ""
-        shown.add(ts)
-        b.append(f'<div class="snap" id="s-{esc(ts)}"><h3>{head}{extra}</h3>')
-        caps = [x["cap"] for x in xs if x["kind"] == "capture" and not x.get("filed_under")]
-        if len(caps) > 1:
-            shas = {c.get("sha256") for c in caps if c.get("sha256")}
-            b.append('<p class="note">' + ("Fetched more than once; every fetch returned the same bytes." if len(shas) == 1
-                                           else f"Fetched {len(caps)} times; the content differed between fetches ({len(shas)} different hashes).") + "</p>")
-        if caps:
-            b.append(capture_table(caps, url, rel, with_contest=len(cits) > 1))
-        for x in xs:
-            if x.get("filed_under"):
-                b.append(f'<p>Filed under {link_source(x["filed_under"], rel, res_label(x["filed_under"], None, 100))} — the same content at another address'
-                         + (f' ({contest_ref(x["contest"], rel)})' if len(cits) > 1 else "") + ".</p>")
-            elif x["kind"] == "website":
-                b.append(website_crawl(x["site"], rel))
-        b.append("</div>")
-    # fetched, but not the document: kept and said, never counted as a copy
-    junk = [p for p in L.get("probes") or [] if p.get("outcome") == "junk" and (p.get("path") or p.get("dir"))]
-    if junk:
-        rows = []
-        for p in junk:
-            what = (local_link("archive/" + p["path"], "raw file") if p.get("path")
-                    else local_link("archive/" + p["dir"] + "/", "raw files"))
-            rows.append(f'<tr><td class="nw">{esc(fmt_time(p.get("ts")) if p.get("ts") else "")}</td>'
-                        f'<td class="nw">{"Wayback Machine" if p.get("via") == "wayback" else "the address"}</td>'
-                        + (f'<td class="nw">{contest_ref(p["contest"], rel)}</td>' if len(cits) > 1 else "")
-                        + f'<td title="{esc(p.get("evidence") or "")}">{esc(plain_why(p.get("evidence")))}</td><td class="nw">{what}</td></tr>')
-        b.append(f'<h3 id="set-aside">Set aside <span class="n">{len(junk)}</span></h3>'
-                 '<p class="note">Fetched, but what came back is not the document: an error page, an empty app shell, a login wall, a placeholder. Kept, and not counted as a copy.</p>'
-                 + table([th("shows"), th("fetched from")] + ([th("contest")] if len(cits) > 1 else []) + [th("why it is not the document"), th("open")], rows, "nosort small"))
-    # anchors that older links point at (a time the catalogue names without a copy)
-    b.append("".join(f'<span id="s-{esc(ts)}"></span>' for ts in res if ts not in shown))
-
-    d = []
-    same = same_as(k)
-    if same:
-        d.append('<dt title="a copy we hold of each is byte for byte the same">same document as</dt><dd>' + "<br>".join(
-            link_source(RES.locs[o]["url"], rel, RES.locs[o]["url"][:110]) for o in same[:12])
-            + (f' <span class="muted">and {len(same) - 12} more</span>' if len(same) > 12 else "") + "</dd>")
-    d.append(f'<dt>source id</dt><dd><code>{k}</code></dd>')
-    b.append('<dl class="facts small muted">' + "".join(d) + "</dl>")
+    # ---- the one place the address, the Wayback snapshot and our copy are opened ----
+    b.append('<h2 id="where">Where to find it</h2>'
+             '<div class="tw"><table class="where nosort"><tbody>' + "\n".join(place_rows(url, a)) + "</tbody></table></div>")
     return page(host_label(url, 60), "\n".join(b), rel, "source/index.html")
 
 
 def source_list(rel: str, role: str | None = None) -> str:
-    """source/index.html (every source) and source/by-role/<role>.html (one role): the same
-    page, the same columns, the same filters — the role pages are that table cut down."""
-    counts = Counter(r for roles in SRC_ROLES.values() for r in roles)
+    """source/index.html (every source) and source/by-role/<role>.html (one type): the same
+    page, the same columns, the same filters — the type pages are that table cut down."""
+    counts = Counter(r for d in DOCS.values() for r in doc_roles(d))
     here = "../" if role else ""
-    tabs = ["<span>" + ("<b>all</b>" if not role else f'<a href="{here}index.html">all</a>') + f' <span class="muted small">{num(len(RES.locs))}</span></span>']
+    tabs = ["<span>" + ("<b>all</b>" if not role else f'<a href="{here}index.html">all</a>') + f' <span class="muted small">{num(len(DOCS))}</span></span>']
     for r in ROLE_PAGES:
         lab = esc(role_label(r))
         tabs.append("<span>" + (f"<b>{lab}</b>" if r == role else f'<a href="{here}by-role/{r}.html">{lab}</a>') + f' <span class="muted small">{num(counts[r])}</span></span>')
     rows = []
-    for k, L in RES.locs.items():
-        roles = sorted(SRC_ROLES.get(k, set()), key=lambda r: RANK.get(r, 99))
+    for sid, d in DOCS.items():
+        roles = doc_roles(d)
         if role and role not in roles:
             continue
-        url = L["url"]
-        cs = [c["contest"] for c in citations(k)]
-        a = avail(url, cs[0] if len(cs) == 1 else None)
-        rows.append(f'<tr><td class="url"><a href="{rel}source/{k}/index.html">{esc(url if len(url) <= 90 else url[:89] + "…")}</a></td>'
+        cs = [c["contest"] for c in d["cits"]]
+        a = avail(d["url"], cs[0] if cs else None)
+        rows.append(f'<tr><td class="url"><a href="{rel}source/{sid}/index.html">{esc(doc_label(d))}</a></td>'
                     f'<td data-vs="{esc("|".join(role_label(r) for r in roles))}" class="small">{esc(", ".join(role_label(r) for r in roles))}</td>'
                     f'<td data-v="{len(cs)}" class="small">{", ".join(contest_ref(c, rel) for c in cs[:3])}{" +" + str(len(cs) - 3) if len(cs) > 3 else ""}</td>'
                     f'<td class="nw" data-vs="{esc(avail_values(a))}">{avail_marks(a)}</td>'
-                    f'<td class="nw small">{esc(a["live"].get("checked") or "")}</td>'
-                    f'<td class="num">{len(copies(k))}</td></tr>')
+                    f'<td class="nw small">{esc(a["live"].get("checked") or "")}</td></tr>')
     title = f"{role_label(role).capitalize()} sources" if role else "Sources"
     return page(title, f"<h1>{esc(title)}</h1>"
-                f'<p class="intro">{"Sources serving this role" if role else "Every address the catalogue knows"}: {num(len(rows))}. '
-                "A <b>source</b> is an address as a contest means it: what it served for that contest. It can be found in up to three places — "
-                "at its address now, in the Wayback Machine, in our archive — and every list shows the three together. "
-                "The address, the snapshot and our copies are opened from the source's own page.</p>"
+                f'<p class="intro">{"Sources of this type" if role else "Every source the catalogue knows"}: {num(len(rows))}. '
+                "A <b>source</b> is an address at a point in time: what the address served for a contest. It can be found in up to three places — "
+                "at its address now, in the Wayback Machine, in our archive — and every list shows the three together, in the same colours. "
+                "The address, the snapshot and our copy are opened from the source's own page.</p>"
                 '<p class="tabs">' + " ".join(tabs) + "</p>" + key_line(rel, "available")
-                + table([th("address"), th("roles", f=True), th("contests"), AVAIL_TH, th("address checked"), th("copies", num=True)], rows, "flt"),
+                + table([th("source"), th("type", f=True), th("contests"), AVAIL_TH, th("address checked")], rows, "flt"),
                 rel, "source/index.html")
 
 
@@ -2489,7 +2489,7 @@ def judge_status(j: dict) -> str:
 
 def judge_page(jid: str, j: dict, probs: set, pages: list, rel: str) -> str:
     ncon = len({c for c, _s in pages})
-    b = [crumbs(f'<a href="{rel}judge/index.html">Judges</a>'), f'<h1{R.at("judge", jid)}>{judge_mark(jid)}{R.U("name", esc(j.get("name") or jid), j.get("name") or "")}</h1>',
+    b = [crumbs(f'<a href="{rel}judge/index.html">Online judges</a>'), f'<h1{R.at("judge", jid)}>{judge_mark(jid)}{R.U("name", esc(j.get("name") or jid), j.get("name") or "")}</h1>',
          '<p class="status">' + R.U("status", judge_status(j), (j.get("status", "") + " " + str(j.get("closed") or "")).strip()) + "</p>",
          f'<div class="nums"><div><b>{num(ncon)}</b><span><a href="#contests">contests</a></span></div>'
          f'<div><b>{num(len(probs))}</b><span><a href="#problems">problems</a></span></div></div>',
@@ -2499,23 +2499,22 @@ def judge_page(jid: str, j: dict, probs: set, pages: list, rel: str) -> str:
     for key, lab in (("contest_url", "contest address"), ("problem_url", "problem address")):
         if j.get(key):
             b.append(f"<dt>{lab}</dt><dd><code>{esc(j[key])}</code></dd>")
-    b.append(f'<dt>judge id</dt><dd><code>{esc(jid)}</code></dd></dl>')
+    b.append("</dl>")
     b.append(f'<h2 id="contests">Contests <span class="n">{ncon}</span></h2>'
-             '<p class="note">Contests that have a page on this judge'
+             '<p class="note">Contests that have a page on this online judge'
              + (f" — {len(pages)} pages, since some contests have more than one." if len(pages) != ncon else ".") + "</p>")
     if pages:
         rows = []
         for cid, s in sorted(pages, key=lambda t: (t[0], t[1]["url"])):
             c = CONTESTS.get(cid) or {}
-            found = source_note(s)
             rows.append(f'<tr><td class="nw">{contest_ref(cid, rel)}</td><td class="nw" data-v="{esc(c.get("date", ""))}">{link_date(c.get("date"), rel)}</td>'
-                        f'<td class="url">{link_source(s["url"], rel, res_label(s["url"], s.get("as_of"), 100), s.get("as_of"))}</td>'
-                        + avail_cell(s["url"], cid, s) + f'<td class="small muted">{esc(found)}</td></tr>')
-        b.append(table([th("contest"), th("date"), th("judge page"), AVAIL_TH, th("note")], rows))
+                        f'<td class="url">{link_source(s["url"], rel, res_label(s["url"], source_time(s, cid), 100), s.get("as_of"), cid)}</td>'
+                        + avail_cell(s["url"], cid, s) + "</tr>")
+        b.append(table([th("contest"), th("date"), th("source"), AVAIL_TH], rows))
     else:
-        b.append('<p class="empty">No contest has a page on this judge recorded.</p>')
+        b.append('<p class="empty">No contest has a page on this online judge recorded.</p>')
     b.append(f'<h2 id="problems">Problems <span class="n">{len(probs)}</span></h2>'
-             + ('<p class="note">Problems that link to this judge.</p>' if probs else ""))
+             + ('<p class="note">Problems that link to this online judge.</p>' if probs else ""))
     if probs:
         rows = []
         for pid in sorted(probs, key=lambda x: problem_name(x).lower()):
@@ -2525,9 +2524,9 @@ def judge_page(jid: str, j: dict, probs: set, pages: list, rel: str) -> str:
             rows.append(f'<tr><td>{problem_link(pid, rel, r["name"])}</td>'
                         f'<td class="nw">{problem_judge_links({"judges": jl}, by_id=True)}</td>'
                         f'<td>{", ".join(set_link(s, rel) for s, _r in PROBLEMS[pid]["rows"])}</td></tr>')
-        b.append(table([th("problem"), th("on the judge"), th("problem set")], rows))
+        b.append(table([th("problem"), th("on this online judge"), th("problem set")], rows))
     else:
-        b.append('<p class="empty">No problem links to this judge yet.</p>')
+        b.append('<p class="empty">No problem links to this online judge yet.</p>')
     return page(j.get("name") or jid, "\n".join(b), rel, "judge/index.html")
 
 
@@ -2539,10 +2538,10 @@ def judge_index(probs: dict, pages: dict, rel: str) -> str:
                     f'<td class="num">{len({c for c, _s in pages.get(jid, [])})}</td><td class="num">{len(probs.get(jid, ()))}</td></tr>')
     unknown = [x for x in sorted(set(probs) | set(pages)) if x not in JUDGES]
     return page("Online judges", "<h1>Online judges</h1>"
-                f'<p class="intro">{len(JUDGES)} online judges where ICPC problems can be solved, or could. <b>Contests</b> counts contests with a page on the judge; '
-                "<b>problems</b> counts problems that link to it. A judge that has closed survives only in Wayback snapshots taken before it shut down.</p>"
-                + table([th("judge"), th("status", f=True), th("contests", num=True), th("problems", num=True)], rows)
-                + ('<p class="note">Judge ids used but not registered: ' + ", ".join(esc(x) for x in unknown) + "</p>" if unknown else ""),
+                f'<p class="intro">{len(JUDGES)} online judges where ICPC problems can be solved, or could. <b>Contests</b> counts contests with a page on it; '
+                "<b>problems</b> counts problems that link to it. An online judge that has closed survives only in Wayback snapshots taken before it shut down.</p>"
+                + table([th("online judge"), th("status", f=True), th("contests", num=True), th("problems", num=True)], rows)
+                + ('<p class="note">Online judges used but not registered: ' + ", ".join(esc(x) for x in unknown) + "</p>" if unknown else ""),
                 rel, "judge/index.html")
 
 
@@ -2596,8 +2595,6 @@ def location_page(nid: str, rel: str) -> str:
         d.append(f"<dt>code</dt><dd>{esc(n['code'])}</dd>")
     if n.get("geonameid"):
         d.append(f'<dt>GeoNames</dt><dd><a class="ext" href="https://www.geonames.org/{n["geonameid"]}/">{n["geonameid"]}</a></dd>')
-    if n.get("notes"):
-        d.append(f"<dt>notes</dt><dd>{esc(n['notes'])}</dd>")
     d.append(f'<dt>location id</dt><dd><code>{esc(nid)}</code></dd></dl>')
     b += d
     if st["n"] >= 3:   # with fewer, the contest table below says it all
@@ -3271,14 +3268,18 @@ def about_page() -> str:
     def dl(items):
         return '<dl class="facts">' + "".join(f"<dt>{k}</dt><dd>{v}</dd>" for k, v in items) + "</dl>"
     places_dl = dl((
-    ('<span class="m h">live</span>', "<b>The address now.</b> Green: it still serves the document. Amber: it answers, but the content has drifted, it is an app that shows "
-     "nothing without a browser, or the server turns our fetcher away (<i>blocked</i>). Grey: dead, or something else lives there now. Dead is normal for an old contest and no cause for alarm when there is a copy."),
-    ('<span class="m h">WB</span>', "<b>The Wayback Machine.</b> Green: a snapshot shows the document; the source page opens that snapshot, not the calendar. "
-     "Amber: a snapshot exists but holds something else (an error page, an empty shell). Grey: no snapshot, or the address is excluded there."),
-    ('<span class="m h">ours</span>', "<b>Our archive.</b> Green: we hold a copy, captured from the address or from a Wayback snapshot. Amber: we fetched it, but what came back "
-     "is not the document. Grey: missing — nothing captured yet."),
-    ('<span class="m u">live</span>', "Dashed, in any of the three: nobody has looked yet."),
-    (chip("lost", "x"), "Dead at its address, not in the Wayback Machine, and no copy here. Gone unless someone kept one."),
+    ('<span class="m h">address</span>', "<b>The address now.</b> <i>live</i>: it still serves the document. In doubt: <i>changed</i> (it answers, but what it serves differs), "
+     "<i>blocked</i> (the server turns our fetcher away; a browser may still get in), <i>unverified</i> (it answers; there was nothing to compare it against), "
+     "<i>empty</i>. Confirmed not there: <i>dead</i>, or <i>replaced</i> by something else. Dead is normal for an old contest and no cause for alarm when there is a copy."),
+    ('<span class="m h">Wayback</span>', "<b>The Wayback Machine.</b> <i>snapshot</i>: a snapshot shows the document; the source's page opens that snapshot, not the calendar. "
+     "In doubt: <i>bad snapshot</i> (one exists, but it holds an error page or an empty shell). Confirmed not there: <i>no snapshot</i>, or <i>excluded</i>. "
+     "<i>n/a</i>: the page is an app, and a snapshot of it shows nothing."),
+    ('<span class="m h">archive</span>', "<b>Our archive.</b> <i>held</i>: we hold a copy; the source's page opens the one that counts, the current one. "
+     "In doubt: <i>bad copy</i> (we fetched it, but what came back is not the document). <i>not captured</i>: no copy yet, and there is still somewhere to take one from. "
+     "<i>lost</i>: gone from its address, not in the Wayback Machine, and no copy here. Gone unless someone kept one."),
+    ('<span class="m h">green</span> <span class="m l">amber</span> <span class="m x">red</span> <span class="m p">blue</span> <span class="m n">grey</span>',
+     "The label of a mark is the place and never changes; the colour is the answer, the same for all three: <b>green</b> it is there, <b>amber</b> something is there but "
+     "it is in doubt and needs a look, <b>red</b> confirmed not there, <b>blue</b> not done yet (not checked, not captured: work of ours that is pending), <b>grey</b> does not apply."),
 ))
     objects_dl = dl((
     ('<a href="season/index.html">Season</a>', "From the first regional to the World Finals it feeds. Shown as <i>2024–2025</i>. Its page is the advancement tree."),
@@ -3286,9 +3287,9 @@ def about_page() -> str:
     ('<a href="contest/index.html">Contest</a>', "One edition (<i>nwerc-2020</i>). The year in the id is the season label, not the date: a fall regional postponed to January keeps its number."),
     ('<a href="problemset/index.html">Problem set</a>', "The problems a contest used; nearly always one set per contest, with the same id. Its page says what the ICPC Problem Archive holds."),
     ('<a href="problem/index.html">Problem</a>', "One problem: where it appeared, what is held, where it can be solved."),
-    ('<a href="source/index.html">Source</a>', "An address as a contest means it — what it served for that contest — and where that can be found: at the address now, "
+    ('<a href="source/index.html">Source</a>', "An address at a point in time — what it served for a contest — and where that can be found: at the address now, "
      "in the Wayback Machine, in our archive."),
-    ('<a href="judge/index.html">Judge</a>', "An online judge where ICPC problems can be solved."),
+    ('<a href="judge/index.html">Online judge</a>', "A site where ICPC problems can be solved."),
     ('<a href="location/index.html">Location</a>', "Where contests were held: country, state or province, city, institution — one tree."),
 ))
     status_dl = dl((
@@ -3323,7 +3324,7 @@ def about_page() -> str:
      "Grey: none. Dashed: a source is known, but what it holds is not recorded. A complete package counts as statement, test data and solutions too. "
      "On a single problem the marks say what the problem archive holds, with <b>IV</b>/<b>OV</b> for input and output validators. "
      "The number before the marks is how many problems the contest had."),
-    ('<span class="m k">src</span>', "A published problem set or judge page is known, but nothing about the problems has been recorded yet."),
+    ('<span class="m k">src</span>', "A published problem set or a page on an online judge is known, but nothing about the problems has been recorded yet."),
     (judge_mark("kattis") + judge_mark("codeforces") + judge_mark("baekjoon") + judge_mark("qoj"),
      "An online judge, shown by its logo (its short name where it has none); hover for the name. Beside a problem the logo opens the problem "
      "on that judge. Grey: the judge has closed, and the link goes to a Wayback snapshot."),
@@ -3341,9 +3342,11 @@ marked <a class="ext" href="#read">like this</a></b>. In particular the address 
 source's page, and that page is where you open the address as it is now, the Wayback Machine, or our archived copy. The exceptions are deliberate and marked:
 a problem's online-judge links go straight to the problem on the judge, and a contest's CMS links go to the CMS.
 A date links to its day in the <a href="calendar/index.html">calendar</a>, where you can see what else ran that day and that weekend.</p>
-<p class="intro">A contest has <b>three kinds of content</b>, always in the same order: its <b>website</b>, its <b>results</b> and its <b>problems</b>. Each is either
-<span class="chip h">held</span> (we have a copy), <span class="chip l">known but not held</span> (we have a link), <span class="chip n">none</span>, or
-<span class="chip x">lost</span>. The colours are the scoreboard's.</p>
+<p class="intro">A contest has <b>three kinds of content</b>, always in the same order: its <b>website</b>, its <b>results</b> and its <b>problems</b>.</p>
+<p class="intro"><b>One set of colours, everywhere</b> — every pill, mark, bar and square: <span class="pl q4">green</span> we hold it (it is there);
+<span class="pl q2">amber</span> partly, or in doubt; <span class="pl ql">blue</span> known but not ours yet, or not done yet: work that is pending;
+<span class="pl qr">red</span> lost, confirmed not available anywhere; <span class="pl qx">grey</span> none exists, or it does not apply — nothing to do;
+<span class="pl q0">white</span> missing, and wanted; <span class="pl qu">hatched</span> not recorded.</p>
 <p class="intro">A <b>location</b> is where the contest was held: its sites, as places in the location tree. The CMS also lists staff, guest and
 bookkeeping groups as "sites"; those are not places and are never shown. When no real site is recorded, the city the contest's CMS record points at is shown,
 marked <span class="chip n">inferred</span>. A source that covers only part of a contest says so beside its role, like
@@ -3383,14 +3386,15 @@ single problem is recorded for few sets; elsewhere a problem's marks follow from
 dashed if for some. A <b>UUID</b> is the identity of a problem's package; a problem reused in another contest keeps it.</p>
 
 <h2 id="sources">Sources</h2>
-<p class="intro">A <b>source</b> is one document a contest points at: an address, and what that address served for the contest (its website, scoreboard, frozen
-scoreboard, standings, rankings, problem set, single problem, editorial, teams or report). It is the document that matters, not the address: addresses die and get reused, so a
-source that is no longer at its address names the time it is meant at (<i>as it was on 2007-11-05</i>).</p>
-<p class="intro">The same document can be found in up to <b>three places</b>, and every list of sources shows all three as one unit, always in this order:</p>
+<p class="intro">A <b>source</b> is an address at a point in time: one document a contest points at. Its <b>type</b> says what the document is: website, scoreboard, frozen
+scoreboard, standings, rankings, problem set, problem, editorial, team list or report. It is the document that matters, not the address: addresses die and get reused, so a
+source that is no longer at its address names the time it is meant at, as <i>address (at 2007-11-05)</i>. A page that is reused year after year is a source per year;
+each one's page links to the others.</p>
+<p class="intro">The same document can be found in up to <b>three places</b>, and every list of sources shows all three as one unit, always in this order and always under these names:</p>
 {places_dl}
 <p class="intro">Any combination occurs: a scoreboard can be live, in the Wayback Machine and in our archive all at once, or only in one of them. A source's own page is
 the only place where the three are opened: the address, the snapshot that shows the document, and our copy. Links <a class="local" href="#local">marked local</a> need the
-local archive server (below). When several contests cite one address — a results page reused every year — its page has a row per contest, since each means a different time.</p>
+local archive server (below).</p>
 
 {source_descriptions.ABOUT}
 
@@ -3410,22 +3414,20 @@ python3 tools/serve.py              # rebuilds the site with local links, serves
 site back page by page; pages that were not captured go to the Wayback Machine or the live site. <b>Raw</b> is a captured file exactly as fetched.</p>
 
 <h2 id="data">Data</h2>
-<p class="intro">Everything here is built from plain files in <a class="ext" href="{REPO}">icpc-contest-archive/contests</a>: one YAML file per series and per problem set,
-<code>locations.yaml</code> and <code>judges.yaml</code>. The definitions are in
-<a class="ext" href="{REPO}/blob/main/DEFINITIONS.md">DEFINITIONS.md</a>; the whole catalogue as one file is <a href="catalogue.json">catalogue.json</a>.
-Typeface: IBM Plex Sans (SIL Open Font License).</p>"""
+<p class="intro">The whole catalogue as one file is <a href="catalogue.json">catalogue.json</a>. Typeface: IBM Plex Sans (SIL Open Font License).</p>"""
     return page("About", body, "", "about.html")
 
 
 
-def source_words(k: str) -> str:
-    """What an address is, in a few plain words, for the search box: `problem set of north-russia-2016`."""
-    cits = citations(k)
+def source_words(d: dict) -> str:
+    """What a source is, in a few plain words, for the search box: `problem set of north-russia-2016`."""
+    cits = d["cits"]
     if not cits:
         return "no contest cites it now"
     roles = sorted({r for c in cits for r in c["roles"]}, key=lambda r: RANK.get(r, 99))
     ids = [c["contest"] for c in cits]
-    return (", ".join(role_label(r) for r in roles) or "source") + " of " + ", ".join(ids[:3]) + (f" and {len(ids) - 3} more" if len(ids) > 3 else "")
+    return ((", ".join(role_label(r) for r in roles) or "source") + " of " + ", ".join(ids[:3]) + (f" and {len(ids) - 3} more" if len(ids) > 3 else "")
+            + (f" at {fmt_time(d['time'])}" if d["time"] and len(DOCS_OF[d["k"]]) > 1 else ""))
 
 
 # ---- build ----
@@ -3480,6 +3482,7 @@ def build(out: Path):
             if e.get("primary") and not e.get("empty") and not e.get("shell"):  # empty/shell crawls are checks, not archives
                 website_of[e["contest"]] = e
     index_extra_copies(contests)
+    index_docs()
     EMPTY_STANDINGS.clear()
     p = ROOT / "data" / "icpc-standings-empty.json"
     if p.exists():
@@ -3558,7 +3561,7 @@ def build(out: Path):
     (out / "random.html").write_text(random_page())
     (out / "random.json").write_text(json.dumps({
         "contest": sorted(contests), "series": sorted(series_docs), "season": [str(x) for x in sorted(BY_SEASON)],
-        "problemset": sorted(SETS), "problem": sorted(PROBLEMS), "source": sorted(RES.locs),
+        "problemset": sorted(SETS), "problem": sorted(PROBLEMS), "source": sorted(DOCS),
         "location": sorted(LOC), "judge": sorted(JUDGES)}, separators=(",", ":")))
     stub(out / "local.html", "about.html#local")
 
@@ -3601,18 +3604,20 @@ def build(out: Path):
         missing = sorted({s["url"] for c in contests.values() for s in sources(c) if lid(s["url"]) not in RES.locs})
         if missing:
             print(f"  note: {len(missing)} catalogue sources have no source page yet — run tools/build_resources.py (e.g. {missing[0]})")
-        for k, L in RES.locs.items():
-            d = out / "source" / k
-            d.mkdir(exist_ok=True)
-            (d / "index.html").write_text(source_page(k, L, "../../"))
-            od = out / "locator" / k
-            od.mkdir(parents=True, exist_ok=True)
-            stub(od / "index.html", f"../../source/{k}/index.html")
+        for sid, d in DOCS.items():
+            sd = out / "source" / sid
+            sd.mkdir(exist_ok=True)
+            (sd / "index.html").write_text(source_page(d, "../../"))
+        for k, to in DOC_ALIAS.items():   # an address whose every source names a time: its old page leads to the latest
+            stub(out / "source" / k / "index.html", f"../{to}/index.html")
+        for k, L in RES.locs.items():     # the old locator/ addresses
+            to = DOC_ALIAS.get(k, k)
+            stub(out / "locator" / k / "index.html", f"../../source/{to}/index.html")
             for ts in L["resources"]:
-                stub(od / f"{ts}.html", f"../../source/{k}/index.html#s-{ts}")
+                stub(out / "locator" / k / f"{ts}.html", f"../../source/{to}/index.html")
         (out / "source" / "index.html").write_text(source_list("../"))
         # the address index of the search box: [address, source page, what it serves]; site.js loads it when the box holds an address
-        (out / "source-urls.json").write_text(json.dumps([[L["url"], k, source_words(k)] for k, L in RES.locs.items()],
+        (out / "source-urls.json").write_text(json.dumps([[d["url"], sid, source_words(d)] for sid, d in DOCS.items()],
                                                          ensure_ascii=False, separators=(",", ":")))
         for r in ROLE_PAGES:
             (out / "source" / "by-role" / f"{r}.html").write_text(source_list("../../", r))
@@ -3623,7 +3628,7 @@ def build(out: Path):
             tgt = f"../source/by-role/{k}.html" if k != "index" else "../source/index.html"
             stub(out / "resources" / f"{k}.html", tgt)
             stub(out / "urls" / f"{k}.html", tgt)
-        print(f"  {len(RES.locs)} source pages")
+        print(f"  {len(DOCS)} source pages for {len(RES.locs)} addresses ({sum(1 for v in DOCS_OF.values() if len(v) > 1)} addresses are several sources, one per time)")
 
     n = len(list(out.rglob("*.html")))
     n_stubs = sum(1 for p in out.rglob("*.html") if p.parts[len(out.parts)] in ("locator", "resources", "urls", "problemsets", "judges", "problems") or p.name in ("seasons.html", "local.html")) + n_alias

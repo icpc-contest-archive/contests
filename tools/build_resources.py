@@ -57,7 +57,8 @@ def main() -> int:
         websites = json.loads(p.read_text())["sites"]
     states: dict[str, dict] = {}
     reports = (sorted((ARCHIVE / "reports").glob("url-states-*-merged.json"))
-               + sorted((ARCHIVE / "reports").glob("url-health-*.json"))) if ARCHIVE.exists() else []
+               + sorted((ARCHIVE / "reports").glob("url-health-*.json"))
+               + sorted((ARCHIVE / "reports").glob("url-wayback-*.json"))) if ARCHIVE.exists() else []
     # lane files (url-health-<date>-Lkk.json) sort after the date; all are read, newest wins
     probes_by: dict[str, list] = defaultdict(list)   # locator id -> probe rows
     wb_state: dict[str, dict] = {}                   # locator id -> wayback probe
@@ -72,14 +73,18 @@ def main() -> int:
                                      "outcome": "content" if s["state"] in ("live", "changed", "replaced") else
                                                 ("absent" if s["state"] == "dead" else "undetermined"),
                                      "evidence": f'{s["state"]}: {s.get("evidence") or ""}'.strip(": ")})
-                if s.get("wayback_state"):
-                    cur = wb_state.get(k)
-                    if not cur or (s.get("checked") or "") >= (cur.get("checked") or ""):
-                        wb_state[k] = {"state": s["wayback_state"], "evidence": s.get("wayback_evidence"),
-                                       "checked": s.get("checked")}
-                    probes_by[k].append({"ts": ts_from(s.get("checked")), "via": "wayback",
-                                         "outcome": {"ok": "content", "none": "absent", "excluded": "blocked"}.get(s["wayback_state"], "undetermined"),
-                                         "evidence": f'{s["wayback_state"]}: {s.get("wayback_evidence") or ""}'.strip(": ")})
+            # a Wayback verdict stands on its own: it comes with a live check, or alone (check_locators.py --wayback-missing)
+            if s.get("wayback_state") and (s.get("state") in ("live", "changed", "replaced", "dead", "unknown", "wayback-only")):
+                k = lid(s["raw_url"])
+                cur = wb_state.get(k)
+                real = ("ok", "none", "excluded")
+                # a failed probe (throttled) never replaces a verdict
+                if not cur or cur["state"] not in real or (s["wayback_state"] in real and (s.get("checked") or "") >= (cur.get("checked") or "")):
+                    wb_state[k] = {"state": s["wayback_state"], "evidence": s.get("wayback_evidence"),
+                                   "checked": s.get("checked")}
+                probes_by[k].append({"ts": ts_from(s.get("checked")), "via": "wayback",
+                                     "outcome": {"ok": "content", "none": "absent", "excluded": "blocked"}.get(s["wayback_state"], "undetermined"),
+                                     "evidence": f'{s["wayback_state"]}: {s.get("wayback_evidence") or ""}'.strip(": ")})
 
     locs: dict[str, dict] = {}
 
