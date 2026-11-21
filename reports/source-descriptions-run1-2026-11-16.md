@@ -4,33 +4,33 @@ Run of 2026-11-16, rubric 1 (`tools/describe_rubric.md`). Applied.
 
 | | |
 | --- | --- |
-| contests read | 1,977 |
+| contests read | 2,079 |
 | contests with nothing held | 75 |
-| sources | 9,907 |
-| no copy | 1,176 |
-| read | 8,731 |
-| first readings | 626 |
-| described | 8,275 |
+| sources | 10,443 |
+| no copy | 1,236 |
+| read | 9,207 |
+| first readings | 683 |
+| described | 8,730 |
 | description held (low confidence or source gone) | 9 |
-| verdict confirm | 7,904 |
-| verdict correct | 380 |
-| verdict not-the-document | 246 |
-| verdict wrong-contest | 189 |
-| verdict cannot-tell | 12 |
-| disagrees with the earlier reader | 142 |
-| blank date filled | 9 |
-| blank location filled | 5 |
-| contest facts fills-blank | 45 |
-| contest facts conflict | 419 |
-| contest facts same | 362 |
-| contest facts listed | 1,412 |
+| verdict confirm | 8,343 |
+| verdict correct | 396 |
+| verdict not-the-document | 260 |
+| verdict wrong-contest | 195 |
+| verdict cannot-tell | 13 |
+| disagrees with the earlier reader | 146 |
+| blank date filled | 4 |
+| blank location filled | 1 |
+| contest facts fills-blank | 36 |
+| contest facts conflict | 457 |
+| contest facts same | 380 |
+| contest facts listed | 1,480 |
 | words per description | 104 |
 
-Not finished: 416 contests: swerc-1996, swerc-1997, swerc-1998, swerc-1999, swerc-2000, swerc-2001, swerc-2002, swerc-2003, swerc-2004, swerc-2005, swerc-2006, swerc-2007, swerc-2008, swerc-2009, swerc-2010, swerc-2011, swerc-2012, swerc-2013, swerc-2014, swerc-2015, swerc-2016, swerc-2017, swerc-2018, swerc-2019, swerc-2020, swerc-2021, swerc-2022, swerc-2023, swerc-2024, swerc-2025, syria-2011, syria-2012, syria-2013, syria-2014, syria-2015, syria-2016, syria-2017, syria-2018, syria-2019, syria-2020.
+Not finished: 314 contests: taurida-2017, taurida-2018, taurida-2019, taurida-2020, taurida-2021, taurida-2022, taurida-2023, taurida-2024, taurida-2025, taurida-2026, tehran-1999, tehran-2000, tehran-2001, tehran-2002, tehran-2003, tehran-2004, tehran-2005, tehran-2006, tehran-2007, tehran-2008, tehran-2009, tehran-2010, tehran-2011, tehran-2012, tehran-2013, tehran-2014, tehran-2015, tehran-2016, tehran-2017, tehran-2018, tehran-2019, tehran-2020, tehran-2022, tehran-2023, tehran-2024, tehran-2025, tehran-online-2022, thailand-2009, thailand-2011, thailand-2012.
 Results that do not check: 0.
 
 
-## Second reading: 881 sources to look at
+## Second reading: 919 sources to look at
 
 The reader did not confirm the catalogue, or disagrees with the content check of 2026-11-14. Nothing here was applied.
 
@@ -917,8 +917,46 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | swerc-1994 | http://www.acm.inf.ethz.ch/ProblemSetArchive.html | web | correct → no role (medium) | correct →  | The crawl is of the ETH ACM contest site (captures from 1997 to 2006); its seed page is the 1994 East-Central Regionals problem set (Waterloo), and it holds no problem set or results page of the 1994 Western and Southwes |
 | swerc-1995 | https://open.kattis.com/problem-sources/1995%20Southwestern%20European | problemset | not-the-document (high) | not-the-document | Kattis problem-source page whose table is empty and shows 'No data found'. |
 | swerc-1995 | https://open.kattis.com/problem-sources/1995%20Southwestern%20European | problemset | not-the-document (high) | not-the-document | Kattis problem-source page whose table is empty and shows 'No data found'. |
+| swerc-1996 | http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SWERC/1996/problems9 | web | correct → problemset (high) | confirm | One page headed 'Problem Set' for the 1996-1997 ACM ICPC Southwestern European Regional Contest at ETH Zürich, 16 November 1996, holding statements of problems A to H and no other pages of a site. |
+| swerc-1996 | https://open.kattis.com/problem-sources/Southwestern%20European%20Regi | problemset | not-the-document (high) | not-the-document | The Kattis problem-source page for this contest shows an empty problem table and the text 'No data found'. |
+| swerc-1997 | https://open.kattis.com/problem-sources/1997%20Southwestern%20European | problemset | not-the-document (high) | not-the-document | The Kattis problem-source page '1997 Southwestern European Regional Contest' has an empty problem table and the text 'No data found'. |
+| swerc-1997 | https://open.kattis.com/problem-sources/ACM%20Southwestern%20European% | problemset | not-the-document (high) | not-the-document | The Kattis problem-source page 'ACM Southwestern European Regional Programming Contest 1997' has an empty problem table and the text 'No data found'. |
+| swerc-1998 | https://open.kattis.com/problem-sources/Southwestern%20Europe%20Region | problemset | not-the-document (high) | not-the-document | The Kattis problem-sources page for this 1998 source name shows an empty problem table with the text No data found. |
+| swerc-1998 | https://open.kattis.com/problem-sources/Southwestern%20European%20Regi | problemset | not-the-document (high) | not-the-document | The Kattis problem-sources page for this 1998 source name shows an empty problem table with the text No data found. |
+| swerc-1998 | https://open.kattis.com/problem-sources/Southwestern%20European%20Regi | problemset | not-the-document (high) | not-the-document | The Kattis problem-sources page for this 1998 source name shows an empty problem table with the text No data found. |
+| swerc-1999 | http://icpc.baylor.edu/past/icpc2000/regionals/SWERC99/Problems.html | problemset | correct → problemset+web (medium) | confirm | Short page headed The 1999 ACM Southwestern Europe Programming Contest with sponsor, host, dates and a link to the postscript problems, so it is a contest information page as well as a pointer to the problem set. |
+| swerc-1999 | https://open.kattis.com/problem-sources/Southwestern%20European%20Regi | problemset | not-the-document (high) | not-the-document | The Kattis problem-sources page for this 1999 source name shows an empty problem table with the text No data found. |
+| swerc-2001 | https://open.kattis.com/problem-sources/ACM%20Southwestern%20European% | problemset | not-the-document (high) | not-the-document | Kattis problem-sources page for this source name shows 'No data found' with no problems listed. |
+| swerc-2006 | https://sites.google.com/site/swerc2006/swerc2006results | web+scoreboard | not-the-document (high) | not-the-document | The page is titled "Google Drive: Sign-in" and shows only a Google sign-in form (email or phone, Next, Create account). |
+| swerc-2006 | http://ctp.di.fct.unl.pt/~amd/cpn/2007swerc/official/class.html | standings | wrong-contest (high) | wrong-contest | The page is titled "Mooshak: 2007-official-swerc ranking" and shows a different board, with UCM Cauchy first. |
+| swerc-2006 | https://sites.google.com/site/swerc2006/ICPCLogo-Regionals-2006-RGB-ou | editorial | not-the-document (high) | correct →  | The earlier reader took it for a text-less scan of a logo PDF; the file is an HTML Google sign-in page. |
+| swerc-2008 | http://icpc.informatik.uni-erlangen.de/swerc2008/results.php | web+standings | correct → rankings (high) | correct → rankings | Results index page of the organisers' site that links to the standings, submissions, problem set and solutions but itself only names the winning team, agregpower from Lyon. |
+| swerc-2012 | http://swerc.dsic.upv.es/resultados2012/public/index.html | standings | correct → scoreboard (high) | same-as | Same 44-team per-problem table as the final scoreboard in source 2, with tries and time plus penalty in each problem column; the pack calls it standings. |
+| swerc-2017 | https://swerc.eu/theme/results/official/public/ | standings | correct → scoreboard (high) | same-as | Same DOMjudge board as source 2 (75 team rows, A to K cells with attempts and minutes, last update 28 Nov 2017), so it is a scoreboard, not only standings. |
+| swerc-2023 | https://swerc.eu/2023/theme/scoreboard/ | scoreboard | not-the-document (high) | none | The page is an HTTrack Website Copier index with a single link to a mirrored 'Scoreboard swerc2023 - DOMjudge' and no results table. |
+| swerc-2023 | https://swerc.eu/2023/results/ | standings | correct → no role (high) | correct →  | The results page holds only links to the scoreboard, the mirror server, problem sets, analyses, zip archives, streams and photos, and no results table. |
+| syria-2024 | http://syria.acm-acpc.org/ | web | wrong-contest (high) | none | The site's home page and results page are headed SCPC 2011, the First National Syrian Collegiate Programming Contest hosted by Tishreen University on 28 Sep to 1 Oct 2011, and no page mentions 2024. |
+| taiwan-1993 | https://usenetarchives.com/view.php?id=soc.culture.china&mid=PDI2bmk3c | web | not-the-document (high) | none | The 148 saved files are the general pages of UsenetArchives.com (home, newsgroup lists, search, stats, privacy); none holds the post or anything about a 1993 Far East regional contest. |
+| taiwan-1993 | https://plg.uwaterloo.ca/~gvcormac/acmresults/1994.html | rankings | wrong-contest (high) | wrong-contest | Page is headed ACM International Collegiate Programming Contest Finals, March 9, 1994--Phoenix, Arizona, Final Results, a World Finals ranking of 35 teams, not the Far East regional. |
+| taiwan-2003 | http://guan.cse.nsysu.edu.tw/acm03/standings.html | teams | correct → standings (high) | correct → teams | The earlier reader found the form fields empty; the input fields of our copy hold rank, number solved, total time and time of last solution for all 63 teams. |
+| taiwan-2006 | https://guan.cse.nsysu.edu.tw/acm06/standings.html | teams | correct → standings (high) | correct → teams | The earlier reader found the form fields empty and 66 team rows; the input fields hold rank, number solved, total time and time of last solution for all 67 team rows, and a citation for 20. |
+| taiwan-2007 | http://acm.ntnu.edu.tw/html/final_standings.htm | standings | wrong-contest (high) | wrong-contest | Page is headed Nov. 24 ~ Nov. 25, 2007 but its table is identical to the page headed Oct. 29 ~ Oct. 31, 2005 held for taiwan-2005 (Nimrod 8 solved, 1064), and differs from the 2007 standings in the other sources. |
+| taiwan-2009 | http://icpc2009.nctu.edu.tw/record.html | standings | not-the-document (high) | none | The Record page of the 2009 site contains only the menu and the text 'Coming Soon......'. |
+| taiwan-2015 | http://icpc2015.csie.ntnu.edu.tw/ICPC2015_result/ICPC2015_result.html | scoreboard+standings | correct → scoreboard (high) | confirm | Table titled 'ACM-ICPC Taipei 2015 - SCOREBOARD' with 70 teams and one test account, per-problem A to L tries and times. |
+| taiwan-2017 | https://icpc2017.ndhu.edu.tw/files/11-1186-16288.php?Lang=zh-tw | scoreboard+standings | correct → scoreboard (high) | confirm | Table of 80 team rows with Rank, Name, Solved, Time, problems A to M with tries and times, and totals. |
+| taiwan-2019 | http://contest2019.icpc.tw/final-scoreboard/ | standings | confirm (medium) | not-the-document | The earlier reader found an empty page; the page's markup embeds one 1324 by 5616 pixel image named as a DOMjudge scoreboard screenshot, so it is the scoreboard page with its image missing from our copy. |
+| taiwan-2019 | http://contest2019.icpc.tw/onsite/team-selection/ | teams | correct → no role (high) | none | The page holds the team selection rules (20 places for foreign teams and seven categories for domestic teams) and no list of teams. |
+| taiwan-2020 | https://icpc2020.ntub.edu.tw/onsite/team-selection/ | teams | correct → web (high) | none | Page 'Team Selection' states that only domestic teams may take part and lists seven selection categories; it names no teams. |
+| taiwan-2020 | https://icpcarchive.github.io/Asia-Pacific/Taiwan/The-2020-ICPC-Asia-T | editorial | correct → editorial+problemset (medium) | correct → editorial+problemset | 46-page PDF headed '2020 ICPC Asia Taipei-Hsinchu Regional' that gives each statement A to M followed by a Hint section. |
+| taiwan-ncpc-2014 | https://ncpc.ntnu.edu.tw/files.html | web | correct → no role (medium) | correct →  | The crawl is the multi-year site of the Ministry of Education national collegiate software design contest run by National Taiwan Normal University, and nothing in it names the June 2014 contest. |
+| taiwan-ncpc-2015 | https://ncpc.ntnu.edu.tw/files.html | problemset | cannot-tell (low) | cannot-tell | The page is the multi-year index of problem files of the Ministry of Education national collegiate software contest (entry for ROC year 104, 2015), and it never names the NCPU contest for private universities of July 201 |
+| tap-2012 | http://www.torneoprogramacion.com.ar/ | web | wrong-contest (high) | not-the-document | The front page as it stood in September 2015 announces the 5th Torneo Argentino de Programación on 26 September 2015 and reports the 2014 edition; nothing in it concerns the 2012 edition. |
+| tap-2012 | http://icpc.com.ar/ | web | correct → no role (medium) | correct →  | The page is the home page of the Asociación Argentina de Programación Competitiva with a calendar for 2026, not a page of the 2012 edition. |
+| tap-2013 | http://www.torneoprogramacion.com.ar/ | web | wrong-contest (high) | not-the-document | The front page as it stood in September 2015 announces the 5th Torneo Argentino de Programación on 26 September 2015 and reports the 2014 edition; nothing in it concerns the 2013 edition. |
+| tap-2013 | http://icpc.com.ar/ | web | correct → no role (medium) | correct →  | The page is the home page of the Asociación Argentina de Programación Competitiva with a calendar for 2026, not a page of the 2013 edition. |
+| tap-2014 | https://github.com/ssebastianj/taip-2014/blob/HEAD/docs/tap2014-proble | problemset | not-the-document (high) | not-the-document | The held file is the GitHub web page for docs/tap2014-problems.pdf in a repository (HTML with GitHub navigation and a sign-in link), not the PDF itself. |
 
-## Contest facts: 464 that fill a blank or differ
+## Contest facts: 493 that fill a blank or differ
 
 | contest | fact | document says | catalogue | confidence | applied | where it is stated |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -1341,6 +1379,44 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | south-pacific-central-2014 | location | Brisbane, Canberra and Sydney, Australia | Darwin, Australia; ANU; QUT; Charles Darwin Univer | medium | no | the 2014 Central Divisional Contest page says it was held at Brisbane, Canberra and Sydney |
 | south-pacific-central-2015 | location | Brisbane (QUT), Canberra (ANU) and Sydney (University of Syd | Administrative Site Location; University of Sydney | medium | no | the 2015 Central Divisional Contest page names three sites: Brisbane hosted by QUT, Canberra hosted by ANU and Sydney hosted by University of Sydney |
 | south-russia-2016 | date | 2016-10-18 | 2016-10-19 | medium | no | The programme page saved in December 2016 lists the main round of the student contest (9:30 - 15:00) under 18.10.2016 and the analysis of problems under 19.10.2 |
+| swerc-1998 | location | University of Ulm, Germany | (sites) | high | no | The cover of the problem set reads University of Ulm, Germany, November 1st, 1998. |
+| swerc-2003 | location | Ecole Polytechnique, Palaiseau (near Paris), France | Paris, France; Paris | high | no | The home page says SWERC will take place in the Ecole Polytechnique at Palaiseau, 20 kms south west of Paris. |
+| swerc-2008 | location | Friedrich-Alexander-University Erlangen-Nuremberg | SWERC | high | no | The results page states 'Hosted by Friedrich-Alexander-University Erlangen-Nuremberg'. |
+| swerc-2009 | location | Universidad Complutense, Madrid | Madrid; Administrative Site Location | high | no | The site header names Universidad Complutense, Madrid. |
+| swerc-2011 | location | Universidad Complutense, Madrid | Administrative Site Location; Madrid | high | no | The page header reads Universidad Complutense, Madrid, and the footer names the host as Universidad Complutense Madrid. |
+| swerc-2012 | location | Universitat Politècnica de València, València | Valencia, SPAIN; Administrative Site Location | high | no | The page header gives "Universitat Politècnica de València" as host and "València" as city. |
+| swerc-2013 | location | Universitat Politècnica de València, València | Administrative Site Location; Valencia, SPAIN | high | no | The home page names the Escola Tècnica Superior d'Enginyeria Informàtica of the Universitat Politècnica de València as host. |
+| swerc-2014 | location | Faculty of Sciences, University of Porto, Porto, Portugal | Administrative Site Location; Computer Science Dep | high | no | The homepage says the contest is hosted by the Faculty of Sciences of the University of Porto (Portugal). |
+| swerc-2016 | location | Faculty of Sciences of the University of Porto, Porto, Portu | Computer Science Department, University of Porto;  | medium | no | The home page says SWERC 2016 will be hosted by the Faculty of Sciences of the University of Porto (Portugal). |
+| swerc-2017 | location | Télécom ParisTech, Paris | Télécom ParisTech; Administrative Site Location | high | no | The home page gives Télécom ParisTech, 46 rue Barrault 75013 Paris, France; the contest was co-organized with École normale supérieure. |
+| swerc-2020 | location | online contest organized by Institut Polytechnique de Paris | Université de Rennes 1; Administrative Site Locati | high | no | The home page says the contest was organized by Institut Polytechnique de Paris and took place on March 6-7 as an online contest. |
+| swerc-2022 | location | Politecnico di Milano (Bovisa Campus) | Administrative Site Location; Universidad Complute | high | no | The Organizers page says the contest is hosted by Politecnico di Milano and the Schedule page says it takes place at the Bovisa Campus. |
+| swerc-2023 | location | Sorbonne University (Jussieu campus), Paris | Polytech Nice Sophia; Università di Roma - La Sapi | high | no | The venue page says the contest is hosted at the Jussieu campus of Sorbonne University, 4 place Jussieu, 75005 Paris. |
+| syria-2011 | location | Tishreen University, Latakia | Latakia | high | no | the article says hosted by Tishreen University, Latakia, Syria from 28 Sep to 1 Oct |
+| taiwan-1999 | date | 1999-12-11 | 1999-12-13 | high | no | The Final Report page says 'Date of Contest: December 11, 1999'. |
+| taiwan-1999 | location | National Taiwan Normal University, Taipei | Taipei | high | no | The Final Report page says 'Host: National Taiwan Normal University, Taipei, Taiwan'. |
+| taiwan-2000 | location | National Taiwan Normal University, Taipei | Taipei | high | no | The information page reads 'hosted by National Taiwan Normal University, Taipei'. |
+| taiwan-2001 | location | National Taiwan Normal University, Taipei | Taipei | high | no | The information page reads 'hosted by National Taiwan Normal University, Taipei'. |
+| taiwan-2004 | date | 2004-11-07 | 2004-11-06 | high | no | Each of the three tables is headed with the date 11/7/2004; the contest's own website gives the span Nov. 6 ~ Nov. 7, 2004. |
+| taiwan-2005 | date | 2005-10-30 | 2005-10-31 | medium | no | The problem set PDF is dated 2005/10/30, while the standings page dates the Final Round on-site contest 10/31/2005 and the website gives the span Oct. 29 ~ Oct. |
+| taiwan-2008 | date | 2008-11-08 | 2008-12-31 | high | no | The schedule of events lists 'Actual Contest' 09:30-14:30 on 11/8 Saturday; the home page gives the event as November 7 - November 9, 2008. |
+| taiwan-2008 | location | National Taiwan University, Taipei | Taiwan Category C; Taiwan Category A; Taiwan Categ | high | no | The contest info pages name the contest host as the Computer and Information Networking Center, National Taiwan University, with the contest in its computer roo |
+| taiwan-2010 | date | 2010-12-04 | 2010-12-05 | high | no | The home page schedule lists '12/4(Sat.) Programming Contest and Banquet' within December 3 - December 5, 2010. |
+| taiwan-2012 | date | 2012-11-24 | 2012-11-25 | high | no | The schedule lists 'Programming Contest' 09:30-14:30 on 11/24 Sat; the ICPC_2012 page lists 12/11/23 Opening ceremony, 12/11/24 Programming Contest, 12/11/25 Ci |
+| taiwan-2014 | date | 2014-11-22 | 2014-11-23 | high | no | The schedule page lists the programming contest on 11/22 (Sat.) from 09:30 to 14:30; 11/23 is the city tour. |
+| taiwan-2019 | date | 2019-11-24 | 2019-11-25 | high | no | The schedule page lists the Contest at 09:30-14:30 on November 24, 2019, with 23-25 November as the contest dates. |
+| taiwan-2019 | location | National Taipei University of Business | Taipei Taiwan | high | no | The On-site Contest page gives the place as National Taipei University of Business. |
+| taiwan-2020 | date | 2020-11-08 | 2020-11-09 | high | no | The schedule page lists the contest from 09:30 to 14:30 on November 8, 2020, and the home page gives the contest time as November 8, 2020. |
+| taiwan-2020 | location | National Taipei University of Business | Administrative Site Location; Taipei Taiwan | high | no | The home page gives the place as National Taipei University of Business. |
+| taiwan-2021 | date | 2021-11-28 | 2021-11-29 | high | no | The front page says the contest ran 9:30 AM to 2:30 PM on November 28, 2021, within the event dates November 27-29. |
+| taiwan-2021 | location | National Taipei University of Business, Taipei | Taipei Taiwan; Administrative Site Location | high | no | The front page gives the place as National Taipei University of Business. |
+| taiwan-2022 | date | 2022-11-20 | 2022-11-21 | high | no | The front page says the contest ran 9:30 AM to 2:30 PM on November 20, 2022, within the event dates November 19-21. |
+| taiwan-2022 | location | Wu-Han Junior High School, Taoyuan | Foreign teams; Administrative Site Location; Taipe | high | no | The front page gives the place as Wu-Han Junior High School (in Chinese, in Taoyuan City). |
+| taiwan-2023 | location | Taoyuan Arena | Foreign teams; Administrative Site Location; Taipe | high | no | The front page gives the place as Taoyuan Arena (桃園市立綜合體育館). |
+| taiwan-2024 | date | 2024-11-17 | 2024-11-18 | high | no | The front page says the contest runs from 9:30 AM to 2:30 PM on November 17, 2024, within an event of November 16 to 18. |
+| taiwan-2024 | location | Gymnasium, Asia University | Taichung Taiwan; Foreign teams; Administrative Sit | high | no | The front page gives the place as the Gymnasium, Asia University (亞洲大學體育館). |
+| taiwan-2025 | date | 2025-11-16 | 2025-11-17 | high | no | Front page: contest time 9:30 AM to 2:30 PM on November 16, 2025. |
+| tap-2013 | location | Bahía Blanca, Buenos Aires, Córdoba, La Plata, Neuquén, Río  | Bahía Blanca | high | no | The post lists these eight host sites (Sedes) of the 5 October 2013 tournament. |
 | alberta-2006 | location | University of Alberta, University of Calgary and University  | — | medium | no | the problem index says the contest is a joint effort of the three universities. |
 | bapc-prelims-2025 | date | 2025-09-20 | — | medium | no | The preliminaries page lists the local contests under the dates 20 September, 26 September and 27 September 2025 and says they run between the 20th and 28th. |
 | brazil-first-phase-1996 | location | DCC-UFMG, Belo Horizonte | — | medium | no | The history page says the first Maratona was organised at the Federal University of Minas Gerais, under the heading Belo Horizonte. |
@@ -1371,18 +1447,9 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | south-america-1997 | date | 1997-12-13 | — | medium | no | The 1997 block gives 'Fecha: 13/12/1997'. |
 | south-america-north-2020 | date | 2021-07-10 | — | medium | no | The cover of the problem set reads 'July 10, 2021' under 'Contest Session'. |
 | south-america-north-2022 | date | 2023-03-18 | — | medium | no | The cover of the problem set reads 'March 18, 2023' under 'Contest Session'. |
-| south-america-north-2023 | date | 2023-10-21 | — | high | yes | the problem set cover reads 'October 21, 2023' |
-| south-america-south-2026 | date | 2026-11-07 | — | high | yes | The contest header states Start 2026-11-07 17:00 and End 2026-11-07 22:00. |
-| south-na-2022 | date | 2023-02-25 | — | high | yes | The contest report on the front page says the regional was held on Saturday, 2/25/2023. |
-| south-na-2023 | date | 2024-02-24 | — | high | yes | The front page says the 2023-24 Mid-Atlantic contest date is 2024-Feb-24 (Sat), finalized. |
-| south-na-2024 | date | 2024-11-16 | — | high | yes | The front page states Date: Saturday, November 16, 2024; the Kattis pages show a start of 2024-11-16 19:30 CET. |
-| south-na-2025 | date | 2025-11-08 | — | high | yes | The page title gives November 8, 2025 and the Kattis contest pages show a start of 2025-11-08 19:30 CET. |
-| south-pacific-east-2019 | date | 2019-09-21 | — | high | yes | the cover of the problem set reads September 21, 2019 |
-| south-pacific-west-2019 | date | 2019-09-21 | — | high | yes | The cover reads 'September 21, 2019'. |
-| south-russia-2000 | location | Saratov State University, Saratov | — | high | yes | The NEERC 2000 Southern Subregion page states Host: Saratov and Host university: Saratov State University. |
 | south-russia-2005 | location | Saratov State University | — | medium | no | The Codeforces page says the contest is hosted by Saratov State U. |
-| sweden-1996 | location | Lund and Luleå | — | high | yes | The report says the contest was held in parallel in Lund and Luleå. |
-| sweden-1997 | location | Lund and Luleå | — | high | yes | The report says the contest was held in parallel in Lund and Luleå. |
-| sweden-1998 | location | Luleå, Lund and Umeå | — | high | yes | The report says the contest was held in parallel in Luleå, Lund and Umeå. |
-| swerc-1995 | date | 1995-12-09 | — | high | yes | The regional problem set is headed ETH Zurich, Switzerland, December 9, 1995; the practice set is dated December 8. |
-| swerc-1995 | location | ETH Zurich, Switzerland | — | high | yes | The problem set header reads Southwestern European Regional Contest, ETH Zurich, Switzerland. |
+| swerc-1996 | date | 1996-11-16 | — | high | yes | The heading of the problem set reads 'ETH Zürich, November 16, 1996'; the ranklist says the contest was held on the 16th of November 1996. |
+| swerc-1996 | location | ETH Zürich | — | high | yes | The contest report says it was held at ETH Zürich. |
+| swerc-2024 | date | 2024-12-01 | — | high | yes | The main problem set cover reads 'Lisbon, Lyon, Pisa, Dec 1st, 2024' and each site's schedule lists the contest on Sunday 1 December. |
+| swerc-2025 | date | 2025-11-23 | — | high | yes | the cover of the statements reads 'Lisbon, Lyon, Pisa, Nov 23rd, 2025' |
+| tap-2026 | date | 2026-08-29 | — | high | yes | The seed page says the 16th TAP is on Saturday 29 August 2026. |
