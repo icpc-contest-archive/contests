@@ -4,32 +4,33 @@ Run of 2026-11-16, rubric 1 (`tools/describe_rubric.md`). Applied.
 
 | | |
 | --- | --- |
-| contests read | 1,638 |
+| contests read | 1,712 |
 | contests with nothing held | 75 |
-| sources | 7,992 |
-| no copy | 975 |
-| read | 7,017 |
-| first readings | 513 |
-| described | 6,662 |
-| description held (low confidence or source gone) | 8 |
-| verdict confirm | 6,367 |
-| verdict correct | 303 |
-| verdict not-the-document | 222 |
-| verdict wrong-contest | 116 |
+| sources | 8,680 |
+| no copy | 1,069 |
+| read | 7,611 |
+| first readings | 572 |
+| described | 7,235 |
+| description held (low confidence or source gone) | 9 |
+| verdict confirm | 6,902 |
+| verdict correct | 342 |
+| verdict not-the-document | 228 |
+| verdict wrong-contest | 130 |
 | verdict cannot-tell | 9 |
-| disagrees with the earlier reader | 114 |
-| blank date filled | 4 |
+| disagrees with the earlier reader | 116 |
+| blank date filled | 1 |
+| blank location filled | 3 |
 | contest facts fills-blank | 21 |
-| contest facts conflict | 341 |
-| contest facts same | 314 |
-| contest facts listed | 1,158 |
-| words per description | 105 |
+| contest facts conflict | 376 |
+| contest facts same | 329 |
+| contest facts listed | 1,224 |
+| words per description | 104 |
 
-Not finished: 755 contests: scusa-2000, scusa-2004, scusa-2005, scusa-2006, scusa-2009, scusa-2010, scusa-2011, scusa-2012, scusa-2013, scusa-2014, scusa-2015, scusa-2016, scusa-2017, scusa-2018, scusa-2019, scusa-2020, scusa-2021, scusa-2022, scusa-2023, scusa-2024, scusa-2025, scusa-2026, seerc-1995, seerc-1996, seerc-1997, seerc-1998, seerc-1999, seerc-2000, seerc-2001, seerc-2002, seerc-2003, seerc-2004, seerc-2005, seerc-2006, seerc-2007, seerc-2008, seerc-2009, seerc-2010, seerc-2011, seerc-2012.
+Not finished: 681 contests: seusa-2013, seusa-2014, seusa-2015, seusa-2016, seusa-2017, seusa-2018, seusa-2019, seusa-2020, seusa-2021, seusa-2022, seusa-2023, seusa-2024, seusa-2025, seusa-2026, shanghai-1996, shanghai-1997, shanghai-2000, shanghai-2001, shanghai-2004, shanghai-2006, shanghai-2009, shanghai-2011, shanghai-2014, shanghai-2015, shanghai-2019, shanghai-2020, shanghai-2021, shanghai-2022, shanghai-2023, shanghai-2025, shenyang-2016, shenyang-2017, shenyang-2018, shenyang-2019, shenyang-2020, shenyang-2021, shenyang-2022, shenyang-2023, shenyang-2024, shenyang-2025.
 Results that do not check: 0.
 
 
-## Second reading: 683 sources to look at
+## Second reading: 742 sources to look at
 
 The reader did not confirm the catalogue, or disagrees with the content check of 2026-11-14. Nothing here was applied.
 
@@ -716,10 +717,69 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | scusa-1993 | https://www.cs.rice.edu/~greiner/icpc.html | standings | correct → no role (medium) | correct →  | The page is Rice University's own ACM-ICPC team history, and its row for 1993/4 Regionals shows only '?' for Rice's result. |
 | scusa-1998 | https://www.acmicpc.net/category/detail/738 | problemset | correct → no role (medium) | correct →  | Baekjoon Online Judge category '1998 South Central USA Regional Programming Contest' holds one row, number 6459 with the label F, and no title. |
 | scusa-1999 | http://www.rsu.edu/acm_contest | web | correct → no role (medium) | correct →  | The copy is Rogers State University's general site (news archive 'News from 2000', home pages); its only trace of the contest is a home-page link 'ACM Programming Contest Results' to a page that is not in our copy. |
+| scusa-2000 | http://acm2000.scusa.lsu.edu/report.html | editorial | correct → report (high) | none | Page titled 'Contest Report' that tells how the contest ran: 69 teams from 41 schools, 8 problems, 56 teams solving at least one. |
 | scusa-2003 | https://open.kattis.com/problem-sources/South%20Central%20Regional%20C | problemset | not-the-document (high) | not-the-document | The Kattis problem-sources page for 'South Central Regional Contest 2003' shows 'No data found' and an empty problem list. |
 | scusa-2008 | https://acm2008.scusa.lsu.edu/results/report.php | editorial | correct → report (high) | none | Page headed 'Report for 2008 South Central USA Regional Programming Contest' giving an account of the contest by its hosts, not worked solutions. |
+| scusa-2010 | http://localdoc.scusa.lsu.edu/scoreboard-regional/ | standings | wrong-contest (high) | wrong-contest | Table titled The 2017 South Central USA Regional Contest: Summary, updated Mon Nov 6 2017, with problems A to K. |
+| scusa-2012 | http://acm2012.cct.lsu.edu/results | standings | correct → web (medium) | correct → web | Results index page of the host site saying the contest is over, with links to the contest report, local doc, problem sets and scoreboards but no results table. |
+| scusa-2012 | https://ld2012.scusa.lsu.edu/perl/index-tutorials.html | editorial | correct → no role (high) | none | The page is the Tutorials index of the Perl 5 version 10.1 documentation on perldoc.perl.org, not material of this contest. |
+| scusa-2014 | http://ld2014.scusa.lsu.edu/gnu_c_libs/File-Name-Resolution.html | editorial | correct → no role (high) | none | The page is section 11.2.2 'File Name Resolution' of the GNU C Library manual, not material of this contest. |
+| scusa-2014 | http://ld2014.scusa.lsu.edu/gnu_c_libs/High_002dResolution-Calendar.ht | editorial | correct → no role (high) | none | The page is section 21.4.2 'High-Resolution Calendar' of the GNU C Library manual, not material of this contest. |
+| scusa-2022 | http://acm2022.scusa.lsu.edu | web+standings | correct → web+scoreboard (high) | correct → web+scoreboard | One page headed SCUSA 2022 ICPC South Central USA Regional Contest with a contest report, two division tables of team, university, solved, time and letters of solved problems, and sections on registration, rules, divisio |
+| seerc-1995 | https://groups.google.com/g/comp.org.acm/c/LcxbowMkd-M/m/Bh-L2Iq2hRcJ | rankings | correct → report+rankings (medium) | correct → report+rankings | Usenet post of 14 Dec 1995 compiling the top 3 or 4 teams of 17 regions, in which the 'ICPC Region: Eastern European' entry dated 04 Nov 95 lists Sofia, Bucharest, Belgrade. |
+| seerc-1996 | https://open.kattis.com/problem-sources/Southeastern%20European%20Regi | problemset | not-the-document (high) | not-the-document | The Kattis page 'Problems from Southeastern European Regionals 1996' shows 'No data found' and lists no problems. |
+| seerc-1999 | http://icpc.baylor.edu/past/icpc2000/regionals/SEERC99/Problems.html | problemset | correct → web (high) | correct → web | Page titled Regional Contest Information naming the 1999 contest, its host and dates, with only a link to Problems.zip and no problems. |
+| seerc-2000 | https://seerc.icpc.global/2000/ | web | not-the-document (high) | none | The only file in our copy is a 1997 frameset page of the ACM International Collegiate Programming Contest from cs.pub.ro whose frames (acm.htm, header.htm, navigati.htm, main.htm) are all missing, and the seed address se |
+| seerc-2001 | https://seerc.icpc.global/2001/ | web | wrong-contest (medium) | none | The only page in our copy is a frameset whose title and description name the 1997 ACM Collegiate Programming Contest, and the seed address for 2001 returned a 404. |
+| seerc-2009 | http://www.acm.ro/results.htm | standings | wrong-contest (high) | wrong-contest | The earlier reader saw a different copy (51 rows, judged to be the 2010 edition); the copy now held is the 2024-2025 SEERC scoreboard, so it is of another edition than the one the earlier reader named. |
+| seerc-2010 | http://acm.ro/results.htm | standings | wrong-contest (high) | wrong-contest | The page is titled '2024-2025 SEERC: Standings' and its table has 91 team rows with problems A to M for the Bucharest and Lviv sites. |
+| seerc-2012 | http://acm.ro/results.htm | standings | wrong-contest (high) | wrong-contest | The page is headed '2024-2025 SEERC: Standings' with 92 teams and problems A to M, which is another edition. |
+| seerc-2013 | https://seerc.icpc.global/2013/ | web | correct → no role (high) | none | Every page of our copy that has content comes from the photo gallery of Vinnytsia National Technical University (photo.vntu.edu.ua); none is from seerc.icpc.global, and the only contest content is photo albums of the con |
+| seerc-2013 | http://photo.vntu.edu.ua/345/ | web | correct → no role (high) | correct →  | The page is the first page of a university photo gallery with one album titled 'South-Eastern European Programming Contest Opening' and nothing else about the contest. |
+| seerc-2014 | http://acm.ro/results.htm | standings | wrong-contest (high) | wrong-contest | The page is headed '2024-2025 SEERC: Standings' and lists 92 teams on problems A to M, with Bucharest, Lviv and other sites. |
+| seerc-2015 | http://acm.ro/results.htm | standings | wrong-contest (high) | wrong-contest | The page is titled '2024-2025 SEERC: Standings' with 13 problems A to M and 92 teams, a different edition than 2015. |
+| seerc-2016 | http://acm.ro/results.htm | standings | wrong-contest (high) | wrong-contest | The page is titled '2024-2025 SEERC: Standings' with 92 teams and problems A to M, a different edition (seerc-2024). |
+| seerc-2017 | http://acm.ro/results.htm | standings | wrong-contest (high) | wrong-contest | The page is titled '2024-2025 SEERC: Standings' with 92 teams and problems A to M, a different edition (seerc-2024). |
+| seerc-2018 | http://acm.ro/results.htm | standings | wrong-contest (high) | wrong-contest | The copy of this address is titled '2024-2025 SEERC: Standings' with problems A to M, so it is a later edition. |
+| seerc-2019 | http://acmallukrainian.ho.ua/2019/3/standings.html | standings | correct → scoreboard (high) | wrong-contest | The earlier reader called it a different contest; the page names the same contest, date and city pair as the problem set, and its teams and results match the other boards of seerc-2019. |
+| seerc-2020 | http://acm.ro/results.htm | standings | wrong-contest (high) | wrong-contest | The page is titled '2024-2025 SEERC: Standings' and lists 92 teams with Bucharest and Lviv sites. |
+| seerc-2021 | http://acm.ro/results.htm | standings | wrong-contest (high) | wrong-contest | The page is titled '2024-2025 SEERC: Standings' and lists 92 teams with Bucharest and Lviv sites. |
+| seerc-2022 | http://acm.ro/results.htm | standings | wrong-contest (high) | wrong-contest | The page is titled '2024-2025 SEERC: Standings' and lists 92 teams with Bucharest and Lviv sites. |
+| seerc-2022 | https://acmallukrainian.ho.ua/2022/3/standings.html | standings | correct → scoreboard (high) | wrong-contest | Page headed 'Southeastern Europe Regional Programming Contest Bucharest - Vinnytsya, December 10, 2022' with 153 team rows and per-problem results A to N. |
+| seerc-2023 | http://acm.ro/results.htm | standings | wrong-contest (high) | wrong-contest | The table is headed '2024-2025 SEERC: Standings' and lists 92 teams with scores for problems A to M, a later edition than 2023. |
+| senegal-2017 | https://github.com/kitihounel/competitive-programming-africa/blob/mast | problemset | not-the-document (high) | not-the-document | The file named .pdf is an HTML page, the GitHub file viewer for west-africa/2017/problems-west-africa-2017.pdf, not PDF data (pdfinfo fails, page title is the GitHub path). |
+| seusa-1990 | https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc | web+rankings | correct → no role (high) | correct →  | The page headed 'Team Record ACM International Collegiate Programming Contest' lists only UCF's own regional and finals places per season (1990-1991: regionals 1st and 14th), with no results of the contest itself. |
+| seusa-1994 | http://seusa.vanb.org/ | web | correct → no role (medium) | correct →  | The crawl holds series-site pages for 2004 to 2020 and 2024; 1994 appears only as one host line in the front page's list of past contests. |
+| seusa-1995 | https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc | web | correct → no role (high) | correct →  | The record page of the UCF programming team lists only UCF's own regional finishes per season ('1995-1996 Regionals: 2nd, 7th & 8th'), with no results of the contest itself. |
+| seusa-1996 | https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc | web+rankings | correct → no role (high) | correct →  | The record page of the UCF programming team lists only UCF's own regional finishes per season ('1996-1997 Regionals: 1st, 3rd, 7th & 9th'), with no results of the contest itself. |
+| seusa-1996 | https://open.kattis.com/problem-sources/1996%20South%20East%20Regional | problemset | not-the-document (high) | not-the-document | Kattis page 'Problems from 1996 South East Regionals' shows 'No data found', an empty problem list. |
+| seusa-2000 | http://turing.gcsu.edu/~gadkins/P_there.html | problemset | correct → problem (high) | none | Statement page of a single problem, 'Are We There Yet?', with input, output and sample sections, one of the ten problems listed on the problem set page. |
+| seusa-2000 | http://turing.gcsu.edu/~gadkins/P_bingo.html | problemset | correct → problem (high) | none | Statement page of a single problem, 'Bob's Bingo Bonanza', with input, output and sample sections, one of the ten problems listed on the problem set page. |
+| seusa-2000 | http://turing.gcsu.edu/~gadkins/P_charity.html | problemset | correct → problem (high) | none | Statement page of a single problem, 'Charity Begins at Home-page', with input, output and sample sections, one of the ten problems listed on the problem set page. |
+| seusa-2000 | http://turing.gcsu.edu/~gadkins/P_hey.html | problemset | correct → problem (high) | none | Statement page of a single problem, 'Hey, You're Not Marion Jones!', with input, output and sample sections, one of the ten problems listed on the problem set page. |
+| seusa-2000 | http://turing.gcsu.edu/~gadkins/P_javelin.html | problemset | correct → problem (high) | none | Statement page of a single problem, 'If it's a Javelin, Duck!', with input, output and sample sections, one of the ten problems listed on the problem set page. |
+| seusa-2000 | http://turing.gcsu.edu/~gadkins/P_party.html | problemset | correct → problem (high) | none | Statement page of a single problem, 'The Party's in Dolores's Driveway', with input, output and sample sections, one of the ten problems listed on the problem set page. |
+| seusa-2000 | http://turing.gcsu.edu/~gadkins/P_olympiad.html | problemset | correct → problem (high) | none | Statement page of a single problem, 'Programming Olympiad', with input, output and sample sections, one of the ten problems listed on the problem set page. |
+| seusa-2000 | http://turing.gcsu.edu/~gadkins/P_rectangular.html | problemset | correct → problem (high) | none | Statement page of a single problem, 'Rectangular Rectitude', with input, output and sample sections, one of the ten problems listed on the problem set page. |
+| seusa-2000 | http://turing.gcsu.edu/~gadkins/P_plane.html | problemset | correct → problem (high) | none | Statement page of a single problem, 'The Plane Problem', with input, output and sample sections, one of the ten problems listed on the problem set page. |
+| seusa-2000 | http://turing.gcsu.edu/~gadkins/P_fingers.html | problemset | correct → problem (high) | none | Statement page of a single problem, 'Who Wants to Have the Fastest Fingers?', with input, output and sample sections, one of the ten problems listed on the problem set page. |
+| seusa-2001 | http://turing.gcsu.edu/~gadkins/prob2001/ski.htm | problemset | correct → problem (high) | none | A single problem statement page (ski.htm) titled 'SER 2001: The Amazing Mooville Jumping Skiers', with input file ski.in. |
+| seusa-2001 | http://turing.gcsu.edu/~gadkins/prob2001/network.htm | problemset | correct → problem (high) | none | A single problem statement page (network.htm) titled 'SER 2001: Analyzing Network Logs', with input file network.in. |
+| seusa-2001 | http://turing.gcsu.edu/~gadkins/prob2001/cdrom.htm | problemset | correct → problem (high) | none | A single problem statement page (cdrom.htm) titled 'SER 2001: Archiving Files to CD-ROM', with input file cdrom.in. |
+| seusa-2001 | http://turing.gcsu.edu/~gadkins/prob2001/message.htm | problemset | correct → problem (high) | none | A single problem statement page (message.htm) titled 'SER 2001: Did you get the message', with input file message.in. |
+| seusa-2001 | http://turing.gcsu.edu/~gadkins/prob2001/duck.htm | problemset | correct → problem (high) | none | A single problem statement page (duck.htm) titled 'SER 2001: Duck!', with input file duck.in. |
+| seusa-2001 | http://turing.gcsu.edu/~gadkins/prob2001/dude.htm | problemset | correct → problem (high) | none | A single problem statement page (dude.htm) titled 'SER 2001: Dude...Where’s My Gas', with input file dude.in. |
+| seusa-2001 | http://turing.gcsu.edu/~gadkins/prob2001/count.htm | problemset | correct → problem (high) | none | A single problem statement page (count.htm) titled 'SER 2001: Let Me Count the Ways', with input file count.in. |
+| seusa-2001 | http://turing.gcsu.edu/~gadkins/prob2001/percent.htm | problemset | correct → problem (high) | none | A single problem statement page (percent.htm) titled 'SER 2001: Playing the Percentages', with input file percent.in. |
+| seusa-2001 | http://turing.gcsu.edu/~gadkins/prob2001/puzzle.htm | problemset | correct → problem (high) | none | A single problem statement page (puzzle.htm) titled 'SER 2001: Puzzling Numbers', with input file puzzle.in. |
+| seusa-2001 | http://turing.gcsu.edu/~gadkins/prob2001/shuffle.htm | problemset | correct → problem (high) | none | A single problem statement page (shuffle.htm) titled 'SER 2001: Shuffle off to…Milledgeville', with input file shuffle.in. |
+| seusa-2001 | http://turing.gcsu.edu/~gadkins/prob2001/cashier.htm | problemset | correct → problem (high) | none | A single problem statement page (cashier.htm) titled 'SER 2001: The Smart Alec Cashier', with input file cashier.in. |
+| seusa-2001 | http://turing.gcsu.edu/~gadkins/prob2001/bingo.htm | problemset | correct → problem (high) | none | A single problem statement page (bingo.htm) titled 'SER 2001 Practice Problem: Bingo', with input file bingo.in. |
+| seusa-2002 | http://faculty.erau.edu/collinsj/score.html | scoreboard | not-the-document (high) | not-the-document | The copy is the Embry-Riddle page 'Faculty member not found', not a scoreboard. |
+| seusa-2002 | http://faculty.erau.edu/collinsj/Results.html | problemset | not-the-document (high) | none | The copy is the Embry-Riddle page 'Faculty member not found', not the results page. |
+| seusa-2012 | http://cs.fit.edu/~ryan/icpc/ser2012/ser2012_scoreboard.pdf | scoreboard+standings | correct → scoreboard (high) | correct → scoreboard | 9-page PDF 'Scoreboard 2012 ACM ICPC Southeast USA Region' with a Division I board (A1 to J1) and a Division II board (A2 to J2) showing attempts and times per problem. |
 
-## Contest facts: 362 that fill a blank or differ
+## Contest facts: 397 that fill a blank or differ
 
 | contest | fact | document says | catalogue | confidence | applied | where it is stated |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -1064,6 +1124,41 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | romania-2023 | location | Alexandru Ioan Cuza University of Iasi, Iasi | Bucharest; Administrative Site Location | medium | no | The post says the contest took place in Iasi as part of the RCPCamp organised by the Alexandru Ioan Cuza University of Iasi. |
 | romania-2026 | location | PRECIS, UPB and online | (sites) | medium | no | The page's Location field reads 'PRECIS, UPB & Online'. |
 | scusa-1998 | location | Rice University, Houston, Texas | (sites) | high | no | The home page says CITI at Rice University in Houston, Texas hosted the 1998 contest. |
+| scusa-2000 | location | Louisiana State University, Baton Rouge, Louisiana | Louisiana State University | high | no | The contest report says the contest was held at Louisiana State University in Baton Rouge, LA. |
+| scusa-2026 | location | University of Texas at Dallas, University of Houston, Univer | (sites) | high | no | The sites section of the main page lists these seven host sites. |
+| seerc-1998 | location | Bucharest, Romania | (sites) | high | no | The heading of the standings page reads 'Bucharest, October 24th, 1998'; Romania is named for the host in the other standings copy. |
+| seerc-1999 | location | POLITEHNICA University of Bucharest, Bucharest | Bucharest | high | no | The contest information page says 'hosted by POLITEHNICA University of Bucharest'. |
+| seerc-2000 | date | 2000-10-21 | 2000-10-22 | high | no | Every problem statement header in the PDF reads 'Bucharest, Romania October 21, 2000'. |
+| seerc-2001 | date | 2001-10-20 | 2001-10-21 | high | no | Every problem PDF is headed 'Bucharest, Romania, October 20, 2001'. |
+| seerc-2002 | date | 2002-10-19 | 2002-10-20 | high | no | The heading of the standings page reads 'SOUTHEASTERN EUROPE REGION FINAL STANDINGS Bucharest October 19th, 2002', and the problem statements are headed October |
+| seerc-2003 | date | 2003-10-18 | 2003-10-19 | high | no | every problem PDF is headed 'Bucharest, Romania, October 18, 2003' and the PC^2 standings footer reads 'Sat Oct 18 15:49:42 EEST 2003'. |
+| seerc-2004 | date | 2004-10-16 | 2004-10-17 | high | no | Each of the nine problem PDFs carries the line 'October 16, 2004' under 'Bucharest, Romania'. |
+| seerc-2005 | date | 2005-10-15 | 2005-10-16 | high | no | Every problem PDF header reads 'Bucharest, Romania, October 15, 2005'. |
+| seerc-2006 | date | 2006-10-21 | 2006-10-22 | high | no | The header of every problem PDF reads 'October 21, 2006'. |
+| seerc-2008 | date | 2008-10-18 | 2008-10-19 | medium | no | Each problem PDF header reads 'Bucharest, Romania, October 18, 2008'; the standings page says 'Bucharest, October 16-19, 2008'. |
+| seerc-2009 | date | 2009-10-17 | 2009-10-18 | high | no | The header of every problem PDF reads 'October 17, 2009'. |
+| seerc-2010 | date | 2010-10-16 | 2010-10-17 | high | no | Every problem PDF is headed 'Bucharest, Romania October 16, 2010'. |
+| seerc-2011 | date | 2011-10-15 | 2011-10-16 | high | no | The header of each of the ten problem PDFs reads October 15, 2011. |
+| seerc-2011 | location | Bucharest, Romania | University Politehnica of Bucharest, Romania; Admi | medium | no | The header of each problem PDF reads Bucharest, Romania. |
+| seerc-2012 | date | 2012-10-13 | 2012-10-14 | high | no | The header of each problem PDF reads 'October 13, 2012'. |
+| seerc-2013 | date | 2013-10-12 | 2013-10-13 | high | no | The header of every problem statement PDF reads 'Bucharest, Romania, October 12, 2013'. |
+| seerc-2014 | date | 2014-10-18 | 2014-10-19 | high | no | The header of the problem PDFs reads 'October 18, 2014'. |
+| seerc-2014 | location | Bucharest, Romania | Vinnytsia National Technical University, Ukraine;  | medium | no | The header of the problem PDFs reads 'Bucharest, Romania'. |
+| seerc-2015 | date | 2015-10-17 | 2015-10-18 | high | no | Every problem PDF is headed 'October 17, 2015'. |
+| seerc-2016 | date | 2016-10-22 | 2016-10-23 | high | no | Every problem header of the PDF reads 'October 22, 2016'. |
+| seerc-2016 | location | Bucharest, Romania and Vinnytsya, Ukraine | Administrative Site Location; Vinnytsia National T | medium | no | The PDF header reads 'Bucharest, Romania - Vinnytsya, Ukraine'. |
+| seerc-2017 | date | 2017-10-21 | 2017-10-22 | high | no | Every problem header of the PDF reads 'October 21, 2017'. |
+| seerc-2017 | location | Bucharest, Romania and Vinnytsya, Ukraine | Vinnytsia National Technical University, Ukraine;  | medium | no | The PDF header reads 'Bucharest, Romania - Vinnytsya, Ukraine'. |
+| seerc-2018 | date | 2018-10-20 | 2018-10-21 | high | no | Each problem page of the PDF carries the line 'October 20, 2018'. |
+| seerc-2019 | date | 2019-10-19 | 2019-10-20 | high | no | Every page of the problem set PDF carries the line 'October 19, 2019', and the scoreboard page of source 5 repeats it in its heading. |
+| seerc-2021 | date | 2021-11-21 | 2021-11-20 | medium | no | The header of the problem pages reads 'November 21, 2021'; this is the date printed in the problem set, which may differ from the contest day. |
+| seusa-1994 | location | Mercer University, Macon, Georgia | Univ. of South Florida (USF) | medium | no | The front page lists '1994 SE USA Regional, Mercer University, Macon, Georgia' among past contests. |
+| seusa-1998 | location | University of Florida | (sites) | high | no | The header of the standings reads 'University of Florida'. |
+| seusa-2000 | location | Georgia College & State University, Milledgeville, GA | Milledgeville, GA | high | no | The front page gives 'Georgia College & State University, Milledgeville, GA' as the place. |
+| seusa-2001 | date | 2001-10-06 | 2001-10-16 | high | no | The final standings page is headed 'Georgia College & State University October 6, 2001' and the schedule shows the contest on Saturday, Oct 6. |
+| seusa-2006 | location | Georgia Southern University, Statesboro, GA and University o | Statesboro, GA; Mobile, AL | high | no | The front page says the contest was held jointly at the two universities, with hotels and directions for Statesboro and Mobile. |
+| seusa-2009 | location | Florida Institute of Technology, Melbourne, Florida (with si | Administrative Site Location; Melbourne, Florida;  | high | no | The front page lists the three sites and names Florida Tech's director as regional contest director. |
+| seusa-2010 | location | Florida Institute of Technology, Melbourne, Florida (with si | Savannah, Georgia; Pensacola, Florida; Administrat | high | no | The front page lists the three sites and names Florida Tech's director as regional contest director. |
 | alberta-2006 | location | University of Alberta, University of Calgary and University  | — | medium | no | the problem index says the contest is a joint effort of the three universities. |
 | bapc-prelims-2025 | date | 2025-09-20 | — | medium | no | The preliminaries page lists the local contests under the dates 20 September, 26 September and 27 September 2025 and says they run between the 20th and 28th. |
 | brazil-first-phase-1996 | location | DCC-UFMG, Belo Horizonte | — | medium | no | The history page says the first Maratona was organised at the Federal University of Minas Gerais, under the heading Belo Horizonte. |
@@ -1081,7 +1176,7 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | north-russia-2007 | location | St Petersburg | — | medium | no | the PDF header gives 'St Petersburg' as the place, without naming the host institution |
 | nzpc-2000 | date | 2000-08-05 | — | medium | no | The results text says the contest was held 'Aug 5th' and its title names the 2000 contest. |
 | nzpc-2023 | date | 2023-08-19 | — | medium | no | The results page says the contest was held on Saturday 19th August, under a 2023 heading. |
-| poland-2025 | date | 2025-11-16 | — | high | yes | The text states that the XXIX contest took place on 16 November 2025. |
-| romania-2024 | date | 2024-10-20 | — | high | yes | The sheet is headed 'Romanian Collegiate Programming Contest - 20 October 2024'. |
-| romania-2025 | date | 2025-11-09 | — | high | yes | The front page gives the date as November 9th, 2025 and the sheet is headed 9 november 2025. |
-| romania-2026 | date | 2026-11-07 | — | high | yes | The page lists the date as November 7-8, 2026; the standings are headed 8 November 2026. |
+| seerc-1995 | location | Bucharest (Romanian Chapter of the ACM) | — | high | yes | The standings page header gives Bucharest and names the Romanian Chapter of the ACM. |
+| seerc-1996 | location | Bucharest (Romanian Chapter of the ACM) | — | high | yes | The standings page header gives Bucharest and names the Romanian Chapter of the ACM. |
+| seerc-1997 | location | Bucharest, Romania | — | high | yes | The standings page heading gives Bucharest, Romania. |
+| seerc-2025 | date | 2025-12-14 | — | high | yes | The statements PDF header reads 'December 14, 2025' and the website's call for participation says 'Contest: 14 December 2025'. |
