@@ -4,32 +4,33 @@ Run of 2026-11-16, rubric 1 (`tools/describe_rubric.md`). Applied.
 
 | | |
 | --- | --- |
-| contests read | 1,840 |
+| contests read | 1,977 |
 | contests with nothing held | 75 |
-| sources | 9,308 |
-| no copy | 1,128 |
-| read | 8,180 |
-| first readings | 604 |
-| described | 7,745 |
+| sources | 9,907 |
+| no copy | 1,176 |
+| read | 8,731 |
+| first readings | 626 |
+| described | 8,275 |
 | description held (low confidence or source gone) | 9 |
-| verdict confirm | 7,396 |
-| verdict correct | 358 |
-| verdict not-the-document | 237 |
-| verdict wrong-contest | 180 |
-| verdict cannot-tell | 9 |
-| disagrees with the earlier reader | 132 |
-| blank date filled | 6 |
-| contest facts fills-blank | 34 |
-| contest facts conflict | 403 |
-| contest facts same | 334 |
-| contest facts listed | 1,307 |
+| verdict confirm | 7,904 |
+| verdict correct | 380 |
+| verdict not-the-document | 246 |
+| verdict wrong-contest | 189 |
+| verdict cannot-tell | 12 |
+| disagrees with the earlier reader | 142 |
+| blank date filled | 9 |
+| blank location filled | 5 |
+| contest facts fills-blank | 45 |
+| contest facts conflict | 419 |
+| contest facts same | 362 |
+| contest facts listed | 1,412 |
 | words per description | 104 |
 
-Not finished: 553 contests: south-america-2007, south-america-north-2008, south-america-north-2009, south-america-north-2010, south-america-north-2011, south-america-north-2012, south-america-north-2013, south-america-north-2014, south-america-north-2015, south-america-north-2016, south-america-north-2017, south-america-north-2018, south-america-north-2019, south-america-north-2020, south-america-north-2021, south-america-north-2022, south-america-north-2023, south-america-north-2024, south-america-north-2025, south-america-north-2026, south-america-south-2008, south-america-south-2009, south-america-south-2010, south-america-south-2011, south-america-south-2012, south-america-south-2013, south-america-south-2014, south-america-south-2015, south-america-south-2016, south-america-south-2017, south-america-south-2018, south-america-south-2019, south-america-south-2020, south-america-south-2021, south-america-south-2022, south-america-south-2023, south-america-south-2024, south-america-south-2025, south-america-south-2026, south-na-2022.
+Not finished: 416 contests: swerc-1996, swerc-1997, swerc-1998, swerc-1999, swerc-2000, swerc-2001, swerc-2002, swerc-2003, swerc-2004, swerc-2005, swerc-2006, swerc-2007, swerc-2008, swerc-2009, swerc-2010, swerc-2011, swerc-2012, swerc-2013, swerc-2014, swerc-2015, swerc-2016, swerc-2017, swerc-2018, swerc-2019, swerc-2020, swerc-2021, swerc-2022, swerc-2023, swerc-2024, swerc-2025, syria-2011, syria-2012, syria-2013, syria-2014, syria-2015, syria-2016, syria-2017, syria-2018, syria-2019, syria-2020.
 Results that do not check: 0.
 
 
-## Second reading: 830 sources to look at
+## Second reading: 881 sources to look at
 
 The reader did not confirm the catalogue, or disagrees with the content check of 2026-11-14. Nothing here was applied.
 
@@ -865,8 +866,59 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | south-america-2004 | https://www.acmicpc.net/category/detail/572 | problemset | confirm (medium) | wrong-contest | The earlier reader gave no roles because the page was then filed under another contest; here it is read as the problem list of this contest, with titles missing. |
 | south-america-2005 | http://www.ic.unicamp.br/~acmcntst/Welcome_files/BrasilPrelim2005_prob | problemset | wrong-contest (high) | none | The cover reads 'South American Regional - Brazilian Round', Maratona de Programacao, 10 de setembro de 2005, with 8 problems (Jogo do Bicho first) and Brazilian host sites, not the 12 November contest outside Brazil. |
 | south-america-2006 | http://www.ic.unicamp.br/~acmcntst/ | standings | wrong-contest (high) | wrong-contest | The page is the front page of the '2007 ACM-Regional South American Contest, Nov. 9-10, 2007' site, not a results page of 2006. |
+| south-america-2007 | https://open.kattis.com/problem-sources/ACM%20South%20American%20Regio | problemset | not-the-document (high) | not-the-document | The Kattis page headed 'Problems from ACM South American Regional Contest 2007' shows 'No data found' and an empty problem table. |
+| south-america-north-2012 | https://eolymp.com/contests/3388 | problemset | cannot-tell (medium) | cannot-tell | The page is an Eolymp contest entry named ACM ICPC Regional Latino America 2012 that requires sign-in and shows no problem titles. |
+| south-america-north-2013 | https://eolymp.com/contests/3423 | problemset | cannot-tell (medium) | cannot-tell | The page is an Eolymp contest entry named ACM ICPC Regional Latino America 2013 that requires sign-in and shows no problem titles. |
+| south-america-north-2026 | https://scorelatam.naquadah.com.br/latam-2026/ | scoreboard | correct → scoreboard+problemset (high) | correct → scoreboard+problemset | MOJ page with an open scoreboard of 563 team rows for problems A to M and a table of the 13 problems with authors and statement links. |
+| south-america-south-2008 | http://www.dc.uba.ar/events/icpc/2008/docs/poster-2008.pdf | rankings | correct → web (medium) | none | One-page Spanish poster inviting teams to the 33rd ACM programming contest, South American regional, 15/11/08, with no results on it. |
+| south-america-south-2012 | https://eolymp.com/contests/3388 | problemset | not-the-document (high) | cannot-tell | The Eolymp page for contest ACM ICPC Regional Latino America 2012 shows only a sign-in wall with the start time, five-hour length and a count of 12 problems, and no problem list. |
+| south-america-south-2013 | https://eolymp.com/contests/3423 | problemset | cannot-tell (medium) | cannot-tell | Eolymp contest page named 'ACM ICPC Regional Latino America 2013' with a sign-in wall and no problem list. |
+| south-america-south-2014 | https://www.acmicpc.net/category/detail/1297 | problemset | correct → no role (medium) | correct →  | Baekjoon category 'Latin America Regional Contests 2014' lists 14 rows (A to K, PA to PC) and every one is marked as deleted with 0 submissions. |
+| south-na-2026 | https://open.kattis.com/problem-sources/2026%20ICPC%20South%20Central% | problemset | not-the-document (high) | not-the-document | The problem table of the page headed Problems from 2026 ICPC South Central, South East and Mid Atlantic Regional (November 8, 2026) reads No data found and holds no problems. |
+| south-na-2026 | https://open.kattis.com/problem-sources/2026%20ICPC%20South%20Central% | problemset | not-the-document (high) | not-the-document | The problem table of the page headed Problems from 2026 ICPC South Central, South East and Mid Atlantic Regional (November 16, 2026) reads No data found and holds no problems. |
+| south-pacific-1992 | https://open.kattis.com/problem-sources/1992%20South%20Pacific%20Regio | problemset | not-the-document (high) | not-the-document | Kattis problem-sources page for 1992 South Pacific Regionals whose problem table reads No data found. |
+| south-pacific-1999 | http://elena.aut.ac.nz/homepages/acm_contest | web | correct → no role (high) | correct →  | The saved files are the AUT School of Computer and Information Science homepage and course pages, and no file mentions the South Pacific contest or holds an ACM contest page. |
+| south-pacific-1999 | https://sppcontests.org/archive/1999-icpc-results/ | standings | correct → standings+report (high) | confirm | The page is headed '1999 ICPC Results' with a Contest Report of site accounts and a Contest Results table of 10 rows (Position, Team, Institution, Accepted Solutions, Time Taken). |
+| south-pacific-2000 | https://sppcontests.org/archive/2000-icpc-results/ | standings | correct → standings+report (high) | confirm | The page is headed '2000 ICPC Results' with a 10-row table (Position, Team, Institution, Accepted Solutions, Time Taken) followed by a Contest Report. |
+| south-pacific-2015 | http://www.sppcontest.org | web | wrong-contest (high) | correct →  | The crawl is the old ACM South Pacific Region site with year pages from 2001 to 2011 and a registration notice for the 2013 contest, and no page that mentions 2015. |
+| south-pacific-2017 | https://acmicpc.unisa.edu.au/index.php/regional-contest-current/56-reg | standings | correct → teams (medium) | none | The page is headed '2017 Eastern Division' and, besides links, holds only the four teams that qualified for the Regional Final; it has no scoreboard or standings table. |
+| south-pacific-2017 | https://acmicpc.unisa.edu.au/index.php/regional-contest-current/56-reg | standings | correct → teams (medium) | none | The page is headed '2017 Central Division' and, besides links, holds only the four teams that qualified for the Regional Final; it has no scoreboard or standings table. |
+| south-pacific-2017 | https://acmicpc.unisa.edu.au/index.php/regional-contest-current/56-reg | standings | correct → teams (medium) | none | The page is headed '2017 Western Division' and, besides links, holds only the four teams that qualified for the Regional Final; it has no scoreboard or standings table. |
+| south-pacific-2019 | https://sppcontests.org/wp-content/uploads/2024/07/2019_archive/2019R_ | scoreboard | confirm (medium) | correct → frozen_scoreboard | The earlier reader called it a frozen scoreboard; the scan carries the same totals as the final board (9 solved, 1015 for the first team) and is labelled preliminary, not frozen. |
+| south-pacific-2019 | https://sppcontests.org/archive/2019-icpc-results/ | standings | correct → no role (high) | correct →  | The page has the heading '2019 ICPC Results' and only five Download links, no results of its own. |
+| south-pacific-2020 | https://sppcontests.org/wp-content/uploads/2024/07/2020_archive/2020_R | scoreboard | confirm (medium) | correct → frozen_scoreboard | The earlier reader called it a frozen scoreboard; the scan is labelled preliminary results, not final, and nothing in it shows a freeze. |
+| south-pacific-2020 | https://sppcontests.org/wp-content/uploads/2024/07/2020_archive/2020_R | scoreboard | confirm (medium) | correct → frozen_scoreboard | The earlier reader called it a frozen scoreboard; the scan is labelled preliminary results, not final, and nothing in it shows a freeze. |
+| south-pacific-2020 | https://sppcontests.org/archive/2020-icpc-results/ | standings | correct → report (high) | correct → report | The page '2020 ICPC Results' gives a short account of the 2020 contest and only Download links, no results table. |
+| south-pacific-2022 | https://sppcontests.org/archive/2022-icpc-results/ | web+standings | correct → web+rankings+teams (medium) | correct → web+rankings+teams | The page is the host's 2022 ICPC results page with divisional finals podiums and a list of 13 invited teams, plus download links, but no standings table. |
+| south-pacific-2024 | https://sppcontests.org/archive/2024-icpc-results/ | web+standings | correct → web+rankings (medium) | correct → web+rankings | Host's 2024 ICPC results page with a preliminary finals report, a list of 15 invited teams and a regional finals report naming the top three, but no full standings table. |
+| south-pacific-2024 | https://sppcontests.org/wp-content/uploads/2024/10/final.png | scoreboard | confirm (medium) | cannot-tell | The earlier reader found no readable scoreboard in the image; viewing it shows a photograph of a projected scoreboard with readable team names, solved counts and per-problem cells. |
+| south-pacific-division-2024 | https://sppcontests.org/ | web | confirm (medium) | correct →  | The earlier reader gave no roles because the front page is a December 2025 news post; the site also holds pages of this 2024 preliminary (final report, flyer), so I keep web. |
+| south-pacific-division-2024 | https://sppcontests.org/archive/ | standings | correct → no role (high) | correct →  | Page titled 'Archive' that only lists links from '1991 ICPC Results' to '2024 ICPC Results', with no results table. |
+| south-pacific-east-2015 | http://public.webdev.aut.ac.nz/ACM/Scoreboards/2015/Divisonal/EasternD | scoreboard+standings | correct → scoreboard (high) | confirm | Page headed 'Eastern Division Scoreboard' and 'Final Standings' with per-problem cells for problems A to K for each of 15 teams plus one school team. |
+| south-pacific-west-2016 | https://acmicpc.unisa.edu.au/index.php/regional-contest-current/55-reg | standings | correct → teams (medium) | none | The page is headed 'Teams Qualifying for the Regional Final' and lists six teams with members, with no ranks or scores. |
+| south-russia-1998 | https://contest.sgu.ru/?id=5 | web | wrong-contest (high) | wrong-contest | Both readers find a page of another edition, but the earlier reader saw the 2026 championship programme in a different copy, while this copy is the programme of the October 2003 contest. |
+| south-russia-1999 | https://neerc.ifmo.ru/subregions/southern.html | web | wrong-contest (medium) | wrong-contest | Whole-host crawl seeded on the NEERC 1999 finals resources page and holding the NEERC 1999-2000 final standings and the NEERC 2000 Southern Subregion page; no page of the 1999 Southern subregional contest. |
+| south-russia-1999 | https://contest.sgu.ru/?id=5 | web | wrong-contest (high) | wrong-contest | The page is the programme of the Southern Subregion event of 7-10.10.2003 (Wayback capture of 2003-12-05), not of 1999. |
+| south-russia-2000 | https://contest.sgu.ru/?id=5 | web | wrong-contest (high) | wrong-contest | The page is the programme of the Southern Subregion event of 7-10.10.2003 (capture of 2003-12-05), so it belongs to south-russia-2003. |
+| south-russia-2001 | https://contest.sgu.ru/ | web | confirm (medium) | wrong-contest | The earlier reader judged the live 2026 page and found it of another year; our copy is the 2001 capture, which is headed ACM ICPC 2001. |
+| south-russia-2003 | https://nerc.itmo.ru/archive/2003/southern/standings.html | standings | correct → scoreboard (high) | confirm | Same file as source 2 (identical bytes): a per-team, per-problem table of 54 teams, which is a scoreboard and not standings. |
+| south-russia-2008 | http://contest.sgu.ru | web | confirm (medium) | cannot-tell | The earlier reader could not tell the edition and suspected the 2011 site; our copy contains pages of the 2008 edition (news of 17 October 2008, programme and information letter dated 2008) next to pages of later edition |
+| south-russia-2010 | http://contest.sgu.ru | web | confirm (medium) | cannot-tell | The earlier reader could not tell and thought the site served 2011; the copy has 2010 news (2010-10-23, 2010-11-02) and a 2010 standings page, so it holds this edition. |
+| south-russia-2018 | https://codeforces.com/blog/entry/62570 | web | not-the-document (high) | none | The seed page is a short notice reading 'Codeforces will return in few hours', and the other nine pages are Codeforces front pages and a profile page, none of them about this contest. |
+| south-russia-2018 | https://codeforces.com/contest/1070/standings | standings | correct → scoreboard (high) | correct → scoreboard | Codeforces standings table of 200 rows with columns Who, =, Penalty and problems A to M, each cell with tries and time. |
+| south-russia-2018 | https://codeforces.com/gym/101911/standings | standings | correct → no role (medium) | correct →  | The page is titled Qualification Stage, has 12 problems A to L and 258 rows in its pager, so it is an earlier online round and not the subregional contest itself. |
+| south-russia-2020 | https://codeforces.com/contest/1468/standings | standings | correct → scoreboard (high) | correct → scoreboard | Codeforces standings table of 200 rows with columns Who, =, Penalty and problems A to N, each cell with tries and time. |
+| south-russia-2023 | https://contest.sgu.ru/monitor/1 | standings | wrong-contest (high) | wrong-contest | The page is headed as the quarterfinal results of season 2026 of the Southern and Volga Russia championship, updated 15.11.2026, with a different team field and problems A to N. |
+| south-russia-2024 | https://contest.sgu.ru/monitor/1 | scoreboard | wrong-contest (high) | wrong-contest | The page is headed as the quarterfinal results of season 2026 of the Southern and Volga Russia championship, updated 15.11.2026, with a different team field and problems A to N. |
+| south-russia-2025 | https://contest.sgu.ru/monitor/1 | frozen_scoreboard | wrong-contest (high) | correct → frozen_scoreboard | Our copy is the results page of the quarterfinal of season 2026 (problems A to N, ranks up to 90), not the 2025-2026 frozen scoreboard with problems A to M. |
+| south-russia-2026 | https://contest.sgu.ru/history/acm-icpc/standings2026.html | standings | correct → scoreboard (high) | correct → scoreboard | Table of 90 ranked rows plus 3 coaches' rows with columns Place, ID, Team, solved, penalty and problems A to N, each cell with tries and time. |
+| sudan-2023 | https://www.facebook.com/SudanCPC/ | web | not-the-document (high) | none | The saved Facebook page of the SdCPC series has only its title as visible text, with no posts or other content. |
+| sudan-2023 | https://www.facebook.com/SudanCPC/videos/c-inventor-bjarne-stroustrup/ | web | wrong-contest (high) | wrong-contest | The Facebook video post is tagged #SdCPC2020 and #SdCPC2020_finals and names no 2023 edition. |
+| swerc-1994 | http://www.acm.inf.ethz.ch/ProblemSetArchive.html | web | correct → no role (medium) | correct →  | The crawl is of the ETH ACM contest site (captures from 1997 to 2006); its seed page is the 1994 East-Central Regionals problem set (Waterloo), and it holds no problem set or results page of the 1994 Western and Southwes |
+| swerc-1995 | https://open.kattis.com/problem-sources/1995%20Southwestern%20European | problemset | not-the-document (high) | not-the-document | Kattis problem-source page whose table is empty and shows 'No data found'. |
+| swerc-1995 | https://open.kattis.com/problem-sources/1995%20Southwestern%20European | problemset | not-the-document (high) | not-the-document | Kattis problem-source page whose table is empty and shows 'No data found'. |
 
-## Contest facts: 437 that fill a blank or differ
+## Contest facts: 464 that fill a blank or differ
 
 | contest | fact | document says | catalogue | confidence | applied | where it is stated |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -1273,6 +1325,22 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | south-america-1998 | date | 1998-11-14 | 1998-11-15 | high | no | The results page is headed 'November 14, 1998' and the problem PDF cover reads 'November 14, 1998'. |
 | south-america-2003 | date | 2003-11-08 | 2003-11-09 | high | no | the news item of 10 November says the contest was 'held Sat. Nov. 8, 2003' |
 | south-america-2004 | date | 2004-11-13 | 2004-11-14 | high | no | the cover of the contest problem set reads 'November 13th, 2004' |
+| south-america-south-2022 | date | 2023-03-18 | 2023-03-17 | medium | no | The cover of the problem set PDF reads 'March 18, 2023' for the Latin American Regional Contests, which ran simultaneously in several countries. |
+| south-pacific-2006 | date | 2006-09-16 | 2006-09-19 | high | no | The 2006 report page says the contest was held on Saturday 16th September at 9 sites. |
+| south-pacific-2014 | date | 2014-09-26 | 2014-09-28 | medium | no | The results page says the thirteen teams gathered in Sydney on 26th September; the finals scoreboard shows a last update of 27 Sep 2014. |
+| south-pacific-2015 | date | 2015-09-26 | 2015-09-27 | high | no | The results page says the Regional Final was held on Saturday, September 26, 2015; the problem set cover also reads September 26, 2015. |
+| south-pacific-2015 | location | AUT Tech Central | Administrative Site Location; University of New So | medium | no | The results page says 12 teams competed in the Regional Final at AUT's Tech Central and that it was held at AUT Tech Central. |
+| south-pacific-2016 | date | 2016-11-26 | 2016-11-27 | high | no | the cover of the problem set PDF reads 'November 26, 2016' and the Codeforces page says the contest took place on November 26, 2016 |
+| south-pacific-2016 | location | University of New South Wales, Sydney | Administrative Site Location; University of New So | high | no | the page says the 2016 Regional Final was held at the University of New South Wales, Sydney |
+| south-pacific-2017 | location | University of New South Wales, Sydney | Administrative Site Location; University of New So | high | no | The Regional Final page says the final was held at the University of New South Wales, Sydney, Australia on 24th to 26th November. |
+| south-pacific-2019 | date | 2019-11-23 | 2019-11-24 | medium | no | The problem set cover reads 'November 23, 2019' and the scoreboard last-update stamp is 23 Nov 2019. |
+| south-pacific-2020 | date | 2021-01-23 | 2020-10-17 | low | no | The Division 1 problem set cover is dated January 23, 2021, while the website's Calendar 2020 page gives October 17 for the Regional Contest. |
+| south-pacific-2022 | date | 2022-12-17 | 2022-12-18 | high | no | The results page says the contest was hosted by UNSW on Saturday, December 17, 2022; the problem set cover and the scoreboard also give 17 December 2022. |
+| south-pacific-2022 | location | UNSW (University of New South Wales), Sydney | Southland Institute of Technology | medium | no | The results page says the contest was hosted by UNSW. |
+| south-pacific-2024 | location | UNSW Sydney | UWA | high | no | The results page says the regional contest was held at UNSW Sydney. |
+| south-pacific-central-2014 | location | Brisbane, Canberra and Sydney, Australia | Darwin, Australia; ANU; QUT; Charles Darwin Univer | medium | no | the 2014 Central Divisional Contest page says it was held at Brisbane, Canberra and Sydney |
+| south-pacific-central-2015 | location | Brisbane (QUT), Canberra (ANU) and Sydney (University of Syd | Administrative Site Location; University of Sydney | medium | no | the 2015 Central Divisional Contest page names three sites: Brisbane hosted by QUT, Canberra hosted by ANU and Sydney hosted by University of Sydney |
+| south-russia-2016 | date | 2016-10-18 | 2016-10-19 | medium | no | The programme page saved in December 2016 lists the main round of the student contest (9:30 - 15:00) under 18.10.2016 and the analysis of problems under 19.10.2 |
 | alberta-2006 | location | University of Alberta, University of Calgary and University  | — | medium | no | the problem index says the contest is a joint effort of the three universities. |
 | bapc-prelims-2025 | date | 2025-09-20 | — | medium | no | The preliminaries page lists the local contests under the dates 20 September, 26 September and 27 September 2025 and says they run between the 20th and 28th. |
 | brazil-first-phase-1996 | location | DCC-UFMG, Belo Horizonte | — | medium | no | The history page says the first Maratona was organised at the Federal University of Minas Gerais, under the heading Belo Horizonte. |
@@ -1298,12 +1366,23 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | nzpc-2000 | date | 2000-08-05 | — | medium | no | The results text says the contest was held 'Aug 5th' and its title names the 2000 contest. |
 | nzpc-2023 | date | 2023-08-19 | — | medium | no | The results page says the contest was held on Saturday 19th August, under a 2023 heading. |
 | romania-2026 | date | 2026-11-07 | — | low | no | The page lists the date as November 7-8, 2026; the standings are headed 8 November 2026. [span of days only: contest day not stated; not written] |
-| shanghai-2020 | date | 2020-12-13 | — | high | yes | Every page of the problem set PDF is headed China, Shanghai, Dec, 13, 2020. |
 | slovenia-2013 | date | 2013-10-19 | — | medium | no | the upcoming-events list on the 2013-08-09 front page reads 'UPM - finale sobota, 19. Oktober 2013 - 9:00'. |
-| slovenia-2014 | date | 2014-10-11 | — | high | yes | the front page of 2014-11-18 reports 'V soboto, 11. 10. 2014, je potekalo finalno kolo' in Koper. |
-| slovenia-2015 | date | 2015-10-10 | — | high | yes | the front page of 2016-03-05 reports 'V soboto, 10. 10. 2015, je v Mariboru potekalo finalno kolo'. |
 | slovenia-2019 | date | 2019-10-12 | — | medium | no | The page 'Finale 2019' says the final is 'to soboto (12. oktobra)' in Ljubljana; the year comes from the page title. |
-| slovenia-2020 | date | 2020-10-10 | — | high | yes | The page 'Finale UPM 2020' says the final ended the competition 'V soboto, 10. oktobra 2020'. |
-| slovenia-2021 | date | 2021-10-16 | — | high | yes | The page 'Finale UPM 2021' says the final ended the competition 'V soboto, 16. oktobra 2021'. |
-| slovenia-2023 | date | 2023-10-21 | — | high | yes | The UPM news item states the final took place on Saturday 21 October 2023 in Maribor. |
 | south-america-1997 | date | 1997-12-13 | — | medium | no | The 1997 block gives 'Fecha: 13/12/1997'. |
+| south-america-north-2020 | date | 2021-07-10 | — | medium | no | The cover of the problem set reads 'July 10, 2021' under 'Contest Session'. |
+| south-america-north-2022 | date | 2023-03-18 | — | medium | no | The cover of the problem set reads 'March 18, 2023' under 'Contest Session'. |
+| south-america-north-2023 | date | 2023-10-21 | — | high | yes | the problem set cover reads 'October 21, 2023' |
+| south-america-south-2026 | date | 2026-11-07 | — | high | yes | The contest header states Start 2026-11-07 17:00 and End 2026-11-07 22:00. |
+| south-na-2022 | date | 2023-02-25 | — | high | yes | The contest report on the front page says the regional was held on Saturday, 2/25/2023. |
+| south-na-2023 | date | 2024-02-24 | — | high | yes | The front page says the 2023-24 Mid-Atlantic contest date is 2024-Feb-24 (Sat), finalized. |
+| south-na-2024 | date | 2024-11-16 | — | high | yes | The front page states Date: Saturday, November 16, 2024; the Kattis pages show a start of 2024-11-16 19:30 CET. |
+| south-na-2025 | date | 2025-11-08 | — | high | yes | The page title gives November 8, 2025 and the Kattis contest pages show a start of 2025-11-08 19:30 CET. |
+| south-pacific-east-2019 | date | 2019-09-21 | — | high | yes | the cover of the problem set reads September 21, 2019 |
+| south-pacific-west-2019 | date | 2019-09-21 | — | high | yes | The cover reads 'September 21, 2019'. |
+| south-russia-2000 | location | Saratov State University, Saratov | — | high | yes | The NEERC 2000 Southern Subregion page states Host: Saratov and Host university: Saratov State University. |
+| south-russia-2005 | location | Saratov State University | — | medium | no | The Codeforces page says the contest is hosted by Saratov State U. |
+| sweden-1996 | location | Lund and Luleå | — | high | yes | The report says the contest was held in parallel in Lund and Luleå. |
+| sweden-1997 | location | Lund and Luleå | — | high | yes | The report says the contest was held in parallel in Lund and Luleå. |
+| sweden-1998 | location | Luleå, Lund and Umeå | — | high | yes | The report says the contest was held in parallel in Luleå, Lund and Umeå. |
+| swerc-1995 | date | 1995-12-09 | — | high | yes | The regional problem set is headed ETH Zurich, Switzerland, December 9, 1995; the practice set is dated December 8. |
+| swerc-1995 | location | ETH Zurich, Switzerland | — | high | yes | The problem set header reads Southwestern European Regional Contest, ETH Zurich, Switzerland. |
