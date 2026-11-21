@@ -4,33 +4,33 @@ Run of 2026-11-16, rubric 1 (`tools/describe_rubric.md`). Applied.
 
 | | |
 | --- | --- |
-| contests read | 2,209 |
+| contests read | 2,360 |
 | contests with nothing held | 75 |
-| sources | 11,068 |
-| no copy | 1,288 |
-| read | 9,780 |
-| first readings | 762 |
-| described | 9,256 |
+| sources | 11,701 |
+| no copy | 1,328 |
+| read | 10,373 |
+| first readings | 810 |
+| described | 9,822 |
 | description held (low confidence or source gone) | 9 |
-| verdict confirm | 8,846 |
-| verdict correct | 419 |
-| verdict not-the-document | 284 |
-| verdict wrong-contest | 217 |
-| verdict cannot-tell | 14 |
-| disagrees with the earlier reader | 165 |
-| blank date filled | 4 |
-| blank location filled | 5 |
-| contest facts fills-blank | 42 |
-| contest facts conflict | 480 |
-| contest facts same | 400 |
-| contest facts listed | 1,565 |
-| words per description | 104 |
+| verdict confirm | 9,382 |
+| verdict correct | 449 |
+| verdict not-the-document | 301 |
+| verdict wrong-contest | 226 |
+| verdict cannot-tell | 15 |
+| disagrees with the earlier reader | 169 |
+| blank date filled | 2 |
+| blank location filled | 3 |
+| contest facts fills-blank | 43 |
+| contest facts conflict | 514 |
+| contest facts same | 423 |
+| contest facts listed | 1,665 |
+| words per description | 105 |
 
-Not finished: 184 contests: urals-2015, urals-2016, urals-2017, urals-2018, urals-2019, urals-2020, urals-2021, urals-2022, urals-2023, urals-2024, urals-2025, urals-2026, urumqi-2017, uzbekistan-2002, uzbekistan-2003, uzbekistan-2004, uzbekistan-2005, uzbekistan-2006, uzbekistan-2007, uzbekistan-2008, uzbekistan-2009, uzbekistan-2010, uzbekistan-2011, uzbekistan-2012, uzbekistan-2013, uzbekistan-2014, uzbekistan-2015, uzbekistan-2016, uzbekistan-2017, uzbekistan-2018, uzbekistan-2019, uzbekistan-2020, uzbekistan-2021, uzbekistan-2023, uzbekistan-2024, uzbekistan-2025, uzbekistan-2026, vietnam-2006, vietnam-2007, vietnam-2008.
+Not finished: 33 contests: wf-2008, wf-2009, wf-2010, wf-2011, wf-2012, wf-2013, wf-2014, wf-2015, wf-2016, wf-2017, wf-2018, wf-2019, wf-2020, wf-2021, wf-2022, wf-2023, wf-2024, wuhan-2009, wuhan-2025, wuhan-2026, xian-2006, xian-2014, xian-2017, xian-2022, xian-2023, xian-2025, xuzhou-2018, xuzhou-2019, yangon-2016, yangon-2017, yangon-2018, yinchuan-2019, yinchuan-2020.
 Results that do not check: 0.
 
 
-## Second reading: 996 sources to look at
+## Second reading: 1056 sources to look at
 
 The reader did not confirm the catalogue, or disagrees with the content check of 2026-11-14. Nothing here was applied.
 
@@ -1032,8 +1032,68 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | urals-2001 | https://www.kgeorgiy.info/papers/Vasilev_VN__Kazakov_MA__Korneev_GA__P | web | wrong-contest (high) | wrong-contest | The paper reports the 2001-2002 NEERC semifinal in St Petersburg and names the Ural quarterfinal only in a list of the eight quarterfinal groups. |
 | urals-2013 | https://sp.urfu.ru/qf/2013/players.html | teams | not-the-document (high) | none | The page 'Список участников' holds only a heading and a script that loads the team list from another server into an empty frame; no team appears in our copy. |
 | urals-2014 | https://sp.urfu.ru/qf/2014/players.html | teams | not-the-document (high) | none | The page 'Список участников' holds only a heading and a script that loads the team list from another server into an empty frame; no team appears in our copy. |
+| urals-2015 | https://sp.urfu.ru/qf/2015/participants.html | teams | not-the-document (high) | none | The page has only the heading 'Участники основного тура' and an empty container that a script fills from another server, with no list of teams in the copy. |
+| urals-2022 | https://sp.urfu.ru/qf/2022/participants.html | teams | not-the-document (high) | none | The page is the site menu and an empty container filled by a script from another server; no team list in the copy. |
+| urals-2023 | https://sp.urfu.ru/qf/2023/participants.html | teams | not-the-document (medium) | none | Page has only a heading and an empty reglistFrame container filled by a script; no team rows in the copy. |
+| urals-2024 | https://sp.urfu.ru/qf/2024/participants.html | teams | not-the-document (medium) | none | The page heading 'Список участников основного тура' is followed only by an embedded frame loaded from another server, with no team rows in the copy. |
+| urals-2024 | https://sp.urfu.ru/qf/2024/nwrrc-2023-tutorial.pdf | editorial | wrong-contest (high) | wrong-contest | Tutorial of 8 pages headed 'ICPC 2023-2024 Northwestern Russia Regional Contest, St Petersburg, November 5, 2023' starting with Problem A. Axis-Aligned Area, not the 2024 problems. |
+| urals-2025 | https://sp.urfu.ru/qf/2025/participants.html | teams | not-the-document (medium) | none | The participants page has its heading and an empty container (reglistFrame) that a script fills; no team appears anywhere in the saved page. |
+| urals-2025 | https://sp.urfu.ru/qf/2025/nwrrc-2023-tutorial.pdf | editorial | wrong-contest (high) | wrong-contest | The 8-page tutorial is headed 'ICPC 2023-2024 Northwestern Russia Regional Contest, St Petersburg, November 5, 2023' and starts with problem A Axis-Aligned Area, not the 2025 problems; it belongs to urals-2023. |
+| urals-2025 | https://sp.urfu.ru/qf/2025/tutorial.pdf | editorial | wrong-contest (high) | wrong-contest | The 9-page tutorial is headed 'ICPC 2024-2025 Northwestern Russia Regional Contest, St Petersburg, November 16, 2024' and starts with problem A Another Brick in the Wall, not the 2025 problems; it belongs to urals-2024. |
+| uzbekistan-2005 | https://nerc.itmo.ru/archive/2005/northern/statements.rar | problemset | cannot-tell (low) | cannot-tell | The file is a RAR archive (it begins with the RAR signature and names statements.ps) that I could not open here; the 2005 archive page links this address as the problem statements of Northwestern Russia, not of Uzbekista |
+| uzbekistan-2006 | https://nerc.itmo.ru/archive/2006/northern/problems.pdf | problemset | confirm (medium) | cannot-tell | The earlier reader could not tell whether Uzbekistan used this set; the Uzbekistan scoreboard's column titles A to K are the same eleven problem names as in this PDF, so I take it as this contest's set. |
+| uzbekistan-2008 | https://nerc.itmo.ru/archive/2008/northern/problems.ps | problemset | confirm (medium) | cannot-tell | The earlier reader could not tell whether Uzbekistan used this set; the Uzbekistan scoreboard's column titles A to K are the same eleven problem names as in this document, so I take it as this contest's set. |
+| uzbekistan-2025 | https://t.me/icpcuz | web | correct → no role (medium) | correct →  | The page is a Telegram channel preview reading ICPC Uzbekistan, 579 members, with no content about the 2025 contest. |
+| vietnam-2012 | http://acm-icpc.olp.vn/results | scoreboard+standings | correct → scoreboard (high) | wrong-contest | The earlier reader judged the page to be a 2016 and 2017 results page of another contest, but our copy now held is the final scoreboard of the 2012 Hanoi contest. |
+| vietnam-2018 | https://hanoi18.kattis.com/ | standings | correct → problemset (high) | correct → problemset | The page is the Kattis contest front page ('Welcome to 2018 ICPC Asia Hanoi Regional Contest') with a Label/Problem table A to L and no standings table. |
+| vietnam-2019 | http://acmicpc-vietnam.github.io/ | standings | correct → no role (high) | correct →  | The page is an index of Vietnamese contests by year in which the 2019 Regional heading has no links below it. |
+| vietnam-national-2012 | https://duytan.edu.vn/news/en/undergraduate/dtu-students-participate-i | rankings+report | correct → report (high) | none | News article from Duy Tan University about the 27 October 2012 national round; it gives results only for the university's own teams, not an order of teams. |
+| vietnam-national-2013 | https://duytan.edu.vn/news/en/achievements/four-dtu-teams-qualify-for- | rankings+report | correct → report (high) | none | Duy Tan University news item on the 26 October 2013 national round that names qualifying teams of the university but gives no order of teams. |
+| vietnam-national-2013 | http://drive.google.com/file/d/0B5XsVAuisVfpR3o3dEF2aVVNMGc/edit?usp=s | problemset | not-the-document (high) | none | The copy is a Google Drive viewer shell titled 'VN2013.pdf - Google Drive' showing only 'Loading…' and 'Sign in'. |
+| vietnam-national-2015 | https://duytan.edu.vn/news/en/achievements/dtu-students-enters-the-201 | rankings | correct → report (medium) | none | News article on a university site telling of one team's second place in the national contest on October 31 and its entry to the Asia regional; it gives no full order of teams. |
+| vietnam-national-2018 | https://open.kattis.com/contests/b256wf/standings | standings | correct → scoreboard (medium) | correct → scoreboard | Kattis standings of the open contest b256wf with 31 rows, columns Slv., Time and per-problem A to L cells with tries and minutes, running 2018-11-17. |
+| vietnam-national-2018 | https://open.kattis.com/problem-sources/The%202018%20ACM%20-%20ICPC%20 | problemset | not-the-document (high) | not-the-document | Kattis problem-sources page titled Problems from The 2018 ACM - ICPC Vietnam National Programming Contest that shows No data found and an empty problem table. |
+| vietnam-national-2022 | https://oj.vnoi.info/contest/icpc22_national | web | correct → problemset (medium) | correct → problemset | Crawl of the VNOJ contest page 'ICPC Quốc Gia 2022' on the judge oj.vnoi.info: problem list, statement links, an empty ranking page and 14 pages of submissions. |
+| vietnam-national-2023 | https://oj.vnoi.info/contest/icpc23_national | web | correct → problemset (medium) | correct → problemset | Pages of the VNOI Online Judge contest 'ICPC Quốc Gia 2023' (start 5 November 2023) listing problems A to M, with a ranking page and submission lists, hosted on an online judge rather than an organisers' site. |
+| vietnam-national-2024 | https://oj.vnoi.info/contest/icpc24_national | web | correct → problemset (medium) | correct → problemset | Pages of the VNOI Online Judge contest 'ICPC 2024 vòng Quốc Gia' (start 17 November 2024) listing problems A to L, with a ranking page and submission lists, hosted on an online judge rather than an organisers' site. |
+| west-neerc-1998 | https://neerc.ifmo.ru/subregions/western.html | web | wrong-contest (medium) | wrong-contest | The crawl is the NEERC archive; its 1998 pages are the 'ACM ICPC 1998-1999 NEERC' finals standings (Moscow State University first) and the 1998 resources page, and no page about a 1998 Western subregional contest was fou |
+| west-neerc-1998 | https://acm.bsu.by/ | web | not-the-document (high) | not-the-document | The page is the home page of the Insight Runner testing system with a news box and menu, in Russian, and says nothing about 1998. |
+| west-neerc-1999 | https://neerc.ifmo.ru/subregions/western.html | web | wrong-contest (medium) | wrong-contest | The crawl is the NEERC archive; its 1999 pages are the 'ACM ICPC 1999-2000 NEERC' finals standings (St Petersburg SU first) and the 1999 resources page, and its only Western Subregion page near this date is headed 'NEERC |
+| west-neerc-1999 | https://acm.bsu.by/ | web | not-the-document (high) | not-the-document | The page is the home page of the Insight Runner testing system with a news box and menu, in Russian, and says nothing about 1999. |
+| west-neerc-2000 | https://neerc.ifmo.ru/subregions/western.html | web | confirm (medium) | wrong-contest | The earlier reader gave roles [] (wrong-contest, belongs to neerc-2000); I see the Western Subregion 2000 page of this edition in the copy, so the site holds pages of this edition. |
+| west-neerc-2000 | https://acm.bsu.by/ | web | not-the-document (high) | not-the-document | The page is the home page of the Insight Runner testing system (Belarusian State University licence) with news, contests and courses menus, nothing about this contest. |
+| west-neerc-2001 | https://www.kgeorgiy.info/papers/Vasilev_VN__Kazakov_MA__Korneev_GA__P | web | wrong-contest (high) | wrong-contest | The 7-page Russian paper is titled as an account of the 2001-2002 semifinal competitions of the world championship held in St Petersburg and names the Western group (Belarusian State University) only in a list of eight q |
+| west-neerc-2002 | https://icpc.bsu.by/ | web | wrong-contest (high) | wrong-contest | The copy is the NEERC archive pages for the finals and other regions of 2002 and 2003 (its only Western Subregion standings page is headed 'ACM ICPC 2003-2004 NEERC, Western Subregion') plus the 2024 Belarus team champio |
+| west-neerc-2002 | https://neerc.ifmo.ru/subregions/western.html | web | wrong-contest (high) | wrong-contest | The Western Subregion page as of January 2005 says the contest took place in Minsk on October 19-21, 2004 and lists 2003 under Past. |
+| west-neerc-2002 | https://acm.bsu.by/ | web | not-the-document (high) | wrong-contest | The page is the home page of the Insight Runner testing system (Belarusian State University licence) with news, contests and courses menus, nothing about this contest. |
+| west-neerc-2010 | http://www.fpmi.bsu.by/ru/?guid=12244 | web | correct → no role (medium) | correct →  | The copy is the general website of the BSU Faculty of Applied Mathematics and Informatics (news, admissions, structure); no page found in it is about the 2010 Western Subregional. |
+| west-neerc-2016 | http://www.fpmi.bsu.by/ru/main.aspx?guid=24011 | web | correct → no role (medium) | correct →  | The copy is the general site of the Faculty of Applied Mathematics and Informatics of the Belarusian State University, and no page of it is the website, results or problems of the 2016 Western Subregional Contest. |
+| west-neerc-2018 | http://fpmi.bsu.by/ru/main.aspx?guid=24011 | web | correct → no role (high) | correct →  | Our copy is the home page and general pages of the Faculty of Applied Mathematics and Computer Science of Belarusian State University; the only pages on the regional contest are news items of 2008 and 2012 and a short pa |
+| west-neerc-2020 | http://fpmi.bsu.by/ru/main.aspx?guid=24011 | web | correct → no role (high) | correct →  | Our copy is the home page and general pages of the Faculty of Applied Mathematics and Computer Science of Belarusian State University; the only pages on the regional contest are news items of 2008 and 2012 and a short pa |
+| west-siberia-2001 | https://www.kgeorgiy.info/papers/Vasilev_VN__Kazakov_MA__Korneev_GA__P | web | correct → report (medium) | correct → report | A 7-page PDF paper on the 2001-2002 semifinal of the ICPC world championship that names the West Siberian quarterfinal group (Novosibirsk STU) only in a list of eight quarterfinal groups. |
+| west-siberia-2002 | https://neerc.ifmo.ru/subregions/west-siberian.html | web | correct → no role (medium) | correct →  | The crawl holds the NEERC 2002 archive page and subregion pages for Central, Eastern, Northern, Southern and Middle Asia, and no page of a West Siberian contest of 2002. |
+| west-siberia-2019 | https://neerc.ifmo.ru/subregions/west-siberian.html | web | correct → no role (medium) | correct →  | Crawl of the Northern Eurasia Contests archive whose 2019 index page says 'No information is available' for West Siberian, though the crawl holds one West Siberian 2019 standings page. |
+| west-siberia-2023 | https://olymp.nstu.ru/ | standings | correct → no role (high) | correct →  | News page of olymp.nstu.ru whose items are dated 2026 (the 2026 regional contest announcement, city olympiad results) with no results of the 2023 contest. |
+| west-siberia-2024 | https://neerc.ifmo.ru/subregions/west-siberian.html | web | correct → no role (high) | correct →  | The crawl is of neerc.ifmo.ru archive pages (Northern Eurasia Contests, NERC 2024 and 2025) where West Siberian appears only as one link to olymp.nstu.ru standings; no page of this contest is in it. |
+| west-siberia-2025 | https://olymp.nstu.ru/ | standings | correct → no role (high) | correct →  | News front page of olymp.nstu.ru with items from 2025 and 2026 and no standings table; one item, dated 22 November 2025, is an announcement about this contest. |
+| wf-1977 | http://icpc.baylor.edu/past/EarlyYears.html | web+rankings | correct → rankings (high) | correct → rankings | One page headed The Early Years - World Finals Champions whose entry for the 1977 ACM Contest Finals of 2 February 1977, Atlanta, lists four ranked institutions among the entries of other years. |
+| wf-1978 | http://icpc.baylor.edu/past/EarlyYears.html | web+rankings | correct → rankings (high) | correct → rankings | One page headed The Early Years - World Finals Champions whose entry for the 1978 ACM Contest Finals of 22 February 1978, Detroit, names one institution among the entries of other years. |
+| wf-1979 | http://icpc.baylor.edu/past/EarlyYears.html | web+rankings | correct → rankings (high) | correct → rankings | One page headed The Early Years - World Finals Champions whose entry for the 1979 ACM Contest Finals of 21 February 1979, Dayton, lists four ranked institutions among the entries of other years. |
+| wf-1980 | http://icpc.baylor.edu/past/EarlyYears.html | web+rankings | correct → rankings (medium) | correct → rankings | The page lists World Finals places for 1977-1997 and the 1980 entry names four places for the finals of February 13, 1980 in Kansas City. |
+| wf-1981 | http://icpc.baylor.edu/past/EarlyYears.html | web+rankings | correct → rankings (medium) | correct → rankings | The page lists World Finals places for 1977-1997 and the 1981 entry names four places for the finals of February 25, 1981 in St. Louis. |
+| wf-1981 | https://open.kattis.com/problem-sources/ACM%20National%20Scholastic%20 | problemset | not-the-document (high) | not-the-document | The Kattis page for this source name shows an empty problem list reading 'No data found'. |
+| wf-1982 | http://icpc.baylor.edu/past/EarlyYears.html | web+rankings | correct → rankings (medium) | correct → rankings | The page lists World Finals places for 1977-1997 and the 1982 entry names four places for the finals of February 10, 1982 in Indianapolis. |
+| wf-1983 | http://icpc.baylor.edu/past/EarlyYears.html | web+rankings | correct → rankings (medium) | correct → rankings | The page lists World Finals places for 1977-1997 and the 1983 entry names four places for the finals of February 16, 1983 in Melbourne, Florida. |
+| wf-1983 | https://open.kattis.com/problem-sources/ACM%20National%20Scholastic%20 | problemset | not-the-document (high) | not-the-document | The Kattis page for this source name shows an empty problem list reading 'No data found'. |
+| wf-1984 | http://icpc.baylor.edu/past/EarlyYears.html | web+rankings | correct → rankings (medium) | correct → rankings | The page lists World Finals places for 1977-1997 and the 1984 entry names three places for the finals of February 15, 1984 in Philadelphia. |
+| wf-1985 | http://icpc.baylor.edu/past/EarlyYears.html | web+rankings | correct → rankings (medium) | correct → rankings | The page lists World Finals places for 1977-1997 and the 1985 entry names four places for the finals in New Orleans. |
+| wf-1990 | https://open.kattis.com/problem-sources/1990%20ACM%20Scholastic%20Prog | problemset | not-the-document (high) | not-the-document | The Kattis problem-source page titled 'Problems from 1990 ACM Scholastic Programming Contest Finals' shows 'No data found' and lists no problems. |
+| wf-1991 | https://usenetarchives.com/view.php?id=comp.org.acm&mid=PDEyMjMyOUB0dX | web | not-the-document (high) | none | The seed is an encoded challenge blob and the other pages are general Usenet Archives site pages and newsgroup lists, none about the 1991 contest. |
+| wf-1991 | http://icpc.baylor.edu/past/icpc91/finals/Standings.html | standings+rankings | wrong-contest (medium) | wrong-contest | The table of 24 teams is headed 1991 but its first six places (Otago, Maryland, Stanford, Harvard, Eindhoven, Wisconsin) are the 1990 finals order on the Early Years page of the same site. |
+| wf-1993 | https://icpc.global/community/history-icpc-1993 | web | not-the-document (high) | none | The saved page is the empty single-page-app shell of icpc.global (title 'The ICPC International Collegiate Programming Contest', an empty root div and a 'You need to enable JavaScript' notice) with no 1993 content. |
+| wf-1995 | https://open.kattis.com/problem-sources/1995%20ACM%20Scholastic%20Prog | problemset | not-the-document (high) | not-the-document | Kattis problem-source page 'Problems from 1995 ACM Scholastic Programming Contest Finals' with an empty problem table and the text 'No data found'. |
 
-## Contest facts: 522 that fill a blank or differ
+## Contest facts: 557 that fill a blank or differ
 
 | contest | fact | document says | catalogue | confidence | applied | where it is stated |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -1517,6 +1577,40 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | urals-2012 | date | 2012-10-20 | 2012-10-19 | high | no | The PDF header reads 'Yekaterinburg, October 20, 2012' and the site timetable puts the main round on 20.10.2012. |
 | urals-2013 | location | Ural Federal University, Yekaterinburg | Ekaterinburg; Administrative Site Location | high | no | The general information page says the subregion's quarterfinal is held at Ural Federal University in Yekaterinburg. |
 | urals-2014 | location | Ural Federal University, Yekaterinburg, and Izhevsk State Te | Administrative Site Location; Ekaterinburg | high | no | The general information page names Ural Federal University (Yekaterinburg) and Izhevsk State Technical University (Izhevsk) as organisers and says the contest r |
+| urals-2015 | location | Ural Federal University, Yekaterinburg | Administrative Site Location; Ekaterinburg | high | no | The front page says the main round was held at Ural Federal University in Yekaterinburg. |
+| urals-2016 | location | Ural Federal University, Yekaterinburg | Ekaterinburg; Administrative Site Location | high | no | The front page says the main round was held at Ural Federal University in Yekaterinburg. |
+| urals-2017 | location | Ural Federal University, Yekaterinburg | Ekaterinburg; Administrative Site Location | high | no | The front page says the main round was held at Ural Federal University in Yekaterinburg. |
+| urals-2026 | location | Ural Federal University, Yekaterinburg | (sites) | medium | no | The timetable gives an address in Yekaterinburg for all events of the quarterfinal and the regional contest page names Ural FU as host. |
+| vietnam-2013 | location | Duy Tan University, Danang | Vietnam; Asia | high | no | The home page says the contest was hosted by Duy Tan University, in Danang. |
+| vietnam-2015 | location | Hanoi University of Business and Technology, Hanoi | Hanoi; Hanoi, Vietnam | high | no | The home page says the contest was hosted by Hanoi University of Business and Technology. |
+| vietnam-2016 | location | Nha Trang University, Nha Trang | Nha Trang, Vietnam; Nha Trang | high | no | The home page says the contest was hosted by Nha Trang University. |
+| vietnam-2017 | location | Hochiminh City University of Education, Ho Chi Minh City | Ho-Chi Minh City, Vietnam; Ho Chi Minh city | high | no | The home page says 'Hosted by HOCHIMINH CITY UNIVERSITY OF EDUCATION' and the schedule gives the venue as its campus at 280 An Duong Vuong Str., Dist. 5. |
+| vietnam-2018 | location | Posts and Telecommunications Institute of Technology (PTIT), | PTIT; Ho Chi Minh city | high | no | The home page says 'Hosted by POSTS AND TELECOMMUNICATIONS INSTITUTE OF TECHNOLOGY' and the schedule gives the venue as its campus at Km10 Nguyen Trai, Ha Dong  |
+| vietnam-national-2020 | date | 2020-11-15 | 2020-11-14 | high | no | the standings page gives the start as 2020-11-15 08:00 +07 and the end as 2020-11-15 13:00 +07 |
+| vietnam-national-2023 | date | 2023-11-05 | 2023-11-04 | medium | no | The contest page states a five-hour contest starting on November 5, 2023, 8:05 +07. |
+| vietnam-national-2024 | date | 2024-11-17 | 2024-11-16 | medium | no | The contest page states five hours starting 17 November 2024, 8:00 +07. |
+| vietnam-national-2025 | date | 2025-11-09 | 2025-11-08 | medium | no | The header on the statement pages reads 'HCMC University of Technology - 09 November 2025'. |
+| vietnam-national-2025 | location | HCMC University of Technology | (sites) | medium | no | The header on the statement pages names HCMC University of Technology. |
+| vietnam-national-2026 | location | Vietnam-Korea University of ICT | (sites) | medium | no | The header on the statement pages names Vietnam-Korea University of ICT. |
+| west-neerc-2016 | date | 2016-11-03 | 2016-11-02 | high | no | the page heading reads 'XIX NEERC Western Subregional Contest 3 ноября 2016 г.' |
+| west-neerc-2017 | date | 2017-11-02 | 2017-11-03 | high | no | the page heading reads 'XX NEERC Western Subregional Contest 2 ноября 2017 г.' |
+| west-neerc-2019 | date | 2019-10-24 | 2019-10-25 | high | no | The PDF header reads 'Belarus and Baltics Regional Contest, October 24, 2019' and the iRunner page reads '24 октября 2019 г.'. |
+| west-neerc-2023 | date | 2023-11-05 | 2023-11-04 | high | no | The page header reads 5 ноября 2023 г. under the contest title. |
+| west-siberia-2014 | location | NSTU, Novosibirsk | Novosibirsk; Administrative Site Location | medium | no | Each page of the problem set PDF carries the header 'Novosibirsk 2014, NSTU'. |
+| west-siberia-2015 | location | NSTU, Novosibirsk | Administrative Site Location; Novosibirsk | medium | no | Each page of the problem set PDF carries the header 'Novosibirsk 2015, NSTU'. |
+| west-siberia-2016 | date | 2016-10-29 | 2016-10-31 | high | no | The PDF header reads 'West Siberian Subregional Contest, Novosibirsk, October 29, 2016'; the site's contest list gives 10/29/2016. |
+| west-siberia-2018 | date | 2018-11-10 | 2018-11-13 | high | no | The PDF header reads 'West Siberian Subregional Contest, Novosibirsk, November 10, 2018'; the site's contest list gives 11/10/2018. |
+| west-siberia-2019 | date | 2019-10-26 | 2019-11-17 | high | no | every page header of the problem set PDF reads 'October 26, 2019' |
+| west-siberia-2020 | date | 2020-11-21 | 2020-11-25 | high | no | every page header of the problem set PDF reads 'November 21, 2020' |
+| west-siberia-2021 | date | 2021-11-27 | 2021-11-29 | high | no | every page header of the problem set PDF reads 'November 27, 2021' |
+| west-siberia-2022 | date | 2022-11-17 | 2022-11-20 | high | no | every page header of the problem set PDF reads 'November 17, 2022' |
+| west-siberia-2023 | date | 2023-11-18 | 2023-11-30 | high | no | The header of the problem set PDF reads 'Novosibirsk, November 18, 2023'. |
+| west-siberia-2024 | date | 2024-11-23 | 2024-11-25 | high | no | The header of the problem set PDF reads 'Novosibirsk, November 23, 2024'. |
+| wf-2003 | date | 2003-03-25 | 2003-03-26 | high | no | the side table of the standings page gives Date: March 25, 2003, and the history page says the finals were to be held on March 25, 2003 |
+| wf-2004 | date | 2004-03-31 | 2004-04-01 | high | no | the side table of the standings page gives Date: March 31, 2004, and the history page says the contest was held on March 31, 2004 |
+| wf-2006 | date | 2006-04-12 | 2006-04-13 | high | no | The box above the table gives Date: April 12, 2006, and the official standings page and news page also state April 12, 2006. |
+| wf-2007 | date | 2007-03-15 | 2007-03-16 | high | no | The box above the table gives Date: March 15, 2007; the ICPC News page also says on March 15, 2007. |
+| wf-2007 | location | Hilton Tokyo Bay, Urayasu, Chiba, Japan | Tokyo, Japan | high | no | The box above the table gives Venue: Hilton Tokyo Bay, Urayasu, Chiba, Japan. |
 | alberta-2006 | location | University of Alberta, University of Calgary and University  | — | medium | no | the problem index says the contest is a joint effort of the three universities. |
 | bapc-prelims-2025 | date | 2025-09-20 | — | medium | no | The preliminaries page lists the local contests under the dates 20 September, 26 September and 27 September 2025 and says they run between the 20th and 28th. |
 | brazil-first-phase-1996 | location | DCC-UFMG, Belo Horizonte | — | medium | no | The history page says the first Maratona was organised at the Federal University of Minas Gerais, under the heading Belo Horizonte. |
@@ -1548,14 +1642,15 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | south-america-north-2020 | date | 2021-07-10 | — | medium | no | The cover of the problem set reads 'July 10, 2021' under 'Contest Session'. |
 | south-america-north-2022 | date | 2023-03-18 | — | medium | no | The cover of the problem set reads 'March 18, 2023' under 'Contest Session'. |
 | south-russia-2005 | location | Saratov State University | — | medium | no | The Codeforces page says the contest is hosted by Saratov State U. |
-| thailand-national-2024 | location | Faculty of Engineering, Chulalongkorn University, Bangkok | — | high | yes | The home and schedule pages give Faculty of Engineering, Chulalongkorn University, 254 Phayathai Road, Bangkok as the location. |
-| ukiepc-2024 | date | 2024-10-19 | — | high | yes | The page headed UKIEPC 2024 reads Saturday 19th October. |
-| ukiepc-2025 | date | 2025-10-18 | — | high | yes | The page reads 'UKIEPC 2025 Saturday 18th October' and the slides are dated 18th October 2025. |
 | ukraine-2025 | date | 2025-11-09 | — | medium | no | Every page of the problem set PDF is headed 'Stage 2 - November 9, 2025'. |
-| urals-2001 | location | Perm State University, Perm | — | high | yes | The information page says the championship was held at Perm State University. |
 | urals-2003 | date | 2003-04-23 | — | medium | no | The round 1 results page of the championship site is headed '23 апреля 2003'; the event ran 21-26 April and round 2 was on 25 April. |
-| urals-2003 | location | South Ural State University, Chelyabinsk | — | high | yes | The round 1 results page names Chelyabinsk and South Ural State University. |
-| urals-2006 | date | 2006-10-28 | — | high | yes | The timetable page lists the main round (Основной тур) on 28.10.06 after a practice round on 27.10.06. |
-| urals-2006 | location | Yekaterinburg | — | high | yes | The site has a page of leisure suggestions in Yekaterinburg and source 4 names Yekaterinburg in its title. |
-| urals-2007 | date | 2007-10-27 | — | high | yes | The timetable page lists the main round (Основной тур) on 27.10.07 after a practice round on 26.10.07. |
-| urals-2007 | location | Yekaterinburg | — | high | yes | The site has a page of leisure suggestions in Yekaterinburg and source 4 names Yekaterinburg in its title. |
+| uzbekistan-2002 | location | Tashkent University of Information Technologies, Tashkent, U | — | high | yes | The Middle Asia Subregion page gives Host: Tashkent, Host university: Tashkent University of Information Technologies, Countries: Uzbekistan. |
+| uzbekistan-2007 | date | 2007-10-28 | — | medium | no | The page header of the problem set reads 'Georgiya and Uzbekistan Subregional Contests, Batumi, Tashkent, October 28, 2007'. |
+| uzbekistan-2007 | location | Tashkent | — | low | no | The same header names Batumi and Tashkent for the two subregional contests. |
+| werc-1993 | location | University College Swansea | — | high | yes | The page header reads 'Western European Regional at University College Swansea'. |
+| west-neerc-2000 | location | Minsk, Belarusian State University | — | high | yes | The page 'NEERC 2000 Western Subregion' states Host: Minsk and Host university: Belarusian State University. |
+| west-neerc-2004 | date | 2004-10-20 | — | medium | no | The iRunner results page is headed NEERC'04 Western Subregion with the date 20 октября 2004 г. |
+| west-neerc-2005 | date | 2005-10-26 | — | medium | no | The iRunner results page is headed NEERC'05 Western Subregion with the date 26 октября 2005 г. |
+| west-neerc-2006 | date | 2006-11-04 | — | high | yes | the page header reads '4 ноября 2006 г.' under NEERC'06 Western Subregion |
+| west-siberia-2001 | location | Novosibirsk State Technical University | — | medium | no | The paper lists the West Siberian quarterfinal group with Novosibirsk STU (Новосибирский ГТУ) as organising university. |
+| west-siberia-2010 | date | 2010-10-30 | — | high | yes | The news item of 9 October 2010 says the quarterfinal takes place on 30 October 2010 at 8:00 Moscow time, and the list of olympiads dates ACM 2010 as 30.10.2010 |
