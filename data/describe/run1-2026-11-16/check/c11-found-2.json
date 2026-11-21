@@ -1,0 +1,121 @@
+[
+ {
+  "contest": "nordic-2022",
+  "n": 8,
+  "rating": "minor",
+  "claims_checked": 13,
+  "errors": [
+   {
+    "claim": "The cover lists five problem authors with their affiliations ... and three test solvers.",
+    "found": "The cover (page 1) shows only 'NCPC 2022 Presentation of solutions' and the date 2022-10-08; the five authors with affiliations and the three test solvers are on the second slide (page 2).",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo and pdftotext -layout on the PDF; per-page listing of heading, author footer, Problem/Solution blocks and statistics lines (64 pages, 11 problems in order C D H A G B J F E I K, statistics at 4-hour mark for all but G, date printed on page 1)."
+ },
+ {
+  "contest": "nordic-2010",
+  "n": 4,
+  "rating": "accurate",
+  "claims_checked": 8,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed contestants.html (UTF-8) with BeautifulSoup: 15 h3 site headings, 227 li entries summing per heading (University of Iceland 0), each li with bold team name, members and italic institution; page states 'A total of 227 teams have registered so far'; no result columns."
+ },
+ {
+  "contest": "nerc-2017",
+  "n": 10,
+  "rating": "accurate",
+  "claims_checked": 14,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo (14 pages) and pdftotext -layout: page header with December 3, 2017, recap line 274 teams/12 problems/5 hours, summary table columns author/developer/acc/runs/succ for 12 problems, 12 problem sections A Archery Tournament to L Laminar Family each with Author, Statement and tests and Accepted/Rejected by language tables; Fastest/Shortest/Max atts. table present for 11 problems and absent for H (0 accepted)."
+ },
+ {
+  "contest": "nena-east-2018",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 9,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed standings.html table: 31 data rows ranked 1 to 31, columns Rank/Team/Institution/Solved/Time/Citation, MIT NULL first with 10, 15 ordinal citations First to Fifteenth Place and 16 Honorable Mention, no per-problem columns."
+ },
+ {
+  "contest": "nena-east-2018",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 16,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read the text, links and images of page.html and the capture manifest and assets directory (four host-site photos and bospre.css kept, no linked pages)."
+ },
+ {
+  "contest": "nordic-2008",
+  "n": 7,
+  "rating": "accurate",
+  "claims_checked": 6,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [
+   "Borderline: 'Andrew Stankevich' is an individual's name, but it appears only as part of the quoted source name (a contest title), not as a person named by the description."
+  ],
+  "how_checked": "Parsed page.html: h1 source name, one table row (Hard Evidence) with columns Name/Fastest/Shortest/Authors/Full Solves/Ratio/Difficulty/Languages, link to /problems/hardevidence; capture directory holds page.html and site assets only."
+ },
+ {
+  "contest": "north-russia-2015",
+  "n": 4,
+  "rating": "accurate",
+  "claims_checked": 11,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed standings.html table: 92 rows, columns Rank/Team/Institution/Solved/Time/Citation, 46 place citations First to Forty-sixth Place, 46 Honorable Mention, four teams at rank 89 with 0 solved, first row SPb ITMO University 1 with 12 solved and time 926."
+ },
+ {
+  "contest": "nena-atlantic-2008",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 15,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html (UTF-8): h1/h2 title, breadcrumb, 28 year sections 2025 down to 1998, the 2008 UdeM block (date line, four placed teams each 'solved 6 of 6 problems', advancement lines, Problem Set and Scoreboard links to Problems08.pdf and Results08.pdf under scienceatlantic.ca); manifest assets are css, js and images only, no PDFs."
+ },
+ {
+  "contest": "nena-2005",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 17,
+  "errors": [
+   {
+    "claim": "Our copy holds 149 files, 145 of them pages",
+    "found": "149 files, of which 143 are HTML (two of those empty: a 0-byte and a 106-byte file); the other six are two robots.txt text files, one XML file list and three favicon files. 145 is reached only by counting the two robots.txt files as pages.",
+    "severity": "minor"
+   },
+   {
+    "claim": "The contest appears in a department news item dated 20 January 2012 ... and in a news headline about success in the ACM ICPC Regional contest.",
+    "found": "Both are present (node/433, 'Submitted ... Fri, 2012-01-20', also teased on the 2012 home and news pages; 'CS@RIT gets success in ACM ICPC Regional contest!' on the 2019 news pages). The 2019 news pages carry a further headline not mentioned, 'The ACM ICPC programming contest'.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read site-manifest.json (150 page entries, 149 fetched, content types), counted files by type, extracted titles and text of every HTML page under files/ and searched them for ICPC, ACM, contest, scoreboard, standings and problem set; read the full text of node/433."
+ },
+ {
+  "contest": "nena-north-2019",
+  "n": 6,
+  "rating": "accurate",
+  "claims_checked": 8,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html: heading '2019 ICPC NENA (Quebec) Regional Qualifier', Teams table with columns Name/Team Members/Competing at site and 10 rows (Extra 1 to 6, McGill Bees, McGill Red, ICPConcordia, CFIUL - Sauce on ur lisp), all McGill University; start 2019-10-26 printed; no result columns."
+ }
+]

@@ -1,0 +1,119 @@
+[
+ {
+  "contest": "japan-2011",
+  "n": 6,
+  "rating": "accurate",
+  "claims_checked": 9,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html with BeautifulSoup (title, lang, the two 'here' links to contest/all_en.html and files/qualify11_ans.tar.gz, no problem text), then opened the website copy of source 1: all_en.html is saved there (headed '2011/6/24 Fukuoka', Problem A to G) and the tar.gz is saved and lists input and .ans files."
+ },
+ {
+  "contest": "jakarta-2021",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 14,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the table of standings.html with code: 62 rows, columns Rank/Team/Institution/Solved/Time/Medal/Citation, 4 gold + 4 silver + 4 bronze at ranks 1-12, 21 'Ranked' rows at ranks 13 (4), 17 (6) and 23 (11), 29 'Honorable' rows with empty rank and citation, first row 7 Halim / National University of Singapore / 9 / 1124, no per-problem columns."
+ },
+ {
+  "contest": "gwalior-2014",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 10,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo (3 pages) and pdftotext -layout: letterhead with Regional Contest Director, Asia Region - Gwalior site -2014 and www.icpcgwalior.org, heading 'Result of ACM ICPC Gwalior Site - 2014', 8 ranked rows (Believe, IIIT Hyderabad first), 75 rows counted by code under Honorable Mention with team and institute only, institutes alphabetical except three neighbouring swaps, no solved or time columns."
+ },
+ {
+  "contest": "japan-2010",
+  "n": 5,
+  "rating": "accurate",
+  "claims_checked": 11,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the table of page.html with code: 35 team rows with Team/University/Selection, counts 26 Step 1, 1 Step 2, 1 Wild card, 6 Non-Japan-based Team Selection, 1 '* Exception' with the footnote as described, rows in alphabetical order of university, page lang en."
+ },
+ {
+  "contest": "japan-2004",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 27,
+  "errors": [
+   {
+    "claim": "with marks for the teams going to the World Final",
+    "found": "The results page has one legend ('the team which will participate in the World Final', singular) and the star image is on exactly one row, combat (Kyoto University); no other team is marked as going to the World Final.",
+    "severity": "minor"
+   },
+   {
+    "claim": "19 rows with solved count and score (time)",
+    "found": "There are 19 rows, but the last one (Gokuri-Squeeze, University of Tokyo, marked * as champion of Manila) has a solved count (5) and an empty Score(Time) cell; 18 rows have both.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read site-manifest.json (76 HTML pages and 9 PDFs saved = 85) and, decoded with their declared charsets, the results, regional outline, participants, workshop, excursion, other sites, Java prize, trip, environment, photo, eligibility, process, registration, domestic, domestic results, past-problems and jp/ pages, counted the result rows and Honorable Mention items with code, and ran pdfinfo/pdftotext on r2004.pdf (problems A to I) and r1998 to r2003.pdf."
+ },
+ {
+  "contest": "harbin-2010",
+  "n": 5,
+  "rating": "accurate",
+  "claims_checked": 17,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the table of page.html with code (126 rows; columns #, R#, S#, Name, Score, Time, A to J; 470 cells of the form attempts/time, 89 cells with attempts only, solved cells per row equal to Score; two rows with a full-width star in the rank column), read the header (2010-09-26 09:00:00 ~ 14:00:00, the note on missing final results and medal data), compared all 126 rows cell by cell with the freeze table of the scoreboard copy (board.acmicpc.info, 20121108): no difference; assets hold 3 CSS, 1 JS and a logo."
+ },
+ {
+  "contest": "japan-2018",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 15,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the standings table of page.html with code: 60 team rows numbered 1 to 60, each 'institution: team', columns #, Who, =, Penalty, A to K, 258 solved cells (+n hh:mm) and 56 rejected-only cells (-n), Peking University first and the University of Tokyo second with 11, last row 'Accepted Tried', caption 'Final standings', a 'show unofficial' checkbox, no row marked unofficial."
+ },
+ {
+  "contest": "jakarta-2014",
+  "n": 6,
+  "rating": "accurate",
+  "claims_checked": 19,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo (2 pages) and pdftotext -layout of the whole PDF: every figure and date in the description (5 December 2014, 70 teams as 15 foreign and 55 national, 69 present, national contest of 9 November with 307 teams, 13:30 to 18:30, the top three with 11 of 11, BerinGAS as best national team, excursion on 6 December) is printed as stated."
+ },
+ {
+  "contest": "hefei-2015",
+  "n": 5,
+  "rating": "accurate",
+  "claims_checked": 12,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Decoded page.html as gb2312 and parsed it: contest heading, Start/End Time 2015-11-14 12:00:00 to 17:00:00, Contest Type Public, Status Ended, ten rows 1001 to 1010 with the ten titles as listed and Ratio(Accepted / Submitted), footer 'Hangzhou Dianzi University Online Judge 3.0'; the capture directory holds only this page and four assets, so the linked statement, ranklist and status pages are not in the copy."
+ },
+ {
+  "contest": "jakarta-2019",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 20,
+  "errors": [],
+  "document_field_errors": [
+   {
+    "field": "contest_date",
+    "recorded": "2019-10-26",
+    "found": "26 October 2019 is the first day of the event (registration, opening ceremony, technical briefing, trial session). The rundown page prints the contest itself on 'Day 2: 27 Oktober 2019, 10.00-15.00 ICPC Asia Jakarta Regional Contest 2019', and the briefing PDF's schedule slide puts 'Contest' under 27 Oct, as the description itself says; the contest day is 2019-10-27."
+   }
+  ],
+  "style": [],
+  "how_checked": "Read site-manifest.json (16 HTML addresses and 1 PDF; one HTML address, index/icpc.baylor.edu, is the 'page you're looking for is not available' notice; 39 PNG, 1 GIF, 3 CSS, 1 JS), parsed the main, about, register, important date, both rundown, rules, finalist, go-to-BINUS, housing, contact and final.html pages, and ran pdfinfo/pdftotext on brief.pdf (35 pages; schedule, contest area, items, workstation, DOMjudge)."
+ }
+]

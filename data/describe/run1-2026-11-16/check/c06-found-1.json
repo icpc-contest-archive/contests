@@ -1,0 +1,121 @@
+[
+ {
+  "contest": "gny-2009",
+  "n": 1,
+  "rating": "wrong",
+  "claims_checked": 24,
+  "errors": [
+   {
+    "claim": "sponsored by the Greater New York Region",
+    "found": "The header reads 'Sponsored by' followed by a script (../ibm.js, not in our copy) that fills in the sponsor; 'Greater New York Region' is the next, separate heading line in another colour and names the region, not a sponsor. The only sponsor shown in the copy is the IBM logo (IBM-logo-white.png, linked to IBM) under 'Who Makes All This Possible?'. The page nowhere says the region sponsors the contest.",
+    "severity": "wrong"
+   },
+   {
+    "claim": "It also lists the standings, problems and rules of earlier years back to 1997.",
+    "found": "Under 'Previous Years' the front page links problems for 1997 to 2008, standings for 1998 to 2008 (none for 1997) and rules for 2008 only.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read site-manifest.json (46 fetched files: 4 HTML pages, 9 PDFs, 2 logos, 12 solution files in .c/.cpp/.java, 9 .in, 9 .out, 1 zip; year1997-2008 pages listed as offsite), parsed the front page, rules, problems and standings pages with BeautifulSoup and the raw header HTML, and ran pdfinfo/pdftotext on the nine PDFs (1,1,1,1,1,1,2,3,2 pages) and unzip -l on problems.zip."
+ },
+ {
+  "contest": "far-east-russia-2015",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 10,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html (UTF-8, lang=ru) with BeautifulSoup: title 'ACM 2015', header row Участник, A to I, =, время, место, статус, a single data row 'Успешных попыток' with 3 / 80 4% for A and 17 / 131 13% for I, the two 'показать' links and nine problem_text links; the capture directory holds only the page and css/gif/js assets."
+ },
+ {
+  "contest": "erc-1985",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 17,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [
+   "Borderline only: 'a text layer produced by OCR' describes how the PDF's text was made; it is a property of the file itself (PDF producer ABBYY FineReader), so not counted as a breach."
+  ],
+  "how_checked": "Ran pdfinfo (15 pages, producer ABBYY FineReader) and pdftotext per page, read the 'All Four Won' item on PDF page 4 (printed page 4) and the colophon ('published by the Editor for and on behalf of Imperial College Union Publications Board', 'Copyright FELIX 1986'), and confirmed the page-1 footer 'Free! Friday 24 January No 728' by rendering it with pdftoppm and reading it with tesseract."
+ },
+ {
+  "contest": "germany-2023",
+  "n": 10,
+  "rating": "accurate",
+  "claims_checked": 11,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Ran pdfinfo (125 pages) and pdftotext -layout, listed the heading of every slide (title slide 'GCPC 2023 Presentation of Solutions, June 17, 2023', Jury, Test Solvers, Technical Team, 13 problems A to M each opening with a correct/wrong-answer/timelimit chart and 'Problem Author', 'Language stats' chart on page 121, 'Random facts' on 122-125) and compared sha256 with the tutorials_en.pdf of source 9 (identical)."
+ },
+ {
+  "contest": "germany-2024",
+  "n": 8,
+  "rating": "minor",
+  "claims_checked": 13,
+  "errors": [
+   {
+    "claim": "The title slides list the jury, test solvers and technical team with their universities.",
+    "found": "The slides give affiliations, and not all are universities: one jury member is listed with 'MOIA GmbH, CPUlm', one test solver with 'freiheit.com technologies GmbH, Hamburg', and two of the three technical team members with 'CPUlm' only (4 of 20 people have no university).",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Ran pdfinfo (117 pages) and pdftotext -layout: title slide 'GCPC 2024 Presentation of Solutions, The GCPC Jury, September 12, 2024', slides A to M each with 'Problem author', Problem and Solution, 'Random facts' (583 secret test cases, 149 jury solutions, minimum lines and characters), no outcome chart or language chart on any page; the other editorial copy (solutions.pdf, 131 pages) is dated June 22, 2024 and has an outcome chart per problem."
+ },
+ {
+  "contest": "germany-2026",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 12,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html with BeautifulSoup, read the opening sentence (129 teams, 104 in + 25 out of competition, 20 institutions, 16 contest sites) and counted the h3 institution headings and li team entries under each h2: 20 institutions and 104 teams under Competing teams, 16 institutions and 25 teams under Out of competition, RWTH Aachen 18 and Hasso Plattner Institute 14."
+ },
+ {
+  "contest": "gny-2003",
+  "n": 8,
+  "rating": "accurate",
+  "claims_checked": 12,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html (UTF-8, lang=ko) with BeautifulSoup: title and h1 '2003 Greater New York Programming Contest', breadcrumb 출처 > ICPC > Regionals > North America > Greater New York Region, table header 문제 번호, (label), 제목, 정보, 맞은 사람, 제출, 정답 비율 and nine rows 2765 A to 2773 I with C, F and G empty; no date in the page text, and the capture directory holds only the page and css/image assets."
+ },
+ {
+  "contest": "egypt-2010",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 11,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed standings.html with BeautifulSoup and counted the table rows: 51 teams, columns Rank, Team, Institution, Solved, Time, Citation, ranks 1 to 23 once each and 28 rows at rank 24 all with 0 solved, first row Yet, Another s2++ of Cairo University - Faculty of Computers and Artificial Intelligence with 6 solved and citation 'First Place'."
+ },
+ {
+  "contest": "germany-2022",
+  "n": 4,
+  "rating": "accurate",
+  "claims_checked": 8,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html with BeautifulSoup and counted h3 institution headings and li team entries under each h2: 'Competing teams (82)' with 17 institutions and 82 teams, 'Out of competition (17)' with 10 institutions and 17 teams, every heading count matching its list, Technische Universität München 18 and Universität zu Lübeck 17."
+ },
+ {
+  "contest": "far-east-russia-2017",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 10,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html (UTF-8, lang=ru) with BeautifulSoup: title 'ACM 2017', header row Участник, A to K, =, время, место, статус, a single data row 'Успешных попыток' with 0 / 26 0% for A and 20 / 42 48% for K, the two 'показать' links and eleven problem_text links; the capture directory holds only the page and css/gif/ico/js assets."
+ }
+]

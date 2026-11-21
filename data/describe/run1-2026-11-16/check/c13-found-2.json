@@ -1,0 +1,138 @@
+[
+ {
+  "contest": "rmc-2003",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 13,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read index.html in full (title, five host sites, 'Date of Contest: November 15, 2003', region, registration, fees and billing rows, all 25 links: no tgz or zip link), listed the capture directory (no assets) and confirmed that the later capture of the same page in the archive links problems.tgz and problems.zip."
+ },
+ {
+  "contest": "scusa-1999",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 9,
+  "errors": [
+   {
+    "claim": "the news archive for the year 2000, the university home pages in several captures from different years, and pages of site search results",
+    "found": "The three kinds named are there (6 pages of 'News from 2000', 37 captures of the home page or of junk addresses that return it, 14 search-result pages), but they are 57 of the 146 files saved. The copy also holds 43 yearly news-archive pages for every year 2001 to 2025 (titles '2001 - Rogers State University' ... '2025 - Rogers State University'), 38 pages of the About section (history, facts, accreditation, governing boards, facilities, green campus, profiles of administrators, captures 2000-2025), 5 single news or press-release pages and 3 images. The description names neither group and gives no page count. The other claims hold: Claremore, Oklahoma; the only mention of the contest is the link 'ACM Programming Contest Results' to /acm_contest/final/ on the home page captured 1999-11-17; no address containing acm_contest is in the copy; no page mentions ACM, ICPC or South Central otherwise.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [
+   {
+    "field": "title",
+    "recorded": "2000 - Rogers State University",
+    "found": "That is the HTML title of one page only, the news archive for 2000 (http://www.rsu.edu/2000/, the first page in the manifest). The home pages of the site are titled 'Rogers State University' (2009-2025 captures), 'Rogers State University - Tradition. Innovation. Excellence' (2001-2006) and 'Rogers State University Home Page - Excellence through tradi...' (1999); as the title of the whole site the recorded value suggests the document is a page about the year 2000."
+   }
+  ],
+  "style": [],
+  "how_checked": "Read site-manifest.json (150 addresses, 146 files, 4 errors), grouped all pages by address and HTML title, gunzipped the five gzip-encoded files, and searched every file for ACM, programming contest, acm_contest, ICPC and South Central."
+ },
+ {
+  "contest": "pakistan-2021",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 18,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the table of standings.html with code: 47 rows, 8 columns, medal counts (4/4/4, 22 Ranked, 10 Honorable, 3 blank with 0 solved), 13 rows without rank, ranks 1-12, 13 and 22, citation columns identical on all rows, first row 7 solved, heading and title."
+ },
+ {
+  "contest": "poland-2008",
+  "n": 2,
+  "rating": "minor",
+  "claims_checked": 17,
+  "errors": [],
+  "document_field_errors": [
+   {
+    "field": "contest_date",
+    "recorded": "2008-11-07",
+    "found": "The page prints only the two-day span 'W dniach 7-8.XI.2008' and does not say on which day the contest was held, so no single contest day is printed. 7 November 2008 was a Friday; the contest site's schedule page in our website copy of this edition (amppz.cs.put.poznan.pl/dates.php, captured 2008-11-12) puts registration, opening and the trial session on Friday and the contest ('Zawody', 9.00-14.00) on Saturday, i.e. 8 November. The recorded day is the first day of the event, not the day of the contest itself (the description correctly gives 7-8 November)."
+   }
+  ],
+  "style": [],
+  "how_checked": "Parsed page.html (empty HTML title, heading, the three placed teams, the report text and its signature, menu and footer, faculty name in the logo texts) and compared each number; checked the date against the schedule page of the contest site held for the same edition."
+ },
+ {
+  "contest": "pacnw-2019",
+  "n": 12,
+  "rating": "accurate",
+  "claims_checked": 9,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo (8 pages, no title) and pdftotext: counted 20 centred section headings, first page starts directly with 'Black and White'; 13 of the 20 names occur in the Division 1 problem set held for the contest and 7 do not; sha256 equals that of the copy from the Division 1 address."
+ },
+ {
+  "contest": "poland-2002",
+  "n": 5,
+  "rating": "minor",
+  "claims_checked": 9,
+  "errors": [],
+  "document_field_errors": [
+   {
+    "field": "contest_date",
+    "recorded": "2002-10-25",
+    "found": "The page header prints only the span 'Wrocław, 25-26 października 2002 r.'; no single contest day is printed on this page. The schedule page of the same site in our website copy (przebieg.phtml) puts registration, the briefing and the trial contest on Friday 25 October and the contest itself ('zawody', 9:00-14:00) on Saturday 26 October 2002. The recorded day is the day of registration and practice, not the day of the contest."
+   }
+  ],
+  "style": [],
+  "how_checked": "Decoded page.html as iso-8859-2 and parsed the table with code: 19 numbered rows, team counts between 1 and 4 summing to 50, heading 'Uczestniczące uczelnie', no team or member names; checked the date against the schedule page of the same site."
+ },
+ {
+  "contest": "rmc-2000",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 18,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the single table of results.html with code: 50 team rows of 13 cells, sites UCB 21, ULETH 14, BYU 8, UMT 7, columns prog1-prog8, Total Time, Problems Solved, Rank, the note on the time format above the table, first row UAlberta 1 (8, 23:34), 13 rows with 0 solved all ranked 38, no attempt counts."
+ },
+ {
+  "contest": "scusa-1988",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 11,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed icpc.html: title, the decade tabs 2020's to 1970's, rows from 2025 down to 1976, and the 1988/9 entry (Regionals 1st place with four students and a coach, World Finals in Louisville, Kentucky, 5th place with the same four names)."
+ },
+ {
+  "contest": "poland-2002",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 9,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html: empty HTML title, heading 'VII Akademickie Mistrzostwa Polski w Programowaniu Zespołowym', year 2002, exactly two results (1. miejsce and 2. miejsce, three names each), the rest menu and footer; only the year is printed as a date."
+ },
+ {
+  "contest": "pacnw-2003",
+  "n": 9,
+  "rating": "minor",
+  "claims_checked": 13,
+  "errors": [
+   {
+    "claim": "thanks the site volunteers and the PC2 developers",
+    "found": "The page thanks 'the PC2 team of Sam, Troy and Doug'; it does not call them developers.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [
+   {
+    "field": "title",
+    "recorded": "2003 Report",
+    "found": "'2003 Report' is the short HTML <title>; the page's main heading (h2) reads '2003 Contest Report'."
+   }
+  ],
+  "style": [],
+  "how_checked": "Read 2003_report.htm in full (title, heading, the three sites, 6 teams in Hawaii, over 80 teams registered, thanks, the seven menu links, no results or problems) and listed the capture directory (one logo image beside the page)."
+ }
+]

@@ -1,0 +1,119 @@
+[
+ {
+  "contest": "naq-2015",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 24,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the contest page (UTF-8) with BeautifulSoup and compared every figure, the three tables, the headings, the eleven Open Kattis links and the date line 'October 3, 2015 at 11:00 - 16:00 (CDT)'; ran pdfinfo/pdftotext on the problem set (22 pages, Problem A to K) and listed the manifest and files/ (1 html, 1 pdf, 2 zip, 1 deb, 1 svg, 1 css)."
+ },
+ {
+  "contest": "naq-2016",
+  "n": 10,
+  "rating": "accurate",
+  "claims_checked": 8,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo gives 61 pages; pdftotext shows the cover 'Solution Outlines / The Judges / September 24, 2016' and slide headers 'X Title First solved at h:mm:ss' for all twelve letters A to L; sha256 equals the PDFs under the two other editorial captures and the one in the website capture."
+ },
+ {
+  "contest": "moscow-2015",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 11,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Decoded standings.html as windows-1251 and counted with BeautifulSoup: 226 team rows, header Rank, Team, A to L, =, Time, cells with tries and times, 12 team names starting with '*', bottom rows Total runs, Accepted, Rejected, First Accept, Last Accept; file is byte-identical (sha256) to two other captures of this scoreboard and 10 bytes off the third."
+ },
+ {
+  "contest": "moscow-2025",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 13,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the single table: 120 rows with ranks exactly 1 to 120, columns Rank, Team, Institution, Solved, Time, Medal, Citation; medal counts 13/11/33 and 63 empty; citations end in 'Place' for ranks 1 to 72 and are 'Honorable Mention' from 73; row 1 is FFTilted, HSE University, 12."
+ },
+ {
+  "contest": "ncna-2019",
+  "n": 4,
+  "rating": "accurate",
+  "claims_checked": 17,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the single table: 180 rows, eight columns including Site citation (filled in 14 rows), medal counts 4/4/4, 140 Ranked, 28 Honorable all with empty rank and citation, 59 distinct institutions, first three rows as described (Model Solution 10 solved, 977); the header prints 'North-Central-North-America - ICPC year 2020'."
+ },
+ {
+  "contest": "neerc-1999",
+  "n": 6,
+  "rating": "accurate",
+  "claims_checked": 10,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read the whole page (1542 bytes) and its 21 links: the heading as quoted, A to H with the eight titles named and 'Z: Sum (Preliminary round)', each with a link to x.htm and tests\\*.zip, plus check.zip, result3.txt (sorted by time) and result4.txt (sorted by team); the capture directory holds only Problems.html and the manifest."
+ },
+ {
+  "contest": "moscow-2012",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 16,
+  "errors": [
+   {
+    "claim": "Our copy holds 150 files, 59 distinct pages",
+    "found": "150 files and 59 distinct addresses, but two of the 59 are XML run logs (north-2012-standings.xml, north-2013-standings.xml); distinct HTML/PDF pages number 57 (50 HTML, 7 PDF)",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Grouped the 150 manifest addresses after folding http/https and the :80 port, read both stored versions of archive/2012.html (title, year menu, link list), listed the Moscow standings years, and ran pdfinfo/pdftotext on the finals problem and review PDFs."
+ },
+ {
+  "contest": "ncna-2023",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 27,
+  "errors": [
+   {
+    "claim": "The front page, titled NCNA Regionals 2023-24",
+    "found": "the page titled 'NCNA Regionals 2023-24 | ICPC NA' is the Regionals 2023-24 page (/ncna/regionals2023-24/); the region's home page in the copy (/ncna/, /regionals/ncna-home/) carries the same text but is titled 'NCNA MAIN PAGE | ICPC NA'; the seed address /ncna-home/ itself is not among the stored pages",
+    "severity": "minor"
+   },
+   {
+    "claim": "[archive table] The files those links lead to are not in our copy",
+    "found": "true of the problem sets, data, sketches, results and photos (other hosts or addresses not stored), but the twelve Top 10 Teams links lead to the Hall of Champions page (ncna-hall-of-champions/#champions-...), which the copy does hold under /regionals/ncna-home/ncna-hall-of-champions/",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read the manifest (150 files: 50 HTML, 9 PDF, 1 text, rest images, XML, JSON, script) and gunzipped and parsed the NCNA pages (regionals2023-24, main page, sites, organizers, three information pages, Hall of Champions, archive table with its link targets) and listed the PDF names."
+ },
+ {
+  "contest": "neerc-1996",
+  "n": 6,
+  "rating": "accurate",
+  "claims_checked": 12,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html (UTF-8): title, breadcrumb Root :: Regionals 1996 :: Europe - Northeastern, six rows 5644 to 5649 with the six titles and the two count/percentage column pairs, 'Results 1 - 6 of 6', menus and login form, no statement text; the Turing calculator problem is named in the contest's problem set copy in the archive and is absent from this list."
+ },
+ {
+  "contest": "neerc-2000",
+  "n": 4,
+  "rating": "accurate",
+  "claims_checked": 15,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the tables with BeautifulSoup: Final Round: NEERC Finals - 12/7/2000 has 98 rows with columns Rank, Team, Citation, 68 ranked (1 to 76, with 9 among the numbers skipped) and 30 unranked Honorable Mention, all teams written 'University=>Team'; nine Preliminary Site tables with 30+18+44+30+53+33+40+17+27 = 292 rows, all Honorable Mention without rank."
+ }
+]

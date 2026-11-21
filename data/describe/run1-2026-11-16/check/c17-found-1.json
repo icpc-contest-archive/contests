@@ -1,0 +1,119 @@
+[
+ {
+  "contest": "tap-2013",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 19,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the saved blog post with BeautifulSoup and compared the post date (domingo, julio 28, 2013), contest date (5 de octubre de 2013), the eight Sedes, the rules paragraphs, the organiser lists and the two links against each claim."
+ },
+ {
+  "contest": "taiwan-2018",
+  "n": 5,
+  "rating": "minor",
+  "claims_checked": 7,
+  "errors": [
+   {
+    "claim": "the Taiwan Online Programming Contest, the online stage of the 2018 ICPC Asia Taipei Regional Contest",
+    "found": "The page only carries the HTML title 'The 2018 ACM-ICPC Asia Taipei Regional Contest' and the heading 'Taiwan Online Programming Contest Team List'; nothing on it says how the online contest relates to the regional (stage, preliminary or otherwise).",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the single table with BeautifulSoup: 88 data rows, Team No exactly team1..team88, three filled columns (Team No, Team Name, Institution), no result columns."
+ },
+ {
+  "contest": "taiwan-2019",
+  "n": 5,
+  "rating": "accurate",
+  "claims_checked": 13,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read the page text (UTF-8) and the seven Chinese category lines one by one against the description: 20 foreign places, 40/40/10/10 limits, replacements, invitations up to 100 teams, open entries; no team names on the page."
+ },
+ {
+  "contest": "syria-2026",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 27,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed all.html with BeautifulSoup (81 team rows, 15 problem columns A-O with a colour row, three teams with 10 solved, totals row, awards, legend, footer timestamp, group links) and counted the photo files in assets/ and manifest.json (31 team photos saved, none of the linked group or official pages present)."
+ },
+ {
+  "contest": "swerc-2013",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 15,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the Mooshak table with BeautifulSoup: 44 team rows, flag image per row, ten problem cells A-J, Solved and Points; checked the ordering by solved then time in code and counted 8 teams with 0 solved and 36 with at least one."
+ },
+ {
+  "contest": "syria-2011",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 14,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read site-manifest.json (one page fetched, 33 other addresses 404 including the menu pages, problems.zip and io.zip) and the text, menu and links of the one saved page."
+ },
+ {
+  "contest": "swerc-2012",
+  "n": 11,
+  "rating": "minor",
+  "claims_checked": 13,
+  "errors": [
+   {
+    "claim": "Each page carries the footer \"SWERC 2012\", the date and a page number.",
+    "found": "Pages 2 to 32 carry that footer; the title page (page 1) has none (it shows the date only as part of the title block, no 'SWERC 2012' footer and no page number).",
+    "severity": "minor"
+   },
+   {
+    "claim": "gives bulleted solution outlines for the ten problems",
+    "found": "Eight problems are outlined in bullets; Old School Days (pages 12-22) has no bullets at all (a code listing with T(n) in O(n^4) and then figure-only slides), and Sentry Robots is bullets on page 23 followed by four slides with a one-line caption or a figure.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Ran pdfinfo (32 pages, title, creation date) and pdftotext -layout, then checked the first and last text line and the bullet count of every page in code, with tesseract on page 1 to confirm the missing footer."
+ },
+ {
+  "contest": "taiwan-2001",
+  "n": 4,
+  "rating": "accurate",
+  "claims_checked": 12,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the standings table with BeautifulSoup: 53 rows, 40 with ranks 1 to 16 (ties) and place citations, 13 without rank as Honorable Mention, three columns Rank, Team, Citation."
+ },
+ {
+  "contest": "swerc-2013",
+  "n": 7,
+  "rating": "accurate",
+  "claims_checked": 12,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the problem table and breadcrumb with BeautifulSoup: 10 rows, numbers 9589-9598, letters A-J, the Korean column heads, one Korean title (H) and the special-judge label on G and J."
+ },
+ {
+  "contest": "taiwan-2018",
+  "n": 4,
+  "rating": "accurate",
+  "claims_checked": 12,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the table with BeautifulSoup and counted in code: 115 rows, seven columns, maximum solved 9, Medal filled in 32 rows including Best Girl Team Award, Citation filled in all 115, Thirty-sixth Place on exactly the 10 teams with 0 solved."
+ }
+]

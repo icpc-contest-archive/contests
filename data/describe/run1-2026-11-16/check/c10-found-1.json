@@ -1,0 +1,108 @@
+[
+ {
+  "contest": "ncna-1993",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 14,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html with BeautifulSoup, read the full text and listed every link (9 finals, 5 North Central plus one official-page pointer, 6 East Central, 3 Western European incl. the 1994 practice session, problem index), and confirmed the capture directory holds only page.html and its manifest (no assets, no year pages)."
+ },
+ {
+  "contest": "nanjing-2013",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 17,
+  "errors": [
+   {
+    "claim": "Our copy holds 150 files, 149 of them pages: the front page, a FAQ, login pages, 125 pages of problems with statements, one page of the contest list, 11 pages of individual contests with their problem lists, and two pages showing problems of the HDU judge [plus the one page headed ACM-ICPC Asia Nanjing 2013]",
+    "found": "150 files and 149 HTML pages are right, and every listed count is right (2 front-page captures, 2 FAQ, 2 login, 125 /Local/ problem pages, 1 contest list, 11 /Contest/N pages, 2 /Hdu/ pages, 1 /invitation/ page), but that list accounts for 146 of the 149 pages; three pages are not mentioned: /Home/About (a history of the judge's development), /JudgeInAll (a 'Judge In All' plug-in page) and /Knowledge (a search page).",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read site-manifest.json, classified all 150 files by URL, parsed every HTML page with BeautifulSoup (UTF-8): counted problem pages with a statement heading, read the start time on each of the 11 contest pages (2012-05-04 to 2012-07-12), and read the /invitation/ page (menu, three news items, nine fields reading 'undecided')."
+ },
+ {
+  "contest": "naq-2018",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 16,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html with BeautifulSoup: the affiliation select has 137 options with Augsburg University selected, the standings table has 10 rows and columns A to M, the cells and ranks match, and the page prints 'Contest is over', start 2018-10-06 18:00 CEST and end 2018-10-06 23:00 CEST; the other captures of this URL in the archive are also the Augsburg view."
+ },
+ {
+  "contest": "nanjing-2026",
+  "n": 6,
+  "rating": "accurate",
+  "claims_checked": 12,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Loaded team.json with Python and counted: 374 entries, 332 official and 42 unofficial, all ids match [ABC] plus four digits, location equals id in all 374, three members each, 369 with one coach and 5 with none, icpc_id on exactly the 332 official teams; the 198 organization ids used all occur in the 198-entry organizations.json kept beside it."
+ },
+ {
+  "contest": "nac-2022",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 12,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed standings.html with BeautifulSoup and counted rows and the Medal, Citation and Site citation columns: 50 teams, 1 Gold, 2 Silver, 4 Bronze, 27 Ranked, 16 Honorable, site citations East, South, Central and West, first row MIT CopyPaste with 13 solved, no per-problem columns."
+ },
+ {
+  "contest": "nena-2001",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 20,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html with BeautifulSoup and counted the rows of each of the five lists: Final Round at Westfield State College 11/3/2001 with 12 teams ranked 1 to 11 (two at 11), Boston 13 (4 ranked), St. Francis Xavier 16 (3 ranked), SUNY-Oswego 15 (all ranked), Western New England College 18 (4 ranked); columns are Rank, Team, Citation only."
+ },
+ {
+  "contest": "naq-2018",
+  "n": 8,
+  "rating": "accurate",
+  "claims_checked": 13,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Ran pdfinfo (59 pages, author The Judges) and pdftotext, then read the header and footer of every slide: title page dated October 6, 2018, 57 problem slides in runs of 2 to 9 ordered by first-solve time (B 0:01 to M 3:49, then F 'Not solved during the contest!'), an author line in every footer, and a final References slide with one entry."
+ },
+ {
+  "contest": "nac-2025",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 14,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html with BeautifulSoup: h2 'NAC 2025', the line 'Live (unfrozen) scoreboard', h3 'NAC 2025 Contest Standings', a 52-row table with columns A to M and 'Total att/solv' (17/12 in row 1), a closing 'Submitted/1st Yes/Total Yes' row, a PC^2 footer and four division links; the capture directory holds only the page, a stylesheet and a header image."
+ },
+ {
+  "contest": "neerc-2000",
+  "n": 5,
+  "rating": "accurate",
+  "claims_checked": 13,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html with BeautifulSoup (Latin-1) and counted rows under each of the ten group headers: 411 entries in all (101 at NEERC Finals), one of them a nonsense placeholder in the Northern group, 11 entries with an empty contestants cell, and 249 institution names with an http link; another 69 or so carry a scheme-less 'www...' href, which the description leaves out without contradicting the copy."
+ },
+ {
+  "contest": "nanjing-2024",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 9,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html with BeautifulSoup: the problems table has 13 rows A to M with names, time and memory limits and solved counts, the contest materials box links Statements (zh), Statements (en) and Tutorial (Sketch) (zh), the questions table has a header row only, and the top bar shows Enter and Register."
+ }
+]

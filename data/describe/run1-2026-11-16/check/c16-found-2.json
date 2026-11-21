@@ -1,0 +1,139 @@
+[
+ {
+  "contest": "south-russia-2003",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 9,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Decoded standings.html as windows-1251, counted 54 team rows and columns Team, A-J, =, Time, Rank under the heading with '5:00:00 of 5:00:00 status: over', and compared bytes with the other live copy of the board (identical md5)."
+ },
+ {
+  "contest": "south-pacific-east-2015",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 16,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed EasternDivision.html: 16 team rows (ranks 1-15 plus one sortorderswitch row with rank 1 in the School Team (Unofficial) colour), problems A-K, tries/minute cells, summary row, footnote, 'Final Standings', 'Last Update: Sun 23rd August 2015 using DOMjudge'."
+ },
+ {
+  "contest": "south-na-2026",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 12,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html: 13 rows A-M (Recursive Pattern to Mushroom Island) with Name, empty Score distribution, Submissions and First solve all filled; header 'Contest is over', Start 2026-11-07 20:00 CET, End 2026-11-08 01:00 CET; capture directory holds only css/js/png assets."
+ },
+ {
+  "contest": "south-russia-2000",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 20,
+  "errors": [
+   {
+    "claim": "Our copy holds 147 pages",
+    "found": "The copy holds 150 files: 142 HTML pages, 5 RAR archives and 3 ZIP archives. 147 is the HTML pages plus the five RAR files (stored with a text/plain type); counted as pages there are 142, many of them the same page under two or three addresses.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Listed all 150 entries of site-manifest.json with type and title, confirmed the year pages 1996-2025, the 2000 and 2001 finals standings and the eight subregion pages for each of 2000 and 2001, and parsed the 2000 and 2001 Southern pages (host, regions, 39-row table, columns, 11 teams at rank 29, Russian names and problems B-H in 2001, link to south-problems.rar, home page link to contest.sgu.ru which is not in the copy)."
+ },
+ {
+  "contest": "south-pacific-2001",
+  "n": 5,
+  "rating": "accurate",
+  "claims_checked": 10,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html: heading and stamp line as quoted, 87 rows with Rank, Team (institution=>team), Citation, 83 ranked and 4 unranked Honorable Mentions; table equal row for row to the 20020619 copy, which has no stamp line."
+ },
+ {
+  "contest": "south-pacific-2019",
+  "n": 6,
+  "rating": "minor",
+  "claims_checked": 14,
+  "errors": [
+   {
+    "claim": "The cover page ... states that the contest has eleven problems over 24 pages ... It also holds general definitions",
+    "found": "The cover (page 1) carries only the title, the date November 23, 2019 and the list of problems A to K. The sentence 'This contest contains eleven problems over 24 pages. Good luck.' and the definitions (error tolerance, modulo, lexicographic order, letters, distance, positive/negative) are on page 2.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo (24 pages) and pdftotext page by page: cover text, page 2 text, and for each of problems A-K the title, time limit, Input, Output and sample sections; no test data or solutions in the file or capture directory."
+ },
+ {
+  "contest": "south-pacific-central-2019",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 20,
+  "errors": [
+   {
+    "claim": "The main table ranks 74 teams ... A second table lists five unofficial teams ... Each table ends with a summary row",
+    "found": "The page has one scoreboard table (one header row A-M) holding two groups: 74 teams ranked 1-74 closed by a Summary row, then five Unofficial teams ranked 1-5 closed by a second Summary row. The only other tables are the two legends.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed Scoreboard-Full.html: 79 team rows (74 + 5), problems A-M, minute and tries cells, score_first/score_correct/score_incorrect classes, category badges on the first team of each category colour, flags (61 AUS, 17 NZL, 1 KOR in the unofficial group), legends, 'South Pacific Divisionals 2019 Final Results', 'Last Update: Sat 21 Sep 2019 using DOMjudge' (version 7.0.3 comment); capture directory holds only the favicon although the page refers to 5 style sheets, 5 scripts and 3 flag images."
+ },
+ {
+  "contest": "south-pacific-2007",
+  "n": 1,
+  "rating": "wrong",
+  "claims_checked": 24,
+  "errors": [
+   {
+    "claim": "Website of the ACM South Pacific Region, in English, as it stood in May 2008",
+    "found": "The copy is not the site of May 2008. It holds the report, results, scoreboard and problem set of the 2008 contest, which the report says was held on Saturday 13th September 2008, and the snapshots range from September 2007 to November 2011: 96 of the 150 files are from October 2008 and only 15 from May 2008 (the 2007 pages reached from the starting address).",
+    "severity": "wrong"
+   },
+   {
+    "claim": "The Auckland photo albums are only partly in our copy; some images were not fetched.",
+    "found": "Only the album index pages are in the copy (2007 Contest, Presentation and AucklandTeams, 2008 AucklandTeams2008). None of the album photos or thumbnails they show is in the copy; no image under /Auckland/ is present.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [
+   "process word: 'were not fetched' (and 'saved twice')"
+  ],
+  "how_checked": "Listed all 150 manifest entries by type, snapshot date and title (60 HTML, 50 PDF, 27 JPEG, 7 CSS, 4 GIF, 2 ZIP; 65 distinct contents), read Report2007 (Saturday 15th September, 10 sites, 91 teams, director's message, ten site sections), SP_Results_2007, summary2.html (91 team rows, columns), Problems2007 (A-I with statistics, comments on A and C), problemA-I PDFs, Team Talk 2007 PDF (5 pages), SP_Tokyo_2007, Report2008 and the Auckland album pages."
+ },
+ {
+  "contest": "south-america-north-2016",
+  "n": 4,
+  "rating": "minor",
+  "claims_checked": 11,
+  "errors": [
+   {
+    "claim": "A to K (Assigning Teams to Kill the Werewolf)",
+    "found": "The words 'Assigning Teams' are nowhere in the copy; problem A is listed only as 팀 나누기. The list in the copy runs from 팀 나누기 (A) to Kill the Werewolf (K).",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html (lang ko): 11 rows 13866-13876, A-K, columns 문제 번호, letter, 제목, 정보, 맞은 사람, 제출, 정답 비율; searched the page and assets for 'Assigning'; capture directory holds only css/js/image assets."
+ },
+ {
+  "contest": "south-pacific-2019",
+  "n": 4,
+  "rating": "accurate",
+  "claims_checked": 8,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html: h1 '2019 ICPC Results', h2 'Regional Finals' (Scoreboard, Problem Set, Editorial download links) and 'Divisional Contest' (Scoreboard, Problem Set), no tables; the capture directory holds no PDF."
+ }
+]

@@ -1,0 +1,148 @@
+[
+ {
+  "contest": "rmc-2019",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 16,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html with BeautifulSoup: counted 76 team rows, ranks 1-72 with five rows at 72, 11 problem columns A-K, a flag and a logo image in every row, attempts and minute in the cells, the legend, the site list, 'Contest is over' and Start/End 2019-10-26 18:00/23:00 CEST."
+ },
+ {
+  "contest": "pacnw-2008",
+  "n": 2,
+  "rating": "minor",
+  "claims_checked": 15,
+  "errors": [
+   {
+    "claim": "language (Java, GNU C++ and others)",
+    "found": "Only three languages occur: GNU C++ (375 runs), Java (365) and GNU C (12); there is one other language, not several.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Split the 752 'run' lines of page.txt on '|' and counted sites (1,2,4,5,6), problems (A-K with names), languages and judge answers (341 Yes); read the header (version 9.1.0, 'Date: Thu Jan 01 14:21:21 PST 2009', '-- 752 runs --'); each line also carries an unlabelled elapsed minute, which the description does not mention."
+ },
+ {
+  "contest": "poland-2000",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 11,
+  "errors": [],
+  "document_field_errors": [
+   {
+    "field": "title_en",
+    "recorded": null,
+    "found": "title is Polish ('ZGŁOSZONE DRUŻYNY', i.e. 'Registered teams'), so an English translation is due; the field is empty (nothing wrong is stated, so the rating is not lowered)"
+   }
+  ],
+  "style": [],
+  "how_checked": "Decoded przyjete.html as iso-8859-2 and read it whole: 18 institution rows whose counts in words sum to 42, title 'IV Ogólnopolskie Zawody...', heading 'V Akademickie Mistrzostwa Polski...', '27 - 28 PAŹDZIERNIKA 2000 r.', fee of 100 zł per contestant and proof of payment 'do dn. 2000.10.20'."
+ },
+ {
+  "contest": "rmc-2023",
+  "n": 7,
+  "rating": "minor",
+  "claims_checked": 13,
+  "errors": [],
+  "document_field_errors": [
+   {
+    "field": "title",
+    "recorded": "Problems from Rocky Mountain Regional Programming Contest 2023 – Kattis",
+    "found": "the page title reads 'Problems from Rocky Mountain Regional Programming Contest 2023 – Kattis, Kattis' and the h1 reads 'Problems from Rocky Mountain Regional Programming Contest 2023'; the recorded title is neither of them verbatim"
+   }
+  ],
+  "style": [],
+  "how_checked": "Parsed page.html: one table with header Name, Fastest, Shortest, Authors, Full Solves, Ratio, Difficulty, Languages and 12 rows in alphabetical order, difficulty 1.5 (Guess Who) to 8.9 (Scientific Grading) with Easy/Medium/Hard, 'en' in every row, no letters."
+ },
+ {
+  "contest": "qatar-2022",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 20,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html: 22 team rows, columns Rank, Name, Solved, Time, A-M, Total att/solv, the colour row, the legend, the 'Submitted/1st Yes/Total Yes' row, footer 'CSUS PC^2 9.8.0' and 'Last updated Sat Aug 06 14:36:27 EET 2022'; rank 1 Bl9atiful (CMUQ) with 8, five teams at rank 18 with 0; no 'frozen' or 'final' anywhere in the file."
+ },
+ {
+  "contest": "pacnw-2006",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 24,
+  "errors": [
+   {
+    "claim": "PDFs of 24 to 29 pages for the March 2021 and March 2022 contests (Divisions 1 and 2) and the solutions of 2022",
+    "found": "Problem sets: 6 March 2021 Division 1 has 29 pages and Division 2 has 27; 5 March 2022 Divisions 1 and 2 have 28 each. Solutions of 2022: Division 1 has 24 pages, Division 2 has 20. The range over these PDFs is 20 to 29.",
+    "severity": "minor"
+   },
+   {
+    "claim": "The first page is headed The 2006 ACM Pacific Northwest Programming Contest, but its table is the final results of the 2007 contest",
+    "found": "On Standings/2007.htm 'The 2006 ACM Pacific Northwest Programming Contest' is only the HTML <title>; the visible heading reads 'FINAL RESULTS 2007 ACM-ICPC Pacific Northwest Region'. The table (76 teams; Rank, Team, #Solved, Time) is as described.",
+    "severity": "minor"
+   },
+   {
+    "claim": "For the 2006 contest the site has the final standings page (65 teams)",
+    "found": "Standings/2006/results.htm lists 65 teams but is not labelled final; its heading is 'The 2006 ACM Pacific Northwest Programming Contest', hosts, and 'Saturday November 11, 2005'.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read site-manifest.json (55 pages; 23 text/html + 18 PDF by content type, one of the HTML files being a parked-domain page saved at the address of a PNG; timestamps 2007-2025), parsed each distinct HTML page, ran pdfinfo/pdftotext on each distinct PDF (two Spring2023 files of exactly 1048576 bytes fail to open), and checked magic bytes and listings of the RAR and ZIP archives."
+ },
+ {
+  "contest": "pacnw-2022",
+  "n": 4,
+  "rating": "minor",
+  "claims_checked": 14,
+  "errors": [],
+  "document_field_errors": [
+   {
+    "field": "times",
+    "recorded": true,
+    "found": "the table has only a total Time column and no per-problem columns (the description itself says 'No per-problem results'); by the field's definition (solve times per problem) this should be false"
+   }
+  ],
+  "style": [],
+  "how_checked": "Parsed standings.html: 113 rows under Rank, Team, Institution, Solved, Time, Medal, Citation, Site citation; counted medals (2 gold, 2 silver, 2 bronze, 107 Ranked), 57 Honorable Mention, D1/D2 Champions, ten site winners, and rank 1 Golden State Geeks (University of California, Berkeley) with 9."
+ },
+ {
+  "contest": "rmc-2021",
+  "n": 8,
+  "rating": "minor",
+  "claims_checked": 11,
+  "errors": [
+   {
+    "claim": "in order of how many teams solved them rather than by letter",
+    "found": "The sketches run A, E, C, H, D, I, L, N, G, J, F, K, M, B, in descending order of the first number of the pair in each heading (44, 42, 39, 17, 16, 14, 11, 10, 6, 3, 1, 1, 1, 0); the PDF nowhere says what the two numbers mean, so 'teams solved' is a reading, not something printed.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo (19 pages) and pdftotext page by page: title page, Credits page with seven names, then 14 headings A-N with number pairs (44/47 Betting, 0/7 Antialiasing), J, F and M taking two pages each."
+ },
+ {
+  "contest": "rmc-2014",
+  "n": 5,
+  "rating": "accurate",
+  "claims_checked": 13,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo (22 pages) and pdftotext page by page: Problem A Server to Problem K Continued Fraction, each with Problem ID and Time Limit, one or two Sample Input/Output blocks per problem, 'This page is intentionally left blank.' on pages 2, 8, 10, 16, 18, 20, 22, footers 'Problem X: Name  page', no cover and no contest name."
+ },
+ {
+  "contest": "rmc-2003",
+  "n": 8,
+  "rating": "accurate",
+  "claims_checked": 10,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo (1 page, title 'PROB1: SPIN') and pdftotext of the whole page: locked spinner puzzle, D digits (at most 10), button labels of D digits, INPUT: prob1.dat and OUTPUT: prob1.out each with an example, no contest name or date."
+ }
+]

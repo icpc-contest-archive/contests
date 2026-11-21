@@ -1,0 +1,143 @@
+[
+ {
+  "contest": "seusa-1996",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 14,
+  "errors": [
+   {
+    "claim": "the lists of past and developmental team members with one page per member",
+    "found": "Our copy has single-member pages for 119 members only (past-team-members?view=employee, ids 1-12, 21-125, 290 and 300), while the past-members list runs over 12 list pages of about 20 names each; the developmental list links member pages too (all-developmental-team-members?view=employee&id=...), but none of those is in the copy.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read site-manifest.json (150 pages, all HTTP 200 HTML; 9 addresses held as both http and https), parsed the ICPC record page (seasons 2018-2019 back to 1982-1983; 1996-1997 regionals 1st, 3rd, 7th & 9th, finals 17th out of 50; UCF places only) and opened the NAIPC, IEEE SoutheastCon, Mercer, other-contests, member-list, member, first-team and continued-success pages."
+ },
+ {
+  "contest": "seerc-2005",
+  "n": 5,
+  "rating": "accurate",
+  "claims_checked": 12,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html with BeautifulSoup: breadcrumb Root :: Regionals 2005 :: Europe - Southeastern, nine rows 3302-3310 with the nine titles as given, the two column headings, 'Monday, 20 September 2021', the menu, the login form and 'Results 1 - 9 of 9'; no statement text."
+ },
+ {
+  "contest": "seerc-2008",
+  "n": 3,
+  "rating": "wrong",
+  "claims_checked": 9,
+  "errors": [],
+  "document_field_errors": [
+   {
+    "field": "contest_date",
+    "recorded": "2008-10-16",
+    "found": "The page prints only the four-day span 'Bucharest, October 16-19, 2008', not a contest day; 16 October 2008 (a Thursday) is the first day of the event. The problem statements of the same contest in our archive are headed 'Bucharest, Romania, October 18, 2008', so the day of the contest is 2008-10-18 and it is not printed in this copy."
+   }
+  ],
+  "style": [],
+  "how_checked": "Parsed results.htm: 44 data rows under Rank, University, Team, Citation, #Solved, Time; rank 1 KNU - ddragons (Taras Shevchenko Kiev National University) with 9; ranks 40-44 with 0; text identical to the 20260904 live copy after whitespace normalisation; searched the page and the contest's other documents for dates."
+ },
+ {
+  "contest": "seusa-2004",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 17,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read the single saved page and site-manifest.json: title, the What, When/Where, Accommodations, BYOC!, Environment, Registration, Schedule and Results sections, the four result links, and the eight same-site addresses (what.html ... standings.txt, two scripts) recorded as 404 and not saved; 23 October 2004 was a Saturday."
+ },
+ {
+  "contest": "seerc-2006",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 8,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed results.htm: header 'Romanian Chapter of the Association for Computing Machinery', heading 'Rank of the ACM Southeastern Europe Region 2006', 40 data rows under Rank, Name (institution - team), Solved, Time, no date anywhere; text identical to the 20260904 live copy."
+ },
+ {
+  "contest": "seusa-2001",
+  "n": 2,
+  "rating": "minor",
+  "claims_checked": 14,
+  "errors": [
+   {
+    "claim": "Each row gives ... for each of the 11 problems (SKI ... CASHIER), the number of judged submissions and, when solved, the time of the solving run",
+    "found": "Only rows 1 to 40 carry 11 problem cells. The rows of places 41 to 68 and the 9 unplaced rows (37 of the 77) carry 10 cells: the last column, CASHIER, is missing from them, and in row 3 the CASHIER cell is cut after the submission count. Counted 809 cells in all (40x11 + 37x10 - 1).",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed final.htm as text: header lines (Georgia College & State University, October 6, 2001, Final Standings), the 11 column names, 68 numbered rows plus 9 unnumbered rows with 0 solved, UCF Intrepid first with 8, and counted the 'submissions time' cells per row with a regular expression."
+ },
+ {
+  "contest": "seusa-2001",
+  "n": 22,
+  "rating": "wrong",
+  "claims_checked": 20,
+  "errors": [
+   {
+    "claim": "lists the ten judges with their universities",
+    "found": "Ten judges are listed; nine have a university, the tenth is given as 'Private Contractor'.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [
+   {
+    "field": "contest_date",
+    "recorded": "2001-10-05",
+    "found": "The report prints 'held on Friday and Saturday, 5-6, October' and places registration on 'Friday night' (5 October); the contest itself was on Saturday 6 October 2001, the date the final standings page of the same contest is headed with. 2001-10-05 is the registration day."
+   }
+  ],
+  "style": [],
+  "how_checked": "Read contestReport2001.html in full (browser title '... Report, 2000', heading '... Report, 2001', two links, the five paragraphs and the list of ten judges) and its meta tags; no author appears in the page."
+ },
+ {
+  "contest": "scusa-2014",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 24,
+  "errors": [
+   {
+    "claim": "Our copy holds 149 files, 138 of them pages",
+    "found": "149 files, of which 110 are HTML pages (three of them the front page, saved from /, /index.php and the https address) and 28 are plain-text C++ header files of the STL documentation (algo.h, vector, map ...); the other 11 are 7 GIF images, 1 PNG and 3 style sheets. 138 is reached only by counting the header files as pages.",
+    "severity": "minor"
+   },
+   {
+    "claim": "the front page, the judging page and a page on switching Python versions, plus C guide, STL, PHP, Perl and Ruby reference pages and the GNU C library index page",
+    "found": "The list leaves out two more pages in the copy: the 'Examples of Standard In/Standard Out Processing' page (/examples/) and the 'Index of PC^2 Documentation' page (/pc2/).",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read site-manifest.json (149 files saved by content type, one fetch error, no address under java, python, cppreference, problems-* or scoreboard-* saved) and parsed the front page (links, the three-row contest table, errata), judging.html (compile lines, redirection, vim -d comparison, judgement-tree.png, which is saved), switch.html, examples/, pc2/ and gnu_c_libs/."
+ },
+ {
+  "contest": "seerc-2024",
+  "n": 7,
+  "rating": "accurate",
+  "claims_checked": 11,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo (16 pages) and pdftotext -layout: the three-line header with November 17, 2024 on each section, 13 sections A. to M. each with Author, Solved by, First to solve and solution text, A = 77/82, E and I = 0/0 with N/A, complexity stated in several solutions."
+ },
+ {
+  "contest": "seerc-2001",
+  "n": 16,
+  "rating": "accurate",
+  "claims_checked": 9,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo (1 page) and pdftotext -layout of D.pdf: header Southeastern European Regional Programming Contest, Bucharest, Romania, October 20, 2001; Problem D Typography; Input File: D.DAT; Program Source File: D.PAS or D.C or D.CPP; English statement."
+ }
+]

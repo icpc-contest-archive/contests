@@ -1,0 +1,131 @@
+[
+ {
+  "contest": "nerc-2021",
+  "n": 4,
+  "rating": "minor",
+  "claims_checked": 14,
+  "errors": [
+   {
+    "claim": "each [of the twelve problems] with ... the statement, input and output format, examples",
+    "found": "Problem I (Interactive Treasure Hunt) has no Input or Output section: its sections are the statement, Interaction Protocol and Example. The other eleven problems have Input, Output and Example(s).",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo and pdftotext -layout on the PDF: counted 16 pages and 16 page headers, 12 problem headings A-L, the time and memory limit of each, and listed the section headings (Input, Output, Example(s), Note, Interaction Protocol) per problem."
+ },
+ {
+  "contest": "north-russia-2013",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 19,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed standings.html (windows-1251) with BeautifulSoup: 78 team rows, header Rank/Team/A-L/=/Time, cell forms (+ with m:ss, +1, +3, -9, dot), first row SPb SU 4 12/982, 15 rows at rank 64 with 0 solved, five summary rows, the 5:00:00 of 5:00:00 / status over line and the Show time checkbox."
+ },
+ {
+  "contest": "nordic-2014",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 17,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed standings.html with BeautifulSoup: 296 rows, six columns (Rank, Team, Institution, Solved, Time, Citation), top three rows, and counted teams, ranks and solved counts per citation (Honorable Mention 118 teams with 2/1/0 solved, 46 with 0 at rank 251); no contest date printed."
+ },
+ {
+  "contest": "north-russia-2009",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 24,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read site-manifest.json and files/: counted 150 files (105 HTML, 37 PDF, 4 PS, 4 RAR), read both saved versions of subregions/northern.html (2019 and 2022 captures) including the 2009 entry of the archive list and its link targets, confirmed which 2009 northern files are held, counted 18 subregion pages and 41 /school/ files, and read the 2009 archive page and the NEERC 2009 information page."
+ },
+ {
+  "contest": "nordic-2003",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 11,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed progsm2003-final.html with BeautifulSoup: heading, 77 team rows, columns Rank/Name/Solved/Score/A-H/Total att/solv, 73 rows with at least one solved, four rows at rank 74, top three with 7 solved; compared the top three with the Nordic page (prognm2003-final.html) held in the same contest."
+ },
+ {
+  "contest": "nerc-2024",
+  "n": 1,
+  "rating": "wrong",
+  "claims_checked": 27,
+  "errors": [
+   {
+    "claim": "eight linked pages were not saved",
+    "found": "site-manifest.json records 2037 in-scope addresses not fetched, not eight. Pages linked from the 2024 archive page and absent from the copy alone number 14 HTML/PDF documents (Azerbaijan standings, statements and handbooks; Kazakhstan standings, qualification standings, statements and handbooks; Northwestern qualification statements, tutorial and handbooks), and the team reference, selection rules and contest rules pages linked from the finals page are absent too. The eight addresses first listed as not fetched are mostly https duplicates of pages held under http.",
+    "severity": "wrong"
+   },
+   {
+    "claim": "standings pages of several regional contests (Astana site, Ural, Armenia, Taurida, Northwestern Russia)",
+    "found": "archive/2024/standings-kaz.html is headed 'ICPC 2024-2025, NERC - Northern Eurasia Finals, Astana Site': it is the finals standings of the Astana site, not a regional contest. The Ural, Armenia, Taurida and Northwestern Russia standings pages are regional contests and are held.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read site-manifest.json and files/ (61 files: 37 HTML, 20 PDF, 4 SVG), read both versions of regional/nef-2024.html and archive/2024.html with their link targets, ran pdfinfo/pdftotext on the statement, tutorial and brochure PDFs (13 problems, 8 pages, 31 pages, three brochure copies truncated at 5242880 bytes), read the titles of the standings pages, and set the links of the 2024 pages against the list of held addresses."
+ },
+ {
+  "contest": "nena-2013",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 15,
+  "errors": [
+   {
+    "claim": "Our copy holds 132 pages, starting from the department's 2014 calendar",
+    "found": "The copy has no starting page: the address it was made for (http://www.cs.rit.edu/~icpc/) is not among the saved files, and the 2014 calendar pages are only the first entries of the manifest. The count of 132 (107 HTML, 24 PDF, 1 text) and the year, month, week and day calendar views are as stated.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read site-manifest.json (150 addresses, 147 files) and counted pages by content type, listed the titles of all HTML pages, and searched every page text for ICPC, regional contest and programming contest: the teaser is on the /news page captured 2012-10-15, the high school contest on the index.php home page, and no contest page of 2013 is held."
+ },
+ {
+  "contest": "north-russia-2011",
+  "n": 3,
+  "rating": "minor",
+  "claims_checked": 9,
+  "errors": [
+   {
+    "claim": "showing per problem the tries and the minute of acceptance",
+    "found": "A solved cell shows + with the number of earlier rejected runs (+1, +2; a bare + for none) and the time of acceptance in minutes and seconds (6:28, 24:51), not a minute; unsolved cells show a negative count or a dot.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed standings.html (windows-1251) with BeautifulSoup: heading, 67 ranked team rows, header Rank/Team/A-K/=/Time, the forms of the cells, and the five closing rows (Total runs, Accepted, Rejected, First Accept, Last Accept)."
+ },
+ {
+  "contest": "north-russia-2004",
+  "n": 6,
+  "rating": "accurate",
+  "claims_checked": 13,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html with BeautifulSoup: title, Finished status, Contest website and Statements (en) links, the problems table (11 rows A-K with file names, limits and solver counts; ten at 1 s / 64 MB, K at 10 s / 512 MB), the virtual participation text and the question form; the capture directory holds only CSS, JS and PNG assets, no PDF."
+ },
+ {
+  "contest": "north-russia-2016",
+  "n": 6,
+  "rating": "accurate",
+  "claims_checked": 7,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo and pdftotext -layout on the PDF: 12 pages, the header and date on every page, 11 problem headings A-K; compared its sha256 with the copies held for the neerc.ifmo.ru address (identical)."
+ }
+]

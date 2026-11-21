@@ -1,0 +1,157 @@
+[
+ {
+  "contest": "west-siberia-2011",
+  "n": 3,
+  "rating": "minor",
+  "claims_checked": 15,
+  "errors": [],
+  "document_field_errors": [
+   {
+    "field": "title",
+    "recorded": "Итоговые результаты ACM 2011",
+    "found": "That line is the caption of the table; the page's main heading (h1) reads 'Результаты ACM 2011' and the HTML title 'Результаты ACM 2011 - OlympSystem'. The description's 'headed' refers to the same caption."
+   }
+  ],
+  "style": [],
+  "how_checked": "Parsed page.html (UTF-8) with BeautifulSoup: counted 61 rows ranked 1-61 and 12 problem columns, read the caption, badges, cell patterns and first row, and confirmed from the directory and manifest that no style sheet or script is saved."
+ },
+ {
+  "contest": "west-siberia-2005",
+  "n": 2,
+  "rating": "minor",
+  "claims_checked": 16,
+  "errors": [],
+  "document_field_errors": [
+   {
+    "field": "times",
+    "recorded": true,
+    "found": "Problem cells hold only '+', '+N', '-N' or nothing; the only time is the total in the last column ('Время'). By the field's definition (solve times per problem) this is false; the description itself claims no per-problem times."
+   },
+   {
+    "field": "title",
+    "recorded": "Результаты ACM 2005 - OlympSystem",
+    "found": "That is the HTML <title>; the page's main heading (h1), which the description quotes, is 'Результаты ACM 2005'."
+   }
+  ],
+  "style": [],
+  "how_checked": "Parsed page.html with BeautifulSoup: counted 63 rows (ranks 1-58, then five at 59 with 0 solved), 10 problem columns, checked every team cell has a parenthesised university, the sort order by solved then time, the cell patterns, the footer naming НГТУ and that no contest date is printed."
+ },
+ {
+  "contest": "west-neerc-2021",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 20,
+  "errors": [
+   {
+    "claim": "Each row gives the team name with its members",
+    "found": "62 of the 63 rows have a member list in parentheses; the last row, 'Egor Perry' (rank 57, no submissions), is a single name without members.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [
+   "The description text contains a literal backslash-n backslash-n ('...share rank 57.\\n\\nThree teams...') instead of a real paragraph break; as stored it is one paragraph with the characters \\n\\n visible."
+  ],
+  "how_checked": "Parsed page.html with BeautifulSoup: counted 63 rows and 14 columns A-N, read the header (date 14 ноября 2021 г., 5:00:00 из 5:00:00, last accepted and last runs, the two links), the first row, the seven rows at rank 57, the three '* VILNIUS TECH' rows and the cell patterns."
+ },
+ {
+  "contest": "urals-2024",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 22,
+  "errors": [
+   {
+    "claim": "The links to the standings lead to another site",
+    "found": "Only the main-round results link leads to another site (nerc.itmo.ru/archive/2024/ural/standings.html). The standings of the qualification, the college tournament and the Ural Federal University championship are linked as pages of this same site (qual/standings.html, college_standings.html, urfu_standings.html); they are simply not saved in our copy.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read site-manifest.json (40 html pages saved: 13 distinct pages plus print and http duplicates) and decoded (windows-1251) the index, winners, participants, timetable, rules, substitution, qualification, selection, main-round list, colleges and UrFU pages, checking numbers, dates and where each results/statement/tutorial link points."
+ },
+ {
+  "contest": "vietnam-national-2018",
+  "n": 4,
+  "rating": "accurate",
+  "claims_checked": 15,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html with BeautifulSoup: counted 236 team rows (236 distinct names, each with exactly three members), tallied the 'Competing at site' column (nine sites, counts 30/23/51/35/12/49/19/6/11 as stated), confirmed there are no result columns and that the page prints Start 2018-11-04."
+ },
+ {
+  "contest": "wf-1998",
+  "n": 4,
+  "rating": "minor",
+  "claims_checked": 8,
+  "errors": [],
+  "document_field_errors": [
+   {
+    "field": "title",
+    "recorded": "A_FINALS 1998",
+    "found": "That is the HTML <title>; the page's main heading (H1) reads 'Contest Finals 1998'."
+   }
+  ],
+  "style": [],
+  "how_checked": "Read the whole 421-byte index.html (three links with the stated sizes, 'Last update: Wed Mar 4 18:52:05 MET 1998') and listed the capture directory, which holds only the index page and its manifest."
+ },
+ {
+  "contest": "west-neerc-2018",
+  "n": 1,
+  "rating": "wrong",
+  "claims_checked": 14,
+  "errors": [
+   {
+    "claim": "None of the pages we hold is about the 2018 Western Subregional Contest.",
+    "found": "Six home-page captures of 4 November 2018 to 14 January 2019 (fpmi.bsu.by/, :80/, :80/?, main.aspx, main.aspx?, https home) carry it: a banner headline 'Три команды БГУ – в четверке лучших на студенческом Командном чемпионате по программированию Беларуси и Балтии' and, under 'ФПМИ в средствах массовой информации', about twenty press headlines on the contest, e.g. 'Четвертьфинал ЧМ по программированию среди студентов Западного региона стартует 1 ноября в Минске', '1/4 финала чемпионата мира по программированию среди студентов Западного региона пройдет в Белорусском государственном университете 1 и 2 ноября', 'Чемпионат по программированию среди студентов Западного региона прошёл в БГУ', beside a news feed dated up to 02.11.2018. No page is devoted to the contest, but the copy does hold these mentions of the 2018 edition, which the description denies while listing mentions of 2003, 2008 and 2012.",
+    "severity": "wrong"
+   }
+  ],
+  "document_field_errors": [
+   {
+    "field": "pages",
+    "recorded": 134,
+    "found": "134 is the number of HTML pages of the website in our copy (correct as a count, and stated in the description); the field is defined as the number of pages of a PDF and is null for the other website in this sample."
+   }
+  ],
+  "style": [],
+  "how_checked": "Read site-manifest.json (150 files, 134 text/html), listed every page with capture date and title, decoded them (UTF-8 or windows-1251) and searched all 134 for Western-region, quarterfinal, semifinal, programming-championship and 2018 mentions; read the newest home capture (news feed newest entry 06.02.2023), the press archive page, the 2008 and 2012 news pages and the 2003 quarterfinal page."
+ },
+ {
+  "contest": "vietnam-national-2013",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 15,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html with BeautifulSoup and read the whole article text against each number, date, place and statement of the description (165 teams, 56 institutions, 4 campuses, 14 teams from 6 universities, 4 of 5 teams, November 28th to 29th, the prize list); no table or ranking is on the page."
+ },
+ {
+  "contest": "wf-1995",
+  "n": 3,
+  "rating": "minor",
+  "claims_checked": 13,
+  "errors": [
+   {
+    "claim": "21 contests in year order, each with its date and host city",
+    "found": "20 of the 21 entries give a date; the 1985 entry reads '1985 ACM Contest Finals, New Orleans, Louisiana' with no date.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed EarlyYears.html with BeautifulSoup and read the whole text: counted the 21 entries 1977-1997, checked each entry's date and city, the varying number of places and member lists, the 1995 entry word for word, the 'as of 7 Dec 2007' line and the request for evidence."
+ },
+ {
+  "contest": "vietnam-national-2013",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 16,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html with BeautifulSoup and read the whole article text against the description: date stamp 30/10/2013, October 26, 164 teams, 56 institutions, 7 places, 10 problems, the three teams with 8 of 10, the champion and first-prize sharers, the Jakarta paragraph, the press contacts and the menus and news links at the end."
+ }
+]

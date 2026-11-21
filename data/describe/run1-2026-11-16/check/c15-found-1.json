@@ -1,0 +1,126 @@
+[
+ {
+  "contest": "socal-2010",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 14,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the <pre> block with regexes: 72 team rows, ranks 1-60 consecutive, 12 unranked rows all with 0 solved, 576 problem lines over problems 1-8 with only * or - marks, and the closing summary table (sums 182/418 recomputed)."
+ },
+ {
+  "contest": "slovenia-2009",
+  "n": 2,
+  "rating": "minor",
+  "claims_checked": 7,
+  "errors": [
+   {
+    "claim": "Apart from the site's menus it holds a one-line introduction and links for the years 2012 to 2025",
+    "found": "The year links 2025-2012 are themselves part of the sidebar menu (a sub-menu expanded under the 'Zgodovina UPM' entry in block-subsites-menu); the content area holds only the title and the line 'Zgodovina tekmovanj UPM.' The links exist and lead to other pages of the site, as said.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html with BeautifulSoup, listed every link and its ancestors, read the content area and searched the text for 2009."
+ },
+ {
+  "contest": "shenyang-2020",
+  "n": 7,
+  "rating": "accurate",
+  "claims_checked": 10,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo (8 pages) and pdftotext: title, judges' signature, summary and Solved/Submissions table, 13 'Problem X:' sections A-M each with first-solve and shortest-solution lines, L solved 0 with 'N/A'."
+ },
+ {
+  "contest": "slovenia-2021",
+  "n": 2,
+  "rating": "minor",
+  "claims_checked": 22,
+  "errors": [],
+  "document_field_errors": [
+   {
+    "field": "problems",
+    "recorded": 9,
+    "found": "The page shows 27 problem columns over four round tables (Finale 9, 3rd round 6, 2nd round 6, 1st round 6); 9 is the Finale alone, as the description itself says."
+   }
+  ],
+  "style": [],
+  "how_checked": "Parsed the five tables with BeautifulSoup: row counts 41/22/19/38/40, header columns and problem names, city suffixes, shared last ranks for zero-point teams, cell values (only check, cross or blank), and the breadcrumb 'Zgodovina UPM | 2021'."
+ },
+ {
+  "contest": "singapore-2015",
+  "n": 2,
+  "rating": "minor",
+  "claims_checked": 17,
+  "errors": [
+   {
+    "claim": "Each team row carries a country flag and an institution logo as images; no institution names appear as text.",
+    "found": "Every row has two images, but each logo image carries the institution's name as alt and title text (e.g. 'Korea University', 'National University of Singapore'), and each flag the country name; no institution name is visible text, but the names are in the copy and readable from it.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the standings table with BeautifulSoup: 57 rows, ranks 1-56 with 56 twice, 11 problem columns A-K, cell patterns ('N N min', 'N -', empty), top three solved counts, header start/end times, contest navigation links, and the img alt/title attributes per row."
+ },
+ {
+  "contest": "socal-2019",
+  "n": 4,
+  "rating": "accurate",
+  "claims_checked": 12,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo (22 pages) and pdftotext -layout: cover text, running header '2019/2020 Southern California Regional...', the ten 'Problem N' titles from Lychrel Search to Pixel Activation, and a count of 'Sample Input' / 'Output for' blocks per problem (two samples in 5, 6, 7 and 10)."
+ },
+ {
+  "contest": "south-africa-2019",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 18,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read the whole page text, links and images with BeautifulSoup and listed the capture directory (one HTML page, one header JPEG, no linked PDFs); document.pages=1 is recorded for an HTML page although that field is meant for PDFs, which is harmless."
+ },
+ {
+  "contest": "south-america-2000",
+  "n": 5,
+  "rating": "accurate",
+  "claims_checked": 10,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the team table with BeautifulSoup: 90 team rows under six 'At <site>' headings, coach line in all 90, contestant counts (85 with three, 1 with two, 4 with none), institution links (88 of 90 with an address), and the 'as of' heading."
+ },
+ {
+  "contest": "south-america-2004",
+  "n": 6,
+  "rating": "accurate",
+  "claims_checked": 11,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo (3 pages) and pdftotext -layout: cover title, 'November 12th, 2004', the six countries, problems A 'Help!' and B 'Head or Tail' each with Input, Output and one sample block."
+ },
+ {
+  "contest": "shanghai-2009",
+  "n": 4,
+  "rating": "minor",
+  "claims_checked": 10,
+  "errors": [],
+  "document_field_errors": [
+   {
+    "field": "times",
+    "recorded": true,
+    "found": "The table has only a total Time per team and no per-problem columns at all (the description itself says 'No per-problem results'); by the field's definition (solve times per problem) this is false."
+   }
+  ],
+  "style": [],
+  "how_checked": "Parsed the table with BeautifulSoup: 1007 rows, columns Rank/Team/Institution/Solved/Time/Citation, the first 126 rows (and only those) with rank and citation, 881 unranked rows all with 0 solved, first row Intrepid, Tsinghua University, 8."
+ }
+]

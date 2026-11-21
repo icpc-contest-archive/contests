@@ -1,0 +1,119 @@
+[
+ {
+  "contest": "urals-2012",
+  "n": 6,
+  "rating": "wrong",
+  "claims_checked": 12,
+  "errors": [
+   {
+    "claim": "three members in most entries, two in a few",
+    "found": "all 51 entries list exactly three members (153 member items plus 35 coach items = 188 list items); no entry has two",
+    "severity": "wrong"
+   },
+   {
+    "claim": "each with the team name and city, the university",
+    "found": "entry #5 (Perm HSE 1) has an empty university line; the other 50 name a university",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Decoded players.html as windows-1251 and counted with BeautifulSoup the 51 entry tables, their city, university, member and coach items, the bracketed values and the asterisk note (two entries, #32 and #46, carry the asterisk)."
+ },
+ {
+  "contest": "ukraine-2017",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 16,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the sheet table in page.html: 99 team rows, places 1-99 with 69-70 and 91-92 twice each, six region values, columns A-L plus Total and Penalty, cell patterns (plus, plus with number, minus with number, blank; no times), first row, 11 names ending in an asterisk, sheet tab Лист1 and the View only label; solved counts match Total in every row. Not counted as an error: 473 of the 476 solved cells show an apostrophe (one a double quote) before the plus, which the description does not mention."
+ },
+ {
+  "contest": "ukiepc-2020",
+  "n": 7,
+  "rating": "accurate",
+  "claims_checked": 11,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo (30 pages) and pdftotext of every page: title slide, BAPC note on page 2, 13 overview slides with author credits and ?? placeholders, 14 solution slides (Kleptocrat has two), last slide Final Standings with a web address; pdfimages confirms an image on page 30."
+ },
+ {
+  "contest": "tunisia-2025",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 19,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the scoreboard table in TCPC.html: 47 rows ranked 1-47, every name ending in a bracketed abbreviation, columns A-N and Total att/solv, first row, colour row, summary row, legend table, footer text; computed that only A, C, E, G, J, K, L, M, N have solved cells and that the latest solve minute is 237; no words frozen or final on the page."
+ },
+ {
+  "contest": "torneo-chileno-2025",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 13,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read the full text of page.html: date line 08/10/2025, 'sábado 4 de octubre', three UACh teams and one from Universidad de Los Lagos, the coordinator's quotes (more than 40 teams, two groups solved 4 problems), ICPC regional on 7 and 8 November in Santiago, no ranking; the capture directory holds only this page and its assets."
+ },
+ {
+  "contest": "tunisia-2018",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 24,
+  "errors": [
+   {
+    "claim": "an index.html version that lacks the photo gallery section (and its menu entry) and the first press item",
+    "found": "the index.html version lacks the Gallery menu entry, the gallery section and the first two press items (Watania TV news of 23/06/2018 and a Nejma FM video record); its press list starts with the Tunivisions item",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read site-manifest.json (two HTML pages; images, style sheets and scripts among the 81 saved files; 48 offsite links), extracted and diffed the text of both HTML files, and checked the programme, format, fee, deadline, figures, map embed, press links, FAQ and the Register Now link (icpc.baylor.edu) in the HTML."
+ },
+ {
+  "contest": "tehran-2009",
+  "n": 6,
+  "rating": "accurate",
+  "claims_checked": 10,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo (10 pages) and pdftotext per page: the same four-line header on every page, problems A (A Password Policy Requirement) to J (ACM Revenge), each 'Page 1 of 1' with Input, Output and Sample Input and Output sections; the capture directory holds only the PDF and its manifest."
+ },
+ {
+  "contest": "tehran-2002",
+  "n": 9,
+  "rating": "accurate",
+  "claims_checked": 7,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read the HTML of teams.html: heading Teams, two list items with the two icpc.baylor.edu links and the note on accepted teams, no team names; the capture directory holds only the page, its style sheet and menu images."
+ },
+ {
+  "contest": "tehran-2001",
+  "n": 5,
+  "rating": "accurate",
+  "claims_checked": 13,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read the HTML of standings.html: title Standings, heading Contest Results, the three teams with university and three members each, the wild-card note (Dec. 6), the links to final standings, PC^2 ranks and submission-time lists and problems; none of the linked pages is in the capture directory."
+ },
+ {
+  "contest": "tehran-2013",
+  "n": 4,
+  "rating": "accurate",
+  "claims_checked": 10,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the table in standings.html: 76 rows with Rank, Team, Institution, Solved, Time; 49 with a rank and 27 without, all 27 with 0 solved; four rows at rank 2 with 7, 6, 6 and 8 solved; first row Shir-e-Aab 8 and 1434; no per-problem columns."
+ }
+]

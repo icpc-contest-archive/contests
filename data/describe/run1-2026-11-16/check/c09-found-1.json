@@ -1,0 +1,114 @@
+[
+ {
+  "contest": "mausa-1998",
+  "n": 6,
+  "rating": "accurate",
+  "claims_checked": 9,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed teams.html with BeautifulSoup: header cell prints 'November 14, 1998 Mid-Atlantic Regional', footer 'Last modified: October 24, 1998', seven site tables each with a 'capacity:' line (20, 18, 30, 16, 30, 12, 30), most filled slots in the form 'Team (Institution)', empty slots at Lehigh, Duke, Christopher Newport and Drexel, and the registration-fee note in the intro."
+ },
+ {
+  "contest": "macau-2021",
+  "n": 11,
+  "rating": "accurate",
+  "claims_checked": 10,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo gives 21 pages; pdftotext page by page shows the cover with the contest name, 'Prepared by SUA Programming Contest Setter Team' and 'April 3, 2022', then A, B, C (1 slide each), D (3), E (2), F, G (1 each), H (2), I (2), J (4), K (1) and a 'Thank you!' slide, all in English; the series file dates the contest 2022-04-03."
+ },
+ {
+  "contest": "mcpc-2000",
+  "n": 4,
+  "rating": "accurate",
+  "claims_checked": 8,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the table in page.html: heading 'The 2000 ACM Mid-Central USA Programming Contest sponsored by IBM', columns Rank, Team, Citation, 100 team rows, first row 'University of Arkansas=>Razorbacks' First Place, last 24 rows all rank 78 'Seventy-eighth Place', no solved or time columns."
+ },
+ {
+  "contest": "lethbridge-2016",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 11,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed div1.html (DOMjudge 5.1.2 comment and footer): h1 'Scoreboard Lethbridge Collegiate Programming Contest Div 1', h4 'final standings', 14 team rows, problems A to F, 9 rows with a rank and 5 without (all score 0), cells like 2/65, a Summary row, 'Last Update: Sat 24 Sep 2016', and all problem and team links pointing to http://162.246.156.112/jury/ with no such pages in the capture directory."
+ },
+ {
+  "contest": "morocco-2013",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 9,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed standings.html: columns Rank, Team, Institution, Solved, Time; 47 rows with distinct ranks 1 to 47; row 1 is MAK00, Ecole Nationale Superieure d'Informatique et d'Analyse des Systemes, 7 solved; row 47 has 0 solved; no per-problem, medal or citation column."
+ },
+ {
+  "contest": "mausa-2017",
+  "n": 6,
+  "rating": "accurate",
+  "claims_checked": 11,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html: title 'Problems from 2017 ICPC Mid-Atlantic Regional Contest', a table of 8 problems in alphabetical order (Avoiding Airports to Star Arrangements) with columns Name, Fastest, Shortest, Authors, Full Solves, Ratio, Difficulty, Languages whose tooltips match the glosses given, 'en' in every Languages cell, and a filter form with language, difficulty, order, problem type and objective menus."
+ },
+ {
+  "contest": "mausa-1999",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 12,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read all five files under files/ against site-manifest.json: Report.html (H3 heading as recorded, eight hosts, the eight states and district, the Orlando sentence, links to Standings.html, Problems.pdf and People.html), the style sheet, the standings page headed 'Final Standings', the PDF (pdfinfo: 19 pages) and People.html listing five roles with e-mail addresses."
+ },
+ {
+  "contest": "mausa-2026",
+  "n": 3,
+  "rating": "minor",
+  "claims_checked": 13,
+  "errors": [
+   {
+    "claim": "for each of the 13 problems A to M, the number of attempts with the minute of the accepted run, or a dash where the problem is not solved",
+    "found": "A dash appears only in cells of problems that were attempted and not solved (196 cells, e.g. '4 -', attempts then a dash). The 632 cells of problems a team never attempted are empty, with no dash.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the standings table of page.html: 103 team rows, ranks 1 to 102 with only rank 102 shared (2 rows, 0 solved), columns Slv., Time and A to M, row 1 with 9 solved and time 872, the filter table (Conference All; Mid-Atlantic, South Central, Southeast regions with sites), the heading 'ICPC NA South Division 2026 - Division 2', 'Contest is over' and 'Start 2026-11-07 20:00 CET'; counted the cell patterns with code."
+ },
+ {
+  "contest": "morocco-2018",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 12,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Decoded page.html as UTF-8 and read its text: French title as recorded, three English paragraphs (MCPC as qualifying round for the ACPC under ICPC rules, ENSIAS represented by 5 teams, Beginners Luck second and qualified, first MCPC for all its members in the 2018 edition), site menus, a 'Les dernieres informations' list and footer with the Rabat address, no table and no contest date; assets/ holds 11 style sheets, 24 images and an icon (the capture sits under the morocco-2022 directory)."
+ },
+ {
+  "contest": "mcpc-2002",
+  "n": 4,
+  "rating": "minor",
+  "claims_checked": 11,
+  "errors": [
+   {
+    "claim": "108 teams with rank, institution and team name, and a citation such as First Place or Honorable Mention",
+    "found": "Only 85 of the 108 rows have a citation: ranks 1 to 80 (First Place to Eightieth Place) and the five Honorable Mention rows. The 23 rows at ranks 81 to 95 have an empty Citation cell.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the table in ViewRegionalStandings50e1.html: heading 'The 2002 ACM Mid-Central USA Programming Contest sponsored by IBM', columns Rank, Team, Citation, 108 team rows, 103 with a rank (1 to 95, nine at rank 95), five unranked Honorable Mention rows, first three rows University of Illinois=>Overflow, University of Arkansas, University of Kentucky, and no solved, time or per-problem columns; counted citations with code."
+ }
+]

@@ -1,0 +1,125 @@
+[
+ {
+  "contest": "ctuo-2025",
+  "n": 8,
+  "rating": "accurate",
+  "claims_checked": 9,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Ran pdfinfo and pdftotext on tutorials_en.pdf: 105 pages, title slide 'CTU Open 2025 / Presentation of solutions / November 8, 2025', and the slide headings give twelve runs (Grooves, Constantine, Snow, Archery, Hussites, Ducks, Ornithology, JJ, Book Burning, Meetings, Emigrants, Theatre) with Meetings split into 'Online solution to queries' and 'Offline solution to queries'."
+ },
+ {
+  "contest": "dhaka-1998",
+  "n": 7,
+  "rating": "minor",
+  "claims_checked": 10,
+  "errors": [
+   {
+    "claim": "Its source line reads ICPC Regionals, Asia West, with the continent given as Bangladesh.",
+    "found": "The breadcrumb is 출처 > ICPC > Regionals > Asia West Continent > Bangladesh: 'Asia West Continent' is one category label and 'Bangladesh' is the next level below it; the page does not give Bangladesh as a continent.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html (UTF-8, lang=ko) with BeautifulSoup and read the title, breadcrumb, the one-row table (22797, Walk an Equation, labels 스페셜 저지/출처/다국어, 0, 0, 0.000%) and the menus and footer; the capture directory holds only the page and its style/logo assets."
+ },
+ {
+  "contest": "ecna-1998",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 14,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Ran pdfinfo and pdftotext -layout on Problems.pdf: 15 pages, the quoted five-line header with November 14, 1998, nine numbered rules, problems A to H with the eight titles as given, each with Input, Output, Sample Input and Sample Output sections; the capture directory holds only this PDF."
+ },
+ {
+  "contest": "dhaka-2008",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 17,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read the whole text of the two-page PDF with pdftotext: header, Saturday 8 November 2008, 83 teams from 32 universities with one from China, practice on 7 November, no Preliminary Round, 9:08 AM to 2:08 PM, the PC square software hanging for a few seconds, both ceremonies, Fudan 9 of 10, BUET 6 and 5, prizes to the top 17 by university ranking, and no table."
+ },
+ {
+  "contest": "dhaka-2004",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 18,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read the whole text of the one-page PDF with pdftotext: header lines, 148 registered and 96 accepted including 4 foreign, all 96 advanced, 92 teams at practice on 7 October, start at 8:20 AM on Friday 8 October with all 96 present, the four named institutions with 6 of 8, 5, 4 and 2 problems, lunch, the 6:30 PM ceremony at the Dhaka Sheraton Hotel, top 13 by institution ranking, cultural program and dinner."
+ },
+ {
+  "contest": "dhaka-2012",
+  "n": 5,
+  "rating": "accurate",
+  "claims_checked": 8,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Ran pdfinfo (4 pages) and pdftotext -layout and counted team rows with code: 153 indented lines less the 'End of Teams' line and two wrapped team names (KUET_ROTTEN TOMATOES, STAMFORD ANNONYMOUS) gives 150 teams, each with an institution; every page starts with the daffodilvarsity.edu.bd/icpcdhaka2012 address and ends with the Shukrabad address, Tel, Fax and Email lines (OCR of the banner images shows ACM ICPC and Daffodil International University logos and 'Asia Regional Dhaka Site ... Saturday 08 December', which the description does not mention)."
+ },
+ {
+  "contest": "east-siberia-2025",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 11,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed all 150 files listed in site-manifest.json with BeautifulSoup: titles, menus and Russian text on every page, department, admissions, contacts and programme pages, the home page with Новости and Объявления blocks, two copies of История олимпиады ACM and season pages headed 2000/2001, 2010/2011 and 2015/2016; a text search of every page for ICPC, ACM, programming olympiad and East Siberian terms found nothing about 2025 (note: 98 of the 150 pages are ?page=N addresses that repeat the home page, in 11 distinct versions)."
+ },
+ {
+  "contest": "ecna-2005",
+  "n": 1,
+  "rating": "wrong",
+  "claims_checked": 24,
+  "errors": [
+   {
+    "claim": "Our copy holds 21 files: ... the problem set as a PDF",
+    "found": "The PDF in this copy (files/a0a769c8f773ad39.pdf, 71,820 bytes) is cut off: it has no cross-reference table or trailer and pdfinfo, pdftotext, qpdf and Ghostscript all fail to open it. Its bytes equal the first 71,820 bytes of the complete 87,335-byte, 14-page real.pdf held in problemset/20261115-live-bb887d2b. The problem set cannot be read from this copy.",
+    "severity": "wrong"
+   },
+   {
+    "claim": "so most of what the page links is missing",
+    "found": "The problems page links 32 files (1 PDF, 8 inputs, 8 outputs, 15 solutions); the copy has 17 of them (the PDF, 7 inputs, 2 outputs, 7 solutions) and lacks 15, so slightly more than half is present. What is mostly missing is the outputs (6 of 8) and the solutions (8 of 15).",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Listed files/ against site-manifest.json (21 fetched: 3 HTML, 1 PDF, 7 .in, 2 .out, 7 solutions, 1 GIF), parsed home.html, problems.html and standings.html with BeautifulSoup (windows-1252) to check every figure of the final report and all 32 links of the problems page, and tried to open the PDF with pdfinfo, pdftotext, qpdf and gs."
+ },
+ {
+  "contest": "dhaka-2006",
+  "n": 2,
+  "rating": "minor",
+  "claims_checked": 18,
+  "errors": [
+   {
+    "claim": "tied teams share a rank",
+    "found": "Only some do: ranks 3, 32 and 60 are shared, but three pairs with the same problems solved and the same total time have different ranks (29 and 30 with 1/95, 46 and 47 with 1/228, 52 and 54 with 1/310).",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the four data tables of page.html with BeautifulSoup and counted rows with code: Final Round 9/23/2006 with 98 teams in five columns (Rank, Team, Citation and two unlabelled columns of solved and time), Fudan first with 8, 39 teams at rank 60 with 0 solved, Preliminary Round 9/16/2006 with 97 teams all Honorable Mention and blank rank, Foreign Teams Registration 9/23/2006 with one team, and an empty EWU table of 7/29/2006."
+ },
+ {
+  "contest": "ecna-2011",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 17,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed standings.html (windows-1252) with BeautifulSoup and counted with code: 123 team rows, columns Rank, Team, A to I, Solved, Penalty, cells of the forms N/N, N/-- and empty, ranks 48 and 51 each shared by two teams, 94 teams with at least one solved and 29 at rank 95 with none, Waterloo Black first with 9 and 926; the '122 teams' statement was found in the final report page of the contest's website capture (website/2026-09-04-live-efcfa591)."
+ }
+]

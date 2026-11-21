@@ -1,0 +1,140 @@
+[
+ {
+  "contest": "ukraine-2021",
+  "n": 8,
+  "rating": "accurate",
+  "claims_checked": 12,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Ran pdfinfo and pdftotext on the PDF: 5 pages, the two-line running header as quoted, eleven 'Problem A.' to 'Problem K.' sections in order, O(...) estimates only in C, D, G, H and I, no code listings."
+ },
+ {
+  "contest": "tehran-2000",
+  "n": 6,
+  "rating": "minor",
+  "claims_checked": 11,
+  "errors": [
+   {
+    "claim": "List of Tehran Site teams registered at the ACM page",
+    "found": "The page is headed 'Teams' and its table is the site's own list of universities with team counts and registration and fee status; 'Tehran Site Teams Registered at the ACM page' is the text of the first of three links at the top, which leads to the roster on the ACM server. The description uses that link's label for the page and then mentions only the other two links.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Gunzipped the copy, decoded it as ISO-8859-1 and counted the table cells with code: 43 university rows, counts summing to 81, a last row 'Total number of teams 82', columns as described, three links above the table."
+ },
+ {
+  "contest": "taurida-2019",
+  "n": 4,
+  "rating": "accurate",
+  "claims_checked": 11,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the table with BeautifulSoup: 17 team rows, the six column heads, citations First Place to Eighth Place then 9 Honorable Mention, first row Crimean FU 6 with 5 and 392, no per-problem columns."
+ },
+ {
+  "contest": "tehran-2019",
+  "n": 6,
+  "rating": "wrong",
+  "claims_checked": 14,
+  "errors": [
+   {
+    "claim": "The text of the PDF does not name the contest, host or date (and: each problem begins on a new page headed with its letter and title)",
+    "found": "Every one of the 15 pages carries a banner image across the top, above the problem heading, that reads '2019 ICPC Asia Tehran Regional Contest' next to the ICPC logo, with icpc.foundation, a 'programming tools sponsor' logo and cafebazaar.ir. The contest and its year are named on every page a reader sees; only the selectable text lacks them, and the description says nothing of the banner or the sponsors. No day or host institution is given.",
+    "severity": "wrong"
+   }
+  ],
+  "document_field_errors": [
+   {
+    "field": "title",
+    "recorded": "Problem A : Petrol",
+    "found": "That is the heading of the first problem only; the header printed on every page (as an image) is '2019 ICPC Asia Tehran Regional Contest'."
+   }
+  ],
+  "style": [
+   "'The text of the PDF' is wording about the text layer of the file rather than about what the document shows."
+  ],
+  "how_checked": "Ran pdfinfo, pdftotext and pdfimages; split the text into pages and problems with code (15 pages, A to L, F, H and L over two pages, Input/Output/Example with a Standard Input and Standard Output table in each), then rendered the top of page 1 and the banner image and read them with tesseract; the same banner image object is on all 15 pages."
+ },
+ {
+  "contest": "tehran-2009",
+  "n": 4,
+  "rating": "wrong",
+  "claims_checked": 12,
+  "errors": [
+   {
+    "claim": "The first 30 teams carry a rank from 1 to 12, shared by tied teams",
+    "found": "30 rows do carry ranks 1 to 12, but the teams that share a rank are not tied: rank 3 is held by teams with 10 solved in 1046, 9 solved in 1375 and 8 solved in 802; rank 6 by teams with 7/961, 7/1028, 6/731 and 6/815; rank 7 by teams with 5 and with 4 solved. No two teams sharing a rank have the same solved count and time. The page does not say what the rank is (the contest front page calls the page 'Universities Ranking').",
+    "severity": "wrong"
+   }
+  ],
+  "document_field_errors": [
+   {
+    "field": "times",
+    "recorded": true,
+    "found": "The table has only a total 'Time' column and no per-problem columns, so there are no solve times per problem (the same kind of table is recorded as false elsewhere)."
+   }
+  ],
+  "style": [],
+  "how_checked": "Parsed the single table with BeautifulSoup and counted with code: 97 team rows, 30 with a rank and 67 without, the last eight with 0 solved, first row as quoted, no title element; the link text 'Universities Ranking' is on the front page in our copy of the contest website."
+ },
+ {
+  "contest": "tunisia-2024",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 10,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read the page text with BeautifulSoup: title and heading TCPC 2K24, the four-paragraph English post about the ACPC committee visit with the people and roles it lists, no contest date, results, teams or problems, French menus, sidebar and footer around it; images are kept beside the page."
+ },
+ {
+  "contest": "ukraine-2018",
+  "n": 7,
+  "rating": "accurate",
+  "claims_checked": 19,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Decoded the page as UTF-8 and read the article and its table: date 15 September 2018, Northern region, teams of three, 13 problems, 5 hours, C/C++/Java, ejudge, 41 teams from 20 institutions (15 and 5), sponsor, speakers, video, seven table rows with rank, team, university, solved and time, first row 13 solved."
+ },
+ {
+  "contest": "ukraine-2023",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 20,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the three tables with BeautifulSoup and counted with code: 255 team rows of 18 cells, region counts 60/41/41/38/33/22/20 matching the summary table, cells of the forms '+ (h:mm)', '+N (h:mm)' and '-N', Place, Total, Penalty and Dirt empty in all 255 rows, footer rows Submissions, Accepted and %, heading with 'October 28, 2023' and 'Standings [5:00:00]'."
+ },
+ {
+  "contest": "tunisia-2025",
+  "n": 4,
+  "rating": "minor",
+  "claims_checked": 22,
+  "errors": [
+   {
+    "claim": "a cell of the form attempts/minute (\"2/110\", \"0/--\" when unsolved)",
+    "found": "'0/--' is the cell of a problem the team did not attempt (487 cells); 109 unsolved cells show the number of attempts, such as '6/--' or '11/--'.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the tables with BeautifulSoup and counted with code: 56 team rows, ranks 1 to 56 with 48 twice and no 49, columns A to N plus Total att/solv, colour row, bottom row Submitted/1st Yes/Total Yes, four legend cells, 8 teams tagged ITA with no other mark, largest minute in a cell 237, footer text as quoted."
+ },
+ {
+  "contest": "ukraine-2013",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 12,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Converted the Word file to text with LibreOffice and searched it with code: order no. 955 of 11.07.2013 with the title as recorded, point 1 on diplomas of degrees I to III for the second stage, appendix 1 by subject and appendix 2 by field and speciality with place, name and institution, informatics in both, computer science and system programming in appendix 2, no mention of a programming olympiad, ACM/ICPC or teams."
+ }
+]

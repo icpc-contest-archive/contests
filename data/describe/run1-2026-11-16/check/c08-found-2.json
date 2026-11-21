@@ -1,0 +1,125 @@
+[
+ {
+  "contest": "korea-2026",
+  "n": 4,
+  "rating": "accurate",
+  "claims_checked": 11,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html with BeautifulSoup: date 2026-10-24, seven listed teams with institution and country (Taiwan, Japan, Thailand, Singapore), '9 teams have already registered', closed registration, next-in-queue sentence, on-site documents and invitation-letter advice all present; text is English."
+ },
+ {
+  "contest": "kazakhstan-2018",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 16,
+  "errors": [
+   {
+    "claim": "The rest is the 2018 and 2019 archive pages, the standings pages of other subregional contests, the finals statement, analysis and review PDFs for 2018 and statement and tutorial PDFs for 2019, a zip of the 2018 finals runs, and, for the 2024 Kazakhstan contest, a statements PDF and two contestant handbooks",
+    "found": "The list leaves out part of the copy: the finals standings pages (archive/2018/standings.html, archive/2019/standings.html, archive/2019/standings-geo.html) and eight further PDFs of the Northern subregional / North-Western Russia contests (north-2018-statements, north-2018-analysis, nwq-2019-statements, nwq-2019-tutorials, nwrrc-2019-statements, nwrrc-2019-tutorials, northwest-russia-2019-statements) plus nwq-2019-final.html; 16 distinct PDFs are saved, of which the description accounts for 8.",
+    "severity": "minor"
+   },
+   {
+    "claim": "The pages are in English; one handbook is in Russian.",
+    "found": "The 2024 handbook-ru.pdf is Russian, but so are nwq-2019-statements.pdf, nwq-2019-tutorials.pdf and nwrrc-2019-tutorials.pdf, and north-2018-analysis.pdf is partly Russian; the HTML pages nwq-2019-final.html and 2019/west-siberian/standings.html are mostly Cyrillic (team names).",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read site-manifest.json (150 entries, all status 200: 117 html, 32 pdf, 1 zip; 68 addresses after dropping scheme and :80), decoded the 2018/2019 archive pages as windows-1251, checked the heading of every Kazakhstan standings page 2003-2025 (all present; the 2014 one is headed 'Kazakhstan Subregional Contest, Practice Session'), ran pdftotext on each distinct PDF and listed the zip; no css or image files in files/."
+ },
+ {
+  "contest": "korea-2015",
+  "n": 4,
+  "rating": "accurate",
+  "claims_checked": 6,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html: heading '2015 ACM-ICPC Daejeon Regional Teams', line 'Total 80 Teams', one table of 80 two-cell rows (university, team name) with no rank, result or member columns."
+ },
+ {
+  "contest": "kunming-2021",
+  "n": 6,
+  "rating": "accurate",
+  "claims_checked": 10,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo (34 pages, Beamer, author 'Prepared by xxx') and pdftotext per page: cover dated April 17, 2022, a Task slide plus one to three solution slides for each of A to M, no code, last page 'Thank you!'; the contest day April 17, 2022 is also printed on the archived statements PDF (the catalogue entry in series/kunming.yaml says 2022-04-10, which disagrees with both)."
+ },
+ {
+  "contest": "korea-2023",
+  "n": 4,
+  "rating": "accurate",
+  "claims_checked": 9,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html: heading with '(Last Update: 11/27 10:50)', date 2023-11-25, four links (problemset.pdf, scoreboard, mirror.icpckorea.org/domjudge/public, Mirror Results), the two lines of contest hours; manifest lists no assets and the directory holds only the page."
+ },
+ {
+  "contest": "jordan-2025",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 18,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Gunzipped page.html and counted with BeautifulSoup: 96 team rows, 15 problem columns A to O with colour names, 135 cells with '?', legend entries 'Pending' and 'Frozen (Blind Hour)', first row Three Musketeers (JUST) 11/862, 94 teams with solved>0, two rank-95 rows with 0, summary row, PC^2 footer and 'Last updated Sat Sep 27 13:49:47 GMT 2025'; 71 of 96 names carry an abbreviated institution; manifest assets empty (css/*.css and images/jordan.png not saved; the inline CSS also refers to images/logo.png and images/flag.png, likewise not saved)."
+ },
+ {
+  "contest": "kuala-lumpur-2014",
+  "n": 5,
+  "rating": "minor",
+  "claims_checked": 11,
+  "errors": [
+   {
+    "claim": "The remaining slides are statistics",
+    "found": "Slides 5 to 9 are statistics; slide 10 is a closing slide ('Thank you and see you in the next ACM ICPC contest.').",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo (10 pages, Microsoft PowerPoint 2010) and pdftotext -layout: cover 'Analysis', problem setters A to L with institutions, levels Very-Easy to Hard, judges feedback, teams per number solved (0 to 12), freeze/final attempts and YES per problem, first YES of the contest and per problem; no solution content."
+ },
+ {
+  "contest": "kanpur-2000",
+  "n": 6,
+  "rating": "minor",
+  "claims_checked": 9,
+  "errors": [
+   {
+    "claim": "The other seven problems of the contest are not on the page.",
+    "found": "The page lists one problem (22789, B, Ski Slopes) and says nothing about how many problems the contest had; the figure of eight problems is not in the copy (it agrees with the catalogue's problemsets/kanpur-2000.yaml, count 8).",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html (utf-8, lang ko): title, breadcrumb ICPC > Regionals > Asia West Continent > India, one table with a single data row 22789 / B / Ski Slopes / 0 / 0 / 0.000%, the rest menus and source lists in Korean."
+ },
+ {
+  "contest": "jordan-2022",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 11,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the standings table of page.html: 47 ranked rows (9 as 'team : handles', 38 single handles), columns '=', Penalty and A to K, cells '+n hh:mm' or '-n', footer row 'Accepted / Tried', page header 'JCPC 2022 Final standings', links to Problems, Friends standings and Registrants; assets hold only css, js and images. Note for the reader, not an error: the entries are Codeforces users (country flags Russia, India, Egypt, Tunisia and others), none shown with a Jordanian university, which the description does not spell out."
+ },
+ {
+  "contest": "kuwait-2024",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 15,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed all.html: 40 team rows, 13 problem columns A to M with colour names, legend of four states, 42 cells of class 'Pending No', leader ToICPC? with 6 solved, two teams with 0 solved, summary row 'Submitted/1st Yes/Total Yes', footer 'Installed and configured by ACPC', CSUS PC^2 and 'Last updated Sat Oct 12 12:38:30 GMT 2024'."
+ }
+]

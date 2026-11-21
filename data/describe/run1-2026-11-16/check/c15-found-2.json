@@ -1,0 +1,133 @@
+[
+ {
+  "contest": "socal-2022",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 13,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the table of standings.html with BeautifulSoup and counted rows, ranks, Medal/Citation/Site citation values and the first row."
+ },
+ {
+  "contest": "slovenia-2022",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 17,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Counted files and capture years from site-manifest.json (150 files, 2016-2026), and read the pages for node/685, node/686, node/692, upm/faq, cerc22 and the 2020/2021 results and team pages; no 2022 results page, no PDF attachment and no node/729 are in the copy."
+ },
+ {
+  "contest": "shenyang-2026",
+  "n": 6,
+  "rating": "accurate",
+  "claims_checked": 13,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Loaded team.json with python and counted entries, keys, groups, members, coaches, distinct organization ids, location==id, and checked the sibling organizations.json capture."
+ },
+ {
+  "contest": "shanghai-2023",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 12,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read the blog post text, its links, the comment count and the sidebar captions of page.html with BeautifulSoup."
+ },
+ {
+  "contest": "south-america-2002",
+  "n": 4,
+  "rating": "accurate",
+  "claims_checked": 12,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the three-column table and counted the rows per rank and per citation with code (177 teams, 85 at rank 11, 2 Honorable Mention without rank)."
+ },
+ {
+  "contest": "singapore-2007",
+  "n": 2,
+  "rating": "wrong",
+  "claims_checked": 10,
+  "errors": [
+   {
+    "claim": "The Rank and Citation cells are empty",
+    "found": "Every Rank and Citation cell holds a text box (form input of a ConfirmStandings.jsp form) with a filled-in value: ranks 1 to 23 with ties (two teams at 4, two at 11, three at 13, etc.) and citations First Place to Twenty-third Place for the first 37 teams; the last 10 teams have an empty rank box and the citation Honorable Mention. So the page does carry ranks and citations, shown in a browser as editable boxes.",
+    "severity": "wrong"
+   },
+   {
+    "claim": "lists 48 teams",
+    "found": "47 team rows (94 rank/citation text boxes = 47 x 2); the 48th row with three cells is the header row Rank / Team / Citation.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [
+   {
+    "field": "teams",
+    "recorded": 48,
+    "found": 47
+   }
+  ],
+  "style": [],
+  "how_checked": "Parsed result.html with BeautifulSoup, counted the three-cell rows and read the value attributes of the input elements in the Rank and Citation cells, plus the header image alt text and the footer."
+ },
+ {
+  "contest": "singapore-2018",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 15,
+  "errors": [
+   {
+    "claim": "four NUS Computing pages ... (one with a calendar of events for 16 to 18 July 2018)",
+    "found": "All four 2018 pages have an Upcoming Events list. The page saved on 16 July 2018 lists events from 16 July to 12 October 2018 (16, 17, 18 and 24 July, 7 and 18 August, 22 September, 12 October), not only 16 to 18 July; the June page lists 6 July to 22 September 2018 and also includes 16 to 18 July.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [
+   "'the capture with news up to 5 December 2018' is a process word (borderline)"
+  ],
+  "how_checked": "Read site-manifest.json and the text, titles and links of all ten saved pages, and searched every page for ICPC, programming contest, regional and COVID."
+ },
+ {
+  "contest": "slovenia-2009",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 10,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read the text, title, lang attribute and links of page.html with BeautifulSoup (four task links, footer Putka 5.0-alpha1, no letters or statements)."
+ },
+ {
+  "contest": "seusa-2013",
+  "n": 5,
+  "rating": "accurate",
+  "claims_checked": 14,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the table of standings.html and listed all 99 rows with rank, solved, time and citation; counted the 49 placed rows, the 8 at rank 42 and the 50 Honorable Mention rows ranked 50 to 89."
+ },
+ {
+  "contest": "south-africa-2006",
+  "n": 3,
+  "rating": "minor",
+  "claims_checked": 17,
+  "errors": [
+   {
+    "claim": "overall place (for the first ten teams)",
+    "found": "Nine of the 12 rows carry an overall place: First to Seventh, 'Nineth' and Tenth; the eighth overall team is not in the table. The other three rows give a site place only.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read the full text and both tables of Report2006.html with BeautifulSoup (date, 49 entries, 4 sites, 5 hours, 12 table rows, 6 problems with names, colours, rating, attempts, submissions, correct)."
+ }
+]

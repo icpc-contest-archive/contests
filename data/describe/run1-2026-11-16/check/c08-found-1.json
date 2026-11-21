@@ -1,0 +1,155 @@
+[
+ {
+  "contest": "japan-2019",
+  "n": 4,
+  "rating": "minor",
+  "claims_checked": 12,
+  "errors": [
+   {
+    "claim": "tied teams share a rank",
+    "found": "Twelve ranks (8, 9, 13, 14, 18, 28, 31, 32, 37, 40, 42, 43) are held by two or three teams, but those teams do not have equal results: rank 8 is 6 solved/625 and 6 solved/697, rank 18 lists 373 before 350, rank 43 has times 114, 120 and 153. The page shows shared ranks, not ties on solved and time.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [
+   {
+    "field": "times",
+    "recorded": true,
+    "found": "The table has one Time column with each team's total (822 for the first team) and no solve times per problem, as the description itself says ('No per-problem results'); by the field's definition (solve times per problem) this is false."
+   }
+  ],
+  "style": [],
+  "how_checked": "Parsed standings.html with BeautifulSoup: 65 data rows, six column headers, ranks 1 to 52, 40 rows with a place name for ranks 1 to 32, 25 Honorable Mention rows from rank 33 down, first row God and his toolmen / Peking University / 8 / 822."
+ },
+ {
+  "contest": "kazakhstan-2026",
+  "n": 3,
+  "rating": "minor",
+  "claims_checked": 19,
+  "errors": [],
+  "document_field_errors": [
+   {
+    "field": "title",
+    "recorded": "Standings",
+    "found": "'Standings' is only the HTML <title>; the page's main heading, which the description quotes, is 'ICPC 2026–2027 Kazakhstan Regional Contest'."
+   }
+  ],
+  "style": [],
+  "how_checked": "Decoded standings.html as windows-1251 and counted in code: 171 team rows of 18 cells, all in the form 'Institution: team (three names)', problems A to N, cell patterns '+', '+N' with a mm:ss time, '-N' and '.', ranks 1 to 139 with 33 zero-solved teams all at 139, first row 10 solved and 984, five summary rows in the table foot, the Show time checkbox, and the style sheet in assets/."
+ },
+ {
+  "contest": "jinan-2020",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 11,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed standings.html: 498 data rows of 8 columns, Solved and Time empty in all 498, Medal column 35 Gold / 70 Silver / 105 Bronze / 288 Honorable Mention, 199 place citations then Honorable Mention, one site citation value on every row, ranks in order with 300 on the last 282 rows."
+ },
+ {
+  "contest": "korea-2000",
+  "n": 5,
+  "rating": "accurate",
+  "claims_checked": 9,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed 2000_korea.htm (windows-1252): heading with Seoul-Taejon and IBM, 55 rows of rank/team/citation, 29 ranked rows with First to Twelfth Place, 26 unranked Honorable Mention rows; compared team and citation lists with the two other copies in the rankings directory (identical apart from the capitalisation of one university name in one copy)."
+ },
+ {
+  "contest": "kyrgyzstan-2020",
+  "n": 2,
+  "rating": "wrong",
+  "claims_checked": 13,
+  "errors": [
+   {
+    "claim": "a qualification standings link for 2024 to 2026",
+    "found": "Only '2025 Qualification' and '2024 Qualification' have a 'Qualification standings' link. The heading '2026 Qualification' is followed by an empty table: no link.",
+    "severity": "wrong"
+   },
+   {
+    "claim": "The entries for 2020, 2021, 2022, 2023 and 2010 carry no standings link",
+    "found": "True of those five, but the entries for 2018 and 2026 carry no standings link either, so seven years lack one (16 of the 23 years 2004 to 2026 have a Standings link).",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [
+   {
+    "field": "title",
+    "recorded": "Northern Eurasia Contests",
+    "found": "That is the HTML <title> of the whole site; the page's own main heading (h1) is 'Kyrgyzstan Regional Contest'."
+   }
+  ],
+  "style": [],
+  "how_checked": "Parsed kyrgyzstan.html (utf-8): the two date/host/home page blocks (03 Oct, 26 and 31 Oct, 26), the two contact boxes, and every h3 year heading of the archive with the links that follow it; no Cyrillic text in the file."
+ },
+ {
+  "contest": "korea-2009",
+  "n": 3,
+  "rating": "minor",
+  "claims_checked": 11,
+  "errors": [],
+  "document_field_errors": [
+   {
+    "field": "times",
+    "recorded": true,
+    "found": "The ranked table gives each team's 'Total time' and the time of its 'Last solution' only; there are no solve times per problem, as the description itself says ('No per-problem detail'); by the field's definition (solve times per problem) this is false."
+   }
+  ],
+  "style": [],
+  "how_checked": "Parsed page.html (utf-8): heading 'Standings for The 2009 ACM-ICPC Asia Seoul Regional Contest', first table 73 data rows of 6 columns (first row KAIST / Nondeterminist / 9 / 1547 / 290), second table 329 rows all labelled Honorable Mention with institution and team only, every institution followed by a country in parentheses; 73 + 329 = 402."
+ },
+ {
+  "contest": "korea-2014",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 13,
+  "errors": [],
+  "document_field_errors": [
+   {
+    "field": "contest_date",
+    "recorded": "2014-11-07",
+    "found": "The page prints only the two-day span 'Date: 2014. 11. 07 – 08' and does not say on which of the two days the contest was held; 7 November 2014 was a Friday, the first day of the event, so the single day recorded is not shown to be the day of the contest itself (the description correctly gives both days)."
+   }
+  ],
+  "style": [],
+  "how_checked": "Read site-manifest.json (one page saved, two 404 pseudo-links, problem set PDF, video and photo addresses listed as off-site) and parsed the page: title, date line, three links, standings table of 56 data rows with five columns led by Seoul National University / cpp / 10, Honorable Mentions table of 24 rows with two columns, menu entries '2026 Preliminary' and '2026 Seoul Regional'."
+ },
+ {
+  "contest": "kanpur-2020",
+  "n": 5,
+  "rating": "accurate",
+  "claims_checked": 10,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html (utf-8) and listed the capture directory: heading, 'Finished / The contest has ended', ten problem links A to J with the names given, a count beside eight of them (none for B and I), four clarifications each marked Answered, the first showing escaped table markup; only this page plus a style sheet and scripts are held, no problem pages."
+ },
+ {
+  "contest": "kanpur-2000",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 14,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo (12 pages) and pdftotext -layout of the whole PDF: heading and date line, eight numbered rules, eight problem headings A to H with the names given, and for each a 'Sample Input: <file>.in' line and Input, Output, Sample Input and Sample Output sections; no solutions or test data."
+ },
+ {
+  "contest": "japan-2019",
+  "n": 10,
+  "rating": "minor",
+  "claims_checked": 12,
+  "errors": [
+   {
+    "claim": "The eleven problems, A to K, follow in the order above, each with slides summarising the problem and explaining the solution",
+    "found": "Ten problems have a slide stating the problem (Story, Problem, Problem Description, Problem Summary or a worked picture of the task). Problem D (pages 48 to 56) does not: after its title slide it goes straight to 'How to check whether two trees are twin or not' and the seven numbered steps of the method. A slide 'Thank you very much for your attention' (page 57) also sits between D and F.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo (99 pages) and pdftotext page by page for the first lines of every slide, plus tesseract on pages 2 to 4: cover text, the three chart slides ('Predicted # of Correct Answers', 'Estimated vs. Solved @Freeze', '#Solved vs #Teams @Freeze'), the order slide A, B, H, E, G, I, C, D, F, K, J, the problem sections in that order, and 'Correctness (1/7)' to '(7/7)' at the end of J."
+ }
+]

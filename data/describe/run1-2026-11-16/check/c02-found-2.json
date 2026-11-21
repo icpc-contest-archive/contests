@@ -1,0 +1,137 @@
+[
+ {
+  "contest": "bombay-2003",
+  "n": 4,
+  "rating": "accurate",
+  "claims_checked": 14,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html with BeautifulSoup and counted the rows of both tables (Final Round 36 rows: 35 with a rank, ranks 1-30 with six teams at 30, 1 Honorable Mention; Preliminary Site 126 rows: 34 ranked, 92 Honorable Mention), read the header, the three columns and the first three rows."
+ },
+ {
+  "contest": "brazil-2007",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 15,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Decoded score.html as iso-8859-1, parsed the scoreboard table (51 team rows ranked 1-51, columns #, User, Name, A-J, Total; cells N/N or N/-; last three totals 0 (0)), read title, header and BOCA footer; the only images are balloon icons in solved cells, no medal or award marks."
+ },
+ {
+  "contest": "bapc-prelims-2010",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 24,
+  "errors": [
+   {
+    "claim": "Our copy holds the files it [the Problems & Solutions page] links except five: the 2010 all-files zip, the 2009 reference-solutions zip, the 2009 preliminary-rounds problem set and example input, and the program booklet.",
+    "found": "The Problems & Solutions page links 19 files, of which four are not in the copy (2010-all.zip, 2009-solutions.zip, 2009-preliminaries-problems.pdf, 2009-preliminaries-example.zip). programbooklet.pdf is also missing, but it is linked from the news page, not from the Problems & Solutions page.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read site-manifest.json (33 .html addresses plus robots.txt that holds an HTML home page = 34 HTML addresses, 20 distinct hashes; 13 PDF addresses, 8 distinct), read the home, news, schedule, location, problems, scoreboard, gallery and https-root pages and matched every link of the problems page against the fetched and unfetched lists."
+ },
+ {
+  "contest": "bapc-2010",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 18,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html: 28 team rows in three blocks of 20, 3 and 5 each restarting at rank 1, problems A-J, summary row 28 / 12 / 2 / 108 (affiliation logos 12 distinct, flags 2, solved sum 108), legend, 'Last Update: 23 Oct 2010 19:50'; the capture directory has no assets (style.css, bapcheader.png and affiliation logos absent)."
+ },
+ {
+  "contest": "brazil-2014",
+  "n": 2,
+  "rating": "minor",
+  "claims_checked": 15,
+  "errors": [],
+  "document_field_errors": [
+   {
+    "field": "contest_date",
+    "recorded": "2014-11-07",
+    "found": "The copy prints only the two-day span 'Final Brasileira: 7 e 8 de novembro de 2014' and never says on which of the two days the contest was held; 7 November 2014 was a Friday, the first day of the event, so the single day recorded is not supported as the day of the contest itself (the description itself correctly says 7 and 8 November)."
+   }
+  ],
+  "style": [],
+  "how_checked": "Parsed page.html: title, dates, venue, three warm-up and eleven contest problems A-K with authors, champion, medal lists (3 gold, 3 silver, 4 bronze with members and coach, five 'Classificado para a Final Mundial' marks), five regional champions and all links."
+ },
+ {
+  "contest": "bapc-2005",
+  "n": 1,
+  "rating": "wrong",
+  "claims_checked": 22,
+  "errors": [
+   {
+    "claim": "Our copy holds 17 pages: ... plus a sign-up form",
+    "found": "The address signup_form.shtml in the copy is not a sign-up form: it holds the present-day home page of the association W.I.S.V. 'Christiaan Huygens' (login, 2026 calendar and news, partners; copyright 2026), with no form and nothing about BAPC 2005. The sign-up page itself only says the contest is over.",
+    "severity": "wrong"
+   },
+   {
+    "claim": "a sample problem page",
+    "found": "simplysyntax.c.html is the sample solution in C (a code listing titled 'Simply Syntax') of the sample problem; the sample problem statement itself is on the problems page.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read site-manifest.json (13 HTML addresses, signup_form.shtml, simplysyntax.c.html and two PDFs = 17) and the home, name, sign-up, program, CHipCie, results (44 team rows) and problems pages, opened signup_form.shtml and simplysyntax.c.html, and ran pdfinfo/pdftotext on both PDFs (18 pages and problems A-H each; covers dated October 22, 2005 and Qualifying Rounds October 1, 2005)."
+ },
+ {
+  "contest": "bapc-prelims-2009",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 13,
+  "errors": [
+   {
+    "claim": "the main BAPC 2009 contest (... and an 85-page results presentation)",
+    "found": "The 85-page PDF (title 'BAPC 2009 - The Results') gives results only on pages 1-16 (business teams, places, special prize, thanks); from page 17 it is headed 'The Solutions' and presents the solution of each problem up to the closing remarks, so it is a results and solutions presentation, mostly solutions.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Listed the six files in site-manifest.json (no HTML page), ran pdfinfo for page counts (18, 30, 20, 85, 22, 30) and pdftotext on the first pages and, for the 85-page file, on pages throughout."
+ },
+ {
+  "contest": "brazil-2022",
+  "n": 6,
+  "rating": "accurate",
+  "claims_checked": 13,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Gunzipped and parsed page.html: title, breadcrumb ICPC / Regionals / Latin America, table of 13 rows A-M numbered 28040-28052 with title, multilingual label, solved, submissions and acceptance rate columns, special-judge labels on H and K only; the capture directory holds no statement pages."
+ },
+ {
+  "contest": "bapc-2019",
+  "n": 8,
+  "rating": "minor",
+  "claims_checked": 11,
+  "errors": [
+   {
+    "claim": "eleven open with a one- or two-sentence statement, and K goes straight to the solution",
+    "found": "The K slide (page 51) also opens with a one-sentence statement of the problem: 'The problem was to find a weighted average of the vertices of some convex polygon that equals the given point P.', and only then gives the solution steps.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo (60 pages) and pdftotext page by page: slide counter runs 1/37 to 37/37, sections A-L each with a Problem Author line and one Statistics line (12 in all), Language stats chart on slide 35, 'The Proofreaders' and 'The Jury' on slides 36 and 37."
+ },
+ {
+  "contest": "beijing-2002",
+  "n": 4,
+  "rating": "accurate",
+  "claims_checked": 15,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Decoded ssjg.htm as gb2312 and parsed the tables: 51 ranked rows (5 Gold, 10 Silver, 15 Bronze, last 21 unmarked and all rank 17), 38 Honorable Mention rows, columns Team Name, Rank, Solved, Penalty, Medal, first row and the footnote on Tsinghua teams."
+ }
+]

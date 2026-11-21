@@ -1,0 +1,114 @@
+[
+ {
+  "contest": "egypt-2026",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 24,
+  "errors": [
+   {
+    "claim": "the footer says \"Last updated: Sun Aug 23 13:49 UTC 2026\"",
+    "found": "The footer of all.html and official.html reads \"Last updated: Sun Aug 23 13:49:55 UTC 2026\" (seconds are printed); the ECPC and Unofficial pages read 13:51:09 and 13:51:13. The quotation drops the seconds.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read site-manifest.json and parsed the four captured HTML pages with BeautifulSoup: counted team rows (348, 345, 345, 3), read the header (Photo, Rank, Team, Solved, Penalty, A. Training Camp to O. AASTMT Cycles, Att/Solv), banner, footer and summary row, matched the three Unofficial teams to ranks 187, 217 and 296 of All groups and their absence from the other two pages, and confirmed that scoreboard.css, funcs.js and two logo PNGs are in files/ while the 348 photo URLs are 404 or unfetched."
+ },
+ {
+  "contest": "germany-2013",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 19,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html with BeautifulSoup: read the report text (held on June, 15th; hacKIT from KIT, 8 of 11, total time 1063; four more universities into the top ten in the last hour), counted 39 team rows with ranks 1 to 33 and six at 34, checked the columns, the solved_first classes, the five links, and manifest.json (scoreboard-fau.css, three logo SVGs and the flag PNG kept; /css/styles.css failed)."
+ },
+ {
+  "contest": "far-east-russia-2014",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 17,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Decoded standings.html as windows-1251 and parsed the standings table: 26 team rows with distinct ranks 1 to 26, problems A to I, '=' and Time columns, NEFU first with 7 and 935, last team 0 and 0, three members in every row, the five summary rows, the '5:00:00 of 5:00:00 / status: over' lines, the Show time checkbox, and no contest name anywhere on the page."
+ },
+ {
+  "contest": "ecna-2016",
+  "n": 6,
+  "rating": "accurate",
+  "claims_checked": 11,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html (lang=ko) with BeautifulSoup: title, breadcrumb (출처, ACM-ICPC, Regionals, North America, East Central North America Regional), and the table of 14 rows labelled A to J and PA to PD with numbers 15065 to 15078, English titles and the 맞은 사람, 제출 and 정답 비율 columns; the capture directory holds only the page and style/logo assets."
+ },
+ {
+  "contest": "erc-1987",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 15,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Read the whole 638-byte XML file (a title and three p elements): four sentences, second place for the VU computer science department, a team of four named with home towns, world finals in the United States in February, London, 17 teams, six hours; no other team, score, date, year or newspaper name, and the capture directory holds nothing else but the manifest."
+ },
+ {
+  "contest": "gny-2000",
+  "n": 4,
+  "rating": "accurate",
+  "claims_checked": 10,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html with BeautifulSoup: heading, title, the Rank/Team/Citation table of 41 rows with citations First Place to Fortieth Place (the 33rd is spelled 'Thrity-third Place' on the page), the last row SUNY Old Westbury=>SUNY OW3 with an empty rank and Honorable Mention, and no solved or time columns."
+ },
+ {
+  "contest": "gny-2001",
+  "n": 5,
+  "rating": "accurate",
+  "claims_checked": 10,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html with BeautifulSoup: heading, title, 43 team rows of which 15 are ranked 1 to 15 with place citations (rank 5 has 'Top Freshman-Sophomore Team') and 28 have an empty rank and Honorable Mention; first row is Cornell University=>Cornell Big Red; no solved or time columns."
+ },
+ {
+  "contest": "georgia-2018",
+  "n": 4,
+  "rating": "accurate",
+  "claims_checked": 13,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed standings.html with BeautifulSoup: 52 rows with Rank, Team, Institution, Solved, Time and Citation; 26 place citations from First Place to Twenty-sixth Place and 26 Honorable Mention; nine last rows at rank 44 with 0 solved; first row 8 and 794; the five institutions named are all in the table; no per-problem columns."
+ },
+ {
+  "contest": "georgia-2016",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 16,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Decoded standings.html as windows-1251 and parsed it: heading 'Georgian Subregional 2016', '5:00:00 of 5:00:00' and 'status: over' on two lines (the description joins them with a comma), 40 team rows with members inside the Team cell, problems A to J, '=' and Time, two teams with 10 (809 and 942), three rows at rank 38 with 0, the five summary rows, and no href links, images or institution column (the only a element is a named anchor around the heading)."
+ },
+ {
+  "contest": "egypt-2023",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 17,
+  "errors": [
+   {
+    "claim": "a footer reading \"Last updated Sat Aug 19 13:34 GMT 2023\"",
+    "found": "The footer reads \"Last updated Sat Aug 19 13:34:24 GMT 2023\"; the quotation drops the seconds.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Gunzipped page.html (it is stored gzip-compressed) and parsed it with BeautifulSoup: title ECPC, PC^2 9.9 footer, 238 team rows with ranks 1 to 237 (ranks 204, 206, 210 and 237 are each shared by two teams), every name ending in a bracketed abbreviation, columns Rank, Name, Solved, Time, A to O and Total att/solv, the colour row, the 'Submitted/1st Yes/Total Yes' row, first place with 10 solved, and manifest.json with an empty assets list while the page links three style sheets and images/logo.png."
+ }
+]

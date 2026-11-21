@@ -1,0 +1,131 @@
+[
+ {
+  "contest": "bapc-2011",
+  "n": 4,
+  "rating": "accurate",
+  "claims_checked": 12,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html with BeautifulSoup: breadcrumb ICPC > Regionals > Europe > Northwestern European Regional Contest > Benelux Algorithm Programming Contest, nine rows 5381-5389 labelled A B C D F G H I J (no E), columns number/label/title/info/solved/submissions/ratio, Korean titles on C, G and J only, no statements."
+ },
+ {
+  "contest": "bapc-2024",
+  "n": 8,
+  "rating": "minor",
+  "claims_checked": 11,
+  "errors": [
+   {
+    "claim": "The page's style sheets and page scripts are not in our copy.",
+    "found": "No style sheet is in the capture directory and none of the open.kattis.com scripts is, but one script the page loads is kept: assets/efed676333b06dd3.js, the third-party Sentry loader (js.sentry-cdn.com) referenced by the first script tag; the page's inline scripts are also in page.html.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html: 13 table rows, header Name/Fastest/Shortest/Authors/Full Solves/Ratio/Difficulty/Languages, every row 'en' with a rating and Easy/Medium/Hard, filters and Log in link present; compared link/script tags with assets/ and manifest.json."
+ },
+ {
+  "contest": "brazil-2005",
+  "n": 1,
+  "rating": "minor",
+  "claims_checked": 24,
+  "errors": [
+   {
+    "claim": "Our copy holds 146 files, 94 of them pages.",
+    "found": "146 files is right, but only 88 are HTML pages (84 .html + 4 .htm, 55 of them Apache directory listings in their sort variants); 94 is reached only by also counting the 4 PDFs, one .txt report and one .c file.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [
+   {
+    "field": "contest_date",
+    "recorded": "2005-11-11",
+    "found": "The copy prints only the two-day range for the final ('Final Brasileira: 11 e 12 de novembro de 2005' on the pages, 'November 11-12, 2005' on the covers of both the warm-up and the contest PDF); no single contest day is printed, and nothing shows that the 11th rather than the 12th was the day of the contest itself."
+   }
+  ],
+  "style": [],
+  "how_checked": "Counted files and content types from site-manifest.json, read index.html and primeira-fase/ (21-row site table, links), the BOCA score/run/clar pages, the four PDF covers with pdftotext (problems A to I, 8 first-phase problems), the directory listings and the list of unfetched addresses (tecle.sol not fetched, dataset_warmup/ 404)."
+ },
+ {
+  "contest": "bombay-2004",
+  "n": 6,
+  "rating": "minor",
+  "claims_checked": 6,
+  "errors": [
+   {
+    "claim": "List of the 130 teams that took part in the preliminary round",
+    "found": "130 team rows is right, but the page is headed only 'The 2004 ACM Asia Programming Contest - Bombay / Asia - Bombay Preliminary Round' with columns Team and Coach; it does not say the teams took part (one entry is literally named 'Team Name'), so it may equally be the list of teams entered.",
+    "severity": "minor"
+   },
+   {
+    "claim": "one row per team with institution and team name and the coach",
+    "found": "One of the 130 rows (Indian Insttitute of Technology Kharagpur: smoking_eagles) has its name split over the two cells and shows no coach.",
+    "severity": "minor"
+   }
+  ],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed prelim-teams.html (iso-8859-1) and counted leaf table rows: 129 'institution: team | coach' rows plus one malformed team row, 54 distinct institution strings, several repeated up to 33 times, no result columns."
+ },
+ {
+  "contest": "bolivia-national-2012",
+  "n": 1,
+  "rating": "accurate",
+  "claims_checked": 14,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed the saved Google Groups thread: first message dated Sep 17, 2012 with the criteria, a table of 53 teams (51 numbered + 2 Pre-clasificado) under ten headings, statuses 31 Clasificado / 17 2da Ronda / 5 Invitado, one blank Problemas cell, then replies on ICPC-system registration, participation confirmations and the SPOJ ranks link; no times or per-problem data."
+ },
+ {
+  "contest": "beijing-2016",
+  "n": 3,
+  "rating": "accurate",
+  "claims_checked": 13,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed hihoCoder.html: 198 team rows with Rank/College/User/#/Penalty and A-K, cells like '0:59:52 (+1)' and '(-24)', text 'last updated:Sun Nov 13 2016 16:27:30', first row UESTC_Life_and_Lemons with 8, four colleges prefixed '*', team links to icpc.hihocoder.com/user/..., linked home.css absent and no assets directory (the word 'final' is not printed, but solve times run to 4:59:55)."
+ },
+ {
+  "contest": "beijing-2018",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 13,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed standings.html: 181 rows with Rank/Team/Institution/Solved/Time/Medal/Citation/Site citation, Site citation 'Beijing' on all, medals 15/30/60 and 76 Honorable Mention, first row Tsinghua University 10 solved time 1783, four last teams with 0, repeated ranks, no per-problem columns."
+ },
+ {
+  "contest": "bapc-2023",
+  "n": 12,
+  "rating": "accurate",
+  "claims_checked": 14,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "pdfinfo (44 pages) and pdftotext per page: cover 'BAPC 2023 / Solutions presentation / October 28, 2023', sections A to L each with Problem Author, Problem and a 'Statistics: n submissions, n accepted, n unknown' line, Observation slides in some, then Language stats, Random facts and Thanks slides; sha256 equals the solutions-web.pdf captured live from 2023.bapc.eu."
+ },
+ {
+  "contest": "bapc-2009",
+  "n": 2,
+  "rating": "accurate",
+  "claims_checked": 9,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html: headings Organisation, Contest format, Judging, Scoring, Prizes, History; one wikitable with columns Year/Organizer/Winner/Team members/Institution and 32 rows 2022 down to 1991; the 2009 row reads Rijksuniversiteit Groningen, Doeke en Jelle, Universiteit van Amsterdam."
+ },
+ {
+  "contest": "beijing-2007",
+  "n": 4,
+  "rating": "accurate",
+  "claims_checked": 18,
+  "errors": [],
+  "document_field_errors": [],
+  "style": [],
+  "how_checked": "Parsed page.html: results table of 441 rows with seven columns (school rank, school, team rank, account, team name, solved, time), 116 numbered school ranks each on a school's first team, 324 rows with '*' and one blank, solved at most 8, Tsinghua first with 8; six lists below of 50, 4, 12, 5, 3 and 5 schools with their Chinese captions and the closing note on Taiwan and North Korea."
+ }
+]
