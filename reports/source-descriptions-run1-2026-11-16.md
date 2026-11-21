@@ -4,33 +4,31 @@ Run of 2026-11-16, rubric 1 (`tools/describe_rubric.md`). Applied.
 
 | | |
 | --- | --- |
-| contests read | 2,360 |
+| contests read | 2,393 |
 | contests with nothing held | 75 |
-| sources | 11,701 |
-| no copy | 1,328 |
-| read | 10,373 |
-| first readings | 810 |
-| described | 9,822 |
+| sources | 11,936 |
+| no copy | 1,357 |
+| read | 10,579 |
+| first readings | 828 |
+| described | 10,020 |
 | description held (low confidence or source gone) | 9 |
-| verdict confirm | 9,382 |
-| verdict correct | 449 |
-| verdict not-the-document | 301 |
-| verdict wrong-contest | 226 |
+| verdict confirm | 9,574 |
+| verdict correct | 455 |
+| verdict not-the-document | 308 |
+| verdict wrong-contest | 227 |
 | verdict cannot-tell | 15 |
-| disagrees with the earlier reader | 169 |
-| blank date filled | 2 |
-| blank location filled | 3 |
-| contest facts fills-blank | 43 |
-| contest facts conflict | 514 |
-| contest facts same | 423 |
-| contest facts listed | 1,665 |
+| disagrees with the earlier reader | 175 |
+| contest facts fills-blank | 38 |
+| contest facts conflict | 533 |
+| contest facts same | 429 |
+| contest facts listed | 1,685 |
 | words per description | 105 |
 
-Not finished: 33 contests: wf-2008, wf-2009, wf-2010, wf-2011, wf-2012, wf-2013, wf-2014, wf-2015, wf-2016, wf-2017, wf-2018, wf-2019, wf-2020, wf-2021, wf-2022, wf-2023, wf-2024, wuhan-2009, wuhan-2025, wuhan-2026, xian-2006, xian-2014, xian-2017, xian-2022, xian-2023, xian-2025, xuzhou-2018, xuzhou-2019, yangon-2016, yangon-2017, yangon-2018, yinchuan-2019, yinchuan-2020.
+Not finished: 0 contests.
 Results that do not check: 0.
 
 
-## Second reading: 1056 sources to look at
+## Second reading: 1074 sources to look at
 
 The reader did not confirm the catalogue, or disagrees with the content check of 2026-11-14. Nothing here was applied.
 
@@ -1092,8 +1090,26 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | wf-1991 | http://icpc.baylor.edu/past/icpc91/finals/Standings.html | standings+rankings | wrong-contest (medium) | wrong-contest | The table of 24 teams is headed 1991 but its first six places (Otago, Maryland, Stanford, Harvard, Eindhoven, Wisconsin) are the 1990 finals order on the Early Years page of the same site. |
 | wf-1993 | https://icpc.global/community/history-icpc-1993 | web | not-the-document (high) | none | The saved page is the empty single-page-app shell of icpc.global (title 'The ICPC International Collegiate Programming Contest', an empty root div and a 'You need to enable JavaScript' notice) with no 1993 content. |
 | wf-1995 | https://open.kattis.com/problem-sources/1995%20ACM%20Scholastic%20Prog | problemset | not-the-document (high) | not-the-document | Kattis problem-source page 'Problems from 1995 ACM Scholastic Programming Contest Finals' with an empty problem table and the text 'No data found'. |
+| wf-2008 | https://zibada.guru/finals/2008/ | scoreboard | confirm (medium) | not-the-document | The earlier reader saw an empty shell, but our copy holds the full standings data (97 teams, 11 problems) inside the page's script. |
+| wf-2009 | https://zibada.guru/finals/2009/ | scoreboard | correct → frozen_scoreboard (high) | not-the-document | The earlier reader saw an empty shell, but our copy holds the frozen standings (99 teams, 11 problems) inside the page's script, so the roles are frozen_scoreboard. |
+| wf-2009 | http://icpc09.csc.kth.se/live/ | scoreboard | correct → web (medium) | none | The page is titled 'ICPC Live' with a video frame and links to the live scoreboard and the problems PDF; it holds no results. |
+| wf-2010 | https://zibada.guru/finals/2010/ | scoreboard | not-the-document (high) | not-the-document | The page is an unfilled live-scoreboard shell titled 'world finals 2010' whose contest, status and sync fields are empty and which holds no team rows. |
+| wf-2010 | https://open.kattis.com/problem-sources/ICPC%20World%20Finals%202010 | problemset | not-the-document (high) | not-the-document | The Kattis page 'Problems from ICPC World Finals 2010' shows 'No data found' and an empty problem table. |
+| wf-2011 | https://zibada.guru/finals/2011/ | scoreboard | not-the-document (high) | not-the-document | The page is a 5 KB live-scoreboard shell titled 'world finals 2011' with '[frozen] status 0:00 / 0:00', a Topcoder log-in prompt and no team rows. |
+| wf-2012 | https://zibada.guru/finals/2012/ | scoreboard | not-the-document (high) | not-the-document | The page is a Topcoder login prompt with 'last updated at ... 0:00 0:00' and no scoreboard table or team rows. |
+| wf-2016 | https://news.icpc.global/wf2016/ | web | correct → report+rankings (medium) | correct → report+rankings | Single ICPC News page headed 'The 2016 World Champions' naming the winning team of the 40th World Finals, with six links and no other site pages. |
+| wf-2016 | https://zibada.guru/finals/2016/ | scoreboard | not-the-document (high) | not-the-document | The page titled 'world finals 2016' is a scoreboard application shell showing a 0:00 of 0:00 timer and a Topcoder log-in prompt, with no team or problem rows. |
+| wf-2017 | https://zibada.guru/finals/2017/ | scoreboard | not-the-document (high) | not-the-document | The page titled 'world finals 2017' is an empty scoreboard shell: timer at 0:00 of 0:00, a Topcoder login box and no team rows. |
+| wf-2022 | https://zibada.guru/finals/2022/ | scoreboard | confirm (high) | not-the-document | The earlier reader saw only the HTML shell and said not-the-document; the scripts and data files held beside the page hold the full event log of 124 teams, so it is this contest's scoreboard. |
+| wf-2023 | https://zibada.guru/finals/2023/ | scoreboard | confirm (medium) | not-the-document | The earlier reader saw only the page shell, but the saved script files beside it hold the team list and the submission data of the scoreboard. |
+| wf-2023 | https://icpc.global/worldfinals/scoreboard/2023/scoreboards/index.html | scoreboard | correct → web (medium) | none | A short page titled 'The 2023 ICPC World Finals Luxor hosted by AASTMT' that links to scoreboards and problem sets of the 46th and 47th World Finals but holds no scoreboard itself. |
+| wf-2024 | https://zibada.guru/finals/2024/ | scoreboard | confirm (medium) | not-the-document | The earlier reader saw only the empty page shell, but the saved script files beside it hold the team list and the submission data of the scoreboard. |
+| xian-2006 | http://acm.xidian.edu.cn/ | web | correct → no role (medium) | correct →  | The 150 saved files are the Xidian ACM Online Judge (Wayback captures 2011 to 2025); a search of all saved files finds no page about a 2006 Xi'an contest. |
+| xian-2014 | http://acm.nwpu.edu.cn | web+standings | correct → web (medium) | wrong-contest | The earlier reader saw a page of the 2019 Xi'an invitational (the copy has since been replaced); our copy now is a 2014-era notice page of the Xi'an regional, with no results of its own. |
+| xian-2017 | http://acm.nwpu.edu.cn | web+standings | wrong-contest (high) | wrong-contest | Page titled 'The 2019 ICPC China Xian National Invitational Programming Contest', dated 2019.5.18-19, with a link to its scoreboard and no 2017 content. |
+| xuzhou-2018 | http://ctec.cumt.edu.cn/acm201810/board.html | standings | not-the-document (high) | not-the-document | Scoreboard shell 'Scoreboard of CUMT' whose standings table holds only a summary row, the data being loaded by script. |
 
-## Contest facts: 557 that fill a blank or differ
+## Contest facts: 571 that fill a blank or differ
 
 | contest | fact | document says | catalogue | confidence | applied | where it is stated |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -1611,6 +1627,25 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | wf-2006 | date | 2006-04-12 | 2006-04-13 | high | no | The box above the table gives Date: April 12, 2006, and the official standings page and news page also state April 12, 2006. |
 | wf-2007 | date | 2007-03-15 | 2007-03-16 | high | no | The box above the table gives Date: March 15, 2007; the ICPC News page also says on March 15, 2007. |
 | wf-2007 | location | Hilton Tokyo Bay, Urayasu, Chiba, Japan | Tokyo, Japan | high | no | The box above the table gives Venue: Hilton Tokyo Bay, Urayasu, Chiba, Japan. |
+| wf-2008 | location | Fairmont Banff Springs Hotel, Banff, Alberta, Canada; hosted | Banff, Canada | high | no | The history page says the World Finals were hosted by the University of Alberta in Banff and the fact sheet names the Fairmont Banff Springs. |
+| wf-2009 | date | 2009-04-21 | 2009-04-22 | medium | no | The Hall of Fame header table reads 'Date: April 21, 2009'; the host's preliminary event schedule puts the World Finals on Tuesday, April 21. |
+| wf-2010 | location | Harbin Engineering University, Harbin, China | Harbin, China | high | no | The header block gives the venue as Harbin Engineering University, Harbin, China. |
+| wf-2011 | date | 2011-05-30 | 2011-05-31 | medium | no | The news item says the World Finals were held "on May 30, 2011, in Orlando Florida"; the standings page of source 4 also gives May 30, 2011. |
+| wf-2012 | date | 2012-05-17 | 2012-05-18 | high | no | The news page says the finals were held on May 17, 2012; the ranking page gives the start as 2012/5/17 16:00. |
+| wf-2013 | date | 2013-07-03 | 2013-07-04 | high | no | The news page says the World Finals took place on July 3, 2013; the Hall of Fame page and the ranklist (start 2013/7/3 13:30) agree. |
+| wf-2014 | date | 2014-06-25 | 2014-06-26 | high | no | The schedule page of the site heads Wednesday June 25 as World Finals, and the news items about the frozen scoreboard and the winners are dated 25 Jun 2014. |
+| wf-2016 | date | 2016-05-19 | 2016-05-20 | high | no | the news page says the World Finals took place 'on May 19, 2016, in Phuket, Thailand'; the Hall Of Fame standings page also gives May 19, 2016 |
+| wf-2019 | date | 2019-04-04 | 2019-04-05 | medium | no | The box above the standings table reads 'Date: April 4, 2019'; the scoreboards only carry last-update stamps of 4 and 5 April. |
+| wf-2020 | date | 2021-10-05 | 2021-10-06 | medium | no | the header block of the Hall Of Fame page reads 'Date: Oct. 5, 2021' and the DOMjudge scoreboard was last updated 05 Oct 2021 20:38 MSK. |
+| wf-2020 | location | Moscow Manege, Moscow, Russia | Moscow, Russia | medium | no | the header block reads 'Venue: Moscow Manege, Moscow, Russia'. |
+| wf-2021 | date | 2022-11-10 | 2022-11-11 | medium | no | the header block of the Hall Of Fame page reads 'Date: Nov. 10, 2022' and the DOMjudge scoreboard was last updated 10 Nov 2022. |
+| wf-2021 | location | International Convention City Bashundhara, Dhaka, Bangladesh | Dhaka, Bangladesh | medium | no | the header block reads 'Venue: International Convention City Bashundhara, Dhaka, Bangladesh'. |
+| wf-2022 | date | 2024-04-18 | 2024-04-19 | medium | no | The box above the standings table reads 'Date: April 18, 2024'. |
+| wf-2023 | date | 2024-04-18 | 2024-04-19 | high | no | The news item says the World Finals was held on April 18, 2024 in Luxor, Egypt; the standings page on the Hall of Fame site also gives April 18, 2024. |
+| wuhan-2009 | date | 2009-11-02 | 2009-11-01 | medium | no | the problem page header reads 'Wuhan Site 2-Nov-2009' |
+| xuzhou-2018 | location | China University of Mining and Technology, Xuzhou | xxxx | high | no | The site pages give the host as China University of Mining and Technology with its Nanhu campus in Xuzhou, Jiangsu. |
+| yinchuan-2019 | date | 2019-10-20 | 2019-11-10 | medium | no | Every page of the problem set PDF is headed Ningxia Institute of Science and Technology, Sunday October 20, 2019. |
+| yinchuan-2019 | location | Ningxia Institute of Science and Technology, Yinchuan | YinchuanOnsite | medium | no | The problem set page header names Ningxia Institute of Science and Technology. |
 | alberta-2006 | location | University of Alberta, University of Calgary and University  | — | medium | no | the problem index says the contest is a joint effort of the three universities. |
 | bapc-prelims-2025 | date | 2025-09-20 | — | medium | no | The preliminaries page lists the local contests under the dates 20 September, 26 September and 27 September 2025 and says they run between the 20th and 28th. |
 | brazil-first-phase-1996 | location | DCC-UFMG, Belo Horizonte | — | medium | no | The history page says the first Maratona was organised at the Federal University of Minas Gerais, under the heading Belo Horizonte. |
@@ -1644,13 +1679,8 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | south-russia-2005 | location | Saratov State University | — | medium | no | The Codeforces page says the contest is hosted by Saratov State U. |
 | ukraine-2025 | date | 2025-11-09 | — | medium | no | Every page of the problem set PDF is headed 'Stage 2 - November 9, 2025'. |
 | urals-2003 | date | 2003-04-23 | — | medium | no | The round 1 results page of the championship site is headed '23 апреля 2003'; the event ran 21-26 April and round 2 was on 25 April. |
-| uzbekistan-2002 | location | Tashkent University of Information Technologies, Tashkent, U | — | high | yes | The Middle Asia Subregion page gives Host: Tashkent, Host university: Tashkent University of Information Technologies, Countries: Uzbekistan. |
 | uzbekistan-2007 | date | 2007-10-28 | — | medium | no | The page header of the problem set reads 'Georgiya and Uzbekistan Subregional Contests, Batumi, Tashkent, October 28, 2007'. |
 | uzbekistan-2007 | location | Tashkent | — | low | no | The same header names Batumi and Tashkent for the two subregional contests. |
-| werc-1993 | location | University College Swansea | — | high | yes | The page header reads 'Western European Regional at University College Swansea'. |
-| west-neerc-2000 | location | Minsk, Belarusian State University | — | high | yes | The page 'NEERC 2000 Western Subregion' states Host: Minsk and Host university: Belarusian State University. |
 | west-neerc-2004 | date | 2004-10-20 | — | medium | no | The iRunner results page is headed NEERC'04 Western Subregion with the date 20 октября 2004 г. |
 | west-neerc-2005 | date | 2005-10-26 | — | medium | no | The iRunner results page is headed NEERC'05 Western Subregion with the date 26 октября 2005 г. |
-| west-neerc-2006 | date | 2006-11-04 | — | high | yes | the page header reads '4 ноября 2006 г.' under NEERC'06 Western Subregion |
 | west-siberia-2001 | location | Novosibirsk State Technical University | — | medium | no | The paper lists the West Siberian quarterfinal group with Novosibirsk STU (Новосибирский ГТУ) as organising university. |
-| west-siberia-2010 | date | 2010-10-30 | — | high | yes | The news item of 9 October 2010 says the quarterfinal takes place on 30 October 2010 at 8:00 Moscow time, and the list of olympiads dates ACM 2010 as 30.10.2010 |
