@@ -92,10 +92,14 @@ Only what the copy shows. Use null for what it does not say or what does not app
 - `title_en`: an English translation of `title` when it is not in English, else null.
 - `language`: list of ISO 639-1 codes of the languages the document is written in, main one
   first (`["en"]`, `["ru"]`, `["zh", "en"]`).
-- `contest_date`: the day (or days) of the contest as the document states it, `YYYY-MM-DD`
-  (`YYYY-MM` or `YYYY` when that is all it gives; first day for a range). Not a "last modified"
-  date, and not the day of a replay or mirror contest held later. Null when the document's date
-  can be read two ways (3/12/94).
+- `contest_date`: the day the contest itself ran, as the document states it, `YYYY-MM-DD`
+  (`YYYY-MM` or `YYYY` when that is all it gives). When the document gives a span of days for the
+  event ("5-6 November", "held 1-3 November", "17 and 18 May") and does not say on which of them
+  the contest ran, `contest_date` is null and the description gives the span as printed; the
+  first day of an event is usually registration or practice, not the contest. Only a contest
+  that itself ran over several days (two rounds, a two-day final) takes its first day. Not a
+  "last modified" date, and not the day of a replay or mirror contest held later. Null when the
+  document's date can be read two ways (3/12/94).
 - `teams`: results documents: the number of teams listed (rows of teams, not counting headers,
   summary rows or test accounts). When a board repeats teams in several views, count distinct
   teams; if you cannot, use null and write "about" in the description.
@@ -216,6 +220,8 @@ or differs from it: `date`, `location` (host institution and city), `teams` (num
 took part), `problems` (number of problems). Each with `value`, `from` (source `n`), `pack_says`
 (the pack's value, "" when it has none), `confidence` and `seen` (ONE sentence: where in the
 document it is stated). Give `date` as `YYYY-MM-DD`. Leave out anything you would have to infer.
+A `date` fact is the day the contest ran: a span of days for the event is not a date fact unless
+the document says which day the contest was on (then quote that in `seen`).
 
 ## Output
 

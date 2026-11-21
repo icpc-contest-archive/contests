@@ -28,7 +28,10 @@ to ten times. Long heredocs fail more often: write long files in two or three sm
          and its directory and confirm it, or remove it;
        * for every "each/every/all", check all of them;
        * for every date, find it printed in the copy; `contest_date` must be the day of the
-         contest itself and must be printed in the copy, else null;
+         contest itself and must be printed in the copy, else null. A span of event days
+         ("5-6 November", "held 1-3 November") with no statement of which day the contest ran
+         gives null, not its first day; the same holds for a `date` in `contest_facts` (remove
+         a date fact that rests on a span only);
        * check names of systems, judges and sites, column meanings and translated titles;
        * remove names of individual persons (other than the author of a report or editorial).
    - correct the description and the `document` fields where a claim does not hold. Change as
