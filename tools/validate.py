@@ -443,6 +443,41 @@ def main() -> int:
                        for e in other["series"].get("lineage", [])):
                 warn(f"lineage not mirrored: {sid} {ev['type']} {ev['series']} ({ev['year']})")
 
+    # ---- source descriptions belong to a contest and one of its sources (DEFINITIONS.md, Source descriptions) ----
+    n_described = 0
+    for f in sorted((ROOT / "data" / "source-descriptions").glob("*/*.yaml")):
+        where = f"source-descriptions/{f.parent.name}/{f.name}"
+        doc = yaml.safe_load(f.read_text()) or {}
+        cid = doc.get("contest")
+        if cid != f.stem:
+            err(f"{where}: contest is {cid!r}, the file name says {f.stem}")
+            continue
+        if cid not in contests:
+            err(f"{where}: no such contest in the catalogue")
+            continue
+        if series_of[cid] != f.parent.name:
+            err(f"{where}: {cid} belongs to series {series_of[cid]}")
+        held = {norm_key(s["url"]) for s in contests[cid].get("sources", []) if s.get("url")}
+        seen_keys: set = set()
+        for i, e in enumerate(doc.get("sources") or []):
+            for field in ("url", "read", "rubric", "copy", "description"):
+                if not e.get(field):
+                    err(f"{where}: sources[{i}] has no {field}")
+            if not e.get("url"):
+                continue
+            k = norm_key(e["url"])
+            if k in seen_keys:
+                err(f"{where}: {e['url']} is described twice")
+            seen_keys.add(k)
+            if k not in held:
+                warn(f"{cid}: a description is filed for {e['url']}, which is no longer a source of the contest")
+            cd = e.get("contest_date")
+            if cd is not None and not re.fullmatch(r"\d{4}(-\d{2}(-\d{2})?)?", str(cd)):
+                err(f"{where}: {e['url']}: contest_date {cd!r} is not YYYY, YYYY-MM or YYYY-MM-DD")
+            if len(re.split(r"\n\s*\n", str(e.get("description") or "").strip())) > 3:
+                warn(f"{cid}: the description of {e['url']} has more than three paragraphs")
+            n_described += 1
+
     # ---- report ----
     rep = ROOT / "reports" / "open-warnings.md"
     rep.parent.mkdir(exist_ok=True)
@@ -465,6 +500,7 @@ def main() -> int:
         "location_nodes": len(nodes),
         "sites": n_sites,
         "contests_with_located_site": n_located_contests,
+        "sources_described": n_described,
     }
     print("stats:", json.dumps(stats))
     print(f"warnings: {len(warnings)} (reports/open-warnings.md)")

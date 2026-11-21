@@ -218,6 +218,41 @@ judge page shows it ran (ranked standings in the ICPC CMS count). A contest that
 view of a larger one (`subset_of`) follows the larger one. `tools/apply_ran_2026.py` did this for
 autumn 2026 from a frozen probe of the CMS and of last year's addresses with the year moved on.
 
+### Source descriptions (2026-11-16)
+
+A source whose copy we hold can carry a **description**: one to three paragraphs on what the
+document is and what it contains, with the facts the document states about itself (title,
+language, the contest date it prints, teams and problems shown, per-problem times and tries,
+pages). Descriptions are not in the series files; they live one file per contest in
+`data/source-descriptions/<series>/<contest>.yaml` (format and rules in the README there) and
+the source page shows them under *What it contains*.
+
+- A description is about the **copy**, written from the copy and nothing else. It is not a claim
+  of ours about the contest: where a document is wrong, so is its description.
+- A source has a description only when a copy is held and the reader took it for the document it
+  is filed as. No copy, an error page, an empty application shell or another contest's document:
+  no description, and the reading is listed for a ruling in
+  `data/describe/<run>/second-reading.json`, never applied on its own.
+- `contest_date` in a description is the day the contest ran **as the document states it**. A
+  span of event days ("5-6 November") with no statement of which day the contest was on gives no
+  date; only a contest that itself ran over several days takes its first day.
+- A document fact can differ from the catalogue (`date`, `location`). Differences are listed in
+  `data/describe/<run>/contest-facts.json`. One case is written (a ruling of the first round): a **blank**
+  `date` or `location` is filled from a document that states it, with high confidence, when no
+  other document of the contest disagrees, and the contest gets the provenance line
+  `<fact> read from <address> (description round <date>)`. A value already in the catalogue is
+  never overwritten.
+- Descriptions say what a document shows, not where our copy of it came from.
+- How they are made: a reader agent writes, a second agent checks every claim against the copy
+  and corrects, and about 3% are checked a third time by an independent checker whose findings
+  are applied (`tools/describe_pack.py`, `describe_agent.md`, `describe_rubric.md`,
+  `describe_revise_agent.md`, `describe_check_agent.md`, `describe_fix_agent.md`,
+  `describe_apply.py`). `tools/validate.py` checks that every description file belongs to a
+  contest of that series and that each entry is complete; a description whose address is no
+  longer a source of the contest is a warning.
+- An entry belongs to the copy named in its `copy`. When a source gets a new copy, it is read
+  again; a hand correction is made in the file and stays until then.
+
 ## Coverage
 
 What we hold of a contest is one **coverage record**, worked out in one place
