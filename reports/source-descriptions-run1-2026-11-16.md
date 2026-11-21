@@ -4,33 +4,33 @@ Run of 2026-11-16, rubric 1 (`tools/describe_rubric.md`). Applied.
 
 | | |
 | --- | --- |
-| contests read | 2,079 |
+| contests read | 2,209 |
 | contests with nothing held | 75 |
-| sources | 10,443 |
-| no copy | 1,236 |
-| read | 9,207 |
-| first readings | 683 |
-| described | 8,730 |
+| sources | 11,068 |
+| no copy | 1,288 |
+| read | 9,780 |
+| first readings | 762 |
+| described | 9,256 |
 | description held (low confidence or source gone) | 9 |
-| verdict confirm | 8,343 |
-| verdict correct | 396 |
-| verdict not-the-document | 260 |
-| verdict wrong-contest | 195 |
-| verdict cannot-tell | 13 |
-| disagrees with the earlier reader | 146 |
+| verdict confirm | 8,846 |
+| verdict correct | 419 |
+| verdict not-the-document | 284 |
+| verdict wrong-contest | 217 |
+| verdict cannot-tell | 14 |
+| disagrees with the earlier reader | 165 |
 | blank date filled | 4 |
-| blank location filled | 1 |
-| contest facts fills-blank | 36 |
-| contest facts conflict | 457 |
-| contest facts same | 380 |
-| contest facts listed | 1,480 |
+| blank location filled | 5 |
+| contest facts fills-blank | 42 |
+| contest facts conflict | 480 |
+| contest facts same | 400 |
+| contest facts listed | 1,565 |
 | words per description | 104 |
 
-Not finished: 314 contests: taurida-2017, taurida-2018, taurida-2019, taurida-2020, taurida-2021, taurida-2022, taurida-2023, taurida-2024, taurida-2025, taurida-2026, tehran-1999, tehran-2000, tehran-2001, tehran-2002, tehran-2003, tehran-2004, tehran-2005, tehran-2006, tehran-2007, tehran-2008, tehran-2009, tehran-2010, tehran-2011, tehran-2012, tehran-2013, tehran-2014, tehran-2015, tehran-2016, tehran-2017, tehran-2018, tehran-2019, tehran-2020, tehran-2022, tehran-2023, tehran-2024, tehran-2025, tehran-online-2022, thailand-2009, thailand-2011, thailand-2012.
+Not finished: 184 contests: urals-2015, urals-2016, urals-2017, urals-2018, urals-2019, urals-2020, urals-2021, urals-2022, urals-2023, urals-2024, urals-2025, urals-2026, urumqi-2017, uzbekistan-2002, uzbekistan-2003, uzbekistan-2004, uzbekistan-2005, uzbekistan-2006, uzbekistan-2007, uzbekistan-2008, uzbekistan-2009, uzbekistan-2010, uzbekistan-2011, uzbekistan-2012, uzbekistan-2013, uzbekistan-2014, uzbekistan-2015, uzbekistan-2016, uzbekistan-2017, uzbekistan-2018, uzbekistan-2019, uzbekistan-2020, uzbekistan-2021, uzbekistan-2023, uzbekistan-2024, uzbekistan-2025, uzbekistan-2026, vietnam-2006, vietnam-2007, vietnam-2008.
 Results that do not check: 0.
 
 
-## Second reading: 919 sources to look at
+## Second reading: 996 sources to look at
 
 The reader did not confirm the catalogue, or disagrees with the content check of 2026-11-14. Nothing here was applied.
 
@@ -955,8 +955,85 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | tap-2013 | http://www.torneoprogramacion.com.ar/ | web | wrong-contest (high) | not-the-document | The front page as it stood in September 2015 announces the 5th Torneo Argentino de Programación on 26 September 2015 and reports the 2014 edition; nothing in it concerns the 2013 edition. |
 | tap-2013 | http://icpc.com.ar/ | web | correct → no role (medium) | correct →  | The page is the home page of the Asociación Argentina de Programación Competitiva with a calendar for 2026, not a page of the 2013 edition. |
 | tap-2014 | https://github.com/ssebastianj/taip-2014/blob/HEAD/docs/tap2014-proble | problemset | not-the-document (high) | not-the-document | The held file is the GitHub web page for docs/tap2014-problems.pdf in a repository (HTML with GitHub navigation and a sign-in link), not the PDF itself. |
+| tehran-2000 | http://swt.edu/~ch01/rankins2000/2000_tehran.htm | rankings | correct → standings (high) | correct → standings | Same 82-row Rank, Team, Citation table as source 3, titled The 2000 ACM Asia Programming Contest. |
+| tehran-2001 | https://icpc.sharif.edu/2001/standings.html | standings | correct → rankings (high) | none | The page lists only the World Finals qualifier, the second best team and the best all-women team, and links out to the final standings. |
+| tehran-2001 | https://icpc.sharif.edu/2001/teams.html | teams | correct → web (medium) | none | Short page headed Teams that only links to a registered-teams list on another server and to a participants page; it holds no team list itself. |
+| tehran-2002 | https://icpc.sharif.edu/2002/teams.html | teams | correct → no role (high) | none | The page is a short note that teams registered online so far are listed on the ICPC registration roster (linked), with no team names on the page. |
+| tehran-2003 | http://icpc.baylor.edu/icpc/regionals/ViewStandings.asp?ContestID=655 | standings | correct → rankings (medium) | confirm | The earlier reader called it standings; the copy has rank and citation only, no solved counts or scores, so I judge it rankings. |
+| tehran-2013 | https://icpc.ir/2013/iipc/standing.htm | standings | wrong-contest (high) | none | Page titled '11th Iran Nationwide Internet Contest :: Standing' with 223 teams on nine problems A to I, a separate online contest held 28 November 2013, not the regional contest of 19-20 December 2013. |
+| tehran-2015 | https://icpc.sharif.edu/2015/scoreboard/ | scoreboard | confirm (high) | not-the-document | The earlier reader saw an empty table and a totals row only; the team rows are in the page's inline script (78 rows) that fills the table, and the script file is in our copy. |
+| tehran-2015 | https://icpc.ir/2015/iipc/standing.htm | standings | wrong-contest (high) | none | Page titled '13th Iran Nationwide Internet Contest :: Standing' with 258 team rows and problems A-I: the Iran internet contest, not the regional contest. |
+| tehran-2015 | https://icpc.ir/2015/iipc/P94.pdf | problemset | wrong-contest (high) | none | PDF of 9 pages headed '13th Iran Internet Programming Contest, 2015-2016', 26 Nov. 2015, problems A to I (Sums ... RATS): the internet qualifier, not the regional. |
+| tehran-2016 | https://icpc.sharif.edu/2016/scoreboard/ | scoreboard | confirm (high) | not-the-document | The earlier reader saw an empty table and a totals row only; the team rows are in the page's inline script (82 rows) that fills the table. |
+| tehran-2016 | http://icpc.sharif.edu/acmicpc16/scoreboard/ | standings | correct → scoreboard (high) | not-the-document | The earlier reader saw an empty table and a totals row only; the team rows are in the page's inline script (82 rows) that fills the table. It is a scoreboard (per team and problem), so its role is scoreboard. |
+| tehran-2017 | https://icpc.sharif.edu/2017/scoreboard/ | scoreboard | confirm (high) | not-the-document | The earlier reader found only a totals row, but the page script holds 80 team rows that the table is built from when the page is opened. |
+| tehran-2017 | http://icpc.sharif.edu/acmicpc17/scoreboard/ | standings | correct → scoreboard (high) | same-as | The earlier reader called it a totals-only shell with no roles, but the page script holds 80 team rows with per-problem results, so it is a scoreboard, not standings. |
+| tehran-2018 | https://icpc.sharif.edu/2018/scoreboard/ | scoreboard+standings | correct → scoreboard (high) | correct →  | The earlier reader found only a totals row, but the page script holds 84 team rows with per-problem results that the table is built from when the page is opened. |
+| tehran-2019 | https://icpc.sharif.edu/2019/scoreboard/ | scoreboard+standings | correct → scoreboard (high) | correct →  | The earlier reader found an empty table with only a totals row, but the page holds 79 team rows in a script that fills the table in a browser. |
+| tehran-2020 | https://icpc.sharif.edu/2020/scoreboard/ | scoreboard | confirm (high) | correct →  | The earlier reader found an empty table with only a totals row and concluded it is not a scoreboard, but the page holds 121 team rows in a script that fills the table in a browser. |
+| tehran-2024 | https://icpc.ir/2024/iipc/scoreboard/ | scoreboard | wrong-contest (medium) | none | The page is titled 'IIPC 2024 - Scoreboard', time stamp Wed Nov 20 22:15:17 IRST 2024, 755 teams and problems A-J: the Online Regional Contest of 20 November 2024, not the on-site contest of 19-20 December. |
+| tehran-2024 | https://icpc.ir/2024/iipc/P24.pdf | problemset | wrong-contest (medium) | none | PDF of 11 pages headed '2024 ICPC Asia Tehran – Online Regional Contest' with ten problems A-J (Tired Shepherd ... Greedy Table), not the on-site set of A-K. |
+| tehran-2025 | https://icpc.ir/2025/iipc/scoreboard/ | scoreboard | wrong-contest (medium) | none | The page is titled 'ICPC 2025 Online - Scoreboard', time stamp Wed Nov 12 22:21:30 IRST 2025, 892 teams and problems A-J: the Online Regional Contest of 12 November 2025, not the on-site contest of 25-26 December. |
+| tehran-2025 | https://icpc.ir/2025/iipc/P25.pdf | problemset | wrong-contest (medium) | none | PDF of 11 pages headed 'The 2025 ICPC Asia Tehran – Online Regional Contest' with ten problems A-J (Water Splashing ... Vulnerability), not the on-site set of A-L. |
+| thailand-2009 | http://www.acmicpc-thailand.org/asia/FinalResult.html | scoreboard+standings | not-the-document (high) | not-the-document | The copy is a Thai-language online casino page titled 'BK8 ทางเข้า 2026', with no contest content. |
+| thailand-2009 | http://www.acmicpc-thailand.org/asia/2009/ContestResult/acm-icpc-phuke | editorial | correct → problemset (medium) | none | The page, titled 'Problems, Results and Solution Guide', gives per problem the first solver, test-case excerpts and setter, with analysis PDFs linked for two problems only. |
+| thailand-2011 | http://www.acmicpc-thailand.org/asia/2011/ScoreBoard/ContestSession/ | scoreboard+standings | not-the-document (high) | not-the-document | The copy is a Thai-language online casino page titled 'BK8 ทางเข้า 2026', with no contest content. |
+| thailand-2013 | http://www.acmicpc-thailand.org/asia/2013/final-scores-asia-pk2013-sta | scoreboard | confirm (high) | not-the-document | The earlier reader judged the live copy, a casino promotion page; the copy we hold is the real final scoreboard of 67 teams. |
+| thailand-2014 | http://www.acm-icpc.eng.chula.ac.th/finalscoreboard_asia2014/ | standings | not-the-document (high) | not-the-document | The copy is a page titled [FINAL]CU-Scoreboard whose standings table is empty and which shows only Now Loading, because its scripts and data files are not in the copy. |
+| thailand-2025 | https://icpcarchive.github.io/Asia-Pacific/Thailand/The-2025-ICPC-Asia | report | correct → report+editorial (high) | correct → report | The earlier reader read it as a report without solution explanations, but it also holds a solution outline for each of the 14 problems A to N. |
+| tianjin-2010 | http://acm.tju.edu.cn/tj2010/summary.html | scoreboard | not-the-document (high) | correct → scoreboard | The earlier reader saw a PC^2 summary table of 131 teams, but our current copy is an empty script-driven page with no table. |
+| tianjin-2010 | https://acm.sdut.edu.cn/acmss/icpc/2010/tianjin/index.html | standings | correct → scoreboard (high) | wrong-contest | Table of 131 team rows A to J titled 2010 天津赛区现场赛 - Ranklist, the same ranking as source 2. |
+| togo-2016 | https://github.com/kitihounel/competitive-programming-africa/blob/mast | problemset | not-the-document (high) | not-the-document | The file named .pdf begins with <!DOCTYPE html> and its title is a GitHub page, competitive-programming-africa/togo/2016/problems-tgcpc-2016.pdf at master. |
+| togo-2017 | https://github.com/kitihounel/competitive-programming-africa/blob/mast | problemset | not-the-document (high) | not-the-document | The file named .pdf begins with <!DOCTYPE html> and its title is a GitHub page, competitive-programming-africa/west-africa/2017/problems-west-africa-2017.pdf at master. |
+| togo-2022 | https://www.scribd.com/document/557514016/TogoCPC-P | problemset | wrong-contest (medium) | wrong-contest | The Scribd page is titled '2021 Togolese Programming Contest Problems' and its summary names the 2021 Togolese Collegiate Programming Contest, November 2021. |
+| torneo-chileno-2019 | https://ingenieria.uchile.cl/noticias/estudiantes-de-la-u-de-chile-gan | web | cannot-tell (low) | cannot-tell | Our copy holds 149 JPEG and PNG image files and no HTML or text page, so the article the address names cannot be read. |
+| tunisia-2022 | https://codeforces.com/gym/105020/standings | scoreboard | not-the-document (high) | not-the-document | The standings table in the page has the headings # Who Penalty A to N and a single row reading 'No items'. |
+| tunisia-2022 | https://codeforces.com/gym/105020/my | standings | not-the-document (high) | wrong-contest | Codeforces gym 105020 'My submissions' (Status) page for TCPC Tunisian Collegiate Programming Contest 2022 with an empty submissions table ('No items') and no standings. |
+| tunisia-2024 | https://codeforces.com/blog/entry/135324 | standings | wrong-contest (medium) | wrong-contest | Codeforces blog post titled ACPC 2024 qualified teams list, listing teams with country, university, members and rating for the Arab and African contest, not TCPC participants. |
+| tunisia-2024 | https://codeforces.com/gym/105020/my | standings | wrong-contest (high) | wrong-contest | Codeforces gym 105020 status page titled TCPC Tunisian Collegiate Programming Contest 2022, with an empty submissions table. |
+| tunisia-2025 | https://acpcsb.acpc.global/TCPC2025/TCPC.html | web+scoreboard | correct → frozen_scoreboard (medium) | correct → frozen_scoreboard | PC^2 scoreboard titled TCPC with 47 ranked team rows and per-problem cells A to N, last updated at 15:27 GMT on 5 July 2025 with a leader on 8 solved against 10 in the full standings of the same contest. |
+| tunisia-2025 | https://acpcsb.acpc.global/TCPC2025/all.html | web | correct → frozen_scoreboard (medium) | correct → frozen_scoreboard | PC^2 summary scoreboard titled The 2025 ICPC Tunisian Collegiate Programming Contest with 56 ranked team rows, last updated at 15:27 GMT on 5 July 2025 with a leader on 8 solved against 10 in the full standings of the sa |
+| tunisia-2025 | https://codeforces.com/blog/entry/145458 | standings | wrong-contest (medium) | correct →  | Codeforces blog post titled ACPC 2025 Qualified Teams List, listing teams with country, university and members of the Arab and African contest, not TCPC standings. |
+| turkey-2010 | https://icpc.baylor.edu/regionals/finder/Turkey-2011 | web | not-the-document (high) | none | The seed is a Facebook login page with a 2007 copyright line and the other pages are Facebook and Codeforces front pages (one a Codeforces profile page); none mentions Turkey or Ankara. |
+| turkey-2010 | https://codeforces.com/blog/inzva | web | correct → no role (high) | correct →  | Codeforces blog page of the inzva group with two 2019 entries, nothing about a 2010 Turkey contest. |
+| turkey-2020 | https://algotester.com/en/Contest/ViewScoreboard/60345 | scoreboard | not-the-document (high) | not-the-document | Algotester page 'Qualification Round / Scoreboard' whose scoreboard tables have no rows and no data cells in the raw file. |
+| turkey-2020 | https://algotester.com/en/Contest/ViewScoreboard/60350 | scoreboard | not-the-document (high) | not-the-document | Algotester page 'Final Contest / Scoreboard' whose scoreboard tables have no rows and no data cells in the raw file. |
+| turkey-2022 | https://www.algoleague.com/contest/online-programming-contest-2022/lea | scoreboard | not-the-document (high) | not-the-document | The copy is a generic algoleague front page of 293 characters of text with a platform tagline and no leaderboard. |
+| ukiepc-2013 | https://ukiepc.info/2013/scoreboard/ | scoreboard | wrong-contest (high) | not-the-document | The copy is the UKIEPC series homepage announcing UKIEPC 2026 on 17th October, with a past-contests list, not a 2013 scoreboard. |
+| ukiepc-2016 | http://ukiepc.info/2015/ | scoreboard+problemset | wrong-contest (high) | wrong-contest | The copy is the UKIEPC 2015 page: it states 24th October 2015, 150 teams and 12 locations. |
+| ukiepc-2023 | https://open.kattis.com/problem-sources/UKIEPC%202023 | problemset | not-the-document (high) | not-the-document | The Kattis page titled Problems from UKIEPC 2023 shows an empty table with the text No data found. |
+| ukraine-2011 | http://olymp.sumdu.edu.ua/standings.php | scoreboard | not-the-document (high) | correct → scoreboard | The earlier reader recorded a table of about 173 teams with columns A to L, but the copy we hold now has no table, only the text 'Tournament has not started'. |
+| ukraine-2013 | https://nau.edu.ua/site/variables/docs/docsmenu/studnauka/NMO-955%20%D | web | correct → no role (high) | correct →  | Word document is Ministry order No. 955 of 11.07.2013 on the results of the 2012/2013 student olympiads in all subjects, with no mention of this contest. |
+| ukraine-2014 | https://vntu.edu.ua/uk/acm/auspc-2/auspc2014/res.html | web | correct → no role (high) | correct →  | The page body holds only links named RESULTS and Results Center, East, South, Kyiv, West, with no results data. |
+| ukraine-2017 | https://vntu.edu.ua/uk/acm/auspc-2/2017/17.html | web+rankings | correct → no role (medium) | correct →  | The page is a Vinnytsia National Technical University site page titled results2017 whose content is six links labelled by region, with no results data or contest name on it. |
+| ukraine-2017 | https://www.kit.ontu.edu.ua/upload/file/olympics/student/1.pdf | standings | wrong-contest (high) | wrong-contest | The 41-page PDF is a report on the final (third stage) of the All-Ukrainian student programming olympiad held at the Odessa National Academy of Food Technologies on 9-11 October 2017, not the 16 September 2nd stage. |
+| ukraine-2018 | https://www.facebook.com/au.acm.icpc | web | not-the-document (high) | not-the-document | The copy is a Facebook page shell whose only visible text is the page name All-Ukrainian Collegiate Programming Contest, with no posts or contest content. |
+| ukraine-2018 | http://old.research.lnu.edu.ua/docs/nakaz-mon-2018-08-13_902.doc | web | correct → no role (high) | correct →  | The Word file is an order of the Ministry of Education and Science of Ukraine dated 13 August 2018, no. 902, on the results of the 2017/2018 All-Ukrainian student olympiad, not a document of this contest. |
+| ukraine-2018 | https://www.facebook.com/au.acm.icpc/photos/pcb.2182446695159419/21824 | standings | not-the-document (high) | not-the-document | The copy is the Facebook log-in page, with a log-in form and a QR code, and no photo or standings. |
+| ukraine-2018 | https://www.kit.ontu.edu.ua/upload/file/olympics/student/2.pdf | standings | wrong-contest (high) | wrong-contest | The 40-page PDF is a report on the final of the second group of the All-Ukrainian student programming olympiad held at the Odessa National Academy of Food Technologies on 10-12 October 2018, not the 15 September 2nd stag |
+| ukraine-2019 | http://acmallukrainian.ho.ua/2019/3/standings.html | standings | wrong-contest (high) | wrong-contest | The page is headed 'Southeastern Europe Regional Programming Contest Bucharest - Vinnytsya, October 19, 2019' with 98 teams from several countries and problems A to K; it is the SEERC board, not the Ukrainian second stag |
+| ukraine-2022 | https://acmallukrainian.ho.ua/2022/3/standings.html | standings | wrong-contest (high) | wrong-contest | Scoreboard headed 'Southeastern Europe Regional Programming Contest Bucharest - Vinnytsya, December 10, 2022' with 153 teams and problems A to N, which is SEERC 2022 (seerc-2022). |
+| ukraine-2022 | https://eolymp.com/contests/tp7qkhk9a95mvdkneti6o1obg4 | problemset | not-the-document (medium) | confirm | The earlier reader confirmed it as a problem set; the copy is a sign-in-required landing page with contest times and a count of 12 problems but no problems, so it is not a problem set. |
+| ukraine-2023 | https://acmallukrainian.ho.ua/2023/4/standings.html | standings | wrong-contest (high) | wrong-contest | Scoreboard headed 'Southeastern Europe Regional Programming Contest Bucharest - Lviv, December 9, 2023' with 126 teams and problems A to M, which is SEERC 2023 (seerc-2023). |
+| ukraine-2024 | https://icpc2024.algotester.com/uk/Contest/ViewScoreboard/4?showUnoffi | standings | not-the-document (high) | not-the-document | Algotester scoreboard page titled 'Ukrainian National Programming Contest 2024 - Stage 2' whose table has no rows (0 tr elements in the raw page). |
+| ukraine-2024 | https://icpc2024.algotester.com/uk/Contest/ViewScoreboard/8?group=32&s | standings | not-the-document (high) | not-the-document | Algotester scoreboard page titled 'SEERC 2024' (Site: Lviv) whose table has no rows, and it names another contest. |
+| ukraine-2024 | https://icpc.algotester.com/uk/Contest/ViewScoreboard/2?group=2&groupE | standings | wrong-contest (high) | wrong-contest | Algotester page of the Всеукраїнська студентська олімпіада з програмування 2025, with a schedule starting on Friday 12 December and a link to the 2025 results, not a scoreboard of 2024. |
+| ukraine-2024 | https://icpc.algotester.com/en/Contest/ViewScoreboard/3?group=1&groupE | standings | wrong-contest (high) | wrong-contest | Algotester page of the Всеукраїнська студентська олімпіада з програмування 2025, with a schedule starting on Friday 12 December and a link to the 2025 results, not a scoreboard of 2024. |
+| ukraine-2024 | https://icpc.algotester.com/uk/Contest/ViewScoreboard/4?group=2 | standings | wrong-contest (high) | wrong-contest | Algotester page of the Всеукраїнська студентська олімпіада з програмування 2025, with a schedule starting on Friday 12 December and a link to the 2025 results, not a scoreboard of 2024. |
+| ukraine-2025 | https://icpc2025.algotester.com/uk/Contest/ViewScoreboard/20019?showUn | standings | not-the-document (high) | not-the-document | The page is titled 'Ukrainian National Programming Contest 2025 - Stage 2 / Scoreboard' and its table has no rows; the data is filled in by script. |
+| ukraine-2025 | https://icpc2025.algotester.com/uk/Contest/ViewScoreboard/10014?showUn | standings | not-the-document (high) | not-the-document | The page is titled 'Першість України з програмування 2025 - 1 етап / Scoreboard' and its table has no rows; the data is filled in by script. |
+| ukraine-2025 | https://icpc2025.algotester.com/uk/Contest/ViewScoreboard/30022 | standings | not-the-document (high) | not-the-document | The page is titled 'SEERC 2025 / Scoreboard' and its table has no rows; the data is filled in by script. |
+| ukraine-2025 | https://icpc.algotester.com/uk/Contest/ViewScoreboard/4?group=2 | standings | correct → web (high) | wrong-contest | The earlier reader gave no role (not a source of 2025 as a scoreboard); this page is the olympiad's home page, which is a web source of this edition. |
+| ukraine-2025 | https://icpc.algotester.com/en/Contest/ViewScoreboard/3?group=1&groupE | standings | correct → web (high) | wrong-contest | The earlier reader gave no role (not a source of 2025 as a scoreboard); this page is the olympiad's home page, which is a web source of this edition. |
+| ukraine-2025 | https://icpc.algotester.com/uk/Contest/ViewScoreboard/2?group=2&groupE | standings | correct → web (high) | wrong-contest | The earlier reader gave no role (not a source of 2025 as a scoreboard); this page is the olympiad's home page, which is a web source of this edition. |
+| urals-1998 | https://sp.urfu.ru/history/urfu_neerc.html | web | confirm (medium) | wrong-contest | The earlier reader judged the UrFU history seed page, which is about the NEERC semifinal; the crawl also holds the 1998 Ural championship site (chu/1998), which is a page set of this edition. |
+| urals-1998 | https://sp.urfu.ru/history/ural_neerc.html | web | correct → no role (high) | correct →  | A table of 26 Ural universities with total participations and diplomas at ICPC semifinals 1996-2019 and no per-year data about 1998. |
+| urals-2001 | https://sp.urfu.ru/history/urfu_neerc.html | web | confirm (high) | wrong-contest | The earlier reader judged only the UrFU history seed page, about the NEERC semifinal; the crawl also holds the 2001 Ural Championship site, which is a site of this edition. |
+| urals-2001 | https://www.kgeorgiy.info/papers/Vasilev_VN__Kazakov_MA__Korneev_GA__P | web | wrong-contest (high) | wrong-contest | The paper reports the 2001-2002 NEERC semifinal in St Petersburg and names the Ural quarterfinal only in a list of the eight quarterfinal groups. |
+| urals-2013 | https://sp.urfu.ru/qf/2013/players.html | teams | not-the-document (high) | none | The page 'Список участников' holds only a heading and a script that loads the team list from another server into an empty frame; no team appears in our copy. |
+| urals-2014 | https://sp.urfu.ru/qf/2014/players.html | teams | not-the-document (high) | none | The page 'Список участников' holds only a heading and a script that loads the team list from another server into an empty frame; no team appears in our copy. |
 
-## Contest facts: 493 that fill a blank or differ
+## Contest facts: 522 that fill a blank or differ
 
 | contest | fact | document says | catalogue | confidence | applied | where it is stated |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -1417,6 +1494,29 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | taiwan-2024 | location | Gymnasium, Asia University | Taichung Taiwan; Foreign teams; Administrative Sit | high | no | The front page gives the place as the Gymnasium, Asia University (亞洲大學體育館). |
 | taiwan-2025 | date | 2025-11-16 | 2025-11-17 | high | no | Front page: contest time 9:30 AM to 2:30 PM on November 16, 2025. |
 | tap-2013 | location | Bahía Blanca, Buenos Aires, Córdoba, La Plata, Neuquén, Río  | Bahía Blanca | high | no | The post lists these eight host sites (Sedes) of the 5 October 2013 tournament. |
+| taurida-2020 | location | V.I. Vernadsky Crimean Federal University, Simferopol | Taurida NU; Administrative Site Location | high | no | The 2020 Taurida page names V.I. Vernadsky Crimean Federal University, Simferopol, pr. Akademika Vernadskogo 4. |
+| tehran-2001 | location | Sharif University of Technology, Tehran | Tehran | high | no | The home page says 'Hosted by Sharif University of Technology'. |
+| tehran-2003 | location | Sharif University of Technology, Tehran, Iran | Tehran, Iran; Internet | medium | no | The front page says 5th Asian Regional Contest in Iran, hosted by Sharif University of Technology, under the title Tehran Site. |
+| tehran-2015 | location | Sharif University of Technology, Tehran | Tehran | high | no | The site front page names the regional contest in Iran hosted by Sharif University of Technology, Department of Computer Engineering. |
+| tehran-2016 | location | Sharif University of Technology, Tehran | Tehran | high | no | The info page says the 18th Asian Regional Contest in Iran is hosted by Sharif University of Technology. |
+| tehran-2017 | location | Sharif University of Technology, Tehran | Tehran | high | no | The contest information page says the 19th Asian Regional Contest in Iran is hosted by Sharif University of Technology. |
+| tehran-2018 | location | Sharif University of Technology, Tehran | Tehran | high | no | The contest information page says the 20th Asian Regional Contest in Iran will be hosted by Sharif University of Technology. |
+| thailand-2014 | date | 2014-11-16 | 2014-11-15 | medium | no | The online judge contest page is headed The 2014 ACM-ICPC Asia Bangkok Regional Contest, November 16th, 2014. |
+| thailand-national-2015 | location | Mahidol University, Salaya, Nakhon Pathom | Bangkok | high | no | The article says the contest was held on 22-23 October 2015 at Mahidol University, Salaya, Nakhon Pathom. |
+| thailand-national-2024 | date | 2024-09-08 | 2024-11-16 | high | no | The schedule page lists the contest session on 8th September 2024, 9:00 AM to 2:00 PM, and the tutorial slides are dated 8th September 2024. |
+| togo-2016 | location | Ecole Superieure de Gestion, d'Informatique et de Sciences ( | Lome, Togo; Administrative Site Location | medium | no | The one-page report inside the site gives the location as ESGIS. |
+| tunisia-2024 | location | Hammamet | unoffcial; Tunisia; Administrative Site Location | medium | no | The post says the 2024 edition was held on 4 and 5 September in Hammamet. |
+| turkey-2026 | location | Beykoz Kundura, Istanbul | (sites) | high | no | The report says the finalists came together at Beykoz Kundura for the final weekend. |
+| ukraine-2017 | date | 2017-09-16 | 2017-09-17 | high | no | The page is headed 2nd Stage Ukraine, September 16, 2017, and the problem set cover also reads September 16, 2017. |
+| ukraine-2018 | date | 2018-09-15 | 2018-09-16 | high | no | The scoreboard page is headed 2nd Stage Ukraine, September 15, 2018, and the problem set cover reads 15 вересня 2018. |
+| ukraine-2019 | date | 2019-09-14 | 2019-09-15 | high | no | The scoreboard heading reads 'September 14, 2019' and the problem set and Northern report are dated 14 September 2019. |
+| ukraine-2021 | date | 2021-10-16 | 2021-11-05 | high | no | The scoreboard heading reads 'October 16, 2021' and the problem set, editorial and report give 16 October 2021. |
+| ukraine-2023 | date | 2023-10-28 | 2023-11-15 | high | no | The scoreboard heading reads 'October 28, 2023', and the problem set cover (source 3) gives the same date. |
+| urals-2008 | date | 2008-11-01 | 2008-11-02 | medium | no | The timetable page puts the main round (Основной тур) on 01.11.2008, while the front page gives the event as 30 October - 2 November 2008. |
+| urals-2011 | date | 2011-10-29 | 2011-10-28 | high | no | The problem set PDF header reads 'Yekaterinburg, October 29, 2011' and the website timetable puts the main round on 29.10.2011. |
+| urals-2012 | date | 2012-10-20 | 2012-10-19 | high | no | The PDF header reads 'Yekaterinburg, October 20, 2012' and the site timetable puts the main round on 20.10.2012. |
+| urals-2013 | location | Ural Federal University, Yekaterinburg | Ekaterinburg; Administrative Site Location | high | no | The general information page says the subregion's quarterfinal is held at Ural Federal University in Yekaterinburg. |
+| urals-2014 | location | Ural Federal University, Yekaterinburg, and Izhevsk State Te | Administrative Site Location; Ekaterinburg | high | no | The general information page names Ural Federal University (Yekaterinburg) and Izhevsk State Technical University (Izhevsk) as organisers and says the contest r |
 | alberta-2006 | location | University of Alberta, University of Calgary and University  | — | medium | no | the problem index says the contest is a joint effort of the three universities. |
 | bapc-prelims-2025 | date | 2025-09-20 | — | medium | no | The preliminaries page lists the local contests under the dates 20 September, 26 September and 27 September 2025 and says they run between the 20th and 28th. |
 | brazil-first-phase-1996 | location | DCC-UFMG, Belo Horizonte | — | medium | no | The history page says the first Maratona was organised at the Federal University of Minas Gerais, under the heading Belo Horizonte. |
@@ -1448,8 +1548,14 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | south-america-north-2020 | date | 2021-07-10 | — | medium | no | The cover of the problem set reads 'July 10, 2021' under 'Contest Session'. |
 | south-america-north-2022 | date | 2023-03-18 | — | medium | no | The cover of the problem set reads 'March 18, 2023' under 'Contest Session'. |
 | south-russia-2005 | location | Saratov State University | — | medium | no | The Codeforces page says the contest is hosted by Saratov State U. |
-| swerc-1996 | date | 1996-11-16 | — | high | yes | The heading of the problem set reads 'ETH Zürich, November 16, 1996'; the ranklist says the contest was held on the 16th of November 1996. |
-| swerc-1996 | location | ETH Zürich | — | high | yes | The contest report says it was held at ETH Zürich. |
-| swerc-2024 | date | 2024-12-01 | — | high | yes | The main problem set cover reads 'Lisbon, Lyon, Pisa, Dec 1st, 2024' and each site's schedule lists the contest on Sunday 1 December. |
-| swerc-2025 | date | 2025-11-23 | — | high | yes | the cover of the statements reads 'Lisbon, Lyon, Pisa, Nov 23rd, 2025' |
-| tap-2026 | date | 2026-08-29 | — | high | yes | The seed page says the 16th TAP is on Saturday 29 August 2026. |
+| thailand-national-2024 | location | Faculty of Engineering, Chulalongkorn University, Bangkok | — | high | yes | The home and schedule pages give Faculty of Engineering, Chulalongkorn University, 254 Phayathai Road, Bangkok as the location. |
+| ukiepc-2024 | date | 2024-10-19 | — | high | yes | The page headed UKIEPC 2024 reads Saturday 19th October. |
+| ukiepc-2025 | date | 2025-10-18 | — | high | yes | The page reads 'UKIEPC 2025 Saturday 18th October' and the slides are dated 18th October 2025. |
+| ukraine-2025 | date | 2025-11-09 | — | medium | no | Every page of the problem set PDF is headed 'Stage 2 - November 9, 2025'. |
+| urals-2001 | location | Perm State University, Perm | — | high | yes | The information page says the championship was held at Perm State University. |
+| urals-2003 | date | 2003-04-23 | — | medium | no | The round 1 results page of the championship site is headed '23 апреля 2003'; the event ran 21-26 April and round 2 was on 25 April. |
+| urals-2003 | location | South Ural State University, Chelyabinsk | — | high | yes | The round 1 results page names Chelyabinsk and South Ural State University. |
+| urals-2006 | date | 2006-10-28 | — | high | yes | The timetable page lists the main round (Основной тур) on 28.10.06 after a practice round on 27.10.06. |
+| urals-2006 | location | Yekaterinburg | — | high | yes | The site has a page of leisure suggestions in Yekaterinburg and source 4 names Yekaterinburg in its title. |
+| urals-2007 | date | 2007-10-27 | — | high | yes | The timetable page lists the main round (Основной тур) on 27.10.07 after a practice round on 26.10.07. |
+| urals-2007 | location | Yekaterinburg | — | high | yes | The site has a page of leisure suggestions in Yekaterinburg and source 4 names Yekaterinburg in its title. |
