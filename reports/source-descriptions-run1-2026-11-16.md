@@ -4,33 +4,32 @@ Run of 2026-11-16, rubric 1 (`tools/describe_rubric.md`). Applied.
 
 | | |
 | --- | --- |
-| contests read | 1,712 |
+| contests read | 1,840 |
 | contests with nothing held | 75 |
-| sources | 8,680 |
-| no copy | 1,069 |
-| read | 7,611 |
-| first readings | 572 |
-| described | 7,235 |
+| sources | 9,308 |
+| no copy | 1,128 |
+| read | 8,180 |
+| first readings | 604 |
+| described | 7,745 |
 | description held (low confidence or source gone) | 9 |
-| verdict confirm | 6,902 |
-| verdict correct | 342 |
-| verdict not-the-document | 228 |
-| verdict wrong-contest | 130 |
+| verdict confirm | 7,396 |
+| verdict correct | 358 |
+| verdict not-the-document | 237 |
+| verdict wrong-contest | 180 |
 | verdict cannot-tell | 9 |
-| disagrees with the earlier reader | 116 |
-| blank date filled | 1 |
-| blank location filled | 3 |
-| contest facts fills-blank | 21 |
-| contest facts conflict | 376 |
-| contest facts same | 329 |
-| contest facts listed | 1,224 |
+| disagrees with the earlier reader | 132 |
+| blank date filled | 6 |
+| contest facts fills-blank | 34 |
+| contest facts conflict | 403 |
+| contest facts same | 334 |
+| contest facts listed | 1,307 |
 | words per description | 104 |
 
-Not finished: 681 contests: seusa-2013, seusa-2014, seusa-2015, seusa-2016, seusa-2017, seusa-2018, seusa-2019, seusa-2020, seusa-2021, seusa-2022, seusa-2023, seusa-2024, seusa-2025, seusa-2026, shanghai-1996, shanghai-1997, shanghai-2000, shanghai-2001, shanghai-2004, shanghai-2006, shanghai-2009, shanghai-2011, shanghai-2014, shanghai-2015, shanghai-2019, shanghai-2020, shanghai-2021, shanghai-2022, shanghai-2023, shanghai-2025, shenyang-2016, shenyang-2017, shenyang-2018, shenyang-2019, shenyang-2020, shenyang-2021, shenyang-2022, shenyang-2023, shenyang-2024, shenyang-2025.
+Not finished: 553 contests: south-america-2007, south-america-north-2008, south-america-north-2009, south-america-north-2010, south-america-north-2011, south-america-north-2012, south-america-north-2013, south-america-north-2014, south-america-north-2015, south-america-north-2016, south-america-north-2017, south-america-north-2018, south-america-north-2019, south-america-north-2020, south-america-north-2021, south-america-north-2022, south-america-north-2023, south-america-north-2024, south-america-north-2025, south-america-north-2026, south-america-south-2008, south-america-south-2009, south-america-south-2010, south-america-south-2011, south-america-south-2012, south-america-south-2013, south-america-south-2014, south-america-south-2015, south-america-south-2016, south-america-south-2017, south-america-south-2018, south-america-south-2019, south-america-south-2020, south-america-south-2021, south-america-south-2022, south-america-south-2023, south-america-south-2024, south-america-south-2025, south-america-south-2026, south-na-2022.
 Results that do not check: 0.
 
 
-## Second reading: 742 sources to look at
+## Second reading: 830 sources to look at
 
 The reader did not confirm the catalogue, or disagrees with the content check of 2026-11-14. Nothing here was applied.
 
@@ -778,8 +777,96 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | seusa-2002 | http://faculty.erau.edu/collinsj/score.html | scoreboard | not-the-document (high) | not-the-document | The copy is the Embry-Riddle page 'Faculty member not found', not a scoreboard. |
 | seusa-2002 | http://faculty.erau.edu/collinsj/Results.html | problemset | not-the-document (high) | none | The copy is the Embry-Riddle page 'Faculty member not found', not the results page. |
 | seusa-2012 | http://cs.fit.edu/~ryan/icpc/ser2012/ser2012_scoreboard.pdf | scoreboard+standings | correct → scoreboard (high) | correct → scoreboard | 9-page PDF 'Scoreboard 2012 ACM ICPC Southeast USA Region' with a Division I board (A1 to J1) and a Division II board (A2 to J2) showing attempts and times per problem. |
+| seusa-2015 | http://ser.cs.fit.edu/ | standings | correct → no role (high) | correct →  | The copy is the series home page headed for the contest of Saturday, 3 November 2018, with a list of past contests, and holds no results of 2015. |
+| shanghai-2004 | http://acm.sjtu.edu.cn/ | web | confirm (high) | correct →  | The earlier reader found only a general team site that hosts a few 2004 files, but our copy also holds the host's own 2004 contest pages (rules, organisation, schedule, registration, news, results). |
+| shanghai-2009 | http://acm.dhu.edu.cn/erank.html | standings | correct → no role (high) | correct →  | The 3 KB page DHU-ACM Rankings consists of links to school, onsite and online ranking pages and the 30 May 2009 Invitational lists, with no team data. |
+| shanghai-2014 | http://board.acmicpc.info/icpc2014/shu_onsite.php | scoreboard | wrong-contest (medium) | wrong-contest | The board is titled 2014 上海赛区现场赛 but states a start of 2014-11-23 09:00 and holds 11 problems A to K, while the Shanghai onsite contest ran on 2014-12-07 with 12 problems; 2014-11-23 is the date the board's own menu give |
+| shanghai-2019 | https://ac.nowcoder.com/acm/contest/4370 | problemset | not-the-document (high) | not-the-document | The saved NowCoder page shows a loading placeholder and menus, and its embedded data holds only the contest's name, signup count and a prize notice, with no problem list. |
+| shanghai-2020 | https://ac.nowcoder.com/acm/contest/9925 | problemset | not-the-document (high) | not-the-document | The saved NowCoder page shows a loading placeholder with menus and footer and no problem list; its embedded data has only the contest name and general rules. |
+| shanghai-2021 | https://ac.nowcoder.com/acm/contest/24872 | problemset | not-the-document (high) | not-the-document | The saved NowCoder page shows a loading placeholder with menus and footer; its embedded data holds the contest name, organizer, sign-up count and a rules text, with no problems. |
+| shanghai-2022 | https://qoj.ac/contest/1197 | problemset | confirm (medium) | not-the-document | The earlier reader saw a QOJ.ac login form, but our copy now holds the contest dashboard with the problem list. |
+| shanghai-2023 | https://contest.ucup.ac/contest/1522?v=1 | web | correct → problemset (medium) | wrong-contest | The earlier reader judged the copy to belong to another contest (the East Continent Final), but the East Continent Final dashboard is the page kept for Shanghai-2023, as Shanghai-2022 is kept for the 2022 East Continent  |
+| shanghai-2023 | https://codeforces.com/blog/entry/125968 | web | correct → report (medium) | wrong-contest | The earlier reader judged the entry to belong to another contest, but it names the 2023 ICPC Asia East Continent Final Contest held in Shanghai as the basis of the stage and reports its team count. |
+| shanghai-2023 | https://contest.ucup.ac/contest/1522/standings?v=1 | standings | confirm (medium) | not-the-document | The earlier reader found an empty standings table, but the table is filled by a script from standings data that is embedded in the page source. |
+| shenyang-2020 | https://ac.nowcoder.com/acm/contest/18713 | problemset | confirm (medium) | not-the-document | The earlier reader judged the copy an empty site shell; the copy's embedded page data does carry the replay contest's name and introduction, though no problems. |
+| shenyang-2021 | https://ac.nowcoder.com/acm/contest/24346 | problemset | confirm (medium) | not-the-document | The earlier reader judged the copy an empty site shell; the copy's embedded page data does carry the contest's name and regulations, though no problems. |
+| shenyang-2026 | https://board.xcpcio.com/icpc/51st/shenyang | scoreboard | not-the-document (high) | none | The page holds only its title and a tag-manager frame; no standings or any contest content is in it. |
+| shenyang-2026 | https://board.xcpcio.com/data/icpc/51st/shenyang/config.json | scoreboard | correct → no role (medium) | none | JSON settings file naming The "Huawei Cup" 51st ICPC Asia Shenyang Regional Contest, with the problems A to M, medal numbers and groups, and no results. |
+| shenyang-2026 | https://board.xcpcio.com/data/icpc/51st/shenyang/organizations.json | teams | correct → no role (medium) | none | JSON list of 241 organizations, each with an id, a name and mostly an ICPC id; no teams or results. |
+| singapore-2018 | https://www.comp.nus.edu.sg/~acmicpc/ | web | correct → no role (high) | correct →  | The ten saved pages are all captures of the NUS School of Computing home page, from older layouts to 2018 and later ones; only one capture (news up to 5 December 2018) mentions ICPC, a news item about the Jakarta and Nak |
+| slovenia-2009 | http://upm.fri.uni-lj.si/ | web | wrong-contest (medium) | none | The 149 pages are the ACM Tekmovanja site (Bober, RTK, UPM) with news and event pages from 2011 onward, and nothing in them is about the 2009 UPM contest; the only occurrence of 2009 is a link to an RTK 2009 bulletin. |
+| slovenia-2009 | https://tekmovanja.acm.si/?q=upm/zgodovina-upm | web | correct → no role (medium) | correct →  | Page 'Zgodovina UPM' lists the years 2012 to 2025 and has no content about 2009. |
+| slovenia-2010 | http://upm.fri.uni-lj.si/ | web | wrong-contest (high) | none | The 150 pages are the ACM Tekmovanja site (Bober, RTK and UPM sections); its UPM pages are of 2012 and of later years, and no page is about the 2010 contest. |
+| slovenia-2010 | https://tekmovanja.acm.si/?q=upm/zgodovina-upm | web | correct → no role (medium) | correct →  | The page is the history index of the UPM site, listing the years 2012 to 2025 as links, with no entry for 2010. |
+| slovenia-2011 | http://www.upm.si:80/listTeams | teams | wrong-contest (high) | none | The copy of the team list is the page as it stood on 2007-06-18, four years before the 2011 contest, in the old site design with a Zgodovina link. |
+| slovenia-2012 | http://tekmovanja.acm.si/upm | web | wrong-contest (high) | correct →  | The 150 files are the ACM Tekmovanja site, mostly Bober pages, with UPM pages of 2019 and later years; no page is about the 2012 UPM contest. |
+| slovenia-2012 | https://tekmovanja.acm.si/?q=upm/rezultati-2012 | standings | wrong-contest (high) | not-the-document | The page at the rezultati-2012 address is the UPM front page with news of the 2026 season (warm-up round on 12 February 2026), not a 2012 results page. |
+| slovenia-2013 | https://tekmovanja.acm.si/?q=upm/zgodovina/2013 | web | confirm (medium) | correct →  | The earlier reader gave roles [] as the copy is mostly Bober pages; the site front page of 2013-08-09 in our copy does carry the news and the event list of UPM 2013. |
+| slovenia-2014 | https://tekmovanja.acm.si/?q=upm/2014 | web | confirm (medium) | correct →  | The earlier reader gave roles [] because only a registration page was seen; the front pages of 2014-07-19 and 2014-11-18 also carry the news of the 2014 rounds and the final of 11 October 2014. |
+| slovenia-2015 | https://tekmovanja.acm.si/?q=upm/2015 | web | confirm (medium) | correct →  | The earlier reader gave roles [] as the copy is mostly Bober pages and the registration page is of 2016; the front pages in our copy carry the news of UPM 2015. |
+| slovenia-2016 | https://tekmovanja.acm.si/?q=upm/2016 | web | confirm (medium) | correct →  | The earlier reader found no page about the 2016 edition, but the copy holds the UPM 2016 registration form and front pages with UPM 2016 round announcements. |
+| slovenia-2017 | https://tekmovanja.acm.si/?q=upm/2017 | web | confirm (medium) | correct →  | The earlier reader found no page about the 2017 edition, but the copy holds the UPM 2017 registration form, a calendar and a front page announcing UPM 2017 rounds. |
+| socal-1989 | http://www.socalcontest.org/history/ | web | wrong-contest (high) | correct →  | The copy is the history section of socalcontest.org with pages for 1995 to 2018 (seed is the 2001 problem set) and no page or file about the 1989 contest. |
+| socal-1990 | http://www.socalcontest.org/history/1990/results-1990.shtml | web | not-the-document (high) | none | The copy is the front page of the Internet Archive as captured in January 1997 and January 1998 (title The Internet Archive, with a mission text and links to its board and news pages), with nothing about the Southern Cal |
+| socal-1991 | http://www.socalcontest.org/history/1991/results-1991.shtml | web | not-the-document (high) | none | The copy is the front page of the Internet Archive as captured in January 1997 and January 1998 (title The Internet Archive, with a mission text and links to its board and news pages), with nothing about the Southern Cal |
+| socal-1992 | https://archive.org/details/ucladailybruin131losa | web | not-the-document (high) | correct →  | The copy is the front page of the Internet Archive as captured in January 1997 and January 1998 (title The Internet Archive, with a mission text and links to its board and news pages), with nothing about the Southern Cal |
+| socal-1993 | http://www.socalcontest.org/history/1993/results-1993.shtml | web | not-the-document (high) | none | The copy is the front page of the Internet Archive as captured in January 1997 and January 1998 (title The Internet Archive, with a mission text and links to its board and news pages), with nothing about the Southern Cal |
+| socal-1994 | https://guides.library.ucla.edu/news/dailybruin | web | not-the-document (high) | correct →  | The page is a UCLA Library research guide on the UCLA Daily Bruin, listing microfilm reels by date, with no mention of the contest. |
+| socal-1995 | http://socalcontest.org/current/index.shtml | web | wrong-contest (high) | correct →  | The copy is the series site's front page headed '2021/2022 Contest: 26-Feb-2022 In-person, onsite at Riverside City College'; the 150 fetched files hold no page of the 1995 edition, only a Hall of Champions row for 1995- |
+| socal-1996 | http://socalcontest.org/current/index.shtml | web | wrong-contest (high) | correct →  | The copy is the series site's front page headed '2021/2022 Contest: 26-Feb-2022 In-person, onsite at Riverside City College'; the 150 fetched files hold no page of the 1996 edition, only a Hall of Champions row for 1996- |
+| socal-1997 | http://socalcontest.org/current/index.shtml | web | wrong-contest (high) | correct →  | The copy is the series site's front page headed '2021/2022 Contest: 26-Feb-2022 In-person, onsite at Riverside City College'; the 150 fetched files hold no page of the 1997 edition, only a Hall of Champions row for 1997- |
+| socal-1998 | http://socalcontest.org/current/index.shtml | web+scoreboard | wrong-contest (high) | correct →  | The copy is the series site's front page headed '2025/2026 Contest: 16-Nov-2024 at Riverside City College' with a Hall of Champions table; it is not a 1998 scoreboard. |
+| socal-1999 | http://socalcontest.org/current/index.shtml | web+scoreboard | wrong-contest (high) | correct →  | The copy is the series site's front page headed '2025/2026 Contest: 16-Nov-2024 at Riverside City College' with a Hall of Champions table; it is not a 1999 scoreboard. |
+| socal-2000 | http://socalcontest.org/current/index.shtml | web+scoreboard | correct → no role (high) | correct →  | The copy is the series front page headed '2025/2026 Contest: 16-Nov-2024 at Riverside City College', with no 2000 results on it. |
+| socal-2001 | http://socalcontest.org/current/index.shtml | web | wrong-contest (high) | correct →  | The seed page of our copy is the site's front page for the 2010 contest (13-Nov-2010 at Riverside Community College), all 150 pages lie under /current/ (subfolders 2019 to 2024), and 2001 appears only as the row 2001-02  |
+| socal-2002 | http://socalcontest.org/current/index.shtml | web | wrong-contest (high) | correct →  | The seed page is the site's front page for the 2010 contest (13 November 2010) and the saved pages are its current-edition pages (2020-21 to 2024-25 bulletins, rules, schedule, 2021/2022 contest of 26 February 2022); 200 |
+| socal-2002 | http://socalcontest.acm.org/champs/summary-2002.html | standings | correct → web (medium) | correct → web | Short page titled 2002/2003 Southern California Regional Contest Results stating the contest date and participation and linking to the standings, detailed scoreboard and problem set, with no results table of its own. |
+| socal-2003 | http://socalcontest.org/current/index.shtml | web+scoreboard | wrong-contest (high) | correct →  | The saved page is the series site's current-edition page, headed 2025/2026 Contest: 16-Nov-2024 at Riverside City College, with only a history table of links to earlier years. |
+| socal-2004 | http://socalcontest.org/current/index.shtml | web+scoreboard | wrong-contest (high) | wrong-contest | The page is headed '2025/2026 Contest: 16-Nov-2024 at Riverside City College' and its Hall of Champions table lists 2004-05 as one row among many years. |
+| socal-2005 | http://socalcontest.org/current/index.shtml | web+scoreboard | wrong-contest (high) | wrong-contest | The page is headed '2025/2026 Contest: 16-Nov-2024 at Riverside City College' and its Hall of Champions table lists 2005-06 as one row among many years. |
+| socal-2006 | http://socalcontest.org/current/index.shtml | web+scoreboard | wrong-contest (high) | wrong-contest | The page is headed '2025/2026 Contest: 16-Nov-2024 at Riverside City College' and its Hall of Champions table lists 2006-07 as one row among many years. |
+| socal-2007 | http://socalcontest.org/current/index.shtml | web+scoreboard | wrong-contest (high) | wrong-contest | The page is the series home page headed '2025/2026 Contest: 16-Nov-2024 at Riverside City College', with a table of past years. |
+| socal-2008 | http://socalcontest.org/current/index.shtml | web+scoreboard | wrong-contest (high) | wrong-contest | The page is the series home page headed '2025/2026 Contest: 16-Nov-2024 at Riverside City College', with a table of past years. |
+| socal-2009 | http://socalcontest.org/current/index.shtml | web+scoreboard | wrong-contest (high) | wrong-contest | The page is the series home page headed '2025/2026 Contest: 16-Nov-2024 at Riverside City College', with a table of past years. |
+| socal-2010 | http://socalcontest.org/current/index.shtml | web+scoreboard | wrong-contest (high) | wrong-contest | The page is headed '2025/2026 Contest: 16-Nov-2024 at Riverside City College' and is the series homepage of a later year, with only a table of links to past years. |
+| socal-2011 | http://socalcontest.org/current/index.shtml | web+scoreboard | wrong-contest (high) | wrong-contest | The page is headed '2025/2026 Contest: 16-Nov-2024 at Riverside City College', the series homepage of a later year with a table of links to past years. |
+| socal-2012 | http://socalcontest.org/current/index.shtml | web+scoreboard | wrong-contest (high) | wrong-contest | The page is headed '2025/2026 Contest: 16-Nov-2024 at Riverside City College', the series homepage of a later year with a table of links to past years. |
+| socal-2013 | http://socalcontest.org/current/index.shtml | web+scoreboard | wrong-contest (high) | wrong-contest | The page is headed '2025/2026 Contest: 16-Nov-2024 at Riverside City College' and describes that season's registration and rehearsal; the 2013 edition appears only as a link in the Hall of Champions table. |
+| socal-2014 | http://socalcontest.org/current/index.shtml | web+scoreboard | wrong-contest (high) | wrong-contest | The page is headed '2025/2026 Contest: 16-Nov-2024 at Riverside City College' and describes that season's registration and rehearsal; the 2014 edition appears only as a link in the Hall of Champions table. |
+| socal-2015 | http://socalcontest.org/current/index.shtml | web+scoreboard | wrong-contest (high) | wrong-contest | The page is headed '2025/2026 Contest: 16-Nov-2024 at Riverside City College' and describes that season's registration and rehearsal; the 2015 edition appears only as a link in the Hall of Champions table. |
+| socal-2016 | http://socalcontest.org/current/index.shtml | web+scoreboard | wrong-contest (high) | wrong-contest | The page is headed '2025/2026 Contest: 16-Nov-2024 at Riverside City College' and describes that season's registration and rehearsal; the 2016 edition appears only as a link in the Hall of Champions table. |
+| socal-2017 | http://socalcontest.org/current/index.shtml | web+scoreboard | wrong-contest (high) | wrong-contest | The copy is the series homepage headed '2025/2026 Contest: 16-Nov-2024 at Riverside City College' with a Hall of Champions year table, not a 2017 document. |
+| socal-2018 | http://socalcontest.org/current/index.shtml | web+scoreboard | wrong-contest (high) | wrong-contest | The copy is the series homepage headed '2025/2026 Contest: 16-Nov-2024 at Riverside City College' with a Hall of Champions year table, not a 2018 document. |
+| socal-2019 | http://socalcontest.org/current/index.shtml | web+scoreboard | wrong-contest (high) | wrong-contest | The copy is the series homepage headed '2025/2026 Contest: 16-Nov-2024 at Riverside City College' with a Hall of Champions year table, not a 2019 document. |
+| socal-2020 | http://socalcontest.org/current/index.shtml | web+scoreboard | wrong-contest (high) | wrong-contest | The page heading reads 2025/2026 Contest: 16-Nov-2024 at Riverside City College, so it is the current-year page of the series, not the 2020/2021 contest. |
+| socal-2021 | http://socalcontest.org/current/index.shtml | web+scoreboard | wrong-contest (high) | wrong-contest | The heading reads 2025/2026 Contest: 16-Nov-2024 at Riverside City College, the current-year page of the series, not the 2021/2022 contest. |
+| socal-2022 | http://socalcontest.org/current/index.shtml | web+scoreboard | wrong-contest (high) | wrong-contest | The heading reads 2025/2026 Contest: 16-Nov-2024 at Riverside City College, the current-year page of the series, not the 2022/2023 contest. |
+| socal-2023 | http://socalcontest.org/current/index.shtml | web+scoreboard | wrong-contest (high) | wrong-contest | The page is the series homepage headed '2025/2026 Contest: 16-Nov-2024 at Riverside City College' with registration and rehearsal information for that later contest, and holds no scoreboard of the 2023 edition. |
+| south-africa-2000 | http://icpc.baylor.edu/past/icpc2001/regionals/SAfrica00/Problems.pdf | problemset | correct → problemset+standings+report (high) | correct → problemset+standings+report | 13-page PDF opening with 'Report on The 2000 ACM Southern Africa Programming Contest' with a top-6 table of problems solved and total time, followed by six problem statements, each with a sample. |
+| south-africa-2002 | http://www.cs.up.ac.za/acm/Standings.html | standings | correct → standings+frozen_scoreboard (medium) | correct → standings+frozen_scoreboard | The page holds a Final Standings table of 51 team rows plus per-site grids headed 'Standings as the contest was progressing (These have not been updated for approx the last hour)'. |
+| south-africa-2003 | http://acm.cs.up.ac.za/Previous/2003/index.html | web | confirm (high) | cannot-tell | The earlier reader found the Home page to be the 2001 contest page (15 September 2001); the Home page in our copy reads 2003 ACM South Africa Programming Contest, 18 October 2003. |
+| south-africa-2009 | http://acm.cs.up.ac.za/ | web+scoreboard | wrong-contest (high) | wrong-contest | The page is headed 'South Africa 2019' and says the 21st regional takes place on 27 October 2019, with 2019 rules, schedule and links to Files2019. |
+| south-africa-2010 | http://acm.cs.up.ac.za/ | web | wrong-contest (medium) | confirm | The earlier reader confirmed the site as the series site; I found no page of the 2010 edition, since the schedule, problem list and standings pages are those of 2011 and the front page is of 2012. |
+| south-africa-2012 | http://acm.cs.up.ac.za/ | web+scoreboard | wrong-contest (high) | wrong-contest | The page is headed South Africa 2019 and announces the 21st South African regional on 27 October 2019, with no mention of 2012. |
+| south-africa-2013 | http://acm.cs.up.ac.za/ | web+scoreboard | wrong-contest (high) | wrong-contest | The page is headed South Africa 2019 and announces the 21st South African regional on 27 October 2019, with no mention of 2013. |
+| south-africa-2014 | http://acm.cs.up.ac.za/ | web+scoreboard | wrong-contest (high) | wrong-contest | The page is headed South Africa 2019 and announces the 21st South African regional on 27 October 2019, with no mention of 2014. |
+| south-africa-2015 | http://acm.cs.up.ac.za/ | web+scoreboard | wrong-contest (high) | wrong-contest | The page is headed South Africa 2019 and announces the 21st South African regional on 27 October 2019, with no mention of 2015. |
+| south-africa-2016 | http://acm.cs.up.ac.za/ | web+scoreboard | wrong-contest (high) | wrong-contest | The page is headed 'South Africa 2019' and says the 21st South African regional takes place on 27 October 2019, with links to Files2019 documents. |
+| south-africa-2017 | http://acm.cs.up.ac.za/ | web+scoreboard | wrong-contest (high) | wrong-contest | The page is headed 'South Africa 2019' and says the 21st South African regional takes place on 27 October 2019, with links to Files2019 documents. |
+| south-africa-2018 | https://acm.cs.up.ac.za/ | web+scoreboard | wrong-contest (high) | wrong-contest | The page is headed 'South Africa 2019' and says the 21st South African regional takes place on 27 October 2019, with links to Files2019 documents. |
+| south-america-1997 | https://www.icpccaribe.org/icpc-latam/concursos-regionales-acm-icpc-de | web | correct → report+rankings (medium) | correct → report+rankings | The 1997 block of the multi-year page on the ICPC Caribe site gives date, team counts by country and a three-team podium, and the site is not the contest's own. |
+| south-america-2001 | http://www.dcc.unicamp.br/~acmcntst/results.html | standings | wrong-contest (high) | wrong-contest | Standings table headed 'The 2002 ACM South American Regional Programming Contest', final results published 18 Nov 2002. |
+| south-america-2001 | http://www.ic.unicamp.br/~acmcntst | standings | wrong-contest (high) | wrong-contest | The page is the '2007 ACM-Regional South American Contest' site, Nov. 9-10, 2007. |
+| south-america-2002 | http://www.ic.unicamp.br/~acmcntst | standings | wrong-contest (high) | wrong-contest | The page is the '2007 ACM-Regional South American Contest' site, Nov. 9-10, 2007. |
+| south-america-2003 | http://www.dcc.unicamp.br/~acmcntst/Argentina_finals.html | scoreboard | correct → standings (high) | none | Table of 10 ranked rows with columns Rank, Name, Solved, Score and no per-problem columns, followed by an Honorable Mention list. |
+| south-america-2003 | https://www.acmicpc.net/category/detail/573 | problemset | confirm (medium) | wrong-contest | The earlier reader gave no roles because the page was then filed under another contest; here it is read as the problem list of this contest, with titles missing. |
+| south-america-2004 | http://www.dcc.unicamp.br/~acmcntst/BrazilFinal.html | scoreboard | wrong-contest (medium) | none | Page headed 'The 2004 ACM South America Programming Contest, São Paulo, Brazil, November 13, 2004, Final Standings' for the Brazil sub-region, which the site front page describes as the separate contest within Brazil (ca |
+| south-america-2004 | http://www.dcc.unicamp.br/~acmcntst/SouthFinal.html | rankings | correct → standings (high) | none | Text list 'Final Ranking for South Subregion, Argentina, Chile and Peru' with 43 entries giving rank, team, solved and time. |
+| south-america-2004 | https://www.acmicpc.net/category/detail/572 | problemset | confirm (medium) | wrong-contest | The earlier reader gave no roles because the page was then filed under another contest; here it is read as the problem list of this contest, with titles missing. |
+| south-america-2005 | http://www.ic.unicamp.br/~acmcntst/Welcome_files/BrasilPrelim2005_prob | problemset | wrong-contest (high) | none | The cover reads 'South American Regional - Brazilian Round', Maratona de Programacao, 10 de setembro de 2005, with 8 problems (Jogo do Bicho first) and Brazilian host sites, not the 12 November contest outside Brazil. |
+| south-america-2006 | http://www.ic.unicamp.br/~acmcntst/ | standings | wrong-contest (high) | wrong-contest | The page is the front page of the '2007 ACM-Regional South American Contest, Nov. 9-10, 2007' site, not a results page of 2006. |
 
-## Contest facts: 397 that fill a blank or differ
+## Contest facts: 437 that fill a blank or differ
 
 | contest | fact | document says | catalogue | confidence | applied | where it is stated |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -1159,24 +1246,64 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | seusa-2006 | location | Georgia Southern University, Statesboro, GA and University o | Statesboro, GA; Mobile, AL | high | no | The front page says the contest was held jointly at the two universities, with hotels and directions for Statesboro and Mobile. |
 | seusa-2009 | location | Florida Institute of Technology, Melbourne, Florida (with si | Administrative Site Location; Melbourne, Florida;  | high | no | The front page lists the three sites and names Florida Tech's director as regional contest director. |
 | seusa-2010 | location | Florida Institute of Technology, Melbourne, Florida (with si | Savannah, Georgia; Pensacola, Florida; Administrat | high | no | The front page lists the three sites and names Florida Tech's director as regional contest director. |
+| seusa-2020 | location | online | Pensacola, Florida; Administrative Site Location;  | high | no | The front page says this year's contest was held on-line, each team member in their own space. |
+| shanghai-2000 | date | 2000-10-21 | 2000-10-22 | medium | no | The front page says the contest had been held on October 21-22, 2000; the problem set cover gives the contest session as October 22, 2000. |
+| shanghai-2000 | location | Shanghai University, Shanghai | Shanghai | high | no | The cover reads 'Shanghai University, Shanghai'. |
+| shanghai-2001 | location | Shanghai University, Shanghai | Shanghai | high | no | The PDF header reads Shanghai University, China, November 18, 2001. |
+| shanghai-2004 | location | Shanghai Jiao Tong University, Shanghai | Shanghai; Internet; To Be Selected | high | no | The site's travel page gives the address of the Minhang campus of Shanghai Jiao Tong University and the schedule places the contest in its gymnasium on December |
+| shanghai-2006 | location | Shanghai University, Shanghai | Zhongshan University; WuHan University; Shanghai U | high | no | The page says the contest was hosted by Shanghai University, Shanghai, China, November 22, 2006. |
+| shanghai-2009 | location | Donghua University, Shanghai | Asia | high | no | The schedule page puts the onsite contest at the Songjiang Campus stadium of Donghua University, Shanghai. |
+| shanghai-2015 | location | East China University of Science and Technology, Shanghai | Shanghai University | high | no | The home page says East China University of Science and Technology will hold the contest on 21-22 November 2015. |
+| shenyang-2016 | location | Northeastern University, Shenyang | xxxx | high | no | The onsite notice says the contest is held on 22-23 October 2016 at Northeastern University in Shenyang, Liaoning. |
+| shenyang-2017 | location | Northeastern University, Shenyang | xxxx | high | no | The notice says the onsite contest is held on 21-22 October 2017 at Northeastern University. |
+| shenyang-2020 | location | Northeastern University | xxxx; Administrative Site Location | high | no | The statements cover names Northeastern University under the contest title. |
+| shenyang-2021 | location | Northeastern University | xxxx; Administrative Site Location | high | no | The statements cover names Northeastern University under the contest title. |
+| shenyang-2022 | location | Northeastern University | Administrative Site Location; xxxx | high | no | the header of every page of the problem PDF reads 'Northeastern University, November 6, 2022'. |
+| shenyang-2023 | location | Northeastern University, Shenyang | Administrative Site Location; xxxx | high | no | the header of every page of the problem PDF reads 'Northeastern University, Shenyang, China, Sunday, November 12, 2023'. |
+| shenyang-2026 | location | Northeastern University (Nanhu campus), Shenyang | (sites) | high | no | the slot allocation notice says the contest is planned for 14-15 November 2026 at the Nanhu campus of Northeastern University. |
+| singapore-2015 | date | 2015-12-10 | 2015-12-11 | medium | no | The Kattis page header gives Start 2015-12-10 02:00 CET, End 2015-12-10 07:00 CET. |
+| singapore-2018 | date | 2018-12-13 | 2018-12-14 | medium | no | The Kattis problems page header gives Start 2018-12-13 09:00 +08, End 2018-12-13 14:00 +08. |
+| slovenia-2014 | location | Koper (University of Primorska) | (sites) | high | no | the same news item says the final was hosted by Univerza na Primorskem in Koper. |
+| slovenia-2015 | location | Maribor (University of Maribor) | (sites) | high | no | the same item says the final was hosted by Univerza v Mariboru at its faculty of electrical engineering, computer science and informatics. |
+| slovenia-2019 | location | Ljubljana (UL FRI) | (sites) | medium | no | The Finale 2019 page says the final is in Ljubljana and participants gather at UL FRI. |
+| slovenia-2021 | location | Ljubljana | (sites) | medium | no | The Finale page says the final was held in Ljubljana. |
+| slovenia-2023 | location | Faculty of Electrical Engineering and Computer Science (FERI | (sites) | medium | no | News item says the final was held at FERI in Maribor; the earlier rounds were on site in several cities. |
+| south-africa-1999 | location | University of Pretoria; additional locations at Rhodes Unive | (sites) | high | no | The header says 'Hosted by the University of Pretoria, Additional locations at Rhodes University and the University of Cape Town'. |
+| south-africa-2019 | date | 2019-10-26 | 2019-10-06 | medium | no | The cover of the problem set and the header of the scoreboard PDF both read 26 October 2019, while the website page announces 27 October 2019. |
+| south-america-1998 | date | 1998-11-14 | 1998-11-15 | high | no | The results page is headed 'November 14, 1998' and the problem PDF cover reads 'November 14, 1998'. |
+| south-america-2003 | date | 2003-11-08 | 2003-11-09 | high | no | the news item of 10 November says the contest was 'held Sat. Nov. 8, 2003' |
+| south-america-2004 | date | 2004-11-13 | 2004-11-14 | high | no | the cover of the contest problem set reads 'November 13th, 2004' |
 | alberta-2006 | location | University of Alberta, University of Calgary and University  | — | medium | no | the problem index says the contest is a joint effort of the three universities. |
 | bapc-prelims-2025 | date | 2025-09-20 | — | medium | no | The preliminaries page lists the local contests under the dates 20 September, 26 September and 27 September 2025 and says they run between the 20th and 28th. |
 | brazil-first-phase-1996 | location | DCC-UFMG, Belo Horizonte | — | medium | no | The history page says the first Maratona was organised at the Federal University of Minas Gerais, under the heading Belo Horizonte. |
 | central-russia-2000 | location | Rybinsk SAAT, Rybinsk | — | medium | no | The page gives Host: Rybinsk, Host university: Rybinsk SAAT, and says the contest was held in Rybinsk. |
 | croatia-2007 | location | Faculty of Science, Mathematics Department, Zagreb | — | medium | no | The announcement gives the venue as Prirodoslovno-matematički fakultet - Matematički odjel, Bijenička cesta 30, Zagreb. |
 | croatia-2008 | location | Faculty of Electrical Engineering and Computing, Zagreb | — | medium | no | The announcement gives the venue as Fakultet elektrotehnike i računarstva, Unska 3, Zagreb. |
+| croatia-2014 | date | 2014-10-19 | — | low | no | The front page header reads '19. i 26. listopada 2014.' (two rounds; first day given). [span of days only: contest day not stated; not written] |
 | ctuo-1996 | location | CTU Prague, Faculty of Electrical Engineering (Department of | — | medium | no | The front page says the contest was held at the premises of the Department of Computers of FEL CVUT. |
 | ctuo-1999 | location | CTU Prague, Faculty of Electrical Engineering, Department of | — | medium | no | the English text says it was held at CTU Prague, FEE, Department of Computer Science and Engineering; the Czech text says Prague and Ostrava. |
+| east-siberia-2003 | date | 2003-11-01 | — | low | no | The page text says the regional stage was held 1-3 November 2003 at KGTU. [span of days only: contest day not stated; not written] |
+| east-siberia-2006 | date | 2006-11-04 | — | low | no | The page text says the regional stage was held 4-6 November 2006 at KGTU. [span of days only: contest day not stated; not written] |
+| east-siberia-2007 | date | 2007-10-27 | — | low | no | The page text says the regional stage was held 27-29 October 2007 in Krasnoyarsk. [span of days only: contest day not stated; not written] |
 | east-siberia-2010 | date | 2010-10-29 | — | medium | no | the page gives 28 to 30 October 2010 for the event and 29 October as the main round |
+| ecna-1993 | date | 1993-11-05 | — | low | no | the cover reads '5-6 November 1993' [span of days only: contest day not stated; not written] |
+| ecna-1994 | date | 1994-11-11 | — | low | no | the index page says 'held at The University of Waterloo 11-12 November 1994' [span of days only: contest day not stated; not written] |
 | ecna-2023 | date | 2023-10-21 | — | medium | no | The front page section 2023 - 2024 Regional Programming Contest reads Date: Saturday, October 21, 2023 (the Kattis board states a start of 2023-10-29). |
 | erc-1987 | location | London | — | medium | no | The item says the contest was held in London. |
 | erc-1990 | location | Eindhoven | — | medium | no | The archive index row reads 'ERC 1990, Eindhoven, November 3'. |
 | greece-2024 | date | 2024-10-18 | — | medium | no | The Greek registration page states 'Ημερομηνία Διεξαγωγής: 18-19 Οκτωβρίου 2024'. |
+| kuwait-2026 | date | 2026-10-22 | — | low | no | The article says the contest was held on October 22 and 24, 2026. [span of days only: contest day not stated; not written] |
 | neerc-1997 | location | St.Petersburg-Barnaul | — | medium | no | The problem list page is headed St.Petersburg-Barnaul, 26 Nov 1997. |
 | north-russia-2007 | location | St Petersburg | — | medium | no | the PDF header gives 'St Petersburg' as the place, without naming the host institution |
 | nzpc-2000 | date | 2000-08-05 | — | medium | no | The results text says the contest was held 'Aug 5th' and its title names the 2000 contest. |
 | nzpc-2023 | date | 2023-08-19 | — | medium | no | The results page says the contest was held on Saturday 19th August, under a 2023 heading. |
-| seerc-1995 | location | Bucharest (Romanian Chapter of the ACM) | — | high | yes | The standings page header gives Bucharest and names the Romanian Chapter of the ACM. |
-| seerc-1996 | location | Bucharest (Romanian Chapter of the ACM) | — | high | yes | The standings page header gives Bucharest and names the Romanian Chapter of the ACM. |
-| seerc-1997 | location | Bucharest, Romania | — | high | yes | The standings page heading gives Bucharest, Romania. |
-| seerc-2025 | date | 2025-12-14 | — | high | yes | The statements PDF header reads 'December 14, 2025' and the website's call for participation says 'Contest: 14 December 2025'. |
+| romania-2026 | date | 2026-11-07 | — | low | no | The page lists the date as November 7-8, 2026; the standings are headed 8 November 2026. [span of days only: contest day not stated; not written] |
+| shanghai-2020 | date | 2020-12-13 | — | high | yes | Every page of the problem set PDF is headed China, Shanghai, Dec, 13, 2020. |
+| slovenia-2013 | date | 2013-10-19 | — | medium | no | the upcoming-events list on the 2013-08-09 front page reads 'UPM - finale sobota, 19. Oktober 2013 - 9:00'. |
+| slovenia-2014 | date | 2014-10-11 | — | high | yes | the front page of 2014-11-18 reports 'V soboto, 11. 10. 2014, je potekalo finalno kolo' in Koper. |
+| slovenia-2015 | date | 2015-10-10 | — | high | yes | the front page of 2016-03-05 reports 'V soboto, 10. 10. 2015, je v Mariboru potekalo finalno kolo'. |
+| slovenia-2019 | date | 2019-10-12 | — | medium | no | The page 'Finale 2019' says the final is 'to soboto (12. oktobra)' in Ljubljana; the year comes from the page title. |
+| slovenia-2020 | date | 2020-10-10 | — | high | yes | The page 'Finale UPM 2020' says the final ended the competition 'V soboto, 10. oktobra 2020'. |
+| slovenia-2021 | date | 2021-10-16 | — | high | yes | The page 'Finale UPM 2021' says the final ended the competition 'V soboto, 16. oktobra 2021'. |
+| slovenia-2023 | date | 2023-10-21 | — | high | yes | The UPM news item states the final took place on Saturday 21 October 2023 in Maribor. |
+| south-america-1997 | date | 1997-12-13 | — | medium | no | The 1997 block gives 'Fecha: 13/12/1997'. |
