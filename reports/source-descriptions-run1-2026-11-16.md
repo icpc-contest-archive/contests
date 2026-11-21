@@ -4,32 +4,32 @@ Run of 2026-11-16, rubric 1 (`tools/describe_rubric.md`). Applied.
 
 | | |
 | --- | --- |
-| contests read | 1,569 |
+| contests read | 1,638 |
 | contests with nothing held | 75 |
-| sources | 7,670 |
-| no copy | 928 |
-| read | 6,742 |
-| first readings | 496 |
-| described | 6,402 |
+| sources | 7,992 |
+| no copy | 975 |
+| read | 7,017 |
+| first readings | 513 |
+| described | 6,662 |
 | description held (low confidence or source gone) | 8 |
-| verdict confirm | 6,125 |
-| verdict correct | 285 |
-| verdict not-the-document | 218 |
-| verdict wrong-contest | 105 |
+| verdict confirm | 6,367 |
+| verdict correct | 303 |
+| verdict not-the-document | 222 |
+| verdict wrong-contest | 116 |
 | verdict cannot-tell | 9 |
-| disagrees with the earlier reader | 110 |
-| blank location filled | 11 |
-| contest facts fills-blank | 28 |
-| contest facts conflict | 328 |
-| contest facts same | 297 |
-| contest facts listed | 1,116 |
+| disagrees with the earlier reader | 114 |
+| blank date filled | 4 |
+| contest facts fills-blank | 21 |
+| contest facts conflict | 341 |
+| contest facts same | 314 |
+| contest facts listed | 1,158 |
 | words per description | 105 |
 
-Not finished: 824 contests: poland-2013, poland-2014, poland-2015, poland-2016, poland-2017, poland-2019, poland-2022, poland-2023, poland-2024, poland-2025, pyongyang-2016, qatar-2020, qatar-2021, qatar-2022, qatar-2023, qingdao-2017, rmc-1993, rmc-1995, rmc-1996, rmc-1997, rmc-2004, rmc-2005, rmc-2012, rmc-2015, rmc-2016, rmc-2017, rmc-2018, rmc-2019, rmc-2020, rmc-2021, rmc-2022, rmc-2023, rmc-2024, rmc-2025, rmc-2026, romania-2010, romania-2011, romania-2012, romania-2013, romania-2014.
+Not finished: 755 contests: scusa-2000, scusa-2004, scusa-2005, scusa-2006, scusa-2009, scusa-2010, scusa-2011, scusa-2012, scusa-2013, scusa-2014, scusa-2015, scusa-2016, scusa-2017, scusa-2018, scusa-2019, scusa-2020, scusa-2021, scusa-2022, scusa-2023, scusa-2024, scusa-2025, scusa-2026, seerc-1995, seerc-1996, seerc-1997, seerc-1998, seerc-1999, seerc-2000, seerc-2001, seerc-2002, seerc-2003, seerc-2004, seerc-2005, seerc-2006, seerc-2007, seerc-2008, seerc-2009, seerc-2010, seerc-2011, seerc-2012.
 Results that do not check: 0.
 
 
-## Second reading: 650 sources to look at
+## Second reading: 683 sources to look at
 
 The reader did not confirm the catalogue, or disagrees with the content check of 2026-11-14. Nothing here was applied.
 
@@ -679,14 +679,47 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | poland-2003 | https://www.mimuw.edu.pl/pl/osiagniecia/edycja/81/ | web | not-the-document (high) | not-the-document | The copy is a crawl of the University of Warsaw faculty site (mimuw.edu.pl) whose seed is an unrelated 2022 news item and which holds no page about the 2003 contest. |
 | poland-2009 | http://amppz.wmi.amu.edu.pl/ | web | confirm (medium) | wrong-contest | The earlier reader judged the site to be of another edition because its root now serves 2010, but our copy also holds the pages of the 2009 edition under /2009/ and a 2009 statistics page. |
 | poland-2011 | http://amppz.mimuw.edu.pl/?subpage=wyniki | standings | not-the-document (high) | not-the-document | The copy is a 949-byte page titled MIMUW that lists mail and mailing-list services of a university machine and holds no contest content. |
+| poland-2017 | http://www.amppz.ii.uni.wroc.pl/2017/ | web+scoreboard | not-the-document (high) | not-the-document | Both captured pages are the same gzip-compressed create-react-app shell (2966 bytes of HTML) with an empty root element and the title AMPPZ. |
+| poland-2017 | http://www.amppz.ii.uni.wroc.pl/ranking2017/ranking.html | standings | correct → scoreboard (high) | confirm | The pack lists it as standings, but it is a scoreboard: table of 44 team rows titled 'AMPPZ 2017 - Klasyfikacja Oficjalna pełne wyniki' with columns Miejsce, Drużyna, Zawodnicy, Punkty, Czas and problem columns A to M. |
 | poland-2018 | http://www.amppz.ii.uni.wroc.pl/ranking2018/ranking.html | standings | correct → scoreboard (high) | confirm | The table has 51 team rows with columns A to M holding cells such as 'AC 122' +0' and 'WA 299' (7)'. |
 | poland-2021 | http://amppz.tcs.uj.edu.pl/2021/index.html | web+rankings | correct → web+standings (high) | correct → web+rankings | The earlier reader gave the roles web and rankings, but the 12-row medal table gives problems solved and time per team, which makes it partial standings. |
+| pyongyang-2016 | http://ryongnamsan.edu.kp/univ/down/inter_21_standing.png | scoreboard+standings | correct → scoreboard (medium) | correct → standings | The earlier reader saw no per-problem columns and called it standings; the image shows 12 columns of coloured cells holding numbers beside each team. |
 | qingdao-2016 | http://acm.upc.edu.cn | web+standings | not-the-document (high) | not-the-document | The copy is a 109-character login page of the i上编程 site (HUSTOJ) with no contest content. |
 | qingdao-2018 | http://acm.upc.edu.cn | web+standings | not-the-document (high) | not-the-document | The copy is a login page of the i上编程 site (HUSTOJ) with 109 characters of text and no contest content. |
 | qingdao-2018 | https://open.kattis.com/problem-sources/The%202018%20ICPC%20Asia%20Qin | problemset | not-the-document (high) | not-the-document | The Kattis problem-sources page shows 'No data found' and lists no problems. |
 | rmc-1991 | https://groups.google.com/g/comp.org.acm/c/zfXteOBye3k | rankings+report | correct → report (high) | none | Google Groups page of two comp.org.acm posts dated Nov 12 and 13, 1991 arguing about the 1991 Mountain Region Contest, with no team results or ranking in the text. |
+| rmc-1995 | https://www.cs.uleth.ca/~cheng/icpc.html | rankings | correct → no role (high) | correct →  | A personal page of a Lethbridge team coach whose only mention of the 1995 Mountain Region is one line in a personal history list; it holds no results or other material of this contest. |
+| rmc-1996 | https://www.cs.uleth.ca/~cheng/icpc.html | rankings | correct → no role (high) | correct →  | A personal page of a Lethbridge team coach whose only mention of 1996 is one line in a personal history list; it holds no results or other material of this contest. |
+| rmc-1997 | https://www.cs.uleth.ca/~cheng/icpc.html | rankings | correct → no role (high) | correct →  | A personal page of a Lethbridge team coach whose only mention of 1997 is one line in a personal history list; it holds no results or other material of this contest. |
+| rmc-2004 | https://org.coloradomesa.edu/~wmacevoy/rmrc/2004/scoreboard_byrank.htm | scoreboard | wrong-contest (high) | wrong-contest | The page is titled '2005 Rocky Mountain Regional ACM Scoreboard by Rank' and has problems A to I (tire, randomwalk, paint, ...), not the 2004 set (coins, prefix, squares, ...). |
+| rmc-2021 | http://rocky.icpc.io | web+standings | wrong-contest (high) | wrong-contest | The page announces the contest of November 4, 2023, with registration deadlines in October 2023 and a link to the rmc23 standings. |
+| rmc-2022 | https://rmc23.kattis.com/contests/rmc23/standings | scoreboard | wrong-contest (high) | wrong-contest | The Kattis standings are titled 2023 Rocky Mountain Regional Contest and the page shows a start of 2023-11-04. |
+| rmc-2025 | https://rmc.kattis.com/contests/rmc24/standings | scoreboard | wrong-contest (high) | wrong-contest | The page is titled Rocky Mountain Region Contests and headed 2024 Rocky Mountain Regional Contest, with a start of 2024-11-09, so it is the 2024 edition (rmc24). |
+| rmc-2026 | https://nacentral26.kattis.com/contests/nacentral26d2/standings | scoreboard | wrong-contest (medium) | wrong-contest | Kattis standings headed ICPC Mid-Central 2026 - Division 2: 27 teams, site filter lists only Hendrix, Microsite, Tennessee Martin, Illinois and Kentucky, with no Rocky Mountain site. |
+| romania-2013 | http://acm.tju.edu.cn/toj/vcontest/contest9268.html | problemset | not-the-document (high) | none | The page is an empty application shell (hoj-vue, title with three Chinese characters, only a Loading indicator and a noscript notice) with no contest content. |
+| romania-2014 | http://acm.ro/Romania/ | web | wrong-contest (high) | confirm | The earlier reader confirmed the site as a web source of this contest; the pages under /2014/ are the 2014 Southeastern European Regional Contest (Bucharest and Vinnytsia, 17-18 October 2014) and the /Romania/ report is  |
+| romania-2014 | http://www.infoarena.ro/onis-2014/clasament/runda-4 | standings | wrong-contest (high) | wrong-contest | Infoarena page titled ONIS 2014, Clasament Runda 4: ranking of individual participants in the national student informatics olympiad, not the ICPC Romania contest. |
+| romania-2015 | http://acm.ro/Romania/ | web | wrong-contest (high) | confirm | The earlier reader confirmed the site as a web source of this contest; the pages under /2015/ are the October 2015 Southeastern European Regional Contest and the /Romania/ pages are the 2011 site and the 2012 and 2016 Ro |
+| romania-2015 | http://acm.ro/Romania/results.htm | standings | wrong-contest (high) | wrong-contest | The results grid (problems A to L) is led by UNIBUC_BigDawgs with 11 solved and a penalty of 1226, which the June 2012 Romania report in the same crawl names as the winner of the 2012 contest. |
+| romania-2016 | http://acm.ro/2016/problems.htm | problemset | wrong-contest (medium) | confirm | The earlier reader confirmed it as this contest's problem set; the page is headed 2016 ACM SEERC and the national contest report says its final ran on an online judge, so it belongs to the regional contest. |
+| romania-2017 | http://www.infoarena.ro/acm-icpc-nationala-2017/ | web+problemset | correct → problemset (high) | correct → problemset | Infoarena page headed ACM ICPC Faza Nationala 2017 with round rules and a table of 9 problem titles, not a site of the organisers. |
+| romania-2018 | https://www.infoarena.ro/acm-icpc-nationala-2018/ | web+problemset | correct → problemset (medium) | correct → problemset | Infoarena contest page titled 'ACM Romanian Collegiate Programming Contest 2018' with a table of 10 task rows and the rules, no site pages of its own. |
+| romania-2019 | https://www.infoarena.ro/runda/rcpc-2019 | web+problemset | correct → problemset (medium) | correct → problemset | Infoarena round page 'Romanian Collegiate Programming Contest 2019' with a table of 11 task names, authors and rules, and no further site pages. |
+| romania-2021 | https://vjudge.net/contest/465385 | web+standings | correct → problemset (medium) | correct → problemset | Virtual Judge contest page whose status table is empty and whose embedded contest data lists 13 problems A to M; no standings rows are present. |
+| romania-2022 | https://vjudge.net/contest/530536 | web+standings | correct → problemset (medium) | correct → problemset | Virtual Judge contest page 'RCPC 2022 Universities' with an empty status table and embedded contest data listing 15 problems A to O; no standings rows. |
+| romania-2025 | https://events.info.uaic.ro/romanian-collegiate-programming-contest/re | standings | correct → no role (medium) | correct →  | Stub page 'Results - RCPC 2025' with a heading, one sentence and an embedded frame of a published Google Sheet; the page holds no results itself. |
+| romania-2026 | https://docs.google.com/spreadsheets/d/e/2PACX-1vQYurJzZYJXoMKkCqNFS42 | standings | not-the-document (medium) | none | The page holds only the title 'RCPC 2026 ranking public - Google Drive' and one sheet tab name, with no table rows. |
+| saudi-arabia-2023 | https://codeforces.com/group/hTqC3XzK2z/contest/400007 | standings+problemset | wrong-contest (high) | wrong-contest | The Codeforces group dashboard is titled 'Saudi CPC Qualifications 2022' and lists 16 problems A to P with no standings table. |
+| scusa-1987 | https://www.cs.rice.edu/~greiner/icpc.html | standings | correct → report (medium) | correct → report | Rice's team-history page gives, in its 1987 Regionals row, only the placings of Rice's own two teams. |
+| scusa-1988 | https://www.cs.rice.edu/~greiner/icpc.html | standings | correct → report (medium) | correct → report | Rice's team-history page gives, in its 1988/9 Regionals row, only Rice's own 1st-place team. |
+| scusa-1992 | https://www.cs.rice.edu/~greiner/icpc.html | standings | correct → no role (medium) | correct →  | The page is Rice University's own ACM-ICPC team history, and its row for 1992/3 Regionals shows only '?' for Rice's result. |
+| scusa-1993 | https://www.cs.rice.edu/~greiner/icpc.html | standings | correct → no role (medium) | correct →  | The page is Rice University's own ACM-ICPC team history, and its row for 1993/4 Regionals shows only '?' for Rice's result. |
+| scusa-1998 | https://www.acmicpc.net/category/detail/738 | problemset | correct → no role (medium) | correct →  | Baekjoon Online Judge category '1998 South Central USA Regional Programming Contest' holds one row, number 6459 with the label F, and no title. |
+| scusa-1999 | http://www.rsu.edu/acm_contest | web | correct → no role (medium) | correct →  | The copy is Rogers State University's general site (news archive 'News from 2000', home pages); its only trace of the contest is a home-page link 'ACM Programming Contest Results' to a page that is not in our copy. |
+| scusa-2003 | https://open.kattis.com/problem-sources/South%20Central%20Regional%20C | problemset | not-the-document (high) | not-the-document | The Kattis problem-sources page for 'South Central Regional Contest 2003' shows 'No data found' and an empty problem list. |
+| scusa-2008 | https://acm2008.scusa.lsu.edu/results/report.php | editorial | correct → report (high) | none | Page headed 'Report for 2008 South Central USA Regional Programming Contest' giving an account of the contest by its hosts, not worked solutions. |
 
-## Contest facts: 356 that fill a blank or differ
+## Contest facts: 362 that fill a blank or differ
 
 | contest | fact | document says | catalogue | confidence | applied | where it is stated |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -1015,9 +1048,22 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | poland-2011 | date | 2011-10-30 | 2011-10-31 | high | no | The report and the solution slides give 30 October 2011 as the contest day; the programme page puts registration on 28 October, the practice session on 29 Octob |
 | poland-2011 | location | Faculty of Management, University of Warsaw, Warsaw | Administrative Site Location | high | no | The venue page names the Faculty of Management of the University of Warsaw, Szturmowa 1/3, Warsaw, as the place of the contest. |
 | poland-2012 | location | Faculty of Management, University of Warsaw | Administrative Site Location | high | no | the report says the contest took place at the Wydział Zarządzania Uniwersytetu Warszawskiego |
+| poland-2013 | location | Faculty of Management, University of Warsaw | Administrative Site Location | high | no | the report says the contest was held in the sports hall of the Wydział Zarządzania Uniwersytetu Warszawskiego |
+| poland-2014 | location | Wydział Zarządzania, Uniwersytet Warszawski, Warsaw | Administrative Site Location | high | no | The report says the contest was held on 26 October 2014 at the Faculty of Management of the University of Warsaw. |
+| poland-2015 | location | Instytut Informatyki, Uniwersytet Wrocławski, Wrocław | Administrative Site Location | high | no | The report says the contest took place on 25 October 2015 at the Institute of Computer Science of the University of Wrocław. |
 | poland-2018 | date | 2018-10-26 | 2018-10-27 | medium | no | The running header of the problem set reads 'Wrocław, 26–27 October 2018'. |
 | poland-2018 | location | Wrocław | Administrative Site Location | high | no | The running header of the problem set reads 'Wrocław, 26–27 October 2018'. |
+| poland-2019 | location | Kraków, Faculty of Mathematics and Computer Science, Jagiell | Administrative Site Location | high | no | The front page says the contest is held at the Faculty of Mathematics and Computer Science of the Jagiellonian University, Łojasiewicza 6, Kraków. |
 | poland-2021 | location | Jagiellonian University, Kraków | Administrative Site Location | high | no | the page header reads Kraków, 6-7 listopada 2021 and it says the host is the Jagiellonian University in Kraków. |
+| poland-2022 | location | Jagiellonian University, Kraków | Administrative Site Location | high | no | the page header reads Kraków, 29-30 października 2022 and it says the host is the Jagiellonian University in Kraków. |
+| poland-2023 | location | Warszawa, University of Warsaw, Faculty of Management, ul. S | Administrative Site Location | high | no | The home page header and the schedule give the Faculty of Management (Wydział Zarządzania UW) at ul. Szturmowa 1/3, Warszawa. |
+| poland-2025 | location | Warszawa, University of Warsaw, Faculty of Management sports | Administrative Site Location; AMPPZ 2025 Administr | high | no | The text says the contest was held in the sports hall of the Faculty of Management of the University of Warsaw. |
+| romania-2016 | date | 2016-06-16 | 2016-05-28 | high | no | The report states the second stage was held on June 16th, 2016. |
+| romania-2018 | date | 2018-09-29 | 2018-09-30 | high | no | The contest page says the round takes place on Saturday 29 September 2018 at 10:00 and lasts 5 hours. |
+| romania-2019 | date | 2019-09-28 | 2019-09-29 | high | no | The contest page says the national stage takes place on Saturday 28 September 2019 at 10:00 and lasts 5 hours. |
+| romania-2023 | location | Alexandru Ioan Cuza University of Iasi, Iasi | Bucharest; Administrative Site Location | medium | no | The post says the contest took place in Iasi as part of the RCPCamp organised by the Alexandru Ioan Cuza University of Iasi. |
+| romania-2026 | location | PRECIS, UPB and online | (sites) | medium | no | The page's Location field reads 'PRECIS, UPB & Online'. |
+| scusa-1998 | location | Rice University, Houston, Texas | (sites) | high | no | The home page says CITI at Rice University in Houston, Texas hosted the 1998 contest. |
 | alberta-2006 | location | University of Alberta, University of Calgary and University  | — | medium | no | the problem index says the contest is a joint effort of the three universities. |
 | bapc-prelims-2025 | date | 2025-09-20 | — | medium | no | The preliminaries page lists the local contests under the dates 20 September, 26 September and 27 September 2025 and says they run between the 20th and 28th. |
 | brazil-first-phase-1996 | location | DCC-UFMG, Belo Horizonte | — | medium | no | The history page says the first Maratona was organised at the Federal University of Minas Gerais, under the heading Belo Horizonte. |
@@ -1035,14 +1081,7 @@ The reader did not confirm the catalogue, or disagrees with the content check of
 | north-russia-2007 | location | St Petersburg | — | medium | no | the PDF header gives 'St Petersburg' as the place, without naming the host institution |
 | nzpc-2000 | date | 2000-08-05 | — | medium | no | The results text says the contest was held 'Aug 5th' and its title names the 2000 contest. |
 | nzpc-2023 | date | 2023-08-19 | — | medium | no | The results page says the contest was held on Saturday 19th August, under a 2023 heading. |
-| poland-1996 | location | Instytut Informatyki, Politechnika Poznanska, Poznan | — | high | yes | The progress page says the contest is held at the Institute of Computer Science of Poznan University of Technology. |
-| poland-1997 | location | Politechnika Wrocławska, Wrocław | — | high | yes | The rules say the contest is held at the Faculty Computer Science Department of Wrocław University of Technology, Wrocław. |
-| poland-1998 | location | Instytut Informatyki, Uniwersytet Warszawski, Warszawa | — | high | yes | The introduction says the contest is held at the Institute of Informatics of the Faculty of Mathematics, Informatics and Mechanics of the University of Warsaw. |
-| poland-1999 | location | Warszawa, Wydział Matematyki, Informatyki i Mechaniki, Unive | — | high | yes | The details page says the contest is held in the computer laboratory of the faculty at ul. Banacha 2; the heading says Warszawa. |
-| poland-2000 | location | Warszawa, Wydział Matematyki, Informatyki i Mechaniki, Unive | — | high | yes | The details page says the contest is held in the computer laboratory of the faculty at ul. Banacha 2. |
-| poland-2001 | location | Wrocław, Instytut Informatyki, University of Wrocław, ul. Pr | — | high | yes | The programme page says the contest is held at the Institute of Informatics, ul. Przesmyckiego 20; the directions page says University of Wrocław. |
-| poland-2002 | location | Wrocław, Instytut Informatyki, University of Wrocław, ul. Pr | — | high | yes | The programme page says the contest is held at the Institute of Informatics, ul. Przesmyckiego 20; the heading says Wrocław. |
-| poland-2003 | location | Wrocław | — | high | yes | The heading reads Wrocław, 24-25 października 2003 r. |
-| poland-2005 | location | Kraków | — | high | yes | The site heading reads Kraków, 28-29 października 2005 r. |
-| poland-2006 | location | Jagiellonian University, Kraków | — | high | yes | the site header reads 'Kraków, 3-4 listopada 2006 r.' and the organiser is the Faculty of Mathematics and Computer Science of Jagiellonian University |
-| poland-2007 | location | Poznań | — | high | yes | the report says the championship was held in Poznań on 26-27 October 2007 |
+| poland-2025 | date | 2025-11-16 | — | high | yes | The text states that the XXIX contest took place on 16 November 2025. |
+| romania-2024 | date | 2024-10-20 | — | high | yes | The sheet is headed 'Romanian Collegiate Programming Contest - 20 October 2024'. |
+| romania-2025 | date | 2025-11-09 | — | high | yes | The front page gives the date as November 9th, 2025 and the sheet is headed 9 november 2025. |
+| romania-2026 | date | 2026-11-07 | — | high | yes | The page lists the date as November 7-8, 2026; the standings are headed 8 November 2026. |

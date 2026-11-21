@@ -12369,6 +12369,49 @@
   }
  },
  {
+  "contest": "poland-2017",
+  "url": "http://www.amppz.ii.uni.wroc.pl/2017/",
+  "catalogue_roles": [
+   "web",
+   "scoreboard"
+  ],
+  "verdict": "not-the-document",
+  "roles": [],
+  "confidence": "high",
+  "evidence": "Both captured pages are the same gzip-compressed create-react-app shell (2966 bytes of HTML) with an empty root element and the title AMPPZ.",
+  "disagreement": null,
+  "earlier": {
+   "verdict": "not-the-document",
+   "roles": [],
+   "confidence": "high",
+   "evidence": "Wayback capture of the 2017 site holds only the title 'AMPPZ' and 5 characters of text, an empty shell.",
+   "same_copy": false
+  }
+ },
+ {
+  "contest": "poland-2017",
+  "url": "http://www.amppz.ii.uni.wroc.pl/ranking2017/ranking.html",
+  "catalogue_roles": [
+   "standings"
+  ],
+  "verdict": "correct",
+  "roles": [
+   "scoreboard"
+  ],
+  "confidence": "high",
+  "evidence": "The pack lists it as standings, but it is a scoreboard: table of 44 team rows titled 'AMPPZ 2017 - Klasyfikacja Oficjalna pełne wyniki' with columns Miejsce, Drużyna, Zawodnicy, Punkty, Czas and problem columns A to M.",
+  "disagreement": null,
+  "earlier": {
+   "verdict": "confirm",
+   "roles": [
+    "scoreboard"
+   ],
+   "confidence": "high",
+   "evidence": "Table 'AMPPZ 2017 - Klasyfikacja Oficjalna pełne wyniki' with 44 teams and per-problem cells A-M such as AC161'+1, WA, TL.",
+   "same_copy": true
+  }
+ },
+ {
   "contest": "poland-2018",
   "url": "http://www.amppz.ii.uni.wroc.pl/ranking2018/ranking.html",
   "catalogue_roles": [
@@ -12414,6 +12457,30 @@
    ],
    "confidence": "high",
    "evidence": "AMPPZ 2021 site page (Kraków, 6-7 November 2021) with about, schedule and a results section listing only the 12 medal teams, linking the full ranking elsewhere.",
+   "same_copy": true
+  }
+ },
+ {
+  "contest": "pyongyang-2016",
+  "url": "http://ryongnamsan.edu.kp/univ/down/inter_21_standing.png",
+  "catalogue_roles": [
+   "scoreboard",
+   "standings"
+  ],
+  "verdict": "correct",
+  "roles": [
+   "scoreboard"
+  ],
+  "confidence": "medium",
+  "evidence": "The image has 41 team rows and 12 problem columns of green, red and empty cells carrying numbers, followed by a column of numbers, so it is a per-problem board and not only standings.",
+  "disagreement": "The earlier reader saw no per-problem columns and called it standings; the image shows 12 columns of coloured cells holding numbers beside each team.",
+  "earlier": {
+   "verdict": "correct",
+   "roles": [
+    "standings"
+   ],
+   "confidence": "medium",
+   "evidence": "The copy is a 1366x2507 PNG image (inter_21_standing.png) whose OCR shows a ranked list of numbered rows (1, 2, 3 ...) with team names such as RNS_1, REDSTAR_1 and a number or two after each, in Korean script, with no per-problem columns recognisable.",
    "same_copy": true
   }
  },
@@ -12489,6 +12556,603 @@
   ],
   "confidence": "high",
   "evidence": "Google Groups page of two comp.org.acm posts dated Nov 12 and 13, 1991 arguing about the 1991 Mountain Region Contest, with no team results or ranking in the text.",
+  "disagreement": null,
+  "earlier": null
+ },
+ {
+  "contest": "rmc-1995",
+  "url": "https://www.cs.uleth.ca/~cheng/icpc.html",
+  "catalogue_roles": [
+   "rankings"
+  ],
+  "verdict": "correct",
+  "roles": [],
+  "confidence": "high",
+  "evidence": "A personal page of a Lethbridge team coach whose only mention of the 1995 Mountain Region is one line in a personal history list; it holds no results or other material of this contest.",
+  "disagreement": null,
+  "earlier": {
+   "verdict": "correct",
+   "roles": [],
+   "confidence": "medium",
+   "evidence": "Personal coach homepage of Howard Cheng at Lethbridge whose only link to the 1995 Mountain Region is one history line saying his team finished 3rd overall.",
+   "same_copy": true
+  }
+ },
+ {
+  "contest": "rmc-1996",
+  "url": "https://www.cs.uleth.ca/~cheng/icpc.html",
+  "catalogue_roles": [
+   "rankings"
+  ],
+  "verdict": "correct",
+  "roles": [],
+  "confidence": "high",
+  "evidence": "A personal page of a Lethbridge team coach whose only mention of 1996 is one line in a personal history list; it holds no results or other material of this contest.",
+  "disagreement": null,
+  "earlier": {
+   "verdict": "correct",
+   "roles": [],
+   "confidence": "medium",
+   "evidence": "Personal coach homepage of Howard Cheng at Lethbridge whose only mention of 1996 is one history line saying his team finished 4th overall at the ACM Regional Contest.",
+   "same_copy": true
+  }
+ },
+ {
+  "contest": "rmc-1997",
+  "url": "https://www.cs.uleth.ca/~cheng/icpc.html",
+  "catalogue_roles": [
+   "rankings"
+  ],
+  "verdict": "correct",
+  "roles": [],
+  "confidence": "high",
+  "evidence": "A personal page of a Lethbridge team coach whose only mention of 1997 is one line in a personal history list; it holds no results or other material of this contest.",
+  "disagreement": null,
+  "earlier": {
+   "verdict": "correct",
+   "roles": [],
+   "confidence": "medium",
+   "evidence": "Personal coach homepage of Howard Cheng at Lethbridge whose only mention of 1997 is one history line saying his team finished 1st in the region and advanced to the World Finals.",
+   "same_copy": true
+  }
+ },
+ {
+  "contest": "rmc-2004",
+  "url": "https://org.coloradomesa.edu/~wmacevoy/rmrc/2004/scoreboard_byrank.html",
+  "catalogue_roles": [
+   "scoreboard"
+  ],
+  "verdict": "wrong-contest",
+  "roles": [],
+  "confidence": "high",
+  "evidence": "The page is titled '2005 Rocky Mountain Regional ACM Scoreboard by Rank' and has problems A to I (tire, randomwalk, paint, ...), not the 2004 set (coins, prefix, squares, ...).",
+  "disagreement": null,
+  "earlier": {
+   "verdict": "wrong-contest",
+   "roles": [],
+   "confidence": "high",
+   "evidence": "Table of 47 rows 'Rank, Team, A: tire ... I: suit, Correct, Penalty' titled '2005 Rocky Mountain Regional ACM Scoreboard by Rank'; problems differ from the 2004 set (coins, squares, ...).",
+   "same_copy": false
+  }
+ },
+ {
+  "contest": "rmc-2021",
+  "url": "http://rocky.icpc.io",
+  "catalogue_roles": [
+   "web",
+   "standings"
+  ],
+  "verdict": "wrong-contest",
+  "roles": [],
+  "confidence": "high",
+  "evidence": "The page announces the contest of November 4, 2023, with registration deadlines in October 2023 and a link to the rmc23 standings.",
+  "disagreement": null,
+  "earlier": {
+   "verdict": "wrong-contest",
+   "roles": [],
+   "confidence": "high",
+   "evidence": "Live page rocky.icpc.io now serves the 2023 contest (Contest: November 4, 2023, rmc23 standings link, moved to rm.na.icpc.global).",
+   "same_copy": true
+  }
+ },
+ {
+  "contest": "rmc-2022",
+  "url": "https://rmc23.kattis.com/contests/rmc23/standings",
+  "catalogue_roles": [
+   "scoreboard"
+  ],
+  "verdict": "wrong-contest",
+  "roles": [],
+  "confidence": "high",
+  "evidence": "The Kattis standings are titled 2023 Rocky Mountain Regional Contest and the page shows a start of 2023-11-04.",
+  "disagreement": null,
+  "earlier": {
+   "verdict": "wrong-contest",
+   "roles": [],
+   "confidence": "high",
+   "evidence": "Kattis standings titled 2023 Rocky Mountain Regional Contest, start 2023-11-04, 46+ teams, problems A-L.",
+   "same_copy": true
+  }
+ },
+ {
+  "contest": "rmc-2025",
+  "url": "https://rmc.kattis.com/contests/rmc24/standings",
+  "catalogue_roles": [
+   "scoreboard"
+  ],
+  "verdict": "wrong-contest",
+  "roles": [],
+  "confidence": "high",
+  "evidence": "The page is titled Rocky Mountain Region Contests and headed 2024 Rocky Mountain Regional Contest, with a start of 2024-11-09, so it is the 2024 edition (rmc24).",
+  "disagreement": null,
+  "earlier": {
+   "verdict": "wrong-contest",
+   "roles": [],
+   "confidence": "high",
+   "evidence": "Kattis standings page titled 2024 Rocky Mountain Regional Contest (rmc24), 2024-11-09, 55 rows.",
+   "same_copy": true
+  }
+ },
+ {
+  "contest": "rmc-2026",
+  "url": "https://nacentral26.kattis.com/contests/nacentral26d2/standings",
+  "catalogue_roles": [
+   "scoreboard"
+  ],
+  "verdict": "wrong-contest",
+  "roles": [],
+  "confidence": "medium",
+  "evidence": "Kattis standings headed ICPC Mid-Central 2026 - Division 2: 27 teams, site filter lists only Hendrix, Microsite, Tennessee Martin, Illinois and Kentucky, with no Rocky Mountain site.",
+  "disagreement": null,
+  "earlier": {
+   "verdict": "wrong-contest",
+   "roles": [],
+   "confidence": "medium",
+   "evidence": "Division 2 standings list only Mid-Central sites (Hendrix, Tennessee Martin, UIUC, Kentucky), no Rocky Mountain teams, frozen and marked unfinalized.",
+   "same_copy": true
+  }
+ },
+ {
+  "contest": "romania-2013",
+  "url": "http://acm.tju.edu.cn/toj/vcontest/contest9268.html",
+  "catalogue_roles": [
+   "problemset"
+  ],
+  "verdict": "not-the-document",
+  "roles": [],
+  "confidence": "high",
+  "evidence": "The page is an empty application shell (hoj-vue, title with three Chinese characters, only a Loading indicator and a noscript notice) with no contest content.",
+  "disagreement": null,
+  "earlier": null
+ },
+ {
+  "contest": "romania-2014",
+  "url": "http://acm.ro/Romania/",
+  "catalogue_roles": [
+   "web"
+  ],
+  "verdict": "wrong-contest",
+  "roles": [],
+  "confidence": "high",
+  "evidence": "The 150 files hold the 2016 Romania Programming Contest report, the SEERC 2014 and SEERC 2015 sites and the 2011 Romania contest pages; nothing in them is about the May 2014 Romania Programming Contest.",
+  "disagreement": "The earlier reader confirmed the site as a web source of this contest; the pages under /2014/ are the 2014 Southeastern European Regional Contest (Bucharest and Vinnytsia, 17-18 October 2014) and the /Romania/ report is the June 2016 Romania contest.",
+  "earlier": {
+   "verdict": "confirm",
+   "roles": [
+    "web"
+   ],
+   "confidence": "medium",
+   "evidence": "Crawl of acm.ro with the 2014 pages (index.html 3 KB, news.htm, navigati.htm, report.htm 153 KB) alongside 2015 and 2011 pages; the /Romania/ seed is an old 2009-2010 frameset.",
+   "same_copy": null
+  }
+ },
+ {
+  "contest": "romania-2014",
+  "url": "http://www.infoarena.ro/onis-2014/clasament/runda-4",
+  "catalogue_roles": [
+   "standings"
+  ],
+  "verdict": "wrong-contest",
+  "roles": [],
+  "confidence": "high",
+  "evidence": "Infoarena page titled ONIS 2014, Clasament Runda 4: ranking of individual participants in the national student informatics olympiad, not the ICPC Romania contest.",
+  "disagreement": null,
+  "earlier": {
+   "verdict": "wrong-contest",
+   "roles": [],
+   "confidence": "high",
+   "evidence": "infoarena page 'ONIS 2014, Clasament Runda 4' (national student informatics olympiad, 124 ranked individuals with 10 problems), not the ICPC Romania contest.",
+   "same_copy": true
+  }
+ },
+ {
+  "contest": "romania-2015",
+  "url": "http://acm.ro/Romania/",
+  "catalogue_roles": [
+   "web"
+  ],
+  "verdict": "wrong-contest",
+  "roles": [],
+  "confidence": "high",
+  "evidence": "The 150 files hold the SEERC 2015 and SEERC 2016 sites, the Romania Programming Contest reports of June 2012 and June 2016, pages of the 2011 Romania site and the 2012 results page; nothing in them is about the May 2015 Romania Programming Contest.",
+  "disagreement": "The earlier reader confirmed the site as a web source of this contest; the pages under /2015/ are the October 2015 Southeastern European Regional Contest and the /Romania/ pages are the 2011 site and the 2012 and 2016 Romania contests.",
+  "earlier": {
+   "verdict": "confirm",
+   "roles": [
+    "web"
+   ],
+   "confidence": "medium",
+   "evidence": "Crawl of acm.ro with the 2015 pages (index.html, news.htm 8 KB, navigati.htm, header/footer) alongside 2016, 2011 and old /Romania/ pages; the /Romania/ seed is an old 2009-2010 frameset.",
+   "same_copy": null
+  }
+ },
+ {
+  "contest": "romania-2015",
+  "url": "http://acm.ro/Romania/results.htm",
+  "catalogue_roles": [
+   "standings"
+  ],
+  "verdict": "wrong-contest",
+  "roles": [],
+  "confidence": "high",
+  "evidence": "The results grid (problems A to L) is led by UNIBUC_BigDawgs with 11 solved and a penalty of 1226, which the June 2012 Romania report in the same crawl names as the winner of the 2012 contest.",
+  "disagreement": null,
+  "earlier": {
+   "verdict": "wrong-contest",
+   "roles": [],
+   "confidence": "high",
+   "evidence": "The results.htm capture (as of 2012-12-15) is the 2012 Romania results: National Final grid A-L led by UNIBUC_BigDawgs 11 solved, plus Bucharest, Timisoara and Cluj subregion tables.",
+   "same_copy": true
+  }
+ },
+ {
+  "contest": "romania-2016",
+  "url": "http://acm.ro/2016/problems.htm",
+  "catalogue_roles": [
+   "problemset"
+  ],
+  "verdict": "wrong-contest",
+  "roles": [
+   "problemset"
+  ],
+  "confidence": "medium",
+  "evidence": "The page is titled 2016 ACM SEERC: Set of problems, the problem set of the October 2016 Southeastern European Regional Contest, while the national contest report says its final used an online judge.",
+  "disagreement": "The earlier reader confirmed it as this contest's problem set; the page is headed 2016 ACM SEERC and the national contest report says its final ran on an online judge, so it belongs to the regional contest.",
+  "earlier": {
+   "verdict": "confirm",
+   "roles": [
+    "problemset"
+   ],
+   "confidence": "medium",
+   "evidence": "Small page titled '2016 ACM SEERC: Set of problems' linking to statements PDF and a zip with all problems and data.",
+   "same_copy": true
+  }
+ },
+ {
+  "contest": "romania-2017",
+  "url": "http://www.infoarena.ro/acm-icpc-nationala-2017/",
+  "catalogue_roles": [
+   "web",
+   "problemset"
+  ],
+  "verdict": "correct",
+  "roles": [
+   "problemset"
+  ],
+  "confidence": "high",
+  "evidence": "Infoarena page headed ACM ICPC Faza Nationala 2017 with round rules and a table of 9 problem titles, not a site of the organisers.",
+  "disagreement": null,
+  "earlier": {
+   "verdict": "correct",
+   "roles": [
+    "problemset"
+   ],
+   "confidence": "medium",
+   "evidence": "Infoarena judge contest page 'ACM-ICPC Faza Nationala 2017' with a table of 9 problems (Fences, Union, Brackets...) and round rules; it is a judge page, not the organisers' site.",
+   "same_copy": true
+  }
+ },
+ {
+  "contest": "romania-2018",
+  "url": "https://www.infoarena.ro/acm-icpc-nationala-2018/",
+  "catalogue_roles": [
+   "web",
+   "problemset"
+  ],
+  "verdict": "correct",
+  "roles": [
+   "problemset"
+  ],
+  "confidence": "medium",
+  "evidence": "Infoarena contest page titled 'ACM Romanian Collegiate Programming Contest 2018' with a table of 10 task rows and the rules, no site pages of its own.",
+  "disagreement": null,
+  "earlier": {
+   "verdict": "correct",
+   "roles": [
+    "problemset"
+   ],
+   "confidence": "medium",
+   "evidence": "Infoarena judge contest page 'ACM Romanian Collegiate Programming Contest 2018' listing 10 tasks (Big Four, Laundering... plus 'Listare surse [Not a Task!]') with rules.",
+   "same_copy": true
+  }
+ },
+ {
+  "contest": "romania-2019",
+  "url": "https://www.infoarena.ro/runda/rcpc-2019",
+  "catalogue_roles": [
+   "web",
+   "problemset"
+  ],
+  "verdict": "correct",
+  "roles": [
+   "problemset"
+  ],
+  "confidence": "medium",
+  "evidence": "Infoarena round page 'Romanian Collegiate Programming Contest 2019' with a table of 11 task names, authors and rules, and no further site pages.",
+  "disagreement": null,
+  "earlier": {
+   "verdict": "correct",
+   "roles": [
+    "problemset"
+   ],
+   "confidence": "medium",
+   "evidence": "Infoarena round page 'Romanian Collegiate Programming Contest 2019' with a table of 11 problems (Invinv, Rebus, Joc pe graf...) and rules; a judge page.",
+   "same_copy": true
+  }
+ },
+ {
+  "contest": "romania-2021",
+  "url": "https://vjudge.net/contest/465385",
+  "catalogue_roles": [
+   "web",
+   "standings"
+  ],
+  "verdict": "correct",
+  "roles": [
+   "problemset"
+  ],
+  "confidence": "medium",
+  "evidence": "Virtual Judge contest page whose status table is empty and whose embedded contest data lists 13 problems A to M; no standings rows are present.",
+  "disagreement": null,
+  "earlier": {
+   "verdict": "correct",
+   "roles": [
+    "problemset"
+   ],
+   "confidence": "medium",
+   "evidence": "Vjudge contest shell whose status table is empty; embedded JSON lists 13 problems A-M (Kattis-sourced) and no standings rows.",
+   "same_copy": true
+  }
+ },
+ {
+  "contest": "romania-2022",
+  "url": "https://vjudge.net/contest/530536",
+  "catalogue_roles": [
+   "web",
+   "standings"
+  ],
+  "verdict": "correct",
+  "roles": [
+   "problemset"
+  ],
+  "confidence": "medium",
+  "evidence": "Virtual Judge contest page 'RCPC 2022 Universities' with an empty status table and embedded contest data listing 15 problems A to O; no standings rows.",
+  "disagreement": null,
+  "earlier": {
+   "verdict": "correct",
+   "roles": [
+    "problemset"
+   ],
+   "confidence": "medium",
+   "evidence": "Vjudge contest 'RCPC 2022 Universities' with empty status table; embedded JSON lists 15 problems A-O and no standings rows.",
+   "same_copy": true
+  }
+ },
+ {
+  "contest": "romania-2025",
+  "url": "https://events.info.uaic.ro/romanian-collegiate-programming-contest/results.html",
+  "catalogue_roles": [
+   "standings"
+  ],
+  "verdict": "correct",
+  "roles": [],
+  "confidence": "medium",
+  "evidence": "Stub page 'Results - RCPC 2025' with a heading, one sentence and an embedded frame of a published Google Sheet; the page holds no results itself.",
+  "disagreement": null,
+  "earlier": {
+   "verdict": "correct",
+   "roles": [],
+   "confidence": "medium",
+   "evidence": "Stub page 'Results - RCPC 2025' with a heading and one sentence, whose only content is an embedded Google Sheet frame (the same published sheet id as source 2).",
+   "same_copy": true
+  }
+ },
+ {
+  "contest": "romania-2026",
+  "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQYurJzZYJXoMKkCqNFS42BrDCGP1ec0DXTIcYoW87nt-a2QMSLZOwKt78JgtA5T0rlUKch98t6uPw_/pubhtml",
+  "catalogue_roles": [
+   "standings"
+  ],
+  "verdict": "not-the-document",
+  "roles": [],
+  "confidence": "medium",
+  "evidence": "The page holds only the title 'RCPC 2026 ranking public - Google Drive' and one sheet tab name, with no table rows.",
+  "disagreement": null,
+  "earlier": null
+ },
+ {
+  "contest": "saudi-arabia-2023",
+  "url": "https://codeforces.com/group/hTqC3XzK2z/contest/400007",
+  "catalogue_roles": [
+   "standings",
+   "problemset"
+  ],
+  "verdict": "wrong-contest",
+  "roles": [],
+  "confidence": "high",
+  "evidence": "The Codeforces group dashboard is titled 'Saudi CPC Qualifications 2022' and lists 16 problems A to P with no standings table.",
+  "disagreement": null,
+  "earlier": {
+   "verdict": "wrong-contest",
+   "roles": [],
+   "confidence": "high",
+   "evidence": "Codeforces dashboard titled 'Saudi CPC Qualifications 2022' with 16 problems A-P and no standings table.",
+   "same_copy": false
+  }
+ },
+ {
+  "contest": "scusa-1987",
+  "url": "https://www.cs.rice.edu/~greiner/icpc.html",
+  "catalogue_roles": [
+   "standings"
+  ],
+  "verdict": "correct",
+  "roles": [
+   "report"
+  ],
+  "confidence": "medium",
+  "evidence": "Rice's team-history page gives, in its 1987 Regionals row, only the placings of Rice's own two teams.",
+  "disagreement": null,
+  "earlier": {
+   "verdict": "correct",
+   "roles": [
+    "report"
+   ],
+   "confidence": "medium",
+   "evidence": "Rice University team history page listing per year only Rice's own placing (1987 Regionals: 3rd place, Matt Biggio et al., coach Joe Warren), no full standings.",
+   "same_copy": true
+  }
+ },
+ {
+  "contest": "scusa-1988",
+  "url": "https://www.cs.rice.edu/~greiner/icpc.html",
+  "catalogue_roles": [
+   "standings"
+  ],
+  "verdict": "correct",
+  "roles": [
+   "report"
+  ],
+  "confidence": "medium",
+  "evidence": "Rice's team-history page gives, in its 1988/9 Regionals row, only Rice's own 1st-place team.",
+  "disagreement": null,
+  "earlier": {
+   "verdict": "correct",
+   "roles": [
+    "report"
+   ],
+   "confidence": "medium",
+   "evidence": "Rice University team history page; its 1988/9 Regionals row gives only Rice's 1st place team (Biggio, Briggs, Carson, Greiner; coach Joe Warren), no full standings.",
+   "same_copy": true
+  }
+ },
+ {
+  "contest": "scusa-1992",
+  "url": "https://www.cs.rice.edu/~greiner/icpc.html",
+  "catalogue_roles": [
+   "standings"
+  ],
+  "verdict": "correct",
+  "roles": [],
+  "confidence": "medium",
+  "evidence": "The page is Rice University's own ACM-ICPC team history, and its row for 1992/3 Regionals shows only '?' for Rice's result.",
+  "disagreement": null,
+  "earlier": {
+   "verdict": "correct",
+   "roles": [],
+   "confidence": "medium",
+   "evidence": "Rice University team history page; the 1992/3 Regionals row shows only '?' for Rice's result, so it says nothing about this contest's results.",
+   "same_copy": true
+  }
+ },
+ {
+  "contest": "scusa-1993",
+  "url": "https://www.cs.rice.edu/~greiner/icpc.html",
+  "catalogue_roles": [
+   "standings"
+  ],
+  "verdict": "correct",
+  "roles": [],
+  "confidence": "medium",
+  "evidence": "The page is Rice University's own ACM-ICPC team history, and its row for 1993/4 Regionals shows only '?' for Rice's result.",
+  "disagreement": null,
+  "earlier": {
+   "verdict": "correct",
+   "roles": [],
+   "confidence": "medium",
+   "evidence": "Rice University team history page; the 1993/4 Regionals row shows only '?' for Rice's result, so it says nothing about this contest's results.",
+   "same_copy": true
+  }
+ },
+ {
+  "contest": "scusa-1998",
+  "url": "https://www.acmicpc.net/category/detail/738",
+  "catalogue_roles": [
+   "problemset"
+  ],
+  "verdict": "correct",
+  "roles": [],
+  "confidence": "medium",
+  "evidence": "Baekjoon Online Judge category '1998 South Central USA Regional Programming Contest' holds one row, number 6459 with the label F, and no title.",
+  "disagreement": null,
+  "earlier": {
+   "verdict": "correct",
+   "roles": [],
+   "confidence": "medium",
+   "evidence": "Baekjoon category '1998 South Central USA Regional Programming Contest' holds a single blank slot (6459, 'F') with no problem name or statement.",
+   "same_copy": true
+  }
+ },
+ {
+  "contest": "scusa-1999",
+  "url": "http://www.rsu.edu/acm_contest",
+  "catalogue_roles": [
+   "web"
+  ],
+  "verdict": "correct",
+  "roles": [],
+  "confidence": "medium",
+  "evidence": "The copy is Rogers State University's general site (news archive 'News from 2000', home pages); its only trace of the contest is a home-page link 'ACM Programming Contest Results' to a page that is not in our copy.",
+  "disagreement": null,
+  "earlier": {
+   "verdict": "correct",
+   "roles": [],
+   "confidence": "medium",
+   "evidence": "The crawl is Rogers State University's general site (news archive 'News from 2000', homepages); the only trace of the contest is a homepage link 'ACM Programming Contest Results' to /acm_contest/final/, which was not captured.",
+   "same_copy": null
+  }
+ },
+ {
+  "contest": "scusa-2003",
+  "url": "https://open.kattis.com/problem-sources/South%20Central%20Regional%20Contest%202003",
+  "catalogue_roles": [
+   "problemset"
+  ],
+  "verdict": "not-the-document",
+  "roles": [],
+  "confidence": "high",
+  "evidence": "The Kattis problem-sources page for 'South Central Regional Contest 2003' shows 'No data found' and an empty problem list.",
+  "disagreement": null,
+  "earlier": {
+   "verdict": "not-the-document",
+   "roles": [],
+   "confidence": "high",
+   "evidence": "Kattis problem-sources page for 'South Central Regional Contest 2003' shows 'No data found' with an empty problem list.",
+   "same_copy": false
+  }
+ },
+ {
+  "contest": "scusa-2008",
+  "url": "https://acm2008.scusa.lsu.edu/results/report.php",
+  "catalogue_roles": [
+   "editorial"
+  ],
+  "verdict": "correct",
+  "roles": [
+   "report"
+  ],
+  "confidence": "high",
+  "evidence": "Page headed 'Report for 2008 South Central USA Regional Programming Contest' giving an account of the contest by its hosts, not worked solutions.",
   "disagreement": null,
   "earlier": null
  }
