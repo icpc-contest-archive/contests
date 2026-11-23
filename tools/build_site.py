@@ -706,8 +706,9 @@ _COPIES: dict = {}
 
 def index_extra_copies(contests: dict) -> None:
     """Copies the catalogue ties to a source but the resource graph files under another address:
-    a capture named in `archived` whose own address differs (a redirect target, a mirror), and
-    the contest's website crawl when it was seeded from another spelling of the address."""
+    a capture named in `archived` whose own address differs (a redirect target, a mirror), the
+    contest's website crawl when it was seeded from another spelling of the address, and a crawl
+    that holds the address as one of its pages."""
     EXTRA_HELD.clear()
     _CIT.clear()
     _COPIES.clear()
@@ -732,6 +733,20 @@ def index_extra_copies(contests: dict) -> None:
                     "ts": site.get("wayback_timestamp") or re.sub(r"[^0-9]", "", str(site.get("fetched") or ""))[:14] or "unknown",
                     "via": "wayback" if site.get("mode") == "wayback" else "live", "contest": cid, "kind": "website",
                     "filed_under": site.get("seed_raw") or site.get("seed"), "site": site})
+    # an address the catalogue cites that is a page of a crawl we hold, not the crawl's first address:
+    # that page is our copy of it
+    cited = {lid(e["url"]) for c in contests.values() for e in sources(c)}
+    for L in RES.locs.values():
+        for R in (L.get("resources") or {}).values():
+            w = R.get("website")
+            for ru, status, size, wts, _ctype in (w or {}).get("page_list") or []:
+                k2 = lid(ru)
+                if status != 200 or not size or k2 == L["id"] or k2 not in cited:
+                    continue
+                if any((x.get("site") or {}).get("dir") == w["dir"] for x in EXTRA_HELD[k2]):
+                    continue
+                EXTRA_HELD[k2].append({"ts": wts or R["ts"], "via": "wayback" if w.get("mode") == "wayback" else "live",
+                                       "contest": w["contest"], "kind": "website", "filed_under": L["url"], "site": w})
 
 
 def citations(k: str) -> list[dict]:
@@ -787,6 +802,13 @@ def _cit_time(k: str, c: dict) -> str | None:
     return own[0] if own else None
 
 
+def _problem_page_only(L: dict) -> bool:
+    """An address no contest cites whose copies are all pages of an online judge (a problem's statement
+    page or file, fetched for the problem's set)."""
+    caps = [c for R in (L.get("resources") or {}).values() for c in R.get("captures") or []]
+    return bool(caps) and all(str(c.get("artifact") or "").startswith("judge-") for c in caps)
+
+
 def index_docs() -> None:
     """Split every address into its sources. A source is an address at a time. One address cited by
     one contest is one source. An address several contests cite is one source per time it is meant
@@ -795,6 +817,8 @@ def index_docs() -> None:
     DOCS.clear(); DOCS_OF.clear(); DOC_FOR.clear(); DOC_ALIAS.clear()  # noqa: E702
     for k, L in RES.locs.items():
         cits = citations(k)
+        if not cits and _problem_page_only(L):
+            continue   # a problem's page on an online judge, held for its statement: not a source of a contest
         groups: dict = {}
         if len(cits) <= 1:
             groups[(str(cits[0]["as_of"]) if cits and cits[0]["as_of"] else None)] = list(cits)
@@ -3622,6 +3646,8 @@ def build(out: Path):
         for k, to in DOC_ALIAS.items():   # an address whose every source names a time: its old page leads to the latest
             stub(out / "source" / k / "index.html", f"../{to}/index.html")
         for k, L in RES.locs.items():     # the old locator/ addresses
+            if not DOCS_OF.get(k):
+                continue                  # not a source (a problem's page on an online judge): never had one
             to = DOC_ALIAS.get(k, k)
             stub(out / "locator" / k / "index.html", f"../../source/{to}/index.html")
             for ts in L["resources"]:
