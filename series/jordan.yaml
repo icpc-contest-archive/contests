@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: jordan
   name: ICPC Jordanian Collegiate Programming Contest
@@ -11,12 +11,12 @@ contests:
   name: 2011 Jordanian Collegiate Programming Contest
   date: '2011-10-29'
   location: Jordan; Administrative Site Location
+  cms_ids:
+  - 929
   sites:
   - location: jo-amman-psut
     date: '2011-09-29'
   - type: administrative
-  cms_ids:
-  - 929
   parent: acpc-2011
   next: jordan-2012
   sources:
@@ -24,7 +24,6 @@ contests:
     roles:
     - web
     - standings
-    as_of: '20141225163133'
     archived:
     - jordan/jordan-2011/external-standings/2026-04-15-external/content.html
     - jordan/jordan-2011/standings/20121226-wayback-8dd2366e/page.html
@@ -200,14 +199,20 @@ contests:
   name: 2014 Jordanian Collegiate Programming Contest
   date: '2014-11-01'
   location: Administrative Site Location; Jordan
+  cms_ids:
+  - 2643
   sites:
   - location: jo-amman-asu
   - type: administrative
-  cms_ids:
-  - 2643
   parent: acpc-2014
   next: jordan-2015
   sources:
+  - url: http://acmacpc.org/jordan
+    roles:
+    - web
+    as_of: '20141104183807'
+    note: found by the data scan 2026-11-23 (Wayback CDX of the acmacpc.org domain (ACPC organisers; sibling
+      jordan-2011/2015 webs acmacpc.org/jordan))
   - url: https://icpc.global/regionals/finder/JCPC-2015/standings
     roles:
     - standings
@@ -244,16 +249,21 @@ contests:
   name: 2016 Jordanian Collegiate Programming Contest
   date: '2016-10-01'
   location: Amman; Administrative Site Location; Balqa'
+  cms_ids:
+  - 3176
   sites:
   - location: jo-amman
   - location: jo-as-salt-bau
     name: unofficial
   - type: administrative
-  cms_ids:
-  - 3176
   parent: acpc-2016
   next: jordan-2017
   sources:
+  - url: http://acmacpc.org/jcpc/
+    roles:
+    - web
+    as_of: '20190604042928'
+    note: found by the data scan 2026-11-23 (Wayback CDX of the acmacpc.org domain)
   - url: https://icpc.global/regionals/finder/JCPC-2017/standings
     roles:
     - standings

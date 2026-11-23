@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: mexico
   name: ICPC Mexico Finals
@@ -667,6 +667,8 @@ contests:
   season: 2027
   name: 2026 ICPC Mexico Finals
   date: '2026-11-07'
+  cms_ids:
+  - 9816
   sites:
   - location: mx-guadalajara-iteso
     name: Administrative Site
@@ -678,8 +680,6 @@ contests:
     name: Guest Teams Site
     date: '2026-11-06'
     type: administrative
-  cms_ids:
-  - 9816
   parent: lac-2027
   sources:
   - url: https://finals2026.icpcmexico.org/
@@ -688,19 +688,28 @@ contests:
   - url: https://scorelatam.naquadah.com.br/latam-2026/
     roles:
     - scoreboard
-    url_state: live
-    url_checked: '2026-11-16'
+    - problemset
+    contains:
+    - statement
     archived:
     - mexico/mexico-2026/scoreboard/20261113-live-2050f6f2/page.html
+    url_state: live
+    url_checked: '2026-11-16'
   - url: https://icpc.global/regionals/finder/Mexico-2027/standings
     roles:
     - standings
     archived:
     - mexico/mexico-2026/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 9816, 85 teams, DB fetch 2026-11-13)
+  - url: https://scorelatam.naquadah.com.br/latam-2026/documentos/contest.en.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (linked as "Problem set PDF" from https://scorelatam.naquadah.com.br/latam-2026/)
+  problems:
+    set: latam-2026
   provenance:
   - 'ran 2026-11-07: shown by its icpc standings, scoreboard source(s); date from the regional''s contest
     day (the CMS record''s last day; the site date is 6 Nov) (ruling 2026-11-12: upcoming ends when the
     date has passed and a result source or judge page shows the contest ran)'
-  problems:
-    set: latam-2026

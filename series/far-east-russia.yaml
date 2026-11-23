@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/describe_apply.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: far-east-russia
   name: ICPC Far Eastern Russia Regional Contest
@@ -9,7 +9,10 @@ contests:
 - id: far-east-russia-1998
   season: 1999
   name: 1998 Far Eastern Subregional Contest
+  location: Vladivostok
   cms_ids: []
+  sites:
+  - location: ru-vladivostok
   parent: neerc-1998
   next: far-east-russia-1999
   sources:
@@ -26,27 +29,56 @@ contests:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
+  - url: http://neerc.ifmo.ru/Archive/98/results.htm
+    roles:
+    - scoreboard
+    scope: Far Eastern Subregion
+    as_of: '20030516090449'
+    note: found by the data scan 2026-11-23 (the 1998 NEERC subregional results page; it names the host
+      of this edition)
+  provenance:
+  - location Vladivostok read from http://neerc.ifmo.ru/Archive/98/results.htm (data scan 2026-11-23)
 - id: far-east-russia-1999
   season: 2000
   name: 1999 Far Eastern Subregional Contest
-  cms_ids: []
+  location: Vladivostok
+  cms_ids:
+  - 9932
+  sites:
+  - location: ru-vladivostok
   parent: neerc-1999
   next: far-east-russia-2000
   sources:
   - url: https://neerc.ifmo.ru/subregions/far-eastern.html
     roles:
     - web
+  - url: http://imcs.dvgu.ru/acm/results1999.html
+    roles:
+    - scoreboard
+    as_of: '20061009190438'
+    note: found by the data scan 2026-11-23 (Wayback snapshot 20061009190438; a copy is held in the website
+      crawl of far-east-russia-2010)
+  provenance:
+  - cms id 9932 read from https://icpc.global/api/contest/public/regionalresults/2000 (data scan 2026-11-23)
+  - location Vladivostok read from http://imcs.dvgu.ru/acm/results1999.html (data scan 2026-11-23)
 - id: far-east-russia-2000
   season: 2001
   name: 2000 Far Eastern Subregional Contest
   location: Vladivostok, Far-Eastern State University
-  cms_ids: []
+  cms_ids:
+  - 9942
   parent: neerc-2000
   next: far-east-russia-2001
   sources:
   - url: https://neerc.ifmo.ru/subregions/far-eastern.html
     roles:
     - web
+  - url: http://imcs.dvgu.ru/acm/results2000.html
+    roles:
+    - scoreboard
+    as_of: '20061009191606'
+    note: found by the data scan 2026-11-23 (Wayback snapshot 20061009191606; a copy is held in the website
+      crawl of far-east-russia-2010)
   - url: https://www.acmicpc.net/category/detail/949
     roles:
     - problemset
@@ -63,18 +95,34 @@ contests:
   provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
   - location read from https://neerc.ifmo.ru/subregions/far-eastern.html (description round 2026-11-16)
+  - cms id 9942 read from https://icpc.global/api/contest/public/regionalresults/2001 (data scan 2026-11-23)
 - id: far-east-russia-2001
   season: 2002
   name: 2001 Far Eastern Subregional Contest
+  location: Vladivostok, Far-Eastern State University
   cms_ids: []
+  sites:
+  - location: ru-vladivostok-fefu
   parent: neerc-2001
   next: far-east-russia-2002
   sources:
-  - url: https://www.kgeorgiy.info/papers/Vasilev_VN__Kazakov_MA__Korneev_GA__Parfenov_VG__Stankevich_AS_--_NEERC_2001.pdf
+  - url: http://neerc.ifmo.ru/Archive/2001/far-eastern.html
     roles:
-    - web
+    - scoreboard
+    as_of: '20020726162421'
+    note: found by the data scan 2026-11-23 (Wayback snapshot 20020726162421; a copy is held in the website
+      crawl of north-russia-2000)
+  - url: http://imcs.dvgu.ru/acm/results2001.html
+    roles:
+    - scoreboard
+    as_of: '20061009191322'
+    note: found by the data scan 2026-11-23 (Wayback snapshot 20061009191322; a copy is held in the website
+      crawl of far-east-russia-2010)
   problems:
     set: far-east-russia-2001
+  provenance:
+  - location Vladivostok, Far-Eastern State University read from http://neerc.ifmo.ru/Archive/2001/far-eastern.html
+    (data scan 2026-11-23)
 - id: far-east-russia-2002
   season: 2003
   name: 2002 Far Eastern Subregional Contest
@@ -85,6 +133,12 @@ contests:
   - url: https://neerc.ifmo.ru/subregions/far-eastern.html
     roles:
     - web
+  - url: http://imcs.dvgu.ru/acm/results2002.html
+    roles:
+    - scoreboard
+    as_of: '20061009191419'
+    note: found by the data scan 2026-11-23 (Wayback snapshot 20061009191419; a copy is held in the website
+      crawl of far-east-russia-2010)
   - url: https://www.acmicpc.net/category/detail/948
     roles:
     - problemset
@@ -109,6 +163,7 @@ contests:
   - url: https://neerc.ifmo.ru/subregions/far-eastern.html
     roles:
     - web
+    as_of: '20030511143832'
   - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=3991;clist=3991;hide_ooc=1;hide_virtual=1;sid=
     roles:
     - scoreboard
@@ -157,13 +212,17 @@ contests:
 - id: far-east-russia-2004
   season: 2005
   name: 2004 Far Eastern Subregional Contest
+  location: Vladivostok, Far-Eastern State University
   cms_ids: []
+  sites:
+  - location: ru-vladivostok-fefu
   parent: neerc-2004
   next: far-east-russia-2005
   sources:
   - url: https://neerc.ifmo.ru/subregions/far-eastern.html
     roles:
     - web
+    as_of: '20041109210552'
   - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=509770;clist=509770;hide_ooc=1;hide_virtual=1;sid=
     roles:
     - scoreboard
@@ -209,16 +268,22 @@ contests:
     set: far-east-russia-2004
   provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+  - location Vladivostok, Far-Eastern State University read from https://web.archive.org/web/20050212194039/http://neerc.ifmo.ru/subregions/far-eastern.html
+    (data scan 2026-11-23)
 - id: far-east-russia-2005
   season: 2006
   name: 2005 Far Eastern Subregional Contest
+  location: Vladivostok, Far-Eastern State University
   cms_ids: []
+  sites:
+  - location: ru-vladivostok-fefu
   parent: neerc-2005
   next: far-east-russia-2006
   sources:
   - url: https://neerc.ifmo.ru/subregions/far-eastern.html
     roles:
     - web
+    as_of: '20060503231251'
   - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=537878;clist=537878;hide_ooc=1;hide_virtual=1;sid=
     roles:
     - scoreboard
@@ -264,16 +329,22 @@ contests:
     set: far-east-russia-2005
   provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+  - location Vladivostok, Far-Eastern State University read from https://web.archive.org/web/20060503231251/http://neerc.ifmo.ru/subregions/far-eastern.html
+    (data scan 2026-11-23)
 - id: far-east-russia-2006
   season: 2007
   name: 2006 Far Eastern Subregional Contest
+  location: Vladivostok, Far-Eastern State University
   cms_ids: []
+  sites:
+  - location: ru-vladivostok-fefu
   parent: neerc-2006
   next: far-east-russia-2007
   sources:
   - url: https://neerc.ifmo.ru/subregions/far-eastern.html
     roles:
     - web
+    as_of: '20061125222355'
   - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=565452;clist=565452;hide_ooc=1;hide_virtual=1;sid=
     roles:
     - scoreboard
@@ -307,16 +378,24 @@ contests:
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
   problems:
     set: far-east-russia-2006
+  provenance:
+  - location Vladivostok, Far-Eastern State University read from https://web.archive.org/web/20061125222355/http://neerc.ifmo.ru/subregions/far-eastern.html
+    (data scan 2026-11-23)
 - id: far-east-russia-2007
   season: 2008
   name: 2007 Far Eastern Subregional Contest
-  cms_ids: []
+  location: Vladivostok, Far-Eastern State University
+  cms_ids:
+  - 9915
+  sites:
+  - location: ru-vladivostok-fefu
   parent: neerc-2007
   next: far-east-russia-2008
   sources:
   - url: https://neerc.ifmo.ru/subregions/far-eastern.html
     roles:
     - web
+    as_of: '20071123064916'
   - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=608547;clist=608547;hide_ooc=1;hide_virtual=1;sid=
     roles:
     - scoreboard
@@ -357,6 +436,10 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: far-east-russia-2007
+  provenance:
+  - cms id 9915 read from https://icpc.global/api/contest/public/regionalresults/2008 (data scan 2026-11-23)
+  - location Vladivostok, Far-Eastern State University read from https://web.archive.org/web/20071123064916/http://neerc.ifmo.ru/subregions/far-eastern.html
+    (data scan 2026-11-23)
 - id: far-east-russia-2008
   season: 2009
   name: 2008 Far Eastern Subregional Contest
@@ -419,19 +502,20 @@ contests:
   name: 2009 Far Eastern Subregional Contest
   date: '2009-10-25'
   location: Administrative Site Location; Vladivostok
+  cms_ids:
+  - 526
   sites:
   - type: administrative
   - location: ru-vladivostok
     name: Far Eastern Subregional Contest
     type: administrative
-  cms_ids:
-  - 526
   parent: neerc-2009
   next: far-east-russia-2010
   sources:
   - url: https://neerc.ifmo.ru/subregions/far-eastern.html
     roles:
     - web
+    as_of: '20090926050612'
   - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=706495;clist=706495;hide_ooc=1;hide_virtual=1;sid=
     roles:
     - scoreboard
@@ -535,19 +619,20 @@ contests:
   name: 2011 Far Eastern Subregional Contest
   date: '2011-10-29'
   location: Vladivostok; Administrative Site Location
+  cms_ids:
+  - 754
   sites:
   - type: administrative
   - location: ru-vladivostok
     name: Far Eastern Subregional Contest
     type: administrative
-  cms_ids:
-  - 754
   parent: neerc-2011
   next: far-east-russia-2012
   sources:
   - url: https://neerc.ifmo.ru/subregions/far-eastern.html
     roles:
     - web
+    as_of: '20111107230017'
   - url: https://nerc.itmo.ru/archive/2011/far-eastern/standings.html
     roles:
     - scoreboard
@@ -662,19 +747,20 @@ contests:
   name: 2013 Far Eastern Subregional Contest
   date: '2013-11-03'
   location: Administrative Site Location; Vladivostok
+  cms_ids:
+  - 2027
   sites:
   - location: ru-vladivostok
     name: Far Eastern Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 2027
   parent: neerc-2013
   next: far-east-russia-2014
   sources:
   - url: https://neerc.ifmo.ru/subregions/far-eastern.html
     roles:
     - web
+    as_of: '20140406204635'
   - url: https://nerc.itmo.ru/archive/2013/far-eastern/standings.html
     roles:
     - scoreboard
@@ -772,19 +858,20 @@ contests:
   name: 2015 Far Eastern Subregional Contest
   date: '2015-11-14'
   location: Vladivostok; Administrative Site Location
+  cms_ids:
+  - 2755
   sites:
   - location: ru-vladivostok
     name: Far Eastern Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 2755
   parent: neerc-2015
   next: far-east-russia-2016
   sources:
   - url: https://neerc.ifmo.ru/subregions/far-eastern.html
     roles:
     - web
+    as_of: '20160318003233'
   - url: https://nerc.itmo.ru/archive/2015/far-eastern/standings.html
     roles:
     - scoreboard
@@ -835,19 +922,20 @@ contests:
   name: 2016 Far Eastern Subregional Contest
   date: '2016-11-13'
   location: Administrative Site Location; Vladivostok
+  cms_ids:
+  - 3152
   sites:
   - location: ru-vladivostok
     name: Far Eastern Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 3152
   parent: neerc-2016
   next: far-east-russia-2017
   sources:
   - url: https://neerc.ifmo.ru/subregions/far-eastern.html
     roles:
     - web
+    as_of: '20170827122923'
   - url: https://nerc.itmo.ru/archive/2016/far-eastern/standings.html
     roles:
     - scoreboard
@@ -961,15 +1049,20 @@ contests:
   name: 2018 Far Eastern Subregional Contest
   date: '2018-11-04'
   location: Vladivostok; Administrative Site Location
+  cms_ids:
+  - 3675
   sites:
   - location: ru-vladivostok
     name: Far Eastern Subregional Contest
   - type: administrative
-  cms_ids:
-  - 3675
   parent: nerc-2018
   next: far-east-russia-2019
   sources:
+  - url: http://neerc.ifmo.ru/subregions/far-eastern.html
+    roles:
+    - web
+    as_of: '20181224014310'
+    note: found by the data scan 2026-11-23 (Wayback CDX of the NERC subregion page)
   - url: https://imcs.dvfu.ru/cats/rank_table_content?cache=1;cid=1821567;clist=1821567;hide_ooc=1;hide_virtual=1;sid=
     roles:
     - scoreboard
@@ -992,18 +1085,19 @@ contests:
   name: 2019 Far Eastern Russia Regional Contest
   date: '2019-11-10'
   location: Vladivostok; Administrative Site Location
+  cms_ids:
+  - 4197
   sites:
   - type: administrative
   - location: ru-vladivostok
     name: Far Eastern Subregional Contest
-  cms_ids:
-  - 4197
   parent: nerc-2019
   next: far-east-russia-2020
   sources:
   - url: https://neerc.ifmo.ru/subregions/far-eastern.html
     roles:
     - web
+    as_of: '20191130003237'
   - url: https://nerc.itmo.ru/archive/2019/far-eastern/standings.html
     roles:
     - scoreboard
@@ -1162,15 +1256,20 @@ contests:
   name: 2023 ICPC Far Eastern Russia Regional Contest
   date: '2023-11-26'
   location: Administrative Site Location; Vladivostok
+  cms_ids:
+  - 7725
   sites:
   - type: administrative
   - location: ru-vladivostok
     name: Far Eastern Regional Contest
-  cms_ids:
-  - 7725
   parent: nerc-2023
   next: far-east-russia-2024
   sources:
+  - url: https://neerc.ifmo.ru/subregions/far-eastern.html
+    roles:
+    - web
+    as_of: '20231128151714'
+    note: found by the data scan 2026-11-23 (Wayback CDX of the NERC subregion page)
   - url: https://icpc.global/regionals/finder/Far-Eastern-Regional-2024/standings
     roles:
     - standings
@@ -1182,15 +1281,20 @@ contests:
   name: 2024 ICPC Far Eastern Russia Regional Contest
   date: '2024-11-24'
   location: Vladivostok; Administrative Site Location
+  cms_ids:
+  - 8906
   sites:
   - type: administrative
   - location: ru-vladivostok
     name: Far Eastern Regional Contest
-  cms_ids:
-  - 8906
   parent: nerc-2024
   next: far-east-russia-2025
   sources:
+  - url: https://neerc.ifmo.ru/subregions/far-eastern.html
+    roles:
+    - web
+    as_of: '20241102103505'
+    note: found by the data scan 2026-11-23 (Wayback CDX of the NERC subregion page)
   - url: https://icpc.global/regionals/finder/Far-Eastern-Regional-2025/standings
     roles:
     - standings
@@ -1249,12 +1353,13 @@ contests:
   status: upcoming
   season: 2027
   name: 2026 ICPC Far Eastern Russia Regional Contest
+  date: '2026-11-29'
+  cms_ids:
+  - 9785
   sites:
   - type: administrative
   - location: ru-vladivostok
     name: Far Eastern Regional Contest
-  cms_ids:
-  - 9785
   parent: nerc-2026
   sources:
   - url: https://imcs.dvfu.ru/cats/wiki?name=ICPC%202026
@@ -1265,3 +1370,6 @@ contests:
     roles:
     - web
     note: added by the no-sources hunt 2026-11-16
+  provenance:
+  - date 2026-11-29 read from https://nerc.itmo.ru/subregions/far-eastern.html (data scan 2026-11-23;
+    announced before the contest)

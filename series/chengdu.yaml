@@ -1,10 +1,11 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: chengdu
   name: ICPC Asia Chengdu Regional Contest
   tier: regional
   region: Asia East
   naming: season-start
+  rotating_host: true
 contests:
 - id: chengdu-2005
   season: 2006
@@ -53,6 +54,8 @@ contests:
   date: '2007-11-18'
   location: ChangSha; Inner Mongolia University; XiHua University; Chengdu, Sichuan, China; Changsha;
     Inner Mongolia; Xihua University
+  cms_ids:
+  - 1151
   sites:
   - location: cn-chengdu-xihua
     name: The Asia Chengdu Regional On-Site Contest
@@ -81,8 +84,6 @@ contests:
   - location: cn-hohhot-imu
     name: Inner Mongolia Collegiate Programming Contest
     date: '2007-11-03'
-  cms_ids:
-  - 1151
   parent: wf-2008
   next: chengdu-2008
   sources:
@@ -102,19 +103,26 @@ contests:
   - url: http://acm.xhu.edu.cn/precont-result.htm
     roles:
     - standings
-    as_of: '20070705055812'
-    note: found inside http://acm.xhu.edu.cn by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
+    as_of: '20071228191325'
     archived:
     - chengdu/chengdu-2007/standings/20070705-wayback-68fd2b56/precont-result.htm
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://acm.xhu.edu.cn by the content check
   - url: http://acm.xhu.edu.cn/onsitelist.htm
     roles:
     - teams
-    note: found inside http://acm.xhu.edu.cn by the content check
     as_of: '20071118155625'
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://acm.xhu.edu.cn by the content check
+  - url: https://acm.hdu.edu.cn/search.php?field=problem&key=2007+Asia+Regional+Chengdu&source=1&searchmode=source
+    roles:
+    - problemset
+    contains:
+    - names
+    judge: hdu
+    note: found by the data scan 2026-11-23 (online judge (HDU source search))
   problems:
     set: chengdu-2007
 - id: chengdu-2008
@@ -123,6 +131,8 @@ contests:
   date: '2008-11-30'
   location: UESTC; Chengdu, Sichuan, China; Administrative Site Location; Sichuan Univ.; 1st Lab Building
     of SWUN; Asia Chengdu Regional
+  cms_ids:
+  - 9
   sites:
   - location: cn-chengdu
     name: 2008 Asia ChengDu Regional Contest - Site
@@ -143,8 +153,6 @@ contests:
     date: '2008-10-19'
     type: online
   - type: administrative
-  cms_ids:
-  - 9
   parent: wf-2009
   next: chengdu-2010
   sources:
@@ -161,6 +169,13 @@ contests:
     url_state: dead
     url_checked: '2026-11-16'
     note: 'from archived capture (external-standings); snapshot verified at a different locator: http://acm.swun.edu.cn/viewnews.php'
+  - url: https://acm.hdu.edu.cn/search.php?field=problem&key=2008+Asia+Regional+Chengdu&source=1&searchmode=source
+    roles:
+    - problemset
+    contains:
+    - names
+    judge: hdu
+    note: found by the data scan 2026-11-23 (online judge (HDU source search))
   problems:
     set: chengdu-2008
 - id: chengdu-2010
@@ -168,6 +183,8 @@ contests:
   name: 2010 ACM-ICPC Asia Chengdu Regional Contest
   date: '2010-11-07'
   location: Administrative Site Location; Chengdu
+  cms_ids:
+  - 658
   sites:
   - type: administrative
   - location: cn-chengdu
@@ -176,14 +193,13 @@ contests:
     type: online
   - location: cn-chengdu
     name: Asia Chengdu On Site Regional Contest
-  cms_ids:
-  - 658
   parent: wf-2011
   next: chengdu-2011
   sources:
   - url: http://cs.scu.edu.cn/icpc
     roles:
     - web
+    as_of: '20101110020229'
   - url: http://board.acmicpc.info/icpc2010/scu_onsite.php
     roles:
     - scoreboard
@@ -210,72 +226,79 @@ contests:
     archived:
     - chengdu/chengdu-2010/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 658, 112 teams, DB fetch 2026-04-26)
+  - url: https://acm.hdu.edu.cn/search.php?field=problem&key=2010+Asia+Chengdu+Regional&source=1&searchmode=source
+    roles:
+    - problemset
+    contains:
+    - names
+    judge: hdu
+    note: found by the data scan 2026-11-23 (online judge (HDU source search))
   - url: https://pintia.cn/problem-sets/91827364500/exam/problems/type/7?problemSetProblemId=91827368599
     roles:
     - problem
-    judge: pintia
     contains:
     - statement
+    judge: pintia
   - url: https://pintia.cn/problem-sets/91827364500/exam/problems/type/7?problemSetProblemId=91827368600
     roles:
     - problem
-    judge: pintia
     contains:
     - statement
+    judge: pintia
   - url: https://pintia.cn/problem-sets/91827364500/exam/problems/type/7?problemSetProblemId=91827368601
     roles:
     - problem
-    judge: pintia
     contains:
     - statement
+    judge: pintia
   - url: https://pintia.cn/problem-sets/91827364500/exam/problems/type/7?problemSetProblemId=91827368602
     roles:
     - problem
-    judge: pintia
     contains:
     - statement
+    judge: pintia
   - url: https://pintia.cn/problem-sets/91827364500/exam/problems/type/7?problemSetProblemId=91827368603
     roles:
     - problem
-    judge: pintia
     contains:
     - statement
+    judge: pintia
   - url: https://pintia.cn/problem-sets/91827364500/exam/problems/type/7?problemSetProblemId=91827368604
     roles:
     - problem
-    judge: pintia
     contains:
     - statement
+    judge: pintia
   - url: https://pintia.cn/problem-sets/91827364500/exam/problems/type/7?problemSetProblemId=91827368605
     roles:
     - problem
-    judge: pintia
     contains:
     - statement
+    judge: pintia
   - url: https://pintia.cn/problem-sets/91827364500/exam/problems/type/7?problemSetProblemId=91827368606
     roles:
     - problem
-    judge: pintia
     contains:
     - statement
+    judge: pintia
   - url: https://pintia.cn/problem-sets/91827364500/exam/problems/type/7?problemSetProblemId=91827368607
     roles:
     - problem
-    judge: pintia
     contains:
     - statement
+    judge: pintia
   - url: https://pintia.cn/problem-sets/91827364500/exam/problems/type/7?problemSetProblemId=91827368608
     roles:
     - problem
-    judge: pintia
     contains:
     - statement
+    judge: pintia
   - url: https://pintia.cn/problem-sets/91827364500/exam/problems/type/7?problemSetProblemId=91827368609
     roles:
     - problem
-    judge: pintia
     contains:
     - statement
+    judge: pintia
   problems:
     set: chengdu-2010
 - id: chengdu-2011
@@ -283,6 +306,8 @@ contests:
   name: 2011 ACM-ICPC Asia Chengdu Regional Contest
   date: '2011-11-06'
   location: Administrative Site Location; Chengdu
+  cms_ids:
+  - 801
   sites:
   - location: cn-chengdu
     name: Asia Chengdu Online First Round Contest
@@ -290,8 +315,6 @@ contests:
   - location: cn-chengdu
     name: Asia Chengdu On Site Regional Contest
   - type: administrative
-  cms_ids:
-  - 801
   parent: wf-2012
   next: chengdu-2012
   sources:
@@ -314,6 +337,13 @@ contests:
     archived:
     - chengdu/chengdu-2011/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 801, 132 teams, DB fetch 2026-04-26)
+  - url: https://acm.hdu.edu.cn/search.php?field=problem&key=2011+Asia+Chengdu+Regional&source=1&searchmode=source
+    roles:
+    - problemset
+    contains:
+    - names
+    judge: hdu
+    note: found by the data scan 2026-11-23 (online judge (HDU source search))
   problems:
     set: chengdu-2011
 - id: chengdu-2012
@@ -321,11 +351,11 @@ contests:
   name: 2012 ACM-ICPC Asia Chengdu Regional Contest
   date: '2012-11-11'
   location: Chengdu Neusoft University
+  cms_ids:
+  - 1360
   sites:
   - location: cn-chengdu-neusoft
     name: Asia Chengdu On Site Regional Contest
-  cms_ids:
-  - 1360
   parent: wf-2013
   next: chengdu-2013
   sources:
@@ -358,6 +388,13 @@ contests:
     archived:
     - chengdu/chengdu-2012/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 1360, 141 teams, DB fetch 2026-04-26)
+  - url: https://acm.hdu.edu.cn/search.php?field=problem&key=2012+Asia+Chengdu+Regional&source=1&searchmode=source
+    roles:
+    - problemset
+    contains:
+    - names
+    judge: hdu
+    note: found by the data scan 2026-11-23 (online judge (HDU source search))
   problems:
     set: chengdu-2012
 - id: chengdu-2013
@@ -483,14 +520,19 @@ contests:
   name: 2024 ICPC Asia Chengdu Regional Contest
   date: '2024-10-27'
   location: Chengdu
+  cms_ids:
+  - 9094
   sites:
   - location: cn-chengdu
     name: Asia East Chengdu Onsite Contest
-  cms_ids:
-  - 9094
   parent: wf-2025
   next: chengdu-2025
   sources:
+  - url: https://icpc.pku.edu.cn/ssxx/1119_icpcbjzb_158934.htm
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ICPC China contest-information list icpc.pku.edu.cn/ssxx/
+      (赛事 sàishì = contests), sibling pattern of the 2026 editions)
   - url: https://codeforces.com/gym/105486/standings
     roles:
     - scoreboard
@@ -528,9 +570,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Asia-East-Continent/Chengdu/The-2024-ICPC-Asia-Chengdu-Regional-Contest/tutorials_zh-cn.pdf
     roles:
     - editorial
@@ -543,26 +585,25 @@ contests:
   name: 2025 ICPC Asia Chengdu Regional Contest
   date: '2025-10-26'
   location: Chengdu
+  cms_ids:
+  - 9226
   sites:
   - location: cn-chengdu
     name: Asia East Chengdu Onsite Contest
-  cms_ids:
-  - 9226
   parent: wf-2026
   next: chengdu-2026
   sources:
+  - url: https://icpc.pku.edu.cn/ssxx/1119_icpcbjzb_169372.htm
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ICPC China contest-information list icpc.pku.edu.cn/ssxx/
+      (赛事 sàishì = contests), sibling pattern of the 2026 editions)
   - url: https://icpc.global/regionals/finder/Chengdu-2026/standings
     roles:
     - standings
     archived:
     - chengdu/chengdu-2025/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 9226, 320 teams, DB fetch 2026-04-26)
-  - url: https://icpc-iiitdm.vercel.app/Icpc%202025/ICPC%20Chennai%20Onsite%202025-%20Final%20Ranklist.pdf
-    roles:
-    - standings
-    archived:
-    - chengdu/chengdu-2025/standings/2026-09-01-live-3ea8bdc5/page.pdf
-    note: from archived capture (standings)
   - url: https://codeforces.com/gym/106161
     roles:
     - problemset
@@ -574,9 +615,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Asia-East-Continent/Chengdu/The-2025-ICPC-Asia-Chengdu-Regional-Contest/tutorials_zh-cn.pdf
     roles:
     - editorial
@@ -588,132 +629,145 @@ contests:
   season: 2027
   name: 2026 ICPC Asia Chengdu Regional Contest
   date: '2026-10-25'
+  cms_ids:
+  - 9604
   sites:
   - type: administrative
   - location: cn-chengdu
     name: Asia East Chengdu Onsite Contest
-  cms_ids:
-  - 9604
   parent: wf-2027
   sources:
+  - url: https://icpc.pku.edu.cn/ssxx/d3a6d950ffeb45a4b51bed26c6ffc2ee.htm
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ICPC China contest-information list icpc.pku.edu.cn/ssxx/
+      (赛事 sàishì = contests), sibling pattern of the 2026 editions)
+  - url: https://board.xcpcio.com/icpc/51st/chengdu
+    roles:
+    - scoreboard
+    note: found by the data scan 2026-11-23 (board.xcpcio.com (data in github.com/xcpcio/board-data data/icpc/51st/chengdu))
+  - url: https://icpc.global/regionals/finder/Chengdu-2027/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings API, 319 ranked rows on 2026-11-23)
   - url: https://codeforces.com/gym/106799
     roles:
     - problemset
     contains:
     - statement
     judge: codeforces
+    as_of: '20261105211520'
+    url_state: replaced
+    url_checked: '2026-11-16'
     note: 'The 2026 ICPC Asia Chengdu Regional Contest (The 5th Universal Cup. Stage 5: Grand Prix of
       Chengdu) (judge hunt 2026-11-03: name+year: ''The 2026 ICPC Asia Chengdu Regional Contest (The 5th
       Universal Cup. Stage 5: Grand Prix of Chengdu)'' -> season start 2026; gym is the Universal/Open
       Cup replay of the regional set)'
-    as_of: '20261105211520'
-    url_state: replaced
-    url_checked: '2026-11-16'
   - url: https://qoj.ac/contest/4607
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://codeforces.com/gym/106799/problem/A
     roles:
     - problem
-    judge: codeforces
     problem: A
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106799/problem/B
     roles:
     - problem
-    judge: codeforces
     problem: B
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106799/problem/C
     roles:
     - problem
-    judge: codeforces
     problem: C
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106799/problem/D
     roles:
     - problem
-    judge: codeforces
     problem: D
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106799/problem/E
     roles:
     - problem
-    judge: codeforces
     problem: E
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106799/problem/F
     roles:
     - problem
-    judge: codeforces
     problem: F
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106799/problem/G
     roles:
     - problem
-    judge: codeforces
     problem: G
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106799/problem/H
     roles:
     - problem
-    judge: codeforces
     problem: H
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106799/problem/I
     roles:
     - problem
-    judge: codeforces
     problem: I
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106799/problem/J
     roles:
     - problem
-    judge: codeforces
     problem: J
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106799/problem/K
     roles:
     - problem
-    judge: codeforces
     problem: K
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106799/problem/L
     roles:
     - problem
-    judge: codeforces
     problem: L
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106799/problem/M
     roles:
     - problem
-    judge: codeforces
     problem: M
     contains:
     - statement
+    judge: codeforces
   - url: https://icpcarchive.github.io/Asia-East-Continent/Chengdu/The-2026-ICPC-Asia-Chengdu-Regional-Contest/tutorial_zh.pdf
     roles:
     - editorial
     url_state: live
     url_checked: '2026-11-23'
+  problems:
+    set: chengdu-2026
   provenance:
   - 'ran 2026-10-25: icpc.global finder Chengdu-2027 gives the contest as 24-25 Oct 2026; the Codeforces
     gym replay (106799) started 2026-10-25; QOJ mirrors the set (ruling 2026-11-12)'
-  problems:
-    set: chengdu-2026

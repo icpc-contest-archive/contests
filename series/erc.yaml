@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: erc
   name: European Regional Contest
@@ -52,18 +52,17 @@ contests:
   - url: https://issues.felixonline.co.uk/felix_720.pdf
     roles:
     - rankings
-    note: added by the no-sources hunt 2026-11-16
+    as_of: '20250122175013'
     archived:
     - erc/erc-1985/rankings/20250122-wayback-275bd8e1/felix_720.pdf
-    as_of: '20250122175013'
+    note: added by the no-sources hunt 2026-11-16
   - url: https://issues.felixonline.co.uk/felix_728.pdf
     roles:
-    - rankings
     - report
-    note: added by the no-sources hunt 2026-11-16
+    as_of: '20250110100129'
     archived:
     - erc/erc-1985/rankings/20250110-wayback-043ebc12/felix_728.pdf
-    as_of: '20250110100129'
+    note: added by the no-sources hunt 2026-11-16
   provenance:
   - 'CHipCie (Delft) archive history: first ERC organized 1983; no per-year artifacts survive there before
     1988 — added 2026-09-02 from CHipCie lineage evidence; date/host unknown'
@@ -84,17 +83,19 @@ contests:
 - id: erc-1987
   season: 1988
   name: 1987 European Regional Contest
+  location: London
   cms_ids: []
+  sites:
+  - location: gb-london
   parent: wf-1988
   next: erc-1988
   sources:
   - url: http://resolver.kb.nl/resolve?urn=KBPERS01:003488009:mpeg21:a00070:ocr
     roles:
-    - rankings
     - report
-    note: added by the no-sources hunt 2026-11-16
     archived:
     - erc/erc-1987/rankings/20261116-live-536fc0ce/page.html
+    note: added by the no-sources hunt 2026-11-16
   provenance:
   - 'CHipCie (Delft) archive history: first ERC organized 1983; no per-year artifacts survive there before
     1988 — added 2026-09-02 from CHipCie lineage evidence; date/host unknown'
@@ -104,6 +105,8 @@ contests:
     on 3 Nov 1990, organised by the Faculty of Mathematics and CS and study association GEWIS ''for the
     third consecutive time'' — so 1987 and earlier were hosted elsewhere. — https://www.cursor.tue.nl/fileadmin/user_upload/magazine/jaargangen/33/nl/11.pdf
     [existence hunt 2026-10-22]'
+  - location London read from http://resolver.kb.nl/resolve?urn=KBPERS01:003488009:mpeg21:a00070:ocr (data
+    scan 2026-11-23)
 - id: erc-1988
   season: 1989
   name: 1988 European Regional Contest
@@ -164,34 +167,43 @@ contests:
   season: 1990
   name: 1989 European Regional Contest
   date: '1989-11-10'
+  location: Eindhoven
   cms_ids: []
+  sites:
+  - location: nl-eindhoven
   parent: wf-1990
   next: erc-1990
   sources:
+  - url: https://chipcie.wisv.ch/archive/nwerc/
+    roles:
+    - web
+    scope: ERC 1989
+    note: found by the data scan 2026-11-23 (the CHipCie archive listing of every ERC/WERC/NWERC edition;
+      names host city and date)
   - url: http://resolver.kb.nl/resolve?urn=ddd:010559226:mpeg21:a0076:ocr
     roles:
     - rankings
     - report
-    note: 'by-catch of the no-sources hunt 2026-11-16: ANP newspaper item: TU Eindhoven first, Leiden
-      second, Utrecht third; 25 teams from nine countries'
     as_of: '20261117002404'
-    url_state: live
-    url_checked: '2026-11-22'
     archived:
     - erc/erc-1989/rankings/20261117-wayback-71d2bf18/page.html
     - erc/erc-1989/rankings/20261122-live-4cffb276/page.html
+    url_state: live
+    url_checked: '2026-11-22'
+    note: 'by-catch of the no-sources hunt 2026-11-16: ANP newspaper item: TU Eindhoven first, Leiden
+      second, Utrecht third; 25 teams from nine countries'
   - url: http://resolver.kb.nl/resolve?urn=ABCDDD:010827203:mpeg21:a0058:ocr
     roles:
     - rankings
     - report
-    note: 'by-catch of the no-sources hunt 2026-11-16: newspaper item: TU Eindhoven first, Leiden second;
-      nine problems in six hours'
     as_of: '20261117002512'
-    url_state: live
-    url_checked: '2026-11-22'
     archived:
     - erc/erc-1989/rankings/20261117-wayback-854ebaf5/page.html
     - erc/erc-1989/rankings/20261122-live-e528a7ae/page.html
+    url_state: live
+    url_checked: '2026-11-22'
+    note: 'by-catch of the no-sources hunt 2026-11-16: newspaper item: TU Eindhoven first, Leiden second;
+      nine problems in six hours'
   - url: https://chipcie.wisv.ch/archive/1989/nwercpc/problemset.pdf
     roles:
     - problemset
@@ -228,22 +240,21 @@ contests:
     finals in 1988, 1989 and 1990 with Verhoeff as Regional Contest Director. — https://research.tue.nl/nl/prizes/acm-icpc-european-founders-award/
     [existence hunt 2026-10-22]'
   - date read from https://chipcie.wisv.ch/archive/1989/nwercpc/problemset.pdf (description round 2026-11-17)
+  - location Eindhoven read from https://chipcie.wisv.ch/archive/nwerc/ (data scan 2026-11-23)
 - id: erc-1990
   season: 1991
   name: 1990 European Regional Contest
-  date: '1990-11-02'
+  date: '1990-11-03'
+  location: Eindhoven
   cms_ids: []
+  sites:
+  - location: nl-eindhoven
   parent: wf-1991
   next: erc-1991
   sources:
   - url: https://usenetarchives.com/view.php?id=dnet.general&mid=PDQzNDBAdHVtaW5mbzEubGFuLmluZm9ybWF0aWsudHUtbXVlbmNoZW4uZGJwLmRlPg
     roles:
     - web
-  - url: https://nwerc.eu/
-    roles:
-    - web
-    url_state: replaced
-    url_checked: '2026-11-14'
   - url: https://chipcie.wisv.ch/archive/
     roles:
     - web
@@ -267,16 +278,28 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: erc-1990
+  provenance:
+  - date 1990-11-03 read from https://chipcie.wisv.ch/archive/1990/nwercpc/scoreboard.pdf (data scan 2026-11-23)
+  - location Eindhoven read from https://chipcie.wisv.ch/archive/ (data scan 2026-11-23)
 - id: erc-1991
   season: 1992
   name: 1991 European Regional Contest
+  location: Gent
   cms_ids: []
+  sites:
+  - location: be-gent
   parent: wf-1992
   next: werc-1992
   sources:
   - url: https://dl.acm.org/doi/10.1145/170791.171152
     roles:
     - web
+  - url: https://chipcie.wisv.ch/archive/nwerc/
+    roles:
+    - web
+    scope: ERC 1991
+    note: found by the data scan 2026-11-23 (the CHipCie archive listing of every ERC/WERC/NWERC edition;
+      names host city and date)
   - url: https://chipcie.wisv.ch/archive/1991/nwercpc/ERC91.pdf
     roles:
     - problemset
@@ -292,3 +315,4 @@ contests:
     [existence hunt 2026-10-22]'
   - 'CHipCie archive index (n.d.): Lists ''ERC 1991 — Gent'' (no date), between ERC 1990 (Eindhoven, Nov
     3) and WERC 1992 (Gent, November 15). — https://chipcie.wisv.ch/archive [existence hunt 2026-10-22]'
+  - location Gent read from https://chipcie.wisv.ch/archive/nwerc/ (data scan 2026-11-23)

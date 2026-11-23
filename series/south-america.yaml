@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: south-america
   name: ACM-ICPC South America Contest outside Brazil
@@ -19,9 +19,9 @@ contests:
 - id: south-america-1997
   season: 1998
   location: Campinas (IC-Unicamp), Brazil (single site, Dec 13)
+  cms_ids: []
   sites:
   - location: br-campinas-ic-unicamp
-  cms_ids: []
   parent: wf-1998
   next: south-america-1998
   sources:
@@ -31,6 +31,11 @@ contests:
   - url: http://maratona.ime.usp.br/hist/1997/
     roles:
     - web
+  - url: https://maratona.sbc.org.br/hist/1997/result.html
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (the CONSUN 97 Maratona results page (already the standings
+      source of brazil-first-phase-1997); copy held)
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=479
     roles:
     - problemset
@@ -45,7 +50,9 @@ contests:
 - id: south-america-1998
   season: 1999
   name: 1998 ACM South America Programming Contest
-  date: '1998-11-15'
+  date: '1998-11-14'
+  cms_ids:
+  - 997
   sites:
   - location: ve-caracas
     name: Caracas, Venezuela
@@ -55,8 +62,6 @@ contests:
     name: Sao Paulo, Brazil
   - location: cl-antofagasta
     name: Antofagasta, Chile
-  cms_ids:
-  - 997
   parent: wf-1999
   next: south-america-1999
   sources:
@@ -100,6 +105,9 @@ contests:
     note: South America Regional Contests 1998; moved from central-america-1998 by the content check
   problems:
     set: south-america-1998
+  provenance:
+  - date 1998-11-14 read from http://icpc.baylor.edu/past/icpc99/Regionals/SAmer98/Standings.htm (data
+    scan 2026-11-23)
 - id: south-america-1999
   season: 2000
   name: 1999 ACM South America Programming Contest
@@ -170,6 +178,8 @@ contests:
   date: '2000-11-18'
   location: Merida, Venezuela; Santiago, Chile; Buenos Aires, Argentina; Administration; Campina Grande,
     Brazil; Sao Paulo, Brazil; Porto Alegre, Brazil
+  cms_ids:
+  - 987
   sites:
   - location: cl-santiago
   - location: br-campina-grande
@@ -179,8 +189,6 @@ contests:
   - location: br-sao-paulo
   - location: br-porto-alegre
   - location: ve-merida
-  cms_ids:
-  - 987
   parent: wf-2001
   next: south-america-2001
   sources:
@@ -191,18 +199,17 @@ contests:
   - url: http://www.dcc.unicamp.br/~acmcntst
     roles:
     - web
-    as_of: '19990823053822'
     url_state: dead
     url_checked: '2026-11-14'
   - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=457
     roles:
     - standings
     as_of: '20070221220719'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: unknown
-    url_checked: '2026-11-13'
     archived:
     - south-america/south-america-2000/standings/20070221-wayback-4f4bbd9a/page.html
+    url_state: unknown
+    url_checked: '2026-11-13'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=457
     roles:
     - rankings
@@ -218,10 +225,10 @@ contests:
     roles:
     - teams
     as_of: '20020308055441'
-    note: found inside http://icpc.baylor.edu/past/icpc2001/Regionals/SAmer00/Default.asp by the content
-      check
     url_state: unknown
     url_checked: '2026-11-16'
+    note: found inside http://icpc.baylor.edu/past/icpc2001/Regionals/SAmer00/Default.asp by the content
+      check
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_SouthAme/2000/index.html
     roles:
     - problemset
@@ -255,6 +262,8 @@ contests:
   date: '2001-11-10'
   location: Punta Arenas, Chile; Margarita, Venezuela; UFRN, Brazil; UNICAMP, Brazil; Buenos Aires, Argentina;
     U. Caxias do Sul, Brazil; Administration
+  cms_ids:
+  - 1099
   sites:
   - location: ve
     name: Margarita
@@ -267,8 +276,6 @@ contests:
   - location: br-natal-ufrn
     name: Natal
   - location: ar-buenos-aires
-  cms_ids:
-  - 1099
   parent: wf-2002
   next: south-america-2002
   sources:
@@ -279,29 +286,8 @@ contests:
   - url: http://www.dcc.unicamp.br/~acmcntst
     roles:
     - web
-    as_of: '19990823053822'
     url_state: dead
     url_checked: '2026-11-14'
-  - url: http://www.dcc.unicamp.br/~acmcntst/results.html
-    roles:
-    - standings
-    as_of: '20021214114603'
-    archived:
-    - south-america/south-america-2001/standings/2026-09-01-wayback-7be702b9/results.html
-    - south-america/south-america-2001/standings/20021214-wayback-9fd38098/results.html
-    url_state: dead
-    url_checked: '2026-11-16'
-  - url: http://www.ic.unicamp.br/~acmcntst
-    roles:
-    - standings
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: replaced
-    url_checked: '2026-11-16'
-    archived:
-    - south-america/south-america-2001/standings/20261102-live-ef0c19ec/page.html
-    - south-america/south-america-2001/standings/20021005-wayback-e9ee6735/page.html
-    - south-america/south-america-2001/standings/20261115-live-ef0c19ec/page.html
-    as_of: '20021005112854'
   - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=522
     roles:
     - rankings
@@ -347,6 +333,8 @@ contests:
   date: '2002-11-09'
   location: UFPE, Brazil; U. N. Esparta, Venezuela; Administration; U. L. Alvarado, Venezuela; USP, Brazil;
     U. Buenos Aires, Argentina; U. of Atacama, Chile; UFRGS, Brazil
+  cms_ids:
+  - 981
   sites:
   - type: administrative
     name: Campinas - Administration
@@ -360,8 +348,6 @@ contests:
     name: São Paulo
   - location: ve-caracas
   - location: ar-buenos-aires
-  cms_ids:
-  - 981
   parent: wf-2003
   next: south-america-2003
   sources:
@@ -369,6 +355,18 @@ contests:
     roles:
     - web
     as_of: '20021130042749'
+  - url: http://www.ic.unicamp.br/~acmcntst
+    roles:
+    - web
+    - standings
+    as_of: '20030221132340'
+    archived:
+    - south-america/south-america-2002/standings/20261102-live-ef0c19ec/page.html
+    - south-america/south-america-2002/standings/20030221-wayback-d11fa099/page.html
+    - south-america/south-america-2002/standings/20261115-live-ef0c19ec/page.html
+    url_state: replaced
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://www.dcc.unicamp.br/acmcntst/results.html
     roles:
     - standings
@@ -377,17 +375,17 @@ contests:
     - south-america/south-america-2002/standings/2026-09-01-wayback-881dbe90/results.html
     url_state: dead
     url_checked: '2026-11-16'
-  - url: http://www.ic.unicamp.br/~acmcntst
+  - url: http://www.dcc.unicamp.br/~acmcntst/results.html
     roles:
     - standings
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: replaced
-    url_checked: '2026-11-16'
+    as_of: '20021214114603'
     archived:
-    - south-america/south-america-2002/standings/20261102-live-ef0c19ec/page.html
-    - south-america/south-america-2002/standings/20030221-wayback-d11fa099/page.html
-    - south-america/south-america-2002/standings/20261115-live-ef0c19ec/page.html
-    as_of: '20030221132340'
+    - south-america/south-america-2001/standings/2026-09-01-wayback-7be702b9/results.html
+    - south-america/south-america-2001/standings/20021214-wayback-9fd38098/results.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: 'found by the data scan 2026-11-23 (moved from south-america-2001: results.html as_of 20021214
+      = 2002 South American Regional final results published 18 Nov 2002)'
   - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandingsf455.html?ContestID=589
     roles:
     - rankings
@@ -412,10 +410,12 @@ contests:
 - id: south-america-2003
   season: 2004
   name: 2003 ACM South America Programming Contest
-  date: '2003-11-09'
+  date: '2003-11-08'
   location: UNICAMP, Campinas, Brazil; UFMS, C. Grande, Brazil; UFRGS, Brazil; Administration; UNIFOR,
     Fortaleza, Brazil; UFPE, Brazil; URBE, Maracaibo, Venezuela; U. of Atacama, Chile; U. Bio-Bio, Chillán,
     Chile; U. N. Esparta, Venezuela; URI, Erechim, Brazil; UBA, Bs. Aires, Argentina
+  cms_ids:
+  - 1182
   sites:
   - location: br-porto-alegre-ufrgs
     name: Porto Alegre
@@ -445,8 +445,6 @@ contests:
     name: Bio-Bio
     date: '2003-11-08'
   - location: ve-caracas
-  cms_ids:
-  - 1182
   parent: wf-2004
   next:
   - south-america-2004
@@ -456,33 +454,33 @@ contests:
     roles:
     - web
     as_of: '20040101141958'
-  - url: http://www.dcc.unicamp.br/~acmcntst/Argentina_finals.html
-    roles:
-    - scoreboard
-    as_of: '20031217123857'
-    note: found inside http://www.dcc.unicamp.br/~acmcntst/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
-    archived:
-    - south-america/south-america-2003/scoreboard/20031217-wayback-c9a2160a/Argentina_finals.html
   - url: http://www.dcc.unicamp.br/~acmcntst/Brazil_finals.html
     roles:
     - scoreboard
     as_of: '20031217124256'
-    note: found inside http://www.dcc.unicamp.br/~acmcntst/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - south-america/south-america-2003/scoreboard/20031217-wayback-f2d339c8/Brazil_finals.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://www.dcc.unicamp.br/~acmcntst/ by the content check
   - url: http://www.dcc.unicamp.br/~acmcntst/Venezuela_finals.html
     roles:
     - scoreboard
     as_of: '20031121124152'
-    note: found inside http://www.dcc.unicamp.br/~acmcntst/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - south-america/south-america-2003/scoreboard/20031121-wayback-1166bd50/Venezuela_finals.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://www.dcc.unicamp.br/~acmcntst/ by the content check
+  - url: http://www.dcc.unicamp.br/~acmcntst/Argentina_finals.html
+    roles:
+    - standings
+    as_of: '20031217123857'
+    archived:
+    - south-america/south-america-2003/scoreboard/20031217-wayback-c9a2160a/Argentina_finals.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://www.dcc.unicamp.br/~acmcntst/ by the content check
   - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=662
     roles:
     - standings
@@ -504,21 +502,21 @@ contests:
     roles:
     - standings
     as_of: '20031217124346'
-    note: found inside http://www.dcc.unicamp.br/~acmcntst/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - south-america/south-america-2003/standings/20031217-wayback-9361b003/Chile_finals.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://www.dcc.unicamp.br/~acmcntst/ by the content check
   - url: http://icpc.baylor.edu/icpc/regionals/ViewStandings.asp?ContestID=662
     roles:
     - rankings
     as_of: '20031227110650'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: unknown
-    url_checked: '2026-11-16'
     archived:
     - south-america/south-america-2003/standings/20031227-wayback-b62c224b/page.html
     - south-america/south-america-2003/rankings/20031227-wayback-b62c224b/page.html
+    url_state: unknown
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: https://www.acmicpc.net/category/detail/573
     roles:
     - problemset
@@ -529,11 +527,15 @@ contests:
     note: South America Regional Contests 2003; moved from central-america-2003 by the content check
   problems:
     set: south-america-2003
+  provenance:
+  - date 2003-11-08 read from http://www.dcc.unicamp.br/~acmcntst/ (data scan 2026-11-23)
 - id: south-america-2004
   season: 2005
   name: 2004 ACM-ICPC South America Contest outside Brazil
-  date: '2004-11-14'
+  date: '2004-11-13'
   location: U. de Tarapacá, Arica; Buenos Aires; Colombia; Administration; San Cristobal; PUC-Peru, Lima
+  cms_ids:
+  - 968
   sites:
   - location: cl-arica
     name: Chile
@@ -552,8 +554,6 @@ contests:
     date: '2004-11-13'
   - type: administrative
     name: Campinas - Administration
-  cms_ids:
-  - 968
   parent: wf-2005
   next: south-america-2005
   sources:
@@ -561,15 +561,6 @@ contests:
     roles:
     - web
     as_of: '20041215170129'
-  - url: http://www.dcc.unicamp.br/~acmcntst/BrazilFinal.html
-    roles:
-    - scoreboard
-    as_of: '20041215231010'
-    note: found inside http://www.dcc.unicamp.br/~acmcntst/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
-    archived:
-    - south-america/south-america-2004/scoreboard/20041215-wayback-4ca7bdf5/BrazilFinal.html
   - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=704
     roles:
     - standings
@@ -582,20 +573,20 @@ contests:
     roles:
     - standings
     as_of: '20050210182533'
-    note: found inside http://www.dcc.unicamp.br/~acmcntst/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - south-america/south-america-2004/standings/20050210-wayback-bcf626a0/NorthFinal.html
-  - url: http://www.dcc.unicamp.br/~acmcntst/SouthFinal.html
-    roles:
-    - rankings
-    as_of: '20041214012915'
-    note: found inside http://www.dcc.unicamp.br/~acmcntst/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://www.dcc.unicamp.br/~acmcntst/ by the content check
+  - url: http://www.dcc.unicamp.br/~acmcntst/SouthFinal.html
+    roles:
+    - standings
+    as_of: '20041214012915'
     archived:
     - south-america/south-america-2004/rankings/20041214-wayback-06c062b7/SouthFinal.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://www.dcc.unicamp.br/~acmcntst/ by the content check
   - url: http://www.dcc.unicamp.br/~acmcntst/problems/warmup2004.pdf
     roles:
     - problemset
@@ -616,16 +607,21 @@ contests:
     roles:
     - problemset
     as_of: '20050212211409'
-    note: found inside http://www.dcc.unicamp.br/~acmcntst/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://www.dcc.unicamp.br/~acmcntst/ by the content check
   problems:
     set: south-america-2004
+  provenance:
+  - date 2004-11-13 read from http://www.dcc.unicamp.br/~acmcntst/problems/problem_set2004_v6.pdf (data
+    scan 2026-11-23)
 - id: south-america-2005
   season: 2006
   name: 2005 ACM-ICPC South America Contest outside Brazil
   date: '2005-11-12'
   location: Administration; PUCP-Peru, Lima; Buenos Aires; U. Austral, Valdivia; U. de los Andes, Bogotá
+  cms_ids:
+  - 1245
   sites:
   - location: ar-buenos-aires
     name: Argentina
@@ -639,8 +635,6 @@ contests:
     name: Colombia
   - location: ve
     name: Venezuela
-  cms_ids:
-  - 1245
   parent: wf-2006
   next: south-america-2006
   sources:
@@ -660,12 +654,12 @@ contests:
     roles:
     - standings
     as_of: '20060714033625'
-    note: found inside http://www.ic.unicamp.br/~acmcntst/ by the content check
-    url_state: live
-    url_checked: '2026-11-16'
     archived:
     - south-america/south-america-2005/standings/20261115-live-db0073e2/ViewRegionalStandingsAll.html
     - south-america/south-america-2005/standings/20060714-wayback-ca5d284d/ViewRegionalStandingsAll.html
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside http://www.ic.unicamp.br/~acmcntst/ by the content check
   - url: http://www.ic.unicamp.br/~acmcntst/Welcome_files/SAmerica2005_problems.pdf
     roles:
     - problemset
@@ -682,13 +676,6 @@ contests:
     url_state: dead
     url_checked: '2026-11-16'
     note: South America Regional Contests 2005; moved from central-america-2005 by the content check
-  - url: http://www.ic.unicamp.br/~acmcntst/Welcome_files/BrasilPrelim2005_problems.pdf
-    roles:
-    - problemset
-    as_of: '20060714033610'
-    note: found inside http://www.ic.unicamp.br/~acmcntst/ by the content check
-    url_state: live
-    url_checked: '2026-11-16'
   problems:
     set: south-america-2005
 - id: south-america-2006

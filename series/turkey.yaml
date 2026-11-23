@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: turkey
   name: ICPC Turkey Programming Contest
@@ -11,18 +11,16 @@ contests:
   name: 2010 Turkey Programming Contest
   date: '2010-09-19'
   location: Ankara; Administrative Site Location
+  cms_ids:
+  - 703
   sites:
   - location: tr-ankara
     name: Turkey Site
     date: '2010-09-17'
   - type: administrative
-  cms_ids:
-  - 703
   parent: seerc-2010
+  next: turkey-2019
   sources:
-  - url: https://icpc.baylor.edu/regionals/finder/Turkey-2011
-    roles:
-    - web
   - url: https://codeforces.com/blog/inzva
     roles:
     - web
@@ -187,10 +185,11 @@ contests:
   season: 2027
   name: 2026 ICPC Turkey Programming Contest
   date: '2026-10-11'
-  sites:
-  - type: administrative
+  location: Beykoz Kundura, Istanbul
   cms_ids:
   - 9868
+  sites:
+  - type: administrative
   parent: seerc-2026
   sources:
   - url: https://inzva.com/algorithm/contest/turkish-programming-contest-2026
@@ -205,11 +204,13 @@ contests:
     roles:
     - rankings
     - report
-    note: added by the no-sources hunt 2026-11-16
     archived:
     - turkey/turkey-2026/rankings/20261116-live-fe87f015/page.html
+    note: added by the no-sources hunt 2026-11-16
   provenance:
   - 'ran 2026-10-11: shown by its rankings source(s); the organisers'' report (final round) (no-sources
     hunt 2026-11-16)'
+  - location Beykoz Kundura, Istanbul read from https://inzva.com/reports/2026/turkish-programming-contest-2026
+    (data scan 2026-11-23)
   notes: added from CMS relax-all export 2026-10-20 (abbrev TRCPC; 0 registrants at export); series resumes
     after no 2024-25 editions

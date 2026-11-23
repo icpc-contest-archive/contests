@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: mcpc
   name: ICPC North America Mid-Central Regional Contest
@@ -166,6 +166,8 @@ contests:
   - url: http://csc.smsu.edu/~mcpc/oldIndex.html
     roles:
     - web
+    - rankings
+    scope: top 3
     as_of: '20010607204252'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidCen/1996/index.html
     roles:
@@ -198,9 +200,9 @@ contests:
     roles:
     - problemset
     judge: kattis
-    note: Kattis problem-sources page (export source "Mid Central Regionals 1996", 2026-11-02)
     url_state: live
     url_checked: '2026-11-16'
+    note: Kattis problem-sources page (export source "Mid Central Regionals 1996", 2026-11-02)
   problems:
     set: mcpc-1996
   provenance:
@@ -459,6 +461,8 @@ contests:
   date: '2000-11-04'
   location: Chicago, IL; Administration; St. Joseph, MO; Jonesboro, AR; Murray, KY; Lexington, KY; Cookeville,
     TN; Elsah, IL; Springfield, MO
+  cms_ids:
+  - 955
   sites:
   - location: us-jonesboro-arkansas
   - location: us-cookeville-tennessee-tech
@@ -470,8 +474,6 @@ contests:
   - type: administrative
     name: Any Site DO NOT REGISTER TEAMS FOR THIS SITE!
   - location: us-lexington-kentucky
-  cms_ids:
-  - 955
   parent: wf-2001
   next: mcpc-2001
   sources:
@@ -482,18 +484,18 @@ contests:
   - url: http://csc.smsu.edu/~mcpc/
     roles:
     - web
-    as_of: '19991006131646'
+    as_of: '20010105205400'
     url_state: dead
     url_checked: '2026-11-14'
   - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=436
     roles:
     - standings
     as_of: '20090801053950'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: unknown
-    url_checked: '2026-11-13'
     archived:
     - mcpc/mcpc-2000/standings/20090801-wayback-50913da0/page.html
+    url_state: unknown
+    url_checked: '2026-11-13'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://icpc.baylor.edu/past/icpc2001/Regionals/ViewRegionalStandings.asp?ContestID=436
     roles:
     - rankings
@@ -560,10 +562,10 @@ contests:
     - statement
     - data
     judge: kattis
-    note: Kattis problem-sources page (export source "2000 ACM Mid-Central Regional Programming Contest",
-      2026-11-02)
     url_state: live
     url_checked: '2026-11-16'
+    note: Kattis problem-sources page (export source "2000 ACM Mid-Central Regional Programming Contest",
+      2026-11-02)
   problems:
     set: mcpc-2000
 - id: mcpc-2001
@@ -572,6 +574,8 @@ contests:
   date: '2001-11-03'
   location: Murray, KY; Cookeville, TN; Administration; Valparaiso, IN; Lexington, KY; Springfield, MO;
     Arkadelphia, AR 71998-0001; Elsah, IL; Maryville, Missouri
+  cms_ids:
+  - 1294
   sites:
   - location: us-elsah-principia
   - location: us-cookeville-tennessee-tech
@@ -585,8 +589,6 @@ contests:
   - location: us-lexington-kentucky
   - location: us-arkadelphia
     name: Ouachita Baptist Universit
-  cms_ids:
-  - 1294
   parent: wf-2002
   next: mcpc-2002
   sources:
@@ -602,13 +604,12 @@ contests:
   - url: http://cs.smsu.edu/~mcpc/
     roles:
     - web
-    as_of: '19991009185842'
+    as_of: '20011029145753'
     url_state: dead
     url_checked: '2026-11-14'
   - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=501
     roles:
     - standings
-    - rankings
     as_of: '20020619100012'
     archived:
     - mcpc/mcpc-2001/rankings/2026-09-01-wayback-7410b298/page.html
@@ -621,11 +622,11 @@ contests:
     roles:
     - standings
     as_of: '20040905032735'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - mcpc/mcpc-2001/standings/20040905-wayback-958e0008/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidCen/2001/index.html
     roles:
     - problemset
@@ -658,7 +659,7 @@ contests:
   - url: http://www.cs.smsu.edu/~rcjudge/
     roles:
     - problemset
-    as_of: '20010424063919'
+    as_of: '20011217133350'
     url_state: dead
     url_checked: '2026-11-16'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=107
@@ -688,6 +689,8 @@ contests:
   date: '2002-11-02'
   location: Administration; Cookeville, TN; Bolivar, MO; Russellville, Arkansas; Elsah, IL; Valparaiso,
     IN; Murray, KY; Kansas City, MO; Lexington, KY
+  cms_ids:
+  - 1014
   sites:
   - location: us-kansas-city-rockhurst
   - location: us-russellville-arkansas-tech
@@ -700,8 +703,6 @@ contests:
   - location: us-bolivar-sbu
   - location: us-murray-state-university
   - location: us-chicago-illinois
-  cms_ids:
-  - 1014
   parent: wf-2003
   next: mcpc-2003
   sources:
@@ -712,9 +713,16 @@ contests:
   - url: http://cs.smsu.edu/~mcpc/
     roles:
     - web
-    as_of: '19991009185842'
+    as_of: '20030221000055'
     url_state: dead
     url_checked: '2026-11-14'
+  - url: http://cs.smsu.edu/~mcpc/02siteLocator.html
+    roles:
+    - web
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://icpc.baylor.edu/past/icpc2003/regionals/Reports/cs.smsu.edu/_mcpc/index.html
+      by the content check
   - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/www.cs.smsu.edu/_rcjudge/2002.html
     roles:
     - scoreboard
@@ -738,28 +746,21 @@ contests:
     roles:
     - standings
     as_of: '20041026103022'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - mcpc/mcpc-2002/standings/20041026-wayback-af73807e/2002.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://cs.smsu.edu/~mcpc/02RegionalWinners.html
     roles:
     - rankings
-    note: found inside http://icpc.baylor.edu/past/icpc2003/regionals/Reports/cs.smsu.edu/_mcpc/index.html
-      by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
+    as_of: '20030221070300'
     archived:
     - mcpc/mcpc-2002/rankings/20030221-wayback-a2d07485/02RegionalWinners.html
-    as_of: '20030221070300'
-  - url: http://cs.smsu.edu/~mcpc/02siteLocator.html
-    roles:
-    - teams
-    note: found inside http://icpc.baylor.edu/past/icpc2003/regionals/Reports/cs.smsu.edu/_mcpc/index.html
-      by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://icpc.baylor.edu/past/icpc2003/regionals/Reports/cs.smsu.edu/_mcpc/index.html
+      by the content check
   - url: http://www.icpc-midcentral.us/archives/2002/
     roles:
     - problemset
@@ -773,7 +774,7 @@ contests:
   - url: http://www.cs.smsu.edu/~rcjudge/
     roles:
     - problemset
-    as_of: '20010424063919'
+    as_of: '20021128082825'
     url_state: dead
     url_checked: '2026-11-16'
   - url: https://www.acmicpc.net/category/detail/150
@@ -794,6 +795,8 @@ contests:
   date: '2003-11-01'
   location: Administration; Chicago, IL; Searcy, AR; Murray, KY; Columbia, MO; Bolivar, MO; Valparaiso,
     IN; Urbana-Champaign, IL; Elsah, IL; Lexington, KY; Cookeville, TN
+  cms_ids:
+  - 1248
   sites:
   - location: us-urbana-uiuc
   - location: us-searcy-harding
@@ -808,22 +811,18 @@ contests:
   - location: us-chicago-loyola-university-chicago
   - location: us-cookeville-tennessee-tech
   - location: us-bolivar-sbu
-  cms_ids:
-  - 1248
   parent: wf-2004
   next: mcpc-2004
   sources:
   - url: http://www.cs.smsu.edu/~mcpc/
     roles:
     - web
-    - standings
-    - problemset
     as_of: '19991009185842'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - mcpc/mcpc-2003/standings/19991009-wayback-27d50bcf/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://icpc.baylor.edu/past/icpc2004/RegReport/grok.smsu.edu/_score/mcpc2003.html
     roles:
     - scoreboard
@@ -1289,6 +1288,8 @@ contests:
   date: '2009-10-24'
   location: Parkville, MO; Springfield, IL; Bolivar, MO; St. Louis, MO; Chicago, IL; Murray, KY; Cookeville,
     TN; Administrative Site Location; Russellville, AR; Lexington, KY
+  cms_ids:
+  - 560
   sites:
   - location: us-russellville-arkansas-tech
   - location: us-chicago-uic
@@ -1300,8 +1301,6 @@ contests:
   - location: us-springfield-uis
   - location: us-bolivar-sbu
   - type: administrative
-  cms_ids:
-  - 560
   parent: wf-2010
   next: mcpc-2010
   sources:
@@ -1322,14 +1321,6 @@ contests:
     archived:
     - mcpc/mcpc-2009/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 560, 141 teams, DB fetch 2026-04-26)
-  - url: http://mcicpc.cs.atu.edu/reports/mcpc2010.final.html
-    roles:
-    - standings
-    as_of: '20150921044645'
-    archived:
-    - mcpc/mcpc-2009/external-standings/2026-04-15-external/content.html
-    - mcpc/mcpc-2009/standings/20150921-wayback-ed9bc2b5/mcpc2010.final.html
-    note: from archived capture (external-standings)
   - url: http://www.icpc-midcentral.us/archives/2009/
     roles:
     - problemset
@@ -1362,6 +1353,8 @@ contests:
   date: '2010-11-06'
   location: Murray, KY; Chicago, IL; Administrative Site Location; Springfield, IL; Bolivar, MO; Lexington,
     KY; Fayetteville, AR; St. Louis, MO; Kansas City, MO; Cookeville, TN
+  cms_ids:
+  - 655
   sites:
   - location: us-springfield-uis
   - location: us-lexington-kentucky
@@ -1373,8 +1366,6 @@ contests:
   - location: us-chicago-uic
   - location: us-bolivar-sbu
   - type: administrative
-  cms_ids:
-  - 655
   parent: wf-2011
   next: mcpc-2011
   sources:
@@ -1389,6 +1380,8 @@ contests:
     - mcpc/mcpc-2010/scoreboard/2026-09-01-wayback-41dc67a6/mcpc2010.final.html
     - mcpc/mcpc-2010/external-standings/2026-04-15-external/content.html
     - mcpc/mcpc-2010/standings/20150921-wayback-ed9bc2b5/mcpc2010.final.html
+    - mcpc/mcpc-2009/external-standings/2026-04-15-external/content.html
+    - mcpc/mcpc-2009/standings/20150921-wayback-ed9bc2b5/mcpc2010.final.html
     url_state: dead
     url_checked: '2026-11-16'
     note: from archived capture (external-standings)
@@ -1417,58 +1410,58 @@ contests:
   - url: https://www.acmicpc.net/problem/4579
     roles:
     - problem
-    judge: baekjoon
     problem: A
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191209104923'
   - url: https://www.acmicpc.net/problem/4580
     roles:
     - problem
-    judge: baekjoon
     problem: B
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191209104923'
   - url: https://www.acmicpc.net/problem/4581
     roles:
     - problem
-    judge: baekjoon
     problem: C
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191209104923'
   - url: https://www.acmicpc.net/problem/4582
     roles:
     - problem
-    judge: baekjoon
     problem: D
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191209104923'
   - url: https://www.acmicpc.net/problem/4584
     roles:
     - problem
-    judge: baekjoon
     problem: F
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191209104923'
   - url: https://www.acmicpc.net/problem/4585
     roles:
     - problem
-    judge: baekjoon
     problem: G
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191209104923'
   - url: https://www.acmicpc.net/problem/4586
     roles:
     - problem
-    judge: baekjoon
     problem: H
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191209104923'
   problems:
     set: mcpc-2010
@@ -1478,6 +1471,8 @@ contests:
   date: '2011-11-05'
   location: Murfreesboro, TN; Chicago, IL; Springfield, IL; St. Louis, MO; Murray, KY; Administrative
     Site Location; Conway, AR; Lexington, KY; Springfield, MO
+  cms_ids:
+  - 877
   sites:
   - location: us-murfreesboro-middle-tennessee
   - location: us-murray-state-university
@@ -1488,8 +1483,6 @@ contests:
   - location: us-conway-central-arkansas
   - location: us-springfield-smsu
   - type: administrative
-  cms_ids:
-  - 877
   parent: wf-2012
   next: mcpc-2012
   sources:
@@ -1499,7 +1492,6 @@ contests:
   - url: https://mcicpc.cs.atu.edu/reports/mcpc2011.final.html
     roles:
     - scoreboard
-    - standings
     as_of: '20150921044654'
     archived:
     - mcpc/mcpc-2011/scoreboard/2026-09-01-wayback-24c967f8/mcpc2011.final.html
@@ -1533,50 +1525,50 @@ contests:
   - url: https://www.acmicpc.net/problem/4571
     roles:
     - problem
-    judge: baekjoon
     problem: A
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024070151'
   - url: https://www.acmicpc.net/problem/4572
     roles:
     - problem
-    judge: baekjoon
     problem: B
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024070151'
   - url: https://www.acmicpc.net/problem/4573
     roles:
     - problem
-    judge: baekjoon
     problem: C
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024070151'
   - url: https://www.acmicpc.net/problem/4575
     roles:
     - problem
-    judge: baekjoon
     problem: E
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024070151'
   - url: https://www.acmicpc.net/problem/4576
     roles:
     - problem
-    judge: baekjoon
     problem: F
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024070151'
   - url: https://www.acmicpc.net/problem/4578
     roles:
     - problem
-    judge: baekjoon
     problem: H
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024070151'
   problems:
     set: mcpc-2011
@@ -1711,6 +1703,8 @@ contests:
   date: '2013-11-02'
   location: St. Louis, MO; Cookeville, TN; Fayetteville, AR; Chicago, IL; Fort Smith, AR; Murray, KY;
     Louisville, KY; Springfield, IL; Administrative Site Location
+  cms_ids:
+  - 1978
   sites:
   - location: us-chicago-university
   - location: us-webster-groves-webster
@@ -1722,14 +1716,13 @@ contests:
     name: University of Arkansas - Fort Smith
   - type: administrative
   - location: us-fayetteville-arkansas
-  cms_ids:
-  - 1978
   parent: wf-2014
   next: mcpc-2014
   sources:
   - url: http://mcicpc.cs.atu.edu/
     roles:
     - web
+    as_of: '20131120044341'
   - url: https://mcicpc.cs.atu.edu/reports/mcpc2013.final.html
     roles:
     - scoreboard
@@ -1770,50 +1763,50 @@ contests:
   - url: https://www.acmicpc.net/problem/9441
     roles:
     - problem
-    judge: baekjoon
     problem: G
     contains:
     - statement
+    judge: baekjoon
     as_of: '20210119095617'
   - url: https://www.acmicpc.net/problem/9439
     roles:
     - problem
-    judge: baekjoon
     problem: E
     contains:
     - statement
+    judge: baekjoon
     as_of: '20210119095617'
   - url: https://www.acmicpc.net/problem/9438
     roles:
     - problem
-    judge: baekjoon
     problem: D
     contains:
     - statement
+    judge: baekjoon
     as_of: '20210119095617'
   - url: https://www.acmicpc.net/problem/9436
     roles:
     - problem
-    judge: baekjoon
     problem: B
     contains:
     - statement
+    judge: baekjoon
     as_of: '20210119095617'
   - url: https://www.acmicpc.net/problem/9442
     roles:
     - problem
-    judge: baekjoon
     problem: H
     contains:
     - statement
+    judge: baekjoon
     as_of: '20210119095617'
   - url: https://www.acmicpc.net/problem/9435
     roles:
     - problem
-    judge: baekjoon
     problem: A
     contains:
     - statement
+    judge: baekjoon
     as_of: '20210119095617'
   problems:
     set: mcpc-2013
@@ -1901,6 +1894,8 @@ contests:
   date: '2015-11-07'
   location: Memphis, TN; Administrative Site Location; Chicago, IL; Springfield, IL; St. Louis, MO; Russellville,
     AR; Louisville, KY; Warrensburg, MO; Cookeville, TN
+  cms_ids:
+  - 2837
   sites:
   - type: administrative
   - location: us-louisville-university
@@ -1911,14 +1906,13 @@ contests:
   - location: us-chicago-university
   - location: us-webster-groves-webster
   - location: us-springfield-uis
-  cms_ids:
-  - 2837
   parent: wf-2016
   next: mcpc-2016
   sources:
   - url: http://www.icpc-midcentral.us/
     roles:
     - web
+    as_of: '20151117070503'
   - url: https://mcpc15.kattis.com/contests/en2mpy/standings
     roles:
     - scoreboard
@@ -2364,6 +2358,8 @@ contests:
   location: Fort Smith, Arkansas; Louisville, KY; Bolivar, MO; Springfield, IL; St. Louis; Martin, TN;
     University of Illinois at Urbana/Champaign; Cookeville, TN; Highland Heights, Kentucky; Administrative
     Site Location
+  cms_ids:
+  - 4341
   sites:
   - type: administrative
   - location: us-st-louis-southeast-missouri
@@ -2377,11 +2373,14 @@ contests:
   - location: us-louisville-university
   - location: us-bolivar-sbu
   - location: us-highland-heights-northern-kentucky
-  cms_ids:
-  - 4341
-  parent: nac-2021
+  parent: nadc-2021
   next: mcpc-2021
   sources:
+  - url: https://www.cse.sdsmt.edu/ecorwin/midcentral/index.html
+    roles:
+    - web
+    as_of: '20210419114139'
+    note: found by the data scan 2026-11-23 (sibling mcpc-2019 address; Wayback CDX)
   - url: https://mcpc20.kattis.com/contests/mcpc20/standings
     roles:
     - scoreboard
@@ -2421,12 +2420,15 @@ contests:
     - statement
     - data
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221129201819'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: mcpc-2020
+  provenance:
+  - parent nadc-2021 read from https://www.icpc.org/icpc-north-america (as of 20210923173052) and the
+    ICPC CMS hierarchy (CMS 4596 ICPC-NADC) (data scan 2026-11-23)
 - id: mcpc-2021
   season: 2022
   name: 2021 ICPC Mid-Central USA Regional Contest
@@ -3008,6 +3010,8 @@ contests:
   season: 2027
   name: 2026 ICPC North America Mid-Central Regional Contest
   date: '2026-10-31'
+  cms_ids:
+  - 9771
   sites:
   - type: administrative
   - location: us-hammond-purdue-northwest
@@ -3042,8 +3046,6 @@ contests:
   - location: us-martin
     name: Tennessee Martin Div. 2
     date: '2026-10-31'
-  cms_ids:
-  - 9771
   parent: nac-2027
   sources:
   - url: https://mc.na.icpc.global/
@@ -3053,23 +3055,27 @@ contests:
     roles:
     - scoreboard
     scope: Division 1
-    note: 'ICPC Grand Central 2026 (Rocky/Mid-Central): one contest for the Rocky Mountain and Mid-Central
-      regionals'
-    url_state: live
-    url_checked: '2026-11-16'
     archived:
     - mcpc/mcpc-2026/scoreboard/20261113-live-bf73b14e/page.html
+    url_state: live
+    url_checked: '2026-11-16'
+    note: 'ICPC Grand Central 2026 (Rocky/Mid-Central): one contest for the Rocky Mountain and Mid-Central
+      regionals'
   - url: https://nacentral26.kattis.com/contests/nacentral26d2/standings
     roles:
     - frozen_scoreboard
     scope: Division 2
-    note: 'ICPC Grand Central 2026 (Rocky/Mid-Central): one contest for the Rocky Mountain and Mid-Central
-      regionals'
-    url_state: live
-    url_checked: '2026-11-16'
     archived:
     - mcpc/mcpc-2026/scoreboard/20261113-live-d1a6ed23/page.html
     - mcpc/mcpc-2026/frozen_scoreboard/20261116-live-d1a6ed23/page.html
+    url_state: live
+    url_checked: '2026-11-16'
+    note: 'ICPC Grand Central 2026 (Rocky/Mid-Central): one contest for the Rocky Mountain and Mid-Central
+      regionals'
+  - url: https://icpc.global/regionals/finder/Mid-Central-USA-2027/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings API, 62 ranked rows on 2026-11-23)
   - url: https://open.kattis.com/problem-sources/2026%20ICPC%20North%20America%20Mid-Central%20Regional
     roles:
     - problemset
@@ -3087,96 +3093,96 @@ contests:
   - url: https://qoj.ac/download.php?type=statement&id=23995
     roles:
     - problem
-    judge: qoj
     problem: A
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=23996
     roles:
     - problem
-    judge: qoj
     problem: B
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=23997
     roles:
     - problem
-    judge: qoj
     problem: C
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=23998
     roles:
     - problem
-    judge: qoj
     problem: D
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=23999
     roles:
     - problem
-    judge: qoj
     problem: E
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=24000
     roles:
     - problem
-    judge: qoj
     problem: F
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=24002
     roles:
     - problem
-    judge: qoj
     problem: G
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=24003
     roles:
     - problem
-    judge: qoj
     problem: H
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=24004
     roles:
     - problem
-    judge: qoj
     problem: I
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=24005
     roles:
     - problem
-    judge: qoj
     problem: J
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=24001
     roles:
     - problem
-    judge: qoj
     problem: K
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=24006
     roles:
     - problem
-    judge: qoj
     problem: L
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=24007
     roles:
     - problem
-    judge: qoj
     problem: M
     contains:
     - statement
+    judge: qoj
+  problems:
+    set: mcpc-2026
   provenance:
   - 'ran 2026-10-31: shown by its judge page, scoreboard source(s); date from CMS site date (ruling 2026-11-12:
     upcoming ends when the date has passed and a result source or judge page shows the contest ran)'
-  problems:
-    set: mcpc-2026

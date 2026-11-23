@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: sudan
   name: ICPC Sudanese Collegiate Programming Contest
@@ -11,11 +11,11 @@ contests:
   name: 2020 Sudanese Collegiate Programming Contest
   date: '2021-01-21'
   location: Sudan; unofficial
+  cms_ids:
+  - 4592
   sites:
   - location: sd
     name: sdcpc
-  cms_ids:
-  - 4592
   parent: acpc-2020
   next: sudan-2021
   sources:
@@ -25,6 +25,11 @@ contests:
     archived:
     - sudan/sudan-2020/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4592, 35 teams, DB fetch 2026-04-26)
+  - url: https://www.facebook.com/SudanCPC/videos/c-inventor-bjarne-stroustrup/750543612479177/
+    roles:
+    - report
+    note: 'found by the data scan 2026-11-23 (moved from sudan-2023: Facebook video post tagged #SdCPC2020
+      and #SdCPC2020_finals)'
 - id: sudan-2021
   season: 2022
   name: 2021 ICPC Sudanese Collegiate Programming Contest
@@ -68,23 +73,18 @@ contests:
 - id: sudan-2023
   season: 2024
   name: 2023 ICPC Sudanese Collegiate Programming Contest
+  cms_ids:
+  - 7628
   sites:
   - type: administrative
   - location: sd
     name: sdcpc
-  cms_ids:
-  - 7628
   parent: acpc-2023
   next: sudan-2024
   sources:
   - url: https://www.facebook.com/SudanCPC/
     roles:
     - web
-  - url: https://www.facebook.com/SudanCPC/videos/c-inventor-bjarne-stroustrup/750543612479177/
-    roles:
-    - web
-    url_state: changed
-    url_checked: '2026-11-14'
   problems:
     set: sudan-2023
   notes: The CMS has no date; the CMS lists no teams (problem archive sheet)

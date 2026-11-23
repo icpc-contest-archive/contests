@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/describe_apply.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: nzpc
   name: New Zealand Programming Contest
@@ -38,7 +38,7 @@ contests:
 - id: nzpc-2002
   season: 2003
   cms_ids: []
-  next: nzpc-2004
+  next: nzpc-2003
   sources:
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz02results.pdf
     roles:
@@ -71,6 +71,7 @@ contests:
     set: nzpc-2002
 - id: nzpc-2004
   season: 2005
+  date: '2004-08-14'
   cms_ids: []
   next: nzpc-2005
   sources:
@@ -104,6 +105,8 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: nzpc-2004
+  provenance:
+  - date 2004-08-14 read from http://www.cs.auckland.ac.nz/~mjd/prog_contest/NZinfo.html (data scan 2026-11-23)
 - id: nzpc-2005
   season: 2006
   date: '2005-08-13'
@@ -112,7 +115,7 @@ contests:
   sources:
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz05results.pdf
     roles:
-    - standings
+    - scoreboard
     as_of: '20081018020914'
     archived:
     - nzpc/nzpc-2005/standings/20081018-wayback-54248cae/nz05results.pdf
@@ -182,12 +185,13 @@ contests:
     round 2026-11-16)
 - id: nzpc-2007
   season: 2008
+  date: '2007-08-04'
   cms_ids: []
   next: nzpc-2008
   sources:
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz07results.pdf
     roles:
-    - standings
+    - scoreboard
     as_of: '20081018021157'
     archived:
     - nzpc/nzpc-2007/standings/20081018-wayback-d2dd8ee1/nz07results.pdf
@@ -213,8 +217,11 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: nzpc-2007
+  provenance:
+  - date 2007-08-04 read from http://nzprogcontest.org.nz/NZPCNews.php (data scan 2026-11-23)
 - id: nzpc-2008
   season: 2009
+  date: '2008-08-09'
   cms_ids: []
   next: nzpc-2009
   sources:
@@ -248,14 +255,17 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: nzpc-2008
+  provenance:
+  - date 2008-08-09 read from http://nzprogcontest.org.nz/NZPCNews.php (data scan 2026-11-23)
 - id: nzpc-2009
   season: 2010
+  date: '2009-08-22'
   cms_ids: []
   next: nzpc-2010
   sources:
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz09results.pdf
     roles:
-    - standings
+    - scoreboard
     as_of: '20100514230710'
     archived:
     - nzpc/nzpc-2009/standings/20100514-wayback-94982c62/nz09results.pdf
@@ -281,14 +291,17 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: nzpc-2009
+  provenance:
+  - date 2009-08-22 read from http://nzprogcontest.org.nz/NZPCNews.php (data scan 2026-11-23)
 - id: nzpc-2010
   season: 2011
+  date: '2010-08-07'
   cms_ids: []
   next: nzpc-2011
   sources:
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz10results.pdf
     roles:
-    - standings
+    - scoreboard
     as_of: '20160212094157'
     archived:
     - nzpc/nzpc-2010/standings/20160212-wayback-faf409c3/nz10results.pdf
@@ -314,14 +327,17 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: nzpc-2010
+  provenance:
+  - date 2010-08-07 read from http://nzprogcontest.org.nz/NZPCNews.php (data scan 2026-11-23)
 - id: nzpc-2011
   season: 2012
+  date: '2011-08-06'
   cms_ids: []
   next: nzpc-2012
   sources:
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz11results.pdf
     roles:
-    - standings
+    - scoreboard
     as_of: '20160212094206'
     archived:
     - nzpc/nzpc-2011/standings/20160212-wayback-0ec42f43/nz11results.pdf
@@ -347,11 +363,15 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: nzpc-2011
+  provenance:
+  - date 2011-08-06 read from http://nzprogcontest.org.nz/NZContestHome.html (data scan 2026-11-23)
 - id: nzpc-2012
   season: 2013
   name: 2012 New Zealand Programming Contest
   date: '2012-08-11'
   location: U Auckland; U Waikato; Whitireia; U Canterbury; SIT; Administrative Site Location
+  cms_ids:
+  - 1534
   sites:
   - location: nz-auckland
   - location: nz-hamilton
@@ -360,14 +380,12 @@ contests:
   - location: nz-invercargill-sit
     name: Invercargill
   - type: administrative
-  cms_ids:
-  - 1534
   parent: south-pacific-2012
   next: nzpc-2013
   sources:
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz12results.pdf
     roles:
-    - standings
+    - scoreboard
     as_of: '20160212094233'
     archived:
     - nzpc/nzpc-2012/standings/20160212-wayback-db9865a2/nz12results.pdf
@@ -397,6 +415,8 @@ contests:
   season: 2014
   name: 2013 New Zealand Programming Contest
   date: '2013-08-17'
+  cms_ids:
+  - 2042
   sites:
   - location: nz-hamilton
   - location: nz-christchurch
@@ -405,14 +425,12 @@ contests:
   - location: nz-invercargill-sit
     name: Invercargill
   - type: administrative
-  cms_ids:
-  - 2042
   parent: south-pacific-2013
-  next: nzpc-2015
+  next: nzpc-2014
   sources:
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz13results.pdf
     roles:
-    - standings
+    - scoreboard
     as_of: '20160212094241'
     archived:
     - nzpc/nzpc-2013/standings/20160212-wayback-40218c92/nz13results.pdf
@@ -432,12 +450,14 @@ contests:
   notes: The CMS lists no teams (problem archive sheet)
 - id: nzpc-2015
   season: 2016
+  date: '2015-08-08'
   cms_ids: []
   next: nzpc-2016
   sources:
   - url: https://nzprogcontest.org.nz/results/2015/
     roles:
     - rankings
+    scope: category winners (5 categories)
     as_of: '20230609203527'
     archived:
     - nzpc/nzpc-2015/scoreboard/2026-09-01-live-b7aef3e5/page.html
@@ -446,7 +466,6 @@ contests:
     - nzpc/nzpc-2015/rankings/20261116-live-53e6acf4/page.html
     url_state: changed
     url_checked: '2026-11-16'
-    scope: category winners (5 categories)
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2015.pdf
     roles:
     - problemset
@@ -465,6 +484,8 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: nzpc-2015
+  provenance:
+  - date 2015-08-08 read from http://public.webdev.aut.ac.nz/NZPC/Contest/ (data scan 2026-11-23)
 - id: nzpc-2016
   season: 2017
   cms_ids: []
@@ -502,12 +523,14 @@ contests:
     set: nzpc-2016
 - id: nzpc-2017
   season: 2018
+  date: '2017-08-19'
   cms_ids: []
   next: nzpc-2018
   sources:
   - url: https://nzprogcontest.org.nz/results/2017/
     roles:
     - rankings
+    scope: category winners (5 categories)
     as_of: '20230609205317'
     archived:
     - nzpc/nzpc-2017/scoreboard/2026-09-01-live-ede98ef7/page.html
@@ -516,7 +539,6 @@ contests:
     - nzpc/nzpc-2017/rankings/20261115-live-6e9e7cb9/page.html
     url_state: changed
     url_checked: '2026-11-16'
-    scope: category winners (5 categories)
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2017.pdf
     roles:
     - problemset
@@ -535,6 +557,8 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: nzpc-2017
+  provenance:
+  - date 2017-08-19 read from http://public.webdev.aut.ac.nz/NZPC/Contest/Default.aspx (data scan 2026-11-23)
 - id: nzpc-2018
   season: 2019
   cms_ids: []
@@ -589,12 +613,14 @@ contests:
     set: nzpc-2019
 - id: nzpc-2020
   season: 2021
+  date: '2020-09-26'
   cms_ids: []
   next: nzpc-2021
   sources:
   - url: https://nzprogcontest.org.nz/results/2020/
     roles:
     - rankings
+    scope: category winners (5 categories)
     as_of: '20230609220718'
     archived:
     - nzpc/nzpc-2020/scoreboard/2026-09-01-live-808e8b09/page.html
@@ -603,7 +629,6 @@ contests:
     - nzpc/nzpc-2020/rankings/20261115-live-61577c2e/page.html
     url_state: changed
     url_checked: '2026-11-16'
-    scope: category winners (5 categories)
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2020.pdf
     roles:
     - problemset
@@ -613,14 +638,19 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: nzpc-2020
+  provenance:
+  - date 2020-09-26 read from http://public.webdev.aut.ac.nz/NZPC/Contest/PDF/NZPCRegistration2020.pdf
+    (data scan 2026-11-23)
 - id: nzpc-2021
   season: 2022
+  date: '2021-09-11'
   cms_ids: []
   next: nzpc-2022
   sources:
   - url: https://nzprogcontest.org.nz/results/2021/
     roles:
     - rankings
+    scope: category winners (5 categories)
     as_of: '20230609210002'
     archived:
     - nzpc/nzpc-2021/scoreboard/2026-09-01-live-56f63bc6/page.html
@@ -629,7 +659,6 @@ contests:
     - nzpc/nzpc-2021/rankings/20261115-live-0d92f70c/page.html
     url_state: changed
     url_checked: '2026-11-16'
-    scope: category winners (5 categories)
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2021.pdf
     roles:
     - problemset
@@ -639,6 +668,9 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: nzpc-2021
+  provenance:
+  - date 2021-09-11 read from http://public.webdev.aut.ac.nz/NZPC/Contest/PDF/NZPCRegistration2021.pdf
+    (data scan 2026-11-23)
 - id: nzpc-2022
   season: 2023
   cms_ids: []
@@ -668,12 +700,14 @@ contests:
 - id: nzpc-2023
   season: 2024
   name: 2023 New Zealand Programming Contest
+  date: '2023-08-19'
   cms_ids: []
   next: null
   sources:
   - url: https://nzprogcontest.org.nz/results/2023/
     roles:
     - rankings
+    scope: category winners (5 categories)
     as_of: '20231003235217'
     archived:
     - nzpc/nzpc-2023/scoreboard/2026-09-01-live-596abe28/page.html
@@ -682,7 +716,6 @@ contests:
     - nzpc/nzpc-2023/rankings/20261115-live-8720bd4a/page.html
     url_state: changed
     url_checked: '2026-11-16'
-    scope: category winners (5 categories)
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2023.pdf
     roles:
     - problemset
@@ -692,11 +725,14 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: nzpc-2023
+  provenance:
+  - date 2023-08-19 read from https://nzprogcontest.org.nz/results/2023/ (data scan 2026-11-23)
 - id: nzpc-2000
   season: 2001
   name: 2000 New Zealand Programming Contest
   cms_ids: []
   parent: south-pacific-2000
+  next: nzpc-2001
   sources:
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz00results.html
     roles:
@@ -715,6 +751,8 @@ contests:
     - statement
     url_state: live
     url_checked: '2026-11-16'
+  problems:
+    set: nzpc-2000
   provenance:
   - 'Michael Dinneen (Auckland) — NZ Programming Contest 2000 results (2000): Contest on August 5th; 28
     teams scored; overall winner Auckland''s Po Shao / Lev Gimel''farb / Vane Trajkov (230 pts, Level
@@ -722,14 +760,18 @@ contests:
     [existence hunt 2026-10-22]'
   notes: added from misclass audit 2026-09-02 (None teams, None results in CMS); missing edition; series
     proven continuous by the ~mjd problemset archive (NZPC2000.pdf exists)
-  problems:
-    set: nzpc-2000
 - id: nzpc-2001
   season: 2002
   name: 2001 New Zealand Programming Contest
   cms_ids: []
   parent: south-pacific-2001
+  next: nzpc-2002
   sources:
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz01results.txt
+    roles:
+    - standings
+    as_of: '20040830214401'
+    note: found by the data scan 2026-11-23 (Wayback CDX of the NZPC results folder that siblings cite)
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2001.pdf
     roles:
     - problemset
@@ -737,6 +779,8 @@ contests:
     - statement
     url_state: live
     url_checked: '2026-11-16'
+  problems:
+    set: nzpc-2001
   provenance:
   - 'South Pacific Competitive Programming Association archive — 2001 ICPC results & site reports (2001
     (republished 2025)): Auckland site report refers to ''the New Zealand Programming Contest winners''
@@ -749,14 +793,18 @@ contests:
     [existence hunt 2026-10-22]'
   notes: added from misclass audit 2026-09-02 (None teams, None results in CMS); missing edition; ~mjd
     archive has NZPC2001.pdf
-  problems:
-    set: nzpc-2001
 - id: nzpc-2003
   season: 2004
   name: 2003 New Zealand Programming Contest
   cms_ids: []
   parent: south-pacific-2003
+  next: nzpc-2004
   sources:
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz03results.txt
+    roles:
+    - standings
+    as_of: '20040830214639'
+    note: found by the data scan 2026-11-23 (Wayback CDX of the NZPC results folder that siblings cite)
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2003.pdf
     roles:
     - problemset
@@ -764,6 +812,8 @@ contests:
     - statement
     url_state: live
     url_checked: '2026-11-16'
+  problems:
+    set: nzpc-2003
   provenance:
   - 'Otago CS seminar: Andrew Trotman, ''The Programming Contests'' (2004-04-30): Otago''s ''The Pumpkin
     Lemma'' placed 27th of 73 at the ACM world finals in Prague; ''on the way to the finals, the team
@@ -775,14 +825,20 @@ contests:
     [existence hunt 2026-10-22]'
   notes: added from misclass audit 2026-09-02 (None teams, None results in CMS); missing edition; ~mjd
     archive has NZPC2003.pdf
-  problems:
-    set: nzpc-2003
 - id: nzpc-2014
   season: 2015
   name: 2014 New Zealand Programming Contest
+  date: '2014-08-09'
   cms_ids: []
   parent: south-pacific-2014
+  next: nzpc-2015
   sources:
+  - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/results/nz14results.pdf
+    roles:
+    - scoreboard
+    as_of: '20160212094251'
+    note: found by the data scan 2026-11-23 (Wayback CDX of the NZPC results folder that siblings nzpc-2013/2002/2004
+      cite)
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/NZPC2014.pdf
     roles:
     - problemset
@@ -790,6 +846,8 @@ contests:
     - statement
     url_state: live
     url_checked: '2026-11-16'
+  problems:
+    set: nzpc-2014
   provenance:
   - 'Auckland Site Page for the NZ Programming Contest (2016 edition) (2016): NZPC 2016 on Saturday 6
     August 2016 at Auckland; mentions the official NZPC site maintained by director Phil Robbins, past
@@ -801,7 +859,6 @@ contests:
   - 'NZPC official site — About / Phil Robbins memoriam (2026-07-22): Phil Robbins was NZPC Contest Director
     from 2004 to 2026 (22 years), i.e. the contest ran annually through 2014; History section ''under
     construction''. — https://nzprogcontest.org.nz/about/ [existence hunt 2026-10-22]'
+  - date 2014-08-09 read from http://public.webdev.aut.ac.nz/NZPC/Contest/Home.aspx (data scan 2026-11-23)
   notes: added from misclass audit 2026-09-02 (None teams, None results in CMS); missing edition; ~mjd
     archive has NZPC2014.pdf
-  problems:
-    set: nzpc-2014

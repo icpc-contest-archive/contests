@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: malaysia-national
   name: ICPC Malaysia National Programming Contest (al-Khawarizmi)
@@ -10,13 +10,18 @@ contests:
   season: 2014
   name: 2013 ACM-ICPC Malaysia National Programming Contest
   date: '2013-09-21'
+  cms_ids:
+  - 2097
   sites:
   - location: my-tronoh
     name: 2013 ACM-ICPC Malaysia National Programming Contest
-  cms_ids:
-  - 2097
   next: malaysia-national-2014
   sources:
+  - url: https://icpc.global/regionals/finder/OP-2014/standings
+    roles:
+    - standings
+    note: 'found by the data scan 2026-11-23 (ICPC CMS open API (cms 2097): standings rows exist but the
+      contest had no CMS standings source)'
   - url: https://www.acmicpc.net/category/detail/1193
     roles:
     - problemset
@@ -31,66 +36,66 @@ contests:
   - url: https://www.acmicpc.net/problem/9695
     roles:
     - problem
-    judge: baekjoon
     problem: C
     contains:
     - statement
+    judge: baekjoon
     as_of: '20171221120434'
   - url: https://www.acmicpc.net/problem/9696
     roles:
     - problem
-    judge: baekjoon
     problem: D
     contains:
     - statement
+    judge: baekjoon
     as_of: '20171221120434'
   - url: https://www.acmicpc.net/problem/9697
     roles:
     - problem
-    judge: baekjoon
     problem: E
     contains:
     - statement
+    judge: baekjoon
     as_of: '20171221120434'
   - url: https://www.acmicpc.net/problem/9698
     roles:
     - problem
-    judge: baekjoon
     problem: F
     contains:
     - statement
+    judge: baekjoon
     as_of: '20171221120434'
   - url: https://www.acmicpc.net/problem/9699
     roles:
     - problem
-    judge: baekjoon
     problem: G
     contains:
     - statement
+    judge: baekjoon
     as_of: '20171221120434'
   - url: https://www.acmicpc.net/problem/9700
     roles:
     - problem
-    judge: baekjoon
     problem: H
     contains:
     - statement
+    judge: baekjoon
     as_of: '20171221120434'
   - url: https://www.acmicpc.net/problem/9701
     roles:
     - problem
-    judge: baekjoon
     problem: I
     contains:
     - statement
+    judge: baekjoon
     as_of: '20171221120434'
   - url: https://www.acmicpc.net/problem/9702
     roles:
     - problem
-    judge: baekjoon
     problem: J
     contains:
     - statement
+    judge: baekjoon
     as_of: '20171221120434'
   problems:
     set: malaysia-national-2013
@@ -109,12 +114,12 @@ contests:
   season: 2015
   name: ACM ICPC Malaysia al-Khawarizmi National Programming Contest 2014
   date: '2014-09-27'
+  cms_ids:
+  - 2709
   sites:
   - location: my-tronoh-acm-icpc-malaysia-al-khawarizmi
     date: '2014-09-28'
   - type: administrative
-  cms_ids:
-  - 2709
   parent: kuala-lumpur-2014
   next: malaysia-national-2016
   sources:
@@ -127,17 +132,17 @@ contests:
   - url: https://news.utar.edu.my/awards/2014/37/37.html
     roles:
     - rankings
-    note: added by the no-sources hunt 2026-11-16
-    url_state: live
-    url_checked: '2026-11-22'
     archived:
     - malaysia-national/malaysia-national-2014/rankings/20261122-live-2681e7f0/37.html
+    url_state: live
+    url_checked: '2026-11-22'
+    note: added by the no-sources hunt 2026-11-16
   - url: https://fik.unisza.edu.my/index.php?option=com_content&view=article&id=579:acm-icpc-malaysia-al-khawarizmi-national-programming-contest-2014&catid=47&lang=en&Itemid=657
     roles:
-    - rankings
-    note: added by the no-sources hunt 2026-11-16
+    - report
     archived:
     - malaysia-national/malaysia-national-2014/rankings/20261116-live-4e8b2093/page.html
+    note: added by the no-sources hunt 2026-11-16
   provenance:
   - 'UTAR news - ''UTAR tops ACM-ICPC National Programming Contest'' (2014): ACM-ICPC Malaysia National
     Programming Contest held 27-28 September 2014 at Universiti Teknologi Petronas, Seri Iskandar, Perak.
@@ -151,16 +156,22 @@ contests:
   season: 2017
   name: 2016 ACM-ICPC Malaysia AlKhawarizmi National Programming Contest
   date: '2016-10-07'
-  sites:
-  - location: ph
-    name: The 2016 ACM-ICPC Malaysia AlKhawarizmi National Programming Contest
+  location: Kuala Lumpur, Malaysia
   cms_ids:
   - 3069
+  sites:
+  - location: my-kuala-lumpur-iium
+    name: The 2016 ACM-ICPC Malaysia AlKhawarizmi National Programming Contest
   next: malaysia-national-2018
   sources:
   - url: https://www.iium.edu.my/acmicpc/2016/config.html
     roles:
     - web
+  - url: https://icpc.global/regionals/finder/Malaysia-AlKhawarizmi-National-2017/standings
+    roles:
+    - standings
+    note: 'found by the data scan 2026-11-23 (ICPC CMS open API (cms 3069): standings rows exist but the
+      contest had no CMS standings source)'
   - url: https://www.acmicpc.net/category/detail/1739
     roles:
     - problemset
@@ -175,82 +186,82 @@ contests:
   - url: https://www.acmicpc.net/problem/14533
     roles:
     - problem
-    judge: baekjoon
     problem: A
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201025203010'
   - url: https://www.acmicpc.net/problem/14534
     roles:
     - problem
-    judge: baekjoon
     problem: B
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201025203010'
   - url: https://www.acmicpc.net/problem/14535
     roles:
     - problem
-    judge: baekjoon
     problem: C
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201025203010'
   - url: https://www.acmicpc.net/problem/14536
     roles:
     - problem
-    judge: baekjoon
     problem: D
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201025203010'
   - url: https://www.acmicpc.net/problem/14537
     roles:
     - problem
-    judge: baekjoon
     problem: E
     contains:
     - statement
+    judge: baekjoon
     as_of: '20170707190823'
   - url: https://www.acmicpc.net/problem/14538
     roles:
     - problem
-    judge: baekjoon
     problem: F
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201025203010'
   - url: https://www.acmicpc.net/problem/14539
     roles:
     - problem
-    judge: baekjoon
     problem: G
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201025203010'
   - url: https://www.acmicpc.net/problem/14540
     roles:
     - problem
-    judge: baekjoon
     problem: H
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201025203010'
   - url: https://www.acmicpc.net/problem/14541
     roles:
     - problem
-    judge: baekjoon
     problem: I
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201025203010'
   - url: https://www.acmicpc.net/problem/14542
     roles:
     - problem
-    judge: baekjoon
     problem: J
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201025203010'
   problems:
     set: malaysia-national-2016
@@ -267,18 +278,20 @@ contests:
     organiser page for the 2016 scores/problem sets; fetch fails (client error) and Wayback availability
     API reports no snapshot. — https://www.iium.edu.my/acmicpc/2016/tentative.html [existence hunt 2026-10-22]'
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+  - location Kuala Lumpur, Malaysia read from https://www.iium.edu.my/acmicpc/2016/config.html (data scan
+    2026-11-23)
   notes: '32 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site));
     parent ''apc'' unresolved - unlinked (aec/apc convention)'
 - id: malaysia-national-2018
   season: 2019
   name: 2018 ICPC Malaysia National alKhawarizmi Programming Contest
   date: '2018-05-11'
+  cms_ids:
+  - 3750
   sites:
   - location: my
     name: The 2018 ACM-ICPC Malaysia National alKhawarizmi Programming Contest
     date: '2018-05-12'
-  cms_ids:
-  - 3750
   next: malaysia-national-2019
   sources:
   - url: http://www.iium.edu.my/acmicpc/2018/config.html
@@ -289,11 +302,15 @@ contests:
     roles:
     - scoreboard
     as_of: '20190303095945'
-    note: found inside http://www.iium.edu.my/acmicpc/2018/config.html by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - malaysia-national/malaysia-national-2018/scoreboard/20190303-wayback-20f99472/scoreboard2018.pdf
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://www.iium.edu.my/acmicpc/2018/config.html by the content check
+  - url: https://icpc.global/regionals/finder/Malaysia-National-2019/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 43 rows)
   - url: https://www.acmicpc.net/category/detail/1882
     roles:
     - problemset
@@ -308,82 +325,82 @@ contests:
   - url: https://www.acmicpc.net/problem/15832
     roles:
     - problem
-    judge: baekjoon
     problem: A
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201025221413'
   - url: https://www.acmicpc.net/problem/15833
     roles:
     - problem
-    judge: baekjoon
     problem: B
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201025221413'
   - url: https://www.acmicpc.net/problem/15834
     roles:
     - problem
-    judge: baekjoon
     problem: C
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201025221413'
   - url: https://www.acmicpc.net/problem/15835
     roles:
     - problem
-    judge: baekjoon
     problem: D
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201025221413'
   - url: https://www.acmicpc.net/problem/15836
     roles:
     - problem
-    judge: baekjoon
     problem: E
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201025221413'
   - url: https://www.acmicpc.net/problem/15837
     roles:
     - problem
-    judge: baekjoon
     problem: F
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201025221413'
   - url: https://www.acmicpc.net/problem/15838
     roles:
     - problem
-    judge: baekjoon
     problem: G
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201025221413'
   - url: https://www.acmicpc.net/problem/15839
     roles:
     - problem
-    judge: baekjoon
     problem: H
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201025221413'
   - url: https://www.acmicpc.net/problem/15840
     roles:
     - problem
-    judge: baekjoon
     problem: I
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201025221413'
   - url: https://www.acmicpc.net/problem/15841
     roles:
     - problem
-    judge: baekjoon
     problem: J
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201025221413'
   - url: http://www.iium.edu.my/acmicpc/2018/files/icpc-regional-2014-analysis-teddy.pdf
     roles:
@@ -422,11 +439,11 @@ contests:
   season: 2020
   name: Asia KL Malaysia  National On-site Contest
   date: '2019-04-26'
+  cms_ids:
+  - 4160
   sites:
   - location: my
     name: Asia KL Malaysia National On-site Contest
-  cms_ids:
-  - 4160
   parent: kuala-lumpur-2019
   sources:
   - url: https://www.iium.edu.my/acmicpc/2019/index.html
@@ -441,6 +458,10 @@ contests:
     url_state: dead
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://icpc.global/regionals/finder/MalaysiaNational-2020/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 36 rows)
   - url: https://codeforces.com/gym/102219
     roles:
     - problemset
@@ -448,6 +469,8 @@ contests:
     - statement
     url_state: live
     url_checked: '2026-11-16'
+  problems:
+    set: malaysia-national-2019
   provenance:
   - 'Xiamen University Malaysia news (2019): ICPC Malaysia al-Khawarizmi National Programming Contest
     2019 held Saturday 27 April 2019 at IIUM (Kulliyyah of ICT); whyAreWeHere (IIUM) 1st, readTaco (UM)
@@ -465,5 +488,3 @@ contests:
     for the mirror of the 2019 Malaysia National contest (not fetched). — https://codeforces.com/gymRegistrants/102219
     [existence hunt 2026-10-22]'
   notes: '36 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
-  problems:
-    set: malaysia-national-2019

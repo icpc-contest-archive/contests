@@ -1,8 +1,8 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: south-africa
   name: South Africa Regional Contest
-  tier: subregional
+  tier: regional
   region: Africa & Arab
   naming: season-start
 contests:
@@ -140,6 +140,8 @@ contests:
   name: 2001 ACM South Africa Programming Contest
   date: '2001-09-15'
   location: Pretoria; Cape Town; Grahamstown
+  cms_ids:
+  - 1288
   sites:
   - location: za-cape-town-uct
   - location: za-pretoria-university
@@ -147,8 +149,6 @@ contests:
     name: Administration
     type: administrative
   - location: za-grahamstown-rhodes
-  cms_ids:
-  - 1288
   parent: wf-2002
   next: south-africa-2002
   sources:
@@ -165,12 +165,12 @@ contests:
   - url: http://www.cs.up.ac.za/acm/Standings.html
     roles:
     - standings
-    as_of: '20021120105044'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: dead
-    url_checked: '2026-11-16'
+    as_of: '20010925203330'
     archived:
     - south-africa/south-africa-2001/standings/20021120-wayback-810133a6/Standings.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://icpc.baylor.edu/past/icpc2002/regionals/ViewRegionalStandings.asp?ContestID=497
     roles:
     - rankings
@@ -247,6 +247,8 @@ contests:
   name: 2002 ACM South Africa Programming Contest
   date: '2002-10-05'
   location: Pretoria; Grahamstown; Cape Town
+  cms_ids:
+  - 1020
   sites:
   - location: za-grahamstown-rhodes
   - location: za-pretoria
@@ -254,8 +256,6 @@ contests:
     type: administrative
   - location: za-pretoria-university
   - location: za-cape-town-uct
-  cms_ids:
-  - 1020
   parent: wf-2003
   next: south-africa-2003
   sources:
@@ -266,18 +266,19 @@ contests:
   - url: http://www.cs.up.ac.za/acm
     roles:
     - web
-    as_of: '20010424141428'
+    as_of: '20020810014927'
     url_state: dead
     url_checked: '2026-11-14'
   - url: http://www.cs.up.ac.za/acm/Standings.html
     roles:
     - standings
+    - frozen_scoreboard
     as_of: '20021120105044'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - south-africa/south-africa-2002/standings/20021120-wayback-810133a6/Standings.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings40b7.html?ContestID=565
     roles:
     - rankings
@@ -307,7 +308,7 @@ contests:
   - url: http://www.cs.up.ac.za/acm/Problems.html
     roles:
     - problemset
-    as_of: '20010925202942'
+    as_of: '20021120103815'
     url_state: dead
     url_checked: '2026-11-16'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=117
@@ -332,6 +333,8 @@ contests:
   name: 2003 ACM South Africa Programming Contest
   date: '2003-10-18'
   location: Pretoria; Grahamstown; Cape Town
+  cms_ids:
+  - 1181
   sites:
   - location: za-pretoria
     name: Administration
@@ -339,8 +342,6 @@ contests:
   - location: za-pretoria-university
   - location: za-grahamstown-rhodes
   - location: za-cape-town-uct
-  cms_ids:
-  - 1181
   parent: wf-2004
   next: south-africa-2004
   sources:
@@ -351,7 +352,6 @@ contests:
   - url: http://www.cs.up.ac.za/acm
     roles:
     - web
-    as_of: '20010424141428'
     url_state: dead
     url_checked: '2026-11-14'
   - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=639
@@ -375,12 +375,12 @@ contests:
     roles:
     - rankings
     as_of: '20040109021030'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: unknown
-    url_checked: '2026-11-16'
     archived:
     - south-africa/south-africa-2003/standings/20040109-wayback-4dfcd5e9/page.html
     - south-africa/south-africa-2003/rankings/20040109-wayback-4dfcd5e9/page.html
+    url_state: unknown
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: https://acm.cs.up.ac.za/Previous/2003/ProblemSet.pdf
     roles:
     - problemset
@@ -451,6 +451,8 @@ contests:
   name: 2005 ACM South Africa Programming Contest
   date: '2005-10-15'
   location: Pietermaritzburg; Pretoria; Grahamstown; Cape Town
+  cms_ids:
+  - 1143
   sites:
   - location: za-pretoria-university
   - location: za-cape-town-uct
@@ -459,14 +461,13 @@ contests:
   - location: za-pretoria
     name: Administration
     type: administrative
-  cms_ids:
-  - 1143
   parent: wf-2006
   next: south-africa-2006
   sources:
   - url: http://acm.cs.up.ac.za/
     roles:
     - web
+    as_of: '20060516054755'
   - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=715
     roles:
     - standings
@@ -616,6 +617,8 @@ contests:
   date: '2008-10-11'
   location: Pretoria; Pietermaritzburg; Administrative Site Location; Cape Town; Nigeria (West Africa);
     Grahamstown; Benin
+  cms_ids:
+  - 4
   sites:
   - location: za-pretoria
   - location: za-cape-town
@@ -626,9 +629,7 @@ contests:
   - location: ng
     name: Nigeria (West Africa)
   - type: administrative
-  cms_ids:
-  - 4
-  parent: acpc-2008
+  parent: wf-2009
   next: south-africa-2009
   sources:
   - url: http://marco-za.blogspot.com/2008/10/acm-icpc-south-african-2008.html
@@ -637,11 +638,11 @@ contests:
     - report
     scope: top 5 overall; UCT site narrative
     as_of: '20120318063235'
-    url_state: changed
-    url_checked: '2026-11-16'
     archived:
     - south-africa/south-africa-2008/rankings/20120318-wayback-56fa9900/acm-icpc-south-african-2008.html
     - south-africa/south-africa-2008/rankings/20261116-live-4ae22313/acm-icpc-south-african-2008.html
+    url_state: changed
+    url_checked: '2026-11-16'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=308
     roles:
     - problemset
@@ -653,12 +654,18 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: south-africa-2008
+  provenance:
+  - 'parent wf-2009: the CMS places this regional directly under the Africa and Middle East super-region,
+    South African teams are absent from the ACPC standings and present at the World Finals (data scan
+    2026-11-23)'
 - id: south-africa-2009
   season: 2010
   name: 2009 South Africa Regional Contest
   date: '2009-10-10'
   location: Nigeria (West Africa); Pietermaritzburg; Pretoria; Cape Town; Administrative Site Location;
     Benin; Grahamstown
+  cms_ids:
+  - 513
   sites:
   - location: za-grahamstown
   - location: bj
@@ -669,9 +676,7 @@ contests:
   - location: za-cape-town
   - location: za-pietermaritzburg
   - type: administrative
-  cms_ids:
-  - 513
-  parent: acpc-2009
+  parent: wf-2010
   next: south-africa-2010
   sources:
   - url: http://acm.cs.up.ac.za/
@@ -705,12 +710,18 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: south-africa-2009
+  provenance:
+  - 'parent wf-2010: the CMS places this regional directly under the Africa and Middle East super-region,
+    South African teams are absent from the ACPC standings and present at the World Finals (data scan
+    2026-11-23)'
 - id: south-africa-2010
   season: 2011
   name: 2010 South Africa Regional Contest
   date: '2010-10-16'
   location: Benin; Pietermaritzburg; Grahamstown; Cape Town; Pretoria; Administrative Site Location; Nigeria
     (West Africa)
+  cms_ids:
+  - 579
   sites:
   - location: za-pietermaritzburg
   - location: za-grahamstown
@@ -721,9 +732,7 @@ contests:
   - location: ng
     name: Nigeria (West Africa)
   - type: administrative
-  cms_ids:
-  - 579
-  parent: acpc-2010
+  parent: wf-2011
   next: south-africa-2011
   sources:
   - url: http://acm.cs.up.ac.za/
@@ -746,12 +755,18 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: south-africa-2010
+  provenance:
+  - 'parent wf-2011: the CMS places this regional directly under the Africa and Middle East super-region,
+    South African teams are absent from the ACPC standings and present at the World Finals (data scan
+    2026-11-23)'
 - id: south-africa-2011
   season: 2012
   name: 2011 South Africa Regional Contest
   date: '2011-10-15'
   location: Pietermaritzburg; Cape Town; Nigeria (West Africa); Grahamstown; Pretoria; Benin; Administrative
     Site Location
+  cms_ids:
+  - 750
   sites:
   - location: za-pietermaritzburg
   - location: za-cape-town
@@ -762,9 +777,7 @@ contests:
   - location: bj
     name: Benin (West Africa)
   - type: administrative
-  cms_ids:
-  - 750
-  parent: acpc-2011
+  parent: wf-2012
   next: south-africa-2012
   sources:
   - url: http://acm.cs.up.ac.za/
@@ -787,12 +800,18 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: south-africa-2011
+  provenance:
+  - 'parent wf-2012: the CMS places this regional directly under the Africa and Middle East super-region,
+    South African teams are absent from the ACPC standings and present at the World Finals (data scan
+    2026-11-23)'
 - id: south-africa-2012
   season: 2013
   name: 2012 South Africa Regional Contest
   date: '2012-10-20'
   location: Pretoria; Administrative Site Location; Grahamstown; Cape Town; Pietermaritzburg; Nigeria
     (West Africa); Benin
+  cms_ids:
+  - 1354
   sites:
   - location: za-pietermaritzburg
   - location: bj
@@ -803,9 +822,7 @@ contests:
   - location: ng
     name: Nigeria (West Africa)
   - type: administrative
-  cms_ids:
-  - 1354
-  parent: acpc-2012
+  parent: wf-2013
   next: south-africa-2013
   sources:
   - url: http://acm.cs.up.ac.za/
@@ -839,12 +856,18 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: south-africa-2012
+  provenance:
+  - 'parent wf-2013: the CMS places this regional directly under the Africa and Middle East super-region,
+    South African teams are absent from the ACPC standings and present at the World Finals (data scan
+    2026-11-23)'
 - id: south-africa-2013
   season: 2014
   name: 2013 South Africa Regional Contest
   date: '2013-10-12'
   location: JKUAT; Benin; Administrative Site Location; Grahamstown; Pretoria; Nigeria (West Africa);
     Cape Town; Pietermaritzburg
+  cms_ids:
+  - 2064
   sites:
   - location: za-cape-town
   - location: za-grahamstown
@@ -857,9 +880,7 @@ contests:
   - location: ke-nairobi-jkuat
     name: Kenya (East Africa)
   - type: administrative
-  cms_ids:
-  - 2064
-  parent: acpc-2013
+  parent: wf-2014
   next: south-africa-2014
   sources:
   - url: http://acm.cs.up.ac.za/
@@ -893,12 +914,18 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: south-africa-2013
+  provenance:
+  - 'parent wf-2014: the CMS places this regional directly under the Africa and Middle East super-region,
+    South African teams are absent from the ACPC standings and present at the World Finals (data scan
+    2026-11-23)'
 - id: south-africa-2014
   season: 2015
   name: 2014 South Africa Regional Contest
   date: '2014-10-04'
   location: Cameroon; Pretoria; Satellite; Niger; Benin; Administrative Site Location; Mauritius; Togo;
     JKUAT; Pietermaritzburg; Cape Town; Grahamstown
+  cms_ids:
+  - 2624
   sites:
   - location: tg
     name: Togo (West Africa)
@@ -919,9 +946,7 @@ contests:
   - type: administrative
   - location: ne
     name: Niger (West Africa)
-  cms_ids:
-  - 2624
-  parent: acpc-2014
+  parent: wf-2015
   next: south-africa-2015
   sources:
   - url: http://acm.cs.up.ac.za/
@@ -955,12 +980,18 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: south-africa-2014
+  provenance:
+  - 'parent wf-2015: the CMS places this regional directly under the Africa and Middle East super-region,
+    South African teams are absent from the ACPC standings and present at the World Finals (data scan
+    2026-11-23)'
 - id: south-africa-2015
   season: 2016
   name: 2015 South Africa Regional Contest
   date: '2015-10-24'
   location: Niger; Cameroon; Cape Town; Benin; Togo; JKUAT; Pretoria; Pietermaritzburg; Satellite; Administrative
     Site Location; Mauritius; Grahamstown
+  cms_ids:
+  - 2869
   sites:
   - location: bj
     name: Benin (West Africa)
@@ -981,9 +1012,7 @@ contests:
   - location: cm
     name: Cameroon
   - type: administrative
-  cms_ids:
-  - 2869
-  parent: acpc-2015
+  parent: wf-2016
   next: south-africa-2016
   sources:
   - url: http://acm.cs.up.ac.za/
@@ -1017,12 +1046,18 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: south-africa-2015
+  provenance:
+  - 'parent wf-2016: the CMS places this regional directly under the Africa and Middle East super-region,
+    South African teams are absent from the ACPC standings and present at the World Finals (data scan
+    2026-11-23)'
 - id: south-africa-2016
   season: 2017
   name: 2016 South Africa Regional Contest
   date: '2016-10-15'
   location: Administrative Site Location; Cape Town; JKUAT; Togo; Satellite; ASTU, Adama; Cameroon; Benin;
     Grahamstown; Pretoria; Niger; tba
+  cms_ids:
+  - 3158
   sites:
   - location: na
     name: Namibia (Southern Africa)
@@ -1057,9 +1092,7 @@ contests:
     name: Angola (Southern Africa)
   - location: et-nazret-astu
     name: Ethiopia (Eastern Africa)
-  cms_ids:
-  - 3158
-  parent: acpc-2016
+  parent: wf-2017
   next: south-africa-2017
   sources:
   - url: http://acm.cs.up.ac.za/
@@ -1100,12 +1133,18 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: south-africa-2016
+  provenance:
+  - 'parent wf-2017: the CMS places this regional directly under the Africa and Middle East super-region,
+    South African teams are absent from the ACPC standings and present at the World Finals (data scan
+    2026-11-23)'
 - id: south-africa-2017
   season: 2018
   name: 2017 South Africa Regional Contest
   date: '2017-10-21'
   location: Satellite; Mauritius; Pietermaritzburg; Senegal; Grahamstown; JKUAT; Ivory Coast; Benin; Cape
     Town; Administrative Site Location; Mali; Pretoria
+  cms_ids:
+  - 3328
   sites:
   - location: bj
     name: Benin (Western Africa)
@@ -1146,9 +1185,7 @@ contests:
     name: South Africa - Pietermaritzburg (Southern Africa)
   - location: tg
     name: Togo (Western Africa)
-  cms_ids:
-  - 3328
-  parent: acpc-2017
+  parent: wf-2018
   next: south-africa-2018
   sources:
   - url: http://acm.cs.up.ac.za/
@@ -1190,12 +1227,18 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: south-africa-2017
+  provenance:
+  - 'parent wf-2018: the CMS places this regional directly under the Africa and Middle East super-region,
+    South African teams are absent from the ACPC standings and present at the World Finals (data scan
+    2026-11-23)'
 - id: south-africa-2018
   season: 2019
   name: 2018 South Africa Regional Contest
   date: '2018-10-20'
   location: Pietermaritzburg; Namibia; Mauritius; Cape Town; Pretoria; Grahamstown; tba; ASTU, Adama;
     Administrative Site Location; JKUAT; Cameroon
+  cms_ids:
+  - 3562
   sites:
   - location: cm
     name: Cameroon (Central Africa)
@@ -1218,16 +1261,14 @@ contests:
     name: Ethiopia (Eastern Africa)
   - location: ke-nairobi-jkuat
     name: Kenya (Eastern Africa)
-  cms_ids:
-  - 3562
-  parent: acpc-2018
+  parent: wf-2019
   next: south-africa-2019
   sources:
   - url: https://acm.cs.up.ac.za/
     roles:
     - web
     - scoreboard
-    as_of: '20190804012937'
+    as_of: '20181029183911'
     archived:
     - south-africa/south-africa-2018/scoreboard/2026-04-16-archive/2018-south-africa-regional-contest-2018.html
     - south-africa/south-africa-2018/scoreboard/20260901-live-60cf9fb8/page.html
@@ -1262,6 +1303,10 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: south-africa-2018
+  provenance:
+  - 'parent wf-2019: the CMS places this regional directly under the Africa and Middle East super-region,
+    South African teams are absent from the ACPC standings and present at the World Finals (data scan
+    2026-11-23)'
 - id: south-africa-2019
   season: 2020
   name: 2019 South Africa Regional Contest

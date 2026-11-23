@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: colombia-maraton
   name: Colombia Maratón Nacional de Programación (ACIS/REDIS)
@@ -11,6 +11,8 @@ contests:
   name: 2008 Colombia - XXII Maraton Nacional de Programacion ACIS / REDIS 2008
   date: '2008-09-20'
   location: Cartagena - UTB
+  cms_ids:
+  - 59
   sites:
   - location: co-medellin-eafit
     name: Medellín
@@ -30,14 +32,17 @@ contests:
     name: Manizales
     date: '2008-08-29'
   - type: administrative
-  cms_ids:
-  - 59
   parent: south-america-north-2008
   next: colombia-maraton-2009
   sources:
   - url: https://acis.org.co/
     roles:
     - web
+  - url: http://acis.org.co/index.php?id=1210
+    roles:
+    - scoreboard
+    as_of: '20130425211250'
+    note: found by the data scan 2026-11-23 (ACIS results page (index.php?id=1210); Wayback snapshot)
   - url: https://onlinejudge.org/contests/211-7b52419c/
     roles:
     - problemset
@@ -46,14 +51,16 @@ contests:
     as_of: '20251016065448'
     url_state: live
     url_checked: '2026-11-16'
-  notes: '87 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   problems:
     set: colombia-maraton-2008
+  notes: '87 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: colombia-maraton-2009
   season: 2010
   name: 2009 Colombia - XXIII Maraton Nacional de Programacion ACIS / REDIS 2009
   date: '2009-09-05'
   location: Medellín  - EAFIT
+  cms_ids:
+  - 520
   sites:
   - location: co-cali-icesi
     name: Cali
@@ -67,14 +74,22 @@ contests:
   - location: bo-la-paz-utb
     name: Cartagena
   - type: administrative
-  cms_ids:
-  - 520
   parent: south-america-north-2009
   next: colombia-maraton-2010
   sources:
   - url: https://acis.org.co/
     roles:
     - web
+  - url: http://acis.org.co/index.php?id=1382
+    roles:
+    - scoreboard
+    as_of: '20130501193602'
+    note: found by the data scan 2026-11-23 (ACIS results page (index.php?id=1382); Wayback snapshot)
+  - url: https://icpc.global/regionals/finder/Colombia-2010/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 93 rows, 55 with problems solved)
   - url: https://onlinejudge.org/contests/232-b5f9a162/
     roles:
     - problemset
@@ -83,14 +98,16 @@ contests:
     as_of: '20251017080755'
     url_state: live
     url_checked: '2026-11-16'
-  notes: '93 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   problems:
     set: colombia-maraton-2009
+  notes: '93 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: colombia-maraton-2010
   season: 2011
   name: 2010 Colombia - XXIV Maraton Nacional de Programacion ACIS / REDIS 2010
   date: '2010-09-18'
   location: Manizales - UAM
+  cms_ids:
+  - 592
   sites:
   - location: co-cali-icesi
     name: Cali
@@ -102,14 +119,22 @@ contests:
   - location: co-medellin-eafit
     name: Medellín
   - type: administrative
-  cms_ids:
-  - 592
   parent: south-america-north-2010
   next: colombia-maraton-2011
   sources:
   - url: https://www.economiaymercados.com/mymit/joom1515/index.php?option=com_content&view=article&id=346:manana-xxiv-maraton-nacional-de-programacion-acisredis-2010&catid=38:noticias&Itemid=55
     roles:
     - web
+  - url: http://acis.org.co/index.php?id=1543
+    roles:
+    - scoreboard
+    as_of: '20130507075419'
+    note: found by the data scan 2026-11-23 (ACIS results page (index.php?id=1543); Wayback snapshot)
+  - url: https://icpc.global/regionals/finder/Colombia-2011/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 93 rows, 50 with problems solved)
   - url: https://onlinejudge.org/contests/262-a076b934/
     roles:
     - problemset
@@ -118,15 +143,17 @@ contests:
     as_of: '20251015201942'
     url_state: live
     url_checked: '2026-11-16'
-  notes: '93 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
-    +series lineage)'
   problems:
     set: colombia-maraton-2010
+  notes: '93 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
+    +series lineage)'
 - id: colombia-maraton-2011
   season: 2012
   name: 2011 Colombia - XXV Maraton Nacional de Programacion ACIS / REDIS 2011
-  date: '2011-09-08'
+  date: '2011-10-08'
   location: Universidad del Norte
+  cms_ids:
+  - 839
   sites:
   - location: co-barranquilla-norte
     name: Barranquilla
@@ -146,14 +173,22 @@ contests:
     name: Cali
     date: '2011-10-08'
   - type: administrative
-  cms_ids:
-  - 839
   parent: south-america-north-2011
   next: colombia-maraton-2012
   sources:
   - url: https://www.portafolio.co/negocios/empresas/maraton-nacional-programacion-lista-140904
     roles:
     - web
+  - url: http://acis.org.co/index.php?id=1712
+    roles:
+    - scoreboard
+    as_of: '20130429181700'
+    note: found by the data scan 2026-11-23 (ACIS results page (index.php?id=1712); Wayback snapshot)
+  - url: https://icpc.global/regionals/finder/Colombia-2012/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 102 rows, 36 with problems solved)
   - url: https://onlinejudge.org/contests/285-318a0d96/
     roles:
     - problemset
@@ -162,15 +197,19 @@ contests:
     as_of: '20251017072634'
     url_state: live
     url_checked: '2026-11-16'
-  notes: '102 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
-    +series lineage)'
   problems:
     set: colombia-maraton-2011
+  provenance:
+  - date 2011-10-08 read from https://onlinejudge.org/contests/285-318a0d96/ (data scan 2026-11-23)
+  notes: '102 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
+    +series lineage)'
 - id: colombia-maraton-2012
   season: 2013
   name: 2012 Colombia - XXVI Maraton Nacional de Programacion ACIS / REDIS 2012
   date: '2012-10-20'
   location: Colombia
+  cms_ids:
+  - 1432
   sites:
   - location: co-bogota
   - location: co-bucaramanga
@@ -179,14 +218,22 @@ contests:
   - location: co-medellin
   - location: co-barranquilla
   - type: administrative
-  cms_ids:
-  - 1432
   parent: south-america-north-2012
   next: colombia-maraton-2013
   sources:
   - url: https://sistemas.uniandes.edu.co/es/inicio/eventos/xxvi-marat%C3%B3n-nacional-de-programaci%C3%B3n-acis-redis-2012
     roles:
     - web
+  - url: http://acis.org.co/index.php?id=1845
+    roles:
+    - scoreboard
+    as_of: '20130424005855'
+    note: found by the data scan 2026-11-23 (ACIS results page (index.php?id=1845); Wayback snapshot)
+  - url: https://icpc.global/regionals/finder/Colombia-2013/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 101 rows, 33 with problems solved)
   - url: https://onlinejudge.org/contests/311-6fbd162a/
     roles:
     - problemset
@@ -195,15 +242,17 @@ contests:
     as_of: '20251016055653'
     url_state: live
     url_checked: '2026-11-16'
-  notes: '102 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
-    +series lineage)'
   problems:
     set: colombia-maraton-2012
+  notes: '102 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
+    +series lineage)'
 - id: colombia-maraton-2013
   season: 2014
   name: 2013 Colombia - XXVII Maraton Nacional de Programacion ACIS / REDIS 2013
-  date: '2013-09-14'
+  date: '2013-09-15'
   location: Colombia
+  cms_ids:
+  - 1898
   sites:
   - location: co-manizales
   - location: co-barranquilla
@@ -212,14 +261,22 @@ contests:
   - location: co-cali
   - location: co-medellin
   - type: administrative
-  cms_ids:
-  - 1898
   parent: south-america-north-2013
   next: colombia-maraton-2014
   sources:
   - url: https://www.utadeo.edu.co/es/noticia/concursos/ingenieria-de-sistemas/83/maraton-nacional-de-programacion-acis-redis-2013
     roles:
     - web
+  - url: http://acis.org.co/index.php?id=1899
+    roles:
+    - scoreboard
+    as_of: '20140705232149'
+    note: found by the data scan 2026-11-23 (ACIS results page (index.php?id=1899); Wayback snapshot)
+  - url: https://icpc.global/regionals/finder/Colombia-2014/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 90 rows, 58 with problems solved)
   - url: https://onlinejudge.org/contests/325-f88f7643/
     roles:
     - problemset
@@ -227,15 +284,19 @@ contests:
     - statement
     url_state: live
     url_checked: '2026-11-16'
-  notes: '90 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
-    +series lineage)'
   problems:
     set: colombia-maraton-2013
+  provenance:
+  - date 2013-09-15 read from https://onlinejudge.org/contests/325-f88f7643/ (data scan 2026-11-23)
+  notes: '90 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
+    +series lineage)'
 - id: colombia-maraton-2014
   season: 2015
   name: 2014 Colombia - XXVIII Maraton Nacional de Programacion ACIS REDIS
   date: '2014-09-06'
   location: Colombia
+  cms_ids:
+  - 2451
   sites:
   - location: co-medellin
   - location: co-bucaramanga
@@ -244,8 +305,6 @@ contests:
   - location: co-cali
   - location: co-bogota
   - type: administrative
-  cms_ids:
-  - 2451
   parent: south-america-north-2014
   next: colombia-maraton-2015
   sources:
@@ -258,6 +317,10 @@ contests:
     url_state: dead
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://icpc.global/regionals/finder/ColombiaMaratonNalACISREDIS-2015/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 89 rows)
   - url: https://onlinejudge.org/contests/340-3bd1241d/
     roles:
     - problemset
@@ -266,15 +329,17 @@ contests:
     as_of: '20251015211738'
     url_state: live
     url_checked: '2026-11-16'
-  notes: '90 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
-    +series lineage)'
   problems:
     set: colombia-maraton-2014
+  notes: '90 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
+    +series lineage)'
 - id: colombia-maraton-2015
   season: 2016
   name: Colombia - XXIX Maraton Nacional de Programacion ACIS REDIS
   date: '2015-09-05'
   location: Colombia
+  cms_ids:
+  - 2815
   sites:
   - location: co-barranquilla
   - location: co-bucaramanga
@@ -283,14 +348,17 @@ contests:
   - location: co-manizales
   - location: co-medellin
   - type: administrative
-  cms_ids:
-  - 2815
   parent: south-america-north-2015
   next: colombia-maraton-2016
   sources:
   - url: http://www.afacom.org/secciones/ultimas-noticias/1975-xxix-maraton-nacional-de-programacion-2015-en-el-politecnico-grancolombiano
     roles:
     - web
+  - url: https://icpc.global/regionals/finder/ColombiaMaratonNalACISREDIS-2016/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 101 rows, 40 with problems solved)
   - url: https://onlinejudge.org/contests/353-e750bd19/
     roles:
     - problemset
@@ -299,10 +367,10 @@ contests:
     as_of: '20251017074149'
     url_state: live
     url_checked: '2026-11-16'
-  notes: '101 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
-    +series lineage)'
   problems:
     set: colombia-maraton-2015
+  notes: '101 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
+    +series lineage)'
 - id: colombia-maraton-2016
   season: 2017
   name: Colombia - XXX Maraton Nacional de Programacion ACIS REDIS
@@ -347,6 +415,8 @@ contests:
   name: Colombia - XXXI Maraton Nacional de Programacion ACIS REDIS
   date: '2017-09-23'
   location: Colombia
+  cms_ids:
+  - 3454
   sites:
   - type: administrative
   - location: co-bucaramanga
@@ -355,8 +425,6 @@ contests:
   - location: co-barranquilla
   - location: co-bogota
   - location: co-medellin
-  cms_ids:
-  - 3454
   parent: south-america-north-2017
   next: colombia-maraton-2018
   sources:
@@ -370,6 +438,10 @@ contests:
     url_state: dead
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://icpc.global/regionals/finder/ColombiaMaratonNalACISREDIS-2018/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 120 rows)
   - url: https://onlinejudge.org/contests/380-997f4913/
     roles:
     - problemset
@@ -378,15 +450,17 @@ contests:
     as_of: '20251015220123'
     url_state: live
     url_checked: '2026-11-16'
-  notes: '123 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
-    +series lineage)'
   problems:
     set: colombia-maraton-2017
+  notes: '123 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
+    +series lineage)'
 - id: colombia-maraton-2018
   season: 2019
   name: Colombia - XXXII Maraton Nacional de Programacion ACIS REDIS
-  date: '2018-08-01'
+  date: '2018-09-15'
   location: Colombia
+  cms_ids:
+  - 3627
   sites:
   - location: co-cartagena
   - type: administrative
@@ -396,14 +470,23 @@ contests:
   - location: co-bogota
   - location: co-bucaramanga
     date: '2018-09-14'
-  cms_ids:
-  - 3627
   parent: south-america-north-2018
   next: colombia-maraton-2019
   sources:
   - url: https://acis.org.co/portal/content/xxxii-maraton-nacional-de-programacion-acisredis
     roles:
     - web
+  - url: https://acis.org.co/archivos/Maraton/score/score.html
+    roles:
+    - scoreboard
+    as_of: '20221002151256'
+    note: found by the data scan 2026-11-23 (linked as RESULTADOS FINALES from the 2018 page acis.org.co/portal/content/xxxii-maraton-nacional-de-programacion-acisredis
+      (already the web source); Wayback snapshot)
+  - url: https://icpc.global/regionals/finder/ColombiaMaratonNalACISREDIS-2019/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 116 rows, 50 with problems solved)
   - url: https://onlinejudge.org/contests/384-1338eeb6/
     roles:
     - problemset
@@ -412,15 +495,19 @@ contests:
     as_of: '20251016063626'
     url_state: live
     url_checked: '2026-11-16'
-  notes: '118 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
-    +series lineage)'
   problems:
     set: colombia-maraton-2018
+  provenance:
+  - date 2018-09-15 read from https://onlinejudge.org/contests/384-1338eeb6/ (data scan 2026-11-23)
+  notes: '118 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
+    +series lineage)'
 - id: colombia-maraton-2019
   season: 2020
   name: Colombia - XXXIII Maraton Nacional de Programacion ACIS REDIS
   date: '2019-09-21'
   location: Colombia
+  cms_ids:
+  - 4249
   sites:
   - type: administrative
   - location: co-bucaramanga
@@ -429,14 +516,9 @@ contests:
   - location: co-bogota
   - location: co-manizales
   - location: co-cali
-  cms_ids:
-  - 4249
   parent: south-america-north-2019
   next: colombia-maraton-2020
   sources:
-  - url: https://icpc.global/regionals/finder/ColombiaMaratonNalACISREDIS-2020
-    roles:
-    - web
   - url: https://acis.org.co/archivos/Maraton/2019/resultados.html
     roles:
     - scoreboard
@@ -447,10 +529,14 @@ contests:
     url_state: dead
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (round9-research)
-  notes: '119 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
-    +series lineage)'
+  - url: https://icpc.global/regionals/finder/ColombiaMaratonNalACISREDIS-2020/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 119 rows)
   problems:
     set: colombia-maraton-2019
+  notes: '119 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
+    +series lineage)'
 - id: colombia-maraton-2020
   season: 2021
   name: Colombia - XXXIV Maraton Nacional de Programacion ACIS REDIS
@@ -493,6 +579,8 @@ contests:
   name: 2021 ICPC Colombia - XXXV Maraton Nacional de Programacion ACIS REDIS
   date: '2022-01-01'
   location: Colombia
+  cms_ids:
+  - 4701
   sites:
   - location: co-bogota
   - location: co-cali
@@ -501,8 +589,6 @@ contests:
   - location: co-medellin
   - location: co-manizales
   - type: administrative
-  cms_ids:
-  - 4701
   parent: south-america-north-2021
   next: colombia-maraton-2022
   sources:
@@ -516,9 +602,13 @@ contests:
     url_state: dead
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (round9-research)
-  notes: '83 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
+  - url: https://icpc.global/regionals/finder/ColombiaMaratonNalACISREDIS-2022/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 83 rows)
   problems:
     set: colombia-maraton-2021
+  notes: '83 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: colombia-maraton-2022
   season: 2023
   name: 2022 ICPC Colombia - XXXVI Maraton Nacional de Programacion ACIS REDIS
@@ -561,6 +651,8 @@ contests:
   name: 2023 ICPC Colombia - XXXVII Maraton Nacional de Programacion ACIS REDIS
   date: '2023-09-02'
   location: Colombia
+  cms_ids:
+  - 7549
   sites:
   - type: administrative
   - location: co-bogota
@@ -569,8 +661,6 @@ contests:
   - location: co-cartagena
   - location: co-manizales
   - location: co-medellin
-  cms_ids:
-  - 7549
   parent: south-america-north-2023
   next: colombia-maraton-2024
   sources:
@@ -586,12 +676,20 @@ contests:
     archived:
     - colombia-maraton/colombia-maraton-2023/standings/api-20261113/standings.html
     note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://onlinejudge.org/contests/385-bb95fa97/
+    roles:
+    - problemset
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (host index (onlinejudge.org/contests/))
   notes: '107 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: colombia-maraton-2024
   season: 2025
   name: 2024 ICPC Colombia - XXXVIII Maraton Nacional de Programacion ACIS REDIS
   date: '2024-10-19'
   location: Colombia
+  cms_ids:
+  - 8943
   sites:
   - type: administrative
   - location: co-bogota
@@ -601,8 +699,6 @@ contests:
   - location: co-medellin
   - location: co-barranquilla
     date: '2024-08-21'
-  cms_ids:
-  - 8943
   parent: south-america-north-2024
   next: colombia-maraton-2025
   sources:
@@ -615,12 +711,20 @@ contests:
     archived:
     - colombia-maraton/colombia-maraton-2024/standings/api-20261113/standings.html
     note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://onlinejudge.org/contests/386-71e34c68/
+    roles:
+    - problemset
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (host index (onlinejudge.org/contests/))
   notes: '120 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: colombia-maraton-2025
   season: 2026
   name: 2025 ICPC Colombia - XXXIX Maraton Nacional de Programacion ACIS REDIS
   date: '2025-10-18'
   location: Colombia
+  cms_ids:
+  - 9412
   sites:
   - type: administrative
   - location: co-bogota
@@ -629,21 +733,32 @@ contests:
   - location: co-manizales
   - location: co-medellin
   - location: co-barranquilla
-  cms_ids:
-  - 9412
   parent: south-america-north-2025
   next: colombia-maraton-2026
   sources:
+  - url: https://www.acis.org.co/maraton-nacional-2025
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (acis.org.co event menu (Maraton de Programación / maratones
+      anteriores), linked as SA North national site from icpclatam.org/regionals/)
   - url: https://icpc.global/regionals/finder/ColombiaMaratonNalACISREDIS-2026/standings
     roles:
     - standings
     archived:
     - colombia-maraton/colombia-maraton-2025/standings/api-20261113/standings.html
     note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://onlinejudge.org/contests/387-fa4da651/
+    roles:
+    - problemset
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (host index (onlinejudge.org/contests/))
   notes: '116 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: colombia-maraton-2026
   season: 2027
   name: 2026 ICPC Colombia - XXXIX Maraton Nacional de Programacion ACIS REDIS
+  cms_ids:
+  - 9813
   sites:
   - type: administrative
   - location: co-bogota
@@ -655,11 +770,16 @@ contests:
     date: '2026-08-01'
   - location: co-manizales
     date: '2026-08-01'
-  cms_ids:
-  - 9813
   parent: south-america-north-2026
   sources:
-  - url: https://icpc.global/regionals/finder/ColombiaMaratonNalACISREDIS-2027
+  - url: https://icpc.global/regionals/finder/ColombiaMaratonNalACISREDIS-2027/standings
     roles:
-    - web
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings API, 110 ranked rows on 2026-11-23)
+  - url: https://onlinejudge.org/contests/388-81b3c05e/
+    roles:
+    - problemset
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (host index (onlinejudge.org/contests/))
   notes: 'from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'

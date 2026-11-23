@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: nordic
   name: ICPC Nordic Collegiate Programming Contest
@@ -23,6 +23,7 @@ contests:
   sources:
   - url: https://www.ida.liu.se/projects/progcontest/progsm/2002/
     roles:
+    - web
     - scoreboard
     - problemset
     contains:
@@ -114,6 +115,10 @@ contests:
   parent: nwerc-2004
   next: nordic-2005
   sources:
+  - url: https://www.ida.liu.se/projects/progcontest/progsm/2004/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (sibling nordic-2003 pattern (progsm/2003/))
   - url: https://www.ida.liu.se/projects/progcontest/progsm/2004/nmsm2004-summary.html
     roles:
     - scoreboard
@@ -878,6 +883,8 @@ contests:
   location: Linköping University; Reykjavik University; Uppsala; Gjøvik; NTNU; Lappeenranta University
     of Technology; Aalto University; Administrative Site Location; University of Oslo; University of Helsinki;
     University of Bergen; Chalmers
+  cms_ids:
+  - 2019
   sites:
   - location: se-uppsala-university
   - location: fi-lappeenranta-lut
@@ -900,8 +907,6 @@ contests:
   - location: no-gj-vik-ntnu
   - location: fi-tampere-university
   - type: administrative
-  cms_ids:
-  - 2019
   parent: nwerc-2013
   next: nordic-2014
   sources:
@@ -916,6 +921,10 @@ contests:
     - nordic/nordic-2013/scoreboard/2026-09-01-wayback-2fc00f90/page.html
     url_state: dead
     url_checked: '2026-11-16'
+  - url: https://icpc.global/regionals/finder/Nordic-2014/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 273 rows)
   - url: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2013%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
     roles:
     - problemset
@@ -948,18 +957,18 @@ contests:
     contains:
     - statement
     judge: codeforces
+    url_state: live
+    url_checked: '2026-11-16'
     note: '2013-2014 ACM-ICPC Nordic Collegiate Programming Contest (NCPC 2013) (judge hunt 2026-11-03:
       name+year: ''2013-2014 ACM-ICPC Nordic Collegiate Programming Contest (NCPC 2013)'' -> season start
       2013)'
-    url_state: live
-    url_checked: '2026-11-16'
   - url: https://qoj.ac/contest/2753
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Europe/Northwestern-Europe/Nordic-Collegiate-Programming-Contest/The-2013-Nordic-Collegiate-Programming-Contest/tutorials_en.pdf
     roles:
     - editorial
@@ -1078,6 +1087,8 @@ contests:
   location: Aarhus University; University of Oslo; Lund University; København; Tampere; Gjøvik; Linköping
     University; Tromsø; Lappeenranta University of Technology; Administrative Site Location; Reykjavik
     University; Uppsala
+  cms_ids:
+  - 2785
   sites:
   - location: fi-espoo-tkk
   - location: dk-copenhagen
@@ -1102,14 +1113,18 @@ contests:
   - location: no-trondheim-ntnu
   - location: se-lund-university
   - type: administrative
-  cms_ids:
-  - 2785
   parent: nwerc-2015
   next: nordic-2016
   sources:
   - url: https://nordic.icpc.io/ncpc2015/
     roles:
     - web
+  - url: https://nordic.icpc.io/ncpc2015/reg.html
+    roles:
+    - web
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside https://nordic.icpc.io/ncpc2015/ by the content check
   - url: https://ncpc15.kattis.com/contests/ncpc15/standings
     roles:
     - scoreboard
@@ -1123,12 +1138,6 @@ contests:
     archived:
     - nordic/nordic-2015/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 2785, 206 teams, DB fetch 2026-04-26)
-  - url: https://nordic.icpc.io/ncpc2015/reg.html
-    roles:
-    - teams
-    note: found inside https://nordic.icpc.io/ncpc2015/ by the content check
-    url_state: live
-    url_checked: '2026-11-16'
   - url: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2015%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
     roles:
     - problemset
@@ -1160,22 +1169,22 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20160408224406'
     url_state: changed
     url_checked: '2026-11-16'
     note: '2015-2016 ACM-ICPC Nordic Collegiate Programming Contest (NCPC 2015) (judge hunt 2026-11-03:
       name+year: ''2015-2016 ACM-ICPC Nordic Collegiate Programming Contest (NCPC 2015)'' -> season start
       2015)'
-    as_of: '20160408224406'
   - url: https://qoj.ac/contest/326
     roles:
     - problemset
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20230206223435'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Europe/Northwestern-Europe/Nordic-Collegiate-Programming-Contest/The-2015-Nordic-Collegiate-Programming-Contest/tutorials_en.pdf
     roles:
     - editorial
@@ -1190,6 +1199,8 @@ contests:
   location: Gjøvik; Administrative Site Location; Lund University; Aalto University; University of Helsinki;
     Linköping University; Umeå University; Lappeenranta University of Technology; University of Bergen;
     Luleå; Tromsø; København
+  cms_ids:
+  - 3120
   sites:
   - location: no-oslo-university
   - location: no-gj-vik-ntnu
@@ -1214,14 +1225,18 @@ contests:
   - location: se-lulea-university-technology
   - location: se-gothenburg-chalmers
   - location: se-karlstad-university
-  cms_ids:
-  - 3120
   parent: nwerc-2016
   next: nordic-2017
   sources:
   - url: https://nordic.icpc.io/ncpc2016/
     roles:
     - web
+  - url: https://nordic.icpc.io/ncpc2016/reg.html
+    roles:
+    - web
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside https://nordic.icpc.io/ncpc2016/ by the content check
   - url: https://ncpc16.kattis.com/contests/ncpc16/standings
     roles:
     - scoreboard
@@ -1235,12 +1250,6 @@ contests:
     archived:
     - nordic/nordic-2016/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 3120, 150 teams, DB fetch 2026-04-26)
-  - url: https://nordic.icpc.io/ncpc2016/reg.html
-    roles:
-    - teams
-    note: found inside https://nordic.icpc.io/ncpc2016/ by the content check
-    url_state: live
-    url_checked: '2026-11-16'
   - url: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2016%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
     roles:
     - problemset
@@ -1273,22 +1282,22 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20190409001825'
     url_state: changed
     url_checked: '2026-11-16'
     note: '2016-2017 ACM-ICPC Nordic Collegiate Programming Contest (NCPC 2016) (judge hunt 2026-11-03:
       name+year: ''2016-2017 ACM-ICPC Nordic Collegiate Programming Contest (NCPC 2016)'' -> season start
       2016)'
-    as_of: '20190409001825'
   - url: https://qoj.ac/contest/327
     roles:
     - problemset
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221003145058'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Europe/Northwestern-Europe/Nordic-Collegiate-Programming-Contest/The-2016-Nordic-Collegiate-Programming-Contest/tutorials_en.pdf
     roles:
     - editorial
@@ -1302,6 +1311,8 @@ contests:
   date: '2017-10-07'
   location: KTH - Royal Institute of Technology; NTNU; København; Chalmers; Lappeenranta University of
     Technology; Umeå University; Gjøvik; Aarhus University; Tromsø; Aalborg; Tampere; Lund University
+  cms_ids:
+  - 3276
   sites:
   - location: is-reykjavik-university
   - location: no-gj-vik-ntnu
@@ -1326,14 +1337,18 @@ contests:
   - location: se-stockholm-kth
   - location: dk-copenhagen
   - location: se-lund-university
-  cms_ids:
-  - 3276
   parent: nwerc-2017
   next: nordic-2018
   sources:
   - url: https://nordic.icpc.io/ncpc2017/
     roles:
     - web
+  - url: https://nordic.icpc.io/ncpc2017/reg.html
+    roles:
+    - web
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside https://nordic.icpc.io/ncpc2017/ by the content check
   - url: https://ncpc17.kattis.com/contests/ncpc17/standings
     roles:
     - scoreboard
@@ -1349,12 +1364,6 @@ contests:
     archived:
     - nordic/nordic-2017/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 3276, 298 teams, DB fetch 2026-04-26)
-  - url: https://nordic.icpc.io/ncpc2017/reg.html
-    roles:
-    - teams
-    note: found inside https://nordic.icpc.io/ncpc2017/ by the content check
-    url_state: live
-    url_checked: '2026-11-16'
   - url: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2017%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
     roles:
     - problemset
@@ -1387,22 +1396,22 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20190409022014'
     url_state: changed
     url_checked: '2026-11-16'
     note: '2017-2018 ACM-ICPC Nordic Collegiate Programming Contest (NCPC 2017) (judge hunt 2026-11-03:
       name+year: ''2017-2018 ACM-ICPC Nordic Collegiate Programming Contest (NCPC 2017)'' -> season start
       2017)'
-    as_of: '20190409022014'
   - url: https://qoj.ac/contest/328
     roles:
     - problemset
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221129212202'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Europe/Northwestern-Europe/Nordic-Collegiate-Programming-Contest/The-2017-Nordic-Collegiate-Programming-Contest/tutorials_en.pdf
     roles:
     - editorial
@@ -2185,6 +2194,8 @@ contests:
   location: Test site; IT University of Copenhagen; Chalmers; Vilnius University; Tallinn University of
     Technology; Umeå University; NTNU; UiT - Narvik; Luleå; University of Akureyri; University of Tartu;
     Lund University
+  cms_ids:
+  - 9374
   sites:
   - type: administrative
   - location: se-lulea-university-technology
@@ -2219,14 +2230,18 @@ contests:
     name: Copenhagen
   - location: se-umea-university
   - location: se-jonkoping-university
-  cms_ids:
-  - 9374
   parent: nwerc-2025
   next: nordic-2026
   sources:
   - url: https://nordic.icpc.io/ncpc2025/
     roles:
     - web
+  - url: https://nordic.icpc.io/ncpc2025/sites
+    roles:
+    - web
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside https://nordic.icpc.io/ncpc2025/ by the content check
   - url: https://ncpc25.kattis.com/contests/ncpc25/standings
     roles:
     - scoreboard
@@ -2234,12 +2249,10 @@ contests:
     - nordic/nordic-2025/scoreboard/2026-09-01-live-3e4335cb/page.html
     url_state: live
     url_checked: '2026-11-16'
-  - url: https://nordic.icpc.io/ncpc2025/sites
+  - url: https://icpc.global/regionals/finder/Nordic-2026/standings
     roles:
-    - teams
-    note: found inside https://nordic.icpc.io/ncpc2025/ by the content check
-    url_state: live
-    url_checked: '2026-11-16'
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 268 rows)
   - url: https://github.com/icpc/ncpc-web/releases/download/ncpc2025-data/ncpc2025problems.pdf
     roles:
     - problemset
@@ -2263,27 +2276,27 @@ contests:
     contains:
     - statement
     judge: kattis
-    note: Kattis problem-sources page (export source "Nordic Collegiate Programming Contest (NCPC) 2025",
-      2026-11-02)
     url_state: live
     url_checked: '2026-11-16'
+    note: Kattis problem-sources page (export source "Nordic Collegiate Programming Contest (NCPC) 2025",
+      2026-11-02)
   - url: https://codeforces.com/gym/106124
     roles:
     - problemset
     contains:
     - statement
     judge: codeforces
-    note: '2025-2026 ICPC Nordic Collegiate Programming Contest (NCPC 2025) (judge hunt 2026-11-03: name+year:
-      ''2025-2026 ICPC Nordic Collegiate Programming Contest (NCPC 2025)'' -> season start 2025)'
     url_state: live
     url_checked: '2026-11-16'
+    note: '2025-2026 ICPC Nordic Collegiate Programming Contest (NCPC 2025) (judge hunt 2026-11-03: name+year:
+      ''2025-2026 ICPC Nordic Collegiate Programming Contest (NCPC 2025)'' -> season start 2025)'
   - url: https://qoj.ac/contest/2576
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Europe/Northwestern-Europe/Nordic-Collegiate-Programming-Contest/The-2025-ICPC-Nordic-Collegiate-Programming-Contest/tutorials_en.pdf
     roles:
     - editorial
@@ -2292,9 +2305,9 @@ contests:
   - url: https://github.com/icpc/ncpc-web/releases/download/ncpc2025-data/ncpc25slides.pdf
     roles:
     - editorial
-    note: found inside https://nordic.icpc.io/ncpc2025/ by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://nordic.icpc.io/ncpc2025/ by the content check
   problems:
     set: nordic-2025
 - id: nordic-2026

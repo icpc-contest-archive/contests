@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: alberta
   name: ICPC Alberta Collegiate Programming Contest
@@ -12,6 +12,12 @@ contests:
   cms_ids: []
   next: alberta-2004
   sources:
+  - url: http://webdocs.cs.ualberta.ca/~acpc/2003/
+    roles:
+    - web
+    as_of: '20170917061927'
+    note: found by the data scan 2026-11-23 (sibling pattern webdocs.cs.ualberta.ca/~acpc/YYYY/ (alberta-2006/2007
+      web); Wayback CDX)
   - url: http://webdocs.cs.ualberta.ca/~acpc/2003/Global-Standings.html
     roles:
     - scoreboard
@@ -39,6 +45,12 @@ contests:
   cms_ids: []
   next: alberta-2005
   sources:
+  - url: http://webdocs.cs.ualberta.ca/~acpc/2004/
+    roles:
+    - web
+    as_of: '20170925020906'
+    note: found by the data scan 2026-11-23 (sibling pattern webdocs.cs.ualberta.ca/~acpc/YYYY/ (alberta-2006/2007
+      web); Wayback CDX)
   - url: http://webdocs.cs.ualberta.ca/~acpc/2004/Standings.txt
     roles:
     - scoreboard
@@ -47,6 +59,8 @@ contests:
     - alberta/alberta-2004/scoreboard/2026-09-01-wayback-01e6b98e/Standings.txt
     url_state: dead
     url_checked: '2026-11-16'
+  problems:
+    set: alberta-2004
 - id: alberta-2005
   season: 2006
   name: Alberta Collegiate Programming Contest 2005
@@ -54,6 +68,12 @@ contests:
   cms_ids: []
   next: alberta-2006
   sources:
+  - url: http://webdocs.cs.ualberta.ca/~acpc/2005/
+    roles:
+    - web
+    as_of: '20170925020911'
+    note: found by the data scan 2026-11-23 (sibling pattern webdocs.cs.ualberta.ca/~acpc/YYYY/ (alberta-2006/2007
+      web); Wayback CDX)
   - url: http://webdocs.cs.ualberta.ca/~acpc/2005/ACPC05-Scoreboard.html
     roles:
     - scoreboard
@@ -73,6 +93,7 @@ contests:
 - id: alberta-2006
   season: 2007
   date: '2006-10-14'
+  location: University of Alberta, University of Calgary and University of Lethbridge
   cms_ids: []
   next: alberta-2007
   sources:
@@ -98,6 +119,9 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: alberta-2006
+  provenance:
+  - location University of Alberta, University of Calgary and University of Lethbridge read from http://webdocs.cs.ualberta.ca/~acpc/2006/problems/
+    (data scan 2026-11-23)
 - id: alberta-2007
   season: 2008
   date: '2007-10-13'
@@ -130,6 +154,12 @@ contests:
   cms_ids: []
   next: alberta-2009
   sources:
+  - url: http://webdocs.cs.ualberta.ca/~acpc/2008/
+    roles:
+    - web
+    as_of: '20170925020544'
+    note: found by the data scan 2026-11-23 (sibling pattern webdocs.cs.ualberta.ca/~acpc/YYYY/ (alberta-2006/2007
+      web); Wayback CDX)
   - url: http://webdocs.cs.ualberta.ca/~contest/ACPC2008/contest/scores.php
     roles:
     - scoreboard
@@ -156,6 +186,12 @@ contests:
   cms_ids: []
   next: alberta-2010
   sources:
+  - url: http://webdocs.cs.ualberta.ca/~acpc/2009/
+    roles:
+    - web
+    as_of: '20170925020549'
+    note: found by the data scan 2026-11-23 (sibling pattern webdocs.cs.ualberta.ca/~acpc/YYYY/ (alberta-2006/2007
+      web); Wayback CDX)
   - url: http://webdocs.cs.ualberta.ca/~contest/ACPC2009/contest/scores.php
     roles:
     - scoreboard
@@ -180,6 +216,12 @@ contests:
   cms_ids: []
   next: alberta-2011
   sources:
+  - url: http://webdocs.cs.ualberta.ca/~acpc/2010/
+    roles:
+    - web
+    as_of: '20170925020921'
+    note: found by the data scan 2026-11-23 (sibling pattern webdocs.cs.ualberta.ca/~acpc/YYYY/ (alberta-2006/2007
+      web); Wayback CDX)
   - url: http://webdocs.cs.ualberta.ca/~contest/ACPC2010/contest/scores.php
     roles:
     - scoreboard
@@ -288,13 +330,19 @@ contests:
   name: 2013 ICPC Alberta Contest
   date: '2013-10-19'
   location: Calgary, Alberta; Administrative Site Location
+  cms_ids:
+  - 1982
   sites:
   - location: ca-calgary-university
   - type: administrative
-  cms_ids:
-  - 1982
   next: alberta-2014
   sources:
+  - url: http://webdocs.cs.ualberta.ca/~acpc/2013/
+    roles:
+    - web
+    as_of: '20150727063829'
+    note: found by the data scan 2026-11-23 (sibling pattern webdocs.cs.ualberta.ca/~acpc/YYYY/ (alberta-2006/2007
+      web); Wayback CDX)
   - url: http://psc.cpsc.ucalgary.ca/acpc/2013/contest/scores.php
     roles:
     - scoreboard
@@ -305,7 +353,7 @@ contests:
     url_checked: '2026-11-16'
   - url: http://psc.cpsc.ucalgary.ca/acpc/2013/contest/problems/A.html
     roles:
-    - problemset
+    - problem
     as_of: '20141008175220'
     url_state: dead
     url_checked: '2026-11-16'
@@ -316,12 +364,12 @@ contests:
   name: 2014 Alberta Collegiate Programming Contest
   date: '2014-10-04'
   location: University of Calgary
+  cms_ids:
+  - 2728
   sites:
   - location: ca-calgary-university
     name: ACPC - University of Calgary
     type: administrative
-  cms_ids:
-  - 2728
   next: alberta-2015
   sources:
   - url: http://psc.cpsc.ucalgary.ca/acpc/2014/contest/index.php
@@ -336,6 +384,87 @@ contests:
     - alberta/alberta-2014/scoreboard/2026-09-01-wayback-677d9012/page.html
     url_state: dead
     url_checked: '2026-11-16'
+  - url: http://psc.cpsc.ucalgary.ca/acpc/2014/contest/problems/A.pdf
+    roles:
+    - problem
+    problem: A
+    contains:
+    - statement
+    as_of: '20210102092807'
+    note: found by the data scan 2026-11-23 (problem statement PDF held in our crawl of the contest site
+      (alberta/alberta-2014/website/2026-10-20-wayback-27836e5a))
+  - url: http://psc.cpsc.ucalgary.ca/acpc/2014/contest/problems/B.pdf
+    roles:
+    - problem
+    problem: B
+    contains:
+    - statement
+    as_of: '20210102092810'
+    note: found by the data scan 2026-11-23 (problem statement PDF held in our crawl of the contest site
+      (alberta/alberta-2014/website/2026-10-20-wayback-27836e5a))
+  - url: http://psc.cpsc.ucalgary.ca/acpc/2014/contest/problems/C.pdf
+    roles:
+    - problem
+    problem: C
+    contains:
+    - statement
+    as_of: '20210102092814'
+    note: found by the data scan 2026-11-23 (problem statement PDF held in our crawl of the contest site
+      (alberta/alberta-2014/website/2026-10-20-wayback-27836e5a))
+  - url: http://psc.cpsc.ucalgary.ca/acpc/2014/contest/problems/D.pdf
+    roles:
+    - problem
+    problem: D
+    contains:
+    - statement
+    as_of: '20210102092816'
+    note: found by the data scan 2026-11-23 (problem statement PDF held in our crawl of the contest site
+      (alberta/alberta-2014/website/2026-10-20-wayback-27836e5a))
+  - url: http://psc.cpsc.ucalgary.ca/acpc/2014/contest/problems/E.pdf
+    roles:
+    - problem
+    problem: E
+    contains:
+    - statement
+    as_of: '20210102092819'
+    note: found by the data scan 2026-11-23 (problem statement PDF held in our crawl of the contest site
+      (alberta/alberta-2014/website/2026-10-20-wayback-27836e5a))
+  - url: http://psc.cpsc.ucalgary.ca/acpc/2014/contest/problems/F.pdf
+    roles:
+    - problem
+    problem: F
+    contains:
+    - statement
+    as_of: '20210102092820'
+    note: found by the data scan 2026-11-23 (problem statement PDF held in our crawl of the contest site
+      (alberta/alberta-2014/website/2026-10-20-wayback-27836e5a))
+  - url: http://psc.cpsc.ucalgary.ca/acpc/2014/contest/problems/G.pdf
+    roles:
+    - problem
+    problem: G
+    contains:
+    - statement
+    as_of: '20210102092823'
+    note: found by the data scan 2026-11-23 (problem statement PDF held in our crawl of the contest site
+      (alberta/alberta-2014/website/2026-10-20-wayback-27836e5a))
+  - url: http://psc.cpsc.ucalgary.ca/acpc/2014/contest/problems/H.pdf
+    roles:
+    - problem
+    problem: H
+    contains:
+    - statement
+    as_of: '20210102092830'
+    note: found by the data scan 2026-11-23 (problem statement PDF held in our crawl of the contest site
+      (alberta/alberta-2014/website/2026-10-20-wayback-27836e5a))
+  - url: http://psc.cpsc.ucalgary.ca/acpc/2014/contest/problems/I.pdf
+    roles:
+    - problem
+    problem: I
+    contains:
+    - statement
+    as_of: '20210102092835'
+    note: found by the data scan 2026-11-23 (problem statement PDF held in our crawl of the contest site
+      (alberta/alberta-2014/website/2026-10-20-wayback-27836e5a))
   problems:
     set: alberta-2014
 - id: alberta-2015
@@ -445,14 +574,14 @@ contests:
 - id: alberta-2017
   season: 2018
   name: 2017 Alberta Collegiate Programming Contest
-  date: '2017-10-21'
+  date: '2017-10-14'
+  cms_ids:
+  - 3251
   sites:
   - type: administrative
   - location: ca-calgary-university
     name: ACPC - University of Calgary
     type: administrative
-  cms_ids:
-  - 3251
   next: alberta-2018
   sources:
   - url: https://cpc.cpsc.ucalgary.ca/contests/acpc/2017/
@@ -488,12 +617,14 @@ contests:
     contains:
     - names
     judge: kattis
-    note: Kattis problem-sources page (export source "Alberta Collegiate Programming Contest 2017", 2026-11-02)
+    as_of: '20190719123150'
     url_state: replaced
     url_checked: '2026-11-16'
-    as_of: '20190719123150'
+    note: Kattis problem-sources page (export source "Alberta Collegiate Programming Contest 2017", 2026-11-02)
   problems:
     set: alberta-2017
+  provenance:
+  - date 2017-10-14 read from https://cpc.cpsc.ucalgary.ca/contests/acpc/2017/ (data scan 2026-11-23)
 - id: alberta-2018
   season: 2019
   name: 2018 Alberta Collegiate Programming Contest
@@ -687,13 +818,14 @@ contests:
   season: 2023
   name: 2022 ICPC Alberta Collegiate Programming Contest
   date: '2022-11-26'
+  location: University of Calgary, Calgary
+  cms_ids:
+  - 5383
   sites:
   - type: administrative
   - location: ca-calgary-university
     name: ACPC - University of Calgary
     type: administrative
-  cms_ids:
-  - 5383
   next: alberta-2023
   sources:
   - url: https://cpc.cpsc.ucalgary.ca/contests/acpc/2022/
@@ -736,18 +868,22 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: alberta-2022
+  provenance:
+  - location University of Calgary, Calgary read from https://cpc.cpsc.ucalgary.ca/contests/acpc/2022/
+    (data scan 2026-11-23)
   notes: 2 divisions (problem archive sheet)
 - id: alberta-2023
   season: 2024
   name: 2023 ICPC Alberta Collegiate Programming Contest
   date: '2023-11-25'
+  location: University of Calgary, Calgary
+  cms_ids:
+  - 7453
   sites:
   - type: administrative
   - location: ca-calgary-university
     name: ACPC - University of Calgary
     type: administrative
-  cms_ids:
-  - 7453
   next: alberta-2024
   sources:
   - url: https://cpc.cpsc.ucalgary.ca/contests/acpc/2023/
@@ -799,13 +935,15 @@ contests:
     contains:
     - statement
     judge: kattis
-    note: Kattis problem-sources page (export source "Alberta Collegiate Programming Contest 2023", 2026-11-02)
     url_state: live
     url_checked: '2026-11-16'
+    note: Kattis problem-sources page (export source "Alberta Collegiate Programming Contest 2023", 2026-11-02)
   problems:
     set: alberta-2023
   provenance:
   - ICPC Problem Archive progress sheet (2026-11-01)
+  - location University of Calgary, Calgary read from https://cpc.cpsc.ucalgary.ca/contests/acpc/2023/
+    (data scan 2026-11-23)
   notes: 2 divisions (problem archive sheet)
 - id: alberta-2024
   season: 2025
@@ -944,7 +1082,7 @@ contests:
   name: Alberta Collegiate Programming Contest 2025
   date: '2025-10-18'
   cms_ids: []
-  next: null
+  next: alberta-2026
   sources:
   - url: https://cpc.cpsc.ucalgary.ca/contests/acpc/2025/
     roles:
@@ -978,97 +1116,131 @@ contests:
     contains:
     - statement
     judge: kattis
-    note: Kattis problem-sources page (export source "Alberta Collegiate Programming Contest 2025", 2026-11-02)
     url_state: live
     url_checked: '2026-11-16'
+    note: Kattis problem-sources page (export source "Alberta Collegiate Programming Contest 2025", 2026-11-02)
   - url: https://open.kattis.com/problems/canopyrotation
     roles:
     - problem
-    judge: kattis
     problem: A
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/coordinatecorrection
     roles:
     - problem
-    judge: kattis
     problem: B
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/coordinatevalidation
     roles:
     - problem
-    judge: kattis
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/hikingboredom
     roles:
     - problem
-    judge: kattis
     problem: C
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/inchworm
     roles:
     - problem
-    judge: kattis
     problem: D
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/inclineestimation
     roles:
     - problem
-    judge: kattis
     problem: E
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/packingequipment
     roles:
     - problem
-    judge: kattis
     problem: F
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/snackprep
     roles:
     - problem
-    judge: kattis
     problem: G
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/snacksplit
     roles:
     - problem
-    judge: kattis
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/steppingstones
     roles:
     - problem
-    judge: kattis
     problem: H
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/terrainmonitoring
     roles:
     - problem
-    judge: kattis
     problem: I
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/trailmixgrading
     roles:
     - problem
-    judge: kattis
     problem: J
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/treeplanting
     roles:
     - problem
-    judge: kattis
     problem: K
     contains:
     - statement
+    judge: kattis
   problems:
     set: alberta-2025
+- id: alberta-2026
+  season: 2027
+  name: Alberta Collegiate Programming Contest 2026
+  date: '2026-10-17'
+  cms_ids: []
+  next: null
+  sources:
+  - url: https://acpc26.kattis.com/contests/acpc26/standings
+    roles:
+    - scoreboard
+    scope: Division 1
+    note: found by the data scan 2026-11-23 (acpc26.kattis.com; marked 'Unfinalized results' on 2026-11-23)
+  - url: https://acpc26.kattis.com/contests/bas9dt/standings
+    roles:
+    - scoreboard
+    scope: Division 2
+    note: found by the data scan 2026-11-23 (acpc26.kattis.com; marked 'Unfinalized results' on 2026-11-23)
+  - url: https://acpc26.kattis.com/contests/acpc26/problems
+    roles:
+    - problemset
+    scope: Division 1
+    contains:
+    - names
+    note: found by the data scan 2026-11-23 (acpc26.kattis.com)
+  - url: https://acpc26.kattis.com/contests/bas9dt/problems
+    roles:
+    - problemset
+    scope: Division 2
+    contains:
+    - names
+    note: found by the data scan 2026-11-23 (acpc26.kattis.com)
+  provenance:
+  - date 2026-10-17 read from https://acpc26.kattis.com/contests (5-hour contests ending 2026-10-18 01:00
+    CEST, i.e. 17 Oct 13:00-18:00 MDT) (data scan 2026-11-23)

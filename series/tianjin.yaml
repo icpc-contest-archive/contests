@@ -1,16 +1,19 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: tianjin
   name: ACM-ICPC Asia Tianjin Regional Contest
   tier: regional
   region: Asia East
   naming: season-start
+  rotating_host: true
 contests:
 - id: tianjin-2010
   season: 2011
   name: 2010 ACM-ICPC Asia Tianjin Regional Contest
   date: '2010-10-17'
   location: Administrative Site Location; Tianjin
+  cms_ids:
+  - 664
   sites:
   - location: cn-tianjin
     name: Asia Tianjin Online First Round Contest
@@ -19,8 +22,6 @@ contests:
   - location: cn-tianjin
     name: Asia Tianjin On Site Regional Contest
   - type: administrative
-  cms_ids:
-  - 664
   parent: wf-2011
   next: tianjin-2012
   sources:
@@ -49,15 +50,9 @@ contests:
     url_state: replaced
     url_checked: '2026-11-16'
     note: from archived capture (external-standings)
-  - url: https://icpc.global/regionals/finder/Tianjin-2011/standings
-    roles:
-    - standings
-    archived:
-    - tianjin/tianjin-2010/standings/api-20261113/standings.html
-    note: rendered from the icpc.global API standings archive (cms 664, 123 teams, DB fetch 2026-04-26)
   - url: https://acm.sdut.edu.cn/acmss/icpc/2010/tianjin/index.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20170921030505'
     archived:
     - harbin/harbin-2009/standings/20170921-wayback-a0379913/index.html
@@ -66,6 +61,19 @@ contests:
     url_state: dead
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (round9-research); moved from harbin-2009 by the content check
+  - url: https://icpc.global/regionals/finder/Tianjin-2011/standings
+    roles:
+    - standings
+    archived:
+    - tianjin/tianjin-2010/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 664, 123 teams, DB fetch 2026-04-26)
+  - url: https://acm.hdu.edu.cn/search.php?field=problem&key=2010+Asia+Tianjin+Regional&source=1&searchmode=source
+    roles:
+    - problemset
+    contains:
+    - names
+    judge: hdu
+    note: found by the data scan 2026-11-23 (online judge (HDU source search))
   problems:
     set: tianjin-2010
 - id: tianjin-2012
@@ -73,11 +81,11 @@ contests:
   name: 2012 ACM-ICPC Asia Tianjin Regional Contest
   date: '2012-10-21'
   location: Tianjin University of Technology
+  cms_ids:
+  - 1369
   sites:
   - location: cn-tianjin-university-technology
     name: Asia Tianjin On Site Regional Contest
-  cms_ids:
-  - 1369
   parent: wf-2013
   next: null
   sources:
@@ -110,5 +118,12 @@ contests:
     archived:
     - tianjin/tianjin-2012/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 1369, 150 teams, DB fetch 2026-04-26)
+  - url: https://acm.hdu.edu.cn/search.php?field=problem&key=2012+Asia+Tianjin+Regional&source=1&searchmode=source
+    roles:
+    - problemset
+    contains:
+    - names
+    judge: hdu
+    note: found by the data scan 2026-11-23 (online judge (HDU source search))
   problems:
     set: tianjin-2012

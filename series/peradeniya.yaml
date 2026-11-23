@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_no_sources_hunt.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: peradeniya
   name: ICPC Asia Peradeniya Regional Contest
@@ -11,6 +11,8 @@ contests:
   name: 2025 ICPC Asia Peradeniya Regional Contest
   date: '2026-01-25'
   location: Peradeniya, Sri Lanka
+  cms_ids:
+  - 9238
   sites:
   - type: administrative
   - location: lk-peradeniya
@@ -19,10 +21,14 @@ contests:
     type: online
   - location: lk-peradeniya-university
     name: The 2025 ICPC Asia Peradeniya Onsite Contest
-  cms_ids:
-  - 9238
   parent: awc-2025
+  next: peradeniya-2026
   sources:
+  - url: https://icpc.ieee.lk/
+    roles:
+    - web
+    as_of: '20260204103040'
+    note: found by the data scan 2026-11-23 (sibling peradeniya-2026 web (icpc.ieee.lk) + Wayback CDX)
   - url: https://icpc.global/regionals/finder/Asia-Peradeniya-2026/standings
     roles:
     - standings

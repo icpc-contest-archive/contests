@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: egypt
   name: ICPC Egyptian Collegiate Programming Contest
@@ -10,18 +10,24 @@ contests:
   season: 2009
   name: 2008 National Contest - Egypt
   date: '2008-11-08'
+  cms_ids:
+  - 89
   sites:
   - location: eg
     name: Cairo U - Faculty of Computers & Information
   - type: administrative
-  cms_ids:
-  - 89
   parent: acpc-2008
   next: egypt-2009
   sources:
   - url: http://acm.fci-cu.edu.eg/
     roles:
     - web
+  - url: http://acm.fci-cu.edu.eg/archive/summaryENC08.html
+    roles:
+    - scoreboard
+    as_of: '20091019150710'
+    note: 'found by the data scan 2026-11-23 (held website crawl of acm.fci-cu.edu.eg (archive page, 2008
+      Scoreboard: Summary); sibling egypt-2009 cites summaryENC09.html)'
   - url: http://acm.fci-cu.edu.eg/archive/ENC08.pdf
     roles:
     - problemset
@@ -611,20 +617,19 @@ contests:
   name: 2023 ICPC Egyptian Collegiate Programming Contest
   date: '2023-08-19'
   location: AAST Alexandria; Administrative Site Location; AAST Abu Keer
+  cms_ids:
+  - 7659
   sites:
   - type: administrative
   - location: eg-alexandria-arab-for-maritime-transport-abu-qir
     name: ECPC
   - location: eg-alexandria-arab-for-maritime-transport-abu-qir
     name: Unofficial
-  cms_ids:
-  - 7659
   parent: acpc-2023
   next: egypt-2024
   sources:
   - url: https://scoreboard.acpc.global/ecpc2023/
     roles:
-    - web
     - frozen_scoreboard
     as_of: '20230824071145'
     archived:
@@ -641,115 +646,115 @@ contests:
     roles:
     - problemset
     judge: codeforces
-    note: '''ECPC 2023'' in the private group ACPC Scientific Committee Archive (login and group membership
-      needed)'
     url_state: live
     url_checked: '2026-11-22'
+    note: '''ECPC 2023'' in the private group ACPC Scientific Committee Archive (login and group membership
+      needed)'
   - url: https://codeforces.com/group/Rilx5irOux/contest/477876/problem/A
     roles:
     - problem
-    judge: codeforces
     problem: A
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/477876/problem/B
     roles:
     - problem
-    judge: codeforces
     problem: B
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/477876/problem/C
     roles:
     - problem
-    judge: codeforces
     problem: C
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/477876/problem/D
     roles:
     - problem
-    judge: codeforces
     problem: D
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/477876/problem/E
     roles:
     - problem
-    judge: codeforces
     problem: E
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/477876/problem/F
     roles:
     - problem
-    judge: codeforces
     problem: F
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/477876/problem/G
     roles:
     - problem
-    judge: codeforces
     problem: G
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/477876/problem/H
     roles:
     - problem
-    judge: codeforces
     problem: H
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/477876/problem/I
     roles:
     - problem
-    judge: codeforces
     problem: I
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/477876/problem/J
     roles:
     - problem
-    judge: codeforces
     problem: J
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/477876/problem/K
     roles:
     - problem
-    judge: codeforces
     problem: K
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/477876/problem/L
     roles:
     - problem
-    judge: codeforces
     problem: L
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/477876/problem/M
     roles:
     - problem
-    judge: codeforces
     problem: M
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/477876/problem/N
     roles:
     - problem
-    judge: codeforces
     problem: N
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/477876/problem/O
     roles:
     - problem
-    judge: codeforces
     problem: O
     contains:
     - statement
+    judge: codeforces
   problems:
     set: egypt-2023
 - id: egypt-2024
@@ -757,16 +762,21 @@ contests:
   name: 2024 ICPC Egyptian Collegiate Programming Contest
   date: '2024-07-27'
   location: AAST Abu Keer; AAST Alexandria
+  cms_ids:
+  - 8834
   sites:
   - location: eg-alexandria-arab-for-maritime-transport-abu-qir
     name: ECPC
   - location: eg-alexandria-arab-for-maritime-transport-abu-qir
     name: Unofficial
-  cms_ids:
-  - 8834
   parent: acpc-2024
   next: egypt-2025
   sources:
+  - url: https://acpc.global/event/acpc-2024-ecpc-contest-day/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ACPC events calendar (acpc.global/wp-json/tribe/events) +
+      Wayback CDX of acpc.global/event/*)
   - url: https://scoreboard.acpc.global/ecpc2024/
     roles:
     - frozen_scoreboard
@@ -930,18 +940,18 @@ contests:
   season: 2027
   name: 2026 ICPC Egyptian Collegiate Programming Contest
   date: '2026-08-23'
+  cms_ids:
+  - 9732
   sites:
   - location: eg-alexandria-arab-for-maritime-transport-abu-qir
     name: ECPC
   - location: eg-alexandria-arab-for-maritime-transport-abu-qir
     name: Unofficial
-  cms_ids:
-  - 9732
   parent: acpc-2026
   sources:
   - url: https://acpcsb.acpc.global/ECPC2026/all.html
     roles:
-    - web
+    - frozen_scoreboard
   - url: https://icpc.global/regionals/finder/ECPC-2027/standings
     roles:
     - standings
@@ -952,117 +962,117 @@ contests:
     roles:
     - problemset
     judge: codeforces
-    note: '''The 2026 ICPC Egyptian Collegiate Programming Contest'' in the private group ACPC Scientific
-      Committee Archive (login and group membership needed)'
     url_state: live
     url_checked: '2026-11-22'
+    note: '''The 2026 ICPC Egyptian Collegiate Programming Contest'' in the private group ACPC Scientific
+      Committee Archive (login and group membership needed)'
   - url: https://codeforces.com/group/Rilx5irOux/contest/712809/problem/A
     roles:
     - problem
-    judge: codeforces
     problem: A
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/712809/problem/B
     roles:
     - problem
-    judge: codeforces
     problem: B
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/712809/problem/C
     roles:
     - problem
-    judge: codeforces
     problem: C
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/712809/problem/D
     roles:
     - problem
-    judge: codeforces
     problem: D
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/712809/problem/E
     roles:
     - problem
-    judge: codeforces
     problem: E
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/712809/problem/F
     roles:
     - problem
-    judge: codeforces
     problem: F
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/712809/problem/G
     roles:
     - problem
-    judge: codeforces
     problem: G
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/712809/problem/H
     roles:
     - problem
-    judge: codeforces
     problem: H
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/712809/problem/I
     roles:
     - problem
-    judge: codeforces
     problem: I
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/712809/problem/J
     roles:
     - problem
-    judge: codeforces
     problem: J
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/712809/problem/K
     roles:
     - problem
-    judge: codeforces
     problem: K
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/712809/problem/L
     roles:
     - problem
-    judge: codeforces
     problem: L
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/712809/problem/M
     roles:
     - problem
-    judge: codeforces
     problem: M
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/712809/problem/N
     roles:
     - problem
-    judge: codeforces
     problem: N
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/712809/problem/O
     roles:
     - problem
-    judge: codeforces
     problem: O
     contains:
     - statement
+    judge: codeforces
+  problems:
+    set: egypt-2026
   provenance:
   - 'ran 2026-08-23: shown by its icpc standings source(s); date from CMS contest record (ruling 2026-11-12:
     upcoming ends when the date has passed and a result source or judge page shows the contest ran)'
-  problems:
-    set: egypt-2026

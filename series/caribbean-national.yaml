@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: caribbean-national
   name: ICPC Caribbean National Contests
@@ -11,6 +11,8 @@ contests:
   name: 2013 ACM-ICPC Caribbean National Contests
   date: '2013-10-05'
   location: PUCMM
+  cms_ids:
+  - 1865
   sites:
   - location: do-santiago-de-los-caballeros-pucmm
     name: Dominican Finals
@@ -25,18 +27,28 @@ contests:
     name: Jamaican Finals
     type: administrative
   - type: administrative
-  cms_ids:
-  - 1865
+  parent: caribbean-2013
   next: caribbean-national-2014
   sources:
-  - url: https://icpc.global/regionals/finder/cnc-2014/teams
-    roles:
-    - web
   - url: https://www.icpccaribe.org/
     roles:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
+  - url: http://coj.uci.cu/contest/cscoreboard.xhtml?cid=1290
+    roles:
+    - scoreboard
+    as_of: '20191104230927'
+    note: found by the data scan 2026-11-23 (Caribbean Online Judge standings named as the external standings
+      of the CMS entry; Wayback snapshot)
+  - url: https://icpc.global/regionals/finder/CNC-2014/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 132 rows, 77 with problems solved)
+  provenance:
+  - 'parent caribbean-2013 read from the ICPC CMS hierarchy: CMS 1865 CNC is a subcontest of CMS 1864
+    CF (api:regionalresults/2014 (2026-11-23)) (data scan 2026-11-23)'
   notes: '132 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
 - id: caribbean-national-2014
@@ -44,6 +56,8 @@ contests:
   name: 2014 ACM-ICPC Caribbean National Contests
   date: '2014-10-04'
   location: UPR-BY
+  cms_ids:
+  - 2534
   sites:
   - location: do-santo-domingo-intec
     name: Dominican Finals
@@ -57,27 +71,42 @@ contests:
     name: Cuban Finals
     type: administrative
   - type: administrative
-  cms_ids:
-  - 2534
+  parent: caribbean-2014
   next: caribbean-national-2015
   sources:
-  - url: https://icpc.global/regionals/finder/cnc-2015/teams
-    roles:
-    - web
   - url: https://www.icpccaribe.org/
     roles:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
-  notes: '120 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
-    +series lineage)'
+  - url: http://coj.uci.cu/contest/cscoreboard.xhtml?cid=1332
+    roles:
+    - scoreboard
+    as_of: '20190916003212'
+    note: found by the data scan 2026-11-23 (Caribbean Online Judge standings named as the external standings
+      of the CMS entry; Wayback snapshot)
+  - url: https://icpc.global/regionals/finder/CNC-2015/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 120 rows, 109 with problems solved)
+  - url: https://icpc.global/regionals/finder/cnc-2015/teams
+    roles:
+    - teams
   problems:
     set: caribbean-national-2014
+  provenance:
+  - 'parent caribbean-2014 read from the ICPC CMS hierarchy: CMS 2534 CNC is a subcontest of CMS 2533
+    CF (regionals-2015.json) (data scan 2026-11-23)'
+  notes: '120 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
+    +series lineage)'
 - id: caribbean-national-2015
   season: 2016
   name: 2015 ACM-ICPC Caribbean National Contests
   date: '2015-10-17'
   location: UHO, UO-SAM, UC, UCLV, CUJAE, UH, and UCI
+  cms_ids:
+  - 2803
   sites:
   - location: vi-charlotte-amalie-uvi
     name: US Virgin Island Finals
@@ -94,27 +123,42 @@ contests:
     name: Cuban Finals
     type: administrative
   - type: administrative
-  cms_ids:
-  - 2803
+  parent: caribbean-2015
   next: caribbean-national-2016
   sources:
-  - url: https://icpc.global/regionals/finder/cnc-2016/teams
-    roles:
-    - web
   - url: https://www.icpccaribe.org/
     roles:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
-  notes: '120 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
-    +series lineage)'
+  - url: http://coj.uci.cu/contest/cscoreboard.xhtml?cid=1407
+    roles:
+    - scoreboard
+    as_of: '20151231100331'
+    note: found by the data scan 2026-11-23 (Caribbean Online Judge standings named as the external standings
+      of the CMS entry; Wayback snapshot)
+  - url: https://icpc.global/regionals/finder/CNC-2016/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 120 rows, 106 with problems solved)
+  - url: https://icpc.global/regionals/finder/cnc-2016/teams
+    roles:
+    - teams
   problems:
     set: caribbean-national-2015
+  provenance:
+  - 'parent caribbean-2015 read from the ICPC CMS hierarchy: CMS 2803 CNC is a subcontest of CMS 2802
+    CF (regionals-2016.json) (data scan 2026-11-23)'
+  notes: '120 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
+    +series lineage)'
 - id: caribbean-national-2016
   season: 2017
   name: 2016 ACM-ICPC Caribbean National Contests
   date: '2016-10-15'
   location: UCNE
+  cms_ids:
+  - 3021
   sites:
   - location: do-san-francisco-de-macoris-ucne
     name: Dominican Finals
@@ -130,27 +174,42 @@ contests:
   - location: vi-charlotte-amalie-uvi-stt-uvi-stx
     name: US Virgin Island Finals
     type: administrative
-  cms_ids:
-  - 3021
+  parent: caribbean-2016
   next: caribbean-national-2017
   sources:
-  - url: https://icpc.global/regionals/finder/cnc-2017/teams
-    roles:
-    - web
   - url: https://www.icpccaribe.org/
     roles:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
-  notes: '120 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
-    +series lineage)'
+  - url: http://coj.uci.cu/contest/cscoreboard.xhtml?cid=1496
+    roles:
+    - scoreboard
+    as_of: '20161104071344'
+    note: found by the data scan 2026-11-23 (Caribbean Online Judge standings named as the external standings
+      of the CMS entry; Wayback snapshot)
+  - url: https://icpc.global/regionals/finder/CNC-2017/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 120 rows, 108 with problems solved)
+  - url: https://icpc.global/regionals/finder/cnc-2017/teams
+    roles:
+    - teams
   problems:
     set: caribbean-national-2016
+  provenance:
+  - 'parent caribbean-2016 read from the ICPC CMS hierarchy: CMS 3021 CNC is a subcontest of CMS 3020
+    CF (regionals-2017.json) (data scan 2026-11-23)'
+  notes: '120 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
+    +series lineage)'
 - id: caribbean-national-2017
   season: 2018
   name: 2017 ACM-ICPC Caribbean National Contests
   date: '2017-10-07'
   location: UWI-JAM
+  cms_ids:
+  - 3461
   sites:
   - location: tt-st-augustine
     name: Trinidad and Tobago Finals
@@ -164,27 +223,42 @@ contests:
   - location: cu-santa-clara-uclv
     name: Cuban Finals
     type: administrative
-  cms_ids:
-  - 3461
+  parent: caribbean-2017
   next: caribbean-national-2018
   sources:
-  - url: https://icpc.global/regionals/finder/cnc-2018/teams
-    roles:
-    - web
   - url: https://www.icpccaribe.org/
     roles:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
-  notes: '97 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
-    +series lineage)'
+  - url: http://coj.uci.cu/contest/cscoreboard.xhtml?cid=1560
+    roles:
+    - scoreboard
+    as_of: '20171114110031'
+    note: found by the data scan 2026-11-23 (Caribbean Online Judge standings named as the external standings
+      of the CMS entry; Wayback snapshot)
+  - url: https://icpc.global/regionals/finder/CNC-2018/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 97 rows, 95 with problems solved)
+  - url: https://icpc.global/regionals/finder/cnc-2018/teams
+    roles:
+    - teams
   problems:
     set: caribbean-national-2017
+  provenance:
+  - 'parent caribbean-2017 read from the ICPC CMS hierarchy: CMS 3461 CNC is a subcontest of CMS 3460
+    CF (regionals-2018.json) (data scan 2026-11-23)'
+  notes: '97 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
+    +series lineage)'
 - id: caribbean-national-2018
   season: 2019
   name: 2018 ACM-ICPC Caribbean National Contests
   date: '2018-10-06'
   location: UHO, UO-SAM, UC, UCLV, ITM, UH and UCI
+  cms_ids:
+  - 3620
   sites:
   - location: cu-santa-clara-uclv
     name: Cuban Finals
@@ -200,27 +274,37 @@ contests:
     type: administrative
   - name: Administrative Site
     type: administrative
-  cms_ids:
-  - 3620
+  parent: caribbean-2018
   next: caribbean-national-2019
   sources:
-  - url: https://icpc.global/regionals/finder/cnc-2019/teams
-    roles:
-    - web
   - url: https://www.icpccaribe.org/
     roles:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
-  notes: '133 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
-    +series lineage)'
+  - url: http://coj.uci.cu/contest/cscoreboard.xhtml?cid=1629
+    roles:
+    - scoreboard
+    as_of: '20190416091256'
+    note: found by the data scan 2026-11-23 (Caribbean Online Judge standings named as the external standings
+      of the CMS entry; Wayback snapshot)
+  - url: https://icpc.global/regionals/finder/cnc-2019/teams
+    roles:
+    - teams
   problems:
     set: caribbean-national-2018
+  provenance:
+  - 'parent caribbean-2018 read from the ICPC CMS hierarchy: CMS 3620 CNC is a subcontest of CMS 3619
+    CaribFinals (regionals-2019.json) (data scan 2026-11-23)'
+  notes: '133 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
+    +series lineage)'
 - id: caribbean-national-2019
   season: 2020
   name: 2019 ICPC Caribbean National Contests
   date: '2019-10-05'
   location: UPR-B
+  cms_ids:
+  - 4245
   sites:
   - name: Cuban Finals
     type: administrative
@@ -236,17 +320,27 @@ contests:
   - location: vi-charlotte-amalie-uvi
     name: US Virgin Islands Finals
     type: administrative
-  cms_ids:
-  - 4245
+  parent: caribbean-2019
+  next: caribbean-national-2020
   sources:
-  - url: https://icpc.global/regionals/finder/CNC-2020/teams
-    roles:
-    - web
   - url: https://www.icpccaribe.org/
     roles:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
+  - url: https://matcomgrader.com/contest/standing/6248
+    roles:
+    - scoreboard
+    note: found by the data scan 2026-11-23 (MatCom Online Grader standings named as the external standings
+      of the CMS entry; opened live)
+  - url: https://icpc.global/regionals/finder/CNC-2020/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 195 rows, 46 with problems solved)
+  - url: https://icpc.global/regionals/finder/CNC-2020/teams
+    roles:
+    - teams
   - url: https://matcomgrader.com/media/contests/6248/secured/vEt9JvKeF8gsnYnBjTdnr5RWX7QjY3af/problems-en.pdf
     roles:
     - problemset
@@ -255,14 +349,19 @@ contests:
     as_of: '20191115151028'
     url_state: live
     url_checked: '2026-11-16'
-  notes: '195 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
-    +series lineage)'
   problems:
     set: caribbean-national-2019
+  provenance:
+  - 'parent caribbean-2019 read from the ICPC CMS hierarchy: CMS 4245 CNC is a subcontest of CMS 4244
+    CaribFinals (regionals-2020.json) (data scan 2026-11-23)'
+  notes: '195 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
+    +series lineage)'
 - id: caribbean-national-2020
   season: 2021
   name: 2020 ICPC Caribbean Finals (Qualifier)
   date: '2021-06-26'
+  cms_ids:
+  - 4469
   sites:
   - type: administrative
   - location: tt
@@ -274,11 +373,15 @@ contests:
   - location: do
     name: Dominican Republic (Qualifier)
     type: online
-  cms_ids:
-  - 4469
   parent: caribbean-2020
   next: caribbean-national-2021
   sources:
+  - url: https://www.icpc-caribe.com/eliminatoria/convocatoria-para-participaci%C3%B3n
+    roles:
+    - web
+    as_of: '20210509123320'
+    note: found by the data scan 2026-11-23 (series site icpc-caribe.com (caribbean-2019..2021 web); Wayback
+      CDX)
   - url: https://matcomgrader.com/contest/standing/6259
     roles:
     - scoreboard
@@ -291,6 +394,10 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://icpc.global/regionals/finder/CFQ-2021/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 49 rows)
   - url: https://www.icpccaribe.org/eliminatoria/clasificados-regional-anteriores/clasificados-regional-2020
     roles:
     - rankings
@@ -306,6 +413,8 @@ contests:
     - problemset
     url_state: live
     url_checked: '2026-11-22'
+  problems:
+    set: caribbean-national-2020
   provenance:
   - 'MatcomGrader — ''The 2020 ICPC Caribbean Finals (Qualifier) - Real Contest'' standings (2021): Ended
     contest with 75 ranked teams; UH Top 14 solved, UH++ 12, VC-Servicio Militar 10, Los Oxidados 9, Team3C-1
@@ -324,12 +433,12 @@ contests:
     icpc.global caribfinals-2021 standings, problemset PDF and scorelatam latam-2020. — https://www.icpccaribe.org/icpc-caribe/podios-de-los-concursos-regionales-caribeños-del-icpc
     [existence hunt 2026-10-22]'
   notes: '49 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
-  problems:
-    set: caribbean-national-2020
 - id: caribbean-national-2021
   season: 2022
   name: 2021 ICPC Caribbean Finals (Qualifier)
   date: '2022-03-05'
+  cms_ids:
+  - 4699
   sites:
   - location: do
     name: Dominican Republic (Qualifier)
@@ -341,8 +450,6 @@ contests:
   - location: tt
     name: Trinidad and Tobago (Qualifier)
     type: online
-  cms_ids:
-  - 4699
   parent: caribbean-2021
   sources:
   - url: https://matcomgrader.com/contest/standing/6262
@@ -357,6 +464,10 @@ contests:
     url_state: changed
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://icpc.global/regionals/finder/CFQ-2022/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 122 rows)
   - url: https://www.icpccaribe.org/eliminatoria/clasificados-regional-anteriores/clasificados-regional-2021
     roles:
     - rankings
@@ -372,6 +483,8 @@ contests:
     - problemset
     url_state: live
     url_checked: '2026-11-22'
+  problems:
+    set: caribbean-national-2021
   provenance:
   - 'MatcomGrader — ''The 2021 ICPC Caribbean Finals (Qualifier) - Real Contest'' standings (2022): Ended
     contest; UH Top 13 solved (pen. 1306), Team3C-1 11, 3N1?M4 10, UH++ 8, FreesTyle 8; standings run
@@ -389,5 +502,3 @@ contests:
     links ranking PDF, icpc.global caribfinals-2022 — https://www.icpccaribe.org/icpc-caribe/podios-de-los-concursos-regionales-caribeños-del-icpc
     [existence hunt 2026-10-22]'
   notes: '122 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
-  problems:
-    set: caribbean-national-2021

@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: amritapuri
   name: ICPC Asia West Amritapuri Multisite Regional Contest
@@ -894,18 +894,18 @@ contests:
   name: 2015 ACM-ICPC Asia Amritapuri Regional Contest
   date: '2015-12-21'
   location: Amritapuri, Kerala, India
+  cms_ids:
+  - 2919
   sites:
   - location: in-amritapuri-amrita-vishwa-vidyapeetham
     name: Amritapuri
-  cms_ids:
-  - 2919
   parent: wf-2016
   next: amritapuri-2016
   sources:
   - url: http://icpc.amrita.ac.in/2015/
     roles:
     - web
-    as_of: '20170113193027'
+    as_of: '20151221002550'
   - url: http://icpc.amrita.ac.in/2015/score/contest.amrita.edu/domjudge/public/index.php
     roles:
     - scoreboard
@@ -949,69 +949,69 @@ contests:
     roles:
     - problemset
     judge: codechef
+    as_of: '20161009081346'
     url_state: replaced
     url_checked: '2026-11-16'
     note: 'ACM-ICPC Asia-Amritapuri Onsite Mirror Contest 2015 (judge hunt 2026-11-03: CodeChef contest
       ''ACM-ICPC Asia-Amritapuri Onsite Mirror Contest 2015'' (code AMR15MOS, held 2015-12-21, 10 problems)
       = official onsite problem set as mirror/replay; catalogue amritapuri-2015 dated 2015-12-21; catalogue
       has no problem titles to cross-check)'
-    as_of: '20161009081346'
   - url: https://www.codechef.com/problems/AMSS
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://icpcarchive.ecs.baylor.edu/external/75/7560.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20210413122827'
   - url: https://www.codechef.com/problems/AMCAM
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/AMMAM
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/AMJMP
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://icpcarchive.ecs.baylor.edu/external/75/7555.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20210928133109'
   - url: https://www.codechef.com/problems/AMGIT
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/AMCOINS
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/AMCOP
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   problems:
     set: amritapuri-2015
 - id: amritapuri-2016
@@ -1019,11 +1019,11 @@ contests:
   name: 2016 ACM-ICPC Asia Amritapuri Multisite Regional Contest
   date: '2016-12-23'
   location: Amritapuri, Kerala, India
+  cms_ids:
+  - 3083
   sites:
   - location: in-amritapuri-amrita-vishwa-vidyapeetham
     name: Asia Amritapuri on-site Regional
-  cms_ids:
-  - 3083
   parent: wf-2017
   next: amritapuri-2017
   sources:
@@ -1042,15 +1042,9 @@ contests:
     url_state: dead
     url_checked: '2026-11-16'
     note: from archived capture (external-standings)
-  - url: https://icpc.global/regionals/finder/AMP-2017/standings
-    roles:
-    - standings
-    archived:
-    - amritapuri/amritapuri-2016/standings/api-20261113/standings.html
-    note: rendered from the icpc.global API standings archive (cms 3083, 392 teams, DB fetch 2026-04-26)
   - url: http://icpc.amrita.ac.in/2015/wp-content/uploads/2016/10/Amritapuri_Rank.pdf
     roles:
-    - rankings
+    - scoreboard
     as_of: '20170517162747'
     archived:
     - amritapuri/amritapuri-2016/rankings/20170517-wayback-7a0bacfb/Amritapuri_Rank.pdf
@@ -1060,7 +1054,7 @@ contests:
     note: added by url-hunt 2026-09-01 (wave5-wayback)
   - url: http://icpc.amrita.ac.in/2015/wp-content/uploads/2016/10/Bengaluru_Ranking.pdf
     roles:
-    - rankings
+    - scoreboard
     as_of: '20170110175621'
     archived:
     - amritapuri/amritapuri-2016/rankings/20170110-wayback-7fc6fbc0/Bengaluru_Ranking.pdf
@@ -1068,86 +1062,91 @@ contests:
     url_state: dead
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (wave5-wayback)
+  - url: https://icpc.global/regionals/finder/AMP-2017/standings
+    roles:
+    - standings
+    archived:
+    - amritapuri/amritapuri-2016/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 3083, 392 teams, DB fetch 2026-04-26)
   - url: http://icpc.amrita.ac.in/2015/wp-content/uploads/2016/09/results2016V1.pdf
     roles:
     - rankings
     as_of: '20161119014843'
-    note: found inside http://icpc.amrita.ac.in/2015/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - amritapuri/amritapuri-2016/rankings/20161119-wayback-125aee0d/results2016V1.pdf
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://icpc.amrita.ac.in/2015/ by the content check
   - url: http://icpc.amrita.ac.in/problems/
     roles:
     - problemset
-    as_of: '20170702205650'
     url_state: dead
     url_checked: '2026-11-16'
   - url: https://www.codechef.com/AMR16MOS
     roles:
     - problemset
     judge: codechef
+    as_of: '20200623192410'
     url_state: replaced
     url_checked: '2026-11-16'
     note: 'ACM-ICPC Asia-Amritapuri Onsite Mirror Contest 2016 (judge hunt 2026-11-03: CodeChef contest
       ''ACM-ICPC Asia-Amritapuri Onsite Mirror Contest 2016'' (code AMR16MOS, held 2016-12-23, 11 problems)
       = official onsite problem set as mirror/replay; catalogue amritapuri-2016 dated 2016-12-23; catalogue
       has no problem titles to cross-check)'
-    as_of: '20200623192410'
   - url: https://www.codechef.com/problems/AMR16A
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/AMR16C
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/AMR16F
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/AMR16E
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/AMR16H
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/AMR16G
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/AMR16I
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/AMR16J
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/AMR16K
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   problems:
     set: amritapuri-2016
 - id: amritapuri-2017
@@ -1232,12 +1231,12 @@ contests:
   name: 2019 ICPC Asia Amritapuri Doublesite Regional Contest
   date: '2019-12-27'
   location: Administrative Site Location; Amritapuri, Kerala, India
+  cms_ids:
+  - 4103
   sites:
   - type: administrative
   - location: in-amritapuri-amrita-vishwa-vidyapeetham
     name: Asia Amritapuri on-site Regional
-  cms_ids:
-  - 4103
   parent: awc-2019
   next: amritapuri-2020
   sources:
@@ -1254,85 +1253,85 @@ contests:
     roles:
     - problemset
     judge: codechef
+    as_of: '20201024063145'
+    url_state: changed
+    url_checked: '2026-11-16'
     note: 'ICPC Asia-Amritapuri Onsite Replay Contest 2019 (judge hunt 2026-11-03: CodeChef contest ''ICPC
       Asia-Amritapuri Onsite Replay Contest 2019'' (code AM19MOS, held 2019-12-30, 12 problems) = official
       onsite problem set as mirror/replay; catalogue amritapuri-2019 dated 2019-12-27; catalogue has no
       problem titles to cross-check)'
-    url_state: changed
-    url_checked: '2026-11-16'
-    as_of: '20210515121440'
   - url: https://www.codechef.com/problems/USANBOLT
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/POLCON
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/COLPOLLY
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/COLINT
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/SDIFFSTR
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/TRGRPH
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/MOBCNT
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/MORTGAGE
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/PERMDIST
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/COMPLEXG
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/LALALANT
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/EXPCAN
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   problems:
     set: amritapuri-2019
 - id: amritapuri-2020
@@ -1375,15 +1374,20 @@ contests:
   name: 2021 ICPC Asia Amritapuri Doublesite Regional Contest
   date: '2022-10-08'
   location: Amritapuri, Kerala, India; Administrative Site Location
+  cms_ids:
+  - 4850
   sites:
   - type: administrative
   - location: in-amritapuri-amrita-vishwa-vidyapeetham
     name: Asia Amritapuri on-site Regional
-  cms_ids:
-  - 4850
   parent: awc-2021
   next: amritapuri-2022
   sources:
+  - url: http://amrita.edu/icpc
+    roles:
+    - web
+    note: 'found by the data scan 2026-11-23 (moved from amritapuri-2015: live amrita.edu/icpc now serves
+      the ICPC 2021 page; added to amritapuri-2021; stays on 2015 (unknown whether it ever served 2015))'
   - url: https://icpc.global/regionals/finder/AMP-2022/standings
     roles:
     - standings
@@ -1395,15 +1399,21 @@ contests:
   name: 2022 ICPC Asia Amritapuri Doublesite Regional Contest
   date: '2023-04-02'
   location: Amritapuri, Kerala, India; Administrative Site Location
+  cms_ids:
+  - 5638
   sites:
   - type: administrative
   - location: in-amritapuri-amrita-vishwa-vidyapeetham
     name: Asia Amritapuri on-site Regional
-  cms_ids:
-  - 5638
   parent: awc-2022
   next: amritapuri-2023
   sources:
+  - url: http://amritaicpc.in/
+    roles:
+    - web
+    as_of: '20230322114453'
+    note: found by the data scan 2026-11-23 (sibling amritapuri-2024/2025/2026 site amritaicpc.in + Wayback
+      CDX (address now shows a later edition))
   - url: https://icpc.global/regionals/finder/AMP-2023/standings
     roles:
     - standings
@@ -1415,15 +1425,21 @@ contests:
   name: 2023 ICPC Asia Amritapuri Doublesite Regional Contest
   date: '2024-01-28'
   location: Administrative Site Location; Amritapuri, Kerala, India
+  cms_ids:
+  - 7483
   sites:
   - type: administrative
   - location: in-amritapuri-amrita-vishwa-vidyapeetham
     name: Asia Amritapuri on-site Regional
-  cms_ids:
-  - 7483
   parent: awc-2023
   next: amritapuri-2024
   sources:
+  - url: https://amritaicpc.in/
+    roles:
+    - web
+    as_of: '20231202105448'
+    note: found by the data scan 2026-11-23 (sibling site amritaicpc.in + Wayback CDX (address now shows
+      a later edition))
   - url: https://icpc.global/regionals/finder/AMP-2024/standings
     roles:
     - standings
@@ -1435,15 +1451,20 @@ contests:
   name: 2024 ICPC Asia Amritapuri Multisite Regional Contest
   date: '2024-12-30'
   location: Administrative Site Location; Amritapuri, Kerala, India
+  cms_ids:
+  - 8879
   sites:
   - type: administrative
   - location: in-amritapuri-amrita-vishwa-vidyapeetham
     name: Asia Amritapuri on-site Regional
-  cms_ids:
-  - 8879
   parent: awc-2024
   next: amritapuri-2025
   sources:
+  - url: https://amritaicpc.in/archive/icpc_Amritapuri_2024
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (link in our held copy of the final rank list (amritaicpc.in/final-rank-list)
+      + sibling amritapuri-2025 pattern)
   - url: https://amritaicpc.in/final-rank-list
     roles:
     - standings
@@ -1469,87 +1490,87 @@ contests:
   - url: https://www.codechef.com/ICPCAMROS24/problems/PART3
     roles:
     - problem
-    judge: codechef
     problem: A
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/ICPCAMROS24/problems/CACHEOPT
     roles:
     - problem
-    judge: codechef
     problem: B
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/ICPCAMROS24/problems/COMPMAD
     roles:
     - problem
-    judge: codechef
     problem: C
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/ICPCAMROS24/problems/DELEQUAL
     roles:
     - problem
-    judge: codechef
     problem: D
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/ICPCAMROS24/problems/EXPRAIN
     roles:
     - problem
-    judge: codechef
     problem: E
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/ICPCAMROS24/problems/FLIPCYCLE
     roles:
     - problem
-    judge: codechef
     problem: F
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/ICPCAMROS24/problems/INFOPS
     roles:
     - problem
-    judge: codechef
     problem: G
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/ICPCAMROS24/problems/GRAPHGAME
     roles:
     - problem
-    judge: codechef
     problem: H
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/ICPCAMROS24/problems/MAJDIV
     roles:
     - problem
-    judge: codechef
     problem: I
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/ICPCAMROS24/problems/EQMOD
     roles:
     - problem
-    judge: codechef
     problem: J
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/ICPCAMROS24/problems/MAXMOD
     roles:
     - problem
-    judge: codechef
     problem: K
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/ICPCAMROS24/problems/TICKETREV
     roles:
     - problem
-    judge: codechef
     problem: L
     contains:
     - statement
+    judge: codechef
   problems:
     set: amritapuri-2024
 - id: amritapuri-2025
@@ -1557,23 +1578,18 @@ contests:
   name: 2025 ICPC Asia West Amritapuri Multisite Regional Contest
   date: '2026-01-03'
   location: Amritapuri, Kerala, India; Administrative Site Location
+  cms_ids:
+  - 9236
   sites:
   - type: administrative
   - location: in-amritapuri-amrita-vishwa-vidyapeetham
     name: Asia Amritapuri on-site Regional
-  cms_ids:
-  - 9236
   parent: awc-2025
   next: amritapuri-2026
   sources:
   - url: https://amritaicpc.in/archive/icpc_Amritapuri_2025
     roles:
     - web
-  - url: https://amritaicpc.in/archive/icpc_Amritapuri_2025/halloffame
-    roles:
-    - web
-    url_state: live
-    url_checked: '2026-11-14'
   - url: https://amritaicpc.in/archive/icpc_Amritapuri_2025/onsite-ranklist
     roles:
     - standings
@@ -1604,14 +1620,19 @@ contests:
     archived:
     - amritapuri/amritapuri-2025/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 9236, 309 teams, DB fetch 2026-11-13)
-  - url: https://amritaicpc.in/archive/icpc_Amritapuri_2025/onsite-winners
+  - url: https://amritaicpc.in/archive/icpc_Amritapuri_2025/halloffame
     roles:
     - rankings
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-14'
+  - url: https://amritaicpc.in/archive/icpc_Amritapuri_2025/onsite-winners
+    roles:
+    - rankings
     scope: top 3
     archived:
     - amritapuri/amritapuri-2025/rankings/20261115-live-9cd4f9c3/page.html
+    url_state: live
+    url_checked: '2026-11-16'
   - url: https://amritaicpc.in/data/ICPC_Amritapuri_2025___26.pdf
     roles:
     - problemset
@@ -1623,13 +1644,13 @@ contests:
     roles:
     - problemset
     judge: codechef
+    as_of: '20260201234608'
+    url_state: live
+    url_checked: '2026-11-16'
     note: 'ICPC Amritapuri 2025 - Onsite Round Replay (judge hunt 2026-11-03: CodeChef contest ''ICPC
       Amritapuri 2025 - Onsite Round Replay'' (code ICPCAMRRP25, held 2026-01-03, 11 problems) = official
       onsite problem set as mirror/replay; catalogue amritapuri-2025 dated 2026-01-03; catalogue has no
       problem titles to cross-check)'
-    url_state: live
-    url_checked: '2026-11-16'
-    as_of: '20260201234608'
   problems:
     set: amritapuri-2025
 - id: amritapuri-2026

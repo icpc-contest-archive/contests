@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: angola
   name: ICPC Angolan Collegiate Programming Contest
@@ -11,17 +11,23 @@ contests:
   name: 2017 Angolan Collegiate Programming Contest
   date: '2017-09-30'
   location: Instituto Superior de Tecnologias de Informação e Comunicação
+  cms_ids:
+  - 3490
   sites:
   - location: ao-luanda-isutic
     name: Angola
-  cms_ids:
-  - 3490
   parent: south-africa-2017
   next: angola-2018
   sources:
   - url: https://icpcangola.wordpress.com/
     roles:
     - web
+  - url: http://coj.uci.cu/contest/cscoreboard.xhtml?cid=1612
+    roles:
+    - scoreboard
+    as_of: '20171005031817'
+    note: found by the data scan 2026-11-23 (held website crawl of icpcangola.wordpress.com/aocpc2017
+      (Tabela de Posições link), Wayback)
 - id: angola-2018
   season: 2019
   name: 2018 Angolan Collegiate Programming Contest
@@ -171,15 +177,19 @@ contests:
   name: 2024 ICPC Angolan Collegiate Programming Contest
   date: '2024-10-11'
   location: Instituto Superior de Tecnologias de Informação e Comunicação; Administrative Site Location
+  cms_ids:
+  - 8780
   sites:
   - type: administrative
   - location: ao-luanda-isutic
     name: Angola
-  cms_ids:
-  - 8780
   parent: acpc-2024
   next: angola-2025
   sources:
+  - url: https://acpc.global/event/aolcpc2024/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ACPC events calendar (acpc.global/wp-json/tribe/events))
   - url: https://icpc.global/regionals/finder/AOCPC-2025/standings
     roles:
     - standings

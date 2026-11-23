@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: east-siberia
   name: ICPC East Siberian Regional Contest
@@ -9,7 +9,8 @@ contests:
 - id: east-siberia-2000
   season: 2001
   name: 2000 East Siberian Subregional Contest
-  cms_ids: []
+  cms_ids:
+  - 9938
   parent: neerc-2000
   next: east-siberia-2001
   sources:
@@ -22,35 +23,20 @@ contests:
     - east-siberia/east-siberia-2000/rankings/20170307-wayback-337d2dec/page.html
     url_state: dead
     url_checked: '2026-11-16'
+  provenance:
+  - cms id 9938 read from https://icpc.global/api/contest/public/regionalresults/2001 (data scan 2026-11-23)
 - id: east-siberia-2001
   season: 2002
   name: 2001 East Siberian Subregional Contest
   date: '2001-10-23'
+  location: Krasnojarsk, Krasnojarsk State Technical University
   cms_ids: []
+  sites:
+  - location: ru-krasnoyarsk
   parent: neerc-2001
   next: east-siberia-2002
   sources:
   - url: https://ikit.sfu-kras.ru/olimp/acm/2001
-    roles:
-    - web
-  - url: https://ikit.sfu-kras.ru/sites/default/files/page_files/rezultaty_chetvert_finala_mezhdunarodnoy_olimpiady_po_programmirovaniyu.pdf
-    roles:
-    - standings
-    url_state: changed
-    url_checked: '2026-11-22'
-    archived:
-    - east-siberia/east-siberia-2001/standings/20261122-live-3de7e968/rezultaty_chetvert_finala_mezhdunarodnoy_olimpiady_po_programmirovaniyu.pdf
-  provenance:
-  - date read from https://ikit.sfu-kras.ru/olimp/acm/2001 (description round 2026-11-16)
-- id: east-siberia-2002
-  season: 2003
-  name: 2002 East Siberian Subregional Contest
-  date: '2002-10-27'
-  cms_ids: []
-  parent: neerc-2002
-  next: east-siberia-2003
-  sources:
-  - url: https://ikit.sfu-kras.ru/olimp/acm/2002
     roles:
     - web
   - url: http://neerc.ifmo.ru/Subregions/east-siberian.html
@@ -62,6 +48,30 @@ contests:
     - east-siberia/east-siberia-2002/scoreboard/20020124-wayback-28bcfcf8/east-siberian.html
     url_state: dead
     url_checked: '2026-11-16'
+    note: 'found by the data scan 2026-11-23 (moved from east-siberia-2002: snapshot of 2002-01-24 shows
+      23 Oct 2001 results)'
+  - url: https://ikit.sfu-kras.ru/sites/default/files/page_files/rezultaty_chetvert_finala_mezhdunarodnoy_olimpiady_po_programmirovaniyu.pdf
+    roles:
+    - standings
+    archived:
+    - east-siberia/east-siberia-2001/standings/20261122-live-3de7e968/rezultaty_chetvert_finala_mezhdunarodnoy_olimpiady_po_programmirovaniyu.pdf
+    url_state: changed
+    url_checked: '2026-11-22'
+  provenance:
+  - date read from https://ikit.sfu-kras.ru/olimp/acm/2001 (description round 2026-11-16)
+  - location Krasnojarsk, Krasnojarsk State Technical University read from https://web.archive.org/web/20020124225143/http://neerc.ifmo.ru/Subregions/east-siberian.html
+    (data scan 2026-11-23)
+- id: east-siberia-2002
+  season: 2003
+  name: 2002 East Siberian Subregional Contest
+  date: '2002-10-27'
+  cms_ids: []
+  parent: neerc-2002
+  next: east-siberia-2003
+  sources:
+  - url: https://ikit.sfu-kras.ru/olimp/acm/2002
+    roles:
+    - web
   problems:
     set: east-siberia-2002
   provenance:
@@ -105,7 +115,10 @@ contests:
   season: 2005
   name: 2004 East Siberian Subregional Contest
   date: '2004-10-31'
+  location: Krasnoyarsk, Krasnoyarsk State Technical University
   cms_ids: []
+  sites:
+  - location: ru-krasnoyarsk
   parent: neerc-2004
   next: east-siberia-2005
   sources:
@@ -139,11 +152,16 @@ contests:
     set: east-siberia-2004
   provenance:
   - date read from https://ikit.sfu-kras.ru/olimp/acm/2004 (description round 2026-11-16)
+  - location Krasnoyarsk, Krasnoyarsk State Technical University read from https://web.archive.org/web/20050118045944/http://neerc.ifmo.ru/subregions/east-siberian.html
+    (data scan 2026-11-23)
 - id: east-siberia-2005
   season: 2006
   name: 2005 East Siberian Subregional Contest
   date: '2005-10-30'
+  location: Krasnoyarsk, Krasnoyarsk State Technical University
   cms_ids: []
+  sites:
+  - location: ru-krasnoyarsk
   parent: neerc-2005
   next: east-siberia-2006
   sources:
@@ -177,10 +195,15 @@ contests:
     set: east-siberia-2005
   provenance:
   - date read from https://ikit.sfu-kras.ru/olimp/acm/2005 (description round 2026-11-16)
+  - location Krasnoyarsk, Krasnoyarsk State Technical University read from https://web.archive.org/web/20060503231258/http://neerc.ifmo.ru/subregions/east-siberian.html
+    (data scan 2026-11-23)
 - id: east-siberia-2006
   season: 2007
   name: 2006 East Siberian Subregional Contest
+  location: Krasnoyarsk, Krasnoyarsk State Technical University
   cms_ids: []
+  sites:
+  - location: ru-krasnoyarsk
   parent: neerc-2006
   next: east-siberia-2007
   sources:
@@ -212,11 +235,15 @@ contests:
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
   problems:
     set: east-siberia-2006
+  provenance:
+  - location Krasnoyarsk, Krasnoyarsk State Technical University read from https://web.archive.org/web/20061126071204/http://neerc.ifmo.ru/subregions/east-siberian.html
+    (data scan 2026-11-23)
 - id: east-siberia-2007
   season: 2008
   name: 2007 East Siberian Subregional Contest
   location: Polytechnic Institute of Siberian Federal University, Krasnoyarsk
-  cms_ids: []
+  cms_ids:
+  - 9904
   parent: neerc-2007
   next: east-siberia-2008
   sources:
@@ -250,18 +277,19 @@ contests:
     set: east-siberia-2007
   provenance:
   - location read from https://ikit.sfu-kras.ru/olimp/acm/2007 (description round 2026-11-16)
+  - cms id 9904 read from https://icpc.global/api/contest/public/regionalresults/2008 (data scan 2026-11-23)
 - id: east-siberia-2008
   season: 2009
   name: 2008 East Siberian Subregional Contest
   date: '2008-10-26'
-  location: Krasonyarsk
+  location: Institute of Space and Information Technology, Siberian Federal University, Krasnoyarsk
+  cms_ids:
+  - 71
   sites:
   - location: ru-krasnoyarsk
     name: East Siberian Subregional Contest
     date: '2008-10-25'
     type: administrative
-  cms_ids:
-  - 71
   parent: neerc-2008
   next: east-siberia-2009
   sources:
@@ -293,18 +321,21 @@ contests:
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
   problems:
     set: east-siberia-2008
+  provenance:
+  - location Institute of Space and Information Technology, Siberian Federal University, Krasnoyarsk read
+    from https://ikit.sfu-kras.ru/olimp/acm/2008 (data scan 2026-11-23)
 - id: east-siberia-2009
   season: 2010
   name: 2009 East Siberian Subregional Contest
   date: '2009-10-22'
-  location: Administrative Site Location; Krasonyarsk
+  location: Siberian Federal University, Institute of Space and Information Technologies, Krasnoyarsk
+  cms_ids:
+  - 536
   sites:
   - type: administrative
   - location: ru-krasnoyarsk
     name: East Siberian Subregional Contest
     type: administrative
-  cms_ids:
-  - 536
   parent: neerc-2009
   next: east-siberia-2010
   sources:
@@ -334,17 +365,21 @@ contests:
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
   problems:
     set: east-siberia-2009
+  provenance:
+  - location Siberian Federal University, Institute of Space and Information Technologies, Krasnoyarsk
+    read from https://ikit.sfu-kras.ru/olimp/acm/2009 (data scan 2026-11-23)
 - id: east-siberia-2010
   season: 2011
   name: 2010 East Siberian Subregional Contest
-  location: Krasonyarsk; Administrative Site Location
+  date: '2010-10-29'
+  location: Siberian Federal University, Institute of Space and Information Technologies, Krasnoyarsk
+  cms_ids:
+  - 630
   sites:
   - type: administrative
   - location: ru-krasnoyarsk
     name: East Siberian Subregional Contest
     type: administrative
-  cms_ids:
-  - 630
   parent: neerc-2010
   next: east-siberia-2011
   sources:
@@ -376,18 +411,22 @@ contests:
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
   problems:
     set: east-siberia-2010
+  provenance:
+  - date 2010-10-29 read from https://ikit.sfu-kras.ru/olimp/acm/2010 (data scan 2026-11-23)
+  - location Siberian Federal University, Institute of Space and Information Technologies, Krasnoyarsk
+    read from https://ikit.sfu-kras.ru/olimp/acm/2010 (data scan 2026-11-23)
 - id: east-siberia-2011
   season: 2012
   name: 2011 East Siberian Subregional Contest
   date: '2011-10-23'
-  location: Krasonyarsk; Administrative Site Location
+  location: Siberian Federal University, Institute of Space and Information Technologies, Krasnoyarsk
+  cms_ids:
+  - 762
   sites:
   - type: administrative
   - location: ru-krasnoyarsk
     name: East Siberian Subregional Contest
     type: administrative
-  cms_ids:
-  - 762
   parent: neerc-2011
   next: east-siberia-2012
   sources:
@@ -397,10 +436,10 @@ contests:
   - url: https://ikit.sfu-kras.ru/sites/default/files/page_files/acm_programmming_contest_2011_east-siberian_quarterfinals.pdf
     roles:
     - scoreboard
-    url_state: live
-    url_checked: '2026-11-22'
     archived:
     - east-siberia/east-siberia-2011/scoreboard/20261122-live-be497401/acm_programmming_contest_2011_east-siberian_quarterfinals.pdf
+    url_state: live
+    url_checked: '2026-11-22'
   - url: https://nerc.itmo.ru/archive/2011/east-siberian/standings.html
     roles:
     - scoreboard
@@ -420,18 +459,21 @@ contests:
     note: rendered from the icpc.global API standings archive (cms 762, 27 teams, DB fetch 2026-04-26)
   problems:
     set: east-siberia-2011
+  provenance:
+  - location Siberian Federal University, Institute of Space and Information Technologies, Krasnoyarsk
+    read from https://ikit.sfu-kras.ru/olimp/acm/2011 (data scan 2026-11-23)
 - id: east-siberia-2012
   season: 2013
   name: 2012 East Siberian Subregional Contest
   date: '2012-10-28'
-  location: Krasonyarsk; Administrative Site Location
+  location: Siberian Federal University, Institute of Space and Information Technologies, Krasnoyarsk
+  cms_ids:
+  - 1304
   sites:
   - type: administrative
   - location: ru-krasnoyarsk
     name: East Siberian Subregional Contest
     type: administrative
-  cms_ids:
-  - 1304
   parent: neerc-2012
   next: east-siberia-2013
   sources:
@@ -467,18 +509,21 @@ contests:
     note: rendered from the icpc.global API standings archive (cms 1304, 25 teams, DB fetch 2026-04-26)
   problems:
     set: east-siberia-2012
+  provenance:
+  - location Siberian Federal University, Institute of Space and Information Technologies, Krasnoyarsk
+    read from https://ikit.sfu-kras.ru/olimp/acm/2012 (data scan 2026-11-23)
 - id: east-siberia-2013
   season: 2014
   name: 2013 East Siberian Subregional Contest
   date: '2013-11-10'
-  location: Administrative Site Location; Krasonyarsk
+  location: Siberian Federal University, Institute of Space and Information Technologies, Krasnoyarsk
+  cms_ids:
+  - 2039
   sites:
   - location: ru-krasnoyarsk
     name: East Siberian Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 2039
   parent: neerc-2013
   next: east-siberia-2014
   sources:
@@ -508,6 +553,9 @@ contests:
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
   problems:
     set: east-siberia-2013
+  provenance:
+  - location Siberian Federal University, Institute of Space and Information Technologies, Krasnoyarsk
+    read from https://ikit.sfu-kras.ru/olimp/acm/2013 (data scan 2026-11-23)
 - id: east-siberia-2014
   season: 2015
   name: 2014 East Siberian Subregional Contest
@@ -612,15 +660,15 @@ contests:
 - id: east-siberia-2016
   season: 2017
   name: 2016 East Siberian Subregional Contest
-  date: '2016-10-31'
+  date: '2016-10-30'
   location: Krasonyarsk; Administrative Site Location
+  cms_ids:
+  - 3150
   sites:
   - location: ru-krasnoyarsk
     name: East Siberian Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 3150
   parent: neerc-2016
   next: east-siberia-2017
   sources:
@@ -667,24 +715,26 @@ contests:
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221003155847'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: east-siberia-2016
+  provenance:
+  - date 2016-10-30 read from https://ikit.sfu-kras.ru/olimp/acm/2016 (data scan 2026-11-23)
 - id: east-siberia-2017
   season: 2018
   name: 2017 East Siberian Subregional Contest
   date: '2017-10-22'
-  location: Administrative Site Location; Krasonyarsk
+  location: 'Siberian Federal University, Krasnoyarsk (second site: Irkutsk State University, Irkutsk)'
+  cms_ids:
+  - 3295
   sites:
   - type: administrative
   - location: ru-krasnoyarsk
     name: East Siberian Subregional Contest
     type: administrative
-  cms_ids:
-  - 3295
   parent: nerc-2017
   next: east-siberia-2018
   sources:
@@ -727,18 +777,21 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: east-siberia-2017
+  provenance:
+  - 'location Siberian Federal University, Krasnoyarsk (second site: Irkutsk State University, Irkutsk)
+    read from https://ikit.sfu-kras.ru/olimp/acm/2017 (data scan 2026-11-23)'
 - id: east-siberia-2018
   season: 2019
   name: 2018 East Siberian Subregional Contest
-  date: '2018-10-22'
-  location: Krasonyarsk; Administrative Site Location
+  date: '2018-11-10'
+  location: Siberian Federal University, Krasnoyarsk (also sites in Ulan-Ude and Irkutsk)
+  cms_ids:
+  - 3684
   sites:
   - location: ru-krasnoyarsk
     name: East Siberian Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 3684
   parent: nerc-2018
   next: east-siberia-2019
   sources:
@@ -761,18 +814,22 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: east-siberia-2018
+  provenance:
+  - date 2018-11-10 read from https://ikit.sfu-kras.ru/olimp/acm/2018 (data scan 2026-11-23)
+  - location Siberian Federal University, Krasnoyarsk (also sites in Ulan-Ude and Irkutsk) read from https://ikit.sfu-kras.ru/olimp/acm/2018
+    (data scan 2026-11-23)
 - id: east-siberia-2019
   season: 2020
   name: 2019 East Siberian Regional Contest
-  date: '2019-10-06'
-  location: Administrative Site Location; Krasonyarsk
+  date: '2019-11-16'
+  location: Siberian Federal University, Krasnoyarsk (also sites in Ulan-Ude, Irkutsk, Chita and Norilsk)
+  cms_ids:
+  - 4192
   sites:
   - type: administrative
   - location: ru-krasnoyarsk
     name: East Siberian Subregional Contest
     type: administrative
-  cms_ids:
-  - 4192
   parent: nerc-2019
   next: east-siberia-2020
   sources:
@@ -817,18 +874,23 @@ contests:
     note: rendered from the icpc.global API standings archive (cms 4192, 59 teams, DB fetch 2026-04-26)
   problems:
     set: east-siberia-2019
+  provenance:
+  - date 2019-11-16 read from https://ikit.sfu-kras.ru/olimp/acm/2019 (data scan 2026-11-23)
+  - location Siberian Federal University, Krasnoyarsk (also sites in Ulan-Ude, Irkutsk, Chita and Norilsk)
+    read from https://ikit.sfu-kras.ru/olimp/acm/2019 (data scan 2026-11-23)
 - id: east-siberia-2020
   season: 2021
   name: 2020 East Siberian Regional Contest
   date: '2020-11-07'
-  location: Krasonyarsk; Administrative Site Location
+  location: Siberian Federal University, Krasnoyarsk (remote; also sites in Irkutsk, Ulan-Ude, Chita and
+    Norilsk)
+  cms_ids:
+  - 4565
   sites:
   - type: administrative
   - location: ru-krasnoyarsk
     name: East Siberian Regional Contest
     type: administrative
-  cms_ids:
-  - 4565
   parent: nerc-2020
   next: east-siberia-2021
   sources:
@@ -859,6 +921,9 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: east-siberia-2020
+  provenance:
+  - location Siberian Federal University, Krasnoyarsk (remote; also sites in Irkutsk, Ulan-Ude, Chita
+    and Norilsk) read from https://ikit.sfu-kras.ru/olimp/acm/2020 (data scan 2026-11-23)
 - id: east-siberia-2021
   season: 2022
   name: 2021 ICPC East Siberian Regional Contest
@@ -900,6 +965,8 @@ contests:
   name: 2022 ICPC East Siberian Regional Contest
   date: '2022-11-20'
   location: Krasonyarsk; Administrative Site Location; Irkutsk; Ulan-Ude; Norilsk; Chita; Krasnoyarsk
+  cms_ids:
+  - 5588
   sites:
   - type: administrative
   - location: ru-krasnoyarsk
@@ -910,11 +977,14 @@ contests:
   - location: ru-ulan-ude
   - location: ru-chita
   - location: ru-norilsk
-  cms_ids:
-  - 5588
   parent: nerc-2022
   next: east-siberia-2023
   sources:
+  - url: https://nerc.itmo.ru/subregions/east-siberian.html
+    roles:
+    - web
+    as_of: '20230129182732'
+    note: found by the data scan 2026-11-23 (Wayback CDX of the NERC subregion page)
   - url: https://contest.yandex.ru/contest/43400/standings
     roles:
     - scoreboard

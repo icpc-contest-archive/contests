@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/describe_apply.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: nena-north
   name: Northern Preliminary Contest
@@ -11,17 +11,22 @@ contests:
   name: 2008 McGill Preliminary Contest
   date: '2008-10-11'
   location: McGill University
+  cms_ids:
+  - 44
   sites:
   - location: ca-montreal-mcgill
     date: '2008-11-01'
-  cms_ids:
-  - 44
   parent: nena-2008
   next: nena-north-2009
   sources:
   - url: http://acm.cs.mcgill.ca/prelim2008/index.html
     roles:
     - web
+  - url: https://www.cs.mcgill.ca/~acm/prelim2008/Standings.html
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (the 'Scores' link (Standings.html) of the held copy of acm.cs.mcgill.ca/prelim2008/index.html
+      (Wayback 20081221211407); the set's statement already lives at www.cs.mcgill.ca/~acm/prelim2008/)
   - url: https://www.cs.mcgill.ca/~acm/prelim2008/Questions.pdf
     roles:
     - problemset
@@ -33,20 +38,20 @@ contests:
     roles:
     - problemset
     as_of: '20101227023214'
-    note: found inside http://acm.cs.mcgill.ca/prelim2008/index.html by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://acm.cs.mcgill.ca/prelim2008/index.html by the content check
   - url: http://acm.cs.mcgill.ca/prelim2008/Solutions.pdf
     roles:
     - editorial
     as_of: '20101227023158'
-    note: found inside http://acm.cs.mcgill.ca/prelim2008/index.html by the content check
     url_state: dead
     url_checked: '2026-11-16'
-  provenance:
-  - ICPC Problem Archive progress sheet (2026-11-01)
+    note: found inside http://acm.cs.mcgill.ca/prelim2008/index.html by the content check
   problems:
     set: nena-north-2008
+  provenance:
+  - ICPC Problem Archive progress sheet (2026-11-01)
 - id: nena-north-2009
   season: 2010
   name: 2009 Potsdam Preliminary Contest
@@ -131,18 +136,24 @@ contests:
   season: 2014
   name: 2013 Clarkson Preliminary Contest
   location: Administrative Site Location; Clarkson
+  cms_ids:
+  - 1962
   sites:
   - type: administrative
   - name: Clarkson
     type: administrative
-  cms_ids:
-  - 1962
   parent: nena-2013
   next: nena-north-2014
   sources:
   - url: http://www.clarkson.edu/clubs/acm
     roles:
     - web
+  - url: https://icpc.global/regionals/finder/Clarkson-Preliminary-2014/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (CMS id 1962 has 6 ranked rows in ../icpc_new_standings_from_db.json;
+      slug from data/cms-shortnames.json; /api/contest/public/Clarkson-Preliminary-2014 = id 1962 'The
+      2013 Clarkson Preliminary Contest' 2013-10-19)
   - url: https://www.cs.rit.edu/~icpc/questions/2013/Clarkson_2013.pdf
     roles:
     - problemset
@@ -278,11 +289,11 @@ contests:
   name: McGill - NE Regional Quebec Contest
   date: '2019-10-26'
   location: McGill University; Administrative Site Location
+  cms_ids:
+  - 4083
   sites:
   - type: administrative
   - location: ca-montreal-mcgill
-  cms_ids:
-  - 4083
   parent: nena-2019
   next: null
   sources:
@@ -309,27 +320,19 @@ contests:
   - url: https://mcgill19.kattis.com/contests/mcgill19/standings
     roles:
     - scoreboard
-    note: found inside https://mcgill19.kattis.com/contests/mcgill19 by the content check
     as_of: '20221007002704'
-    url_state: live
-    url_checked: '2026-11-16'
     archived:
     - nena-north/nena-north-2019/scoreboard/20221007-wayback-c2374b73/page.html
     - nena-north/nena-north-2019/scoreboard/20261116-live-be5641df/page.html
-  - url: https://open.kattis.com/contests/nena19open
-    roles:
-    - standings
-    as_of: '20191121170630'
-    archived:
-    - nena-north/nena-north-2019/standings/20191121-wayback-a00c4316/page.html
-    - nena-north/nena-north-2019/standings/20261020-live-fec9d633/page.html
-    note: from archived capture (standings)
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside https://mcgill19.kattis.com/contests/mcgill19 by the content check
   - url: https://mcgill19.kattis.com/contests/mcgill19/teams
     roles:
     - teams
+    as_of: '20221006234731'
     url_state: changed
     url_checked: '2026-11-16'
-    as_of: '20221006234731'
   - url: https://mcgill19.kattis.com/contests/mcgill19/problems
     roles:
     - problemset

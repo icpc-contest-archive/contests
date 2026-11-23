@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: naq
   name: ICPC North America Qualifier
@@ -11,6 +11,18 @@ contests:
   name: 2012 North America Qualifier
   date: '2012-09-29'
   location: East Central NA
+  cms_ids:
+  - 1537
+  - 1538
+  - 1539
+  - 1540
+  - 1541
+  - 1542
+  - 1543
+  - 1544
+  - 1545
+  - 1546
+  - 1547
   sites:
   - name: Other Teams
     type: administrative
@@ -34,18 +46,18 @@ contests:
   - location: us-ca
     name: ICPC Eligible Teams
     type: administrative
-  cms_ids:
-  - 1537
-  - 1538
-  - 1539
-  - 1540
-  - 1541
-  - 1542
-  - 1543
-  - 1544
-  - 1545
-  - 1546
-  - 1547
+  parent:
+  - ecna-2012
+  - gny-2012
+  - mausa-2012
+  - mcpc-2012
+  - ncna-2012
+  - nena-2012
+  - pacnw-2012
+  - rmc-2012
+  - scusa-2012
+  - seusa-2012
+  - socal-2012
   next: naq-2013
   sources:
   - url: http://cs.baylor.edu/~hamerly/icpc/qualifier_2012/
@@ -83,16 +95,32 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: naq-2012
+  provenance:
+  - parent = the 11 North America regionals of the season, read from the ICPC CMS hierarchy (each NAQ
+    CMS id is the qualifier subcontest of one regional) (data scan 2026-11-23)
 - id: naq-2013
   season: 2014
   name: 2013 North America Qualifier
   date: '2013-10-05'
   location: USA
+  cms_ids:
+  - 2111
+  - 2117
+  - 2118
+  - 2119
+  - 2120
+  - 2121
+  - 2122
+  - 2123
+  - 2124
+  - 2125
+  - 2126
+  - 2127
   sites:
   - type: administrative
   - location: us
@@ -116,19 +144,18 @@ contests:
     name: Southeast USA
   - location: us-ca
     name: Southern California
-  cms_ids:
-  - 2111
-  - 2117
-  - 2118
-  - 2119
-  - 2120
-  - 2121
-  - 2122
-  - 2123
-  - 2124
-  - 2125
-  - 2126
-  - 2127
+  parent:
+  - ecna-2013
+  - gny-2013
+  - mausa-2013
+  - mcpc-2013
+  - ncna-2013
+  - nena-2013
+  - pacnw-2013
+  - rmc-2013
+  - scusa-2013
+  - seusa-2013
+  - socal-2013
   next: naq-2014
   sources:
   - url: http://cs.baylor.edu/~hamerly/icpc/qualifier_2013/
@@ -166,16 +193,21 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: naq-2013
+  provenance:
+  - parent = the 11 North America regionals of the season, read from the ICPC CMS hierarchy (each NAQ
+    CMS id is the qualifier subcontest of one regional) (data scan 2026-11-23)
 - id: naq-2014
   season: 2015
   name: 2014 North America Qualifier
   date: '2014-09-27'
   location: North America; NorthAmerica; Administrative Site Location; USA
+  cms_ids:
+  - 2440
   sites:
   - name: Pacific Northwest Site
   - name: Rocky Mountain Site
@@ -203,8 +235,18 @@ contests:
   - name: Greater NY Site
     type: online
   - type: administrative
-  cms_ids:
-  - 2440
+  parent:
+  - ecna-2014
+  - gny-2014
+  - mausa-2014
+  - mcpc-2014
+  - ncna-2014
+  - nena-2014
+  - pacnw-2014
+  - rmc-2014
+  - scusa-2014
+  - seusa-2014
+  - socal-2014
   next: naq-2015
   sources:
   - url: http://cs.baylor.edu/~hamerly/icpc/qualifier_2014
@@ -257,16 +299,21 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: naq-2014
+  provenance:
+  - parent = the North America regionals of the season held after the NAQ, per the NAQ organisers (https://www.icpc.org/icpc-north-america-qualifier,
+    as of 20210625140009) and the CMS structure of 2012/2013 (data scan 2026-11-23)
 - id: naq-2015
   season: 2016
   name: 2015 North America Qualifier
   date: '2015-10-03'
   location: North America; NorthAmerica; Administrative Site Location; USA
+  cms_ids:
+  - 2840
   sites:
   - location: us
     name: ICPC Ineligible Site
@@ -299,8 +346,18 @@ contests:
     name: Southern California Site
     type: online
   - type: administrative
-  cms_ids:
-  - 2840
+  parent:
+  - ecna-2015
+  - gny-2015
+  - mausa-2015
+  - mcpc-2015
+  - ncna-2015
+  - nena-2015
+  - pacnw-2015
+  - rmc-2015
+  - scusa-2015
+  - seusa-2015
+  - socal-2015
   next: naq-2016
   sources:
   - url: http://cs.baylor.edu/~hamerly/icpc/qualifier_2015/
@@ -348,16 +405,21 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: naq-2015
+  provenance:
+  - parent = the North America regionals of the season held after the NAQ, per the NAQ organisers (https://www.icpc.org/icpc-north-america-qualifier,
+    as of 20210625140009) and the CMS structure of 2012/2013 (data scan 2026-11-23)
 - id: naq-2016
   season: 2017
   name: 2016 North America Qualifier
   date: '2016-09-24'
   location: North America; NorthAmerica; Administrative Site Location; USA
+  cms_ids:
+  - 3194
   sites:
   - name: South Central USA Site
     type: online
@@ -390,8 +452,18 @@ contests:
   - location: us
     name: Mid-Atlantic USA Site
     type: online
-  cms_ids:
-  - 3194
+  parent:
+  - ecna-2016
+  - gny-2016
+  - mausa-2016
+  - mcpc-2016
+  - ncna-2016
+  - nena-2016
+  - pacnw-2016
+  - rmc-2016
+  - scusa-2016
+  - seusa-2016
+  - socal-2016
   next: naq-2017
   sources:
   - url: http://cs.baylor.edu/~hamerly/icpc/qualifier_2016/
@@ -453,9 +525,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/North-America/North-America-Qualifier/The-2016-ICPC-North-America-Qualifier/tutorials_en.pdf
     roles:
     - editorial
@@ -464,17 +536,22 @@ contests:
   - url: https://cs.baylor.edu/~hamerly/icpc/qualifier_2016/naq-2016-explanations.pdf
     roles:
     - editorial
-    note: found inside http://cs.baylor.edu/~hamerly/icpc/qualifier_2016/ by the content check
     as_of: '20161019104523'
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside http://cs.baylor.edu/~hamerly/icpc/qualifier_2016/ by the content check
   problems:
     set: naq-2016
+  provenance:
+  - parent = the North America regionals of the season held after the NAQ, per the NAQ organisers (https://www.icpc.org/icpc-north-america-qualifier,
+    as of 20210625140009) and the CMS structure of 2012/2013 (data scan 2026-11-23)
 - id: naq-2017
   season: 2018
   name: 2017 North America Qualifier
   date: '2017-10-07'
   location: North America; NorthAmerica; USA; Administrative Site Location
+  cms_ids:
+  - 3253
   sites:
   - name: Greater NY Site
     type: online
@@ -507,8 +584,18 @@ contests:
   - location: us
     name: ICPC Ineligible Site
     type: administrative
-  cms_ids:
-  - 3253
+  parent:
+  - ecna-2017
+  - gny-2017
+  - mausa-2017
+  - mcpc-2017
+  - ncna-2017
+  - nena-2017
+  - pacnw-2017
+  - rmc-2017
+  - scusa-2017
+  - seusa-2017
+  - socal-2017
   next: naq-2018
   sources:
   - url: http://cs.ecs.baylor.edu/~hamerly/icpc/qualifier_2017/
@@ -561,16 +648,16 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: http://cs.ecs.baylor.edu/~hamerly/icpc/qualifier_2017/naq2017_problemset.pdf
     roles:
     - problemset
     as_of: '20240301064947'
-    note: found inside http://cs.ecs.baylor.edu/~hamerly/icpc/qualifier_2017/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://cs.ecs.baylor.edu/~hamerly/icpc/qualifier_2017/ by the content check
   - url: https://icpcarchive.github.io/North-America/North-America-Qualifier/The-2017-ICPC-North-America-Qualifier/tutorials_en.pdf
     roles:
     - editorial
@@ -580,16 +667,21 @@ contests:
     roles:
     - editorial
     as_of: '20240301064947'
-    note: found inside http://cs.ecs.baylor.edu/~hamerly/icpc/qualifier_2017/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://cs.ecs.baylor.edu/~hamerly/icpc/qualifier_2017/ by the content check
   problems:
     set: naq-2017
+  provenance:
+  - parent = the North America regionals of the season held after the NAQ, per the NAQ organisers (https://www.icpc.org/icpc-north-america-qualifier,
+    as of 20210625140009) and the CMS structure of 2012/2013 (data scan 2026-11-23)
 - id: naq-2018
   season: 2019
   name: 2018 North America Qualifier
-  date: '2018-10-16'
+  date: '2018-10-06'
   location: North America; Administrative Site Location; NorthAmerica; USA
+  cms_ids:
+  - 3554
   sites:
   - name: Rocky Mountain Site
     type: online
@@ -622,8 +714,18 @@ contests:
   - name: East Central NA Site
     type: online
   - type: administrative
-  cms_ids:
-  - 3554
+  parent:
+  - ecna-2018
+  - gny-2018
+  - mausa-2018
+  - mcpc-2018
+  - ncna-2018
+  - nena-2018
+  - pacnw-2018
+  - rmc-2018
+  - scusa-2018
+  - seusa-2018
+  - socal-2018
   next: naq-2019
   sources:
   - url: http://cs.baylor.edu/~hamerly/icpc/qualifier_2018/
@@ -632,6 +734,7 @@ contests:
   - url: https://naq18.kattis.com/standings
     roles:
     - scoreboard
+    scope: one affiliation only (Augsburg University)
     as_of: '20191115211255'
     archived:
     - naq/naq-2018/external-standings/2026-04-15-external/content.html
@@ -642,7 +745,6 @@ contests:
     url_state: changed
     url_checked: '2026-11-16'
     note: from archived capture (external-standings)
-    scope: one affiliation only (Augsburg University)
   - url: https://icpc.global/regionals/finder/North-America-Qualifier-2019/standings
     roles:
     - standings
@@ -680,9 +782,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/North-America/North-America-Qualifier/The-2018-ICPC-North-America-Qualifier/tutorials_en.pdf
     roles:
     - editorial
@@ -696,11 +798,17 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: naq-2018
+  provenance:
+  - date 2018-10-06 read from http://cs.baylor.edu/~hamerly/icpc/qualifier_2018/ (data scan 2026-11-23)
+  - parent = the North America regionals of the season held after the NAQ, per the NAQ organisers (https://www.icpc.org/icpc-north-america-qualifier,
+    as of 20210625140009) and the CMS structure of 2012/2013 (data scan 2026-11-23)
 - id: naq-2019
   season: 2020
   name: 2019 North America Qualifier
   date: '2019-10-05'
   location: North America; NorthAmerica; USA; Administrative Site Location
+  cms_ids:
+  - 4063
   sites:
   - type: administrative
   - location: ca-north-central
@@ -733,8 +841,18 @@ contests:
     type: online
   - name: Northeast North America Site
     type: online
-  cms_ids:
-  - 4063
+  parent:
+  - ecna-2019
+  - gny-2019
+  - mausa-2019
+  - mcpc-2019
+  - ncna-2019
+  - nena-2019
+  - pacnw-2019
+  - rmc-2019
+  - scusa-2019
+  - seusa-2019
+  - socal-2019
   next: naq-2020
   sources:
   - url: https://cs.baylor.edu/~hamerly/icpc/qualifier_2019/
@@ -781,9 +899,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/North-America/North-America-Qualifier/The-2019-ICPC-North-America-Qualifier/tutorials_en.pdf
     roles:
     - editorial
@@ -797,11 +915,16 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: naq-2019
+  provenance:
+  - parent = the North America regionals of the season held after the NAQ, per the NAQ organisers (https://www.icpc.org/icpc-north-america-qualifier,
+    as of 20210625140009) and the CMS structure of 2012/2013 (data scan 2026-11-23)
 - id: naq-2020
   season: 2021
   name: 2020 North America Qualifier
   date: '2021-02-11'
   location: North America; Administrative Site Location; NorthAmerica; USA
+  cms_ids:
+  - 4335
   sites:
   - type: administrative
   - name: East Central NA Site
@@ -834,8 +957,18 @@ contests:
   - location: us-ca
     name: Southern California Site
     type: online
-  cms_ids:
-  - 4335
+  parent:
+  - ecna-2020
+  - gny-2020
+  - mausa-2020
+  - mcpc-2020
+  - ncna-2020
+  - nena-2020
+  - pacnw-2020
+  - rmc-2020
+  - scusa-2020
+  - seusa-2020
+  - socal-2020
   next: naq-2021
   sources:
   - url: https://www.icpc.org/icpc-north-america-qualifier
@@ -872,9 +1005,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/North-America/North-America-Qualifier/The-2020-ICPC-North-America-Qualifier/tutorials_en.pdf
     roles:
     - editorial
@@ -882,11 +1015,16 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: naq-2020
+  provenance:
+  - parent = the North America regionals of the season held after the NAQ, per the NAQ organisers (https://www.icpc.org/icpc-north-america-qualifier,
+    as of 20210625140009) and the CMS structure of 2012/2013 (data scan 2026-11-23)
 - id: naq-2021
   season: 2022
   name: 2021 ICPC North America Qualifier
-  date: '2022-02-11'
+  date: '2022-01-22'
   location: North America; USA; NorthAmerica; Administrative Site Location
+  cms_ids:
+  - 4696
   sites:
   - type: administrative
   - name: East Central NA Site
@@ -919,8 +1057,17 @@ contests:
   - location: us
     name: ICPC Ineligible Site
     type: administrative
-  cms_ids:
-  - 4696
+  parent:
+  - ecna-2021
+  - gny-2021
+  - mcpc-2021
+  - ncna-2021
+  - nena-2021
+  - pacnw-2021
+  - rmc-2021
+  - scusa-2021
+  - seusa-2021
+  - socal-2021
   next: naq-2022
   sources:
   - url: https://na.icpc.global/naq/
@@ -928,7 +1075,7 @@ contests:
     - web
   - url: https://naq21.kattis.com/standings
     roles:
-    - standings
+    - scoreboard
     archived:
     - naq/naq-2021/external-standings/2026-04-15-external/content.html
     - naq/naq-2021/standings/20260901-live-f431e1ff/page.html
@@ -963,10 +1110,10 @@ contests:
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221203232418'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/North-America/North-America-Qualifier/The-2021-ICPC-North-America-Qualifier/tutorials_en.pdf
     roles:
     - editorial
@@ -974,11 +1121,17 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: naq-2021
+  provenance:
+  - date 2022-01-22 read from https://na.icpc.global/naq/ (data scan 2026-11-23)
+  - parent = the North America regionals of the season held after the NAQ, per the NAQ organisers (https://www.icpc.org/icpc-north-america-qualifier,
+    as of 20210625140009) and the CMS structure of 2012/2013 (data scan 2026-11-23)
 - id: naq-2022
   season: 2023
   name: 2022 ICPC North America Qualifier
   date: '2023-02-04'
   location: North America; NorthAmerica; Administrative Site Location; USA
+  cms_ids:
+  - 5374
   sites:
   - type: administrative
   - location: us-ca
@@ -1011,10 +1164,18 @@ contests:
     type: online
   - name: East Central NA Site
     type: online
-  cms_ids:
-  - 5374
   next: naq-2023
   sources:
+  - url: https://na.icpc.global/2022-23/naq/
+    roles:
+    - web
+    as_of: '20240324170110'
+    note: found by the data scan 2026-11-23 (Wayback CDX over na.icpc.global)
+  - url: https://na.icpc.global/home/naq/
+    roles:
+    - web
+    as_of: '20230205232500'
+    note: found by the data scan 2026-11-23 (Wayback CDX over na.icpc.global)
   - url: https://naq22.kattis.com/contests/naq22/standings
     roles:
     - scoreboard
@@ -1055,10 +1216,10 @@ contests:
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20230324195607'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/North-America/North-America-Qualifier/The-2022-ICPC-North-America-Qualifier/tutorials_en.pdf
     roles:
     - editorial
@@ -1071,6 +1232,9 @@ contests:
   name: 2023 ICPC North America Qualifier
   date: '2023-09-30'
   location: North America; USA; Administrative Site Location; NorthAmerica
+  cms_ids:
+  - 7466
+  - 8666
   sites:
   - type: administrative
   - name: Greater NY Site
@@ -1103,10 +1267,13 @@ contests:
   - location: us-ca
     name: Southern California Site
     type: online
-  cms_ids:
-  - 7466
   next: naq-2024
   sources:
+  - url: https://na.icpc.global/naq/
+    roles:
+    - web
+    as_of: '20240316235329'
+    note: found by the data scan 2026-11-23 (sibling pattern + Wayback)
   - url: https://qoj.ac/contest/1102/standings
     roles:
     - standings
@@ -1143,25 +1310,30 @@ contests:
     contains:
     - statement
     judge: kattis
-    note: Kattis problem-sources page (export source "2023 ICPC North America Qualifier 30 September",
-      2026-11-02)
+    as_of: '20240301042101'
     url_state: replaced
     url_checked: '2026-11-16'
-    as_of: '20240301042101'
+    note: Kattis problem-sources page (export source "2023 ICPC North America Qualifier 30 September",
+      2026-11-02)
   - url: https://qoj.ac/contest/1517
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: naq-2023
+  provenance:
+  - cms id 8666 read from https://icpc.global/api/contest/public/regionalresults/2024 (data scan 2026-11-23)
 - id: naq-2024
   season: 2025
   name: 2024 ICPC North America Qualifier
   date: '2024-10-05'
   location: North America
+  cms_ids:
+  - 8917
+  - 8932
   sites:
   - type: administrative
   - name: Greater NY Site
@@ -1196,11 +1368,13 @@ contests:
     type: online
   - type: administrative
     name: ICPC Ineligible Site
-  cms_ids:
-  - 8917
-  - 8932
   next: naq-2025
   sources:
+  - url: https://na.icpc.global/naq/
+    roles:
+    - web
+    as_of: '20241126022626'
+    note: found by the data scan 2026-11-23 (sibling pattern + Wayback)
   - url: https://naq24.kattis.com/contests/naq24/standings
     roles:
     - scoreboard
@@ -1240,17 +1414,17 @@ contests:
     contains:
     - statement
     judge: kattis
-    note: Kattis problem-sources page (export source "2024 ICPC North America Qualifier", 2026-11-02)
+    as_of: '20241211091409'
     url_state: changed
     url_checked: '2026-11-16'
-    as_of: '20241211091409'
+    note: Kattis problem-sources page (export source "2024 ICPC North America Qualifier", 2026-11-02)
   - url: https://qoj.ac/contest/1837
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: naq-2024
 - id: naq-2025
@@ -1340,6 +1514,8 @@ contests:
   season: 2027
   name: 2026 ICPC North America Qualifier
   date: '2026-10-03'
+  cms_ids:
+  - 9766
   sites:
   - type: administrative
   - name: Greater NY Site
@@ -1384,116 +1560,118 @@ contests:
     name: Southern California Site
     date: '2026-10-03'
     type: online
-  cms_ids:
-  - 9766
   sources:
+  - url: https://na.icpc.global/naq/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (sibling naq-2021 address, live page)
   - url: https://naq26.kattis.com/contests/naq26/standings
     roles:
     - scoreboard
-    url_state: live
-    url_checked: '2026-11-16'
     archived:
     - naq/naq-2026/scoreboard/20261113-live-934a2454/page.html
+    url_state: live
+    url_checked: '2026-11-16'
   - url: https://qoj.ac/contest/4566
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://open.kattis.com/problems/thendaysofchristmas2
     roles:
     - problem
-    judge: kattis
     problem: A
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/airtime
     roles:
     - problem
-    judge: kattis
     problem: B
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/babylon
     roles:
     - problem
-    judge: kattis
     problem: C
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/browniecutting
     roles:
     - problem
-    judge: kattis
     problem: D
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/espressomacchiato
     roles:
     - problem
-    judge: kattis
     problem: E
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/fairytale
     roles:
     - problem
-    judge: kattis
     problem: F
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/lastdance
     roles:
     - problem
-    judge: kattis
     problem: G
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/mysystem
     roles:
     - problem
-    judge: kattis
     problem: H
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/onlyoneorder
     roles:
     - problem
-    judge: kattis
     problem: I
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/regarde
     roles:
     - problem
-    judge: kattis
     problem: J
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/sixseven3
     roles:
     - problem
-    judge: kattis
     problem: K
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/stardustcurry
     roles:
     - problem
-    judge: kattis
     problem: L
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/tourismbalance
     roles:
     - problem
-    judge: kattis
     problem: M
     contains:
     - statement
+    judge: kattis
+  problems:
+    set: naq-2026
   provenance:
   - 'ran 2026-10-03: CMS site dates; naq26.kattis.com (start 2026-10-03 20:00 CEST); QOJ mirrors the set
     (ruling 2026-11-12)'
-  problems:
-    set: naq-2026

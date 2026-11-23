@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: japan
   name: ICPC Asia Yokohama Regional Contest
@@ -879,6 +879,8 @@ contests:
   name: 2007 ACM Asia Programming Contest - Tokyo
   date: '2007-11-03'
   location: Tokyo, Japan
+  cms_ids:
+  - 1069
   sites:
   - location: jp-tokyo
     name: The 2007 ACM Asia Programming Contest - Tokyo
@@ -887,8 +889,6 @@ contests:
   - location: jp-tokyo
     name: Japan Nationwide Contest
     date: '2007-07-06'
-  cms_ids:
-  - 1069
   parent: wf-2008
   next: japan-2008
   sources:
@@ -905,13 +905,14 @@ contests:
     url_checked: '2026-11-01'
   - url: http://www.logos.ic.i.u-tokyo.ac.jp/icpc2007/jp/domestic/result.html
     roles:
-    - rankings
+    - standings
+    scope: domestic qualifier
     as_of: '20170902074355'
-    note: found inside http://www.logos.ic.i.u-tokyo.ac.jp/icpc2007/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - japan/japan-2007/rankings/20170902-wayback-b6cdea44/result.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://www.logos.ic.i.u-tokyo.ac.jp/icpc2007/ by the content check
   - url: https://storage.googleapis.com/files.icpc.jp/regional2007/2007regional.pdf
     roles:
     - problemset
@@ -935,33 +936,33 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2007-2008 ACM-ICPC, Asia Tokyo Regional Contest (judge hunt 2026-11-03: name+year: ''2007-2008
-      ACM-ICPC, Asia Tokyo Regional Contest'' -> season start 2007)'
     url_state: live
     url_checked: '2026-11-16'
+    note: '2007-2008 ACM-ICPC, Asia Tokyo Regional Contest (judge hunt 2026-11-03: name+year: ''2007-2008
+      ACM-ICPC, Asia Tokyo Regional Contest'' -> season start 2007)'
   - url: https://onlinejudge.u-aizu.ac.jp/challenges/sources/ICPC/Regional/58
     roles:
     - problemset
     judge: aoj
+    url_state: live
+    url_checked: '2026-11-22'
     note: 'ACM International Collegiate Programming Contest, Asia Regional 2007, Japan (judge hunt 2026-11-03:
       AOJ ICPC/Regional challenge year 2007 (one Japan regional per year); 6/6 catalogue problem titles
       matched among 10 AOJ problems)'
-    url_state: live
-    url_checked: '2026-11-22'
   - url: https://qoj.ac/contest/3616
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: http://www.logos.ic.i.u-tokyo.ac.jp/icpc2007/regional/problems.pdf
     roles:
     - problemset
     as_of: '20140713025606'
-    note: found inside http://www.logos.ic.i.u-tokyo.ac.jp/icpc2007/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://www.logos.ic.i.u-tokyo.ac.jp/icpc2007/ by the content check
   problems:
     set: japan-2007
 - id: japan-2008
@@ -969,6 +970,8 @@ contests:
   name: 2008 Asia Aizu Contest
   date: '2008-10-26'
   location: Aizu-Wakamatsu
+  cms_ids:
+  - 6
   sites:
   - location: jp-aizu-wakamatsu
     name: 'Preliminary Site: Japan Nationwide Contest'
@@ -980,8 +983,6 @@ contests:
   - location: jp-aizu-wakamatsu
     name: The 2008 Aizu Regional Contest
     type: administrative
-  cms_ids:
-  - 6
   parent: wf-2009
   next: japan-2009
   sources:
@@ -1001,22 +1002,23 @@ contests:
     note: as_of 20210228012453 for standings; from archived capture (external-standings)
   - url: http://sparth.u-aizu.ac.jp/icpc2008/d_result.php
     roles:
-    - rankings
+    - standings
+    scope: domestic qualifier
     as_of: '20080803062806'
-    note: found inside http://sparth.u-aizu.ac.jp/icpc2008/r_overview.php by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - japan/japan-2008/rankings/20080803-wayback-c51ee4ff/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://sparth.u-aizu.ac.jp/icpc2008/r_overview.php by the content check
   - url: http://sparth.u-aizu.ac.jp/icpc2008/b_result.php
     roles:
     - rankings
     as_of: '20090101135649'
-    note: found inside http://sparth.u-aizu.ac.jp/icpc2008/r_overview.php by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - japan/japan-2008/rankings/20090101-wayback-69c256a5/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://sparth.u-aizu.ac.jp/icpc2008/r_overview.php by the content check
   - url: https://storage.googleapis.com/files.icpc.jp/regional2008/2008regional.pdf
     roles:
     - problemset
@@ -1038,32 +1040,32 @@ contests:
     roles:
     - problemset
     judge: aoj
+    url_state: live
+    url_checked: '2026-11-22'
     note: 'ACM International Collegiate Programming Contest, Asia Regional 2008, Japan (judge hunt 2026-11-03:
       AOJ ICPC/Regional challenge year 2008 (one Japan regional per year); 5/5 catalogue problem titles
       matched among 10 AOJ problems)'
-    url_state: live
-    url_checked: '2026-11-22'
   - url: https://qoj.ac/contest/3617
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: http://sparth.u-aizu.ac.jp/icpc2008/data/all.pdf
     roles:
     - problemset
     as_of: '20091014203501'
-    note: found inside http://sparth.u-aizu.ac.jp/icpc2008/r_overview.php by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://sparth.u-aizu.ac.jp/icpc2008/r_overview.php by the content check
   - url: http://sparth.u-aizu.ac.jp/icpc2008/r_data.php
     roles:
     - problemset
     as_of: '20090101132742'
-    note: found inside http://sparth.u-aizu.ac.jp/icpc2008/r_overview.php by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://sparth.u-aizu.ac.jp/icpc2008/r_overview.php by the content check
   problems:
     set: japan-2008
 - id: japan-2009
@@ -1184,6 +1186,8 @@ contests:
   name: 2010 ACM-ICPC Asia Tokyo Regional Contest
   date: '2010-12-12'
   location: Administrative Site Location; Tokyo, Japan
+  cms_ids:
+  - 600
   sites:
   - location: jp-tokyo
     name: Non-Japan-Based Team Registration Site
@@ -1195,8 +1199,6 @@ contests:
     date: '2010-07-02'
     type: online
   - type: administrative
-  cms_ids:
-  - 600
   parent: wf-2011
   next: japan-2011
   sources:
@@ -1222,20 +1224,21 @@ contests:
     note: rendered from the icpc.global API standings archive (cms 600, 16 teams, DB fetch 2026-04-26)
   - url: http://icpc2010.honiden.nii.ac.jp/domestic-contest/result
     roles:
-    - rankings
+    - standings
+    scope: domestic qualifier
     as_of: '20101211150325'
-    note: found inside http://icpc2010.honiden.nii.ac.jp/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - japan/japan-2010/rankings/20101211-wayback-e5c36ed0/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://icpc2010.honiden.nii.ac.jp/ by the content check
   - url: http://icpc2010.honiden.nii.ac.jp/en/regional-contest/teams
     roles:
     - teams
     as_of: '20101206005042'
-    note: found inside http://icpc2010.honiden.nii.ac.jp/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://icpc2010.honiden.nii.ac.jp/ by the content check
   - url: http://icpc2010.honiden.nii.ac.jp/domestic-contest/problems
     roles:
     - problemset
@@ -1278,16 +1281,18 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: japan-2010
 - id: japan-2011
   season: 2012
   name: 2011 ACM-ICPC Asia Fukuoka Regional Contest
-  date: '2011-11-14'
+  date: '2011-11-13'
   location: Administrative Site Location; Fukuoka, Japan
+  cms_ids:
+  - 797
   sites:
   - location: jp-fukuoka
     name: Japan Nationwide Online First Round Contest
@@ -1299,8 +1304,6 @@ contests:
     name: Asia Fukuoka On Site Regional Contest
     date: '2011-11-12'
   - type: administrative
-  cms_ids:
-  - 797
   parent: wf-2012
   next: japan-2012
   sources:
@@ -1326,20 +1329,21 @@ contests:
     note: rendered from the icpc.global API standings archive (cms 797, 318 teams, DB fetch 2026-04-26)
   - url: http://icpc2011.ait.kyushu-u.ac.jp/domestic-contest/result
     roles:
-    - rankings
+    - standings
+    scope: domestic qualifier
     as_of: '20121104062550'
-    note: found inside http://icpc2011.ait.kyushu-u.ac.jp/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - japan/japan-2011/rankings/20121104-wayback-1efefbe6/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://icpc2011.ait.kyushu-u.ac.jp/ by the content check
   - url: http://icpc2011.ait.kyushu-u.ac.jp/regional-contest/teams
     roles:
     - teams
     as_of: '20121103031705'
-    note: found inside http://icpc2011.ait.kyushu-u.ac.jp/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://icpc2011.ait.kyushu-u.ac.jp/ by the content check
   - url: http://icpc2011.ait.kyushu-u.ac.jp/domestic-contest/problems
     roles:
     - problemset
@@ -1379,36 +1383,38 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: http://icpc2011.ait.kyushu-u.ac.jp/icpc2011/contest/all.pdf
     roles:
     - problemset
     as_of: '20120403202422'
-    note: found inside http://icpc2011.ait.kyushu-u.ac.jp/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://icpc2011.ait.kyushu-u.ac.jp/ by the content check
   - url: https://codeforces.com/gym/102004/attachments/download/7959/20112012-acmicpc-asia-fukuoka-regional-contest-en.pdf
     roles:
     - problem
-    judge: codeforces
     problem: A
     contains:
     - statement
+    judge: codeforces
   problems:
     set: japan-2011
+  provenance:
+  - date 2011-11-13 read from http://icpc2011.ait.kyushu-u.ac.jp/icpc2011/contest/all.pdf (data scan 2026-11-23)
 - id: japan-2012
   season: 2013
   name: 2012 ACM-ICPC Asia Tokyo Regional Contest
-  date: '2012-11-19'
+  date: '2012-11-18'
   location: Administrative Site Location
+  cms_ids:
+  - 1487
   sites:
   - location: jp-tokyo
     name: Asia Tokyo Site
     type: administrative
-  cms_ids:
-  - 1487
   parent: wf-2013
   next: japan-2013
   sources:
@@ -1434,18 +1440,18 @@ contests:
   - url: http://www.cs.titech.ac.jp/icpc2012/regional-contest/teams-e.html
     roles:
     - teams
-    note: found inside http://www.cs.titech.ac.jp/icpc2012/index-e.html by the content check
     as_of: '20130110073929'
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside http://www.cs.titech.ac.jp/icpc2012/index-e.html by the content check
   - url: http://www.cs.titech.ac.jp/icpc2012/regional-contest/problem.html
     roles:
     - problemset
     contains:
     - package
+    as_of: '20130110034020'
     url_state: live
     url_checked: '2026-11-16'
-    as_of: '20130110034020'
   - url: https://www.acmicpc.net/category/detail/191
     roles:
     - problemset
@@ -1462,11 +1468,11 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20170706031842'
     url_state: changed
     url_checked: '2026-11-16'
     note: '2012-2013 ACM-ICPC, Asia Tokyo Regional Contest (judge hunt 2026-11-03: name+year: ''2012-2013
       ACM-ICPC, Asia Tokyo Regional Contest'' -> season start 2012)'
-    as_of: '20170706031842'
   - url: https://onlinejudge.u-aizu.ac.jp/challenges/sources/ICPC/Regional/129
     roles:
     - problemset
@@ -1480,16 +1486,16 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: http://www.cs.titech.ac.jp/icpc2012/regional-contest/all.pdf
     roles:
     - problemset
-    note: found inside http://www.cs.titech.ac.jp/icpc2012/index-e.html by the content check
     as_of: '20230416044209'
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside http://www.cs.titech.ac.jp/icpc2012/index-e.html by the content check
   - url: https://icpcarchive.github.io/Asia-Pacific/Japan/The-2012-ACM-ICPC-Asia-Tokyo-Regional-Contest/tutorials.pdf
     roles:
     - editorial
@@ -1497,19 +1503,22 @@ contests:
     url_checked: '2026-11-23'
   problems:
     set: japan-2012
+  provenance:
+  - date 2012-11-18 read from http://www.cs.titech.ac.jp/icpc2012/regional-contest/all.pdf (data scan
+    2026-11-23)
 - id: japan-2013
   season: 2014
   name: 2013 ACM-ICPC Asia Aizu Regional Contest
-  date: '2013-11-25'
+  date: '2013-11-24'
   location: Japan; Asia Aizu Site
+  cms_ids:
+  - 1929
   sites:
   - location: jp-aizu-wakamatsu
     name: Asia Aizu On-Site
   - location: jp-aizu-wakamatsu
     name: Aizu Foreign Teams
     type: administrative
-  cms_ids:
-  - 1929
   parent: wf-2014
   next: japan-2014
   sources:
@@ -1535,9 +1544,9 @@ contests:
     roles:
     - teams
     as_of: '20210127131607'
-    note: found inside http://sparth.u-aizu.ac.jp/icpc2013/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://sparth.u-aizu.ac.jp/icpc2013/ by the content check
   - url: http://sparth.u-aizu.ac.jp/icpc2013/results/2013AizuAllProblems.pdf
     roles:
     - problemset
@@ -1562,11 +1571,11 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20240604043240'
     url_state: live
     url_checked: '2026-11-16'
     note: '2013-2014 ACM-ICPC, Asia Aizu Regional Contest (judge hunt 2026-11-03: name+year: ''2013-2014
       ACM-ICPC, Asia Aizu Regional Contest'' -> season start 2013)'
-    as_of: '20240604043240'
   - url: https://onlinejudge.u-aizu.ac.jp/challenges/sources/ICPC/Regional/144
     roles:
     - problemset
@@ -1580,9 +1589,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Asia-Pacific/Japan/The-2013-ACM-ICPC-Asia-Aizu-Regional-Contest/tutorials.pdf
     roles:
     - editorial
@@ -1590,18 +1599,21 @@ contests:
     url_checked: '2026-11-23'
   problems:
     set: japan-2013
+  provenance:
+  - date 2013-11-24 read from http://sparth.u-aizu.ac.jp/icpc2013/results/2013AizuAllProblems.pdf (data
+    scan 2026-11-23)
 - id: japan-2014
   season: 2015
   name: 2014 ACM-ICPC Asia Tokyo Regional Contest
-  date: '2014-10-20'
+  date: '2014-10-19'
   location: Asia, Tokyo
+  cms_ids:
+  - 2590
   sites:
   - location: jp-tokyo
     name: Administrative Site
     date: '2014-10-18'
     type: administrative
-  cms_ids:
-  - 2590
   parent: wf-2015
   next: japan-2015
   sources:
@@ -1636,9 +1648,9 @@ contests:
   - url: https://icpc.jp/2014/regional/teams/
     roles:
     - teams
-    note: found inside https://icpc.jp/2014/ by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://icpc.jp/2014/ by the content check
   - url: https://www.acmicpc.net/category/detail/1291
     roles:
     - problemset
@@ -1655,11 +1667,11 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20211019131754'
     url_state: changed
     url_checked: '2026-11-16'
     note: '2014-2015 ACM-ICPC, Asia Tokyo Regional Contest (judge hunt 2026-11-03: name+year: ''2014-2015
       ACM-ICPC, Asia Tokyo Regional Contest'' -> season start 2014)'
-    as_of: '20211019131754'
   - url: https://onlinejudge.u-aizu.ac.jp/challenges/sources/ICPC/Regional/154
     roles:
     - problemset
@@ -1673,22 +1685,22 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpc.jp/2014/regional/problems/
     roles:
     - problemset
-    note: found inside https://icpc.jp/2014/ by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://icpc.jp/2014/ by the content check
   - url: https://codeforces.com/gym/100803/attachments/download/3816/20142015-acmicpc-asia-tokyo-regional-contest-en.pdf
     roles:
     - problem
-    judge: codeforces
     problem: B
     contains:
     - statement
+    judge: codeforces
   - url: https://icpcarchive.github.io/Asia-Pacific/Japan/The-2014-ACM-ICPC-Asia-Tokyo-Regional-Contest/tutorials.pdf
     roles:
     - editorial
@@ -1696,16 +1708,18 @@ contests:
     url_checked: '2026-11-23'
   problems:
     set: japan-2014
+  provenance:
+  - date 2014-10-19 read from https://icpc.jp/2014/ (data scan 2026-11-23)
 - id: japan-2015
   season: 2016
   name: 2015 ACM-ICPC Asia Tsukuba Regional Contest
-  date: '2015-11-30'
+  date: '2015-11-29'
   location: Tsukuba
+  cms_ids:
+  - 2912
   sites:
   - location: jp-tsukuba
     name: Asia Tsukuba OnSite
-  cms_ids:
-  - 2912
   parent: wf-2016
   next: japan-2016
   sources:
@@ -1759,10 +1773,10 @@ contests:
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221003153634'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Asia-Pacific/Japan/The-2015-ACM-ICPC-Asia-Tsukuba-Regional-Contest/tutorials.pdf
     roles:
     - editorial
@@ -1770,6 +1784,8 @@ contests:
     url_checked: '2026-11-23'
   problems:
     set: japan-2015
+  provenance:
+  - date 2015-11-29 read from https://icpc.jp/2015/ (data scan 2026-11-23)
 - id: japan-2016
   season: 2017
   name: 2016 ACM-ICPC Asia Tsukuba Regional Contest
@@ -1877,12 +1893,12 @@ contests:
   name: 2017 ACM-ICPC Asia Tsukuba Regional Contest
   date: '2017-12-17'
   location: Tsukuba
+  cms_ids:
+  - 3413
   sites:
   - location: jp-tsukuba
     name: Asia Tsukuba OnSite
     date: '2017-12-31'
-  cms_ids:
-  - 3413
   parent: wf-2018
   next: japan-2018
   sources:
@@ -1913,26 +1929,17 @@ contests:
     archived:
     - japan/japan-2017/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 3413, 50 teams, DB fetch 2026-04-26)
-  - url: https://icpc.jp/2017/regional/world-finals-teams/
-    roles:
-    - rankings
-    note: found inside https://icpc.jp/2017/ by the content check
-    as_of: '20250803190436'
-    url_state: live
-    url_checked: '2026-11-16'
-    archived:
-    - japan/japan-2017/rankings/20250803-wayback-3a7143a0/page.html
-    - japan/japan-2017/rankings/20261116-live-c6ec88a1/page.html
   - url: https://icpc.jp/2017/domestic/results/
     roles:
-    - rankings
-    note: found inside https://icpc.jp/2017/ by the content check
-    url_state: live
-    url_checked: '2026-11-16'
+    - standings
+    scope: domestic qualifier
+    as_of: '20250803172636'
     archived:
     - japan/japan-2017/rankings/20250803-wayback-dc0fd042/page.html
     - japan/japan-2017/rankings/20261116-live-08969e3c/page.html
-    as_of: '20250803172636'
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside https://icpc.jp/2017/ by the content check
   - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Japan/2017%20Asia%20Tsukuba%20Regional%20Contest/problems.pdf
     roles:
     - problemset
@@ -1975,15 +1982,25 @@ contests:
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221207175830'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Asia-Pacific/Japan/The-2017-ACM-ICPC-Asia-Tsukuba-Regional-Contest/tutorials.pdf
     roles:
     - editorial
     url_state: live
     url_checked: '2026-11-23'
+  - url: https://icpc.jp/2017/regional/world-finals-teams/
+    roles:
+    - report
+    as_of: '20250803190436'
+    archived:
+    - japan/japan-2017/rankings/20250803-wayback-3a7143a0/page.html
+    - japan/japan-2017/rankings/20261116-live-c6ec88a1/page.html
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside https://icpc.jp/2017/ by the content check
   problems:
     set: japan-2017
 - id: japan-2018
@@ -2082,14 +2099,14 @@ contests:
 - id: japan-2019
   season: 2020
   name: 2019 ICPC Asia Yokohama Regional Contest
-  date: '2019-11-18'
+  date: '2019-11-17'
   location: Yokohama
+  cms_ids:
+  - 4165
   sites:
   - location: jp-yokohama
     name: Asia Yokohama OnSite
     date: '2019-11-16'
-  cms_ids:
-  - 4165
   parent: wf-2020
   next: japan-2020
   sources:
@@ -2154,16 +2171,16 @@ contests:
     - statement
     - solutions
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221203191031'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpc.jp/2019/regional/contest-documents/
     roles:
     - problemset
-    note: found inside https://icpc.jp/2019/regional/ by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://icpc.jp/2019/regional/ by the content check
   - url: https://icpcarchive.github.io/Asia-Pacific/Japan/The-2019-ICPC-Asia-Yokohama-Regional-Contest/tutorials_en.pdf
     roles:
     - editorial
@@ -2172,11 +2189,13 @@ contests:
   - url: https://icpc.jp/2019/regional/commentaries-and-data-from-judges/
     roles:
     - editorial
-    note: found inside https://icpc.jp/2019/regional/ by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://icpc.jp/2019/regional/ by the content check
   problems:
     set: japan-2019
+  provenance:
+  - date 2019-11-17 read from https://icpc.jp/2019/regional/ (data scan 2026-11-23)
 - id: japan-2020
   season: 2021
   name: 2020 ICPC Asia Yokohama Regional Contest

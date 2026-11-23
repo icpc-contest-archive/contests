@@ -1,16 +1,19 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: dalian
   name: ACM-ICPC Asia Dalian Regional Contest
   tier: regional
   region: Asia East
   naming: season-start
+  rotating_host: true
 contests:
 - id: dalian-2011
   season: 2012
   name: 2011 ACM-ICPC Asia Dalian Regional Contest
-  date: '2011-09-23'
+  date: '2011-09-25'
   location: Administrative Site Location; Dalian University of Technology
+  cms_ids:
+  - 794
   sites:
   - location: cn-dalian-dut
     name: Asia Dalian Online Regional Contest
@@ -20,8 +23,6 @@ contests:
     name: Asia Dalian On Site Regional Contest
     date: '2011-09-25'
   - type: administrative
-  cms_ids:
-  - 794
   parent: wf-2012
   next: dalian-2016
   sources:
@@ -57,72 +58,81 @@ contests:
   - url: http://icpc.dlut.edu.cn/Item/22.aspx
     roles:
     - teams
-    note: found inside http://icpc.dlut.edu.cn by the content check
+    as_of: '20111201104702'
     url_state: dead
     url_checked: '2026-11-22'
-    as_of: '20111201104702'
+    note: found inside http://icpc.dlut.edu.cn by the content check
+  - url: https://acm.hdu.edu.cn/search.php?field=problem&key=2011+Asia+Dalian+Regional&source=1&searchmode=source
+    roles:
+    - problemset
+    contains:
+    - names
+    judge: hdu
+    note: found by the data scan 2026-11-23 (online judge (HDU source search))
   - url: https://pintia.cn/problem-sets/91827364500/exam/problems/type/7?problemSetProblemId=91827368993
     roles:
     - problem
-    judge: pintia
     contains:
     - statement
+    judge: pintia
   - url: https://pintia.cn/problem-sets/91827364500/exam/problems/type/7?problemSetProblemId=91827368994
     roles:
     - problem
-    judge: pintia
     contains:
     - statement
+    judge: pintia
   - url: https://pintia.cn/problem-sets/91827364500/exam/problems/type/7?problemSetProblemId=91827368995
     roles:
     - problem
-    judge: pintia
     contains:
     - statement
+    judge: pintia
   - url: https://pintia.cn/problem-sets/91827364500/exam/problems/type/7?problemSetProblemId=91827368996
     roles:
     - problem
-    judge: pintia
     contains:
     - statement
+    judge: pintia
   - url: https://pintia.cn/problem-sets/91827364500/exam/problems/type/7?problemSetProblemId=91827368997
     roles:
     - problem
-    judge: pintia
     contains:
     - statement
+    judge: pintia
   - url: https://pintia.cn/problem-sets/91827364500/exam/problems/type/7?problemSetProblemId=91827368998
     roles:
     - problem
-    judge: pintia
     contains:
     - statement
+    judge: pintia
   - url: https://pintia.cn/problem-sets/91827364500/exam/problems/type/7?problemSetProblemId=91827368999
     roles:
     - problem
-    judge: pintia
     contains:
     - statement
+    judge: pintia
   - url: https://pintia.cn/problem-sets/91827364500/exam/problems/type/7?problemSetProblemId=91827369000
     roles:
     - problem
-    judge: pintia
     contains:
     - statement
+    judge: pintia
   - url: https://pintia.cn/problem-sets/91827364500/exam/problems/type/7?problemSetProblemId=91827369001
     roles:
     - problem
-    judge: pintia
     contains:
     - statement
+    judge: pintia
   - url: https://pintia.cn/problem-sets/91827364500/exam/problems/type/7?problemSetProblemId=91827369002
     roles:
     - problem
-    judge: pintia
     contains:
     - statement
+    judge: pintia
   problems:
     set: dalian-2011
+  provenance:
+  - date 2011-09-25 read from http://board.acmicpc.info/icpc2011/dlut_onsite.php (data scan 2026-11-23)
 - id: dalian-2016
   season: 2017
   name: 2016 ACM-ICPC Asia Dalian Regional Contest

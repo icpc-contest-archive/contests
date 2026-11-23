@@ -1,10 +1,11 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: hangzhou
   name: ICPC Asia Hangzhou Regional Contest
   tier: regional
   region: Asia East
   naming: season-start
+  rotating_host: true
 contests:
 - id: hangzhou-2005
   season: 2006
@@ -157,6 +158,8 @@ contests:
   location: Zhengzhou University; Hangzhou Dianzi University; GuangDong Provincials; ICPC Zhuhai Metropolitan
     Programming Contest; Nanjing Univ Programming Contest; Zhejiang University; Nanjing University of
     Aeronautics and Astronautics; Administrative Site Location; BNU  Zhuhai Campus
+  cms_ids:
+  - 11
   sites:
   - location: cn-hangzhou-hdu
     name: Asia Hangzhou Regional Contest - Online
@@ -190,8 +193,6 @@ contests:
     date: '2008-05-05'
     type: administrative
   - type: administrative
-  cms_ids:
-  - 11
   parent: wf-2009
   next: hangzhou-2010
   sources:
@@ -206,6 +207,13 @@ contests:
     url_state: dead
     url_checked: '2026-11-22'
     note: from archived capture (external-standings)
+  - url: https://acm.hdu.edu.cn/search.php?field=problem&key=2008+Asia+Regional+Hangzhou&source=1&searchmode=source
+    roles:
+    - problemset
+    contains:
+    - names
+    judge: hdu
+    note: found by the data scan 2026-11-23 (online judge (HDU source search))
   problems:
     set: hangzhou-2008
 - id: hangzhou-2010
@@ -213,6 +221,8 @@ contests:
   name: 2010 ACM-ICPC Asia Hangzhou Regional Contest
   date: '2010-10-24'
   location: Hangzhou; Administrative Site Location
+  cms_ids:
+  - 660
   sites:
   - location: cn-hangzhou
     name: Asia Hangzhou Online First Round Contest
@@ -221,8 +231,6 @@ contests:
   - location: cn-hangzhou
     name: Asia Hangzhou On Site Regional Contest
   - type: administrative
-  cms_ids:
-  - 660
   parent: wf-2011
   next: hangzhou-2012
   sources:
@@ -256,6 +264,13 @@ contests:
     archived:
     - hangzhou/hangzhou-2010/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 660, 118 teams, DB fetch 2026-04-26)
+  - url: https://acm.hdu.edu.cn/search.php?field=problem&key=2010+Asia+Hangzhou+Regional&source=1&searchmode=source
+    roles:
+    - problemset
+    contains:
+    - names
+    judge: hdu
+    note: found by the data scan 2026-11-23 (online judge (HDU source search))
   problems:
     set: hangzhou-2010
 - id: hangzhou-2012
@@ -263,14 +278,14 @@ contests:
   name: 2012 ACM-ICPC Asia Hangzhou Regional Contest
   date: '2012-11-04'
   location: OnLine; Hangzhou City, Zhejiang, China
+  cms_ids:
+  - 1359
   sites:
   - name: Asia Hangzhou 2012 Online First Round
     date: '2012-09-23'
     type: online
   - location: cn-hangzhou
     name: 2012 ACM-ICPC Asia Hangzhou OnSite Contest
-  cms_ids:
-  - 1359
   parent: wf-2013
   next: hangzhou-2013
   sources:
@@ -293,6 +308,13 @@ contests:
     archived:
     - hangzhou/hangzhou-2012/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 1359, 141 teams, DB fetch 2026-04-26)
+  - url: https://acm.hdu.edu.cn/search.php?field=problem&key=2012+Asia+Hangzhou+Regional&source=1&searchmode=source
+    roles:
+    - problemset
+    contains:
+    - names
+    judge: hdu
+    note: found by the data scan 2026-11-23 (online judge (HDU source search))
   problems:
     set: hangzhou-2012
 - id: hangzhou-2013
@@ -425,15 +447,20 @@ contests:
   name: 2022 ICPC Asia Hangzhou Regional Contest
   date: '2022-12-04'
   location: HANGZHOU
+  cms_ids:
+  - 6158
   sites:
   - location: cn-hangzhou
     name: Asia HANGZHOU Regional Contest
     date: '2022-12-03'
-  cms_ids:
-  - 6158
   parent: wf-2023
   next: hangzhou-2023
   sources:
+  - url: https://icpc.pku.edu.cn/ssxx/1119_icpcbjzb_142611.htm
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ICPC China contest-information list icpc.pku.edu.cn/ssxx/
+      (赛事 sàishì = contests), sibling pattern of the 2026 editions)
   - url: https://codeforces.com/gym/104090/standings
     roles:
     - scoreboard
@@ -446,11 +473,11 @@ contests:
   - url: https://board.xcpcio.com/icpc/47th/hangzhou
     roles:
     - scoreboard
+    archived:
+    - hangzhou/hangzhou-2022/scoreboard/20261122-live-7f8439fd/page.html
     url_state: live
     url_checked: '2026-11-22'
     note: added by url-hunt 2026-09-01 (xcpcio-data-agent)
-    archived:
-    - hangzhou/hangzhou-2022/scoreboard/20261122-live-7f8439fd/page.html
   - url: https://icpc.global/regionals/finder/Hangzhou-2023/standings
     roles:
     - standings
@@ -470,21 +497,21 @@ contests:
     contains:
     - names
     judge: codeforces
+    as_of: '20221210175752'
     url_state: live
     url_checked: '2026-11-16'
     note: 'The 2022 ICPC Asia Hangzhou Regional Programming Contest (judge hunt 2026-11-03: name+year:
       ''The 2022 ICPC Asia Hangzhou Regional Programming Contest'' -> season start 2022)'
-    as_of: '20221210175752'
   - url: https://qoj.ac/contest/1071
     roles:
     - problemset
     contains:
     - names
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20230206215517'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Asia-East-Continent/Hangzhou/The-2022-ICPC-Asia-Hangzhou-Regional-Contest/tutorials_en.pdf
     roles:
     - editorial
@@ -497,15 +524,20 @@ contests:
   name: 2023 ICPC Asia Hangzhou Regional Contest
   date: '2023-12-10'
   location: HANGZHOU; Administrative Site Location
+  cms_ids:
+  - 7691
   sites:
   - type: administrative
   - location: cn-hangzhou
     name: Asia HANGZHOU Regional Contest
-  cms_ids:
-  - 7691
   parent: wf-2024
   next: hangzhou-2024
   sources:
+  - url: https://icpc.pku.edu.cn/ssxx/1119_icpcbjzb_151093.htm
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ICPC China contest-information list icpc.pku.edu.cn/ssxx/
+      (赛事 sàishì = contests), sibling pattern of the 2026 editions)
   - url: https://codeforces.com/gym/104976/standings
     roles:
     - scoreboard
@@ -543,20 +575,20 @@ contests:
     contains:
     - names
     judge: codeforces
+    as_of: '20240318205601'
     url_state: replaced
     url_checked: '2026-11-16'
     note: 'The 2023 ICPC Asia Hangzhou Regional Contest (The 2nd Universal Cup. Stage 22: Hangzhou) (judge
       hunt 2026-11-03: name+year: ''The 2023 ICPC Asia Hangzhou Regional Contest (The 2nd Universal Cup.
       Stage 22: Hangzhou)'' -> season start 2023; gym is the Universal/Open Cup replay of the regional
       set)'
-    as_of: '20240318205601'
   - url: https://qoj.ac/contest/1516
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Asia-East-Continent/Hangzhou/The-2023-ICPC-Asia-Hangzhou-Regional-Contest/tutorials_zh-cn.pdf
     roles:
     - editorial
@@ -569,15 +601,20 @@ contests:
   name: 2024 ICPC Asia Hangzhou Regional Contest
   date: '2024-11-10'
   location: Administrative Site Location; HANGZHOU
+  cms_ids:
+  - 9014
   sites:
   - type: administrative
   - location: cn-hangzhou
     name: Asia HANGZHOU Regional Contest
-  cms_ids:
-  - 9014
   parent: wf-2025
   next: null
   sources:
+  - url: https://icpc.pku.edu.cn/ssxx/1119_icpcbjzb_158937.htm
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ICPC China contest-information list icpc.pku.edu.cn/ssxx/
+      (赛事 sàishì = contests), sibling pattern of the 2026 editions)
   - url: https://codeforces.com/gym/105657/standings
     roles:
     - scoreboard
@@ -605,111 +642,111 @@ contests:
     contains:
     - statement
     judge: luogu
+    as_of: '20251008161927'
     url_state: replaced
     url_checked: '2026-11-16'
     note: '[ICPC2024 Hangzhou R] ICPC2024 区域赛杭州站重现赛 (judge hunt 2026-11-03: Luogu official-team mirror
       (重现赛 chóngxiànsài ''replay contest'', run 2025-10-11) of 2024 ICPC Asia Hangzhou Regional Contest
       (2024-11-10); description says original problems+data; catalogue has no problem titles to check
       (13 problems on judge))'
-    as_of: '20251008161927'
   - url: https://qoj.ac/contest/1893
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://www.luogu.com.cn/problem/P14187
     roles:
     - problem
-    judge: luogu
     problem: A
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P14188
     roles:
     - problem
-    judge: luogu
     problem: B
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P14189
     roles:
     - problem
-    judge: luogu
     problem: C
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P14190
     roles:
     - problem
-    judge: luogu
     problem: D
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P14191
     roles:
     - problem
-    judge: luogu
     problem: E
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P14192
     roles:
     - problem
-    judge: luogu
     problem: F
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P14193
     roles:
     - problem
-    judge: luogu
     problem: G
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P14194
     roles:
     - problem
-    judge: luogu
     problem: H
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P14195
     roles:
     - problem
-    judge: luogu
     problem: I
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P14196
     roles:
     - problem
-    judge: luogu
     problem: J
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P14197
     roles:
     - problem
-    judge: luogu
     problem: K
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P14198
     roles:
     - problem
-    judge: luogu
     problem: L
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P14199
     roles:
     - problem
-    judge: luogu
     problem: M
     contains:
     - statement
+    judge: luogu
   - url: https://icpcarchive.github.io/Asia-East-Continent/Hangzhou/The-2024-ICPC-Asia-Hangzhou-Regional-Contest/tutorials_zh-cn.pdf
     roles:
     - editorial

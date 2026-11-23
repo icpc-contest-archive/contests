@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: ukiepc
   name: ICPC UK & Ireland Programming Contest
@@ -12,6 +12,8 @@ contests:
   date: '2013-10-05'
   location: South Kensington Campus, Exhibition Rd, London SW7 2AZ; University of Wolverhampton; Computer
     Science; Computer Science & Informatics; Nottingham, UK
+  cms_ids:
+  - 2101
   sites:
   - location: ie-dublin-ucd
   - location: gb-london-imperial
@@ -20,8 +22,6 @@ contests:
   - location: gb-bath-university
     type: administrative
   - location: gb-wolverhampton-university
-  cms_ids:
-  - 2101
   parent: nwerc-2013
   next: ukiepc-2014
   sources:
@@ -44,6 +44,10 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (template)
+  - url: https://icpc.global/regionals/finder/UKIEPC-2014/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 58 rows)
   - url: https://github.com/icpc/ncpc-web/releases/download/ncpc2013-data/ncpc2013problems.pdf
     roles:
     - problemset
@@ -141,6 +145,8 @@ contests:
     St Andrews; University of Liverpool; South Kensington Campus, Exhibition Rd, London SW7 2AZ; University
     of Portsmouth - Computing; University of Wolverhampton; Computer Laboratory; Manchester Uni; Aston
     University
+  cms_ids:
+  - 2783
   sites:
   - location: gb-saint-andrews-st-andrews
   - location: gb-london-imperial
@@ -162,8 +168,6 @@ contests:
   - type: administrative
   - location: gb-bath-university
     type: administrative
-  cms_ids:
-  - 2783
   parent: nwerc-2015
   next: ukiepc-2016
   sources:
@@ -174,6 +178,8 @@ contests:
     archived:
     - ukiepc/ukiepc-2015/scoreboard/2026-04-16-ukiepc/2015-uk--ireland-programming-contest-2015.html
     - ukiepc/ukiepc-2015/scoreboard/20151025-wayback-ae8e9233/page.html
+    - ukiepc/ukiepc-2016/scoreboard/2026-04-16-ukiepc/2016-uk--ireland-programming-contest-2016.html
+    - ukiepc/ukiepc-2016/scoreboard/20170627-wayback-b64c27bd/page.html
     url_state: replaced
     url_checked: '2026-11-14'
     note: from archived capture (scoreboard)
@@ -226,21 +232,21 @@ contests:
     contains:
     - statement
     judge: kattis
+    as_of: '20210417150715'
     url_state: replaced
     url_checked: '2026-11-16'
     note: Kattis problem-sources page (export source "United Kingdom and Ireland Programming Contest (UKIEPC)
       2015", 2026-11-02)
-    as_of: '20210417150715'
   - url: https://codeforces.com/gym/100800
     roles:
     - problemset
     contains:
     - statement
     judge: codeforces
-    note: '2015 United Kingdom and Ireland Programming Contest (UKIEPC 2015) (judge hunt 2026-11-03: name+year:
-      ''2015 United Kingdom and Ireland Programming Contest (UKIEPC 2015)'' -> season start 2015)'
     url_state: live
     url_checked: '2026-11-16'
+    note: '2015 United Kingdom and Ireland Programming Contest (UKIEPC 2015) (judge hunt 2026-11-03: name+year:
+      ''2015 United Kingdom and Ireland Programming Contest (UKIEPC 2015)'' -> season start 2015)'
   problems:
     set: ukiepc-2015
 - id: ukiepc-2016
@@ -250,6 +256,8 @@ contests:
   location: ECS; Eng/Computing, DCU; Manchester Uni; Queen's University Belfast; Nottingham, UK; Administrative
     Site Location; Computer Science & Informatics; Computer Science; University of Aberdeen; Aberystwyth
     University; University of Exeter; Computing & Information System
+  cms_ids:
+  - 3119
   sites:
   - location: gb-southampton-ecs
     type: administrative
@@ -277,25 +285,12 @@ contests:
   - location: ie-dublin-dcu
   - location: gb-cambridge-computer-laboratory
     name: Cambridge University
-  cms_ids:
-  - 3119
   parent: nwerc-2016
   next: ukiepc-2017
   sources:
   - url: https://ukiepc.info/2016/
     roles:
     - web
-  - url: http://ukiepc.info/2015/
-    roles:
-    - scoreboard
-    - problemset
-    as_of: '20170627204837'
-    archived:
-    - ukiepc/ukiepc-2016/scoreboard/2026-04-16-ukiepc/2016-uk--ireland-programming-contest-2016.html
-    - ukiepc/ukiepc-2016/scoreboard/20170627-wayback-b64c27bd/page.html
-    url_state: replaced
-    url_checked: '2026-11-16'
-    note: from archived capture (scoreboard)
   - url: https://ukiepc.info/2016/scoreboard/
     roles:
     - scoreboard
@@ -327,11 +322,11 @@ contests:
     contains:
     - statement
     judge: kattis
+    as_of: '20190716171618'
     url_state: replaced
     url_checked: '2026-11-16'
     note: Kattis problem-sources page (export source "United Kingdom and Ireland Programming Contest (UKIEPC)
       2016", 2026-11-02)
-    as_of: '20190716171618'
   problems:
     set: ukiepc-2016
   provenance:
@@ -837,6 +832,8 @@ contests:
     Nottingham, UK; University of Sussex; Queens University Belfast (QUB only); University of Warwick
     (Warwick only); Edinburgh University; University of Lincoln; Brunel University London; University
     of Portsmouth; University of Oxford (Oxford teams only)
+  cms_ids:
+  - 5404
   sites:
   - type: administrative
   - name: General Registration (online)
@@ -867,11 +864,13 @@ contests:
     type: administrative
   - location: gb-bristol-university
   - location: gb-brighton-sussex
-  cms_ids:
-  - 5404
   parent: nwerc-2022
   next: ukiepc-2023
   sources:
+  - url: https://ukiepc.info/2022/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (sibling ukiepc-20NN pattern (ukiepc.info/NNNN/))
   - url: https://ukiepc.info/2022/scoreboard/
     roles:
     - scoreboard
@@ -1239,6 +1238,8 @@ contests:
   season: 2027
   name: 2026 ICPC UK & Ireland Programming Contest
   date: '2026-10-17'
+  cms_ids:
+  - 9584
   sites:
   - type: administrative
   - location: gb-belfast-qub
@@ -1285,8 +1286,6 @@ contests:
   - location: gb-wrexham-university
   - location: gb-glasgow-university
   - location: gb-london-university-college
-  cms_ids:
-  - 9584
   parent: nwerc-2026
   sources:
   - url: https://ukiepc.info/2026/
@@ -1295,120 +1294,124 @@ contests:
   - url: https://ukiepc26.kattis.com/contests/ukiepc26/standings
     roles:
     - scoreboard
-    url_state: live
-    url_checked: '2026-11-16'
     archived:
     - ukiepc/ukiepc-2026/scoreboard/20261113-live-95a83220/page.html
+    url_state: live
+    url_checked: '2026-11-16'
+  - url: https://icpc.global/regionals/finder/UKIEPC-2027/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings API, 263 ranked rows on 2026-11-23)
   - url: https://codeforces.com/gym/106787
     roles:
     - problemset
     contains:
     - statement
     judge: codeforces
-    note: '2026 United Kingdom and Ireland Programming Contest (UKIEPC 2026) (judge hunt 2026-11-03: name+year:
-      ''2026 United Kingdom and Ireland Programming Contest (UKIEPC 2026)'' -> season start 2026)'
     url_state: live
     url_checked: '2026-11-16'
+    note: '2026 United Kingdom and Ireland Programming Contest (UKIEPC 2026) (judge hunt 2026-11-03: name+year:
+      ''2026 United Kingdom and Ireland Programming Contest (UKIEPC 2026)'' -> season start 2026)'
   - url: https://qoj.ac/contest/4606
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://open.kattis.com/problems/austere
     roles:
     - problem
-    judge: kattis
     problem: A
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/bustblasting
     roles:
     - problem
-    judge: kattis
     problem: B
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/cryptlet
     roles:
     - problem
-    judge: kattis
     problem: C
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/dire
     roles:
     - problem
-    judge: kattis
     problem: D
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/elderberry
     roles:
     - problem
-    judge: kattis
     problem: E
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/footnotes
     roles:
     - problem
-    judge: kattis
     problem: F
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/gloucester
     roles:
     - problem
-    judge: kattis
     problem: G
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/hoptimization
     roles:
     - problem
-    judge: kattis
     problem: H
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/inverse
     roles:
     - problem
-    judge: kattis
     problem: I
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/jammer
     roles:
     - problem
-    judge: kattis
     problem: J
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/kiltpaint
     roles:
     - problem
-    judge: kattis
     problem: K
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/lawnstripes
     roles:
     - problem
-    judge: kattis
     problem: L
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/midclocking
     roles:
     - problem
-    judge: kattis
     problem: M
     contains:
     - statement
+    judge: kattis
+  problems:
+    set: ukiepc-2026
   provenance:
   - 'ran 2026-10-17: CMS site dates; ukiepc26.kattis.com (start 2026-10-17 12:00 CEST); QOJ mirrors the
     set (ruling 2026-11-12)'
-  problems:
-    set: ukiepc-2026

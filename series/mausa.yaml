@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: mausa
   name: ICPC North America Mid-Atlantic Regional Contest
@@ -6,6 +6,76 @@ series:
   region: North America
   naming: season-start
 contests:
+- id: mausa-1990
+  season: 1991
+  cms_ids: []
+  parent: wf-1991
+  next: mausa-1991
+  sources:
+  - url: https://scholar.lib.vt.edu/VA-news/ROA-Times/issues/1991/rt9103/910322/03220693.htm
+    roles:
+    - report
+    as_of: '20191116003259'
+    note: 'found by the data scan 2026-11-23 (Roanoke Times 1991-03-22 ''Computing with the best'': UVA
+      lost to Tech in the regional qualifying match held in the fall)'
+  provenance:
+  - 'ran: Roanoke Times 1991-03-22, ''Computing with the best'' (Virginia Tech third at the 15th Annual
+    Scholastic Programming Contest, San Antonio, 1991-03-06): the University of Virginia lost to Tech
+    in the "regional qualifying match held in the fall"; Tech "traditionally places first or second in
+    the regional competition" — https://scholar.lib.vt.edu/VA-news/ROA-Times/issues/1991/rt9103/910322/03220693.htm
+    (Wayback 20191116003259) (data scan 2026-11-23)'
+  notes: 'added by the data scan 2026-11-23 (early-years): the article does not name the region; Virginia
+    Tech and Virginia (both in the wf-1991 standings) were in the Mid-Atlantic region (called Allegheny/Capital
+    in the 1991-92 rules). Date and host not found'
+- id: mausa-1991
+  season: 1992
+  date: 1991-10
+  location: University of Maryland
+  cms_ids: []
+  sites:
+  - location: us-md
+    name: University of Maryland
+  parent: wf-1992
+  next: mausa-1992
+  sources:
+  - url: https://scholar.lib.vt.edu/VA-news/ROA-Times/issues/1992/rt9203/920307/03070105.htm
+    roles:
+    - report
+    - rankings
+    scope: champion
+    as_of: '20191115230013'
+    note: 'found by the data scan 2026-11-23 (Roanoke Times 1992-03-07: ''Tech won the regional competition
+      in October at the University of Maryland'')'
+  provenance:
+  - 'ran: Roanoke Times 1992-03-07, ''Tech computer team takes 4th in national AT&T competition'': "Tech
+    won the regional competition in October at the University of Maryland"; the finals had 30 teams from
+    a dozen regionals — https://scholar.lib.vt.edu/VA-news/ROA-Times/issues/1992/rt9203/920307/03070105.htm
+    (Wayback 20191115230013) (data scan 2026-11-23)'
+  - date 1991-10 read from https://scholar.lib.vt.edu/VA-news/ROA-Times/issues/1992/rt9203/920307/03070105.htm
+    (data scan 2026-11-23)
+  - location University of Maryland read from https://scholar.lib.vt.edu/VA-news/ROA-Times/issues/1992/rt9203/920307/03070105.htm
+    (data scan 2026-11-23)
+  notes: 'added by the data scan 2026-11-23 (early-years): the 1991-92 rules (comp.org.acm 1991-05-17)
+    call this region Allegheny/Capital, two finals places; Virginia Tech (4th) and Drexel are in the wf-1992
+    standings'
+- id: mausa-1992
+  season: 1993
+  cms_ids: []
+  parent: wf-1993
+  next: mausa-1994
+  sources:
+  - url: https://groups.google.com/g/comp.org.acm/c/0tRp_87Je8k/m/1I0UkBTxhSEJ
+    roles:
+    - rankings
+    scope: teams advancing
+    note: 'found by the data scan 2026-11-23 (comp.org.acm 1992-12-05, Dragomir: finals teams known so
+      far, ''Mid-Atlantic: Virginia Tech, Maryland'')'
+  provenance:
+  - 'ran: comp.org.acm, Dragomir, ''ACM programming contest'' 1992-12-05: "Mid-Atlantic: Virginia Tech,
+    Maryland" — https://groups.google.com/g/comp.org.acm/c/0tRp_87Je8k/m/1I0UkBTxhSEJ (data scan 2026-11-23)'
+  notes: 'added by the data scan 2026-11-23 (early-years): 1992-93 Mid-Atlantic RCD Olafur Gudmundsson,
+    University of Maryland (comp.org.acm 1992-07-08); Virginia Tech and Maryland are in the wf-1993 standings.
+    Date and host not found. mausa-1993 is still missing (see the early-years report)'
 - id: mausa-1994
   season: 1995
   name: Mid-Atlantic Regional Contest
@@ -15,7 +85,7 @@ contests:
   sources:
   - url: https://www.eecis.udel.edu/~saunders/regional95/94region-scores.ps
     roles:
-    - standings
+    - scoreboard
     as_of: '19990220061543'
     archived:
     - mausa/mausa-1994/standings/2026-09-01-live-b2f2868b/page.html
@@ -25,10 +95,10 @@ contests:
   - url: https://usenetarchives.com/view.php?id=comp.org.acm&mid=PDM5OTcxcCRja3NAdHVuYS5jcy5kdWtlLmVkdT4
     roles:
     - standings
-    url_state: live
-    url_checked: '2026-11-22'
     archived:
     - mausa/mausa-1994/standings/20261122-live-c801e55d/page.html
+    url_state: live
+    url_checked: '2026-11-22'
 - id: mausa-1995
   season: 1996
   cms_ids: []
@@ -46,6 +116,7 @@ contests:
     url_checked: '2026-11-16'
 - id: mausa-1996
   season: 1997
+  date: '1996-11-16'
   cms_ids: []
   parent: wf-1997
   next: mausa-1997
@@ -99,13 +170,15 @@ contests:
     roles:
     - problemset
     judge: kattis
-    note: Kattis problem-sources page (export source "1996 Mid-Atlantic Regionals", 2026-11-02)
     url_state: live
     url_checked: '2026-11-16'
+    note: Kattis problem-sources page (export source "1996 Mid-Atlantic Regionals", 2026-11-02)
   problems:
     set: mausa-1996
   provenance:
   - ICPC Problem Archive progress sheet (2026-11-01)
+  - date 1996-11-16 read from https://www.eecis.udel.edu/~saunders/regional96/schedule.html (data scan
+    2026-11-23)
 - id: mausa-1997
   season: 1998
   cms_ids: []
@@ -143,6 +216,9 @@ contests:
   season: 1999
   name: 1998 ACM Mid-Atlantic USA Programming Contest
   date: '1998-11-14'
+  location: Virginia Tech, Blacksburg, Virginia
+  cms_ids:
+  - 952
   sites:
   - location: us-blacksburg-virginia-tech
   - location: us-philadelphia-drexel
@@ -156,20 +232,12 @@ contests:
     name: Duke
   - location: us-bethlehem-lehigh
     name: Lehigh
-  cms_ids:
-  - 952
   parent: wf-1999
   next: mausa-1999
   sources:
   - url: http://midatl.cslab.vt.edu/
     roles:
     - web
-  - url: http://www.eecis.udel.edu/~saunders/regional98/UDteams.html
-    roles:
-    - web
-    url_state: live
-    url_checked: '2026-11-14'
-    note: moved from mausa-1997 by the content check
   - url: http://icpc.baylor.edu/past/icpc99/Regionals/MAUSA98/Standings.htm
     roles:
     - standings
@@ -194,18 +262,18 @@ contests:
     roles:
     - standings
     as_of: '19991222032229'
-    note: found inside http://midatl.cslab.vt.edu/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - mausa/mausa-1998/standings/19991222-wayback-3a69ba74/standings_full.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://midatl.cslab.vt.edu/ by the content check
   - url: http://midatl.cslab.vt.edu:80/teams.html
     roles:
     - teams
     as_of: '19981205205721'
-    note: found inside http://midatl.cslab.vt.edu/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://midatl.cslab.vt.edu/ by the content check
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidAtl/1998/index.html
     roles:
     - problemset
@@ -229,13 +297,20 @@ contests:
     roles:
     - problemset
     as_of: '20010211015029'
-    note: found inside http://midatl.cslab.vt.edu/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://midatl.cslab.vt.edu/ by the content check
+  - url: http://www.eecis.udel.edu/~saunders/regional98/UDteams.html
+    roles:
+    - report
+    url_state: live
+    url_checked: '2026-11-14'
+    note: moved from mausa-1997 by the content check
   problems:
     set: mausa-1998
   provenance:
   - ICPC Problem Archive progress sheet (2026-11-01)
+  - location Virginia Tech, Blacksburg, Virginia read from http://midatl.cslab.vt.edu/ (data scan 2026-11-23)
 - id: mausa-1999
   season: 2000
   name: 1999 ACM Mid-Atlantic USA Programming Contest
@@ -311,6 +386,8 @@ contests:
   name: 2000 ACM Mid-Atlantic USA Programming Contest
   date: '2000-11-11'
   location: Christopher Newport; Philadelphia; Virginia Tech
+  cms_ids:
+  - 1225
   sites:
   - location: us-newark-delaware
   - location: us-newport-news-cnu
@@ -322,8 +399,6 @@ contests:
   - location: us-charlottesville-uva
   - location: us-durham-duke
   - location: us-baltimore-jhu
-  cms_ids:
-  - 1225
   parent: wf-2001
   next: mausa-2001
   sources:
@@ -334,13 +409,12 @@ contests:
   - url: http://midatl.cs.vt.edu/
     roles:
     - web
-    as_of: '20020923031246'
+    as_of: '20010111195000'
     url_state: dead
     url_checked: '2026-11-14'
   - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=435
     roles:
     - standings
-    - rankings
     as_of: '20011222220303'
     archived:
     - mausa/mausa-2000/rankings/2026-09-01-wayback-8fbfc7a8/page.html
@@ -387,6 +461,8 @@ contests:
   date: '2001-11-10'
   location: Virginia Tech; Wilkes; Blacksburg, VA; PSU Harrisburg; Radford, VA; Johns Hopkins University;
     Christopher Newport; Duke University
+  cms_ids:
+  - 1063
   sites:
   - location: us-newport-news-cnu
   - location: us-middletown-penn-harrisburg
@@ -398,8 +474,6 @@ contests:
   - location: us-blacksburg-virginia-tech
     name: Any Site
     type: administrative
-  cms_ids:
-  - 1063
   parent: wf-2002
   next: mausa-2002
   sources:
@@ -409,7 +483,7 @@ contests:
     as_of: '20020118132406'
   - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=500
     roles:
-    - rankings
+    - standings
     as_of: '20020619095916'
     archived:
     - mausa/mausa-2001/rankings/2026-09-01-wayback-50eab312/page.html
@@ -421,14 +495,14 @@ contests:
     note: added by url-hunt 2026-09-01 (cdx-viewstandings); as_of 20090102025355 for rankings
   - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=500
     roles:
-    - rankings
+    - standings
     as_of: '20020203154046'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: unknown
-    url_checked: '2026-11-13'
     archived:
     - mausa/mausa-2001/standings/20020203-wayback-d14ccd00/page.html
     - mausa/mausa-2001/rankings/20020203-wayback-d14ccd00/page.html
+    url_state: unknown
+    url_checked: '2026-11-13'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_MidAtl/2001/index.html
     roles:
     - problemset
@@ -468,9 +542,9 @@ contests:
     roles:
     - problemset
     as_of: '20011215085633'
-    note: found inside http://midatl.cs.vt.edu/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://midatl.cs.vt.edu/ by the content check
   - url: https://www.acmicpc.net/category/detail/1096
     roles:
     - problem
@@ -490,6 +564,8 @@ contests:
   date: '2002-11-16'
   location: Blacksburg, VA; George Washington; Christopher Newport; Radford, VA; Virginia Tech; Wilkes;
     Johns Hopkins University; Duke University
+  cms_ids:
+  - 1189
   sites:
   - location: us-blacksburg-virginia-tech
   - location: us-wa
@@ -503,8 +579,6 @@ contests:
     name: Any Site
     type: administrative
   - location: us-wilkes-barre-wilkes
-  cms_ids:
-  - 1189
   parent: wf-2003
   next: mausa-2003
   sources:
@@ -515,11 +589,11 @@ contests:
     roles:
     - scoreboard
     as_of: '20050502012011'
-    note: found inside http://midatl.cs.vt.edu by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - mausa/mausa-2002/scoreboard/20050502-wayback-c0446eac/score.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://midatl.cs.vt.edu by the content check
   - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandingsdb5c.html?ContestID=568
     roles:
     - rankings
@@ -535,12 +609,12 @@ contests:
     roles:
     - rankings
     as_of: '20021220072625'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: unknown
-    url_checked: '2026-11-13'
     archived:
     - mausa/mausa-2002/standings/20021220-wayback-66edfcb1/page.html
     - mausa/mausa-2002/rankings/20021220-wayback-66edfcb1/page.html
+    url_state: unknown
+    url_checked: '2026-11-13'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/midatl.cs.vt.edu/2002/problems/index.html
     roles:
     - problemset
@@ -566,71 +640,64 @@ contests:
     roles:
     - problemset
     as_of: '20030725225331'
-    note: found inside http://midatl.cs.vt.edu by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://midatl.cs.vt.edu by the content check
+  - url: http://midatl.cs.vt.edu:80/solutions/MidAtlantic2002-final.pdf
+    roles:
+    - problemset
+    as_of: '20030929050903'
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://midatl.cs.vt.edu by the content check
   - url: https://www.acmicpc.net/problem/4775
     roles:
     - problem
-    judge: baekjoon
     problem: C
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190718063709'
   - url: https://www.acmicpc.net/problem/4776
     roles:
     - problem
-    judge: baekjoon
     problem: D
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190718063709'
   - url: https://www.acmicpc.net/problem/4777
     roles:
     - problem
-    judge: baekjoon
     problem: E
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190718063709'
   - url: https://www.acmicpc.net/problem/4778
     roles:
     - problem
-    judge: baekjoon
     problem: F
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190718063709'
   - url: https://www.acmicpc.net/problem/4780
     roles:
     - problem
-    judge: baekjoon
     problem: H
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190718063709'
   - url: https://www.acmicpc.net/problem/4774
     roles:
     - problem
-    judge: baekjoon
     problem: P
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190718063709'
-  - url: http://midatl.cs.vt.edu:80/solutions/MidAtlantic2002-final.pdf
-    roles:
-    - editorial
-    as_of: '20030929050903'
-    note: found inside http://midatl.cs.vt.edu by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
-  - url: http://midatl.cs.vt.edu:80/judges-comments1.htm
-    roles:
-    - editorial
-    as_of: '20040121122419'
-    note: found inside http://midatl.cs.vt.edu by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
   problems:
     set: mausa-2002
 - id: mausa-2003
@@ -639,6 +706,8 @@ contests:
   date: '2003-11-08'
   location: Duke University; Wilkes; Radford, VA; Johns Hopkins University; Shippensburg,  PA; George
     Washington; Virginia Tech; Christopher Newport
+  cms_ids:
+  - 976
   sites:
   - location: us-shippensburg-university
   - location: us-newport-news-cnu
@@ -654,8 +723,6 @@ contests:
     date: '2003-11-15'
   - location: us-radford-university
   - location: us-chestertown-washington
-  cms_ids:
-  - 976
   parent: wf-2004
   next: mausa-2004
   sources:
@@ -683,15 +750,14 @@ contests:
     roles:
     - standings
     as_of: '20041213070457'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: unknown
-    url_checked: '2026-11-16'
     archived:
     - mausa/mausa-2003/standings/20041213-wayback-7e53c9db/NoStandingsURL.html
+    url_state: unknown
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://midatl.cs.vt.edu/problems/
     roles:
     - problemset
-    as_of: '20040109182713'
     url_state: dead
     url_checked: '2026-11-16'
   - url: https://www.acmicpc.net/category/detail/167
@@ -706,11 +772,19 @@ contests:
   - url: https://www.acmicpc.net/problem/4757
     roles:
     - problem
-    judge: baekjoon
     problem: A
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201031013134'
+  - url: http://midatl.cs.vt.edu:80/judges-comments1.htm
+    roles:
+    - editorial
+    as_of: '20040121122419'
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: 'found by the data scan 2026-11-23 (moved from mausa-2002: 2003 Mid-Atlantic judges comments
+      (last modified Nov 2003))'
   problems:
     set: mausa-2003
 - id: mausa-2004
@@ -908,6 +982,8 @@ contests:
   date: '2006-10-28'
   location: Duke University; Johns Hopkins University; Wilkes; Christopher Newport; Radford University;
     Charlottesville, Virginia; Shippensburg,  PA; Washington DC; Radford, VA 24142; Chestertown, Maryland
+  cms_ids:
+  - 1122
   sites:
   - location: us-wilkes-barre-wilkes
   - location: us-charlottesville-uva
@@ -921,8 +997,6 @@ contests:
   - location: us-arlington-marymount
   - location: us-radford-university
   - location: us-baltimore-jhu
-  cms_ids:
-  - 1122
   parent: wf-2007
   next: mausa-2007
   sources:
@@ -945,15 +1019,6 @@ contests:
     - mausa/mausa-2006/standings/2026-09-01-wayback-113aa4a6/page.html
     url_state: dead
     url_checked: '2026-11-01'
-  - url: http://midatl.radford.edu/docs/scoreboard/
-    roles:
-    - standings
-    as_of: '20160513212351'
-    archived:
-    - mausa/mausa-2006/external-standings/2026-04-15-external/content.html
-    url_state: dead
-    url_checked: '2026-11-16'
-    note: from archived capture (external-standings)
   - url: https://www.acmicpc.net/category/detail/164
     roles:
     - problemset
@@ -966,58 +1031,58 @@ contests:
   - url: https://www.acmicpc.net/problem/4742
     roles:
     - problem
-    judge: baekjoon
     problem: B
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201023085938'
   - url: https://www.acmicpc.net/problem/4743
     roles:
     - problem
-    judge: baekjoon
     problem: C
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201023085938'
   - url: https://www.acmicpc.net/problem/4744
     roles:
     - problem
-    judge: baekjoon
     problem: D
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201023085938'
   - url: https://www.acmicpc.net/problem/4745
     roles:
     - problem
-    judge: baekjoon
     problem: E
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201023085938'
   - url: https://www.acmicpc.net/problem/4746
     roles:
     - problem
-    judge: baekjoon
     problem: F
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201023085938'
   - url: https://www.acmicpc.net/problem/4747
     roles:
     - problem
-    judge: baekjoon
     problem: G
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201023085938'
   - url: https://www.acmicpc.net/problem/4748
     roles:
     - problem
-    judge: baekjoon
     problem: H
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201023085938'
   problems:
     set: mausa-2006
@@ -1256,6 +1321,8 @@ contests:
   location: Washington College; Radford University; Christopher Newport; Johns Hopkins University; Duke
     University; Administrative Site Location; Shippensburg University; Howard University; George Washington
     University; University of North Carolina (Chapel Hill); Wilkes University
+  cms_ids:
+  - 557
   sites:
   - location: us-baltimore-jhu
   - location: us-chestertown-washington
@@ -1269,23 +1336,12 @@ contests:
     type: administrative
   - location: us-washington-gwu
   - location: us-wilkes-barre-wilkes
-  cms_ids:
-  - 557
   parent: wf-2010
   next: mausa-2010
   sources:
   - url: http://www.radford.edu/~acm/midatl/
     roles:
     - web
-  - url: http://midatl.radford.edu/docs/scoreboard/
-    roles:
-    - standings
-    as_of: '20160513212351'
-    archived:
-    - mausa/mausa-2009/external-standings/2026-04-15-external/content.html
-    url_state: dead
-    url_checked: '2026-11-16'
-    note: from archived capture (external-standings)
   - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2010/standings
     roles:
     - standings
@@ -1312,42 +1368,42 @@ contests:
   - url: https://www.acmicpc.net/problem/4104
     roles:
     - problem
-    judge: baekjoon
     problem: B
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024012913'
   - url: https://www.acmicpc.net/problem/4724
     roles:
     - problem
-    judge: baekjoon
     problem: E
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024012913'
   - url: https://www.acmicpc.net/problem/4723
     roles:
     - problem
-    judge: baekjoon
     problem: C
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024012913'
   - url: https://www.acmicpc.net/problem/4109
     roles:
     - problem
-    judge: baekjoon
     problem: D
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024012913'
   - url: https://www.acmicpc.net/problem/4726
     roles:
     - problem
-    judge: baekjoon
     problem: H
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024012913'
   problems:
     set: mausa-2009
@@ -1548,6 +1604,8 @@ contests:
   location: Duke University; Johns Hopkins University; Radford University; Shippensburg University; Christopher
     Newport; Administrative Site Location; Howard University; University of North Carolina (Chapel Hill);
     Wilkes University
+  cms_ids:
+  - 875
   sites:
   - location: us-washington-howard
   - location: us-shippensburg-university
@@ -1559,8 +1617,6 @@ contests:
   - location: us-chapel-hill-unc
   - type: administrative
   - location: us-wilkes-barre-wilkes
-  cms_ids:
-  - 875
   parent: wf-2012
   next: mausa-2012
   sources:
@@ -1571,7 +1627,6 @@ contests:
   - url: http://midatl.radford.edu/docs/scoreboard.acm2011/summary.html
     roles:
     - scoreboard
-    - standings
     as_of: '20130103035601'
     archived:
     - mausa/mausa-2011/scoreboard/2026-09-01-wayback-39e969c1/summary.html
@@ -1598,66 +1653,66 @@ contests:
   - url: https://www.acmicpc.net/problem/4707
     roles:
     - problem
-    judge: baekjoon
     problem: B
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201025213552'
   - url: https://www.acmicpc.net/problem/4708
     roles:
     - problem
-    judge: baekjoon
     problem: C
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201025213552'
   - url: https://www.acmicpc.net/problem/4709
     roles:
     - problem
-    judge: baekjoon
     problem: D
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201025213552'
   - url: https://www.acmicpc.net/problem/4710
     roles:
     - problem
-    judge: baekjoon
     problem: E
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201025213552'
   - url: https://www.acmicpc.net/problem/4711
     roles:
     - problem
-    judge: baekjoon
     problem: F
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201025213552'
   - url: https://www.acmicpc.net/problem/4712
     roles:
     - problem
-    judge: baekjoon
     problem: G
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201025213552'
   - url: https://www.acmicpc.net/problem/4713
     roles:
     - problem
-    judge: baekjoon
     problem: H
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201025213552'
   - url: https://www.acmicpc.net/problem/4705
     roles:
     - problem
-    judge: baekjoon
     problem: P
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201025213552'
   problems:
     set: mausa-2011
@@ -1668,6 +1723,8 @@ contests:
   location: Wilkes University; Christopher Newport; Howard University; University of North Carolina (Chapel
     Hill); Administrative Site Location; Washington College; Johns Hopkins University; Radford University;
     Duke University; Shippensburg University
+  cms_ids:
+  - 1376
   sites:
   - location: us-chapel-hill-unc
   - location: us-baltimore-jhu
@@ -1680,8 +1737,6 @@ contests:
   - location: us-newport-news-cnu
     type: administrative
   - location: us-wilkes-barre-wilkes
-  cms_ids:
-  - 1376
   parent: wf-2013
   next: mausa-2013
   sources:
@@ -1691,7 +1746,6 @@ contests:
   - url: http://midatl.radford.edu/docs/scoreboard/summary.html
     roles:
     - scoreboard
-    - standings
     as_of: '20141028045829'
     archived:
     - mausa/mausa-2012/scoreboard/2026-09-01-wayback-9df5e162/summary.html
@@ -1707,6 +1761,17 @@ contests:
     archived:
     - mausa/mausa-2012/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 1376, 172 teams, DB fetch 2026-04-26)
+  - url: http://midatl.radford.edu/docs/scoreboard/
+    roles:
+    - standings
+    as_of: '20160513212351'
+    archived:
+    - mausa/mausa-2009/external-standings/2026-04-15-external/content.html
+    - mausa/mausa-2006/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: from archived capture (external-standings); moved from mausa-2006 and mausa-2009 by the data
+      scan 2026-11-23 (urls)
   - url: https://www.acmicpc.net/category/detail/158
     roles:
     - problemset
@@ -1719,58 +1784,58 @@ contests:
   - url: https://www.acmicpc.net/problem/4697
     roles:
     - problem
-    judge: baekjoon
     problem: A
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201027031419'
   - url: https://www.acmicpc.net/problem/4699
     roles:
     - problem
-    judge: baekjoon
     problem: C
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201027031419'
   - url: https://www.acmicpc.net/problem/4700
     roles:
     - problem
-    judge: baekjoon
     problem: D
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201027031419'
   - url: https://www.acmicpc.net/problem/4701
     roles:
     - problem
-    judge: baekjoon
     problem: E
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201027031419'
   - url: https://www.acmicpc.net/problem/4702
     roles:
     - problem
-    judge: baekjoon
     problem: F
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201027031419'
   - url: https://www.acmicpc.net/problem/4704
     roles:
     - problem
-    judge: baekjoon
     problem: H
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201027031419'
   - url: https://www.acmicpc.net/problem/4696
     roles:
     - problem
-    judge: baekjoon
     problem: P
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201027031419'
   problems:
     set: mausa-2012
@@ -1825,6 +1890,8 @@ contests:
   location: Shippensburg University; University of North Carolina (Chapel Hill); Washington College; Radford
     University; Duke University; Christopher Newport University; Administrative Site Location; Johns Hopkins
     University; Howard University; Wilkes University
+  cms_ids:
+  - 2423
   sites:
   - location: us-radford-university
   - location: us-baltimore-jhu
@@ -1836,8 +1903,6 @@ contests:
   - location: us-shippensburg-university
   - type: administrative
   - location: us-wilkes-barre-wilkes
-  cms_ids:
-  - 2423
   parent: wf-2015
   next: mausa-2015
   sources:
@@ -1847,7 +1912,6 @@ contests:
   - url: https://www.cs.odu.edu/~zeil/icpc/scoreboard2014.html
     roles:
     - scoreboard
-    - standings
     as_of: '20150519074453'
     archived:
     - mausa/mausa-2014/external-standings/2026-04-15-external/content.html
@@ -1871,6 +1935,8 @@ contests:
   location: Johns Hopkins University; Washington College; Radford University; Duke University; Shippensburg
     University; NC State Univ, Raleigh NC; Administrative Site Location; Wilkes University; University
     of North Carolina (Chapel Hill); Christopher Newport University; Howard University
+  cms_ids:
+  - 2835
   sites:
   - location: us-raleigh-ncsu
     date: '2015-09-20'
@@ -1884,8 +1950,6 @@ contests:
   - location: us-washington-howard
   - type: administrative
   - location: us-wilkes-barre-wilkes
-  cms_ids:
-  - 2835
   parent: wf-2016
   next: mausa-2016
   sources:
@@ -1895,7 +1959,6 @@ contests:
   - url: http://midatl.radford.edu/scoreboard/summary.html
     roles:
     - scoreboard
-    - standings
     as_of: '20160613062448'
     archived:
     - mausa/mausa-2015/scoreboard/2026-09-01-wayback-c8f89c63/summary.html
@@ -2309,6 +2372,8 @@ contests:
   location: Math Emporium; University of North Carolina (Chapel Hill); LSRC Hall of Science; Virtual Site;
     Johns Hopkins University; Administrative Site Location; Stark Learning Center; Luter Hall 121; Goldstein
     Hall; ICAT/CS Bldg
+  cms_ids:
+  - 4358
   sites:
   - type: administrative
   - location: us-wilkes-barre-wilkes
@@ -2321,9 +2386,7 @@ contests:
   - location: us-baltimore-jhu
   - name: Mid-Atlantic Virtual Site
     type: online
-  cms_ids:
-  - 4358
-  parent: nac-2021
+  parent: nadc-2021
   next: mausa-2021
   sources:
   - url: https://www.radford.edu/~acm/midatl/
@@ -2368,19 +2431,24 @@ contests:
     contains:
     - names
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221129202211'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: mausa-2020
+  provenance:
+  - parent nadc-2021 read from https://www.icpc.org/icpc-north-america (as of 20210923173052) and the
+    ICPC CMS hierarchy (CMS 4596 ICPC-NADC) (data scan 2026-11-23)
 - id: mausa-2021
   season: 2022
   name: 2021 ICPC Mid-Atlantic USA Regional Contest
-  date: '2022-02-06'
+  date: '2022-02-26'
   location: Goldstein Hall; Administrative Site Location; Luter Hall 121; University of North Carolina
     (Chapel Hill); Stark Learning Center; Virtual Site; LSRC Hall of Science; Johns Hopkins University;
     Math Emporium; ICAT/CS Bldg
+  cms_ids:
+  - 4687
   sites:
   - type: administrative
   - location: us-wilkes-barre-wilkes
@@ -2393,8 +2461,6 @@ contests:
   - location: us-baltimore-jhu
   - name: Mid-Atlantic Virtual Site
     type: online
-  cms_ids:
-  - 4687
   parent: nac-2022
   next: mausa-2022
   sources:
@@ -2447,10 +2513,10 @@ contests:
     contains:
     - names
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221003143939'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/North-America/Mid-Atlantic-USA/Mid-Atlantic-USA-2021/tutorials_en.pdf
     roles:
     - editorial
@@ -2458,6 +2524,8 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: mausa-2021
+  provenance:
+  - date 2022-02-26 read from https://mausa21.kattis.com/contests/mausa21/standings (data scan 2026-11-23)
 - id: mausa-2022
   season: 2023
   name: 2022 ICPC Mid-Atlantic USA Regional Contest
@@ -2697,6 +2765,8 @@ contests:
   date: '2025-11-08'
   location: Johns Hopkins University; Torgerson Hall; Stark Learning Center; NCSU; Liberty University;
     Administrative (rcd etc); Luter Hall 121; Penn State Harrisburg; canceled(dummy-site); Admin:throttled:-(
+  cms_ids:
+  - 9332
   sites:
   - location: us-newport-news-cnu
   - location: us-baltimore-jhu
@@ -2713,8 +2783,6 @@ contests:
     name: admin:Canceled
   - type: administrative
     name: admin:throttled:-(
-  cms_ids:
-  - 9332
   parent: nac-2026
   next: mausa-2026
   subset_of: south-na-2025
@@ -2722,6 +2790,7 @@ contests:
   - url: https://ma.na.icpc.global/
     roles:
     - web
+    as_of: '20251205032244'
   - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2026/standings
     roles:
     - standings
@@ -2740,17 +2809,17 @@ contests:
     - problemset
     scope: Division 1
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; Div. 1)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; Div. 1)
   - url: https://qoj.ac/contest/3503
     roles:
     - problemset
     scope: Division 2
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; Div. 2)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; Div. 2)
   - url: https://icpcarchive.github.io/North-America/Mid-Atlantic-USA/Mid-Atlantic-USA-2025-Div-1/tutorials_en.pdf
     roles:
     - editorial
@@ -2767,6 +2836,8 @@ contests:
   season: 2027
   name: 2026 ICPC North America Mid-Atlantic Regional Contest
   date: '2026-11-07'
+  cms_ids:
+  - 9777
   sites:
   - location: us-newport-news-cnu
     date: '2026-11-07'
@@ -2793,8 +2864,6 @@ contests:
     name: Millersville D1
   - location: us-millersville-university
     name: Millersville D2
-  cms_ids:
-  - 9777
   parent: nac-2027
   subset_of: south-na-2026
   sources:
@@ -2805,27 +2874,36 @@ contests:
     roles:
     - scoreboard
     scope: Division 1
-    url_state: live
-    url_checked: '2026-11-16'
     archived:
     - mausa/mausa-2026/scoreboard/20261113-live-a02b1011/page.html
+    url_state: live
+    url_checked: '2026-11-16'
   - url: https://nasouth26.kattis.com/contests/nasouth26d2/standings/mausa/all
     roles:
     - scoreboard
     scope: Division 2
-    url_state: live
-    url_checked: '2026-11-16'
     archived:
     - mausa/mausa-2026/scoreboard/20261113-live-1135524a/page.html
+    url_state: live
+    url_checked: '2026-11-16'
   - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2027/standings
     roles:
     - standings
     archived:
     - mausa/mausa-2026/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 9777, 117 teams, DB fetch 2026-11-13)
+  - url: https://nasouth26.kattis.com/contests/nasouth26d1/problems
+    roles:
+    - problemset
+    scope: Division 1
+    contains:
+    - statement
+    judge: kattis
+    note: 'found by the data scan 2026-11-23 (shared problem set south-na-2026: Division 1 problem page
+      of the NA South Division contest it is a view of)'
+  problems:
+    set: south-na-2026
   provenance:
   - 'ran 2026-11-07: shown by its icpc standings, scoreboard source(s); date from CMS site date (ruling
     2026-11-12: upcoming ends when the date has passed and a result source or judge page shows the contest
     ran)'
-  problems:
-    set: south-na-2026

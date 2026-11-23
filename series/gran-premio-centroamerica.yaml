@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: gran-premio-centroamerica
   name: ICPC Gran Premio de Centroamérica
@@ -47,6 +47,8 @@ contests:
   name: Gran Premio de Centroamerica 2019
   date: '2019-01-01'
   location: Instituto Tecnológico de Costa Rica Sede Alajuela
+  cms_ids:
+  - 4243
   sites:
   - type: administrative
   - location: cr-puntarenas-costa-rica-sede-pacifico
@@ -60,19 +62,19 @@ contests:
   - location: br-canoas-sede-coto
   - location: gt-chiquimulilla-mariano-galvez-guatemala
   - location: ni-managua-nicaragua-sede
-  cms_ids:
-  - 4243
   parent: central-america-2019
   next: gran-premio-centroamerica-2020
   sources:
-  - url: https://icpc.global/regionals/finder/GP-Centroamerica-2020
-    roles:
-    - web
   - url: https://icpccentroamerica.org/
     roles:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
+  - url: https://icpc.global/regionals/finder/GP-Centroamerica-2020/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 70 rows, 55 with problems solved)
   notes: '69 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
 - id: gran-premio-centroamerica-2020
@@ -80,6 +82,8 @@ contests:
   name: Gran Premio de Centroamerica 2020
   date: '2020-09-30'
   location: Coto, Canoas, Puntarenas
+  cms_ids:
+  - 4478
   sites:
   - type: administrative
   - location: cr-alajuela-costa-rica-sede
@@ -94,25 +98,35 @@ contests:
   - location: ni-managua-nicaragua-sede
   - location: sv-san-salvador-centroamericana-jose-simeon-canas
     date: '2021-06-06'
-  cms_ids:
-  - 4478
   parent: central-america-2020
   next: gran-premio-centroamerica-2021
   sources:
-  - url: https://icpc.global/regionals/finder/GP-Centroamerica-2021
-    roles:
-    - web
   - url: https://icpccentroamerica.org/
     roles:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
+  - url: https://icpc.global/regionals/finder/GP-Centroamerica-2021/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 36 rows, 18 with problems solved)
+  - url: https://maratona.sbc.org.br/hist/2020/primfase20/maratona20.pdf
+    roles:
+    - problemset
+    scope: Primera Fecha
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (Latin American shared set (first-phase booklet names the
+      contests that used it))
   notes: '36 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
 - id: gran-premio-centroamerica-2021
   season: 2022
   name: 2021 ICPC Gran Premio de Centroamerica
   location: Universidad de Costa Rica Pacífico
+  cms_ids:
+  - 4710
   sites:
   - type: administrative
   - location: cr-alajuela-costa-rica-sede
@@ -126,19 +140,22 @@ contests:
     name: Tecnológico de Costa Rica Sede Cartago
   - location: ni-managua-nicaragua-sede
   - location: sv-san-salvador-centroamericana-jose-simeon-canas
-  cms_ids:
-  - 4710
   parent: central-america-2021
   next: gran-premio-centroamerica-2022
   sources:
-  - url: https://icpc.global/regionals/finder/GP-Centroamerica-2022
-    roles:
-    - web
   - url: https://icpccentroamerica.org/
     roles:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
+  - url: https://maratona.sbc.org.br/hist/2021/primeira-fase/maratona.pdf
+    roles:
+    - problemset
+    scope: Tercera Fecha
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (Latin American shared set (first-phase booklet names the
+      contests that used it))
   notes: '24 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
 - id: gran-premio-centroamerica-2022
@@ -146,6 +163,8 @@ contests:
   name: 2022 ICPC Gran Premio de Centroamerica
   date: '2022-05-10'
   location: Universidad Nacional Autónoma de Nicaragua sede Managua
+  cms_ids:
+  - 5530
   sites:
   - type: administrative
   - location: sv-san-salvador-centroamericana-jose-simeon-canas
@@ -161,8 +180,6 @@ contests:
     name: Tecnológico de Costa Rica Sede Alajuela
   - location: gt-quetzaltenango-rafael-landivar
   - location: gt-guatemala-city-url
-  cms_ids:
-  - 5530
   parent: central-america-2022
   next: gran-premio-centroamerica-2023
   sources:
@@ -172,12 +189,22 @@ contests:
     archived:
     - gran-premio-centroamerica/gran-premio-centroamerica-2022/standings/api-20261113/standings.html
     note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://maratona.sbc.org.br/hist/2022/primfase22/reports/problems/maratona.pdf
+    roles:
+    - problemset
+    scope: round of 2022-10-08
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (Latin American shared set (first-phase booklet names the
+      contests that used it))
   notes: '13 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
 - id: gran-premio-centroamerica-2023
   season: 2024
   name: 2023 ICPC Gran Premio de Centroamerica
   location: Universidad Mariano Galvez de Guatemala Campus Chiquimulilla
+  cms_ids:
+  - 7542
   sites:
   - type: administrative
   - location: cr-alajuela-costa-rica-sede
@@ -195,19 +222,27 @@ contests:
     name: Universidad de Costa Rica sede San Pedro
   - location: gt-guatemala-city-url
   - location: gt-quetzaltenango-rafael-landivar-sede
-  cms_ids:
-  - 7542
   parent: central-america-2023
   next: gran-premio-centroamerica-2024
   sources:
-  - url: https://icpc.global/regionals/finder/GP-Centroamerica-2024
-    roles:
-    - web
   - url: https://icpccentroamerica.org/
     roles:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
+  - url: https://icpc.global/regionals/finder/GP-Centroamerica-2024/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 45 rows, 40 with problems solved)
+  - url: https://maratona.sbc.org.br/hist/2023/primfase23/contest/maratona.pdf
+    roles:
+    - problemset
+    scope: round of 2023-09-02
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (Latin American shared set (first-phase booklet names the
+      contests that used it))
   notes: '45 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
 - id: gran-premio-centroamerica-2024
@@ -215,6 +250,8 @@ contests:
   name: 2024 ICPC Gran Premio de Centroamerica
   date: '2024-05-03'
   location: Nicoya, Guanacaste
+  cms_ids:
+  - 8952
   sites:
   - type: administrative
   - location: cr-alajuela-costa-rica-sede
@@ -245,20 +282,30 @@ contests:
     name: Universidad del Valle GT
   - location: gt-guatemala-city-istmo
     date: '2024-08-14'
-  cms_ids:
-  - 8952
   parent: central-america-2024
   next: gran-premio-centroamerica-2025
   sources:
-  - url: https://icpc.global/regionals/finder/GP-Centroamerica-2025
+  - url: https://icpc.global/regionals/finder/GP-Centroamerica-2025/standings
     roles:
-    - web
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 71 rows, 67 with problems solved)
+  - url: https://maratona.sbc.org.br/hist/2024/primfase24/contest-pf2024/maratona.pdf
+    roles:
+    - problemset
+    scope: round of 2024-08-31
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (Latin American shared set (first-phase booklet names the
+      contests that used it))
   notes: '80 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
 - id: gran-premio-centroamerica-2025
   season: 2026
   name: 2025 ICPC Gran Premio de Centroamerica
   location: Administrative Site Location
+  cms_ids:
+  - 9408
   sites:
   - type: administrative
   - location: cr-alajuela-costa-rica-sede
@@ -292,11 +339,14 @@ contests:
   - location: gt-guatemala-city-usac
   - location: cr-san-pedro-fidelitas
     date: '2025-08-08'
-  cms_ids:
-  - 9408
   parent: central-america-2025
   next: gran-premio-centroamerica-2026
   sources:
+  - url: https://icpccentroamerica.org/
+    roles:
+    - web
+    as_of: '20251205135005'
+    note: found by the data scan 2026-11-23 (regional site icpccentroamerica.org; Wayback CDX)
   - url: https://icpccentroamerica.org/resultados-oficiales/
     roles:
     - standings
@@ -313,6 +363,15 @@ contests:
     archived:
     - gran-premio-centroamerica/gran-premio-centroamerica-2025/standings/api-20261113/standings.html
     note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://scorelatam.naquadah.com.br/subbr-2025/maratona.pdf
+    roles:
+    - problemset
+    scope: round of 2025-09-13
+    contains:
+    - statement
+    as_of: '20250917205058'
+    note: found by the data scan 2026-11-23 (Latin American shared set (first-phase booklet names the
+      contests that used it))
   notes: '101 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
 - id: gran-premio-centroamerica-2026
@@ -320,6 +379,8 @@ contests:
   name: 2026 ICPC Gran Premio de Centroamerica
   date: '2026-03-24'
   location: Universidad Nacional Autónoma de Nicaragua sede Managua
+  cms_ids:
+  - 9811
   sites:
   - type: administrative
   - location: cr-alajuela-costa-rica-sede
@@ -354,10 +415,12 @@ contests:
   - location: gt-guatemala-city-usac
     name: Universidad San Carlos, Centro Universitario de Occidente
   - location: gt-quetzaltenango-rafael-landivar-sede
-  cms_ids:
-  - 9811
   parent: central-america-2026
   sources:
+  - url: https://icpccentroamerica.org/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (sibling gran-premio-centroamerica-2018..2023 address)
   - url: https://icpccentroamerica.org/resultados-oficiales/
     roles:
     - standings
@@ -368,5 +431,9 @@ contests:
     url_state: changed
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://icpc.global/regionals/finder/GP-Centroamerica-2027/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings API, 113 ranked rows on 2026-11-23)
   notes: '123 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'

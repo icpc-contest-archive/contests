@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: nena-central
   name: WNE Preliminary Contest
@@ -10,12 +10,12 @@ contests:
   season: 2009
   name: 2008 WNEC Preliminary
   date: '2008-10-04'
-  location: Administrative Site Location
+  location: Western New England College, Springfield, MA
+  cms_ids:
+  - 45
   sites:
   - location: us-springfield-western-new-england
     type: administrative
-  cms_ids:
-  - 45
   parent: nena-2008
   next: nena-central-2009
   sources:
@@ -31,16 +31,19 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: nena-central-2008
+  provenance:
+  - location Western New England College, Springfield, MA read from https://www.cs.rit.edu/~icpc/questions/2008/WNEC_2008.pdf
+    (data scan 2026-11-23)
 - id: nena-central-2009
   season: 2010
   name: 2009 WNEC Preliminary
   date: '2009-10-24'
-  location: Administrative Site Location
+  location: Western New England College, Springfield, MA
+  cms_ids:
+  - 552
   sites:
   - location: us-springfield-western-new-england
     type: administrative
-  cms_ids:
-  - 552
   parent: nena-2009
   next: nena-central-2010
   sources:
@@ -62,17 +65,20 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: nena-central-2009
+  provenance:
+  - location Western New England College, Springfield, MA read from https://www.cs.rit.edu/~icpc/questions/2009/WNEC_2009.pdf
+    (data scan 2026-11-23)
 - id: nena-central-2010
   season: 2011
   name: 2010 WNEC Preliminary
   date: '2010-10-23'
-  location: Administrative Site Location
+  location: Western New England College, Springfield, MA
+  cms_ids:
+  - 651
   sites:
   - location: us-springfield-western-new-england
     type: administrative
   - type: administrative
-  cms_ids:
-  - 651
   parent: nena-2010
   next: nena-central-2011
   sources:
@@ -95,6 +101,9 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: nena-central-2010
+  provenance:
+  - location Western New England College, Springfield, MA read from https://www.cs.rit.edu/~icpc/questions/2010/WNEC_2010.pdf
+    (data scan 2026-11-23)
 - id: nena-central-2011
   season: 2012
   name: 2011 WNEC Preliminary
@@ -164,18 +173,24 @@ contests:
   name: 2013 WNE Preliminary
   date: '2013-10-05'
   location: Administrative Site Location
+  cms_ids:
+  - 1965
   sites:
   - location: us-springfield-western-new-england
     type: administrative
   - type: administrative
-  cms_ids:
-  - 1965
   parent: nena-2013
   next: nena-central-2014
   sources:
   - url: http://mars.wne.edu/acmcontest/
     roles:
     - web
+  - url: https://icpc.global/regionals/finder/WNE-Preliminary-2014/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (CMS id 1965 has 18 ranked rows in ../icpc_new_standings_from_db.json;
+      slug from data/cms-shortnames.json; /api/contest/public/WNE-Preliminary-2014 = id 1965 'The 2013
+      WNE Preliminary' 2013-10-05)
   - url: https://www.cs.rit.edu/~icpc/questions/2013/WNE_2013.pdf
     roles:
     - problemset
@@ -319,16 +334,21 @@ contests:
   name: Hamilton College - Central Contest
   date: '2019-11-09'
   location: Administrative Site Location; Hamilton College
+  cms_ids:
+  - 4082
   sites:
   - type: administrative
   - location: us-clinton-hamilton
     name: Hamilton - Northeast Contest
     type: online
-  cms_ids:
-  - 4082
   parent: nena-2019
   next: null
   sources:
   - url: https://cs.hamilton.edu/acm-icpc/
     roles:
     - web
+  - url: https://hamilton19.kattis.com/contests/hamilton19/standings
+    roles:
+    - scoreboard
+    note: found by the data scan 2026-11-23 (guessed Kattis subdomain from the contest site (Hamilton)
+      and the sibling nena-north-2019 (mcgill19.kattis.com); opened live)

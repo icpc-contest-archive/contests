@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: kazakhstan
   name: ICPC Kazakhstan Regional Contest
@@ -44,13 +44,17 @@ contests:
 - id: kazakhstan-2004
   season: 2005
   name: 2004 Kazakhstan Subregional Contest
+  location: Almaty, Kazakhstan National University
   cms_ids: []
+  sites:
+  - location: kz-almaty
   parent: neerc-2004
   next: kazakhstan-2005
   sources:
   - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
     roles:
     - web
+    as_of: '20041109190439'
   - url: https://nerc.itmo.ru/archive/2004/kazakhstan/standings.html
     roles:
     - scoreboard
@@ -75,47 +79,50 @@ contests:
   - url: https://basecamp.eolymp.com/en/problems/3856
     roles:
     - problem
-    judge: eolymp
     problem: A
     contains:
     - statement
+    judge: eolymp
   - url: https://basecamp.eolymp.com/en/problems/3857
     roles:
     - problem
-    judge: eolymp
     problem: B
     contains:
     - statement
+    judge: eolymp
   - url: https://basecamp.eolymp.com/en/problems/3858
     roles:
     - problem
-    judge: eolymp
     problem: C
     contains:
     - statement
+    judge: eolymp
   - url: https://basecamp.eolymp.com/en/problems/3859
     roles:
     - problem
-    judge: eolymp
     problem: D
     contains:
     - statement
+    judge: eolymp
   - url: https://basecamp.eolymp.com/en/problems/3861
     roles:
     - problem
-    judge: eolymp
     problem: F
     contains:
     - statement
+    judge: eolymp
   - url: https://basecamp.eolymp.com/en/problems/3865
     roles:
     - problem
-    judge: eolymp
     problem: J
     contains:
     - statement
+    judge: eolymp
   problems:
     set: kazakhstan-2004
+  provenance:
+  - location Almaty, Kazakhstan National University read from https://web.archive.org/web/20050212193311/http://neerc.ifmo.ru/subregions/kazakhstan.html
+    (data scan 2026-11-23)
 - id: kazakhstan-2005
   season: 2006
   name: 2005 Kazakhstan Subregional Contest
@@ -126,6 +133,7 @@ contests:
   - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
     roles:
     - web
+    as_of: '20060503231233'
   - url: https://nerc.itmo.ru/archive/2005/kazakhstan/standings.html
     roles:
     - scoreboard
@@ -147,18 +155,29 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://nerc.itmo.ru/archive/2005/northern/statements.rar
+    roles:
+    - problemset
+    contains:
+    - statement
+    note: 'found by the data scan 2026-11-23 (shared problem set north-russia-2005: the Northern subregional
+      statements, as on uzbekistan-2005)'
   problems:
     set: north-russia-2005
 - id: kazakhstan-2006
   season: 2007
   name: 2006 Kazakhstan Subregional Contest
+  location: Almaty, Kazakhstan National University
   cms_ids: []
+  sites:
+  - location: kz-almaty
   parent: neerc-2006
   next: kazakhstan-2007
   sources:
   - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
     roles:
     - web
+    as_of: '20070121102259'
   - url: https://nerc.itmo.ru/archive/2006/kazakhstan/standings.html
     roles:
     - scoreboard
@@ -180,18 +199,34 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://nerc.itmo.ru/archive/2006/northern/problems.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    as_of: '20211206235824'
+    note: 'found by the data scan 2026-11-23 (shared problem set north-russia-2006: the Northern subregional
+      statements, as on uzbekistan-2006)'
   problems:
     set: north-russia-2006
+  provenance:
+  - location Almaty, Kazakhstan National University read from https://web.archive.org/web/20070121102259/http://neerc.ifmo.ru/subregions/kazakhstan.html
+    (data scan 2026-11-23)
 - id: kazakhstan-2007
   season: 2008
   name: 2007 Kazakhstan Subregional Contest
-  cms_ids: []
+  location: Almaty, Kazakhstan National University
+  cms_ids:
+  - 9909
+  sites:
+  - location: kz-almaty
   parent: neerc-2007
   next: kazakhstan-2008
   sources:
   - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
     roles:
     - web
+    as_of: '20071124014817'
   - url: https://nerc.itmo.ru/archive/2007/kazakhstan/standings.html
     roles:
     - scoreboard
@@ -213,19 +248,31 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://nerc.itmo.ru/archive/2007/northern/problems.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    as_of: '20211206225750'
+    note: 'found by the data scan 2026-11-23 (shared problem set north-russia-2007: the Northern subregional
+      statements, as on north-russia-2007)'
   problems:
     set: north-russia-2007
+  provenance:
+  - cms id 9909 read from https://icpc.global/api/contest/public/regionalresults/2008 (data scan 2026-11-23)
+  - location Almaty, Kazakhstan National University read from https://web.archive.org/web/20071124014817/http://neerc.ifmo.ru/subregions/kazakhstan.html
+    (data scan 2026-11-23)
 - id: kazakhstan-2008
   season: 2009
   name: 2008 Kazakhstan Subregional Contest
   date: '2008-11-01'
   location: Almaty
+  cms_ids:
+  - 74
   sites:
   - location: kz-almaty
     name: Kazakhstan Subregional Contest
     type: administrative
-  cms_ids:
-  - 74
   parent: neerc-2008
   next: kazakhstan-2009
   sources:
@@ -253,6 +300,13 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://nerc.itmo.ru/archive/2008/northern/problems.ps
+    roles:
+    - problemset
+    contains:
+    - statement
+    note: 'found by the data scan 2026-11-23 (shared problem set north-russia-2008: the Northern subregional
+      statements, as on uzbekistan-2008)'
   problems:
     set: north-russia-2008
 - id: kazakhstan-2009
@@ -260,19 +314,20 @@ contests:
   name: 2009 Kazakhstan Subregional Contest
   date: '2009-10-17'
   location: Administrative Site Location; Almaty
+  cms_ids:
+  - 524
   sites:
   - type: administrative
   - location: kz-almaty
     name: Kazakhstan Subregional Contest
     type: administrative
-  cms_ids:
-  - 524
   parent: neerc-2009
   next: kazakhstan-2010
   sources:
   - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
     roles:
     - web
+    as_of: '20100402045453'
   - url: https://nerc.itmo.ru/archive/2009/kazakhstan/standings.html
     roles:
     - scoreboard
@@ -294,6 +349,14 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://nerc.itmo.ru/archive/2009/northern/problems.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    as_of: '20211206230504'
+    note: 'found by the data scan 2026-11-23 (shared problem set north-russia-2009: the Northern subregional
+      statements, as on uzbekistan-2009)'
   problems:
     set: north-russia-2009
 - id: kazakhstan-2010
@@ -301,13 +364,13 @@ contests:
   name: 2010 Kazakhstan Subregional Contest
   date: '2010-10-30'
   location: Administrative Site Location; Almaty
+  cms_ids:
+  - 618
   sites:
   - type: administrative
   - location: kz-almaty
     name: Kazakhstan Subregional Contest
     type: administrative
-  cms_ids:
-  - 618
   parent: neerc-2010
   next: kazakhstan-2011
   sources:
@@ -335,6 +398,14 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://nerc.itmo.ru/archive/2010/northern/problems.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    as_of: '20211206234448'
+    note: 'found by the data scan 2026-11-23 (shared problem set north-russia-2010: the Northern subregional
+      statements, as on uzbekistan-2010)'
   problems:
     set: north-russia-2010
 - id: kazakhstan-2011
@@ -342,19 +413,20 @@ contests:
   name: 2011 Kazakhstan Subregional Contest
   date: '2011-10-29'
   location: Almaty; Administrative Site Location
+  cms_ids:
+  - 760
   sites:
   - type: administrative
   - location: kz-almaty
     name: Kazakhstan Subregional Contest
     type: administrative
-  cms_ids:
-  - 760
   parent: neerc-2011
   next: kazakhstan-2012
   sources:
   - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
     roles:
     - web
+    as_of: '20111114181350'
   - url: https://nerc.itmo.ru/archive/2011/kazakhstan/standings.html
     roles:
     - scoreboard
@@ -382,6 +454,14 @@ contests:
     archived:
     - kazakhstan/kazakhstan-2011/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 760, 55 teams, DB fetch 2026-04-26)
+  - url: https://nerc.itmo.ru/archive/2011/northern/problems.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    as_of: '20211207004937'
+    note: 'found by the data scan 2026-11-23 (shared problem set north-russia-2011: the Northern subregional
+      statements, as on north-russia-2011)'
   problems:
     set: north-russia-2011
 - id: kazakhstan-2012
@@ -389,13 +469,13 @@ contests:
   name: 2012 Kazakhstan Subregional Contest
   date: '2012-11-03'
   location: Administrative Site Location; Almaty
+  cms_ids:
+  - 1303
   sites:
   - location: kz-almaty
     name: Kazakhstan Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 1303
   parent: neerc-2012
   next: kazakhstan-2013
   sources:
@@ -429,6 +509,14 @@ contests:
     archived:
     - kazakhstan/kazakhstan-2012/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 1303, 90 teams, DB fetch 2026-04-26)
+  - url: https://nerc.itmo.ru/archive/2012/northern/problems.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    as_of: '20211206235236'
+    note: 'found by the data scan 2026-11-23 (shared problem set north-russia-2012: the Northern subregional
+      statements, as on north-russia-2012)'
   problems:
     set: north-russia-2012
 - id: kazakhstan-2013
@@ -436,19 +524,20 @@ contests:
   name: 2013 Kazakhstan Subregional Contest
   date: '2013-10-26'
   location: Almaty; Administrative Site Location
+  cms_ids:
+  - 2034
   sites:
   - location: kz-almaty
     name: Kazakhstan Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 2034
   parent: neerc-2013
   next: kazakhstan-2014
   sources:
   - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
     roles:
     - web
+    as_of: '20140406205010'
   - url: https://nerc.itmo.ru/archive/2013/kazakhstan/standings.html
     roles:
     - scoreboard
@@ -470,6 +559,14 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://nerc.itmo.ru/archive/2013/northern/north-2013-statements.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    as_of: '20211206231703'
+    note: 'found by the data scan 2026-11-23 (shared problem set north-russia-2013: the Northern subregional
+      statements, as on uzbekistan-2013)'
   problems:
     set: north-russia-2013
 - id: kazakhstan-2014
@@ -477,19 +574,20 @@ contests:
   name: 2014 Kazakhstan Subregional Contest
   date: '2014-11-08'
   location: Almaty; Administrative Site Location
+  cms_ids:
+  - 2675
   sites:
   - location: kz-almaty
     name: Kazakhstan Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 2675
   parent: neerc-2014
   next: kazakhstan-2015
   sources:
   - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
     roles:
     - web
+    as_of: '20141229031618'
   - url: https://nerc.itmo.ru/archive/2014/kazakhstan/standings.html
     roles:
     - scoreboard
@@ -517,6 +615,14 @@ contests:
     archived:
     - kazakhstan/kazakhstan-2014/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 2675, 83 teams, DB fetch 2026-04-26)
+  - url: https://nerc.itmo.ru/archive/2014/northern/north-2014-statements.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    as_of: '20211207005010'
+    note: 'found by the data scan 2026-11-23 (shared problem set north-russia-2014: the Northern subregional
+      statements, as on taurida-2014)'
   problems:
     set: north-russia-2014
 - id: kazakhstan-2015
@@ -524,19 +630,20 @@ contests:
   name: 2015 Kazakhstan Subregional Contest
   date: '2015-10-24'
   location: Almaty; Administrative Site Location
+  cms_ids:
+  - 2766
   sites:
   - location: kz-almaty
     name: Kazakhstan Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 2766
   parent: neerc-2015
   next: kazakhstan-2016
   sources:
   - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
     roles:
     - web
+    as_of: '20160318032402'
   - url: https://nerc.itmo.ru/archive/2015/kazakhstan/standings.html
     roles:
     - scoreboard
@@ -564,6 +671,14 @@ contests:
     archived:
     - kazakhstan/kazakhstan-2015/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 2766, 77 teams, DB fetch 2026-04-26)
+  - url: https://nerc.itmo.ru/archive/2015/northern/north-2015-statements.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    as_of: '20211207001439'
+    note: 'found by the data scan 2026-11-23 (shared problem set north-russia-2015: the Northern subregional
+      statements, as on taurida-2015)'
   problems:
     set: north-russia-2015
 - id: kazakhstan-2016
@@ -571,19 +686,20 @@ contests:
   name: 2016 Kazakhstan Subregional Contest
   date: '2016-10-22'
   location: Almaty; Administrative Site Location
+  cms_ids:
+  - 3151
   sites:
   - location: kz-almaty
     name: Kazakhstan Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 3151
   parent: neerc-2016
   next: kazakhstan-2017
   sources:
   - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
     roles:
     - web
+    as_of: '20161109205645'
   - url: https://nerc.itmo.ru/archive/2016/kazakhstan/standings.html
     roles:
     - scoreboard
@@ -611,6 +727,14 @@ contests:
     archived:
     - kazakhstan/kazakhstan-2016/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 3151, 108 teams, DB fetch 2026-04-26)
+  - url: https://nerc.itmo.ru/archive/2016/northern/north-2016-statements.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    as_of: '20211206233756'
+    note: 'found by the data scan 2026-11-23 (shared problem set north-russia-2016: the Northern subregional
+      statements, as on north-russia-2016)'
   problems:
     set: north-russia-2016
 - id: kazakhstan-2017
@@ -672,19 +796,20 @@ contests:
   name: 2018 Kazakhstan Subregional Contest
   date: '2018-10-27'
   location: Administrative Site Location; Almaty
+  cms_ids:
+  - 3681
   sites:
   - location: kz-almaty
     name: Kazakhstan Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 3681
   parent: nerc-2018
   next: kazakhstan-2019
   sources:
   - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
     roles:
     - web
+    as_of: '20181216141208'
   - url: https://nerc.itmo.ru/archive/2018/kazakhstan/standings.html
     roles:
     - scoreboard
@@ -706,6 +831,14 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://nerc.itmo.ru/archive/2018/northern/north-2018-statements.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    as_of: '20211207003119'
+    note: 'found by the data scan 2026-11-23 (shared problem set north-russia-2018: the Northern subregional
+      statements, as on taurida-2018)'
   problems:
     set: north-russia-2018
 - id: kazakhstan-2019
@@ -713,19 +846,20 @@ contests:
   name: 2019 Kazakhstan Regional Contest
   date: '2019-10-26'
   location: Administrative Site Location; Almaty
+  cms_ids:
+  - 4209
   sites:
   - type: administrative
   - location: kz-almaty
     name: Kazakhstan Subregional Contest
     type: administrative
-  cms_ids:
-  - 4209
   parent: nerc-2019
   next: kazakhstan-2020
   sources:
   - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
     roles:
     - web
+    as_of: '20191025232113'
   - url: https://nerc.itmo.ru/archive/2019/kazakhstan/standings.html
     roles:
     - scoreboard
@@ -753,6 +887,14 @@ contests:
     archived:
     - kazakhstan/kazakhstan-2019/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 4209, 106 teams, DB fetch 2026-04-26)
+  - url: https://nerc.itmo.ru/archive/2019/northern/nwrrc-2019-statements.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    as_of: '20191113025109'
+    note: 'found by the data scan 2026-11-23 (shared problem set north-russia-2019: the Northern subregional
+      statements, as on taurida-2019)'
   problems:
     set: north-russia-2019
 - id: kazakhstan-2020
@@ -760,13 +902,13 @@ contests:
   name: 2020 Kazakhstan Regional Contest
   date: '2020-11-14'
   location: Administrative Site Location; Almaty
+  cms_ids:
+  - 4554
   sites:
   - type: administrative
   - location: kz-almaty
     name: Kazakhstan Regional Contest
     type: administrative
-  cms_ids:
-  - 4554
   parent: nerc-2020
   next: kazakhstan-2021
   sources:
@@ -800,6 +942,14 @@ contests:
     archived:
     - kazakhstan/kazakhstan-2020/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 4554, 81 teams, DB fetch 2026-04-26)
+  - url: https://nerc.itmo.ru/archive/2020/northern/statements.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    as_of: '20211206225439'
+    note: 'found by the data scan 2026-11-23 (shared problem set north-russia-2020: the Northern subregional
+      statements, as on taurida-2020)'
   problems:
     set: north-russia-2020
 - id: kazakhstan-2021
@@ -807,19 +957,20 @@ contests:
   name: 2021 ICPC Kazakhstan Regional Contest
   date: '2021-12-11'
   location: Almaty; Administrative Site Location
+  cms_ids:
+  - 4947
   sites:
   - type: administrative
   - location: kz-almaty
     name: Kazakhstan Regional Contest
     type: administrative
-  cms_ids:
-  - 4947
   parent: nerc-2021
   next: kazakhstan-2022
   sources:
   - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
     roles:
     - web
+    as_of: '20220525143129'
   - url: https://nerc.itmo.ru/archive/2021/kazakhstan/standings.html
     roles:
     - scoreboard
@@ -847,6 +998,14 @@ contests:
     archived:
     - kazakhstan/kazakhstan-2021/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 4947, 65 teams, DB fetch 2026-04-26)
+  - url: https://nerc.itmo.ru/archive/2021/northern/statements.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    as_of: '20220515163626'
+    note: 'found by the data scan 2026-11-23 (shared problem set nerc-shared-2021: the Northern subregional
+      statements, as on taurida-2021)'
   problems:
     set: nerc-shared-2021
 - id: kazakhstan-2022
@@ -854,18 +1013,19 @@ contests:
   name: 2022 ICPC Kazakhstan Regional Contest
   date: '2022-10-01'
   location: Almaty; Administrative Site Location
+  cms_ids:
+  - 5594
   sites:
   - type: administrative
   - location: kz-almaty
     name: Kazakhstan Regional Contest
-  cms_ids:
-  - 5594
   parent: nerc-2022
   next: kazakhstan-2023
   sources:
   - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
     roles:
     - web
+    as_of: '20230208042827'
   - url: https://nerc.itmo.ru/archive/2022/kazakhstan/standings.html
     roles:
     - scoreboard
@@ -893,6 +1053,14 @@ contests:
     archived:
     - kazakhstan/kazakhstan-2022/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 5594, 86 teams, DB fetch 2026-04-26)
+  - url: https://nerc.itmo.ru/archive/2022/northern/statements.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    as_of: '20221105225837'
+    note: 'found by the data scan 2026-11-23 (shared problem set north-russia-2022: the Northern subregional
+      statements, as on taurida-2022)'
   problems:
     set: north-russia-2022
 - id: kazakhstan-2023
@@ -902,6 +1070,8 @@ contests:
   location: Almaty; А.Baitursynov Kostanay Regional University; Administrative Site Location; Korkyt Ata
     Kyzylorda University; Karagandy State University; Kh. Dosmukhamedov Atyrau State University; AITU;
     Alikhan Bokeikhan University; D. Serikbayev East Kazakhstan Technical University
+  cms_ids:
+  - 7749
   sites:
   - type: administrative
   - location: kz-almaty
@@ -921,14 +1091,13 @@ contests:
     name: Semey
   - location: kz-astana-aitu
     name: Astana
-  cms_ids:
-  - 7749
   parent: nerc-2023
   next: kazakhstan-2024
   sources:
   - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
     roles:
     - web
+    as_of: '20240225124140'
   - url: https://nerc.itmo.ru/archive/2023/kazakhstan/standings.html
     roles:
     - scoreboard
@@ -956,6 +1125,14 @@ contests:
     archived:
     - kazakhstan/kazakhstan-2023/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 7749, 134 teams, DB fetch 2026-04-26)
+  - url: https://nerc.itmo.ru/archive/2023/northern/statements.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    as_of: '20231110101733'
+    note: 'found by the data scan 2026-11-23 (shared problem set north-russia-2023: the Northern subregional
+      statements, as on taurida-2023)'
   problems:
     set: north-russia-2023
 - id: kazakhstan-2024
@@ -965,6 +1142,8 @@ contests:
   location: International IT University; Kh. Dosmukhamedov Atyrau State University; Almaty; Alikhan Bokeikhan
     University; А.Baitursynov Kostanay Regional University; Dulaty University; Astana IT University; Narxoz
     University; Administrative Site Location
+  cms_ids:
+  - 8885
   sites:
   - location: kz-almaty
     name: Kazakhstan Regional Contest
@@ -983,14 +1162,13 @@ contests:
     name: Almaty IITU
   - location: kz-almaty-narxoz
     name: Almaty NARXOZ
-  cms_ids:
-  - 8885
   parent: nerc-2024
   next: kazakhstan-2025
   sources:
   - url: https://neerc.ifmo.ru/subregions/kazakhstan.html
     roles:
     - web
+    as_of: '20250520200508'
   - url: https://nerc.itmo.ru/archive/2024/kazakhstan/standings.html
     roles:
     - scoreboard
@@ -1035,6 +1213,8 @@ contests:
   location: West Kazakhstan Agrarian-Technical University named after Zhangir khan; Alikhan Bokeikhan
     University; International IT University; Kazakhstan Regional Contest; Woosong University Kazakhstan;
     NARXOZ University; Astana IT University
+  cms_ids:
+  - 9178
   sites:
   - location: kz
     name: Staff
@@ -1051,8 +1231,6 @@ contests:
     name: Almaty, NARXOZ
   - location: kz-astana-it-university
     name: Astana
-  cms_ids:
-  - 9178
   parent: nerc-2025
   next: kazakhstan-2026
   sources:
@@ -1086,12 +1264,22 @@ contests:
     archived:
     - kazakhstan/kazakhstan-2025/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 9178, 156 teams, DB fetch 2026-04-26)
+  - url: https://nerc.itmo.ru/archive/2025/northern/statements.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    as_of: '20260610154710'
+    note: 'found by the data scan 2026-11-23 (shared problem set north-russia-2025: the Northern subregional
+      statements, as on taurida-2025)'
   problems:
     set: north-russia-2025
 - id: kazakhstan-2026
   season: 2027
   name: 2026 ICPC Kazakhstan Regional Contest
   date: '2026-11-14'
+  cms_ids:
+  - 9798
   sites:
   - location: kz-astana-it-university
     name: Astana
@@ -1106,8 +1294,6 @@ contests:
   - location: kz-ust-kamenogorsk-sarsen-amanzholov-east-kazakhstan
     name: Oskemen
   - type: administrative
-  cms_ids:
-  - 9798
   parent: nerc-2026
   sources:
   - url: https://nerc.itmo.ru/subregions/kazakhstan.html
@@ -1121,15 +1307,26 @@ contests:
   - url: https://nerc.itmo.ru/archive/2026/kazakhstan/standings.html
     roles:
     - scoreboard
-    note: added by the no-sources hunt 2026-11-16
     archived:
     - kazakhstan/kazakhstan-2026/scoreboard/20261116-live-481a7e2a/standings.html
+    note: added by the no-sources hunt 2026-11-16
   - url: https://neerc.ifmo.ru/archive/2026/kazakhstan/standings.html
     roles:
     - scoreboard
-    note: added by the no-sources hunt 2026-11-16
     archived:
     - kazakhstan/kazakhstan-2026/scoreboard/20261116-live-a9b207a3/standings.html
+    note: added by the no-sources hunt 2026-11-16
+  - url: https://icpc.global/regionals/finder/Kazakhstan-Regional-2027/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings API, 171 ranked rows on 2026-11-23)
+  - url: https://nerc.itmo.ru/archive/2026/northern/statements.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    note: 'found by the data scan 2026-11-23 (the Northwestern Russia Regional 2026 statements: its standings
+      header lists the same 14 titles A-N)'
   provenance:
   - 'ran 2026-11-14: shown by its scoreboard source(s); the NERC archive scoreboard and subregion page
     (no-sources hunt 2026-11-16)'

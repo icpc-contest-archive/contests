@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: kanpur
   name: ICPC Asia Kanpur Regional Contest
@@ -30,6 +30,7 @@ series:
   - type: continues-from
     series: kolkata-kanpur
     year: 2019
+  rotating_host: true
 contests:
 - id: kanpur-1999
   season: 2000
@@ -93,18 +94,18 @@ contests:
   name: 2000 ACM Asia Programming Contest, Kanpur
   date: '2000-12-16'
   location: IIT Kanpur
+  cms_ids:
+  - 1072
   sites:
   - location: in-kanpur-iitk
     name: Kanpur Site
-  cms_ids:
-  - 1072
   parent: wf-2001
   next: kanpur-2001
   sources:
   - url: http://www.cse.iitk.ac.in/users/acm/
     roles:
     - web
-    as_of: '20060904204433'
+    as_of: '20010627232402'
   - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=448
     roles:
     - rankings
@@ -144,14 +145,14 @@ contests:
   - url: https://www.acmicpc.net/category/detail/2719
     roles:
     - problem
+    scope: B Ski Slopes only
+    contains:
+    - statement
     judge: baekjoon
     as_of: '20220523024824'
     url_state: dead
     url_checked: '2026-11-16'
     note: The 2000 ACM Asia Programming Contest, Kanpur
-    scope: B Ski Slopes only
-    contains:
-    - statement
   problems:
     set: kanpur-2000
 - id: kanpur-2001
@@ -159,11 +160,11 @@ contests:
   name: 2001 ACM Asia Programming Contest - Kanpur
   date: '2001-12-06'
   location: IIT Kanpur
+  cms_ids:
+  - 1101
   sites:
   - location: in-kanpur-iitk
     name: Kanpur Site
-  cms_ids:
-  - 1101
   parent: wf-2002
   next: kanpur-2002
   sources:
@@ -174,7 +175,7 @@ contests:
   - url: http://www.cse.iitk.ac.in/users/acm/
     roles:
     - web
-    as_of: '20010627232402'
+    as_of: '20020425143455'
     url_state: dead
     url_checked: '2026-11-14'
   - url: http://www.cse.iitk.ac.in/acm2001/results.htm
@@ -233,11 +234,11 @@ contests:
   name: 2002 ACM Asia Programming Contest - Kanpur
   date: '2002-12-07'
   location: IIT Kanpur
+  cms_ids:
+  - 1297
   sites:
   - location: in-kanpur-iitk
     name: Kanpur Site/ Asia
-  cms_ids:
-  - 1297
   parent: wf-2003
   next: kolkata-roorkee-2003
   sources:
@@ -248,7 +249,7 @@ contests:
   - url: http://www.cse.iitk.ac.in/users/acm/
     roles:
     - web
-    as_of: '20010627232402'
+    as_of: '20021218195253'
     url_state: dead
     url_checked: '2026-11-14'
   - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/www.cse.iitk.ac.in/users/acm/result.htm
@@ -263,11 +264,11 @@ contests:
     roles:
     - standings
     as_of: '20030307101850'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - kanpur/kanpur-2002/standings/20030307-wayback-271f3dc6/result.htm
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings7bfc.html?ContestID=581
     roles:
     - rankings
@@ -302,6 +303,8 @@ contests:
   name: 2004 ACM Asia Programming Contest - Kanpur
   date: '2004-12-15'
   location: Internet; IIT Kanpur
+  cms_ids:
+  - 1239
   sites:
   - name: Asia - Kanpur Nationwide Contest
     type: online
@@ -309,15 +312,9 @@ contests:
     type: online
   - location: in-kanpur-iitk
     name: Asia-Kanpur-Final Round
-  cms_ids:
-  - 1239
   parent: wf-2005
   next: kolkata-2005
   sources:
-  - url: http://www.cse.iitk.ac.in/users/acm/directrep.html
-    roles:
-    - web
-    as_of: '20050212004304'
   - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=709
     roles:
     - standings
@@ -334,6 +331,17 @@ contests:
     - kanpur/kanpur-2004/standings/2026-09-01-wayback-c2c202e6/result.html
     url_state: dead
     url_checked: '2026-11-16'
+  - url: http://www.cse.iitk.ac.in/users/acm/archive/acm2004/questions.html
+    roles:
+    - problemset
+    contains:
+    - statement
+    as_of: '20060117151224'
+    note: found by the data scan 2026-11-23 (own holdings (kanpur-2002 site crawl))
+  - url: http://www.cse.iitk.ac.in/users/acm/directrep.html
+    roles:
+    - report
+    as_of: '20050212004304'
   problems:
     set: kanpur-2004
 - id: kanpur-2006
@@ -459,11 +467,11 @@ contests:
   name: 2010 ACM-ICPC Asia Kanpur Regional Contest
   date: '2010-12-12'
   location: Kanpur
+  cms_ids:
+  - 601
   sites:
   - location: in-kanpur
     name: Asia Kanpur On Site Regional Contest
-  cms_ids:
-  - 601
   parent: wf-2011
   next: kanpur-2011
   sources:
@@ -472,6 +480,7 @@ contests:
     - web
   - url: http://www.cse.iitk.ac.in/users/acm/Result.html
     roles:
+    - web
     - standings
     as_of: '20101216075737'
     archived:
@@ -546,11 +555,11 @@ contests:
   name: 2012 ACM-ICPC Asia Kanpur Regional Contest
   date: '2012-12-13'
   location: Kanpur
+  cms_ids:
+  - 1356
   sites:
   - location: in-kanpur
     name: Asia Kanpur On-site Regional Contest
-  cms_ids:
-  - 1356
   parent: wf-2013
   next: kanpur-2013
   sources:
@@ -559,6 +568,7 @@ contests:
     - web
   - url: http://cse.iitk.ac.in/users/acm/rank.html
     roles:
+    - web
     - standings
     as_of: '20121218090740'
     archived:
@@ -589,14 +599,14 @@ contests:
   name: 2013 ACM-ICPC Asia Kanpur Regional Contest
   date: '2013-12-13'
   location: India Kanpur; Kanpur
+  cms_ids:
+  - 1949
   sites:
   - location: in-kanpur
     name: Asia Kanpur On-site Regional Contest
   - location: in-kanpur
     name: Kanpur Foreign Teams
     type: administrative
-  cms_ids:
-  - 1949
   parent: wf-2014
   next: kolkata-2015
   sources:
@@ -611,7 +621,7 @@ contests:
     note: rendered from the icpc.global API standings archive (cms 1949, 87 teams, DB fetch 2026-04-26)
   - url: https://www.cse.iitk.ac.in/users/acm/Result.pdf
     roles:
-    - rankings
+    - standings
     as_of: '20131228125838'
     archived:
     - kanpur/kanpur-2013/rankings/2026-09-01-live-9bf1a131/Result.pdf
@@ -629,13 +639,13 @@ contests:
     roles:
     - problemset
     judge: codechef
+    as_of: '20131216220519'
     url_state: replaced
     url_checked: '2026-11-16'
     note: 'ACM-ICPC Kanpur onsite regionals 2013 : Replay (judge hunt 2026-11-03: CodeChef contest ''ACM-ICPC
       Kanpur onsite regionals 2013 : Replay'' (code KAN13ACM, held 2013-12-14, 9 problems) = official
       onsite problem set as mirror/replay; catalogue kanpur-2013 dated 2013-12-13; catalogue has no problem
       titles to cross-check)'
-    as_of: '20131216220519'
   problems:
     set: kanpur-2013
 - id: kanpur-2019
@@ -801,18 +811,25 @@ contests:
   name: 2021 ICPC Asia Kanpur Contest
   date: '2022-08-22'
   location: Administrative Site Location; Online
+  cms_ids:
+  - 4829
   sites:
   - type: administrative
   - name: Asia Kanpur Online Site
     type: online
-  cms_ids:
-  - 4829
   parent: awc-2021
   next: kanpur-2022
   sources:
   - url: http://kanpur.indiaicpc.in/
     roles:
     - web
+  - url: http://kanpur.indiaicpc.in/?page_id=698
+    roles:
+    - rankings
+    scope: preliminary online contest
+    as_of: '20220913161750'
+    note: found by the data scan 2026-11-23 (held website crawl of kanpur.indiaicpc.in (Result of Preliminary
+      Online Contest))
 - id: kanpur-2022
   season: 2023
   name: 2022 ICPC Asia Kanpur Regional Contest

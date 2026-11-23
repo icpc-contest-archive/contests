@@ -1,20 +1,21 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: mathura
   name: ICPC Asia Mathura Kanpur Regional Contest
   tier: regional
   region: Asia West
   naming: season-start
+  rotating_host: true
 contests:
 - id: mathura-2022
   season: 2023
   name: 2022 ICPC Asia Mathura Kanpur Regional Contest
   date: '2023-04-09'
   location: Administrative Site Location
-  sites:
-  - type: administrative
   cms_ids:
   - 5649
+  sites:
+  - type: administrative
   parent: awc-2022
   next: mathura-2026
   sources:
@@ -36,12 +37,12 @@ contests:
     note: rendered from the icpc.global API standings archive (cms 5649, 144 teams, DB fetch 2026-04-26)
   - url: https://kanpurarchive2022.indiaicpc.in/?page_id=698
     roles:
-    - rankings
-    note: found inside https://kanpurarchive2022.indiaicpc.in/?page_id=55 by the content check
-    url_state: live
-    url_checked: '2026-11-16'
+    - teams
     archived:
     - mathura/mathura-2022/rankings/20261116-live-42d43ebd/page.html
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside https://kanpurarchive2022.indiaicpc.in/?page_id=55 by the content check
   - url: https://kanpurarchive2022.indiaicpc.in/problems_2022.pdf
     roles:
     - problemset

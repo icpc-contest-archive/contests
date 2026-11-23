@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: poland
   name: ICPC Polish Collegiate Programming Contest
@@ -170,10 +170,10 @@ contests:
     roles:
     - scoreboard
     as_of: '20010814062546'
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - poland/poland-1999/scoreboard/20010814-wayback-4c9da022/wyniki.html
+    url_state: dead
+    url_checked: '2026-11-16'
   - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/85/
     roles:
     - rankings
@@ -186,9 +186,11 @@ contests:
     roles:
     - teams
     as_of: '20020323011334'
-    note: found inside http://zawody.mimuw.edu.pl/99/index.html by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://zawody.mimuw.edu.pl/99/index.html by the content check
+  problems:
+    set: poland-1999
   provenance:
   - location read from http://zawody.mimuw.edu.pl/99/index.html (description round 2026-11-16)
 - id: poland-2000
@@ -664,10 +666,12 @@ contests:
   season: 2009
   name: 2008 Poland Collegiate Programming Contest
   date: '2008-11-08'
-  sites:
-  - type: administrative
+  location: Poznań
   cms_ids:
   - 62
+  sites:
+  - type: administrative
+  - location: pl-poznan
   parent: cerc-2008
   next: poland-2009
   sources:
@@ -678,12 +682,12 @@ contests:
     roles:
     - rankings
     - report
+    scope: places 1,2,3,13,14 (MIMUW teams)
     archived:
     - poland/poland-2008/rankings/2026-09-01-live-466991b3/page.html
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (agent-europe)
-    scope: places 1,2,3,13,14 (MIMUW teams)
   - url: https://www.acmicpc.net/category/detail/956
     roles:
     - problemset
@@ -696,101 +700,104 @@ contests:
   - url: https://www.acmicpc.net/problem/7928
     roles:
     - problem
-    judge: baekjoon
     problem: A
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201125085541'
   - url: https://www.acmicpc.net/problem/7929
     roles:
     - problem
-    judge: baekjoon
     problem: B
     contains:
     - statement
+    judge: baekjoon
     as_of: '20200327044352'
   - url: https://www.acmicpc.net/problem/7930
     roles:
     - problem
-    judge: baekjoon
     problem: C
     contains:
     - statement
+    judge: baekjoon
     as_of: '20200327044314'
   - url: https://www.acmicpc.net/problem/7931
     roles:
     - problem
-    judge: baekjoon
     problem: D
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201125085541'
   - url: https://www.acmicpc.net/problem/7932
     roles:
     - problem
-    judge: baekjoon
     problem: E
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201125085541'
   - url: https://www.acmicpc.net/problem/7933
     roles:
     - problem
-    judge: baekjoon
     problem: F
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201125085541'
   - url: https://www.acmicpc.net/problem/7934
     roles:
     - problem
-    judge: baekjoon
     problem: G
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201125085541'
   - url: https://www.acmicpc.net/problem/7935
     roles:
     - problem
-    judge: baekjoon
     problem: H
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201125085541'
   - url: https://www.acmicpc.net/problem/7937
     roles:
     - problem
-    judge: baekjoon
     problem: J
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201125085541'
   problems:
     set: poland-2008
+  provenance:
+  - location Poznań read from https://www.mimuw.edu.pl/pl/osiagniecia/edycja/76/ (data scan 2026-11-23)
 - id: poland-2009
   season: 2010
   name: 2009 Poland Collegiate Programming Contest
   date: '2009-10-24'
   location: Administrative Site Location; Amam Mickiewicz University
+  cms_ids:
+  - 544
   sites:
   - location: pl-poznan-amu
     date: '2009-12-22'
   - type: administrative
-  cms_ids:
-  - 544
   parent: cerc-2009
   next: poland-2010
   sources:
   - url: http://amppz.wmi.amu.edu.pl/
     roles:
     - web
+    as_of: '20091102023256'
   - url: http://amppz.wmi.amu.edu.pl/2009/index.php
     roles:
     - web
     as_of: '20111013042803'
-    note: the 2009 edition's own pages; its resources page never received the problems
     url_state: dead
     url_checked: '2026-11-14'
+    note: the 2009 edition's own pages; its resources page never received the problems
   - url: http://amppz.wmi.amu.edu.pl/standing.php
     roles:
     - standings
@@ -811,12 +818,12 @@ contests:
     roles:
     - rankings
     - report
+    scope: places 1,2,3,8,9,10 (MIMUW teams)
     archived:
     - poland/poland-2009/rankings/2026-09-01-live-209c3998/page.html
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (agent-europe)
-    scope: places 1,2,3,8,9,10 (MIMUW teams)
   - url: http://amppz.wmi.amu.edu.pl/statistics.php
     roles:
     - problemset
@@ -966,12 +973,13 @@ contests:
 - id: poland-2011
   season: 2012
   name: 2011 Poland Collegiate Programming Contest
-  date: '2011-10-31'
-  location: Administrative Site Location
-  sites:
-  - type: administrative
+  date: '2011-10-30'
+  location: Faculty of Management, University of Warsaw, Warsaw
   cms_ids:
   - 771
+  sites:
+  - type: administrative
+  - location: pl-warsaw-university
   parent: cerc-2011
   next: poland-2012
   sources:
@@ -982,11 +990,11 @@ contests:
     roles:
     - scoreboard
     as_of: '20121008222159'
-    note: found inside http://amppz.mimuw.edu.pl by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - poland/poland-2011/scoreboard/20121008-wayback-7159139f/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://amppz.mimuw.edu.pl by the content check
   - url: http://amppz.mimuw.edu.pl/?subpage=wyniki
     roles:
     - standings
@@ -1009,12 +1017,12 @@ contests:
     roles:
     - rankings
     - report
+    scope: medallists plus MIMUW teams (places 1,2,3,7,9)
     archived:
     - poland/poland-2011/rankings/2026-09-01-live-8570823f/page.html
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (agent-europe)
-    scope: medallists plus MIMUW teams (places 1,2,3,7,9)
   - url: http://amppz.mimuw.edu.pl/2011/amppz2011-problemset.pdf
     roles:
     - problemset
@@ -1036,36 +1044,41 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: http://amppz.mimuw.edu.pl/2011/amppz2011-tresci-zadan.pdf
     roles:
     - problemset
     contains:
     - statement
     as_of: '20170213102506'
-    note: Polish statements
     url_state: dead
     url_checked: '2026-11-16'
+    note: Polish statements
   - url: http://amppz.mimuw.edu.pl/2011/amppz2011-prezentacja-rozwiazan.pdf
     roles:
     - editorial
     as_of: '20121018081454'
-    note: solution slides
     url_state: dead
     url_checked: '2026-11-16'
+    note: solution slides
   problems:
     set: poland-2011
+  provenance:
+  - date 2011-10-30 read from https://www.mimuw.edu.pl/pl/osiagniecia/edycja/73/ (data scan 2026-11-23)
+  - location Faculty of Management, University of Warsaw, Warsaw read from http://amppz.mimuw.edu.pl (data
+    scan 2026-11-23)
 - id: poland-2012
   season: 2013
   name: 2012 Poland Collegiate Programming Contest
   date: '2012-10-29'
-  location: Administrative Site Location
-  sites:
-  - type: administrative
+  location: Faculty of Management, University of Warsaw
   cms_ids:
   - 1320
+  sites:
+  - type: administrative
+  - location: pl-warsaw-university
   parent: cerc-2012
   next: poland-2013
   sources:
@@ -1089,21 +1102,21 @@ contests:
     roles:
     - rankings
     - report
+    scope: top 13
     archived:
     - poland/poland-2012/rankings/2026-09-01-live-50557219/page.html
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (agent-europe)
-    scope: top 13
   - url: https://szkopul.edu.pl/task_archive/amppz/
     roles:
     - problemset
     contains:
     - names
+    judge: szkopul
     as_of: '20210508171159'
     url_state: changed
     url_checked: '2026-11-16'
-    judge: szkopul
   - url: https://www.acmicpc.net/category/detail/962
     roles:
     - problemset
@@ -1117,45 +1130,49 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: http://amppz.mimuw.edu.pl/2012/amppz2012-problemset.pdf
     roles:
     - problemset
     contains:
     - statement
     as_of: '20170822025722'
-    note: English statements
     url_state: dead
     url_checked: '2026-11-16'
+    note: English statements
   - url: http://amppz.mimuw.edu.pl/2012/amppz2012-tresci-zadan.pdf
     roles:
     - problemset
     contains:
     - statement
     as_of: '20170822025526'
-    note: Polish statements
     url_state: dead
     url_checked: '2026-11-16'
+    note: Polish statements
   - url: http://amppz.mimuw.edu.pl/2012/amppz2012-prezentacja-rozwiazan.pdf
     roles:
     - editorial
     as_of: '20170822025717'
-    note: solution slides
     url_state: dead
     url_checked: '2026-11-16'
+    note: solution slides
   problems:
     set: poland-2012
+  provenance:
+  - location Faculty of Management, University of Warsaw read from https://www.mimuw.edu.pl/pl/osiagniecia/edycja/72/
+    (data scan 2026-11-23)
 - id: poland-2013
   season: 2014
   name: 2013 Polish Collegiate Programming Contest
   date: '2013-10-27'
-  location: Administrative Site Location
-  sites:
-  - type: administrative
+  location: Faculty of Management, University of Warsaw
   cms_ids:
   - 2010
+  sites:
+  - type: administrative
+  - location: pl-warsaw-university
   parent: cerc-2013
   next: poland-2014
   sources:
@@ -1166,30 +1183,30 @@ contests:
     roles:
     - scoreboard
     as_of: '20131101175323'
-    note: found inside http://amppz.mimuw.edu.pl by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - poland/poland-2013/scoreboard/20131101-wayback-3358ed30/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://amppz.mimuw.edu.pl by the content check
   - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/71/
     roles:
     - rankings
     - report
+    scope: top 5 plus MIMUW teams (1,6,8,9,10)
     archived:
     - poland/poland-2013/rankings/2026-09-01-live-2343013b/page.html
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (agent-europe)
-    scope: top 5 plus MIMUW teams (1,6,8,9,10)
   - url: https://szkopul.edu.pl/task_archive/amppz/
     roles:
     - problemset
     contains:
     - names
+    judge: szkopul
     as_of: '20210508171159'
     url_state: changed
     url_checked: '2026-11-16'
-    judge: szkopul
   - url: https://www.acmicpc.net/category/detail/1192
     roles:
     - problemset
@@ -1203,36 +1220,40 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: http://amppz.mimuw.edu.pl/amppz2013-tresci-zadan.pdf
     roles:
     - problemset
     contains:
     - statement
     as_of: '20131030215454'
-    note: Polish statements
     url_state: dead
     url_checked: '2026-11-16'
+    note: Polish statements
   - url: http://amppz.mimuw.edu.pl/amppz2013-prezentacja-rozwiazan.pdf
     roles:
     - editorial
     as_of: '20131030215222'
-    note: solution slides
     url_state: dead
     url_checked: '2026-11-16'
+    note: solution slides
   problems:
     set: poland-2013
+  provenance:
+  - location Faculty of Management, University of Warsaw read from https://www.mimuw.edu.pl/pl/osiagniecia/edycja/71/
+    (data scan 2026-11-23)
 - id: poland-2014
   season: 2015
   name: 2014 Polish Collegiate Programming Contest
   date: '2014-10-26'
-  location: Administrative Site Location
-  sites:
-  - type: administrative
+  location: Wydział Zarządzania, Uniwersytet Warszawski, Warsaw
   cms_ids:
   - 2666
+  sites:
+  - type: administrative
+  - location: pl-warsaw-university
   parent: cerc-2014
   next: poland-2015
   sources:
@@ -1243,30 +1264,30 @@ contests:
     roles:
     - scoreboard
     as_of: '20160407064016'
-    note: found inside http://amppz.mimuw.edu.pl by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - poland/poland-2014/scoreboard/20160407-wayback-c2b2c922/ranking.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://amppz.mimuw.edu.pl by the content check
   - url: https://www.mimuw.edu.pl/pl/osiagniecia/edycja/70/
     roles:
     - rankings
     - report
+    scope: MIMUW teams only (places 1,5,6,7,8,9)
     archived:
     - poland/poland-2014/rankings/2026-09-01-live-ec6ccfb7/page.html
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (agent-europe)
-    scope: MIMUW teams only (places 1,5,6,7,8,9)
   - url: https://szkopul.edu.pl/task_archive/amppz/
     roles:
     - problemset
     contains:
     - names
+    judge: szkopul
     as_of: '20210508171159'
     url_state: changed
     url_checked: '2026-11-16'
-    judge: szkopul
   - url: https://www.acmicpc.net/category/detail/1853
     roles:
     - problemset
@@ -1280,36 +1301,39 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: http://amppz.mimuw.edu.pl/amppz2014-tresci-zadan.pdf
     roles:
     - problemset
     contains:
     - statement
     as_of: '20141107020235'
-    note: Polish statements
     url_state: dead
     url_checked: '2026-11-16'
+    note: Polish statements
   - url: http://amppz.mimuw.edu.pl/amppz2014-prezentacja-rozwiazan.pdf
     roles:
     - editorial
     as_of: '20141107020228'
-    note: solution slides
     url_state: dead
     url_checked: '2026-11-16'
+    note: solution slides
   problems:
     set: poland-2014
+  provenance:
+  - location Wydział Zarządzania, Uniwersytet Warszawski, Warsaw read from https://www.mimuw.edu.pl/pl/osiagniecia/edycja/70/
+    (data scan 2026-11-23)
 - id: poland-2015
   season: 2016
   name: 2015 Polish Collegiate Programming Contest
   date: '2015-10-25'
-  location: Administrative Site Location
-  sites:
-  - type: administrative
+  location: Instytut Informatyki, Uniwersytet Wrocławski, Wrocław
   cms_ids:
   - 2778
+  sites:
+  - type: administrative
   parent: cerc-2015
   next: poland-2016
   sources:
@@ -1327,12 +1351,12 @@ contests:
     roles:
     - rankings
     - report
+    scope: top 10 (places 1,2,4,7,10)
     archived:
     - poland/poland-2015/rankings/2026-09-01-live-ef5b9144/page.html
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (agent-europe)
-    scope: top 10 (places 1,2,4,7,10)
   - url: https://amppz.ii.uni.wroc.pl/files/amppz_problemset_en_2015.pdf
     roles:
     - problemset
@@ -1350,9 +1374,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Europe/Central-Europe/Polish-Collegiate-Programming-Contest-AMPPZ/The-2015-Polish-Collegiate-Programming-Contest-AMPPZ-2015/tutorials_pl.pdf
     roles:
     - editorial
@@ -1360,6 +1384,9 @@ contests:
     url_checked: '2026-11-23'
   problems:
     set: poland-2015
+  provenance:
+  - location Instytut Informatyki, Uniwersytet Wrocławski, Wrocław read from https://www.mimuw.edu.pl/pl/osiagniecia/edycja/69/
+    (data scan 2026-11-23)
 - id: poland-2016
   season: 2017
   name: 2016 Polish Collegiate Programming Contest
@@ -1413,10 +1440,10 @@ contests:
   name: 2017 Polish Collegiate Programming Contest
   date: '2017-10-28'
   location: Administrative Site Location
-  sites:
-  - type: administrative
   cms_ids:
   - 3324
+  sites:
+  - type: administrative
   parent: cerc-2017
   next: poland-2018
   sources:
@@ -1433,7 +1460,7 @@ contests:
     note: from archived capture (scoreboard)
   - url: http://www.amppz.ii.uni.wroc.pl/ranking2017/ranking.html
     roles:
-    - standings
+    - scoreboard
     archived:
     - poland/poland-2017/standings/20261020-live-564cf451/ranking.html
     url_state: live
@@ -1458,9 +1485,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Europe/Central-Europe/Polish-Collegiate-Programming-Contest-AMPPZ/The-2017-Polish-Collegiate-Programming-Contest-AMPPZ-2017/tutorials_pl.pdf
     roles:
     - editorial
@@ -1472,11 +1499,11 @@ contests:
   season: 2019
   name: 2018 Polish Collegiate Programming Contest
   date: '2018-10-27'
-  location: Administrative Site Location
-  sites:
-  - type: administrative
+  location: Wrocław
   cms_ids:
   - 3665
+  sites:
+  - type: administrative
   parent: cerc-2018
   next: poland-2019
   sources:
@@ -1491,7 +1518,7 @@ contests:
     note: from archived capture (scoreboard)
   - url: http://www.amppz.ii.uni.wroc.pl/ranking2018/ranking.html
     roles:
-    - standings
+    - scoreboard
     archived:
     - poland/poland-2018/standings/20261020-live-fa12ccb5/ranking.html
     url_state: live
@@ -1501,9 +1528,9 @@ contests:
     - problemset
     contains:
     - statement
+    as_of: '20230712212728'
     url_state: live
     url_checked: '2026-11-16'
-    as_of: '20230712212728'
   - url: https://www.acmicpc.net/category/detail/2866
     roles:
     - problemset
@@ -1517,20 +1544,24 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: poland-2018
+  provenance:
+  - location Wrocław read from https://amppz.ii.uni.wroc.pl/files/amppz_problemset_en_2018.pdf (data scan
+    2026-11-23)
 - id: poland-2019
   season: 2020
   name: 2019 Polish Collegiate Programming Contest
   date: '2019-10-27'
-  location: Administrative Site Location
-  sites:
-  - type: administrative
+  location: Kraków, Faculty of Mathematics and Computer Science, Jagiellonian University
   cms_ids:
   - 4139
+  sites:
+  - type: administrative
+  - location: pl-krakow
   parent: cerc-2019
   next: poland-2021
   sources:
@@ -1581,44 +1612,47 @@ contests:
     contains:
     - names
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221003155859'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://amppz.tcs.uj.edu.pl/2019/data/amppz-en.pdf
     roles:
     - problemset
     as_of: '20210301014536'
-    note: found inside https://amppz.tcs.uj.edu.pl/2019/ by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://amppz.tcs.uj.edu.pl/2019/ by the content check
   - url: https://amppz.tcs.uj.edu.pl/2019/data/amppz.pdf
     roles:
     - problemset
     as_of: '20240809154950'
-    note: found inside https://amppz.tcs.uj.edu.pl/2019/ by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://amppz.tcs.uj.edu.pl/2019/ by the content check
   - url: https://amppz.tcs.uj.edu.pl/2019/data/amppz-slajdy.pdf
     roles:
     - editorial
     as_of: '20220704061443'
-    note: found inside https://amppz.tcs.uj.edu.pl/2019/ by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://amppz.tcs.uj.edu.pl/2019/ by the content check
   problems:
     set: poland-2019
   provenance:
   - ICPC Problem Archive progress sheet (2026-11-01)
+  - location Kraków, Faculty of Mathematics and Computer Science, Jagiellonian University read from https://amppz.tcs.uj.edu.pl/2019/
+    (data scan 2026-11-23)
 - id: poland-2021
   season: 2022
   name: 2021 ICPC Polish Collegiate Programming Contest
   date: '2021-11-07'
-  location: Administrative Site Location
-  sites:
-  - type: administrative
+  location: Jagiellonian University, Kraków
   cms_ids:
   - 4897
+  sites:
+  - type: administrative
+  - location: pl-krakow
   parent: cerc-2021
   next: poland-2022
   sources:
@@ -1626,6 +1660,7 @@ contests:
     roles:
     - web
     - rankings
+    scope: top 12 (medallists)
     as_of: '20220926062503'
     archived:
     - poland/poland-2021/scoreboard/2026-04-16-amppz/2021-icpc-polish-collegiate-programming-contest-2021.html
@@ -1635,7 +1670,6 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: from archived capture (scoreboard)
-    scope: top 12 (medallists)
   - url: http://amppz.tcs.uj.edu.pl/2021/ranking/
     roles:
     - scoreboard
@@ -1671,16 +1705,16 @@ contests:
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221203191232'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: http://amppz.tcs.uj.edu.pl/2021/data/amppz.pdf
     roles:
     - problemset
-    note: found inside http://amppz.tcs.uj.edu.pl/2021/index.html by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside http://amppz.tcs.uj.edu.pl/2021/index.html by the content check
   - url: https://icpcarchive.github.io/Europe/Central-Europe/Polish-Collegiate-Programming-Contest-AMPPZ/The-2021-ICPC-Polish-Collegiate-Programming-Contest-AMPPZ-2021/tutorials_en.pdf
     roles:
     - editorial
@@ -1688,15 +1722,19 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: poland-2021
+  provenance:
+  - location Jagiellonian University, Kraków read from http://amppz.tcs.uj.edu.pl/2021/index.html (data
+    scan 2026-11-23)
 - id: poland-2022
   season: 2023
   name: 2022 ICPC Polish Collegiate Programming Contest
   date: '2022-10-30'
-  location: Administrative Site Location
-  sites:
-  - type: administrative
+  location: Jagiellonian University, Kraków
   cms_ids:
   - 5397
+  sites:
+  - type: administrative
+  - location: pl-krakow
   parent: cerc-2022
   next: poland-2023
   sources:
@@ -1704,6 +1742,7 @@ contests:
     roles:
     - web
     - standings
+    scope: top 12 (medallists)
     as_of: '20230922120859'
     archived:
     - poland/poland-2022/scoreboard/2026-04-16-amppz/2022-icpc-polish-collegiate-programming-contest-2022.html
@@ -1713,7 +1752,6 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: from archived capture (scoreboard)
-    scope: top 12 (medallists)
   - url: https://amppz.tcs.uj.edu.pl/2022/ranking/
     roles:
     - scoreboard
@@ -1743,21 +1781,24 @@ contests:
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20230324181611'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: poland-2022
+  provenance:
+  - location Jagiellonian University, Kraków read from http://amppz.tcs.uj.edu.pl/ (data scan 2026-11-23)
 - id: poland-2023
   season: 2024
   name: 2023 ICPC Polish Collegiate Programming Contest
   date: '2023-11-05'
-  location: Administrative Site Location
-  sites:
-  - type: administrative
+  location: Warszawa, University of Warsaw, Faculty of Management, ul. Szturmowa 1/3
   cms_ids:
   - 7593
+  sites:
+  - type: administrative
+  - location: pl-warsaw-university
   parent: cerc-2023
   next: poland-2024
   sources:
@@ -1778,158 +1819,168 @@ contests:
     roles:
     - scoreboard
     as_of: '20260213205354'
-    note: found inside http://amppz.edu.pl by the content check
-    url_state: replaced
-    url_checked: '2026-11-16'
     archived:
     - poland/poland-2023/scoreboard/20260213-wayback-97328e74/RankingAMPPZ2023.html
     - poland/poland-2023/scoreboard/20261116-live-9db4a6b2/RankingAMPPZ2023.html
+    url_state: replaced
+    url_checked: '2026-11-16'
+    note: found inside http://amppz.edu.pl by the content check
   - url: https://amppz.edu.pl/aktualnosci/miejsca-na-podium-xxvii-akademickie-mistrzostwa-polski-w-programowaniu-zespolowym-2023-70
     roles:
     - rankings
     as_of: '20240304051722'
-    note: found inside http://amppz.edu.pl by the content check
-    url_state: live
-    url_checked: '2026-11-16'
     archived:
     - poland/poland-2023/rankings/20240304-wayback-a0284a82/page.html
     - poland/poland-2023/rankings/20261116-live-bf10e52a/page.html
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside http://amppz.edu.pl by the content check
   - url: https://amppz.edu.pl/aktualnosci/zwyciezcy-xxvii-akademickich-mistrzostw-polski-w-programowaniu-zespolowym-2023-69
     roles:
     - rankings
     as_of: '20240304040449'
-    note: found inside http://amppz.edu.pl by the content check
-    url_state: live
-    url_checked: '2026-11-16'
     archived:
     - poland/poland-2023/rankings/20240304-wayback-18cb5051/page.html
     - poland/poland-2023/rankings/20261116-live-324017d3/page.html
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside http://amppz.edu.pl by the content check
   - url: https://qoj.ac/contest/1774
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://szkopul.edu.pl/task_archive/amppz/
     roles:
     - problemset
     contains:
     - names
     judge: szkopul
+    as_of: '20240618131026'
     url_state: changed
     url_checked: '2026-11-16'
-    as_of: '20240618131026'
   - url: https://szkopul.edu.pl/problemset/problem/VPk8S6M6iNt8afFHPNTZwQd8/site/
     roles:
     - problem
-    judge: szkopul
     problem: A
     contains:
     - statement
+    judge: szkopul
   - url: https://szkopul.edu.pl/problemset/problem/2aud0fzTKGUgT4BvvX2v7YMk/site/
     roles:
     - problem
-    judge: szkopul
     problem: B
     contains:
     - statement
+    judge: szkopul
   - url: https://szkopul.edu.pl/problemset/problem/abN-8oRJcMcGKUFb1gQzjugz/site/
     roles:
     - problem
-    judge: szkopul
     problem: C
     contains:
     - statement
+    judge: szkopul
   - url: https://szkopul.edu.pl/problemset/problem/gp7GgoRK1p3hkmG64u5aRQ5g/site/
     roles:
     - problem
-    judge: szkopul
     problem: D
     contains:
     - statement
+    judge: szkopul
   - url: https://szkopul.edu.pl/problemset/problem/VQ4ZjNTsr4moTWAM2USatfjZ/site/
     roles:
     - problem
-    judge: szkopul
     problem: E
     contains:
     - statement
+    judge: szkopul
   - url: https://szkopul.edu.pl/problemset/problem/wCRXAjrd83UdEUyMWngaEX6t/site/
     roles:
     - problem
-    judge: szkopul
     problem: F
     contains:
     - statement
+    judge: szkopul
   - url: https://szkopul.edu.pl/problemset/problem/a9P53QbcB98gT37kp84gRTtb/site/
     roles:
     - problem
-    judge: szkopul
     problem: G
     contains:
     - statement
+    judge: szkopul
   - url: https://szkopul.edu.pl/problemset/problem/DrLmxCST-ai_E_WAtYUPs-YK/site/
     roles:
     - problem
-    judge: szkopul
     problem: H
     contains:
     - statement
+    judge: szkopul
   - url: https://szkopul.edu.pl/problemset/problem/o9S_HdxElcmbTjphR_zscVif/site/
     roles:
     - problem
-    judge: szkopul
     problem: I
     contains:
     - statement
+    judge: szkopul
   - url: https://szkopul.edu.pl/problemset/problem/Va4Fq3QT62sm9xNG8ZMzwmW6/site/
     roles:
     - problem
-    judge: szkopul
     problem: J
     contains:
     - statement
+    judge: szkopul
   - url: https://szkopul.edu.pl/problemset/problem/Mdh942PW4DgAd_d_y57T2DXv/site/
     roles:
     - problem
-    judge: szkopul
     problem: K
     contains:
     - statement
+    judge: szkopul
   - url: https://szkopul.edu.pl/problemset/problem/7wleqycQNr7JsSqkP8tM_yGo/site/
     roles:
     - problem
-    judge: szkopul
     problem: L
     contains:
     - statement
+    judge: szkopul
   - url: https://szkopul.edu.pl/problemset/problem/H26s8KiK9pr2o8X_2y-1lNsd/site/
     roles:
     - problem
-    judge: szkopul
     problem: M
     contains:
     - statement
+    judge: szkopul
   problems:
     set: poland-2023
   provenance:
   - ICPC Problem Archive progress sheet (2026-11-01)
+  - location Warszawa, University of Warsaw, Faculty of Management, ul. Szturmowa 1/3 read from http://amppz.edu.pl
+    (data scan 2026-11-23)
 - id: poland-2024
   season: 2025
   name: 2024 ICPC Polish Collegiate Programming Contest
+  date: '2024-11-17'
   location: Administrative Site Location
-  sites:
-  - type: administrative
   cms_ids:
   - 8981
+  sites:
+  - type: administrative
   parent: cerc-2024
   next: poland-2025
   sources:
+  - url: https://amppz.edu.pl/
+    roles:
+    - web
+    as_of: '20241114112644'
+    note: found by the data scan 2026-11-23 (sibling poland-2023/2026 web (amppz.edu.pl) + Wayback CDX
+      (address now shows a later edition))
   - url: https://www.mimuw.edu.pl/pl/aktualnosci/amppz-2024
     roles:
     - rankings
     - report
+    scope: top 13 (medallists and first non-medal place)
     as_of: '20241206003438'
     archived:
     - poland/poland-2024/rankings/20241206-wayback-29fcde4f/page.html
@@ -1937,128 +1988,135 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (wave2-europe)
-    scope: top 13 (medallists and first non-medal place)
   - url: https://qoj.ac/contest/1890
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://qoj.ac/download.php?type=statement&id=9959
     roles:
     - problem
-    judge: qoj
     problem: A
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=9960
     roles:
     - problem
-    judge: qoj
     problem: B
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=9961
     roles:
     - problem
-    judge: qoj
     problem: C
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=9962
     roles:
     - problem
-    judge: qoj
     problem: D
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=9963
     roles:
     - problem
-    judge: qoj
     problem: E
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=9964
     roles:
     - problem
-    judge: qoj
     problem: F
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=9965
     roles:
     - problem
-    judge: qoj
     problem: G
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=9966
     roles:
     - problem
-    judge: qoj
     problem: H
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=9967
     roles:
     - problem
-    judge: qoj
     problem: I
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=9968
     roles:
     - problem
-    judge: qoj
     problem: J
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=9969
     roles:
     - problem
-    judge: qoj
     problem: K
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=9970
     roles:
     - problem
-    judge: qoj
     problem: L
     contains:
     - statement
+    judge: qoj
   problems:
     set: poland-2024
+  provenance:
+  - date 2024-11-17 read from https://www.mimuw.edu.pl/pl/aktualnosci/amppz-2024 (data scan 2026-11-23)
 - id: poland-2025
   season: 2026
   name: 2025 ICPC Polish Collegiate Programming Contest
   date: '2025-11-16'
-  location: Administrative Site Location; AMPPZ 2025 Administrative Site
+  location: Warszawa, University of Warsaw, Faculty of Management sports hall
+  cms_ids:
+  - 9359
   sites:
   - type: administrative
   - location: pl
     name: AMPPZ 2025
     type: administrative
-  cms_ids:
-  - 9359
+  - location: pl-warsaw-university
   parent: cerc-2025
   next: poland-2026
   sources:
+  - url: https://amppz.edu.pl/
+    roles:
+    - web
+    as_of: '20251018200027'
+    note: found by the data scan 2026-11-23 (sibling poland-2023/2026 web (amppz.edu.pl) + Wayback CDX
+      (address now shows a later edition))
   - url: https://www.mimuw.edu.pl/pl/aktualnosci/amppz-2025
     roles:
     - rankings
     - report
     scope: top 12 (medallists)
-    url_state: live
-    url_checked: '2026-11-16'
     archived:
     - poland/poland-2025/rankings/20261116-live-9e8f196c/page.html
+    url_state: live
+    url_checked: '2026-11-16'
   - url: http://ranking.amppz.edu.pl/
     roles:
     - rankings
-    as_of: '20250714183417'
     archived:
     - poland/poland-2025/rankings/20250714-wayback-1e580453/page.html
     url_state: replaced
@@ -2068,100 +2126,100 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://qoj.ac/download.php?type=statement&id=15444
     roles:
     - problem
-    judge: qoj
     problem: A
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=15445
     roles:
     - problem
-    judge: qoj
     problem: B
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=15446
     roles:
     - problem
-    judge: qoj
     problem: C
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=15447
     roles:
     - problem
-    judge: qoj
     problem: D
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=15448
     roles:
     - problem
-    judge: qoj
     problem: E
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=15449
     roles:
     - problem
-    judge: qoj
     problem: F
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=15450
     roles:
     - problem
-    judge: qoj
     problem: G
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=15451
     roles:
     - problem
-    judge: qoj
     problem: H
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=15452
     roles:
     - problem
-    judge: qoj
     problem: I
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=15453
     roles:
     - problem
-    judge: qoj
     problem: J
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=15454
     roles:
     - problem
-    judge: qoj
     problem: K
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=15455
     roles:
     - problem
-    judge: qoj
     problem: L
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=15456
     roles:
     - problem
-    judge: qoj
     problem: M
     contains:
     - statement
+    judge: qoj
   - url: https://icpcarchive.github.io/Europe/Central-Europe/Polish-Collegiate-Programming-Contest-AMPPZ/The-2025-ICPC-Polish-Collegiate-Programming-Contest-AMPPZ-2025/tutorials_pl.pdf
     roles:
     - editorial
@@ -2171,10 +2229,15 @@ contests:
     set: poland-2025
   provenance:
   - date read from https://www.mimuw.edu.pl/pl/aktualnosci/amppz-2025 (description round 2026-11-16)
+  - location Warszawa, University of Warsaw, Faculty of Management sports hall read from https://www.mimuw.edu.pl/pl/aktualnosci/amppz-2025
+    (data scan 2026-11-23)
 - id: poland-2026
   status: upcoming
   season: 2027
   name: 2026 ICPC Polish Collegiate Programming Contest
+  date: '2026-11-29'
+  cms_ids:
+  - 9589
   sites:
   - type: administrative
   - location: pl
@@ -2183,8 +2246,6 @@ contests:
   - location: pl
     name: AMPPZ 2026
     type: administrative
-  cms_ids:
-  - 9589
   parent: cerc-2026
   sources:
   - url: https://amppz.edu.pl/
@@ -2195,3 +2256,6 @@ contests:
     roles:
     - web
     note: added by the no-sources hunt 2026-11-16
+  provenance:
+  - date 2026-11-29 read from https://amppz.edu.pl/harmonogram (data scan 2026-11-23; announced before
+    the contest)

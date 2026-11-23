@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: aec
   name: ICPC Asia East Continent Final Contest
@@ -173,19 +173,18 @@ contests:
   name: 2018 ICPC Asia-East Continent Final
   date: '2018-12-16'
   location: xxxxx
+  cms_ids:
+  - 3696
   sites:
   - location: cn
     name: Asia East Continent Final
-  cms_ids:
-  - 3696
   parent: wf-2019
   next: aec-2019
   sources:
   - url: http://acm.nwpu.edu.cn
     roles:
     - web
-    - standings
-    as_of: '20190917014928'
+    as_of: '20181228073821'
     archived:
     - aec/aec-2018/external-standings/2026-04-15-external/content.html
     - aec/aec-2018/standings/20181228-wayback-cd413460/page.html
@@ -229,9 +228,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: aec-2018
 - id: aec-2019
@@ -544,16 +543,21 @@ contests:
   name: 2022 ICPC Asia East Continent Final Contest
   date: '2023-03-26'
   location: Shanghai China; Administrative Site Location
+  cms_ids:
+  - 5537
   sites:
   - type: administrative
   - location: cn-shanghai
     name: The 2022 ICPC Asia East continent Final Contest
     date: '2023-03-25'
-  cms_ids:
-  - 5537
   parent: wf-2023
   next: aec-2023
   sources:
+  - url: https://icpc.pku.edu.cn/ssxx/1119_icpcbjzb_142613.htm
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ICPC China contest-information list icpc.pku.edu.cn/ssxx/
+      (赛事 sàishì = contests), sibling pattern of the 2026 editions)
   - url: https://board.xcpcio.com/icpc/47th/ec-final
     roles:
     - scoreboard
@@ -570,101 +574,101 @@ contests:
     contains:
     - statement
     judge: luogu
+    as_of: '20231017033750'
+    url_state: replaced
+    url_checked: '2026-11-16'
     note: '[EC Final 2022] ICPC2022 东亚赛区决赛重现赛 (judge hunt 2026-11-03: Luogu official-team mirror (重现赛
       chóngxiànsài ''replay contest'', run 2023-10-06) of 2022 ICPC Asia East Continent Final Contest
       (2023-03-26); description says original problems+data; catalogue has no problem titles to check
       (13 problems on judge))'
-    url_state: replaced
-    url_checked: '2026-11-16'
-    as_of: '20231017033750'
   - url: https://qoj.ac/contest/1197
     roles:
     - problemset
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20230603033051'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://www.luogu.com.cn/problem/P9716
     roles:
     - problem
-    judge: luogu
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P9717
     roles:
     - problem
-    judge: luogu
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P9718
     roles:
     - problem
-    judge: luogu
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P9719
     roles:
     - problem
-    judge: luogu
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P9720
     roles:
     - problem
-    judge: luogu
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P9721
     roles:
     - problem
-    judge: luogu
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P9722
     roles:
     - problem
-    judge: luogu
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P9723
     roles:
     - problem
-    judge: luogu
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P9724
     roles:
     - problem
-    judge: luogu
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P9725
     roles:
     - problem
-    judge: luogu
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P9726
     roles:
     - problem
-    judge: luogu
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P9727
     roles:
     - problem
-    judge: luogu
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P9728
     roles:
     - problem
-    judge: luogu
     contains:
     - statement
+    judge: luogu
   - url: https://icpcarchive.github.io/Asia-East-Continent/Asia-East-Continent-Final-Contest/The-2022-ICPC-Asia-East-Continent-Final-Contest/tutorials_zh-cn.pdf
     roles:
     - editorial
@@ -677,31 +681,28 @@ contests:
   name: 2023 ICPC Asia East Continent Final Contest
   date: '2024-01-14'
   location: Administrative Site Location; Shanghai China
+  cms_ids:
+  - 7694
   sites:
   - type: administrative
   - location: cn-shanghai
     name: The 2023 ICPC Asia East continent Final Contest
     date: '2024-01-13'
-  cms_ids:
-  - 7694
   parent: wf-2024
   next: aec-2024
   sources:
-  - url: https://codeforces.com/gym/104639/standings
+  - url: https://icpc.pku.edu.cn/ssxx/1119_icpcbjzb_151095.htm
     roles:
-    - scoreboard
-    as_of: '20231208085104'
-    archived:
-    - aec/aec-2023/scoreboard/20231208-wayback-5d10c35d/page.html
-    - aec/aec-2023/scoreboard/2026-09-01-live-265859f2/page.html
-    note: from archived capture (scoreboard)
+    - web
+    note: found by the data scan 2026-11-23 (ICPC China contest-information list icpc.pku.edu.cn/ssxx/
+      (赛事 sàishì = contests), sibling pattern of the 2026 editions)
   - url: https://qoj.ac/contest/1522
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Asia-East-Continent/Asia-East-Continent-Final-Contest/The-2023-ICPC-Asia-East-Continent-Final-Contest/statements_en.pdf
     roles:
     - problemset
@@ -713,73 +714,73 @@ contests:
   - url: https://codeforces.com/gym/104639/problem/A
     roles:
     - problem
-    judge: codeforces
     problem: A
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104639/problem/B
     roles:
     - problem
-    judge: codeforces
     problem: B
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104639/problem/E
     roles:
     - problem
-    judge: codeforces
     problem: E
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104639/problem/F
     roles:
     - problem
-    judge: codeforces
     problem: F
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104639/problem/G
     roles:
     - problem
-    judge: codeforces
     problem: G
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104639/problem/H
     roles:
     - problem
-    judge: codeforces
     problem: H
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104639/problem/I
     roles:
     - problem
-    judge: codeforces
     problem: I
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104639/problem/J
     roles:
     - problem
-    judge: codeforces
     problem: J
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104639/problem/K
     roles:
     - problem
-    judge: codeforces
     problem: K
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104639/problem/L
     roles:
     - problem
-    judge: codeforces
     problem: L
     contains:
     - statement
+    judge: codeforces
   - url: https://icpcarchive.github.io/Asia-East-Continent/Asia-East-Continent-Final-Contest/The-2023-ICPC-Asia-East-Continent-Final-Contest/tutorials_zh-cn.pdf
     roles:
     - editorial
@@ -909,15 +910,20 @@ contests:
   name: 2025 ICPC Asia East Continent Final Contest
   date: '2026-02-02'
   location: HANGZHOU; Administrative Site Location
+  cms_ids:
+  - 9217
   sites:
   - type: administrative
   - location: cn-hangzhou
     name: Asia East Continent Final Contest
-  cms_ids:
-  - 9217
   parent: wf-2026
   next: aec-2026
   sources:
+  - url: https://icpc.pku.edu.cn/tzgg/29c98d873cee441ea8709973cc564217.htm
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ICPC China notices list icpc.pku.edu.cn/tzgg/ (公告 gōnggào
+      = notices))
   - url: https://board.xcpcio.com/icpc/50th/ecfinal
     roles:
     - scoreboard
@@ -927,85 +933,89 @@ contests:
     url_state: replaced
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (wave3-xcpcio)
+  - url: https://icpc.global/regionals/finder/Asia-East-Continent-Final-2026/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 280 rows)
   - url: https://qoj.ac/contest/3295
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://qoj.ac/download.php?type=statement&id=16328
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=16329
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=16330
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=16331
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=16332
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=16333
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=16334
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=16335
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=16336
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=16337
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=16338
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=16339
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://icpcarchive.github.io/Asia-East-Continent/Asia-East-Continent-Final-Contest/The-2025-ICPC-Asia-East-Continent-Final-Contest/tutorials_zh-cn.pdf
     roles:
     - editorial

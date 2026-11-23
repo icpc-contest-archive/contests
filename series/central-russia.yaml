@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: central-russia
   name: ICPC Central Russia Regional Contest
@@ -9,7 +9,10 @@ contests:
 - id: central-russia-1998
   season: 1999
   name: 1998 Central Subregional Contest
+  location: Rybinsk
   cms_ids: []
+  sites:
+  - location: ru-rybinsk
   parent: neerc-1998
   next: central-russia-1999
   sources:
@@ -21,32 +24,49 @@ contests:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
+  - url: http://neerc.ifmo.ru/Archive/98/results.htm
+    roles:
+    - scoreboard
+    scope: Central Subregion
+    as_of: '20030516090449'
+    note: found by the data scan 2026-11-23 (the 1998 NEERC subregional results page; it names the host
+      of this edition)
+  provenance:
+  - location Rybinsk read from http://neerc.ifmo.ru/Archive/98/results.htm (data scan 2026-11-23)
 - id: central-russia-1999
   season: 2000
   name: 1999 Central Subregional Contest
-  cms_ids: []
+  cms_ids:
+  - 9928
   parent: neerc-1999
   next: central-russia-2000
   sources:
   - url: https://neerc.ifmo.ru/subregions/central.html
     roles:
     - web
-  - url: https://acm.timus.ru/problemset.aspx?space=1&tag=qf
-    roles:
-    - web
-    url_state: replaced
-    url_checked: '2026-11-14'
+  provenance:
+  - cms id 9928 read from https://icpc.global/api/contest/public/regionalresults/2000 (data scan 2026-11-23)
 - id: central-russia-2000
   season: 2001
   name: 2000 Central Subregional Contest
   date: '2000-10-04'
-  cms_ids: []
+  location: Rybinsk SAAT, Rybinsk
+  cms_ids:
+  - 9940
+  sites:
+  - location: ru-rybinsk-rsatu
   parent: neerc-2000
   next: central-russia-2001
   sources:
   - url: http://neerc.ifmo.ru/*
     roles:
     - web
+  - url: http://neerc.ifmo.ru/Archive/2000/central.html
+    roles:
+    - scoreboard
+    as_of: '20030508161816'
+    note: found by the data scan 2026-11-23 (Wayback snapshot 20030508161816; a copy is held in the website
+      crawl of north-russia-1999)
   - url: https://acm.timus.ru/problemset.aspx?space=1&tag=qf
     roles:
     - problemset
@@ -60,58 +80,60 @@ contests:
     contains:
     - statement
     judge: timus
+    as_of: '20090221185752'
+    url_state: changed
+    url_checked: '2026-11-16'
     note: 'NEERC 2000 Central Subregional (judge hunt 2026-11-03: 7 problems in the Timus main problem
       set carry Source ''NEERC 2000 Central Subregional'' (no contest space exists; filter the listing
       by the Source column))'
-    url_state: changed
-    url_checked: '2026-11-16'
-    as_of: '20090221185752'
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1053
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1054
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1055
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1056
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1057
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1058
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1059
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   problems:
     set: central-russia-2000
   provenance:
   - date read from http://neerc.ifmo.ru/* (description round 2026-11-16)
+  - cms id 9940 read from https://icpc.global/api/contest/public/regionalresults/2001 (data scan 2026-11-23)
+  - location Rybinsk SAAT, Rybinsk read from http://neerc.ifmo.ru/* (data scan 2026-11-23)
 - id: central-russia-2001
   season: 2002
   name: 2001 Central Subregional Contest
@@ -119,79 +141,95 @@ contests:
   parent: neerc-2001
   next: central-russia-2002
   sources:
+  - url: http://neerc.ifmo.ru/Archive/2001/central.html
+    roles:
+    - scoreboard
+    as_of: '20020725214213'
+    note: found by the data scan 2026-11-23 (Wayback snapshot 20020725214213; a copy is held in the website
+      crawl of west-neerc-2000)
   - url: https://acm.timus.ru/problemset.aspx?space=30
     roles:
     - problemset
     contains:
     - statement
     judge: timus
+    as_of: '20061010014203'
+    url_state: changed
+    url_checked: '2026-11-16'
     note: 'NEERC, Central subregion, Rybinsk, October 2001 (judge hunt 2026-11-03: Timus past-contest
       archive ''NEERC, Central subregion, Rybinsk, October 2001'' (3 November 2001): online version of
       the official contest; 8 problems in space 30; main-set source tag ''NEERC 2001 Central Subregional''
       gives 8 named problems)'
-    url_state: changed
-    url_checked: '2026-11-16'
-    as_of: '20061010014203'
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1133
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1134
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1135
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1136
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1137
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1138
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1139
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1140
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   problems:
     set: central-russia-2001
 - id: central-russia-2002
   season: 2003
   name: 2002 Central Subregional Contest
+  date: '2002-10-17'
+  location: Rybinsk, Rybinsk State Academy of Aviation Technology
   cms_ids: []
+  sites:
+  - location: ru-rybinsk-rsatu
   parent: neerc-2002
   next: central-russia-2003
   sources:
   - url: http://old.rsatu.ru/acm/
     roles:
     - web
+  - url: http://neerc.ifmo.ru/Archive/2002/central.html
+    roles:
+    - scoreboard
+    as_of: '20030510042818'
+    note: found by the data scan 2026-11-23 (Wayback snapshot 20030510042818; a copy is held in the website
+      crawl of north-russia-2002)
   - url: https://acm.timus.ru/problemset.aspx?space=37
     roles:
     - problemset
@@ -201,6 +239,11 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: central-russia-2002
+  provenance:
+  - location Rybinsk, Rybinsk State Academy of Aviation Technology read from https://web.archive.org/web/20030510042818/http://neerc.ifmo.ru/Archive/2002/central.html
+    (data scan 2026-11-23)
+  - date 2002-10-17 read from https://web.archive.org/web/20030510042818/http://neerc.ifmo.ru/Archive/2002/central.html
+    (data scan 2026-11-23)
 - id: central-russia-2003
   season: 2004
   name: 2003 Central Subregional Contest
@@ -212,6 +255,7 @@ contests:
   - url: https://neerc.ifmo.ru/subregions/central.html
     roles:
     - web
+    as_of: '20030922184100'
   - url: https://nerc.itmo.ru/archive/2003/central/standings.html
     roles:
     - scoreboard
@@ -241,66 +285,66 @@ contests:
     contains:
     - statement
     judge: timus
+    as_of: '20061014174947'
+    url_state: changed
+    url_checked: '2026-11-16'
     note: 'Quarterfinal, Rybinsk, October 16 2003 (judge hunt 2026-11-03: Timus past-contest archive ''Quarterfinal,
       Rybinsk, October 16 2003'' (8 November 2003): online version of the official contest; 9 problems
       in space 9; main-set source tag ''NEERC 2003 Central Subregional'' gives 9 named problems)'
-    url_state: changed
-    url_checked: '2026-11-16'
-    as_of: '20061014174947'
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1274
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1275
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1276
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1277
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1278
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1279
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1280
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1281
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1282
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   problems:
     set: central-russia-2003
   provenance:
@@ -308,13 +352,17 @@ contests:
 - id: central-russia-2004
   season: 2005
   name: 2004 Central Subregional Contest
+  location: Rybinsk, Rybinsk State Academy of Aviation Technology
   cms_ids: []
+  sites:
+  - location: ru-rybinsk-rsatu
   parent: neerc-2004
   next: central-russia-2005
   sources:
   - url: https://neerc.ifmo.ru/subregions/central.html
     roles:
     - web
+    as_of: '20050118061337'
   - url: https://nerc.itmo.ru/archive/2004/central/standings.html
     roles:
     - scoreboard
@@ -340,16 +388,23 @@ contests:
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
   problems:
     set: central-russia-2004
+  provenance:
+  - location Rybinsk, Rybinsk State Academy of Aviation Technology read from https://web.archive.org/web/20050118061337/http://neerc.ifmo.ru/subregions/central.html
+    (data scan 2026-11-23)
 - id: central-russia-2005
   season: 2006
   name: 2005 Central Subregional Contest
+  location: Rybinsk, Rybinsk State Academy of Aviation Technology
   cms_ids: []
+  sites:
+  - location: ru-rybinsk-rsatu
   parent: neerc-2005
   next: central-russia-2006
   sources:
   - url: https://neerc.ifmo.ru/subregions/central.html
     roles:
     - web
+    as_of: '20060503231146'
   - url: https://nerc.itmo.ru/archive/2005/central/standings.html
     roles:
     - scoreboard
@@ -375,16 +430,23 @@ contests:
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
   problems:
     set: central-russia-2005
+  provenance:
+  - location Rybinsk, Rybinsk State Academy of Aviation Technology read from https://web.archive.org/web/20060503231146/http://neerc.ifmo.ru/subregions/central.html
+    (data scan 2026-11-23)
 - id: central-russia-2006
   season: 2007
   name: 2006 Central Subregional Contest
+  location: Rybinsk, Rybinsk State Academy of Aviation Technology
   cms_ids: []
+  sites:
+  - location: ru-rybinsk-rsatu
   parent: neerc-2006
   next: central-russia-2007
   sources:
   - url: https://neerc.ifmo.ru/subregions/central.html
     roles:
     - web
+    as_of: '20061125223212'
   - url: https://nerc.itmo.ru/archive/2006/central/standings.html
     roles:
     - scoreboard
@@ -410,16 +472,24 @@ contests:
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
   problems:
     set: central-russia-2006
+  provenance:
+  - location Rybinsk, Rybinsk State Academy of Aviation Technology read from https://web.archive.org/web/20061125223212/http://neerc.ifmo.ru/subregions/central.html
+    (data scan 2026-11-23)
 - id: central-russia-2007
   season: 2008
   name: 2007 Central Subregional Contest
-  cms_ids: []
+  location: Rybinsk, Rybinsk State Academy of Aviation Technology
+  cms_ids:
+  - 9906
+  sites:
+  - location: ru-rybinsk-rsatu
   parent: neerc-2007
   next: central-russia-2008
   sources:
   - url: https://neerc.ifmo.ru/subregions/central.html
     roles:
     - web
+    as_of: '20071124014757'
   - url: https://nerc.itmo.ru/archive/2007/central/standings.html
     roles:
     - scoreboard
@@ -445,6 +515,10 @@ contests:
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
   problems:
     set: central-russia-2007
+  provenance:
+  - cms id 9906 read from https://icpc.global/api/contest/public/regionalresults/2008 (data scan 2026-11-23)
+  - location Rybinsk, Rybinsk State Academy of Aviation Technology read from https://web.archive.org/web/20071124014757/http://neerc.ifmo.ru/subregions/central.html
+    (data scan 2026-11-23)
 - id: central-russia-2008
   season: 2009
   name: 2008 Central Subregional Contest
@@ -492,19 +566,20 @@ contests:
   name: 2009 Central Subregional Contest
   date: '2009-10-15'
   location: Rybinsk; Administrative Site Location
+  cms_ids:
+  - 534
   sites:
   - type: administrative
   - location: ru-rybinsk
     name: Central Subregional Contest
     type: administrative
-  cms_ids:
-  - 534
   parent: neerc-2009
   next: central-russia-2010
   sources:
   - url: https://neerc.ifmo.ru/subregions/central.html
     roles:
     - web
+    as_of: '20100402045831'
   - url: https://nerc.itmo.ru/archive/2009/central/standings.html
     roles:
     - scoreboard
@@ -578,19 +653,20 @@ contests:
   name: 2011 Central Subregional Contest
   date: '2011-10-12'
   location: Rybinsk; Administrative Site Location
+  cms_ids:
+  - 763
   sites:
   - type: administrative
   - location: ru-rybinsk
     name: Central Subregional Contest
     type: administrative
-  cms_ids:
-  - 763
   parent: neerc-2011
   next: central-russia-2012
   sources:
   - url: https://neerc.ifmo.ru/subregions/central.html
     roles:
     - web
+    as_of: '20111107230007'
   - url: https://nerc.itmo.ru/archive/2011/central/standings.html
     roles:
     - scoreboard
@@ -691,19 +767,20 @@ contests:
   name: 2013 Central Subregional Contest
   date: '2013-10-17'
   location: Rybinsk; Administrative Site Location
+  cms_ids:
+  - 2026
   sites:
   - location: ru-rybinsk
     name: Central Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 2026
   parent: neerc-2013
   next: central-russia-2014
   sources:
   - url: https://neerc.ifmo.ru/subregions/central.html
     roles:
     - web
+    as_of: '20140406210905'
   - url: https://nerc.itmo.ru/archive/2013/central/standings.html
     roles:
     - scoreboard
@@ -732,19 +809,20 @@ contests:
   name: 2014 Central Subregional Contest
   date: '2014-10-16'
   location: Rybinsk; Administrative Site Location
+  cms_ids:
+  - 2677
   sites:
   - location: ru-rybinsk
     name: Central Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 2677
   parent: neerc-2014
   next: central-russia-2015
   sources:
   - url: https://neerc.ifmo.ru/subregions/central.html
     roles:
     - web
+    as_of: '20141027213052'
   - url: https://nerc.itmo.ru/archive/2014/central/standings.html
     roles:
     - scoreboard
@@ -779,19 +857,20 @@ contests:
   name: 2015 Central Subregional Contest
   date: '2015-10-15'
   location: Administrative Site Location; Rybinsk
+  cms_ids:
+  - 2758
   sites:
   - location: ru-rybinsk
     name: Central Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 2758
   parent: neerc-2015
   next: central-russia-2016
   sources:
   - url: https://neerc.ifmo.ru/subregions/central.html
     roles:
     - web
+    as_of: '20160318063718'
   - url: https://nerc.itmo.ru/archive/2015/central/standings.html
     roles:
     - scoreboard
@@ -826,19 +905,20 @@ contests:
   name: 2016 Central Subregional Contest
   date: '2016-10-20'
   location: Administrative Site Location; Rybinsk
+  cms_ids:
+  - 3144
   sites:
   - location: ru-rybinsk
     name: Central Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 3144
   parent: neerc-2016
   next: central-russia-2017
   sources:
   - url: https://neerc.ifmo.ru/subregions/central.html
     roles:
     - web
+    as_of: '20161029173953'
   - url: https://nerc.itmo.ru/archive/2016/central/standings.html
     roles:
     - scoreboard
@@ -865,10 +945,10 @@ contests:
   - url: https://codeforces.com/gym/101243/attachments/download/5090/20162017-acmicpc-neerc-central-subregional-contest-en.pdf
     roles:
     - problem
-    judge: codeforces
     problem: A
     contains:
     - statement
+    judge: codeforces
   problems:
     set: central-russia-2016
 - id: central-russia-2017
@@ -1019,16 +1099,21 @@ contests:
   name: 2018 Central Subregional Contest
   date: '2018-10-28'
   location: Rybinsk; Administrative Site Location
+  cms_ids:
+  - 3683
   sites:
   - location: ru-rybinsk
     name: Central Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 3683
   parent: nerc-2018
   next: central-russia-2019
   sources:
+  - url: http://neerc.ifmo.ru/subregions/central.html
+    roles:
+    - web
+    as_of: '20181211080444'
+    note: found by the data scan 2026-11-23 (Wayback CDX of the NERC subregion page)
   - url: https://icpc.global/regionals/finder/Central-Subregional-2019/standings
     roles:
     - standings
@@ -1041,88 +1126,88 @@ contests:
     contains:
     - names
     judge: codeforces
-    note: 'ICPC Central Russia Regional Contest (CRRC 18) (judge hunt 2026-11-03: name+year: ''ICPC Central
-      Russia Regional Contest (CRRC 18)'' -> season start 2018)'
+    as_of: '20221020112813'
     url_state: replaced
     url_checked: '2026-11-16'
-    as_of: '20221020112813'
+    note: 'ICPC Central Russia Regional Contest (CRRC 18) (judge hunt 2026-11-03: name+year: ''ICPC Central
+      Russia Regional Contest (CRRC 18)'' -> season start 2018)'
   - url: https://codeforces.com/gym/102785/problem/A
     roles:
     - problem
-    judge: codeforces
     problem: A
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/102785/problem/B
     roles:
     - problem
-    judge: codeforces
     problem: B
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/102785/problem/C
     roles:
     - problem
-    judge: codeforces
     problem: C
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/102785/problem/D
     roles:
     - problem
-    judge: codeforces
     problem: D
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/102785/problem/E
     roles:
     - problem
-    judge: codeforces
     problem: E
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/102785/problem/F
     roles:
     - problem
-    judge: codeforces
     problem: F
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/102785/problem/G
     roles:
     - problem
-    judge: codeforces
     problem: G
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/102785/problem/H
     roles:
     - problem
-    judge: codeforces
     problem: H
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/102785/problem/I
     roles:
     - problem
-    judge: codeforces
     problem: I
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/102785/problem/J
     roles:
     - problem
-    judge: codeforces
     problem: J
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/102785/problem/K
     roles:
     - problem
-    judge: codeforces
     problem: K
     contains:
     - statement
+    judge: codeforces
   problems:
     set: central-russia-2018
 - id: central-russia-2019
@@ -1130,19 +1215,20 @@ contests:
   name: 2019 Central Russia Regional Contest
   date: '2019-10-27'
   location: Administrative Site Location; Rybinsk
+  cms_ids:
+  - 4201
   sites:
   - type: administrative
   - location: ru-rybinsk
     name: Central Subregional Contest
     type: administrative
-  cms_ids:
-  - 4201
   parent: nerc-2019
   next: central-russia-2020
   sources:
   - url: https://neerc.ifmo.ru/subregions/central.html
     roles:
     - web
+    as_of: '20191022015311'
   - url: https://nerc.itmo.ru/archive/2019/central/standings.html
     roles:
     - scoreboard
@@ -1183,80 +1269,80 @@ contests:
   - url: https://codeforces.com/gym/102780/problem/A
     roles:
     - problem
-    judge: codeforces
     problem: A
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/102780/problem/B
     roles:
     - problem
-    judge: codeforces
     problem: B
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/102780/problem/C
     roles:
     - problem
-    judge: codeforces
     problem: C
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/102780/problem/D
     roles:
     - problem
-    judge: codeforces
     problem: D
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/102780/problem/E
     roles:
     - problem
-    judge: codeforces
     problem: E
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/102780/problem/F
     roles:
     - problem
-    judge: codeforces
     problem: F
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/102780/problem/G
     roles:
     - problem
-    judge: codeforces
     problem: G
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/102780/problem/H
     roles:
     - problem
-    judge: codeforces
     problem: H
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/102780/problem/I
     roles:
     - problem
-    judge: codeforces
     problem: I
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/102780/problem/J
     roles:
     - problem
-    judge: codeforces
     problem: J
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/102780/problem/K
     roles:
     - problem
-    judge: codeforces
     problem: K
     contains:
     - statement
+    judge: codeforces
   problems:
     set: central-russia-2019
 - id: central-russia-2020
@@ -1399,16 +1485,21 @@ contests:
   name: 2021 ICPC Central Russia Regional Contest
   date: '2021-11-20'
   location: Administrative Site Location; Yaroslavl
+  cms_ids:
+  - 4953
   sites:
   - type: administrative
   - location: ru-yaroslavl
     name: Central Russia Regional Contest
     type: administrative
-  cms_ids:
-  - 4953
   parent: nerc-2021
   next: central-russia-2022
   sources:
+  - url: http://nerc.itmo.ru/subregions/central.html
+    roles:
+    - web
+    as_of: '20211207005325'
+    note: found by the data scan 2026-11-23 (Wayback CDX of the NERC subregion page)
   - url: https://icpc.global/regionals/finder/Central-Regional-2022/standings
     roles:
     - standings
@@ -1421,115 +1512,115 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: 'ICPC Central Russia Regional Contest, 2021 (judge hunt 2026-11-03: name+year: ''ICPC Central
-      Russia Regional Contest, 2021'' -> season start 2021)'
     url_state: live
     url_checked: '2026-11-16'
+    note: 'ICPC Central Russia Regional Contest, 2021 (judge hunt 2026-11-03: name+year: ''ICPC Central
+      Russia Regional Contest, 2021'' -> season start 2021)'
   - url: https://codeforces.com/gym/104454/problem/A
     roles:
     - problem
-    judge: codeforces
     problem: A
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104454/problem/B
     roles:
     - problem
-    judge: codeforces
     problem: B
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104454/problem/C
     roles:
     - problem
-    judge: codeforces
     problem: C
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104454/problem/D
     roles:
     - problem
-    judge: codeforces
     problem: D
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104454/problem/E
     roles:
     - problem
-    judge: codeforces
     problem: E
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104454/problem/F
     roles:
     - problem
-    judge: codeforces
     problem: F
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104454/problem/G
     roles:
     - problem
-    judge: codeforces
     problem: G
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104454/problem/H
     roles:
     - problem
-    judge: codeforces
     problem: H
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104454/problem/I
     roles:
     - problem
-    judge: codeforces
     problem: I
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104454/problem/J
     roles:
     - problem
-    judge: codeforces
     problem: J
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104454/problem/K
     roles:
     - problem
-    judge: codeforces
     problem: K
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104454/problem/L
     roles:
     - problem
-    judge: codeforces
     problem: L
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104454/problem/M
     roles:
     - problem
-    judge: codeforces
     problem: M
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104454/problem/N
     roles:
     - problem
-    judge: codeforces
     problem: N
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104454/problem/O
     roles:
     - problem
-    judge: codeforces
     problem: O
     contains:
     - statement
+    judge: codeforces
   problems:
     set: central-russia-2021
 - id: central-russia-2022
@@ -1537,16 +1628,21 @@ contests:
   name: 2022 ICPC Central Russia Regional Contest
   date: '2022-10-23'
   location: Yaroslavl; Administrative Site Location
+  cms_ids:
+  - 5586
   sites:
   - type: administrative
   - location: ru-yaroslavl
     name: Central Russia Regional Contest
     type: administrative
-  cms_ids:
-  - 5586
   parent: nerc-2022
   next: central-russia-2023
   sources:
+  - url: https://nerc.itmo.ru/subregions/central.html
+    roles:
+    - web
+    as_of: '20230129195452'
+    note: found by the data scan 2026-11-23 (Wayback CDX of the NERC subregion page)
   - url: https://icpc.global/regionals/finder/Central-Regional-2023/standings
     roles:
     - standings
@@ -1568,20 +1664,20 @@ contests:
   name: 2023 ICPC Central Russia Regional Contest
   date: '2023-10-29'
   location: Administrative Site Location; Yaroslavl
+  cms_ids:
+  - 7732
   sites:
   - type: administrative
   - location: ru-yaroslavl
     name: Central Russia Regional Contest
     type: administrative
-  cms_ids:
-  - 7732
   parent: nerc-2023
   next: central-russia-2024
   sources:
   - url: http://acm.uniyar.ac.ru
     roles:
     - web
-  - url: https://icpc.global/regionals/finder/Central-Regional-2026/standings
+  - url: https://icpc.global/regionals/finder/Central-Regional-2024/standings
     roles:
     - standings
     archived:
@@ -1643,15 +1739,20 @@ contests:
   name: 2025 ICPC Central Russia Regional Contest
   date: '2025-11-09'
   location: Yaroslavl; Administrative Site Location
+  cms_ids:
+  - 9167
   sites:
   - type: administrative
   - location: ru-yaroslavl
     name: Central Russia Regional Contest
-  cms_ids:
-  - 9167
   parent: nerc-2025
   next: central-russia-2026
   sources:
+  - url: http://neerc.ifmo.ru/subregions/central.html
+    roles:
+    - web
+    as_of: '20260118072403'
+    note: found by the data scan 2026-11-23 (Wayback CDX of the NERC subregion page)
   - url: https://icpc.global/regionals/finder/Central-Regional-2026/standings
     roles:
     - standings
@@ -1671,15 +1772,19 @@ contests:
 - id: central-russia-2026
   season: 2027
   name: 2026 ICPC Central Russia Regional Contest
-  date: '2026-11-01'
+  date: '2026-10-31'
+  cms_ids:
+  - 9802
   sites:
   - type: administrative
   - location: ru-yaroslavl
     name: Central Russia Regional Contest
-  cms_ids:
-  - 9802
   parent: nerc-2026
   sources:
+  - url: https://nerc.itmo.ru/subregions/central.html
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (NERC subregion page, live)
   - url: https://icpc.global/regionals/finder/Central-Regional-2027/standings
     roles:
     - standings
@@ -1690,3 +1795,4 @@ contests:
   - 'ran 2026-11-01: shown by its icpc standings source(s); date from last day of the CMS contest record
     (2026-10-31 to 2026-11-01) (ruling 2026-11-12: upcoming ends when the date has passed and a result
     source or judge page shows the contest ran)'
+  - date 2026-10-31 read from https://nerc.itmo.ru/subregions/central.html (data scan 2026-11-23)

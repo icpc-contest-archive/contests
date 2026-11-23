@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: lac
   name: ICPC Latin America Championship
@@ -9,8 +9,10 @@ contests:
 - id: lac-2024
   season: 2024
   name: 2024 ICPC Latin America Championship
-  date: '2024-03-19'
+  date: '2024-03-17'
   location: ITESO University
+  cms_ids:
+  - 7940
   sites:
   - location: mx-guadalajara-iteso
     name: Guadalajara
@@ -19,8 +21,6 @@ contests:
     name: Latinoamerica
     date: '2024-03-14'
     type: administrative
-  cms_ids:
-  - 7940
   parent: wf-2024
   next: lac-2025
   sources:
@@ -63,18 +63,18 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20240504104539'
     url_state: live
     url_checked: '2026-11-16'
     note: 'The 2024 ICPC Latin America Championship (judge hunt 2026-11-03: name+year: ''The 2024 ICPC
       Latin America Championship'' -> 2024)'
-    as_of: '20240504104539'
   - url: https://qoj.ac/contest/1576
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Latin-America/Latin-America-Championship/The-2024-ICPC-Latin-America-Championship/tutorials.pdf
     roles:
     - editorial
@@ -82,11 +82,16 @@ contests:
     url_checked: '2026-11-23'
   problems:
     set: lac-2024
+  provenance:
+  - date 2024-03-17 read from https://icpcarchive.github.io/Latin%20American%20Contests/Latin%20America%20Championship/2024%20Latin%20America%20Championship/problems.pdf
+    (data scan 2026-11-23)
 - id: lac-2025
   season: 2025
   name: 2025 ICPC Latin America Championship
-  date: '2025-03-17'
+  date: '2025-03-16'
   location: ITESO University; UFBA; Administrative Site Location
+  cms_ids:
+  - 8940
   sites:
   - type: administrative
   - location: mx-guadalajara-iteso
@@ -95,11 +100,19 @@ contests:
   - location: br-salvador-ufba
     name: Salvador, BA
     date: '2025-03-16'
-  cms_ids:
-  - 8940
   parent: wf-2025
   next: lac-2026
   sources:
+  - url: https://pda2025.gruproufba.com.br/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ICPC Latin America super-region site www.icpclatam.org (found
+      via icpccaribe.org link))
+  - url: https://www.icpclatam.org/championships/lac2025/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ICPC Latin America super-region site www.icpclatam.org (found
+      via icpccaribe.org link))
   - url: https://scorelatam.naquadah.com.br/pda25/
     roles:
     - scoreboard
@@ -145,25 +158,29 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20250804031738'
     url_state: live
     url_checked: '2026-11-16'
     note: 'The 2025 ICPC Latin America Championship (judge hunt 2026-11-03: name+year: ''The 2025 ICPC
       Latin America Championship'' -> 2025)'
-    as_of: '20250804031738'
   - url: https://qoj.ac/contest/2080
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: lac-2025
+  provenance:
+  - date 2025-03-16 read from https://scorelatam.naquadah.com.br/pda25/contest.pdf (data scan 2026-11-23)
 - id: lac-2026
   season: 2026
   name: 2026 ICPC Latin America Championship
   date: '2026-03-08'
   location: Santiago, Chile; ITESO University; Administrative Site Location
+  cms_ids:
+  - 9400
   sites:
   - type: administrative
   - location: mx-guadalajara-iteso
@@ -171,11 +188,18 @@ contests:
     type: administrative
   - location: cl-santiago
     date: '2026-03-07'
-  cms_ids:
-  - 9400
   parent: wf-2026
   next: lac-2027
   sources:
+  - url: https://latam2026.icpc.cl/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (link on aapc.org.ar home page)
+  - url: https://www.icpclatam.org/championships/lac2026/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ICPC Latin America super-region site www.icpclatam.org (found
+      via icpccaribe.org link))
   - url: https://scorelatam.naquadah.com.br/pda26/
     roles:
     - scoreboard
@@ -220,9 +244,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: lac-2026
 - id: lac-2027

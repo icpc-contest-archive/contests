@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: tap
   name: Torneo Argentino de Programación
@@ -11,6 +11,8 @@ contests:
   name: Torneo Argentino de Programación 2012
   date: '2012-09-29'
   location: Bahía Blanca
+  cms_ids:
+  - 1483
   sites:
   - location: ar-cordoba
   - location: ar-la-plata
@@ -18,8 +20,6 @@ contests:
   - location: ar-santa-fe
   - location: ar-bahia-blanca
   - type: administrative
-  cms_ids:
-  - 1483
   parent: south-america-south-2012
   next: tap-2013
   sources:
@@ -33,12 +33,19 @@ contests:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
+  - url: https://icpc.global/regionals/finder/Torneo-Argentino-2013/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 37 rows, 37 with problems solved)
   notes: '37 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: tap-2013
   season: 2014
   name: Torneo Argentino de Programación 2013
   date: '2013-10-05'
   location: Bahía Blanca
+  cms_ids:
+  - 1815
   sites:
   - location: ar-rio-cuarto-universidad-nacional
   - location: ar-neuquen
@@ -49,8 +56,6 @@ contests:
   - location: ar-cordoba
   - location: ar-santa-fe
   - location: ar-bahia-blanca
-  cms_ids:
-  - 1815
   parent: south-america-south-2013
   next: tap-2014
   sources:
@@ -64,6 +69,11 @@ contests:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
+  - url: https://icpc.global/regionals/finder/TAP-2014/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 55 rows, 52 with problems solved)
   - url: https://alejolp.blogspot.com/2013/07/3er-torneo-argentino-de-programacion.html
     roles:
     - report
@@ -114,6 +124,8 @@ contests:
   name: Torneo Argentino de Programación 2015
   date: '2015-09-26'
   location: Resistencia
+  cms_ids:
+  - 2817
   sites:
   - location: ar-rosario
   - location: ar-cordoba
@@ -125,16 +137,27 @@ contests:
   - location: ar-rio-cuarto-universidad-nacional
   - location: ar-bahia-blanca
   - type: administrative
-  cms_ids:
-  - 2817
   parent: south-america-south-2015
   next: tap-2016
   sources:
+  - url: http://torneoprogramacion.com.ar/
+    roles:
+    - web
+    as_of: '20150921034154'
+    note: found by the data scan 2026-11-23 (TAP site torneoprogramacion.com.ar (tap-2012..2014 web);
+      Wayback CDX)
+  - url: https://icpc.global/regionals/finder/TAP-2016/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 74 rows)
   - url: https://www.dc.uba.ar/resultados-del-torneo-argentino-de-programacion-tap-2015/
     roles:
     - rankings
     - problemset
     - report
+    scope: champions and site winners
+    contains:
+    - names
     as_of: '20151005180510'
     archived:
     - tap/tap-2015/standings/20151005-wayback-2cc442ed/page.html
@@ -144,15 +167,14 @@ contests:
     url_state: replaced
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (round9-research)
-    scope: champions and site winners
-    contains:
-    - names
   notes: '87 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: tap-2016
   season: 2017
   name: Torneo Argentino de Programación 2016
   date: '2016-09-17'
   location: Chilecito
+  cms_ids:
+  - 3010
   sites:
   - location: ar-resistencia
   - location: ar-rosario
@@ -164,11 +186,20 @@ contests:
   - location: ar-neuquen
   - location: ar-cordoba
   - location: ar-san-miguel-de-tucuman
-  cms_ids:
-  - 3010
   parent: south-america-south-2016
   next: tap-2017
   sources:
+  - url: http://torneoprogramacion.com.ar/2016/07/30/tap-2016-inscripcion-abierta/
+    roles:
+    - web
+    as_of: '20160803225040'
+    note: found by the data scan 2026-11-23 (TAP site torneoprogramacion.com.ar (tap-2012..2014 web);
+      Wayback CDX)
+  - url: https://icpc.global/regionals/finder/TAP-2017/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 79 rows, 78 with problems solved)
   - url: https://codeforces.com/group/YjFmW2O15Q/contest/101881
     roles:
     - problemset
@@ -176,14 +207,16 @@ contests:
     - statement
     url_state: replaced
     url_checked: '2026-11-16'
-  notes: '83 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   problems:
     set: tap-2016
+  notes: '83 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: tap-2017
   season: 2018
   name: Torneo Argentino de Programación 2017
   date: '2017-09-30'
   location: Tucumán
+  cms_ids:
+  - 3457
   sites:
   - location: ar-san-salvador-de-jujuy
     name: Jujuy
@@ -197,11 +230,20 @@ contests:
   - location: ar-neuquen
   - location: ar-la-plata
   - location: ar-cordoba
-  cms_ids:
-  - 3457
   parent: south-america-south-2017
   next: tap-2018
   sources:
+  - url: http://torneoprogramacion.com.ar/2017/08/01/ya-esta-abierta-la-inscripcion-al-tap-2017/
+    roles:
+    - web
+    as_of: '20170811015431'
+    note: found by the data scan 2026-11-23 (TAP site torneoprogramacion.com.ar (tap-2012..2014 web);
+      Wayback CDX)
+  - url: https://icpc.global/regionals/finder/TAP-2018/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 75 rows, 66 with problems solved)
   - url: https://codeforces.com/group/YjFmW2O15Q/contest/101811
     roles:
     - problemset
@@ -209,14 +251,16 @@ contests:
     - statement
     url_state: replaced
     url_checked: '2026-11-16'
-  notes: '79 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   problems:
     set: tap-2017
+  notes: '79 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: tap-2018
   season: 2019
   name: Torneo Argentino de Programación 2018
   date: '2018-09-29'
   location: Bahía Blanca
+  cms_ids:
+  - 3633
   sites:
   - location: ar-salta
   - location: ar-santiago-del-estero
@@ -237,11 +281,20 @@ contests:
     type: online
   - location: ar-santa-fe-fich-unl
     name: Santa fe (FICH-UNL)
-  cms_ids:
-  - 3633
   parent: south-america-south-2018
   next: tap-2019
   sources:
+  - url: http://torneoprogramacion.com.ar/2018/07/31/inscripcion-abierta-tap-2018/
+    roles:
+    - web
+    as_of: '20180812183125'
+    note: found by the data scan 2026-11-23 (TAP site torneoprogramacion.com.ar (tap-2012..2014 web);
+      Wayback CDX)
+  - url: https://icpc.global/regionals/finder/TAP-2019/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 104 rows, 73 with problems solved)
   - url: https://codeforces.com/group/YjFmW2O15Q/contest/101919
     roles:
     - problemset
@@ -249,14 +302,16 @@ contests:
     - statement
     url_state: replaced
     url_checked: '2026-11-16'
-  notes: '110 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   problems:
     set: tap-2018
+  notes: '110 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: tap-2019
   season: 2020
   name: Torneo Argentino de Programación 2019
   date: '2019-09-28'
   location: Bahía Blanca
+  cms_ids:
+  - 4253
   sites:
   - location: ar-la-plata
   - type: administrative
@@ -278,11 +333,20 @@ contests:
     name: Orán (Sede Regional UNSa)
     type: online
   - location: ar-la-rioja
-  cms_ids:
-  - 4253
   parent: south-america-south-2019
   next: tap-2020
   sources:
+  - url: http://torneoprogramacion.com.ar/2019/08/10/inscripcion-abierta-tap-2019/
+    roles:
+    - web
+    as_of: '20190820094716'
+    note: found by the data scan 2026-11-23 (TAP site torneoprogramacion.com.ar (tap-2012..2014 web);
+      Wayback CDX)
+  - url: https://icpc.global/regionals/finder/TAP-2020/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 110 rows, 99 with problems solved)
   - url: https://codeforces.com/group/YjFmW2O15Q/contest/102363
     roles:
     - problemset
@@ -290,14 +354,16 @@ contests:
     - statement
     url_state: replaced
     url_checked: '2026-11-16'
-  notes: '115 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   problems:
     set: tap-2019
+  notes: '115 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: tap-2020
   season: 2021
   name: Torneo Argentino de Programación 2020
   date: '2020-11-14'
   location: Santa Fe
+  cms_ids:
+  - 4465
   sites:
   - type: administrative
   - location: ar-bahia-blanca
@@ -321,30 +387,49 @@ contests:
   - location: ar-santa-fe-utn
     name: Santa fe (UTN)
   - location: ar-rosario
-  cms_ids:
-  - 4465
   parent: south-america-south-2020
   next: tap-2021
   sources:
+  - url: http://torneoprogramacion.com.ar/2020/09/13/inscripcion-abierta-tap-2020/
+    roles:
+    - web
+    as_of: '20200929003449'
+    note: found by the data scan 2026-11-23 (TAP site torneoprogramacion.com.ar (tap-2012..2014 web);
+      Wayback CDX)
   - url: https://scorelatam.naquadah.com.br/subbr-2020/
     roles:
     - scoreboard
-    note: added by the no-sources hunt 2026-11-16
+    as_of: '20210411153616'
     archived:
     - tap/tap-2020/scoreboard/20210411-wayback-f0eabaee/page.html
     - tap/tap-2020/scoreboard/20261116-live-c9e00ebb/page.html
-    as_of: '20210411153616'
+    note: added by the no-sources hunt 2026-11-16
   - url: https://icpc.global/regionals/finder/TAP-2021/standings
     roles:
     - standings
     archived:
     - tap/tap-2020/standings/api-20261116/standings.html
     note: added by the no-sources hunt 2026-11-16
+  - url: https://maratona.sbc.org.br/hist/2020/primfase20/maratona20.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (Latin American shared set (first-phase booklet names the
+      contests that used it))
+  - url: https://aapc.org.ar/wp-content/uploads/2026/05/tap2020.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (organisers past-editions page (aapc.org.ar))
   notes: '55 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: tap-2021
   season: 2022
   name: 2021 ICPC Torneo Argentino de Programación
   location: Administrative Site Location
+  cms_ids:
+  - 4712
   sites:
   - type: administrative
   - location: ar-bahia-blanca
@@ -368,11 +453,26 @@ contests:
   - location: ar-santa-fe-utn
     name: Santa fe (UTN)
   - location: ar-rosario
-  cms_ids:
-  - 4712
   parent: south-america-south-2021
   next: tap-2022
   sources:
+  - url: http://torneoprogramacion.com.ar/2021/10/12/inscripcion-abierta-2021/
+    roles:
+    - web
+    as_of: '20220118190033'
+    note: found by the data scan 2026-11-23 (TAP site torneoprogramacion.com.ar (tap-2012..2014 web);
+      Wayback CDX)
+  - url: https://scorelatam.naquadah.com.br/subbr-2021/
+    roles:
+    - scoreboard
+    scope: Argentina
+    note: found by the data scan 2026-11-23 (combined Latin American first-phase BOCA board on scorelatam.naquadah.com.br,
+      Argentina section)
+  - url: https://icpc.global/regionals/finder/TAP-2022/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 41 rows, 37 with problems solved)
   - url: https://codeforces.com/group/YjFmW2O15Q/contest/103388
     roles:
     - problemset
@@ -380,14 +480,16 @@ contests:
     - statement
     url_state: replaced
     url_checked: '2026-11-16'
-  notes: '43 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   problems:
     set: brazil-first-phase-2021
+  notes: '43 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: tap-2022
   season: 2023
   name: 2022 ICPC Torneo Argentino de Programación
   date: '2022-10-08'
   location: Tucumán
+  cms_ids:
+  - 5524
   sites:
   - type: administrative
   - location: ar-salta
@@ -409,11 +511,20 @@ contests:
     type: online
   - location: ar-bahia-blanca
   - location: ar-rio-cuarto-universidad-nacional
-  cms_ids:
-  - 5524
   parent: south-america-south-2022
   next: tap-2023
   sources:
+  - url: https://scorelatam.naquadah.com.br/subbr-2022/
+    roles:
+    - scoreboard
+    scope: Argentina
+    note: found by the data scan 2026-11-23 (combined Latin American first-phase BOCA board on scorelatam.naquadah.com.br,
+      Argentina section)
+  - url: https://icpc.global/regionals/finder/TAP-2023/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 80 rows, 78 with problems solved)
   - url: https://codeforces.com/group/YjFmW2O15Q/contest/103960
     roles:
     - problemset
@@ -421,9 +532,9 @@ contests:
     - statement
     url_state: replaced
     url_checked: '2026-11-16'
-  notes: '94 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   problems:
     set: brazil-first-phase-2022
+  notes: '94 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: tap-2023
   season: 2024
   name: 2023 ICPC Torneo Argentino de Programación
@@ -529,6 +640,8 @@ contests:
   name: 2025 ICPC Torneo Argentino de Programación
   date: '2025-08-23'
   location: Buenos Aires
+  cms_ids:
+  - 9405
   sites:
   - type: administrative
   - location: ar-salta
@@ -552,11 +665,15 @@ contests:
   - location: ar-campana
   - location: ar-resistencia
   - location: ar-avellaneda
-  cms_ids:
-  - 9405
   parent: south-america-south-2025
   next: tap-2026
   sources:
+  - url: https://icpc.com.ar/tap/
+    roles:
+    - web
+    as_of: '20250821004321'
+    note: found by the data scan 2026-11-23 (link in held copy of icpc.com.ar/resultados-tap-2025/; Wayback
+      CDX)
   - url: https://icpc.com.ar/resultados-tap-2025/
     roles:
     - standings
@@ -574,13 +691,15 @@ contests:
     - statement
     url_state: replaced
     url_checked: '2026-11-16'
-  notes: '191 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   problems:
     set: tap-2025
+  notes: '191 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: tap-2026
   season: 2027
   name: 2026 ICPC Torneo Argentino de Programación
   date: '2026-08-29'
+  cms_ids:
+  - 9822
   sites:
   - location: ar-san-ramon-de-la-nueva-oran-regional-oran-unsa
     name: Nueva Orán (Facultad Regional Orán UNSa)
@@ -604,124 +723,126 @@ contests:
   - location: ar-resistencia
   - location: ar-campana
   - location: ar-comodoro-rivadavia
-  cms_ids:
-  - 9822
   parent: south-america-south-2026
   sources:
   - url: https://aapc.org.ar/tap/
     roles:
     - web
+  - url: https://icpc.global/regionals/finder/TAP-2027/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings API, 180 ranked rows on 2026-11-23)
   - url: https://codeforces.com/gym/106682
     roles:
     - problemset
     contains:
     - statement
     judge: codeforces
-    note: '2026 Argentinian Programming Tournament (TAP) (judge hunt 2026-11-03: name+year: ''2026 Argentinian
-      Programming Tournament (TAP)'' -> season start 2026)'
     as_of: '20261102033050'
     url_state: replaced
     url_checked: '2026-11-16'
+    note: '2026 Argentinian Programming Tournament (TAP) (judge hunt 2026-11-03: name+year: ''2026 Argentinian
+      Programming Tournament (TAP)'' -> season start 2026)'
   - url: https://codeforces.com/gym/106682/problem/A
     roles:
     - problem
-    judge: codeforces
     problem: A
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106682/problem/B
     roles:
     - problem
-    judge: codeforces
     problem: B
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106682/problem/C
     roles:
     - problem
-    judge: codeforces
     problem: C
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106682/problem/D
     roles:
     - problem
-    judge: codeforces
     problem: D
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106682/problem/E
     roles:
     - problem
-    judge: codeforces
     problem: E
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106682/problem/F
     roles:
     - problem
-    judge: codeforces
     problem: F
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106682/problem/G
     roles:
     - problem
-    judge: codeforces
     problem: G
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106682/problem/H
     roles:
     - problem
-    judge: codeforces
     problem: H
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106682/problem/I
     roles:
     - problem
-    judge: codeforces
     problem: I
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106682/problem/J
     roles:
     - problem
-    judge: codeforces
     problem: J
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106682/problem/K
     roles:
     - problem
-    judge: codeforces
     problem: K
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106682/problem/L
     roles:
     - problem
-    judge: codeforces
     problem: L
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106682/problem/M
     roles:
     - problem
-    judge: codeforces
     problem: M
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106682/problem/N
     roles:
     - problem
-    judge: codeforces
     problem: N
     contains:
     - statement
+    judge: codeforces
+  problems:
+    set: tap-2026
   provenance:
   - date read from https://aapc.org.ar/tap/ (description round 2026-11-16)
   notes: 'from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
-  problems:
-    set: tap-2026

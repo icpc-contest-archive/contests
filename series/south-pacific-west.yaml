@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/describe_apply.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: south-pacific-west
   tier: subregional
@@ -139,6 +139,8 @@ contests:
   date: '2016-10-08'
   location: Administrative Site Location; Adelaide; UWA; University of Tasmania; Monash; Monash University;
     Flinders University
+  cms_ids:
+  - 3102
   sites:
   - location: au-perth-uwa
     name: Perth Schools
@@ -156,8 +158,6 @@ contests:
     name: Hobart
   - location: au-perth-uwa
     name: Perth
-  cms_ids:
-  - 3102
   parent: south-pacific-2016
   next: south-pacific-west-2017
   sources:
@@ -182,14 +182,14 @@ contests:
     note: rendered from the icpc.global API standings archive (cms 3102, 30 teams, DB fetch 2026-04-26)
   - url: https://acmicpc.unisa.edu.au/index.php/regional-contest-current/55-regional-contests/2016-regional-contests/146-2016-western-divison
     roles:
-    - standings
+    - teams
     as_of: '20180321035713'
-    note: found inside https://acmicpc.unisa.edu.au/index.php/regional-contest-current/55-regional-contests/2016-regional-contests/143-2016-south-pacific-region-contests
-      by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - south-pacific-west/south-pacific-west-2016/standings/20180321-wayback-717ebb7a/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://acmicpc.unisa.edu.au/index.php/regional-contest-current/55-regional-contests/2016-regional-contests/143-2016-south-pacific-region-contests
+      by the content check
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/SPPC2016div.pdf
     roles:
     - problemset
@@ -202,10 +202,10 @@ contests:
     roles:
     - problemset
     as_of: '20180321035447'
-    note: found inside https://acmicpc.unisa.edu.au/index.php/regional-contest-current/55-regional-contests/2016-regional-contests/143-2016-south-pacific-region-contests
-      by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside https://acmicpc.unisa.edu.au/index.php/regional-contest-current/55-regional-contests/2016-regional-contests/143-2016-south-pacific-region-contests
+      by the content check
   problems:
     set: south-pacific-divisions-2016
 - id: south-pacific-west-2017

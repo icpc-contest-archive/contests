@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: jinhua
   name: ACM-ICPC Asia Jinhua Regional Contest
@@ -11,11 +11,11 @@ contests:
   name: 2012 ACM-ICPC Asia Jinhua Regional Contest
   date: '2012-10-28'
   location: Asia Jinhua
+  cms_ids:
+  - 1358
   sites:
   - location: cn-jinhua
     name: Asia Jinhua on Site Regional Contest
-  cms_ids:
-  - 1358
   parent: wf-2013
   next: null
   sources:
@@ -38,5 +38,12 @@ contests:
     archived:
     - jinhua/jinhua-2012/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 1358, 139 teams, DB fetch 2026-04-26)
+  - url: https://acm.hdu.edu.cn/search.php?field=problem&key=2012+Asia+Jinhua+Regional&source=1&searchmode=source
+    roles:
+    - problemset
+    contains:
+    - names
+    judge: hdu
+    note: found by the data scan 2026-11-23 (online judge (HDU source search))
   problems:
     set: jinhua-2012

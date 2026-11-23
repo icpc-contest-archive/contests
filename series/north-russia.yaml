@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: north-russia
   name: ICPC Northwestern Russia Regional Contest
@@ -9,33 +9,58 @@ contests:
 - id: north-russia-1998
   season: 1999
   name: 1998 Northern Subregional Contest
+  location: St.Petersburg, IFMO
   cms_ids: []
+  sites:
+  - location: ru-saint-petersburg-itmo
   parent: neerc-1998
   next: north-russia-1999
   sources:
   - url: https://neerc.ifmo.ru/subregions/northern.html
     roles:
     - web
+  - url: http://neerc.ifmo.ru/Archive/98/results.htm
+    roles:
+    - scoreboard
+    scope: Northern Subregion
+    as_of: '20030516090449'
+    note: found by the data scan 2026-11-23 (Wayback snapshot 20030516090449)
+  provenance:
+  - location St.Petersburg, IFMO read from http://neerc.ifmo.ru/Archive/98/results.htm (data scan 2026-11-23)
 - id: north-russia-1999
   season: 2000
   name: 1999 Northern Subregional Contest
-  cms_ids: []
+  cms_ids:
+  - 9901
   parent: neerc-1999
   next: north-russia-2000
   sources:
   - url: https://neerc.ifmo.ru/subregions/northern.html
     roles:
     - web
+  provenance:
+  - cms id 9901 read from https://icpc.global/api/contest/public/regionalresults/2000 (data scan 2026-11-23)
 - id: north-russia-2000
   season: 2001
   name: 2000 Northern Subregional Contest
-  cms_ids: []
+  location: Saint-Petersburg, St-Petersburg State University, St-Petersburg Institute of Fine Mechanics
+    and Optics (Technical University)
+  cms_ids:
+  - 9937
+  sites:
+  - location: ru-saint-petersburg
   parent: neerc-2000
   next: north-russia-2001
   sources:
   - url: https://neerc.ifmo.ru/subregions/northern.html
     roles:
     - web
+  - url: http://neerc.ifmo.ru/Archive/2000/northern.html
+    roles:
+    - scoreboard
+    as_of: '20020724091922'
+    note: found by the data scan 2026-11-23 (Wayback snapshot 20020724091922; a copy is held in the website
+      crawl of west-neerc-1999)
   - url: http://neerc.ifmo.ru/Archive/2000/northern/problems.rar
     roles:
     - problemset
@@ -46,92 +71,122 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: north-russia-2000
+  provenance:
+  - cms id 9937 read from https://icpc.global/api/contest/public/regionalresults/2001 (data scan 2026-11-23)
+  - location Saint-Petersburg, St-Petersburg State University, St-Petersburg Institute of Fine Mechanics
+    and Optics (Technical University) read from http://neerc.ifmo.ru/Archive/2000/northern.html (data
+    scan 2026-11-23)
 - id: north-russia-2001
   season: 2002
   name: 2001 Northern Subregional Contest
+  location: Saint-Petersburg, St-Petersburg State University, St-Petersburg Institute of Fine Mechanics
+    and Optics (Technical University)
   cms_ids: []
+  sites:
+  - location: ru-saint-petersburg
   parent: neerc-2001
   next: north-russia-2002
   sources:
+  - url: http://neerc.ifmo.ru/Archive/2001/northern.html
+    roles:
+    - scoreboard
+    as_of: '20020727024842'
+    note: found by the data scan 2026-11-23 (Wayback snapshot 20020727024842; a copy is held in the website
+      crawl of north-russia-2000)
   - url: https://acm.timus.ru/problemset.aspx?space=1&page=all
     roles:
     - problemset
     contains:
     - names
     judge: timus
+    as_of: '20090221185752'
+    url_state: changed
+    url_checked: '2026-11-16'
     note: 'NEERC 2001 Northern Subregional (judge hunt 2026-11-03: 9 problems in the Timus main problem
       set carry Source ''NEERC 2001 Northern Subregional'' (no contest space exists; filter the listing
       by the Source column))'
-    url_state: changed
-    url_checked: '2026-11-16'
-    as_of: '20090221185752'
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1158
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1159
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1160
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1161
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1162
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1163
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1164
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1165
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   - url: https://acm.timus.ru/problem.aspx?space=1&num=1166
     roles:
     - problem
-    judge: timus
     contains:
     - statement
+    judge: timus
   problems:
     set: north-russia-2001
+  provenance:
+  - location Saint-Petersburg, St-Petersburg State University, St-Petersburg Institute of Fine Mechanics
+    and Optics (Technical University) read from http://neerc.ifmo.ru/Archive/2001/northern.html (data
+    scan 2026-11-23)
 - id: north-russia-2002
   season: 2003
   name: 2002 Northern Subregional Contest
   date: '2002-11-03'
+  location: Saint-Petersburg, St-Petersburg State University, St-Petersburg Institute of Fine Mechanics
+    and Optics (Technical University)
   cms_ids: []
+  sites:
+  - location: ru-saint-petersburg
   parent: neerc-2002
   next: north-russia-2003
   sources:
   - url: https://neerc.ifmo.ru/subregions/northern.html
     roles:
     - web
+    as_of: '20030126203922'
+  - url: http://neerc.ifmo.ru/Archive/2002/northern.html
+    roles:
+    - scoreboard
+    as_of: '20030510043756'
+    note: found by the data scan 2026-11-23 (Wayback snapshot 20030510043756; a copy is held in the website
+      crawl of north-russia-2002)
   - url: https://www.acmicpc.net/category/detail/1204
     roles:
     - problemset
@@ -146,67 +201,74 @@ contests:
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/157
     roles:
     - problem
-    judge: sgu
     problem: C
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/163
     roles:
     - problem
-    judge: sgu
     problem: I
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/155
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/156
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/158
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/159
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/160
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/161
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   problems:
     set: north-russia-2002
   provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+  - location Saint-Petersburg, St-Petersburg State University, St-Petersburg Institute of Fine Mechanics
+    and Optics (Technical University) read from https://web.archive.org/web/20030126203922/http://neerc.ifmo.ru/subregions/northern.html
+    (data scan 2026-11-23)
 - id: north-russia-2003
   season: 2004
   name: 2003 Northern Subregional Contest
+  location: St Petersburg
   cms_ids: []
+  sites:
+  - location: ru-saint-petersburg
   parent: neerc-2003
   next: north-russia-2004
   sources:
   - url: https://neerc.ifmo.ru/subregions/northern.html
     roles:
     - web
+    as_of: '20031222134942'
   - url: https://nerc.itmo.ru/archive/2003/northern/standings.html
     roles:
     - scoreboard
@@ -251,34 +313,41 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2003-2004 ACM-ICPC, NEERC, Northern Subregional Contest (judge hunt 2026-11-03: name+year:
-      ''2003-2004 ACM-ICPC, NEERC, Northern Subregional Contest'' -> season start 2003)'
+    as_of: '20160408201022'
     url_state: changed
     url_checked: '2026-11-16'
-    as_of: '20160408201022'
+    note: '2003-2004 ACM-ICPC, NEERC, Northern Subregional Contest (judge hunt 2026-11-03: name+year:
+      ''2003-2004 ACM-ICPC, NEERC, Northern Subregional Contest'' -> season start 2003)'
   - url: https://codeforces.com/gym/101651
     roles:
     - problemset
     contains:
     - statement
     judge: codeforces
-    note: '2003-2004 ACM-ICPC, NEERC, Northern Subregional Contest (judge hunt 2026-11-03: name+year:
-      ''2003-2004 ACM-ICPC, NEERC, Northern Subregional Contest'' -> season start 2003)'
+    as_of: '20190409000958'
     url_state: changed
     url_checked: '2026-11-16'
-    as_of: '20190409000958'
+    note: '2003-2004 ACM-ICPC, NEERC, Northern Subregional Contest (judge hunt 2026-11-03: name+year:
+      ''2003-2004 ACM-ICPC, NEERC, Northern Subregional Contest'' -> season start 2003)'
   problems:
     set: north-russia-2003
+  provenance:
+  - location St Petersburg read from https://web.archive.org/web/20031222134942/http://neerc.ifmo.ru/subregions/northern.html
+    (data scan 2026-11-23)
 - id: north-russia-2004
   season: 2005
   name: 2004 Northern Subregional Contest
+  location: St Petersburg
   cms_ids: []
+  sites:
+  - location: ru-saint-petersburg
   parent: neerc-2004
   next: north-russia-2005
   sources:
   - url: https://neerc.ifmo.ru/subregions/northern.html
     roles:
     - web
+    as_of: '20041111233007'
   - url: https://nerc.itmo.ru/archive/2004/northern/standings.html
     roles:
     - scoreboard
@@ -323,23 +392,30 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2004-2005 ACM-ICPC, NEERC, Northern Subregional Contest (judge hunt 2026-11-03: name+year:
-      ''2004-2005 ACM-ICPC, NEERC, Northern Subregional Contest'' -> season start 2004)'
+    as_of: '20190409022322'
     url_state: changed
     url_checked: '2026-11-16'
-    as_of: '20190409022322'
+    note: '2004-2005 ACM-ICPC, NEERC, Northern Subregional Contest (judge hunt 2026-11-03: name+year:
+      ''2004-2005 ACM-ICPC, NEERC, Northern Subregional Contest'' -> season start 2004)'
   problems:
     set: north-russia-2004
+  provenance:
+  - location St Petersburg read from https://web.archive.org/web/20041111233007/http://neerc.ifmo.ru/subregions/northern.html
+    (data scan 2026-11-23)
 - id: north-russia-2005
   season: 2006
   name: 2005 Northern Subregional Contest
+  location: St Petersburg
   cms_ids: []
+  sites:
+  - location: ru-saint-petersburg
   parent: neerc-2005
   next: north-russia-2006
   sources:
   - url: https://neerc.ifmo.ru/subregions/northern.html
     roles:
     - web
+    as_of: '20051220020330'
   - url: https://nerc.itmo.ru/archive/2005/northern/standings.html
     roles:
     - scoreboard
@@ -384,13 +460,16 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2005-2006 ACM-ICPC, NEERC, Northern Subregional Contest (judge hunt 2026-11-03: name+year:
-      ''2005-2006 ACM-ICPC, NEERC, Northern Subregional Contest'' -> season start 2005)'
+    as_of: '20190408234423'
     url_state: changed
     url_checked: '2026-11-16'
-    as_of: '20190408234423'
+    note: '2005-2006 ACM-ICPC, NEERC, Northern Subregional Contest (judge hunt 2026-11-03: name+year:
+      ''2005-2006 ACM-ICPC, NEERC, Northern Subregional Contest'' -> season start 2005)'
   problems:
     set: north-russia-2005
+  provenance:
+  - location St Petersburg read from https://web.archive.org/web/20051220020330/http://neerc.ifmo.ru/subregions/northern.html
+    (data scan 2026-11-23)
 - id: north-russia-2006
   season: 2007
   name: 2006 Northern Subregional Contest
@@ -403,6 +482,7 @@ contests:
   - url: https://neerc.ifmo.ru/subregions/northern.html
     roles:
     - web
+    as_of: '20070123204802'
   - url: https://nerc.itmo.ru/archive/2006/northern/standings.html
     roles:
     - scoreboard
@@ -456,11 +536,11 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2006-2007 ACM-ICPC, NEERC, Northern Subregional Contest (judge hunt 2026-11-03: name+year:
-      ''2006-2007 ACM-ICPC, NEERC, Northern Subregional Contest'' -> season start 2006)'
+    as_of: '20190409011351'
     url_state: changed
     url_checked: '2026-11-16'
-    as_of: '20190409011351'
+    note: '2006-2007 ACM-ICPC, NEERC, Northern Subregional Contest (judge hunt 2026-11-03: name+year:
+      ''2006-2007 ACM-ICPC, NEERC, Northern Subregional Contest'' -> season start 2006)'
   problems:
     set: north-russia-2006
   provenance:
@@ -470,13 +550,16 @@ contests:
   season: 2008
   name: 2007 Northern Subregional Contest
   date: '2007-10-28'
-  cms_ids: []
+  location: St Petersburg
+  cms_ids:
+  - 9902
   parent: neerc-2007
   next: north-russia-2008
   sources:
   - url: https://neerc.ifmo.ru/subregions/northern.html
     roles:
     - web
+    as_of: '20071123210533'
   - url: https://nerc.itmo.ru/archive/2007/northern/standings.html
     roles:
     - scoreboard
@@ -530,14 +613,17 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2007–2008 ACM ICPC Northern Subregional Contest (NEERC 07) (judge hunt 2026-11-03: name+year:
-      ''2007–2008 ACM ICPC Northern Subregional Contest (NEERC 07)'' -> season start 2007)'
     url_state: live
     url_checked: '2026-11-16'
+    note: '2007–2008 ACM ICPC Northern Subregional Contest (NEERC 07) (judge hunt 2026-11-03: name+year:
+      ''2007–2008 ACM ICPC Northern Subregional Contest (NEERC 07)'' -> season start 2007)'
   problems:
     set: north-russia-2007
   provenance:
   - date read from http://neerc.ifmo.ru/archive/2007/northern/problems.pdf (description round 2026-11-16)
+  - cms id 9902 read from https://icpc.global/api/contest/public/regionalresults/2008 (data scan 2026-11-23)
+  - location St Petersburg read from http://neerc.ifmo.ru/archive/2007/northern/problems.pdf (data scan
+    2026-11-23)
 - id: north-russia-2008
   season: 2009
   name: 2008 Northern Subregional Contest
@@ -769,19 +855,20 @@ contests:
   name: 2011 Northern Subregional Contest
   date: '2011-10-29'
   location: St Petersburg; Administrative Site Location
+  cms_ids:
+  - 765
   sites:
   - type: administrative
   - location: ru-saint-petersburg
     name: Northern Subregional Contest
     type: administrative
-  cms_ids:
-  - 765
   parent: neerc-2011
   next: north-russia-2012
   sources:
   - url: https://neerc.ifmo.ru/subregions/northern.html
     roles:
     - web
+    as_of: '20111120173859'
   - url: https://nerc.itmo.ru/archive/2011/northern/standings.html
     roles:
     - scoreboard
@@ -839,20 +926,20 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2011-2012 ACM ICPC Northern Subregional Contest (judge hunt 2026-11-03: name+year: ''2011-2012
-      ACM ICPC Northern Subregional Contest'' -> season start 2011)'
     url_state: live
     url_checked: '2026-11-16'
+    note: '2011-2012 ACM ICPC Northern Subregional Contest (judge hunt 2026-11-03: name+year: ''2011-2012
+      ACM ICPC Northern Subregional Contest'' -> season start 2011)'
   - url: https://codeforces.com/gym/100609
     roles:
     - problemset
     contains:
     - statement
     judge: codeforces
-    note: '2011-2012 ACM-ICPC, NEERC, Northern Subregional Contest (judge hunt 2026-11-03: name+year:
-      ''2011-2012 ACM-ICPC, NEERC, Northern Subregional Contest'' -> season start 2011)'
     url_state: live
     url_checked: '2026-11-16'
+    note: '2011-2012 ACM-ICPC, NEERC, Northern Subregional Contest (judge hunt 2026-11-03: name+year:
+      ''2011-2012 ACM-ICPC, NEERC, Northern Subregional Contest'' -> season start 2011)'
   problems:
     set: north-russia-2011
 - id: north-russia-2012
@@ -860,19 +947,20 @@ contests:
   name: 2012 Northern Subregional Contest
   date: '2012-11-03'
   location: Administrative Site Location; St Petersburg
+  cms_ids:
+  - 1316
   sites:
   - type: administrative
   - location: ru-saint-petersburg
     name: Northern Subregional Contest
     type: administrative
-  cms_ids:
-  - 1316
   parent: neerc-2012
   next: north-russia-2013
   sources:
   - url: https://neerc.ifmo.ru/subregions/northern.html
     roles:
     - web
+    as_of: '20130615020904'
   - url: https://nerc.itmo.ru/archive/2012/northern/standings.html
     roles:
     - scoreboard
@@ -932,10 +1020,10 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2012-2013 ACM-ICPC, NEERC, Northern Subregional Contest (judge hunt 2026-11-03: name+year:
-      ''2012-2013 ACM-ICPC, NEERC, Northern Subregional Contest'' -> season start 2012)'
     url_state: live
     url_checked: '2026-11-16'
+    note: '2012-2013 ACM-ICPC, NEERC, Northern Subregional Contest (judge hunt 2026-11-03: name+year:
+      ''2012-2013 ACM-ICPC, NEERC, Northern Subregional Contest'' -> season start 2012)'
   problems:
     set: north-russia-2012
 - id: north-russia-2013
@@ -943,19 +1031,20 @@ contests:
   name: 2013 Northern Subregional Contest
   date: '2013-10-26'
   location: St Petersburg; Administrative Site Location
+  cms_ids:
+  - 2031
   sites:
   - location: ru-saint-petersburg
     name: Northern Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 2031
   parent: neerc-2013
   next: north-russia-2014
   sources:
   - url: https://neerc.ifmo.ru/subregions/northern.html
     roles:
     - web
+    as_of: '20131211124112'
   - url: https://nerc.itmo.ru/archive/2013/northern/standings.html
     roles:
     - scoreboard
@@ -1009,17 +1098,17 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2013-2014 ACM-ICPC, NEERC, Northern Subregional Contest (judge hunt 2026-11-03: name+year:
-      ''2013-2014 ACM-ICPC, NEERC, Northern Subregional Contest'' -> season start 2013)'
     url_state: live
     url_checked: '2026-11-16'
+    note: '2013-2014 ACM-ICPC, NEERC, Northern Subregional Contest (judge hunt 2026-11-03: name+year:
+      ''2013-2014 ACM-ICPC, NEERC, Northern Subregional Contest'' -> season start 2013)'
   - url: https://qoj.ac/contest/2173
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: north-russia-2013
 - id: north-russia-2014
@@ -1122,19 +1211,20 @@ contests:
   name: 2015 Northern Subregional Contest
   date: '2015-10-24'
   location: St Petersburg; Administrative Site Location
+  cms_ids:
+  - 2768
   sites:
   - location: ru-saint-petersburg
     name: Northern Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 2768
   parent: neerc-2015
   next: north-russia-2016
   sources:
   - url: http://neerc.ifmo.ru/subregions/northern.html
     roles:
     - web
+    as_of: '20151029035319'
   - url: https://nerc.itmo.ru/archive/2015/northern/standings.html
     roles:
     - scoreboard
@@ -1194,18 +1284,18 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2015-2016 ACM-ICPC, NEERC, Northern Subregional Contest (judge hunt 2026-11-03: name+year:
-      ''2015-2016 ACM-ICPC, NEERC, Northern Subregional Contest'' -> season start 2015)'
     as_of: '20200115234631'
     url_state: changed
     url_checked: '2026-11-16'
+    note: '2015-2016 ACM-ICPC, NEERC, Northern Subregional Contest (judge hunt 2026-11-03: name+year:
+      ''2015-2016 ACM-ICPC, NEERC, Northern Subregional Contest'' -> season start 2015)'
   - url: https://qoj.ac/contest/2175
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Northern-Eurasia/ICPC-Northwestern-Russia-Regional-Contest-NWRRC/The-2015-ACM-ICPC-Northern-Subregional-Contest/tutorials_ru.pdf
     roles:
     - editorial
@@ -1218,19 +1308,20 @@ contests:
   name: 2016 Northern Subregional Contest
   date: '2016-10-22'
   location: St Petersburg; Administrative Site Location
+  cms_ids:
+  - 3149
   sites:
   - location: ru-saint-petersburg
     name: Northern Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 3149
   parent: neerc-2016
   next: north-russia-2017
   sources:
   - url: http://neerc.ifmo.ru/subregions/northern.html
     roles:
     - web
+    as_of: '20161027044533'
   - url: https://nerc.itmo.ru/archive/2016/northern/standings.html
     roles:
     - scoreboard
@@ -1290,18 +1381,18 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2016-2017 ACM-ICPC, NEERC, Northern Subregional Contest (judge hunt 2026-11-03: name+year:
-      ''2016-2017 ACM-ICPC, NEERC, Northern Subregional Contest'' -> season start 2016)'
     as_of: '20170706031822'
     url_state: changed
     url_checked: '2026-11-16'
+    note: '2016-2017 ACM-ICPC, NEERC, Northern Subregional Contest (judge hunt 2026-11-03: name+year:
+      ''2016-2017 ACM-ICPC, NEERC, Northern Subregional Contest'' -> season start 2016)'
   - url: https://qoj.ac/contest/2176
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Northern-Eurasia/ICPC-Northwestern-Russia-Regional-Contest-NWRRC/The-2016-ACM-ICPC-Northern-Subregional-Contest/tutorials_ru.pdf
     roles:
     - editorial
@@ -1314,19 +1405,20 @@ contests:
   name: 2017 Northern Subregional Contest
   date: '2017-11-04'
   location: Administrative Site Location; St Petersburg
+  cms_ids:
+  - 3284
   sites:
   - location: ru-saint-petersburg
     name: Northern Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 3284
   parent: nerc-2017
   next: north-russia-2018
   sources:
   - url: http://neerc.ifmo.ru/subregions/northern.html
     roles:
     - web
+    as_of: '20171115101028'
   - url: https://nerc.itmo.ru/archive/2017/northern/standings.html
     roles:
     - scoreboard
@@ -1386,18 +1478,18 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2017-2018 ACM-ICPC, NEERC, Northern Subregional Contest (judge hunt 2026-11-03: name+year:
-      ''2017-2018 ACM-ICPC, NEERC, Northern Subregional Contest'' -> season start 2017)'
+    as_of: '20190408223201'
     url_state: changed
     url_checked: '2026-11-16'
-    as_of: '20190408223201'
+    note: '2017-2018 ACM-ICPC, NEERC, Northern Subregional Contest (judge hunt 2026-11-03: name+year:
+      ''2017-2018 ACM-ICPC, NEERC, Northern Subregional Contest'' -> season start 2017)'
   - url: https://qoj.ac/contest/2177
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Northern-Eurasia/ICPC-Northwestern-Russia-Regional-Contest-NWRRC/The-2017-ACM-ICPC-Northern-Subregional-Contest/tutorials_ru.pdf
     roles:
     - editorial
@@ -1410,19 +1502,20 @@ contests:
   name: 2018 Northern Subregional Contest
   date: '2018-10-27'
   location: Administrative Site Location; St Petersburg
+  cms_ids:
+  - 3677
   sites:
   - location: ru-saint-petersburg
     name: Northern Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 3677
   parent: nerc-2018
   next: north-russia-2019
   sources:
   - url: https://neerc.ifmo.ru/subregions/northern.html
     roles:
     - web
+    as_of: '20181206102552'
   - url: https://nerc.itmo.ru/archive/2018/northern/standings.html
     roles:
     - scoreboard
@@ -1482,22 +1575,22 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2018-2019 ICPC NERC (NEERC), North-Western Russia Regional Contest (Northern Subregionals)
-      (judge hunt 2026-11-03: name+year: ''2018-2019 ICPC NERC (NEERC), North-Western Russia Regional
-      Contest (Northern Subregionals)'' -> season start 2018)'
     as_of: '20240301042213'
     url_state: replaced
     url_checked: '2026-11-16'
+    note: '2018-2019 ICPC NERC (NEERC), North-Western Russia Regional Contest (Northern Subregionals)
+      (judge hunt 2026-11-03: name+year: ''2018-2019 ICPC NERC (NEERC), North-Western Russia Regional
+      Contest (Northern Subregionals)'' -> season start 2018)'
   - url: https://qoj.ac/contest/290
     roles:
     - problemset
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221129201925'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Northern-Eurasia/ICPC-Northwestern-Russia-Regional-Contest-NWRRC/The-2018-ICPC-Northwestern-Russia-Regional-Contest/tutorials_ru.pdf
     roles:
     - editorial
@@ -1510,19 +1603,20 @@ contests:
   name: 2019 Northwestern Russia Regional Contest
   date: '2019-10-26'
   location: St Petersburg; Administrative Site Location
+  cms_ids:
+  - 4206
   sites:
   - type: administrative
   - location: ru-saint-petersburg
     name: Northern Subregional Contest
     type: administrative
-  cms_ids:
-  - 4206
   parent: nerc-2019
   next: north-russia-2020
   sources:
   - url: http://nerc.itmo.ru/subregions/northern.html
     roles:
     - web
+    as_of: '20191118042040'
   - url: https://nerc.itmo.ru/archive/2019/northern/standings.html
     roles:
     - scoreboard
@@ -1575,30 +1669,30 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: 'ICPC 2019-2020 North-Western Russia Regional Contest (judge hunt 2026-11-03: name+year: ''ICPC
-      2019-2020 North-Western Russia Regional Contest'' -> season start 2019)'
+    as_of: '20240726010230'
     url_state: live
     url_checked: '2026-11-16'
-    as_of: '20240726010230'
+    note: 'ICPC 2019-2020 North-Western Russia Regional Contest (judge hunt 2026-11-03: name+year: ''ICPC
+      2019-2020 North-Western Russia Regional Contest'' -> season start 2019)'
   - url: https://codeforces.com/gym/104874
     roles:
     - problemset
     contains:
     - statement
     judge: codeforces
+    as_of: '20240301040818'
+    url_state: replaced
+    url_checked: '2026-11-16'
     note: '2019-2020 ICPC NERC (NEERC), North-Western Russia Regional Contest (Northern Subregionals)
       (judge hunt 2026-11-03: name+year: ''2019-2020 ICPC NERC (NEERC), North-Western Russia Regional
       Contest (Northern Subregionals)'' -> season start 2019)'
-    url_state: replaced
-    url_checked: '2026-11-16'
-    as_of: '20240301040818'
   - url: https://qoj.ac/contest/3204
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: north-russia-2019
 - id: north-russia-2020
@@ -1695,19 +1789,20 @@ contests:
   name: 2021 ICPC Northwestern Russia Regional Contest
   date: '2021-12-11'
   location: Administrative Site Location; St Petersburg
+  cms_ids:
+  - 4945
   sites:
   - type: administrative
   - location: ru-saint-petersburg
     name: Northwestern Russia Regional Contest - Online
     type: online
-  cms_ids:
-  - 4945
   parent: nerc-2021
   next: north-russia-2022
   sources:
   - url: https://neerc.ifmo.ru/subregions/northern.html
     roles:
     - web
+    as_of: '20220123102712'
   - url: https://nerc.itmo.ru/archive/2021/northern/standings.html
     roles:
     - scoreboard
@@ -1765,22 +1860,22 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20221216153928'
+    url_state: replaced
+    url_checked: '2026-11-16'
     note: '2021-2022 ICPC NERC (NEERC), North-Western Russia Regional Contest (Northern Subregionals)
       (judge hunt 2026-11-03: name+year: ''2021-2022 ICPC NERC (NEERC), North-Western Russia Regional
       Contest (Northern Subregionals)'' -> season start 2021)'
-    url_state: replaced
-    url_checked: '2026-11-16'
-    as_of: '20221216153928'
   - url: https://qoj.ac/contest/852
     roles:
     - problemset
     contains:
     - names
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    as_of: '20221203201720'
     url_state: unknown
     url_checked: '2026-11-14'
-    as_of: '20221203201720'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Northern-Eurasia/ICPC-Northwestern-Russia-Regional-Contest-NWRRC/The-2021-ICPC-Northwestern-Russia-Regional-Contest/tutorials_ru.pdf
     roles:
     - editorial
@@ -1793,17 +1888,18 @@ contests:
   name: 2022 ICPC Northwestern Russia Regional Contest
   date: '2022-10-29'
   location: St Petersburg; Administrative Site Location
+  cms_ids:
+  - 5584
   sites:
   - type: administrative
   - location: ru-saint-petersburg
-  cms_ids:
-  - 5584
   parent: nerc-2022
   next: north-russia-2023
   sources:
   - url: https://nerc.itmo.ru/subregions/northern.html
     roles:
     - web
+    as_of: '20230129195254'
   - url: https://nerc.itmo.ru/archive/2022/northern/standings.html
     roles:
     - scoreboard
@@ -1852,22 +1948,22 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2022-2023 ICPC NERC (NEERC), North-Western Russia Regional Contest (Northern Subregionals)
-      (judge hunt 2026-11-03: name+year: ''2022-2023 ICPC NERC (NEERC), North-Western Russia Regional
-      Contest (Northern Subregionals)'' -> season start 2022)'
     as_of: '20240324054533'
     url_state: replaced
     url_checked: '2026-11-16'
+    note: '2022-2023 ICPC NERC (NEERC), North-Western Russia Regional Contest (Northern Subregionals)
+      (judge hunt 2026-11-03: name+year: ''2022-2023 ICPC NERC (NEERC), North-Western Russia Regional
+      Contest (Northern Subregionals)'' -> season start 2022)'
   - url: https://qoj.ac/contest/1075
     roles:
     - problemset
     contains:
     - names
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20230206213502'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: north-russia-2022
 - id: north-russia-2023
@@ -1875,17 +1971,18 @@ contests:
   name: 2023 ICPC Northwestern Russia Regional Contest
   date: '2023-11-05'
   location: St Petersburg; Administrative Site Location
+  cms_ids:
+  - 7740
   sites:
   - type: administrative
   - location: ru-saint-petersburg
-  cms_ids:
-  - 7740
   parent: nerc-2023
   next: north-russia-2024
   sources:
   - url: https://nerc.itmo.ru/subregions/northern.html
     roles:
     - web
+    as_of: '20240521211450'
   - url: https://nerc.itmo.ru/archive/2023/northern/standings.html
     roles:
     - scoreboard
@@ -1935,12 +2032,26 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2023-2024 ICPC NERC (NEERC), North-Western Russia Regional Contest (Northern Subregionals)
-      (judge hunt 2026-11-03: name+year: ''2023-2024 ICPC NERC (NEERC), North-Western Russia Regional
-      Contest (Northern Subregionals)'' -> season start 2023)'
     as_of: '20231208085102'
     url_state: replaced
     url_checked: '2026-11-16'
+    note: '2023-2024 ICPC NERC (NEERC), North-Western Russia Regional Contest (Northern Subregionals)
+      (judge hunt 2026-11-03: name+year: ''2023-2024 ICPC NERC (NEERC), North-Western Russia Regional
+      Contest (Northern Subregionals)'' -> season start 2023)'
+  - url: https://sp.urfu.ru/qf/2024/nwrrc-2023-tutorial.pdf
+    roles:
+    - editorial
+    url_state: live
+    url_checked: '2026-11-16'
+    note: 'found by the data scan 2026-11-23 (moved from urals-2024: NWRRC 2023 tutorial (St Petersburg,
+      5 Nov 2023))'
+  - url: https://sp.urfu.ru/qf/2025/nwrrc-2023-tutorial.pdf
+    roles:
+    - editorial
+    url_state: changed
+    url_checked: '2026-11-16'
+    note: 'found by the data scan 2026-11-23 (moved from urals-2025: NWRRC 2023 tutorial; same document
+      as 217 at another address)'
   problems:
     set: north-russia-2023
 - id: north-russia-2024
@@ -1948,17 +2059,18 @@ contests:
   name: 2024 ICPC Northwestern Russia Regional Contest
   date: '2024-11-16'
   location: Administrative Site Location; St Petersburg
+  cms_ids:
+  - 8888
   sites:
   - type: administrative
   - location: ru-saint-petersburg
-  cms_ids:
-  - 8888
   parent: nerc-2024
   next: north-russia-2025
   sources:
   - url: https://nerc.itmo.ru/subregions/northern.html
     roles:
     - web
+    as_of: '20241227135210'
   - url: https://nerc.itmo.ru/archive/2024/northern/standings.html
     roles:
     - scoreboard
@@ -2008,12 +2120,18 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2024-2025 ICPC NERC (NEERC), North-Western Russia Regional Contest (Northern Subregionals)
-      (judge hunt 2026-11-03: name+year: ''2024-2025 ICPC NERC (NEERC), North-Western Russia Regional
-      Contest (Northern Subregionals)'' -> season start 2024)'
     as_of: '20250505025321'
     url_state: replaced
     url_checked: '2026-11-16'
+    note: '2024-2025 ICPC NERC (NEERC), North-Western Russia Regional Contest (Northern Subregionals)
+      (judge hunt 2026-11-03: name+year: ''2024-2025 ICPC NERC (NEERC), North-Western Russia Regional
+      Contest (Northern Subregionals)'' -> season start 2024)'
+  - url: https://sp.urfu.ru/qf/2025/tutorial.pdf
+    roles:
+    - editorial
+    url_state: live
+    url_checked: '2026-11-16'
+    note: 'found by the data scan 2026-11-23 (moved from urals-2025: NWRRC 2024 tutorial (16 Nov 2024))'
   problems:
     set: north-russia-2024
 - id: north-russia-2025
@@ -2021,17 +2139,18 @@ contests:
   name: 2025 ICPC Northwestern Russia Regional Contest
   date: '2025-11-15'
   location: St Petersburg; Administrative Site Location
+  cms_ids:
+  - 9158
   sites:
   - type: administrative
   - location: ru-saint-petersburg
-  cms_ids:
-  - 9158
   parent: nerc-2025
   next: north-russia-2026
   sources:
   - url: https://nerc.itmo.ru/subregions/northern.html
     roles:
     - web
+    as_of: '20260317124554'
   - url: https://nerc.itmo.ru/archive/2025/northern/standings.html
     roles:
     - scoreboard
@@ -2094,36 +2213,37 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20251126134410'
+    url_state: live
+    url_checked: '2026-11-16'
     note: '2025-2026 ICPC NERC (NEERC), North-Western Russia Regional Contest (Northern Subregionals)
       (judge hunt 2026-11-03: name+year: ''2025-2026 ICPC NERC (NEERC), North-Western Russia Regional
       Contest (Northern Subregionals)'' -> season start 2025)'
-    url_state: live
-    url_checked: '2026-11-16'
-    as_of: '20251126134410'
   - url: https://qoj.ac/contest/2658
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://nerc.itmo.ru/archive/2025/northern/tutorial.pdf
     roles:
     - editorial
-    note: found inside https://nerc.itmo.ru/subregions/northern.html by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://nerc.itmo.ru/subregions/northern.html by the content check
   problems:
     set: north-russia-2025
 - id: north-russia-2026
   season: 2027
   name: 2026 ICPC Northwestern Russia Regional Contest
   date: '2026-11-14'
+  location: St Petersburg
+  cms_ids:
+  - 9783
   sites:
   - type: administrative
   - location: ru-saint-petersburg
-  cms_ids:
-  - 9783
   parent: nerc-2026
   sources:
   - url: https://nerc.itmo.ru/subregions/northern.html
@@ -2137,21 +2257,25 @@ contests:
   - url: https://neerc.itmo.ru/archive/2026/northern/standings.html
     roles:
     - scoreboard
-    note: added by the no-sources hunt 2026-11-16
     archived:
     - north-russia/north-russia-2026/scoreboard/20261116-live-a736739c/standings.html
+    note: added by the no-sources hunt 2026-11-16
+  - url: https://icpc.global/regionals/finder/Northwestern-Russia-Regional-2027/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings API, 114 ranked rows on 2026-11-23)
   - url: https://t.me/NERCNews/3160
     roles:
     - rankings
-    note: added by the no-sources hunt 2026-11-16
     archived:
     - north-russia/north-russia-2026/rankings/20261116-live-3adb4c32/page.html
+    note: added by the no-sources hunt 2026-11-16
   - url: https://t.me/NERCNews/3161
     roles:
     - rankings
-    note: added by the no-sources hunt 2026-11-16
     archived:
     - north-russia/north-russia-2026/rankings/20261116-live-387de646/page.html
+    note: added by the no-sources hunt 2026-11-16
   - url: https://neerc.itmo.ru/archive/2026/northern/statements.pdf
     roles:
     - problemset
@@ -2163,3 +2287,5 @@ contests:
   provenance:
   - 'ran 2026-11-14: shown by its problemset, rankings, scoreboard source(s); the statements'' title page
     (no-sources hunt 2026-11-16)'
+  - location St Petersburg read from https://neerc.itmo.ru/archive/2026/northern/statements.pdf (data
+    scan 2026-11-23)

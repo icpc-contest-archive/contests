@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: swerc
   name: ICPC Southwestern Europe Regional Contest
@@ -141,10 +141,6 @@ contests:
   parent: wf-1997
   next: swerc-1997
   sources:
-  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SWERC/1996/problems96.html
-    roles:
-    - web
-    as_of: '20090713080232'
   - url: http://www.acm.inf.ethz.ch/Ranklist.html
     roles:
     - scoreboard
@@ -153,6 +149,10 @@ contests:
     - swerc/swerc-1996/scoreboard/2026-09-01-wayback-2325a27d/Ranklist.html
     url_state: dead
     url_checked: '2026-11-16'
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SWERC/1996/problems96.html
+    roles:
+    - problemset
+    as_of: '20090713080232'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SWERC/1996/index.html
     roles:
     - problemset
@@ -185,16 +185,16 @@ contests:
     roles:
     - problemset
     judge: kattis
-    note: Kattis problem-sources page (export source "Southwestern European Regional Contest 1996", 2026-11-02)
     url_state: live
     url_checked: '2026-11-16'
+    note: Kattis problem-sources page (export source "Southwestern European Regional Contest 1996", 2026-11-02)
   - url: https://qoj.ac/contest/3643
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: swerc-1996
   provenance:
@@ -270,6 +270,9 @@ contests:
   season: 1999
   name: 1998 ACM Southwestern Europe Programming Contest
   date: '1998-11-01'
+  location: University of Ulm, Germany
+  cms_ids:
+  - 1075
   sites:
   - name: delete_1
     type: administrative
@@ -278,8 +281,6 @@ contests:
   - name: delete_1_1
     type: administrative
   - location: de-ulm-uni
-  cms_ids:
-  - 1075
   parent: wf-1999
   next:
   - swerc-1999
@@ -346,48 +347,57 @@ contests:
     roles:
     - problemset
     judge: kattis
-    note: Kattis problem-sources page (export source "Southwestern Europe Regional Contest 1998", 2026-11-02)
     url_state: live
     url_checked: '2026-11-16'
+    note: Kattis problem-sources page (export source "Southwestern Europe Regional Contest 1998", 2026-11-02)
   - url: https://open.kattis.com/problem-sources/Southwestern%20European%20Regional%20contest%201998
     roles:
     - problemset
     judge: kattis
-    note: Kattis problem-sources page (export source "Southwestern European Regional contest 1998", 2026-11-02)
     url_state: live
     url_checked: '2026-11-16'
+    note: Kattis problem-sources page (export source "Southwestern European Regional contest 1998", 2026-11-02)
   - url: https://open.kattis.com/problem-sources/Southwestern%20European%20Regionals%201998
     roles:
     - problemset
     judge: kattis
-    note: Kattis problem-sources page (export source "Southwestern European Regionals 1998", 2026-11-02)
     url_state: live
     url_checked: '2026-11-16'
+    note: Kattis problem-sources page (export source "Southwestern European Regionals 1998", 2026-11-02)
   - url: https://qoj.ac/contest/3645
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: swerc-1998
+  provenance:
+  - location University of Ulm, Germany read from http://icpc.baylor.edu/past/icpc99/Regionals/SWERC98/problems.pdf
+    (data scan 2026-11-23)
 - id: swerc-1999
   season: 2000
   name: 1999 ACM Southwestern Europe Programming Contest
   date: '1999-11-21'
   location: Valladolid
+  cms_ids:
+  - 1112
   sites:
   - location: es-valladolid
     name: U de Valladolid
-  cms_ids:
-  - 1112
   parent: wf-2000
   next: swerc-2000
   sources:
   - url: http://acm.fi.uva.es/swerc99
     roles:
     - web
+  - url: http://icpc.baylor.edu/past/icpc2000/regionals/SWERC99/Problems.html
+    roles:
+    - web
+    as_of: '20020112012832'
+    url_state: unknown
+    url_checked: '2026-11-13'
   - url: http://icpc.baylor.edu/past/icpc2000/regionals/SWERC99/Standings.html
     roles:
     - scoreboard
@@ -414,14 +424,6 @@ contests:
     as_of: '20001003144805'
     url_state: dead
     url_checked: '2026-11-16'
-  - url: http://icpc.baylor.edu/past/icpc2000/regionals/SWERC99/Problems.html
-    roles:
-    - problemset
-    contains:
-    - statement
-    as_of: '20020112012832'
-    url_state: unknown
-    url_checked: '2026-11-13'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=503
     roles:
     - problemset
@@ -435,16 +437,16 @@ contests:
     roles:
     - problemset
     judge: kattis
-    note: Kattis problem-sources page (export source "Southwestern European Regional Contest 1999", 2026-11-02)
     url_state: live
     url_checked: '2026-11-16'
+    note: Kattis problem-sources page (export source "Southwestern European Regional Contest 1999", 2026-11-02)
   - url: https://qoj.ac/contest/3646
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: swerc-1999
 - id: swerc-2000
@@ -740,12 +742,11 @@ contests:
   season: 2004
   name: 2003 ACM Southwestern Europe Programming Contest
   date: '2003-11-16'
-  location: Paris, France; Paris
-  sites:
-  - location: fr-paris-ecole-polytechnique-1
-  - location: fr-palaiseau-ecole-polytechnique
+  location: Ecole Polytechnique, Palaiseau (near Paris), France
   cms_ids:
   - 1240
+  sites:
+  - location: fr-palaiseau-ecole-polytechnique
   parent: wf-2004
   next: swerc-2004
   sources:
@@ -763,11 +764,11 @@ contests:
     roles:
     - scoreboard
     as_of: '20031231231231'
-    note: found inside http://www.polytechnique.edu/icpc2003/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - swerc/swerc-2003/scoreboard/20031231-wayback-b8873c97/ranking.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://www.polytechnique.edu/icpc2003/ by the content check
   - url: http://icpc.baylor.edu/past/icpc2004/RegReport/icpc.baylor.edu/regionals/ViewRegionalStandings5df0.html?ContestID=657
     roles:
     - standings
@@ -781,12 +782,12 @@ contests:
     roles:
     - rankings
     as_of: '20040304012453'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: unknown
-    url_checked: '2026-11-16'
     archived:
     - swerc/swerc-2003/standings/20040304-wayback-786a748b/page.html
     - swerc/swerc-2003/rankings/20040304-wayback-786a748b/page.html
+    url_state: unknown
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=162
     roles:
     - problemset
@@ -800,9 +801,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Europe/Southwestern-Europe/The-2003-ICPC-Southwestern-Europe-Regional-Contest-SWERC-2003/statements_en.pdf
     roles:
     - problemset
@@ -814,33 +815,36 @@ contests:
   - url: https://qoj.ac/download.php?type=statement&id=19824
     roles:
     - problem
-    judge: qoj
     problem: C
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=19826
     roles:
     - problem
-    judge: qoj
     problem: E
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=19827
     roles:
     - problem
-    judge: qoj
     problem: F
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=19830
     roles:
     - problem
-    judge: qoj
     problem: I
     contains:
     - statement
+    judge: qoj
   problems:
     set: swerc-2003
+  provenance:
+  - location Ecole Polytechnique, Palaiseau (near Paris), France read from http://www.polytechnique.edu/icpc2003/
+    (data scan 2026-11-23)
 - id: swerc-2004
   season: 2005
   name: 2004 ACM Southwestern Europe Programming Contest
@@ -1100,10 +1104,10 @@ contests:
   name: 2006 ACM Southwestern Europe Programming Contest
   date: '2006-11-19'
   location: Lisboa, Portugal
-  sites:
-  - location: pt-lisbon-nova
   cms_ids:
   - 1170
+  sites:
+  - location: pt-lisbon-nova
   parent: wf-2007
   next: swerc-2007
   sources:
@@ -1126,15 +1130,6 @@ contests:
     - swerc/swerc-2006/scoreboard/2026-09-01-live-3750fbe3/page.html
     url_state: live
     url_checked: '2026-11-16'
-  - url: http://ctp.di.fct.unl.pt/~amd/cpn/2007swerc/official/class.html
-    roles:
-    - standings
-    archived:
-    - swerc/swerc-2006/external-standings/2026-04-15-external/content.html
-    - swerc/swerc-2006/standings/20090929-wayback-897a1d12/class.html
-    - swerc/swerc-2006/standings/20260901-live-9b486676/class.html
-    note: from archived capture (external-standings)
-    as_of: '20090929094719'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=258
     roles:
     - problemset
@@ -1148,72 +1143,72 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://qoj.ac/download.php?type=statement&id=19850
     roles:
     - problem
-    judge: qoj
     problem: A
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=19851
     roles:
     - problem
-    judge: qoj
     problem: B
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=19852
     roles:
     - problem
-    judge: qoj
     problem: C
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=19853
     roles:
     - problem
-    judge: qoj
     problem: D
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=19854
     roles:
     - problem
-    judge: qoj
     problem: E
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=19855
     roles:
     - problem
-    judge: qoj
     problem: F
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=19856
     roles:
     - problem
-    judge: qoj
     problem: G
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=19857
     roles:
     - problem
-    judge: qoj
     problem: H
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=19858
     roles:
     - problem
-    judge: qoj
     problem: I
     contains:
     - statement
+    judge: qoj
   - url: https://sites.google.com/site/swerc2006/ICPCLogo-Regionals-2006-RGB-outline.pdf
     roles:
     - editorial
@@ -1226,10 +1221,10 @@ contests:
   name: 2007 ACM Southwestern Europe Programming Contest
   date: '2007-11-18'
   location: Lisboa, Portugal
-  sites:
-  - location: pt-lisbon-nova
   cms_ids:
   - 1130
+  sites:
+  - location: pt-lisbon-nova
   parent: wf-2008
   next: swerc-2008
   sources:
@@ -1260,6 +1255,9 @@ contests:
     - swerc/swerc-2007/standings/20260901-live-9b486676/class.html
     - swerc/swerc-2007/scoreboard/20090929-wayback-897a1d12/class.html
     - swerc/swerc-2007/scoreboard/20261116-live-9b486676/class.html
+    - swerc/swerc-2006/external-standings/2026-04-15-external/content.html
+    - swerc/swerc-2006/standings/20090929-wayback-897a1d12/class.html
+    - swerc/swerc-2006/standings/20260901-live-9b486676/class.html
     url_state: live
     url_checked: '2026-11-16'
     note: from archived capture (external-standings)
@@ -1283,35 +1281,24 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: swerc-2007
 - id: swerc-2008
   season: 2009
   name: 2008 Southwestern Europe Contest
   date: '2008-11-23'
-  location: SWERC
+  location: Friedrich-Alexander-University Erlangen-Nuremberg
+  cms_ids:
+  - 22
   sites:
   - location: de-nuremberg
     type: administrative
-  cms_ids:
-  - 22
   parent: wf-2009
   next: swerc-2009
   sources:
-  - url: http://icpc.informatik.uni-erlangen.de/swerc2008/results.php
-    roles:
-    - web
-    - standings
-    as_of: '20190219060444'
-    archived:
-    - swerc/swerc-2008/external-standings/2026-04-15-external/content.html
-    - swerc/swerc-2008/standings/20090428-wayback-e15acb37/page.html
-    url_state: dead
-    url_checked: '2026-11-16'
-    note: from archived capture (external-standings)
   - url: https://swerc.eu/2023/theme/cached/2008/
     roles:
     - scoreboard
@@ -1319,6 +1306,16 @@ contests:
     - swerc/swerc-2008/scoreboard/2026-09-01-live-226b888b/page.html
     url_state: live
     url_checked: '2026-11-16'
+  - url: http://icpc.informatik.uni-erlangen.de/swerc2008/results.php
+    roles:
+    - rankings
+    as_of: '20190219060444'
+    archived:
+    - swerc/swerc-2008/external-standings/2026-04-15-external/content.html
+    - swerc/swerc-2008/standings/20090428-wayback-e15acb37/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: from archived capture (external-standings)
   - url: https://icpcarchive.github.io/Europe%20Contests/Southwestern%20Europe%20Regional%20Contest%20(SWERC)/2008%20Southwestern%20Europe%20Regional%20Contest/problems.pdf
     roles:
     - problemset
@@ -1348,17 +1345,20 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: http://icpc.informatik.uni-erlangen.de/swerc2008/results/solOutline.pdf
     roles:
     - editorial
+    as_of: '20120425022116'
     url_state: dead
     url_checked: '2026-11-22'
-    as_of: '20120425022116'
   problems:
     set: swerc-2008
+  provenance:
+  - location Friedrich-Alexander-University Erlangen-Nuremberg read from http://icpc.informatik.uni-erlangen.de/swerc2008/results.php
+    (data scan 2026-11-23)
 - id: swerc-2009
   season: 2010
   name: 2009 Southwestern Europe Regional Contest
@@ -1664,11 +1664,11 @@ contests:
   name: 2012 Southwestern Europe Regional Contest
   date: '2012-11-18'
   location: Valencia, SPAIN; Administrative Site Location
+  cms_ids:
+  - 1345
   sites:
   - location: es-valencia
   - type: administrative
-  cms_ids:
-  - 1345
   parent: wf-2013
   next: swerc-2013
   sources:
@@ -1693,7 +1693,7 @@ contests:
     url_checked: '2026-11-16'
   - url: http://swerc.dsic.upv.es/resultados2012/public/index.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20131027100501'
     archived:
     - swerc/swerc-2012/external-standings/2026-04-15-external/content.html
@@ -1738,11 +1738,11 @@ contests:
     contains:
     - statement
     judge: kattis
+    as_of: '20210927134322'
     url_state: replaced
     url_checked: '2026-11-16'
     note: Kattis problem-sources page (export source "Southwestern Europe Regional Contest (SWERC) 2012",
       2026-11-02)
-    as_of: '20210927134322'
   - url: https://codeforces.com/gym/100438
     roles:
     - problemset
@@ -1750,18 +1750,18 @@ contests:
     - statement
     - solutions
     judge: codeforces
+    url_state: live
+    url_checked: '2026-11-16'
     note: '2012-2013 ACM-ICPC Southwestern Europe Regional Contest (SWERC 12) (judge hunt 2026-11-03:
       name+year: ''2012-2013 ACM-ICPC Southwestern Europe Regional Contest (SWERC 12)'' -> season start
       2012)'
-    url_state: live
-    url_checked: '2026-11-16'
   - url: https://qoj.ac/contest/3695
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Europe/Southwestern-Europe/The-2012-2013-ICPC-Southwestern-Europe-Regional-Contest-SWERC-2012/tutorials_en.pdf
     roles:
     - editorial
@@ -1779,11 +1779,11 @@ contests:
   name: 2013 Southwestern Europe Regional Contest
   date: '2013-11-17'
   location: Administrative Site Location; Valencia, SPAIN
+  cms_ids:
+  - 2023
   sites:
   - location: es-valencia
   - type: administrative
-  cms_ids:
-  - 2023
   parent: wf-2014
   next: swerc-2014
   sources:
@@ -1814,11 +1814,15 @@ contests:
     roles:
     - scoreboard
     as_of: '20181105073328'
-    note: found inside http://users.dsic.upv.es/swerc/index.php by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - swerc/swerc-2013/scoreboard/20181105-wayback-b577e28c/clasificacion_2013.pdf
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://users.dsic.upv.es/swerc/index.php by the content check
+  - url: https://icpc.global/regionals/finder/Southwestern-Europe-2014/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 44 rows)
   - url: https://open.kattis.com/problem-sources/Southwestern%20Europe%20Regional%20Contest%20%28SWERC%29%202013
     roles:
     - problemset
@@ -1852,12 +1856,12 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2013-2014 ACM-ICPC Southwestern Europe Regional Contest (SWERC 13) (judge hunt 2026-11-03:
-      name+year: ''2013-2014 ACM-ICPC Southwestern Europe Regional Contest (SWERC 13)'' -> season start
-      2013)'
     as_of: '20221219004911'
     url_state: replaced
     url_checked: '2026-11-16'
+    note: '2013-2014 ACM-ICPC Southwestern Europe Regional Contest (SWERC 13) (judge hunt 2026-11-03:
+      name+year: ''2013-2014 ACM-ICPC Southwestern Europe Regional Contest (SWERC 13)'' -> season start
+      2013)'
   - url: https://qoj.ac/contest/198
     roles:
     - problemset
@@ -1865,17 +1869,17 @@ contests:
     - statement
     - solutions
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20230206215221'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: http://users.dsic.upv.es/swerc/ProblemSet2013/statements.pdf
     roles:
     - problemset
     as_of: '20180304204143'
-    note: found inside http://users.dsic.upv.es/swerc/index.php by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://users.dsic.upv.es/swerc/index.php by the content check
   - url: https://icpcarchive.github.io/Europe/Southwestern-Europe/The-2013-Southwestern-Europe-Regional-Contest/tutorials_en.pdf
     roles:
     - editorial
@@ -1885,9 +1889,9 @@ contests:
     roles:
     - editorial
     as_of: '20180304202009'
-    note: found inside http://users.dsic.upv.es/swerc/index.php by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://users.dsic.upv.es/swerc/index.php by the content check
   problems:
     set: swerc-2013
   provenance:
@@ -2225,12 +2229,12 @@ contests:
   name: 2017 Southwestern Europe Regional Contest
   date: '2017-11-26'
   location: Télécom ParisTech; Administrative Site Location
+  cms_ids:
+  - 3280
   sites:
   - location: fr-palaiseau-telecom-paris
     name: SWERC - Télécom ParisTech, Paris
   - type: administrative
-  cms_ids:
-  - 3280
   parent: wf-2018
   next: swerc-2018
   sources:
@@ -2248,7 +2252,7 @@ contests:
     url_checked: '2026-11-16'
   - url: https://swerc.eu/theme/results/official/public/
     roles:
-    - standings
+    - scoreboard
     as_of: '20171223220352'
     archived:
     - swerc/swerc-2017/external-standings/2026-04-15-external/content.html
@@ -2265,9 +2269,9 @@ contests:
   - url: https://swerc.eu/2017/teams/
     roles:
     - teams
-    note: found inside https://swerc.eu/2017/ by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://swerc.eu/2017/ by the content check
   - url: https://swerc.eu/2017/problems/
     roles:
     - problemset
@@ -2311,12 +2315,12 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20190409064216'
+    url_state: changed
+    url_checked: '2026-11-16'
     note: '2017-2018 ACM-ICPC Southwestern European Regional Programming Contest (SWERC 2017) (judge hunt
       2026-11-03: name+year: ''2017-2018 ACM-ICPC Southwestern European Regional Programming Contest (SWERC
       2017)'' -> season start 2017)'
-    url_state: changed
-    url_checked: '2026-11-16'
-    as_of: '20190409064216'
   - url: https://dmoj.ca/problems/?search=ICPC+SWERC+2017
     roles:
     - problemset
@@ -2331,16 +2335,16 @@ contests:
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    as_of: '20221203222501'
     url_state: unknown
     url_checked: '2026-11-14'
-    as_of: '20221203222501'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://swerc.eu/2017/theme/problems/swerc.pdf
     roles:
     - problemset
-    note: found inside https://swerc.eu/2017/ by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://swerc.eu/2017/ by the content check
   - url: https://swerc.eu/2017/theme/slides/problemanalysis.pdf
     roles:
     - editorial

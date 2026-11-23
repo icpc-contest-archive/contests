@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: socal
   name: ICPC North America Southern California Regional Contest
@@ -16,6 +16,13 @@ contests:
   - url: http://www.socalcontest.org/history/1979/results-1979.shtml
     roles:
     - web
+  - url: https://digital-collections.csun.edu/digital/collection/Sundial/id/20282
+    roles:
+    - report
+    - rankings
+    scope: winner and 3rd place
+    note: found by the data scan 2026-11-23 (lead from the contest's own provenance (existence hunt 2026-10-22);
+      OCR text read)
   provenance:
   - 'comp.org.acm: Marc K. Furon (SoCal RCD), in ''ACM Regionals Results!'' (1994-11-16): ''The rules
     were different back in 1979/80 ... four person teams, six hours, and only four problems ... (You were
@@ -44,6 +51,13 @@ contests:
   - url: http://www.socalcontest.org/history/1980/results-1980.shtml
     roles:
     - web
+  - url: https://digital-collections.csun.edu/digital/collection/Sundial/id/20282
+    roles:
+    - report
+    - teams
+    scope: schools announced before the contest
+    note: found by the data scan 2026-11-23 (same article as socal-1979; it is the preview of the 1980
+      contest)
   provenance:
   - 'comp.org.acm: Michael N. Kimura (ex Cal Poly Pomona/USC), in ''ACM Regionals Results!'' (1994-11-14):
     ''My Cal Poly Team won a regional contest once ... Back then 1980, our regional contest was done on
@@ -127,6 +141,14 @@ contests:
   - url: http://www.socalcontest.org/history/1985/results-1985.shtml
     roles:
     - web
+  - url: https://campuspubs.library.caltech.edu/2437/01/1989_02_23_01.pdf
+    roles:
+    - report
+    - rankings
+    scope: champions (Caltech; from 'fourth straight year' in the fall-1988 report)
+    note: found by the data scan 2026-11-23 (lead from the provenance of socal-1986/1987/1988 (existence
+      hunt 2026-10-22); PDF opened; the 1988 win is the fourth straight, so Caltech also won 1985, 1986
+      and 1987)
   provenance:
   - 'Caltech News v.20:3, June 1986, ''Techers win title as top student programmer team'' (PDF https://campuspubs.library.caltech.edu/2412/01/1986_06_20_03.pdf)
     (1986-06): ''A team of five Caltech students has become the top student programmer team in the country,
@@ -153,6 +175,14 @@ contests:
   - url: http://www.socalcontest.org/history/1986/results-1986.shtml
     roles:
     - web
+  - url: https://campuspubs.library.caltech.edu/2437/01/1989_02_23_01.pdf
+    roles:
+    - report
+    - rankings
+    scope: champions (Caltech; from 'fourth straight year' in the fall-1988 report)
+    note: found by the data scan 2026-11-23 (lead from the provenance of socal-1986/1987/1988 (existence
+      hunt 2026-10-22); PDF opened; the 1988 win is the fourth straight, so Caltech also won 1985, 1986
+      and 1987)
   provenance:
   - 'Caltech News v.23:1, Feb 1989 (1989-02): ''For the fourth straight year, a Caltech team has placed
     first in the southern California regional competition of the ACM Scholastic Programming Contest.''
@@ -167,6 +197,14 @@ contests:
   - url: http://www.socalcontest.org/history/1987/results-1987.shtml
     roles:
     - web
+  - url: https://campuspubs.library.caltech.edu/2437/01/1989_02_23_01.pdf
+    roles:
+    - report
+    - rankings
+    scope: champions (Caltech; from 'fourth straight year' in the fall-1988 report)
+    note: found by the data scan 2026-11-23 (lead from the provenance of socal-1986/1987/1988 (existence
+      hunt 2026-10-22); PDF opened; the 1988 win is the fourth straight, so Caltech also won 1985, 1986
+      and 1987)
   provenance:
   - 'Caltech News v.23:1, Feb 1989 (1989-02): ''fourth straight year ... first in the southern California
     regional''; ''David Gillespie, who was a member of winning Caltech teams in 1986 and 1988''. — https://campuspubs.library.caltech.edu/2437/
@@ -188,6 +226,13 @@ contests:
   - url: http://www.socalcontest.org/history/1988/results-1988.shtml
     roles:
     - web
+  - url: https://campuspubs.library.caltech.edu/2437/01/1989_02_23_01.pdf
+    roles:
+    - report
+    - rankings
+    scope: top 2
+    note: found by the data scan 2026-11-23 (lead from the contest's own provenance (existence hunt 2026-10-22);
+      PDF opened)
   provenance:
   - 'Caltech News v.23:1, Feb 1989, ''Caltech team places first in competition'' (PDF https://campuspubs.library.caltech.edu/2437/01/1989_02_23_01.pdf)
     (1989-02): ''For the fourth straight year, a Caltech team has placed first in the southern California
@@ -202,17 +247,25 @@ contests:
 - id: socal-1989
   season: 1990
   location: San Diego State (Pacific-southern slot)
+  cms_ids:
+  - 9898
   sites:
   - location: us
     name: The California State University
-  cms_ids:
-  - 9898
   parent: wf-1990
   next: socal-1990
   sources:
   - url: http://www.socalcontest.org/history/
     roles:
     - web
+  - url: http://www.cs.otago.ac.nz/PC/nzcontest/history.html
+    roles:
+    - rankings
+    scope: champion
+    as_of: '20020824023423'
+    note: 'found by the data scan 2026-11-23 (NZ Programming Contest history (Otago): in 1989 New Zealand
+      was assigned to the Southern California region; Otago''s Terminally Nocturnal came first in the
+      region)'
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_SouthCal/1989/index.html
     roles:
     - problemset
@@ -433,10 +486,10 @@ contests:
   season: 1999
   name: 1998 ACM Southern California Programming Contest
   date: '1998-11-14'
-  sites:
-  - location: us-santa-barbara-city
   cms_ids:
   - 1080
+  sites:
+  - location: us-santa-barbara-city
   parent: wf-1999
   next: socal-1999
   sources:
@@ -444,7 +497,6 @@ contests:
     roles:
     - web
     - scoreboard
-    as_of: '20071106094820'
     archived:
     - socal/socal-1998/scoreboard/2026-04-16-socal/1998-southern-california-programming-contest-1998.html
     - socal/socal-1998/scoreboard/20071106-wayback-45a7d5bc/index.shtml
@@ -492,10 +544,10 @@ contests:
   name: 1999 ACM Southern California Programming Contest
   date: '1999-11-13'
   location: Santa Barbara
-  sites:
-  - location: us-santa-barbara-city
   cms_ids:
   - 1179
+  sites:
+  - location: us-santa-barbara-city
   parent: wf-2000
   next: socal-2000
   sources:
@@ -503,7 +555,6 @@ contests:
     roles:
     - web
     - scoreboard
-    as_of: '20071106094820'
     archived:
     - socal/socal-1999/scoreboard/2026-04-16-socal/1999-southern-california-programming-contest-1999.html
     - socal/socal-1999/scoreboard/20071106-wayback-45a7d5bc/index.shtml
@@ -642,10 +693,10 @@ contests:
   name: 2001 ACM Southern California Programming Contest
   date: '2001-11-10'
   location: Riverside
-  sites:
-  - location: us-riverside-community
   cms_ids:
   - 1053
+  sites:
+  - location: us-riverside-community
   parent: wf-2002
   next: socal-2002
   sources:
@@ -655,7 +706,7 @@ contests:
   - url: http://socalcontest.acm.org/
     roles:
     - web
-    as_of: '20010201050800'
+    as_of: '20011202215605'
     url_state: dead
     url_checked: '2026-11-14'
   - url: http://socalcontest.org/history/2001/details-2001.shtml
@@ -681,11 +732,11 @@ contests:
     roles:
     - standings
     as_of: '20020806144237'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - socal/socal-2001/standings/20020806-wayback-51a3967c/results-2001.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=507
     roles:
     - rankings
@@ -751,10 +802,10 @@ contests:
   name: 2002 ACM Southern California Programming Contest
   date: '2002-11-16'
   location: Riverside
-  sites:
-  - location: us-riverside-community
   cms_ids:
   - 1022
+  sites:
+  - location: us-riverside-community
   parent: wf-2003
   next: socal-2003
   sources:
@@ -764,9 +815,18 @@ contests:
   - url: http://socalcontest.acm.org/
     roles:
     - web
-    as_of: '20010201050800'
+    as_of: '20021125104648'
     url_state: dead
     url_checked: '2026-11-14'
+  - url: http://socalcontest.acm.org/champs/summary-2002.html
+    roles:
+    - web
+    as_of: '20030207085706'
+    archived:
+    - socal/socal-2002/standings/20030207-wayback-49248a92/summary-2002.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://socalcontest.org/history/2002/details-2002.shtml
     roles:
     - scoreboard
@@ -785,15 +845,6 @@ contests:
     - socal/socal-2002/standings/20071209-wayback-ac74ff0c/results-2002.shtml
     url_state: live
     url_checked: '2026-11-16'
-  - url: http://socalcontest.acm.org/champs/summary-2002.html
-    roles:
-    - standings
-    as_of: '20030207085706'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: dead
-    url_checked: '2026-11-16'
-    archived:
-    - socal/socal-2002/standings/20030207-wayback-49248a92/summary-2002.html
   - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings845f.html?ContestID=575
     roles:
     - rankings
@@ -850,10 +901,10 @@ contests:
   name: 2003 ACM Southern California Programming Contest
   date: '2003-11-15'
   location: Riverside
-  sites:
-  - location: us-riverside-community
   cms_ids:
   - 1045
+  sites:
+  - location: us-riverside-community
   parent: wf-2004
   next: socal-2004
   sources:
@@ -861,7 +912,6 @@ contests:
     roles:
     - web
     - scoreboard
-    as_of: '20071106094820'
     archived:
     - socal/socal-2003/scoreboard/2026-04-16-socal/2003-southern-california-programming-contest-2003.html
     - socal/socal-2003/scoreboard/20071106-wayback-45a7d5bc/index.shtml
@@ -872,7 +922,7 @@ contests:
   - url: http://socalcontest.acm.org/
     roles:
     - web
-    as_of: '20010201050800'
+    as_of: '20031121104055'
     url_state: dead
     url_checked: '2026-11-14'
   - url: http://socalcontest.org/history/2003/details-2003.shtml
@@ -909,12 +959,12 @@ contests:
     roles:
     - rankings
     as_of: '20031227104441'
-    note: added by url-hunt 2026-09-01 (cms-api)
     archived:
     - socal/socal-2003/standings/20031227-wayback-f210c113/page.html
     - socal/socal-2003/rankings/20031227-wayback-f210c113/page.html
     url_state: unknown
     url_checked: '2026-11-13'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://www.socalcontest.org/history/2003/2003.zip
     roles:
     - problemset
@@ -939,10 +989,10 @@ contests:
   name: 2004 ACM Southern California Programming Contest
   date: '2004-11-13'
   location: Riverside
-  sites:
-  - location: us-riverside-community
   cms_ids:
   - 1049
+  sites:
+  - location: us-riverside-community
   parent: wf-2005
   next: socal-2005
   sources:
@@ -950,7 +1000,6 @@ contests:
     roles:
     - web
     - scoreboard
-    as_of: '20071106094820'
     archived:
     - socal/socal-2004/scoreboard/2026-04-16-socal/2004-southern-california-programming-contest-2004.html
     - socal/socal-2004/scoreboard/20071106-wayback-45a7d5bc/index.shtml
@@ -1001,10 +1050,10 @@ contests:
   name: 2005 ACM Southern California Programming Contest
   date: '2005-11-13'
   location: Riverside
-  sites:
-  - location: us-riverside-community
   cms_ids:
   - 1114
+  sites:
+  - location: us-riverside-community
   parent: wf-2006
   next: socal-2006
   sources:
@@ -1012,7 +1061,6 @@ contests:
     roles:
     - web
     - scoreboard
-    as_of: '20071106094820'
     archived:
     - socal/socal-2005/scoreboard/2026-04-16-socal/2005-southern-california-programming-contest-2005.html
     - socal/socal-2005/scoreboard/20071106-wayback-45a7d5bc/index.shtml
@@ -1072,10 +1120,10 @@ contests:
   name: 2006 ACM Southern California Programming Contest
   date: '2006-11-11'
   location: Riverside
-  sites:
-  - location: us-riverside-community
   cms_ids:
   - 963
+  sites:
+  - location: us-riverside-community
   parent: wf-2007
   next: socal-2007
   sources:
@@ -1083,7 +1131,6 @@ contests:
     roles:
     - web
     - scoreboard
-    as_of: '20071106094820'
     archived:
     - socal/socal-2006/scoreboard/2026-04-16-socal/2006-southern-california-programming-contest-2006.html
     - socal/socal-2006/scoreboard/20071106-wayback-45a7d5bc/index.shtml
@@ -1552,6 +1599,8 @@ contests:
   name: 2013 Southern California Regional Contest
   date: '2013-11-09'
   location: RCC; Administrative Site Location; Riverside, CA
+  cms_ids:
+  - 1970
   sites:
   - location: us-riverside-rcc
     name: Riverside Community College, Riverside City Campus
@@ -1559,8 +1608,6 @@ contests:
   - location: us-riverside
     name: Cancelled Teams
     type: administrative
-  cms_ids:
-  - 1970
   parent: wf-2014
   next: socal-2014
   sources:
@@ -1585,6 +1632,10 @@ contests:
     - socal/socal-2013/scoreboard/20131113-wayback-c1b42dcb/details-2013.shtml
     url_state: live
     url_checked: '2026-11-16'
+  - url: https://icpc.global/regionals/finder/Southern-California-2014/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 91 rows)
   - url: http://www.socalcontest.org/history/2013/socal2013.pdf
     roles:
     - problemset
@@ -1978,6 +2029,8 @@ contests:
   name: 2020 Southern California Regional Contest
   date: '2021-02-27'
   location: Riverside, CA; RCC; Administrative Site Location; On-Line
+  cms_ids:
+  - 4349
   sites:
   - type: administrative
   - location: us-riverside-rcc
@@ -1988,9 +2041,7 @@ contests:
     type: administrative
   - name: Alumni (non-advancing teams)
     type: online
-  cms_ids:
-  - 4349
-  parent: nac-2021
+  parent: nadc-2021
   next: socal-2021
   sources:
   - url: http://socalcontest.org/current/index.shtml
@@ -2041,23 +2092,26 @@ contests:
     contains:
     - names
     judge: kattis
+    as_of: '20220628131756'
     url_state: replaced
     url_checked: '2026-11-16'
     note: Kattis problem-sources page (export source "2020-2021 North Central North America and Southern
       California ICPC Regional Contest", 2026-11-02)
-    as_of: '20220628131756'
   - url: https://qoj.ac/contest/438
     roles:
     - problemset
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221129222801'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: socal-2020
+  provenance:
+  - parent nadc-2021 read from https://www.icpc.org/icpc-north-america (as of 20210923173052) and the
+    ICPC CMS hierarchy (CMS 4596 ICPC-NADC) (data scan 2026-11-23)
 - id: socal-2021
   season: 2022
   name: 2021 ICPC Southern California Regional Contest

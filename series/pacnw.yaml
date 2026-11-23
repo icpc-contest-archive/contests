@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: pacnw
   name: ICPC North America Pacific Northwest Regional Contest
@@ -6,6 +6,25 @@ series:
   region: North America
   naming: season-start
 contests:
+- id: pacnw-1992
+  season: 1993
+  cms_ids: []
+  parent: wf-1993
+  next: pacnw-1994
+  sources:
+  - url: https://groups.google.com/g/comp.org.acm/c/0tRp_87Je8k/m/1I0UkBTxhSEJ
+    roles:
+    - rankings
+    scope: teams advancing
+    note: 'found by the data scan 2026-11-23 (comp.org.acm 1992-12-05, Dragomir: finals teams known so
+      far, ''Pacific: Berkeley, Stanford (non-confirmed officially)'')'
+  provenance:
+  - 'ran: comp.org.acm, Dragomir, ''ACM programming contest'' 1992-12-05: "Pacific: Berkeley, Stanford
+    (non-confirmed officially)" — https://groups.google.com/g/comp.org.acm/c/0tRp_87Je8k/m/1I0UkBTxhSEJ
+    (data scan 2026-11-23)'
+  notes: 'added by the data scan 2026-11-23 (early-years): the 1992-93 region was called Pacific (RCD
+    John Clevenger, CSU Sacramento — comp.org.acm 1992-07-08); Stanford (2nd) and UC Berkeley (4th) are
+    in the wf-1993 standings. Date and host not found'
 - id: pacnw-1994
   season: 1995
   date: '1994-11-19'
@@ -121,14 +140,14 @@ contests:
   season: 1999
   name: 1998 ACM Pacific Northwest Programming Contest
   date: '1998-11-14'
+  cms_ids:
+  - 978
   sites:
   - location: us-chico-california
   - type: administrative
     name: Any Site
   - location: us-corvallis
     name: Oregon State @ Corvallis
-  cms_ids:
-  - 978
   parent: wf-1999
   next: pacnw-1999
   sources:
@@ -151,6 +170,10 @@ contests:
     archived:
     - pacnw/pacnw-1998/standings/2026-09-01-live-834796af/98Results.htm
     - pacnw/pacnw-1998/standings/20081120-wayback-73245b67/98Results.htm
+    - pacnw/pacnw-1999/scoreboard/20081120-wayback-73245b67/98Results.htm
+    - pacnw/pacnw-1999/scoreboard/2026-09-01-live-834796af/98Results.htm
+    - pacnw/pacnw-1999/standings/20081120-wayback-73245b67/98Results.htm
+    - pacnw/pacnw-1999/standings/2026-09-01-live-834796af/98Results.htm
     url_state: live
     url_checked: '2026-11-16'
   - url: http://icpc.baylor.edu/past/icpc99/Regionals/PacNW98/Standings.htm
@@ -207,13 +230,13 @@ contests:
   name: 1999 ACM Pacific Northwest Programming Contest
   date: '1999-11-13'
   location: Bellingham, Washington; Chico, California
+  cms_ids:
+  - 1134
   sites:
   - name: Site Closed
     type: administrative
   - location: us-chico-csu
   - location: us-bellingham-wwu
-  cms_ids:
-  - 1134
   parent: wf-2000
   next: pacnw-2000
   sources:
@@ -229,16 +252,12 @@ contests:
     - pacnw/pacnw-1999/scoreboard/20080908-wayback-7b3a9936/reports99.htm
     url_state: live
     url_checked: '2026-11-16'
-  - url: http://www.acmicpc-pacnw.org/Standings/1998/98Results.htm
+  - url: http://icpc.baylor.edu/past/icpc2000/regionals/PacNW99/Problems.html
     roles:
     - scoreboard
-    as_of: '20081120211642'
-    archived:
-    - pacnw/pacnw-1999/scoreboard/20081120-wayback-73245b67/98Results.htm
-    - pacnw/pacnw-1999/scoreboard/2026-09-01-live-834796af/98Results.htm
-    - pacnw/pacnw-1999/standings/20081120-wayback-73245b67/98Results.htm
-    - pacnw/pacnw-1999/standings/2026-09-01-live-834796af/98Results.htm
-    note: from archived capture (scoreboard)
+    as_of: '20020112012652'
+    url_state: unknown
+    url_checked: '2026-11-13'
   - url: http://icpc.baylor.edu/past/icpc2000/regionals/PacNW99/Standings.html
     roles:
     - standings
@@ -257,14 +276,6 @@ contests:
     as_of: '20001003145305'
     url_state: dead
     url_checked: '2026-11-16'
-  - url: http://icpc.baylor.edu/past/icpc2000/regionals/PacNW99/Problems.html
-    roles:
-    - problemset
-    contains:
-    - package
-    as_of: '20020112012652'
-    url_state: unknown
-    url_checked: '2026-11-13'
   - url: http://acmicpc-pacnw.org/ProblemSet/1999/ForTheWeb.ZIP
     roles:
     - problemset
@@ -369,14 +380,14 @@ contests:
   name: 2001 ACM Pacific Northwest Programming Contest
   date: '2001-11-10'
   location: Fremont, CA; Cheney, WA
+  cms_ids:
+  - 1237
   sites:
   - type: administrative
   - location: us-fremont-devry
     name: South - DeVry Institute of Technology
   - location: us-cheney-ewu
     name: North - Eastern Washington University
-  cms_ids:
-  - 1237
   parent: wf-2002
   next: pacnw-2002
   sources:
@@ -386,19 +397,19 @@ contests:
   - url: http://www.acmcontest-pacnw.org/
     roles:
     - web
-    as_of: '20010301082221'
+    as_of: '20011129220912'
     url_state: dead
     url_checked: '2026-11-14'
   - url: http://www.acmcontest-pacnw.org/results.htm
     roles:
     - standings
     - problemset
-    as_of: '20010302152247'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: dead
-    url_checked: '2026-11-16'
+    as_of: '20011201070024'
     archived:
     - pacnw/pacnw-2001/standings/20010302-wayback-a62127f3/results.htm
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=505
     roles:
     - rankings
@@ -442,14 +453,14 @@ contests:
   name: 2002 ACM Pacific Northwest Programming Contest
   date: '2002-11-09'
   location: DeVry University - Seattle; DeVry University - Fremont
+  cms_ids:
+  - 1273
   sites:
   - type: administrative
   - location: us-fremont-devry-university-fremont
     name: South - DeVry Fremont
   - location: us-seattle-devry
     name: North - DeVry Seattle
-  cms_ids:
-  - 1273
   parent: wf-2003
   next: pacnw-2003
   sources:
@@ -459,7 +470,7 @@ contests:
   - url: http://www.acmcontest-pacnw.org/
     roles:
     - web
-    as_of: '20010301082221'
+    as_of: '20021130190954'
     url_state: dead
     url_checked: '2026-11-14'
   - url: http://www.acmicpc-pacnw.org/Standings/2002/standings.htm
@@ -484,11 +495,11 @@ contests:
     roles:
     - standings
     as_of: '20021127044741'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - pacnw/pacnw-2002/standings/20021127-wayback-dbeb1112/standings.htm
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings3a52.html?ContestID=573
     roles:
     - rankings
@@ -529,19 +540,17 @@ contests:
   season: 2004
   name: 2003 ACM Pacific Northwest Programming Contest
   date: '2003-11-15'
-  location: CSU-Fresno; Portland State University
+  location: CSU Fresno, Fresno CA; Portland State University, Portland OR; BYU Hawaii, Laie HI
+  cms_ids:
+  - 971
   sites:
   - type: administrative
-  - location: us-hi
+  - location: us-la-ie-byuh
     name: Hawaii
   - location: us-fresno-csu
     name: South
-    type: administrative
   - location: us-portland-state-university
     name: North
-    type: administrative
-  cms_ids:
-  - 971
   parent: wf-2004
   next: pacnw-2004
   sources:
@@ -587,11 +596,11 @@ contests:
     roles:
     - standings
     as_of: '20031206071003'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - pacnw/pacnw-2003/standings/20031206-wayback-7049124b/results2003.htm
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://acmicpc-pacnw.org/ProblemSet/2003/ForWeb.zip
     roles:
     - problemset
@@ -611,12 +620,15 @@ contests:
   - url: http://www.acmcontest-pacnw.org/2003_report.htm
     roles:
     - report
-    note: found inside http://www.acmcontest-pacnw.org/ by the content check
     as_of: '20031206065319'
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://www.acmcontest-pacnw.org/ by the content check
   problems:
     set: pacnw-2003
+  provenance:
+  - location CSU Fresno, Fresno CA; Portland State University, Portland OR; BYU Hawaii, Laie HI read from
+    http://www.acmcontest-pacnw.org/ (data scan 2026-11-23)
 - id: pacnw-2004
   season: 2005
   name: 2004 ACM Pacific Northwest Programming Contest
@@ -1249,9 +1261,11 @@ contests:
 - id: pacnw-2012
   season: 2013
   name: 2012 Pacific Northwest Regional Contest
-  date: '2012-11-04'
+  date: '2012-11-03'
   location: Hawaii; UBC Campus; University of Portland; Administrative Site Location; EWU, Cheney, WA;
     Bellingham, WA; Palo Alto - Stanford Campus
+  cms_ids:
+  - 1393
   sites:
   - location: us-cheney-ewu
     name: Northeast - EWU, Cheney/Spokane
@@ -1266,8 +1280,6 @@ contests:
   - location: us-stanford-university
     name: N. California - Stanford University
   - type: administrative
-  cms_ids:
-  - 1393
   parent: wf-2013
   next: pacnw-2013
   sources:
@@ -1313,19 +1325,24 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2012-2013 ACM-ICPC Pacific Northwest Regional Contest (judge hunt 2026-11-03: name+year: ''2012-2013
-      ACM-ICPC Pacific Northwest Regional Contest'' -> season start 2012)'
     as_of: '20190408213846'
     url_state: changed
     url_checked: '2026-11-16'
+    note: '2012-2013 ACM-ICPC Pacific Northwest Regional Contest (judge hunt 2026-11-03: name+year: ''2012-2013
+      ACM-ICPC Pacific Northwest Regional Contest'' -> season start 2012)'
   problems:
     set: pacnw-2012
+  provenance:
+  - date 2012-11-03 read from http://acmicpc-pacnw.org/ProblemSet/2012/ICPCPacNW2012ProblemStatements.pdf
+    (data scan 2026-11-23)
 - id: pacnw-2013
   season: 2014
   name: 2013 Pacific Northwest Regional Contest
-  date: '2013-11-03'
+  date: '2013-11-02'
   location: Tacoma, WA; Administrative Site Location; Hawaii; UBC Campus; Newberg, OR; EWU, Cheney, WA;
     Santa Cruz, CA
+  cms_ids:
+  - 1984
   sites:
   - location: us-cheney-ewu
     name: Northeast - EWU, Cheney/Spokane
@@ -1341,8 +1358,6 @@ contests:
   - location: ca-vancouver-ubc
     name: Canada - University of British Columbia
   - type: administrative
-  cms_ids:
-  - 1984
   parent: wf-2014
   next: pacnw-2014
   sources:
@@ -1358,6 +1373,10 @@ contests:
     - pacnw/pacnw-2013/scoreboard/20131111-wayback-cc791b8d/index.html
     url_state: live
     url_checked: '2026-11-16'
+  - url: https://icpc.global/regionals/finder/Pacific-Northwest-2014/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 117 rows)
   - url: http://acmicpc-pacnw.org/ProblemSet/2013/ICPC_PacNW_2013_ProblemStatements.pdf
     roles:
     - problemset
@@ -1381,19 +1400,24 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2013-2014 ACM-ICPC Pacific Northwest Regional Contest (judge hunt 2026-11-03: name+year: ''2013-2014
-      ACM-ICPC Pacific Northwest Regional Contest'' -> season start 2013)'
     as_of: '20190409010547'
     url_state: changed
     url_checked: '2026-11-16'
+    note: '2013-2014 ACM-ICPC Pacific Northwest Regional Contest (judge hunt 2026-11-03: name+year: ''2013-2014
+      ACM-ICPC Pacific Northwest Regional Contest'' -> season start 2013)'
   problems:
     set: pacnw-2013
+  provenance:
+  - date 2013-11-02 read from http://acmicpc-pacnw.org/ProblemSet/2013/ICPC_PacNW_2013_ProblemStatements.pdf
+    (data scan 2026-11-23)
 - id: pacnw-2014
   season: 2015
   name: 2014 Pacific Northwest Regional Contest
   date: '2014-11-15'
   location: Newberg, OR; Administrative Site Location; EWU, Cheney, WA; San Francisco, CA; Simon Fraser
     - Burnaby; Tacoma, WA; Hawaii
+  cms_ids:
+  - 2419
   sites:
   - location: us-tacoma-puget-sound
     name: Puget Sound - University of Puget Sound
@@ -1408,15 +1432,12 @@ contests:
   - location: us-newberg-george-fox
     name: Northwest - George Fox University
   - type: administrative
-  cms_ids:
-  - 2419
   parent: wf-2015
   next: pacnw-2015
   sources:
   - url: http://www.acmicpc-pacnw.org/results.htm
     roles:
     - web
-    - standings
     as_of: '20141224125124'
     archived:
     - pacnw/pacnw-2014/external-standings/2026-04-15-external/content.html
@@ -1477,11 +1498,11 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2014-2015 ACM-ICPC Pacific Northwest Regional Contest (Div. 1) (judge hunt 2026-11-03: name+year:
-      ''2014-2015 ACM-ICPC Pacific Northwest Regional Contest (Div. 1)'' -> season start 2014)'
     as_of: '20160408224707'
     url_state: changed
     url_checked: '2026-11-16'
+    note: '2014-2015 ACM-ICPC Pacific Northwest Regional Contest (Div. 1) (judge hunt 2026-11-03: name+year:
+      ''2014-2015 ACM-ICPC Pacific Northwest Regional Contest (Div. 1)'' -> season start 2014)'
   problems:
     set: pacnw-2014
 - id: pacnw-2015
@@ -1490,6 +1511,8 @@ contests:
   date: '2015-11-14'
   location: Administrative Site Location; Hawaii; Newberg, OR; Berkeley, CA; Simon Fraser - Burnaby; Tacoma,
     WA; EWU, Cheney, WA
+  cms_ids:
+  - 2836
   sites:
   - location: us-berkeley-california
     name: N. California - UC Berkeley
@@ -1504,15 +1527,12 @@ contests:
   - location: us-newberg-george-fox
     name: Northwest - George Fox University
   - type: administrative
-  cms_ids:
-  - 2836
   parent: wf-2016
   next: pacnw-2016
   sources:
   - url: http://www.acmicpc-pacnw.org/results.htm
     roles:
     - web
-    - standings
     as_of: '20151121071424'
     archived:
     - pacnw/pacnw-2015/external-standings/2026-04-15-external/content.html
@@ -1573,11 +1593,11 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2015-2016 ACM-ICPC Pacific Northwest Regional Contest (Div. 1) (judge hunt 2026-11-03: name+year:
-      ''2015-2016 ACM-ICPC Pacific Northwest Regional Contest (Div. 1)'' -> season start 2015)'
     as_of: '20170828220337'
     url_state: changed
     url_checked: '2026-11-16'
+    note: '2015-2016 ACM-ICPC Pacific Northwest Regional Contest (Div. 1) (judge hunt 2026-11-03: name+year:
+      ''2015-2016 ACM-ICPC Pacific Northwest Regional Contest (Div. 1)'' -> season start 2015)'
   problems:
     set: pacnw-2015
 - id: pacnw-2016
@@ -1586,6 +1606,8 @@ contests:
   date: '2016-11-05'
   location: University of British Columbia, Vancouver; Berkeley, CA; Administrative Site Location; Newberg,
     OR; EWU, Cheney, WA; Tacoma, WA; Hawaii
+  cms_ids:
+  - 3213
   sites:
   - type: administrative
   - location: us-berkeley-california
@@ -1600,15 +1622,12 @@ contests:
     name: Northeast - EWU, Cheney/Spokane
   - location: ca-vancouver-ubc
     name: Canada - University of British Columbia
-  cms_ids:
-  - 3213
   parent: wf-2017
   next: pacnw-2017
   sources:
   - url: http://www.acmicpc-pacnw.org/results.htm
     roles:
     - web
-    - standings
     as_of: '20170101223008'
     archived:
     - pacnw/pacnw-2016/external-standings/2026-04-15-external/content.html
@@ -1649,11 +1668,11 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2016-2017 ACM-ICPC Pacific Northwest Regional Contest (Div. 1) (judge hunt 2026-11-03: name+year:
-      ''2016-2017 ACM-ICPC Pacific Northwest Regional Contest (Div. 1)'' -> season start 2016)'
     as_of: '20170706051221'
     url_state: changed
     url_checked: '2026-11-16'
+    note: '2016-2017 ACM-ICPC Pacific Northwest Regional Contest (Div. 1) (judge hunt 2026-11-03: name+year:
+      ''2016-2017 ACM-ICPC Pacific Northwest Regional Contest (Div. 1)'' -> season start 2016)'
   - url: https://dmoj.ca/problems/?search=ICPC+PACNW+2016
     roles:
     - problemset
@@ -1665,149 +1684,149 @@ contests:
   - url: https://www.acmicpc.net/problem/13741
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151854'
   - url: https://www.acmicpc.net/problem/13734
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20260420002151'
   - url: https://www.acmicpc.net/problem/13978
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151854'
   - url: https://www.acmicpc.net/problem/13979
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151854'
   - url: https://www.acmicpc.net/problem/13743
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20260420002151'
   - url: https://www.acmicpc.net/problem/13744
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151854'
   - url: https://www.acmicpc.net/problem/13980
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151854'
   - url: https://www.acmicpc.net/problem/13747
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151854'
   - url: https://www.acmicpc.net/problem/13981
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151854'
   - url: https://www.acmicpc.net/problem/13982
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151854'
   - url: https://www.acmicpc.net/problem/13983
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151854'
   - url: https://www.acmicpc.net/problem/13740
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151854'
   - url: https://www.acmicpc.net/problem/13751
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151854'
   - url: https://www.acmicpc.net/problem/13984
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151854'
   - url: https://www.acmicpc.net/problem/13985
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191121233457'
   - url: https://www.acmicpc.net/problem/13986
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151854'
   - url: https://www.acmicpc.net/problem/13746
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20260420002151'
   - url: https://www.acmicpc.net/problem/13754
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151854'
   - url: https://www.acmicpc.net/problem/13987
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151854'
   - url: https://www.acmicpc.net/problem/14418
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151854'
   - url: https://www.acmicpc.net/problem/13750
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151854'
   problems:
     set: pacnw-2016
@@ -1817,6 +1836,8 @@ contests:
   date: '2017-11-11'
   location: University of British Columbia, Vancouver; EWU, Cheney, WA; Hawaii; Tacoma, WA; Administrative
     Site Location; Newberg, OR; Berkeley, CA
+  cms_ids:
+  - 3265
   sites:
   - location: ca-vancouver-ubc
     name: Canada - University of British Columbia
@@ -1831,15 +1852,12 @@ contests:
   - type: administrative
   - location: us-cheney-ewu
     name: Northeast - EWU, Cheney/Spokane
-  cms_ids:
-  - 3265
   parent: wf-2018
   next: pacnw-2018
   sources:
   - url: http://www.acmicpc-pacnw.org/results.htm
     roles:
     - web
-    - standings
     as_of: '20171114103349'
     archived:
     - pacnw/pacnw-2017/external-standings/2026-04-15-external/content.html
@@ -1891,142 +1909,142 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2017-2018 ACM-ICPC Pacific Northwest Regional Contest (Div. 1) (judge hunt 2026-11-03: name+year:
-      ''2017-2018 ACM-ICPC Pacific Northwest Regional Contest (Div. 1)'' -> season start 2017)'
     url_state: live
     url_checked: '2026-11-16'
+    note: '2017-2018 ACM-ICPC Pacific Northwest Regional Contest (Div. 1) (judge hunt 2026-11-03: name+year:
+      ''2017-2018 ACM-ICPC Pacific Northwest Regional Contest (Div. 1)'' -> season start 2017)'
   - url: https://www.acmicpc.net/problem/15104
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151837'
   - url: https://www.acmicpc.net/problem/15105
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151837'
   - url: https://www.acmicpc.net/problem/15106
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151837'
   - url: https://www.acmicpc.net/problem/15107
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151837'
   - url: https://www.acmicpc.net/problem/15108
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151837'
   - url: https://www.acmicpc.net/problem/15109
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151837'
   - url: https://www.acmicpc.net/problem/15110
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151837'
   - url: https://www.acmicpc.net/problem/15111
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151837'
   - url: https://www.acmicpc.net/problem/15112
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151837'
   - url: https://www.acmicpc.net/problem/15113
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151837'
   - url: https://www.acmicpc.net/problem/15114
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151837'
   - url: https://www.acmicpc.net/problem/15115
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151837'
   - url: https://www.acmicpc.net/problem/15116
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151837'
   - url: https://www.acmicpc.net/problem/15117
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151837'
   - url: https://www.acmicpc.net/problem/15118
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151837'
   - url: https://www.acmicpc.net/problem/15119
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151837'
   - url: https://www.acmicpc.net/problem/15120
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151837'
   - url: https://www.acmicpc.net/problem/15121
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151837'
   - url: https://www.acmicpc.net/problem/15122
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514151837'
   problems:
     set: pacnw-2017
@@ -2036,6 +2054,8 @@ contests:
   date: '2018-11-03'
   location: Simon Fraser University, BC; Berkeley, CA; Administrative Site Location; Tacoma, WA; Newberg,
     OR; Hawaii; EWU, Cheney, WA
+  cms_ids:
+  - 3543
   sites:
   - type: administrative
   - location: us-la-ie-byuh
@@ -2050,15 +2070,12 @@ contests:
     name: Oregon - George Fox University
   - location: us-cheney-ewu
     name: Eastern Washington - Whitworth University
-  cms_ids:
-  - 3543
   parent: wf-2019
   next: pacnw-2019
   sources:
   - url: http://www.acmicpc-pacnw.org/results.htm
     roles:
     - web
-    - standings
     as_of: '20190717150010'
     archived:
     - pacnw/pacnw-2018/external-standings/2026-04-15-external/content.html
@@ -2110,143 +2127,143 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2018-2019 ACM-ICPC Pacific Northwest Regional Contest (Div. 1) (judge hunt 2026-11-03: name+year:
-      ''2018-2019 ACM-ICPC Pacific Northwest Regional Contest (Div. 1)'' -> season start 2018)'
     as_of: '20221219032902'
     url_state: replaced
     url_checked: '2026-11-16'
+    note: '2018-2019 ACM-ICPC Pacific Northwest Regional Contest (Div. 1) (judge hunt 2026-11-03: name+year:
+      ''2018-2019 ACM-ICPC Pacific Northwest Regional Contest (Div. 1)'' -> season start 2018)'
   - url: https://www.acmicpc.net/problem/16406
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230401131522'
   - url: https://www.acmicpc.net/problem/16409
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230401131522'
   - url: https://www.acmicpc.net/problem/16688
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230401131522'
   - url: https://www.acmicpc.net/problem/16417
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230401131522'
   - url: https://www.acmicpc.net/problem/16407
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230401131522'
   - url: https://www.acmicpc.net/problem/16421
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230401131522'
   - url: https://www.acmicpc.net/problem/16410
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230401131522'
   - url: https://www.acmicpc.net/problem/16424
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230401131522'
   - url: https://www.acmicpc.net/problem/16418
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230401131522'
   - url: https://www.acmicpc.net/problem/16427
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230401131522'
   - url: https://www.acmicpc.net/problem/16419
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230401131522'
   - url: https://www.acmicpc.net/problem/16689
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20200326215201'
   - url: https://www.acmicpc.net/problem/16414
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230401131522'
   - url: https://www.acmicpc.net/problem/16690
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230401131522'
   - url: https://www.acmicpc.net/problem/16408
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230401131522'
   - url: https://www.acmicpc.net/problem/16691
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230401131522'
   - url: https://www.acmicpc.net/problem/16692
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230401131522'
   - url: https://www.acmicpc.net/problem/16425
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230401131522'
   - url: https://www.acmicpc.net/problem/16693
     roles:
     - problem
-    judge: baekjoon
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230401131522'
   problems:
     set: pacnw-2018
@@ -2256,6 +2273,8 @@ contests:
   date: '2019-11-09'
   location: EWU, Cheney, WA; Tacoma, WA; Administrative Site Location; San Jose, CA; Simon Fraser University,
     BC; Hawaii; Newberg, OR
+  cms_ids:
+  - 4084
   sites:
   - location: us-newberg-george-fox
     name: Oregon - George Fox University
@@ -2270,15 +2289,12 @@ contests:
   - location: ca-burnaby-sfu
     name: Canada - Simon Fraser University
   - type: administrative
-  cms_ids:
-  - 4084
   parent: nac-2020
   next: pacnw-2020
   sources:
   - url: http://www.acmicpc-pacnw.org/results.htm
     roles:
     - web
-    - standings
     as_of: '20191111010044'
     archived:
     - pacnw/pacnw-2019/external-standings/2026-04-15-external/content.html
@@ -2338,11 +2354,11 @@ contests:
     contains:
     - statement
     judge: kattis
+    as_of: '20220124112513'
     url_state: replaced
     url_checked: '2026-11-16'
     note: Kattis problem-sources page (export source "2019 ICPC Pacific Northwest Regional Programming
       Contest", 2026-11-02)
-    as_of: '20220124112513'
   - url: https://codeforces.com/gym/102433
     roles:
     - problemset
@@ -2350,11 +2366,11 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2019-2020 ACM-ICPC Pacific Northwest Regional Contest (Div. 1) (judge hunt 2026-11-03: name+year:
-      ''2019-2020 ACM-ICPC Pacific Northwest Regional Contest (Div. 1)'' -> season start 2019)'
+    as_of: '20200807004242'
     url_state: changed
     url_checked: '2026-11-16'
-    as_of: '20200807004242'
+    note: '2019-2020 ACM-ICPC Pacific Northwest Regional Contest (Div. 1) (judge hunt 2026-11-03: name+year:
+      ''2019-2020 ACM-ICPC Pacific Northwest Regional Contest (Div. 1)'' -> season start 2019)'
   - url: https://qoj.ac/contest/480
     roles:
     - problemset
@@ -2363,10 +2379,10 @@ contests:
     - statement
     - data
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; Div. 1)
+    as_of: '20230324191440'
     url_state: unknown
     url_checked: '2026-11-14'
-    as_of: '20230324191440'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; Div. 1)
   - url: https://qoj.ac/contest/481
     roles:
     - problemset
@@ -2375,10 +2391,10 @@ contests:
     - statement
     - data
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; Div. 2)
+    as_of: '20230324191519'
     url_state: unknown
     url_checked: '2026-11-14'
-    as_of: '20230324191519'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; Div. 2)
   - url: https://icpcarchive.github.io/North-America/Pacific-Northwest/Pacific-Northwest-2019-Div-1/tutorials_en.pdf
     roles:
     - editorial
@@ -2396,6 +2412,8 @@ contests:
   name: 2020/2021 Pacific Northwest Regional Contest
   date: '2021-03-06'
   location: online; Administrative Site Location
+  cms_ids:
+  - 4348
   sites:
   - type: administrative
   - location: ca
@@ -2413,9 +2431,7 @@ contests:
   - location: us-ca
     name: California
     type: online
-  cms_ids:
-  - 4348
-  parent: nac-2021
+  parent: nadc-2021
   next: pacnw-2021
   sources:
   - url: http://www.acmicpc-pacnw.org/results.htm
@@ -2469,10 +2485,10 @@ contests:
     contains:
     - names
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; Div. 1)
     as_of: '20221207155146'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; Div. 1)
   - url: https://qoj.ac/contest/497
     roles:
     - problemset
@@ -2480,10 +2496,10 @@ contests:
     contains:
     - names
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; Div. 2)
     as_of: '20221129202754'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; Div. 2)
   - url: https://icpcarchive.github.io/North-America/Pacific-Northwest/Pacific-Northwest-2020-Div-2/statements_en.pdf
     roles:
     - problemset
@@ -2495,107 +2511,110 @@ contests:
   - url: https://qoj.ac/download.php?type=statement&id=3605
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=1366
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=3606
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=3607
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=1363
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=3608
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=1361
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=1365
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=1375
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=1369
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=1364
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=1368
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=1362
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=1367
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=1372
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=3609
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=1374
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   problems:
     set: pacnw-2020
+  provenance:
+  - parent nadc-2021 read from https://www.icpc.org/icpc-north-america (as of 20210923173052) and the
+    ICPC CMS hierarchy (CMS 4596 ICPC-NADC) (data scan 2026-11-23)
 - id: pacnw-2021
   season: 2022
   name: 2021 ICPC Pacific Northwest Regional Contest
@@ -3237,6 +3256,8 @@ contests:
   date: '2025-11-15'
   location: Simon Fraser; Foothill-DeAnza CC; BYU-Hawaii; BYU Hawaii; UW Tacoma; Administrative Site Location;
     George Fox U.
+  cms_ids:
+  - 9334
   sites:
   - type: administrative
   - location: us-tacoma-uw-tacoma
@@ -3259,14 +3280,23 @@ contests:
     name: California - D2
   - location: us-ca
     name: California - D1
-  cms_ids:
-  - 9334
   parent: nac-2026
   next: pacnw-2026
   sources:
   - url: http://www.acmicpc-pacnw.org/
     roles:
     - web
+  - url: http://acmicpc-pacnw.org/results.htm
+    roles:
+    - web
+    as_of: '20260514005823'
+    archived:
+    - pacnw/pacnw-2025/external-standings/2026-04-15-external/content.html
+    - pacnw/pacnw-2025/standings/20260514-wayback-1c64e539/results.htm
+    - pacnw/pacnw-2025/standings/20260901-live-083808b9/results.htm
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: from archived capture (external-standings)
   - url: https://pnw.na.icpc.global/scoreboard/2025/real_contest/index_D1.html
     roles:
     - scoreboard
@@ -3277,17 +3307,6 @@ contests:
     - pacnw/pacnw-2025/scoreboard/20260318-wayback-ebac36f9/index_D1.html
     url_state: live
     url_checked: '2026-11-16'
-  - url: http://acmicpc-pacnw.org/results.htm
-    roles:
-    - standings
-    as_of: '20260514005823'
-    archived:
-    - pacnw/pacnw-2025/external-standings/2026-04-15-external/content.html
-    - pacnw/pacnw-2025/standings/20260514-wayback-1c64e539/results.htm
-    - pacnw/pacnw-2025/standings/20260901-live-083808b9/results.htm
-    url_state: dead
-    url_checked: '2026-11-16'
-    note: from archived capture (external-standings)
   - url: https://icpc.global/regionals/finder/PacNW-2026/standings
     roles:
     - standings
@@ -3319,23 +3338,25 @@ contests:
     - problemset
     scope: Division 1
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; Div. 1)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; Div. 1)
   - url: https://qoj.ac/contest/2582
     roles:
     - problemset
     scope: Division 2
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; Div. 2)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; Div. 2)
   problems:
     set: pacnw-2025
 - id: pacnw-2026
-  status: upcoming
   season: 2027
   name: 2026 ICPC North America Pacific Northwest Regional Contest
+  date: '2026-11-14'
+  cms_ids:
+  - 9774
   sites:
   - type: administrative
   - location: ca-vancouver-ubc
@@ -3368,10 +3389,41 @@ contests:
   - location: us-ca
     name: California - D2
     date: '2026-11-14'
-  cms_ids:
-  - 9774
   parent: nac-2027
   sources:
   - url: https://pnw.na.icpc.global/
     roles:
     - web
+  - url: https://pnw.na.icpc.global/scoreboard/2026/real/index_D1.html
+    roles:
+    - scoreboard
+    scope: Division 1
+    note: found by the data scan 2026-11-23 (linked from https://pnw.na.icpc.global/scoreboard/2026/)
+  - url: https://pnw.na.icpc.global/scoreboard/2026/real/index_D2.html
+    roles:
+    - scoreboard
+    scope: Division 2
+    note: found by the data scan 2026-11-23 (linked from https://pnw.na.icpc.global/scoreboard/2026/)
+  - url: https://icpc.global/regionals/finder/PacNW-2027/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings API, 124 ranked rows on 2026-11-23)
+  - url: https://pnw.na.icpc.global/problems/2026/real/index-D1.html
+    roles:
+    - problemset
+    scope: Division 1
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (linked from https://pnw.na.icpc.global/problems/2026/)
+  - url: https://pnw.na.icpc.global/problems/2026/real/index-D2.html
+    roles:
+    - problemset
+    scope: Division 2
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (linked from https://pnw.na.icpc.global/problems/2026/)
+  provenance:
+  - date 2026-11-14 read from https://pnw.na.icpc.global/scoreboard/2026/real/index_D1.html (data scan
+    2026-11-23)
+  - 'ran 2026-11-14: the organisers'' final scoreboards (Saturday, November 14, 2026) and problem sets
+    (data scan 2026-11-23)'

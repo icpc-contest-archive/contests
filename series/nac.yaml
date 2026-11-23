@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: nac
   name: ICPC North America Championship
@@ -131,8 +131,10 @@ contests:
 - id: nac-2021
   season: 2021
   name: 2021 North America Championship
-  date: '2021-08-15'
+  date: '2021-08-14'
   location: Orlando; Administrative Site Location; North America
+  cms_ids:
+  - 4334
   sites:
   - type: administrative
   - name: NAC Teams
@@ -147,8 +149,6 @@ contests:
   - location: us-orlando
     name: NAC - NAPC Staff
     type: administrative
-  cms_ids:
-  - 4334
   parent: wf-2021
   next: nac-2022
   sources:
@@ -202,10 +202,10 @@ contests:
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221207180645'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/North-America/ICPC-North-America-Championship/ICPC-North-America-Championship-2021/tutorials_en.pdf
     roles:
     - editorial
@@ -213,12 +213,16 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: nac-2021
+  provenance:
+  - date 2021-08-14 read from https://nac21.kattis.com/contests/nac21/standings (data scan 2026-11-23)
 - id: nac-2022
   season: 2022
   name: 2022 ICPC North America Championship
-  date: '2022-05-31'
+  date: '2022-05-30'
   location: Orlando; Administrative Site Location; North America; Online Testing; North America Championship;
     NAC 2022
+  cms_ids:
+  - 4675
   sites:
   - name: NAC Teams
     type: administrative
@@ -253,8 +257,6 @@ contests:
   - location: us-orlando
     name: NAC - NAPC Staff
     type: administrative
-  cms_ids:
-  - 4675
   parent: wf-2022
   next: nac-2023
   sources:
@@ -308,12 +310,14 @@ contests:
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221207163211'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: nac-2022
+  provenance:
+  - date 2022-05-30 read from https://nac22.kattis.com/contests/nac22/standings (data scan 2026-11-23)
 - id: nac-2023
   season: 2023
   name: 2023 ICPC North America Championship
@@ -589,8 +593,10 @@ contests:
 - id: nac-2026
   season: 2026
   name: 2026 ICPC North America Championship
-  date: '2026-03-23'
+  date: '2026-03-22'
   location: Orlando; Administrative Site Location; NAC; North America
+  cms_ids:
+  - 9323
   sites:
   - type: administrative
   - location: us-orlando
@@ -617,8 +623,6 @@ contests:
     name: ICPC NAC South Division
   - type: administrative
     name: ICPC NAC Central Division
-  cms_ids:
-  - 9323
   parent: wf-2026
   next: nac-2027
   sources:
@@ -679,9 +683,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/North-America/ICPC-North-America-Championship/ICPC-North-America-Championship-2026/tutorials_en.pdf
     roles:
     - editorial
@@ -689,6 +693,9 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: nac-2026
+  provenance:
+  - date 2026-03-22 read from https://uwaterloo.ca/computer-science/news/waterloo-takes-second-place-2026-icpc-north-america-championship
+    (data scan 2026-11-23)
 - id: nac-2027
   status: upcoming
   season: 2027

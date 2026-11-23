@@ -1,10 +1,11 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: kuala-lumpur
   name: ICPC Asia Kuala Lumpur Regional Contest
   tier: regional
   region: Asia Pacific
   naming: season-start
+  rotating_host: true
 contests:
 - id: kuala-lumpur-2008
   season: 2009
@@ -169,13 +170,13 @@ contests:
   name: 2014 ACM-ICPC Asia Kuala Lumpur Regional Contest
   date: '2014-11-01'
   location: International Islamic University Malaysia , Kuala Lumpur
+  cms_ids:
+  - 2607
+  - 2710
   sites:
   - type: administrative
   - location: my-kuala-lumpur-international-islamic
     name: Asia Kuala Lumpur Regional
-  cms_ids:
-  - 2607
-  - 2710
   parent: wf-2015
   next: kuala-lumpur-2019
   sources:
@@ -190,6 +191,10 @@ contests:
     - kuala-lumpur/kuala-lumpur-2014/scoreboard/2026-09-01-wayback-9425d143/summary.html
     url_state: dead
     url_checked: '2026-11-16'
+  - url: https://icpc.global/regionals/finder/Asia-KL-2015/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 53 rows)
   - url: http://www.iium.edu.my/acmicpc/2014/files/Problemset-Regional-KL-2014-v1.6-final.pdf
     roles:
     - problemset
@@ -210,7 +215,7 @@ contests:
     note: ACM ICPC Asia Kuala Lumpur Regional Contest 2014
   - url: http://www.iium.edu.my/acmicpc/2014/files/icpc-regional-2014-analysis-teddy.pdf
     roles:
-    - editorial
+    - report
     url_state: dead
     url_checked: '2026-11-16'
   problems:

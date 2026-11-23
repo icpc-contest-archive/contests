@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: yinchuan
   name: ICPC Asia Yinchuan Regional Contest
@@ -9,14 +9,14 @@ contests:
 - id: yinchuan-2019
   season: 2020
   name: 2019 ICPC Asia Yinchuan Regional Contest
-  date: '2019-11-10'
+  date: '2019-10-20'
   location: YinchuanOnsite
+  cms_ids:
+  - 4211
   sites:
   - location: cn-yinchuan
     name: Aisa Yinchuan Onsite Contest
     date: '2019-10-20'
-  cms_ids:
-  - 4211
   parent: wf-2020
   next: yinchuan-2020
   sources:
@@ -26,6 +26,7 @@ contests:
   - url: https://codeforces.com/gym/104021/standings
     roles:
     - scoreboard
+    scope: first page, ranks 1-200 of 398
     as_of: '20221216131343'
     archived:
     - yinchuan/yinchuan-2019/standings/2026-09-01-live-1e1e0a25/page.html
@@ -34,7 +35,6 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (agent-asia)
-    scope: first page, ranks 1-200 of 398
   - url: https://icpc.global/regionals/finder/Yinchuan-2020/standings
     roles:
     - standings
@@ -54,34 +54,34 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: 'The 2019 ICPC Asia Yinchuan Regional Contest (judge hunt 2026-11-03: name+year: ''The 2019
-      ICPC Asia Yinchuan Regional Contest'' -> season start 2019)'
     as_of: '20230324093947'
     url_state: replaced
     url_checked: '2026-11-16'
+    note: 'The 2019 ICPC Asia Yinchuan Regional Contest (judge hunt 2026-11-03: name+year: ''The 2019
+      ICPC Asia Yinchuan Regional Contest'' -> season start 2019)'
   - url: https://www.luogu.com.cn/contest/358583
     roles:
     - problemset
     contains:
     - statement
     judge: luogu
+    as_of: '20261017042651'
     url_state: replaced
     url_checked: '2026-11-16'
     note: '[ICPC2019 Yinchuan R] ICPC 2019 区域赛银川站重现赛 (judge hunt 2026-11-03: Luogu official-team mirror
       (重现赛 chóngxiànsài ''replay contest'', run 2026-10-07) of 2019 ICPC Asia Yinchuan Regional Contest
       (2019-11-10); description says original problems+data; catalogue has no problem titles to check
       (14 problems on judge))'
-    as_of: '20261017042651'
   - url: https://qoj.ac/contest/1320
     roles:
     - problemset
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20231003071932'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Asia-East-Continent/Yinchuan/The-2019-ICPC-Asia-Yinchuan-Regional-Contest/tutorials_zh-cn.pdf
     roles:
     - editorial
@@ -89,120 +89,130 @@ contests:
     url_checked: '2026-11-23'
   problems:
     set: yinchuan-2019
+  provenance:
+  - date 2019-10-20 read from https://icpcarchive.github.io/Asia%20East%20Continent%20Contests/Yinchuan/2019%20Asia%20Yinchuan%20Regional%20Contest/problems.pdf
+    (data scan 2026-11-23)
 - id: yinchuan-2020
   season: 2021
   name: 2020 ICPC Asia Yinchuan Regional Contest
   date: '2021-05-16'
+  cms_ids: []
   sites:
   - location: cn-yinchuan
   parent: wf-2021
-  provenance:
-  - 'added 2026-11-12: QOJ mirrors the set (https://qoj.ac/contest/1322). Held 15-16 May 2021, delayed
-    from the 2020 season: the Asia council''s notice on the Yinchuan site (https://icpcasia.wp.txstate.edu/?p=14)
-    gives the onsite as May 15-16; Codeforces blog 114930 gives the contest day as 16 May 2021'
-  - 'site: the Yinchuan site as in 2019; host Ningxia Institute of Science and Technology; no CMS entry
-    found'
   sources:
+  - url: https://board.xcpcio.com/icpc/45th/yinchuan
+    roles:
+    - scoreboard
+    note: found by the data scan 2026-11-23 (board.xcpcio.com (data in github.com/xcpcio/board-data data/icpc/45th/yinchuan))
   - url: https://qoj.ac/contest/1322
     roles:
     - problemset
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20231003082308'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://qoj.ac/download.php?type=statement&id=7066
     roles:
     - problem
-    judge: qoj
     problem: A
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=7067
     roles:
     - problem
-    judge: qoj
     problem: B
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=7068
     roles:
     - problem
-    judge: qoj
     problem: C
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=7069
     roles:
     - problem
-    judge: qoj
     problem: D
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=7070
     roles:
     - problem
-    judge: qoj
     problem: E
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=7071
     roles:
     - problem
-    judge: qoj
     problem: F
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=7072
     roles:
     - problem
-    judge: qoj
     problem: G
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=7073
     roles:
     - problem
-    judge: qoj
     problem: H
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=7074
     roles:
     - problem
-    judge: qoj
     problem: I
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=7075
     roles:
     - problem
-    judge: qoj
     problem: J
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=7076
     roles:
     - problem
-    judge: qoj
     problem: K
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=7077
     roles:
     - problem
-    judge: qoj
     problem: L
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=7078
     roles:
     - problem
-    judge: qoj
     problem: M
     contains:
     - statement
+    judge: qoj
   problems:
     set: yinchuan-2020
+  provenance:
+  - 'added 2026-11-12: QOJ mirrors the set (https://qoj.ac/contest/1322). Held 15-16 May 2021, delayed
+    from the 2020 season: the Asia council''s notice on the Yinchuan site (https://icpcasia.wp.txstate.edu/?p=14)
+    gives the onsite as May 15-16; Codeforces blog 114930 gives the contest day as 16 May 2021'
+  - 'site: the Yinchuan site as in 2019; host Ningxia Institute of Science and Technology; no CMS entry
+    found'
+  - cms_ids [] read from https://icpc.global/api/contest/public/regionalresults/2021 (no Yinchuan entry
+    in the 2005-2027 hierarchies; data scan 2026-11-23)

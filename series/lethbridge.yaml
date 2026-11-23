@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/describe_apply.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: lethbridge
   name: ICPC Lethbridge Collegiate Programming Contest
@@ -11,10 +11,10 @@ contests:
   name: 2013 Lethbridge Collegiate Programming Contest
   date: '2013-09-21'
   location: University of Lethbridge
-  sites:
-  - location: ca-lethbridge-university
   cms_ids:
   - 2109
+  sites:
+  - location: ca-lethbridge-university
   next: lethbridge-2014
   sources:
   - url: https://www.cs.uleth.ca/~cheng/LCPC/2013/
@@ -43,6 +43,10 @@ contests:
     - lethbridge/lethbridge-2013/scoreboard/2026-09-01-live-8c95e2a3/div2-official.html
     url_state: live
     url_checked: '2026-11-16'
+  - url: https://icpc.global/regionals/finder/LC-2014/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 30 rows)
   - url: https://www.cs.uleth.ca/~cheng/LCPC/2013/div1.pdf
     roles:
     - problemset
@@ -253,18 +257,19 @@ contests:
 - id: lethbridge-2018
   season: 2019
   name: 2018 Lethbridge Collegiate Programming Contest
-  date: '2018-09-29'
+  date: '2018-09-28'
+  cms_ids:
+  - 3549
   sites:
   - location: ca-lethbridge-university
   - type: administrative
-  cms_ids:
-  - 3549
   next: lethbridge-2019
   sources:
   - url: https://www.cs.uleth.ca/~cheng/LCPC/2018/
     roles:
     - web
     - rankings
+    scope: top 3 per division
     as_of: '20190908102457'
     archived:
     - lethbridge/lethbridge-2018/scoreboard/2026-04-16-canada-west/2018-lethbridge-collegiate-programming-contest-2018.html
@@ -274,9 +279,10 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: from archived capture (scoreboard)
-    scope: top 3 per division
   problems:
     set: lethbridge-2018
+  provenance:
+  - date 2018-09-28 read from https://www.cs.uleth.ca/~cheng/LCPC/2018/ (data scan 2026-11-23)
   notes: 2 divisions (problem archive sheet)
 - id: lethbridge-2019
   season: 2020
@@ -310,68 +316,44 @@ contests:
 - id: lethbridge-2020
   season: 2021
   name: 2020 Lethbridge Collegiate Programming Contest
+  cms_ids:
+  - 4345
   sites:
   - type: administrative
   - location: ca-lethbridge-university
-  cms_ids:
-  - 4345
   next: lethbridge-2021
+  sources: []
   problems:
     set: lethbridge-2020
   notes: 'audit 2026-09-02: no trace found anywhere - suspected not held (registration shell); The CMS
     has no date (problem archive sheet)'
-  sources:
-  - url: https://www.cs.uleth.ca/~cheng/contest/2020.html
-    roles:
-    - standings
-    as_of: '20240120020900'
-    archived:
-    - lethbridge/lethbridge-2020/standings/20240120-wayback-458035e1/2020.html
-    - lethbridge/lethbridge-2020/standings/20261020-live-7781d86d/2020.html
-    note: from archived capture (standings)
 - id: lethbridge-2021
   season: 2022
   name: 2021 ICPC Lethbridge Collegiate Programming Contest
+  cms_ids:
+  - 4681
   sites:
   - type: administrative
   - location: ca-lethbridge-university
-  cms_ids:
-  - 4681
   next: lethbridge-2022
+  sources: []
   problems:
     set: lethbridge-2021
   notes: 'audit 2026-09-02: no trace found anywhere - suspected not held (registration shell); The CMS
     has no date; the CMS lists no teams (problem archive sheet)'
-  sources:
-  - url: https://www.cs.uleth.ca/~cheng/contest/2021.html
-    roles:
-    - standings
-    as_of: '20240120020858'
-    archived:
-    - lethbridge/lethbridge-2021/standings/20240120-wayback-23672486/2021.html
-    - lethbridge/lethbridge-2021/standings/20261020-live-a19bb18c/2021.html
-    note: from archived capture (standings)
 - id: lethbridge-2022
   season: 2023
   name: 2022 ICPC Lethbridge Collegiate Programming Contest
+  cms_ids:
+  - 5382
   sites:
   - type: administrative
   - location: ca-lethbridge-university
-  cms_ids:
-  - 5382
   next: lethbridge-2023
   sources:
   - url: https://codeforces.com/blog/entry/109132
     roles:
     - web
-  - url: https://www.cs.uleth.ca/~cheng/contest/2022.html
-    roles:
-    - standings
-    as_of: '20250803032547'
-    archived:
-    - lethbridge/lethbridge-2022/standings/20250803-wayback-98f91b95/2022.html
-    - lethbridge/lethbridge-2022/standings/20261020-live-d2f43168/2022.html
-    note: from archived capture (standings)
   problems:
     set: lethbridge-2022
   notes: 'audit 2026-09-02: no trace found anywhere - suspected not held (registration shell); The CMS
@@ -379,25 +361,17 @@ contests:
 - id: lethbridge-2023
   season: 2024
   name: 2023 ICPC Lethbridge Collegiate Programming Contest
+  cms_ids:
+  - 7454
   sites:
   - type: administrative
   - location: ca-lethbridge-university
-  cms_ids:
-  - 7454
   next: lethbridge-2024
+  sources: []
   problems:
     set: lethbridge-2023
   notes: 'audit 2026-09-02: no trace found anywhere - suspected not held (registration shell); The CMS
     has no date; the CMS lists no teams (problem archive sheet)'
-  sources:
-  - url: https://www.cs.uleth.ca/~cheng/contest/2023.html
-    roles:
-    - standings
-    as_of: '20250803032545'
-    archived:
-    - lethbridge/lethbridge-2023/standings/20250803-wayback-622bb7b9/2023.html
-    - lethbridge/lethbridge-2023/standings/20261020-live-e1ac5c3e/2023.html
-    note: from archived capture (standings)
 - id: lethbridge-2024
   season: 2025
   cms_ids: []

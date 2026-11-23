@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: tehran
   name: ICPC Asia Tehran Regional Contest
@@ -63,10 +63,10 @@ contests:
   name: 2000 ACM Asia Programming Contest, Tehran
   date: '2000-11-02'
   location: Tehran
-  sites:
-  - location: ir-tehran
   cms_ids:
   - 1206
+  sites:
+  - location: ir-tehran
   parent: wf-2001
   next: tehran-2001
   sources:
@@ -94,14 +94,14 @@ contests:
     roles:
     - standings
     as_of: '20251013062849'
-    note: found inside https://icpc.sharif.edu/2000/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - tehran/tehran-2000/standings/20251013-wayback-2ef47be1/standings.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://icpc.sharif.edu/2000/ by the content check
   - url: http://swt.edu/~ch01/rankins2000/2000_tehran.htm
     roles:
-    - rankings
+    - standings
     as_of: '20050222101234'
     archived:
     - tehran/tehran-2000/rankings/2026-09-01-wayback-eba859d5/2000_tehran.htm
@@ -111,9 +111,9 @@ contests:
     roles:
     - teams
     as_of: '20251013065949'
-    note: found inside https://icpc.sharif.edu/2000/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside https://icpc.sharif.edu/2000/ by the content check
   - url: https://icpc.sharif.edu/2000/problems.html
     roles:
     - problemset
@@ -172,10 +172,10 @@ contests:
   name: 2001 ACM Asia Programming Contest - Tehran
   date: '2001-11-08'
   location: Tehran
-  sites:
-  - location: ir-tehran
   cms_ids:
   - 999
+  sites:
+  - location: ir-tehran
   parent: wf-2002
   next: tehran-2002
   sources:
@@ -186,9 +186,16 @@ contests:
   - url: http://sharif.ac.ir/~acmicpc/
     roles:
     - web
-    as_of: '20000824121118'
+    as_of: '20011205045020'
     url_state: dead
     url_checked: '2026-11-14'
+  - url: https://icpc.sharif.edu/2001/teams.html
+    roles:
+    - web
+    as_of: '20190416182728'
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://icpc.sharif.edu/2001/ by the content check
   - url: http://icpc.baylor.edu/past/icpc2002/regionals/ViewRegionalStandings.asp?ContestID=514
     roles:
     - standings
@@ -210,31 +217,24 @@ contests:
     url_checked: '2026-11-16'
   - url: https://icpc.sharif.edu/2001/standings.html
     roles:
-    - standings
+    - rankings
     as_of: '20250918001550'
-    note: found inside https://icpc.sharif.edu/2001/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - tehran/tehran-2001/standings/20250918-wayback-41cf8288/standings.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://icpc.sharif.edu/2001/ by the content check
   - url: http://sharif.edu/~acmicpc/standings.html
     roles:
     - rankings
+    scope: qualifier, runner-up and best all-women team
     as_of: '20011208210244'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - tehran/tehran-2001/standings/20011208-wayback-74fbd99b/standings.html
     - tehran/tehran-2001/rankings/20011208-wayback-74fbd99b/standings.html
-    scope: qualifier, runner-up and best all-women team
-  - url: https://icpc.sharif.edu/2001/teams.html
-    roles:
-    - teams
-    as_of: '20190416182728'
-    note: found inside https://icpc.sharif.edu/2001/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: https://icpc.sharif.edu/2001/problems.html
     roles:
     - problemset
@@ -305,6 +305,8 @@ contests:
   name: 2002 ACM Asia Programming Contest - Tehran
   date: '2002-11-15'
   location: Tehran, Iran; Tehran; Internet
+  cms_ids:
+  - 1116
   sites:
   - location: ir
     name: Iran Nationwide Internet Programming Contest
@@ -316,8 +318,6 @@ contests:
   - location: ir-tehran
     name: Tehran Site/ Asia, Regional Contest
     date: '2002-11-01'
-  cms_ids:
-  - 1116
   parent: wf-2003
   next: tehran-2003
   sources:
@@ -328,9 +328,16 @@ contests:
   - url: http://sharif.ac.ir/~acmicpc/
     roles:
     - web
-    as_of: '20000824121118'
+    as_of: '20021130203443'
     url_state: dead
     url_checked: '2026-11-14'
+  - url: https://icpc.sharif.edu/2002/teams.html
+    roles:
+    - web
+    as_of: '20240914200812'
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://icpc.sharif.edu/2002/ by the content check
   - url: https://icpc.sharif.edu/2002/finalcontest/finals.html
     roles:
     - standings
@@ -361,36 +368,29 @@ contests:
     roles:
     - standings
     as_of: '20030218164106'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - tehran/tehran-2002/standings/20030218-wayback-1743261c/finals.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: https://icpc.sharif.edu/2002/stand.html
     roles:
     - standings
     as_of: '20240829115231'
-    note: found inside https://icpc.sharif.edu/2002/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - tehran/tehran-2002/standings/20240829-wayback-bc96b07f/stand.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://icpc.sharif.edu/2002/ by the content check
   - url: https://icpc.sharif.edu/2002/inipc/scores.html
     roles:
     - standings
     as_of: '20240820081045'
-    note: found inside https://icpc.sharif.edu/2002/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - tehran/tehran-2002/standings/20240820-wayback-a4721019/scores.html
-  - url: https://icpc.sharif.edu/2002/teams.html
-    roles:
-    - teams
-    as_of: '20240914200812'
-    note: found inside https://icpc.sharif.edu/2002/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside https://icpc.sharif.edu/2002/ by the content check
   - url: https://icpc.sharif.edu/2002/problems.html
     roles:
     - problemset
@@ -430,9 +430,9 @@ contests:
     roles:
     - problemset
     as_of: '20250717011124'
-    note: found inside https://icpc.sharif.edu/2002/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside https://icpc.sharif.edu/2002/ by the content check
   problems:
     set: tehran-2002
 - id: tehran-2003
@@ -440,6 +440,8 @@ contests:
   name: 2003 ACM Asia Programming Contest - Tehran
   date: '2003-11-28'
   location: Tehran, Iran; Internet
+  cms_ids:
+  - 1006
   sites:
   - location: ir-tehran
     name: Asia - Tehran - Final Round
@@ -450,8 +452,6 @@ contests:
   - location: ir-tehran
     name: Asia - Tehran - Preliminaries
     date: '2003-11-10'
-  cms_ids:
-  - 1006
   parent: wf-2004
   next: tehran-2004
   sources:
@@ -462,7 +462,7 @@ contests:
   - url: http://sharif.edu/~acmicpc/
     roles:
     - web
-    as_of: '20020201205033'
+    as_of: '20031231054640'
     url_state: dead
     url_checked: '2026-11-14'
   - url: https://icpc.sharif.edu/2003/final-standings.html
@@ -497,11 +497,11 @@ contests:
     roles:
     - standings
     as_of: '20031227105641'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: unknown
-    url_checked: '2026-11-14'
     archived:
     - tehran/tehran-2003/standings/20031227-wayback-b7047f73/page.html
+    url_state: unknown
+    url_checked: '2026-11-14'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: https://icpc.sharif.edu/2003/problems.html
     roles:
     - problemset
@@ -2164,11 +2164,11 @@ contests:
   name: 2016 ACM-ICPC Asia Tehran Regional Contest
   date: '2016-12-23'
   location: Tehran
+  cms_ids:
+  - 3032
   sites:
   - location: ir-tehran
     name: Asia Tehran-Site
-  cms_ids:
-  - 3032
   parent: wf-2017
   next: tehran-2017
   sources:
@@ -2188,14 +2188,14 @@ contests:
     roles:
     - scoreboard
     as_of: '20250630123434'
-    note: found inside https://icpc.ir/2016/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - tehran/tehran-2016/scoreboard/20250630-wayback-03705661/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://icpc.ir/2016/ by the content check
   - url: http://icpc.sharif.edu/acmicpc16/scoreboard/
     roles:
-    - standings
+    - scoreboard
     as_of: '20180928062435'
     archived:
     - tehran/tehran-2016/external-standings/2026-04-15-external/content.html
@@ -2229,104 +2229,104 @@ contests:
     roles:
     - problemset
     as_of: '20250706193506'
-    note: found inside https://icpc.ir/2016/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside https://icpc.ir/2016/ by the content check
   - url: https://www.acmicpc.net/problem/14182
     roles:
     - problem
-    judge: baekjoon
     problem: A
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191022004354'
   - url: https://www.acmicpc.net/problem/14183
     roles:
     - problem
-    judge: baekjoon
     problem: B
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191022004354'
   - url: https://www.acmicpc.net/problem/14184
     roles:
     - problem
-    judge: baekjoon
     problem: C
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191022004354'
   - url: https://www.acmicpc.net/problem/14185
     roles:
     - problem
-    judge: baekjoon
     problem: D
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191022004354'
   - url: https://www.acmicpc.net/problem/14186
     roles:
     - problem
-    judge: baekjoon
     problem: E
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191022004354'
   - url: https://www.acmicpc.net/problem/14187
     roles:
     - problem
-    judge: baekjoon
     problem: F
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191022004354'
   - url: https://www.acmicpc.net/problem/14188
     roles:
     - problem
-    judge: baekjoon
     problem: G
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191022004354'
   - url: https://www.acmicpc.net/problem/14189
     roles:
     - problem
-    judge: baekjoon
     problem: H
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191022004354'
   - url: https://www.acmicpc.net/problem/14190
     roles:
     - problem
-    judge: baekjoon
     problem: I
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191022004354'
   - url: https://www.acmicpc.net/problem/14191
     roles:
     - problem
-    judge: baekjoon
     problem: J
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191022004354'
   - url: https://www.acmicpc.net/problem/14192
     roles:
     - problem
-    judge: baekjoon
     problem: K
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191022004354'
   - url: https://www.acmicpc.net/problem/14193
     roles:
     - problem
-    judge: baekjoon
     problem: L
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191022004354'
   problems:
     set: tehran-2016
@@ -2335,12 +2335,12 @@ contests:
   name: 2017 ACM-ICPC Asia Tehran Regional Contest
   date: '2017-12-15'
   location: Tehran
+  cms_ids:
+  - 3426
   sites:
   - location: ir-tehran
     name: Asia Tehran OnSite
     date: '2017-12-31'
-  cms_ids:
-  - 3426
   parent: wf-2018
   next: tehran-2018
   sources:
@@ -2360,14 +2360,14 @@ contests:
     roles:
     - scoreboard
     as_of: '20250630123802'
-    note: found inside https://icpc.ir/2017/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - tehran/tehran-2017/scoreboard/20250630-wayback-6ba8ba56/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://icpc.ir/2017/ by the content check
   - url: http://icpc.sharif.edu/acmicpc17/scoreboard/
     roles:
-    - standings
+    - scoreboard
     as_of: '20181031143147'
     archived:
     - tehran/tehran-2017/external-standings/2026-04-15-external/content.html
@@ -2396,96 +2396,96 @@ contests:
     roles:
     - problemset
     as_of: '20250613201757'
-    note: found inside https://icpc.ir/2017/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside https://icpc.ir/2017/ by the content check
   - url: https://www.acmicpc.net/problem/15340
     roles:
     - problem
-    judge: baekjoon
     problem: A
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024115613'
   - url: https://www.acmicpc.net/problem/15341
     roles:
     - problem
-    judge: baekjoon
     problem: B
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024115613'
   - url: https://www.acmicpc.net/problem/15342
     roles:
     - problem
-    judge: baekjoon
     problem: C
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024115613'
   - url: https://www.acmicpc.net/problem/15343
     roles:
     - problem
-    judge: baekjoon
     problem: D
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024115613'
   - url: https://www.acmicpc.net/problem/15344
     roles:
     - problem
-    judge: baekjoon
     problem: E
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024115613'
   - url: https://www.acmicpc.net/problem/15345
     roles:
     - problem
-    judge: baekjoon
     problem: F
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024115613'
   - url: https://www.acmicpc.net/problem/15346
     roles:
     - problem
-    judge: baekjoon
     problem: G
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024115613'
   - url: https://www.acmicpc.net/problem/15347
     roles:
     - problem
-    judge: baekjoon
     problem: H
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024115613'
   - url: https://www.acmicpc.net/problem/15348
     roles:
     - problem
-    judge: baekjoon
     problem: I
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024115613'
   - url: https://www.acmicpc.net/problem/15349
     roles:
     - problem
-    judge: baekjoon
     problem: J
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024115613'
   - url: https://www.acmicpc.net/problem/15350
     roles:
     - problem
-    judge: baekjoon
     problem: K
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024115613'
   problems:
     set: tehran-2017
@@ -2496,11 +2496,11 @@ contests:
   name: 2018 ICPC Asia Tehran Regional Contest
   date: '2018-12-21'
   location: Tehran
+  cms_ids:
+  - 3527
   sites:
   - location: ir-tehran
     name: Asia Tehran OnSite
-  cms_ids:
-  - 3527
   parent: wf-2019
   next: tehran-2019
   sources:
@@ -2510,7 +2510,6 @@ contests:
   - url: https://icpc.sharif.edu/2018/scoreboard/
     roles:
     - scoreboard
-    - standings
     as_of: '20250717005057'
     archived:
     - tehran/tehran-2018/external-standings/2026-04-15-external/content.html
@@ -2523,11 +2522,11 @@ contests:
     roles:
     - scoreboard
     as_of: '20220506171318'
-    note: found inside https://icpc.ir/2018/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - tehran/tehran-2018/scoreboard/20220506-wayback-ddce4ad4/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://icpc.ir/2018/ by the content check
   - url: https://icpc.global/regionals/finder/Tehran-2019/standings
     roles:
     - standings
@@ -2549,80 +2548,80 @@ contests:
     roles:
     - problemset
     as_of: '20220507130632'
-    note: found inside https://icpc.ir/2018/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside https://icpc.ir/2018/ by the content check
   - url: https://www.acmicpc.net/problem/16729
     roles:
     - problem
-    judge: baekjoon
     problem: C
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190919191801'
   - url: https://www.acmicpc.net/problem/16730
     roles:
     - problem
-    judge: baekjoon
     problem: D
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190919191801'
   - url: https://www.acmicpc.net/problem/16731
     roles:
     - problem
-    judge: baekjoon
     problem: E
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190919191801'
   - url: https://www.acmicpc.net/problem/16732
     roles:
     - problem
-    judge: baekjoon
     problem: F
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190919191801'
   - url: https://www.acmicpc.net/problem/16733
     roles:
     - problem
-    judge: baekjoon
     problem: G
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190919191801'
   - url: https://www.acmicpc.net/problem/16734
     roles:
     - problem
-    judge: baekjoon
     problem: H
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190919191801'
   - url: https://www.acmicpc.net/problem/16735
     roles:
     - problem
-    judge: baekjoon
     problem: I
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190919191801'
   - url: https://www.acmicpc.net/problem/16736
     roles:
     - problem
-    judge: baekjoon
     problem: J
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190919191801'
   - url: https://www.acmicpc.net/problem/16737
     roles:
     - problem
-    judge: baekjoon
     problem: K
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190919191801'
   problems:
     set: tehran-2018
@@ -2633,12 +2632,12 @@ contests:
   name: 2019 ICPC Asia Tehran Regional Contest
   date: '2019-12-20'
   location: Tehran; Administrative Site Location
+  cms_ids:
+  - 4088
   sites:
   - type: administrative
   - location: ir-tehran
     name: Asia Tehran OnSite
-  cms_ids:
-  - 4088
   parent: awc-2019
   next: tehran-2020
   sources:
@@ -2648,7 +2647,6 @@ contests:
   - url: https://icpc.sharif.edu/2019/scoreboard/
     roles:
     - scoreboard
-    - standings
     as_of: '20250803153319'
     archived:
     - tehran/tehran-2019/external-standings/2026-04-15-external/content.html
@@ -2661,11 +2659,11 @@ contests:
     roles:
     - scoreboard
     as_of: '20220506170407'
-    note: found inside https://icpc.ir/2019/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - tehran/tehran-2019/scoreboard/20220506-wayback-7cd59449/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://icpc.ir/2019/ by the content check
   - url: https://icpc.global/regionals/finder/Tehran-2020/standings
     roles:
     - standings
@@ -2684,9 +2682,9 @@ contests:
     roles:
     - problemset
     as_of: '20250630161550'
-    note: found inside https://icpc.ir/2019/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside https://icpc.ir/2019/ by the content check
   problems:
     set: tehran-2019
   provenance:
@@ -3033,15 +3031,15 @@ contests:
   name: 2023 ICPC Asia Tehran Regional Contest
   date: '2024-05-31'
   location: Administrative Site Location; Tehran; Sharif UT
+  cms_ids:
+  - 7489
   sites:
   - type: administrative
   - name: Tehran Online
     type: online
   - location: ir-tehran
     name: Asia Tehran
-  cms_ids:
-  - 7489
-  parent: awc-2023
+  parent: wf-2024
   next: tehran-2024
   sources:
   - url: https://icpc.ir/2023/
@@ -3063,20 +3061,20 @@ contests:
     roles:
     - scoreboard
     as_of: '20240619063631'
-    note: found inside https://icpc.ir/2023/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - tehran/tehran-2023/scoreboard/20240619-wayback-7b3704bd/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://icpc.ir/2023/ by the content check
   - url: https://icpc.ir/2023/iipc/scoreboard/
     roles:
     - scoreboard
     as_of: '20250630162442'
-    note: found inside https://icpc.ir/2023/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - tehran/tehran-2023/scoreboard/20250630-wayback-e41fd099/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://icpc.ir/2023/ by the content check
   - url: https://icpc.global/regionals/finder/Tehran-2024/standings
     roles:
     - standings
@@ -3097,126 +3095,128 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: 'The 2023 ICPC Asia Tehran Regional Contest (judge hunt 2026-11-03: name+year: ''The 2023 ICPC
-      Asia Tehran Regional Contest'' -> season start 2023)'
     url_state: live
     url_checked: '2026-11-16'
+    note: 'The 2023 ICPC Asia Tehran Regional Contest (judge hunt 2026-11-03: name+year: ''The 2023 ICPC
+      Asia Tehran Regional Contest'' -> season start 2023)'
   - url: https://qoj.ac/contest/2686
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpc.ir/2023/problems/P23.pdf
     roles:
     - problemset
     as_of: '20240610191752'
-    note: found inside https://icpc.ir/2023/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside https://icpc.ir/2023/ by the content check
   - url: https://icpc.ir/2023/iipc/P23.pdf
     roles:
     - problemset
     as_of: '20240723210408'
-    note: found inside https://icpc.ir/2023/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside https://icpc.ir/2023/ by the content check
   - url: https://codeforces.com/gym/105627/problem/A
     roles:
     - problem
-    judge: codeforces
     problem: A
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/105627/problem/B
     roles:
     - problem
-    judge: codeforces
     problem: B
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/105627/problem/C
     roles:
     - problem
-    judge: codeforces
     problem: C
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/105627/problem/D
     roles:
     - problem
-    judge: codeforces
     problem: D
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/105627/problem/E
     roles:
     - problem
-    judge: codeforces
     problem: E
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/105627/problem/F
     roles:
     - problem
-    judge: codeforces
     problem: F
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/105627/problem/G
     roles:
     - problem
-    judge: codeforces
     problem: G
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/105627/problem/H
     roles:
     - problem
-    judge: codeforces
     problem: H
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/105627/problem/I
     roles:
     - problem
-    judge: codeforces
     problem: I
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/105627/problem/J
     roles:
     - problem
-    judge: codeforces
     problem: J
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/105627/problem/K
     roles:
     - problem
-    judge: codeforces
     problem: K
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/105627/problem/L
     roles:
     - problem
-    judge: codeforces
     problem: L
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/105627/problem/M
     roles:
     - problem
-    judge: codeforces
     problem: M
     contains:
     - statement
+    judge: codeforces
   problems:
     set: tehran-2023
   provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+  - 'parent wf-2024: the Asia West Continent final 2023 (2024-03-30) preceded this contest and lists no
+    Iranian team, while WF 2024 lists Sharif and Tehran (data scan 2026-11-23)'
 - id: tehran-2024
   season: 2025
   name: 2024 ICPC Asia Tehran Regional Contest

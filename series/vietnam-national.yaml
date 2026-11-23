@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: vietnam-national
   name: Vietnam National Programming Contest (VAIP)
@@ -10,24 +10,27 @@ contests:
   season: 2013
   name: Asia Hanoi Vietnam National First Round Programming Contest
   date: '2012-10-27'
+  cms_ids:
+  - 1495
   sites:
   - location: vn-hanoi
     name: Vietnam National First Round
     date: '2012-10-01'
   - type: administrative
     name: Administrative Site
-  cms_ids:
-  - 1495
   parent: vietnam-2012
   next: vietnam-national-2013
   sources:
+  - url: https://icpc.global/regionals/finder/Hanoi-First-Round-2013/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 215 rows)
   - url: https://duytan.edu.vn/news/en/undergraduate/dtu-students-participate-in-the-acmicpc-programming-contest-1ej
     roles:
-    - rankings
     - report
-    note: added by the no-sources hunt 2026-11-16
     archived:
     - vietnam-national/vietnam-national-2012/rankings/20261116-live-e144b705/page.html
+    note: added by the no-sources hunt 2026-11-16
   provenance:
   - 'Duy Tan University news (EN) (2012): The 2012 ACM/ICPC national round began on October 27th; about
     160 teams from Hanoi, HCMC, Danang, Can Tho, Nha Trang, Hung Yen, Hai Duong, Hai Phong; Central Vietnam
@@ -49,11 +52,11 @@ contests:
   season: 2014
   name: Vietnam National First Round Programming Contest
   date: '2013-10-26'
+  cms_ids:
+  - 1915
   sites:
   - location: vn-hanoi
     name: Vietnam National First Round
-  cms_ids:
-  - 1915
   parent: vietnam-2013
   next: vietnam-national-2014
   sources:
@@ -67,22 +70,21 @@ contests:
     roles:
     - rankings
     - report
-    note: added by the no-sources hunt 2026-11-16
+    as_of: '20250813231921'
     archived:
     - vietnam-national/vietnam-national-2013/rankings/20250813-wayback-cedccccb/page.html
-    as_of: '20250813231921'
-  - url: https://duytan.edu.vn/news/en/achievements/four-dtu-teams-qualify-for-the-2013-acmicpc-asia-regional-contest-e3k
-    roles:
-    - rankings
-    - report
     note: added by the no-sources hunt 2026-11-16
-    archived:
-    - vietnam-national/vietnam-national-2013/rankings/20260306-wayback-7cd36e5d/page.html
-    - vietnam-national/vietnam-national-2013/rankings/20261116-live-b05cf389/page.html
-    as_of: '20260306111522'
   - url: http://drive.google.com/file/d/0B5XsVAuisVfpR3o3dEF2aVVNMGc/edit?usp=sharing
     roles:
     - problemset
+    note: added by the no-sources hunt 2026-11-16
+  - url: https://duytan.edu.vn/news/en/achievements/four-dtu-teams-qualify-for-the-2013-acmicpc-asia-regional-contest-e3k
+    roles:
+    - report
+    as_of: '20260306111522'
+    archived:
+    - vietnam-national/vietnam-national-2013/rankings/20260306-wayback-7cd36e5d/page.html
+    - vietnam-national/vietnam-national-2013/rankings/20261116-live-b05cf389/page.html
     note: added by the no-sources hunt 2026-11-16
   provenance:
   - 'Tiền Phong (2013-10-22): ''gần 500 sinh viên thuộc 160 đội tuyển từ 53 trường Đại học, Cao đẳng trong
@@ -106,6 +108,9 @@ contests:
   season: 2015
   name: 2014 ACM-ICPC Vietnam National Programming Contest
   date: '2014-10-30'
+  cms_ids:
+  - 2130
+  - 2717
   sites:
   - location: vn
     name: 2014 ACM-ICPC Vietnam National Programming Contest
@@ -113,10 +118,7 @@ contests:
   - name: Administrative Site
     date: '2014-09-27'
     type: online
-  cms_ids:
-  - 2130
-  - 2717
-  next: vietnam-national-2014
+  next: vietnam-national-2015
   sources:
   - url: http://www.mediafire.com/view/cwvozrc9px668b4/board_final.pdf
     roles:
@@ -130,6 +132,7 @@ contests:
   - url: https://codeforces.com/gym/100499/standings/
     roles:
     - scoreboard
+    scope: First Round
     as_of: '20170314061433'
     archived:
     - vietnam-national/vietnam-national-2014/standings/20170314-wayback-0f1e1483/page.html
@@ -138,7 +141,15 @@ contests:
     url_state: live
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://icpc.global/regionals/finder/Vietnam-National-HoChiMinh-city-2015/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 107 rows)
+  - url: https://icpc.global/regionals/finder/Vietnam-National-online-2015/standings
+    roles:
+    - standings
     scope: First Round
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 174 rows)
   - url: https://codeforces.com/gym/100541
     roles:
     - problemset
@@ -146,6 +157,8 @@ contests:
     - names
     url_state: live
     url_checked: '2026-11-16'
+  problems:
+    set: vietnam-national-2014
   provenance:
   - 'Codeforces blog (I_love_Hoang_Yen) (2014-10): ''[GYM] ACM ICPC Vietnam National First Round'' — original
     contest Sunday 12 Oct 2014 10:00 (+07), 5h15; after the contest: congratulates team ThanQ+ (8 problems);
@@ -163,19 +176,17 @@ contests:
   notes: '107 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site));
     parent ''apc'' unresolved - unlinked (aec/apc convention); duplicate-year inventory rows merged (taiwan-ncpc
     convention)'
-  problems:
-    set: vietnam-national-2014
 - id: vietnam-national-2015
   season: 2016
   name: Vietnam National Programming Contest
   date: '2015-10-31'
+  cms_ids:
+  - 2927
   sites:
   - location: vn
     name: Vietnam National Contest
-  cms_ids:
-  - 2927
   parent: vietnam-2015
-  next: vietnam-national-2017
+  next: vietnam-national-2016
   sources:
   - url: https://icpc.global/regionals/finder/Vietnam-National-2016/standings
     roles:
@@ -185,10 +196,10 @@ contests:
     note: added by the no-sources hunt 2026-11-16
   - url: https://duytan.edu.vn/news/en/achievements/dtu-students-enters-the-2015-acm-icpc-asia-regional-contests-8e6
     roles:
-    - rankings
-    note: added by the no-sources hunt 2026-11-16
+    - report
     archived:
     - vietnam-national/vietnam-national-2015/rankings/20261116-live-4973a485/page.html
+    note: added by the no-sources hunt 2026-11-16
   provenance:
   - 'Duy Tan University news (EN) (2015-11): ''Coming second in the National ACM/ICPC competition on October
     31st'' … ''five hundred other contestants from one hundred and sixty-one teams from universities and
@@ -205,10 +216,42 @@ contests:
     Contest for Central Region'' (10 Oct 2015). — https://duytan.edu.vn/news/en/achievements?page=35 [existence
     hunt 2026-10-22]'
   notes: '161 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
+- id: vietnam-national-2016
+  season: 2017
+  name: Asia Nha Trang National Programming Contest
+  date: '2016-10-30'
+  cms_ids:
+  - 3049
+  sites:
+  - location: vn-nha-trang-university
+    type: online
+  parent: vietnam-2016
+  next: vietnam-national-2017
+  sources:
+  - url: http://acmicpc2016.fpt.edu.vn/domjudge/public/
+    roles:
+    - scoreboard
+    as_of: '20161106062218'
+    note: found by the data scan 2026-11-23 (CMS externalStandingsUrl of 3049; DOMjudge board "NATIONAL
+      ONLINE 2016 final standings", problems A-K)
+  - url: https://icpc.global/regionals/finder/Nha-Trang-National-2017/standings
+    roles:
+    - standings
+    note: 'found by the data scan 2026-11-23 (CMS API search/contest/3049: ranked standings, 1 BK.Juniors
+      (Hanoi University of Science and Technology) 8 solved)'
+  provenance:
+  - cms id 3049 read from https://icpc.global/api/contest/public/regionalresults/2017 (data scan 2026-11-23)
+  - date 2016-10-30 read from http://acmicpc2016.fpt.edu.vn/domjudge/public/ (Wayback 20161106062218)
+    (data scan 2026-11-23)
+  notes: '198 teams in the CMS record 3049 (ranked standings), which indicates it ran; CMS site dates
+    2016-10-30 (one source, date not set). Added by the data scan 2026-11-23: the series (mainline per
+    the Q4 ruling 2026-09-07) had no 2016 edition.'
 - id: vietnam-national-2017
   season: 2018
   name: Asia HCMC Vietnam National Programming Contest
   date: '2017-11-05'
+  cms_ids:
+  - 3416
   sites:
   - name: Site 10 - online
     type: online
@@ -229,8 +272,6 @@ contests:
     type: online
   - location: vn-hanoi-vnu-engineering
   - location: vn-hanoi-hust
-  cms_ids:
-  - 3416
   parent: vietnam-2017
   next: vietnam-national-2018
   sources:
@@ -249,13 +290,17 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://icpc.global/regionals/finder/HCMC-Vietnam-2018/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 199 rows)
   - url: https://vietnam-national17.kattis.com/contests/vietnam-national17/teams
     roles:
     - teams
     as_of: '20240914112050'
-    note: found inside https://vietnam-national17.kattis.com/ by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://vietnam-national17.kattis.com/ by the content check
   - url: https://open.kattis.com/contests/vietnam-national17-open/problems
     roles:
     - problemset
@@ -269,102 +314,102 @@ contests:
     contains:
     - names
     judge: kattis
-    note: Kattis problem-sources page (export source "The 2017 ACM - ICPC Vietnam National Programming
-      Contest", 2026-11-02)
+    as_of: '20210125110859'
     url_state: replaced
     url_checked: '2026-11-16'
-    as_of: '20210125110859'
+    note: Kattis problem-sources page (export source "The 2017 ACM - ICPC Vietnam National Programming
+      Contest", 2026-11-02)
   - url: https://vietnam-national17.kattis.com/contests/vietnam-national17/problems
     roles:
     - problemset
     as_of: '20220625042932'
-    note: found inside https://vietnam-national17.kattis.com/ by the content check
     url_state: changed
     url_checked: '2026-11-16'
+    note: found inside https://vietnam-national17.kattis.com/ by the content check
   - url: https://open.kattis.com/problems/queryonarray
     roles:
     - problem
-    judge: kattis
     problem: A
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/boardcovering
     roles:
     - problem
-    judge: kattis
     problem: B
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/cumulative
     roles:
     - problem
-    judge: kattis
     problem: C
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/bubbletea
     roles:
     - problem
-    judge: kattis
     problem: D
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/europeantrip
     roles:
     - problem
-    judge: kattis
     problem: E
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/familiar
     roles:
     - problem
-    judge: kattis
     problem: F
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/gingercandy
     roles:
     - problem
-    judge: kattis
     problem: G
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/introtation
     roles:
     - problem
-    judge: kattis
     problem: I
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/jewelrybox
     roles:
     - problem
-    judge: kattis
     problem: J
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/parade
     roles:
     - problem
-    judge: kattis
     problem: K
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/monopoly
     roles:
     - problem
-    judge: kattis
     problem: L
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/nimcheater
     roles:
     - problem
-    judge: kattis
     problem: H
     contains:
     - statement
+    judge: kattis
   problems:
     set: vietnam-national-2017
   provenance:
@@ -384,6 +429,8 @@ contests:
   season: 2019
   name: Asia Hanoi Vietnam National Programming Contest
   date: '2018-11-04'
+  cms_ids:
+  - 3734
   sites:
   - name: Site 2 - FPT
     type: online
@@ -401,8 +448,6 @@ contests:
     type: online
   - location: vn-ho-chi-minh-city-uit
     type: online
-  cms_ids:
-  - 3734
   parent: vietnam-2018
   next: vietnam-national-2019
   sources:
@@ -423,19 +468,23 @@ contests:
     note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
   - url: https://open.kattis.com/contests/b256wf/standings
     roles:
-    - standings
+    - scoreboard
     archived:
     - vietnam-national/vietnam-national-2018/standings/20261023-live-b76ed488/page.html
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://icpc.global/regionals/finder/HCMC-Vietnam-2019/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 236 rows)
   - url: https://vietnam-national18.kattis.com/contests/vietnam-national18/teams
     roles:
     - teams
     as_of: '20230201034413'
-    note: found inside https://vietnam-national18.kattis.com/ by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://vietnam-national18.kattis.com/ by the content check
   - url: https://icpcvn.github.io/2018/national/problems.pdf
     roles:
     - problemset
@@ -447,21 +496,21 @@ contests:
     roles:
     - problemset
     judge: kattis
-    note: Kattis problem-sources page (export source "The 2018 ACM - ICPC Vietnam National Programming
-      Contest", 2026-11-02)
     url_state: live
     url_checked: '2026-11-16'
+    note: Kattis problem-sources page (export source "The 2018 ACM - ICPC Vietnam National Programming
+      Contest", 2026-11-02)
   - url: https://open.kattis.com/problem-sources/The%202018%20ICPC%20Vietnam%20National%20Programming%20Contest
     roles:
     - problemset
     contains:
     - names
     judge: kattis
-    note: Kattis problem-sources page (export source "The 2018 ICPC Vietnam National Programming Contest",
-      2026-11-02)
+    as_of: '20190721103041'
     url_state: replaced
     url_checked: '2026-11-16'
-    as_of: '20190721103041'
+    note: Kattis problem-sources page (export source "The 2018 ICPC Vietnam National Programming Contest",
+      2026-11-02)
   problems:
     set: vietnam-national-2018
   provenance:
@@ -482,6 +531,8 @@ contests:
   season: 2020
   name: ICPC 2019 Vietnam National Programming Contest
   date: '2019-11-03'
+  cms_ids:
+  - 4162
   sites:
   - name: Site 5 - Ho Chi Minh City University of Education
     type: online
@@ -501,8 +552,6 @@ contests:
   - location: vn-ho-chi-minh-city-iuh
     name: Site 7 - Industrial University of Ho Chi Minh City
   - location: vn-can-tho-university
-  cms_ids:
-  - 4162
   parent: vietnam-2019
   next: vietnam-national-2020
   sources:
@@ -530,12 +579,16 @@ contests:
     roles:
     - scoreboard
     as_of: '20200924041211'
-    note: found inside https://vietnam-national19.kattis.com/ by the content check
-    url_state: changed
-    url_checked: '2026-11-16'
     archived:
     - vietnam-national/vietnam-national-2019/scoreboard/20200924-wayback-1417ade6/page.html
     - vietnam-national/vietnam-national-2019/scoreboard/20261116-live-e5afda9f/page.html
+    url_state: changed
+    url_checked: '2026-11-16'
+    note: found inside https://vietnam-national19.kattis.com/ by the content check
+  - url: https://icpc.global/regionals/finder/Danang-Vietnam-2020/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 262 rows)
   - url: https://icpcvn.github.io/2019/national/problems.pdf
     roles:
     - problemset
@@ -549,10 +602,10 @@ contests:
     contains:
     - names
     judge: kattis
-    note: Kattis problem-sources page (export source "The 2019 ICPC Vietnam National Contest", 2026-11-02)
+    as_of: '20200925043916'
     url_state: replaced
     url_checked: '2026-11-16'
-    as_of: '20200925043916'
+    note: Kattis problem-sources page (export source "The 2019 ICPC Vietnam National Contest", 2026-11-02)
   problems:
     set: vietnam-national-2019
   provenance:
@@ -572,7 +625,9 @@ contests:
 - id: vietnam-national-2020
   season: 2021
   name: ICPC 2020 Vietnam National Programming Contest
-  date: '2020-11-14'
+  date: '2020-11-15'
+  cms_ids:
+  - 4322
   sites:
   - type: administrative
   - location: vn-hanoi-vnu-engineering
@@ -596,8 +651,6 @@ contests:
   - location: vn-nha-trang
   - location: vn-hanoi-hnue
     date: '2020-11-15'
-  cms_ids:
-  - 4322
   parent: vietnam-2020
   next: vietnam-national-2021
   sources:
@@ -619,6 +672,7 @@ contests:
   - url: https://vietnam-national20open.kattis.com/contests/vietnam-national20open/standings
     roles:
     - scoreboard
+    scope: Open
     as_of: '20220626225033'
     archived:
     - vietnam-national/vietnam-national-2020/standings/20220626-wayback-e8ae589a/page.html
@@ -628,108 +682,111 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
-    scope: Open
+  - url: https://icpc.global/regionals/finder/vietnam-national-2021/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 339 rows)
   - url: https://open.kattis.com/problem-sources/The%202020%20ICPC%20Vietnam%20National%20Contest
     roles:
     - problemset
     contains:
     - names
+    judge: kattis
+    as_of: '20220124100109'
     url_state: replaced
     url_checked: '2026-11-16'
-    judge: kattis
     note: Kattis problem-sources page (export source "The 2020 ICPC Vietnam National Contest", 2026-11-02)
-    as_of: '20220124100109'
   - url: https://open.kattis.com/problems/astrologicalsign
     roles:
     - problem
-    judge: kattis
     problem: A
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/battleofhogwarts
     roles:
     - problem
-    judge: kattis
     problem: B
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/cablecar
     roles:
     - problem
-    judge: kattis
     problem: C
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/dividingkingdom
     roles:
     - problem
-    judge: kattis
     problem: D
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/easyarithmetic
     roles:
     - problem
-    judge: kattis
     problem: E
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/fluffycat
     roles:
     - problem
-    judge: kattis
     problem: F
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/greatestpair
     roles:
     - problem
-    judge: kattis
     problem: G
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/highwaytomountfansipan
     roles:
     - problem
-    judge: kattis
     problem: H
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/infinite2darray
     roles:
     - problem
-    judge: kattis
     problem: I
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/justenoughwater
     roles:
     - problem
-    judge: kattis
     problem: J
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/kingdomofcats
     roles:
     - problem
-    judge: kattis
     problem: K
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/loopingaround
     roles:
     - problem
-    judge: kattis
     problem: L
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/malfunctioningrobot
     roles:
     - problem
-    judge: kattis
     problem: M
     contains:
     - statement
+    judge: kattis
   problems:
     set: vietnam-national-2020
   provenance:
@@ -745,11 +802,14 @@ contests:
     [existence hunt 2026-10-22]'
   - 'ICPC Vietnam archive (ongoing): 2020 National: full information https://vietnam-national20.kattis.com,
     problems PDF. — http://icpcvn.github.io/ [existence hunt 2026-10-22]'
+  - date 2020-11-15 read from https://vietnam-national20.kattis.com/standings (data scan 2026-11-23)
   notes: '339 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: vietnam-national-2021
   season: 2022
   name: 2021 ICPC Vietnam National Programming Contest
   date: '2022-02-20'
+  cms_ids:
+  - 4856
   sites:
   - type: administrative
   - location: vn-hanoi-vnu-engineering
@@ -777,8 +837,6 @@ contests:
     name: Site 11 - other
     type: online
   - location: vn-hanoi-hnue
-  cms_ids:
-  - 4856
   parent: vietnam-2021
   next: vietnam-national-2022
   sources:
@@ -792,6 +850,10 @@ contests:
     url_state: replaced
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://icpc.global/regionals/finder/vietnam-national-2022/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 363 rows)
   - url: https://oj.vnoi.info/contest/icpc21_national/ranking/
     roles:
     - rankings
@@ -808,6 +870,8 @@ contests:
     - statement
     url_state: live
     url_checked: '2026-11-16'
+  problems:
+    set: vietnam-national-2021
   provenance:
   - 'Industrial University of HCMC news (2022-02-20): ''kỳ thi ICPC Quốc gia 2021 với sự tham gia của
     363 teams đã diễn ra sáng nay ngày 20/2/2022'' at 10 exam sites nationwide; 12 IUH teams competed.
@@ -823,12 +887,12 @@ contests:
     HCMUS-RationalKitteNs 12 (1216), 010 HSGS 12 (1490), PENDLE UET 12 (2038). — https://icpcvn.github.io/2021/national/scoreboard.html
     [existence hunt 2026-10-22]'
   notes: '363 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
-  problems:
-    set: vietnam-national-2021
 - id: vietnam-national-2022
   season: 2023
   name: 2022 ICPC Vietnam National Programming Contest
   date: '2022-11-13'
+  cms_ids:
+  - 5608
   sites:
   - type: administrative
   - location: vn-can-tho-university
@@ -862,14 +926,9 @@ contests:
   - name: Site 16 - online
     type: online
   - location: vn-ho-chi-minh-city-hcmc-education
-  cms_ids:
-  - 5608
   parent: vietnam-2022
   next: vietnam-national-2023
   sources:
-  - url: https://oj.vnoi.info/contest/icpc22_national
-    roles:
-    - web
   - url: https://icpcvn.github.io/2022/national/scoreboard.html
     roles:
     - scoreboard
@@ -880,6 +939,13 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://icpc.global/regionals/finder/vietnam-national-2023/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 377 rows)
+  - url: https://oj.vnoi.info/contest/icpc22_national
+    roles:
+    - problemset
   - url: https://icpcvn.github.io/2022/national/problems.pdf
     roles:
     - problemset
@@ -887,6 +953,8 @@ contests:
     - statement
     url_state: live
     url_checked: '2026-11-16'
+  problems:
+    set: vietnam-national-2022
   provenance:
   - 'Industrial University of HCMC news (2022-11): 377 teams qualified for the national round, held 11–13/11
     at 16 exam sites; ''Tại điểm thi IUH (site 8) quy tụ 32 team (96 sinh viên)''. — https://iuh2.iuh.edu.vn/vi/tin-tuc/iuh-tham-gia-to-chuc-lap-trinh-sinh-vien-quoc-te-icpc-vong-quoc-gia-2022-987.html
@@ -897,12 +965,12 @@ contests:
   - 'ICPC Vietnam archive (ongoing): 2022 National: scoreboard.html, problems.pdf, upsolve oj.vnoi.info/contest/icpc22_national.
     — http://icpcvn.github.io/ [existence hunt 2026-10-22]'
   notes: '377 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
-  problems:
-    set: vietnam-national-2022
 - id: vietnam-national-2023
   season: 2024
   name: 2023 ICPC Vietnam National Programming Contest
   date: '2023-11-04'
+  cms_ids:
+  - 7503
   sites:
   - type: administrative
   - location: vn-haiphong
@@ -938,14 +1006,9 @@ contests:
     type: online
   - location: vn
     name: Site 5 - Hanoi University of Industry
-  cms_ids:
-  - 7503
   parent: vietnam-2023
   next: vietnam-national-2024
   sources:
-  - url: https://oj.vnoi.info/contest/icpc23_national
-    roles:
-    - web
   - url: https://icpcvn.github.io/2023/national/scoreboard.html
     roles:
     - scoreboard
@@ -956,6 +1019,13 @@ contests:
     url_state: replaced
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://icpc.global/regionals/finder/vietnam-national-2024/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 414 rows)
+  - url: https://oj.vnoi.info/contest/icpc23_national
+    roles:
+    - problemset
   - url: https://icpcvn.github.io/2023/national/problems.pdf
     roles:
     - problemset
@@ -963,6 +1033,8 @@ contests:
     - statement
     url_state: live
     url_checked: '2026-11-16'
+  problems:
+    set: vietnam-national-2023
   provenance:
   - 'UIT news (EN) (2023-11): ICPC 2023 National Qualification Round ''took place nationwide on November
     5th, 2023'', 8 AM–1 PM, 13 problems; 45 teams from 7 universities at the UIT site; scoreboard link
@@ -980,12 +1052,12 @@ contests:
     organisation filter; top BKDN.LeaderTurnsBack (DUT, 11), sudo (UET, 10), HCMUS-SmokinTomatoes (10).
     — https://icpcvn.github.io/2023/national/scoreboard.html [existence hunt 2026-10-22]'
   notes: '414 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
-  problems:
-    set: vietnam-national-2023
 - id: vietnam-national-2024
   season: 2025
   name: 2024 ICPC Vietnam National Programming Contest
   date: '2024-11-16'
+  cms_ids:
+  - 8747
   sites:
   - type: administrative
   - name: Site 18 - online
@@ -1018,14 +1090,9 @@ contests:
   - location: vn-can-tho-university
     name: Site 16 - Hai Phong
   - location: vn-hanoi-hust
-  cms_ids:
-  - 8747
   parent: vietnam-2024
   next: vietnam-national-2025
   sources:
-  - url: https://oj.vnoi.info/contest/icpc24_national
-    roles:
-    - web
   - url: https://icpcvn.github.io/2024/national/scoreboard.html
     roles:
     - scoreboard
@@ -1034,6 +1101,13 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://icpc.global/regionals/finder/vietnam-national-2025/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 446 rows)
+  - url: https://oj.vnoi.info/contest/icpc24_national
+    roles:
+    - problemset
   - url: https://icpcvn.github.io/2024/national/problems.pdf
     roles:
     - problemset
@@ -1041,6 +1115,8 @@ contests:
     - statement
     url_state: live
     url_checked: '2026-11-16'
+  problems:
+    set: vietnam-national-2024
   provenance:
   - 'VKU news (EN) (2024-11-18): ICPC 2024 Vietnam National round ''held on November 17, 2024'', 300 university
     teams and 146 high-school teams nationwide; VKU.MaiLaAnhEm won a Bronze Medal. — https://vku.udn.vn/vku-students-excel-in-the-top-10-universities-of-icpc-2024-vietnam-national-contest-icpc-national-round-winning-a-bronze-medal/
@@ -1052,12 +1128,12 @@ contests:
     Dec 2024, ICPC Asia contest morning of 13 Dec (parent regional). — https://www.haui.edu.vn/en/announcement/the-33rd-vietnam-student-olympiad-in-informatics-olp-24-and-the-icpc-asia-2024-international-collegiate-programming-contest/65693
     [existence hunt 2026-10-22]'
   notes: '446 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
-  problems:
-    set: vietnam-national-2024
 - id: vietnam-national-2025
   season: 2026
   name: 2025 ICPC Vietnam National Programming Contest
   date: '2025-11-08'
+  cms_ids:
+  - 9392
   sites:
   - type: administrative
   - location: vn-hanoi-vnu-engineering
@@ -1081,8 +1157,6 @@ contests:
     name: Site 12 - HSGS Nguyen Chi Thanh - Lam Dong
   - location: vn-nha-trang-university
   - location: vn-ho-chi-minh-city-hcmus
-  cms_ids:
-  - 9392
   parent: vietnam-2025
   next: vietnam-national-2026
   sources:
@@ -1097,6 +1171,10 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://icpc.global/regionals/finder/vietnam-national-2026/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 490 rows)
   - url: https://oj.vnoi.info/contest/icpc25_national/ranking/
     roles:
     - rankings
@@ -1113,6 +1191,8 @@ contests:
     - statement
     url_state: live
     url_checked: '2026-11-16'
+  problems:
+    set: vietnam-national-2025
   provenance:
   - 'HCMUS news (EN) (2025-11-14): National contest ''took place on the morning of 9 November across 12
     testing sites nationwide'', 491 teams (record); HCMUS-AleaJactaEst took the national lead solving
@@ -1128,12 +1208,12 @@ contests:
     12 problems; top HCMUS-AleaJactaEst (10, 778), ChatGPT (HSGS, 10, 802), milliard (UET, 10, 983). —
     https://icpcvn.github.io/2025/national/scoreboard.html [existence hunt 2026-10-22]'
   notes: '490 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
-  problems:
-    set: vietnam-national-2025
 - id: vietnam-national-2026
   season: 2027
   name: 2026 ICPC Vietnam National Programming Contest
   date: '2026-11-08'
+  cms_ids:
+  - 9684
   sites:
   - type: administrative
   - location: vn-hanoi-vnu-engineering
@@ -1160,8 +1240,6 @@ contests:
   - location: vn-ho-chi-minh-city-hcmus
     name: Site 5 - Ho Chi Minh University of Science - Thu Duc Campus
     type: online
-  cms_ids:
-  - 9684
   parent: vietnam-2026
   sources:
   - url: https://www.olp.vn/icpc-asia-việt-nam/vòng-khu-vực-quốc-gia
@@ -1172,9 +1250,9 @@ contests:
   - url: https://icpcvn.github.io/2026/national/scoreboard.html
     roles:
     - scoreboard
-    note: added by the no-sources hunt 2026-11-16
     archived:
     - vietnam-national/vietnam-national-2026/scoreboard/20261116-live-242cdc59/scoreboard.html
+    note: added by the no-sources hunt 2026-11-16
   - url: https://icpc.global/regionals/finder/Vietnam-National-2027/standings
     roles:
     - standings
@@ -1185,6 +1263,8 @@ contests:
     roles:
     - problemset
     note: added by the no-sources hunt 2026-11-16
+  problems:
+    set: vietnam-national-2026
   provenance:
   - 'olp.vn (VAIP) national-round page (2026): 2026 schedule: Northern 10–11 Oct (UET), Southern 17–18
     Oct (HCMUS), Central 24–25 Oct (Hue), National 7–8 Nov 2026; registration on ICPC.global, mirrors

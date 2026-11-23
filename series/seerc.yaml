@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: seerc
   name: ICPC Southeastern Europe Regional Contest
@@ -6,6 +6,33 @@ series:
   region: Europe
   naming: season-start
 contests:
+- id: seerc-1993
+  season: 1994
+  name: East European Regional Contest
+  location: Bulgaria
+  cms_ids: []
+  sites:
+  - location: bg
+  parent: wf-1994
+  next: seerc-1995
+  sources:
+  - url: https://groups.google.com/g/comp.org.acm/c/1Gt2N7tXcwo/m/rlG3TDDBBwsJ
+    roles:
+    - report
+    note: 'found by the data scan 2026-11-23 (ETH/VIS call for participation for SWERC 1994 (comp.org.acm
+      1994-08-10): ''Last year, Europe was split into West and East''; the East European Regional Contest
+      was held in Bulgaria)'
+  provenance:
+  - 'ran: the call for participation of the 1994-95 Southwestern European Regional (VIS, ETH Zurich; comp.org.acm
+    1994-08-10): "Last year, Europe was split into West and East"; Swansea hosted the West European Regional
+    Contest and the East European Regional Contest was held in Bulgaria — https://groups.google.com/g/comp.org.acm/c/1Gt2N7tXcwo/m/rlG3TDDBBwsJ
+    (data scan 2026-11-23)'
+  - location Bulgaria read from https://groups.google.com/g/comp.org.acm/c/1Gt2N7tXcwo/m/rlG3TDDBBwsJ
+    (data scan 2026-11-23)
+  notes: 'added by the data scan 2026-11-23 (early-years): the Eastern European region (1992-93 RCD Nickolay
+    Ivanov, ACMBUL — comp.org.acm 1992-07-08), which the 1995 Bucharest contest (seerc-1995) continued
+    under the same region name; Comenius University Bratislava and Sofia University are in the wf-1994
+    standings. Date, city and results not found'
 - id: seerc-1995
   season: 1996
   name: 1995-1996 SouthEastern European Regional Contest
@@ -32,6 +59,7 @@ contests:
     url_checked: '2026-11-16'
   - url: https://groups.google.com/g/comp.org.acm/c/LcxbowMkd-M/m/Bh-L2Iq2hRcJ
     roles:
+    - report
     - rankings
     archived:
     - seerc/seerc-1995/rankings/20261023-live-fd758c90/page.html
@@ -255,17 +283,23 @@ contests:
   name: 1999 ACM Southeastern Europe Programming Contest
   date: '1999-10-23'
   location: Bucharest
+  cms_ids:
+  - 1208
   sites:
   - location: ro-bucharest-upb
     date: '2000-10-21'
-  cms_ids:
-  - 1208
   parent: wf-2000
   next: seerc-2000
   sources:
   - url: https://seerc.icpc.global/1999/
     roles:
     - web
+  - url: http://icpc.baylor.edu/past/icpc2000/regionals/SEERC99/Problems.html
+    roles:
+    - web
+    as_of: '20020112025836'
+    url_state: unknown
+    url_checked: '2026-11-13'
   - url: https://seerc.icpc.global/1999/standings99.htm
     roles:
     - standings
@@ -291,12 +325,6 @@ contests:
     as_of: '20001003134828'
     url_state: dead
     url_checked: '2026-11-16'
-  - url: http://icpc.baylor.edu/past/icpc2000/regionals/SEERC99/Problems.html
-    roles:
-    - problemset
-    as_of: '20020112025836'
-    url_state: unknown
-    url_checked: '2026-11-13'
   - url: https://seerc.icpc.global/1999/probl99.htm
     roles:
     - problemset
@@ -308,9 +336,9 @@ contests:
   - url: https://seerc.icpc.global/1999/Problems_SE_ACM_1999.zip
     roles:
     - problemset
-    note: all statements (archive)
     url_state: live
     url_checked: '2026-11-22'
+    note: all statements (archive)
   - url: https://seerc.icpc.global/1999/probleme/a.pdf
     roles:
     - problem
@@ -378,13 +406,13 @@ contests:
 - id: seerc-2000
   season: 2001
   name: 2000 ACM Southeastern Europe Programming Contest
-  date: '2000-10-22'
+  date: '2000-10-21'
   location: Bucharest
+  cms_ids:
+  - 1221
   sites:
   - location: ro-bucharest-upb
     date: '2000-10-21'
-  cms_ids:
-  - 1221
   parent: wf-2001
   next: seerc-2001
   sources:
@@ -394,7 +422,6 @@ contests:
   - url: http://www.cs.pub.ro/acm
     roles:
     - web
-    as_of: '19971211121748'
     url_state: dead
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2000/results.htm
@@ -452,63 +479,63 @@ contests:
   - url: https://seerc.icpc.global/2000/Problems_SE_ACM_2000.zip
     roles:
     - problemset
-    note: all statements (archive)
     url_state: live
     url_checked: '2026-11-22'
+    note: all statements (archive)
   - url: https://seerc.icpc.global/2000/Test_Data/a.zip
     roles:
     - problemset
-    note: test data, problem A
     url_state: live
     url_checked: '2026-11-22'
+    note: test data, problem A
   - url: https://seerc.icpc.global/2000/Test_Data/b.zip
     roles:
     - problemset
-    note: test data, problem B
     url_state: live
     url_checked: '2026-11-22'
+    note: test data, problem B
   - url: https://seerc.icpc.global/2000/Test_Data/c.zip
     roles:
     - problemset
-    note: test data, problem C
     url_state: live
     url_checked: '2026-11-22'
+    note: test data, problem C
   - url: https://seerc.icpc.global/2000/Test_Data/d.zip
     roles:
     - problemset
-    note: test data, problem D
     url_state: live
     url_checked: '2026-11-22'
+    note: test data, problem D
   - url: https://seerc.icpc.global/2000/Test_Data/e.zip
     roles:
     - problemset
-    note: test data, problem E
     url_state: replaced
     url_checked: '2026-11-22'
+    note: test data, problem E
   - url: https://seerc.icpc.global/2000/Test_Data/f.zip
     roles:
     - problemset
-    note: test data, problem F
     url_state: live
     url_checked: '2026-11-22'
+    note: test data, problem F
   - url: https://seerc.icpc.global/2000/Test_Data/g.zip
     roles:
     - problemset
-    note: test data, problem G
     url_state: live
     url_checked: '2026-11-22'
+    note: test data, problem G
   - url: https://seerc.icpc.global/2000/Test_Data/h.zip
     roles:
     - problemset
-    note: test data, problem H
     url_state: live
     url_checked: '2026-11-22'
+    note: test data, problem H
   - url: https://seerc.icpc.global/2000/Test_Data/outlit.zip
     roles:
     - problemset
-    note: test data (archive)
     url_state: live
     url_checked: '2026-11-22'
+    note: test data (archive)
   - url: https://seerc.icpc.global/2000/probleme/A.pdf
     roles:
     - problem
@@ -586,15 +613,17 @@ contests:
   - 'Sharif mirror of ICPC WF 2001 standings (2001): WF 2001 (Vancouver, March 10, 2001) standings list
     POLITEHNICA University of Bucharest under Honorable Mention - the SEERC 2000 champion did advance.
     — https://icpc.sharif.edu/2001/final2001/standings.html [existence hunt 2026-10-22]'
+  - date 2000-10-21 read from http://icpc.baylor.edu/past/icpc2001/regionals/SEERC00/Problems.pdf (data
+    scan 2026-11-23)
 - id: seerc-2001
   season: 2002
   name: 2001 ACM Southeastern Europe Programming Contest
-  date: '2001-10-21'
+  date: '2001-10-20'
   location: Bucharest
-  sites:
-  - location: ro-bucharest-upb
   cms_ids:
   - 1280
+  sites:
+  - location: ro-bucharest-upb
   parent: wf-2002
   next: seerc-2002
   sources:
@@ -604,7 +633,7 @@ contests:
   - url: http://www.cs.pub.ro/acm
     roles:
     - web
-    as_of: '19971211121748'
+    as_of: '20010608220957'
     url_state: dead
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2001/results.htm
@@ -628,11 +657,11 @@ contests:
     roles:
     - standings
     as_of: '20020625092647'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - seerc/seerc-2001/standings/20020625-wayback-9aac971d/results.htm
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SERC/2001/index.html
     roles:
     - problemset
@@ -662,7 +691,7 @@ contests:
   - url: http://www.cs.pub.ro/acm/problems.htm
     roles:
     - problemset
-    as_of: '20021113055035'
+    as_of: '20011228133118'
     url_state: dead
     url_checked: '2026-11-16'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=100
@@ -677,9 +706,9 @@ contests:
   - url: https://seerc.icpc.global/2001/Problems_SE_ACM_2001.zip
     roles:
     - problemset
-    note: all statements (archive)
     url_state: live
     url_checked: '2026-11-22'
+    note: all statements (archive)
   - url: https://www.acmicpc.net/category/detail/2725
     roles:
     - problem
@@ -761,16 +790,17 @@ contests:
     Bulgaria, Greece, Macedonia, Romania, Ukraine, and Yugoslavia''; 46 accepted; contest Saturday October
     20, 2001; Rectorat building, Politehnica University; 1st UPB 2 (coac — https://seerc.icpc.global/2001/report.htm
     [existence hunt 2026-10-22]'
+  - date 2001-10-20 read from https://seerc.icpc.global/2001/probleme/A.pdf (data scan 2026-11-23)
 - id: seerc-2002
   season: 2003
   name: 2002 ACM Southeastern Europe Programming Contest
-  date: '2002-10-20'
+  date: '2002-10-19'
   location: Bucharest
+  cms_ids:
+  - 1033
   sites:
   - location: ro-bucharest-upb
     date: '2002-10-19'
-  cms_ids:
-  - 1033
   parent: wf-2003
   next: seerc-2003
   sources:
@@ -780,7 +810,7 @@ contests:
   - url: http://www.acm.ro/
     roles:
     - web
-    as_of: '20141113010959'
+    as_of: '20030503222157'
     url_state: dead
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2002/results.htm
@@ -812,11 +842,16 @@ contests:
     roles:
     - standings
     as_of: '20021115121253'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: unknown
-    url_checked: '2026-11-13'
     archived:
     - seerc/seerc-2002/standings/20021115-wayback-963aa169/standings.html
+    url_state: unknown
+    url_checked: '2026-11-13'
+    note: added by url-hunt 2026-09-01 (cms-api)
+  - url: http://www.acm.ro/results.htm
+    roles:
+    - standings
+    as_of: '20030505015253'
+    note: found by the data scan 2026-11-23 (Wayback CDX of acm.ro/results.htm, snapshot opened)
   - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/SEERC02/problems.zip
     roles:
     - problemset
@@ -854,15 +889,15 @@ contests:
   - url: https://seerc.icpc.global/2002/Problems_SE_ACM_2002.zip
     roles:
     - problemset
-    note: all statements (archive)
     url_state: live
     url_checked: '2026-11-22'
+    note: all statements (archive)
   - url: https://seerc.icpc.global/2002/Problems_data_files_SE_ACM_2002.zip
     roles:
     - problemset
-    note: test data (archive)
     url_state: live
     url_checked: '2026-11-22'
+    note: test data (archive)
   - url: https://seerc.icpc.global/2002/probleme/A.pdf
     roles:
     - problem
@@ -929,16 +964,19 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: seerc-2002
+  provenance:
+  - date 2002-10-19 read from http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/SEERC02/standings.html
+    (data scan 2026-11-23)
 - id: seerc-2003
   season: 2004
   name: 2003 ACM Southeastern Europe Programming Contest
-  date: '2003-10-19'
+  date: '2003-10-18'
   location: Bucharest, ROMANIA
+  cms_ids:
+  - 1174
   sites:
   - location: ro-bucharest-upb
     date: '2003-10-18'
-  cms_ids:
-  - 1174
   parent: wf-2004
   next: seerc-2004
   sources:
@@ -948,7 +986,6 @@ contests:
   - url: http://www.acm.ro/
     roles:
     - web
-    as_of: '20141113010959'
     url_state: dead
     url_checked: '2026-11-14'
   - url: https://seerc.icpc.global/2003/results.htm
@@ -970,12 +1007,12 @@ contests:
   - url: http://www.acm.ro/results.htm
     roles:
     - standings
-    as_of: '20030505015253'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: dead
-    url_checked: '2026-11-16'
+    as_of: '20031028013327'
     archived:
     - seerc/seerc-2003/standings/20030505-wayback-1576a3ab/results.htm
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: https://seerc.icpc.global/2003/problems.htm
     roles:
     - problemset
@@ -986,7 +1023,7 @@ contests:
   - url: http://www.acm.ro/problems.htm
     roles:
     - problemset
-    as_of: '20030505013739'
+    as_of: '20031206204522'
     url_state: dead
     url_checked: '2026-11-16'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=161
@@ -1010,9 +1047,9 @@ contests:
   - url: https://seerc.icpc.global/2003/Problems_Complete_ACM_2003.zip
     roles:
     - problemset
-    note: all statements (archive)
     url_state: live
     url_checked: '2026-11-22'
+    note: all statements (archive)
   - url: https://seerc.icpc.global/2003/probleme/A.pdf
     roles:
     - problem
@@ -1095,15 +1132,16 @@ contests:
     53 teams, from 44 universities and 8 countries''; 60 registered; contest Saturday October 18, 2003,
     10:00-15:00, main hall of the Rectorat building, Politehnica Universit — https://seerc.icpc.global/2003/report.htm
     [existence hunt 2026-10-22]'
+  - date 2003-10-18 read from https://seerc.icpc.global/2003/probleme/A.pdf (data scan 2026-11-23)
 - id: seerc-2004
   season: 2005
   name: 2004 ACM Southeastern Europe Programming Contest
-  date: '2004-10-17'
+  date: '2004-10-16'
   location: Bucharest, ROMANIA
-  sites:
-  - location: ro-bucharest-upb
   cms_ids:
   - 1042
+  sites:
+  - location: ro-bucharest-upb
   parent: wf-2005
   next: seerc-2005
   sources:
@@ -1148,17 +1186,17 @@ contests:
     contains:
     - statement
     judge: codeforces
+    url_state: live
+    url_checked: '2026-11-16'
     note: '2004-2005 ACM-ICPC Southeastern European Regional Programming Contest (SEERC 2004) (judge hunt
       2026-11-03: name+year: ''2004-2005 ACM-ICPC Southeastern European Regional Programming Contest (SEERC
       2004)'' -> season start 2004)'
-    url_state: live
-    url_checked: '2026-11-16'
   - url: https://seerc.icpc.global/2004/Problems_Complete_ACM_2004.zip
     roles:
     - problemset
-    note: all statements (archive)
     url_state: live
     url_checked: '2026-11-22'
+    note: all statements (archive)
   - url: https://seerc.icpc.global/2004/probleme/a.PDF
     roles:
     - problem
@@ -1223,16 +1261,17 @@ contests:
     accepted from 33 universities and 6 countries''; 50 registered; event October 14-17, 2004 with the
     contest on Saturday October 16; AN building of Politehnica University o — https://seerc.icpc.global/2004/report.htm
     [existence hunt 2026-10-22]'
+  - date 2004-10-16 read from https://seerc.icpc.global/2004/probleme/a.PDF (data scan 2026-11-23)
 - id: seerc-2005
   season: 2006
   name: 2005 ACM Southeastern Europe Programming Contest
-  date: '2005-10-16'
+  date: '2005-10-15'
   location: Bucharest, ROMANIA
+  cms_ids:
+  - 1115
   sites:
   - location: ro-bucharest-upb
     date: '2005-10-15'
-  cms_ids:
-  - 1115
   parent: wf-2006
   next: seerc-2006
   sources:
@@ -1249,7 +1288,7 @@ contests:
   - url: http://www.acm.ro/results.htm
     roles:
     - standings
-    as_of: '20250312194116'
+    as_of: '20060214063759'
     archived:
     - seerc/seerc-2005/external-standings/2026-04-15-external/content.html
     - seerc/seerc-2005/standings/20060214-wayback-4b9f2013/results.htm
@@ -1288,17 +1327,17 @@ contests:
     contains:
     - statement
     judge: codeforces
+    url_state: live
+    url_checked: '2026-11-16'
     note: '2005-2006 ACM-ICPC Southeastern European Regional Programming Contest (SEERC 2005) (judge hunt
       2026-11-03: name+year: ''2005-2006 ACM-ICPC Southeastern European Regional Programming Contest (SEERC
       2005)'' -> season start 2005)'
-    url_state: live
-    url_checked: '2026-11-16'
   - url: https://seerc.icpc.global/2005/Problems_Complete_ACM_2005.zip
     roles:
     - problemset
-    note: all statements (archive)
     url_state: live
     url_checked: '2026-11-22'
+    note: all statements (archive)
   - url: https://seerc.icpc.global/2005/probleme/A.pdf
     roles:
     - problem
@@ -1373,16 +1412,18 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: seerc-2005
+  provenance:
+  - date 2005-10-15 read from https://seerc.icpc.global/2005/probleme/A.pdf (data scan 2026-11-23)
 - id: seerc-2006
   season: 2007
   name: 2006 ACM Southeastern Europe Programming Contest
-  date: '2006-10-22'
+  date: '2006-10-21'
   location: Bucharest, ROMANIA
+  cms_ids:
+  - 1258
   sites:
   - location: ro-bucharest-upb
     date: '2006-10-21'
-  cms_ids:
-  - 1258
   parent: wf-2007
   next: seerc-2007
   sources:
@@ -1399,7 +1440,7 @@ contests:
   - url: http://www.acm.ro/results.htm
     roles:
     - standings
-    as_of: '20250312194116'
+    as_of: '20061108165821'
     archived:
     - seerc/seerc-2006/external-standings/2026-04-15-external/content.html
     - seerc/seerc-2006/standings/20061108-wayback-428f3b74/results.htm
@@ -1438,18 +1479,18 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2006-2007 ACM-ICPC Southeastern European Regional Programming Contest (SEERC 2006) (judge hunt
-      2026-11-03: name+year: ''2006-2007 ACM-ICPC Southeastern European Regional Programming Contest (SEERC
-      2006)'' -> season start 2006)'
     as_of: '20190408233708'
     url_state: changed
     url_checked: '2026-11-16'
+    note: '2006-2007 ACM-ICPC Southeastern European Regional Programming Contest (SEERC 2006) (judge hunt
+      2026-11-03: name+year: ''2006-2007 ACM-ICPC Southeastern European Regional Programming Contest (SEERC
+      2006)'' -> season start 2006)'
   - url: https://seerc.icpc.global/2006/Problems_Complete_ACM_2006.zip
     roles:
     - problemset
-    note: all statements (archive)
     url_state: live
     url_checked: '2026-11-22'
+    note: all statements (archive)
   - url: https://seerc.icpc.global/2006/probleme/a.pdf
     roles:
     - problem
@@ -1524,16 +1565,18 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: seerc-2006
+  provenance:
+  - date 2006-10-21 read from https://seerc.icpc.global/2006/probleme/a.pdf (data scan 2026-11-23)
 - id: seerc-2007
   season: 2008
   name: 2007 ACM Southeastern Europe Programming Contest
   date: '2007-10-27'
   location: Bucharest, ROMANIA
+  cms_ids:
+  - 1012
   sites:
   - location: ro-bucharest-upb
     date: '2007-09-28'
-  cms_ids:
-  - 1012
   parent: wf-2008
   next: seerc-2008
   sources:
@@ -1547,6 +1590,11 @@ contests:
     - seerc/seerc-2007/standings/20260904-live-2cded448/results.htm
     url_state: live
     url_checked: '2026-11-16'
+  - url: http://www.acm.ro/results.htm
+    roles:
+    - standings
+    as_of: '20080430102928'
+    note: found by the data scan 2026-11-23 (Wayback CDX of acm.ro/results.htm, snapshot opened)
   - url: https://seerc.icpc.global/2007/problems.htm
     roles:
     - problemset
@@ -1576,9 +1624,9 @@ contests:
   - url: https://seerc.icpc.global/2007/Problems_Complete_ACM_2007.zip
     roles:
     - problemset
-    note: all statements (archive)
     url_state: live
     url_checked: '2026-11-22'
+    note: all statements (archive)
   - url: https://seerc.icpc.global/2007/probleme/a.pdf
     roles:
     - problem
@@ -1665,15 +1713,15 @@ contests:
 - id: seerc-2008
   season: 2009
   name: 2008 Southeastern Europe Contest
-  date: '2008-10-19'
+  date: '2008-10-18'
   location: Bucharest
+  cms_ids:
+  - 26
   sites:
   - location: ro-bucharest
     name: Administrative Site
     date: '2008-10-18'
     type: administrative
-  cms_ids:
-  - 26
   parent: wf-2009
   next: seerc-2009
   sources:
@@ -1690,7 +1738,7 @@ contests:
   - url: http://www.acm.ro/results.htm
     roles:
     - standings
-    as_of: '20250312194116'
+    as_of: '20090114002615'
     archived:
     - seerc/seerc-2008/external-standings/2026-04-15-external/content.html
     - seerc/seerc-2008/standings/20090114-wayback-e4710b90/results.htm
@@ -1729,11 +1777,11 @@ contests:
     contains:
     - statement
     judge: codeforces
+    url_state: live
+    url_checked: '2026-11-16'
     note: '2008-2009 ACM-ICPC Southeastern European Regional Programming Contest (SEERC 2008) (judge hunt
       2026-11-03: name+year: ''2008-2009 ACM-ICPC Southeastern European Regional Programming Contest (SEERC
       2008)'' -> season start 2008)'
-    url_state: live
-    url_checked: '2026-11-16'
   - url: https://seerc.icpc.global/2008/Problems_Complete_ACM_2008.zip
     roles:
     - problemset
@@ -1812,18 +1860,20 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: seerc-2008
+  provenance:
+  - date 2008-10-18 read from https://seerc.icpc.global/2008/probleme/a.pdf (data scan 2026-11-23)
 - id: seerc-2009
   season: 2010
   name: 2009 Southeastern Europe Contest
-  date: '2009-10-18'
+  date: '2009-10-17'
   location: Administrative Site Location; Politehnica University of Bucharest
+  cms_ids:
+  - 522
   sites:
   - location: ro-bucharest-upb
     name: Politehnica SEE ACM Contest 2009
     date: '2009-10-17'
   - type: administrative
-  cms_ids:
-  - 522
   parent: wf-2010
   next: seerc-2010
   sources:
@@ -1840,7 +1890,6 @@ contests:
   - url: http://www.acm.ro/results.htm
     roles:
     - standings
-    as_of: '20250312194116'
     archived:
     - seerc/seerc-2009/external-standings/2026-04-15-external/content.html
     - seerc/seerc-2009/standings/20110303-wayback-49f4b759/results.htm
@@ -1886,11 +1935,11 @@ contests:
     contains:
     - statement
     judge: codeforces
+    url_state: live
+    url_checked: '2026-11-16'
     note: '2009-2010 ACM-ICPC Southeastern European Regional Programming Contest (SEERC 2009) (judge hunt
       2026-11-03: name+year: ''2009-2010 ACM-ICPC Southeastern European Regional Programming Contest (SEERC
       2009)'' -> season start 2009)'
-    url_state: live
-    url_checked: '2026-11-16'
   - url: https://seerc.icpc.global/2009/prob/ACMproblems2009.zip
     roles:
     - problemset
@@ -1985,18 +2034,20 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: seerc-2009
+  provenance:
+  - date 2009-10-17 read from https://seerc.icpc.global/2009/prob/probleme/A.pdf (data scan 2026-11-23)
 - id: seerc-2010
   season: 2011
   name: 2010 Southeastern Europe Regional Contest
-  date: '2010-10-17'
+  date: '2010-10-16'
   location: Politehnica University of Bucharest; Administrative Site Location
+  cms_ids:
+  - 613
   sites:
   - location: ro-bucharest-upb
     name: Southeastern Europe Regional Contest 2010
     date: '2010-10-16'
   - type: administrative
-  cms_ids:
-  - 613
   parent: wf-2011
   next: seerc-2011
   sources:
@@ -2013,7 +2064,7 @@ contests:
   - url: http://acm.ro/results.htm
     roles:
     - standings
-    as_of: '20250312194116'
+    as_of: '20110303222742'
     archived:
     - seerc/seerc-2010/external-standings/2026-04-15-external/content.html
     - seerc/seerc-2010/standings/20250312-wayback-d994e1c4/results.htm
@@ -2058,11 +2109,11 @@ contests:
     contains:
     - statement
     judge: codeforces
+    url_state: live
+    url_checked: '2026-11-16'
     note: '2010-2011 ACM-ICPC Southeastern European Regional Programming Contest (SEERC 2010) (judge hunt
       2026-11-03: name+year: ''2010-2011 ACM-ICPC Southeastern European Regional Programming Contest (SEERC
       2010)'' -> season start 2010)'
-    url_state: live
-    url_checked: '2026-11-16'
   - url: https://seerc.icpc.global/2010/prob/ACMproblems2010.zip
     roles:
     - problemset
@@ -2149,12 +2200,16 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: seerc-2010
+  provenance:
+  - date 2010-10-16 read from https://seerc.icpc.global/2010/prob/probleme/A.pdf (data scan 2026-11-23)
 - id: seerc-2011
   season: 2012
   name: 2011 Southeastern Europe Regional Contest
-  date: '2011-10-16'
+  date: '2011-10-15'
   location: University Politehnica of Bucharest, Romania; Administrative Site Location; Vinnytsia National
     Technical University, Ukraine
+  cms_ids:
+  - 774
   sites:
   - location: ua-vinnytsya-vntu
     name: SEERC - site Vinnytsia Ukraine
@@ -2163,8 +2218,6 @@ contests:
     name: SEERC - site Bucharest Romania
     date: '2011-10-15'
   - type: administrative
-  cms_ids:
-  - 774
   parent: wf-2012
   next: seerc-2012
   sources:
@@ -2192,6 +2245,11 @@ contests:
     archived:
     - seerc/seerc-2011/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 774, 77 teams, DB fetch 2026-04-26)
+  - url: http://acm.ro/results.htm
+    roles:
+    - standings
+    as_of: '20111120170605'
+    note: found by the data scan 2026-11-23 (Wayback CDX of acm.ro/results.htm, snapshot opened)
   - url: https://seerc.icpc.global/2011/problems.htm
     roles:
     - problemset
@@ -2222,9 +2280,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://seerc.icpc.global/2011/prob/ACMproblems2011.zip
     roles:
     - problemset
@@ -2311,12 +2369,16 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: seerc-2011
+  provenance:
+  - date 2011-10-15 read from https://seerc.icpc.global/2011/prob/probleme/A.pdf (data scan 2026-11-23)
 - id: seerc-2012
   season: 2013
   name: 2012 Southeastern Europe Regional Contest
-  date: '2012-10-14'
+  date: '2012-10-13'
   location: University Politehnica of Bucharest, Romania; Vinnytsia National Technical University, Ukraine;
     Administrative Site Location
+  cms_ids:
+  - 1326
   sites:
   - location: ua-vinnytsya-vntu
     name: SEERC - site Vinnytsia Ukraine
@@ -2325,8 +2387,6 @@ contests:
   - location: ro-bucharest-upb
     name: SEERC - site Bucharest Romania
     date: '2012-10-13'
-  cms_ids:
-  - 1326
   parent: wf-2013
   next: seerc-2013
   sources:
@@ -2343,7 +2403,6 @@ contests:
   - url: http://acm.ro/results.htm
     roles:
     - standings
-    as_of: '20250312194116'
     archived:
     - seerc/seerc-2012/external-standings/2026-04-15-external/content.html
     - seerc/seerc-2012/standings/20250312-wayback-d994e1c4/results.htm
@@ -2388,19 +2447,19 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2012-2013 ACM-ICPC Southeastern European Regional Programming Contest (SEERC 2012) (judge hunt
-      2026-11-03: name+year: ''2012-2013 ACM-ICPC Southeastern European Regional Programming Contest (SEERC
-      2012)'' -> season start 2012)'
     as_of: '20190409001021'
     url_state: changed
     url_checked: '2026-11-16'
+    note: '2012-2013 ACM-ICPC Southeastern European Regional Programming Contest (SEERC 2012) (judge hunt
+      2026-11-03: name+year: ''2012-2013 ACM-ICPC Southeastern European Regional Programming Contest (SEERC
+      2012)'' -> season start 2012)'
   - url: https://qoj.ac/contest/2705
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://seerc.icpc.global/2012/prob/problems.tar.gz
     roles:
     - problemset
@@ -2487,12 +2546,16 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: seerc-2012
+  provenance:
+  - date 2012-10-13 read from https://seerc.icpc.global/2012/prob/probleme/A.pdf (data scan 2026-11-23)
 - id: seerc-2013
   season: 2014
   name: 2013 Southeastern Europe Regional Contest
-  date: '2013-10-13'
+  date: '2013-10-12'
   location: University Politehnica of Bucharest, Romania; Administrative Site Location; Vinnytsia National
     Technical University, Ukraine
+  cms_ids:
+  - 1995
   sites:
   - location: ro-bucharest-upb
     name: SEERC - site Bucharest Romania
@@ -2500,8 +2563,6 @@ contests:
     name: SEERC - site Vinnytsia Ukraine
     date: '2013-10-12'
   - type: administrative
-  cms_ids:
-  - 1995
   parent: wf-2014
   next: seerc-2014
   sources:
@@ -2520,6 +2581,10 @@ contests:
     - seerc/seerc-2013/scoreboard/20260904-live-be04dc36/results.htm
     url_state: live
     url_checked: '2026-11-16'
+  - url: https://icpc.global/regionals/finder/Southeastern-Europe-2014/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 82 rows)
   - url: https://seerc.icpc.global/2013/problems.htm
     roles:
     - problemset
@@ -2550,17 +2615,17 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://seerc.icpc.global/2013/prob/probleme/Time%20Limits.pdf
     roles:
     - problemset
     contains:
     - data
-    note: time limits
     url_state: live
     url_checked: '2026-11-16'
+    note: time limits
   - url: https://seerc.icpc.global/2013/prob/ACM2013problems.zip
     roles:
     - problemset
@@ -2659,20 +2724,21 @@ contests:
     Бухаресте завершился SEERC 2013''; author''s VNTU team finished 7th overall (6th on the Ukrainian
     site); Sobolev Team won by solving the 9th problem two minutes before the end, BZFlags 2nd, Phantom
     M — https://codeforces.com/blog/entry/9207 [existence hunt 2026-10-22]'
+  - date 2013-10-12 read from https://seerc.icpc.global/2013/prob/probleme/A.pdf (data scan 2026-11-23)
 - id: seerc-2014
   season: 2015
   name: 2014 Southeastern Europe Regional Contest
-  date: '2014-10-19'
+  date: '2014-10-18'
   location: Vinnytsia National Technical University, Ukraine; University Politehnica of Bucharest, Romania;
     Administrative Site Location
+  cms_ids:
+  - 2646
   sites:
   - location: ua-vinnytsya-vntu
     name: SEERC - site Vinnytsia Ukraine
   - location: ro-bucharest-upb
     name: SEERC - site Bucharest Romania
   - type: administrative
-  cms_ids:
-  - 2646
   parent: wf-2015
   next: seerc-2015
   sources:
@@ -2689,7 +2755,7 @@ contests:
   - url: http://acm.ro/results.htm
     roles:
     - standings
-    as_of: '20250312194116'
+    as_of: '20141227074053'
     archived:
     - seerc/seerc-2014/external-standings/2026-04-15-external/content.html
     - seerc/seerc-2014/standings/20250312-wayback-d994e1c4/results.htm
@@ -2734,19 +2800,19 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20190408215146'
+    url_state: changed
+    url_checked: '2026-11-16'
     note: '2014-2015 ACM-ICPC Southeastern European Regional Programming Contest (SEERC 2014) (judge hunt
       2026-11-03: name+year: ''2014-2015 ACM-ICPC Southeastern European Regional Programming Contest (SEERC
       2014)'' -> season start 2014)'
-    url_state: changed
-    url_checked: '2026-11-16'
-    as_of: '20190408215146'
   - url: https://qoj.ac/contest/2703
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://seerc.icpc.global/2014/prob/ACM2014problems.zip
     roles:
     - problemset
@@ -2833,12 +2899,16 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: seerc-2014
+  provenance:
+  - date 2014-10-18 read from https://seerc.icpc.global/2014/prob/probleme/A.pdf (data scan 2026-11-23)
 - id: seerc-2015
   season: 2016
   name: 2015 Southeastern Europe Regional Contest
-  date: '2015-10-18'
+  date: '2015-10-17'
   location: Vinnytsia National Technical University, Ukraine; University Politehnica of Bucharest, Romania;
     Administrative Site Location
+  cms_ids:
+  - 2786
   sites:
   - location: ua-vinnytsya-vntu
     name: SEERC - site Vinnytsia Ukraine
@@ -2847,8 +2917,6 @@ contests:
     name: SEERC - site Bucharest Romania
     date: '2015-10-17'
   - type: administrative
-  cms_ids:
-  - 2786
   parent: wf-2016
   next: seerc-2016
   sources:
@@ -2865,7 +2933,6 @@ contests:
   - url: http://acm.ro/results.htm
     roles:
     - standings
-    as_of: '20250312194116'
     archived:
     - seerc/seerc-2015/external-standings/2026-04-15-external/content.html
     - seerc/seerc-2015/standings/20250312-wayback-d994e1c4/results.htm
@@ -2908,9 +2975,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://seerc.icpc.global/2015/prob/ACM2015problems.zip
     roles:
     - problemset
@@ -2997,20 +3064,22 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: seerc-2015
+  provenance:
+  - date 2015-10-17 read from https://seerc.icpc.global/2015/prob/probleme/A.pdf (data scan 2026-11-23)
 - id: seerc-2016
   season: 2017
   name: 2016 Southeastern Europe Regional Contest
-  date: '2016-10-23'
+  date: '2016-10-22'
   location: Administrative Site Location; Vinnytsia National Technical University, Ukraine; University
     Politehnica of Bucharest, Romania
+  cms_ids:
+  - 3124
   sites:
   - location: ua-vinnytsya-vntu
     name: SEERC - site Vinnytsia Ukraine
   - location: ro-bucharest-upb
     name: SEERC - site Bucharest Romania
   - type: administrative
-  cms_ids:
-  - 3124
   parent: wf-2017
   next: seerc-2017
   sources:
@@ -3027,7 +3096,7 @@ contests:
   - url: http://acm.ro/results.htm
     roles:
     - standings
-    as_of: '20250312194116'
+    as_of: '20161229052457'
     archived:
     - seerc/seerc-2016/external-standings/2026-04-15-external/content.html
     - seerc/seerc-2016/standings/20250312-wayback-d994e1c4/results.htm
@@ -3071,27 +3140,43 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2016-2017 ACM-ICPC Southeastern European Regional Programming Contest (SEERC 2016) (judge hunt
-      2026-11-03: name+year: ''2016-2017 ACM-ICPC Southeastern European Regional Programming Contest (SEERC
-      2016)'' -> season start 2016)'
     as_of: '20170706034451'
     url_state: changed
     url_checked: '2026-11-16'
+    note: '2016-2017 ACM-ICPC Southeastern European Regional Programming Contest (SEERC 2016) (judge hunt
+      2026-11-03: name+year: ''2016-2017 ACM-ICPC Southeastern European Regional Programming Contest (SEERC
+      2016)'' -> season start 2016)'
   - url: https://qoj.ac/contest/2701
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+  - url: http://acm.ro/2016/problems.htm
+    roles:
+    - problemset
+    contains:
+    - statement
+    - data
+    as_of: '20180710174007'
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: 'found by the data scan 2026-11-23 (moved from romania-2016: 2016 ACM SEERC: Set of problems
+      (Oct 2016))'
   problems:
     set: seerc-2016
+  provenance:
+  - date 2016-10-22 read from https://seerc.icpc.global/2016/prob/probleme/acm2016problems.pdf (data scan
+    2026-11-23)
 - id: seerc-2017
   season: 2018
   name: 2017 Southeastern Europe Regional Contest
-  date: '2017-10-22'
+  date: '2017-10-21'
   location: Vinnytsia National Technical University, Ukraine; University Politehnica of Bucharest, Romania;
     Administrative Site Location
+  cms_ids:
+  - 3301
   sites:
   - type: administrative
   - location: ro-bucharest-upb
@@ -3099,8 +3184,6 @@ contests:
   - location: ua-vinnytsya-vntu
     name: SEERC - site Vinnytsia Ukraine
     date: '2017-10-21'
-  cms_ids:
-  - 3301
   parent: wf-2018
   next: seerc-2018
   sources:
@@ -3117,7 +3200,6 @@ contests:
   - url: http://acm.ro/results.htm
     roles:
     - standings
-    as_of: '20250312194116'
     archived:
     - seerc/seerc-2017/external-standings/2026-04-15-external/content.html
     - seerc/seerc-2017/standings/20250312-wayback-d994e1c4/results.htm
@@ -3161,30 +3243,34 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20190409085146'
+    url_state: changed
+    url_checked: '2026-11-16'
     note: '2017-2018 ACM-ICPC Southeastern European Regional Programming Contest (SEERC 2017) (judge hunt
       2026-11-03: name+year: ''2017-2018 ACM-ICPC Southeastern European Regional Programming Contest (SEERC
       2017)'' -> season start 2017)'
-    url_state: changed
-    url_checked: '2026-11-16'
-    as_of: '20190409085146'
   - url: https://qoj.ac/contest/540
     roles:
     - problemset
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+    as_of: '20231003071441'
     url_state: unknown
     url_checked: '2026-11-14'
-    as_of: '20231003071441'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: seerc-2017
+  provenance:
+  - date 2017-10-21 read from https://seerc.icpc.global/2017/prob/probleme2017acm.pdf (data scan 2026-11-23)
 - id: seerc-2018
   season: 2019
   name: 2018 Southeastern Europe Regional Contest
-  date: '2018-10-21'
+  date: '2018-10-20'
   location: University Politehnica of Bucharest, Romania; Vinnytsia National Technical University, Ukraine;
     Administrative Site Location
+  cms_ids:
+  - 3635
   sites:
   - type: administrative
   - location: ro-bucharest-upb
@@ -3193,8 +3279,6 @@ contests:
   - location: ua-vinnytsya-vntu
     name: SEERC - site Vinnytsia Ukraine
     date: '2018-10-19'
-  cms_ids:
-  - 3635
   parent: wf-2019
   next: seerc-2019
   sources:
@@ -3204,14 +3288,14 @@ contests:
   - url: https://seerc.icpc.global/2018/results.htm
     roles:
     - scoreboard
-    url_state: live
-    url_checked: '2026-11-16'
     archived:
     - seerc/seerc-2018/scoreboard/20261114-live-990cec19/results.htm
+    url_state: live
+    url_checked: '2026-11-16'
   - url: http://acm.ro/results.htm
     roles:
     - standings
-    as_of: '20250312194116'
+    as_of: '20190410021140'
     archived:
     - seerc/seerc-2018/external-standings/2026-04-15-external/content.html
     - seerc/seerc-2018/standings/20250312-wayback-d994e1c4/results.htm
@@ -3246,30 +3330,34 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2018-2019 ACM-ICPC Southeastern European Regional Programming Contest (SEERC 2018) (judge hunt
-      2026-11-03: name+year: ''2018-2019 ACM-ICPC Southeastern European Regional Programming Contest (SEERC
-      2018)'' -> season start 2018)'
     as_of: '20220608091016'
     url_state: replaced
     url_checked: '2026-11-16'
+    note: '2018-2019 ACM-ICPC Southeastern European Regional Programming Contest (SEERC 2018) (judge hunt
+      2026-11-03: name+year: ''2018-2019 ACM-ICPC Southeastern European Regional Programming Contest (SEERC
+      2018)'' -> season start 2018)'
   - url: https://qoj.ac/contest/541
     roles:
     - problemset
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221003144214'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: seerc-2018
+  provenance:
+  - date 2018-10-20 read from https://seerc.icpc.global/2018/prob/probleme2018acm.pdf (data scan 2026-11-23)
 - id: seerc-2019
   season: 2020
   name: 2019 Southeastern Europe Regional Contest
-  date: '2019-10-20'
+  date: '2019-10-19'
   location: Vinnytsia National Technical University, Ukraine; Administrative Site Location; University
     Politehnica of Bucharest, Romania
+  cms_ids:
+  - 4110
   sites:
   - type: administrative
   - location: ua-vinnytsya-vntu
@@ -3277,8 +3365,6 @@ contests:
   - location: ro-bucharest-upb
     name: SEERC - site Bucharest Romania
     date: '2019-10-19'
-  cms_ids:
-  - 4110
   parent: wf-2020
   next: seerc-2020
   sources:
@@ -3303,15 +3389,9 @@ contests:
     url_state: dead
     url_checked: '2026-11-16'
     note: from archived capture (external-standings)
-  - url: https://icpc.global/regionals/finder/SEERC-2020/standings
-    roles:
-    - standings
-    archived:
-    - seerc/seerc-2019/standings/api-20261113/standings.html
-    note: rendered from the icpc.global API standings archive (cms 4110, 101 teams, DB fetch 2026-04-26)
   - url: http://acmallukrainian.ho.ua/2019/3/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20191026082657'
     archived:
     - ukraine/ukraine-2019/standings/20191026-wayback-acdc3081/standings.html
@@ -3321,6 +3401,12 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (t2-ukraine-agent); moved from ukraine-2019 by the content check
+  - url: https://icpc.global/regionals/finder/SEERC-2020/standings
+    roles:
+    - standings
+    archived:
+    - seerc/seerc-2019/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 4110, 101 teams, DB fetch 2026-04-26)
   - url: https://icpcarchive.github.io/Europe%20Contests/Southeastern%20Europe%20Regional%20Contest%20(SEERC)/2019%20Southeastern%20Europe%20Regional%20Contest/problems.pdf
     roles:
     - problemset
@@ -3343,22 +3429,22 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2019-2020 ICPC Southeastern European Regional Programming Contest (SEERC 2019) (judge hunt
-      2026-11-03: name+year: ''2019-2020 ICPC Southeastern European Regional Programming Contest (SEERC
-      2019)'' -> season start 2019)'
     as_of: '20220608091017'
     url_state: replaced
     url_checked: '2026-11-16'
+    note: '2019-2020 ICPC Southeastern European Regional Programming Contest (SEERC 2019) (judge hunt
+      2026-11-03: name+year: ''2019-2020 ICPC Southeastern European Regional Programming Contest (SEERC
+      2019)'' -> season start 2019)'
   - url: https://qoj.ac/contest/556
     roles:
     - problemset
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221207180312'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Europe/Southeastern-Europe/The-2019-Southeastern-Europe-Regional-Contest/tutorials_en.pdf
     roles:
     - editorial
@@ -3366,20 +3452,23 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: seerc-2019
+  provenance:
+  - date 2019-10-19 read from https://icpcarchive.github.io/Europe%20Contests/Southeastern%20Europe%20Regional%20Contest%20(SEERC)/2019%20Southeastern%20Europe%20Regional%20Contest/problems.pdf
+    (data scan 2026-11-23)
 - id: seerc-2020
   season: 2021
   name: 2020 Southeastern Europe Regional Contest
   date: '2021-05-23'
   location: University Politehnica of Bucharest, Romania; Vinnytsia National Technical University, Ukraine;
     Administrative Site Location
+  cms_ids:
+  - 4534
   sites:
   - type: administrative
   - location: ua-vinnytsya-vntu
     name: SEERC - site Vinnytsia Ukraine
   - location: ro-bucharest-upb
     name: SEERC - site Bucharest Romania
-  cms_ids:
-  - 4534
   parent: wf-2021
   next: seerc-2021
   sources:
@@ -3396,7 +3485,7 @@ contests:
   - url: http://acm.ro/results.htm
     roles:
     - standings
-    as_of: '20250312194116'
+    as_of: '20210526065315'
     archived:
     - seerc/seerc-2020/external-standings/2026-04-15-external/content.html
     - seerc/seerc-2020/standings/20250312-wayback-d994e1c4/results.htm
@@ -3422,22 +3511,22 @@ contests:
     contains:
     - names
     judge: codeforces
-    note: '2020-2021 ICPC Southeastern European Regional Programming Contest (SEERC 2020) (judge hunt
-      2026-11-03: name+year: ''2020-2021 ICPC Southeastern European Regional Programming Contest (SEERC
-      2020)'' -> season start 2020)'
     as_of: '20210529045230'
     url_state: changed
     url_checked: '2026-11-16'
+    note: '2020-2021 ICPC Southeastern European Regional Programming Contest (SEERC 2020) (judge hunt
+      2026-11-03: name+year: ''2020-2021 ICPC Southeastern European Regional Programming Contest (SEERC
+      2020)'' -> season start 2020)'
   - url: https://qoj.ac/contest/636
     roles:
     - problemset
     contains:
     - names
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221003154729'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Europe/Southeastern-Europe/The-2020-Southeastern-Europe-Regional-Contest/tutorials_en.pdf
     roles:
     - editorial
@@ -3448,17 +3537,17 @@ contests:
 - id: seerc-2021
   season: 2022
   name: 2021 ICPC Southeastern Europe Regional Contest
-  date: '2021-11-20'
+  date: '2021-11-21'
   location: Administrative Site Location; University Politehnica of Bucharest, Romania; Vinnytsia National
     Technical University, Ukraine
+  cms_ids:
+  - 4909
   sites:
   - type: administrative
   - location: ua-vinnytsya-vntu
     name: SEERC - site Vinnytsia Ukraine
   - location: ro-bucharest-upb
     name: SEERC - site Bucharest Romania
-  cms_ids:
-  - 4909
   parent: wf-2022
   next: seerc-2022
   sources:
@@ -3470,10 +3559,15 @@ contests:
     - scoreboard
     url_state: live
     url_checked: '2026-11-16'
+  - url: http://acm.ro/Rezults%202021%20N0v.fld/sheet001.htm
+    roles:
+    - scoreboard
+    as_of: '20211203131858'
+    note: found by the data scan 2026-11-23 (Wayback CDX of acm.ro/results.htm, snapshot opened)
   - url: http://acm.ro/results.htm
     roles:
     - standings
-    as_of: '20250312194116'
+    as_of: '20220226192513'
     archived:
     - seerc/seerc-2021/external-standings/2026-04-15-external/content.html
     - seerc/seerc-2021/standings/20250312-wayback-d994e1c4/results.htm
@@ -3505,18 +3599,18 @@ contests:
     contains:
     - names
     judge: codeforces
-    note: '2021 ICPC Southeastern Europe Regional Contest (judge hunt 2026-11-03: name+year: ''2021 ICPC
-      Southeastern Europe Regional Contest'' -> season start 2021)'
     as_of: '20220520143233'
     url_state: replaced
     url_checked: '2026-11-16'
+    note: '2021 ICPC Southeastern Europe Regional Contest (judge hunt 2026-11-03: name+year: ''2021 ICPC
+      Southeastern Europe Regional Contest'' -> season start 2021)'
   - url: https://qoj.ac/contest/2509
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Europe/Southeastern-Europe/The-2021-ICPC-Southeastern-Europe-Regional-Contest/tutorials.pdf
     roles:
     - editorial
@@ -3524,20 +3618,23 @@ contests:
     url_checked: '2026-11-23'
   problems:
     set: seerc-2021
+  provenance:
+  - date 2021-11-21 read from https://icpcarchive.github.io/Europe%20Contests/Southeastern%20Europe%20Regional%20Contest%20(SEERC)/2021%20Southeastern%20Europe%20Regional%20Contest/problems.pdf
+    (data scan 2026-11-23)
 - id: seerc-2022
   season: 2023
   name: 2022 ICPC Southeastern Europe Regional Contest
   date: '2022-12-10'
   location: Vinnytsia National Technical University, Ukraine; Administrative Site Location; University
     Politehnica of Bucharest, Romania
+  cms_ids:
+  - 5417
   sites:
   - type: administrative
   - location: ro-bucharest-upb
     name: SEERC - site Bucharest Romania
   - location: ua-vinnytsya-vntu
     name: SEERC - site Vinnytsia Ukraine
-  cms_ids:
-  - 5417
   parent: wf-2023
   next: seerc-2023
   sources:
@@ -3551,10 +3648,19 @@ contests:
     - seerc/seerc-2022/scoreboard/20260904-live-53ba0ed0/results.htm
     url_state: changed
     url_checked: '2026-11-16'
+  - url: https://acmallukrainian.ho.ua/2022/3/standings.html
+    roles:
+    - scoreboard
+    archived:
+    - ukraine/ukraine-2022/standings/20261023-live-c6ee3f7c/standings.html
+    - seerc/seerc-2022/standings/20261115-live-c6ee3f7c/standings.html
+    url_state: live
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (t2-ukraine-agent); moved from ukraine-2022 by the content check
   - url: http://acm.ro/results.htm
     roles:
     - standings
-    as_of: '20250312194116'
+    as_of: '20230204182418'
     archived:
     - seerc/seerc-2022/external-standings/2026-04-15-external/content.html
     - seerc/seerc-2022/standings/20250312-wayback-d994e1c4/results.htm
@@ -3567,15 +3673,6 @@ contests:
     archived:
     - seerc/seerc-2022/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 5417, 128 teams, DB fetch 2026-04-26)
-  - url: https://acmallukrainian.ho.ua/2022/3/standings.html
-    roles:
-    - standings
-    archived:
-    - ukraine/ukraine-2022/standings/20261023-live-c6ee3f7c/standings.html
-    - seerc/seerc-2022/standings/20261115-live-c6ee3f7c/standings.html
-    url_state: live
-    url_checked: '2026-11-16'
-    note: added by url-hunt 2026-09-01 (t2-ukraine-agent); moved from ukraine-2022 by the content check
   - url: https://icpcarchive.github.io/Europe%20Contests/Southeastern%20Europe%20Regional%20Contest%20(SEERC)/2022%20Southeastern%20Europe%20Regional%20Contest/problems.pdf
     roles:
     - problemset
@@ -3589,18 +3686,18 @@ contests:
     contains:
     - names
     judge: codeforces
-    note: '2022 ICPC Southeastern Europe Regional Contest (judge hunt 2026-11-03: name+year: ''2022 ICPC
-      Southeastern Europe Regional Contest'' -> season start 2022)'
     as_of: '20230519103123'
     url_state: replaced
     url_checked: '2026-11-16'
+    note: '2022 ICPC Southeastern Europe Regional Contest (judge hunt 2026-11-03: name+year: ''2022 ICPC
+      Southeastern Europe Regional Contest'' -> season start 2022)'
   - url: https://qoj.ac/contest/2511
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Europe/Southeastern-Europe/The-2022-ICPC-Southeastern-Europe-Regional-Contest/tutorials_en.pdf
     roles:
     - editorial
@@ -3614,14 +3711,14 @@ contests:
   date: '2023-12-09'
   location: Vinnytsia National Technical University, Ukraine; Administrative Site Location; University
     Politehnica of Bucharest, Romania
+  cms_ids:
+  - 7568
   sites:
   - type: administrative
   - location: ua-vinnytsya-vntu
     name: SEERC - site Vinnytsia Ukraine
   - location: ro-bucharest-upb
     name: SEERC - site Bucharest Romania
-  cms_ids:
-  - 7568
   parent: euc-2024
   next: seerc-2024
   sources:
@@ -3638,7 +3735,7 @@ contests:
   - url: http://acm.ro/results.htm
     roles:
     - standings
-    as_of: '20250312194116'
+    as_of: '20240720161902'
     archived:
     - seerc/seerc-2023/external-standings/2026-04-15-external/content.html
     - seerc/seerc-2023/standings/20250312-wayback-d994e1c4/results.htm
@@ -3673,20 +3770,20 @@ contests:
     contains:
     - names
     judge: codeforces
+    as_of: '20250504070212'
+    url_state: replaced
+    url_checked: '2026-11-16'
     note: '2023 ICPC Southeastern Europe Regional Contest (The 2nd Universal Cup, Stage 14: Southeastern
       Europe) (judge hunt 2026-11-03: name+year: ''2023 ICPC Southeastern Europe Regional Contest (The
       2nd Universal Cup, Stage 14: Southeastern Europe)'' -> season start 2023; gym is the Universal/Open
       Cup replay of the regional set)'
-    as_of: '20250504070212'
-    url_state: replaced
-    url_checked: '2026-11-16'
   - url: https://qoj.ac/contest/1452
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Europe/Southeastern-Europe/The-2023-ICPC-Southeastern-Europe-Regional-Contest/tutorials_en.pdf
     roles:
     - editorial

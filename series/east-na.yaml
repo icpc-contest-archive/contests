@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: east-na
   name: North America East Division
@@ -84,6 +84,9 @@ contests:
   name: 2024 North America East Division
   date: '2024-11-10'
   location: Rochester Institute of Technology
+  cms_ids:
+  - 8922
+  - 8928
   sites:
   - type: administrative
   - location: us-rochester-rit
@@ -105,12 +108,15 @@ contests:
     name: Youngstown Site
   - location: ca-windsor-university
     name: Windsor Site
-  cms_ids:
-  - 8922
-  - 8928
   parent: nac-2025
   next: east-na-2025
   sources:
+  - url: https://east.na.icpc.global/
+    roles:
+    - web
+    as_of: '20241114054159'
+    note: found by the data scan 2026-11-23 (division site linked from every na.icpc.global page; Wayback
+      CDX)
   - url: https://naeast24.kattis.com/contests/naeast24/standings
     roles:
     - scoreboard
@@ -140,10 +146,10 @@ contests:
     contains:
     - statement
     judge: kattis
+    as_of: '20241204213040'
     url_state: changed
     url_checked: '2026-11-16'
     note: Kattis problem-sources page (export source "2024 North America East Division Contest", 2026-11-02)
-    as_of: '20241204213040'
   problems:
     set: east-na-2024
   provenance:
@@ -302,6 +308,10 @@ contests:
   season: 2027
   name: 2026 North America East Division
   date: '2026-11-08'
+  cms_ids:
+  - 9768
+  - 9775
+  - 9776
   sites:
   - type: administrative
   - location: us-new-york-city-touro
@@ -322,12 +332,17 @@ contests:
   - location: us-youngstown-ysu
     name: Youngstown Site
   - location: us-west-lafayette-purdue
-  cms_ids:
-  - 9768
-  - 9775
-  - 9776
   parent: nac-2027
   sources:
+  - url: https://east.na.icpc.global/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (linked from the regional sites of ECNA, NENA and GNY)
+  - url: https://east.na.icpc.global/scoreboard/2026/eastdiv/index.html
+    roles:
+    - scoreboard
+    note: found by the data scan 2026-11-23 (linked as "Scoreboard" from ec.na.icpc.global, ne.na.icpc.global
+      and gny.na.icpc.global (via east.na.icpc.global/scoreboard/2026/))
   - url: https://open.kattis.com/problem-sources/2026%20North%20America%20East%20Division%20Contest
     roles:
     - problemset

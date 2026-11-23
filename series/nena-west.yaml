@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/describe_apply.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: nena-west
   name: Buffalo - Western Contest
@@ -66,11 +66,11 @@ contests:
   name: 2010 SUNY Oswego Contest
   date: '2010-10-09'
   location: Administrative Site Location; SUNY Oswego
+  cms_ids:
+  - 652
   sites:
   - location: us-oswego-suny
   - type: administrative
-  cms_ids:
-  - 652
   parent: nena-2010
   next: nena-west-2011
   sources:
@@ -83,6 +83,14 @@ contests:
     archived:
     - nena-west/nena-west-2010/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 652, 7 teams, DB fetch 2026-04-26)
+  - url: http://www.cs.oswego.edu/~mohammad/contest/f10/questions.htm
+    roles:
+    - problemset
+    contains:
+    - statement
+    as_of: '20141123162924'
+    note: found by the data scan 2026-11-23 (the Fall 2010 questions page of the SUNY Oswego preliminary
+      site (Wayback CDX of cs.oswego.edu/~mohammad/contest/))
 - id: nena-west-2011
   season: 2012
   name: 2011 SUNY Oswego Preliminary Contest
@@ -139,17 +147,23 @@ contests:
   name: 2013 SUNY Oswego Preliminary Contest
   date: '2013-10-12'
   location: SUNY Oswego; Administrative Site Location
+  cms_ids:
+  - 1961
   sites:
   - location: us-oswego-suny
   - type: administrative
-  cms_ids:
-  - 1961
   parent: nena-2013
   next: nena-west-2014
   sources:
   - url: http://www.cs.oswego.edu/~mohammad/contest/
     roles:
     - web
+  - url: https://icpc.global/regionals/finder/SUNY-Oswego-Preliminary-2014/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (CMS id 1961 has 16 ranked rows in ../icpc_new_standings_from_db.json;
+      slug from data/cms-shortnames.json; /api/contest/public/SUNY-Oswego-Preliminary-2014 = id 1961 'The
+      2013 SUNY Oswego Preliminary Contest' 2013-10-12)
   - url: https://www.cs.rit.edu/~icpc/questions/2013/Oswego_2013.pdf
     roles:
     - problemset
@@ -268,15 +282,20 @@ contests:
   name: 2019 Buffalo - Western Contest
   date: '2019-10-26'
   location: Administrative Site Location; SUNY Buffalo
+  cms_ids:
+  - 4080
   sites:
   - type: administrative
   - location: us-buffalo-suny
     name: Buffalo Preliminary
-  cms_ids:
-  - 4080
   parent: nena-2019
   next: null
   sources:
+  - url: https://cse.buffalo.edu/icpc/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (link on the NENA site contests page (cs.rit.edu/~icpc/contests.html,
+      Wayback 20210327025530))
   - url: https://icpc.global/regionals/finder/NA-WC-2020/standings
     roles:
     - standings

@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: nena-east
   name: Eastern (BOSPRE) Contest
@@ -165,11 +165,11 @@ contests:
   name: 2013 BOSPRE Preliminary Contest
   date: '2013-10-19'
   location: Wellseley, UMass Boston; Administrative Site Location
+  cms_ids:
+  - 1963
   sites:
   - location: us-boston-bospre
   - type: administrative
-  cms_ids:
-  - 1963
   parent: nena-2013
   next: nena-east-2014
   sources:
@@ -187,11 +187,17 @@ contests:
     url_state: dead
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://icpc.global/regionals/finder/BOSPRE-Preliminary-2014/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 19 rows)
   - url: https://www.cs.rit.edu/~icpc/questions/2013/BOSPRE_2013.pdf
     roles:
     - problemset
     url_state: live
     url_checked: '2026-11-16'
+  problems:
+    set: nena-east-2013
   provenance:
   - 'BOSPRE 2013 Final Results scoreboard (Harvard HC3) (2013-10-19): ''BOSPRE 2013 Final Results (Sat,
     Oct 19, 2013, 3:00 PM EDT)'': MIT 1 8 solved, Harvard No Bz. Model 7, WPI 2105 5, Harvard Lath 213b
@@ -203,8 +209,6 @@ contests:
   - 'BOSPRE 2013 pre-contest page (2013): Pre-contest instructions for BOSPRE 2013 at Wellesley Science
     Center and UMass Boston (help/demo files per language). — https://hc3.seas.harvard.edu/hc3/bospre/2013/pre_contest_index.html
     [existence hunt 2026-10-22]'
-  problems:
-    set: nena-east-2013
 - id: nena-east-2014
   season: 2015
   name: 2014 Eastern (BOSPRE) Contest

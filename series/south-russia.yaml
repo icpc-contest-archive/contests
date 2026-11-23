@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: south-russia
   name: ICPC Southern and Volga Russia Regional Contest
@@ -9,55 +9,65 @@ contests:
 - id: south-russia-1998
   season: 1999
   name: 1998 Southern Subregional Contest
+  location: Saratov
   cms_ids: []
+  sites:
+  - location: ru-saratov
   parent: neerc-1998
   next: south-russia-1999
   sources:
   - url: https://neerc.ifmo.ru/subregions/southern.html
     roles:
     - web
-  - url: https://contest.sgu.ru/?id=5
+  - url: http://neerc.ifmo.ru/Archive/98/results.htm
     roles:
-    - web
-    url_state: replaced
-    url_checked: '2026-11-14'
+    - scoreboard
+    scope: Southern Subregion
+    as_of: '20030516090449'
+    note: found by the data scan 2026-11-23 (Wayback snapshot 20030516090449)
+  provenance:
+  - location Saratov read from http://neerc.ifmo.ru/Archive/98/results.htm (data scan 2026-11-23)
 - id: south-russia-1999
   season: 2000
   name: 1999 Southern Subregional Contest
-  cms_ids: []
+  cms_ids:
+  - 9933
   parent: neerc-1999
   next: south-russia-2000
   sources:
   - url: https://neerc.ifmo.ru/subregions/southern.html
     roles:
     - web
-  - url: https://contest.sgu.ru/?id=5
-    roles:
-    - web
-    url_state: replaced
-    url_checked: '2026-11-14'
+  provenance:
+  - cms id 9933 read from https://icpc.global/api/contest/public/regionalresults/2000 (data scan 2026-11-23)
 - id: south-russia-2000
   season: 2001
   name: 2000 Southern Subregional Contest
   location: Saratov State University, Saratov
-  cms_ids: []
+  cms_ids:
+  - 9936
   parent: neerc-2000
   next: south-russia-2001
   sources:
   - url: https://neerc.ifmo.ru/subregions/southern.html
     roles:
     - web
-  - url: https://contest.sgu.ru/?id=5
+  - url: http://neerc.ifmo.ru/Archive/2000/southern.html
     roles:
-    - web
-    url_state: replaced
-    url_checked: '2026-11-14'
+    - scoreboard
+    as_of: '20020725011300'
+    note: found by the data scan 2026-11-23 (Wayback snapshot 20020725011300; a copy is held in the website
+      crawl of north-russia-1999)
   provenance:
   - location read from https://neerc.ifmo.ru/subregions/southern.html (description round 2026-11-16)
+  - cms id 9936 read from https://icpc.global/api/contest/public/regionalresults/2001 (data scan 2026-11-23)
 - id: south-russia-2001
   season: 2002
   name: 2001 Southern Subregional Contest
+  location: Saratov, Saratov State University
   cms_ids: []
+  sites:
+  - location: ru-saratov-ssu
   parent: neerc-2001
   next: south-russia-2002
   sources:
@@ -66,80 +76,106 @@ contests:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
+  - url: http://neerc.ifmo.ru/Archive/2001/southern.html
+    roles:
+    - scoreboard
+    as_of: '20020727172228'
+    note: found by the data scan 2026-11-23 (Wayback snapshot 20020727172228; a copy is held in the website
+      crawl of north-russia-2000)
+  provenance:
+  - location Saratov, Saratov State University read from http://neerc.ifmo.ru/Archive/2001/southern.html
+    (data scan 2026-11-23)
 - id: south-russia-2002
   season: 2003
   name: 2002 Southern Subregional Contest
+  date: '2002-10-10'
+  location: Saratov, Saratov State University
   cms_ids: []
+  sites:
+  - location: ru-saratov-ssu
   parent: neerc-2002
   next: south-russia-2003
   sources:
   - url: https://contest.sgu.ru/
     roles:
     - web
+    as_of: '20021127165128'
   - url: https://neerc.ifmo.ru/subregions/southern.html
     roles:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
+  - url: http://neerc.ifmo.ru/Archive/2002/southern.html
+    roles:
+    - scoreboard
+    as_of: '20030510043722'
+    note: found by the data scan 2026-11-23 (Wayback snapshot 20030510043722; a copy is held in the website
+      crawl of north-russia-2002)
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/123
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/124
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/125
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/126
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/127
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/128
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/129
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/130
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/131
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   problems:
     set: south-russia-2002
+  provenance:
+  - location Saratov, Saratov State University read from http://neerc.ifmo.ru/Archive/2002/southern.html
+    (data scan 2026-11-23)
+  - date 2002-10-10 read from https://codeforces.com/problemsets/acmsguru/problem/99999/123 (data scan
+    2026-11-23)
 - id: south-russia-2003
   season: 2004
   name: 2003 Southern Subregional Contest
+  date: '2003-10-09'
   cms_ids: []
   parent: neerc-2003
   next: south-russia-2004
@@ -147,6 +183,13 @@ contests:
   - url: https://neerc.ifmo.ru/subregions/southern.html
     roles:
     - web
+    as_of: '20030511142724'
+  - url: https://contest.sgu.ru/?id=5
+    roles:
+    - web
+    as_of: '20031205025732'
+    note: 'found by the data scan 2026-11-23 (moved from south-russia-1998: contest.sgu.ru/?id=5 capture
+      20031205 = programme of Southern Subregion 7-10 Oct 2003; sgu contest site did not serve 1998-2000)'
   - url: https://neerc.ifmo.ru/archive/2003/southern/standings.html
     roles:
     - scoreboard
@@ -161,7 +204,7 @@ contests:
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
   - url: https://nerc.itmo.ru/archive/2003/southern/standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20230322035401'
     archived:
     - south-russia/south-russia-2003/standings/2026-09-01-live-4e8b4698/standings.html
@@ -171,63 +214,71 @@ contests:
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/183
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/184
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/185
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/186
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/188
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/190
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/191
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/192
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   problems:
     set: south-russia-2003
+  provenance:
+  - date 2003-10-09 read from https://codeforces.com/problemsets/acmsguru/problem/99999/185 (data scan
+    2026-11-23)
 - id: south-russia-2004
   season: 2005
   name: 2004 Southern Subregional Contest
+  date: '2004-10-07'
+  location: Saratov, Saratov State University
   cms_ids: []
+  sites:
+  - location: ru-saratov-ssu
   parent: neerc-2004
   next: south-russia-2005
   sources:
   - url: https://neerc.ifmo.ru/subregions/southern.html
     roles:
     - web
+    as_of: '20050118174459'
   - url: https://nerc.itmo.ru/archive/2004/southern/standings.html
     roles:
     - scoreboard
@@ -254,81 +305,90 @@ contests:
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/266
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/267
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/268
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/269
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/270
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/271
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/272
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/273
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/274
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/275
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   - url: https://codeforces.com/problemsets/acmsguru/problem/99999/276
     roles:
     - problem
-    judge: sgu
     contains:
     - statement
+    judge: sgu
   problems:
     set: south-russia-2004
+  provenance:
+  - location Saratov, Saratov State University read from https://web.archive.org/web/20050118174459/http://neerc.ifmo.ru/subregions/southern.html
+    (data scan 2026-11-23)
+  - date 2004-10-07 read from https://codeforces.com/problemsets/acmsguru/problem/99999/266 (data scan
+    2026-11-23)
 - id: south-russia-2005
   season: 2006
   name: 2005 Southern Subregional Contest
+  location: Saratov State University
   cms_ids: []
+  sites:
+  - location: ru-saratov-ssu
   parent: neerc-2005
   next: south-russia-2006
   sources:
   - url: https://neerc.ifmo.ru/subregions/southern.html
     roles:
     - web
+    as_of: '20060503231210'
   - url: https://nerc.itmo.ru/archive/2005/southern/standings.html
     roles:
     - scoreboard
@@ -362,16 +422,22 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: south-russia-2005
+  provenance:
+  - location Saratov State University read from https://codeforces.com/gym/100765 (data scan 2026-11-23)
 - id: south-russia-2006
   season: 2007
   name: 2006 Southern Subregional Contest
+  location: Saratov, Saratov State University
   cms_ids: []
+  sites:
+  - location: ru-saratov-ssu
   parent: neerc-2006
   next: south-russia-2007
   sources:
   - url: https://neerc.ifmo.ru/subregions/southern.html
     roles:
     - web
+    as_of: '20070121102226'
   - url: https://nerc.itmo.ru/archive/2006/southern/standings.html
     roles:
     - scoreboard
@@ -397,16 +463,24 @@ contests:
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
   problems:
     set: south-russia-2006
+  provenance:
+  - location Saratov, Saratov State University read from https://web.archive.org/web/20070121102226/http://neerc.ifmo.ru/subregions/southern.html
+    (data scan 2026-11-23)
 - id: south-russia-2007
   season: 2008
   name: 2007 Southern Subregional Contest
-  cms_ids: []
+  location: Saratov, Saratov State University
+  cms_ids:
+  - 9917
+  sites:
+  - location: ru-saratov-ssu
   parent: neerc-2007
   next: south-russia-2008
   sources:
   - url: https://neerc.ifmo.ru/subregions/southern.html
     roles:
     - web
+    as_of: '20071124014833'
   - url: https://nerc.itmo.ru/archive/2007/southern/standings.html
     roles:
     - scoreboard
@@ -440,6 +514,10 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: south-russia-2007
+  provenance:
+  - cms id 9917 read from https://icpc.global/api/contest/public/regionalresults/2008 (data scan 2026-11-23)
+  - location Saratov, Saratov State University read from https://web.archive.org/web/20071124014833/http://neerc.ifmo.ru/subregions/southern.html
+    (data scan 2026-11-23)
 - id: south-russia-2008
   season: 2009
   name: 2008 Southern Subregional Contest
@@ -504,19 +582,20 @@ contests:
   name: 2009 Southern Subregional Contest
   date: '2009-10-09'
   location: Administrative Site Location; Saratov
+  cms_ids:
+  - 533
   sites:
   - type: administrative
   - location: ru-saratov
     name: Southern Subregional Contest
     type: administrative
-  cms_ids:
-  - 533
   parent: neerc-2009
   next: south-russia-2010
   sources:
   - url: https://neerc.ifmo.ru/subregions/southern.html
     roles:
     - web
+    as_of: '20090926025643'
   - url: https://codeforces.com/gym/101252/standings
     roles:
     - scoreboard
@@ -563,12 +642,12 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2014-2015 CT S02E05: Codeforces Trainings Season 2 Episode 5 - 2009-2010 ACM-ICPC, NEERC, Southern
-      Subregional Contest (judge hunt 2026-11-03: name+year: ''2014-2015 CT S02E05: Codeforces Trainings
-      Season 2 Episode 5 - 2009-2010 ACM-ICPC, NEERC, Southern Subregional Contest'' -> season start 2009)'
     as_of: '20240511201801'
     url_state: live
     url_checked: '2026-11-16'
+    note: '2014-2015 CT S02E05: Codeforces Trainings Season 2 Episode 5 - 2009-2010 ACM-ICPC, NEERC, Southern
+      Subregional Contest (judge hunt 2026-11-03: name+year: ''2014-2015 CT S02E05: Codeforces Trainings
+      Season 2 Episode 5 - 2009-2010 ACM-ICPC, NEERC, Southern Subregional Contest'' -> season start 2009)'
   problems:
     set: south-russia-2009
 - id: south-russia-2010
@@ -627,19 +706,20 @@ contests:
   name: 2011 Southern Subregional Contest
   date: '2011-10-19'
   location: Administrative Site Location; Saratov
+  cms_ids:
+  - 759
   sites:
   - type: administrative
   - location: ru-saratov
     name: Southern Subregional Contest
     type: administrative
-  cms_ids:
-  - 759
   parent: neerc-2011
   next: south-russia-2012
   sources:
   - url: https://neerc.ifmo.ru/subregions/southern.html
     roles:
     - web
+    as_of: '20111107230027'
   - url: https://nerc.itmo.ru/archive/2011/southern/standings.html
     roles:
     - scoreboard
@@ -736,19 +816,20 @@ contests:
   name: 2013 Southern Subregional Contest
   date: '2013-10-18'
   location: Saratov; Administrative Site Location
+  cms_ids:
+  - 2032
   sites:
   - location: ru-saratov
     name: Southern Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 2032
   parent: neerc-2013
   next: south-russia-2014
   sources:
   - url: https://neerc.ifmo.ru/subregions/southern.html
     roles:
     - web
+    as_of: '20140406211950'
   - url: https://nerc.itmo.ru/archive/2013/southern/standings.html
     roles:
     - scoreboard
@@ -839,19 +920,20 @@ contests:
   name: 2015 Southern Subregional Contest
   date: '2015-10-14'
   location: Saratov; Administrative Site Location
+  cms_ids:
+  - 2756
   sites:
   - location: ru-saratov
     name: Southern Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 2756
   parent: neerc-2015
   next: south-russia-2016
   sources:
   - url: https://neerc.ifmo.ru/subregions/southern.html
     roles:
     - web
+    as_of: '20160318062329'
   - url: https://nerc.itmo.ru/archive/2015/southern/standings.html
     roles:
     - scoreboard
@@ -892,15 +974,15 @@ contests:
 - id: south-russia-2016
   season: 2017
   name: 2016 Southern Subregional Contest
-  date: '2016-10-19'
+  date: '2016-10-18'
   location: Administrative Site Location; Saratov
+  cms_ids:
+  - 3146
   sites:
   - location: ru-saratov
     name: Southern Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 3146
   parent: neerc-2016
   next: south-russia-2017
   sources:
@@ -944,6 +1026,8 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: south-russia-2016
+  provenance:
+  - date 2016-10-18 read from http://contest.sgu.ru/ (data scan 2026-11-23)
 - id: south-russia-2017
   season: 2018
   name: 2017 Southern Subregional Contest
@@ -1004,22 +1088,23 @@ contests:
   name: 2018 Southern Subregional Contest
   date: '2018-10-16'
   location: Administrative Site Location; Saratov
+  cms_ids:
+  - 3693
   sites:
   - location: ru-saratov
     name: Southern Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 3693
   parent: nerc-2018
   next: south-russia-2019
   sources:
   - url: https://codeforces.com/blog/entry/62570
     roles:
     - web
+    as_of: '20181024063727'
   - url: https://codeforces.com/contest/1070/standings
     roles:
-    - standings
+    - scoreboard
     as_of: '20221220183826'
     archived:
     - south-russia/south-russia-2018/standings/20221220-wayback-d9920600/page.html
@@ -1043,6 +1128,8 @@ contests:
     as_of: '20200307114431'
     url_state: changed
     url_checked: '2026-11-16'
+  problems:
+    set: south-russia-2018
   provenance:
   - 'Codeforces blog (MikeMirzayanov) - mirror announcement (2018-10): ''There were 72 teams onsite in
     Saratov, most of them were invited because of their result on'' the qualification stage (linked https://icpc.sgu.ru/);
@@ -1059,26 +1146,25 @@ contests:
   - 'Codeforces Gym 101911 (2018-09): ''2018-2019 ACM-ICPC, NEERC, Southern Subregional Contest, Qualification
     Stage'' standings (123+ rows; top: Togliatti SU B, Innopolis U E, Saratov SU J) - the qualification
     stage, not the main contest. — https://codeforces.com/gym/101911/standings [existence hunt 2026-10-22]'
-  problems:
-    set: south-russia-2018
 - id: south-russia-2019
   season: 2020
   name: 2019 Southern and Volga Russia Regional Contest
   date: '2019-10-15'
   location: Administrative Site Location; Saratov
+  cms_ids:
+  - 4186
   sites:
   - type: administrative
   - location: ru-saratov
     name: Southern Subregional Contest
     type: administrative
-  cms_ids:
-  - 4186
   parent: nerc-2019
   next: south-russia-2020
   sources:
   - url: https://neerc.ifmo.ru/subregions/southern.html
     roles:
     - web
+    as_of: '20191027172044'
   - url: https://nerc.itmo.ru/archive/2019/southern/standings.html
     roles:
     - scoreboard
@@ -1120,13 +1206,13 @@ contests:
   season: 2021
   name: 2020 Southern and Volga Russia Regional Contest
   location: Administrative Site Location; Saratov
+  cms_ids:
+  - 4571
   sites:
   - type: administrative
   - location: ru-saratov
     name: Southern Subregional Contest
     type: administrative
-  cms_ids:
-  - 4571
   parent: nerc-2020
   next: south-russia-2021
   sources:
@@ -1135,7 +1221,7 @@ contests:
     - web
   - url: https://codeforces.com/contest/1468/standings
     roles:
-    - standings
+    - scoreboard
     as_of: '20210107024442'
     archived:
     - south-russia/south-russia-2020/standings/20210107-wayback-3ebfe344/page.html
@@ -1171,16 +1257,21 @@ contests:
   name: 2021 ICPC Southern and Volga Russia Regional Contest
   date: '2021-11-21'
   location: Saratov; Administrative Site Location
+  cms_ids:
+  - 4939
   sites:
   - type: administrative
   - location: ru-saratov
     name: Southern Subregional Contest
     type: administrative
-  cms_ids:
-  - 4939
   parent: nerc-2021
   next: south-russia-2022
   sources:
+  - url: http://nerc.itmo.ru/subregions/southern.html
+    roles:
+    - web
+    as_of: '20211206231450'
+    note: found by the data scan 2026-11-23 (Wayback CDX of the NERC subregion page)
   - url: https://icpc.global/regionals/finder/Southern-and-Volga-Russia-Regional-2022/standings
     roles:
     - standings
@@ -1202,16 +1293,21 @@ contests:
   name: 2022 ICPC Southern and Volga Russia Regional Contest
   date: '2022-11-22'
   location: Saratov; Administrative Site Location
+  cms_ids:
+  - 5591
   sites:
   - type: administrative
   - location: ru-saratov
     name: Southern Subregional Contest
     type: administrative
-  cms_ids:
-  - 5591
   parent: nerc-2022
   next: south-russia-2023
   sources:
+  - url: https://nerc.itmo.ru/subregions/southern.html
+    roles:
+    - web
+    as_of: '20230129184655'
+    note: found by the data scan 2026-11-23 (Wayback CDX of the NERC subregion page)
   - url: https://icpc.global/regionals/finder/Southern-and-Volga-Russia-Regional-2023/standings
     roles:
     - standings
@@ -1278,13 +1374,13 @@ contests:
   name: 2024 ICPC Southern and Volga Russia Regional Contest
   date: '2024-11-12'
   location: Saratov; Administrative Site Location
+  cms_ids:
+  - 8912
   sites:
   - type: administrative
   - location: ru-saratov
     name: Southern Subregional Contest
     type: administrative
-  cms_ids:
-  - 8912
   parent: nerc-2024
   next: south-russia-2025
   sources:
@@ -1294,14 +1390,8 @@ contests:
   - url: https://contest.sgu.ru/monitor/1
     roles:
     - scoreboard
-    as_of: '20260121222301'
-    archived:
-    - south-russia/south-russia-2024/external-standings/2026-04-15-external/content.html
-    - south-russia/south-russia-2024/scoreboard/20260121-wayback-78dc64bb/page.html
-    - south-russia/south-russia-2024/scoreboard/20260901-live-83f93338/page.html
-    - south-russia/south-russia-2024/scoreboard/20261116-live-83f93338/page.html
-    url_state: replaced
-    url_checked: '2026-11-16'
+    note: 'kept as lost by the data scan 2026-11-23: the contest''s monitor address, no copy of this edition
+      (CDX: no 200 capture 2024-11-12..2025-08-29); the 2026-01 copy is south-russia-2025''s'
   - url: https://icpc.global/regionals/finder/Southern-and-Volga-Russia-Regional-2025/standings
     roles:
     - standings
@@ -1374,28 +1464,39 @@ contests:
   season: 2027
   name: 2026 ICPC Southern and Volga Russia Regional Contest
   date: '2026-11-10'
+  cms_ids:
+  - 9806
   sites:
   - type: administrative
   - location: ru-saratov
     date: '2026-11-10'
-  cms_ids:
-  - 9806
   parent: nerc-2026
   sources:
+  - url: https://contest.sgu.ru/2026/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (the 2026 season page of https://contest.sgu.ru/ (the CMS
+      homepage))
   - url: https://contest.sgu.ru/history/acm-icpc/standings2026.html
     roles:
-    - standings
-    note: results link in the contest's ICPC CMS record
-    url_state: live
-    url_checked: '2026-11-16'
+    - scoreboard
     archived:
     - south-russia/south-russia-2026/standings/20261113-live-7be11fa6/standings2026.html
+    url_state: live
+    url_checked: '2026-11-16'
+    note: results link in the contest's ICPC CMS record
   - url: https://icpc.global/regionals/finder/Southern-and-Volga-Russia-Regional-2027/standings
     roles:
     - standings
     archived:
     - south-russia/south-russia-2026/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 9806, 90 teams, DB fetch 2026-11-13)
+  - url: https://codeforces.com/gym/106825
+    roles:
+    - problemset
+    judge: codeforces
+    note: found by the data scan 2026-11-23 (Codeforces gym listed by the gym API as "2026-2027 ICPC,
+      NERC, Southern and Volga Russian Regional Contest" (Saratov), like gym 106144 on south-russia-2025)
   provenance:
   - 'ran 2026-11-10: shown by its icpc standings, standings source(s); date from CMS site date (ruling
     2026-11-12: upcoming ends when the date has passed and a result source or judge page shows the contest

@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: west-siberia
   name: ICPC West Siberian Regional Contest
@@ -9,7 +9,8 @@ contests:
 - id: west-siberia-1999
   season: 2000
   name: 1999 West Siberian Subregional Contest
-  cms_ids: []
+  cms_ids:
+  - 9929
   parent: neerc-1999
   next: west-siberia-2000
   sources:
@@ -26,26 +27,48 @@ contests:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
+  provenance:
+  - cms id 9929 read from https://icpc.global/api/contest/public/regionalresults/2000 (data scan 2026-11-23)
 - id: west-siberia-2000
   season: 2001
   name: 2000 West Siberian Subregional Contest
-  cms_ids: []
+  location: Novosibirsk, Novosibirsk State Technical University
+  cms_ids:
+  - 9941
+  sites:
+  - location: ru-novosibirsk
   parent: neerc-2000
   next: west-siberia-2001
   sources:
   - url: https://neerc.ifmo.ru/subregions/west-siberian.html
     roles:
     - web
+  - url: http://neerc.ifmo.ru/Archive/2000/siberian.html
+    roles:
+    - scoreboard
+    as_of: '20020724164906'
+    note: found by the data scan 2026-11-23 (Wayback snapshot 20020724164906; a copy is held in the website
+      crawl of north-russia-1999)
+  provenance:
+  - cms id 9941 read from https://icpc.global/api/contest/public/regionalresults/2001 (data scan 2026-11-23)
+  - location Novosibirsk, Novosibirsk State Technical University read from http://neerc.ifmo.ru/Archive/2000/siberian.html
+    (data scan 2026-11-23)
 - id: west-siberia-2001
   season: 2002
   name: 2001 West Siberian Subregional Contest
+  location: Novosibirsk State Technical University
   cms_ids: []
+  sites:
+  - location: ru-novosibirsk
   parent: neerc-2001
   next: west-siberia-2002
   sources:
   - url: https://www.kgeorgiy.info/papers/Vasilev_VN__Kazakov_MA__Korneev_GA__Parfenov_VG__Stankevich_AS_--_NEERC_2001.pdf
     roles:
     - web
+  provenance:
+  - location Novosibirsk State Technical University read from https://www.kgeorgiy.info/papers/Vasilev_VN__Kazakov_MA__Korneev_GA__Parfenov_VG__Stankevich_AS_--_NEERC_2001.pdf
+    (data scan 2026-11-23)
 - id: west-siberia-2002
   season: 2003
   name: 2002 West Siberian Subregional Contest
@@ -66,6 +89,7 @@ contests:
   - url: https://neerc.ifmo.ru/subregions/west-siberian.html
     roles:
     - web
+    as_of: '20030511142813'
   - url: https://nerc.itmo.ru/archive/2003/west-siberian/standings.html
     roles:
     - scoreboard
@@ -94,13 +118,17 @@ contests:
 - id: west-siberia-2004
   season: 2005
   name: 2004 West Siberian Subregional Contest
+  location: Novosibirsk, Novosibirsk State Technical University
   cms_ids: []
+  sites:
+  - location: ru-novosibirsk
   parent: neerc-2004
   next: west-siberia-2005
   sources:
   - url: https://neerc.ifmo.ru/subregions/west-siberian.html
     roles:
     - web
+    as_of: '20041110042927'
   - url: https://nerc.itmo.ru/archive/2004/west-siberian/standings.html
     roles:
     - scoreboard
@@ -126,16 +154,23 @@ contests:
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
   problems:
     set: west-siberia-2004
+  provenance:
+  - location Novosibirsk, Novosibirsk State Technical University read from https://web.archive.org/web/20050118165200/http://neerc.ifmo.ru/subregions/west-siberian.html
+    (data scan 2026-11-23)
 - id: west-siberia-2005
   season: 2006
   name: 2005 West Siberian Subregional Contest
+  location: Novosibirsk, Novosibirsk State Technical University
   cms_ids: []
+  sites:
+  - location: ru-novosibirsk
   parent: neerc-2005
   next: west-siberia-2006
   sources:
   - url: https://neerc.ifmo.ru/subregions/west-siberian.html
     roles:
     - web
+    as_of: '20060503231113'
   - url: https://olymp.nstu.ru/contests/standing/6
     roles:
     - scoreboard
@@ -178,16 +213,23 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: west-siberia-2005
+  provenance:
+  - location Novosibirsk, Novosibirsk State Technical University read from https://web.archive.org/web/20060503231113/http://neerc.ifmo.ru/subregions/west-siberian.html
+    (data scan 2026-11-23)
 - id: west-siberia-2006
   season: 2007
   name: 2006 West Siberian Subregional Contest
+  location: Novosibirsk, Novosibirsk State Technical University
   cms_ids: []
+  sites:
+  - location: ru-novosibirsk
   parent: neerc-2006
   next: west-siberia-2007
   sources:
   - url: https://neerc.ifmo.ru/subregions/west-siberian.html
     roles:
     - web
+    as_of: '20070221013224'
   - url: https://olymp.nstu.ru/contests/standing/5
     roles:
     - scoreboard
@@ -229,16 +271,24 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: west-siberia-2006
+  provenance:
+  - location Novosibirsk, Novosibirsk State Technical University read from https://web.archive.org/web/20070221013224/http://neerc.ifmo.ru/subregions/west-siberian.html
+    (data scan 2026-11-23)
 - id: west-siberia-2007
   season: 2008
   name: 2007 West Siberian Subregional Contest
-  cms_ids: []
+  location: Novosibirsk, Novosibirsk State Technical University
+  cms_ids:
+  - 9911
+  sites:
+  - location: ru-novosibirsk
   parent: neerc-2007
   next: west-siberia-2008
   sources:
   - url: https://neerc.ifmo.ru/subregions/west-siberian.html
     roles:
     - web
+    as_of: '20071124014843'
   - url: https://nerc.itmo.ru/archive/2007/west-siberian/standings.html
     roles:
     - scoreboard
@@ -264,6 +314,10 @@ contests:
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
   problems:
     set: west-siberia-2007
+  provenance:
+  - cms id 9911 read from https://icpc.global/api/contest/public/regionalresults/2008 (data scan 2026-11-23)
+  - location Novosibirsk, Novosibirsk State Technical University read from https://web.archive.org/web/20071124014843/http://neerc.ifmo.ru/subregions/west-siberian.html
+    (data scan 2026-11-23)
 - id: west-siberia-2008
   season: 2009
   name: 2008 West Siberian Subregional Contest
@@ -329,19 +383,20 @@ contests:
   name: 2009 West Siberian Subregional Contest
   date: '2009-10-18'
   location: Administrative Site Location; Novosibirsk
+  cms_ids:
+  - 535
   sites:
   - type: administrative
   - location: ru-novosibirsk
     name: West Siberian Subregional Contest
     type: administrative
-  cms_ids:
-  - 535
   parent: neerc-2009
   next: west-siberia-2010
   sources:
   - url: https://neerc.ifmo.ru/subregions/west-siberian.html
     roles:
     - web
+    as_of: '20091013120342'
   - url: https://olymp.nstu.ru/contests/standing/8
     roles:
     - scoreboard
@@ -448,19 +503,20 @@ contests:
   name: 2011 West Siberian Subregional Contest
   date: '2011-10-29'
   location: Administrative Site Location; Novosibirsk
+  cms_ids:
+  - 766
   sites:
   - type: administrative
   - location: ru-novosibirsk
     name: West Siberian Subregional Contest
     type: administrative
-  cms_ids:
-  - 766
   parent: neerc-2011
   next: west-siberia-2012
   sources:
   - url: https://neerc.ifmo.ru/subregions/west-siberian.html
     roles:
     - web
+    as_of: '20111114181406'
   - url: https://nerc.itmo.ru/archive/2011/west-siberian/standings.html
     roles:
     - scoreboard
@@ -576,19 +632,20 @@ contests:
   name: 2013 West Siberian Subregional Contest
   date: '2013-10-26'
   location: Administrative Site Location; Novosibirsk
+  cms_ids:
+  - 2036
   sites:
   - location: ru-novosibirsk
     name: West Siberian Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 2036
   parent: neerc-2013
   next: west-siberia-2014
   sources:
   - url: https://neerc.ifmo.ru/subregions/west-siberian.html
     roles:
     - web
+    as_of: '20131211230620'
   - url: https://nerc.itmo.ru/archive/2013/west-siberian/standings.html
     roles:
     - scoreboard
@@ -697,19 +754,20 @@ contests:
   name: 2015 West Siberian Subregional Contest
   date: '2015-10-31'
   location: Administrative Site Location; Novosibirsk
+  cms_ids:
+  - 2763
   sites:
   - location: ru-novosibirsk
     name: West Siberian Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 2763
   parent: neerc-2015
   next: west-siberia-2016
   sources:
   - url: https://neerc.ifmo.ru/subregions/west-siberian.html
     roles:
     - web
+    as_of: '20160318004925'
   - url: https://nerc.itmo.ru/archive/2015/west-siberian/standings.html
     roles:
     - scoreboard
@@ -759,15 +817,15 @@ contests:
 - id: west-siberia-2016
   season: 2017
   name: 2016 West Siberian Subregional Contest
-  date: '2016-10-31'
+  date: '2016-10-29'
   location: Novosibirsk; Administrative Site Location
+  cms_ids:
+  - 3156
   sites:
   - location: ru-novosibirsk
     name: West Siberian Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 3156
   parent: neerc-2016
   next: west-siberia-2017
   sources:
@@ -823,13 +881,15 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2016-2017 ACM-ICPC, NEERC, Западно-сибирский четвертьфинал (judge hunt 2026-11-03: name+year:
-      ''2016-2017 ACM-ICPC, NEERC, Западно-сибирский четвертьфинал'' -> season start 2016)'
     as_of: '20211123042734'
     url_state: changed
     url_checked: '2026-11-16'
+    note: '2016-2017 ACM-ICPC, NEERC, Западно-сибирский четвертьфинал (judge hunt 2026-11-03: name+year:
+      ''2016-2017 ACM-ICPC, NEERC, Западно-сибирский четвертьфинал'' -> season start 2016)'
   problems:
     set: west-siberia-2016
+  provenance:
+  - date 2016-10-29 read from https://olymp.nstu.ru/contests (data scan 2026-11-23)
 - id: west-siberia-2017
   season: 2018
   name: 2017 West Siberian Subregional Contest
@@ -896,15 +956,15 @@ contests:
 - id: west-siberia-2018
   season: 2019
   name: 2018 West Siberian Subregional Contest
-  date: '2018-11-13'
+  date: '2018-11-10'
   location: Novosibirsk; Administrative Site Location
+  cms_ids:
+  - 3691
   sites:
   - location: ru-novosibirsk
     name: West Siberian Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 3691
   parent: nerc-2018
   next: west-siberia-2019
   sources:
@@ -940,30 +1000,33 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2018-2019 ACM-ICPC, NEERC, Западно-сибирский четвертьфинал (judge hunt 2026-11-03: name+year:
-      ''2018-2019 ACM-ICPC, NEERC, Западно-сибирский четвертьфинал'' -> season start 2018)'
     url_state: live
     url_checked: '2026-11-16'
+    note: '2018-2019 ACM-ICPC, NEERC, Западно-сибирский четвертьфинал (judge hunt 2026-11-03: name+year:
+      ''2018-2019 ACM-ICPC, NEERC, Западно-сибирский четвертьфинал'' -> season start 2018)'
   problems:
     set: west-siberia-2018
+  provenance:
+  - date 2018-11-10 read from https://olymp.nstu.ru/contests (data scan 2026-11-23)
 - id: west-siberia-2019
   season: 2020
   name: 2019 West Siberian Regional Contest
-  date: '2019-11-17'
+  date: '2019-10-26'
   location: Administrative Site Location; Novosibirsk
+  cms_ids:
+  - 4189
   sites:
   - type: administrative
   - location: ru-novosibirsk
     name: West Siberian Subregional Contest
     type: administrative
-  cms_ids:
-  - 4189
   parent: nerc-2019
   next: west-siberia-2020
   sources:
   - url: https://neerc.ifmo.ru/subregions/west-siberian.html
     roles:
     - web
+    as_of: '20191202084858'
   - url: https://nerc.itmo.ru/archive/2019/west-siberian/standings.html
     roles:
     - scoreboard
@@ -1010,21 +1073,28 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: west-siberia-2019
+  provenance:
+  - date 2019-10-26 read from https://olymp.nstu.ru/contests (data scan 2026-11-23)
 - id: west-siberia-2020
   season: 2021
   name: 2020 West Siberian Regional Contest
-  date: '2020-11-25'
+  date: '2020-11-21'
   location: Administrative Site Location; Novosibirsk
+  cms_ids:
+  - 4552
   sites:
   - type: administrative
   - location: ru-novosibirsk
     name: West Siberian Regional Contest
     type: administrative
-  cms_ids:
-  - 4552
   parent: nerc-2020
   next: west-siberia-2021
   sources:
+  - url: https://olymp.nstu.ru/contests/52/rules
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (link in our held copy of the standings (olymp.nstu.ru contest
+      52) + sibling west-siberia-2026 pattern (olymp.nstu.ru/contests/3068/rules))
   - url: https://olymp.nstu.ru/contests/standing/52?official=true
     roles:
     - scoreboard
@@ -1050,21 +1120,28 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: west-siberia-2020
+  provenance:
+  - date 2020-11-21 read from https://olymp.nstu.ru/contests (data scan 2026-11-23)
 - id: west-siberia-2021
   season: 2022
   name: 2021 ICPC West Siberian Regional Contest
-  date: '2021-11-29'
+  date: '2021-11-27'
   location: Administrative Site Location; Novosibirsk
+  cms_ids:
+  - 4959
   sites:
   - type: administrative
   - location: ru-novosibirsk
     name: West Siberian Regional Contest
     type: administrative
-  cms_ids:
-  - 4959
   parent: nerc-2021
   next: west-siberia-2022
   sources:
+  - url: http://nerc.itmo.ru/subregions/west-siberian.html
+    roles:
+    - web
+    as_of: '20211206230832'
+    note: found by the data scan 2026-11-23 (Wayback CDX of the NERC subregion page)
   - url: https://olymp.nstu.ru/contests/standing/55?official=true
     roles:
     - scoreboard
@@ -1090,20 +1167,27 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: west-siberia-2021
+  provenance:
+  - date 2021-11-27 read from https://olymp.nstu.ru/contests (data scan 2026-11-23)
 - id: west-siberia-2022
   season: 2023
   name: 2022 ICPC West Siberian Regional Contest
-  date: '2022-11-20'
+  date: '2022-11-17'
   location: Novosibirsk; Administrative Site Location
+  cms_ids:
+  - 5580
   sites:
   - location: ru-novosibirsk
     name: West Siberian Regional Contest
   - type: administrative
-  cms_ids:
-  - 5580
   parent: nerc-2022
   next: west-siberia-2023
   sources:
+  - url: https://olymp.nstu.ru/contests/58/rules
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (link in our held copy of the standings (olymp.nstu.ru contest
+      58) + sibling west-siberia-2026 pattern)
   - url: https://olymp.nstu.ru/contests/standing/58?official=true
     roles:
     - scoreboard
@@ -1131,25 +1215,32 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: west-siberia-2022
+  provenance:
+  - date 2022-11-17 read from https://olymp.nstu.ru/contests (data scan 2026-11-23)
 - id: west-siberia-2023
   season: 2024
   name: 2023 ICPC West Siberian Regional Contest
-  date: '2023-11-30'
+  date: '2023-11-18'
   location: Novosibirsk; Administrative Site Location
+  cms_ids:
+  - 7752
   sites:
   - type: administrative
   - location: ru-novosibirsk
     name: West Siberian Regional Contest
-  cms_ids:
-  - 7752
   parent: nerc-2023
   next: west-siberia-2024
   sources:
+  - url: https://neerc.ifmo.ru/subregions/west-siberian.html
+    roles:
+    - web
+    as_of: '20240415165112'
+    note: found by the data scan 2026-11-23 (Wayback CDX of the NERC subregion page)
   - url: https://olymp.nstu.ru/contests/standing/1060?official=true
     roles:
     - scoreboard
@@ -1189,17 +1280,19 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: west-siberia-2023
+  provenance:
+  - date 2023-11-18 read from https://olymp.nstu.ru/contests (data scan 2026-11-23)
 - id: west-siberia-2024
   season: 2025
   name: 2024 ICPC West Siberian Regional Contest
-  date: '2024-11-25'
+  date: '2024-11-23'
   location: Administrative Site Location; Novosibirsk
+  cms_ids:
+  - 8911
   sites:
   - type: administrative
   - location: ru-novosibirsk
     name: West Siberian Regional Contest
-  cms_ids:
-  - 8911
   parent: nerc-2024
   next: west-siberia-2025
   sources:
@@ -1231,20 +1324,27 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: west-siberia-2024
+  provenance:
+  - date 2024-11-23 read from https://olymp.nstu.ru/contests (data scan 2026-11-23)
 - id: west-siberia-2025
   season: 2026
   name: 2025 ICPC West Siberian Regional Contest
   date: '2025-11-22'
   location: Administrative Site Location; Novosibirsk
+  cms_ids:
+  - 9154
   sites:
   - type: administrative
   - location: ru-novosibirsk
     name: West Siberian Regional Contest
-  cms_ids:
-  - 9154
   parent: nerc-2025
   next: west-siberia-2026
   sources:
+  - url: http://neerc.ifmo.ru/subregions/west-siberian.html
+    roles:
+    - web
+    as_of: '20260118074956'
+    note: found by the data scan 2026-11-23 (Wayback CDX of the NERC subregion page)
   - url: https://olymp.nstu.ru/contests/standing/3064?official=true
     roles:
     - scoreboard
@@ -1284,15 +1384,15 @@ contests:
   problems:
     set: west-siberia-2025
 - id: west-siberia-2026
-  status: upcoming
   season: 2027
   name: 2026 ICPC West Siberian Regional Contest
+  date: '2026-11-21'
+  cms_ids:
+  - 9789
   sites:
   - type: administrative
   - location: ru-novosibirsk
     name: West Siberian Regional Contest
-  cms_ids:
-  - 9789
   parent: nerc-2026
   sources:
   - url: https://olymp.nstu.ru/contests/3068/rules
@@ -1303,7 +1403,27 @@ contests:
     roles:
     - web
     note: added by the no-sources hunt 2026-11-16
+  - url: https://olymp.nstu.ru/contests/3068/standing
+    roles:
+    - scoreboard
+    note: found by the data scan 2026-11-23 (linked from https://olymp.nstu.ru/contests/3068/rules)
   - url: https://olymp.nstu.ru/contests/3068/competitors
     roles:
     - teams
     note: added by the no-sources hunt 2026-11-16
+  - url: https://olymp.nstu.ru/contests/3068/downloadproblems
+    roles:
+    - problemset
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (linked as "Download statements (PDF)" from the contest pages)
+  - url: https://olymp.nstu.ru/contests/3068/downloadtests
+    roles:
+    - problemset
+    contains:
+    - data
+    note: found by the data scan 2026-11-23 (linked as "Download tests (ZIP)" from the contest pages)
+  provenance:
+  - date 2026-11-21 read from https://olymp.nstu.ru/contests (data scan 2026-11-23)
+  - 'ran 2026-11-21: the organisers'' official final standings and the statements ("Novosibirsk, November
+    21, 2026") (data scan 2026-11-23)'

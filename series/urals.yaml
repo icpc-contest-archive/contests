@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/describe_apply.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: urals
   name: ICPC Ural Regional Contest
@@ -9,7 +9,10 @@ contests:
 - id: urals-1998
   season: 1999
   name: 1998 Eastern Subregional Contest
+  location: Ekaterinburg
   cms_ids: []
+  sites:
+  - location: ru-yekaterinburg
   parent: neerc-1998
   next: urals-1999
   sources:
@@ -21,26 +24,52 @@ contests:
     - web
     url_state: live
     url_checked: '2026-11-14'
+  - url: https://sp.urfu.ru/chu/1998/results.htm
+    roles:
+    - scoreboard
+    note: found by the data scan 2026-11-23 (live page; a copy is held in the website crawl of urals-1998)
+  provenance:
+  - location Ekaterinburg read from http://neerc.ifmo.ru/Archive/98/results.htm (data scan 2026-11-23)
 - id: urals-1999
   season: 2000
   name: 1999 Eastern Subregional Contest
-  cms_ids: []
+  cms_ids:
+  - 9931
   parent: neerc-1999
   next: urals-2000
   sources:
   - url: https://sp.urfu.ru/history/urfu_neerc.html
     roles:
     - web
+  - url: https://sp.urfu.ru/chu/1999/results.html
+    roles:
+    - scoreboard
+    note: found by the data scan 2026-11-23 (live page; a copy is held in the website crawl of urals-1998)
+  provenance:
+  - cms id 9931 read from https://icpc.global/api/contest/public/regionalresults/2000 (data scan 2026-11-23)
 - id: urals-2000
   season: 2001
   name: 2000 Eastern Subregional Contest
-  cms_ids: []
+  cms_ids:
+  - 9934
   parent: neerc-2000
   next: urals-2001
   sources:
   - url: https://sp.urfu.ru/history/urfu_neerc.html
     roles:
     - web
+  - url: http://neerc.ifmo.ru/Archive/2000/eastern.html
+    roles:
+    - scoreboard
+    as_of: '20030508161809'
+    note: found by the data scan 2026-11-23 (Wayback snapshot 20030508161809; a copy is held in the website
+      crawl of north-russia-1999)
+  - url: https://sp.urfu.ru/chu/2000/final.html
+    roles:
+    - scoreboard
+    note: found by the data scan 2026-11-23 (live page; a copy is held in the website crawl of urals-1999)
+  provenance:
+  - cms id 9934 read from https://icpc.global/api/contest/public/regionalresults/2001 (data scan 2026-11-23)
 - id: urals-2001
   season: 2002
   name: 2001 Eastern Subregional Contest
@@ -52,11 +81,16 @@ contests:
   - url: https://sp.urfu.ru/history/urfu_neerc.html
     roles:
     - web
-  - url: https://www.kgeorgiy.info/papers/Vasilev_VN__Kazakov_MA__Korneev_GA__Parfenov_VG__Stankevich_AS_--_NEERC_2001.pdf
+  - url: http://neerc.ifmo.ru/Archive/2001/eastern.html
     roles:
-    - web
-    url_state: live
-    url_checked: '2026-11-14'
+    - scoreboard
+    as_of: '20030508161118'
+    note: found by the data scan 2026-11-23 (Wayback snapshot 20030508161118; a copy is held in the website
+      crawl of north-russia-2000)
+  - url: https://sp.urfu.ru/chu/2001/final.html
+    roles:
+    - scoreboard
+    note: found by the data scan 2026-11-23 (live page; a copy is held in the website crawl of urals-2000)
   provenance:
   - location read from https://sp.urfu.ru/history/urfu_neerc.html (description round 2026-11-16)
 - id: urals-2002
@@ -71,6 +105,26 @@ contests:
   - url: https://sp.urfu.ru/history/urfu_neerc.html
     roles:
     - web
+  - url: https://sp.urfu.ru/chu/2002/results1.html
+    roles:
+    - scoreboard
+    scope: Round 1
+    note: found by the data scan 2026-11-23 (live page; a copy is held in the website crawl of urals-2002)
+  - url: https://sp.urfu.ru/chu/2002/results2.html
+    roles:
+    - scoreboard
+    scope: Round 2
+    note: found by the data scan 2026-11-23 (live page; a copy is held in the website crawl of urals-2002)
+  - url: http://neerc.ifmo.ru/Archive/2002/eastern.html
+    roles:
+    - standings
+    as_of: '20030510043221'
+    note: found by the data scan 2026-11-23 (Wayback snapshot 20030510043221; a copy is held in the website
+      crawl of north-russia-2002)
+  - url: https://sp.urfu.ru/chu/2002/results.html
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (live page; a copy is held in the website crawl of urals-2002)
   - url: https://sp.urfu.ru/chu/2002/
     roles:
     - problemset
@@ -100,6 +154,7 @@ contests:
   - url: http://neerc.ifmo.ru/past/2003/eastern/standings-day1.html
     roles:
     - scoreboard
+    scope: Day 1 only
     as_of: '20060518220213'
     archived:
     - urals/urals-2003/standings/2026-09-01-live-1c5e0f3e/standings-day1.html
@@ -108,10 +163,10 @@ contests:
     - urals/urals-2003/scoreboard/20261116-live-62105d6f/standings-day1.html
     url_state: live
     url_checked: '2026-11-16'
-    scope: Day 1 only
   - url: http://neerc.ifmo.ru/past/2003/eastern/standings-day2.html
     roles:
     - scoreboard
+    scope: Day 2 only
     as_of: '20101121025658'
     archived:
     - urals/urals-2003/standings/2026-09-01-wayback-d988165d/standings-day2.html
@@ -120,13 +175,30 @@ contests:
     - urals/urals-2003/scoreboard/20261116-live-4b77a629/standings-day2.html
     url_state: live
     url_checked: '2026-11-16'
-    scope: Day 2 only
   - url: https://neerc.ifmo.ru/archive/2003/ural/standings.html
     roles:
     - standings
     url_state: dead
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://sp.urfu.ru/chu/2003/problems1.pdf
+    roles:
+    - problemset
+    scope: First round
+    contains:
+    - statement
+    as_of: '20211207215306'
+    note: found by the data scan 2026-11-23 (first-round statements held in our crawl of the contest site
+      sp.urfu.ru/chu/2003/ (urals/urals-2003/website/2026-11-15-wayback-8d8b8e85))
+  - url: https://sp.urfu.ru/chu/2003/problems2.pdf
+    roles:
+    - problemset
+    scope: Second round
+    contains:
+    - statement
+    as_of: '20211207220147'
+    note: found by the data scan 2026-11-23 (second-round statements held in our crawl of the contest
+      site sp.urfu.ru/chu/2003/ (urals/urals-2003/website/2026-11-15-wayback-8d8b8e85))
   problems:
     set: urals-2003
   provenance:
@@ -200,9 +272,11 @@ contests:
     - problemset
     contains:
     - statement
+    as_of: '20061010015311'
     url_state: changed
     url_checked: '2026-11-16'
-    as_of: '20061010015311'
+  problems:
+    set: urals-2005
 - id: urals-2006
   season: 2007
   name: 2006 Eastern Subregional Contest
@@ -256,7 +330,8 @@ contests:
   name: 2007 Eastern Subregional Contest
   date: '2007-10-27'
   location: Yekaterinburg
-  cms_ids: []
+  cms_ids:
+  - 9908
   parent: neerc-2007
   next: urals-2008
   sources:
@@ -299,17 +374,18 @@ contests:
   provenance:
   - date read from https://sp.urfu.ru/qf/2007/ (description round 2026-11-16)
   - location read from https://sp.urfu.ru/qf/2007/ (description round 2026-11-16)
+  - cms id 9908 read from https://icpc.global/api/contest/public/regionalresults/2008 (data scan 2026-11-23)
 - id: urals-2008
   season: 2009
   name: 2008 Eastern Subregional Contest
-  date: '2008-11-02'
+  date: '2008-11-01'
   location: Ekaterinburg
+  cms_ids:
+  - 66
   sites:
   - location: ru-yekaterinburg
     name: Eastern Subregional Contest - Ekaterinburg
     date: '2008-11-01'
-  cms_ids:
-  - 66
   parent: neerc-2008
   next: urals-2009
   sources:
@@ -349,6 +425,8 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: urals-2008
+  provenance:
+  - date 2008-11-01 read from https://sp.urfu.ru/qf/2008/ (data scan 2026-11-23)
 - id: urals-2009
   season: 2010
   name: 2009 Eastern Subregional Contest
@@ -476,14 +554,14 @@ contests:
 - id: urals-2011
   season: 2012
   name: 2011 Eastern Subregional Contest
-  date: '2011-10-28'
+  date: '2011-10-29'
   location: Administrative Site Location; Ekaterinburg
+  cms_ids:
+  - 757
   sites:
   - location: ru-yekaterinburg
     name: Eastern Subregional Contest - Ekaterinburg
   - type: administrative
-  cms_ids:
-  - 757
   parent: neerc-2011
   next: urals-2012
   sources:
@@ -531,26 +609,28 @@ contests:
     contains:
     - statement
     judge: timus
+    as_of: '20120303020459'
     url_state: live
     url_checked: '2026-11-16'
     note: 'NEERC 2011, Eastern subregional contest (judge hunt 2026-11-03: Timus past-contest archive
       ''NEERC 2011, Eastern subregional contest'' (29 October 2011): online version of the official contest;
       11 problems in space 101; main-set source tag ''NEERC 2011 Eastern Subregional'' gives 11 named
       problems)'
-    as_of: '20120303020459'
   problems:
     set: urals-2011
+  provenance:
+  - date 2011-10-29 read from https://sp.urfu.ru/qf/2011/qf_11_eng.pdf (data scan 2026-11-23)
 - id: urals-2012
   season: 2013
   name: 2012 Eastern Subregional Contest
-  date: '2012-10-19'
+  date: '2012-10-20'
   location: Ekaterinburg; Administrative Site Location
+  cms_ids:
+  - 1307
   sites:
   - location: ru-yekaterinburg
     name: Eastern Subregional Contest - Ekaterinburg
   - type: administrative
-  cms_ids:
-  - 1307
   parent: neerc-2012
   next: urals-2013
   sources:
@@ -601,9 +681,9 @@ contests:
     roles:
     - teams
     as_of: '20160430145800'
-    note: found inside http://acm.urfu.ru/qf/2012/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://acm.urfu.ru/qf/2012/ by the content check
   - url: https://sp.urfu.ru/qf/2012/qf_12_eng.pdf
     roles:
     - problemset
@@ -618,33 +698,35 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2012-2013 ACM-ICPC, NEERC, Eastern Subregional Contest (judge hunt 2026-11-03: name+year: ''2012-2013
-      ACM-ICPC, NEERC, Eastern Subregional Contest'' -> season start 2012)'
     as_of: '20211129133854'
     url_state: changed
     url_checked: '2026-11-16'
+    note: '2012-2013 ACM-ICPC, NEERC, Eastern Subregional Contest (judge hunt 2026-11-03: name+year: ''2012-2013
+      ACM-ICPC, NEERC, Eastern Subregional Contest'' -> season start 2012)'
   - url: https://acm.timus.ru/problemset.aspx?space=123
     roles:
     - problemset
     contains:
     - statement
     judge: timus
+    as_of: '20140928204123'
     url_state: live
     url_checked: '2026-11-16'
     note: 'NEERC 2012, Eastern subregional contest (judge hunt 2026-11-03: Timus past-contest archive
       ''NEERC 2012, Eastern subregional contest'' (20 October 2012): online version of the official contest;
       11 problems in space 123; main-set source tag ''NEERC 2012 Eastern Subregional'' gives 11 named
       problems)'
-    as_of: '20140928204123'
   - url: http://acm.urfu.ru:80/qf/2012/qf_12_eng.pdf
     roles:
     - problemset
     as_of: '20170709135325'
-    note: found inside http://acm.urfu.ru/qf/2012/ by the content check
     url_state: replaced
     url_checked: '2026-11-16'
+    note: found inside http://acm.urfu.ru/qf/2012/ by the content check
   problems:
     set: urals-2012
+  provenance:
+  - date 2012-10-20 read from https://sp.urfu.ru/qf/2012/qf_12_eng.pdf (data scan 2026-11-23)
 - id: urals-2013
   season: 2014
   name: 2013 Eastern Subregional Contest
@@ -1331,11 +1413,11 @@ contests:
   name: 2024 ICPC Ural Regional Contest
   date: '2024-11-16'
   location: Administrative Site Location; Yekaterinburg
+  cms_ids:
+  - 8902
   sites:
   - type: administrative
   - location: ru-yekaterinburg
-  cms_ids:
-  - 8902
   parent: nerc-2024
   next: urals-2025
   sources:
@@ -1372,19 +1454,19 @@ contests:
   - url: https://sp.urfu.ru/qf/2024/winners.html
     roles:
     - rankings
-    note: found inside https://sp.urfu.ru/qf/2024/index.html by the content check
-    url_state: live
-    url_checked: '2026-11-16'
+    as_of: '20241210214656'
     archived:
     - urals/urals-2024/rankings/20241210-wayback-59ed797b/winners.html
     - urals/urals-2024/rankings/20261115-live-61403b87/winners.html
-    as_of: '20241210214656'
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside https://sp.urfu.ru/qf/2024/index.html by the content check
   - url: https://sp.urfu.ru/qf/2024/participants.html
     roles:
     - teams
-    note: found inside https://sp.urfu.ru/qf/2024/index.html by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://sp.urfu.ru/qf/2024/index.html by the content check
   - url: http://neerc.ifmo.ru/archive/2024/ural/statements.pdf
     roles:
     - problemset
@@ -1406,12 +1488,7 @@ contests:
     - problemset
     contains:
     - statement
-    url_state: live
-    url_checked: '2026-11-16'
     as_of: '20241210213617'
-  - url: https://sp.urfu.ru/qf/2024/nwrrc-2023-tutorial.pdf
-    roles:
-    - editorial
     url_state: live
     url_checked: '2026-11-16'
   - url: https://sp.urfu.ru/qf/2024/tutorial.pdf
@@ -1427,11 +1504,11 @@ contests:
   name: 2025 ICPC Ural Regional Contest
   date: '2025-11-15'
   location: Yekaterinburg; Administrative Site Location
+  cms_ids:
+  - 9174
   sites:
   - type: administrative
   - location: ru-yekaterinburg
-  cms_ids:
-  - 9174
   parent: nerc-2025
   next: urals-2026
   sources:
@@ -1468,19 +1545,19 @@ contests:
   - url: https://sp.urfu.ru/qf/2025/winners.html
     roles:
     - rankings
-    note: found inside https://sp.urfu.ru/qf/2025/index.html by the content check
-    url_state: live
-    url_checked: '2026-11-16'
+    as_of: '20260309093104'
     archived:
     - urals/urals-2025/rankings/20260309-wayback-452c3d3f/winners.html
     - urals/urals-2025/rankings/20261116-live-d7904ca1/winners.html
-    as_of: '20260309093104'
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside https://sp.urfu.ru/qf/2025/index.html by the content check
   - url: https://sp.urfu.ru/qf/2025/participants.html
     roles:
     - teams
-    note: found inside https://sp.urfu.ru/qf/2025/index.html by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://sp.urfu.ru/qf/2025/index.html by the content check
   - url: https://nerc.itmo.ru/archive/2025/northern/statements.pdf
     roles:
     - problemset
@@ -1489,27 +1566,18 @@ contests:
     as_of: '20260610154710'
     url_state: live
     url_checked: '2026-11-16'
-  - url: https://sp.urfu.ru/qf/2025/nwrrc-2023-tutorial.pdf
-    roles:
-    - editorial
-    url_state: changed
-    url_checked: '2026-11-16'
-  - url: https://sp.urfu.ru/qf/2025/tutorial.pdf
-    roles:
-    - editorial
-    url_state: live
-    url_checked: '2026-11-16'
   problems:
     set: north-russia-2025
 - id: urals-2026
   season: 2027
   name: 2026 ICPC Ural Regional Contest
   date: '2026-11-14'
+  location: Ural Federal University, Yekaterinburg
+  cms_ids:
+  - 9800
   sites:
   - type: administrative
   - location: ru-yekaterinburg
-  cms_ids:
-  - 9800
   parent: nerc-2026
   sources:
   - url: https://sp.urfu.ru/qf/2026/index.html
@@ -1527,30 +1595,34 @@ contests:
   - url: https://nerc.itmo.ru/archive/2026/ural/standings.html
     roles:
     - scoreboard
-    note: added by the no-sources hunt 2026-11-16
     archived:
     - urals/urals-2026/scoreboard/20261116-live-2e5cac25/standings.html
+    note: added by the no-sources hunt 2026-11-16
   - url: https://nerc.itmo.ru/archive/2026/ural/standings.xml
     roles:
     - scoreboard
     - problemset
-    note: added by the no-sources hunt 2026-11-16
     contains:
     - names
     archived:
     - urals/urals-2026/scoreboard/20261116-live-554b5edf/page.html
+    note: added by the no-sources hunt 2026-11-16
   - url: https://neerc.ifmo.ru/archive/2026/ural/standings.html
     roles:
     - scoreboard
-    note: added by the no-sources hunt 2026-11-16
     archived:
     - urals/urals-2026/scoreboard/20261116-live-7ddfed7e/standings.html
+    note: added by the no-sources hunt 2026-11-16
   - url: https://neerc.itmo.ru/archive/2026/ural/standings.html
     roles:
     - scoreboard
-    note: added by the no-sources hunt 2026-11-16
     archived:
     - urals/urals-2026/scoreboard/20261116-live-12b8f2c2/standings.html
+    note: added by the no-sources hunt 2026-11-16
+  - url: https://icpc.global/regionals/finder/Ural-Regional-2027/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings API, 67 ranked rows on 2026-11-23)
   - url: https://sp.urfu.ru/qf/2026/qual/main_round.html
     roles:
     - teams
@@ -1558,3 +1630,5 @@ contests:
   provenance:
   - 'ran 2026-11-14: shown by its problemset, scoreboard source(s); the NERC archive scoreboard and the
     host''s timetable (no-sources hunt 2026-11-16)'
+  - location Ural Federal University, Yekaterinburg read from https://sp.urfu.ru/qf/2026/index.html (data
+    scan 2026-11-23)

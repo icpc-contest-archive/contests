@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: lebanon
   name: ICPC Lebanese Collegiate Programming Contest
@@ -10,21 +10,16 @@ contests:
   season: 2010
   name: 2009 The Lebanese Collegiate Programming Contest
   date: '2009-07-03'
+  cms_ids:
+  - 565
   sites:
   - location: lb
     name: LCPC
     date: '2009-07-02'
     type: administrative
-  cms_ids:
-  - 565
   parent: acpc-2009
   next: lebanon-2010
   sources:
-  - url: https://www.bau.edu.lb/Science/Event/The-Lebanese-Collegiate-Programming-Competition-LCPC
-    roles:
-    - web
-    url_state: changed
-    url_checked: '2026-11-14'
   - url: https://www.facebook.com/LebanonCPc/
     roles:
     - web
@@ -328,38 +323,41 @@ contests:
   name: 2018 Lebanese Collegiate Programming Contest
   date: '2018-09-29'
   location: lebanon; Administrative Site Location
+  cms_ids:
+  - 3590
   sites:
   - location: lb
     name: unofficial
   - type: administrative
   - location: lb
     name: lebanon
-  cms_ids:
-  - 3590
   parent: acpc-2018
   next: lebanon-2019
   sources:
-  - url: https://news.lau.edu.lb/2018/computer-science-students-win-battle-of-the-brains.php
-    roles:
-    - web
   - url: https://www.facebook.com/LebanonCPC/
     roles:
     - web
     url_state: live
     url_checked: '2026-11-14'
+  - url: https://news.lau.edu.lb/2018/computer-science-students-win-battle-of-the-brains.php
+    roles:
+    - rankings
+    - report
+    scope: top 3
+    as_of: '20191115100742'
 - id: lebanon-2019
   season: 2020
   name: 2019 Lebanese Collegiate Programming Contest
   date: '2019-10-05'
   location: lebanon; Administrative Site Location
+  cms_ids:
+  - 4007
   sites:
   - type: administrative
   - location: lb
     name: lebanon
   - location: lb
     name: unofficial
-  cms_ids:
-  - 4007
   parent: acpc-2019
   next: lebanon-2020
   sources:
@@ -369,6 +367,12 @@ contests:
     archived:
     - lebanon/lebanon-2019/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4007, 38 teams, DB fetch 2026-04-26)
+  - url: https://www.bau.edu.lb/Science/Event/The-Lebanese-Collegiate-Programming-Competition-LCPC
+    roles:
+    - report
+    as_of: '20210622204234'
+    note: 'found by the data scan 2026-11-23 (moved from lebanon-2009: BAU article dated 4 Oct 2019 about
+      LCPC 2019 (37 teams); address is a one-off event page)'
 - id: lebanon-2020
   season: 2021
   name: 2020 Lebanese Collegiate Programming Contest
@@ -490,17 +494,21 @@ contests:
   name: 2024 ICPC Lebanese Collegiate Programming Contest
   date: '2024-11-09'
   location: lebanon
+  cms_ids:
+  - 8805
   sites:
   - location: lb
     name: Lebanon
   - location: lb
     name: LCPC unofficial
     type: administrative
-  cms_ids:
-  - 8805
   parent: acpc-2024
   next: lebanon-2025
   sources:
+  - url: https://acpc.global/event/lcpc2024/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ACPC events calendar (acpc.global/wp-json/tribe/events))
   - url: https://icpc.global/regionals/finder/LCPC-2025/standings
     roles:
     - standings
@@ -511,108 +519,108 @@ contests:
     roles:
     - problemset
     judge: codeforces
-    note: '''LCPC 2024 (Mirror)'' in the private group ACPC Scientific Committee Archive (login and group
-      membership needed)'
     url_state: live
     url_checked: '2026-11-22'
+    note: '''LCPC 2024 (Mirror)'' in the private group ACPC Scientific Committee Archive (login and group
+      membership needed)'
   - url: https://codeforces.com/group/Rilx5irOux/contest/564406/problem/A
     roles:
     - problem
-    judge: codeforces
     problem: A
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/564406/problem/B
     roles:
     - problem
-    judge: codeforces
     problem: B
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/564406/problem/C
     roles:
     - problem
-    judge: codeforces
     problem: C
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/564406/problem/D
     roles:
     - problem
-    judge: codeforces
     problem: D
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/564406/problem/E
     roles:
     - problem
-    judge: codeforces
     problem: E
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/564406/problem/F
     roles:
     - problem
-    judge: codeforces
     problem: F
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/564406/problem/G
     roles:
     - problem
-    judge: codeforces
     problem: G
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/564406/problem/H
     roles:
     - problem
-    judge: codeforces
     problem: H
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/564406/problem/I
     roles:
     - problem
-    judge: codeforces
     problem: I
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/564406/problem/J
     roles:
     - problem
-    judge: codeforces
     problem: J
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/564406/problem/K
     roles:
     - problem
-    judge: codeforces
     problem: K
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/564406/problem/L
     roles:
     - problem
-    judge: codeforces
     problem: L
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/564406/problem/M
     roles:
     - problem
-    judge: codeforces
     problem: M
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/564406/problem/N
     roles:
     - problem
-    judge: codeforces
     problem: N
     contains:
     - statement
+    judge: codeforces
   problems:
     set: lebanon-2024
 - id: lebanon-2025

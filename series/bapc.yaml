@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: bapc
   name: ICPC Benelux Algorithm Programming Contest
@@ -259,13 +259,13 @@ contests:
   name: 2009 Benelux Algorithm Programming Contest
   date: '2009-10-17'
   location: Groningen; Administrative Site Location
+  cms_ids:
+  - 541
   sites:
   - location: nl-groningen
     name: Rijksuniversiteit Groningen
     date: '2009-12-24'
   - type: administrative
-  cms_ids:
-  - 541
   parent: nwerc-2009
   next: bapc-2010
   sources:
@@ -275,6 +275,7 @@ contests:
     as_of: '20120827164059'
   - url: https://en.wikipedia.org/wiki/BAPC
     roles:
+    - report
     - rankings
     as_of: '20170114152240'
     archived:
@@ -287,11 +288,19 @@ contests:
     roles:
     - rankings
     - editorial
-    url_state: live
-    url_checked: '2026-11-16'
     scope: top 3 plus best business team
     archived:
     - bapc/bapc-2009/rankings/20261115-live-718f0a57/tutorials_en.pdf
+    url_state: live
+    url_checked: '2026-11-16'
+  - url: https://chipcie.wisv.ch/archive/2009/bapc/solutions.pdf
+    roles:
+    - editorial
+    - rankings
+    as_of: '20240413151748'
+    url_state: live
+    url_checked: '2026-11-16'
+    note: moved from bapc-prelims-2009 by the content check
   - url: https://chipcie.wisv.ch/archive/2009/bapc/bapc2009.pdf
     roles:
     - problemset
@@ -315,25 +324,18 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2009 Benelux Algorithm Programming Contest (BAPC 09) (judge hunt 2026-11-03: name+year: ''2009
-      Benelux Algorithm Programming Contest (BAPC 09)'' -> season start 2009)'
+    as_of: '20190409035820'
     url_state: changed
     url_checked: '2026-11-16'
-    as_of: '20190409035820'
+    note: '2009 Benelux Algorithm Programming Contest (BAPC 09) (judge hunt 2026-11-03: name+year: ''2009
+      Benelux Algorithm Programming Contest (BAPC 09)'' -> season start 2009)'
   - url: https://qoj.ac/contest/3899
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
-  - url: https://chipcie.wisv.ch/archive/2009/bapc/solutions.pdf
-    roles:
-    - editorial
-    as_of: '20240413151748'
-    url_state: live
-    url_checked: '2026-11-16'
-    note: moved from bapc-prelims-2009 by the content check
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: bapc-2009
 - id: bapc-2010
@@ -341,18 +343,26 @@ contests:
   name: 2010 Benelux Algorithm Programming Contest
   date: '2010-10-23'
   location: Leiden; Administrative Site Location
+  cms_ids:
+  - 616
   sites:
   - location: nl-leiden
     name: BAPC 2010
   - type: administrative
-  cms_ids:
-  - 616
   parent: nwerc-2010
   next: bapc-2011
   sources:
   - url: http://www.bapc.eu
     roles:
     - web
+    as_of: '20100909182328'
+  - url: http://2010.bapc.eu/
+    roles:
+    - web
+    url_state: replaced
+    url_checked: '2026-11-14'
+    note: 'found by the data scan 2026-11-23 (moved from bapc-prelims-2010: 2010.bapc.eu is the whole-event
+      BAPC 2010 site (prelims + finals); kept on prelims as combined, added to bapc-2010)'
   - url: http://www.bapc.eu/scoreboard/
     roles:
     - scoreboard
@@ -395,9 +405,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Europe/Northwestern-Europe/Benelux-Algorithm-Programming-Contest/The-2010-ICPC-Benelux-Algorithm-Programming-Contest-BAPC-2010/tutorials_en.pdf
     roles:
     - editorial
@@ -424,12 +434,12 @@ contests:
   name: 2011 Benelux Algorithm Programming Contest
   date: '2011-10-15'
   location: Eindhoven; Administrative Site Location
+  cms_ids:
+  - 790
   sites:
   - location: nl-eindhoven
     name: BAPC 2011
   - type: administrative
-  cms_ids:
-  - 790
   parent: nwerc-2011
   next: bapc-2012
   sources:
@@ -437,6 +447,12 @@ contests:
     roles:
     - web
     as_of: '20210304025052'
+  - url: http://bapc.eu/
+    roles:
+    - web
+    as_of: '20111128025726'
+    note: found by the data scan 2026-11-23 (page of the BAPC 2011 site covering preliminaries and finals;
+      also source of bapc-prelims-2011)
   - url: http://bapc.eu/scoreboard/
     roles:
     - scoreboard
@@ -468,18 +484,30 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2011 Benelux Algorithm Programming Contest (BAPC 11) (judge hunt 2026-11-03: name+year: ''2011
-      Benelux Algorithm Programming Contest (BAPC 11)'' -> season start 2011)'
+    as_of: '20190409001702'
     url_state: changed
     url_checked: '2026-11-16'
-    as_of: '20190409001702'
+    note: '2011 Benelux Algorithm Programming Contest (BAPC 11) (judge hunt 2026-11-03: name+year: ''2011
+      Benelux Algorithm Programming Contest (BAPC 11)'' -> season start 2011)'
   - url: https://qoj.ac/contest/3897
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+  - url: http://2012.bapc.eu/oudeopgaven/Finals.zip
+    roles:
+    - problemset
+    contains:
+    - data
+    - solutions
+    - package
+    as_of: '20201230134115'
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: 'found by the data scan 2026-11-23 (moved from bapc-2012: Finals.zip is BAPC 2011 finals package
+      (Finals.pdf 15 Oct 2011))'
   - url: https://icpcarchive.github.io/Europe/Northwestern-Europe/Benelux-Algorithm-Programming-Contest/The-2011-ICPC-Benelux-Algorithm-Programming-Contest-BAPC-2011/tutorials.pdf
     roles:
     - editorial
@@ -491,12 +519,13 @@ contests:
   season: 2013
   name: 2012 Benelux Algorithm Programming Contest
   date: '2012-10-27'
-  location: Administrative Site Location; bapc.eu
-  sites:
-  - name: BAPC 2012
-  - type: administrative
+  location: Utrecht, the Netherlands (campus De Uithof, Utrecht University)
   cms_ids:
   - 1343
+  sites:
+  - name: BAPC 2012
+    location: nl-utrecht-university
+  - type: administrative
   parent: nwerc-2012
   next: bapc-2013
   sources:
@@ -520,16 +549,6 @@ contests:
     archived:
     - bapc/bapc-2012/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 1343, 31 teams, DB fetch 2026-04-26)
-  - url: http://2012.bapc.eu/oudeopgaven/Finals.zip
-    roles:
-    - problemset
-    contains:
-    - data
-    - solutions
-    - package
-    as_of: '20201230134115'
-    url_state: dead
-    url_checked: '2026-11-16'
   - url: https://open.kattis.com/problem-sources/Benelux%20Algorithm%20Programming%20Contest%20%28BAPC%29%202012
     roles:
     - problemset
@@ -552,9 +571,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Europe/Northwestern-Europe/Benelux-Algorithm-Programming-Contest/The-2012-ICPC-Benelux-Algorithm-Programming-Contest-BAPC-2012/tutorials_en.pdf
     roles:
     - editorial
@@ -562,16 +581,20 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: bapc-2012
+  provenance:
+  - location Utrecht, the Netherlands (campus De Uithof, Utrecht University) read from http://2012.bapc.eu/
+    (data scan 2026-11-23)
 - id: bapc-2013
   season: 2014
   name: 2013 Benelux Algorithm Programming Contest
   date: '2013-10-26'
-  location: Administrative Site Location; bapc.eu
-  sites:
-  - name: BAPC 2013
-  - type: administrative
+  location: Utrecht, the Netherlands (Uithof campus, Minnaert building, Utrecht University)
   cms_ids:
   - 2021
+  sites:
+  - name: BAPC 2013
+    location: nl-utrecht-university
+  - type: administrative
   parent: nwerc-2013
   next: bapc-2014
   sources:
@@ -591,11 +614,15 @@ contests:
     roles:
     - scoreboard
     as_of: '20241105132441'
-    note: found inside https://2013.bapc.eu/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - bapc/bapc-2013/scoreboard/20241105-wayback-b4fded84/Scoreboard-online.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://2013.bapc.eu/ by the content check
+  - url: https://icpc.global/regionals/finder/Benelux-2014/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 34 rows)
   - url: https://chipcie.wisv.ch/archive/2013/bapc/problemset.pdf
     roles:
     - problemset
@@ -628,45 +655,48 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2013 Benelux Algorithm Programming Contest (BAPC 13) (judge hunt 2026-11-03: name+year: ''2013
-      Benelux Algorithm Programming Contest (BAPC 13)'' -> season start 2013)'
+    as_of: '20190426181009'
     url_state: changed
     url_checked: '2026-11-16'
-    as_of: '20190426181009'
+    note: '2013 Benelux Algorithm Programming Contest (BAPC 13) (judge hunt 2026-11-03: name+year: ''2013
+      Benelux Algorithm Programming Contest (BAPC 13)'' -> season start 2013)'
   - url: https://qoj.ac/contest/3895
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://2013.bapc.eu/docs/BAPC2013.zip
     roles:
     - problemset
     as_of: '20201229171619'
-    note: found inside https://2013.bapc.eu/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside https://2013.bapc.eu/ by the content check
   - url: https://2013.bapc.eu/docs/bapc2013juryslides.pdf
     roles:
     - editorial
     as_of: '20241105133239'
-    note: found inside https://2013.bapc.eu/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside https://2013.bapc.eu/ by the content check
   problems:
     set: bapc-2013
+  provenance:
+  - location Utrecht, the Netherlands (Uithof campus, Minnaert building, Utrecht University) read from
+    https://2013.bapc.eu/ (data scan 2026-11-23)
 - id: bapc-2014
   season: 2015
   name: 2014 Benelux Algorithm Programming Contest
   date: '2014-10-19'
   location: Administrative Site Location; Eindhoven
+  cms_ids:
+  - 2691
   sites:
   - location: nl-eindhoven
     name: BAPC 2014
   - type: administrative
-  cms_ids:
-  - 2691
   parent: nwerc-2014
   next: bapc-2015
   sources:
@@ -674,6 +704,14 @@ contests:
     roles:
     - web
     as_of: '20241114053912'
+  - url: http://bapc.eu/
+    roles:
+    - web
+    - rankings
+    scope: top 3 and best company team
+    as_of: '20141217011548'
+    note: 'found by the data scan 2026-11-23 (moved from bapc-prelims-2014: Dec 2014 bapc.eu page reports
+      the 19 Oct 2014 finals)'
   - url: https://2014.bapc.eu/scoreboards/bapc/
     roles:
     - scoreboard
@@ -697,65 +735,65 @@ contests:
     roles:
     - scoreboard
     as_of: '20241114053413'
-    note: found inside https://2014.bapc.eu/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - bapc/bapc-2014/scoreboard/20241114-wayback-cf248248/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://2014.bapc.eu/ by the content check
   - url: https://2014.bapc.eu/scoreboards/nijmegen
     roles:
     - scoreboard
     as_of: '20241114043039'
-    note: found inside https://2014.bapc.eu/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - bapc/bapc-2014/scoreboard/20241114-wayback-931738d2/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://2014.bapc.eu/ by the content check
   - url: https://2014.bapc.eu/scoreboards/amsterdam
     roles:
     - scoreboard
     as_of: '20241114043525'
-    note: found inside https://2014.bapc.eu/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - bapc/bapc-2014/scoreboard/20241114-wayback-c813d65a/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://2014.bapc.eu/ by the content check
   - url: https://2014.bapc.eu/scoreboards/enschede
     roles:
     - scoreboard
     as_of: '20241014220638'
-    note: found inside https://2014.bapc.eu/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - bapc/bapc-2014/scoreboard/20241014-wayback-d362ea9f/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://2014.bapc.eu/ by the content check
   - url: https://2014.bapc.eu/scoreboards/leiden
     roles:
     - scoreboard
     as_of: '20241014202012'
-    note: found inside https://2014.bapc.eu/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - bapc/bapc-2014/scoreboard/20241014-wayback-1243f44c/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://2014.bapc.eu/ by the content check
   - url: https://2014.bapc.eu/scoreboards/delft
     roles:
     - scoreboard
     as_of: '20241114052659'
-    note: found inside https://2014.bapc.eu/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - bapc/bapc-2014/scoreboard/20241114-wayback-1d9be1e3/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://2014.bapc.eu/ by the content check
   - url: https://2014.bapc.eu/scoreboards/eindhoven
     roles:
     - scoreboard
     as_of: '20241014210015'
-    note: found inside https://2014.bapc.eu/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - bapc/bapc-2014/scoreboard/20241014-wayback-151b2345/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://2014.bapc.eu/ by the content check
   - url: https://2014.bapc.eu/problemset.zip
     roles:
     - problemset
@@ -792,29 +830,29 @@ contests:
     contains:
     - statement
     judge: codeforces
+    url_state: live
+    url_checked: '2026-11-16'
     note: '2014 Benelux Algorithm Programming Contest (BAPC 14), 2014-2015 CT S02E08: Codeforces Trainings
       Season 2 Episode 8 (judge hunt 2026-11-03: name+year: ''2014 Benelux Algorithm Programming Contest
       (BAPC 14), 2014-2015 CT S02E08: Codeforces Trainings Season 2 Episode 8'' -> season start 2014)'
-    url_state: live
-    url_checked: '2026-11-16'
   - url: https://codeforces.com/gym/101512
     roles:
     - problemset
     contains:
     - statement
     judge: codeforces
-    note: '2014 Benelux Algorithm Programming Contest (BAPC 14) (judge hunt 2026-11-03: name+year: ''2014
-      Benelux Algorithm Programming Contest (BAPC 14)'' -> season start 2014)'
+    as_of: '20190409035438'
     url_state: changed
     url_checked: '2026-11-16'
-    as_of: '20190409035438'
+    note: '2014 Benelux Algorithm Programming Contest (BAPC 14) (judge hunt 2026-11-03: name+year: ''2014
+      Benelux Algorithm Programming Contest (BAPC 14)'' -> season start 2014)'
   - url: https://qoj.ac/contest/3894
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Europe/Northwestern-Europe/Benelux-Algorithm-Programming-Contest/The-2014-ICPC-Benelux-Algorithm-Programming-Contest-BAPC-2014/tutorials_en.pdf
     roles:
     - editorial
@@ -827,12 +865,12 @@ contests:
   name: 2015 Benelux Algorithm Programming Contest
   date: '2015-10-24'
   location: Leiden
+  cms_ids:
+  - 2781
   sites:
   - location: nl-leiden
     name: Administrative Site
     type: administrative
-  cms_ids:
-  - 2781
   parent: nwerc-2015
   next: bapc-2016
   sources:
@@ -851,18 +889,18 @@ contests:
   - url: http://2015.bapc.eu/results/preliminaries/eapc/public/
     roles:
     - scoreboard
-    note: found inside http://2015.bapc.eu/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://2015.bapc.eu/ by the content check
   - url: http://2015.bapc.eu/results/preliminaries/uva/UVA_uitslag.pdf
     roles:
-    - standings
+    - scoreboard
     as_of: '20201024053204'
-    note: found inside http://2015.bapc.eu/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - bapc/bapc-2015/standings/20201024-wayback-9cb2a1c9/UVA_uitslag.pdf
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://2015.bapc.eu/ by the content check
   - url: http://2015.bapc.eu/problems/bapc2015.pdf
     roles:
     - problemset
@@ -894,9 +932,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Europe/Northwestern-Europe/Benelux-Algorithm-Programming-Contest/The-2015-ICPC-Benelux-Algorithm-Programming-Contest-BAPC-2015/tutorials_en.pdf
     roles:
     - editorial
@@ -1389,11 +1427,11 @@ contests:
   name: 2021 ICPC Benelux Algorithm Programming Contest
   date: '2021-10-30'
   location: Amsterdam; Administrative Site Location
+  cms_ids:
+  - 4929
   sites:
   - type: administrative
   - location: nl-amsterdam
-  cms_ids:
-  - 4929
   parent: nwerc-2021
   next: bapc-2022
   sources:
@@ -1428,7 +1466,6 @@ contests:
   - url: https://scoreboard.bapc.eu/
     roles:
     - standings
-    as_of: '20241103151938'
     archived:
     - bapc/bapc-2021/external-standings/2026-04-15-external/content.html
     - bapc/bapc-2021/standings/20241103-wayback-617038de/page.html
@@ -1466,10 +1503,10 @@ contests:
     - statement
     - solutions
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221129205341'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Europe/Northwestern-Europe/Benelux-Algorithm-Programming-Contest/The-2021-ICPC-Benelux-Algorithm-Programming-Contest/tutorials_en.pdf
     roles:
     - editorial
@@ -1842,13 +1879,13 @@ contests:
   name: 2025 ICPC Benelux Algorithm Programming Contest
   date: '2025-10-25'
   location: TU Delft; Administrative Site Location
+  cms_ids:
+  - 9372
   sites:
   - type: administrative
   - location: nl-delft-university-technology
     name: BAPC 2025
     date: '2025-10-25'
-  cms_ids:
-  - 9372
   parent: nwerc-2025
   next: bapc-2026
   sources:
@@ -1876,13 +1913,13 @@ contests:
   - url: https://2025.bapc.eu/main/scoreboard/spectators.html
     roles:
     - scoreboard
-    note: found inside https://2025.bapc.eu/ by the content check
-    url_state: live
-    url_checked: '2026-11-16'
+    as_of: '20251108191447'
     archived:
     - bapc/bapc-2025/scoreboard/20251108-wayback-f6202995/spectators.html
     - bapc/bapc-2025/scoreboard/20261116-live-83a1778c/spectators.html
-    as_of: '20251108191447'
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside https://2025.bapc.eu/ by the content check
   - url: https://icpc.global/regionals/finder/BAPC-2026/standings
     roles:
     - standings
@@ -1892,9 +1929,9 @@ contests:
   - url: https://2025.bapc.eu/teams/
     roles:
     - teams
-    note: found inside https://2025.bapc.eu/ by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://2025.bapc.eu/ by the content check
   - url: https://chipcie.wisv.ch/archive/2025/bapc/problem-set.pdf
     roles:
     - problemset
@@ -1938,21 +1975,15 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://2025.bapc.eu/main/problem-set.pdf
     roles:
     - problemset
-    note: found inside https://2025.bapc.eu/ by the content check
     url_state: live
     url_checked: '2026-11-16'
-  - url: https://2025.bapc.eu/prelims/problem-set.pdf
-    roles:
-    - problemset
     note: found inside https://2025.bapc.eu/ by the content check
-    url_state: live
-    url_checked: '2026-11-16'
   - url: https://icpcarchive.github.io/Europe/Northwestern-Europe/Benelux-Algorithm-Programming-Contest/The-2025-ICPC-Benelux-Algorithm-Programming-Contest/tutorials_en.pdf
     roles:
     - editorial
@@ -1963,12 +1994,6 @@ contests:
     - editorial
     url_state: live
     url_checked: '2026-11-16'
-  - url: https://2025.bapc.eu/prelims/solutions.pdf
-    roles:
-    - editorial
-    note: found inside https://2025.bapc.eu/ by the content check
-    url_state: live
-    url_checked: '2026-11-16'
   problems:
     set: bapc-2025
   provenance:
@@ -1977,13 +2002,14 @@ contests:
   season: 2027
   name: 2026 ICPC Benelux Algorithm Programming Contest
   date: '2026-10-31'
+  location: Leiden University, Gorlaeus building, Leiden
+  cms_ids:
+  - 9585
   sites:
   - type: administrative
   - location: nl-leiden-university
     name: BAPC
     date: '2026-10-31'
-  cms_ids:
-  - 9585
   parent: nwerc-2026
   sources:
   - url: https://2026.bapc.eu/
@@ -1993,10 +2019,10 @@ contests:
     roles:
     - scoreboard
     - standings
-    url_state: live
-    url_checked: '2026-11-16'
     archived:
     - bapc/bapc-2026/scoreboard/20261113-live-8ab1474c/page.html
+    url_state: live
+    url_checked: '2026-11-16'
   - url: https://icpc.global/regionals/finder/BAPC-2027/standings
     roles:
     - standings
@@ -2006,9 +2032,9 @@ contests:
   - url: https://2026.bapc.eu/teams/
     roles:
     - teams
-    note: found inside https://2026.bapc.eu/ by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://2026.bapc.eu/ by the content check
   - url: https://chipcie.wisv.ch/archive/2026/bapc/problem-set.pdf
     roles:
     - problemset
@@ -2028,26 +2054,27 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: 2026 Benelux Algorithm Programming Contest (BAPC 26) (problem hunt 2026-11-13)
     url_state: live
     url_checked: '2026-11-16'
+    note: 2026 Benelux Algorithm Programming Contest (BAPC 26) (problem hunt 2026-11-13)
   - url: https://2026.bapc.eu/prelims/prelims-problem-set.pdf
     roles:
     - problemset
-    note: found inside https://2026.bapc.eu/ by the content check
     as_of: '20261113061659'
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://2026.bapc.eu/ by the content check
   - url: https://2026.bapc.eu/prelims/prelims-solutions.pdf
     roles:
     - editorial
-    note: found inside https://2026.bapc.eu/ by the content check
     as_of: '20261112164549'
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://2026.bapc.eu/ by the content check
+  problems:
+    set: bapc-2026
   provenance:
   - 'ran 2026-10-31: shown by its icpc standings, judge page, scoreboard, standings source(s); date from
     CMS site date (ruling 2026-11-12: upcoming ends when the date has passed and a result source or judge
     page shows the contest ran)'
-  problems:
-    set: bapc-2026
+  - location Leiden University, Gorlaeus building, Leiden read from https://2026.bapc.eu/ (data scan 2026-11-23)

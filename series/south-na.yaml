@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/describe_apply.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: south-na
   name: North America South Division
@@ -478,6 +478,10 @@ contests:
   season: 2027
   name: 2026 North America South Division
   date: '2026-11-07'
+  cms_ids:
+  - 9767
+  - 9769
+  - 9777
   sites:
   - type: administrative
   - type: administrative
@@ -566,20 +570,21 @@ contests:
     name: Millersville D1
   - location: us-millersville-university
     name: Millersville D2
-  cms_ids:
-  - 9767
-  - 9769
-  - 9777
   parent: nac-2027
   sources:
+  - url: https://south.na.icpc.global/
+    roles:
+    - web
+    as_of: '20261117041141'
+    note: found by the data scan 2026-11-23 (division site; Wayback CDX)
   - url: https://nasouth26.kattis.com/contests/nasouth26d1/standings
     roles:
     - scoreboard
     scope: Division 1
-    url_state: live
-    url_checked: '2026-11-16'
     archived:
     - south-na/south-na-2026/scoreboard/20261113-live-2d0efdf9/page.html
+    url_state: live
+    url_checked: '2026-11-16'
   - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2027/standings
     roles:
     - standings
@@ -615,9 +620,9 @@ contests:
     judge: kattis
     url_state: live
     url_checked: '2026-11-16'
+  problems:
+    set: south-na-2026
   provenance:
   - 'ran 2026-11-07: shown by its icpc standings, judge page, scoreboard source(s); date from CMS site
     date (ruling 2026-11-12: upcoming ends when the date has passed and a result source or judge page
     shows the contest ran)'
-  problems:
-    set: south-na-2026

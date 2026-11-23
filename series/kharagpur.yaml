@@ -1,10 +1,11 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: kharagpur
   name: ICPC Asia Kharagpur Regional Contest
   tier: regional
   region: Asia West
   naming: season-start
+  rotating_host: true
 contests:
 - id: kharagpur-2012
   season: 2013
@@ -282,13 +283,13 @@ contests:
 - id: kharagpur-2016
   season: 2017
   name: 2016 ACM-ICPC Asia Kharagpur Regional Contest
-  date: '2016-12-18'
+  date: '2016-12-17'
   location: India
+  cms_ids:
+  - 3089
   sites:
   - location: in-kharagpur
     name: Asia 2016 Kharagpur Site
-  cms_ids:
-  - 3089
   parent: wf-2017
   next: kharagpur-2017
   sources:
@@ -320,81 +321,83 @@ contests:
     roles:
     - problemset
     judge: codechef
+    as_of: '20191112110948'
     url_state: replaced
     url_checked: '2026-11-16'
     note: 'ACM-ICPC Asia-Kharagpur Onsite Mirror Contest 2016 (judge hunt 2026-11-03: CodeChef contest
       ''ACM-ICPC Asia-Kharagpur Onsite Mirror Contest 2016'' (code KGP16MOS, held 2016-12-17, 11 problems)
       = official onsite problem set as mirror/replay; catalogue kharagpur-2016 dated 2016-12-18; catalogue
       has no problem titles to cross-check)'
-    as_of: '20191112110948'
   - url: https://www.codechef.com/problems/KGP16A
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/KGP16B
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/KGP16C
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/KGP16D
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/KGP16E
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/KGP16F
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/KGP16G
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/KGP16H
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/KGP16I
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/KGP16J
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/KGP16K
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   problems:
     set: kharagpur-2016
+  provenance:
+  - date 2016-12-17 read from http://acm.iitkgp.ac.in (data scan 2026-11-23)
 - id: kharagpur-2017
   season: 2018
   name: 2017 ACM-ICPC Asia Kharagpur Regional Contest
@@ -494,19 +497,18 @@ contests:
   name: 2019 ICPC Asia Kharagpur Regional Contest
   date: '2019-12-08'
   location: Administrative Site Location; Kharagpur, India
+  cms_ids:
+  - 4090
   sites:
   - type: administrative
   - location: in-kharagpur
     name: Asia 2018 Kharagpur OnSite
-  cms_ids:
-  - 4090
   parent: awc-2019
   next: kharagpur-2020
   sources:
   - url: http://acm.iitkgp.ac.in/
     roles:
     - web
-    - standings
     as_of: '20200729212417'
     archived:
     - kharagpur/kharagpur-2019/external-standings/2026-04-15-external/content.html
@@ -535,102 +537,99 @@ contests:
     roles:
     - problemset
     judge: codechef
+    as_of: '20200623182218'
     url_state: replaced
     url_checked: '2026-11-16'
     note: 'ICPC Asia-Kharagpur Onsite Mirror Contest 2019 (judge hunt 2026-11-03: CodeChef contest ''ICPC
       Asia-Kharagpur Onsite Mirror Contest 2019'' (code KH19MOS, held 2019-12-08, 12 problems) = official
       onsite problem set as mirror/replay; catalogue kharagpur-2019 dated 2019-12-08; catalogue has no
       problem titles to cross-check)'
-    as_of: '20200623182218'
   - url: https://www.codechef.com/problems/BALLCOL
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/GRAPHCON
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/VARMIN
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/BALLSUM
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/AWKMINI
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/RECARR
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/WALKFAST
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/SEGDIR2
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/SUBMATCH
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/MAXDIVER
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/RANDID
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   - url: https://www.codechef.com/problems/ANAJOBS
     roles:
     - problem
-    judge: codechef
     contains:
     - statement
+    judge: codechef
   problems:
     set: kharagpur-2019
 - id: kharagpur-2020
   season: 2021
   name: 2020 ICPC Asia Kharagpur Regional Contest
+  cms_ids:
+  - 4492
   sites:
   - type: administrative
   - location: in-kharagpur
     name: Asia 2018 Kharagpur OnSite
-  cms_ids:
-  - 4492
   parent: wf-2021
   next: kharagpur-2021
-  sources:
-  - url: https://icpc.global/regionals/finder/Kharagpur-2020/standings
-    roles:
-    - standings
+  sources: []
 - id: kharagpur-2021
   season: 2022
   name: 2021 ICPC Asia Kharagpur Regional Contest

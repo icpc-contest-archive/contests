@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: taiwan
   name: ICPC Asia Taichung Regional Programming Contest
@@ -6,6 +6,27 @@ series:
   region: Asia Pacific
   naming: season-start
 contests:
+- id: taiwan-1992
+  season: 1993
+  cms_ids: []
+  parent: wf-1993
+  next: taiwan-1993
+  sources:
+  - url: https://groups.google.com/g/comp.org.acm/c/P3ys4igw6Mk
+    roles:
+    - rankings
+    scope: champion
+    note: 'found by the data scan 2026-11-23 (comp.org.acm 1992-12-31, Ji-Tzay Yang (NCTU): Chiao-Tung
+      Univ. (Taiwan) first in the Taiwan region)'
+  provenance:
+  - 'ran: comp.org.acm, Ji-Tzay Yang (National Chiao-Tung University), 1992-12-31: Chiao-Tung Univ. (Taiwan)
+    placed first in the Taiwan region; "Another team representing Asian region will join the contest if
+    the Asian region contest is held." — https://groups.google.com/g/comp.org.acm/c/P3ys4igw6Mk (data
+    scan 2026-11-23)'
+  notes: 'added by the data scan 2026-11-23 (early-years): the Far East region of 1992-93 (RCD C. J. Hwang,
+    Southwest Texas State — comp.org.acm 1992-07-08); National Chiao Tung is the only Asian team in the
+    wf-1993 standings. Whether a second, ''Asian region'' contest was held is not known. Date and host
+    not found'
 - id: taiwan-1993
   season: 1994
   name: 1993 Far East Regional Programming Contest
@@ -21,13 +42,6 @@ contests:
   - url: https://icpc.global/community/history-icpc-1994
     roles:
     - web
-  - url: https://plg.uwaterloo.ca/~gvcormac/acmresults/1994.html
-    roles:
-    - rankings
-    as_of: '19970713104732'
-    archived:
-    - taiwan/taiwan-1993/rankings/19970713-wayback-d6b1074f/1994.html
-    note: from archived capture (rankings)
   provenance:
   - 'soc.culture.china: Wuxu Peng forwarding C. J. Hwang, ''FWD: Far East Regionals Annual ACM Programming
     Contest'' (1993-09-09): Invitation + call for participation: ''1993 Far East Regional Programming
@@ -220,13 +234,13 @@ contests:
 - id: taiwan-1999
   season: 2000
   name: 1999 ACM Asia Programming Contest, Taipei
-  date: '1999-12-13'
+  date: '1999-12-11'
   location: Taipei
+  cms_ids:
+  - 972
   sites:
   - location: tw-taipei
     date: '1999-12-11'
-  cms_ids:
-  - 972
   parent: wf-2000
   next: taiwan-2000
   sources:
@@ -270,15 +284,18 @@ contests:
     url_checked: '2026-11-13'
   problems:
     set: taiwan-1999
+  provenance:
+  - date 1999-12-11 read from http://icpc.baylor.edu/past/icpc2000/regionals/Taipei99/Report.html (data
+    scan 2026-11-23)
 - id: taiwan-2000
   season: 2001
   name: 2000 ACM Asia Programming Contest, Taipei
   date: '2000-11-19'
   location: Taipei
-  sites:
-  - location: tw-taipei
   cms_ids:
   - 1054
+  sites:
+  - location: tw-taipei
   parent: wf-2001
   next: taiwan-2001
   sources:
@@ -289,7 +306,6 @@ contests:
   - url: http://acm.ntnu.edu.tw/
     roles:
     - web
-    as_of: '20051029142539'
     url_state: dead
     url_checked: '2026-11-14'
   - url: http://acm.ntnu.edu.tw/Standings.html
@@ -352,10 +368,10 @@ contests:
   name: 2001 ACM Asia Programming Contest - Taipei
   date: '2001-11-25'
   location: Taipei
-  sites:
-  - location: tw-taipei
   cms_ids:
   - 1163
+  sites:
+  - location: tw-taipei
   parent: wf-2002
   next: taiwan-2002
   sources:
@@ -366,18 +382,17 @@ contests:
   - url: http://acm.ntnu.edu.tw/
     roles:
     - web
-    as_of: '20051029142539'
     url_state: dead
     url_checked: '2026-11-14'
   - url: http://acm.ntnu.edu.tw/standings.htm
     roles:
     - standings
     as_of: '20011222073157'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - taiwan/taiwan-2001/standings/20011222-wayback-e969f0bc/standings.htm
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=509
     roles:
     - rankings
@@ -500,11 +515,11 @@ contests:
   name: 2003 ACM Asia Programming Contest - Kaohsiung
   date: '2003-11-08'
   location: Kaohsiung
+  cms_ids:
+  - 1011
   sites:
   - location: tw-kaohsiung
     name: Asia - Kaohsiung
-  cms_ids:
-  - 1011
   parent: wf-2004
   next: taiwan-2004
   sources:
@@ -530,13 +545,13 @@ contests:
     note: added by url-hunt 2026-09-01 (cdx-viewstandings)
   - url: http://guan.cse.nsysu.edu.tw/acm03/standings.html
     roles:
-    - teams
+    - standings
     as_of: '20031214114655'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - taiwan/taiwan-2003/standings/20031214-wayback-d14bd9e9/standings.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: https://www.acmicpc.net/category/detail/1092
     roles:
     - problemset
@@ -551,26 +566,26 @@ contests:
   - url: https://www.acmicpc.net/problem/9096
     roles:
     - problem
-    judge: baekjoon
     problem: A
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201030054328'
   - url: https://www.acmicpc.net/problem/9097
     roles:
     - problem
-    judge: baekjoon
     problem: B
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201030054328'
   - url: https://www.acmicpc.net/problem/9098
     roles:
     - problem
-    judge: baekjoon
     problem: C
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201030054328'
   problems:
     set: taiwan-2003
@@ -579,8 +594,10 @@ contests:
 - id: taiwan-2004
   season: 2005
   name: 2004 ACM Asia Programming Contest - Taipei
-  date: '2004-11-06'
+  date: '2004-11-07'
   location: Taiwan; Taipei; Direct to Finals
+  cms_ids:
+  - 959
   sites:
   - location: tw-taipei
     name: Asia- Taipei - Nationwide Preliminaries
@@ -590,8 +607,6 @@ contests:
   - location: tw-taipei
     name: Asia - Taipei - Final Round
     date: '2004-11-07'
-  cms_ids:
-  - 959
   parent: wf-2005
   next: taiwan-2005
   sources:
@@ -608,6 +623,9 @@ contests:
     url_checked: '2026-11-01'
   problems:
     set: taiwan-2004
+  provenance:
+  - date 2004-11-07 read from http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=693
+    (data scan 2026-11-23)
 - id: taiwan-2005
   season: 2006
   name: 2005 ACM Asia Programming Contest - Taipei
@@ -666,6 +684,8 @@ contests:
   name: 2006 ACM Asia Programming Contest - Kaohsiung
   date: '2006-11-18'
   location: Kaohsiung, NSYSU; NTNU and NSYSU; National Chiao Tung Univer; NSYSU; National Taiwan University
+  cms_ids:
+  - 1128
   sites:
   - location: tw
     name: Taiwan Nationwide Group-B Universities Programming Contest
@@ -684,8 +704,6 @@ contests:
   - location: tw
     name: Taiwan Nationwide Group-A Universities Programming Contest
     date: '2006-10-21'
-  cms_ids:
-  - 1128
   parent: wf-2007
   next: taiwan-2007
   sources:
@@ -695,7 +713,7 @@ contests:
     as_of: '20090331141455'
   - url: https://guan.cse.nsysu.edu.tw/acm06/standings.html
     roles:
-    - teams
+    - standings
     as_of: '20191121133914'
     archived:
     - taiwan/taiwan-2006/external-standings/2026-04-15-external/content.html
@@ -718,17 +736,17 @@ contests:
   - url: https://guan.cse.nsysu.edu.tw/acm06/problems.pdf
     roles:
     - problemset
-    note: found inside http://guan.cse.nsysu.edu.tw/acm06 by the content check
+    as_of: '20100927182634'
     url_state: dead
     url_checked: '2026-11-22'
-    as_of: '20100927182634'
+    note: found inside http://guan.cse.nsysu.edu.tw/acm06 by the content check
   - url: https://guan.cse.nsysu.edu.tw/acm06/testdata.txt
     roles:
     - problemset
-    note: found inside http://guan.cse.nsysu.edu.tw/acm06 by the content check
     as_of: '20090331143909'
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://guan.cse.nsysu.edu.tw/acm06 by the content check
   problems:
     set: taiwan-2006
   provenance:
@@ -786,9 +804,11 @@ contests:
 - id: taiwan-2008
   season: 2009
   name: 2008 Asia Taipei Contest
-  date: '2008-12-31'
+  date: '2008-11-08'
   location: Taiwan Category C; Taiwan Category A; Taiwan Category B; Administrative Site Location; Asia
     Taipei Regional
+  cms_ids:
+  - 19
   sites:
   - location: tw-taipei
     name: Asia Taipei Regional Contest
@@ -803,8 +823,6 @@ contests:
     name: Taiwan National Category C Contest
     date: '2008-12-18'
   - type: administrative
-  cms_ids:
-  - 19
   parent: wf-2009
   next: taiwan-2009
   sources:
@@ -825,16 +843,20 @@ contests:
     roles:
     - problemset
     as_of: '20090202134826'
-    note: found inside http://icpc2008.ntu.edu.tw/ by the content check
     url_state: dead
     url_checked: '2026-11-22'
+    note: found inside http://icpc2008.ntu.edu.tw/ by the content check
   problems:
     set: taiwan-2008
+  provenance:
+  - date 2008-11-08 read from http://icpc2008.ntu.edu.tw/ (data scan 2026-11-23)
 - id: taiwan-2009
   season: 2010
   name: 2009 ACM-ICPC Asia Hsinchu Regional Contest
   date: '2009-10-31'
   location: Taiwan Category C; Taiwan Category B; Taiwan Category A; Asia Hsinchu Regional
+  cms_ids:
+  - 504
   sites:
   - location: tw-hsinchu
     name: Asia Hsinchu On-Site Regional Contest
@@ -848,8 +870,6 @@ contests:
   - location: tw
     name: Taiwan National Category C Contest
     date: '2009-10-12'
-  cms_ids:
-  - 504
   parent: wf-2010
   next: taiwan-2010
   sources:
@@ -866,19 +886,20 @@ contests:
   - url: http://icpc2009.nctu.edu.tw/record.html
     roles:
     - standings
-    as_of: '20090511001608'
-    note: found inside http://icpc2009.nctu.edu.tw/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - taiwan/taiwan-2009/standings/20090511-wayback-6f60689e/record.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://icpc2009.nctu.edu.tw/ by the content check
   problems:
     set: taiwan-2009
 - id: taiwan-2010
   season: 2011
   name: 2010 ACM-ICPC Asia Kaohsiung Regional Contest
-  date: '2010-12-05'
+  date: '2010-12-04'
   location: Administrative Site Location; Kaohsiung
+  cms_ids:
+  - 662
   sites:
   - location: tw-kaohsiung
     name: Asia Kaohsiung On Site Regional Contest
@@ -890,8 +911,6 @@ contests:
     name: Taiwan National Category-A First Round Contest
     date: '2010-02-01'
   - type: administrative
-  cms_ids:
-  - 662
   parent: wf-2011
   next: taiwan-2011
   sources:
@@ -917,6 +936,8 @@ contests:
     note: rendered from the icpc.global API standings archive (cms 662, 69 teams, DB fetch 2026-04-26)
   problems:
     set: taiwan-2010
+  provenance:
+  - date 2010-12-04 read from http://icpc2010.lis.nsysu.edu.tw/ (data scan 2026-11-23)
 - id: taiwan-2011
   season: 2012
   name: 2011 ACM-ICPC Asia Hsinchu Regional Contest
@@ -984,16 +1005,16 @@ contests:
 - id: taiwan-2012
   season: 2013
   name: 2012 ACM-ICPC Asia Kaohsiung Regional Contest
-  date: '2012-11-25'
+  date: '2012-11-24'
   location: Administrative Site Location; Kaohsiung
+  cms_ids:
+  - 1368
   sites:
   - type: administrative
     name: Administrative Site
   - location: tw-kaohsiung
     name: Asia Kaohsiung On Site Regional Contest
     date: '2012-11-23'
-  cms_ids:
-  - 1368
   parent: wf-2013
   next: taiwan-2013
   sources:
@@ -1019,6 +1040,8 @@ contests:
     note: rendered from the icpc.global API standings archive (cms 1368, 70 teams, DB fetch 2026-04-26)
   problems:
     set: taiwan-2012
+  provenance:
+  - date 2012-11-24 read from http://icpc2012.lis.nsysu.edu.tw/bin/home.php (data scan 2026-11-23)
 - id: taiwan-2013
   season: 2014
   name: 2013 ACM-ICPC Asia Chia-Yi Regional Contest
@@ -1058,8 +1081,10 @@ contests:
 - id: taiwan-2014
   season: 2015
   name: 2014 ACM-ICPC Asia Taichung Regional Contest
-  date: '2014-11-23'
+  date: '2014-11-22'
   location: Administrative Site Location; Asia Taichung; Taichung
+  cms_ids:
+  - 2611
   sites:
   - location: tw-taichung
     name: Taichung Foreign Teams
@@ -1067,8 +1092,6 @@ contests:
   - location: tw-taichung
     name: Asia Taichung On Site Regional Contest
   - type: administrative
-  cms_ids:
-  - 2611
   parent: wf-2015
   next: taiwan-2015
   sources:
@@ -1104,21 +1127,23 @@ contests:
     roles:
     - teams
     as_of: '20151208161956'
-    note: found inside http://icpc2014.pu.edu.tw/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://icpc2014.pu.edu.tw/ by the content check
   problems:
     set: taiwan-2014
+  provenance:
+  - date 2014-11-22 read from http://icpc2014.pu.edu.tw/ (data scan 2026-11-23)
 - id: taiwan-2015
   season: 2016
   name: 2015 ACM-ICPC Asia Taipei Regional Contest
   date: '2015-12-06'
   location: Taipei
+  cms_ids:
+  - 2921
   sites:
   - location: tw-taipei
     name: Asia Taipei On Site Regional Contest
-  cms_ids:
-  - 2921
   parent: wf-2016
   next: taiwan-2016
   sources:
@@ -1128,7 +1153,6 @@ contests:
   - url: http://icpc2015.csie.ntnu.edu.tw/ICPC2015_result/ICPC2015_result.html
     roles:
     - scoreboard
-    - standings
     as_of: '20160112001248'
     archived:
     - taiwan/taiwan-2015/external-standings/2026-04-15-external/content.html
@@ -1143,6 +1167,13 @@ contests:
     archived:
     - taiwan/taiwan-2015/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 2921, 73 teams, DB fetch 2026-04-26)
+  - url: http://icpc2015.csie.ntnu.edu.tw/images/Contest/0_ICPC2015.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    as_of: '20151223211500'
+    note: found by the data scan 2026-11-23 (own holdings (taiwan-2015 site crawl))
   problems:
     set: taiwan-2015
 - id: taiwan-2016
@@ -1179,12 +1210,12 @@ contests:
   name: 2017 ACM-ICPC Asia Hua-Lien Regional Contest
   date: '2017-11-25'
   location: Hua-Lien Taiwan
+  cms_ids:
+  - 3411
   sites:
   - location: tw-hualien-city
     name: Asia Hua-Lien On Site Regional Contest
     date: '2017-11-24'
-  cms_ids:
-  - 3411
   parent: wf-2018
   next: taiwan-2018
   sources:
@@ -1195,7 +1226,6 @@ contests:
   - url: https://icpc2017.ndhu.edu.tw/files/11-1186-16288.php?Lang=zh-tw
     roles:
     - scoreboard
-    - standings
     as_of: '20200927034807'
     archived:
     - taiwan/taiwan-2017/external-standings/2026-04-15-external/content.html
@@ -1208,20 +1238,20 @@ contests:
     roles:
     - scoreboard
     as_of: '20191114030541'
-    note: found inside https://icpc2017.ndhu.edu.tw/bin/home.php by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - taiwan/taiwan-2017/scoreboard/20191114-wayback-9bdbe413/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://icpc2017.ndhu.edu.tw/bin/home.php by the content check
   - url: http://icpc2017.ndhu.edu.tw/files/11-1186-16553.php
     roles:
     - scoreboard
     as_of: '20191114030453'
-    note: found inside https://icpc2017.ndhu.edu.tw/bin/home.php by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - taiwan/taiwan-2017/scoreboard/20191114-wayback-ac505b1f/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://icpc2017.ndhu.edu.tw/bin/home.php by the content check
   - url: https://icpc.global/regionals/finder/Hua-Lien-2018/standings
     roles:
     - standings
@@ -1232,16 +1262,16 @@ contests:
     roles:
     - problemset
     as_of: '20191124140126'
-    note: found inside https://icpc2017.ndhu.edu.tw/bin/home.php by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside https://icpc2017.ndhu.edu.tw/bin/home.php by the content check
   - url: http://icpc2017.ndhu.edu.tw/ezfiles/186/1186/img/3475/finalreport.pdf
     roles:
     - editorial
     as_of: '20180713075037'
-    note: found inside https://icpc2017.ndhu.edu.tw/bin/home.php by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside https://icpc2017.ndhu.edu.tw/bin/home.php by the content check
   problems:
     set: taiwan-2017
 - id: taiwan-2018
@@ -1386,13 +1416,13 @@ contests:
 - id: taiwan-2019
   season: 2020
   name: 2019 ICPC Asia Taipei-Hsinchu Site Programming Contest
-  date: '2019-11-25'
+  date: '2019-11-24'
   location: Taipei Taiwan
+  cms_ids:
+  - 4181
   sites:
   - location: tw-taipei
     name: Asia Taiwan Taipei On Site Regional Contest
-  cms_ids:
-  - 4181
   parent: wf-2020
   next: taiwan-2020
   sources:
@@ -1400,6 +1430,13 @@ contests:
     roles:
     - web
     as_of: '20200814145320'
+  - url: http://contest2019.icpc.tw/onsite/team-selection/
+    roles:
+    - web
+    as_of: '20200922144836'
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://contest2019.icpc.tw/ by the content check
   - url: http://contest2019.icpc.tw/final-scoreboard/
     roles:
     - standings
@@ -1420,18 +1457,11 @@ contests:
     roles:
     - rankings
     as_of: '20200922131115'
-    note: found inside http://contest2019.icpc.tw/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - taiwan/taiwan-2019/rankings/20200922-wayback-b8f5c224/page.html
-  - url: http://contest2019.icpc.tw/onsite/team-selection/
-    roles:
-    - teams
-    as_of: '20200922144836'
-    note: found inside http://contest2019.icpc.tw/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://contest2019.icpc.tw/ by the content check
   - url: https://codeforces.com/gym/102460
     roles:
     - problemset
@@ -1456,29 +1486,37 @@ contests:
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221129222150'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: taiwan-2019
+  provenance:
+  - date 2019-11-24 read from http://contest2019.icpc.tw/ (data scan 2026-11-23)
 - id: taiwan-2020
   season: 2021
   name: 2020 ICPC Asia Taipei-Hsinchu Site Programming Contest
-  date: '2020-11-09'
+  date: '2020-11-08'
   location: Administrative Site Location; Taipei Taiwan
+  cms_ids:
+  - 4325
   sites:
   - type: administrative
   - location: tw-taipei
     name: Asia Taiwan Taipei On Site Regional Contest
-  cms_ids:
-  - 4325
   parent: wf-2021
   next: taiwan-2021
   sources:
   - url: https://icpc2020.ntub.edu.tw/
     roles:
     - web
+  - url: https://icpc2020.ntub.edu.tw/onsite/team-selection/
+    roles:
+    - web
+    url_state: replaced
+    url_checked: '2026-11-16'
+    note: found inside https://icpc2020.ntub.edu.tw/ by the content check
   - url: https://icpc2020.ntub.edu.tw/wp-content/uploads/2020/11/Screenshot_2020-11-12-Scoreboard-DOMjudge.png
     roles:
     - scoreboard
@@ -1500,13 +1538,13 @@ contests:
   - url: https://icpc2020.ntub.edu.tw/final-scoreboard/
     roles:
     - scoreboard
-    note: found inside https://icpc2020.ntub.edu.tw/ by the content check
-    url_state: replaced
-    url_checked: '2026-11-16'
+    as_of: '20210103032650'
     archived:
     - taiwan/taiwan-2020/scoreboard/20210103-wayback-8a0e1fd4/page.html
     - taiwan/taiwan-2020/scoreboard/20261115-live-63ea3af3/page.html
-    as_of: '20210103032650'
+    url_state: replaced
+    url_checked: '2026-11-16'
+    note: found inside https://icpc2020.ntub.edu.tw/ by the content check
   - url: https://icpc.global/regionals/finder/Taipei-2021/standings
     roles:
     - standings
@@ -1516,19 +1554,13 @@ contests:
   - url: https://icpc2020.ntub.edu.tw/final-scoreboard/awards/
     roles:
     - rankings
-    note: found inside https://icpc2020.ntub.edu.tw/ by the content check
-    url_state: changed
-    url_checked: '2026-11-16'
+    as_of: '20210615035524'
     archived:
     - taiwan/taiwan-2020/rankings/20210615-wayback-3fe2860e/page.html
     - taiwan/taiwan-2020/rankings/20261115-live-aec1eac9/page.html
-    as_of: '20210615035524'
-  - url: https://icpc2020.ntub.edu.tw/onsite/team-selection/
-    roles:
-    - teams
-    note: found inside https://icpc2020.ntub.edu.tw/ by the content check
-    url_state: replaced
+    url_state: changed
     url_checked: '2026-11-16'
+    note: found inside https://icpc2020.ntub.edu.tw/ by the content check
   - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Taiwan/2020%20Asia%20Taipei-Hsinchu%20Regional%20Contest/problems.pdf
     roles:
     - problemset
@@ -1552,45 +1584,48 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: 'The 2020 ICPC Asia Taipei-Hsinchu Site Programming Contest (judge hunt 2026-11-03: name+year:
-      ''The 2020 ICPC Asia Taipei-Hsinchu Site Programming Contest'' -> season start 2020)'
     as_of: '20240606025630'
     url_state: live
     url_checked: '2026-11-16'
+    note: 'The 2020 ICPC Asia Taipei-Hsinchu Site Programming Contest (judge hunt 2026-11-03: name+year:
+      ''The 2020 ICPC Asia Taipei-Hsinchu Site Programming Contest'' -> season start 2020)'
   - url: https://qoj.ac/contest/469
     roles:
     - problemset
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221207170845'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpc2020.ntub.edu.tw/problem-set/
     roles:
     - problemset
-    note: found inside https://icpc2020.ntub.edu.tw/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside https://icpc2020.ntub.edu.tw/ by the content check
   - url: https://icpcarchive.github.io/Asia-Pacific/Taiwan/The-2020-ICPC-Asia-Taipei-Hsinchu-Site-Programming-Contest/tutorials_en.pdf
     roles:
     - editorial
+    - problemset
     url_state: live
     url_checked: '2026-11-16'
   problems:
     set: taiwan-2020
+  provenance:
+  - date 2020-11-08 read from https://icpc2020.ntub.edu.tw/ (data scan 2026-11-23)
 - id: taiwan-2021
   season: 2022
   name: 2021 ICPC Asia Taipei Regional Programming Contest
-  date: '2021-11-29'
+  date: '2021-11-28'
   location: Taipei Taiwan; Administrative Site Location
+  cms_ids:
+  - 4872
   sites:
   - type: administrative
   - location: tw-taipei
     name: Asia Taiwan Taipei On Site Regional Contest
-  cms_ids:
-  - 4872
   parent: wf-2022
   next: taiwan-2022
   sources:
@@ -1606,13 +1641,13 @@ contests:
   - url: https://icpc2021.ntub.edu.tw/final-scoreboard/awards/
     roles:
     - rankings
-    note: found inside https://icpc2021.ntub.edu.tw/ by the content check
     as_of: '20220525131916'
-    url_state: changed
-    url_checked: '2026-11-16'
     archived:
     - taiwan/taiwan-2021/rankings/20220525-wayback-e14acbd8/page.html
     - taiwan/taiwan-2021/rankings/20261116-live-5de19c28/page.html
+    url_state: changed
+    url_checked: '2026-11-16'
+    note: found inside https://icpc2021.ntub.edu.tw/ by the content check
   - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Taiwan/2021%20Asia%20Taipei%20Regional%20Contest/problems.pdf
     roles:
     - problemset
@@ -1626,40 +1661,42 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: 'The 2021 ICPC Asia Taipei Regional Programming Contest (judge hunt 2026-11-03: name+year: ''The
-      2021 ICPC Asia Taipei Regional Programming Contest'' -> season start 2021)'
     as_of: '20211201220628'
     url_state: changed
     url_checked: '2026-11-16'
+    note: 'The 2021 ICPC Asia Taipei Regional Programming Contest (judge hunt 2026-11-03: name+year: ''The
+      2021 ICPC Asia Taipei Regional Programming Contest'' -> season start 2021)'
   - url: https://icpc2021.ntub.edu.tw/wp-content/uploads/2021/12/main-with-hint.pdf
     roles:
     - problemset
-    note: found inside https://icpc2021.ntub.edu.tw/ by the content check
     as_of: '20211205154844'
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside https://icpc2021.ntub.edu.tw/ by the content check
   - url: https://icpc2021.ntub.edu.tw/wp-content/uploads/2021/12/main-1.pdf
     roles:
     - problemset
-    note: found inside https://icpc2021.ntub.edu.tw/ by the content check
     as_of: '20240605160732'
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside https://icpc2021.ntub.edu.tw/ by the content check
   problems:
     set: taiwan-2021
+  provenance:
+  - date 2021-11-28 read from https://icpc2021.ntub.edu.tw/ (data scan 2026-11-23)
 - id: taiwan-2022
   season: 2023
   name: 2022 ICPC Asia Taoyuan Regional Programming Contest
-  date: '2022-11-21'
-  location: Foreign teams; Administrative Site Location; Taipei Taiwan
+  date: '2022-11-20'
+  location: Taoyuan, Taiwan; Administrative Site Location
+  cms_ids:
+  - 5626
   sites:
   - type: administrative
-  - location: tw-taipei
+  - location: tw-taoyuan
     name: Asia Taoyuan On Site Regional Contest
   - type: administrative
     name: Foreign teams
-  cms_ids:
-  - 5626
   parent: wf-2023
   next: taiwan-2023
   sources:
@@ -1694,24 +1731,24 @@ contests:
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20230324184238'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpc2022.ntub.edu.tw/wp-content/uploads/2022/11/ICPC2022-mainhint.pdf
     roles:
     - problemset
-    note: found inside https://icpc2022.ntub.edu.tw/ by the content check
+    as_of: '20240917132324'
     url_state: live
     url_checked: '2026-11-22'
-    as_of: '20240917132324'
+    note: found inside https://icpc2022.ntub.edu.tw/ by the content check
   - url: https://icpc2022.ntub.edu.tw/wp-content/uploads/2022/11/ICPC2022-main.pdf
     roles:
     - problemset
-    note: found inside https://icpc2022.ntub.edu.tw/ by the content check
     as_of: '20240917161858'
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://icpc2022.ntub.edu.tw/ by the content check
   - url: https://icpcarchive.github.io/Asia-Pacific/Taiwan/The-2022-ICPC-Asia-Taoyuan-Regional-Programming-Contest/tutorials_en.pdf
     roles:
     - editorial
@@ -1719,19 +1756,23 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: taiwan-2022
+  provenance:
+  - date 2022-11-20 read from https://icpc2022.ntub.edu.tw/ (data scan 2026-11-23)
+  - location Taoyuan, Taiwan; Administrative Site Location read from https://icpc2022.ntub.edu.tw/ (data
+    scan 2026-11-23)
 - id: taiwan-2023
   season: 2024
   name: 2023 ICPC Asia Taoyuan Regional Programming Contest
   date: '2023-10-22'
-  location: Foreign teams; Administrative Site Location; Taipei Taiwan
+  location: Taoyuan, Taiwan; Administrative Site Location
+  cms_ids:
+  - 7504
   sites:
   - type: administrative
-  - location: tw-taipei
+  - location: tw-taoyuan
     name: Asia Taoyuan On Site Regional Contest
   - type: administrative
     name: Foreign teams
-  cms_ids:
-  - 7504
   parent: apc-2024
   next: taiwan-2024
   sources:
@@ -1750,12 +1791,12 @@ contests:
   - url: https://icpc2023.ntub.edu.tw/?page_id=267
     roles:
     - scoreboard
-    note: found inside https://icpc2023.ntub.edu.tw/ by the content check
-    url_state: dead
-    url_checked: '2026-11-22'
     as_of: '20240722131541'
     archived:
     - taiwan/taiwan-2023/scoreboard/20240722-wayback-a867d0d9/page.html
+    url_state: dead
+    url_checked: '2026-11-22'
+    note: found inside https://icpc2023.ntub.edu.tw/ by the content check
   - url: https://icpc.global/regionals/finder/Taipei-2024/standings
     roles:
     - standings
@@ -1765,12 +1806,12 @@ contests:
   - url: https://icpc2023.ntub.edu.tw/?page_id=290
     roles:
     - rankings
-    note: found inside https://icpc2023.ntub.edu.tw/ by the content check
     as_of: '20240723102135'
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - taiwan/taiwan-2023/rankings/20240723-wayback-715b3371/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://icpc2023.ntub.edu.tw/ by the content check
   - url: https://icpc2023.ntub.edu.tw/wp-content/uploads/2023/10/ICPC2023-ProblemSet.pdf
     roles:
     - problemset
@@ -1784,17 +1825,17 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: 'The 2023 ICPC Asia Taoyuan Regional Programming Contest (judge hunt 2026-11-03: name+year:
-      ''The 2023 ICPC Asia Taoyuan Regional Programming Contest'' -> season start 2023)'
     url_state: live
     url_checked: '2026-11-16'
+    note: 'The 2023 ICPC Asia Taoyuan Regional Programming Contest (judge hunt 2026-11-03: name+year:
+      ''The 2023 ICPC Asia Taoyuan Regional Programming Contest'' -> season start 2023)'
   - url: https://qoj.ac/contest/2768
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Asia-Pacific/Taiwan/The-2023-ICPC-Asia-Taoyuan-Regional-Programming-Contest/tutorials_en.pdf
     roles:
     - editorial
@@ -1803,16 +1844,21 @@ contests:
   - url: https://icpc2023.ntub.edu.tw/wp-content/uploads/2023/10/ICPC2023-ProblemSet-Hint.pdf
     roles:
     - editorial
-    note: found inside https://icpc2023.ntub.edu.tw/ by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside https://icpc2023.ntub.edu.tw/ by the content check
   problems:
     set: taiwan-2023
+  provenance:
+  - location Taoyuan, Taiwan; Administrative Site Location read from https://icpc2023.ntub.edu.tw/ (data
+    scan 2026-11-23)
 - id: taiwan-2024
   season: 2025
   name: 2024 ICPC Asia Taichung Regional Programming Contest
-  date: '2024-11-18'
+  date: '2024-11-17'
   location: Taichung Taiwan; Foreign teams; Administrative Site Location; Outer Space
+  cms_ids:
+  - 8742
   sites:
   - type: administrative
   - type: administrative
@@ -1823,8 +1869,6 @@ contests:
   - location: tw
     name: Cancelled Teams
     type: administrative
-  cms_ids:
-  - 8742
   parent: apc-2025
   next: taiwan-2025
   sources:
@@ -1836,11 +1880,11 @@ contests:
     roles:
     - scoreboard
     as_of: '20250126090052'
-    note: found inside https://hpc.asia.edu.tw/icpc2024/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - taiwan/taiwan-2024/scoreboard/20250126-wayback-dcf4d85b/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://hpc.asia.edu.tw/icpc2024/ by the content check
   - url: https://icpc.global/regionals/finder/Taipei-2025/standings
     roles:
     - standings
@@ -1851,11 +1895,11 @@ contests:
     roles:
     - rankings
     as_of: '20250126084938'
-    note: found inside https://hpc.asia.edu.tw/icpc2024/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - taiwan/taiwan-2024/rankings/20250126-wayback-f5b52a0d/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://hpc.asia.edu.tw/icpc2024/ by the content check
   - url: https://codeforces.com/contest/2041
     roles:
     - problemset
@@ -1868,9 +1912,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Asia-Pacific/Taiwan/The-2024-ICPC-Asia-Taichung-Regional-Programming-Contest/tutorials_en.pdf
     roles:
     - editorial
@@ -1878,11 +1922,15 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: taiwan-2024
+  provenance:
+  - date 2024-11-17 read from https://hpc.asia.edu.tw/icpc2024/ (data scan 2026-11-23)
 - id: taiwan-2025
   season: 2026
   name: 2025 ICPC Asia Taichung Regional Programming Contest
-  date: '2025-11-17'
+  date: '2025-11-16'
   location: Taichung Taiwan; Outer Space; Foreign teams; Administrative Site Location
+  cms_ids:
+  - 9395
   sites:
   - type: administrative
   - type: administrative
@@ -1892,8 +1940,6 @@ contests:
   - location: tw
     name: Cancelled Teams
     type: administrative
-  cms_ids:
-  - 9395
   parent: apc-2026
   next: taiwan-2026
   sources:
@@ -1918,12 +1964,12 @@ contests:
   - url: https://www.icpc.tw/2025/awards/
     roles:
     - rankings
-    note: found inside https://www.icpc.tw/2025/ by the content check
     as_of: '20260217002137'
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - taiwan/taiwan-2025/rankings/20260217-wayback-da92791b/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://www.icpc.tw/2025/ by the content check
   - url: https://codeforces.com/contest/2172
     roles:
     - problemset
@@ -1936,11 +1982,13 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: taiwan-2025
+  provenance:
+  - date 2025-11-16 read from https://www.icpc.tw/2025/ (data scan 2026-11-23)
 - id: taiwan-2026
   status: upcoming
   season: 2027

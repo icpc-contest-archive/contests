@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: uzbekistan
   name: ICPC Uzbekistan Regional Contest
@@ -17,6 +17,12 @@ contests:
   - url: https://neerc.ifmo.ru/subregions/uzbekistan.html
     roles:
     - web
+  - url: http://neerc.ifmo.ru/Archive/2002/middle-asia.html
+    roles:
+    - scoreboard
+    as_of: '20030510043539'
+    note: found by the data scan 2026-11-23 (Wayback snapshot 20030510043539; a copy is held in the website
+      crawl of north-russia-2002)
   provenance:
   - location read from https://neerc.ifmo.ru/subregions/uzbekistan.html (description round 2026-11-16)
 - id: uzbekistan-2003
@@ -68,13 +74,17 @@ contests:
 - id: uzbekistan-2004
   season: 2005
   name: 2004 Uzbekistan Subregional Contest
+  location: Tashkent, Tashkent University of Information Technologies
   cms_ids: []
+  sites:
+  - location: uz-tashkent
   parent: neerc-2004
   next: uzbekistan-2005
   sources:
   - url: https://neerc.ifmo.ru/subregions/uzbekistan.html
     roles:
     - web
+    as_of: '20041110041434'
   - url: https://nerc.itmo.ru/archive/2004/uzbekistan/standings.html
     roles:
     - scoreboard
@@ -100,6 +110,9 @@ contests:
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
   problems:
     set: uzbekistan-2004
+  provenance:
+  - location Tashkent, Tashkent University of Information Technologies read from https://web.archive.org/web/20050212193453/http://neerc.ifmo.ru/subregions/uzbekistan.html
+    (data scan 2026-11-23)
 - id: uzbekistan-2005
   season: 2006
   name: 2005 Uzbekistan Subregional Contest
@@ -110,6 +123,7 @@ contests:
   - url: https://neerc.ifmo.ru/subregions/uzbekistan.html
     roles:
     - web
+    as_of: '20060503231245'
   - url: https://nerc.itmo.ru/archive/2005/uzbekistan/standings.html
     roles:
     - scoreboard
@@ -141,13 +155,17 @@ contests:
 - id: uzbekistan-2006
   season: 2007
   name: 2006 Uzbekistan Subregional Contest
+  location: Tashkent, Tashkent University of Information Technologies
   cms_ids: []
+  sites:
+  - location: uz-tashkent
   parent: neerc-2006
   next: uzbekistan-2007
   sources:
   - url: https://neerc.ifmo.ru/subregions/uzbekistan.html
     roles:
     - web
+    as_of: '20070121102353'
   - url: https://nerc.itmo.ru/archive/2006/uzbekistan/standings.html
     roles:
     - scoreboard
@@ -177,16 +195,25 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: north-russia-2006
+  provenance:
+  - location Tashkent, Tashkent University of Information Technologies read from https://web.archive.org/web/20070121102353/http://neerc.ifmo.ru/subregions/uzbekistan.html
+    (data scan 2026-11-23)
 - id: uzbekistan-2007
   season: 2008
   name: 2007 Uzbekistan Subregional Contest
-  cms_ids: []
+  date: '2007-10-28'
+  location: Tashkent, Tashkent University of Information Technologies
+  cms_ids:
+  - 9913
+  sites:
+  - location: uz-tashkent
   parent: neerc-2007
   next: uzbekistan-2008
   sources:
   - url: https://neerc.ifmo.ru/subregions/uzbekistan.html
     roles:
     - web
+    as_of: '20071124014838'
   - url: https://nerc.itmo.ru/archive/2007/uzbekistan/standings.html
     roles:
     - scoreboard
@@ -218,23 +245,29 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: north-russia-2007
+  provenance:
+  - cms id 9913 read from https://icpc.global/api/contest/public/regionalresults/2008 (data scan 2026-11-23)
+  - date 2007-10-28 read from https://nerc.itmo.ru/archive/2007/light/problems.pdf (data scan 2026-11-23)
+  - location Tashkent, Tashkent University of Information Technologies read from https://web.archive.org/web/20071124014838/http://neerc.ifmo.ru/subregions/uzbekistan.html
+    (data scan 2026-11-23)
 - id: uzbekistan-2008
   season: 2009
   name: 2008 Uzbekistan Subregional Contest
   date: '2008-11-01'
   location: Tashkent
+  cms_ids:
+  - 73
   sites:
   - location: uz-tashkent
     name: Uzbekistan Subregional Contest
     type: administrative
-  cms_ids:
-  - 73
   parent: neerc-2008
   next: uzbekistan-2009
   sources:
   - url: http://neerc.ifmo.ru/subregions/uzbekistan.html
     roles:
     - web
+    as_of: '20080926023026'
   - url: https://nerc.itmo.ru/archive/2008/uzbekistan/standings.html
     roles:
     - scoreboard
@@ -268,19 +301,20 @@ contests:
   name: 2009 Uzbekistan Subregional Contest
   date: '2009-10-17'
   location: Administrative Site Location; Tashkent
+  cms_ids:
+  - 525
   sites:
   - type: administrative
   - location: uz-tashkent
     name: Uzbekistan Subregional Contest
     type: administrative
-  cms_ids:
-  - 525
   parent: neerc-2009
   next: uzbekistan-2010
   sources:
   - url: https://neerc.ifmo.ru/subregions/uzbekistan.html
     roles:
     - web
+    as_of: '20100402050023'
   - url: https://nerc.itmo.ru/archive/2009/uzbekistan/standings.html
     roles:
     - scoreboard
@@ -366,19 +400,20 @@ contests:
   name: 2011 Uzbekistan Subregional Contest
   date: '2011-10-29'
   location: Administrative Site Location; Tashkent
+  cms_ids:
+  - 753
   sites:
   - type: administrative
   - location: uz-tashkent
     name: Uzbekistan Subregional Contest
     type: administrative
-  cms_ids:
-  - 753
   parent: neerc-2011
   next: uzbekistan-2012
   sources:
   - url: https://neerc.ifmo.ru/subregions/uzbekistan.html
     roles:
     - web
+    as_of: '20111114181400'
   - url: https://nerc.itmo.ru/archive/2011/uzbekistan/standings.html
     roles:
     - scoreboard
@@ -476,19 +511,20 @@ contests:
   name: 2013 Uzbekistan Subregional Contest
   date: '2013-10-26'
   location: Tashkent; Administrative Site Location
+  cms_ids:
+  - 2037
   sites:
   - location: uz-tashkent
     name: Uzbekistan Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 2037
   parent: neerc-2013
   next: uzbekistan-2014
   sources:
   - url: https://neerc.ifmo.ru/subregions/uzbekistan.html
     roles:
     - web
+    as_of: '20140406211754'
   - url: https://nerc.itmo.ru/archive/2013/uzbekistan/standings.html
     roles:
     - scoreboard
@@ -525,19 +561,20 @@ contests:
   name: 2014 Uzbekistan Subregional Contest
   date: '2014-11-08'
   location: Administrative Site Location; Tashkent
+  cms_ids:
+  - 2680
   sites:
   - location: uz-tashkent
     name: Uzbekistan Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 2680
   parent: neerc-2014
   next: uzbekistan-2015
   sources:
   - url: https://neerc.ifmo.ru/subregions/uzbekistan.html
     roles:
     - web
+    as_of: '20141229031750'
   - url: https://nerc.itmo.ru/archive/2014/uzbekistan/standings.html
     roles:
     - scoreboard
@@ -580,19 +617,20 @@ contests:
   name: 2015 Uzbekistan Subregional Contest
   date: '2015-10-24'
   location: Administrative Site Location; Tashkent
+  cms_ids:
+  - 2759
   sites:
   - location: uz-tashkent
     name: Uzbekistan Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 2759
   parent: neerc-2015
   next: uzbekistan-2016
   sources:
   - url: https://neerc.ifmo.ru/subregions/uzbekistan.html
     roles:
     - web
+    as_of: '20160318032408'
   - url: https://nerc.itmo.ru/archive/2015/uzbekistan/standings.html
     roles:
     - scoreboard
@@ -635,19 +673,20 @@ contests:
   name: 2016 Uzbekistan Subregional Contest
   date: '2016-11-13'
   location: Administrative Site Location; Tashkent
+  cms_ids:
+  - 3153
   sites:
   - location: uz-tashkent
     name: Uzbekistan Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 3153
   parent: neerc-2016
   next: uzbekistan-2017
   sources:
   - url: https://neerc.ifmo.ru/subregions/uzbekistan.html
     roles:
     - web
+    as_of: '20161113191146'
   - url: https://nerc.itmo.ru/archive/2016/uzbekistan/standings.html
     roles:
     - scoreboard
@@ -729,19 +768,20 @@ contests:
   name: 2018 Uzbekistan Subregional Contest
   date: '2018-11-11'
   location: Administrative Site Location; Tashkent
+  cms_ids:
+  - 3679
   sites:
   - location: uz-tashkent
     name: Uzbekistan Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 3679
   parent: nerc-2018
   next: uzbekistan-2019
   sources:
   - url: https://neerc.ifmo.ru/subregions/uzbekistan.html
     roles:
     - web
+    as_of: '20181114191852'
   - url: https://nerc.itmo.ru/archive/2018/uzbekistan/standings.html
     roles:
     - scoreboard
@@ -785,19 +825,20 @@ contests:
   name: 2019 Uzbekistan Regional Contest
   date: '2019-11-10'
   location: Administrative Site Location; Tashkent
+  cms_ids:
+  - 4191
   sites:
   - type: administrative
   - location: uz-tashkent
     name: Uzbekistan Subregional Contest
     type: administrative
-  cms_ids:
-  - 4191
   parent: nerc-2019
   next: uzbekistan-2020
   sources:
   - url: https://neerc.ifmo.ru/subregions/uzbekistan.html
     roles:
     - web
+    as_of: '20191202182953'
   - url: https://nerc.itmo.ru/archive/2019/uzbekistan/standings.html
     roles:
     - scoreboard
@@ -819,6 +860,10 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
+  - url: https://icpc.global/regionals/finder/Uzbekistan-Regional-2020/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 74 rows)
   problems:
     set: azerbaijan-2019
 - id: uzbekistan-2020
@@ -1036,19 +1081,20 @@ contests:
   name: 2022 ICPC Uzbekistan Regional Contest
   date: '2022-11-27'
   location: Tashkent; Administrative Site Location
+  cms_ids:
+  - 5598
   sites:
   - type: administrative
   - location: uz-tashkent
     name: Uzbekistan Regional Contest
     type: administrative
-  cms_ids:
-  - 5598
   parent: nerc-2022
   next: uzbekistan-2023
   sources:
   - url: https://neerc.ifmo.ru/subregions/uzbekistan.html
     roles:
     - web
+    as_of: '20230208035154'
   - url: https://nerc.itmo.ru/archive/2022/uzbekistan/standings.html
     roles:
     - scoreboard
@@ -1083,16 +1129,21 @@ contests:
   name: 2023 ICPC Uzbekistan Regional Contest
   date: '2023-10-22'
   location: Administrative Site Location; Tashkent
+  cms_ids:
+  - 7750
   sites:
   - type: administrative
   - location: uz-tashkent
     name: Uzbekistan Regional Contest
     type: administrative
-  cms_ids:
-  - 7750
   parent: nerc-2023
   next: uzbekistan-2024
   sources:
+  - url: https://neerc.ifmo.ru/subregions/uzbekistan.html
+    roles:
+    - web
+    as_of: '20240415153608'
+    note: found by the data scan 2026-11-23 (Wayback CDX of the NERC subregion page)
   - url: https://icpc.global/regionals/finder/Uzbekistan-Regional-2024/standings
     roles:
     - standings
@@ -1161,14 +1212,22 @@ contests:
   season: 2027
   name: 2026 ICPC Uzbekistan Regional Contest
   date: '2026-11-08'
+  cms_ids:
+  - 9782
   sites:
   - type: administrative
   - location: uz-tashkent
     name: Uzbekistan Regional Contest
-  cms_ids:
-  - 9782
   parent: nerc-2026
   sources:
+  - url: https://nerc.itmo.ru/subregions/uzbekistan.html
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (NERC subregion page, live)
+  - url: https://opentrains.opencup.org/uz2026res
+    roles:
+    - scoreboard
+    note: found by the data scan 2026-11-23 (linked as "Standings" from https://nerc.itmo.ru/subregions/uzbekistan.html)
   - url: https://icpc.global/regionals/finder/Uzbekistan-Regional-2027/standings
     roles:
     - standings

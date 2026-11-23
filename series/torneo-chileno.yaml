@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: torneo-chileno
   name: Torneo Chileno de Programación
@@ -11,6 +11,8 @@ contests:
   name: Torneo Chileno de Programación
   date: '2017-08-12'
   location: Coquimbo (Universidad Católica del Norte)
+  cms_ids:
+  - 3479
   sites:
   - type: administrative
   - location: mx-aguascalientes-uta
@@ -41,20 +43,25 @@ contests:
     name: Punta Arenas (UMag)
   - location: cl-coquimbo-ucn
     name: Antofagasta (UCN)
-  cms_ids:
-  - 3479
   parent: south-america-south-2017
   next: torneo-chileno-2018
   sources:
   - url: http://www.inf.unap.cl/index.php/2017/08/28/icci-participa-en-el-torneo-chileno-de-programacion/
     roles:
     - web
+  - url: https://icpc.global/regionals/finder/TCP-2018/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 60 rows, 50 with problems solved)
   notes: '60 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: torneo-chileno-2018
   season: 2019
   name: Torneo Chileno de Programación
   date: '2018-09-29'
   location: Universidad de Talca (Curicó)
+  cms_ids:
+  - 3632
   sites:
   - location: cl-valdivia-uach
     name: Valdivia (UACH)
@@ -77,8 +84,6 @@ contests:
     name: Valparaíso (UTFSM)
   - location: cl-temuco-uct
     name: Temuco (UCT)
-  cms_ids:
-  - 3632
   parent: south-america-south-2018
   next: torneo-chileno-2019
   sources:
@@ -86,12 +91,21 @@ contests:
     roles:
     - web
     note: added by the no-sources hunt 2026-11-16
+  - url: https://aapc.org.ar/wp-content/uploads/2026/05/tap2018.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    note: 'found by the data scan 2026-11-23 (organisers past-editions page (aapc.org.ar): the Chilean
+      and Argentine tournaments shared one set)'
   notes: '58 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: torneo-chileno-2019
   season: 2020
   name: Torneo Chileno de Programación
   date: '2019-09-28'
   location: Talca (Universidad Católica del Maule)
+  cms_ids:
+  - 4252
   sites:
   - type: administrative
   - location: cl-coquimbo-ucn
@@ -110,20 +124,32 @@ contests:
     name: Talca (UCM)
   - location: cl-curico-talca
     name: Curicó (UTalca)
-  cms_ids:
-  - 4252
   parent: south-america-south-2019
   next: torneo-chileno-2023
   sources:
   - url: https://ingenieria.uchile.cl/noticias/estudiantes-de-la-u-de-chile-ganan-torneo-chileno-de-programacion
     roles:
     - web
+  - url: https://icpc.global/regionals/finder/TCP-2020/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 39 rows, 33 with problems solved)
+  - url: https://aapc.org.ar/wp-content/uploads/2026/05/tap2019.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    note: 'found by the data scan 2026-11-23 (organisers past-editions page (aapc.org.ar): the Chilean
+      and Argentine tournaments shared one set)'
   notes: '40 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: torneo-chileno-2023
   season: 2024
   name: 2023 ICPC Torneo Chileno de Programación
   date: '2023-09-02'
   location: Santiago (UDP)
+  cms_ids:
+  - 7553
   sites:
   - type: administrative
   - location: cl-talca-catolica-maule
@@ -148,17 +174,25 @@ contests:
     name: Rancagua (UOH)
   - location: cl-santiago-udp
     name: Santiago (UDP)
-  cms_ids:
-  - 7553
   parent: south-america-south-2023
   next: torneo-chileno-2024
   sources:
-  - url: https://icpc.global/regionals/finder/TCP-2024
+  - url: https://scorelatam.naquadah.com.br/subbr-2023/
     roles:
-    - web
-  notes: '34 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
+    - scoreboard
+    scope: Chile
+    note: found by the data scan 2026-11-23 (combined Latin American first-phase BOCA board on scorelatam.naquadah.com.br,
+      Chile section)
+  - url: https://maratona.sbc.org.br/hist/2023/primfase23/contest/maratona.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (Latin American shared set (first-phase booklet names the
+      contests that used it))
   problems:
     set: brazil-first-phase-2023
+  notes: '34 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: torneo-chileno-2024
   season: 2025
   name: 2024 ICPC Torneo Chileno de Programación
@@ -231,6 +265,8 @@ contests:
   name: 2025 ICPC Torneo Chileno de Programación
   date: '2025-10-04'
   location: Rancagua (UOH)
+  cms_ids:
+  - 9404
   sites:
   - type: administrative
   - location: cl-curico-talca
@@ -263,14 +299,14 @@ contests:
   - location: cl-vina-del-mar-uvm
     name: Viña del Mar (UVM)
   - location: cl-puerto-montt
-  cms_ids:
-  - 9404
   parent: south-america-south-2025
   next: torneo-chileno-2026
   sources:
-  - url: https://icpc.global/regionals/finder/TCP-2026
+  - url: https://scorelatam.naquadah.com.br/subch-2025/
     roles:
-    - web
+    - scoreboard
+    note: found by the data scan 2026-11-23 (scorelatam.naquadah.com.br board of the edition, listed on
+      its index under Torneo Chileno de Programación 2025)
   - url: https://scorelatam.naquadah.com.br/subch-2025/statements.pdf
     roles:
     - problemset
@@ -281,16 +317,18 @@ contests:
   - url: https://diario.uach.cl/informatica-uach-fue-sede-regional-del-torneo-chileno-de-programacion-2025/
     roles:
     - report
+    as_of: '20251215143859'
     url_state: changed
     url_checked: '2026-11-16'
-    as_of: '20251215143859'
-  notes: '49 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   problems:
     set: torneo-chileno-2025
+  notes: '49 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: torneo-chileno-2026
-  status: upcoming
   season: 2027
   name: 2026 ICPC Torneo Chileno de Programación
+  date: '2026-10-03'
+  cms_ids:
+  - 9823
   sites:
   - type: administrative
   - location: cl-talca-catolica-maule
@@ -318,11 +356,21 @@ contests:
   - location: mx-aguascalientes-uta
     name: Arica (UTA)
     date: '2026-10-03'
-  cms_ids:
-  - 9823
   parent: south-america-south-2026
   sources:
-  - url: https://icpc.global/regionals/finder/TCP
+  - url: https://scorelatam.naquadah.com.br/subch-2026/
     roles:
-    - web
+    - scoreboard
+    - problemset
+    contains:
+    - names
+    note: found by the data scan 2026-11-23 (scorelatam index, linked from https://scorelatam.naquadah.com.br/)
+  - url: https://scorelatam.naquadah.com.br/subch-2026/score-frozen.html
+    roles:
+    - frozen_scoreboard
+    note: found by the data scan 2026-11-23 (linked from https://scorelatam.naquadah.com.br/subch-2026/)
+  provenance:
+  - date 2026-10-03 read from https://scorelatam.naquadah.com.br/subch-2026/ (data scan 2026-11-23)
+  - 'ran 2026-10-03: the organisers'' scoreboard on scorelatam (start 03/10/2026 11:00, 66 teams) (data
+    scan 2026-11-23)'
   notes: 'from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'

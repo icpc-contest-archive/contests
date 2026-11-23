@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: moscow
   name: ICPC Moscow Regional Contest
@@ -16,6 +16,7 @@ contests:
   - url: https://neerc.ifmo.ru/subregions/moscow.html
     roles:
     - web
+    as_of: '20030922184207'
   - url: https://nerc.itmo.ru/archive/2003/moscow/standings.html
     roles:
     - scoreboard
@@ -44,13 +45,17 @@ contests:
 - id: moscow-2004
   season: 2005
   name: 2004 Moscow Subregional Contest
+  location: Moscow, Moscow State University
   cms_ids: []
+  sites:
+  - location: ru-moscow-msu
   parent: neerc-2004
   next: moscow-2005
   sources:
   - url: https://neerc.ifmo.ru/subregions/moscow.html
     roles:
     - web
+    as_of: '20050118050716'
   - url: https://nerc.itmo.ru/archive/2004/moscow/standings.html
     roles:
     - scoreboard
@@ -84,22 +89,30 @@ contests:
   - url: https://codeforces.com/gym/100867/attachments/download/3998/20042005-acmicpc-neerc-moscow-subregional-contest-en.pdf
     roles:
     - problem
-    judge: codeforces
     problem: A
     contains:
     - statement
+    judge: codeforces
   problems:
     set: moscow-2004
+  provenance:
+  - location Moscow, Moscow State University read from https://web.archive.org/web/20050118050716/http://neerc.ifmo.ru/subregions/moscow.html
+    (data scan 2026-11-23)
 - id: moscow-2005
   season: 2006
   name: 2005 Moscow Subregional Contest
+  date: '2005-10-23'
+  location: Moscow, Moscow State University
   cms_ids: []
+  sites:
+  - location: ru-moscow-msu
   parent: neerc-2005
   next: moscow-2006
   sources:
   - url: https://neerc.ifmo.ru/subregions/moscow.html
     roles:
     - web
+    as_of: '20060503231121'
   - url: https://nerc.itmo.ru/archive/2005/moscow/standings.html
     roles:
     - scoreboard
@@ -133,22 +146,31 @@ contests:
   - url: https://codeforces.com/gym/100866/attachments/download/3994/20052006-acmicpc-neerc-moscow-subregional-contest-en.pdf
     roles:
     - problem
-    judge: codeforces
     problem: A
     contains:
     - statement
+    judge: codeforces
   problems:
     set: moscow-2005
+  provenance:
+  - location Moscow, Moscow State University read from https://web.archive.org/web/20060503231121/http://neerc.ifmo.ru/subregions/moscow.html
+    (data scan 2026-11-23)
+  - date 2005-10-23 read from https://codeforces.com/gym/100866/attachments/download/3994/20052006-acmicpc-neerc-moscow-subregional-contest-en.pdf
+    (data scan 2026-11-23)
 - id: moscow-2006
   season: 2007
   name: 2006 Moscow Subregional Contest
+  location: Moscow, Moscow State University
   cms_ids: []
+  sites:
+  - location: ru-moscow-msu
   parent: neerc-2006
   next: moscow-2007
   sources:
   - url: https://neerc.ifmo.ru/subregions/moscow.html
     roles:
     - web
+    as_of: '20070121101908'
   - url: https://nerc.itmo.ru/archive/2006/moscow/standings.html
     roles:
     - scoreboard
@@ -174,16 +196,25 @@ contests:
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
   problems:
     set: moscow-2006
+  provenance:
+  - location Moscow, Moscow State University read from https://web.archive.org/web/20070121101908/http://neerc.ifmo.ru/subregions/moscow.html
+    (data scan 2026-11-23)
 - id: moscow-2007
   season: 2008
   name: 2007 Moscow Subregional Contest
-  cms_ids: []
+  date: '2007-10-21'
+  location: Moscow, Moscow State University
+  cms_ids:
+  - 9916
+  sites:
+  - location: ru-moscow-msu
   parent: neerc-2007
   next: moscow-2008
   sources:
   - url: https://neerc.ifmo.ru/subregions/moscow.html
     roles:
     - web
+    as_of: '20071124014828'
   - url: https://nerc.itmo.ru/archive/2007/moscow/standings.html
     roles:
     - scoreboard
@@ -217,12 +248,18 @@ contests:
   - url: https://codeforces.com/gym/100860/attachments/download/3975/20072008-acmicpc-neerc-moscow-subregional-contest-en.pdf
     roles:
     - problem
-    judge: codeforces
     problem: A
     contains:
     - statement
+    judge: codeforces
   problems:
     set: moscow-2007
+  provenance:
+  - cms id 9916 read from https://icpc.global/api/contest/public/regionalresults/2008 (data scan 2026-11-23)
+  - location Moscow, Moscow State University read from https://web.archive.org/web/20071124014828/http://neerc.ifmo.ru/subregions/moscow.html
+    (data scan 2026-11-23)
+  - date 2007-10-21 read from https://codeforces.com/gym/100860/attachments/download/3975/20072008-acmicpc-neerc-moscow-subregional-contest-en.pdf
+    (data scan 2026-11-23)
 - id: moscow-2008
   season: 2009
   name: 2008 Moscow Subregional Contest
@@ -285,19 +322,20 @@ contests:
   name: 2009 Moscow Subregional Contest
   date: '2009-10-18'
   location: Administrative Site Location; Moscow
+  cms_ids:
+  - 531
   sites:
   - type: administrative
   - location: ru-moscow
     name: Moscow Subregional Contest
     type: administrative
-  cms_ids:
-  - 531
   parent: neerc-2009
   next: moscow-2010
   sources:
   - url: https://neerc.ifmo.ru/subregions/moscow.html
     roles:
     - web
+    as_of: '20100402045838'
   - url: https://nerc.itmo.ru/archive/2009/moscow/standings.html
     roles:
     - scoreboard
@@ -386,19 +424,20 @@ contests:
   name: 2011 Moscow Subregional Contest
   date: '2011-10-23'
   location: Administrative Site Location; Moscow
+  cms_ids:
+  - 761
   sites:
   - type: administrative
   - location: ru-moscow
     name: Moscow Subregional Contest
     type: administrative
-  cms_ids:
-  - 761
   parent: neerc-2011
   next: moscow-2012
   sources:
   - url: https://neerc.ifmo.ru/subregions/moscow.html
     roles:
     - web
+    as_of: '20111107230022'
   - url: https://nerc.itmo.ru/archive/2011/moscow/standings.html
     roles:
     - scoreboard
@@ -437,9 +476,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: moscow-2011
 - id: moscow-2012
@@ -508,19 +547,20 @@ contests:
   name: 2013 Moscow Subregional Contest
   date: '2013-10-20'
   location: Moscow; Administrative Site Location
+  cms_ids:
+  - 2035
   sites:
   - location: ru-moscow
     name: Moscow Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 2035
   parent: neerc-2013
   next: moscow-2014
   sources:
   - url: https://neerc.ifmo.ru/subregions/moscow.html
     roles:
     - web
+    as_of: '20140406203056'
   - url: https://nerc.itmo.ru/archive/2013/moscow/standings.html
     roles:
     - scoreboard
@@ -553,9 +593,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: moscow-2013
 - id: moscow-2014
@@ -625,19 +665,20 @@ contests:
   name: 2015 Moscow Subregional Contest
   date: '2015-10-18'
   location: Administrative Site Location; Moscow
+  cms_ids:
+  - 2761
   sites:
   - location: ru-moscow
     name: Moscow Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 2761
   parent: neerc-2015
   next: moscow-2016
   sources:
   - url: https://neerc.ifmo.ru/subregions/moscow.html
     roles:
     - web
+    as_of: '20160318002038'
   - url: https://nerc.itmo.ru/archive/2015/moscow/standings.html
     roles:
     - scoreboard
@@ -677,9 +718,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: moscow-2015
 - id: moscow-2016
@@ -687,19 +728,20 @@ contests:
   name: 2016 Moscow Subregional Contest
   date: '2016-10-16'
   location: Administrative Site Location; Moscow
+  cms_ids:
+  - 3143
   sites:
   - location: ru-moscow
     name: Moscow Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 3143
   parent: neerc-2016
   next: moscow-2017
   sources:
   - url: https://neerc.ifmo.ru/subregions/moscow.html
     roles:
     - web
+    as_of: '20161021135627'
   - url: https://nerc.itmo.ru/archive/2016/moscow/standings.html
     roles:
     - scoreboard
@@ -739,9 +781,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: moscow-2016
 - id: moscow-2017
@@ -940,19 +982,20 @@ contests:
   name: 2019 Moscow Regional Contest
   date: '2019-10-26'
   location: Administrative Site Location; Moscow
+  cms_ids:
+  - 4204
   sites:
   - type: administrative
   - location: ru-moscow
     name: Moscow Subregional Contest
     type: administrative
-  cms_ids:
-  - 4204
   parent: nerc-2019
   next: moscow-2020
   sources:
   - url: https://neerc.ifmo.ru/subregions/moscow.html
     roles:
     - web
+    as_of: '20191022210822'
   - url: https://nerc.itmo.ru/archive/2019/moscow/standings.html
     roles:
     - scoreboard
@@ -992,9 +1035,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: moscow-2019
 - id: moscow-2020
@@ -1042,12 +1085,12 @@ contests:
   name: 2021 ICPC Moscow Regional Contest
   date: '2021-12-19'
   location: Moscow; Administrative Site Location
+  cms_ids:
+  - 4941
   sites:
   - type: administrative
   - location: ru-moscow
     type: administrative
-  cms_ids:
-  - 4941
   parent: nerc-2021
   next: moscow-2022
   sources:
@@ -1057,7 +1100,6 @@ contests:
   - url: http://icpc.msu.ru/index.cgi?data=macros/standings&menu=index&head=index&qf=moscow&class=moscow2021&year=2021
     roles:
     - standings
-    as_of: '20190911040025'
     archived:
     - moscow/moscow-2021/external-standings/2026-04-15-external/content.html
     url_state: dead
@@ -1075,123 +1117,123 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20240317115610'
     url_state: replaced
     url_checked: '2026-11-16'
     note: '2021-2022 ICPC, Moscow Subregional (judge hunt 2026-11-03: name+year: ''2021-2022 ICPC, Moscow
       Subregional'' -> season start 2021)'
-    as_of: '20240317115610'
   - url: https://qoj.ac/contest/1792
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://codeforces.com/gym/104848/problem/A
     roles:
     - problem
-    judge: codeforces
     problem: A
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104848/problem/B
     roles:
     - problem
-    judge: codeforces
     problem: B
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104848/problem/C
     roles:
     - problem
-    judge: codeforces
     problem: C
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104848/problem/D
     roles:
     - problem
-    judge: codeforces
     problem: D
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104848/problem/E
     roles:
     - problem
-    judge: codeforces
     problem: E
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104848/problem/F
     roles:
     - problem
-    judge: codeforces
     problem: F
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104848/problem/G
     roles:
     - problem
-    judge: codeforces
     problem: G
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104848/problem/H
     roles:
     - problem
-    judge: codeforces
     problem: H
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104848/problem/I
     roles:
     - problem
-    judge: codeforces
     problem: I
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104848/problem/J
     roles:
     - problem
-    judge: codeforces
     problem: J
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104848/problem/K
     roles:
     - problem
-    judge: codeforces
     problem: K
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104848/problem/L
     roles:
     - problem
-    judge: codeforces
     problem: L
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104848/problem/M
     roles:
     - problem
-    judge: codeforces
     problem: M
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104848/problem/N
     roles:
     - problem
-    judge: codeforces
     problem: N
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104848/problem/O
     roles:
     - problem
-    judge: codeforces
     problem: O
     contains:
     - statement
+    judge: codeforces
   problems:
     set: moscow-2021
 - id: moscow-2022
@@ -1713,14 +1755,27 @@ contests:
 - id: moscow-2026
   season: 2027
   name: 2026 ICPC Moscow Regional Contest
-  date: '2026-11-08'
+  date: '2026-11-07'
+  cms_ids:
+  - 9780
   sites:
   - type: administrative
   - location: ru-moscow
-  cms_ids:
-  - 9780
   parent: nerc-2026
   sources:
+  - url: https://moscow.nerc.icpc.global
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (the CMS homepage)
+  - url: https://results.mrc.msk.ru/mrc2026
+    roles:
+    - scoreboard
+    note: found by the data scan 2026-11-23 (the organisers' results server (the qualification is at /mrcq2026,
+      linked from moscow.nerc.icpc.global))
+  - url: https://new.contest.yandex.ru/contests/102785/leaderboard
+    roles:
+    - scoreboard
+    note: found by the data scan 2026-11-23 (linked as "Standings" from https://nerc.itmo.ru/subregions/moscow.html)
   - url: https://icpc.global/regionals/finder/MRC-2027/standings
     roles:
     - standings
@@ -1731,3 +1786,4 @@ contests:
   - 'ran 2026-11-08: shown by its icpc standings source(s); date from last day of the CMS contest record
     (2026-11-07 to 2026-11-08) (ruling 2026-11-12: upcoming ends when the date has passed and a result
     source or judge page shows the contest ran)'
+  - date 2026-11-07 read from https://nerc.itmo.ru/subregions/moscow.html (data scan 2026-11-23)

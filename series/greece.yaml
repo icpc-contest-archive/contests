@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: greece
   name: ICPC Greece Collegiate Programming Contest
@@ -11,14 +11,19 @@ contests:
   name: 2023 ICPC Greece Programming Contest
   date: '2023-10-28'
   location: Greece
+  cms_ids:
+  - 8468
   sites:
   - location: gr
     name: The 2023 ICPC Greece Programming Contest
-  cms_ids:
-  - 8468
   parent: seerc-2023
   next: greece-2024
   sources:
+  - url: https://grcpc.upatras.gr/grcpc-2023/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (organiser's site grcpc.upatras.gr (sibling greece-2025 web)
+      -> its 'Past Years' menu)
   - url: https://icpc.global/regionals/finder/ICPCGreece-2024/standings
     roles:
     - standings
@@ -250,6 +255,8 @@ contests:
   season: 2027
   name: 2026 ICPC Greece Collegiate Programming Contest
   date: '2026-10-24'
+  cms_ids:
+  - 9566
   sites:
   - type: administrative
   - location: gr
@@ -261,10 +268,13 @@ contests:
   - location: gr-athens
   - location: gr-kavala
   - location: gr-irakleion
-  cms_ids:
-  - 9566
   parent: seerc-2026
   sources:
+  - url: https://grcpc.upatras.gr/grcpc-2026/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (linked as "GRCPC 2026" from http://grcpc.upatras.gr (the
+      CMS homepage))
   - url: https://icpc.global/regionals/finder/ICPCGreece-2027/standings
     roles:
     - standings
@@ -277,102 +287,106 @@ contests:
     contains:
     - names
     judge: codeforces
-    note: Greece and Cyprus Collegiate Programming Contest 2026 (problem hunt 2026-11-13)
     url_state: live
     url_checked: '2026-11-16'
+    note: Greece and Cyprus Collegiate Programming Contest 2026 (problem hunt 2026-11-13)
   - url: https://codeforces.com/gym/106782/problem/A
     roles:
     - problem
-    judge: codeforces
     problem: A
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106782/problem/B
     roles:
     - problem
-    judge: codeforces
     problem: B
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106782/problem/C
     roles:
     - problem
-    judge: codeforces
     problem: C
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106782/problem/D
     roles:
     - problem
-    judge: codeforces
     problem: D
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106782/problem/E
     roles:
     - problem
-    judge: codeforces
     problem: E
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106782/problem/F
     roles:
     - problem
-    judge: codeforces
     problem: F
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106782/problem/G
     roles:
     - problem
-    judge: codeforces
     problem: G
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106782/problem/H
     roles:
     - problem
-    judge: codeforces
     problem: H
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106782/problem/I
     roles:
     - problem
-    judge: codeforces
     problem: I
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106782/problem/J
     roles:
     - problem
-    judge: codeforces
     problem: J
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106782/problem/K
     roles:
     - problem
-    judge: codeforces
     problem: K
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106782/problem/L
     roles:
     - problem
-    judge: codeforces
     problem: L
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106782/problem/M
     roles:
     - problem
-    judge: codeforces
     problem: M
     contains:
     - statement
+    judge: codeforces
+  - url: https://codeforces.com/gym/106782/attachments/download/40283/gccpc_2026_editorial.pdf
+    roles:
+    - editorial
+    note: found by the data scan 2026-11-23 (linked from https://grcpc.upatras.gr/grcpc-2026/)
+  problems:
+    set: cyprus-greece-2026
   provenance:
   - 'ran 2026-10-24: shown by its icpc standings source(s); date from CMS contest record (ruling 2026-11-12:
     upcoming ends when the date has passed and a result source or judge page shows the contest ran)'
-  problems:
-    set: cyprus-greece-2026

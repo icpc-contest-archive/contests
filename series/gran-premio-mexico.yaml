@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: gran-premio-mexico
   name: ICPC Gran Premio de México
@@ -11,6 +11,8 @@ contests:
   name: Gran Premio de Mexico & Centroamerica
   date: '2015-01-01'
   location: Centro de Investigacion en Matematicas
+  cms_ids:
+  - 2808
   sites:
   - location: mx-culiacan-instituto-tecnologico
     name: Tecnologico de Culiacan
@@ -85,8 +87,6 @@ contests:
     name: Universidad de Guadalajara CUC
   - location: mx-cuernavaca-itesm
     name: ITESM Cuernavaca
-  cms_ids:
-  - 2808
   parent: central-america-2015
   next: gran-premio-mexico-2016
   sources:
@@ -100,6 +100,10 @@ contests:
     url_state: replaced
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://icpc.global/regionals/finder/mcapgp-2016/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 319 rows)
   notes: '340 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
 - id: gran-premio-mexico-2016
@@ -107,6 +111,8 @@ contests:
   name: Gran Premio de Mexico & Centroamerica
   date: '2016-01-01'
   location: Universidad Autonoma de Yucatan Unidad Multidisciplinaria Tizimin
+  cms_ids:
+  - 3017
   sites:
   - location: mx
     name: Tecnologico Superior de Nochistlan
@@ -190,8 +196,6 @@ contests:
   - location: mx-mexico-city-monterrey
   - location: mx-tlaxcala-universidad-autonoma
   - location: mx-uriangato-itsur
-  cms_ids:
-  - 3017
   parent: central-america-2016
   next: gran-premio-mexico-2017
   sources:
@@ -203,6 +207,10 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://icpc.global/regionals/finder/mcapgp-2017/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 508 rows)
   notes: '620 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
 - id: gran-premio-mexico-2017
@@ -210,6 +218,8 @@ contests:
   name: Gran Premio de Mexico & Centroamerica 2017
   date: '2017-01-01'
   location: Instituto Tecnologico de Veracruz
+  cms_ids:
+  - 3450
   sites:
   - location: mx-san-pedro-superior-colonias
   - location: mx-guadalajara-cucienega
@@ -328,8 +338,6 @@ contests:
     name: Tecnologico de Costa Rica Sede Cartago
   - location: mx-morelia-estudios-superiores
     name: UNAM Unidad Morelia
-  cms_ids:
-  - 3450
   parent: central-america-2017
   next: gran-premio-mexico-2018
   sources:
@@ -343,6 +351,10 @@ contests:
     url_state: replaced
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://icpc.global/regionals/finder/mcapgp-2018/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 682 rows)
   notes: '890 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
 - id: gran-premio-mexico-2018
@@ -350,6 +362,8 @@ contests:
   name: Gran Premio de Mexico 2018
   date: '2018-01-01'
   location: Universidad Iberoamericana León
+  cms_ids:
+  - 3623
   sites:
   - location: mx-guadalajara-cualtos
   - location: mx-aguascalientes-panamericana-bonaterra
@@ -467,8 +481,6 @@ contests:
     name: ANIEI 2018 - Universidad de Guadalajara CUCEI
   - location: mx-matamoros-instituto-tecnologico
     name: Tecnológico de Matamoros
-  cms_ids:
-  - 3623
   parent: central-america-2018
   next: gran-premio-mexico-2019
   sources:
@@ -482,6 +494,10 @@ contests:
     url_state: replaced
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://icpc.global/regionals/finder/mcapgp-2019/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 618 rows)
   notes: '778 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
 - id: gran-premio-mexico-2019
@@ -489,6 +505,8 @@ contests:
   name: Gran Premio de Mexico 2019
   date: '2019-01-01'
   location: Universidad Anahuac Oaxaca
+  cms_ids:
+  - 4242
   sites:
   - location: mx-guadalajara-iteso
     name: Administrative Site
@@ -642,14 +660,9 @@ contests:
     name: Universidad La Salle Oaxaca
   - location: mx
     name: Universidad Tecnologica Emiliano Zapata del Estado de Morelos
-  cms_ids:
-  - 4242
   parent: mexico-2019
   next: gran-premio-mexico-2020
   sources:
-  - url: https://icpc.global/regionals/finder/mcapgp-2020
-    roles:
-    - web
   - url: https://eventos.iteso.mx/acm/1-primera-fase-gran-premio-de-mexico-2/sobre-los-concursos-del-granpremiomx2019/granpremiomx2019-resultado-acumulado/
     roles:
     - standings
@@ -660,6 +673,10 @@ contests:
     url_state: replaced
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://icpc.global/regionals/finder/mcapgp-2020/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 381 rows)
   notes: '1281 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db
     (contest/api_contest/site); +series lineage)'
 - id: gran-premio-mexico-2020
@@ -667,6 +684,8 @@ contests:
   name: Gran Premio de Mexico 2020
   date: '2020-01-01'
   location: Universidad Panamericana
+  cms_ids:
+  - 4480
   sites:
   - location: mx
     name: Universidades Estatales y Federales
@@ -735,14 +754,9 @@ contests:
     type: online
   - location: mx-colima-ucol
     type: online
-  cms_ids:
-  - 4480
   parent: mexico-2020
   next: gran-premio-mexico-2021
   sources:
-  - url: https://icpc.global/regionals/finder/mcapgp-2021
-    roles:
-    - web
   - url: https://eventos.iteso.mx/acm/1-primera-fase-granpremiomx/sobre-los-concursos-del-granpremio2020/clasificacion-a-la-eliminatoria-regional-icpcmx2020/
     roles:
     - web
@@ -753,6 +767,19 @@ contests:
     url_state: replaced
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://icpc.global/regionals/finder/mcapgp-2021/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 708 rows, 354 with problems solved)
+  - url: https://maratona.sbc.org.br/hist/2020/primfase20/maratona20.pdf
+    roles:
+    - problemset
+    scope: Segunda Fecha
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (Latin American shared set (first-phase booklet names the
+      contests that used it))
   notes: '717 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
 - id: gran-premio-mexico-2021
@@ -760,6 +787,8 @@ contests:
   name: 2021 ICPC Gran Premio de Mexico
   date: '2021-08-01'
   location: Universidad Autonoma de Zacatecas
+  cms_ids:
+  - 4705
   sites:
   - type: administrative
   - location: mx-tlaxcala-universidad-autonoma
@@ -833,8 +862,6 @@ contests:
     name: Concurso de Programación ANIEI 2021
     date: '2021-10-23'
     type: online
-  cms_ids:
-  - 4705
   parent: mexico-2021
   next: gran-premio-mexico-2022
   sources:
@@ -854,6 +881,14 @@ contests:
     archived:
     - gran-premio-mexico/gran-premio-mexico-2021/standings/api-20261113/standings.html
     note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://maratona.sbc.org.br/hist/2021/primeira-fase/maratona.pdf
+    roles:
+    - problemset
+    scope: Tercera Fecha
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (Latin American shared set (first-phase booklet names the
+      contests that used it))
   notes: '504 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
     +series lineage)'
 - id: gran-premio-mexico-2022
@@ -861,6 +896,8 @@ contests:
   name: 2022 ICPC Gran Premio de Mexico
   date: '2022-04-07'
   location: Instituto Tecnológico Superior de Irapuato
+  cms_ids:
+  - 5533
   sites:
   - location: mx-acatlan-superior-computo
     name: Red Académica de Programación Competitiva del Instituto Politécnico Nacional / UNAM FES Acatlán
@@ -1144,8 +1181,6 @@ contests:
   - location: mx-guadalajara-monterrey
     name: TCMX - OMI
     date: '2022-12-01'
-  cms_ids:
-  - 5533
   parent: mexico-2022
   next: gran-premio-mexico-2023
   sources:
@@ -1159,6 +1194,11 @@ contests:
     url_state: replaced
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://icpc.global/regionals/finder/mcapgp-2023/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 1058 rows, 370 with problems solved)
   - url: https://omegaup.com/arena/ICPCMX2022_1er/
     roles:
     - problemset
@@ -1171,6 +1211,8 @@ contests:
   name: 2023 ICPC Gran Premio de Mexico
   date: '2023-04-01'
   location: Universidad Autónoma del Estado de Hidalgo
+  cms_ids:
+  - 7545
   sites:
   - location: mx-guadalajara-monterrey
     name: TCMX - OMI
@@ -1372,14 +1414,9 @@ contests:
     name: Concurso de Programación ANIEI 2023
     date: '2023-10-26'
     type: online
-  cms_ids:
-  - 7545
   parent: mexico-2023
   next: gran-premio-mexico-2024
   sources:
-  - url: https://icpc.global/regionals/finder/mcapgp-2024
-    roles:
-    - web
   - url: https://eventos.iteso.mx/acm/1-primera-fase-granpremiomx/sobre-los-concursos-del-granpremiomx2023/clasificacion-a-la-eliminatoria-regional-icpcmx2023/
     roles:
     - web
@@ -1390,6 +1427,11 @@ contests:
     url_state: replaced
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://icpc.global/regionals/finder/mcapgp-2024/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 450 rows, 396 with problems solved)
   - url: https://codeforces.com/gym/104375
     roles:
     - problemset
@@ -1400,89 +1442,91 @@ contests:
   - url: https://codeforces.com/gym/104375/problem/A
     roles:
     - problem
-    judge: codeforces
     problem: A
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104375/problem/B
     roles:
     - problem
-    judge: codeforces
     problem: B
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104375/problem/C
     roles:
     - problem
-    judge: codeforces
     problem: C
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104375/problem/D
     roles:
     - problem
-    judge: codeforces
     problem: D
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104375/problem/E
     roles:
     - problem
-    judge: codeforces
     problem: E
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104375/problem/F
     roles:
     - problem
-    judge: codeforces
     problem: F
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104375/problem/G
     roles:
     - problem
-    judge: codeforces
     problem: G
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104375/problem/H
     roles:
     - problem
-    judge: codeforces
     problem: H
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104375/problem/I
     roles:
     - problem
-    judge: codeforces
     problem: I
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104375/problem/J
     roles:
     - problem
-    judge: codeforces
     problem: J
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/104375/problem/K
     roles:
     - problem
-    judge: codeforces
     problem: K
     contains:
     - statement
-  notes: '1086 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db
-    (contest/api_contest/site); +series lineage)'
+    judge: codeforces
   problems:
     set: gran-premio-mexico-2023
+  notes: '1086 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db
+    (contest/api_contest/site); +series lineage)'
 - id: gran-premio-mexico-2024
   season: 2025
   name: 2024 ICPC Gran Premio de Mexico
   date: '2024-04-20'
   location: Instituto Tecnológico Superior del Oriente del Estado de Hidalgo
+  cms_ids:
+  - 8956
   sites:
   - location: mx-guadalajara-iteso
     name: Administrative Site
@@ -1713,8 +1757,6 @@ contests:
     name: Instituto de Investigaciones en Matemáticas Aplicadas y en Sistemas-Universidad Nacional Autónoma
       de México
     date: '2025-07-01'
-  cms_ids:
-  - 8956
   parent: mexico-2024
   next: gran-premio-mexico-2025
   sources:
@@ -1728,6 +1770,19 @@ contests:
     url_state: replaced
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://icpc.global/regionals/finder/mcapgp-2025/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 1219 rows, 475 with problems solved)
+  - url: https://maratona.sbc.org.br/hist/2024/primfase24/contest-pf2024/maratona.pdf
+    roles:
+    - problemset
+    scope: round of 2024-08-31
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (Latin American shared set (first-phase booklet names the
+      contests that used it))
   notes: '1258 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db
     (contest/api_contest/site); +series lineage)'
 - id: gran-premio-mexico-2025
@@ -1735,6 +1790,8 @@ contests:
   name: 2025 ICPC Gran Premio de Mexico
   date: '2025-04-24'
   location: Instituto Tecnológico Superior Zacatecas Sur
+  cms_ids:
+  - 9410
   sites:
   - location: mx-los-rodriguez-superior-tepexi-rodriguez
   - location: mx-atitalaquia-instituto-tecnologico
@@ -1974,14 +2031,9 @@ contests:
   - location: mx-guadalajara-iteso
     name: Torneo ICPC en OMI 2025
     date: '2025-10-03'
-  cms_ids:
-  - 9410
   parent: mexico-2025
   next: gran-premio-mexico-2026
   sources:
-  - url: https://icpc.global/regionals/finder/mcapgp-2026
-    roles:
-    - web
   - url: https://eventos.iteso.mx/acm/1-primera-fase-granpremiomx/sobre-los-concursos-del-granpremiomx2025/clasificacion-a-la-final-mexicana-icpcmx2025/
     roles:
     - web
@@ -1992,6 +2044,20 @@ contests:
     url_state: replaced
     url_checked: '2026-11-14'
     note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://icpc.global/regionals/finder/mcapgp-2026/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 529 rows, 529 with problems solved)
+  - url: https://scorelatam.naquadah.com.br/subbr-2025/maratona.pdf
+    roles:
+    - problemset
+    scope: round of 2025-09-13
+    contains:
+    - statement
+    as_of: '20250917205058'
+    note: found by the data scan 2026-11-23 (Latin American shared set (first-phase booklet names the
+      contests that used it))
   notes: '1177 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db
     (contest/api_contest/site); +series lineage)'
 - id: gran-premio-mexico-2026
@@ -1999,6 +2065,8 @@ contests:
   name: 2026 ICPC Gran Premio de Mexico
   date: '2026-04-01'
   location: Instituto Tecnológico de Saltillo
+  cms_ids:
+  - 9817
   sites:
   - location: mx-guadalajara-iteso
     name: Administrative Site
@@ -2238,8 +2306,6 @@ contests:
   - location: mx-chetumal-instituto-tecnologico
   - location: mx-ciudad-guzman-instituto-tecnologico
   - location: mx-puerto-vallarta-superior
-  cms_ids:
-  - 9817
   parent: mexico-2026
   sources:
   - url: https://eventos.iteso.mx/acm/1-primera-fase-granpremiomx/sobre-los-concursos-del-gran-premio-de-mexico-2026/clasificacion-a-la-final-mexicana-icpc-2026/
@@ -2252,12 +2318,16 @@ contests:
     note: added by url-hunt 2026-09-01 (round9-research)
   - url: https://codeforces.com/gym/106495/standings
     roles:
-    - standings
+    - scoreboard
     archived:
     - gran-premio-mexico/gran-premio-mexico-2026/standings/20261020-live-22e03fae/page.html
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (round9-research)
+  - url: https://icpc.global/regionals/finder/mcapgp-2027/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings API, 612 ranked rows on 2026-11-23)
   - url: https://codeforces.com/gym/106495
     roles:
     - problemset
@@ -2268,88 +2338,88 @@ contests:
   - url: https://codeforces.com/gym/106495/problem/A
     roles:
     - problem
-    judge: codeforces
     problem: A
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106495/problem/B
     roles:
     - problem
-    judge: codeforces
     problem: B
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106495/problem/C
     roles:
     - problem
-    judge: codeforces
     problem: C
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106495/problem/D
     roles:
     - problem
-    judge: codeforces
     problem: D
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106495/problem/E
     roles:
     - problem
-    judge: codeforces
     problem: E
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106495/problem/F
     roles:
     - problem
-    judge: codeforces
     problem: F
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106495/problem/G
     roles:
     - problem
-    judge: codeforces
     problem: G
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106495/problem/H
     roles:
     - problem
-    judge: codeforces
     problem: H
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106495/problem/I
     roles:
     - problem
-    judge: codeforces
     problem: I
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106495/problem/J
     roles:
     - problem
-    judge: codeforces
     problem: J
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106495/problem/K
     roles:
     - problem
-    judge: codeforces
     problem: K
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106495/problem/L
     roles:
     - problem
-    judge: codeforces
     problem: L
     contains:
     - statement
-  notes: '492 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
-    +series lineage)'
+    judge: codeforces
   problems:
     set: gran-premio-mexico-2026
+  notes: '492 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site);
+    +series lineage)'

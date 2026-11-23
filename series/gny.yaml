@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: gny
   name: ICPC North America Greater New York Regional Contest
@@ -103,6 +103,13 @@ contests:
   - url: http://acmgnyr.org/year1996/
     roles:
     - web
+  - url: https://www.cs.cornell.edu/aflorenc/contest.html
+    roles:
+    - report
+    - rankings
+    scope: Cornell's place only (1996-97 section)
+    note: found by the data scan 2026-11-23 (web search; personal page of Cornell's coach Adam Florence,
+      one section per season)
   provenance:
   - 'Stony Brook ACM ICPC team page (Skiena) (1998): Context only: Stony Brook (Pedro Sanders, Dario Vlah,
     Colin Loh; coach Theo Pavlidis) won the 1997 ACM ICPC Greater New York Regional at West Point ahead
@@ -122,6 +129,19 @@ contests:
   - url: http://acmgnyr.org/year1997/header2.html
     roles:
     - web
+  - url: https://www3.cs.stonybrook.edu/~skiena/teams/index-1998-finals.html
+    roles:
+    - report
+    - rankings
+    scope: top 3
+    note: found by the data scan 2026-11-23 (web search; Stony Brook programming-team page)
+  - url: https://www.cs.cornell.edu/aflorenc/contest.html
+    roles:
+    - report
+    - rankings
+    scope: top 3 (1997-98 section)
+    note: found by the data scan 2026-11-23 (web search; personal page of Cornell's coach Adam Florence
+      (last updated 2000-10-19), one section per season)
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_GreatNY/1997/index.html
     roles:
     - problemset
@@ -149,11 +169,12 @@ contests:
   season: 1999
   name: 1998 ACM Greater New York Programming Contest
   date: '1998-11-08'
+  location: Bloomfield College, Bloomfield, NJ
+  cms_ids:
+  - 1159
   sites:
   - location: us-bloomfield-college
     name: Bloomfield Colleg
-  cms_ids:
-  - 1159
   parent: wf-1999
   next: gny-1999
   sources:
@@ -200,13 +221,14 @@ contests:
   - url: http://acmgnyr.org/year1998/problems.shtml
     roles:
     - problemset
-    note: found inside http://acmgnyr.org/year1998/ by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside http://acmgnyr.org/year1998/ by the content check
   problems:
     set: gny-1998
   provenance:
   - ICPC Problem Archive progress sheet (2026-11-01)
+  - location Bloomfield College, Bloomfield, NJ read from http://acmgnyr.org/year1998/ (data scan 2026-11-23)
 - id: gny-1999
   season: 2000
   name: 1999 ACM Greater New York Programming Contest
@@ -369,13 +391,13 @@ contests:
 - id: gny-2001
   season: 2002
   name: 2001 ACM Greater New York Programming Contest
-  date: '2001-10-18'
+  date: '2001-10-28'
   location: Garden City, NJ
+  cms_ids:
+  - 1137
   sites:
   - location: us-garden-city-nassau-community
     date: '2001-10-28'
-  cms_ids:
-  - 1137
   parent: wf-2002
   next: gny-2002
   sources:
@@ -457,13 +479,14 @@ contests:
   - url: http://acmgnyr.org/year2001/problems.shtml
     roles:
     - problemset
-    note: found inside http://acmgnyr.org/year2001/ by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside http://acmgnyr.org/year2001/ by the content check
   problems:
     set: gny-2001
   provenance:
   - ICPC Problem Archive progress sheet (2026-11-01)
+  - date 2001-10-28 read from http://acmgnyr.org/year2001/ (data scan 2026-11-23)
 - id: gny-2002
   season: 2003
   name: 2002 ACM Greater New York Programming Contest
@@ -1076,11 +1099,11 @@ contests:
   name: 2013 Greater NY Regional Contest
   date: '2013-10-27'
   location: New Haven, CT; Administrative Site Location
+  cms_ids:
+  - 1966
   sites:
   - location: us-new-haven-yale
   - type: administrative
-  cms_ids:
-  - 1966
   parent: wf-2014
   next: gny-2014
   sources:
@@ -1094,6 +1117,10 @@ contests:
     - gny/gny-2013/scoreboard/2026-09-01-live-fb5a3e87/standings.shtml
     url_state: live
     url_checked: '2026-11-16'
+  - url: https://icpc.global/regionals/finder/Greater-New-York-2014/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 55 rows)
   - url: http://acmgnyr.org/year2013/problems.shtml
     roles:
     - problemset
@@ -1119,10 +1146,10 @@ contests:
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221005113418'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: gny-2013
 - id: gny-2014
@@ -1521,13 +1548,13 @@ contests:
   name: 2020 Greater NY Regional Contest
   date: '2021-03-07'
   location: Administrative Site Location; Online Contest 1
+  cms_ids:
+  - 4351
   sites:
   - type: administrative
   - name: 'GNY Online Room #1'
     type: online
-  cms_ids:
-  - 4351
-  parent: nac-2021
+  parent: nadc-2021
   next: gny-2021
   sources:
   - url: http://acmgnyr.org/year2020/
@@ -1566,6 +1593,9 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: gny-2020
+  provenance:
+  - parent nadc-2021 read from https://www.icpc.org/icpc-north-america (as of 20210923173052) and the
+    ICPC CMS hierarchy (CMS 4596 ICPC-NADC) (data scan 2026-11-23)
 - id: gny-2021
   season: 2022
   name: 2021 ICPC Greater NY Regional Contest
@@ -1986,12 +2016,13 @@ contests:
   season: 2027
   name: 2026 ICPC North America Greater New York Regional Contest
   date: '2026-11-08'
+  location: Touro University, Times Square Campus
+  cms_ids:
+  - 9768
   sites:
   - type: administrative
   - location: us-new-york-city-touro
     date: '2026-11-08'
-  cms_ids:
-  - 9768
   parent: nac-2027
   subset_of: east-na-2026
   sources:
@@ -2001,6 +2032,15 @@ contests:
   - url: http://acmgnyr.org/year2026/
     roles:
     - web
+  - url: https://east.na.icpc.global/scoreboard/2026/eastdiv/index_Greater%20New%20York.html
+    roles:
+    - scoreboard
+    note: found by the data scan 2026-11-23 (linked from the East Division final scoreboard)
+  - url: https://icpc.global/regionals/finder/Greater-New-York-2027/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings API, 66 ranked rows on 2026-11-23)
   provenance:
   - 'ran 2026-11-08: it is the east-na-2026 contest seen for one region (subset_of), and that contest
     ran; date from the CMS record (ruling 2026-11-12)'
+  - location Touro University, Times Square Campus read from https://gny.na.icpc.global/ (data scan 2026-11-23)

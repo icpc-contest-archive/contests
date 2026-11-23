@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: kabul
   name: ICPC Asia Kabul Regional Contest
@@ -11,12 +11,12 @@ contests:
   name: 2017 ACM-ICPC Asia Kabul Regional Contest
   date: '2017-11-10'
   location: Kabul Afghanistan
+  cms_ids:
+  - 3485
   sites:
   - location: af-kabul
     name: Asia Kabul Onsite Contest
     type: administrative
-  cms_ids:
-  - 3485
   parent: wf-2018
   next: kabul-2018
   sources:
@@ -40,6 +40,13 @@ contests:
     archived:
     - kabul/kabul-2017/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 3485, 12 teams, DB fetch 2026-04-26)
+  - url: http://icpc.kateb.edu.af/assets/files/problems/2017_ACM_ICPC_Asia_Kabul_Regional_Contest.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    as_of: '20180728175335'
+    note: found by the data scan 2026-11-23 (own holdings (kabul-2018 site crawl))
   problems:
     set: kabul-2017
 - id: kabul-2018

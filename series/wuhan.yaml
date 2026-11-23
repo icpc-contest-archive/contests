@@ -1,10 +1,11 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: wuhan
   name: ACM-ICPC Asia Wuhan Regional Contest
   tier: regional
   region: Asia East
   naming: season-start
+  rotating_host: true
 contests:
 - id: wuhan-2009
   season: 2010
@@ -74,15 +75,21 @@ contests:
   name: 2025 ICPC Asia Wuhan Regional Contest
   date: '2025-11-01'
   location: Administrative Site Location
+  cms_ids:
+  - 9483
   sites:
   - type: administrative
   - location: cn-wuhan
     name: Asia Wuhan Onsite Contest
-  cms_ids:
-  - 9483
   parent: wf-2026
+  next: wuhan-2026
   sources:
-  - url: https://icpc.global/regionals/finder/ICPC-Asia-Wuhan-2026/standings
+  - url: https://icpc.pku.edu.cn/ssxx/1119_icpcbjzb_169373.htm
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ICPC China contest-information list icpc.pku.edu.cn/ssxx/
+      (赛事 sàishì = contests), sibling pattern of the 2026 editions)
+  - url: https://icpc.global/regionals/finder/Wuhan-2026/standings
     roles:
     - standings
     archived:
@@ -91,124 +98,129 @@ contests:
   - url: https://qoj.ac/contest/2609
     roles:
     - problemset
+    judge: qoj
     url_state: live
     url_checked: '2026-11-22'
-    judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://qoj.ac/download.php?type=statement&id=14719
     roles:
     - problem
-    judge: qoj
     problem: A
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=14720
     roles:
     - problem
-    judge: qoj
     problem: B
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=14721
     roles:
     - problem
-    judge: qoj
     problem: C
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=14722
     roles:
     - problem
-    judge: qoj
     problem: D
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=14723
     roles:
     - problem
-    judge: qoj
     problem: E
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=14724
     roles:
     - problem
-    judge: qoj
     problem: F
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=14725
     roles:
     - problem
-    judge: qoj
     problem: G
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=14726
     roles:
     - problem
-    judge: qoj
     problem: H
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=14727
     roles:
     - problem
-    judge: qoj
     problem: I
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=14728
     roles:
     - problem
-    judge: qoj
     problem: J
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=14729
     roles:
     - problem
-    judge: qoj
     problem: K
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=14730
     roles:
     - problem
-    judge: qoj
     problem: L
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=14731
     roles:
     - problem
-    judge: qoj
     problem: M
     contains:
     - statement
+    judge: qoj
   - url: https://icpcarchive.github.io/Asia-East-Continent/Wuhan/The-2025-ICPC-Asia-Wuhan-Regional-Contest/tutorials_zh-cn.pdf
     roles:
     - editorial
     url_state: live
     url_checked: '2026-11-23'
+  problems:
+    set: wuhan-2025
   notes: 'added from misclass audit 2026-09-02 (446 teams, 446 results in CMS); scoreboard_candidate:
     https://board.xcpcio.com/icpc/50th/wuhan; also set wuhan-2009 next: wuhan-2025; xcpcio board is an
     archived copy (usual provenance note applies)'
-  problems:
-    set: wuhan-2025
 - id: wuhan-2026
   season: 2027
   name: 2026 ACM-ICPC Asia Wuhan Regional Contest
   date: '2026-11-01'
+  cms_ids:
+  - 9648
   sites:
   - type: administrative
   - location: cn-wuhan
     name: Asia Wuhan Regional Contest
     date: '2026-11-01'
-  cms_ids:
-  - 9648
   parent: wf-2027
   sources:
+  - url: https://icpc.pku.edu.cn/ssxx/70c9cc6c136a478aabf394b0f1d44d9d.htm
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ICPC China contest-information list icpc.pku.edu.cn/ssxx/
+      (赛事 sàishì = contests), sibling pattern of the 2026 editions)
   - url: https://icpc.global/regionals/finder/Wuhan-2027/standings
     roles:
     - standings

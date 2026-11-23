@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/describe_apply.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: bapc-prelims
   name: ICPC BAPC Preliminaries
@@ -6,6 +6,272 @@ series:
   region: Europe
   naming: season-start
 contests:
+- id: bapc-prelims-2005
+  season: 2006
+  name: BAPC 2005 Qualifying Rounds
+  date: '2005-10-01'
+  location: Delft; Utrecht; Eindhoven; Enschede
+  cms_ids: []
+  sites:
+  - location: nl-delft
+    name: Delfts Kampioenschap Programmeren
+  - location: nl-utrecht
+    name: UKP 2005
+  - location: nl-eindhoven
+    name: Preliminary round Eindhoven
+  - location: nl-enschede
+    name: Twente Programming Contest
+  parent: bapc-2005
+  next: bapc-prelims-2006
+  sources:
+  - url: https://2005.bapc.eu/
+    roles:
+    - web
+    scope: preliminary rounds
+    note: 'found by the data scan 2026-11-23 (BAPC 2005 site: "BAPC and preliminary rounds results": Delft,
+      Utrecht, Eindhoven, Twente)'
+  - url: http://ch.tudelft.nl/chipcie/dkp/dkp2005/uitslag.shtml
+    roles:
+    - scoreboard
+    scope: Delft (DKP)
+    as_of: '20061008204610'
+    note: found by the data scan 2026-11-23 (linked from the BAPC 2005 site; DKP 2005 (2005-10-01) problems
+      A-H)
+  - url: http://www.students.cs.uu.nl/~escapade/scores.html
+    roles:
+    - scoreboard
+    scope: Utrecht (UKP)
+    as_of: '20051218085620'
+    note: found by the data scan 2026-11-23 (linked from the BAPC 2005 site; UKP 2005 problems a-h)
+  - url: http://www.gewis.nl/~oc/bapc_results_2005.html
+    roles:
+    - scoreboard
+    scope: Eindhoven
+    as_of: '20061010054835'
+    note: found by the data scan 2026-11-23 (linked from the BAPC 2005 site; "Results for the preliminary
+      round in Eindhoven of BAPC 2005", problems A Bancopia .. H Venus Rover)
+  - url: https://chipcie.wisv.ch/archive/2005/dkp/scoreboard.png
+    roles:
+    - scoreboard
+    scope: Delft (DKP)
+    note: found by the data scan 2026-11-23 (CHipCie archive, DKP 2005 scoreboard)
+  - url: https://2005.bapc.eu/problems/prebapc/problemset_BAPC2005_qualifiers.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    as_of: '20250323065726'
+    note: 'found by the data scan 2026-11-23 (BAPC 2005 problems page: "BAPC 2005 preliminary rounds''
+      problem set"; title page "Qualifying Rounds Problems, October 1, 2005")'
+  - url: https://chipcie.wisv.ch/archive/2005/dkp/problems.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (CHipCie archive, DKP 2005; the same document as the BAPC
+      2005 qualifiers PDF)
+  - url: https://2005.bapc.eu/problems.shtml.html
+    roles:
+    - problemset
+    scope: preliminary rounds' problem set
+    note: found by the data scan 2026-11-23 (BAPC 2005 problems page; its second part is the preliminary
+      rounds' problem set with input, output and solutions)
+  provenance:
+  - date 2005-10-01 read from https://2005.bapc.eu/problems/prebapc/problemset_BAPC2005_qualifiers.pdf
+    (data scan 2026-11-23)
+  - 'ran and fed the BAPC: the BAPC 2005 site lists "BAPC and preliminary rounds results" for Delft, Utrecht,
+    Eindhoven and Twente, and its Programming Contests page says qualifying rounds are held where the
+    best teams from several universities are selected for the BAPC — https://2005.bapc.eu/ (data scan
+    2026-11-23)'
+  - 'one problem set: the Eindhoven results page names problems A Bancopia .. H Venus Rover, the titles
+    of the qualifiers PDF; Delft and Utrecht also show eight problems A-H (data scan 2026-11-23)'
+  notes: 'added by the data scan 2026-11-23 (missing-contests): before the single BAPC Preliminaries contest,
+    the preliminary rounds were the universities'' own championships (DKP, UKP, TKP, ...) held on one
+    day with one problem set, the same shape as bapc-prelims-2009..2010'
+- id: bapc-prelims-2006
+  season: 2007
+  name: BAPC 2006 Qualifying contest
+  date: '2006-09-30'
+  location: Leiden; Utrecht; Delft; Eindhoven; Enschede; Groningen
+  cms_ids: []
+  sites:
+  - location: nl-leiden
+  - location: nl-utrecht
+  - location: nl-delft
+  - location: nl-eindhoven
+  - location: nl-enschede
+  - location: nl-groningen
+  parent: bapc-2006
+  next: bapc-prelims-2007
+  sources:
+  - url: https://chipcie.wisv.ch/archive/2006/dkp/scoreboard.png
+    roles:
+    - scoreboard
+    scope: Delft (DKP)
+    note: found by the data scan 2026-11-23 (CHipCie archive; image headed "Delfts Kampioenschap Programmeren,
+      TU Delft (2006-09-30)")
+  - url: https://chipcie.wisv.ch/archive/2006/dkp/qualif2006.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (CHipCie archive, DKP 2006; title page "Benelux Algorithm
+      Programming Contest 2006 Leiden — Qualifying contest — Problem set — September 30, 2006")
+  - url: https://liacs.leidenuniv.nl/~vlietrvan1/fotosbapc2006/verslagbapc2006.pdf
+    roles:
+    - report
+    scope: qualifying contest
+    note: 'found by the data scan 2026-11-23 (BAPC 2006 jury report: the local qualifier (lokale voorronde)
+      of 30 September 2006 at six universities, with its problem set and per-site results)'
+  provenance:
+  - date 2006-09-30 read from https://chipcie.wisv.ch/archive/2006/dkp/qualif2006.pdf (data scan 2026-11-23)
+  - ran at Leiden, Utrecht, Delft, Eindhoven, Twente and Groningen on 30 September 2006 with problems
+    set by the BAPC 2006 jury (nine of the eighteen chosen problems went to the qualifier) — https://liacs.leidenuniv.nl/~vlietrvan1/fotosbapc2006/verslagbapc2006.pdf
+    (data scan 2026-11-23)
+  notes: 'added by the data scan 2026-11-23 (missing-contests); the ICPC Problem Archive has a source
+    "Benelux Algorithm Programming Contest Qualifier 2006" (reports/problem-uuids-import-2026-11-01.md:
+    not applied, bapc-prelims-2006 not in the catalogue)'
+- id: bapc-prelims-2007
+  season: 2008
+  name: BAPC preliminary contest 2007
+  date: '2007-10-06'
+  location: Enschede; Utrecht; Delft; Groningen; Amsterdam
+  cms_ids: []
+  sites:
+  - location: nl-enschede
+    name: Twents Kampioenschap Programmeren
+  - location: nl-utrecht
+    name: Utrechts Kampioenschap Programmeren
+  - location: nl-delft
+    name: Delfts Kampioenschap Programmeren
+  - location: nl-groningen
+    name: Rijksuniversiteit Groningen
+  - location: nl-amsterdam
+    name: Universiteit van Amsterdam
+  parent: bapc-2007
+  next: bapc-prelims-2008
+  sources:
+  - url: http://www.bapc.nl/?p=news
+    roles:
+    - web
+    scope: preliminary contests
+    as_of: '20071117021315'
+    note: 'found by the data scan 2026-11-23 (BAPC 2007 site, news of October 6th 2007: "preliminary contests
+      were held on various locations" (Twente, Utrecht, Delft, Groningen, Amsterdam); "The problem set
+      for these contests is available")'
+  - url: http://www.bapc.nl/results/dkp/index.html
+    roles:
+    - scoreboard
+    scope: Delft (DKP)
+    as_of: '20071117054237'
+    note: found by the data scan 2026-11-23 (BAPC 2007 site; "Delfts Kampioenschap Programmeren 2007,
+      Delft (2007-10-06)", problems A-H)
+  - url: http://www.bapc.nl/results/rug/index.html
+    roles:
+    - scoreboard
+    scope: Groningen
+    as_of: '20071117054242'
+    note: found by the data scan 2026-11-23 (BAPC 2007 site; "BAPC qualification contest final standings",
+      problems A-H)
+  - url: http://www.bapc.nl/results/tkp/index.html
+    roles:
+    - scoreboard
+    scope: Twente (TKP)
+    as_of: '20071117054247'
+    note: found by the data scan 2026-11-23 (BAPC 2007 site; "Twents Kampioenschap Programmeren final
+      standings", problems A-H)
+  - url: http://www.bapc.nl/results/ukp/index.html
+    roles:
+    - scoreboard
+    scope: Utrecht (UKP)
+    as_of: '20071117054255'
+    note: found by the data scan 2026-11-23 (BAPC 2007 site; "UKP final standings", problems a-h)
+  - url: https://chipcie.wisv.ch/archive/2007/dkp/scoreboard.png
+    roles:
+    - scoreboard
+    scope: Delft (DKP)
+    note: found by the data scan 2026-11-23 (CHipCie archive, DKP 2007 scoreboard)
+  - url: http://www.bapc.nl/?p=problems
+    roles:
+    - problemset
+    scope: preliminary contests
+    as_of: '20071029145448'
+    note: 'found by the data scan 2026-11-23 (BAPC 2007 site: "On October 6th preliminary contests were
+      held, for which the problem sets are already available" (problems, tests, solutions))'
+  - url: https://chipcie.wisv.ch/archive/2007/dkp/dkp.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (CHipCie archive, DKP 2007; title page "BAPC preliminary contest,
+      October 6, 2007")
+  provenance:
+  - date 2007-10-06 read from https://chipcie.wisv.ch/archive/2007/dkp/dkp.pdf (data scan 2026-11-23)
+  - 'ran: "On saturday preliminary contests were held on various locations: Universiteit Twente, Universiteit
+    Utrecht, TU Delft, Rijksuniversiteit Groningen, Universiteit van Amsterdam. The problem set for these
+    contests is available here." — http://www.bapc.nl/?p=news (Wayback 20071117021315) (data scan 2026-11-23)'
+  notes: added by the data scan 2026-11-23 (missing-contests)
+- id: bapc-prelims-2008
+  season: 2009
+  name: BAPC voorronde 2008
+  date: '2008-10-04'
+  location: Delft; Eindhoven; Utrecht; Enschede
+  cms_ids: []
+  sites:
+  - location: nl-delft
+    name: Delfts Kampioenschap Programmeren
+  - location: nl-eindhoven
+    name: BAPC voorronde Eindhoven
+  - location: nl-utrecht
+    name: BAPC voorronde Utrecht
+  - location: nl-enschede
+    name: Twents Kampioenschap Programmeren
+  parent: bapc-2008
+  next: bapc-prelims-2009
+  sources:
+  - url: https://2008.bapc.eu/
+    roles:
+    - web
+    scope: local programming contests of 4 October
+    note: 'found by the data scan 2026-11-23 (BAPC 2008 site, news of 02-10: "Saturday 4th of October,
+      the local programming contests will take place": DKP, BAPC voorronde Eindhoven, BAPC voorronde Utrecht,
+      TKP)'
+  - url: https://chipcie.wisv.ch/archive/2008/dkp/scoreboard.png
+    roles:
+    - scoreboard
+    scope: Delft (DKP)
+    note: found by the data scan 2026-11-23 (CHipCie archive, DKP 2008 scoreboard)
+  - url: http://gewis.nl/~secr/bapc/score.php
+    roles:
+    - scoreboard
+    scope: Eindhoven (EKP)
+    as_of: '20081011225254'
+    note: found by the data scan 2026-11-23 (linked from the BAPC 2008 site; "Eindstand BAPC voorronde"
+      (EKP), problems A-H)
+  - url: http://2008.nwerc.eu/ukp/scoreboard.html
+    roles:
+    - scoreboard
+    scope: Utrecht (UKP)
+    as_of: '20081008033155'
+    note: found by the data scan 2026-11-23 (linked from the BAPC 2008 site; "Utrechts Kampioenschap Programmeren
+      final standings", problems A-H, last update 4 Oct 2008)
+  - url: https://chipcie.wisv.ch/archive/2008/dkp/dkp.pdf
+    roles:
+    - problemset
+    scope: Delft (DKP)
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (CHipCie archive, DKP 2008 "Problemset October 4, 2008", problems
+      A Lanterns .. H Recycling proteins)
+  provenance:
+  - date 2008-10-04 read from https://2008.bapc.eu/ (news of 02-10) and https://chipcie.wisv.ch/archive/2008/dkp/dkp.pdf
+    (data scan 2026-11-23)
+  - 'ran: the BAPC 2008 site lists the local contests of 4 October 2008 as the BAPC preliminaries ("BAPC
+    voorronde Eindhoven", "BAPC voorronde Utrecht", DKP, TKP); Delft, Eindhoven and Utrecht all show eight
+    problems A-H that day (data scan 2026-11-23)'
+  notes: added by the data scan 2026-11-23 (missing-contests). That the sites shared one problem set is
+    inferred (same day, eight problems A-H at three sites), not read from a document; the DKP 2008 set
+    carries scope Delft until that is checked
 - id: bapc-prelims-2009
   season: 2010
   cms_ids: []
@@ -121,6 +387,8 @@ contests:
   name: 2012 BAPC Preliminaries
   date: '2012-10-06'
   location: Leiden; Delft; Administrative Site Location; Eindhoven; Groningen; Enschede; Utrecht
+  cms_ids:
+  - 1344
   sites:
   - location: nl-delft
     name: Delft Preliminary
@@ -136,11 +404,14 @@ contests:
   - location: nl-enschede
     name: Twente Preliminary
   - type: administrative
-  cms_ids:
-  - 1344
   parent: bapc-2012
   next: bapc-prelims-2013
   sources:
+  - url: http://2012.bapc.eu/
+    roles:
+    - web
+    as_of: '20131031214322'
+    note: found by the data scan 2026-11-23 (sibling year-site pattern + Wayback CDX)
   - url: https://icpc.global/regionals/finder/BAPC-Preliminaries-2013/standings
     roles:
     - standings
@@ -172,6 +443,8 @@ contests:
   name: 2013 BAPC Preliminaries
   date: '2013-10-12'
   location: Groningen; Utrecht; Leiden; Delft; Administrative Site Location; Enschede; Eindhoven
+  cms_ids:
+  - 2022
   sites:
   - location: nl-delft
     name: Delft Preliminary
@@ -187,17 +460,19 @@ contests:
   - type: administrative
   - location: nl-leiden
     name: Leiden Preliminary
-  cms_ids:
-  - 2022
   parent: bapc-2013
   next: bapc-prelims-2014
   sources:
   - url: http://2013.bapc.eu/
     roles:
     - web
-  - url: https://eolymp.com/en/contests/3413
+  - url: https://icpc.global/regionals/finder/BAPC-Preliminaries-2014/standings
     roles:
     - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 44 rows)
+  - url: https://eolymp.com/en/contests/3413
+    roles:
+    - problemset
     archived:
     - bapc-prelims/bapc-prelims-2013/standings/20261020-live-5ab1ad5d/page.html
     url_state: live
@@ -228,6 +503,8 @@ contests:
   name: 2014 BAPC Preliminaries
   date: '2014-09-27'
   location: Utrecht; Delft; Leiden; Eindhoven; Administrative Site Location; Groningen; Enschede
+  cms_ids:
+  - 2692
   sites:
   - location: nl-delft
     name: Delft Preliminary
@@ -242,23 +519,15 @@ contests:
   - location: nl-leiden
     name: Leiden Preliminary
   - type: administrative
-  cms_ids:
-  - 2692
   parent: bapc-2014
   next: bapc-prelims-2015
   sources:
-  - url: http://bapc.eu/
+  - url: http://2014.bapc.eu/
     roles:
-    - standings
-    as_of: '20141217011548'
-    archived:
-    - bapc-prelims/bapc-prelims-2014/external-standings/2026-04-15-external/content.html
-    - bapc-prelims/bapc-prelims-2014/standings/20141217-wayback-d7752f82/page.html
-    - bapc-prelims/bapc-prelims-2014/standings/20260901-live-e734e012/page.html
-    - bapc-prelims/bapc-prelims-2014/standings/20261115-live-e734e012/page.html
-    url_state: replaced
-    url_checked: '2026-11-16'
-    note: from archived capture (external-standings)
+    - web
+    as_of: '20160813132241'
+    note: found by the data scan 2026-11-23 (sibling year-site pattern + Wayback CDX (address no longer
+      answers))
   - url: https://chipcie.wisv.ch/archive/2014/dkp/problemset.pdf
     roles:
     - problemset
@@ -284,6 +553,8 @@ contests:
   name: 2015 BAPC Preliminaries
   location: Nijmegen; Administrative Site Location; Namur; Universiteit van Amsterdam; Leuven; Enschede;
     Utrecht; VU Amsterdam; Groningen; Eindhoven; Université catholique de Louvain; Delft
+  cms_ids:
+  - 2782
   sites:
   - location: be-ottignies-louvain-la-neuve-ucl
     date: '2015-10-17'
@@ -318,14 +589,61 @@ contests:
     name: Amsterdam Algorithm Programming Preliminaries (AAPP, VU Amsterdam)
     date: '2015-09-19'
   - type: administrative
-  cms_ids:
-  - 2782
   parent: bapc-2015
   next: bapc-prelims-2016
   sources:
   - url: https://2015.bapc.eu/
     roles:
     - web
+  - url: http://2015.bapc.eu/results/preliminaries/dkp/public/index.html
+    roles:
+    - scoreboard
+    scope: Delft (DKP)
+    as_of: '20201024065156'
+    note: found by the data scan 2026-11-23 (Wayback snapshot 20201024065156; a copy is held in the website
+      crawl of bapc-2015)
+  - url: http://2015.bapc.eu/results/preliminaries/eapc/public/index.html
+    roles:
+    - scoreboard
+    scope: Eindhoven (EAPC)
+    as_of: '20201024053941'
+    note: found by the data scan 2026-11-23 (Wayback snapshot 20201024053941; a copy is held in the website
+      crawl of bapc-2015)
+  - url: http://2015.bapc.eu/results/preliminaries/lkp/public/index.html
+    roles:
+    - scoreboard
+    scope: Leiden (LKP)
+    as_of: '20201024070230'
+    note: found by the data scan 2026-11-23 (Wayback snapshot 20201024070230; a copy is held in the website
+      crawl of bapc-2015)
+  - url: http://2015.bapc.eu/results/preliminaries/ukp/public/index.html
+    roles:
+    - scoreboard
+    scope: Utrecht (UKP)
+    as_of: '20201024064546'
+    note: found by the data scan 2026-11-23 (Wayback snapshot 20201024064546; a copy is held in the website
+      crawl of bapc-2015)
+  - url: http://2015.bapc.eu/results/preliminaries/groningen.png
+    roles:
+    - scoreboard
+    scope: Groningen
+    as_of: '20201229235707'
+    note: found by the data scan 2026-11-23 (Wayback snapshot 20201229235707; a copy is held in the website
+      crawl of bapc-prelims-2015)
+  - url: http://2015.bapc.eu/results/preliminaries/uva/UVA_uitslag.pdf
+    roles:
+    - scoreboard
+    scope: Amsterdam (UvA)
+    as_of: '20201024053204'
+    note: found by the data scan 2026-11-23 (Wayback snapshot 20201024053204; a copy is held in the website
+      crawl of bapc-2015)
+  - url: http://2015.bapc.eu/results/preliminaries/aapp/VU_AAPP_uitslag.pdf
+    roles:
+    - scoreboard
+    scope: VU Amsterdam (AAPP)
+    as_of: '20201024055908'
+    note: found by the data scan 2026-11-23 (Wayback snapshot 20201024055908; a copy is held in the website
+      crawl of bapc-2015)
   - url: https://chipcie.wisv.ch/archive/2015/dkp/dkp2015.pdf
     roles:
     - problemset
@@ -353,6 +671,8 @@ contests:
   date: '2016-09-24'
   location: Leuven; VU Amsterdam; Universiteit van Amsterdam; Delft; Utrecht; Nijmegen; Enschede; Université
     catholique de Louvain; Eindhoven; Leiden; Namur; Groningen
+  cms_ids:
+  - 3117
   sites:
   - location: nl-enschede
     name: Twents Kampioenschap Programmeren
@@ -378,14 +698,14 @@ contests:
     name: Amsterdam Algorithm Programming Preliminaries (AAPP, VU Amsterdam)
   - location: nl-delft-dkp
     name: Delfts Kampioenschap Programmeren (DKP)
-  cms_ids:
-  - 3117
   parent: bapc-2016
   next: bapc-prelims-2017
   sources:
   - url: https://2016.bapc.eu/en/contest/preliminaries/
     roles:
     - web
+    - scoreboard
+    scope: scoreboards of the DAPC, EAPC, LAPC, NKP, AAPP, UvA and Utrecht preliminaries
     as_of: '20210506030112'
     archived:
     - bapc-prelims/bapc-prelims-2016/scoreboard/2026-09-01-wayback-1037e950/page.html
@@ -430,6 +750,8 @@ contests:
   date: '2017-09-30'
   location: Eindhoven; Université catholique de Louvain; Utrecht; Delft; Nijmegen; Enschede; Administrative
     Site Location; Namur; Leiden; Leuven; VU Amsterdam; Universiteit van Amsterdam
+  cms_ids:
+  - 3279
   sites:
   - location: be-namur
     name: UNamur
@@ -455,11 +777,13 @@ contests:
   - location: nl-leiden-lkp
     name: Leidsch Kampioenschap Programmeren (LKP)
   - type: administrative
-  cms_ids:
-  - 3279
   parent: bapc-2017
   next: bapc-prelims-2018
   sources:
+  - url: https://2017.bapc.eu/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (sibling year-site pattern)
   - url: https://2017.bapc.eu/scoreboard/preliminaries/
     roles:
     - scoreboard
@@ -846,6 +1170,8 @@ contests:
   date: '2022-10-01'
   location: Delft; Administrative Site Location; Plaine de Nimy; Nijmegen; Groningen; Leiden; Therminal;
     Utrecht; Eindhoven; VU Amsterdam; Universiteit van Amsterdam; Enschede
+  cms_ids:
+  - 5407
   sites:
   - type: administrative
   - location: be-mons-umons
@@ -876,11 +1202,15 @@ contests:
     date: '2022-09-24'
   - location: nl-delft-dapc-spectators
     date: '2022-09-24'
-  cms_ids:
-  - 5407
   parent: bapc-2022
   next: bapc-prelims-2023
   sources:
+  - url: https://2022.bapc.eu/
+    roles:
+    - web
+    as_of: '20221116172934'
+    note: found by the data scan 2026-11-23 (sibling year-site pattern + Wayback CDX (address no longer
+      answers))
   - url: https://2022.bapc.eu/preliminaries/scoreboard/
     roles:
     - scoreboard
@@ -930,6 +1260,8 @@ contests:
   date: '2023-09-23'
   location: Enschede; Eindhoven; Delft; Groningen; Leiden; Administrative Site Location; Science Park,
     lab42; Plaine de Nimy; Universiteit van Amsterdam; Therminal; Utrecht; Nijmegen
+  cms_ids:
+  - 7599
   sites:
   - type: administrative
   - location: nl-leiden-lkp
@@ -954,11 +1286,13 @@ contests:
     name: Nijmegen Algorithm Programming Contest
     type: online
   - location: nl-amsterdam-universities
-  cms_ids:
-  - 7599
   parent: bapc-2023
   next: bapc-prelims-2024
   sources:
+  - url: https://2023.bapc.eu/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (sibling year-site pattern NNNN.bapc.eu)
   - url: https://2023.bapc.eu/static/prelim_scoreboard/index.html
     roles:
     - scoreboard
@@ -1008,6 +1342,8 @@ contests:
   date: '2024-09-21'
   location: Nijmegen; Delft; Utrecht; VU campus; Administrative Site Location; Groningen; Enschede; Eindhoven;
     Leiden; Plaine de Nimy; Universiteit van Amsterdam; Therminal
+  cms_ids:
+  - 9009
   sites:
   - type: administrative
   - location: nl-leiden-lkp
@@ -1034,11 +1370,15 @@ contests:
     type: online
   - location: nl-amsterdam-vu-campus
     name: Amsterdam Universities Programming Contest (AUPC, VU Amsterdam)
-  cms_ids:
-  - 9009
   parent: bapc-2024
   next: bapc-prelims-2025
   sources:
+  - url: https://2024.bapc.eu/
+    roles:
+    - web
+    as_of: '20241015000407'
+    note: found by the data scan 2026-11-23 (sibling year-site pattern NNNN.bapc.eu + Wayback CDX (address
+      no longer answers))
   - url: https://chipcie.wisv.ch/archive/2024/dapc/scoreboard/merged.html
     roles:
     - scoreboard
@@ -1084,6 +1424,8 @@ contests:
   name: 2025 ICPC BAPC Preliminaries
   location: Therminal; Leiden; Delft; Utrecht; Groningen; Plaine de Nimy; Administrative Site Location;
     Eindhoven; Enschede; Universiteit van Amsterdam; Nijmegen; Science Park
+  cms_ids:
+  - 9373
   sites:
   - type: administrative
   - location: nl-utrecht
@@ -1120,8 +1462,6 @@ contests:
     date: '2025-09-20'
   - location: nl-amsterdam-universities
     date: '2025-09-20'
-  cms_ids:
-  - 9373
   parent: bapc-2025
   next: bapc-prelims-2026
   sources:
@@ -1173,17 +1513,26 @@ contests:
     url_checked: '2026-11-16'
     note: Kattis problem-sources page (export source "Benelux Algorithm Programming Contest (BAPC) preliminaries
       2025", 2026-11-02)
-  - url: https://2025.bapc.eu/main/solutions.pdf
+  - url: https://2025.bapc.eu/prelims/problem-set.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-16'
+    note: 'found by the data scan 2026-11-23 (moved from bapc-2025: prelims problem set)'
+  - url: https://2025.bapc.eu/prelims/solutions.pdf
     roles:
     - editorial
     url_state: live
     url_checked: '2026-11-16'
+    note: 'found by the data scan 2026-11-23 (moved from bapc-2025: prelims solutions slides)'
   problems:
     set: bapc-prelims-2025
 - id: bapc-prelims-2026
   season: 2027
   name: 2026 ICPC BAPC Preliminaries
   date: '2026-09-26'
+  cms_ids:
+  - 9586
   sites:
   - type: administrative
   - location: nl-leiden-lkp
@@ -1216,24 +1565,27 @@ contests:
   - location: nl-amsterdam-university
     name: Amsterdam Programming Contest (Universiteit van Amsterdam)
     date: '2026-09-26'
-  cms_ids:
-  - 9586
   parent: bapc-2026
   sources:
+  - url: https://2026.bapc.eu/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (link from our held copy of the prelims scoreboard (2026.bapc.eu/prelims/scoreboard)
+      + sibling bapc-prelims-2021 pattern)
   - url: https://2026.bapc.eu/prelims/scoreboard/
     roles:
     - scoreboard
-    url_state: live
-    url_checked: '2026-11-16'
     archived:
     - bapc-prelims/bapc-prelims-2026/scoreboard/20261113-live-a4e75d36/page.html
+    url_state: live
+    url_checked: '2026-11-16'
   - url: https://chipcie.wisv.ch/archive/2026/dapc/scoreboard/merged.html
     roles:
     - scoreboard
-    url_state: live
-    url_checked: '2026-11-16'
     archived:
     - bapc-prelims/bapc-prelims-2026/scoreboard/20261113-live-e8efdee6/merged.html
+    url_state: live
+    url_checked: '2026-11-16'
   - url: https://icpc.global/regionals/finder/BAPC-Preliminaries-2027/standings
     roles:
     - standings
@@ -1253,20 +1605,20 @@ contests:
     contains:
     - statement
     judge: codeforces
+    url_state: live
+    url_checked: '2026-11-16'
     note: '2026 Benelux Algorithm Programming Contest Preliminary (BAPC Prelims 2026) (judge hunt 2026-11-03:
       name+year: ''2026 Benelux Algorithm Programming Contest Preliminary (BAPC Prelims 2026)'' -> season
       start 2026)'
-    url_state: live
-    url_checked: '2026-11-16'
   - url: https://open.kattis.com/problem-sources/Benelux%20Algorithm%20Programming%20Contest%20%28BAPC%29%20preliminaries%202026
     roles:
     - problemset
     judge: kattis
     url_state: live
     url_checked: '2026-11-16'
+  problems:
+    set: bapc-prelims-2026
   provenance:
   - 'ran 2026-09-26: shown by its icpc standings, judge page, scoreboard source(s); date from CMS site
     date (ruling 2026-11-12: upcoming ends when the date has passed and a result source or judge page
     shows the contest ran)'
-  problems:
-    set: bapc-prelims-2026

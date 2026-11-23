@@ -1,10 +1,11 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: kunming
   name: ICPC Asia Kunming Regional  Contest
   tier: regional
   region: Asia East
   naming: season-start
+  rotating_host: true
 contests:
 - id: kunming-2020
   season: 2021
@@ -59,18 +60,23 @@ contests:
 - id: kunming-2021
   season: 2022
   name: 2021 ICPC Asia Kunming Regional Contest
-  date: '2022-04-10'
+  date: '2022-04-17'
   location: Kunming; Administrative Site Location
+  cms_ids:
+  - 4746
   sites:
   - type: administrative
   - location: cn-kunming
     name: Asia Kunming On-site Contest
     type: online
-  cms_ids:
-  - 4746
   parent: wf-2022
   next: kunming-2024
   sources:
+  - url: https://icpc.pku.edu.cn/ssxx/1119_icpcbjzb_130715.htm
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ICPC China contest-information list icpc.pku.edu.cn/ssxx/
+      (赛事 sàishì = contests), sibling pattern of the 2026 editions)
   - url: https://board.xcpcio.com/icpc/46th/kunming
     roles:
     - scoreboard
@@ -97,19 +103,19 @@ contests:
     roles:
     - problemset
     judge: nowcoder
+    as_of: '20240624095526'
     url_state: live
     url_checked: '2026-11-16'
     note: '第46届ICPC亚洲区域赛（昆明）(正式赛） (judge hunt 2026-11-03: NowCoder was the official judge for this regional;
       contest name = ''第46届ICPC亚洲区域赛（昆明）(正式赛）'' (2021 ICPC Asia Kunming Regional Contest, 2022-04-10);
       catalogue has no problem titles to check (13 problems on judge))'
-    as_of: '20240624095526'
   - url: https://qoj.ac/contest/1870
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Asia-East-Continent/Kunming/The-2022-ICPC-Asia-Kunming-Regional-Contest/tutorials_en.pdf
     roles:
     - editorial
@@ -117,6 +123,9 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: kunming-2021
+  provenance:
+  - date 2022-04-17 read from https://xcpcio.github.io/upload-file/icpc/46th/ICPC_2022_KUNMING_STATEMENTS.pdf
+    (data scan 2026-11-23)
 - id: kunming-2024
   season: 2025
   name: 2024 ICPC Asia Kunming Regional  Contest

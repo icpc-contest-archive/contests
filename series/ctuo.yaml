@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: ctuo
   name: ICPC CTU Open
@@ -19,11 +19,11 @@ contests:
     - web
   - url: https://contest.felk.cvut.cz/95prg/results.html
     roles:
-    - standings
-    url_state: live
-    url_checked: '2026-11-16'
+    - scoreboard
     archived:
     - ctuo/ctuo-1995/standings/20261113-live-1bcf5866/results.html
+    url_state: live
+    url_checked: '2026-11-16'
   - url: https://contest.felk.cvut.cz/95prg/problems_1995_converted.pdf
     roles:
     - problemset
@@ -35,20 +35,23 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+  problems:
+    set: ctuo-1995
   provenance:
   - 'added 2026-11-12: QOJ mirrors the set (https://qoj.ac/contest/3662). The first CTU Open: https://contest.felk.cvut.cz/95prg/
     says May 12th and 13th, 1995, at CTU Prague FEE; the CTU Open 2014 problem set''s introduction gives
     the contest day as May 13, 1995'
   - location read from https://contest.felk.cvut.cz/95prg/ (description round 2026-11-16)
-  problems:
-    set: ctuo-1995
 - id: ctuo-1996
   season: 1997
   date: '1996-05-04'
+  location: CTU Prague, Faculty of Electrical Engineering (Department of Computers), Prague
   cms_ids: []
+  sites:
+  - location: cz-prague-ctu
   parent: cerc-1996
   next: ctuo-1997
   sources:
@@ -58,20 +61,20 @@ contests:
   - url: https://contest.felk.cvut.cz/96prg/praha.html
     roles:
     - scoreboard
-    url_state: live
-    url_checked: '2026-11-16'
+    scope: Prague round
     archived:
     - ctuo/ctuo-1996/standings/20261113-live-3398ab3d/praha.html
     - ctuo/ctuo-1996/scoreboard/20261115-live-3398ab3d/praha.html
-    scope: Prague round
-  - url: https://contest.felk.cvut.cz/96prg/local.html
-    roles:
-    - standings
-    note: found inside https://contest.felk.cvut.cz/96prg/ by the content check
     url_state: live
     url_checked: '2026-11-16'
+  - url: https://contest.felk.cvut.cz/96prg/local.html
+    roles:
+    - scoreboard
     archived:
     - ctuo/ctuo-1996/standings/20261115-live-e2c18a71/local.html
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside https://contest.felk.cvut.cz/96prg/ by the content check
   - url: https://contest.felk.cvut.cz/96prg/ulohy2.html
     roles:
     - problemset
@@ -83,21 +86,23 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://contest.felk.cvut.cz/96prg/ulohy.html
     roles:
     - problemset
-    note: found inside https://contest.felk.cvut.cz/96prg/ by the content check
     url_state: changed
     url_checked: '2026-11-16'
+    note: found inside https://contest.felk.cvut.cz/96prg/ by the content check
+  problems:
+    set: ctuo-1996
   provenance:
   - 'added 2026-11-12: QOJ mirrors the set (https://qoj.ac/contest/3663). https://contest.felk.cvut.cz/96prg/
     lists a faculty round (26-27 April 1996) and a Prague round (3-4 May 1996); the Prague round is taken
     as the CTU Open, and its second day as the contest day, as in 1995 and 1997'
-  problems:
-    set: ctuo-1996
+  - location CTU Prague, Faculty of Electrical Engineering (Department of Computers), Prague read from
+    https://contest.felk.cvut.cz/96prg/ (data scan 2026-11-23)
 - id: ctuo-1997
   season: 1998
   date: '1997-05-17'
@@ -160,7 +165,7 @@ contests:
     - web
   - url: https://contest.felk.cvut.cz/98prg/results.html
     roles:
-    - standings
+    - scoreboard
     as_of: '19990225160341'
     archived:
     - ctuo/ctuo-1998/standings/2026-09-01-live-26265310/results.html
@@ -178,15 +183,15 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://contest.felk.cvut.cz/98prg/problemsE.html
     roles:
     - problemset
-    note: found inside https://contest.felk.cvut.cz/98prg/ by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://contest.felk.cvut.cz/98prg/ by the content check
   problems:
     set: ctuo-1998
   provenance:
@@ -195,7 +200,11 @@ contests:
 - id: ctuo-1999
   season: 2000
   date: '1999-11-06'
+  location: CTU Prague, Faculty of Electrical Engineering, Department of Computer Science and Engineering,
+    Prague (and Ostrava)
   cms_ids: []
+  sites:
+  - location: cz-prague-ctu
   parent: cerc-1999
   next: ctuo-2000
   sources:
@@ -205,16 +214,16 @@ contests:
   - url: https://contest.felk.cvut.cz/99prg/submits.html
     roles:
     - scoreboard
-    note: found inside https://contest.felk.cvut.cz/99prg/ by the content check
-    url_state: live
-    url_checked: '2026-11-16'
+    as_of: '20030613234102'
     archived:
     - ctuo/ctuo-1999/scoreboard/20030613-wayback-8479cf33/submits.html
     - ctuo/ctuo-1999/scoreboard/20261115-live-d2b6e984/submits.html
-    as_of: '20030613234102'
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside https://contest.felk.cvut.cz/99prg/ by the content check
   - url: https://contest.felk.cvut.cz/99prg/results.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20030612085011'
     archived:
     - ctuo/ctuo-1999/standings/2026-09-01-live-eadc7d02/results.html
@@ -233,21 +242,21 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://contest.felk.cvut.cz/99prg/problems.html
     roles:
     - problemset
-    note: found inside https://contest.felk.cvut.cz/99prg/ by the content check
     url_state: replaced
     url_checked: '2026-11-16'
+    note: found inside https://contest.felk.cvut.cz/99prg/ by the content check
   - url: https://contest.felk.cvut.cz/99prg/problemsE.html
     roles:
     - problemset
-    note: found inside https://contest.felk.cvut.cz/99prg/ by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://contest.felk.cvut.cz/99prg/ by the content check
   - url: https://icpcarchive.github.io/Europe/Central-Europe/CTU-Open-Contest/CTU-Open-Contest-1999/statements_en.pdf
     roles:
     - problemset
@@ -260,6 +269,8 @@ contests:
     set: ctuo-1999
   provenance:
   - ICPC Problem Archive progress sheet (2026-11-01)
+  - location CTU Prague, Faculty of Electrical Engineering, Department of Computer Science and Engineering,
+    Prague (and Ostrava) read from https://contest.felk.cvut.cz/99prg/ (data scan 2026-11-23)
 - id: ctuo-2000
   season: 2001
   date: '2000-10-21'
@@ -271,14 +282,6 @@ contests:
   - url: https://contest.felk.cvut.cz/00prg/
     roles:
     - web
-  - url: https://contest.felk.cvut.cz/00prg/rank.html
-    roles:
-    - scoreboard
-    archived:
-    - ctuo/ctuo-2000/scoreboard/20260904-live-ca37284a/rank.html
-    url_state: live
-    url_checked: '2026-11-16'
-    note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://contest.felk.cvut.cz/00prg/results.html
     roles:
     - scoreboard
@@ -293,13 +296,21 @@ contests:
   - url: https://contest.felk.cvut.cz/00prg/submits/submits.html
     roles:
     - scoreboard
-    note: found inside https://contest.felk.cvut.cz/00prg/ by the content check
-    url_state: live
-    url_checked: '2026-11-16'
+    as_of: '20020730205605'
     archived:
     - ctuo/ctuo-2000/scoreboard/20020730-wayback-c0c2132b/submits.html
     - ctuo/ctuo-2000/scoreboard/20261115-live-36fe7285/submits.html
-    as_of: '20020730205605'
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside https://contest.felk.cvut.cz/00prg/ by the content check
+  - url: https://contest.felk.cvut.cz/00prg/rank.html
+    roles:
+    - frozen_scoreboard
+    archived:
+    - ctuo/ctuo-2000/scoreboard/20260904-live-ca37284a/rank.html
+    url_state: live
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (wave5-boards)
   - url: https://contest.felk.cvut.cz/00prg/solved/problems.html
     roles:
     - problemset
@@ -323,9 +334,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: ctuo-2000
   provenance:
@@ -646,7 +657,7 @@ contests:
     - web
   - url: https://contest.felk.cvut.cz/06prg/rank.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20061207052242'
     archived:
     - ctuo/ctuo-2006/standings/2026-09-01-live-aa56e70b/rank.html
@@ -655,20 +666,20 @@ contests:
     url_checked: '2026-11-16'
   - url: https://contest.felk.cvut.cz/06prg/RANK.txt
     roles:
-    - standings
-    note: found inside https://contest.felk.cvut.cz/06prg/ by the content check
-    url_state: live
-    url_checked: '2026-11-16'
+    - scoreboard
+    as_of: '20061123141423'
     archived:
     - ctuo/ctuo-2006/standings/20061123-wayback-b8a3643d/RANK.txt
     - ctuo/ctuo-2006/standings/20261115-live-a2519a10/RANK.txt
-    as_of: '20061123141423'
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside https://contest.felk.cvut.cz/06prg/ by the content check
   - url: https://contest.felk.cvut.cz/06prg/teams.html
     roles:
     - teams
-    note: found inside https://contest.felk.cvut.cz/06prg/ by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://contest.felk.cvut.cz/06prg/ by the content check
   - url: https://contest.felk.cvut.cz/06prg/solved/index.html
     roles:
     - problemset
@@ -680,9 +691,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: ctuo-2006
   provenance:
@@ -1234,6 +1245,8 @@ contests:
   date: '2013-10-19'
   location: UPJS Košice; Bratislava, Brno, Košice, Ostrava, Prague, Žilina; VSB Ostrava; STUBA Bratislava;
     MUNI Brno; CTU Prague; Banska Bystrica; Pilsen; UNIZA Žilina; Administrative Site Location
+  cms_ids:
+  - 2011
   sites:
   - location: cz-ostrava-vsb
     date: '2013-10-18'
@@ -1256,8 +1269,6 @@ contests:
   - location: sk-bratislava-stuba
     date: '2013-10-18'
   - type: administrative
-  cms_ids:
-  - 2011
   parent: cerc-2013
   next: ctuo-2014
   sources:
@@ -1273,6 +1284,10 @@ contests:
     - ctuo/ctuo-2013/scoreboard/20140323-wayback-ee3009d1/rank.html
     url_state: live
     url_checked: '2026-11-16'
+  - url: https://icpc.global/regionals/finder/CTU-Open-2014/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 92 rows)
   - url: https://contest.felk.cvut.cz/13prg/solved.html
     roles:
     - problemset
@@ -1311,17 +1326,17 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2013-2014 CTU Open Contest (judge hunt 2026-11-03: name+year: ''2013-2014 CTU Open Contest''
-      -> season start 2013)'
     url_state: live
     url_checked: '2026-11-16'
+    note: '2013-2014 CTU Open Contest (judge hunt 2026-11-03: name+year: ''2013-2014 CTU Open Contest''
+      -> season start 2013)'
   - url: https://qoj.ac/contest/3680
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://contest.felk.cvut.cz/13prg/solved/solution-13prg.pptx
     roles:
     - editorial
@@ -1338,6 +1353,8 @@ contests:
   date: '2014-10-18'
   location: STUBA Bratislava; Bratislava, Brno, Košice, Ostrava, Prague, Žilina; Pilsen; VSB Ostrava;
     Administrative Site Location; UNIZA Žilina; UPJS Košice; MUNI Brno; Banska Bystrica; CTU Prague
+  cms_ids:
+  - 2667
   sites:
   - location: sk-bratislava
     name: Unofficial site
@@ -1351,8 +1368,6 @@ contests:
   - location: sk-zilina-uniza
   - location: cz-ostrava-vsb
   - type: administrative
-  cms_ids:
-  - 2667
   parent: cerc-2014
   next: ctuo-2015
   sources:
@@ -1403,18 +1418,24 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20160408223729'
     url_state: changed
     url_checked: '2026-11-16'
     note: '2014-2015 CTU Open Contest (judge hunt 2026-11-03: name+year: ''2014-2015 CTU Open Contest''
       -> season start 2014)'
-    as_of: '20160408223729'
   - url: https://qoj.ac/contest/3681
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+  - url: https://contest.felk.cvut.cz/14prg/solved/intro.pdf
+    roles:
+    - problemset
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside https://contest.felk.cvut.cz/14prg/ by the content check
   - url: https://contest.felk.cvut.cz/14prg/solved/solution-14prg.pdf
     roles:
     - editorial
@@ -1425,12 +1446,6 @@ contests:
     roles:
     - editorial
     as_of: '20240424222433'
-    url_state: live
-    url_checked: '2026-11-16'
-  - url: https://contest.felk.cvut.cz/14prg/solved/intro.pdf
-    roles:
-    - editorial
-    note: found inside https://contest.felk.cvut.cz/14prg/ by the content check
     url_state: live
     url_checked: '2026-11-16'
   problems:

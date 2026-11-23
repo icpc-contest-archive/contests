@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: kyrgyzstan
   name: ICPC Kyrgyzstan Regional Contest
@@ -9,13 +9,17 @@ contests:
 - id: kyrgyzstan-2004
   season: 2005
   name: 2004 Kyrgyzstan Subregional Contest
+  location: Bishkek, Kyrgyz-Russian Slavic University
   cms_ids: []
+  sites:
+  - location: kg-bishkek
   parent: neerc-2004
   next: kyrgyzstan-2005
   sources:
   - url: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
     roles:
     - web
+    as_of: '20041110063208'
   - url: https://nerc.itmo.ru/archive/2004/kyrgyzstan/standings.html
     roles:
     - scoreboard
@@ -41,24 +45,31 @@ contests:
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
   problems:
     set: kyrgyzstan-2004
+  provenance:
+  - location Bishkek, Kyrgyz-Russian Slavic University read from https://web.archive.org/web/20050212193854/http://neerc.ifmo.ru/subregions/kyrgyzstan.html
+    (data scan 2026-11-23)
 - id: kyrgyzstan-2005
   season: 2006
   name: 2005 Kyrgyzstan Subregional Contest
   date: '2005-10-22'
+  location: Bishkek, Kyrgyz-Russian Slavic University
   cms_ids: []
+  sites:
+  - location: kg-bishkek
   parent: neerc-2005
   next: kyrgyzstan-2006
   sources:
   - url: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
     roles:
     - web
+    as_of: '20060503231238'
   - url: https://olymp.krsu.kg/conteststandings/9
     roles:
     - scoreboard
-    url_state: changed
-    url_checked: '2026-11-22'
     archived:
     - kyrgyzstan/kyrgyzstan-2005/scoreboard/20261122-live-a0f0f72c/page.html
+    url_state: changed
+    url_checked: '2026-11-22'
   - url: https://nerc.itmo.ru/archive/2005/kyrgyzstan/standings.html
     roles:
     - scoreboard
@@ -84,24 +95,31 @@ contests:
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
   problems:
     set: kyrgyzstan-2005
+  provenance:
+  - location Bishkek, Kyrgyz-Russian Slavic University read from https://web.archive.org/web/20060503231238/http://neerc.ifmo.ru/subregions/kyrgyzstan.html
+    (data scan 2026-11-23)
 - id: kyrgyzstan-2006
   season: 2007
   name: 2006 Kyrgyzstan Subregional Contest
   date: '2006-11-04'
+  location: Bishkek, Kyrgyz-Russian Slavic University
   cms_ids: []
+  sites:
+  - location: kg-bishkek
   parent: neerc-2006
   next: kyrgyzstan-2007
   sources:
   - url: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
     roles:
     - web
+    as_of: '20061125223241'
   - url: https://olymp.krsu.kg/conteststandings/26
     roles:
     - scoreboard
-    url_state: changed
-    url_checked: '2026-11-22'
     archived:
     - kyrgyzstan/kyrgyzstan-2006/scoreboard/20261122-live-a0e24afe/page.html
+    url_state: changed
+    url_checked: '2026-11-22'
   - url: https://nerc.itmo.ru/archive/2006/kyrgyzstan/standings.html
     roles:
     - scoreboard
@@ -133,24 +151,32 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: kyrgyzstan-2006
+  provenance:
+  - location Bishkek, Kyrgyz-Russian Slavic University read from https://web.archive.org/web/20061125223241/http://neerc.ifmo.ru/subregions/kyrgyzstan.html
+    (data scan 2026-11-23)
 - id: kyrgyzstan-2007
   season: 2008
   name: 2007 Kyrgyzstan Subregional Contest
   date: '2007-10-27'
-  cms_ids: []
+  location: Bishkek, Kyrgyz-Russian Slavic University
+  cms_ids:
+  - 9910
+  sites:
+  - location: kg-bishkek
   parent: neerc-2007
   next: kyrgyzstan-2008
   sources:
   - url: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
     roles:
     - web
+    as_of: '20071124014823'
   - url: https://olymp.krsu.kg/conteststandings/30
     roles:
     - scoreboard
-    url_state: changed
-    url_checked: '2026-11-22'
     archived:
     - kyrgyzstan/kyrgyzstan-2007/scoreboard/20261122-live-d71254cc/page.html
+    url_state: changed
+    url_checked: '2026-11-22'
   - url: https://nerc.itmo.ru/archive/2007/kyrgyzstan/standings.html
     roles:
     - scoreboard
@@ -176,6 +202,10 @@ contests:
     note: added by url-hunt 2026-09-01 (neerc-subregion-index)
   problems:
     set: kyrgyzstan-2007
+  provenance:
+  - cms id 9910 read from https://icpc.global/api/contest/public/regionalresults/2008 (data scan 2026-11-23)
+  - location Bishkek, Kyrgyz-Russian Slavic University read from https://web.archive.org/web/20071124014823/http://neerc.ifmo.ru/subregions/kyrgyzstan.html
+    (data scan 2026-11-23)
 - id: kyrgyzstan-2008
   season: 2009
   name: 2008 Kyrgyzstan Subregional Contest
@@ -230,19 +260,20 @@ contests:
   name: 2009 Kyrgyzstan Subregional Contest
   date: '2009-10-17'
   location: Bishkek; Administrative Site Location
+  cms_ids:
+  - 529
   sites:
   - type: administrative
   - location: kg-bishkek
     name: Kyrgyzstan Subregional Contest
     type: administrative
-  cms_ids:
-  - 529
   parent: neerc-2009
   next: kyrgyzstan-2010
   sources:
   - url: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
     roles:
     - web
+    as_of: '20100402045519'
   - url: https://olymp.krsu.kg/conteststandings/46
     roles:
     - scoreboard
@@ -305,19 +336,20 @@ contests:
   name: 2011 Kyrgyzstan Subregional Contest
   date: '2011-11-05'
   location: Administrative Site Location; Bishkek
+  cms_ids:
+  - 758
   sites:
   - type: administrative
   - location: kg-bishkek
     name: Kyrgyzstan Subregional Contest
     type: administrative
-  cms_ids:
-  - 758
   parent: neerc-2011
   next: kyrgyzstan-2012
   sources:
   - url: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
     roles:
     - web
+    as_of: '20111114181355'
   - url: https://nerc.itmo.ru/archive/2011/kyrgyzstan/standings.html
     roles:
     - scoreboard
@@ -330,10 +362,10 @@ contests:
   - url: https://olymp.krsu.kg/conteststandings/58
     roles:
     - scoreboard
-    url_state: changed
-    url_checked: '2026-11-22'
     archived:
     - kyrgyzstan/kyrgyzstan-2011/scoreboard/20261122-live-841e8283/page.html
+    url_state: changed
+    url_checked: '2026-11-22'
   - url: https://neerc.ifmo.ru/archive/2011/kyrgyzstan/standings.html
     roles:
     - scoreboard
@@ -409,19 +441,20 @@ contests:
   name: 2013 Kyrgyzstan Subregional Contest
   date: '2013-10-26'
   location: Administrative Site Location; Bishkek
+  cms_ids:
+  - 2029
   sites:
   - location: kg-bishkek
     name: Kyrgyzstan Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 2029
   parent: neerc-2013
   next: kyrgyzstan-2014
   sources:
   - url: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
     roles:
     - web
+    as_of: '20140406210752'
   - url: https://nerc.itmo.ru/archive/2013/kyrgyzstan/standings.html
     roles:
     - scoreboard
@@ -434,10 +467,10 @@ contests:
   - url: https://olymp.krsu.kg/conteststandings/67
     roles:
     - scoreboard
-    url_state: changed
-    url_checked: '2026-11-22'
     archived:
     - kyrgyzstan/kyrgyzstan-2013/scoreboard/20261122-live-ba689e33/page.html
+    url_state: changed
+    url_checked: '2026-11-22'
   - url: https://neerc.ifmo.ru/archive/2013/kyrgyzstan/standings.html
     roles:
     - scoreboard
@@ -499,19 +532,20 @@ contests:
   name: 2015 Kyrgyzstan Subregional Contest
   date: '2015-11-01'
   location: Administrative Site Location; Bishkek
+  cms_ids:
+  - 2762
   sites:
   - location: kg-bishkek
     name: Kyrgyzstan Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 2762
   parent: neerc-2015
   next: kyrgyzstan-2016
   sources:
   - url: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
     roles:
     - web
+    as_of: '20160318010436'
   - url: https://nerc.itmo.ru/archive/2015/kyrgyzstan/standings.html
     roles:
     - scoreboard
@@ -524,10 +558,10 @@ contests:
   - url: https://olymp.krsu.kg/conteststandings/99
     roles:
     - scoreboard
-    url_state: changed
-    url_checked: '2026-11-22'
     archived:
     - kyrgyzstan/kyrgyzstan-2015/scoreboard/20261122-live-733553ee/page.html
+    url_state: changed
+    url_checked: '2026-11-22'
   - url: https://neerc.ifmo.ru/archive/2015/kyrgyzstan/standings.html
     roles:
     - scoreboard
@@ -546,6 +580,13 @@ contests:
     archived:
     - kyrgyzstan/kyrgyzstan-2015/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 2762, 36 teams, DB fetch 2026-04-26)
+  - url: https://github.com/iensen/olymp.krsu.edu.kg
+    roles:
+    - problemset
+    contains:
+    - statement
+    note: 'found by the data scan 2026-11-23 (moved from kyrgyzstan-2018: repo folder problem_statements/subregional_2015
+      only holds 2015 statements)'
   problems:
     set: kyrgyzstan-2015
 - id: kyrgyzstan-2016
@@ -553,19 +594,20 @@ contests:
   name: 2016 Kyrgyzstan Subregional Contest
   date: '2016-11-06'
   location: Bishkek; Administrative Site Location
+  cms_ids:
+  - 3155
   sites:
   - location: kg-bishkek
     name: Kyrgyzstan Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 3155
   parent: neerc-2016
   next: kyrgyzstan-2017
   sources:
   - url: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
     roles:
     - web
+    as_of: '20161109222639'
   - url: https://nerc.itmo.ru/archive/2016/kyrgyzstan/standings.html
     roles:
     - scoreboard
@@ -578,10 +620,10 @@ contests:
   - url: https://olymp.krsu.kg/conteststandings/118
     roles:
     - scoreboard
-    url_state: changed
-    url_checked: '2026-11-22'
     archived:
     - kyrgyzstan/kyrgyzstan-2016/scoreboard/20261122-live-7f1df2a5/page.html
+    url_state: changed
+    url_checked: '2026-11-22'
   - url: https://neerc.ifmo.ru/archive/2016/kyrgyzstan/standings.html
     roles:
     - scoreboard
@@ -661,13 +703,13 @@ contests:
   name: 2018 Kyrgyzstan Subregional Contest
   date: '2018-11-04'
   location: Bishkek; Administrative Site Location
+  cms_ids:
+  - 3673
   sites:
   - location: kg-bishkek
     name: Kyrgyzstan Subregional Contest
     type: administrative
   - type: administrative
-  cms_ids:
-  - 3673
   parent: nerc-2018
   next: kyrgyzstan-2019
   sources:
@@ -675,38 +717,35 @@ contests:
     roles:
     - web
     - scoreboard
-    url_state: changed
-    url_checked: '2026-11-22'
     archived:
     - kyrgyzstan/kyrgyzstan-2018/scoreboard/20261122-live-618f5514/page.html
+    url_state: changed
+    url_checked: '2026-11-22'
   - url: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
     roles:
     - web
+    as_of: '20181209222543'
     url_state: changed
-    url_checked: '2026-11-14'
-  - url: https://github.com/iensen/olymp.krsu.edu.kg
-    roles:
-    - web
-    url_state: replaced
     url_checked: '2026-11-14'
 - id: kyrgyzstan-2019
   season: 2020
   name: 2019 Kyrgyzstan Regional Contest
   date: '2019-11-03'
   location: Bishkek; Administrative Site Location
+  cms_ids:
+  - 4207
   sites:
   - type: administrative
   - location: kg-bishkek
     name: Kyrgyzstan Subregional Contest
     type: administrative
-  cms_ids:
-  - 4207
   parent: nerc-2019
   next: kyrgyzstan-2020
   sources:
   - url: https://neerc.ifmo.ru/subregions/kyrgyzstan.html
     roles:
     - web
+    as_of: '20191025225436'
   - url: https://nerc.itmo.ru/archive/2019/kyrgyzstan/standings.html
     roles:
     - scoreboard
@@ -719,10 +758,10 @@ contests:
   - url: https://olymp.krsu.kg/conteststandings/245
     roles:
     - scoreboard
-    url_state: changed
-    url_checked: '2026-11-22'
     archived:
     - kyrgyzstan/kyrgyzstan-2019/scoreboard/20261122-live-1d98aea3/page.html
+    url_state: changed
+    url_checked: '2026-11-22'
   - url: https://neerc.ifmo.ru/archive/2019/kyrgyzstan/standings.html
     roles:
     - scoreboard
@@ -1027,22 +1066,33 @@ contests:
 - id: kyrgyzstan-2026
   season: 2027
   name: 2026 ICPC Kyrgyzstan Regional Contest
-  date: '2026-11-01'
+  date: '2026-10-31'
+  cms_ids:
+  - 9804
   sites:
   - type: administrative
   - location: kg-bishkek
     name: Kyrgyzstan Regional Contest
-  cms_ids:
-  - 9804
   parent: nerc-2026
   sources:
+  - url: https://nerc.itmo.ru/subregions/kyrgyzstan.html
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (NERC subregion page, live)
   - url: https://icpc.global/regionals/finder/Kyrgyzstan-Regional-2027/standings
     roles:
     - standings
     archived:
     - kyrgyzstan/kyrgyzstan-2026/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 9804, 47 teams, DB fetch 2026-11-13)
+  - url: https://codeforces.com/gym/106802
+    roles:
+    - problemset
+    judge: codeforces
+    note: found by the data scan 2026-11-23 (Codeforces gym listed by the gym API as "2026-2027 ICPC NERC,
+      Kyrgyzstan Regional Contest" (Bishkek), like gym 106169 on kyrgyzstan-2025)
   provenance:
   - 'ran 2026-11-01: shown by its icpc standings source(s); date from last day of the CMS contest record
     (2026-10-31 to 2026-11-01) (ruling 2026-11-12: upcoming ends when the date has passed and a result
     source or judge page shows the contest ran)'
+  - date 2026-10-31 read from https://nerc.itmo.ru/subregions/kyrgyzstan.html (data scan 2026-11-23)

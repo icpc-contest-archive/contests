@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: south-pacific-division
   name: ICPC South Pacific Independent Regional Contest Preliminary
@@ -21,6 +21,8 @@ contests:
   name: 2021 South Pacific Independent Regional Contest Divisional
   date: '2021-10-16'
   location: Auckland (S)
+  cms_ids:
+  - 4860
   sites:
   - type: administrative
   - location: au-hobart-utas
@@ -48,8 +50,6 @@ contests:
   - location: au-perth-uwa
     name: Perth
     date: '2022-10-15'
-  cms_ids:
-  - 4860
   parent: south-pacific-2021
   next: south-pacific-division-2022
   sources:
@@ -71,11 +71,21 @@ contests:
     archived:
     - south-pacific-division/south-pacific-division-2021/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 4860, 93 teams, DB fetch 2026-04-26)
+  - url: https://sppcontests.org/wp-content/uploads/2024/07/2021_archive/2021_Divisionals_problemset.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (series archive page (sppcontests.org/archive/2021-icpc-results/))
+  problems:
+    set: south-pacific-division-2021
 - id: south-pacific-division-2022
   season: 2023
   name: 2022 South Pacific Independent Regional Contest Divisional
   date: '2022-10-15'
   location: University of Sydney
+  cms_ids:
+  - 5635
   sites:
   - type: administrative
   - location: au-hobart-utas
@@ -102,11 +112,14 @@ contests:
   - location: nz-hamilton-waikato
     name: Waikato
   - location: nz-wellington
-  cms_ids:
-  - 5635
   parent: south-pacific-2022
   next: south-pacific-division-2023
   sources:
+  - url: https://sppcontests.org/south-pacific-icpc/
+    roles:
+    - web
+    as_of: '20220627092430'
+    note: found by the data scan 2026-11-23 (sibling south-pacific-division-2021 web + Wayback CDX)
   - url: https://icpc.global/regionals/finder/South-Pacific-Div-2023/standings
     roles:
     - standings
@@ -270,6 +283,8 @@ contests:
   season: 2026
   name: 2025 ICPC South Pacific Independent Regional Contest Preliminary
   location: The University of Western Australia
+  cms_ids:
+  - 9379
   sites:
   - type: administrative
   - location: nz-wellington
@@ -302,11 +317,14 @@ contests:
     name: Christchurch
   - location: au-kensington-unsw-sydney
     name: Sydney
-  cms_ids:
-  - 9379
   parent: south-pacific-2025
   next: south-pacific-division-2026
   sources:
+  - url: https://sppcontests.org/south-pacific-icpc/
+    roles:
+    - web
+    as_of: '20250909095001'
+    note: found by the data scan 2026-11-23 (sibling south-pacific-division-2021 web + Wayback CDX)
   - url: https://icpc.global/regionals/finder/South-Pacific-Div-2026/standings
     roles:
     - standings
@@ -317,6 +335,8 @@ contests:
   season: 2027
   name: 2026 ICPC South Pacific Independent Regional Contest Preliminary
   date: '2026-08-30'
+  cms_ids:
+  - 9682
   sites:
   - type: administrative
   - location: nz-wellington
@@ -360,27 +380,29 @@ contests:
   - location: au-adelaide-university
     name: Adelaide
     date: '2026-08-30'
-  cms_ids:
-  - 9682
   parent: south-pacific-2026
   sources:
+  - url: https://sppcontests.org/icpc-2026/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (the CMS homepage of both 2026 South Pacific contests)
   - url: https://sppcontests.org/wp-content/uploads/2026/09/scoreboard-single.html
     roles:
     - scoreboard
-    note: results link in the contest's ICPC CMS record
-    url_state: live
-    url_checked: '2026-11-16'
     archived:
     - south-pacific-division/south-pacific-division-2026/scoreboard/20261113-live-313d478b/scoreboard-single.html
+    url_state: live
+    url_checked: '2026-11-16'
+    note: results link in the contest's ICPC CMS record
   - url: https://icpc.global/regionals/finder/South-Pacific-Div-2027/standings
     roles:
     - standings
     archived:
     - south-pacific-division/south-pacific-division-2026/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 9682, 144 teams, DB fetch 2026-11-13)
+  problems:
+    set: south-pacific-division-2026
   provenance:
   - 'ran 2026-08-30: shown by its icpc standings, scoreboard source(s); date from CMS site date (ruling
     2026-11-12: upcoming ends when the date has passed and a result source or judge page shows the contest
     ran)'
-  problems:
-    set: south-pacific-division-2026

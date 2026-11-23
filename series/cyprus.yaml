@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: cyprus
   name: ICPC Cyprus Collegiate Programming Contest
@@ -59,16 +59,16 @@ contests:
 - id: cyprus-2025
   season: 2026
   name: 2025 ICPC Cyprus Collegiate Programming Contest
-  date: '2025-10-17'
+  date: '2025-10-18'
   location: Administrative Site Location; LARNAKA; ICPC
+  cms_ids:
+  - 9474
   sites:
   - type: administrative
   - location: cy
     name: JOSEPHINA ANTONIOU
     type: administrative
   - location: cy-larnaca-uclan-cyprus
-  cms_ids:
-  - 9474
   parent: seerc-2025
   next: cyprus-2026
   sources:
@@ -88,10 +88,14 @@ contests:
     - statement
     url_state: live
     url_checked: '2026-11-16'
+  provenance:
+  - date 2025-10-18 read from http://icpc-cyprus.com/icpc2025/ (data scan 2026-11-23)
 - id: cyprus-2026
   season: 2027
   name: 2026 ICPC Cyprus Collegiate Programming Contest
   date: '2026-10-24'
+  cms_ids:
+  - 9581
   sites:
   - type: administrative
   - location: cy
@@ -102,10 +106,13 @@ contests:
   - location: cy
     name: Neapolis University Pafos
     date: '2026-10-24'
-  cms_ids:
-  - 9581
   parent: seerc-2026
   sources:
+  - url: https://grcpc.upatras.gr/grcpc-2026/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (icpc-cyprus.com has no 2026 page (icpc2026/ is 404; its 2025
+      page says the Cyprus contest syncs with GRCPC); the GRCPC 2026 page covers the Cyprus on-site)
   - url: https://icpc.global/regionals/finder/ICPCCyprus-2027/standings
     roles:
     - standings
@@ -118,102 +125,106 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: Greece and Cyprus Collegiate Programming Contest 2026 (problem hunt 2026-11-13)
     url_state: live
     url_checked: '2026-11-16'
+    note: Greece and Cyprus Collegiate Programming Contest 2026 (problem hunt 2026-11-13)
   - url: https://codeforces.com/gym/106782/problem/A
     roles:
     - problem
-    judge: codeforces
     problem: A
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106782/problem/B
     roles:
     - problem
-    judge: codeforces
     problem: B
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106782/problem/C
     roles:
     - problem
-    judge: codeforces
     problem: C
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106782/problem/D
     roles:
     - problem
-    judge: codeforces
     problem: D
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106782/problem/E
     roles:
     - problem
-    judge: codeforces
     problem: E
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106782/problem/F
     roles:
     - problem
-    judge: codeforces
     problem: F
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106782/problem/G
     roles:
     - problem
-    judge: codeforces
     problem: G
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106782/problem/H
     roles:
     - problem
-    judge: codeforces
     problem: H
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106782/problem/I
     roles:
     - problem
-    judge: codeforces
     problem: I
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106782/problem/J
     roles:
     - problem
-    judge: codeforces
     problem: J
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106782/problem/K
     roles:
     - problem
-    judge: codeforces
     problem: K
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106782/problem/L
     roles:
     - problem
-    judge: codeforces
     problem: L
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/106782/problem/M
     roles:
     - problem
-    judge: codeforces
     problem: M
     contains:
     - statement
+    judge: codeforces
+  - url: https://codeforces.com/gym/106782/attachments/download/40283/gccpc_2026_editorial.pdf
+    roles:
+    - editorial
+    note: found by the data scan 2026-11-23 (linked from https://grcpc.upatras.gr/grcpc-2026/)
+  problems:
+    set: cyprus-greece-2026
   provenance:
   - 'ran 2026-10-24: shown by its icpc standings source(s); date from CMS site date (ruling 2026-11-12:
     upcoming ends when the date has passed and a result source or judge page shows the contest ran)'
-  problems:
-    set: cyprus-greece-2026

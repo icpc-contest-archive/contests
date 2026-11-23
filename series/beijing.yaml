@@ -1,21 +1,22 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: beijing
   name: ICPC Asia Beijing Regional Contest
   tier: regional
   region: Asia East
   naming: season-start
+  rotating_host: true
 contests:
 - id: beijing-2002
   season: 2003
   name: 2002 ACM Asia Programming Contest - Beijing
   date: '2002-10-27'
   location: Beijing
+  cms_ids:
+  - 1265
   sites:
   - location: cn-beijing
     name: Asia - Beijing
-  cms_ids:
-  - 1265
   parent: wf-2003
   next: beijing-2003
   sources:
@@ -32,7 +33,6 @@ contests:
   - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandingsf653.html?ContestID=596
     roles:
     - standings
-    - rankings
     as_of: '20060901122741'
     archived:
     - beijing/beijing-2002/rankings/2026-09-01-wayback-75138e9f/ViewRegionalStandingsf653.html
@@ -44,11 +44,11 @@ contests:
     roles:
     - standings
     as_of: '20021117044336'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - beijing/beijing-2002/standings/20021117-wayback-1b102162/ssjg.htm
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/www.acm.tsinghua.edu.cn/problemset_ICPCBeijing2df0.doc?PHPSESSID=2261087e6b3751a78639067da513e1d6
     roles:
     - problemset
@@ -433,6 +433,8 @@ contests:
   date: '2007-11-11'
   location: Tianjin University; Wu Han University; NJUST; Beihang University; Peking University; Beijing
     University of Post; Online
+  cms_ids:
+  - 966
   sites:
   - location: cn-beijing-beihang
     name: Asia Beijing - On Site Regional Contest
@@ -452,8 +454,6 @@ contests:
   - location: cn-wuhan-wu-han
     name: North Central China Collegiate Programming Contest
     date: '2007-04-18'
-  cms_ids:
-  - 966
   parent: wf-2008
   next: beijing-2008
   sources:
@@ -483,80 +483,87 @@ contests:
     roles:
     - standings
     as_of: '20071021004748'
-    note: found inside http://icpc.buaa.edu.cn/pages/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - beijing/beijing-2007/standings/20071021-wayback-579985ef/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://icpc.buaa.edu.cn/pages/ by the content check
+  - url: https://acm.hdu.edu.cn/search.php?field=problem&key=2007+Asia+Regional+Beijing&source=1&searchmode=source
+    roles:
+    - problemset
+    contains:
+    - names
+    judge: hdu
+    note: found by the data scan 2026-11-23 (online judge (HDU source search))
   - url: https://icpcarchive.ecs.baylor.edu/external/40/4023.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20150309191308'
   - url: https://icpcarchive.ecs.baylor.edu/external/40/4024.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20150309191312'
   - url: https://icpcarchive.ecs.baylor.edu/external/40/4025.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20150309191318'
   - url: https://icpcarchive.ecs.baylor.edu/external/40/4026.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20150309191324'
   - url: https://icpcarchive.ecs.baylor.edu/external/40/4027.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20150309191329'
   - url: https://icpcarchive.ecs.baylor.edu/external/40/4028.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20150309191333'
   - url: https://icpcarchive.ecs.baylor.edu/external/40/4029.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20150309191339'
   - url: https://icpcarchive.ecs.baylor.edu/external/40/4030.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20140402113039'
   - url: https://icpcarchive.ecs.baylor.edu/external/40/4031.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20150309191350'
   - url: https://icpcarchive.ecs.baylor.edu/external/40/4032.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20150309191355'
   problems:
     set: beijing-2007
@@ -566,6 +573,8 @@ contests:
   date: '2008-10-26'
   location: Administrative Site Location; Beijing; Beijing University; BUCT; Beijing Jiaotong University;
     WuHan, Hubei Provincial
+  cms_ids:
+  - 8
   sites:
   - location: cn-beijing
     name: Asia Beijing Regional Contest - Site
@@ -587,8 +596,6 @@ contests:
     name: Beijing Provincial Prog Contest
     date: '2008-09-13'
   - type: administrative
-  cms_ids:
-  - 8
   parent: wf-2009
   next: beijing-2011
   sources:
@@ -603,75 +610,82 @@ contests:
     url_state: dead
     url_checked: '2026-11-22'
     note: from archived capture (external-standings)
+  - url: https://acm.hdu.edu.cn/search.php?field=problem&key=2008+Asia+Regional+Beijing&source=1&searchmode=source
+    roles:
+    - problemset
+    contains:
+    - names
+    judge: hdu
+    note: found by the data scan 2026-11-23 (online judge (HDU source search))
   - url: https://icpcarchive.ecs.baylor.edu/external/43/4322.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20150309194259'
   - url: https://icpcarchive.ecs.baylor.edu/external/43/4323.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20150309194304'
   - url: https://icpcarchive.ecs.baylor.edu/external/43/4324.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20150309194309'
   - url: https://icpcarchive.ecs.baylor.edu/external/43/4325.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20150309194314'
   - url: https://icpcarchive.ecs.baylor.edu/external/43/4326.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20150309194318'
   - url: https://icpcarchive.ecs.baylor.edu/external/43/4327.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20150309194324'
   - url: https://icpcarchive.ecs.baylor.edu/external/43/4328.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20150309194330'
   - url: https://icpcarchive.ecs.baylor.edu/external/43/4329.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20150309160139'
   - url: https://icpcarchive.ecs.baylor.edu/external/43/4330.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20150309194336'
   - url: https://icpcarchive.ecs.baylor.edu/external/43/4331.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20150309194348'
   problems:
     set: beijing-2008
@@ -680,6 +694,8 @@ contests:
   name: 2011 ACM-ICPC Asia Beijing Regional Contest
   date: '2011-10-23'
   location: Beijing
+  cms_ids:
+  - 796
   sites:
   - location: cn-beijing
     name: Asia Beijing Online First Round Contest
@@ -687,8 +703,6 @@ contests:
     type: online
   - location: cn-beijing
     name: Asia Beijing On Site Regional Contest
-  cms_ids:
-  - 796
   parent: wf-2012
   next: beijing-2014
   sources:
@@ -708,6 +722,7 @@ contests:
   - url: http://acm.bupt.edu.cn/icpc_register/board.html
     roles:
     - scoreboard
+    scope: unofficial teams marked * with Rank '--'
     as_of: '20120621232701'
     archived:
     - beijing/beijing-2011/external-standings/2026-04-15-external/content.html
@@ -716,82 +731,88 @@ contests:
     url_state: dead
     url_checked: '2026-11-16'
     note: from archived capture (external-standings)
-    scope: unofficial teams marked * with Rank '--'
   - url: https://icpc.global/regionals/finder/Beijing-2012/standings
     roles:
     - standings
     archived:
     - beijing/beijing-2011/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 796, 128 teams, DB fetch 2026-04-26)
+  - url: https://acm.hdu.edu.cn/search.php?field=problem&key=2011+Asia+Beijing+Regional&source=1&searchmode=source
+    roles:
+    - problemset
+    contains:
+    - names
+    judge: hdu
+    note: found by the data scan 2026-11-23 (online judge (HDU source search))
   - url: https://icpcarchive.ecs.baylor.edu/external/57/5713.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20211021185915'
   - url: https://icpcarchive.ecs.baylor.edu/external/57/5714.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20191119011744'
   - url: https://icpcarchive.ecs.baylor.edu/external/57/5715.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20210918165148'
   - url: https://icpcarchive.ecs.baylor.edu/external/57/5716.html
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20150309124719'
   - url: https://icpcarchive.ecs.baylor.edu/external/57/5717.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20210127145717'
   - url: https://icpcarchive.ecs.baylor.edu/external/57/5718.html
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20150309124722'
   - url: https://icpcarchive.ecs.baylor.edu/external/57/5719.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20201022212028'
   - url: https://icpcarchive.ecs.baylor.edu/external/57/5720.html
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20150309124726'
   - url: https://icpcarchive.ecs.baylor.edu/external/57/5721.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20150309155642'
   - url: https://icpcarchive.ecs.baylor.edu/external/57/5722.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20210508072731'
   problems:
     set: beijing-2011

@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: south-pacific
   name: ICPC South Pacific Independent Regional Contest
@@ -403,6 +403,8 @@ contests:
   name: 1999 ACM South Pacific Programming Contest
   date: '1999-09-18'
   location: Perth; Brisbane; Sydney; Adelaide; Dunedin; Canberra; Tasmania; Auckland; Melbourne
+  cms_ids:
+  - 1121
   sites:
   - location: nz-dunedin
   - location: au-sydney
@@ -416,8 +418,6 @@ contests:
   - location: au-adelaide
   - type: administrative
     name: Any Site
-  cms_ids:
-  - 1121
   parent: wf-2000
   next: south-pacific-2000
   sources:
@@ -427,6 +427,7 @@ contests:
   - url: https://sppcontests.org/archive/1999-icpc-results/
     roles:
     - standings
+    - report
     as_of: '20250708235448'
     archived:
     - south-pacific/south-pacific-1999/standings/2026-09-01-live-08dda00f/page.html
@@ -480,6 +481,8 @@ contests:
   date: '2000-09-16'
   location: Sydney; Perth, Western Australia; Melbourne, Victoria; Auckland; Launceston, Tasmania; Canberra,
     ACT; Dunedin; Administration; Brisbane, Queensland; Adelaide, South Australia
+  cms_ids:
+  - 1218
   sites:
   - location: au-perth
   - type: administrative
@@ -492,8 +495,6 @@ contests:
   - location: au-brisbane
   - location: nz-auckland
   - location: au-melbourne
-  cms_ids:
-  - 1218
   parent: wf-2001
   next: south-pacific-2001
   sources:
@@ -510,6 +511,7 @@ contests:
   - url: https://sppcontests.org/archive/2000-icpc-results/
     roles:
     - standings
+    - report
     as_of: '20250708231251'
     archived:
     - south-pacific/south-pacific-2000/standings/2026-09-01-live-a10791ec/page.html
@@ -530,10 +532,10 @@ contests:
     roles:
     - teams
     as_of: '20020319035506'
-    note: found inside http://icpc.baylor.edu/past/icpc2001/Regionals/SPacific00/Default.asp by the content
-      check
     url_state: unknown
     url_checked: '2026-11-16'
+    note: found inside http://icpc.baylor.edu/past/icpc2001/Regionals/SPacific00/Default.asp by the content
+      check
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_VV_SouthPac/2000/index.html
     roles:
     - problemset
@@ -1005,10 +1007,12 @@ contests:
 - id: south-pacific-2006
   season: 2007
   name: 2006 ACM South Pacific Programming Contest
-  date: '2006-09-19'
+  date: '2006-09-16'
   location: Melbourne, Victoria; Auckland, New Zealand; Perth, Western Australia; Adelaide, South Australia;
     Administration; Canberra, ACT; Brisbane, Queensland; Dunedin, New Zealand; University of Tasmania;
     Sydney, New South Wales
+  cms_ids:
+  - 1264
   sites:
   - type: administrative
   - location: au-hobart-utas
@@ -1022,8 +1026,6 @@ contests:
     date: '2006-09-16'
   - location: nz-dunedin
   - location: au-adelaide
-  cms_ids:
-  - 1264
   parent: wf-2007
   next: south-pacific-2007
   sources:
@@ -1074,6 +1076,8 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: south-pacific-2006
+  provenance:
+  - date 2006-09-16 read from http://www.sppcontest.org/ (data scan 2026-11-23)
 - id: south-pacific-2007
   season: 2008
   name: 2007 ACM South Pacific Programming Contest
@@ -1618,6 +1622,8 @@ contests:
   location: University of Western Australia; Christchurch Schools; RMIT; University of Otago; Southland
     Institute of Technology; QUT; Administrative Site Location; Victoria University of Wellington; Charles
     Darwin University; University of Tasmania; University of Sydney; Flinders University
+  cms_ids:
+  - 2043
   sites:
   - location: au-melbourne-rmit
     name: Melbourne Schools
@@ -1669,8 +1675,6 @@ contests:
   - location: au-canberra-anu
     name: Canberra
   - type: administrative
-  cms_ids:
-  - 2043
   parent: wf-2014
   next: south-pacific-2014
   sources:
@@ -1695,6 +1699,10 @@ contests:
     - south-pacific/south-pacific-2013/scoreboard/20250709-wayback-9767d979/page.html
     url_state: live
     url_checked: '2026-11-16'
+  - url: https://icpc.global/regionals/finder/South-Pacific-Programming-2014/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 88 rows)
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/SPPC2013.pdf
     roles:
     - problemset
@@ -1785,15 +1793,15 @@ contests:
 - id: south-pacific-2015
   season: 2016
   name: 2015 South Pacific Regional Finals
-  date: '2015-09-27'
-  location: Administrative Site Location; University of New South Wales
+  date: '2015-09-26'
+  location: Auckland, New Zealand; Administrative Site Location
+  cms_ids:
+  - 2747
   sites:
-  - location: au-sydney-unsw
+  - location: nz-auckland-aut
     name: Regional Finals (Auckland)
     type: administrative
   - type: administrative
-  cms_ids:
-  - 2747
   parent: wf-2016
   next: south-pacific-2016
   sources:
@@ -1855,18 +1863,22 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: south-pacific-2015
+  provenance:
+  - date 2015-09-26 read from https://sppcontests.org/archive/2015-icpc-results/ (data scan 2026-11-23)
+  - location Auckland, New Zealand; Administrative Site Location read from https://sppcontests.org/archive/2015-icpc-results/
+    (data scan 2026-11-23)
 - id: south-pacific-2016
   season: 2017
   name: 2016 South Pacific Regional Final
-  date: '2016-11-27'
+  date: '2016-11-26'
   location: Administrative Site Location; University of New South Wales
+  cms_ids:
+  - 3100
   sites:
   - type: administrative
   - location: au-sydney-unsw
     name: Regional Finals (Sydney)
     type: administrative
-  cms_ids:
-  - 3100
   parent: wf-2017
   next: south-pacific-2017
   sources:
@@ -1892,6 +1904,7 @@ contests:
   - url: http://acmicpc.unisa.edu.au/index.php/regional-contest-current/55-regional-contests/2016-regional-contests/149-2016-regional-final
     roles:
     - rankings
+    scope: top 3 (winners, second, third)
     as_of: '20180321035440'
     archived:
     - south-pacific/south-pacific-2016/external-standings/2026-04-15-external/content.html
@@ -1900,7 +1913,6 @@ contests:
     url_state: dead
     url_checked: '2026-11-16'
     note: from archived capture (external-standings)
-    scope: top 3 (winners, second, third)
   - url: https://sppcontests.org/wp-content/uploads/2024/07/2016_archive/2016_regional_Problem_Set.pdf
     roles:
     - problemset
@@ -1932,25 +1944,28 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2016-2017 ACM-ICPC, South Pacific Regional Contest (SPPC 16) (judge hunt 2026-11-03: name+year:
-      ''2016-2017 ACM-ICPC, South Pacific Regional Contest (SPPC 16)'' -> season start 2016)'
     as_of: '20170706055124'
     url_state: changed
     url_checked: '2026-11-16'
+    note: '2016-2017 ACM-ICPC, South Pacific Regional Contest (SPPC 16) (judge hunt 2026-11-03: name+year:
+      ''2016-2017 ACM-ICPC, South Pacific Regional Contest (SPPC 16)'' -> season start 2016)'
   problems:
     set: south-pacific-2016
+  provenance:
+  - date 2016-11-26 read from https://sppcontests.org/wp-content/uploads/2024/07/2016_archive/2016_regional_Problem_Set.pdf
+    (data scan 2026-11-23)
 - id: south-pacific-2017
   season: 2018
   name: 2017 South Pacific Regional Final
   date: '2017-11-26'
   location: Administrative Site Location; University of New South Wales
+  cms_ids:
+  - 3243
   sites:
   - location: au-sydney-unsw
     name: Regional Finals (Sydney)
     type: administrative
   - type: administrative
-  cms_ids:
-  - 3243
   parent: wf-2018
   next: south-pacific-2018
   sources:
@@ -1981,39 +1996,10 @@ contests:
     archived:
     - south-pacific/south-pacific-2017/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 3243, 10 teams, DB fetch 2026-04-26)
-  - url: https://acmicpc.unisa.edu.au/index.php/regional-contest-current/56-regional-contests/2017-regional-contests/154-2017-eastern-division
-    roles:
-    - standings
-    as_of: '20180321035222'
-    note: found inside https://acmicpc.unisa.edu.au/index.php/regional-contest-current/56-regional-contests/2017-regional-contests/152-2017-south-pacific-region-contests
-      by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
-    archived:
-    - south-pacific/south-pacific-2017/standings/20180321-wayback-87b50ba8/page.html
-  - url: https://acmicpc.unisa.edu.au/index.php/regional-contest-current/56-regional-contests/2017-regional-contests/155-2017-central-division
-    roles:
-    - standings
-    as_of: '20180321035132'
-    note: found inside https://acmicpc.unisa.edu.au/index.php/regional-contest-current/56-regional-contests/2017-regional-contests/152-2017-south-pacific-region-contests
-      by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
-    archived:
-    - south-pacific/south-pacific-2017/standings/20180321-wayback-b1799815/page.html
-  - url: https://acmicpc.unisa.edu.au/index.php/regional-contest-current/56-regional-contests/2017-regional-contests/156-2017-western-division
-    roles:
-    - standings
-    as_of: '20180321035126'
-    note: found inside https://acmicpc.unisa.edu.au/index.php/regional-contest-current/56-regional-contests/2017-regional-contests/152-2017-south-pacific-region-contests
-      by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
-    archived:
-    - south-pacific/south-pacific-2017/standings/20180321-wayback-ba83d93c/page.html
   - url: https://acmicpc.unisa.edu.au/index.php/regional-contest-current/56-regional-contests/2017-regional-contests/157-2017-regional-final
     roles:
     - rankings
+    scope: top 4
     as_of: '20180321034925'
     archived:
     - south-pacific/south-pacific-2017/external-standings/2026-04-15-external/content.html
@@ -2022,7 +2008,36 @@ contests:
     url_state: dead
     url_checked: '2026-11-16'
     note: from archived capture (external-standings)
-    scope: top 4
+  - url: https://acmicpc.unisa.edu.au/index.php/regional-contest-current/56-regional-contests/2017-regional-contests/154-2017-eastern-division
+    roles:
+    - teams
+    as_of: '20180321035222'
+    archived:
+    - south-pacific/south-pacific-2017/standings/20180321-wayback-87b50ba8/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://acmicpc.unisa.edu.au/index.php/regional-contest-current/56-regional-contests/2017-regional-contests/152-2017-south-pacific-region-contests
+      by the content check
+  - url: https://acmicpc.unisa.edu.au/index.php/regional-contest-current/56-regional-contests/2017-regional-contests/155-2017-central-division
+    roles:
+    - teams
+    as_of: '20180321035132'
+    archived:
+    - south-pacific/south-pacific-2017/standings/20180321-wayback-b1799815/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://acmicpc.unisa.edu.au/index.php/regional-contest-current/56-regional-contests/2017-regional-contests/152-2017-south-pacific-region-contests
+      by the content check
+  - url: https://acmicpc.unisa.edu.au/index.php/regional-contest-current/56-regional-contests/2017-regional-contests/156-2017-western-division
+    roles:
+    - teams
+    as_of: '20180321035126'
+    archived:
+    - south-pacific/south-pacific-2017/standings/20180321-wayback-ba83d93c/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://acmicpc.unisa.edu.au/index.php/regional-contest-current/56-regional-contests/2017-regional-contests/152-2017-south-pacific-region-contests
+      by the content check
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=799
     roles:
     - problemset
@@ -2045,105 +2060,105 @@ contests:
     roles:
     - problemset
     as_of: '20180321035119'
-    note: found inside https://acmicpc.unisa.edu.au/index.php/regional-contest-current/56-regional-contests/2017-regional-contests/152-2017-south-pacific-region-contests
-      by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside https://acmicpc.unisa.edu.au/index.php/regional-contest-current/56-regional-contests/2017-regional-contests/152-2017-south-pacific-region-contests
+      by the content check
   - url: https://www.acmicpc.net/problem/16100
     roles:
     - problem
-    judge: baekjoon
     problem: A
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201027043921'
   - url: https://www.acmicpc.net/problem/16101
     roles:
     - problem
-    judge: baekjoon
     problem: B
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201027043921'
   - url: https://www.acmicpc.net/problem/16102
     roles:
     - problem
-    judge: baekjoon
     problem: C
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201027043921'
   - url: https://www.acmicpc.net/problem/16103
     roles:
     - problem
-    judge: baekjoon
     problem: D
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201027043921'
   - url: https://www.acmicpc.net/problem/16104
     roles:
     - problem
-    judge: baekjoon
     problem: E
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201027043921'
   - url: https://www.acmicpc.net/problem/16105
     roles:
     - problem
-    judge: baekjoon
     problem: F
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201027043921'
   - url: https://www.acmicpc.net/problem/16106
     roles:
     - problem
-    judge: baekjoon
     problem: G
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201027043921'
   - url: https://www.acmicpc.net/problem/16107
     roles:
     - problem
-    judge: baekjoon
     problem: H
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201027043921'
   - url: https://www.acmicpc.net/problem/16108
     roles:
     - problem
-    judge: baekjoon
     problem: I
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201027043921'
   - url: https://www.acmicpc.net/problem/16109
     roles:
     - problem
-    judge: baekjoon
     problem: J
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201027043921'
   - url: https://www.acmicpc.net/problem/16110
     roles:
     - problem
-    judge: baekjoon
     problem: K
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201027043921'
   - url: https://www.acmicpc.net/problem/16111
     roles:
     - problem
-    judge: baekjoon
     problem: L
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201027043921'
   problems:
     set: south-pacific-2017
@@ -2363,6 +2378,8 @@ contests:
   name: 2021 ICPC South Pacific Independent Regional Contest
   date: '2021-12-11'
   location: Griffith University
+  cms_ids:
+  - 4859
   sites:
   - type: administrative
   - location: fj-suva-usp
@@ -2392,11 +2409,15 @@ contests:
     name: Invercargill
   - location: nz-palmerston-north-massey
     name: Palmerston North
-  cms_ids:
-  - 4859
   parent: wf-2022
   next: south-pacific-2022
   sources:
+  - url: https://sppcontests.org/south-pacific-icpc/
+    roles:
+    - web
+    as_of: '20211123041827'
+    note: found by the data scan 2026-11-23 (sibling south-pacific-division-2021 web (sppcontests.org/south-pacific-icpc/)
+      + Wayback CDX (page is rewritten every year))
   - url: https://sppcontests.org/wp-content/uploads/2024/07/2021_archive/2021_Regional_Report-Scoreboard.pdf
     roles:
     - scoreboard
@@ -2435,8 +2456,10 @@ contests:
 - id: south-pacific-2022
   season: 2023
   name: 2022 ICPC South Pacific Independent Regional Contest
-  date: '2022-12-18'
+  date: '2022-12-17'
   location: Southland Institute of Technology
+  cms_ids:
+  - 5634
   sites:
   - type: administrative
   - location: nz-palmerston-north-massey
@@ -2468,15 +2491,14 @@ contests:
   - location: au-sydney-unsw
     name: Sydney
     date: '2022-12-17'
-  cms_ids:
-  - 5634
   parent: wf-2023
   next: south-pacific-2023
   sources:
   - url: https://sppcontests.org/archive/2022-icpc-results/
     roles:
     - web
-    - standings
+    - rankings
+    - teams
     as_of: '20241005101423'
     archived:
     - south-pacific/south-pacific-2022/standings/20241005-wayback-57900541/page.html
@@ -2506,6 +2528,8 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: south-pacific-2022
+  provenance:
+  - date 2022-12-17 read from https://sppcontests.org/archive/2022-icpc-results/ (data scan 2026-11-23)
 - id: south-pacific-2023
   season: 2024
   name: 2023 ICPC South Pacific Independent Regional Contest
@@ -2585,6 +2609,8 @@ contests:
   name: 2024 ICPC South Pacific Independent Regional Contest
   date: '2024-10-20'
   location: UWA
+  cms_ids:
+  - 8760
   sites:
   - type: administrative
   - location: fj-suva-usp
@@ -2618,15 +2644,13 @@ contests:
     name: Tim French
   - location: au-sydney-unsw-sydney
     name: Regional Final
-  cms_ids:
-  - 8760
   parent: apc-2025
   next: south-pacific-2025
   sources:
   - url: https://sppcontests.org/archive/2024-icpc-results/
     roles:
     - web
-    - standings
+    - rankings
     archived:
     - south-pacific/south-pacific-2024/standings/20260904-live-8e44f8b6/page.html
     url_state: live
@@ -2660,6 +2684,8 @@ contests:
   name: 2025 ICPC South Pacific Independent Regional Contest
   date: '2025-10-27'
   location: Administrative Site Location
+  cms_ids:
+  - 9378
   sites:
   - type: administrative
   - location: fj-suva-usp
@@ -2693,11 +2719,14 @@ contests:
     name: Tim French
   - location: au-sydney-unsw-sydney
     name: Regional Final
-  cms_ids:
-  - 9378
   parent: apc-2026
   next: south-pacific-2026
   sources:
+  - url: https://sppcontests.org/south-pacific-icpc/
+    roles:
+    - web
+    as_of: '20250909095001'
+    note: found by the data scan 2026-11-23 (sibling south-pacific-division-2021 web + Wayback CDX)
   - url: https://icpc.global/regionals/finder/SouthPacific-2026/standings
     roles:
     - standings
@@ -2708,6 +2737,8 @@ contests:
   season: 2027
   name: 2026 ICPC South Pacific Independent Regional Contest
   date: '2026-10-11'
+  cms_ids:
+  - 9681
   sites:
   - type: administrative
   - location: fj-suva-usp
@@ -2744,27 +2775,29 @@ contests:
     date: '2026-10-11'
   - location: au-newcastle-university
     name: Newcastle
-  cms_ids:
-  - 9681
   parent: apc-2027
   sources:
+  - url: https://sppcontests.org/icpc-2026/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (the CMS homepage of both 2026 South Pacific contests)
   - url: https://sppcontests.org/wp-content/uploads/2026/10/scoreboard_2026.html
     roles:
     - scoreboard
-    note: results link in the contest's ICPC CMS record
-    url_state: live
-    url_checked: '2026-11-16'
     archived:
     - south-pacific/south-pacific-2026/scoreboard/20261113-live-cc30f0e9/scoreboard_2026.html
+    url_state: live
+    url_checked: '2026-11-16'
+    note: results link in the contest's ICPC CMS record
   - url: https://icpc.global/regionals/finder/SouthPacific-2027/standings
     roles:
     - standings
     archived:
     - south-pacific/south-pacific-2026/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 9681, 13 teams, DB fetch 2026-11-13)
+  problems:
+    set: south-pacific-2026
   provenance:
   - 'ran 2026-10-11: shown by its icpc standings, scoreboard source(s); date from CMS site date (ruling
     2026-11-12: upcoming ends when the date has passed and a result source or judge page shows the contest
     ran)'
-  problems:
-    set: south-pacific-2026

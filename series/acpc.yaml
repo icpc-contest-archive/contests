@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: acpc
   name: ICPC Africa & Arab Collegiate Programming Championship
@@ -10,10 +10,10 @@ contests:
   season: 1999
   name: 1998 ACM Africa and Arab Programming Contest
   date: '1998-11-15'
-  sites:
-  - location: ma-ifrane-aui
   cms_ids:
   - 1041
+  sites:
+  - location: ma-ifrane-aui
   parent: wf-1999
   next: acpc-1999
   sources:
@@ -21,6 +21,12 @@ contests:
     roles:
     - web
     as_of: '20041118004847'
+  - url: http://www.alakhawayn.ma/acmcontest/Standings.html
+    roles:
+    - scoreboard
+    as_of: '19990218065719'
+    note: found by the data scan 2026-11-23 (Wayback CDX of the host site alakhawayn.ma/ACMcontest (CMS
+      external standings URL))
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_AARC/1998/index.html
     roles:
     - problemset
@@ -82,11 +88,11 @@ contests:
   name: 2000 ACM Africa and Arab Programming Contest
   date: '2000-11-19'
   location: Al Akhawayn University
+  cms_ids:
+  - 1032
   sites:
   - location: ma-ifrane-aui
     name: Al Akhawayn
-  cms_ids:
-  - 1032
   parent: wf-2001
   next: acpc-2001
   sources:
@@ -97,13 +103,12 @@ contests:
   - url: http://www.alakhawayn.ma/ACMcontest
     roles:
     - web
-    as_of: '19980515181211'
+    as_of: '20010424192058'
     url_state: dead
     url_checked: '2026-11-14'
   - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=431
     roles:
     - standings
-    - rankings
     as_of: '20011222230325'
     archived:
     - acpc/acpc-2000/rankings/2026-09-01-wayback-01adc336/page.html
@@ -144,10 +149,10 @@ contests:
   name: 2001 ACM Africa and Arab Programming Contest
   date: '2001-11-04'
   location: Cairo
-  sites:
-  - location: eg-cairo-auc
   cms_ids:
   - 1282
+  sites:
+  - location: eg-cairo-auc
   parent: wf-2002
   next: acpc-2002
   sources:
@@ -164,7 +169,6 @@ contests:
   - url: http://icpc.baylor.edu/past/icpc2002/regionals/ViewRegionalStandings.asp?ContestID=496
     roles:
     - standings
-    - rankings
     as_of: '20020701104616'
     archived:
     - acpc/acpc-2001/rankings/2026-09-01-wayback-bf60d33a/page.html
@@ -177,11 +181,11 @@ contests:
     roles:
     - standings
     as_of: '20030829072250'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - acpc/acpc-2001/standings/20030829-wayback-53c8610a/standings.pdf
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_AARC/2001/index.html
     roles:
     - problemset
@@ -214,11 +218,11 @@ contests:
   name: 2002 ACM Africa and Arab Programming Contest
   date: '2002-11-03'
   location: Cairo
+  cms_ids:
+  - 1084
   sites:
   - location: eg-cairo-auc
     date: '2002-11-02'
-  cms_ids:
-  - 1084
   parent: wf-2003
   next: acpc-2003
   sources:
@@ -229,6 +233,7 @@ contests:
   - url: http://www.aucegypt.edu/acm/
     roles:
     - web
+    as_of: '20021213200722'
     url_state: dead
     url_checked: '2026-11-14'
   - url: http://www.aucegypt.edu/acm/standings2002.pdf
@@ -252,7 +257,6 @@ contests:
   - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings0bd5.html?ContestID=564
     roles:
     - standings
-    - rankings
     as_of: '20060901122919'
     archived:
     - acpc/acpc-2002/rankings/2026-09-01-wayback-bde21012/ViewRegionalStandings0bd5.html
@@ -743,25 +747,31 @@ contests:
   name: 2007 ACM Arab & North Africa Programming Contest
   date: '2007-12-05'
   location: AAST, Alexandria, Egypt
-  sites:
-  - location: eg-alexandria-aast
   cms_ids:
   - 986
+  sites:
+  - location: eg-alexandria-aast
   parent: wf-2008
   next: acpc-2008
   sources:
   - url: http://www.icpc-anarc.org
     roles:
     - web
+  - url: http://www.icpc-anarc.org/archive/2007/index.html
+    roles:
+    - web
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://www.icpc-anarc.org by the content check
   - url: http://www.icpc-anarc.org/yr/2007/pc2/2007-pc2-summary.html
     roles:
     - scoreboard
-    note: found inside http://www.icpc-anarc.org by the content check
-    url_state: dead
-    url_checked: '2026-11-22'
     as_of: '20101102040120'
     archived:
     - acpc/acpc-2007/scoreboard/20101102-wayback-4314565a/2007-pc2-summary.html
+    url_state: dead
+    url_checked: '2026-11-22'
+    note: found inside http://www.icpc-anarc.org by the content check
   - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=839
     roles:
     - standings
@@ -770,12 +780,6 @@ contests:
     - acpc/acpc-2007/standings/2026-09-01-wayback-3d83d4e7/page.html
     url_state: dead
     url_checked: '2026-11-01'
-  - url: http://www.icpc-anarc.org/archive/2007/index.html
-    roles:
-    - teams
-    note: found inside http://www.icpc-anarc.org by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=273
     roles:
     - problemset
@@ -797,86 +801,86 @@ contests:
   - url: http://www.icpc-anarc.org/acpc/2007/cj/anarc2007.pdf
     roles:
     - problemset
-    note: found inside http://www.icpc-anarc.org by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://www.icpc-anarc.org by the content check
   - url: https://www.acmicpc.net/problem/4909
     roles:
     - problem
-    judge: baekjoon
     problem: A
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201020150750'
   - url: https://www.acmicpc.net/problem/4910
     roles:
     - problem
-    judge: baekjoon
     problem: B
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201020150750'
   - url: https://icpcarchive.ecs.baylor.edu/external/40/4086.pdf
     roles:
     - problem
-    judge: livearchive
     problem: C
     contains:
     - statement
+    judge: livearchive
     as_of: '20140401024609'
   - url: https://www.acmicpc.net/problem/4912
     roles:
     - problem
-    judge: baekjoon
     problem: D
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201020150750'
   - url: https://icpcarchive.ecs.baylor.edu/external/40/4088.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20140331224313'
   - url: https://www.acmicpc.net/problem/4914
     roles:
     - problem
-    judge: baekjoon
     problem: F
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201020150750'
   - url: https://www.acmicpc.net/problem/4915
     roles:
     - problem
-    judge: baekjoon
     problem: G
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201020150750'
   - url: https://www.acmicpc.net/problem/4916
     roles:
     - problem
-    judge: baekjoon
     problem: H
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201020150750'
   - url: https://www.acmicpc.net/problem/4917
     roles:
     - problem
-    judge: baekjoon
     problem: I
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201020150750'
   - url: https://icpcarchive.ecs.baylor.edu/external/40/4093.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20150309191950'
   problems:
     set: acpc-2007
@@ -1029,10 +1033,10 @@ contests:
   name: 2009 Arab and North Africa Regional Contest
   date: '2009-11-24'
   location: AAST, Alexandria, Egypt
-  sites:
-  - location: eg-alexandria-aast
   cms_ids:
   - 511
+  sites:
+  - location: eg-alexandria-aast
   parent: wf-2010
   next: acpc-2010
   sources:
@@ -1042,7 +1046,6 @@ contests:
   - url: https://www.icpc-anarc.org/yr/2009/pc2/2009-pc2-summary.html
     roles:
     - scoreboard
-    - standings
     as_of: '20091202073327'
     archived:
     - acpc/acpc-2009/scoreboard/2026-09-01-wayback-934ca274/2009-pc2-summary.html
@@ -1061,11 +1064,11 @@ contests:
     roles:
     - standings
     as_of: '20091203093625'
-    note: found inside http://www.icpc-anarc.org by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - acpc/acpc-2009/standings/20091203-wayback-946969b7/2009-pc2-full.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://www.icpc-anarc.org by the content check
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=343
     roles:
     - problemset
@@ -1087,79 +1090,79 @@ contests:
   - url: https://icpcarchive.ecs.baylor.edu/external/47/4733.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20140331134413'
   - url: https://icpcarchive.ecs.baylor.edu/external/47/4734.pdf
     roles:
     - problem
-    judge: livearchive
     problem: B
     contains:
     - statement
+    judge: livearchive
     as_of: '20140401164902'
   - url: https://icpcarchive.ecs.baylor.edu/external/47/4735.pdf
     roles:
     - problem
-    judge: livearchive
     problem: C
     contains:
     - statement
+    judge: livearchive
     as_of: '20140331083144'
   - url: https://icpcarchive.ecs.baylor.edu/external/47/4736.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20140402070534'
   - url: https://www.acmicpc.net/problem/4893
     roles:
     - problem
-    judge: baekjoon
     problem: E
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191022014431'
   - url: https://icpcarchive.ecs.baylor.edu/external/47/4738.pdf
     roles:
     - problem
-    judge: livearchive
     problem: F
     contains:
     - statement
+    judge: livearchive
     as_of: '20140331175826'
   - url: https://icpcarchive.ecs.baylor.edu/external/47/4739.pdf
     roles:
     - problem
-    judge: livearchive
     problem: G
     contains:
     - statement
+    judge: livearchive
     as_of: '20140401130354'
   - url: https://icpcarchive.ecs.baylor.edu/external/47/4740.pdf
     roles:
     - problem
-    judge: livearchive
     contains:
     - statement
+    judge: livearchive
     as_of: '20150309201855'
   - url: https://icpcarchive.ecs.baylor.edu/external/47/4741.pdf
     roles:
     - problem
-    judge: livearchive
     problem: I
     contains:
     - statement
+    judge: livearchive
     as_of: '20140402110648'
   - url: https://www.acmicpc.net/problem/4898
     roles:
     - problem
-    judge: baekjoon
     problem: J
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191022014431'
   problems:
     set: acpc-2009
@@ -1407,14 +1410,14 @@ contests:
 - id: acpc-2012
   season: 2013
   name: 2012 Arab Collegiate Programming Contest
-  date: '2012-12-13'
+  date: '2012-12-12'
   location: Administrative Site Location; Jordan
+  cms_ids:
+  - 1348
   sites:
   - location: jo-amman-psut
     date: '2012-12-09'
   - type: administrative
-  cms_ids:
-  - 1348
   parent: wf-2013
   next: acpc-2013
   sources:
@@ -1466,16 +1469,20 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: acpc-2012
+  provenance:
+  - date 2012-12-12 read from http://www.acmacpc.org (data scan 2026-11-23)
 - id: acpc-2013
   season: 2014
   name: 2013 Arab Collegiate Programming Contest
-  date: '2013-11-26'
+  date: '2013-11-23'
   location: Sharm Elshekh; Administrative Site Location; Jordan
+  cms_ids:
+  - 2050
   sites:
   - location: eg-sharm-el-sheikh
     name: unofficial
@@ -1484,8 +1491,6 @@ contests:
     date: '2013-11-23'
   - location: jo-amman-psut
   - type: administrative
-  cms_ids:
-  - 2050
   parent: wf-2014
   next: acpc-2014
   sources:
@@ -1504,11 +1509,11 @@ contests:
     roles:
     - scoreboard
     as_of: '20150810090354'
-    note: found inside http://acmacpc.org by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - acpc/acpc-2013/scoreboard/20150810-wayback-2f97cc96/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://acmacpc.org by the content check
   - url: https://icpc.global/regionals/finder/ACPC-2014/standings
     roles:
     - standings
@@ -1543,130 +1548,137 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: http://acmacpc.org/files/acpc/acpc2013.pdf
     roles:
     - problemset
     as_of: '20160429140824'
-    note: found inside http://acmacpc.org by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://acmacpc.org by the content check
   - url: https://www.acmicpc.net/problem/9631
     roles:
     - problem
-    judge: baekjoon
     problem: A
     contains:
     - statement
+    judge: baekjoon
     as_of: '20171216231403'
   - url: https://www.acmicpc.net/problem/9632
     roles:
     - problem
-    judge: baekjoon
     problem: B
     contains:
     - statement
+    judge: baekjoon
     as_of: '20171216231403'
   - url: https://icpcarchive.ecs.baylor.edu/external/67/6756.pdf
     roles:
     - problem
-    judge: livearchive
     problem: C
     contains:
     - statement
+    judge: livearchive
     as_of: '20200927232141'
   - url: https://www.acmicpc.net/problem/9634
     roles:
     - problem
-    judge: baekjoon
     problem: D
     contains:
     - statement
+    judge: baekjoon
     as_of: '20171216231403'
   - url: https://www.acmicpc.net/problem/9635
     roles:
     - problem
-    judge: baekjoon
     problem: E
     contains:
     - statement
+    judge: baekjoon
     as_of: '20171216231403'
   - url: https://www.acmicpc.net/problem/9636
     roles:
     - problem
-    judge: baekjoon
     problem: F
     contains:
     - statement
+    judge: baekjoon
     as_of: '20171216231403'
   - url: https://www.acmicpc.net/problem/9637
     roles:
     - problem
-    judge: baekjoon
     problem: G
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191114041109'
   - url: https://www.acmicpc.net/problem/9638
     roles:
     - problem
-    judge: baekjoon
     problem: H
     contains:
     - statement
+    judge: baekjoon
     as_of: '20171216231403'
   - url: https://www.acmicpc.net/problem/9639
     roles:
     - problem
-    judge: baekjoon
     problem: I
     contains:
     - statement
+    judge: baekjoon
     as_of: '20171216231403'
   - url: https://www.acmicpc.net/problem/9640
     roles:
     - problem
-    judge: baekjoon
     problem: J
     contains:
     - statement
+    judge: baekjoon
     as_of: '20171216231403'
   - url: https://www.acmicpc.net/problem/9641
     roles:
     - problem
-    judge: baekjoon
     problem: K
     contains:
     - statement
+    judge: baekjoon
     as_of: '20171216231403'
   - url: https://www.acmicpc.net/problem/9642
     roles:
     - problem
-    judge: baekjoon
     problem: L
     contains:
     - statement
+    judge: baekjoon
     as_of: '20171216231403'
   problems:
     set: acpc-2013
+  provenance:
+  - date 2013-11-23 read from http://acmacpc.org/files/acpc/acpc2013.pdf (data scan 2026-11-23)
 - id: acpc-2014
   season: 2015
   name: 2014 Arab Collegiate Programming Contest
   date: '2014-11-18'
   location: Administrative Site Location; Sharm Elshekh
+  cms_ids:
+  - 2625
   sites:
   - location: eg-sharm-el-sheikh
     name: unofficial
     date: '2014-11-14'
   - location: eg-sharm-el-sheikh
   - type: administrative
-  cms_ids:
-  - 2625
   parent: wf-2015
   next: acpc-2015
   sources:
+  - url: http://acpc.global/archive/y2014/
+    roles:
+    - web
+    as_of: '20200224050220'
+    note: found by the data scan 2026-11-23 (Wayback CDX of acpc.global/* (the ACPC organisers' site))
   - url: http://acmacpc.org/files/archive/2014/summary.html
     roles:
     - scoreboard
@@ -1704,85 +1716,85 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://www.acmicpc.net/problem/11799
     roles:
     - problem
-    judge: baekjoon
     problem: A
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024123906'
   - url: https://www.hackerrank.com/contests/round-2-acm-icpc-warmup-2015/challenges/lets-play-tawla
     roles:
     - problem
-    judge: hackerrank
     contains:
     - statement
+    judge: hackerrank
   - url: https://icpcarchive.ecs.baylor.edu/external/71/7165.pdf
     roles:
     - problem
-    judge: livearchive
     problem: C
     contains:
     - statement
+    judge: livearchive
     as_of: '20210128161219'
   - url: https://www.acmicpc.net/problem/11802
     roles:
     - problem
-    judge: baekjoon
     problem: D
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024123906'
   - url: https://www.acmicpc.net/problem/11803
     roles:
     - problem
-    judge: baekjoon
     problem: E
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024123906'
   - url: https://www.acmicpc.net/problem/11804
     roles:
     - problem
-    judge: baekjoon
     problem: F
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024123906'
   - url: https://www.acmicpc.net/problem/11805
     roles:
     - problem
-    judge: baekjoon
     problem: G
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024123906'
   - url: https://www.acmicpc.net/problem/11806
     roles:
     - problem
-    judge: baekjoon
     problem: H
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024123906'
   - url: https://icpcarchive.ecs.baylor.edu/external/71/7171.pdf
     roles:
     - problem
-    judge: livearchive
     problem: I
     contains:
     - statement
+    judge: livearchive
     as_of: '20200930002956'
   - url: https://qoj.ac/download.php?type=statement&id=12897
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   problems:
     set: acpc-2014
 - id: acpc-2015
@@ -1927,6 +1939,8 @@ contests:
   name: 2016 Arab Collegiate Programming Contest
   date: '2016-11-13'
   location: Egypt; Administrative Site Location; Syria; Sharm El-Sheikh; Jordan
+  cms_ids:
+  - 3163
   sites:
   - location: sy
     name: Syria
@@ -1947,11 +1961,14 @@ contests:
   - location: eg
     name: M-ACPC
     date: '2016-11-11'
-  cms_ids:
-  - 3163
   parent: wf-2017
   next: acpc-2017
   sources:
+  - url: http://acpc.global/archive/y2016/
+    roles:
+    - web
+    as_of: '20200224045545'
+    note: found by the data scan 2026-11-23 (Wayback CDX of acpc.global/*)
   - url: https://icpc.global/regionals/finder/ACPC-2017/standings
     roles:
     - standings
@@ -1981,104 +1998,104 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://www.acmicpc.net/problem/18681
     roles:
     - problem
-    judge: baekjoon
     problem: A
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514152010'
   - url: https://www.acmicpc.net/problem/18682
     roles:
     - problem
-    judge: baekjoon
     problem: B
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514152010'
   - url: https://www.acmicpc.net/problem/18683
     roles:
     - problem
-    judge: baekjoon
     problem: C
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514152010'
   - url: https://www.acmicpc.net/problem/18684
     roles:
     - problem
-    judge: baekjoon
     problem: D
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514152010'
   - url: https://www.acmicpc.net/problem/18685
     roles:
     - problem
-    judge: baekjoon
     problem: E
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514152010'
   - url: https://www.acmicpc.net/problem/18686
     roles:
     - problem
-    judge: baekjoon
     problem: F
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514152010'
   - url: https://www.acmicpc.net/problem/18687
     roles:
     - problem
-    judge: baekjoon
     problem: G
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514152010'
   - url: https://www.acmicpc.net/problem/18689
     roles:
     - problem
-    judge: baekjoon
     problem: I
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514152010'
   - url: https://www.acmicpc.net/problem/18688
     roles:
     - problem
-    judge: baekjoon
     problem: H
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514152010'
   - url: https://www.acmicpc.net/problem/18690
     roles:
     - problem
-    judge: baekjoon
     problem: J
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514152010'
   - url: https://www.acmicpc.net/problem/18691
     roles:
     - problem
-    judge: baekjoon
     problem: K
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514152010'
   - url: https://www.acmicpc.net/problem/18692
     roles:
     - problem
-    judge: baekjoon
     problem: L
     contains:
     - statement
+    judge: baekjoon
     as_of: '20230514152010'
   problems:
     set: acpc-2016
@@ -2087,6 +2104,8 @@ contests:
   name: 2017 Arab Collegiate Programming Contest
   date: '2017-11-28'
   location: Administrative Site Location; Egypt; Sharm El-Sheikh
+  cms_ids:
+  - 3334
   sites:
   - location: eg
     name: temp
@@ -2105,11 +2124,14 @@ contests:
   - location: eg
     name: M-ACPC
   - type: administrative
-  cms_ids:
-  - 3334
   parent: wf-2018
   next: acpc-2018
   sources:
+  - url: http://acpc.global/archive/y2017/
+    roles:
+    - web
+    as_of: '20200224050225'
+    note: found by the data scan 2026-11-23 (Wayback CDX of acpc.global/*)
   - url: https://icpc.global/regionals/finder/ACPC-2018/standings
     roles:
     - standings
@@ -2134,96 +2156,96 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://www.acmicpc.net/problem/18693
     roles:
     - problem
-    judge: baekjoon
     problem: A
     contains:
     - statement
+    judge: baekjoon
     as_of: '20220527224930'
   - url: https://www.acmicpc.net/problem/18694
     roles:
     - problem
-    judge: baekjoon
     problem: B
     contains:
     - statement
+    judge: baekjoon
     as_of: '20220527224930'
   - url: https://www.acmicpc.net/problem/18695
     roles:
     - problem
-    judge: baekjoon
     problem: C
     contains:
     - statement
+    judge: baekjoon
     as_of: '20220527224930'
   - url: https://www.acmicpc.net/problem/18696
     roles:
     - problem
-    judge: baekjoon
     problem: D
     contains:
     - statement
+    judge: baekjoon
     as_of: '20220527224930'
   - url: https://www.acmicpc.net/problem/18697
     roles:
     - problem
-    judge: baekjoon
     problem: E
     contains:
     - statement
+    judge: baekjoon
     as_of: '20200326224243'
   - url: https://www.acmicpc.net/problem/18698
     roles:
     - problem
-    judge: baekjoon
     problem: F
     contains:
     - statement
+    judge: baekjoon
     as_of: '20220527224930'
   - url: https://www.acmicpc.net/problem/18699
     roles:
     - problem
-    judge: baekjoon
     problem: G
     contains:
     - statement
+    judge: baekjoon
     as_of: '20220527224930'
   - url: https://www.acmicpc.net/problem/18700
     roles:
     - problem
-    judge: baekjoon
     problem: H
     contains:
     - statement
+    judge: baekjoon
     as_of: '20220527224930'
   - url: https://www.acmicpc.net/problem/18701
     roles:
     - problem
-    judge: baekjoon
     problem: I
     contains:
     - statement
+    judge: baekjoon
     as_of: '20220527224930'
   - url: https://www.acmicpc.net/problem/18702
     roles:
     - problem
-    judge: baekjoon
     problem: J
     contains:
     - statement
+    judge: baekjoon
     as_of: '20220527224930'
   - url: https://www.acmicpc.net/problem/18703
     roles:
     - problem
-    judge: baekjoon
     problem: K
     contains:
     - statement
+    judge: baekjoon
     as_of: '20220527224930'
   problems:
     set: acpc-2017
@@ -2232,6 +2254,8 @@ contests:
   name: 2018 Arab & Africa Collegiate Programming Contest
   date: '2018-11-13'
   location: Administrative Site Location; Egypt; Jordan; W - AFRICA; Sharm El-Sheikh
+  cms_ids:
+  - 3572
   sites:
   - location: eg-sharm-el-sheikh
     name: unofficial
@@ -2253,11 +2277,14 @@ contests:
     name: W-AFRICA
   - location: eg
     name: N-ACPC
-  cms_ids:
-  - 3572
   parent: wf-2019
   next: acpc-2019
   sources:
+  - url: http://acpc.global/archive/y2018/
+    roles:
+    - web
+    as_of: '20200921021009'
+    note: found by the data scan 2026-11-23 (Wayback CDX of acpc.global/*)
   - url: https://codeforces.com/gym/101991/standings
     roles:
     - scoreboard
@@ -2294,18 +2321,18 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20260730214609'
     url_state: live
     url_checked: '2026-11-16'
     note: '2018 Arab Collegiate Programming Contest (ACPC 2018) (judge hunt 2026-11-03: name+year: ''2018
       Arab Collegiate Programming Contest (ACPC 2018)'' -> season start 2018)'
-    as_of: '20260730214609'
   - url: https://qoj.ac/contest/2261
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Africa-and-Arab/Arab-Collegiate-Programming-Contest/2018-Arab-Collegiate-Programming-Contest/tutorials.pdf
     roles:
     - editorial
@@ -2630,6 +2657,8 @@ contests:
   name: 2022 ICPC Africa & Arab Collegiate Programming Championship
   date: '2022-12-04'
   location: Africa and Arab; ACPC
+  cms_ids:
+  - 5435
   sites:
   - name: Levant
     type: administrative
@@ -2642,23 +2671,21 @@ contests:
   - name: Central Africa
     type: administrative
   - name: ACPC
-  cms_ids:
-  - 5435
   parent: wf-2023
   next: acpc-2023
   sources:
-  - url: https://acpcsb.acpc.global/ACPC2022/ACPC
-    roles:
-    - web
   - url: https://scoreboard.acpc.global/acpc2022/
     roles:
     - scoreboard
-    url_state: replaced
-    url_checked: '2026-11-22'
-    note: added by url-hunt 2026-09-01 (wave5-boards)
     as_of: '20260810134335'
     archived:
     - acpc/acpc-2022/scoreboard/20260810-wayback-b23a4f16/page.html
+    url_state: replaced
+    url_checked: '2026-11-22'
+    note: added by url-hunt 2026-09-01 (wave5-boards)
+  - url: https://acpcsb.acpc.global/ACPC2022/ACPC
+    roles:
+    - frozen_scoreboard
   - url: https://icpc.global/regionals/finder/ACPC-2023/standings
     roles:
     - standings
@@ -2669,94 +2696,94 @@ contests:
     roles:
     - problemset
     judge: codeforces
-    note: '''ACPC 2022'' in the private group ACPC Scientific Committee Archive (login and group membership
-      needed)'
     url_state: live
     url_checked: '2026-11-22'
+    note: '''ACPC 2022'' in the private group ACPC Scientific Committee Archive (login and group membership
+      needed)'
   - url: https://codeforces.com/group/Rilx5irOux/contest/477874/problem/A
     roles:
     - problem
-    judge: codeforces
     problem: A
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/477874/problem/B
     roles:
     - problem
-    judge: codeforces
     problem: B
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/477874/problem/C
     roles:
     - problem
-    judge: codeforces
     problem: C
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/477874/problem/D
     roles:
     - problem
-    judge: codeforces
     problem: D
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/477874/problem/E
     roles:
     - problem
-    judge: codeforces
     problem: E
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/477874/problem/F
     roles:
     - problem
-    judge: codeforces
     problem: F
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/477874/problem/G
     roles:
     - problem
-    judge: codeforces
     problem: G
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/477874/problem/H
     roles:
     - problem
-    judge: codeforces
     problem: H
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/477874/problem/I
     roles:
     - problem
-    judge: codeforces
     problem: I
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/477874/problem/J
     roles:
     - problem
-    judge: codeforces
     problem: J
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/477874/problem/K
     roles:
     - problem
-    judge: codeforces
     problem: K
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/477874/problem/L
     roles:
     - problem
-    judge: codeforces
     problem: L
     contains:
     - statement
+    judge: codeforces
   problems:
     set: acpc-2022
 - id: acpc-2023
@@ -2894,6 +2921,8 @@ contests:
   name: 2024 ICPC Africa & Arab Collegiate Programming Championship
   date: '2024-12-08'
   location: Africa and Arab; africa and arab
+  cms_ids:
+  - 8775
   sites:
   - name: Central Africa
     type: administrative
@@ -2907,8 +2936,6 @@ contests:
     type: administrative
   - name: unofficial
     type: administrative
-  cms_ids:
-  - 8775
   parent: wf-2025
   next: acpc-2025
   sources:
@@ -2929,112 +2956,117 @@ contests:
     archived:
     - acpc/acpc-2024/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 8775, 112 teams, DB fetch 2026-04-26)
+  - url: https://codeforces.com/blog/entry/135324
+    roles:
+    - teams
+    as_of: '20241107021218'
+    note: 'found by the data scan 2026-11-23 (moved from tunisia-2024: ACPC 2024 qualified teams list)'
   - url: https://codeforces.com/group/Rilx5irOux/contest/572352
     roles:
     - problemset
     judge: codeforces
-    note: '''ACPC 2024 (Mirror)'' in the private group ACPC Scientific Committee Archive (login and group
-      membership needed)'
     url_state: live
     url_checked: '2026-11-22'
+    note: '''ACPC 2024 (Mirror)'' in the private group ACPC Scientific Committee Archive (login and group
+      membership needed)'
   - url: https://codeforces.com/group/Rilx5irOux/contest/572352/problem/A
     roles:
     - problem
-    judge: codeforces
     problem: A
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/572352/problem/B
     roles:
     - problem
-    judge: codeforces
     problem: B
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/572352/problem/C
     roles:
     - problem
-    judge: codeforces
     problem: C
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/572352/problem/D
     roles:
     - problem
-    judge: codeforces
     problem: D
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/572352/problem/E
     roles:
     - problem
-    judge: codeforces
     problem: E
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/572352/problem/F
     roles:
     - problem
-    judge: codeforces
     problem: F
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/572352/problem/G
     roles:
     - problem
-    judge: codeforces
     problem: G
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/572352/problem/H
     roles:
     - problem
-    judge: codeforces
     problem: H
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/572352/problem/I
     roles:
     - problem
-    judge: codeforces
     problem: I
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/572352/problem/J
     roles:
     - problem
-    judge: codeforces
     problem: J
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/572352/problem/K
     roles:
     - problem
-    judge: codeforces
     problem: K
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/572352/problem/L
     roles:
     - problem
-    judge: codeforces
     problem: L
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/572352/problem/M
     roles:
     - problem
-    judge: codeforces
     problem: M
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/572352/problem/N
     roles:
     - problem
-    judge: codeforces
     problem: N
     contains:
     - statement
+    judge: codeforces
   problems:
     set: acpc-2024
 - id: acpc-2025
@@ -3042,6 +3074,8 @@ contests:
   name: 2025 ICPC Africa & Arab Collegiate Programming Championship
   date: '2025-12-16'
   location: Africa and Arab; africa and arab
+  cms_ids:
+  - 9267
   sites:
   - name: Central Africa
     type: administrative
@@ -3055,8 +3089,6 @@ contests:
     type: administrative
   - name: unofficial
     type: administrative
-  cms_ids:
-  - 9267
   parent: wf-2026
   next: acpc-2026
   sources:
@@ -3066,105 +3098,110 @@ contests:
     archived:
     - acpc/acpc-2025/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 9267, 150 teams, DB fetch 2026-04-26)
+  - url: https://codeforces.com/blog/entry/145458
+    roles:
+    - teams
+    as_of: '20250812231326'
+    note: 'found by the data scan 2026-11-23 (moved from tunisia-2025: ACPC 2025 qualified teams list)'
   - url: https://codeforces.com/group/Rilx5irOux/contest/705944
     roles:
     - problemset
     judge: codeforces
-    note: '''The 2025 ICPC Africa and Arab Collegiate Programming Championship'' in the private group
-      ACPC Scientific Committee Archive (login and group membership needed)'
     url_state: live
     url_checked: '2026-11-22'
+    note: '''The 2025 ICPC Africa and Arab Collegiate Programming Championship'' in the private group
+      ACPC Scientific Committee Archive (login and group membership needed)'
   - url: https://codeforces.com/group/Rilx5irOux/contest/705944/problem/A
     roles:
     - problem
-    judge: codeforces
     problem: A
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/705944/problem/B
     roles:
     - problem
-    judge: codeforces
     problem: B
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/705944/problem/C
     roles:
     - problem
-    judge: codeforces
     problem: C
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/705944/problem/D
     roles:
     - problem
-    judge: codeforces
     problem: D
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/705944/problem/E
     roles:
     - problem
-    judge: codeforces
     problem: E
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/705944/problem/F
     roles:
     - problem
-    judge: codeforces
     problem: F
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/705944/problem/G
     roles:
     - problem
-    judge: codeforces
     problem: G
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/705944/problem/H
     roles:
     - problem
-    judge: codeforces
     problem: H
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/705944/problem/I
     roles:
     - problem
-    judge: codeforces
     problem: I
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/705944/problem/J
     roles:
     - problem
-    judge: codeforces
     problem: J
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/705944/problem/K
     roles:
     - problem
-    judge: codeforces
     problem: K
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/705944/problem/L
     roles:
     - problem
-    judge: codeforces
     problem: L
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/705944/problem/M
     roles:
     - problem
-    judge: codeforces
     problem: M
     contains:
     - statement
+    judge: codeforces
   problems:
     set: acpc-2025
 - id: acpc-2026

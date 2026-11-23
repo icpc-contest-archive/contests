@@ -1,10 +1,11 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: jinan
   name: ICPC Asia Jinan Regional Contest
   tier: regional
   region: Asia East
   naming: season-start
+  rotating_host: true
 contests:
 - id: jinan-2020
   season: 2021
@@ -75,15 +76,20 @@ contests:
   name: 2021 ICPC Asia Jinan Regional Contest
   date: '2021-11-14'
   location: JinanOnsite; Administrative Site Location
+  cms_ids:
+  - 4733
   sites:
   - type: administrative
   - location: cn-jinan
     name: Asia JiNan Onsite Programming Contest
-  cms_ids:
-  - 4733
   parent: wf-2022
   next: jinan-2022
   sources:
+  - url: https://icpc.pku.edu.cn/ssxx/1119_icpcbjzb_130711.htm
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ICPC China contest-information list icpc.pku.edu.cn/ssxx/
+      (赛事 sàishì = contests), sibling pattern of the 2026 editions)
   - url: https://board.xcpcio.com/icpc/46th/jinan
     roles:
     - scoreboard
@@ -110,9 +116,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Asia-East-Continent/Jinan/The-2021-ICPC-Asia-Jinan-Regional-Contest/tutorials_zh-cn.pdf
     roles:
     - editorial
@@ -125,15 +131,20 @@ contests:
   name: 2022 ICPC Asia Jinan Regional Contest
   date: '2022-11-27'
   location: JinanOnsite; Administrative Site Location
+  cms_ids:
+  - 5571
   sites:
   - type: administrative
   - location: cn-jinan
     name: Asia JiNan Onsite Programming Contest
-  cms_ids:
-  - 5571
   parent: wf-2023
   next: jinan-2023
   sources:
+  - url: https://icpc.pku.edu.cn/ssxx/1119_icpcbjzb_142608.htm
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ICPC China contest-information list icpc.pku.edu.cn/ssxx/
+      (赛事 sàishì = contests), sibling pattern of the 2026 editions)
   - url: https://codeforces.com/gym/104076/standings
     roles:
     - scoreboard
@@ -167,11 +178,11 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20230307171255'
     url_state: replaced
     url_checked: '2026-11-16'
     note: '2022 International Collegiate Programming Contest, Jinan Site (judge hunt 2026-11-03: name+year:
       ''2022 International Collegiate Programming Contest, Jinan Site'' -> season start 2022)'
-    as_of: '20230307171255'
   - url: https://www.luogu.com.cn/contest/135030
     roles:
     - problemset
@@ -190,10 +201,10 @@ contests:
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20230206224358'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Asia-East-Continent/Jinan/The-2022-ICPC-Asia-Jinan-Regional-Contest/tutorials_zh-cn.pdf
     roles:
     - editorial
@@ -206,15 +217,20 @@ contests:
   name: 2023 ICPC Asia Jinan Regional Contest
   date: '2023-12-03'
   location: Administrative Site Location; JinanOnsite
+  cms_ids:
+  - 7698
   sites:
   - type: administrative
   - location: cn-jinan
     name: Asia JiNan Onsite Programming Contest
-  cms_ids:
-  - 7698
   parent: wf-2024
   next: null
   sources:
+  - url: https://icpc.pku.edu.cn/ssxx/1119_icpcbjzb_151094.htm
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ICPC China contest-information list icpc.pku.edu.cn/ssxx/
+      (赛事 sàishì = contests), sibling pattern of the 2026 editions)
   - url: https://codeforces.com/gym/104901/standings
     roles:
     - scoreboard
@@ -247,31 +263,31 @@ contests:
     - statement
     - solutions
     judge: codeforces
+    as_of: '20240316123804'
+    url_state: replaced
+    url_checked: '2026-11-16'
     note: 'The 2023 ICPC Asia Jinan Regional Contest (The 2nd Universal Cup. Stage 17: Jinan) (judge hunt
       2026-11-03: name+year: ''The 2023 ICPC Asia Jinan Regional Contest (The 2nd Universal Cup. Stage
       17: Jinan)'' -> season start 2023; gym is the Universal/Open Cup replay of the regional set)'
-    url_state: replaced
-    url_checked: '2026-11-16'
-    as_of: '20240316123804'
   - url: https://www.luogu.com.cn/contest/320257
     roles:
     - problemset
     contains:
     - names
     judge: luogu
+    url_state: live
+    url_checked: '2026-11-16'
     note: '[ICPC2023 Jinan R] ICPC 2023 区域赛济南站重现赛 (judge hunt 2026-11-03: Luogu official-team mirror (重现赛
       chóngxiànsài ''replay contest'', run 2026-04-14) of 2023 ICPC Asia Jinan Regional Contest (2023-12-03);
       description says original problems+data; catalogue has no problem titles to check (13 problems on
       judge); note 13 problem titles on Luogu are Chinese translations)'
-    url_state: live
-    url_checked: '2026-11-16'
   - url: https://qoj.ac/contest/1472
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Asia-East-Continent/Jinan/The-2023-ICPC-Asia-Jinan-Regional-Contest/tutorials_zh-cn.pdf
     roles:
     - editorial

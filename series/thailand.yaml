@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: thailand
   name: ICPC Asia Bangkok Regional Contest
@@ -11,12 +11,12 @@ contests:
   name: 2009 ACM-ICPC Asia Phuket Regional Contest
   date: '2009-11-04'
   location: Prince of Songkla University, Phuket Campus. Phuket Thailand
+  cms_ids:
+  - 507
   sites:
   - location: th-phuket-prince-songkla
     name: ACM-ICPC Asia Phuket Regional Contest
     type: administrative
-  cms_ids:
-  - 507
   parent: wf-2010
   next: thailand-2011
   sources:
@@ -40,21 +40,21 @@ contests:
   - url: http://www.acmicpc-thailand.org/asia/2009/FinalResult.html
     roles:
     - scoreboard
-    note: found inside http://www.acmicpc-thailand.org/asia by the content check
     as_of: '20111012013705'
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - thailand/thailand-2009/scoreboard/20111012-wayback-cebd70cd/FinalResult.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://www.acmicpc-thailand.org/asia by the content check
   - url: http://www.acmicpc-thailand.org/asia/2009/ContestResult/acmicpc-Phuket2009-ranking.pdf
     roles:
     - rankings
     as_of: '20110903060602'
-    note: found inside http://www.acmicpc-thailand.org/asia by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - thailand/thailand-2009/rankings/20110903-wayback-c2887608/acmicpc-Phuket2009-ranking.pdf
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://www.acmicpc-thailand.org/asia by the content check
   - url: https://www.acmicpc.net/category/detail/563
     roles:
     - problemset
@@ -70,16 +70,16 @@ contests:
     roles:
     - problemset
     as_of: '20110903061342'
-    note: found inside http://www.acmicpc-thailand.org/asia by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://www.acmicpc-thailand.org/asia by the content check
   - url: http://www.acmicpc-thailand.org/asia/2009/ContestResult/acm-icpc-phuket2009-contest-result.html
     roles:
-    - editorial
+    - problemset
     as_of: '20110724223150'
-    note: found inside http://www.acmicpc-thailand.org/asia by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://www.acmicpc-thailand.org/asia by the content check
   problems:
     set: thailand-2009
   provenance:
@@ -649,18 +649,19 @@ contests:
   name: 2019 ICPC Asia Bangkok Programming Contest
   date: '2019-11-03'
   location: Bangkok
+  cms_ids:
+  - 4264
   sites:
   - location: th-bangkok
     name: Asia Bangkok On-site Regional Contest
     date: '2019-11-02'
-  cms_ids:
-  - 4264
   parent: wf-2020
   next: thailand-2025
   sources:
   - url: https://acm-icpc.eng.chula.ac.th/#/
     roles:
     - web
+    as_of: '20200927124617'
   - url: https://icpc.global/regionals/finder/AsiaBangkok-2020/standings
     roles:
     - standings
@@ -672,15 +673,20 @@ contests:
   name: 2025 ICPC Asia Bangkok Regional Contest
   date: '2025-11-02'
   location: Bangkok Regional Contest
+  cms_ids:
+  - 9465
   sites:
   - location: th-bangkok
     name: Asia Bangkok regional contest
     type: administrative
-  cms_ids:
-  - 9465
   parent: apc-2026
   next: thailand-2026
   sources:
+  - url: http://icpc.cp.eng.chula.ac.th/2025/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (web search (Chulalongkorn host site; sibling thailand-national-2024
+      uses the same host))
   - url: https://icpc-chula.github.io/scoreboard-archive/2025/
     roles:
     - scoreboard
@@ -708,9 +714,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Asia-Pacific/Thailand/The-2025-ICPC-Asia-Bangkok-Regional-Contest/tutorials_en.pdf
     roles:
     - editorial

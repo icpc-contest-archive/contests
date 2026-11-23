@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/content_check_apply.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: oman-midland
   name: ICPC Oman Midland Sub-region Collegiate Programming Contest
@@ -11,29 +11,38 @@ contests:
   name: 2025 ICPC Oman Midland Sub-region Collegiate Programming Contest
   date: '2025-02-22'
   location: OCPCSth
-  sites:
-  - name: OCPCMid
   cms_ids:
   - 9312
+  sites:
+  - name: OCPCMid
   parent: oman-2025
   next: oman-midland-2026
   sources:
   - url: https://www.facebook.com/SultanateOfOmanCPC/
     roles:
     - web
+  - url: https://icpc.global/regionals/finder/OCPCMid-2026/standings
+    roles:
+    - standings
+    note: 'found by the data scan 2026-11-23 (ICPC CMS open API (cms 9312): standings rows exist but the
+      contest had no CMS standings source)'
   notes: '45 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: oman-midland-2026
   season: 2027
   name: 2026 ICPC Oman Midland Sub-region Collegiate Programming Contest
   date: '2026-04-25'
   location: OCPCMid
-  sites:
-  - name: OCPCMid
   cms_ids:
   - 9727
+  sites:
+  - name: OCPCMid
   parent: oman-2026
   sources:
   - url: https://www.facebook.com/SultanateOfOmanCPC/
     roles:
     - web
+  - url: https://icpc.global/regionals/finder/OCPCMid-2027/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings API, 15 ranked rows on 2026-11-23)
   notes: '25 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'

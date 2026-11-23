@@ -1,10 +1,11 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: shanghai
   name: ICPC Asia Shanghai Regional Contest
   tier: regional
   region: Asia East
   naming: season-start
+  rotating_host: true
 contests:
 - id: shanghai-1996
   season: 1997
@@ -1114,16 +1115,21 @@ contests:
   name: 2021 ICPC Asia Shanghai Regional Contest
   date: '2021-11-28'
   location: Shanghai China; Administrative Site Location
+  cms_ids:
+  - 4748
   sites:
   - type: administrative
   - location: cn-shanghai
     name: The 2021 ICPC Asia Shanghai Regional Contest
     date: '2021-11-27'
-  cms_ids:
-  - 4748
   parent: wf-2022
   next: shanghai-2022
   sources:
+  - url: https://icpc.pku.edu.cn/ssxx/1119_icpcbjzb_130712.htm
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ICPC China contest-information list icpc.pku.edu.cn/ssxx/
+      (赛事 sàishì = contests), sibling pattern of the 2026 editions)
   - url: https://codeforces.com/gym/103446/standings
     roles:
     - scoreboard
@@ -1136,11 +1142,11 @@ contests:
   - url: https://board.xcpcio.com/icpc/46th/shanghai
     roles:
     - scoreboard
+    archived:
+    - shanghai/shanghai-2021/scoreboard/20261122-live-d7ccadd4/page.html
     url_state: live
     url_checked: '2026-11-22'
     note: added by url-hunt 2026-09-01 (xcpcio-data-agent)
-    archived:
-    - shanghai/shanghai-2021/scoreboard/20261122-live-d7ccadd4/page.html
   - url: https://icpc.global/regionals/finder/Shanghai-2022/standings
     roles:
     - standings
@@ -1160,28 +1166,28 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: 'The 2021 ICPC Asia Shanghai Regional Programming Contest (judge hunt 2026-11-03: name+year:
-      ''The 2021 ICPC Asia Shanghai Regional Programming Contest'' -> season start 2021)'
     as_of: '20221020113510'
     url_state: replaced
     url_checked: '2026-11-16'
+    note: 'The 2021 ICPC Asia Shanghai Regional Programming Contest (judge hunt 2026-11-03: name+year:
+      ''The 2021 ICPC Asia Shanghai Regional Programming Contest'' -> season start 2021)'
   - url: https://ac.nowcoder.com/acm/contest/24872
     roles:
     - problemset
     judge: nowcoder
+    as_of: '20211207005412'
     url_state: live
     url_checked: '2026-11-16'
     note: '第 46 届 ICPC 国际大学生程序设计竞赛亚洲区域赛（上海） (judge hunt 2026-11-03: NowCoder was the official judge for
       this regional; contest name = ''第 46 届 ICPC 国际大学生程序设计竞赛亚洲区域赛（上海）'' (2021 ICPC Asia Shanghai Regional
       Contest, 2021-11-28); catalogue has no problem titles to check (13 problems on judge))'
-    as_of: '20211207005412'
   - url: https://qoj.ac/contest/2016
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Asia-East-Continent/Shanghai/The-2021-ICPC-Asia-Shanghai-Regional-Contest/tutorials_zh-cn.pdf
     roles:
     - editorial
@@ -1198,6 +1204,11 @@ contests:
   parent: wf-2023
   next: shanghai-2023
   sources:
+  - url: https://icpc.pku.edu.cn/ssxx/1119_icpcbjzb_142613.htm
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ICPC China contest-information list icpc.pku.edu.cn/ssxx/
+      (赛事 sàishì = contests), sibling pattern of the 2026 editions)
   - url: https://board.xcpcio.com/icpc/47th/shanghai
     roles:
     - scoreboard
@@ -1238,21 +1249,16 @@ contests:
   name: 2023 ICPC Asia Shanghai Regional Contest
   date: '2024-01-14'
   location: Administrative Site Location
-  sites:
-  - type: administrative
   cms_ids:
   - 7701
+  sites:
+  - type: administrative
   parent: wf-2024
   next: shanghai-2024
   sources:
   - url: https://contest.ucup.ac/contest/1522?v=1
     roles:
     - web
-  - url: https://codeforces.com/blog/entry/125968
-    roles:
-    - web
-    url_state: live
-    url_checked: '2026-11-14'
   - url: https://contest.ucup.ac/contest/1522/standings?v=1
     roles:
     - standings
@@ -1280,20 +1286,30 @@ contests:
     - editorial
     url_state: live
     url_checked: '2026-11-23'
+  - url: https://codeforces.com/blog/entry/125968
+    roles:
+    - report
+    url_state: live
+    url_checked: '2026-11-14'
 - id: shanghai-2024
   season: 2025
   name: 2024 ICPC Asia Shanghai Regional Contest
   date: '2024-11-17'
   location: Shanghai China
+  cms_ids:
+  - 9025
   sites:
   - location: cn-shanghai
     name: Administrative Site
     type: administrative
-  cms_ids:
-  - 9025
   parent: wf-2025
   next: shanghai-2025
   sources:
+  - url: https://icpc.pku.edu.cn/ssxx/1119_icpcbjzb_158938.htm
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ICPC China contest-information list icpc.pku.edu.cn/ssxx/
+      (赛事 sàishì = contests), sibling pattern of the 2026 editions)
   - url: https://board.xcpcio.com/icpc/49th/shanghai
     roles:
     - scoreboard
@@ -1306,88 +1322,88 @@ contests:
   - url: https://qoj.ac/contest/1913
     roles:
     - problemset
+    judge: qoj
     url_state: live
     url_checked: '2026-11-22'
-    judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://qoj.ac/download.php?type=statement&id=9037
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=9038
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=9039
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=9040
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=9041
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=9042
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=9043
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=9044
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=9045
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=9046
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=9047
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=9048
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://qoj.ac/download.php?type=statement&id=9049
     roles:
     - problem
-    judge: qoj
     contains:
     - statement
+    judge: qoj
   - url: https://icpcarchive.github.io/Asia-East-Continent/Shanghai/The-2024-ICPC-Asia-Shanghai-Regional-Contest/tutorials_zh-tw.pdf
     roles:
     - editorial
@@ -1400,15 +1416,20 @@ contests:
   name: 2025 ICPC Asia Shanghai Regional Contest
   date: '2025-11-23'
   location: Administrative Site Location; Shanghai Uinversity
+  cms_ids:
+  - 9189
   sites:
   - type: administrative
   - location: cn-shanghai
     name: The 2025 ICPC Asia Shanghai Regional Contest
-  cms_ids:
-  - 9189
   parent: wf-2026
   next: shanghai-2026
   sources:
+  - url: https://icpc.pku.edu.cn/ssxx/1119_icpcbjzb_169376.htm
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ICPC China contest-information list icpc.pku.edu.cn/ssxx/
+      (赛事 sàishì = contests), sibling pattern of the 2026 editions)
   - url: https://board.xcpcio.com/icpc/50th/shanghai
     roles:
     - scoreboard
@@ -1421,9 +1442,9 @@ contests:
   - url: https://qoj.ac/contest/2908
     roles:
     - problemset
+    judge: qoj
     url_state: live
     url_checked: '2026-11-22'
-    judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://www.luogu.com.cn/contest/335418
     roles:
@@ -1431,104 +1452,104 @@ contests:
     contains:
     - names
     judge: luogu
+    as_of: '20260715074131'
+    url_state: replaced
+    url_checked: '2026-11-16'
     note: '[ICPC 2025 Shanghai R] ICPC 2025 区域赛上海站重现赛 (judge hunt 2026-11-03: Luogu official-team mirror
       (重现赛 chóngxiànsài ''replay contest'', run 2026-07-19) of 2025 ICPC Asia Shanghai Regional Contest
       (2025-11-23); description says original problems+data; catalogue has no problem titles to check
       (13 problems on judge))'
-    url_state: replaced
-    url_checked: '2026-11-16'
-    as_of: '20260715074131'
   - url: https://www.luogu.com.cn/problem/P17121
     roles:
     - problem
-    judge: luogu
     problem: A
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P17122
     roles:
     - problem
-    judge: luogu
     problem: B
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P17123
     roles:
     - problem
-    judge: luogu
     problem: C
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P17124
     roles:
     - problem
-    judge: luogu
     problem: D
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P17125
     roles:
     - problem
-    judge: luogu
     problem: E
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P17126
     roles:
     - problem
-    judge: luogu
     problem: F
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P17127
     roles:
     - problem
-    judge: luogu
     problem: G
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P17128
     roles:
     - problem
-    judge: luogu
     problem: H
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P17129
     roles:
     - problem
-    judge: luogu
     problem: I
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P17130
     roles:
     - problem
-    judge: luogu
     problem: J
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P17131
     roles:
     - problem
-    judge: luogu
     problem: K
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P17132
     roles:
     - problem
-    judge: luogu
     problem: L
     contains:
     - statement
+    judge: luogu
   - url: https://www.luogu.com.cn/problem/P17133
     roles:
     - problem
-    judge: luogu
     problem: M
     contains:
     - statement
+    judge: luogu
   - url: https://icpcarchive.github.io/Asia-East-Continent/Shanghai/The-2025-ICPC-Asia-Shanghai-Regional-Contest/tutorials_zh-cn.pdf
     roles:
     - editorial

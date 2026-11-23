@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: ncna
   name: ICPC North America North Central Regional Contest
@@ -6,6 +6,86 @@ series:
   region: North America
   naming: season-start
 contests:
+- id: ncna-1984
+  season: 1985
+  cms_ids: []
+  parent: wf-1985
+  next: ncna-1985
+  sources:
+  - url: https://nebnewspapers.unl.edu/lccn/sn96080312/1985-12-02/ed-1/seq-3.pdf
+    roles:
+    - rankings
+    scope: UNL team
+    note: 'found by the data scan 2026-11-23 (Daily Nebraskan 1985-12-02 p3: UNL ''finished second last
+      year'' in the regional competition)'
+  provenance:
+  - 'ran: Daily Nebraskan 1985-12-02, p.3, ''Computer team takes first place in regional contest'': UNL
+    consistently places in the top three in the regional competition and finished second last year — https://nebnewspapers.unl.edu/lccn/sn96080312/1985-12-02/ed-1/seq-3.pdf
+    (data scan 2026-11-23)'
+  notes: 'added by the data scan 2026-11-23 (early-years): known only from the 1985 article; that the
+    1984 regional was the same North Central contest as 1985 is read from the article''s ''regional competition''.
+    Date and host not found'
+- id: ncna-1985
+  season: 1986
+  name: North Central Computer Programming Contest
+  date: '1985-11-16'
+  location: University of Kansas (Strong Hall), Lawrence, KS
+  cms_ids: []
+  sites:
+  - location: us-ks
+    name: University of Kansas, Lawrence
+  parent: wf-1986
+  next: ncna-1992
+  sources:
+  - url: https://digital.lib.ku.edu/islandora/object/ku-udk%3A26439
+    roles:
+    - report
+    - rankings
+    scope: top 3
+    note: 'found by the data scan 2026-11-23 (University Daily Kansan 1985-11-18 p7 ''Computer contest
+      tests skills'': KU hosted the North Central Computer Programming Contest in Strong Hall; 20 teams;
+      Nebraska 1st, Northeast Missouri State 2nd, Kansas State 3rd)'
+  - url: https://nebnewspapers.unl.edu/lccn/sn96080312/1985-12-02/ed-1/seq-3.pdf
+    roles:
+    - report
+    - rankings
+    scope: champion
+    note: 'found by the data scan 2026-11-23 (Daily Nebraskan 1985-12-02 p3: regional contest at Lawrence,
+      Kansas, Nov. 16; UNL first of 20 teams; to the finals in Cincinnati)'
+  provenance:
+  - 'ran: University Daily Kansan 1985-11-18, p.7: "KU was the host of the North Central Computer Programming
+    Contest on Saturday in Strong Hall"; 20 teams; Nebraska first with four of 11 problems, Northeast
+    Missouri State and Kansas State second and third — https://digital.lib.ku.edu/islandora/object/ku-udk%3A26439
+    (data scan 2026-11-23)'
+  - 'ran: Daily Nebraskan 1985-12-02, p.3: UNL won the regional contest at Lawrence, Kansas, on Nov. 16
+    against 20 teams from Kansas, Missouri, South Dakota and Illinois, and goes to the national competition
+    in Cincinnati, Feb. 4-7 — https://nebnewspapers.unl.edu/lccn/sn96080312/1985-12-02/ed-1/seq-3.pdf
+    (data scan 2026-11-23)'
+  - date 1985-11-16 read from https://nebnewspapers.unl.edu/lccn/sn96080312/1985-12-02/ed-1/seq-3.pdf
+    (data scan 2026-11-23)
+  - location University of Kansas (Strong Hall), Lawrence read from https://digital.lib.ku.edu/islandora/object/ku-udk%3A26439
+    (data scan 2026-11-23)
+  notes: 'added by the data scan 2026-11-23 (early-years): the region then covered Nebraska, Kansas, Missouri,
+    South Dakota and Illinois (Mid-Central was split off in 1992)'
+- id: ncna-1992
+  season: 1993
+  cms_ids: []
+  parent: wf-1993
+  next: ncna-1993
+  sources:
+  - url: https://i.cs.hku.hk/~kao/spc/inter_comp.html
+    roles:
+    - rankings
+    scope: champion
+    note: 'found by the data scan 2026-11-23 (UNL team history page (copy on HKU''s SPC site): ''In 1992-93
+      ... took first in the North Central region'')'
+  provenance:
+  - 'ran: the UNL team history (''International Result Results of Every Year!''): "In 1992-93, Trent Bills,
+    Jeremy Bettis, and Jim VandeVegt took first in the North Central region and then 17th (I think) in
+    the internationals in Indianapolis" — https://i.cs.hku.hk/~kao/spc/inter_comp.html (data scan 2026-11-23)'
+  notes: 'added by the data scan 2026-11-23 (early-years): 1992-93 North Central RCD Stan Wileman, University
+    of Nebraska at Omaha (comp.org.acm 1992-07-08); Nebraska-Lincoln, Macalester and Wisconsin-Oshkosh
+    are in the wf-1993 standings. Date and host not found'
 - id: ncna-1993
   season: 1994
   location: (UNO era begins)
@@ -21,6 +101,12 @@ contests:
     - web
     url_state: live
     url_checked: '2026-11-14'
+  - url: https://i.cs.hku.hk/~kao/spc/inter_comp.html
+    roles:
+    - rankings
+    scope: top 2
+    note: 'found by the data scan 2026-11-23 (UNL team history page (copy on HKU''s SPC site): ''In 1993-94,
+      ... took first again in the North Central region (Macalester finished second)'')'
   - url: http://www.karrels.org/Ed/ACM/reg93/
     roles:
     - problemset
@@ -57,26 +143,26 @@ contests:
   - url: https://www.acmicpc.net/problem/6483
     roles:
     - problem
-    judge: baekjoon
     problem: E
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024112300'
   - url: https://www.acmicpc.net/problem/6484
     roles:
     - problem
-    judge: baekjoon
     problem: F
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024112300'
   - url: https://www.acmicpc.net/problem/6485
     roles:
     - problem
-    judge: baekjoon
     problem: G
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201024112300'
   problems:
     set: ncna-1993
@@ -121,6 +207,13 @@ contests:
   parent: wf-1996
   next: ncna-1996
   sources:
+  - url: https://groups.google.com/g/comp.org.acm/c/LcxbowMkd-M/m/Bh-L2Iq2hRcJ
+    roles:
+    - report
+    - rankings
+    scope: top 3 (North Central section; unofficial)
+    note: found by the data scan 2026-11-23 (Google Groups search of comp.org.acm ('finalists'); the same
+      post is already gny-1995's rankings source)
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_US_NorthCen/1995/index.html
     roles:
     - problemset
@@ -144,10 +237,10 @@ contests:
     roles:
     - problemset
     judge: kattis
-    note: Kattis problem-sources page (export source "ACM North Central Regional Programming Contest 1995-96",
-      2026-11-02)
     url_state: live
     url_checked: '2026-11-16'
+    note: Kattis problem-sources page (export source "ACM North Central Regional Programming Contest 1995-96",
+      2026-11-02)
   problems:
     set: ncna-1995
 - id: ncna-1996
@@ -398,6 +491,8 @@ contests:
   location: Administration; Oskaloosa, Iowa; Lincoln, Nebraska; Northfield, Minnesota; Pella, Iowa; Sault
     Ste. Marie, Michigan; Rapid City, South Dakota; Morris, Minnesota; Appleton, Wisconsin; Sioux City,
     Iowa; Storm Lake, Iowa; Duluth, Minnesota
+  cms_ids:
+  - 1073
   sites:
   - location: us-northfield-carleton
   - location: us-sioux-city-briar-cliff
@@ -417,20 +512,15 @@ contests:
     name: U. Minnesota - Morris
   - location: us-storm-lake-buena-vista
   - location: us-appleton-lawrence
-  cms_ids:
-  - 1073
   parent: wf-2001
   next: ncna-2001
   sources:
   - url: http://cs.unomaha.edu/acmregn/index.html
     roles:
     - web
-    as_of: '20091116120639'
-  - url: http://cs.unomaha.edu/acmregn/
-    roles:
-    - web
-    url_state: replaced
-    url_checked: '2026-11-14'
+    as_of: '20001022201555'
+    note: restored with the snapshot of this edition by the data scan 2026-11-23 (urls); the 2009 pin
+      moved to ncna-2009
   - url: http://cs.unomaha.edu/~acmregn/rankorder.html
     roles:
     - scoreboard
@@ -587,6 +677,8 @@ contests:
   location: Decorah, IA; Minneapolis, Minnesota; Emporia, KS; Pella, IA; Platteville, WI; Administration;
     Oshkosh, Wisconsin; Lincoln, Nebraska; Kenosha, Wisconsin; Rapid City, South Dakota; Storm Lake, Iowa;
     LaCrosse, Wisconsin
+  cms_ids:
+  - 990
   sites:
   - location: us-lincoln
     name: U. Nebraska - Lincoln
@@ -615,8 +707,6 @@ contests:
   - location: us-emporia-state-university
   - location: us-oshkosh
     name: U. Wisconsin, Oshkosh
-  cms_ids:
-  - 990
   parent: wf-2003
   next: ncna-2003
   sources:
@@ -627,7 +717,7 @@ contests:
   - url: http://csalpha.ist.unomaha.edu/acmregn/index.html
     roles:
     - web
-    as_of: '20010422020847'
+    as_of: '20021213100654'
     url_state: dead
     url_checked: '2026-11-14'
   - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/istmvs.unomaha.edu/acmregn/stand02.html
@@ -642,12 +732,12 @@ contests:
     roles:
     - scoreboard
     as_of: '20021214110428'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - ncna/ncna-2002/standings/20021214-wayback-c1971fb6/stand02.html
     - ncna/ncna-2002/scoreboard/20021214-wayback-c1971fb6/stand02.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandings6b00.html?ContestID=571
     roles:
     - standings
@@ -690,6 +780,8 @@ contests:
   location: Thunder Bay, ON; Storm Lake, Iowa; Emporia, KS; Cedar Falls, Iowa; Minneapolis, Minnesota;
     LaCrosse, Wisconsin; Oshkosh, Wisconsin; Platteville, WI; Pella, IA; Morris, Minnesota; Sault Ste.
     Marie, ON; Rapid City, South Dakota
+  cms_ids:
+  - 1183
   sites:
   - location: us-minneapolis
     name: U. Minnesota - Minneapolis
@@ -719,14 +811,13 @@ contests:
   - location: us-kenosha
     name: U. Wisconsin - Parkside
   - location: ca-sault-ste-marie-algoma
-  cms_ids:
-  - 1183
   parent: wf-2004
   next: ncna-2004
   sources:
   - url: http://csalpha.ist.unomaha.edu/acmregn/index.html
     roles:
     - web
+    as_of: '20031205042359'
   - url: http://cs.unomaha.edu/~acmregn/rankorder.html
     roles:
     - scoreboard
@@ -769,6 +860,8 @@ contests:
   location: LaCrosse, Wisconsin; St. Paul, MN; Eau Claire, WI; Rapid City, South Dakota; Lincoln, Nebraska;
     Oshkosh, Wisconsin; Minneapolis, Minnesota; Emporia, KS; Administration; Cedar Falls, Iowa; Kenosha,
     Wisconsin; Thunder Bay, ON
+  cms_ids:
+  - 982
   sites:
   - location: us-morris
     name: U. Minnesota - Morris
@@ -796,14 +889,13 @@ contests:
   - location: us-des-moines-grand-view
   - location: us-minneapolis
     name: U. Minnesota - Minneapolis
-  cms_ids:
-  - 982
   parent: wf-2005
   next: ncna-2005
   sources:
   - url: http://csalpha.ist.unomaha.edu/acmregn/index.html
     roles:
     - web
+    as_of: '20041204053446'
   - url: http://cs.unomaha.edu/~acmregn/rankorder.html
     roles:
     - scoreboard
@@ -837,6 +929,8 @@ contests:
   date: '2005-11-05'
   location: LaCrosse, WI; Morris, MN; Cedar Falls, IA; Oshkosh, WI; Kenosha, WI; Administration; Thunder
     Bay, ON; Minneapolis, MN; Des Moines, IA; Platteville, WI; Lincoln, Nebraska; Sault Ste. Marie, ON
+  cms_ids:
+  - 970
   sites:
   - location: us-des-moines-grand-view
   - location: us-emporia-state-university
@@ -863,14 +957,13 @@ contests:
   - location: us-northfield-carleton
   - location: us-lincoln-unl
     date: '2005-11-12'
-  cms_ids:
-  - 970
   parent: wf-2006
   next: ncna-2006
   sources:
   - url: http://csalpha.ist.unomaha.edu/acmregn/index.html
     roles:
     - web
+    as_of: '20060228055858'
   - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=721
     roles:
     - standings
@@ -881,7 +974,7 @@ contests:
     url_checked: '2026-11-01'
   - url: http://csalpha.ist.unomaha.edu/~acmregn/contst06/stand06.html
     roles:
-    - standings
+    - problemset
     as_of: '20071011052614'
     archived:
     - ncna/ncna-2005/external-standings/2026-04-15-external/content.html
@@ -903,6 +996,8 @@ contests:
   date: '2006-11-11'
   location: Oshkosh, WI; Des Moines, IA; Emporia, KS; Thunder Bay, ON; Duluth, MN; Platteville, WI; Eau
     Claire, WI; Sault Ste. Marie, MI; Lincoln, NE; Orange City, IA; Administration; Cedar Falls, IA
+  cms_ids:
+  - 1271
   sites:
   - location: ca-thunder-bay-lakehead
   - location: us-minneapolis
@@ -931,14 +1026,13 @@ contests:
   - location: us-cedar-falls-uni
   - location: us-lincoln
     name: U. Nebraska, Lincoln
-  cms_ids:
-  - 1271
   parent: wf-2007
   next: ncna-2007
   sources:
   - url: http://cs.unomaha.edu/acmregn/index.html
     roles:
     - web
+    as_of: '20061207100038'
   - url: http://csalpha.ist.unomaha.edu/acmregn/standings2006.html
     roles:
     - scoreboard
@@ -974,6 +1068,8 @@ contests:
   date: '2007-11-03'
   location: Lincoln, NE; Platteville, WI; Kenosha, WI; Sault Ste. Marie, ON; Emporia, KS; La Crosse, WI;
     Menomonie, WI; Minneapolis, MN; Administration; Winnipeg, MB; Cedar Falls, IA; Orange City, IA
+  cms_ids:
+  - 1153
   sites:
   - location: us-kenosha
     name: U. Wisconsin - Parkside
@@ -999,14 +1095,19 @@ contests:
   - location: us-menomonie
     name: U. Wisconsin - Stout
   - location: us-des-moines-grand-view
-  cms_ids:
-  - 1153
   parent: wf-2008
   next: ncna-2008
   sources:
   - url: http://cs.unomaha.edu/acmregn/index.html
     roles:
     - web
+    as_of: '20071223144649'
+  - url: http://cs.unomaha.edu/acmregn/
+    roles:
+    - web
+    as_of: '20071023213200'
+    note: 'found by the data scan 2026-11-23 (moved from ncna-2000: wayback 20071023 announces Nov 3 2007
+      regional; ncna-2000 keeps the series address)'
   - url: http://cs.unomaha.edu/~acmregn/rankorder.html
     roles:
     - scoreboard
@@ -1053,6 +1154,8 @@ contests:
   date: '2008-11-15'
   location: Lincoln, NE; Rapid City, SD; Vermillion, SD; Platteville, WI; Winnipeg, MB; Minneapolis, MN;
     Cedar Falls, IA; Saint Paul, MN; Emporia, KS; Eau Claire, WI; LaCrosse, Wisconsin; Des Moines, IA
+  cms_ids:
+  - 34
   sites:
   - location: us-lincoln
     name: U. Nebraska Lincoln
@@ -1079,14 +1182,13 @@ contests:
   - location: us-la-crosse
     name: U. Wisconsin - LaCrosse
   - type: administrative
-  cms_ids:
-  - 34
   parent: wf-2009
   next: ncna-2009
   sources:
   - url: http://cs.unomaha.edu/acmregn/index.html
     roles:
     - web
+    as_of: '20080915225230'
   - url: http://cs.unomaha.edu/~acmregn/reports/20081115/Standings.html
     roles:
     - scoreboard
@@ -1127,6 +1229,8 @@ contests:
   location: Kenosha, WI; Administrative Site Location; Winnipeg, MB; Minneapolis, MN; La Crosse, WI; Lincoln,
     NE, USA; Cedar Falls, IA; Oshkosh, WI; U. Wisconsin - Stout; Orange City, IA; Platteville, WI; Rapid
     City, SD
+  cms_ids:
+  - 549
   sites:
   - location: us-cedar-falls
     name: U. Northern Iowa
@@ -1154,14 +1258,13 @@ contests:
   - location: us-wi
     name: U. Wisconsin - Stout
   - type: administrative
-  cms_ids:
-  - 549
   parent: wf-2010
   next: ncna-2010
   sources:
   - url: http://cs.unomaha.edu/acmregn/index.html
     roles:
     - web
+    as_of: '20091116120639'
   - url: http://cs.unomaha.edu/~acmregn/rankorder.html
     roles:
     - scoreboard
@@ -1189,9 +1292,9 @@ contests:
     roles:
     - problemset
     as_of: '20091105095502'
-    note: found inside http://cs.unomaha.edu/acmregn/index.html by the content check
     url_state: replaced
     url_checked: '2026-11-16'
+    note: found inside http://cs.unomaha.edu/acmregn/index.html by the content check
   problems:
     set: ncna-2009
 - id: ncna-2010
@@ -1201,6 +1304,8 @@ contests:
   location: Saint Paul, MN; Kenosha, WI; Orange City, IA; La Crosse, WI; Administrative Site Location;
     Oshkosh, WI; Minneapolis, MN; Cedar Falls, IA; Des Moines, IA; Lincoln, NE, USA; Rapid City, SD; Winnipeg,
     MB
+  cms_ids:
+  - 643
   sites:
   - location: us-fargo-ndsu
   - location: us-eau-claire
@@ -1229,19 +1334,18 @@ contests:
   - location: us-rapid-city-south-dakota-mines
   - location: us-emporia-state-university
   - type: administrative
-  cms_ids:
-  - 643
   parent: wf-2011
   next: ncna-2011
   sources:
   - url: http://cs.unomaha.edu/acmregn/index.html
     roles:
     - web
+    as_of: '20101110015346'
   - url: http://cs.unomaha.edu/~acmregn/rankorder.html
     roles:
     - scoreboard
     - standings
-    as_of: '20120101111547'
+    as_of: '20101110015354'
     archived:
     - ncna/ncna-2010/scoreboard/2026-09-01-wayback-fc192ce6/rankorder.html
     - ncna/ncna-2010/external-standings/2026-04-15-external/content.html
@@ -2066,6 +2170,8 @@ contests:
   location: Ames, Iowa; Houghton, MI; Administrative Site Location; Fargo, ND; Minneapolis, MN; Verona,
     WI; Rapid City, SD; Universal Registration Site; Northfield, MN; Platteville, WI; Baldwin City, KS;
     Winnipeg, MB
+  cms_ids:
+  - 4339
   sites:
   - location: us-fargo-north-dakota-u
   - location: us-baldwin-city-baker
@@ -2090,11 +2196,15 @@ contests:
   - location: us-beatrice
     name: Universal Registration Site
     type: online
-  cms_ids:
-  - 4339
-  parent: nac-2021
+  parent: nadc-2021
   next: ncna-2021
   sources:
+  - url: https://ncna-region.unl.edu/
+    roles:
+    - web
+    as_of: '20210303083453'
+    note: found by the data scan 2026-11-23 (sibling ncna-2012..2019 address ncna-region.unl.edu; Wayback
+      CDX)
   - url: https://ncna20.kattis.com/contests/ncna20/standings
     roles:
     - scoreboard
@@ -2139,10 +2249,10 @@ contests:
     - statement
     - data
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221207180149'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/North-America/North-Central-NA/North-Central-NA-2020/tutorials.pdf
     roles:
     - editorial
@@ -2150,12 +2260,17 @@ contests:
     url_checked: '2026-11-23'
   problems:
     set: ncna-2020
+  provenance:
+  - parent nadc-2021 read from https://www.icpc.org/icpc-north-america (as of 20210923173052) and the
+    ICPC CMS hierarchy (CMS 4596 ICPC-NADC) (data scan 2026-11-23)
 - id: ncna-2021
   season: 2022
   name: 2021 ICPC North Central NA Regional Contest
   date: '2022-02-26'
   location: Fargo, ND; Marquette, MI; Winnipeg, MB; Platteville, WI; Seward, NE; Verona, WI; Manhattan,
     KS; Omaha, NE; Indianola; La Crosse, Wisconsin; Rapid City, SD; Minneapolis, MN
+  cms_ids:
+  - 4683
   sites:
   - type: administrative
   - location: us-northfield-carleton
@@ -2187,11 +2302,14 @@ contests:
   - location: us-saint-peter-gustavus-adolphus
   - location: us-omaha-creighton
   - location: us-lincoln-unl
-  cms_ids:
-  - 4683
   parent: nac-2022
   next: ncna-2022
   sources:
+  - url: https://na.icpc.global/home/regionals/ncna-home/ncna-regional-contest-2021-2022/
+    roles:
+    - web
+    as_of: '20230202224755'
+    note: found by the data scan 2026-11-23 (Wayback CDX over na.icpc.global)
   - url: https://ncna21.kattis.com/contests/ncna21/standings
     roles:
     - scoreboard
@@ -2238,10 +2356,10 @@ contests:
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221016145746'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/North-America/North-Central-NA/North-Central-NA-2021/tutorials.pdf
     roles:
     - editorial
@@ -2693,6 +2811,8 @@ contests:
   season: 2027
   name: 2026 ICPC North America North Central Regional Contest
   date: '2026-11-07'
+  cms_ids:
+  - 9772
   sites:
   - type: administrative
   - location: ca-brandon-university
@@ -2753,8 +2873,6 @@ contests:
     date: '2026-11-07'
   - location: us-madison-dakota
     date: '2026-11-07'
-  cms_ids:
-  - 9772
   parent: nac-2027
   sources:
   - url: https://nc.na.icpc.global/
@@ -2763,10 +2881,14 @@ contests:
   - url: https://ncna26.kattis.com/contests/ncna26/standings
     roles:
     - scoreboard
-    url_state: live
-    url_checked: '2026-11-16'
     archived:
     - ncna/ncna-2026/scoreboard/20261113-live-58466071/page.html
+    url_state: live
+    url_checked: '2026-11-16'
+  - url: https://icpc.global/regionals/finder/North-Central-North-America-2027/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings API, 68 ranked rows on 2026-11-23)
   - url: https://ncna26.kattis.com/contests/ncna26/problems
     roles:
     - problemset
@@ -2786,8 +2908,8 @@ contests:
     judge: kattis
     url_state: live
     url_checked: '2026-11-16'
+  problems:
+    set: ncna-2026
   provenance:
   - 'ran 2026-11-07: shown by its judge page, scoreboard source(s); date from CMS site date (ruling 2026-11-12:
     upcoming ends when the date has passed and a result source or judge page shows the contest ran)'
-  problems:
-    set: ncna-2026

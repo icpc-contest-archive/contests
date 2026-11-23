@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/describe_apply.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: werc
   name: Western European Regional Contest
@@ -17,10 +17,25 @@ contests:
   season: 1993
   name: 1992 Western European Regional Contest
   date: '1992-11-15'
+  location: Gent
   cms_ids: []
+  sites:
+  - location: be-gent
   parent: wf-1993
   next: werc-1993
   sources:
+  - url: https://chipcie.wisv.ch/archive/nwerc/
+    roles:
+    - web
+    scope: WERC 1992
+    note: found by the data scan 2026-11-23 (the CHipCie archive listing of every ERC/WERC/NWERC edition;
+      names host city and date)
+  - url: https://groups.google.com/g/comp.org.acm/c/P3ys4igw6Mk
+    roles:
+    - rankings
+    scope: top 2
+    note: 'found by the data scan 2026-11-23 (comp.org.acm 1992-11-26, Mark Huizer: (Western-)European
+      regional, RU Leiden first, TU Eindhoven second)'
   - url: https://chipcie.wisv.ch/archive/1992/nwercpc/problemset.pdf
     roles:
     - problemset
@@ -49,6 +64,7 @@ contests:
     set: werc-1992
   provenance:
   - date read from https://chipcie.wisv.ch/archive/1992/nwercpc/problemset.pdf (description round 2026-11-17)
+  - location Gent read from https://chipcie.wisv.ch/archive/nwerc/ (data scan 2026-11-23)
 - id: werc-1993
   season: 1994
   name: 1993 Western European Regional Contest
@@ -87,13 +103,22 @@ contests:
 - id: werc-1994
   season: 1995
   name: 1994 Western European Regional Contest
+  location: Amsterdam (VU)
   cms_ids: []
+  sites:
+  - location: nl-amsterdam-vrije
   parent: wf-1995
   next: nwerc-1995
   sources:
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive.html
     roles:
     - web
+  - url: https://chipcie.wisv.ch/archive/nwerc/
+    roles:
+    - web
+    scope: WERC 1994
+    note: found by the data scan 2026-11-23 (the CHipCie archive listing of every ERC/WERC/NWERC edition;
+      names host city and date)
   - url: http://www.karrels.org/Ed/ACM/weur94/index.html
     roles:
     - problemset
@@ -111,3 +136,5 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: werc-1994
+  provenance:
+  - location Amsterdam (VU) read from https://chipcie.wisv.ch/archive/nwerc/ (data scan 2026-11-23)

@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: awc
   name: ICPC Asia West Continent Championship Contest
@@ -53,12 +53,12 @@ contests:
   name: 2021 ICPC Asia West Continent Final Contest
   date: '2022-12-24'
   location: Administrative Site Location; Kolkata, India and Tehran, Iran
+  cms_ids:
+  - 4827
   sites:
   - type: administrative
   - location: in-kolkata
     name: The 2019 ICPC Asia -West Continent Final Contest
-  cms_ids:
-  - 4827
   parent: wf-2022
   next: awc-2022
   sources:
@@ -73,6 +73,17 @@ contests:
     - awc/awc-2021/scoreboard/2026-09-01-wayback-5112373a/page.html
     url_state: dead
     url_checked: '2026-11-16'
+  - url: http://wc.indiaicpc.in/result.pdf
+    roles:
+    - standings
+    as_of: '20230324150528'
+    archived:
+    - awc/awc-2022/standings/20230324-wayback-d74c0f3f/result.pdf
+    - awc/awc-2022/standings/20261115-live-c69f7591/result.pdf
+    url_state: live
+    url_checked: '2026-11-16'
+    note: 'found by the data scan 2026-11-23 (moved from awc-2022: result.pdf = 2021 AWC final board (published
+      Dec 2022))'
   problems:
     set: awc-2021
 - id: awc-2022
@@ -80,41 +91,31 @@ contests:
   name: 2022 ICPC Asia West Continent Final Contest
   date: '2023-05-20'
   location: Kolkata, India and Tehran, Iran; Administrative Site Location
+  cms_ids:
+  - 5637
   sites:
   - type: administrative
   - location: in-kolkata
     name: The 2022 ICPC Asia -West Continent Final Contest
-  cms_ids:
-  - 5637
   parent: wf-2023
   next: awc-2023
   sources:
   - url: https://icpc.green.edu.bd/
     roles:
     - web
-  - url: https://algo.codemarshal.org/contests/dhaka-22/standings
-    roles:
-    - scoreboard
-    as_of: '20230531214941'
-    archived:
-    - awc/awc-2022/scoreboard/2026-09-01-wayback-904b2ddf/page.html
-    note: from archived capture (scoreboard)
   - url: https://icpc.global/regionals/finder/ICPCKolkataKanpur-2023/standings
     roles:
     - standings
     archived:
     - awc/awc-2022/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 5637, 61 teams, DB fetch 2026-04-26)
-  - url: http://wc.indiaicpc.in/result.pdf
+  - url: http://wc.indiaicpc.in/problem_sets.pdf
     roles:
-    - standings
-    as_of: '20230324150528'
-    note: found inside http://wc.indiaicpc.in/ by the content check
-    url_state: live
-    url_checked: '2026-11-16'
-    archived:
-    - awc/awc-2022/standings/20230324-wayback-d74c0f3f/result.pdf
-    - awc/awc-2022/standings/20261115-live-c69f7591/result.pdf
+    - problemset
+    contains:
+    - statement
+    as_of: '20240205183533'
+    note: found by the data scan 2026-11-23 (own holdings (awc-2025 site crawl))
   problems:
     set: awc-2022
 - id: awc-2023
@@ -122,19 +123,15 @@ contests:
   name: 2023 ICPC Asia West Continent Final Contest
   date: '2024-03-30'
   location: Kolkata, India and Tehran, Iran; Administrative Site Location
+  cms_ids:
+  - 7470
   sites:
   - type: administrative
   - location: in-kolkata
     name: The 2023 ICPC Asia -West Continent Final Contest
-  cms_ids:
-  - 7470
   parent: wf-2024
   next: awc-2024
   sources:
-  - url: https://discuss.codedrills.io/t/icpc-asia-west-continent-final-contest-2023/4435
-    roles:
-    - web
-    as_of: '20240419050828'
   - url: https://wc.indiaicpc.in/?page_id=321
     roles:
     - standings
@@ -151,6 +148,10 @@ contests:
     archived:
     - awc/awc-2023/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 7470, 72 teams, DB fetch 2026-04-26)
+  - url: https://discuss.codedrills.io/t/icpc-asia-west-continent-final-contest-2023/4435
+    roles:
+    - report
+    as_of: '20240419050828'
   problems:
     set: awc-2023
 - id: awc-2024

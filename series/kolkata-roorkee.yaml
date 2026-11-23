@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: kolkata-roorkee
   name: ACM Asia Programming Contest - Kolkata-Roorkee
@@ -18,6 +18,8 @@ contests:
   name: 2003 ACM Asia Programming Contest - Kolkata-Roorkee
   date: '2003-10-12'
   location: IIT-Roorkee; IIT-Kanpur; Jadavpur Univ- Kolkata
+  cms_ids:
+  - 988
   sites:
   - location: in-kolkata-jadavpur
     name: Asia - Kolkata
@@ -26,8 +28,6 @@ contests:
   - location: in-kanpur-iitk
     name: Administrative Site
     type: administrative
-  cms_ids:
-  - 988
   parent: wf-2004
   next: kanpur-2004
   sources:
@@ -38,7 +38,7 @@ contests:
   - url: http://www.cse.iitk.ac.in/users/acm/
     roles:
     - web
-    as_of: '20010627232402'
+    as_of: '20031120035053'
     url_state: dead
     url_checked: '2026-11-14'
   - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=668
@@ -62,21 +62,21 @@ contests:
     roles:
     - standings
     as_of: '20031107151949'
-    note: found inside http://www.cse.iitk.ac.in/users/acm/report.htm by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - kolkata-roorkee/kolkata-roorkee-2003/standings/20031107-wayback-3d1c059f/results.htm
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://www.cse.iitk.ac.in/users/acm/report.htm by the content check
   - url: http://icpc.baylor.edu/icpc/regionals/ViewStandings.asp?ContestID=668
     roles:
     - rankings
     as_of: '20031227111425'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: unknown
-    url_checked: '2026-11-13'
     archived:
     - kolkata-roorkee/kolkata-roorkee-2003/standings/20031227-wayback-490190f1/page.html
     - kolkata-roorkee/kolkata-roorkee-2003/rankings/20031227-wayback-490190f1/page.html
+    url_state: unknown
+    url_checked: '2026-11-13'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://www.cse.iitk.ac.in/users/acm/questionpaper.htm
     roles:
     - problemset

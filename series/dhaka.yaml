@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: dhaka
   name: ICPC Asia Dhaka Regional Contest
@@ -106,14 +106,14 @@ contests:
 - id: dhaka-1999
   season: 2000
   name: 1999 ACM Asia Programming Contest, Dhaka
-  date: '1999-11-25'
+  date: '1999-11-24'
   location: NSU, Dhaka
+  cms_ids:
+  - 1027
   sites:
   - location: bd-dhaka-nsu
     name: North South University, Dhaka Site
     date: '1999-11-24'
-  cms_ids:
-  - 1027
   parent: wf-2000
   next: dhaka-2001
   sources:
@@ -156,6 +156,8 @@ contests:
     url_checked: '2026-11-13'
   problems:
     set: dhaka-1999
+  provenance:
+  - date 1999-11-24 read from http://www.swt.edu/%7Ech01/rankings1999/Rank_dhaka99.htm (data scan 2026-11-23)
 - id: dhaka-2001
   season: 2002
   name: 2001 ACM Asia Programming Contest - Dhaka
@@ -512,6 +514,8 @@ contests:
   name: 2006 ACM Asia Programming Contest - Dhaka
   date: '2006-09-23'
   location: Dhaka, Bangladesh; Internet; East West University
+  cms_ids:
+  - 1204
   sites:
   - location: bd-dhaka
     name: Asia Dhaka Site Preliminary Round Internet Contest
@@ -524,15 +528,9 @@ contests:
     date: '2006-07-29'
   - type: administrative
     name: Asia Dhaka- Foreign Teams Registration
-  cms_ids:
-  - 1204
   parent: wf-2007
   next: dhaka-2007
   sources:
-  - url: http://www.northsouth.edu/acm/Report_Dhaka_Site.pdf
-    roles:
-    - web
-    as_of: '20080820194313'
   - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=782
     roles:
     - standings
@@ -543,6 +541,11 @@ contests:
     url_state: dead
     url_checked: '2026-11-01'
     note: as_of 20191120230855 for standings; from archived capture (external-standings)
+  - url: http://www.northsouth.edu/acm/Report_Dhaka_Site.pdf
+    roles:
+    - report
+    - rankings
+    as_of: '20080820194313'
   - url: https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=287
     roles:
     - problemset
@@ -614,6 +617,8 @@ contests:
   name: 2008 Asia Dhaka Contest
   date: '2008-11-08'
   location: Dhaka; ULAB Campus, H# 56, R# 4A, Satmasjid Rd, Dhanmondi; North South University Campus
+  cms_ids:
+  - 10
   sites:
   - location: bd-dhaka
     name: 2008 ACM-ICPC Asia Regional Dhaka
@@ -623,8 +628,6 @@ contests:
   - name: NSU Computer Programming Contest 2008
     date: '2008-10-24'
     type: administrative
-  cms_ids:
-  - 10
   parent: wf-2009
   next: dhaka-2009
   sources:
@@ -636,20 +639,21 @@ contests:
     roles:
     - standings
     as_of: '20100609123335'
-    note: found inside http://www.northsouth.edu/acm/index.htm by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - dhaka/dhaka-2008/standings/20100609-wayback-e8da498e/Final_Standing2008.pdf
-  - url: http://www.northsouth.edu/acm/Report_Dhaka_Site_2008.pdf
-    roles:
-    - rankings
-    as_of: '20100609123726'
-    note: found inside http://www.northsouth.edu/acm/index.htm by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://www.northsouth.edu/acm/index.htm by the content check
+  - url: http://www.northsouth.edu/acm/Report_Dhaka_Site_2008.pdf
+    roles:
+    - report
+    - rankings
+    as_of: '20100609123726'
     archived:
     - dhaka/dhaka-2008/rankings/20100609-wayback-9202d09f/Report_Dhaka_Site_2008.pdf
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://www.northsouth.edu/acm/index.htm by the content check
   - url: http://www.northsouth.edu/acm/Problem_Set_with_Analysis_Dhaka2008.pdf
     roles:
     - problemset
@@ -1286,21 +1290,29 @@ contests:
   name: 2022 ICPC Asia Dhaka Regional Contest
   date: '2023-03-11'
   location: Administrative Site Location; Dhaka
+  cms_ids:
+  - 5642
   sites:
   - type: administrative
   - location: bd-dhaka
     name: The 2022 ICPC Asia Dhaka Regional Onsite Contest
-  cms_ids:
-  - 5642
   parent: awc-2022
   next: dhaka-2023
   sources:
+  - url: https://icpc.green.edu.bd/
+    roles:
+    - web
+    as_of: '20230109093645'
+    note: found by the data scan 2026-11-23 (web search (Green University notice '2022 ICPC Asia Dhaka
+      Regional will be hosted by Green University of Bangladesh') + Wayback CDX (the address later served
+      the AWC))
   - url: https://algo.codemarshal.org/contests/dhaka-22/standings
     roles:
     - scoreboard
     as_of: '20230325150924'
     archived:
     - dhaka/dhaka-2022/scoreboard/2026-09-01-wayback-04840d64/page.html
+    - awc/awc-2022/scoreboard/2026-09-01-wayback-904b2ddf/page.html
     url_state: dead
     url_checked: '2026-11-16'
   - url: https://lightoj.com/problems/category/icpc-dhaka-2022

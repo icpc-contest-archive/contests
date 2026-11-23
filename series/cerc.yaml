@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: cerc
   name: ICPC Central Europe Regional Contest
@@ -14,7 +14,6 @@ contests:
   sources:
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_CERC/1995/index.html
     roles:
-    - web
     - problemset
     contains:
     - statement
@@ -45,9 +44,9 @@ contests:
     roles:
     - problemset
     judge: kattis
-    note: Kattis problem-sources page (export source "Central European Regional Contest 1995", 2026-11-02)
     url_state: live
     url_checked: '2026-11-16'
+    note: Kattis problem-sources page (export source "Central European Regional Contest 1995", 2026-11-02)
   problems:
     set: cerc-1995
 - id: cerc-1996
@@ -58,7 +57,6 @@ contests:
   sources:
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_CERC/1996/index.html
     roles:
-    - web
     - problemset
     contains:
     - statement
@@ -95,7 +93,6 @@ contests:
   sources:
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_CERC/1997/index.html
     roles:
-    - web
     - problemset
     contains:
     - statement
@@ -126,19 +123,20 @@ contests:
     roles:
     - problemset
     judge: kattis
-    note: Kattis problem-sources page (export source "Central European Regional Contest 1997", 2026-11-02)
     url_state: live
     url_checked: '2026-11-16'
+    note: Kattis problem-sources page (export source "Central European Regional Contest 1997", 2026-11-02)
   problems:
     set: cerc-1997
 - id: cerc-1998
   season: 1999
   name: 1998 ACM Central Europe Programming Contest
   date: '1998-11-14'
-  sites:
-  - location: cz-prague-ctu
+  location: Czech Technical University in Prague
   cms_ids:
   - 1263
+  sites:
+  - location: cz-prague-ctu
   parent: wf-1999
   next: cerc-1999
   sources:
@@ -158,7 +156,7 @@ contests:
     url_checked: '2026-11-16'
   - url: http://icpc.baylor.edu/past/icpc99/Regionals/CERC98/Standings.htm
     roles:
-    - standings
+    - scoreboard
     as_of: '20020701110238'
     archived:
     - cerc/cerc-1998/standings/20020701-wayback-dbe6bab7/Standings.htm
@@ -212,20 +210,23 @@ contests:
     roles:
     - problemset
     judge: kattis
-    note: Kattis problem-sources page (export source "Central European Regional Contest 1998", 2026-11-02)
     url_state: live
     url_checked: '2026-11-16'
+    note: Kattis problem-sources page (export source "Central European Regional Contest 1998", 2026-11-02)
   problems:
     set: cerc-1998
+  provenance:
+  - location Czech Technical University in Prague read from https://contest.felk.cvut.cz/98cerc/problems.html
+    (data scan 2026-11-23)
 - id: cerc-1999
   season: 2000
   name: 1999 ACM Central Europe Programming Contest
   date: '1999-11-13'
   location: Prague
-  sites:
-  - location: cz-prague-ctu
   cms_ids:
   - 1028
+  sites:
+  - location: cz-prague-ctu
   parent: wf-2000
   next: cerc-2000
   sources:
@@ -245,7 +246,7 @@ contests:
     url_checked: '2026-11-16'
   - url: http://icpc.baylor.edu/past/icpc2000/regionals/CERC99/Standings.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20020111100929'
     archived:
     - cerc/cerc-1999/standings/20020111-wayback-30970f02/Standings.html
@@ -299,12 +300,12 @@ contests:
 - id: cerc-2000
   season: 2001
   name: 2000 ACM Central Europe Programming Contest
-  date: '2000-11-12'
+  date: '2000-11-11'
   location: Prague
-  sites:
-  - location: cz-prague-ctu
   cms_ids:
   - 1002
+  sites:
+  - location: cz-prague-ctu
   parent: wf-2001
   next: cerc-2001
   sources:
@@ -317,10 +318,6 @@ contests:
     as_of: '20001205081100'
     url_state: changed
     url_checked: '2026-11-14'
-  - url: https://contest.felk.cvut.cz/20cerc/rank.html
-    roles:
-    - web
-    note: moved from cerc-2019 by the content check
   - url: https://contest.felk.cvut.cz/00cerc/results.html
     roles:
     - scoreboard
@@ -336,12 +333,12 @@ contests:
     roles:
     - standings
     as_of: '20020730214212'
-    note: found inside https://contest.felk.cvut.cz/00cerc/ by the content check
-    url_state: live
-    url_checked: '2026-11-16'
     archived:
     - cerc/cerc-2000/standings/20020730-wayback-3279e0c1/statistics.html
     - cerc/cerc-2000/standings/20261115-live-a214c37f/statistics.html
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside https://contest.felk.cvut.cz/00cerc/ by the content check
   - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=452
     roles:
     - rankings
@@ -360,8 +357,11 @@ contests:
     - statement
     - data
     - solutions
+    as_of: '20010123232800'
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://contest.felk.cvut.cz/00cerc/ by the content check (as http://contest.felk.cvut.cz:80/00cerc/solved/index.html);
+      merged by the data scan 2026-11-23
   - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_CERC/2000/index.html
     roles:
     - problemset
@@ -390,25 +390,20 @@ contests:
     url_state: dead
     url_checked: '2026-11-16'
     note: CERC 2000
-  - url: http://contest.felk.cvut.cz:80/00cerc/solved/index.html
-    roles:
-    - problemset
-    as_of: '20010123232800'
-    note: found inside https://contest.felk.cvut.cz/00cerc/ by the content check
-    url_state: live
-    url_checked: '2026-11-16'
   problems:
     set: cerc-2000
+  provenance:
+  - date 2000-11-11 read from https://contest.felk.cvut.cz/00cerc/ (data scan 2026-11-23)
 - id: cerc-2001
   season: 2002
   name: 2001 ACM Central Europe Programming Contest
-  date: '2001-11-19'
+  date: '2001-11-18'
   location: Warsaw
+  cms_ids:
+  - 1216
   sites:
   - location: pl-warsaw-university
     date: '2001-11-18'
-  cms_ids:
-  - 1216
   parent: wf-2002
   next: cerc-2002
   sources:
@@ -434,12 +429,12 @@ contests:
     roles:
     - scoreboard
     as_of: '20011208182428'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - cerc/cerc-2001/standings/20011208-wayback-7cefbba9/index.html
     - cerc/cerc-2001/scoreboard/20011208-wayback-7cefbba9/index.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: http://icpc.baylor.edu/past/icpc2002/Regionals/ViewRegionalStandings.asp?ContestID=517
     roles:
     - standings
@@ -500,6 +495,7 @@ contests:
     set: cerc-2001
   provenance:
   - ICPC Problem Archive progress sheet (2026-11-01)
+  - date 2001-11-18 read from http://cepc.mimuw.edu.pl:8002/ (data scan 2026-11-23)
 - id: cerc-2002
   season: 2003
   name: 2002 ACM Central Europe Programming Contest
@@ -589,10 +585,10 @@ contests:
   name: 2003 ACM Central Europe Programming Contest
   date: '2003-11-16'
   location: Warsaw
-  sites:
-  - location: pl-warsaw-university
   cms_ids:
   - 1171
+  sites:
+  - location: pl-warsaw-university
   parent: wf-2004
   next: cerc-2004
   sources:
@@ -640,7 +636,7 @@ contests:
   - url: http://cepc.mimuw.edu.pl/pages/problems.html
     roles:
     - problemset
-    as_of: '20021209200541'
+    as_of: '20040220064049'
     url_state: dead
     url_checked: '2026-11-16'
   problems:
@@ -652,17 +648,17 @@ contests:
   name: 2004 ACM Central Europe Programming Contest
   date: '2004-11-21'
   location: Budapest
-  sites:
-  - location: hu-budapest-economics
   cms_ids:
   - 1154
+  sites:
+  - location: hu-budapest-economics
   parent: wf-2005
   next: cerc-2005
   sources:
   - url: http://icpc.cs.bme.hu/main.php?p=1
     roles:
     - web
-    as_of: '20090225181625'
+    as_of: '20041205110236'
   - url: http://icpc.cs.bme.hu/main.php?p=2
     roles:
     - scoreboard
@@ -701,6 +697,8 @@ contests:
   name: 2005 ACM Central Europe Programming Contest
   date: '2005-11-20'
   location: Hungary; Croatia; Budapest, BME; Slovenia; Czech Republic; Slovakia; Poland
+  cms_ids:
+  - 1235
   sites:
   - location: hu
     name: Preliminary - Hungary
@@ -719,15 +717,13 @@ contests:
     date: '2005-10-29'
   - location: hr
     name: Preliminary - Croatia
-  cms_ids:
-  - 1235
   parent: wf-2006
   next: cerc-2006
   sources:
   - url: http://icpc.cs.bme.hu/main.php?p=1
     roles:
     - web
-    as_of: '20090225181625'
+    as_of: '20060207104717'
   - url: http://icpc.cs.bme.hu/main.php?p=2
     roles:
     - scoreboard
@@ -765,6 +761,8 @@ contests:
   name: 2006 ACM Central Europe Programming Contest
   date: '2006-11-19'
   location: Czech Republic; Hungary; Budapest, BME; Poland; Slovenia; Slovakia; Croatia
+  cms_ids:
+  - 1111
   sites:
   - location: cz
     name: Preliminary - Czech Republic
@@ -781,8 +779,6 @@ contests:
     name: Preliminary - Slovak Republic
   - location: pl
     name: Preliminary - Poland
-  cms_ids:
-  - 1111
   parent: wf-2007
   next: cerc-2007
   sources:
@@ -802,7 +798,7 @@ contests:
     note: from archived capture (scoreboard)
   - url: http://icpc.cs.bme.hu/main.php?p=12
     roles:
-    - standings
+    - scoreboard
     as_of: '20090225181630'
     archived:
     - cerc/cerc-2006/external-standings/2026-04-15-external/content.html
@@ -814,9 +810,9 @@ contests:
     roles:
     - problemset
     as_of: '20070221175230'
-    note: found inside http://icpc.cs.bme.hu/main.php?p=1 by the content check
     url_state: dead
     url_checked: '2026-11-16'
+    note: found inside http://icpc.cs.bme.hu/main.php?p=1 by the content check
   problems:
     set: cerc-2006
   provenance:
@@ -884,12 +880,12 @@ contests:
   name: 2008 Central Europe Contest
   date: '2008-11-30'
   location: University of Wrocław, Poland
+  cms_ids:
+  - 23
   sites:
   - location: pl-wroc-aw-university
     name: CEPC '08
     type: administrative
-  cms_ids:
-  - 23
   parent: wf-2009
   next: cerc-2009
   sources:
@@ -933,13 +929,12 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: http://cepc08.ii.uni.wroc.pl/solutions.html
     roles:
     - editorial
-    as_of: '20121122072523'
     url_state: dead
     url_checked: '2026-11-16'
   problems:
@@ -951,14 +946,14 @@ contests:
   name: 2009 Central Europe Contest
   date: '2009-11-08'
   location: Administrative Site Location; University of Wroc?aw, Poland
+  cms_ids:
+  - 543
   sites:
   - location: pl-wroc-aw-university
     name: CEPC '09
     date: '2009-09-23'
     type: administrative
   - type: administrative
-  cms_ids:
-  - 543
   parent: wf-2010
   next: cerc-2010
   sources:
@@ -967,7 +962,8 @@ contests:
     - web
   - url: http://informatyka.wroc.pl/node/309
     roles:
-    - standings
+    - scoreboard
+    - report
     as_of: '20091112131006'
     archived:
     - cerc/cerc-2009/standings/2026-09-01-wayback-1d15f8b0/page.html
@@ -986,12 +982,12 @@ contests:
     roles:
     - rankings
     as_of: '20191216132433'
-    note: found inside http://cepc09.ii.uni.wroc.pl/index.html by the content check
-    url_state: live
-    url_checked: '2026-11-16'
     archived:
     - cerc/cerc-2009/rankings/20191216-wayback-eb042cc3/ranking.html
     - cerc/cerc-2009/rankings/20261116-live-a98a09e1/ranking.html
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside http://cepc09.ii.uni.wroc.pl/index.html by the content check
   - url: http://cepc09.ii.uni.wroc.pl/problems.html
     roles:
     - problemset
@@ -1016,9 +1012,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: http://cepc09.ii.uni.wroc.pl/solutions-print.html
     roles:
     - editorial
@@ -1039,14 +1035,14 @@ contests:
   season: 2011
   name: 2010 Central Europe Regional Contest
   date: '2010-11-21'
-  location: Administrative Site Location; University of Wroc?aw, Poland
+  location: Institute of Computer Science, University of Wroclaw, Wroclaw, Poland
+  cms_ids:
+  - 635
   sites:
   - type: administrative
   - location: pl-wroc-aw-university
     name: CERC '10
     type: administrative
-  cms_ids:
-  - 635
   parent: wf-2011
   next: cerc-2011
   sources:
@@ -1105,46 +1101,48 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20190408234714'
     url_state: changed
     url_checked: '2026-11-16'
     note: '2010-2011 ACM-ICPC, Central Europe Regional Contest (CERC 10) (judge hunt 2026-11-03: name+year:
       ''2010-2011 ACM-ICPC, Central Europe Regional Contest (CERC 10)'' -> season start 2010)'
-    as_of: '20190408234714'
   - url: https://qoj.ac/contest/2722
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: http://cepc10.ii.uni.wroc.pl/solutions-print.html
     roles:
     - editorial
+    as_of: '20110927032219'
     url_state: dead
     url_checked: '2026-11-16'
-    as_of: '20110927032219'
   - url: http://cepc10.ii.uni.wroc.pl/solutions.html
     roles:
     - editorial
+    as_of: '20101129013722'
     url_state: dead
     url_checked: '2026-11-16'
-    as_of: '20101129013722'
   problems:
     set: cerc-2010
   provenance:
   - ICPC Problem Archive progress sheet (2026-11-01)
+  - location Institute of Computer Science, University of Wroclaw, Wroclaw, Poland read from http://cepc10.ii.uni.wroc.pl/index.html
+    (data scan 2026-11-23)
 - id: cerc-2011
   season: 2012
   name: 2011 Central Europe Regional Contest
   date: '2011-11-13'
   location: Prague; Administrative Site Location
+  cms_ids:
+  - 768
   sites:
   - location: cz-prague
     name: CERC '11
     type: administrative
   - type: administrative
-  cms_ids:
-  - 768
   parent: wf-2012
   next: cerc-2012
   sources:
@@ -1153,7 +1151,7 @@ contests:
     - web
   - url: https://contest.felk.cvut.cz/11cerc/rank.html
     roles:
-    - standings
+    - scoreboard
     as_of: '20111117120547'
     archived:
     - cerc/cerc-2011/external-standings/2026-04-15-external/content.html
@@ -1171,12 +1169,12 @@ contests:
     roles:
     - standings
     as_of: '20111119205347'
-    note: found inside https://contest.felk.cvut.cz/11cerc/ by the content check
-    url_state: live
-    url_checked: '2026-11-16'
     archived:
     - cerc/cerc-2011/standings/20111119-wayback-624958eb/rank.pdf
     - cerc/cerc-2011/standings/20261115-live-0d8295e2/rank.pdf
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside https://contest.felk.cvut.cz/11cerc/ by the content check
   - url: https://contest.felk.cvut.cz/11cerc/solved.html
     roles:
     - problemset
@@ -1202,28 +1200,28 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20190409041801'
     url_state: changed
     url_checked: '2026-11-16'
     note: '2011-2012 ACM-ICPC, Central Europe Regional Contest (CERC 11) (judge hunt 2026-11-03: name+year:
       ''2011-2012 ACM-ICPC, Central Europe Regional Contest (CERC 11)'' -> season start 2011)'
-    as_of: '20190409041801'
   - url: https://qoj.ac/contest/2723
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+  - url: https://contest.felk.cvut.cz/11cerc/solved/intro.pdf
+    roles:
+    - problemset
+    as_of: '20240812032828'
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside https://contest.felk.cvut.cz/11cerc/ by the content check
   - url: https://contest.felk.cvut.cz/11cerc/solved/solution-CERC-2011.pptx
     roles:
     - editorial
-    url_state: live
-    url_checked: '2026-11-16'
-  - url: https://contest.felk.cvut.cz/11cerc/solved/intro.pdf
-    roles:
-    - editorial
-    as_of: '20240812032828'
-    note: found inside https://contest.felk.cvut.cz/11cerc/ by the content check
     url_state: live
     url_checked: '2026-11-16'
   problems:
@@ -1235,13 +1233,13 @@ contests:
   name: 2012 Central Europe Regional Contest
   date: '2012-11-18'
   location: Administrative Site Location; Kraków, Poland
+  cms_ids:
+  - 1317
   sites:
   - type: administrative
   - location: pl-krakow
     name: CERC '12
     type: administrative
-  cms_ids:
-  - 1317
   parent: wf-2013
   next: cerc-2013
   sources:
@@ -1266,14 +1264,15 @@ contests:
     note: rendered from the icpc.global API standings archive (cms 1317, 77 teams, DB fetch 2026-04-26)
   - url: https://cerc.tcs.uj.edu.pl/2012/report.html
     roles:
+    - report
     - rankings
-    note: found inside https://cerc.tcs.uj.edu.pl/2012/index.html by the content check
-    url_state: live
-    url_checked: '2026-11-16'
+    as_of: '20151114053016'
     archived:
     - cerc/cerc-2012/rankings/20151114-wayback-e3a1240f/report.html
     - cerc/cerc-2012/rankings/20261115-live-3ae43518/report.html
-    as_of: '20151114053016'
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside https://cerc.tcs.uj.edu.pl/2012/index.html by the content check
   - url: https://cerc.tcs.uj.edu.pl/2012/data.html
     roles:
     - problemset
@@ -1313,18 +1312,18 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20160408193517'
     url_state: changed
     url_checked: '2026-11-16'
     note: '2012-2013 ACM-ICPC, Central Europe Regional Contest (CERC 12) (judge hunt 2026-11-03: name+year:
       ''2012-2013 ACM-ICPC, Central Europe Regional Contest (CERC 12)'' -> season start 2012)'
-    as_of: '20160408193517'
   - url: https://qoj.ac/contest/2724
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Europe/Central-Europe/The-2012-Central-Europe-Regional-Contest/tutorials.pdf
     roles:
     - editorial
@@ -1339,13 +1338,13 @@ contests:
   name: 2013 Central Europe Regional Contest
   date: '2013-11-17'
   location: Administrative Site Location; Kraków, Poland
+  cms_ids:
+  - 2009
   sites:
   - type: administrative
   - location: pl-krakow
     name: CERC '13
     type: administrative
-  cms_ids:
-  - 2009
   parent: wf-2014
   next: cerc-2014
   sources:
@@ -1361,16 +1360,21 @@ contests:
     - cerc/cerc-2013/scoreboard/20160528-wayback-5ec80bf4/ranking.html
     url_state: live
     url_checked: '2026-11-16'
+  - url: https://icpc.global/regionals/finder/Central-Europe-2014/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 72 rows)
   - url: https://cerc.tcs.uj.edu.pl/2013/report.html
     roles:
+    - report
     - rankings
-    note: found inside https://cerc.tcs.uj.edu.pl/2013/news.html by the content check
     as_of: '20160528143431'
-    url_state: live
-    url_checked: '2026-11-16'
     archived:
     - cerc/cerc-2013/rankings/20261115-live-9df301a3/report.html
     - cerc/cerc-2013/rankings/20160528-wayback-11d39841/report.html
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside https://cerc.tcs.uj.edu.pl/2013/news.html by the content check
   - url: https://cerc.tcs.uj.edu.pl/2013/data.html
     roles:
     - problemset
@@ -1410,34 +1414,34 @@ contests:
     contains:
     - statement
     judge: kattis
-    note: Kattis problem-sources page (export source "Central Europe Regional Contest (CERC) 2013", 2026-11-02)
+    as_of: '20190723013048'
     url_state: replaced
     url_checked: '2026-11-16'
-    as_of: '20190723013048'
+    note: Kattis problem-sources page (export source "Central Europe Regional Contest (CERC) 2013", 2026-11-02)
   - url: https://codeforces.com/gym/100299
     roles:
     - problemset
     contains:
     - statement
     judge: codeforces
-    note: '2013-2014 ACM ICPC Central European Regional Contest (CERC 13) (judge hunt 2026-11-03: name+year:
-      ''2013-2014 ACM ICPC Central European Regional Contest (CERC 13)'' -> season start 2013)'
     url_state: live
     url_checked: '2026-11-16'
+    note: '2013-2014 ACM ICPC Central European Regional Contest (CERC 13) (judge hunt 2026-11-03: name+year:
+      ''2013-2014 ACM ICPC Central European Regional Contest (CERC 13)'' -> season start 2013)'
   - url: https://qoj.ac/contest/2212
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://cerc.tcs.uj.edu.pl/2013/data/cerc2013problems.pdf
     roles:
     - problemset
-    note: found inside https://cerc.tcs.uj.edu.pl/2013/news.html by the content check
     as_of: '20140513004822'
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://cerc.tcs.uj.edu.pl/2013/news.html by the content check
   - url: https://icpcarchive.github.io/Europe/Central-Europe/The-2013-Central-Europe-Regional-Contest/tutorials_en.pdf
     roles:
     - editorial
@@ -1446,9 +1450,9 @@ contests:
   - url: https://cerc.tcs.uj.edu.pl/2013/data/cerc2013solutions.pdf
     roles:
     - editorial
+    as_of: '20140513004828'
     url_state: live
     url_checked: '2026-11-16'
-    as_of: '20140513004828'
   problems:
     set: cerc-2013
   provenance:
@@ -1966,6 +1970,8 @@ contests:
   name: 2019 Central Europe Regional Contest
   date: '2019-12-01'
   location: Administrative Site Location; Prague, Czech Republic
+  cms_ids:
+  - 4135
   sites:
   - type: administrative
   - location: cz-prague
@@ -1975,11 +1981,14 @@ contests:
     name: CERC 2019 unofficial
     date: '2019-11-30'
     type: administrative
-  cms_ids:
-  - 4135
   parent: wf-2020
   next: cerc-2020
   sources:
+  - url: https://contest.felk.cvut.cz/19cerc/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (links in our held copy of the results (contest.felk.cvut.cz/19cerc/rank.html)
+      + sibling cerc-2018 pattern)
   - url: https://contest.felk.cvut.cz/19cerc/rank.html
     roles:
     - scoreboard
@@ -2021,18 +2030,18 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20251224090128'
     url_state: live
     url_checked: '2026-11-16'
     note: '2019-2020 ICPC Central Europe Regional Contest (CERC 19) (judge hunt 2026-11-03: name+year:
       ''2019-2020 ICPC Central Europe Regional Contest (CERC 19)'' -> season start 2019)'
-    as_of: '20251224090128'
   - url: https://qoj.ac/contest/2561
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Europe/Central-Europe/The-2019-Central-Europe-Regional-Contest/tutorials_en.pdf
     roles:
     - editorial

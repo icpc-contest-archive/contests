@@ -1,8 +1,8 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: thailand-national
   name: ICPC Thailand National On-site Programming Contest
-  tier: regional
+  tier: subregional
   region: Asia Pacific
   naming: season-start
 contests:
@@ -11,35 +11,42 @@ contests:
   name: Asia Thailand National On-site Programming Contest
   date: '2012-09-08'
   location: Chiang mai
+  cms_ids:
+  - 1496
   sites:
   - location: th-chiang-mai
     name: Thailand Nation On-site Programming Contest
     date: '2012-09-09'
-  cms_ids:
-  - 1496
   parent: thailand-2012
   next: thailand-national-2013
   sources:
-  - url: https://icpc.global/regionals/finder/Thailand-2013
+  - url: https://icpc.global/regionals/finder/Thailand-2013/standings
     roles:
-    - web
+    - standings
+    note: 'found by the data scan 2026-11-23 (ICPC CMS open API (cms 1496): standings rows exist but the
+      contest had no CMS standings source)'
   notes: '77 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: thailand-national-2013
   season: 2014
   name: Asia Thailand National On-site Programming Contest
   date: '2013-09-07'
   location: Bangkok
+  cms_ids:
+  - 1940
   sites:
   - location: th-bangkok
     name: Thailand National On-site Programming Contest
-  cms_ids:
-  - 1940
   parent: thailand-2013
   next: thailand-national-2014
   sources:
   - url: https://www.eng.psu.ac.th/old-website/8-information/365-5-acm-icpc-thailand-2013
     roles:
     - web
+  - url: https://icpc.global/regionals/finder/Thai-Nat-On-site-2014/standings
+    roles:
+    - standings
+    note: 'found by the data scan 2026-11-23 (ICPC CMS open API (cms 1940): standings rows exist but the
+      contest had no CMS standings source)'
   - url: https://www.acmicpc.net/category/detail/1157
     roles:
     - problemset
@@ -54,26 +61,26 @@ contests:
   - url: https://www.acmicpc.net/problem/9340
     roles:
     - problem
-    judge: baekjoon
     problem: B
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201124173303'
   - url: https://www.acmicpc.net/problem/9341
     roles:
     - problem
-    judge: baekjoon
     problem: C
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201124173303'
   - url: https://www.acmicpc.net/problem/9348
     roles:
     - problem
-    judge: baekjoon
     problem: J
     contains:
     - statement
+    judge: baekjoon
     as_of: '20201124173303'
   problems:
     set: thailand-national-2013
@@ -85,29 +92,31 @@ contests:
   name: Asia Thailand National On-site Programming Contest
   date: '2014-10-25'
   location: Administrative Site Location
+  cms_ids:
+  - 2597
   sites:
   - location: th-bangkok
     name: Thailand National On-site Programming Contest
   - type: administrative
-  cms_ids:
-  - 2597
   parent: thailand-2014
   next: thailand-national-2015
   sources:
-  - url: https://icpc.global/regionals/finder/thai-nat-on-site-2015
+  - url: https://icpc.global/regionals/finder/Thai-Nat-On-site-2015/standings
     roles:
-    - web
+    - standings
+    note: 'found by the data scan 2026-11-23 (ICPC CMS open API (cms 2597): standings rows exist but the
+      contest had no CMS standings source)'
   notes: '116 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: thailand-national-2015
   season: 2016
   name: Asia Thailand National On-site Programming Contest
   date: '2015-10-22'
-  location: Bangkok
-  sites:
-  - location: th-bangkok
-    name: Thailand National On-site Programming Contest
+  location: Salaya, Nakhon Pathom, Thailand
   cms_ids:
   - 2942
+  sites:
+  - location: th-nakhon-pathom
+    name: Thailand National On-site Programming Contest
   parent: thailand-2015
   next: thailand-national-2016
   sources:
@@ -131,98 +140,98 @@ contests:
   - url: https://www.acmicpc.net/problem/13377
     roles:
     - problem
-    judge: baekjoon
     problem: A
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190921111418'
   - url: https://www.acmicpc.net/problem/13378
     roles:
     - problem
-    judge: baekjoon
     problem: B
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190921111418'
   - url: https://www.acmicpc.net/problem/13379
     roles:
     - problem
-    judge: baekjoon
     problem: C
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190921111418'
   - url: https://www.acmicpc.net/problem/13380
     roles:
     - problem
-    judge: baekjoon
     problem: D
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190921111418'
   - url: https://www.acmicpc.net/problem/13381
     roles:
     - problem
-    judge: baekjoon
     problem: E
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190921111418'
   - url: https://www.acmicpc.net/problem/13382
     roles:
     - problem
-    judge: baekjoon
     problem: F
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190921111418'
   - url: https://www.acmicpc.net/problem/13383
     roles:
     - problem
-    judge: baekjoon
     problem: G
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190921111418'
   - url: https://www.acmicpc.net/problem/13384
     roles:
     - problem
-    judge: baekjoon
     problem: H
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190921111418'
   - url: https://www.acmicpc.net/problem/13385
     roles:
     - problem
-    judge: baekjoon
     problem: I
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190921111418'
   - url: https://www.acmicpc.net/problem/13386
     roles:
     - problem
-    judge: baekjoon
     problem: J
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190921111418'
   - url: https://www.acmicpc.net/problem/13387
     roles:
     - problem
-    judge: baekjoon
     problem: K
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190921111418'
   - url: https://www.acmicpc.net/problem/13388
     roles:
     - problem
-    judge: baekjoon
     problem: L
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190917041139'
   - url: https://museum.li.mahidol.ac.th/acm-icpc-thailand-national-contest-2015/
     roles:
@@ -233,19 +242,21 @@ contests:
     set: thailand-national-2015
   provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+  - location Salaya, Nakhon Pathom, Thailand read from https://museum.li.mahidol.ac.th/acm-icpc-thailand-national-contest-2015/
+    (data scan 2026-11-23)
   notes: '100 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: thailand-national-2016
   season: 2017
   name: Asia Bangkok- Thailand National On-site Programming Contest
   date: '2016-10-17'
   location: Bangkok
+  cms_ids:
+  - 3096
   sites:
   - location: th-bangkok
     name: Bangkok National On-site Programming Contest
-  cms_ids:
-  - 3096
   parent: thailand-2016
-  next: thailand-national-2025
+  next: thailand-national-2024
   sources:
   - url: https://icpc.global/regionals/finder/bangkok-nat-on-site-2017/standings
     roles:
@@ -262,10 +273,11 @@ contests:
 - id: thailand-national-2024
   season: 2025
   name: 2024 ICPC Thailand National On-site Programming Contest
-  date: '2024-11-16'
+  date: '2024-09-08'
   location: Faculty of Engineering, Chulalongkorn University, Bangkok
   cms_ids: []
   parent: awc-2024
+  next: thailand-national-2025
   sources:
   - url: https://icpc-2024.cp.eng.chula.ac.th/2024/contest/teams
     roles:
@@ -290,114 +302,116 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: 'ICPC Thailand National Competition 2024 (judge hunt 2026-11-03: name+year: ''ICPC Thailand
-      National Competition 2024'' -> season start 2024; ICPC Thailand National Competition 2024)'
     as_of: '20240911131449'
     url_state: live
     url_checked: '2026-11-16'
+    note: 'ICPC Thailand National Competition 2024 (judge hunt 2026-11-03: name+year: ''ICPC Thailand
+      National Competition 2024'' -> season start 2024; ICPC Thailand National Competition 2024)'
   - url: https://codeforces.com/gym/105335/problem/A
     roles:
     - problem
-    judge: codeforces
     problem: A
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/105335/problem/B
     roles:
     - problem
-    judge: codeforces
     problem: B
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/105335/problem/C
     roles:
     - problem
-    judge: codeforces
     problem: C
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/105335/problem/D
     roles:
     - problem
-    judge: codeforces
     problem: D
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/105335/problem/E
     roles:
     - problem
-    judge: codeforces
     problem: E
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/105335/problem/F
     roles:
     - problem
-    judge: codeforces
     problem: F
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/105335/problem/G
     roles:
     - problem
-    judge: codeforces
     problem: G
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/105335/problem/H
     roles:
     - problem
-    judge: codeforces
     problem: H
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/105335/problem/I
     roles:
     - problem
-    judge: codeforces
     problem: I
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/105335/problem/J
     roles:
     - problem
-    judge: codeforces
     problem: J
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/105335/problem/K
     roles:
     - problem
-    judge: codeforces
     problem: K
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/105335/problem/L
     roles:
     - problem
-    judge: codeforces
     problem: L
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/105335/problem/M
     roles:
     - problem
-    judge: codeforces
     problem: M
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/gym/105335/problem/N
     roles:
     - problem
-    judge: codeforces
     problem: N
     contains:
     - statement
+    judge: codeforces
   - url: https://icpc-2024.cp.eng.chula.ac.th/2024/editorials/ICPC_National_Bangkok_2024.pdf
     roles:
     - editorial
     url_state: live
     url_checked: '2026-11-16'
+  problems:
+    set: thailand-national-2024
   provenance:
   - 'ICPC Thailand National Competition 2024 - organiser site (Chula CP) (2024-09-02 (last update)): Thailand
     National Round (on-site) 7-8 September 2024 at Building 3, Faculty of Engineering, Chulalongkorn University;
@@ -411,10 +425,9 @@ contests:
     university (first page shows Chiang Mai University x3, Chulalongkorn x2). — https://icpc-2024.cp.eng.chula.ac.th/2024/contest/teams
     [existence hunt 2026-10-22]'
   - location read from https://icpc-2024.cp.eng.chula.ac.th/2024/contest/teams (description round 2026-11-16)
+  - date 2024-09-08 read from https://icpc-2024.cp.eng.chula.ac.th/2024/contest/teams (data scan 2026-11-23)
   notes: 'Q10/D6 2026-09-07: the 2024 revival at Chulalongkorn (''onsite event for every team''); originally
     proposed as thailand-2024, landed here after dedupe check showed no thailand-national-2024 existed'
-  problems:
-    set: thailand-national-2024
 - id: thailand-national-2025
   season: 2026
   name: 2025 ICPC Thailand National Contest
@@ -487,18 +500,31 @@ contests:
   problems:
     set: thailand-national-2025
 - id: thailand-national-2026
-  status: upcoming
   season: 2027
   name: 2026 ICPC Thailand National Contest
+  date: '2026-09-06'
+  cms_ids:
+  - 9675
   sites:
   - type: administrative
   - location: th-lat-krabang-king-mongkuts-ladkrabang
     name: King's Mongkut's Institute of Technology Ladkrabang
-  cms_ids:
-  - 9675
   parent: thailand-2026
   sources:
-  - url: https://icpc.global/regionals/finder/Thailand-2027
+  - url: https://icpc.cs.sci.ku.ac.th/
     roles:
     - web
+    note: found by the data scan 2026-11-23 (search for the 2026 Thailand National Contest)
+  - url: https://icpc.cs.sci.ku.ac.th/scoreboard/scoreboard-icpc-2026.html
+    roles:
+    - scoreboard
+    note: found by the data scan 2026-11-23 (the iframe of https://icpc.cs.sci.ku.ac.th/scoreboard)
+  - url: https://icpc.cs.sci.ku.ac.th/scoreboard/scoreboard.json
+    roles:
+    - scoreboard
+    note: found by the data scan 2026-11-23 (the data file the scoreboard page loads)
+  provenance:
+  - date 2026-09-06 read from https://icpc.cs.sci.ku.ac.th/scoreboard/scoreboard.json (data scan 2026-11-23)
+  - 'ran 2026-09-06: the host''s finalized scoreboard (contest start 2026-09-06 09:35 +07:00, 61 teams,
+    12 problems) (data scan 2026-11-23)'
   notes: 'from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'

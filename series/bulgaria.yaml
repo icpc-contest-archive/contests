@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/describe_apply.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: bulgaria
   name: Bulgarian Collegiate Programming Contest
@@ -27,15 +27,15 @@ contests:
 - id: bulgaria-2011
   season: 2012
   name: 2011 Bulgarian Collegiate Programming Contest
-  date: '2011-05-15'
+  date: '2011-05-14'
   location: Administrative Site Location; Shumen
+  cms_ids:
+  - 786
   sites:
   - location: bg-shumen
     name: Bulgaria site
     date: '2011-05-14'
   - type: administrative
-  cms_ids:
-  - 786
   parent: seerc-2011
   next: bulgaria-2012
   sources:
@@ -61,17 +61,19 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: bulgaria-2011
+  provenance:
+  - date 2011-05-14 read from https://bcpc.eu/XXIII/ (data scan 2026-11-23)
 - id: bulgaria-2012
   season: 2013
   name: 2012 Bulgarian Collegiate Programming Contest
   date: '2012-05-12'
   location: Administrative Site Location; Burgas
+  cms_ids:
+  - 1333
   sites:
   - location: bg-burgas
     name: Bulgaria site
   - type: administrative
-  cms_ids:
-  - 1333
   parent: seerc-2012
   next: bulgaria-2013
   sources:
@@ -109,23 +111,24 @@ contests:
     url_checked: '2026-11-16'
   - url: http://bcpc.eu/XXIV/files/authors.zip
     roles:
-    - editorial
+    - problemset
     as_of: '20201230030625'
-    note: found inside https://bcpc.eu/XXIV/ by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://bcpc.eu/XXIV/ by the content check
   problems:
     set: bulgaria-2012
 - id: bulgaria-2013
   season: 2014
   name: 2013 Bulgarian Collegiate Programming Contest
   date: '2013-05-18'
-  sites:
-  - type: administrative
-  - location: bg-burgas
-    name: Bulgaria site
+  location: National Palace of Culture, Sofia
   cms_ids:
   - 2003
+  sites:
+  - type: administrative
+  - location: bg-sofia
+    name: Bulgaria site
   parent: seerc-2013
   next: null
   sources:
@@ -143,21 +146,21 @@ contests:
     url_checked: '2026-11-16'
   - url: http://bcpc.eu/XXV/results.html
     roles:
-    - rankings
+    - standings
     as_of: '20201230030622'
-    note: found inside https://bcpc.eu/XXV/ by the content check
-    url_state: live
-    url_checked: '2026-11-16'
     archived:
     - bulgaria/bulgaria-2013/rankings/20201230-wayback-ba982b79/results.html
     - bulgaria/bulgaria-2013/rankings/20261115-live-77c6d610/results.html
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside https://bcpc.eu/XXV/ by the content check
   - url: http://bcpc.eu/XXV/registered.html
     roles:
     - teams
     as_of: '20201230030622'
-    note: found inside https://bcpc.eu/XXV/ by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://bcpc.eu/XXV/ by the content check
   - url: http://bcpc.eu/XXV/TrainingTasks.pdf
     roles:
     - problemset
@@ -170,18 +173,19 @@ contests:
     roles:
     - problemset
     as_of: '20201230030622'
-    note: found inside https://bcpc.eu/XXV/ by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://bcpc.eu/XXV/ by the content check
   - url: http://bcpc.eu/XXV/CompleteSet.pdf
     roles:
     - problemset
     as_of: '20201230031026'
-    note: found inside https://bcpc.eu/XXV/ by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://bcpc.eu/XXV/ by the content check
   problems:
     set: bulgaria-2013
   provenance:
   - date read from https://bcpc.eu/XXV/ (description round 2026-11-16)
+  - location National Palace of Culture, Sofia read from https://bcpc.eu/XXV/ (data scan 2026-11-23)
   notes: The CMS has no date; the CMS lists no teams (problem archive sheet)

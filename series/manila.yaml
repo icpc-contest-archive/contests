@@ -1,27 +1,29 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: manila
   name: ICPC Asia Manila Regional Contest
   tier: regional
   region: Asia Pacific
   naming: season-start
+  rotating_host: true
 contests:
 - id: manila-2002
   season: 2003
   name: 2002 ACM Asia Programming Contest - Manila
   date: '2002-11-14'
   location: Univ of Asia & the Pacific
+  cms_ids:
+  - 985
   sites:
   - location: ph-manila-asia-pacific
     name: Asia - Manila
-  cms_ids:
-  - 985
   parent: wf-2003
   next: manila-2003
   sources:
   - url: http://iits.uap.edu.ph/acm
     roles:
     - web
+    as_of: '20021204123452'
   - url: http://icpc.baylor.edu/past/icpc2003/regionals/Reports/icpc.baylor.edu/icpc/regionals/ViewRegionalStandingsd773.html?ContestID=594
     roles:
     - standings
@@ -35,13 +37,13 @@ contests:
   - url: http://www.dledge.com/acm/
     roles:
     - standings
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: dead
-    url_checked: '2026-11-16'
+    as_of: '20041014202734'
     archived:
     - manila/manila-2002/standings/20261102-live-760bbfd6/page.html
     - manila/manila-2002/standings/20041014-wayback-f573451f/page.html
-    as_of: '20041014202734'
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: https://www.acmicpc.net/category/detail/2720
     roles:
     - problemset
@@ -61,10 +63,10 @@ contests:
   - url: https://www.acmicpc.net/problem/22792
     roles:
     - problem
-    judge: baekjoon
     problem: H
     contains:
     - statement
+    judge: baekjoon
     as_of: '20220626175439'
   problems:
     set: manila-2002
@@ -207,6 +209,8 @@ contests:
   name: 2005 ACM Asia Programming Contest - Manila
   date: '2005-10-29'
   location: Ho Chi Minh city; Manila
+  cms_ids:
+  - 1266
   sites:
   - location: ph-manila
     name: Asia - Manila On Site Contest
@@ -217,8 +221,6 @@ contests:
     type: administrative
   - location: ph-manila
     name: Asia Nationwide Manila Contest Site
-  cms_ids:
-  - 1266
   parent: wf-2006
   next: manila-2006
   sources:
@@ -233,16 +235,77 @@ contests:
     - manila/manila-2005/standings/2026-09-01-wayback-d4cfe7a9/page.html
     url_state: dead
     url_checked: '2026-11-01'
-  - url: http://acm.ateneo.edu/summary.html
+  - url: http://acm.ateneo.edu/problems.html
     roles:
-    - standings
-    as_of: '20120402055240'
-    archived:
-    - manila/manila-2005/external-standings/2026-04-15-external/content.html
-    - manila/manila-2005/standings/20120402-wayback-44c064d9/summary.html
-    url_state: dead
-    url_checked: '2026-11-16'
-    note: from archived capture (external-standings)
+    - problemset
+    contains:
+    - names
+    as_of: '20060422062509'
+    note: found by the data scan 2026-11-23 (own holdings (manila-2005 site crawl))
+  - url: http://acm.ateneo.edu/problems/a.html
+    roles:
+    - problem
+    problem: A
+    contains:
+    - statement
+    as_of: '20060629021358'
+    note: found by the data scan 2026-11-23 (own holdings (manila-2005 site crawl))
+  - url: http://acm.ateneo.edu/problems/b.html
+    roles:
+    - problem
+    problem: B
+    contains:
+    - statement
+    as_of: '20060629021258'
+    note: found by the data scan 2026-11-23 (own holdings (manila-2005 site crawl))
+  - url: http://acm.ateneo.edu/problems/c.html
+    roles:
+    - problem
+    problem: C
+    contains:
+    - statement
+    as_of: '20060520110543'
+    note: found by the data scan 2026-11-23 (own holdings (manila-2005 site crawl))
+  - url: http://acm.ateneo.edu/problems/d.html
+    roles:
+    - problem
+    problem: D
+    contains:
+    - statement
+    as_of: '20060629021421'
+    note: found by the data scan 2026-11-23 (own holdings (manila-2005 site crawl))
+  - url: http://acm.ateneo.edu/problems/e.html
+    roles:
+    - problem
+    problem: E
+    contains:
+    - statement
+    as_of: '20060629021328'
+    note: found by the data scan 2026-11-23 (own holdings (manila-2005 site crawl))
+  - url: http://acm.ateneo.edu/problems/f.html
+    roles:
+    - problem
+    problem: F
+    contains:
+    - statement
+    as_of: '20060629021308'
+    note: found by the data scan 2026-11-23 (own holdings (manila-2005 site crawl))
+  - url: http://acm.ateneo.edu/problems/g.html
+    roles:
+    - problem
+    problem: G
+    contains:
+    - statement
+    as_of: '20060629021345'
+    note: found by the data scan 2026-11-23 (own holdings (manila-2005 site crawl))
+  - url: http://acm.ateneo.edu/problems/h.html
+    roles:
+    - problem
+    problem: H
+    contains:
+    - statement
+    as_of: '20060629021432'
+    note: found by the data scan 2026-11-23 (own holdings (manila-2005 site crawl))
   problems:
     set: manila-2005
 - id: manila-2006
@@ -250,13 +313,13 @@ contests:
   name: 2006 ACM Asia Programming Contest - Manila
   date: '2006-10-27'
   location: Ateneo University; AdMU Computer Science Asso
+  cms_ids:
+  - 1147
   sites:
   - location: ph-manila-ateneo
     name: Asia Manila On Site Regional Contest
   - location: jp-asso-inter-universities-programming-competition
     date: '2006-09-02'
-  cms_ids:
-  - 1147
   parent: wf-2007
   next: manila-2009
   sources:
@@ -264,6 +327,12 @@ contests:
     roles:
     - web
     as_of: '20080723114705'
+  - url: http://acm.ateneo.edu/summary.html
+    roles:
+    - web
+    as_of: '20120402055240'
+    note: 'found by the data scan 2026-11-23 (moved from manila-2005: page titled 2006 Asia Programming
+      Contest - Manila contest results)'
   - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=783
     roles:
     - standings
@@ -366,13 +435,13 @@ contests:
 - id: manila-2016
   season: 2017
   name: 2016 ACM-ICPC Asia Manila Regional Contest
-  date: '2016-12-16'
+  date: '2016-12-15'
   location: Pacific and Indochina Peninsula
+  cms_ids:
+  - 3026
   sites:
   - location: ph-manila
     name: Asia Manila Onsite Contest
-  cms_ids:
-  - 3026
   parent: wf-2017
   next: manila-2017
   sources:
@@ -417,6 +486,8 @@ contests:
     note: 2016 ACM-ICPC Asia-Manila Regional Programming Contest
   problems:
     set: manila-2016
+  provenance:
+  - date 2016-12-15 read from http://penoy.admu.edu.ph/~acmicpc/ (data scan 2026-11-23)
 - id: manila-2017
   season: 2018
   name: 2017 ACM-ICPC Asia-Manila Regional Contest

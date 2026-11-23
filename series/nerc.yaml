@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: nerc
   name: ICPC Northern Eurasia Finals
@@ -383,8 +383,10 @@ contests:
 - id: nerc-2021
   season: 2022
   name: 2021 ICPC Northern Eurasia Finals
-  date: '2022-04-12'
+  date: '2022-04-13'
   location: St Petersburg; Yerevan; Tbilisi; Barnaul; Minsk; Administrative Site Location; Almaty
+  cms_ids:
+  - 4933
   sites:
   - type: administrative
   - location: ge-tbilisi
@@ -398,8 +400,6 @@ contests:
     date: '2022-04-13'
   - location: am-yerevan
     date: '2022-04-13'
-  cms_ids:
-  - 4933
   parent: wf-2022
   next: nerc-2022
   sources:
@@ -457,22 +457,22 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20220603190307'
     url_state: replaced
     url_checked: '2026-11-16'
     note: '2021-2022 ICPC, NERC, Northern Eurasia Onsite (Unrated, Online Mirror, ICPC Rules, Teams Preferred)
       (judge hunt 2026-11-03: official online mirror round: ''2021-2022 ICPC, NERC, Northern Eurasia Onsite
       (Unrated, Online Mirror, ICPC Rules, Teams Preferred)'' -> nerc-2021)'
-    as_of: '20220603190307'
   - url: https://qoj.ac/contest/988
     roles:
     - problemset
     contains:
     - names
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221003145459'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://nerc.icpc.global/archive/2021/nerc-2021-statement.pdf
     roles:
     - problemset
@@ -487,6 +487,8 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: nerc-2021
+  provenance:
+  - date 2022-04-13 read from https://neerc.ifmo.ru/archive/2021/nerc-2021-statement.pdf (data scan 2026-11-23)
 - id: nerc-2022
   season: 2023
   name: 2022 ICPC Northern Eurasia Finals
@@ -750,7 +752,10 @@ contests:
 - id: nerc-2025
   season: 2026
   name: 2025 ICPC Northern Eurasia Finals
-  date: '2025-12-15'
+  date: '2025-12-17'
+  location: St. Petersburg, Novosibirsk, Almaty, Tbilisi
+  cms_ids:
+  - 9152
   sites:
   - type: administrative
   - location: ru-novosibirsk
@@ -760,11 +765,13 @@ contests:
     name: South Caucasus
   - location: kz-almaty
     name: Central Asia
-  cms_ids:
-  - 9152
   parent: wf-2026
   next: nerc-2026
   sources:
+  - url: https://nerc.itmo.ru/regional/nef-2025.html
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (sibling nerc-2026 pattern (nerc.itmo.ru/regional/nef-2026.html))
   - url: https://nerc.itmo.ru/archive/2025/standings.html
     roles:
     - scoreboard
@@ -809,19 +816,19 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20251219122957'
     url_state: replaced
     url_checked: '2026-11-16'
     note: '2025-2026 ICPC, NERC, Northern Eurasia Finals (Unrated, Online Mirror, ICPC Rules, Teams Preferred)
       (judge hunt 2026-11-03: official online mirror round: ''2025-2026 ICPC, NERC, Northern Eurasia Finals
       (Unrated, Online Mirror, ICPC Rules, Teams Preferred)'' -> nerc-2025)'
-    as_of: '20251219122957'
   - url: https://qoj.ac/contest/2785
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Northern-Eurasia/ICPC-Northern-Eurasia-Finals/The-2025-ICPC-Northern-Eurasia-Finals/tutorials_en.pdf
     roles:
     - editorial
@@ -829,6 +836,10 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: nerc-2025
+  provenance:
+  - date 2025-12-17 read from https://news.itmo.ru/en/news/14646 (data scan 2026-11-23)
+  - location St. Petersburg, Novosibirsk, Almaty, Tbilisi read from https://neerc.ifmo.ru/archive/2025/nef-2025-statement.pdf
+    (data scan 2026-11-23)
 - id: nerc-2026
   status: upcoming
   season: 2027

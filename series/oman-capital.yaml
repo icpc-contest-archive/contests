@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: oman-capital
   name: ICPC Oman Capital Sub-region Collegiate Programming Contest
@@ -11,39 +11,42 @@ contests:
   name: 2025 ICPC Oman Capital Sub-region Collegiate Programming Contest
   date: '2025-02-22'
   location: OCPCCap
-  sites:
-  - name: OCPCCap
   cms_ids:
   - 9310
+  sites:
+  - name: OCPCCap
   parent: oman-2025
   next: oman-capital-2026
   sources:
-  - url: https://icpc.global/regionals/finder/OCPCCap-2026
-    roles:
-    - web
   - url: https://www.facebook.com/SultanateOfOmanCPC/
     roles:
     - web
     url_state: live
     url_checked: '2026-11-14'
+  - url: https://icpc.global/regionals/finder/OCPCCap-2026/standings
+    roles:
+    - standings
+    note: 'found by the data scan 2026-11-23 (ICPC CMS open API (cms 9310): standings rows exist but the
+      contest had no CMS standings source)'
   notes: '80 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: oman-capital-2026
   season: 2027
   name: 2026 ICPC Oman Capital Sub-region Collegiate Programming Contest
   date: '2026-04-25'
   location: OCPCCap
-  sites:
-  - name: OCPCCap
   cms_ids:
   - 9724
+  sites:
+  - name: OCPCCap
   parent: oman-2026
   sources:
-  - url: https://icpc.global/regionals/finder/OCPCCap-2027
-    roles:
-    - web
   - url: https://www.facebook.com/SultanateOfOmanCPC/
     roles:
     - web
     url_state: live
     url_checked: '2026-11-14'
+  - url: https://icpc.global/regionals/finder/OCPCCap-2027/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings API, 38 ranked rows on 2026-11-23)
   notes: '64 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'

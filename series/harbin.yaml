@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: harbin
   name: ACM-ICPC Asia Harbin Regional Contest
@@ -14,6 +14,8 @@ contests:
     of Technology; Asia Harbin Regional; Harbin Engineering University; Northeast Normal University; Heilongjiang
     University; Harbin Institute; Harbin Institute of Technology; Administrative Site Location; Northeast
     China Multiprovincial Prog
+  cms_ids:
+  - 12
   sites:
   - location: cn-changchun-northeast-normal
     name: Jilin Province CPC 2008
@@ -51,8 +53,6 @@ contests:
     date: '2008-09-20'
     type: online
   - type: administrative
-  cms_ids:
-  - 12
   parent: wf-2009
   next: harbin-2009
   sources:
@@ -78,6 +78,13 @@ contests:
     url_state: changed
     url_checked: '2026-11-16'
     note: from archived capture (external-standings)
+  - url: https://acm.hdu.edu.cn/search.php?field=problem&key=2008+Asia+Regional+Harbin&source=1&searchmode=source
+    roles:
+    - problemset
+    contains:
+    - names
+    judge: hdu
+    note: found by the data scan 2026-11-23 (online judge (HDU source search))
   problems:
     set: harbin-2008
 - id: harbin-2009
@@ -85,6 +92,8 @@ contests:
   name: 2009 ACM-ICPC Asia Harbin Regional Contest
   date: '2009-11-08'
   location: Harbin; Harbin Institute of Technology
+  cms_ids:
+  - 495
   sites:
   - location: cn-harbin-hit
     name: Asia Harbin Regional Online Contest
@@ -92,8 +101,6 @@ contests:
     type: online
   - location: cn-harbin
     name: Asia Harbin Regional On-Site Contest
-  cms_ids:
-  - 495
   parent: wf-2010
   next: harbin-2010
   sources:
@@ -118,29 +125,6 @@ contests:
     archived:
     - harbin/harbin-2009/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 495, 988 teams, DB fetch 2026-04-26)
-  - url: http://board.acmicpc.info/icpc2010/hrbeu_onsite.php
-    roles:
-    - standings
-    as_of: '20121108180228'
-    archived:
-    - harbin/harbin-2009/standings/20121108-wayback-96360139/page.html
-    note: from archived capture (standings)
-  - url: https://acm.sdut.edu.cn/acmss/icpc/2010/tianjin/index.html
-    roles:
-    - standings
-    as_of: '20170921030505'
-    archived:
-    - harbin/harbin-2009/standings/20170921-wayback-a0379913/index.html
-    - harbin/harbin-2009/standings/20261020-live-1b8513ed/index.html
-    note: from archived capture (standings)
-  - url: https://rl.algoux.org/ranklist/icpc2010harbin
-    roles:
-    - standings
-    as_of: '20230604105331'
-    archived:
-    - harbin/harbin-2009/standings/20230604-wayback-ae28f7ba/page.html
-    - harbin/harbin-2009/standings/20261020-live-91183e54/page.html
-    note: from archived capture (standings)
   problems:
     set: harbin-2009
 - id: harbin-2010
@@ -148,6 +132,8 @@ contests:
   name: 2010 ACM-ICPC Asia Harbin Regional Contest
   date: '2010-09-26'
   location: Harbin Engineering University
+  cms_ids:
+  - 597
   sites:
   - location: cn-harbin-hrbeu
     name: Asia Harbin On Site Regional Contest
@@ -158,8 +144,6 @@ contests:
   - location: cn-harbin-hrbeu
     name: Administrative Site
     type: administrative
-  cms_ids:
-  - 597
   parent: wf-2011
   next: null
   sources:
@@ -171,14 +155,27 @@ contests:
     roles:
     - scoreboard
     - frozen_scoreboard
+    scope: final top 26 is solved-only; full 126-row board is the state at the freeze
     as_of: '20121108180228'
     archived:
     - harbin/harbin-2010/scoreboard/2026-09-01-wayback-d922ed3a/page.html
     - harbin/harbin-2010/scoreboard/20121108-wayback-62de932a/page.html
+    - harbin/harbin-2009/standings/20121108-wayback-96360139/page.html
     url_state: dead
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (cdx-bnuoj-board)
-    scope: final top 26 is solved-only; full 126-row board is the state at the freeze
+  - url: https://rl.algoux.org/ranklist/icpc2010harbin
+    roles:
+    - frozen_scoreboard
+    as_of: '20230604105331'
+    archived:
+    - harbin/harbin-2009/standings/20230604-wayback-ae28f7ba/page.html
+    - harbin/harbin-2009/standings/20261020-live-91183e54/page.html
+    - harbin/harbin-2010/standings/20230604-wayback-ae28f7ba/page.html
+    - harbin/harbin-2010/standings/20261116-live-91183e54/page.html
+    url_state: replaced
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (round9-research); moved from harbin-2009 by the content check
   - url: http://acm.hrbeu.edu.cn/icpc/regional/2010ACM-ICPC-Harbin-Regional-Contest-Result.htm
     roles:
     - standings
@@ -195,17 +192,12 @@ contests:
     archived:
     - harbin/harbin-2010/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 597, 124 teams, DB fetch 2026-04-26)
-  - url: https://rl.algoux.org/ranklist/icpc2010harbin
+  - url: https://acm.hdu.edu.cn/search.php?field=problem&key=2010+Asia+Regional+Harbin&source=1&searchmode=source
     roles:
-    - standings
-    as_of: '20230604105331'
-    archived:
-    - harbin/harbin-2009/standings/20230604-wayback-ae28f7ba/page.html
-    - harbin/harbin-2009/standings/20261020-live-91183e54/page.html
-    - harbin/harbin-2010/standings/20230604-wayback-ae28f7ba/page.html
-    - harbin/harbin-2010/standings/20261116-live-91183e54/page.html
-    url_state: replaced
-    url_checked: '2026-11-16'
-    note: added by url-hunt 2026-09-01 (round9-research); moved from harbin-2009 by the content check
+    - problemset
+    contains:
+    - names
+    judge: hdu
+    note: found by the data scan 2026-11-23 (online judge (HDU source search))
   problems:
     set: harbin-2010

@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: oman
   name: ICPC Oman Collegiate Programming Contest
@@ -92,19 +92,25 @@ contests:
   name: 2018 Oman Collegiate Programming Contest
   date: '2018-10-17'
   location: Oman; Administrative Site Location
+  cms_ids:
+  - 3594
   sites:
   - location: om
     name: unofficial
   - location: om-muscat-squ
   - type: administrative
-  cms_ids:
-  - 3594
   parent: acpc-2018
   next: oman-2019
   sources:
   - url: http://www.acmocpc.org
     roles:
     - web
+  - url: https://www.cs.cmu.edu/news/2018/carnegie-mellon-qatar-team-wins-oman-programming-competition
+    roles:
+    - rankings
+    - report
+    scope: champions
+    note: found by the data scan 2026-11-23 (web search (CMU news archive))
 - id: oman-2019
   season: 2020
   name: 2019 Oman Collegiate Programming Contest
@@ -153,13 +159,13 @@ contests:
   name: 2021 ICPC Oman Collegiate Programming Contest
   date: '2021-11-06'
   location: oman; Oman
+  cms_ids:
+  - 4754
   sites:
   - location: om
     name: ocpc
   - location: om
     name: unofficial
-  cms_ids:
-  - 4754
   parent: acpc-2021
   next: oman-2022
   sources:
@@ -176,18 +182,18 @@ contests:
     - web
     url_state: live
     url_checked: '2026-11-14'
-  - url: https://unizwa.edu.om/index.php?deptname=&lang=en&newsid=3722
-    roles:
-    - web
-    url_state: changed
-    url_checked: '2026-11-14'
-    note: moved from oman-2024 by the content check
   - url: https://icpc.global/regionals/finder/OCPC-2022/standings
     roles:
     - standings
     archived:
     - oman/oman-2021/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4754, 30 teams, DB fetch 2026-04-26)
+  - url: https://unizwa.edu.om/index.php?deptname=&lang=en&newsid=3722
+    roles:
+    - report
+    url_state: changed
+    url_checked: '2026-11-14'
+    note: moved from oman-2024 by the content check
 - id: oman-2022
   season: 2023
   name: 2022 ICPC Oman Collegiate Programming Contest
@@ -281,119 +287,120 @@ contests:
   name: 2025 ICPC Oman Collegiate Programming Contest
   date: '2025-04-10'
   location: oman; Oman
+  cms_ids:
+  - 9309
   sites:
   - location: om
     name: ocpc
   - location: om
     name: unofficial
-  cms_ids:
-  - 9309
   parent: acpc-2025
   next: oman-2026
   sources:
-  - url: https://mtcit.gov.om/media-4/news-announcements-11/news-85/oman-programming-contest-2025-concludes-with-strong-competition-150
-    roles:
-    - web
-    url_state: replaced
-    url_checked: '2026-11-14'
-    note: moved from oman-coastline-2025 by the content check
-  - url: https://ocmt.odoo.com/blog/news-and-activities-1/the-codebreakers-qualify-for-ocpc-2025-finals-387
-    roles:
-    - web
-    url_state: live
-    url_checked: '2026-11-14'
-    note: moved from oman-coastline-2025 by the content check
   - url: https://icpc.global/regionals/finder/OCPC-2026/standings
     roles:
     - standings
     archived:
     - oman/oman-2025/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 9309, 53 teams, DB fetch 2026-04-26)
+  - url: https://mtcit.gov.om/media-4/news-announcements-11/news-85/oman-programming-contest-2025-concludes-with-strong-competition-150
+    roles:
+    - report
+    - rankings
+    url_state: replaced
+    url_checked: '2026-11-14'
+    note: moved from oman-coastline-2025 by the content check
   - url: https://codeforces.com/group/Rilx5irOux/contest/603453
     roles:
     - problemset
     judge: codeforces
-    note: '''OCPC 2025'' in the private group ACPC Scientific Committee Archive (login and group membership
-      needed)'
     url_state: live
     url_checked: '2026-11-22'
+    note: '''OCPC 2025'' in the private group ACPC Scientific Committee Archive (login and group membership
+      needed)'
   - url: https://codeforces.com/group/Rilx5irOux/contest/603453/problem/A
     roles:
     - problem
-    judge: codeforces
     problem: A
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/603453/problem/B
     roles:
     - problem
-    judge: codeforces
     problem: B
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/603453/problem/C
     roles:
     - problem
-    judge: codeforces
     problem: C
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/603453/problem/D
     roles:
     - problem
-    judge: codeforces
     problem: D
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/603453/problem/E
     roles:
     - problem
-    judge: codeforces
     problem: E
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/603453/problem/F
     roles:
     - problem
-    judge: codeforces
     problem: F
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/603453/problem/G
     roles:
     - problem
-    judge: codeforces
     problem: G
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/603453/problem/H
     roles:
     - problem
-    judge: codeforces
     problem: H
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/603453/problem/I
     roles:
     - problem
-    judge: codeforces
     problem: I
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/603453/problem/J
     roles:
     - problem
-    judge: codeforces
     problem: J
     contains:
     - statement
+    judge: codeforces
   - url: https://codeforces.com/group/Rilx5irOux/contest/603453/problem/K
     roles:
     - problem
-    judge: codeforces
     problem: K
     contains:
     - statement
+    judge: codeforces
+  - url: https://ocmt.odoo.com/blog/news-and-activities-1/the-codebreakers-qualify-for-ocpc-2025-finals-387
+    roles:
+    - report
+    url_state: live
+    url_checked: '2026-11-14'
+    note: moved from oman-coastline-2025 by the content check
   problems:
     set: oman-2025
 - id: oman-2026

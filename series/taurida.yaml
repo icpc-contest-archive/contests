@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: taurida
   name: ICPC Taurida Regional Contest
@@ -11,18 +11,19 @@ contests:
   name: 2014 Taurida Subregional Contest
   date: '2014-11-08'
   location: Administrative Site Location; Taurida NU
+  cms_ids:
+  - 2725
   sites:
   - location: ua-simferopol-taurida
     name: Taurida Subregional Contest
   - type: administrative
-  cms_ids:
-  - 2725
   parent: neerc-2014
   next: taurida-2015
   sources:
   - url: https://neerc.ifmo.ru/subregions/taurida.html
     roles:
     - web
+    as_of: '20141229034013'
   - url: https://nerc.itmo.ru/archive/2014/taurida/standings.html
     roles:
     - scoreboard
@@ -65,18 +66,19 @@ contests:
   name: 2015 Taurida Subregional Contest
   date: '2015-10-24'
   location: Taurida NU; Administrative Site Location
+  cms_ids:
+  - 2753
   sites:
   - location: ua-simferopol-taurida
     name: Taurida Subregional Contest
   - type: administrative
-  cms_ids:
-  - 2753
   parent: neerc-2015
   next: taurida-2016
   sources:
   - url: https://neerc.ifmo.ru/subregions/taurida.html
     roles:
     - web
+    as_of: '20160318003557'
   - url: https://nerc.itmo.ru/archive/2015/taurida/standings.html
     roles:
     - scoreboard
@@ -119,18 +121,19 @@ contests:
   name: 2016 Taurida Subregional Contest
   date: '2016-10-22'
   location: Taurida NU; Administrative Site Location
+  cms_ids:
+  - 3148
   sites:
   - location: ua-simferopol-taurida
     name: Taurida Subregional Contest
   - type: administrative
-  cms_ids:
-  - 3148
   parent: neerc-2016
   next: taurida-2017
   sources:
   - url: https://neerc.ifmo.ru/subregions/taurida.html
     roles:
     - web
+    as_of: '20161109223810'
   - url: https://nerc.itmo.ru/archive/2016/taurida/standings.html
     roles:
     - scoreboard
@@ -158,6 +161,14 @@ contests:
     archived:
     - taurida/taurida-2016/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 3148, 28 teams, DB fetch 2026-04-26)
+  - url: https://nerc.itmo.ru/archive/2016/northern/north-2016-statements.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    as_of: '20211206233756'
+    note: 'found by the data scan 2026-11-23 (shared problem set north-russia-2016: the Northern subregional
+      statements, as on north-russia-2016)'
   problems:
     set: north-russia-2016
 - id: taurida-2017
@@ -219,18 +230,19 @@ contests:
   name: 2018 Taurida Subregional Contest
   date: '2018-10-27'
   location: Administrative Site Location; Taurida NU
+  cms_ids:
+  - 3674
   sites:
   - location: ua-simferopol-taurida
     name: Taurida Subregional Contest
   - type: administrative
-  cms_ids:
-  - 3674
   parent: nerc-2018
   next: taurida-2019
   sources:
   - url: https://neerc.ifmo.ru/subregions/taurida.html
     roles:
     - web
+    as_of: '20181211090818'
   - url: https://nerc.itmo.ru/archive/2018/taurida/standings.html
     roles:
     - scoreboard
@@ -267,18 +279,19 @@ contests:
   name: 2019 Taurida Regional Contest
   date: '2019-10-26'
   location: Taurida NU; Administrative Site Location
+  cms_ids:
+  - 4203
   sites:
   - type: administrative
   - location: ua-simferopol-taurida
     name: Taurida Subregional Contest
-  cms_ids:
-  - 4203
   parent: nerc-2019
   next: taurida-2020
   sources:
   - url: https://neerc.ifmo.ru/subregions/taurida.html
     roles:
     - web
+    as_of: '20191022210827'
   - url: https://nerc.itmo.ru/archive/2019/taurida/standings.html
     roles:
     - scoreboard
@@ -375,18 +388,19 @@ contests:
   name: 2021 ICPC Taurida Regional Contest
   date: '2021-12-11'
   location: Administrative Site Location; Taurida NU
+  cms_ids:
+  - 4955
   sites:
   - type: administrative
   - location: ua-simferopol-taurida
     name: Taurida Subregional Contest
-  cms_ids:
-  - 4955
   parent: nerc-2021
   next: taurida-2022
   sources:
   - url: https://neerc.ifmo.ru/subregions/taurida.html
     roles:
     - web
+    as_of: '20220525141919'
   - url: https://nerc.itmo.ru/archive/2021/taurida/standings.html
     roles:
     - scoreboard
@@ -429,18 +443,19 @@ contests:
   name: 2022 ICPC Taurida Regional Contest
   date: '2022-10-29'
   location: Administrative Site Location; Taurida NU
+  cms_ids:
+  - 5577
   sites:
   - type: administrative
   - location: ua-simferopol-taurida
     name: Taurida Subregional Contest
-  cms_ids:
-  - 5577
   parent: nerc-2022
   next: taurida-2023
   sources:
   - url: https://neerc.ifmo.ru/subregions/taurida.html
     roles:
     - web
+    as_of: '20230208042304'
   - url: https://nerc.itmo.ru/archive/2022/taurida/standings.html
     roles:
     - scoreboard
@@ -483,18 +498,19 @@ contests:
   name: 2023 ICPC Taurida Regional Contest
   date: '2023-11-05'
   location: Administrative Site Location; Taurida NU
+  cms_ids:
+  - 7737
   sites:
   - type: administrative
   - location: ua-simferopol-taurida
     name: Taurida Subregional Contest
-  cms_ids:
-  - 7737
   parent: nerc-2023
   next: taurida-2024
   sources:
   - url: https://neerc.ifmo.ru/subregions/taurida.html
     roles:
     - web
+    as_of: '20231204164659'
   - url: https://nerc.itmo.ru/archive/2023/taurida/standings.html
     roles:
     - scoreboard
@@ -643,12 +659,12 @@ contests:
   season: 2027
   name: 2026 ICPC Taurida Regional Contest
   date: '2026-11-14'
+  cms_ids:
+  - 9793
   sites:
   - type: administrative
   - location: ua
     name: Taurida Regional
-  cms_ids:
-  - 9793
   parent: nerc-2026
   sources:
   - url: https://neerc.ifmo.ru/subregions/taurida.html
@@ -658,14 +674,25 @@ contests:
   - url: https://neerc.ifmo.ru/archive/2026/taurida/standings.html
     roles:
     - scoreboard
-    note: added by the no-sources hunt 2026-11-16
     archived:
     - taurida/taurida-2026/scoreboard/20261116-live-c8495ec6/standings.html
+    note: added by the no-sources hunt 2026-11-16
   - url: https://neerc.itmo.ru/archive/2026/taurida/standings.html
     roles:
     - scoreboard
-    note: added by the no-sources hunt 2026-11-16
     archived:
     - taurida/taurida-2026/scoreboard/20261116-live-c383de90/standings.html
+    note: added by the no-sources hunt 2026-11-16
+  - url: https://icpc.global/regionals/finder/Taurida-Regional-2027/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings API, 8 ranked rows on 2026-11-23)
+  - url: https://nerc.itmo.ru/archive/2026/northern/statements.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    note: 'found by the data scan 2026-11-23 (the Northwestern Russia Regional 2026 statements: its standings
+      header lists the same 14 titles A-N)'
   provenance:
   - 'ran 2026-11-14: shown by its scoreboard source(s); the NERC archive scoreboard (no-sources hunt 2026-11-16)'

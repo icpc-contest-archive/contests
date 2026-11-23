@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: ukraine
   name: ICPC Ukraine National Programming Contest
@@ -157,6 +157,8 @@ contests:
   location: Taras Shevchenko Kyiv National University; Ivan Franko National University of Lviv; Administrative
     Site Location; Dnipropetrovsk National University; Sumy State University; Tavryda V.I.Vernadsky National
     University; Vinnytsia
+  cms_ids:
+  - 781
   sites:
   - location: ua-dnipro-dnipropetrovsk
     name: Ukraine Eastern region
@@ -176,15 +178,13 @@ contests:
     name: Ukraine Southern region
     date: '2011-05-19'
   - type: administrative
-  cms_ids:
-  - 781
   parent: seerc-2011
   next: ukraine-2012
   sources:
   - url: http://olymp.sumdu.edu.ua/standings.php
     roles:
     - scoreboard
-    as_of: '20120110211534'
+    as_of: '20110702102132'
     archived:
     - ukraine/ukraine-2011/external-standings/2026-04-15-external/content.html
     - ukraine/ukraine-2011/standings/20110702-wayback-5dbb94f3/page.html
@@ -290,6 +290,8 @@ contests:
   location: Ivan Franko National University of Lviv; National University of Life and Environmental Sciences
     of Ukraine; Vinnytsia; Tavryda V.I.Vernadsky National University; Volodymyr Dahl East Ukrainian National
     University; Sumy State University; Administrative Site Location
+  cms_ids:
+  - 1996
   sites:
   - location: ua-vinnytsya
     name: All-Ukrainian Programming Contest 2013
@@ -309,8 +311,6 @@ contests:
     name: Ukraine Eastern region
     date: '2013-09-11'
   - type: administrative
-  cms_ids:
-  - 1996
   parent: seerc-2013
   next: ukraine-2014
   sources:
@@ -334,60 +334,72 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (agent-europe)
+  - url: https://icpc.global/regionals/finder/AUCPC-2014/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 147 rows)
+  - url: http://vntu.edu.ua/images/problems.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    as_of: '20150430232536'
+    note: found by the data scan 2026-11-23 (the AUCPC 2nd stage 2013 statements linked from vntu.edu.ua/en/acm/aucpc-2-stage/2013.html
+      (Wayback))
   - url: https://basecamp.eolymp.com/en/problems/6081
     roles:
     - problem
-    judge: eolymp
     contains:
     - statement
+    judge: eolymp
   - url: https://basecamp.eolymp.com/en/problems/6082
     roles:
     - problem
-    judge: eolymp
     contains:
     - statement
+    judge: eolymp
   - url: https://basecamp.eolymp.com/en/problems/6083
     roles:
     - problem
-    judge: eolymp
     contains:
     - statement
+    judge: eolymp
   - url: https://basecamp.eolymp.com/en/problems/6084
     roles:
     - problem
-    judge: eolymp
     contains:
     - statement
+    judge: eolymp
   - url: https://basecamp.eolymp.com/en/problems/6085
     roles:
     - problem
-    judge: eolymp
     contains:
     - statement
+    judge: eolymp
   - url: https://basecamp.eolymp.com/en/problems/6086
     roles:
     - problem
-    judge: eolymp
     contains:
     - statement
+    judge: eolymp
   - url: https://basecamp.eolymp.com/en/problems/6087
     roles:
     - problem
-    judge: eolymp
     contains:
     - statement
+    judge: eolymp
   - url: https://basecamp.eolymp.com/en/problems/6089
     roles:
     - problem
-    judge: eolymp
     contains:
     - statement
+    judge: eolymp
   - url: https://basecamp.eolymp.com/en/problems/6090
     roles:
     - problem
-    judge: eolymp
     contains:
     - statement
+    judge: eolymp
   problems:
     set: ukraine-2013
 - id: ukraine-2014
@@ -397,6 +409,8 @@ contests:
   location: Khmelnitsky National University; Volodymyr Dahl East Ukrainian National University; Vinnytsia;
     Administrative Site Location; Tavryda V.I.Vernadsky National University; National University of Life
     and Environmental Sciences of Ukraine; Ivan Franko National University of Lviv
+  cms_ids:
+  - 2655
   sites:
   - location: ua-khmelnytskyi-national-university
     name: Ukraine Central region
@@ -413,8 +427,6 @@ contests:
   - location: ua
     name: Ukraine Southern region
   - type: administrative
-  cms_ids:
-  - 2655
   parent: seerc-2014
   next: ukraine-2015
   sources:
@@ -449,6 +461,7 @@ contests:
   - url: https://vntu.edu.ua/images/aucpc2/result/resultscenter.pdf
     roles:
     - scoreboard
+    scope: Center region
     as_of: '20150319073511'
     archived:
     - ukraine/ukraine-2014/rankings/20150319-wayback-5dd5a739/resultscenter.pdf
@@ -458,10 +471,10 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (t2-ukraine-agent)
-    scope: Center region
   - url: https://vntu.edu.ua/images/aucpc2/result/resultseast.pdf
     roles:
     - scoreboard
+    scope: East region
     as_of: '20161213062049'
     archived:
     - ukraine/ukraine-2014/rankings/20161213-wayback-6ae21e96/resultseast.pdf
@@ -471,10 +484,10 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (t2-ukraine-agent)
-    scope: East region
   - url: https://vntu.edu.ua/images/aucpc2/result/resultssouth.pdf
     roles:
     - scoreboard
+    scope: South region
     as_of: '20150504201453'
     archived:
     - ukraine/ukraine-2014/rankings/20150504-wayback-98a6595c/resultssouth.pdf
@@ -484,10 +497,10 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (t2-ukraine-agent)
-    scope: South region
   - url: https://vntu.edu.ua/images/aucpc2/result/resultskyiv.pdf
     roles:
     - scoreboard
+    scope: Kyiv region
     as_of: '20150504202922'
     archived:
     - ukraine/ukraine-2014/rankings/20150504-wayback-bb68b410/resultskyiv.pdf
@@ -497,10 +510,10 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (t2-ukraine-agent)
-    scope: Kyiv region
   - url: https://vntu.edu.ua/images/aucpc2/result/resultswest.pdf
     roles:
     - scoreboard
+    scope: West region
     as_of: '20150504190743'
     archived:
     - ukraine/ukraine-2014/rankings/20150504-wayback-91b7844a/resultswest.pdf
@@ -510,13 +523,22 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (t2-ukraine-agent)
-    scope: West region
   - url: https://icpc.global/regionals/finder/AUCPC-2015/standings
     roles:
     - standings
     archived:
     - ukraine/ukraine-2014/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 2655, 134 teams, DB fetch 2026-04-26)
+  - url: http://www.vntu.edu.ua/images/problem.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    as_of: '20150319074123'
+    note: found by the data scan 2026-11-23 (the AUCPC 2nd stage 2014 statements linked from vntu.edu.ua/en/acm/aucpc-2-stage/auspc2014/prob2014.html
+      (held in our crawl of ukraine-2013's site; PDF via Wayback))
+  problems:
+    set: ukraine-2014
 - id: ukraine-2015
   season: 2016
   name: 2015 All-Ukrainian Collegiate Programming Contest
@@ -524,6 +546,8 @@ contests:
   location: Zaporizhzhya National University; Administrative Site Location; Vinnytsia; Khmelnitsky National
     University; National University of Life and Environmental Sciences of Ukraine; Ivan Franko National
     University of Lviv; National Aerospace University “KhAI”
+  cms_ids:
+  - 2795
   sites:
   - location: ua-vinnytsya
     name: All-Ukrainian Programming Contest 2013
@@ -538,8 +562,6 @@ contests:
   - location: ua-kyiv-nules
     name: Ukraine Kyiv Region
   - type: administrative
-  cms_ids:
-  - 2795
   parent: seerc-2015
   next: ukraine-2016
   sources:
@@ -569,6 +591,16 @@ contests:
     archived:
     - ukraine/ukraine-2015/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 2795, 162 teams, DB fetch 2026-04-26)
+  - url: http://vntu.edu.ua/images/2015/auspc/problem.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    as_of: '20170215012930'
+    note: found by the data scan 2026-11-23 (the AUCPC 2nd stage 2015 statements on vntu.edu.ua (found
+      by a Wayback CDX listing of vntu.edu.ua/images/))
+  problems:
+    set: ukraine-2015
 - id: ukraine-2016
   season: 2017
   name: 2016 All-Ukrainian Collegiate Programming Contest
@@ -608,11 +640,13 @@ contests:
 - id: ukraine-2017
   season: 2018
   name: 2017 All-Ukrainian Collegiate Programming Contest
-  date: '2017-09-17'
+  date: '2017-09-16'
   location: Ternopil V. Hnatiuk National Pedagogical University; The Kirovohrad Volodymyr Vynnychenko
     State Pedagogical University; National Aerospace University “KhAI”; Zaporizhzhya National University;
     Ivan Franko National University of Lviv; Vinnytsia; Administrative Site Location; National University
     of Life and Environmental Sciences of Ukraine
+  cms_ids:
+  - 3310
   sites:
   - location: ua-zaporizhzhya-national-university
     name: Ukraine Southern region
@@ -629,8 +663,6 @@ contests:
     name: Ukraine South-Western region
   - location: ua-lviv-ivan-franko
     name: Ukraine Western region
-  cms_ids:
-  - 3310
   parent: seerc-2017
   next: ukraine-2018
   sources:
@@ -676,12 +708,6 @@ contests:
     archived:
     - ukraine/ukraine-2017/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 3310, 228 teams, DB fetch 2026-04-26)
-  - url: https://www.kit.ontu.edu.ua/upload/file/olympics/student/1.pdf
-    roles:
-    - standings
-    archived:
-    - ukraine/ukraine-2017/standings/20261023-live-aaa0692f/1.pdf
-    note: from archived capture (standings)
   - url: http://acmallukrainian.ho.ua/2017/2/statements_eng.pdf
     roles:
     - problemset
@@ -692,14 +718,18 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: ukraine-2017
+  provenance:
+  - date 2017-09-16 read from https://acmallukrainian.ho.ua/2017/2/standings.html (data scan 2026-11-23)
 - id: ukraine-2018
   season: 2019
   name: 2018 All-Ukrainian Collegiate Programming Contest
-  date: '2018-09-16'
+  date: '2018-09-15'
   location: Admiral Makarov National University of Shipbuilding; Ukraine; National Aerospace University
     “KhAI”; Dnipropetrovsk National University; Administrative Site Location; Ternopil V. Hnatiuk National
     Pedagogical University; Vinnytsia; National University of Life and Environmental Sciences of Ukraine;
     Ivan Franko National University of Lviv
+  cms_ids:
+  - 3641
   sites:
   - location: ua
     name: The 2018 AUCPC High School Programming Contest
@@ -723,8 +753,6 @@ contests:
     date: '2018-09-15'
   - location: ua-kyiv-nules
     name: Ukraine Nothern Region
-  cms_ids:
-  - 3641
   parent: seerc-2018
   next: ukraine-2019
   sources:
@@ -758,36 +786,28 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: from archived capture (external-standings)
-  - url: https://www.kit.ontu.edu.ua/upload/file/olympics/student/2.pdf
-    roles:
-    - standings
-    as_of: '20251010061315'
-    archived:
-    - ukraine/ukraine-2018/standings/20251010-wayback-31d3037e/2.pdf
-    - ukraine/ukraine-2018/standings/20261023-live-f136164b/2.pdf
-    note: from archived capture (standings)
   - url: https://vntu.edu.ua/uk/acm/auspc-2/auspc2018/report2018.html
     roles:
     - rankings
     - report
-    url_state: live
-    url_checked: '2026-11-16'
     scope: site winners (top places per site)
     as_of: '20181205145406'
     archived:
     - ukraine/ukraine-2018/rankings/20181205-wayback-67e2b403/report2018.html
     - ukraine/ukraine-2018/rankings/20261116-live-63ccce35/report2018.html
+    url_state: live
+    url_checked: '2026-11-16'
   - url: https://nubip.edu.ua/node/50140
     roles:
     - rankings
     - report
-    url_state: live
-    url_checked: '2026-11-16'
     scope: Kyiv (NUBiP) site, top places
+    as_of: '20181107192535'
     archived:
     - ukraine/ukraine-2018/rankings/20181107-wayback-a213cbbb/page.html
     - ukraine/ukraine-2018/rankings/20261116-live-a59de610/page.html
-    as_of: '20181107192535'
+    url_state: live
+    url_checked: '2026-11-16'
   - url: http://acmallukrainian.ho.ua/2018/2/statements_ukr.pdf
     roles:
     - problemset
@@ -798,14 +818,18 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: ukraine-2018
+  provenance:
+  - date 2018-09-15 read from http://acmallukrainian.ho.ua/2018/2/standings.html (data scan 2026-11-23)
 - id: ukraine-2019
   season: 2020
   name: 2019 All-Ukrainian Collegiate Programming Contest
-  date: '2019-09-15'
+  date: '2019-09-14'
   location: Admiral Makarov National University of Shipbuilding; Administrative Site Location; National
     Aerospace University “KhAI”; Ternopil V. Hnatiuk National Pedagogical University; Ukraine; Vinnytsia;
     National University of Life and Environmental Sciences of Ukraine; Ivan Franko National University
     of Lviv; Dnipropetrovsk National University
+  cms_ids:
+  - 4120
   sites:
   - type: administrative
   - location: ua-kyiv-nules
@@ -824,8 +848,6 @@ contests:
     name: Ukraine Eastern region
   - location: ua-ternopil-volodymyr-hnatiuk-pedagogical
     name: Ukraine South-Western region
-  cms_ids:
-  - 4120
   parent: seerc-2019
   next: ukraine-2020
   sources:
@@ -847,25 +869,17 @@ contests:
     archived:
     - ukraine/ukraine-2019/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 4120, 301 teams, DB fetch 2026-04-26)
-  - url: http://acmallukrainian.ho.ua/2019/3/standings.html
-    roles:
-    - standings
-    as_of: '20191026082657'
-    archived:
-    - ukraine/ukraine-2019/standings/20191026-wayback-acdc3081/standings.html
-    - ukraine/ukraine-2019/standings/20261023-live-9dfe29d8/standings.html
-    note: from archived capture (standings)
   - url: https://nubip.edu.ua/sites/default/files/u214/2019_acm_2nd_stage_northern_-_brief_report.pdf
     roles:
     - rankings
     - report
     scope: Northern site, top 8 university and 8 school teams
-    url_state: live
-    url_checked: '2026-11-16'
+    as_of: '20220123222431'
     archived:
     - ukraine/ukraine-2019/rankings/20220123-wayback-e6551d71/2019_acm_2nd_stage_northern_-_brief_report.pdf
     - ukraine/ukraine-2019/rankings/20261116-live-c0e700d2/2019_acm_2nd_stage_northern_-_brief_report.pdf
-    as_of: '20220123222431'
+    url_state: live
+    url_checked: '2026-11-16'
   - url: http://acmallukrainian.ho.ua/2019/2/statements_eng.pdf
     roles:
     - problemset
@@ -876,6 +890,8 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: ukraine-2019
+  provenance:
+  - date 2019-09-14 read from http://acmallukrainian.ho.ua/2019/2/standings.html (data scan 2026-11-23)
 - id: ukraine-2020
   season: 2021
   name: 2020 All-Ukrainian Collegiate Programming Contest
@@ -949,11 +965,13 @@ contests:
 - id: ukraine-2021
   season: 2022
   name: 2021 ICPC All-Ukrainian Collegiate Programming Contest
-  date: '2021-11-05'
+  date: '2021-10-16'
   location: Administrative Site Location; National Aerospace University “KhAI”; Central Ukrainian National
     Technical University; Admiral Makarov National University of Shipbuilding; National University of
     Life and Environmental Sciences of Ukraine; Ivan Franko National University of Lviv; Ukraine; Vinnytsia;
     Ternopil V. Hnatiuk National Pedagogical University
+  cms_ids:
+  - 4912
   sites:
   - type: administrative
   - location: ua-kyiv-nules
@@ -979,8 +997,6 @@ contests:
   - location: ua-kharkiv-aerospace-khai
     name: Ukraine Eastern region
     date: '2021-10-16'
-  cms_ids:
-  - 4912
   parent: seerc-2021
   next: ukraine-2022
   sources:
@@ -1016,13 +1032,13 @@ contests:
     roles:
     - rankings
     - report
-    url_state: live
-    url_checked: '2026-11-16'
     scope: top 6 university and school teams overall and per site
     as_of: '20220107223747'
     archived:
     - ukraine/ukraine-2021/rankings/20220107-wayback-769e0f56/ReportAll2021-2.pdf
     - ukraine/ukraine-2021/rankings/20261116-live-3ba06f9a/ReportAll2021-2.pdf
+    url_state: live
+    url_checked: '2026-11-16'
   - url: http://acmallukrainian.ho.ua/2021/2/statements_eng.pdf
     roles:
     - problemset
@@ -1035,18 +1051,20 @@ contests:
     roles:
     - problemset
     as_of: '20220108022244'
-    note: found inside http://vntu.edu.ua/en by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside http://vntu.edu.ua/en by the content check
   - url: https://vntu.edu.ua/docs/icpc2021/Stage_2_Editorial-2021.pdf
     roles:
     - editorial
     as_of: '20220107225326'
-    note: found inside http://vntu.edu.ua/en by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside http://vntu.edu.ua/en by the content check
   problems:
     set: ukraine-2021
+  provenance:
+  - date 2021-10-16 read from https://acmallukrainian.ho.ua/2021/2/standings.html (data scan 2026-11-23)
 - id: ukraine-2022
   season: 2023
   name: 2022 ICPC All-Ukrainian Collegiate Programming Contest
@@ -1055,6 +1073,8 @@ contests:
     National Pedagogical University; Admiral Makarov National University of Shipbuilding; Ivan Franko
     National University of Lviv; Administrative Site Location; National Aerospace University “KhAI”; Vinnytsia;
     Central Ukrainian National Technical University; No Location
+  cms_ids:
+  - 5426
   sites:
   - type: administrative
   - location: ua-vinnytsya
@@ -1076,8 +1096,6 @@ contests:
     name: Certificates Only
   - location: ua-ternopil-volodymyr-hnatiuk-pedagogical
     name: Ukraine South-Western region
-  cms_ids:
-  - 5426
   parent: seerc-2022
   next: ukraine-2023
   sources:
@@ -1100,12 +1118,6 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (agent-europe)
-  - url: https://acmallukrainian.ho.ua/2022/3/standings.html
-    roles:
-    - standings
-    archived:
-    - ukraine/ukraine-2022/standings/20261023-live-c6ee3f7c/standings.html
-    note: from archived capture (standings)
   - url: http://acmallukrainian.ho.ua/2022/2/statements_eng.pdf
     roles:
     - problemset
@@ -1118,21 +1130,23 @@ contests:
     roles:
     - problemset
     judge: eolymp
+    url_state: live
+    url_checked: '2026-11-16'
     note: 'UCPC 2022. Stage II (judge hunt 2026-11-03: UCPC 2022 Stage II is the Ukrainian 1/4-final =
       the ICPC-registered All-Ukrainian contest (ukraine-2022); eolymp start 2022-11-05 vs catalogue date
       2022-11-05 (exact date match))'
-    url_state: live
-    url_checked: '2026-11-16'
   problems:
     set: ukraine-2022
 - id: ukraine-2023
   season: 2024
   name: 2023 ICPC All-Ukrainian Collegiate Programming Contest
-  date: '2023-11-15'
+  date: '2023-10-28'
   location: Vinnytsia; Ukraine; No Location; Ivan Franko National University of Lviv; Administrative Site
     Location; Admiral Makarov National University of Shipbuilding; National University of Life and Environmental
     Sciences of Ukraine; National Aerospace University “KhAI”; Vinnytsia Mykhailo Kotsiubynskyi  State
     Pedagogical University; Central Ukrainian National Technical University
+  cms_ids:
+  - 7570
   sites:
   - type: administrative
   - type: administrative
@@ -1154,8 +1168,6 @@ contests:
     name: The 2023 AUCPC High School Programming Contest
   - location: ua-vinnytsya
     name: All-Ukrainian Programming Contest 2023
-  cms_ids:
-  - 7570
   parent: seerc-2023
   next: ukraine-2024
   sources:
@@ -1168,12 +1180,6 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (t2-ukraine-agent)
-  - url: https://acmallukrainian.ho.ua/2023/4/standings.html
-    roles:
-    - standings
-    archived:
-    - ukraine/ukraine-2023/standings/20261023-live-1057dadd/standings.html
-    note: from archived capture (standings)
   - url: http://acmallukrainian.ho.ua/2023/3/statements_eng.pdf
     roles:
     - problemset
@@ -1184,10 +1190,14 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: ukraine-2023
+  provenance:
+  - date 2023-10-28 read from https://acmallukrainian.ho.ua/2023/3/standings.html (data scan 2026-11-23)
 - id: ukraine-2024
   season: 2025
   name: 2024 ICPC Ukraine National Programming Contest
   date: '2024-10-20'
+  cms_ids:
+  - 8970
   sites:
   - type: administrative
   - type: administrative
@@ -1211,11 +1221,13 @@ contests:
   - location: ua
     name: Ukraine Eastern region
     type: administrative
-  cms_ids:
-  - 8970
   parent: seerc-2024
   next: ukraine-2025
   sources:
+  - url: https://icpc2024.algotester.com/en
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (sibling ukraine-2025 pattern (icpc2025.algotester.com/en))
   - url: https://acmallukrainian.ho.ua/2024/2/standings.html
     roles:
     - scoreboard
@@ -1243,24 +1255,6 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (t2-ukraine-agent)
-  - url: https://icpc.algotester.com/uk/Contest/ViewScoreboard/2?group=2&groupEx=19
-    roles:
-    - standings
-    archived:
-    - ukraine/ukraine-2024/standings/20261020-live-3c92495b/page.html
-    note: from archived capture (standings)
-  - url: https://icpc.algotester.com/en/Contest/ViewScoreboard/3?group=1&groupEx=30
-    roles:
-    - standings
-    archived:
-    - ukraine/ukraine-2024/standings/20261020-live-8d2bc90f/page.html
-    note: from archived capture (standings)
-  - url: https://icpc.algotester.com/uk/Contest/ViewScoreboard/4?group=2
-    roles:
-    - standings
-    archived:
-    - ukraine/ukraine-2024/standings/20261020-live-f580871f/page.html
-    note: from archived capture (standings)
   - url: http://acmallukrainian.ho.ua/2024/2/statements_eng.pdf
     roles:
     - problemset
@@ -1273,6 +1267,9 @@ contests:
 - id: ukraine-2025
   season: 2026
   name: 2025 ICPC Ukraine National Programming Contest
+  date: '2025-11-09'
+  cms_ids:
+  - 9344
   sites:
   - type: administrative
   - type: administrative
@@ -1298,8 +1295,6 @@ contests:
     name: The 2023 AUCPC High School Programming Contest
   - location: ua-vinnytsya
     name: All-Ukrainian Programming Contest 2023
-  cms_ids:
-  - 9344
   parent: seerc-2025
   next: ukraine-2026
   sources:
@@ -1375,10 +1370,14 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: ukraine-2025
+  provenance:
+  - date 2025-11-09 read from http://acmallukrainian.ho.ua/2025/2/statements_eng.pdf (data scan 2026-11-23)
 - id: ukraine-2026
   season: 2027
   name: 2026 ICPC Ukraine National Programming Contest
   date: '2026-10-24'
+  cms_ids:
+  - 9569
   sites:
   - type: administrative
   - type: administrative
@@ -1403,16 +1402,29 @@ contests:
   - location: ua
     name: North [School]
     type: online
-  cms_ids:
-  - 9569
   parent: seerc-2026
   sources:
+  - url: https://icpc.in.ua/2026/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (the organisers' 2026 edition site (CMS homepage https://icpc.in.ua/))
+  - url: https://icpc.in.ua/2026/results/stage-2/
+    roles:
+    - scoreboard
+    note: found by the data scan 2026-11-23 (linked from https://icpc.in.ua/2026/results/)
   - url: https://icpc.global/regionals/finder/AUCPC-2027/standings
     roles:
     - standings
     archived:
     - ukraine/ukraine-2026/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 9569, 203 teams, DB fetch 2026-11-13)
+  - url: http://acmallukrainian.ho.ua/2026/2/statements_eng.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (the UCPC 2026 II stage statements on the All-Ukrainian ICPC
+      archive, the same address pattern as ukraine-2025)
   provenance:
   - 'ran 2026-10-24: shown by its icpc standings source(s); date from CMS contest record (ruling 2026-11-12:
     upcoming ends when the date has passed and a result source or judge page shows the contest ran)'

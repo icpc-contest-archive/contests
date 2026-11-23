@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/describe_apply.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: bolivia-national
   name: Competencia Boliviana de Programación
@@ -53,6 +53,8 @@ contests:
   name: 2010 Bolivia Preliminary Contest
   date: '2010-09-18'
   location: Universidad San Francisco de Asis
+  cms_ids:
+  - 585
   sites:
   - location: bo-oruro-uto
     name: Oruro
@@ -78,8 +80,6 @@ contests:
     name: Llallagua
   - location: bo-yacuiba-juan-misael-saracho
     name: Yacuiba
-  cms_ids:
-  - 585
   parent: south-america-south-2010
   next: bolivia-national-2011
   sources:
@@ -91,11 +91,105 @@ contests:
     - web
     url_state: live
     url_checked: '2026-11-14'
+  - url: http://www.icpc-bolivia.edu.bo/resultados/fase_1_Bolivia_2010/summary-cobija.html
+    roles:
+    - scoreboard
+    scope: Cobija
+    as_of: '20101112082336'
+    note: found by the data scan 2026-11-23 (site board of the first phase linked from the icpc-bolivia.edu.bo
+      homepage; copy already held in our website crawl)
+  - url: http://www.icpc-bolivia.edu.bo/resultados/fase_1_Bolivia_2010/summary-cochabamba.html
+    roles:
+    - scoreboard
+    scope: Cochabamba
+    as_of: '20101112082641'
+    note: found by the data scan 2026-11-23 (site board of the first phase linked from the icpc-bolivia.edu.bo
+      homepage; copy already held in our website crawl)
+  - url: http://www.icpc-bolivia.edu.bo/resultados/fase_1_Bolivia_2010/summary-elalto.html
+    roles:
+    - scoreboard
+    scope: El Alto
+    as_of: '20101110110318'
+    note: found by the data scan 2026-11-23 (site board of the first phase linked from the icpc-bolivia.edu.bo
+      homepage; copy already held in our website crawl)
+  - url: http://www.icpc-bolivia.edu.bo/resultados/fase_1_Bolivia_2010/summary-lapaz.html
+    roles:
+    - scoreboard
+    scope: La Paz
+    as_of: '20101110110458'
+    note: found by the data scan 2026-11-23 (site board of the first phase linked from the icpc-bolivia.edu.bo
+      homepage; copy already held in our website crawl)
+  - url: http://www.icpc-bolivia.edu.bo/resultados/fase_1_Bolivia_2010/summary-llallagua.html
+    roles:
+    - scoreboard
+    scope: Llallagua
+    as_of: '20101112082349'
+    note: found by the data scan 2026-11-23 (site board of the first phase linked from the icpc-bolivia.edu.bo
+      homepage; copy already held in our website crawl)
+  - url: http://www.icpc-bolivia.edu.bo/resultados/fase_1_Bolivia_2010/summary-oruro.html
+    roles:
+    - scoreboard
+    scope: Oruro
+    as_of: '20101113042811'
+    note: found by the data scan 2026-11-23 (site board of the first phase linked from the icpc-bolivia.edu.bo
+      homepage; copy already held in our website crawl)
+  - url: http://www.icpc-bolivia.edu.bo/resultados/fase_1_Bolivia_2010/summary-potosi-informatica.html
+    roles:
+    - scoreboard
+    scope: Potosi - Informatica
+    as_of: '20101110022819'
+    note: found by the data scan 2026-11-23 (site board of the first phase linked from the icpc-bolivia.edu.bo
+      homepage; copy already held in our website crawl)
+  - url: http://www.icpc-bolivia.edu.bo/resultados/fase_1_Bolivia_2010/summary-potosi-sistemas.html
+    roles:
+    - scoreboard
+    scope: Potosi - Sistemas
+    as_of: '20101112082354'
+    note: found by the data scan 2026-11-23 (site board of the first phase linked from the icpc-bolivia.edu.bo
+      homepage; copy already held in our website crawl)
+  - url: http://www.icpc-bolivia.edu.bo/resultados/fase_1_Bolivia_2010/summary-santa-cruz.html
+    roles:
+    - scoreboard
+    scope: Santa Cruz
+    as_of: '20101112082359'
+    note: found by the data scan 2026-11-23 (site board of the first phase linked from the icpc-bolivia.edu.bo
+      homepage; copy already held in our website crawl)
+  - url: http://www.icpc-bolivia.edu.bo/resultados/fase_1_Bolivia_2010/summary-sucre.html
+    roles:
+    - scoreboard
+    scope: Sucre
+    as_of: '20101112082651'
+    note: found by the data scan 2026-11-23 (site board of the first phase linked from the icpc-bolivia.edu.bo
+      homepage; copy already held in our website crawl)
+  - url: http://www.icpc-bolivia.edu.bo/resultados/fase_1_Bolivia_2010/summary-tarija.html
+    roles:
+    - scoreboard
+    scope: Tarija
+    as_of: '20101112082423'
+    note: found by the data scan 2026-11-23 (site board of the first phase linked from the icpc-bolivia.edu.bo
+      homepage; copy already held in our website crawl)
+  - url: http://www.icpc-bolivia.edu.bo/resultados/fase_1_Bolivia_2010/summary-trinidad.html
+    roles:
+    - scoreboard
+    scope: Trinidad
+    as_of: '20101113040250'
+    note: found by the data scan 2026-11-23 (site board of the first phase linked from the icpc-bolivia.edu.bo
+      homepage; copy already held in our website crawl)
+  - url: http://www.icpc-bolivia.edu.bo/resultados/fase_1_Bolivia_2010/summary-yacuiba.html
+    roles:
+    - scoreboard
+    scope: Yacuiba
+    as_of: '20101113040122'
+    note: found by the data scan 2026-11-23 (site board of the first phase linked from the icpc-bolivia.edu.bo
+      homepage; copy already held in our website crawl)
   notes: '118 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: bolivia-national-2011
   season: 2012
   name: 2011 Bolivia Preliminary Contest
+  date: '2011-09-24'
   location: UNIVALLE
+  cms_ids:
+  - 837
   sites:
   - location: bo-yacuiba-juan-misael-saracho
     name: Yacuiba
@@ -133,14 +227,99 @@ contests:
   - location: bo-sucre-usfx
     date: '2011-09-30'
   - type: administrative
-  cms_ids:
-  - 837
   parent: south-america-south-2011
   next: bolivia-national-2012
   sources:
   - url: http://www.icpc-bolivia.edu.bo/
     roles:
     - web
+  - url: http://www.icpc-bolivia.edu.bo/resultados/fase_1_Bolivia_2011/Chuquisaca-final.html
+    roles:
+    - scoreboard
+    scope: Chuquisaca
+    as_of: '20111026012847'
+    note: found by the data scan 2026-11-23 (site board of the first phase linked from the icpc-bolivia.edu.bo
+      homepage; copy already held in our website crawl)
+  - url: http://www.icpc-bolivia.edu.bo/resultados/fase_1_Bolivia_2011/Cochabamba-final.html
+    roles:
+    - scoreboard
+    scope: Cochabamba
+    as_of: '20111026012852'
+    note: found by the data scan 2026-11-23 (site board of the first phase linked from the icpc-bolivia.edu.bo
+      homepage; copy already held in our website crawl)
+  - url: http://www.icpc-bolivia.edu.bo/resultados/fase_1_Bolivia_2011/ElAlto-final.html
+    roles:
+    - scoreboard
+    scope: El Alto
+    as_of: '20111026012857'
+    note: found by the data scan 2026-11-23 (site board of the first phase linked from the icpc-bolivia.edu.bo
+      homepage; copy already held in our website crawl)
+  - url: http://www.icpc-bolivia.edu.bo/resultados/fase_1_Bolivia_2011/LaPaz-final.html
+    roles:
+    - scoreboard
+    scope: La Paz
+    as_of: '20111026012902'
+    note: found by the data scan 2026-11-23 (site board of the first phase linked from the icpc-bolivia.edu.bo
+      homepage; copy already held in our website crawl)
+  - url: http://www.icpc-bolivia.edu.bo/resultados/fase_1_Bolivia_2011/Llallagua-final.html
+    roles:
+    - scoreboard
+    scope: Llallagua
+    as_of: '20111026012907'
+    note: found by the data scan 2026-11-23 (site board of the first phase linked from the icpc-bolivia.edu.bo
+      homepage; copy already held in our website crawl)
+  - url: http://www.icpc-bolivia.edu.bo/resultados/fase_1_Bolivia_2011/Oruro-final.htm
+    roles:
+    - scoreboard
+    scope: Oruro
+    as_of: '20111026012913'
+    note: found by the data scan 2026-11-23 (site board of the first phase linked from the icpc-bolivia.edu.bo
+      homepage; copy already held in our website crawl)
+  - url: http://www.icpc-bolivia.edu.bo/resultados/fase_1_Bolivia_2011/Pando-final.html
+    roles:
+    - scoreboard
+    scope: Pando
+    as_of: '20111026012918'
+    note: found by the data scan 2026-11-23 (site board of the first phase linked from the icpc-bolivia.edu.bo
+      homepage; copy already held in our website crawl)
+  - url: http://www.icpc-bolivia.edu.bo/resultados/fase_1_Bolivia_2011/Potosi-final.html
+    roles:
+    - scoreboard
+    scope: Potosi
+    as_of: '20111026012923'
+    note: found by the data scan 2026-11-23 (site board of the first phase linked from the icpc-bolivia.edu.bo
+      homepage; copy already held in our website crawl)
+  - url: http://www.icpc-bolivia.edu.bo/resultados/fase_1_Bolivia_2011/SantaCruz-final.html
+    roles:
+    - scoreboard
+    scope: Santa Cruz
+    as_of: '20111026012928'
+    note: found by the data scan 2026-11-23 (site board of the first phase linked from the icpc-bolivia.edu.bo
+      homepage; copy already held in our website crawl)
+  - url: http://www.icpc-bolivia.edu.bo/resultados/fase_1_Bolivia_2011/Tarija-final.html
+    roles:
+    - scoreboard
+    scope: Tarija
+    as_of: '20111026012933'
+    note: found by the data scan 2026-11-23 (site board of the first phase linked from the icpc-bolivia.edu.bo
+      homepage; copy already held in our website crawl)
+  - url: http://www.icpc-bolivia.edu.bo/resultados/fase_1_Bolivia_2011/Trinidad-final.html
+    roles:
+    - scoreboard
+    scope: Beni
+    as_of: '20111026012938'
+    note: found by the data scan 2026-11-23 (site board of the first phase linked from the icpc-bolivia.edu.bo
+      homepage; copy already held in our website crawl)
+  - url: http://www.icpc-bolivia.edu.bo/resultados/fase_1_Bolivia_2011/Yacuiba-final.html
+    roles:
+    - scoreboard
+    scope: Yacuiba
+    as_of: '20111026012943'
+    note: found by the data scan 2026-11-23 (site board of the first phase linked from the icpc-bolivia.edu.bo
+      homepage; copy already held in our website crawl)
+  provenance:
+  - date 2011-09-24 read from http://www.icpc-bolivia.edu.bo/index.html (Wayback 20111026012819) (data
+    scan 2026-11-23)
   notes: '166 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: bolivia-national-2012
   season: 2013
@@ -245,6 +424,8 @@ contests:
   name: 2014 Bolivia Preliminary Contest
   date: '2014-09-12'
   location: UNIFRANZ
+  cms_ids:
+  - 2531
   sites:
   - location: bo-llallagua-siglo-xx
     name: Llallagua
@@ -282,20 +463,26 @@ contests:
     name: La Paz
     date: '2014-09-06'
   - type: administrative
-  cms_ids:
-  - 2531
   parent: south-america-south-2014
   next: bolivia-national-2015
   sources:
   - url: http://www.icpc-bolivia.edu.bo/
     roles:
     - web
+  - url: http://icpc.coderoad.com/score
+    roles:
+    - scoreboard
+    as_of: '20140924065211'
+    note: found by the data scan 2026-11-23 (BOCA board named as external standings (http://icpc.coderoad.com/score/)
+      by the CMS entry of this contest; Wayback snapshot)
   notes: '156 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: bolivia-national-2015
   season: 2016
   name: 2015 Bolivia Preliminary Contest
   date: '2015-07-23'
   location: Universidad Privada Boliviana
+  cms_ids:
+  - 2818
   sites:
   - location: bo-oruro-unior
     name: Oruro
@@ -324,25 +511,27 @@ contests:
   - location: bo-tarija-privada-domingo-savio
     name: Tarija
   - location: bo-sucre-usfx
-  cms_ids:
-  - 2818
   parent: south-america-south-2015
   next: bolivia-national-2016
   sources:
-  - url: https://icpc.global/regionals/finder/Bolivia-Preliminary-2016
-    roles:
-    - web
   - url: https://icpcbolivia.org/
     roles:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
+  - url: https://icpc.global/regionals/finder/Bolivia-Preliminary-2016/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 141 rows, 22 with problems solved)
   notes: '143 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: bolivia-national-2016
   season: 2017
   name: 2016 Bolivia Preliminary Contest
   date: '2016-09-02'
   location: Universidad Autonoma Juan Misael Saracho - Bermejo
+  cms_ids:
+  - 3011
   sites:
   - location: bo-yacuiba-juan-misael-saracho
     name: Yacuiba
@@ -379,25 +568,27 @@ contests:
     date: '2016-09-03'
   - location: bo-santa-cruz-de-la-sierra-para-desarrollo-innovacion
     name: Santa Cruz
-  cms_ids:
-  - 3011
   parent: south-america-south-2016
   next: bolivia-national-2017
   sources:
-  - url: https://icpc.global/regionals/finder/Bolivia-Preliminary-2017
-    roles:
-    - web
   - url: https://icpcbolivia.org/
     roles:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
+  - url: https://icpc.global/regionals/finder/Bolivia-Preliminary-2017/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 157 rows, 116 with problems solved)
   notes: '157 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: bolivia-national-2017
   season: 2018
   name: 2017 Bolivia Preliminary Contest
   date: '2017-09-01'
   location: Universidad Autonoma Juan Misael Saracho - Yacuiba
+  cms_ids:
+  - 3456
   sites:
   - location: bo-santa-cruz-de-la-sierra-gabriel-rene-moreno
     name: UAGRM - Santa Cruz de la Sierra
@@ -435,25 +626,27 @@ contests:
   - location: bo-bermejo-juan-misael-saracho
     name: UAJMS - Bermejo
     date: '2017-09-02'
-  cms_ids:
-  - 3456
   parent: south-america-south-2017
   next: bolivia-national-2018
   sources:
-  - url: https://icpc.global/regionals/finder/Bolivia-Preliminary-2018
-    roles:
-    - web
   - url: https://icpcbolivia.org/
     roles:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
+  - url: https://icpc.global/regionals/finder/Bolivia-Preliminary-2018/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 163 rows, 97 with problems solved)
   notes: '164 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: bolivia-national-2018
   season: 2019
   name: 2018 Bolivia Preliminary Contest
   date: '2018-08-31'
   location: USFX
+  cms_ids:
+  - 3631
   sites:
   - location: bo-cochabamba-umss
     name: UMSS - Cochabamba
@@ -485,25 +678,27 @@ contests:
     name: U Domingo Savio - Santa Cruz de la Sierra
   - location: bo-oruro-tecnico-jesus-maria-i
     name: Instituto Tecnico "Jesus Maria" I y II - Oruro
-  cms_ids:
-  - 3631
   parent: south-america-south-2018
   next: bolivia-national-2019
   sources:
-  - url: https://icpc.global/regionals/finder/Bolivia-Preliminary-2019
-    roles:
-    - web
   - url: https://icpcbolivia.org/
     roles:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
+  - url: https://icpc.global/regionals/finder/Bolivia-Preliminary-2019/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 166 rows, 41 with problems solved)
   notes: '166 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: bolivia-national-2019
   season: 2020
   name: 2019 Bolivia Preliminary Contest
   date: '2019-09-27'
   location: UPB - Campus La Paz
+  cms_ids:
+  - 4254
   sites:
   - type: administrative
   - location: bo-trinidad-uab
@@ -531,25 +726,27 @@ contests:
     name: 'UTO - Facultad Nacional de Ingenieria: Carrera de Ingenieria de Sistemas e Ingenieria Informatica'
   - location: bo-santa-cruz-de-la-sierra-utepsa
     name: UTEPSA - Santa Cruz
-  cms_ids:
-  - 4254
   parent: south-america-south-2019
   next: bolivia-national-2020
   sources:
-  - url: https://icpc.global/regionals/finder/Bolivia-Preliminary-2020
-    roles:
-    - web
   - url: https://icpcbolivia.org/
     roles:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
+  - url: https://icpc.global/regionals/finder/Bolivia-Preliminary-2020/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 156 rows, 102 with problems solved)
   notes: '156 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: bolivia-national-2020
   season: 2021
   name: 2020 Bolivia Preliminary Contest
   date: '2020-12-11'
   location: UNIFRANZ
+  cms_ids:
+  - 4467
   sites:
   - type: administrative
   - location: bo-yacuiba-juan-misael-saracho
@@ -573,14 +770,9 @@ contests:
   - location: bo-oruro
   - location: bo-cobija
     type: online
-  cms_ids:
-  - 4467
   parent: south-america-south-2020
   next: bolivia-national-2021
   sources:
-  - url: https://icpc.global/regionals/finder/Bolivia-Preliminary-2021
-    roles:
-    - web
   - url: https://icpcbolivia.org/
     roles:
     - web
@@ -592,6 +784,8 @@ contests:
   name: 2021 ICPC Bolivia Preliminary Contest
   date: '2021-11-27'
   location: USFA - Sede Tupiza
+  cms_ids:
+  - 4714
   sites:
   - type: administrative
   - location: bo-yacuiba-juan-misael-saracho
@@ -615,25 +809,32 @@ contests:
   - location: bo-oruro
   - location: bo-cobija
     type: online
-  cms_ids:
-  - 4714
   parent: south-america-south-2021
   next: bolivia-national-2022
   sources:
-  - url: https://icpc.global/regionals/finder/Bolivia-Preliminary-2022
-    roles:
-    - web
   - url: https://icpcbolivia.org/
     roles:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
+  - url: https://icpcranks.github.io/2021/BoliviaPreliminaryContest.html
+    roles:
+    - scoreboard
+    note: found by the data scan 2026-11-23 (BOCA final scoreboard named as the external standings of
+      the CMS entry (a saved copy of http://152.67.53.179/boca/results/); opened live)
+  - url: https://icpc.global/regionals/finder/Bolivia-Preliminary-2022/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 78 rows, 25 with problems solved)
   notes: '74 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: bolivia-national-2022
   season: 2023
   name: 2022 ICPC Bolivia Preliminary Contest
   date: '2022-10-08'
   location: Administrative Site Location
+  cms_ids:
+  - 5526
   sites:
   - type: administrative
   - location: bo-cochabamba
@@ -658,27 +859,42 @@ contests:
   - location: bo-santa-cruz-de-la-sierra
   - location: bo-cobija
     type: online
-  cms_ids:
-  - 5526
   parent: south-america-south-2022
   next: bolivia-national-2023
   sources:
-  - url: https://icpc.global/regionals/finder/Bolivia-Preliminary-2023
-    roles:
-    - web
   - url: https://icpcbolivia.org/
     roles:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
-  notes: '102 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
+  - url: https://scorelatam.naquadah.com.br/subbr-2022/
+    roles:
+    - scoreboard
+    scope: Bolivia
+    note: found by the data scan 2026-11-23 (combined Latin American first-phase BOCA board on scorelatam.naquadah.com.br,
+      Bolivia section)
+  - url: https://icpc.global/regionals/finder/Bolivia-Preliminary-2023/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 100 rows, 88 with problems solved)
+  - url: https://maratona.sbc.org.br/hist/2022/primfase22/reports/problems/maratona.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (Latin American shared set (first-phase booklet names the
+      contests that used it))
   problems:
     set: brazil-first-phase-2022
+  notes: '102 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: bolivia-national-2023
   season: 2024
   name: 2023 ICPC Bolivia Preliminary Contest
   date: '2023-09-01'
   location: Administrative Site Location
+  cms_ids:
+  - 7554
   sites:
   - type: administrative
   - location: bo-cobija
@@ -704,27 +920,42 @@ contests:
   - location: bo-trinidad-uab
     name: Trinidad
   - location: bo-oruro
-  cms_ids:
-  - 7554
   parent: south-america-south-2023
   next: bolivia-national-2024
   sources:
-  - url: https://icpc.global/regionals/finder/Bolivia-Preliminary-2024
-    roles:
-    - web
   - url: https://icpcbolivia.org/
     roles:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
-  notes: '171 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
+  - url: https://scorelatam.naquadah.com.br/subbr-2023/
+    roles:
+    - scoreboard
+    scope: Bolivia
+    note: found by the data scan 2026-11-23 (combined Latin American first-phase BOCA board on scorelatam.naquadah.com.br,
+      Bolivia section)
+  - url: https://icpc.global/regionals/finder/Bolivia-Preliminary-2024/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC CMS standings page not cited; the 2026-11-13 fetch of
+      the page holds 153 rows, 140 with problems solved)
+  - url: https://maratona.sbc.org.br/hist/2023/primfase23/contest/maratona.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (Latin American shared set (first-phase booklet names the
+      contests that used it))
   problems:
     set: brazil-first-phase-2023
+  notes: '171 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: bolivia-national-2024
   season: 2025
   name: Competencia Boliviana de Programación
   date: '2024-08-30'
   location: UNIFRANZ
+  cms_ids:
+  - 8947
   sites:
   - type: administrative
   - location: bo-cobija
@@ -749,14 +980,9 @@ contests:
     name: Tarija
   - location: bo-cochabamba
   - location: bo-santa-cruz-de-la-sierra
-  cms_ids:
-  - 8947
   parent: south-america-south-2024
   next: bolivia-national-2025
   sources:
-  - url: https://icpc.global/regionals/finder/Bolivia-Preliminary-2025
-    roles:
-    - web
   - url: https://clist.by/standings/2024-2025-icpc-bolivia-pre-national-contest-53746608/
     roles:
     - scoreboard
@@ -769,14 +995,27 @@ contests:
     url_state: replaced
     url_checked: '2026-11-16'
     note: added by url-hunt 2026-09-01 (round9-research)
-  notes: '293 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
+  - url: https://icpc.global/regionals/finder/Bolivia-Preliminary-2025/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 189 rows)
+  - url: https://maratona.sbc.org.br/hist/2024/primfase24/contest-pf2024/maratona.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (Latin American shared set (first-phase booklet names the
+      contests that used it))
   problems:
     set: brazil-first-phase-2024
+  notes: '293 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: bolivia-national-2025
   season: 2026
   name: Competencia Boliviana de Programación 2025
   date: '2025-09-12'
   location: Escuela Militar de Ingeniería
+  cms_ids:
+  - 9406
   sites:
   - type: administrative
   - location: bo-tupiza-usfa
@@ -808,26 +1047,37 @@ contests:
     name: Trinidad
   - location: bo-potosi-uatf
     name: Potosí
-  cms_ids:
-  - 9406
   parent: south-america-south-2025
   next: bolivia-national-2026
   sources:
-  - url: https://icpc.global/regionals/finder/Bolivia-Preliminary-2026
-    roles:
-    - web
   - url: https://icpcbolivia.org/
     roles:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
-  notes: '218 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
+  - url: https://scorelatam.naquadah.com.br/subbr-2025/
+    roles:
+    - scoreboard
+    scope: Bolivia
+    note: found by the data scan 2026-11-23 (combined Latin American first-phase BOCA board on scorelatam.naquadah.com.br,
+      Bolivia section)
+  - url: https://scorelatam.naquadah.com.br/subbr-2025/maratona.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    as_of: '20250917205058'
+    note: found by the data scan 2026-11-23 (Latin American shared set (first-phase booklet names the
+      contests that used it))
   problems:
     set: brazil-first-phase-2025
+  notes: '218 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: bolivia-national-2026
   season: 2027
   name: Competencia Boliviana de Programación 2026
   date: '2026-08-29'
+  cms_ids:
+  - 9820
   sites:
   - type: administrative
   - location: bo-cobija-amazonica-pando
@@ -860,18 +1110,36 @@ contests:
     date: '2026-08-29'
   - location: bo-cochabamba-mayor-san-simon
     name: Cochabamba
-  cms_ids:
-  - 9820
   parent: south-america-south-2026
   sources:
-  - url: https://icpc.global/regionals/finder/Bolivia-Preliminary-2027
-    roles:
-    - web
   - url: https://icpcbolivia.org/
     roles:
     - web
     url_state: replaced
     url_checked: '2026-11-14'
+  - url: https://scorelatam.naquadah.com.br/subbr-2026/
+    roles:
+    - scoreboard
+    scope: Bolivia
+    note: found by the data scan 2026-11-23 (combined Latin American first-phase BOCA board on scorelatam.naquadah.com.br,
+      Bolivia section)
+  - url: https://icpcbolivia.org/competencias/2026-fase-1/resultados/
+    roles:
+    - scoreboard
+    scope: Fase 1
+    note: found by the data scan 2026-11-23 (ICPC Bolivia (organiser) results page of the 2026 competition;
+      held in our website crawl)
+  - url: https://icpcbolivia.org/competencias/2026-fase-2/resultados/
+    roles:
+    - scoreboard
+    scope: Fase 2
+    note: found by the data scan 2026-11-23 (ICPC Bolivia (organiser) results page of the 2026 competition;
+      held in our website crawl)
+  - url: https://icpcbolivia.org/competencias/consolidado/2026/
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (ICPC Bolivia (organiser) results page of the 2026 competition;
+      held in our website crawl)
   provenance:
   - date read from https://icpc.global/regionals/finder/Bolivia-Preliminary-2027 (description round 2026-11-16)
   notes: 'from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'

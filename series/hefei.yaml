@@ -1,10 +1,11 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: hefei
   name: ICPC Asia Hefei Regional Contest
   tier: regional
   region: Asia East
   naming: season-start
+  rotating_host: true
 contests:
 - id: hefei-2008
   season: 2009
@@ -224,6 +225,8 @@ contests:
   name: 2022 ICPC Asia Hefei Regional Contest
   date: '2022-11-20'
   location: Hefei; Heifei
+  cms_ids:
+  - 6159
   sites:
   - location: cn-hefei
     name: Asia Hefei Onsite Programming Contest
@@ -237,11 +240,14 @@ contests:
   - location: cn-hefei
     name: Asia Heifei on-line contest
     type: online
-  cms_ids:
-  - 6159
   parent: wf-2023
   next: hefei-2023
   sources:
+  - url: https://icpc.pku.edu.cn/ssxx/1119_icpcbjzb_142607.htm
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ICPC China contest-information list icpc.pku.edu.cn/ssxx/
+      (赛事 sàishì = contests), sibling pattern of the 2026 editions)
   - url: https://board.xcpcio.com/icpc/47th/hefei
     roles:
     - scoreboard
@@ -254,19 +260,24 @@ contests:
 - id: hefei-2023
   season: 2024
   name: 2023 ICPC Asia Hefei Regional Contest
-  date: '2023-10-31'
+  date: '2023-11-26'
   location: Administrative Site Location; Hefei
+  cms_ids:
+  - 7700
   sites:
   - type: administrative
   - location: cn-hefei
     name: ICPC Asia Hefei Regional Contest
     date: '2023-11-25'
     type: administrative
-  cms_ids:
-  - 7700
   parent: wf-2024
   next: null
   sources:
+  - url: https://icpc.pku.edu.cn/ssxx/1119_icpcbjzb_151092.htm
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ICPC China contest-information list icpc.pku.edu.cn/ssxx/
+      (赛事 sàishì = contests), sibling pattern of the 2026 editions)
   - url: https://codeforces.com/gym/104857/standings
     roles:
     - scoreboard
@@ -296,19 +307,19 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20240301034406'
+    url_state: replaced
+    url_checked: '2026-11-16'
     note: 'The 2023 ICPC Asia Hefei Regional Contest (The 2nd Universal Cup. Stage 12: Hefei) (judge hunt
       2026-11-03: name+year: ''The 2023 ICPC Asia Hefei Regional Contest (The 2nd Universal Cup. Stage
       12: Hefei)'' -> season start 2023; gym is the Universal/Open Cup replay of the regional set)'
-    url_state: replaced
-    url_checked: '2026-11-16'
-    as_of: '20240301034406'
   - url: https://qoj.ac/contest/1440
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Asia-East-Continent/Hefei/The-2023-ICPC-Asia-Hefei-Regional-Contest/tutorials_zh-cn.pdf
     roles:
     - editorial
@@ -316,6 +327,9 @@ contests:
     url_checked: '2026-11-23'
   problems:
     set: hefei-2023
+  provenance:
+  - date 2023-11-26 read from https://icpcarchive.github.io/Asia%20East%20Continent%20Contests/Hefei/2023%20Asia%20Hefei%20Regional%20Contest/problems.pdf
+    (data scan 2026-11-23)
 - id: hefei-2026
   status: upcoming
   season: 2027

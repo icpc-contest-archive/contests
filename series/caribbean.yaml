@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: caribbean
   name: ICPC Caribbean Finals
@@ -9,6 +9,7 @@ contests:
 - id: caribbean-2009
   season: 2010
   cms_ids: []
+  parent: wf-2010
   next: caribbean-2010
   sources:
   - url: https://finalcaribe.wordpress.com/final-carib/resultados-2009/
@@ -37,24 +38,26 @@ contests:
     note: Latin America Regional Contests 2009
   problems:
     set: latam-2009
+  provenance:
+  - 'parent wf-2010 read from https://finalcaribe.wordpress.com/final-carib/resultados-2009/ (as of 20111210031001):
+    winner UCLV1 marked "Clasificado para la Final Mundial 2010" (data scan 2026-11-23)'
 - id: caribbean-2010
   season: 2011
   name: 2010 Caribbean Finals of the ACM-ICPC
   date: '2010-10-23'
   location: UCI
+  cms_ids:
+  - 676
   sites:
   - location: cu-havana-uci
     name: Caribbean Finals
     type: administrative
-  cms_ids:
-  - 676
   parent: wf-2011
   next: caribbean-2011
   sources:
   - url: http://finalcaribe.wordpress.com/
     roles:
     - web
-    as_of: '20111128230921'
     archived:
     - caribbean/caribbean-2010/external-standings/2026-04-15-external/content.html
     - caribbean/caribbean-2010/standings/20111128-wayback-44411b0f/page.html
@@ -457,6 +460,8 @@ contests:
   name: 2017 ACM-ICPC Caribbean Finals
   date: '2017-11-11'
   location: PUCMM; TBD; UCLV
+  cms_ids:
+  - 3460
   sites:
   - location: do-santiago-de-los-caballeros-pucmm
     name: Dominican Site (Guests)
@@ -472,15 +477,12 @@ contests:
   - location: cu-santa-clara-uclv
     name: Cuban Site (Guests)
     type: administrative
-  cms_ids:
-  - 3460
   parent: wf-2018
   next: caribbean-2018
   sources:
   - url: https://coj-forum.uci.cu/viewforum.php?f=77
     roles:
     - web
-    - standings
     as_of: '20210413183506'
     archived:
     - caribbean/caribbean-2017/external-standings/2026-04-15-external/content.html
@@ -515,12 +517,12 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20240604133129'
     url_state: live
     url_checked: '2026-11-16'
     note: '2017-2018 ACM-ICPC Latin American Regional Programming Contest (judge hunt 2026-11-03: ICPC
       Latin America Regional 2017 is one shared problem set across all LA finals (Brazil, SA-South, SA-North,
       Mexico, Central America, Caribbean); gym named for the whole LA regional)'
-    as_of: '20240604133129'
   problems:
     set: latam-2017
 - id: caribbean-2018
@@ -1268,6 +1270,8 @@ contests:
   date: '2025-11-08'
   location: Cuba; Dominican Republic; Administrative Site Location; Puerto Rico; Trinidad & Tobago; Antigua
     & Barbuda
+  cms_ids:
+  - 9401
   sites:
   - type: administrative
   - location: cu
@@ -1280,11 +1284,19 @@ contests:
     name: Trinidad & Tobago (Regional Site)
   - location: ag
     name: Antigua & Barbuda (Regional Site)
-  cms_ids:
-  - 9401
   parent: lac-2026
   next: caribbean-2026
   sources:
+  - url: https://www.icpclatam.org/regionals/lar2025/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ICPC Latin America super-region site www.icpclatam.org (found
+      via icpccaribe.org link))
+  - url: https://www.icpccaribe.org/final-caribe%C3%B1a/fc-convocatoria
+    roles:
+    - web
+    as_of: '20251005230655'
+    note: found by the data scan 2026-11-23 (series site icpccaribe.org; Wayback CDX)
   - url: https://scorelatam.naquadah.com.br/latam-2025/
     roles:
     - scoreboard
@@ -1335,6 +1347,8 @@ contests:
   season: 2027
   name: 2026 ICPC Caribbean Finals
   date: '2026-11-07'
+  cms_ids:
+  - 9827
   sites:
   - type: administrative
   - location: cu
@@ -1347,23 +1361,40 @@ contests:
     name: Trinidad & Tobago (Regional Site)
   - location: ag
     name: Antigua & Barbuda (Regional Site)
-  cms_ids:
-  - 9827
   parent: lac-2027
   sources:
+  - url: https://www.icpclatam.org/regionals/lar2026/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ICPC Latin America super-region site www.icpclatam.org (found
+      via icpccaribe.org link))
+  - url: https://www.icpccaribe.org/final-caribe%C3%B1a/fc-convocatoria
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (series site icpccaribe.org (caribbean-2022..2024 web))
   - url: https://scorelatam.naquadah.com.br/latam-2026/
     roles:
     - scoreboard
     - problemset
     contains:
     - statement
-    url_state: live
-    url_checked: '2026-11-16'
     archived:
     - caribbean/caribbean-2026/scoreboard/20261113-live-2050f6f2/page.html
+    url_state: live
+    url_checked: '2026-11-16'
+  - url: https://icpc.global/regionals/finder/CaribFinals-2027/standings
+    roles:
+    - standings
+    note: found by the data scan 2026-11-23 (icpc.global CMS standings API, 37 ranked rows on 2026-11-23)
+  - url: https://scorelatam.naquadah.com.br/latam-2026/documentos/contest.en.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (linked as "Problem set PDF" from https://scorelatam.naquadah.com.br/latam-2026/)
+  problems:
+    set: latam-2026
   provenance:
   - 'ran 2026-11-07: shown by its scoreboard source(s); date from the Latin America regional''s contest
     day: one contest for every site (no date in the CMS) (ruling 2026-11-12: upcoming ends when the date
     has passed and a result source or judge page shows the contest ran)'
-  problems:
-    set: latam-2026

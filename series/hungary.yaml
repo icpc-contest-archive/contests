@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: hungary
   name: ICPC Hungarian Programming Contest
@@ -269,19 +269,16 @@ contests:
   name: 2015 Hungarian ACM Programming Contest
   date: '2015-10-18'
   location: WWW; Administrative Site Location; Virtual Reality
+  cms_ids:
+  - 2777
   sites:
   - type: online
   - type: administrative
   - name: Magyar verseny
     type: administrative
-  cms_ids:
-  - 2777
   parent: cerc-2015
   next: hungary-2016
   sources:
-  - url: https://icpc.global/regionals/finder/HACM-2016
-    roles:
-    - web
   - url: https://cs.bme.hu/icpc/
     roles:
     - web
@@ -290,6 +287,7 @@ contests:
   - url: https://versenyek.inf.elte.hu/versenyek/orszagos-acm-verseny/
     roles:
     - web
+    as_of: '20160605185635'
     url_state: changed
     url_checked: '2026-11-14'
 - id: hungary-2016
@@ -352,34 +350,44 @@ contests:
   name: 2018 Hungarian Programming Contest
   date: '2018-11-11'
   location: Virtual Reality; Administrative Site Location; WWW
+  cms_ids:
+  - 3664
   sites:
   - type: online
   - type: administrative
   - name: Magyar verseny
     type: administrative
-  cms_ids:
-  - 3664
   parent: cerc-2018
   next: hungary-2019
   sources:
   - url: https://versenyek.inf.elte.hu/acm-2018/
     roles:
     - web
+  - url: https://versenyek.inf.elte.hu/2018/11/13/acm-verseny-orszagos-fordulo-eredmenyei/
+    roles:
+    - scoreboard
+    note: found by the data scan 2026-11-23 (live page)
 - id: hungary-2019
   season: 2020
   name: 2019 Hungarian Programming Contest
   date: '2019-10-20'
   location: WWW; Virtual Reality; Administrative Site Location
+  cms_ids:
+  - 4136
   sites:
   - type: administrative
   - name: Magyar verseny
     type: administrative
   - type: online
-  cms_ids:
-  - 4136
   parent: cerc-2019
   next: hungary-2020
   sources:
+  - url: http://versenyek.inf.elte.hu/versenyek/orszagos-acm-verseny/
+    roles:
+    - web
+    as_of: '20191024182754'
+    note: found by the data scan 2026-11-23 (ELTE competitions site (sibling hungary-2015/2016-2022 webs)
+      + Wayback CDX)
   - url: https://icpc.global/regionals/finder/HACM-2020/standings
     roles:
     - standings
@@ -489,6 +497,10 @@ contests:
   parent: cerc-2024
   next: hungary-2025
   sources:
+  - url: https://versenyek.inf.elte.hu/2024/09/22/icpc-2024/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ELTE competitions site year archive (versenyek.inf.elte.hu/2024/))
   - url: https://icpc-hungary.github.io/2024/
     roles:
     - scoreboard
@@ -502,8 +514,12 @@ contests:
   season: 2026
   cms_ids: []
   parent: cerc-2025
-  next: null
+  next: hungary-2026
   sources:
+  - url: https://versenyek.inf.elte.hu/2025/09/18/icpc-2025/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (ELTE competitions site month archive (versenyek.inf.elte.hu/2025/09/))
   - url: https://icpc-hungary.github.io/2025/
     roles:
     - scoreboard
@@ -513,3 +529,23 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: hungary-2025
+- id: hungary-2026
+  season: 2027
+  date: '2026-10-17'
+  location: ELTE Faculty of Informatics (Lágymányos campus, room Lovarda), Budapest
+  cms_ids: []
+  parent: cerc-2026
+  next: null
+  sources:
+  - url: https://versenyek.inf.elte.hu/2026/09/28/icpc-2026/
+    roles:
+    - web
+    note: found by the data scan 2026-11-23 (the organisers' announcement, linked from https://cs.bme.hu/icpc/)
+  - url: https://icpc-hungary.github.io/2026/
+    roles:
+    - scoreboard
+    note: found by the data scan 2026-11-23 (last year's address with the year moved on; https://icpc-hungary.github.io/
+      redirects to it)
+  provenance:
+  - date 2026-10-17 read from https://versenyek.inf.elte.hu/2026/09/28/icpc-2026/ (data scan 2026-11-23)
+  - location read from https://cs.bme.hu/icpc/ (data scan 2026-11-23)

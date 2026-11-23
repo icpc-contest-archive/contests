@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: togo
   name: ICPC Togolese Collegiate Programming Contest
@@ -106,12 +106,12 @@ contests:
   name: 2021 ICPC Togolese Collegiate Programming Contest
   date: '2021-11-06'
   location: unofficial; Administrative Site Location; Lome, Togo
+  cms_ids:
+  - 4820
   sites:
   - type: administrative
   - location: tg-lome
     name: Togo
-  cms_ids:
-  - 4820
   parent: acpc-2021
   next: togo-2022
   sources:
@@ -121,26 +121,28 @@ contests:
     archived:
     - togo/togo-2021/standings/api-20260904/standings.html
     note: rendered from the icpc.global API standings archive (cms 4820, 13 teams, DB fetch 2026-04-26)
+  - url: https://www.scribd.com/document/557514016/TogoCPC-P
+    roles:
+    - problemset
+    url_state: replaced
+    url_checked: '2026-11-16'
+    note: 'found by the data scan 2026-11-23 (moved from togo-2022: Scribd 2021 Togolese Programming Contest
+      Problems)'
 - id: togo-2022
   season: 2023
   name: 2022 ICPC Togolese Collegiate Programming Contest
+  cms_ids:
+  - 5440
   sites:
   - type: administrative
   - location: tg-lome
     name: Togo
-  cms_ids:
-  - 5440
   parent: acpc-2022
   next: togo-2023
   sources:
   - url: https://www.facebook.com/TogoCPC/
     roles:
     - web
-  - url: https://www.scribd.com/document/557514016/TogoCPC-P
-    roles:
-    - problemset
-    url_state: replaced
-    url_checked: '2026-11-16'
   problems:
     set: togo-2022
   notes: The CMS has no date (problem archive sheet)

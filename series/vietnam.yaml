@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: vietnam
   name: ICPC Asia Ho Chi Minh City Regional Contest
@@ -149,11 +149,11 @@ contests:
   name: 2012 ACM-ICPC Asia Hanoi Regional Contest
   date: '2012-11-30'
   location: HaUI
+  cms_ids:
+  - 1370
   sites:
   - location: vn-hanoi
     name: Asia Hanoi site
-  cms_ids:
-  - 1370
   parent: wf-2013
   next: vietnam-2013
   sources:
@@ -163,7 +163,6 @@ contests:
   - url: http://acm-icpc.olp.vn/results
     roles:
     - scoreboard
-    - standings
     as_of: '20130101112020'
     archived:
     - vietnam/vietnam-2012/scoreboard/2026-09-01-wayback-f7008efc/page.html
@@ -514,14 +513,14 @@ contests:
   name: 2018 ICPC Asia Hanoi Regional Contest
   date: '2018-11-30'
   location: PTIT; Ho Chi Minh city
+  cms_ids:
+  - 3733
   sites:
   - location: vn-ho-chi-minh-city
     name: Foreign teams
     type: administrative
   - location: vn-hanoi-ptit
     name: The 2018 ACM-ICPC Asia Hanoi Regional Contest
-  cms_ids:
-  - 3733
   parent: wf-2019
   next: vietnam-2019
   sources:
@@ -535,9 +534,15 @@ contests:
     - vietnam/vietnam-2018/scoreboard/2026-09-01-live-bb20e787/page.html
     url_state: live
     url_checked: '2026-11-16'
-  - url: https://hanoi18.kattis.com/
+  - url: https://icpc.global/regionals/finder/Hanoi-2019/standings
     roles:
     - standings
+    archived:
+    - vietnam/vietnam-2018/standings/api-20261113/standings.html
+    note: rendered from the icpc.global API standings archive (cms 3733, 125 teams, DB fetch 2026-04-26)
+  - url: https://hanoi18.kattis.com/
+    roles:
+    - problemset
     as_of: '20191014060737'
     archived:
     - vietnam/vietnam-2018/external-standings/2026-04-15-external/content.html
@@ -546,12 +551,6 @@ contests:
     url_state: replaced
     url_checked: '2026-11-16'
     note: from archived capture (external-standings)
-  - url: https://icpc.global/regionals/finder/Hanoi-2019/standings
-    roles:
-    - standings
-    archived:
-    - vietnam/vietnam-2018/standings/api-20261113/standings.html
-    note: rendered from the icpc.global API standings archive (cms 3733, 125 teams, DB fetch 2026-04-26)
   - url: https://hanoi18.kattis.com/contests/hanoi18/problems
     roles:
     - problemset
@@ -565,101 +564,101 @@ contests:
     contains:
     - statement
     judge: kattis
+    as_of: '20190820080722'
     url_state: replaced
     url_checked: '2026-11-16'
     note: Kattis problem-sources page (export source "The 2018 ICPC Asia Hanoi Regional Contest", 2026-11-02)
-    as_of: '20190820080722'
   - url: https://qoj.ac/contest/4112
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://open.kattis.com/problems/amazingadventures
     roles:
     - problem
-    judge: kattis
     problem: A
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/bipartitebattle
     roles:
     - problem
-    judge: kattis
     problem: B
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/conquestcampaign
     roles:
     - problem
-    judge: kattis
     problem: C
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/dividedoughnut
     roles:
     - problem
-    judge: kattis
     problem: D
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/enjoyingelderberries
     roles:
     - problem
-    judge: kattis
     problem: E
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/funwithfibonacci
     roles:
     - problem
-    judge: kattis
     problem: F
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/grabagraph
     roles:
     - problem
-    judge: kattis
     problem: G
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/hydrasheads
     roles:
     - problem
-    judge: kattis
     problem: H
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/insidersidentity
     roles:
     - problem
-    judge: kattis
     problem: I
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/jurassicjungle
     roles:
     - problem
-    judge: kattis
     problem: J
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/kingdomofkittens
     roles:
     - problem
-    judge: kattis
     problem: K
     contains:
     - statement
+    judge: kattis
   - url: https://open.kattis.com/problems/lazylearner
     roles:
     - problem
-    judge: kattis
     problem: L
     contains:
     - statement
+    judge: kattis
   - url: https://icpcarchive.github.io/Asia-Pacific/Vietnam/The-2018-ICPC-Asia-Hanoi-Regional-Contest/tutorials.pdf
     roles:
     - editorial
@@ -840,6 +839,8 @@ contests:
   name: 2020 ICPC Asia Can Tho Regional Contest
   date: '2020-12-11'
   location: Can Tho University
+  cms_ids:
+  - 4321
   sites:
   - location: vn-can-tho-university
     name: Administrative Site
@@ -847,11 +848,15 @@ contests:
   - location: vn-can-tho-university
     name: Wildcard teams
     type: administrative
-  cms_ids:
-  - 4321
   parent: wf-2021
   next: vietnam-2021
   sources:
+  - url: http://acm-icpc.olp.vn/
+    roles:
+    - web
+    as_of: '20201204111809'
+    note: found by the data scan 2026-11-23 (sibling vietnam web acm-icpc.olp.vn + Wayback CDX (address
+      now shows a later edition))
   - url: https://cantho20.kattis.com/contests/cantho20/standings
     roles:
     - scoreboard
@@ -880,17 +885,17 @@ contests:
     contains:
     - statement
     judge: kattis
+    as_of: '20220124102306'
     url_state: replaced
     url_checked: '2026-11-16'
     note: Kattis problem-sources page (export source "The 2020 ICPC Asia Can Tho Regional Contest", 2026-11-02)
-    as_of: '20220124102306'
   - url: https://qoj.ac/contest/4122
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: vietnam-2020
 - id: vietnam-2021
@@ -898,15 +903,20 @@ contests:
   name: 2021 ICPC Asia Hanoi Regional Contest
   date: '2022-03-25'
   location: Administrative Site Location; online
+  cms_ids:
+  - 4855
   sites:
   - type: administrative
   - name: Foreign Teams
     type: online
-  cms_ids:
-  - 4855
   parent: wf-2022
   next: vietnam-2022
   sources:
+  - url: https://acm-icpc.olp.vn/
+    roles:
+    - web
+    as_of: '20220630013446'
+    note: found by the data scan 2026-11-23 (sibling vietnam web acm-icpc.olp.vn + Wayback CDX)
   - url: https://icpcvn.github.io/2021/regional/scoreboard.html
     roles:
     - scoreboard
@@ -933,9 +943,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: vietnam-2021
 - id: vietnam-2022
@@ -943,15 +953,20 @@ contests:
   name: 2022 ICPC Asia Ho Chi Minh City Regional Contest
   date: '2022-12-09'
   location: Administrative Site Location; online
+  cms_ids:
+  - 5607
   sites:
   - type: administrative
   - name: Foreign Teams
     type: online
-  cms_ids:
-  - 5607
   parent: wf-2023
   next: vietnam-2023
   sources:
+  - url: https://acm-icpc.olp.vn/
+    roles:
+    - web
+    as_of: '20230221160025'
+    note: found by the data scan 2026-11-23 (sibling vietnam web acm-icpc.olp.vn + Wayback CDX)
   - url: https://icpcvn.github.io/2022/regional/scoreboard.html
     roles:
     - scoreboard
@@ -978,9 +993,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: vietnam-2022
 - id: vietnam-2023
@@ -988,15 +1003,20 @@ contests:
   name: 2023 ICPC Asia Hue City Regional Contest
   date: '2023-12-08'
   location: online; Administrative Site Location
+  cms_ids:
+  - 7502
   sites:
   - type: administrative
   - name: Foreign Teams
     type: online
-  cms_ids:
-  - 7502
   parent: apc-2024
   next: vietnam-2024
   sources:
+  - url: https://acm-icpc.olp.vn/
+    roles:
+    - web
+    as_of: '20231207234937'
+    note: found by the data scan 2026-11-23 (sibling vietnam web acm-icpc.olp.vn + Wayback CDX)
   - url: https://icpcvn.github.io/2023/regional/scoreboard.html
     roles:
     - scoreboard
@@ -1035,16 +1055,21 @@ contests:
   name: 2024 ICPC Asia Hanoi Regional Contest
   date: '2024-12-13'
   location: Administrative Site Location; online
+  cms_ids:
+  - 8746
   sites:
   - type: administrative
     name: Administrative Site
   - name: Foreign Teams
     type: online
-  cms_ids:
-  - 8746
   parent: apc-2025
   next: vietnam-2025
   sources:
+  - url: https://acm-icpc.olp.vn/
+    roles:
+    - web
+    as_of: '20241208123642'
+    note: found by the data scan 2026-11-23 (sibling vietnam web acm-icpc.olp.vn + Wayback CDX)
   - url: https://icpcvn.github.io/2024/regional/scoreboard.html
     roles:
     - scoreboard

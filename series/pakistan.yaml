@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: pakistan
   name: ICPC Asia Topi Regional On-site Contest
@@ -11,18 +11,19 @@ contests:
   name: 2014 ACM-ICPC Asia Lahore Regional Contest
   date: '2014-11-22'
   location: Lahore Pakistan
+  cms_ids:
+  - 2696
   sites:
   - location: pk-lahore
     name: Asia Lahore Onsite
     type: administrative
-  cms_ids:
-  - 2696
   parent: wf-2015
   next: pakistan-2015
   sources:
   - url: http://lhr.nu.edu.pk/icpc/
     roles:
     - web
+    as_of: '20150506074719'
   - url: http://lhr.nu.edu.pk/icpc/finals%20results.htm
     roles:
     - scoreboard
@@ -54,58 +55,58 @@ contests:
   - url: https://www.acmicpc.net/problem/10616
     roles:
     - problem
-    judge: baekjoon
     problem: '1'
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190922202535'
   - url: https://www.acmicpc.net/problem/10617
     roles:
     - problem
-    judge: baekjoon
     problem: '2'
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190922202535'
   - url: https://www.acmicpc.net/problem/10618
     roles:
     - problem
-    judge: baekjoon
     problem: '3'
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190922202535'
   - url: https://www.acmicpc.net/problem/10619
     roles:
     - problem
-    judge: baekjoon
     problem: '4'
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190922202535'
   - url: https://www.acmicpc.net/problem/10620
     roles:
     - problem
-    judge: baekjoon
     problem: '5'
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190922202535'
   - url: https://www.acmicpc.net/problem/10621
     roles:
     - problem
-    judge: baekjoon
     problem: '6'
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190922202535'
   - url: https://www.acmicpc.net/problem/10622
     roles:
     - problem
-    judge: baekjoon
     problem: '7'
     contains:
     - statement
+    judge: baekjoon
     as_of: '20190922202535'
   problems:
     set: pakistan-2014
@@ -116,17 +117,18 @@ contests:
   name: 2015 ACM-ICPC Asia Lahore Regional Contest
   date: '2015-11-15'
   location: Lahore, Pakistan
+  cms_ids:
+  - 2949
   sites:
   - location: pk-lahore
     name: Asia Lahore Onsite Regional Contest
-  cms_ids:
-  - 2949
   parent: wf-2016
   next: pakistan-2016
   sources:
   - url: http://lhr.nu.edu.pk/icpc/
     roles:
     - web
+    as_of: '20160523050539'
   - url: http://lhr.nu.edu.pk/icpc/downloads/OnSite_Round_Standings.pdf
     roles:
     - scoreboard
@@ -188,11 +190,11 @@ contests:
   name: 2017 ACM-ICPC Asia Lahore Regional Contest
   date: '2017-12-31'
   location: Lahoe Pakistan
+  cms_ids:
+  - 3483
   sites:
   - location: pk
     name: Asia Lahoe Onsite
-  cms_ids:
-  - 3483
   parent: wf-2018
   next: pakistan-2018
   sources:
@@ -216,6 +218,12 @@ contests:
     archived:
     - pakistan/pakistan-2017/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 3483, 86 teams, DB fetch 2026-04-26)
+  - url: https://admin.umt.edu.pk/Media/Site/sst1/SubSites/icpc/FileManager/ProblemSets/ICPC_2017_Problems.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    note: found by the data scan 2026-11-23 (own holdings (pakistan-2017/2018 site crawl, offsite link))
   problems:
     set: pakistan-2017
 - id: pakistan-2018
@@ -289,15 +297,21 @@ contests:
   name: 2021 ICPC Asia Topi Regional On-site Contest
   date: '2022-03-20'
   location: GIK Institute, Topi; Administrative Site Location
+  cms_ids:
+  - 4835
   sites:
   - type: administrative
   - location: pk-topi-gik
     name: The 2019 ICPC Asia Topi Regional On-site Contest
-  cms_ids:
-  - 4835
   parent: awc-2021
   next: pakistan-2022
   sources:
+  - url: https://giki.edu.pk/ICPC
+    roles:
+    - web
+    as_of: '20220109110534'
+    note: found by the data scan 2026-11-23 (sibling pakistan-2023/2026 web (giki.edu.pk/icpc) + Wayback
+      CDX (address now shows a later edition))
   - url: https://icpc.global/regionals/finder/Asia-Topi-2022/standings
     roles:
     - standings
@@ -309,15 +323,20 @@ contests:
   name: 2022 ICPC Asia Topi Regional On-site Contest
   date: '2023-02-26'
   location: Administrative Site Location; GIK Institute, Topi
+  cms_ids:
+  - 5645
   sites:
   - type: administrative
   - location: pk-topi-gik
     name: The 2022 ICPC Asia Topi Regional On-site Contest
-  cms_ids:
-  - 5645
   parent: awc-2022
   next: pakistan-2023
   sources:
+  - url: https://giki.edu.pk/icpc/
+    roles:
+    - web
+    as_of: '20230528193131'
+    note: found by the data scan 2026-11-23 (sibling pakistan web (giki.edu.pk/icpc) + Wayback CDX)
   - url: https://icpc.global/regionals/finder/Asia-Topi-2023/standings
     roles:
     - standings
@@ -416,6 +435,8 @@ contests:
   name: 2025 ICPC Asia Topi Regional On-site Contest
   date: '2026-02-01'
   location: GIK Institute, Topi; GIKI Topi; Administrative Site Location
+  cms_ids:
+  - 9246
   sites:
   - type: administrative
   - location: pk-topi-gik
@@ -423,22 +444,25 @@ contests:
   - location: pk-topi-giki
     name: The 2025 ICPC Asia Topi Regional Onsite Contest
     date: '2025-11-01'
-  cms_ids:
-  - 9246
   parent: awc-2025
   next: pakistan-2026
   sources:
+  - url: https://giki.edu.pk/icpc/
+    roles:
+    - web
+    as_of: '20251118131942'
+    note: found by the data scan 2026-11-23 (sibling pakistan web (giki.edu.pk/icpc) + Wayback CDX)
   - url: https://giki.edu.pk/wp-content/uploads/2026/02/Scoreboard-ICPC-Onsite-2025-DOMjudge.pdf
     roles:
     - scoreboard
-    note: 'by-catch of the no-sources hunt 2026-11-16: DOMjudge final scoreboard, 12 problems; about 29
-      ranked rows where the event report counts 87 teams'
     as_of: '20260718215355'
-    url_state: live
-    url_checked: '2026-11-22'
     archived:
     - pakistan/pakistan-2025/scoreboard/20260718-wayback-45a3020a/Scoreboard-ICPC-Onsite-2025-DOMjudge.pdf
     - pakistan/pakistan-2025/scoreboard/20261122-live-69fd5767/Scoreboard-ICPC-Onsite-2025-DOMjudge.pdf
+    url_state: live
+    url_checked: '2026-11-22'
+    note: 'by-catch of the no-sources hunt 2026-11-16: DOMjudge final scoreboard, 12 problems; about 29
+      ranked rows where the event report counts 87 teams'
   - url: https://icpc.global/regionals/finder/Asia-Topi-2026/standings
     roles:
     - standings
@@ -449,24 +473,24 @@ contests:
     roles:
     - rankings
     - report
-    note: 'by-catch of the no-sources hunt 2026-11-16: the organisers'' event report: 1 Feb 2026 at three
-      sites, 87 teams, medal winners'
     as_of: '20261117042417'
-    url_state: replaced
-    url_checked: '2026-11-22'
     archived:
     - pakistan/pakistan-2025/rankings/20261117-wayback-16a3210e/Event-Report_Regionals-2025.pdf
     - pakistan/pakistan-2025/rankings/20261122-live-1dbbb244/Event-Report_Regionals-2025.pdf
+    url_state: replaced
+    url_checked: '2026-11-22'
+    note: 'by-catch of the no-sources hunt 2026-11-16: the organisers'' event report: 1 Feb 2026 at three
+      sites, 87 teams, medal winners'
   - url: https://giki.edu.pk/wp-content/uploads/2026/02/1-ICPC_Feb12026_Compiled_Final.pdf
     roles:
     - problemset
-    note: 'by-catch of the no-sources hunt 2026-11-16: the 12 problems of the onsite contest of 1 Feb
-      2026'
     contains:
     - statement
     as_of: '20260718215034'
     url_state: live
     url_checked: '2026-11-22'
+    note: 'by-catch of the no-sources hunt 2026-11-16: the 12 problems of the onsite contest of 1 Feb
+      2026'
 - id: pakistan-2026
   status: upcoming
   season: 2027

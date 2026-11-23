@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/problem_sources_from_judge_copies.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: jakarta
   name: ICPC Asia Jakarta Onsite Regional Contest
@@ -53,6 +53,8 @@ contests:
   name: 2009 ACM-ICPC Asia Jakarta Regional Contest
   date: '2009-10-21'
   location: Jakarta, October 21st 2008; Jakarta, October 14th 2009
+  cms_ids:
+  - 494
   sites:
   - location: id-jakarta
     name: Asia Jakarta On-Site Regional Contest
@@ -60,8 +62,6 @@ contests:
   - location: id-jakarta
     name: Indonesia National Contest
     date: '2009-10-04'
-  cms_ids:
-  - 494
   parent: wf-2010
   next: jakarta-2010
   sources:
@@ -87,13 +87,13 @@ contests:
   - url: https://competition.binus.ac.id/icpc2009/index/top50inc
     roles:
     - rankings
-    note: found inside https://competition.binus.ac.id/icpc2009/ by the content check
-    url_state: live
-    url_checked: '2026-11-16'
+    as_of: '20091216130950'
     archived:
     - jakarta/jakarta-2009/rankings/20091216-wayback-0a2898c4/page.html
     - jakarta/jakarta-2009/rankings/20261115-live-27b198be/page.html
-    as_of: '20091216130950'
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside https://competition.binus.ac.id/icpc2009/ by the content check
   - url: https://competition.binus.ac.id/icpc2009/icpc09jak-probs-publish.pdf
     roles:
     - problemset
@@ -104,10 +104,10 @@ contests:
     url_checked: '2026-11-16'
   - url: https://competition.binus.ac.id/icpc2009/icpc2009_report.pdf
     roles:
-    - editorial
-    note: found inside https://competition.binus.ac.id/icpc2009/ by the content check
+    - report
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside https://competition.binus.ac.id/icpc2009/ by the content check
   problems:
     set: jakarta-2009
 - id: jakarta-2010
@@ -115,6 +115,8 @@ contests:
   name: 2010 ACM-ICPC Asia Jakarta Regional Contest
   date: '2010-12-01'
   location: Jakarta; Jakarta, December 1st 2010
+  cms_ids:
+  - 607
   sites:
   - location: id-jakarta
     name: Indonesia National On-Line Contest
@@ -123,8 +125,6 @@ contests:
     name: Asia Jakarta On-Site Regional Contest
     date: '2010-11-30'
     type: administrative
-  cms_ids:
-  - 607
   parent: wf-2011
   next: jakarta-2012
   sources:
@@ -150,13 +150,20 @@ contests:
   - url: https://competition.binus.ac.id/icpc2010/index/top50inc
     roles:
     - rankings
-    note: found inside http://competition.binus.ac.id/icpc2010 by the content check
-    url_state: live
-    url_checked: '2026-11-16'
+    as_of: '20101204202905'
     archived:
     - jakarta/jakarta-2010/rankings/20101204-wayback-15a56001/page.html
     - jakarta/jakarta-2010/rankings/20261115-live-918d921d/page.html
-    as_of: '20101204202905'
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside http://competition.binus.ac.id/icpc2010 by the content check
+  - url: https://competition.binus.ac.id/icpc2010/icpcreport2010.pdf
+    roles:
+    - report
+    - rankings
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside http://competition.binus.ac.id/icpc2010 by the content check
   - url: https://competition.binus.ac.id/icpc2010/icpc10jak-problemset.pdf
     roles:
     - problemset
@@ -174,19 +181,15 @@ contests:
     url_state: dead
     url_checked: '2026-11-16'
     note: ACM-ICPC Regional Jakarta 2010
-  - url: https://competition.binus.ac.id/icpc2010/icpcreport2010.pdf
-    roles:
-    - editorial
-    note: found inside http://competition.binus.ac.id/icpc2010 by the content check
-    url_state: live
-    url_checked: '2026-11-16'
   problems:
     set: jakarta-2010
 - id: jakarta-2012
   season: 2013
   name: 2012 ACM-ICPC Asia Jakarta Regional Contest
-  date: '2012-10-18'
+  date: '2012-10-17'
   location: Jakarta
+  cms_ids:
+  - 1366
   sites:
   - location: id-jakarta
     name: All Contest
@@ -194,8 +197,6 @@ contests:
   - location: id-jakarta
     name: Asia Jakarta On-Site Regional Contest
     date: '2012-10-17'
-  cms_ids:
-  - 1366
   parent: wf-2013
   next: jakarta-2013
   sources:
@@ -233,13 +234,20 @@ contests:
   - url: https://competition.binus.ac.id/icpc2012/index/top50inc
     roles:
     - rankings
-    note: found inside http://competition.binus.ac.id/icpc2012/ by the content check
-    url_state: live
-    url_checked: '2026-11-16'
+    as_of: '20121019194728'
     archived:
     - jakarta/jakarta-2012/rankings/20121019-wayback-0b996cd8/page.html
     - jakarta/jakarta-2012/rankings/20261115-live-dc319b53/page.html
-    as_of: '20121019194728'
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside http://competition.binus.ac.id/icpc2012/ by the content check
+  - url: https://competition.binus.ac.id/icpc2012/icpc_report_2012.pdf
+    roles:
+    - report
+    - rankings
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside http://competition.binus.ac.id/icpc2012/ by the content check
   - url: https://competition.binus.ac.id/icpc2012/index/problemset
     roles:
     - problemset
@@ -247,19 +255,18 @@ contests:
     - statement
     url_state: live
     url_checked: '2026-11-16'
-  - url: https://competition.binus.ac.id/icpc2012/icpc_report_2012.pdf
-    roles:
-    - editorial
-    note: found inside http://competition.binus.ac.id/icpc2012/ by the content check
-    url_state: live
-    url_checked: '2026-11-16'
   problems:
     set: jakarta-2012
+  provenance:
+  - date 2012-10-17 read from https://competition.binus.ac.id/icpc2012/icpc_report_2012.pdf (data scan
+    2026-11-23)
 - id: jakarta-2013
   season: 2014
   name: 2013 ACM-ICPC Asia Jakarta Regional Contest
-  date: '2013-10-25'
+  date: '2013-10-24'
   location: Jakarta; Jakarta, Indonesia
+  cms_ids:
+  - 1926
   sites:
   - location: id-jakarta
     name: Asia Jakarta On-Site Regional Contest
@@ -268,8 +275,6 @@ contests:
     name: Jakarta Foreign Teams
     date: '2013-10-24'
     type: administrative
-  cms_ids:
-  - 1926
   parent: wf-2014
   next: jakarta-2014
   sources:
@@ -294,13 +299,13 @@ contests:
   - url: https://competition.binus.ac.id/icpc2013/index/top50inc
     roles:
     - rankings
-    note: found inside http://competition.binus.ac.id/icpc2013/ by the content check
-    url_state: live
-    url_checked: '2026-11-16'
+    as_of: '20240303025927'
     archived:
     - jakarta/jakarta-2013/rankings/20240303-wayback-4cdc9571/page.html
     - jakarta/jakarta-2013/rankings/20261115-live-061dda97/page.html
-    as_of: '20240303025927'
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside http://competition.binus.ac.id/icpc2013/ by the content check
   - url: https://competition.binus.ac.id/icpc2013/index/problemset
     roles:
     - problemset
@@ -311,16 +316,21 @@ contests:
   - url: https://competition.binus.ac.id/icpc2013/ACM_ICPC_Asia_Jakarta_Report_2013.pdf
     roles:
     - editorial
-    note: found inside http://competition.binus.ac.id/icpc2013/ by the content check
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside http://competition.binus.ac.id/icpc2013/ by the content check
   problems:
     set: jakarta-2013
+  provenance:
+  - date 2013-10-24 read from https://competition.binus.ac.id/icpc2013/ACM_ICPC_Asia_Jakarta_Report_2013.pdf
+    (data scan 2026-11-23)
 - id: jakarta-2014
   season: 2015
   name: 2014 ACM-ICPC Asia Jakarta Regional Contest
-  date: '2014-12-06'
+  date: '2014-12-05'
   location: On-Line; Administrative Site Location; Jakarta; Jakarta, Indonesia
+  cms_ids:
+  - 2592
   sites:
   - location: id-jakarta
     name: Jakarta Foreign Teams
@@ -333,8 +343,6 @@ contests:
     name: On-Site Regional Contest
     date: '2014-12-05'
   - type: administrative
-  cms_ids:
-  - 2592
   parent: wf-2015
   next: jakarta-2015
   sources:
@@ -379,22 +387,25 @@ contests:
   - url: https://competition.binus.ac.id/icpc2014/ACM_ICPC_Asia_Jakarta_2014_Report.pdf
     roles:
     - editorial
-    note: found inside http://competition.binus.ac.id/icpc2014 by the content check
     as_of: '20160824151932'
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside http://competition.binus.ac.id/icpc2014 by the content check
   problems:
     set: jakarta-2014
+  provenance:
+  - date 2014-12-05 read from https://competition.binus.ac.id/icpc2014/ACM_ICPC_Asia_Jakarta_2014_Report.pdf
+    (data scan 2026-11-23)
 - id: jakarta-2015
   season: 2016
   name: 2015 ACM-ICPC Asia Jakarta Regional Contest
-  date: '2015-11-09'
+  date: '2015-11-08'
   location: Jakarta, Indonesia
+  cms_ids:
+  - 2943
   sites:
   - location: id-jakarta
     name: Asia Jakarta On-Site Regional Contest
-  cms_ids:
-  - 2943
   parent: wf-2016
   next: jakarta-2016
   sources:
@@ -439,23 +450,25 @@ contests:
   - url: https://competition.binus.ac.id/icpc2015/report_2015.pdf
     roles:
     - editorial
-    note: found inside http://competition.binus.ac.id/icpc2015 by the content check
     as_of: '20211209064031'
     url_state: live
     url_checked: '2026-11-16'
+    note: found inside http://competition.binus.ac.id/icpc2015 by the content check
   problems:
     set: jakarta-2015
+  provenance:
+  - date 2015-11-08 read from https://competition.binus.ac.id/icpc2015/report_2015.pdf (data scan 2026-11-23)
 - id: jakarta-2016
   season: 2017
   name: 2016 ACM-ICPC Asia Jakarta Regional Contest
-  date: '2016-11-07'
+  date: '2016-11-06'
   location: Jakarta, Indonesia
+  cms_ids:
+  - 3046
   sites:
   - location: id-jakarta
     name: Asia Jakarta On-Site Regional Contest
     date: '2016-11-05'
-  cms_ids:
-  - 3046
   parent: wf-2017
   next: jakarta-2017
   sources:
@@ -487,17 +500,19 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: jakarta-2016
+  provenance:
+  - date 2016-11-06 read from http://competition.binus.ac.id/icpc (data scan 2026-11-23)
 - id: jakarta-2017
   season: 2018
   name: 2017 ACM-ICPC Asia Jakarta Regional Contest
-  date: '2017-11-13'
+  date: '2017-11-12'
   location: Jakarta, Indonesia
+  cms_ids:
+  - 3423
   sites:
   - location: id-jakarta
     name: Asia Jakarta On-Site Regional Contest
     date: '2017-12-31'
-  cms_ids:
-  - 3423
   parent: wf-2018
   next: jakarta-2018
   sources:
@@ -523,10 +538,10 @@ contests:
   - url: https://competition.binus.ac.id/icpc2017/index/topinc
     roles:
     - teams
-    note: found inside https://competition.binus.ac.id/icpc2017 by the content check
     as_of: '20190531143541'
     url_state: replaced
     url_checked: '2026-11-16'
+    note: found inside https://competition.binus.ac.id/icpc2017 by the content check
   - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Indonesia/2017%20Asia%20Jakarta%20Regional%20Contest/problems.pdf
     roles:
     - problemset
@@ -548,9 +563,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Asia-Pacific/Indonesia/The-2017-ICPC-Asia-Jakarta-Regional-Contest/tutorials.pdf
     roles:
     - editorial
@@ -558,16 +573,18 @@ contests:
     url_checked: '2026-11-23'
   problems:
     set: jakarta-2017
+  provenance:
+  - date 2017-11-12 read from https://competition.binus.ac.id/icpc2017 (data scan 2026-11-23)
 - id: jakarta-2018
   season: 2019
   name: 2018 ICPC Asia Jakarta Regional Contest
-  date: '2018-11-12'
+  date: '2018-11-11'
   location: Jakarta, Indonesia
+  cms_ids:
+  - 3727
   sites:
   - location: id-jakarta
     name: Asia Jakarta On-Site Regional Contest
-  cms_ids:
-  - 3727
   parent: wf-2019
   next: jakarta-2019
   sources:
@@ -592,10 +609,10 @@ contests:
   - url: https://competition.binus.ac.id/icpc2018/index/finalist
     roles:
     - teams
-    note: found inside http://competition.binus.ac.id/icpc2018 by the content check
     as_of: '20190531143646'
     url_state: replaced
     url_checked: '2026-11-16'
+    note: found inside http://competition.binus.ac.id/icpc2018 by the content check
   - url: https://icpcarchive.github.io/Asia%20Pacific%20Contests/Indonesia/2018%20Asia%20Jakarta%20Regional%20Contest/problems.pdf
     roles:
     - problemset
@@ -619,18 +636,18 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20190827111538'
     url_state: changed
     url_checked: '2026-11-16'
     note: '2018 ICPC Asia Jakarta Regional Contest (judge hunt 2026-11-03: name+year: ''2018 ICPC Asia
       Jakarta Regional Contest'' -> season start 2018)'
-    as_of: '20190827111538'
   - url: https://qoj.ac/contest/2342
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Asia-Pacific/Indonesia/The-2018-ICPC-Asia-Jakarta-Regional-Contest/tutorials.pdf
     roles:
     - editorial
@@ -638,6 +655,8 @@ contests:
     url_checked: '2026-11-23'
   problems:
     set: jakarta-2018
+  provenance:
+  - date 2018-11-11 read from http://competition.binus.ac.id/icpc2018 (data scan 2026-11-23)
 - id: jakarta-2019
   season: 2020
   name: 2019 ICPC Asia Jakarta Regional Contest
@@ -1032,15 +1051,15 @@ contests:
 - id: jakarta-2023
   season: 2024
   name: 2023 ICPC Asia Jakarta Onsite Regional Contest
-  date: '2023-12-04'
+  date: '2023-12-03'
   location: Administrative Site Location; Jakarta, Indonesia
+  cms_ids:
+  - 7528
   sites:
   - type: administrative
   - location: id-jakarta
     name: Asia Jakarta Onsite Regional Contest
     date: '2023-12-02'
-  cms_ids:
-  - 7528
   parent: apc-2024
   next: jakarta-2024
   sources:
@@ -1082,19 +1101,19 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20231207110625'
     url_state: replaced
     url_checked: '2026-11-16'
     note: '2023-2024 ICPC, Asia Jakarta Regional Contest (Online Mirror, Unrated, ICPC Rules, Teams Preferred)
       (judge hunt 2026-11-03: official online mirror round: ''2023-2024 ICPC, Asia Jakarta Regional Contest
       (Online Mirror, Unrated, ICPC Rules, Teams Preferred)'' -> jakarta-2023)'
-    as_of: '20231207110625'
   - url: https://qoj.ac/contest/1991
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Asia-Pacific/Indonesia/The-2023-ICPC-Asia-Jakarta-Onsite-Regional-Contest/tutorials_en.pdf
     roles:
     - editorial
@@ -1108,18 +1127,20 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: jakarta-2023
+  provenance:
+  - date 2023-12-03 read from https://competition.binus.ac.id/icpc2023/ (data scan 2026-11-23)
 - id: jakarta-2024
   season: 2025
   name: 2024 ICPC Asia Jakarta Onsite Regional Contest
-  date: '2024-12-02'
+  date: '2024-12-01'
   location: Jakarta, Indonesia; Administrative Site Location
+  cms_ids:
+  - 8740
   sites:
   - type: administrative
   - location: id-jakarta
     name: Asia Jakarta Onsite Regional Contest
     date: '2024-12-01'
-  cms_ids:
-  - 8740
   parent: apc-2025
   next: jakarta-2025
   sources:
@@ -1160,9 +1181,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-22'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Asia-Pacific/Indonesia/The-2024-ICPC-Asia-Jakarta-Onsite-Regional-Contest/tutorials_en.pdf
     roles:
     - editorial
@@ -1176,6 +1197,8 @@ contests:
     url_checked: '2026-11-16'
   problems:
     set: jakarta-2024
+  provenance:
+  - date 2024-12-01 read from https://competition.binus.ac.id/icpc2024/ (data scan 2026-11-23)
 - id: jakarta-2025
   season: 2026
   name: 2025 ICPC Asia Jakarta Onsite Regional Contest
@@ -1335,6 +1358,9 @@ contests:
   status: upcoming
   season: 2027
   name: 2026 ICPC Asia Jakarta Onsite Regional Contest
+  date: '2026-11-29'
+  cms_ids:
+  - 9679
   sites:
   - type: administrative
   - location: id-jakarta
@@ -1344,8 +1370,6 @@ contests:
     name: Foreign Teams
     date: '2026-11-28'
     type: administrative
-  cms_ids:
-  - 9679
   parent: apc-2027
   sources:
   - url: https://competition.binus.ac.id/icpc2026/
@@ -1356,3 +1380,6 @@ contests:
     roles:
     - web
     note: added by the no-sources hunt 2026-11-16
+  provenance:
+  - date 2026-11-29 read from https://competition.binus.ac.id/icpc2026/index/rundown (data scan 2026-11-23;
+    announced before the contest)
