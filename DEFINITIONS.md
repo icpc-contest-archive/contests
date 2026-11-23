@@ -278,8 +278,12 @@ document, the `ours` of a source. An address we only know is a link, never count
   `package:`), or when a `problemset`/`problem` source of any contest that used the set
   `contains:` it and we hold a copy of that source (a `problemset` source gives it for all
   problems, `problem` sources for some). *link only*: such a source is known, we hold no copy.
-  A source on an online judge is always link only for material: our copy of it is the judge's
-  list page, not the statements or data. *not recorded*: a source is known, but its `contains:`
+  A `problemset` source on an online judge is always link only for material: our copy of it is the
+  judge's list page, not the statements or data. A problem's own page on a judge is different: when
+  we hold a copy of it (or of the statement file behind it, `statement_url` on the problem's judge
+  link) it is a `problem` source of every contest that used the set and counts like any other
+  (ruled 2026-11-22/23; tools/problem_sources_from_judge_copies.py). Judge links we hold no copy of
+  stay links. *not recorded*: a source is known, but its `contains:`
   is not. `editorial` is have-or-not per set, from `editorial` sources.
   `contains:` was filled on 2026-11-15 from the content check's reading of our copies
   (`tools/fill_contains.py`); `[]` means read, and it holds none of these.

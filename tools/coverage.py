@@ -31,6 +31,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from catalogue import RESULT_LADDER, archived, by_role, set_id_of, set_letters, sources  # noqa: E402
+from resources import norm_key  # noqa: E402
 
 LEVELS = RESULT_LADDER + ("none",)
 LEVEL_LABEL = {"scoreboard": "scoreboard", "standings": "standings", "rankings": "rankings", "teams": "team list", "none": "none"}
@@ -100,7 +101,7 @@ def _share(n: int, total: int) -> str:
 
 
 class Coverage:
-    def __init__(self, series_docs: dict, sets: dict, held=None, web_held=None, placed=None, copy_held=None):
+    def __init__(self, series_docs: dict, sets: dict, held=None, web_held=None, placed=None):
         """`held(contest, source)`: do we hold a copy that is the document (default: any capture reference);
         `web_held(contest)`: do we hold the website (default: a held `web` source);
         `placed(contest)`: is it in the location tree (default: it has `sites`)."""
@@ -108,11 +109,11 @@ class Coverage:
         self.held = held or (lambda c, s: bool(archived(s)))
         self.web_held = web_held or (lambda c: any(self.held(c, s) for s in by_role(c, "web")))
         self.placed = placed or (lambda c: bool(c.get("sites")))
-        # `copy_held(url)`: do we hold a good copy of this address (default: no - only the site builder knows)
-        self.copy_held = copy_held or (lambda url: False)
         self.contests: dict = {c["id"]: c for doc in series_docs.values() for c in doc["contests"]}
         self._rec: dict = {}
         self._set: dict = {}
+        self._per: dict = {}
+        self._addr: dict = {}
 
     # ---- results ----
     def results(self, c: dict) -> dict:
@@ -126,11 +127,32 @@ class Coverage:
                 "partial": held != "none" and is_partial(mine, held)}
 
     # ---- problems ----
-    def statement_copy(self, p: dict) -> bool:
-        """We hold a copy of this problem's statement taken from an online judge (ruled 2026-11-22: it
-        counts): the file `statement_url` names when the judge keeps the statement apart from the page,
-        else the problem's page there."""
-        return any(self.copy_held(j.get("statement_url") or j["url"]) for j in p.get("judges") or [] if j.get("url"))
+    @staticmethod
+    def _counts(s: dict) -> bool:
+        """Does a held copy of this source give its material? Not when it is a problem set on an online
+        judge: that copy is the judge's list page. A problem's own page or statement file on a judge
+        does (ruled 2026-11-22/23: where the material comes from does not matter)."""
+        return not s.get("judge") or "problemset" not in s["roles"]
+
+    def _problem_of(self, doc: dict, c: dict, s: dict):
+        """The problem a per-problem source is about: by its address (one of the problem's judge links),
+        else by its letter in that contest, else the source itself."""
+        k = id(doc)
+        if k not in self._addr:
+            self._addr[k] = {norm_key(u): p["id"] for p in doc.get("problems") or [] for j in p.get("judges") or []
+                             for u in (j.get("statement_url"), j.get("url")) if u}
+        return (self._addr[k].get(norm_key(s["url"])) or set_letters(doc, c["id"]).get(str(s.get("problem")))
+                or (c["id"], s.get("problem") or s["url"]))
+
+    def statements_held(self, doc: dict) -> set:
+        """The problems of a set whose statement we hold as a file or page of its own."""
+        k = id(doc)
+        if k not in self._per:
+            members = [self.contests[m["contest"]] for m in doc.get("contests") or [] if m["contest"] in self.contests]
+            self._per[k] = {self._problem_of(doc, c, s) for c in members for s in sources(c)
+                            if "problem" in s["roles"] and "problemset" not in s["roles"] and "statement" in (contains(s) or ())
+                            and self.held(c, s)}
+        return self._per[k]
 
     def _material(self, doc: dict, members: list[dict]) -> dict:
         """{component: state} for a set (or, with doc {}, for one contest that has no set)."""
@@ -144,14 +166,13 @@ class Coverage:
             if key in IN_PACKAGE and doc.get("package") in ("full", "partial") and arch != "full":
                 arch = doc["package"]   # a complete package holds its statement, data and solutions
             giving = [(c, s) for c, s in psrc if key in (contains(s) or ())]
-            # the copy of a source on an online judge is the judge's list page, not the material
-            mine = [s for c, s in giving if self.held(c, s) and not s.get("judge")]
-            singles = [s for s in mine if "problemset" not in s["roles"]]
-            # per problem: a statement file of its own among the contest's sources, or a copy from an online judge
-            per = len(singles) + (sum(1 for p in doc.get("problems") or [] if self.statement_copy(p)) if key == "statement" else 0)
+            mine = [(c, s) for c, s in giving if self._counts(s) and self.held(c, s)]
+            singles = [(c, s) for c, s in mine if "problemset" not in s["roles"]]
+            # per problem: files or pages of their own; the set is complete when every problem has one
+            per = len({self._problem_of(doc, c, s) for c, s in singles})
             if arch == "full" or len(mine) > len(singles) or (total and per >= total):
                 out[key] = "all"
-            elif arch == "partial" or mine or per:
+            elif arch == "partial" or mine:
                 out[key] = "some"
             elif giving:
                 out[key] = "link only"

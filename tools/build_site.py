@@ -1422,8 +1422,8 @@ def problem_have(p: dict, doc: dict | None) -> dict[str, bool | None]:
         for k, *_ in HAVE_KINDS:
             st = (doc or {}).get(SET_KIND.get(k, ""))
             out[k] = True if st == "full" else False if st == "none" else None
-    if not out["statement"] and COV is not None and COV.statement_copy(p):
-        out["statement"] = True   # a copy of the statement from an online judge counts (ruled 2026-11-22)
+    if not out["statement"] and COV is not None and doc and p["id"] in COV.statements_held(doc):
+        out["statement"] = True   # the problem has a held statement of its own among its contests' sources
     return out
 
 
@@ -3542,7 +3542,7 @@ def build(out: Path):
     _HELD.clear(); _ST.clear(); _TOK.clear(); _LOC_OF.clear()  # noqa: E702
     # a website is held when the contest has a `web` source and we hold a crawl of it (or a copy of the source):
     # a crawl seeded from a document that is not a website source (a PDF, a results page) is not a website
-    COV = CV.Coverage(series_docs, SETS, held=src_held, placed=lambda c: bool(held_at(c)[0]), copy_held=copy_held,
+    COV = CV.Coverage(series_docs, SETS, held=src_held, placed=lambda c: bool(held_at(c)[0]),
                       web_held=lambda c: bool(by_role(c, "web")) and (c["id"] in website_of or any(src_held(c, s) for s in by_role(c, "web"))))
 
     # ---- contests, series, seasons ----

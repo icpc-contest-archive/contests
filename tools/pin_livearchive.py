@@ -108,7 +108,7 @@ def main() -> int:
             continue
         c = B.CONTESTS[members[0]]
         for p in doc.get("problems") or []:
-            if B.COV.statement_copy(p):
+            if p["id"] in B.COV.statements_held(doc):
                 stats["has a statement copy already"] += 1
                 continue
             j = next((j for j in p.get("judges") or [] if j["judge"] == "livearchive" and j.get("statement_url")), None)
