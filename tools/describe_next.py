@@ -6,7 +6,8 @@
 
 A batch is written when every contest of it has a result.json, revised when every one has a
 revision.json. A piece of work is claimed by an atomic mkdir under <run>/claims/, so several lanes
-can ask at once. Revising a written batch comes before writing a new one. A claim that is 25
+can ask at once. Revising a written batch comes before writing a new one, and a lane is never
+given a batch it wrote itself to revise. A claim that is 25
 minutes old and still not done is given out again (its agent died).
 """
 import argparse
@@ -68,8 +69,18 @@ def main() -> None:
                     return False
             return False
 
-    for b, _cs in batches:
-        if state[b] == "written" and take(b, "revise"):
+    def wrote(b: str) -> bool:
+        """The second reader must not be the first one: a lane does not revise a batch it wrote."""
+        by = claims / f"{b}.write" / "by"
+        return by.exists() and by.read_text() == a.claim
+
+    def settled(cs: list) -> bool:
+        """The first reader checks its result.json after writing it and may still correct it: a batch
+        is handed to the second reader only once its results have been left alone for three minutes."""
+        return all(time.time() - (run / c / "result.json").stat().st_mtime > 180 for c in cs)
+
+    for b, cs in batches:
+        if state[b] == "written" and not wrote(b) and settled(cs) and take(b, "revise"):
             print("REVISE", b)
             return
     for b, _cs in batches:
