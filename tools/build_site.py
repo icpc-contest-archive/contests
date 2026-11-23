@@ -2479,17 +2479,26 @@ def source_page(d: dict, rel: str) -> str:
     return page(host_label(url, 60), "\n".join(b), rel, "source/index.html")
 
 
+def cited_docs() -> dict:
+    """The sources: the addresses-at-a-time that a contest cites. An address in the resource graph that
+    no contest cites (the seed of a crawl under another spelling, a mirror that was dropped, an address
+    that was only ever probed) still has its page, for old links, but is not a source and is not counted
+    or listed as one."""
+    return {sid: d for sid, d in DOCS.items() if d["cits"]}
+
+
 def source_list(rel: str, role: str | None = None) -> str:
     """source/index.html (every source) and source/by-role/<role>.html (one type): the same
     page, the same columns, the same filters — the type pages are that table cut down."""
-    counts = Counter(r for d in DOCS.values() for r in doc_roles(d))
+    docs = cited_docs()
+    counts = Counter(r for d in docs.values() for r in doc_roles(d))
     here = "../" if role else ""
-    tabs = ["<span>" + ("<b>all</b>" if not role else f'<a href="{here}index.html">all</a>') + f' <span class="muted small">{num(len(DOCS))}</span></span>']
+    tabs = ["<span>" + ("<b>all</b>" if not role else f'<a href="{here}index.html">all</a>') + f' <span class="muted small">{num(len(docs))}</span></span>']
     for r in ROLE_PAGES:
         lab = esc(role_label(r))
         tabs.append("<span>" + (f"<b>{lab}</b>" if r == role else f'<a href="{here}by-role/{r}.html">{lab}</a>') + f' <span class="muted small">{num(counts[r])}</span></span>')
     rows = []
-    for sid, d in DOCS.items():
+    for sid, d in docs.items():
         roles = doc_roles(d)
         if role and role not in roles:
             continue
@@ -3255,7 +3264,7 @@ def landing_page(series_docs: dict, contests: dict) -> str:
     n_caps = sum(len(R.get("captures") or []) for L in RES.locs.values() for R in L["resources"].values())
     tiles = [(len(BY_SEASON), "seasons", "season/index.html"), (len(series_docs), "series", "series/index.html"),
              (st["n"], "contests", "contest/index.html"), (len(SETS), "problem sets", "problemset/index.html"),
-             (len(PROBLEMS), "problems", "problem/index.html"), (len(RES.locs), "sources", "source/index.html"),
+             (len(PROBLEMS), "problems", "problem/index.html"), (len(cited_docs()), "sources", "source/index.html"),
              (len(JUDGES), "judges", "judge/index.html"), (len(LOC), "locations", "location/index.html")]
     seasons = [s for s in sorted(BY_SEASON, reverse=True) if any(contests[m].get("status") != "upcoming" for m in BY_SEASON[s])][:8]
     srows = []
@@ -3608,7 +3617,7 @@ def build(out: Path):
     (out / "random.html").write_text(random_page())
     (out / "random.json").write_text(json.dumps({
         "contest": sorted(contests), "series": sorted(series_docs), "season": [str(x) for x in sorted(BY_SEASON)],
-        "problemset": sorted(SETS), "problem": sorted(PROBLEMS), "source": sorted(DOCS),
+        "problemset": sorted(SETS), "problem": sorted(PROBLEMS), "source": sorted(cited_docs()),
         "location": sorted(LOC), "judge": sorted(JUDGES)}, separators=(",", ":")))
     stub(out / "local.html", "about.html#local")
 
@@ -3666,7 +3675,7 @@ def build(out: Path):
                 stub(out / "locator" / k / f"{ts}.html", f"../../source/{to}/index.html")
         (out / "source" / "index.html").write_text(source_list("../"))
         # the address index of the search box: [address, source page, what it serves]; site.js loads it when the box holds an address
-        (out / "source-urls.json").write_text(json.dumps([[d["url"], sid, source_words(d)] for sid, d in DOCS.items()],
+        (out / "source-urls.json").write_text(json.dumps([[d["url"], sid, source_words(d)] for sid, d in cited_docs().items()],
                                                          ensure_ascii=False, separators=(",", ":")))
         for r in ROLE_PAGES:
             (out / "source" / "by-role" / f"{r}.html").write_text(source_list("../../", r))
@@ -3677,7 +3686,7 @@ def build(out: Path):
             tgt = f"../source/by-role/{k}.html" if k != "index" else "../source/index.html"
             stub(out / "resources" / f"{k}.html", tgt)
             stub(out / "urls" / f"{k}.html", tgt)
-        print(f"  {len(DOCS)} source pages for {len(RES.locs)} addresses ({sum(1 for v in DOCS_OF.values() if len(v) > 1)} addresses are several sources, one per time)")
+        print(f"  {len(cited_docs())} sources; {len(DOCS)} source pages for {len(RES.locs)} addresses ({sum(1 for v in DOCS_OF.values() if len(v) > 1)} addresses are several sources, one per time)")
 
     n = len(list(out.rglob("*.html")))
     n_stubs = sum(1 for p in out.rglob("*.html") if p.parts[len(out.parts)] in ("locator", "resources", "urls", "problemsets", "judges", "problems") or p.name in ("seasons.html", "local.html")) + n_alias
