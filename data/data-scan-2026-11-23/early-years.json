@@ -1,0 +1,677 @@
+{
+ "scan": {
+  "agent": "early-years",
+  "date": "2026-11-23",
+  "area": "seasons up to 1994 (World Finals 1977-1994 and the regionals that fed them)",
+  "worktree": "_scan-2026-11-23/contests (read only)",
+  "check": "python3 tools/apply_scan_ops.py --check ../findings/early-years/ops.json  (and, for the proposals, followed by work/proposed_ops.json)",
+  "validated": "ops applied to a copy (work/vt2) and tools/validate.py run there: 0 errors, no new warnings; 2602 -> 2628 contests"
+ },
+ "ops_summary": {
+  "insert_contest": [
+   "seusa-1982",
+   "seusa-1983",
+   "seusa-1984",
+   "seusa-1985",
+   "seusa-1986",
+   "seusa-1987",
+   "scusa-1980",
+   "scusa-1982",
+   "scusa-1983",
+   "scusa-1985",
+   "scusa-1986",
+   "nena-1983",
+   "nena-1986",
+   "nena-1987",
+   "nena-1988",
+   "nena-1992",
+   "nena-1993",
+   "pacnw-1992",
+   "mausa-1990",
+   "mausa-1991",
+   "mausa-1992",
+   "ncna-1984",
+   "ncna-1985",
+   "ncna-1992",
+   "taiwan-1992",
+   "seerc-1993"
+  ],
+  "append_source": [
+   "ncna-1993",
+   "werc-1992",
+   "seusa-1992",
+   "socal-1989"
+  ]
+ },
+ "proposed_ops_not_applied": {
+  "why": "inferred editions: the region is documented for the season and teams from it are in the World Finals standings, but no document about the edition itself was found. Apply after work/../ops.json if Fredrik accepts the inference.",
+  "ids": [
+   "nena-1991",
+   "gny-1991",
+   "ncna-1991",
+   "pacnw-1991",
+   "taiwan-1991",
+   "gny-1992",
+   "seerc-1992",
+   "mausa-1993",
+   "pacnw-1993",
+   "ncna-1982"
+  ],
+  "ops": [
+   {
+    "file": "series/nena.yaml",
+    "path": [
+     "contests"
+    ],
+    "op": "insert_contest",
+    "value": {
+     "id": "nena-1991",
+     "season": 1992,
+     "cms_ids": [],
+     "parent": "wf-1992",
+     "next": "nena-1992",
+     "sources": [
+      {
+       "url": "https://groups.google.com/g/comp.org.acm/c/rGjTeQRpsNY/m/3EVcoGfc99wJ",
+       "roles": [
+        "report"
+       ],
+       "scope": "North East region",
+       "note": "found by the data scan 2026-11-23 (1991-92 contest rules (comp.org.acm 1991-05-17): 13 regions incl. North East; regionals between Oct 18 and Nov 17, 1991)"
+      },
+      {
+       "url": "https://scholar.lib.vt.edu/VA-news/ROA-Times/issues/1992/rt9203/920307/03070105.htm",
+       "roles": [
+        "report"
+       ],
+       "scope": "all regionals (count only)",
+       "as_of": "20191115230013",
+       "note": "found by the data scan 2026-11-23 (Roanoke Times 1992-03-07: the 30 finalists came from 'a dozen regional events held the previous fall')"
+      }
+     ],
+     "provenance": [
+      "inferred: the 1991-92 rules list the North East region (finals places allotted) with regionals between 1991-10-18 and 1991-11-17 — https://groups.google.com/g/comp.org.acm/c/rGjTeQRpsNY/m/3EVcoGfc99wJ (data scan 2026-11-23)",
+      "inferred: wf-1992 (standings: comp.org.acm 1992-03-19 Crbpn3ZgPyw) has teams from this region: Harvard, Univ. of Rhode Island, Colgate (data scan 2026-11-23)"
+     ],
+     "notes": "added by the data scan 2026-11-23 (early-years, inferred edition): no document about this edition itself was found; it rests on the 1991-92 rules, the 'dozen regional events' and the wf-1992 team list"
+    },
+    "reason": "inferred edition: North East regional 1991 (season 1991-1992)",
+    "evidence": "https://groups.google.com/g/comp.org.acm/c/rGjTeQRpsNY/m/3EVcoGfc99wJ: 13 regions incl. North East; wf-1992 standings include Harvard, Univ. of Rhode Island, Colgate"
+   },
+   {
+    "file": "series/gny.yaml",
+    "path": [
+     "contests"
+    ],
+    "op": "insert_contest",
+    "value": {
+     "id": "gny-1991",
+     "season": 1992,
+     "cms_ids": [],
+     "parent": "wf-1992",
+     "next": "gny-1992",
+     "sources": [
+      {
+       "url": "https://groups.google.com/g/comp.org.acm/c/rGjTeQRpsNY/m/3EVcoGfc99wJ",
+       "roles": [
+        "report"
+       ],
+       "scope": "Greater New York region",
+       "note": "found by the data scan 2026-11-23 (1991-92 contest rules (comp.org.acm 1991-05-17): 13 regions incl. Greater New York; regionals between Oct 18 and Nov 17, 1991)"
+      },
+      {
+       "url": "https://scholar.lib.vt.edu/VA-news/ROA-Times/issues/1992/rt9203/920307/03070105.htm",
+       "roles": [
+        "report"
+       ],
+       "scope": "all regionals (count only)",
+       "as_of": "20191115230013",
+       "note": "found by the data scan 2026-11-23 (Roanoke Times 1992-03-07: the 30 finalists came from 'a dozen regional events held the previous fall')"
+      }
+     ],
+     "provenance": [
+      "inferred: the 1991-92 rules list the Greater New York region (finals places allotted) with regionals between 1991-10-18 and 1991-11-17 — https://groups.google.com/g/comp.org.acm/c/rGjTeQRpsNY/m/3EVcoGfc99wJ (data scan 2026-11-23)",
+      "inferred: wf-1992 (standings: comp.org.acm 1992-03-19 Crbpn3ZgPyw) has teams from this region: Drew University (data scan 2026-11-23)"
+     ],
+     "notes": "added by the data scan 2026-11-23 (early-years, inferred edition): no document about this edition itself was found; it rests on the 1991-92 rules, the 'dozen regional events' and the wf-1992 team list"
+    },
+    "reason": "inferred edition: Greater New York regional 1991 (season 1991-1992)",
+    "evidence": "https://groups.google.com/g/comp.org.acm/c/rGjTeQRpsNY/m/3EVcoGfc99wJ: 13 regions incl. Greater New York; wf-1992 standings include Drew University"
+   },
+   {
+    "file": "series/ncna.yaml",
+    "path": [
+     "contests"
+    ],
+    "op": "insert_contest",
+    "value": {
+     "id": "ncna-1991",
+     "season": 1992,
+     "cms_ids": [],
+     "parent": "wf-1992",
+     "next": "ncna-1992",
+     "sources": [
+      {
+       "url": "https://groups.google.com/g/comp.org.acm/c/rGjTeQRpsNY/m/3EVcoGfc99wJ",
+       "roles": [
+        "report"
+       ],
+       "scope": "North Central region",
+       "note": "found by the data scan 2026-11-23 (1991-92 contest rules (comp.org.acm 1991-05-17): 13 regions incl. North Central; regionals between Oct 18 and Nov 17, 1991)"
+      },
+      {
+       "url": "https://scholar.lib.vt.edu/VA-news/ROA-Times/issues/1992/rt9203/920307/03070105.htm",
+       "roles": [
+        "report"
+       ],
+       "scope": "all regionals (count only)",
+       "as_of": "20191115230013",
+       "note": "found by the data scan 2026-11-23 (Roanoke Times 1992-03-07: the 30 finalists came from 'a dozen regional events held the previous fall')"
+      }
+     ],
+     "provenance": [
+      "inferred: the 1991-92 rules list the North Central region (finals places allotted) with regionals between 1991-10-18 and 1991-11-17 — https://groups.google.com/g/comp.org.acm/c/rGjTeQRpsNY/m/3EVcoGfc99wJ (data scan 2026-11-23)",
+      "inferred: wf-1992 (standings: comp.org.acm 1992-03-19 Crbpn3ZgPyw) has teams from this region: Nebraska at Omaha, Illinois/Urbana-Champaign, SW Missouri State (region assignment of each inferred) (data scan 2026-11-23)"
+     ],
+     "notes": "added by the data scan 2026-11-23 (early-years, inferred edition): no document about this edition itself was found; it rests on the 1991-92 rules, the 'dozen regional events' and the wf-1992 team list"
+    },
+    "reason": "inferred edition: North Central regional 1991 (season 1991-1992)",
+    "evidence": "https://groups.google.com/g/comp.org.acm/c/rGjTeQRpsNY/m/3EVcoGfc99wJ: 13 regions incl. North Central; wf-1992 standings include Nebraska at Omaha, Illinois/Urbana-Champaign, SW Missouri State (region assignment of each inferred)"
+   },
+   {
+    "file": "series/pacnw.yaml",
+    "path": [
+     "contests"
+    ],
+    "op": "insert_contest",
+    "value": {
+     "id": "pacnw-1991",
+     "season": 1992,
+     "cms_ids": [],
+     "parent": "wf-1992",
+     "next": "pacnw-1992",
+     "sources": [
+      {
+       "url": "https://groups.google.com/g/comp.org.acm/c/rGjTeQRpsNY/m/3EVcoGfc99wJ",
+       "roles": [
+        "report"
+       ],
+       "scope": "Pacific region",
+       "note": "found by the data scan 2026-11-23 (1991-92 contest rules (comp.org.acm 1991-05-17): 13 regions incl. Pacific; regionals between Oct 18 and Nov 17, 1991)"
+      },
+      {
+       "url": "https://scholar.lib.vt.edu/VA-news/ROA-Times/issues/1992/rt9203/920307/03070105.htm",
+       "roles": [
+        "report"
+       ],
+       "scope": "all regionals (count only)",
+       "as_of": "20191115230013",
+       "note": "found by the data scan 2026-11-23 (Roanoke Times 1992-03-07: the 30 finalists came from 'a dozen regional events held the previous fall')"
+      }
+     ],
+     "provenance": [
+      "inferred: the 1991-92 rules list the Pacific region (finals places allotted) with regionals between 1991-10-18 and 1991-11-17 — https://groups.google.com/g/comp.org.acm/c/rGjTeQRpsNY/m/3EVcoGfc99wJ (data scan 2026-11-23)",
+      "inferred: wf-1992 (standings: comp.org.acm 1992-03-19 Crbpn3ZgPyw) has teams from this region: Stanford, University of Victoria (data scan 2026-11-23)"
+     ],
+     "notes": "added by the data scan 2026-11-23 (early-years, inferred edition): no document about this edition itself was found; it rests on the 1991-92 rules, the 'dozen regional events' and the wf-1992 team list"
+    },
+    "reason": "inferred edition: Pacific regional 1991 (season 1991-1992)",
+    "evidence": "https://groups.google.com/g/comp.org.acm/c/rGjTeQRpsNY/m/3EVcoGfc99wJ: 13 regions incl. Pacific; wf-1992 standings include Stanford, University of Victoria"
+   },
+   {
+    "file": "series/taiwan.yaml",
+    "path": [
+     "contests"
+    ],
+    "op": "insert_contest",
+    "value": {
+     "id": "taiwan-1991",
+     "season": 1992,
+     "cms_ids": [],
+     "parent": "wf-1992",
+     "next": "taiwan-1992",
+     "sources": [
+      {
+       "url": "https://groups.google.com/g/comp.org.acm/c/rGjTeQRpsNY/m/3EVcoGfc99wJ",
+       "roles": [
+        "report"
+       ],
+       "scope": "Far East region",
+       "note": "found by the data scan 2026-11-23 (1991-92 contest rules (comp.org.acm 1991-05-17): 13 regions incl. Far East; regionals between Oct 18 and Nov 17, 1991)"
+      },
+      {
+       "url": "https://scholar.lib.vt.edu/VA-news/ROA-Times/issues/1992/rt9203/920307/03070105.htm",
+       "roles": [
+        "report"
+       ],
+       "scope": "all regionals (count only)",
+       "as_of": "20191115230013",
+       "note": "found by the data scan 2026-11-23 (Roanoke Times 1992-03-07: the 30 finalists came from 'a dozen regional events held the previous fall')"
+      }
+     ],
+     "provenance": [
+      "inferred: the 1991-92 rules list the Far East region (finals places allotted) with regionals between 1991-10-18 and 1991-11-17 — https://groups.google.com/g/comp.org.acm/c/rGjTeQRpsNY/m/3EVcoGfc99wJ (data scan 2026-11-23)",
+      "inferred: wf-1992 (standings: comp.org.acm 1992-03-19 Crbpn3ZgPyw) has teams from this region: National Chiao Tung University (data scan 2026-11-23)"
+     ],
+     "notes": "added by the data scan 2026-11-23 (early-years, inferred edition): no document about this edition itself was found; it rests on the 1991-92 rules, the 'dozen regional events' and the wf-1992 team list"
+    },
+    "reason": "inferred edition: Far East regional 1991 (season 1991-1992)",
+    "evidence": "https://groups.google.com/g/comp.org.acm/c/rGjTeQRpsNY/m/3EVcoGfc99wJ: 13 regions incl. Far East; wf-1992 standings include National Chiao Tung University"
+   },
+   {
+    "file": "series/nena.yaml",
+    "path": [
+     "contests",
+     {
+      "id": "nena-1988"
+     },
+     "next"
+    ],
+    "op": "set",
+    "value": "nena-1991",
+    "old": "nena-1992",
+    "reason": "nena-1991 inserted",
+    "evidence": "see the insert of nena-1991"
+   },
+   {
+    "file": "series/ncna.yaml",
+    "path": [
+     "contests",
+     {
+      "id": "ncna-1985"
+     },
+     "next"
+    ],
+    "op": "set",
+    "value": "ncna-1991",
+    "old": "ncna-1992",
+    "reason": "ncna-1991 inserted",
+    "evidence": "see the insert of ncna-1991"
+   },
+   {
+    "file": "series/gny.yaml",
+    "path": [
+     "contests"
+    ],
+    "op": "insert_contest",
+    "value": {
+     "id": "gny-1992",
+     "season": 1993,
+     "cms_ids": [],
+     "parent": "wf-1993",
+     "next": "gny-1993",
+     "sources": [
+      {
+       "url": "https://groups.google.com/g/comp.org.acm/c/OBY9nUecCtE",
+       "roles": [
+        "report"
+       ],
+       "scope": "Greater New York: Carol Hurwitz, Manhattan College RCD",
+       "note": "found by the data scan 2026-11-23 (1992-93 Regional Contest Directors list (comp.org.acm 1992-07-08): Greater New York: Carol Hurwitz, Manhattan College)"
+      },
+      {
+       "url": "https://ciiwiki.ecs.baylor.edu/index.php/History_-_ICPC_1993",
+       "roles": [
+        "report"
+       ],
+       "scope": "all regionals (count only)",
+       "as_of": "20211205111902",
+       "note": "found by the data scan 2026-11-23 (ciiwiki History - ICPC 1993: 'From over 600 teams competing in fifteen regional contests around the world, 31 teams advanced')"
+      },
+      {
+       "url": "https://groups.google.com/g/comp.org.acm/c/P3ys4igw6Mk",
+       "roles": [
+        "report"
+       ],
+       "scope": "Drew University",
+       "note": "found by the data scan 2026-11-23 (comp.org.acm 1992-11-25, Tom Limoncelli: 'I hear my alma mater Drew University is going for their 5th time in 6 years')"
+      }
+     ],
+     "provenance": [
+      "inferred: Greater New York is one of the 15 regions of 1992-93 (RCD Carol Hurwitz, Manhattan College) — https://groups.google.com/g/comp.org.acm/c/OBY9nUecCtE (data scan 2026-11-23)",
+      "inferred: fall 1992 had fifteen regional contests — https://ciiwiki.ecs.baylor.edu/index.php/History_-_ICPC_1993 (Wayback 20211205111902) (data scan 2026-11-23)",
+      "comp.org.acm 1992-11-25: Drew University is going to the finals 'for their 5th time in 6 years'; Drew is in the wf-1993 standings — https://groups.google.com/g/comp.org.acm/c/P3ys4igw6Mk (data scan 2026-11-23)"
+     ],
+     "notes": "added by the data scan 2026-11-23 (early-years, inferred edition): the region and the fifteen-regional count are documented, the GNY edition itself only through Drew's qualification"
+    },
+    "reason": "inferred edition: Greater New York regional 1992 (season 1992-1993)",
+    "evidence": "https://groups.google.com/g/comp.org.acm/c/OBY9nUecCtE; https://ciiwiki.ecs.baylor.edu/index.php/History_-_ICPC_1993; https://groups.google.com/g/comp.org.acm/c/P3ys4igw6Mk"
+   },
+   {
+    "file": "series/seerc.yaml",
+    "path": [
+     "contests"
+    ],
+    "op": "insert_contest",
+    "value": {
+     "id": "seerc-1992",
+     "season": 1993,
+     "cms_ids": [],
+     "parent": "wf-1993",
+     "next": "seerc-1993",
+     "sources": [
+      {
+       "url": "https://groups.google.com/g/comp.org.acm/c/OBY9nUecCtE",
+       "roles": [
+        "report"
+       ],
+       "scope": "Eastern European: Nickolay Ivanov, ACMBUL RCD",
+       "note": "found by the data scan 2026-11-23 (1992-93 Regional Contest Directors list (comp.org.acm 1992-07-08): Eastern European: Nickolay Ivanov, ACMBUL)"
+      },
+      {
+       "url": "https://ciiwiki.ecs.baylor.edu/index.php/History_-_ICPC_1993",
+       "roles": [
+        "report"
+       ],
+       "scope": "all regionals (count only)",
+       "as_of": "20211205111902",
+       "note": "found by the data scan 2026-11-23 (ciiwiki History - ICPC 1993: 'From over 600 teams competing in fifteen regional contests around the world, 31 teams advanced')"
+      }
+     ],
+     "provenance": [
+      "inferred: Eastern European is one of the 15 regions of 1992-93 (RCD Nickolay Ivanov, ACMBUL) — https://groups.google.com/g/comp.org.acm/c/OBY9nUecCtE (data scan 2026-11-23)",
+      "inferred: fall 1992 had fifteen regional contests — https://ciiwiki.ecs.baylor.edu/index.php/History_-_ICPC_1993 (Wayback 20211205111902) (data scan 2026-11-23)",
+      "inferred: Comenius University Bratislava is in the wf-1993 standings, and the Western European regional's two finalists were Leiden and Eindhoven (data scan 2026-11-23)"
+     ],
+     "notes": "added by the data scan 2026-11-23 (early-years, inferred edition): no document about the contest itself (date, place, results) was found"
+    },
+    "reason": "inferred edition: Eastern European regional 1992 (season 1992-1993)",
+    "evidence": "https://groups.google.com/g/comp.org.acm/c/OBY9nUecCtE; https://ciiwiki.ecs.baylor.edu/index.php/History_-_ICPC_1993"
+   },
+   {
+    "file": "series/mausa.yaml",
+    "path": [
+     "contests"
+    ],
+    "op": "insert_contest",
+    "value": {
+     "id": "mausa-1993",
+     "season": 1994,
+     "cms_ids": [],
+     "parent": "wf-1994",
+     "next": "mausa-1994",
+     "sources": [
+      {
+       "url": "https://ciiwiki.ecs.baylor.edu/index.php/History_-_ICPC_1994",
+       "roles": [
+        "report"
+       ],
+       "scope": "all regionals (count only)",
+       "as_of": "20211202222415",
+       "note": "found by the data scan 2026-11-23 (ciiwiki History - ICPC 1994: 'From 628 teams competing in 15 regional contests around the world, 35 teams advanced')"
+      }
+     ],
+     "provenance": [
+      "inferred: fall 1993 had 15 regional contests — https://ciiwiki.ecs.baylor.edu/index.php/History_-_ICPC_1994 (Wayback 20211202222415) (data scan 2026-11-23)",
+      "inferred: wf-1994 (Cormack's standings) has teams from the Mid-Atlantic region: Duke University (3rd), Virginia Tech (24th) (data scan 2026-11-23)"
+     ],
+     "notes": "added by the data scan 2026-11-23 (early-years, inferred edition): the 1992-93 region list has a Mid-Atlantic region; no document about the 1993 edition itself was found"
+    },
+    "reason": "inferred edition: Mid-Atlantic regional 1993 (season 1993-1994)",
+    "evidence": "https://ciiwiki.ecs.baylor.edu/index.php/History_-_ICPC_1994; plg.uwaterloo.ca/~gvcormac/acmresults/1994.html"
+   },
+   {
+    "file": "series/mausa.yaml",
+    "path": [
+     "contests",
+     {
+      "id": "mausa-1992"
+     },
+     "next"
+    ],
+    "op": "set",
+    "value": "mausa-1993",
+    "old": "mausa-1994",
+    "reason": "mausa-1993 inserted",
+    "evidence": "see the insert of mausa-1993"
+   },
+   {
+    "file": "series/pacnw.yaml",
+    "path": [
+     "contests"
+    ],
+    "op": "insert_contest",
+    "value": {
+     "id": "pacnw-1993",
+     "season": 1994,
+     "cms_ids": [],
+     "parent": "wf-1994",
+     "next": "pacnw-1994",
+     "sources": [
+      {
+       "url": "https://ciiwiki.ecs.baylor.edu/index.php/History_-_ICPC_1994",
+       "roles": [
+        "report"
+       ],
+       "scope": "all regionals (count only)",
+       "as_of": "20211202222415",
+       "note": "found by the data scan 2026-11-23 (ciiwiki History - ICPC 1994: 'From 628 teams competing in 15 regional contests around the world, 35 teams advanced')"
+      }
+     ],
+     "provenance": [
+      "inferred: fall 1993 had 15 regional contests — https://ciiwiki.ecs.baylor.edu/index.php/History_-_ICPC_1994 (Wayback 20211202222415) (data scan 2026-11-23)",
+      "inferred: wf-1994 (Cormack's standings) has teams from the Pacific region: UC Berkeley (6th), Simon Fraser (23rd) (data scan 2026-11-23)"
+     ],
+     "notes": "added by the data scan 2026-11-23 (early-years, inferred edition): the 1992-93 region list has a Pacific region; no document about the 1993 edition itself was found"
+    },
+    "reason": "inferred edition: Pacific regional 1993 (season 1993-1994)",
+    "evidence": "https://ciiwiki.ecs.baylor.edu/index.php/History_-_ICPC_1994; plg.uwaterloo.ca/~gvcormac/acmresults/1994.html"
+   },
+   {
+    "file": "series/pacnw.yaml",
+    "path": [
+     "contests",
+     {
+      "id": "pacnw-1992"
+     },
+     "next"
+    ],
+    "op": "set",
+    "value": "pacnw-1993",
+    "old": "pacnw-1994",
+    "reason": "pacnw-1993 inserted",
+    "evidence": "see the insert of pacnw-1993"
+   },
+   {
+    "file": "series/ncna.yaml",
+    "path": [
+     "contests"
+    ],
+    "op": "insert_contest",
+    "value": {
+     "id": "ncna-1982",
+     "season": 1983,
+     "cms_ids": [],
+     "parent": "wf-1983",
+     "next": "ncna-1984",
+     "sources": [
+      {
+       "url": "https://nebnewspapers.unl.edu/lccn/sn96080312/1983-02-22/ed-1/seq-1.pdf",
+       "roles": [
+        "report",
+        "rankings"
+       ],
+       "scope": "top 2",
+       "note": "found by the data scan 2026-11-23 (Daily Nebraskan 1983-02-22 p1: UNL placed second to Washington University of St. Louis in the 'area regionals last October')"
+      }
+     ],
+     "provenance": [
+      "ran: Daily Nebraskan 1983-02-22, p.1 ('UNL computer team wins Orange Bowl of Computers'): UNL placed second to Washington University of St. Louis in the area regionals last October, then won the finals — https://nebnewspapers.unl.edu/lccn/sn96080312/1983-02-22/ed-1/seq-1.pdf (data scan 2026-11-23)"
+     ],
+     "notes": "added by the data scan 2026-11-23 (early-years, inferred edition): the article does not name the region; in 1985 the region of Nebraska, Kansas, Missouri, South Dakota and Illinois was called North Central (ncna-1985)"
+    },
+    "reason": "missing edition: the regional of Nebraska and Missouri, October 1982 (season 1982-1983)",
+    "evidence": "https://nebnewspapers.unl.edu/lccn/sn96080312/1983-02-22/ed-1/seq-1.pdf: second to Washington University of St. Louis in the area regionals last October"
+   }
+  ]
+ },
+ "regions_by_season": {
+  "1991-92 (wf-1992)": {
+   "evidence": "comp.org.acm 1991-05-17 '91-'92 ACM Scholastic programming Contest Rule Changes' https://groups.google.com/g/comp.org.acm/c/rGjTeQRpsNY/m/3EVcoGfc99wJ : 13 regions, 25 finals places, regionals Oct 18 - Nov 17, 1991; Roanoke Times 1992-03-07: 'a dozen regional events'",
+   "regions": {
+    "North East (2)": "nena-1991 proposed",
+    "Greater New York (2)": "gny-1991 proposed",
+    "Allegheny/Capital (2)": "mausa-1991 inserted (VT won at Univ. of Maryland, October)",
+    "South East (2)": "seusa-1991 present",
+    "East Central (2)": "ecna-1991 present",
+    "North Central (3)": "ncna-1991 proposed",
+    "South Central (2)": "scusa-1991 present",
+    "Mountain (2)": "rmc-1991 present",
+    "Pacific (2)": "pacnw-1991 proposed",
+    "Southern California (2)": "socal-1991 present",
+    "European (2)": "erc-1991 present",
+    "South Pacific (1)": "south-pacific-1991 present",
+    "Far East (1)": "taiwan-1991 proposed"
+   },
+   "wf_1992_teams": "Melbourne, Michigan State, Stanford, Virginia Tech, Florida, Harvard, UCF, Rice, TU Delft, Victoria (BC), Caltech, Leiden, Texas, National Chiao Tung, CSU Fullerton, Rhodes, Calgary, UIUC, Nebraska-Omaha, Kentucky, Victoria Univ. Wellington, Colorado Boulder, Central Michigan, TU Budapest, Drew, Baylor, SW Missouri State, Drexel, Rhode Island, Colgate (comp.org.acm 1992-03-19 Crbpn3ZgPyw)"
+  },
+  "1992-93 (wf-1993)": {
+   "evidence": "comp.org.acm 1992-07-08 'ACM Regional Programming Contest Directors' https://groups.google.com/g/comp.org.acm/c/OBY9nUecCtE (15 regions); ciiwiki History - ICPC 1993 (Wayback 20211205111902): 'fifteen regional contests', 31 finalists",
+   "regions": {
+    "East Central (Rudolph, Shawnee State)": "ecna-1992 present",
+    "Eastern European (Ivanov, ACMBUL)": "seerc-1992 proposed",
+    "Far East (Hwang, SW Texas State)": "taiwan-1992 inserted",
+    "Greater New York (Hurwitz, Manhattan College)": "gny-1992 proposed",
+    "Mid-Atlantic (Gudmundsson, UMD)": "mausa-1992 inserted",
+    "Mid-Central (Trigg, SMSU)": "mcpc-1992 present",
+    "Mountain (Howerton, Metro State Denver)": "rmc-1992 present",
+    "North Central (Wileman, UNO)": "ncna-1992 inserted",
+    "Northeast (Carabetta, WNEC)": "nena-1992 inserted",
+    "Pacific (Clevenger, CSU Sacramento)": "pacnw-1992 inserted",
+    "South Central (Daugherity, Texas A&M)": "scusa-1992 present",
+    "Southeast (Roggio, UNF)": "seusa-1992 present",
+    "Southern California (Furon)": "socal-1992 present",
+    "South Pacific (Boersen, AIT)": "south-pacific-1992 present",
+    "Western European (Neirynck)": "werc-1992 present"
+   }
+  },
+  "1993-94 (wf-1994)": {
+   "evidence": "ciiwiki History - ICPC 1994 (Wayback 20211202222415): '628 teams competing in 15 regional contests', 35 finalists; ETH call 1994-08-10: 'Last year, Europe was split into West and East' (Swansea; Bulgaria)",
+   "regions": {
+    "East Central": "ecna-1993 present",
+    "East European": "seerc-1993 inserted (Bulgaria)",
+    "Far East": "taiwan-1993 present",
+    "Greater New York": "gny-1993 present",
+    "Mid-Atlantic": "mausa-1993 proposed",
+    "Mid-Central": "mcpc-1993 present",
+    "Mountain": "rmc-1993 present",
+    "North Central": "ncna-1993 present",
+    "Northeast": "nena-1993 inserted",
+    "Pacific": "pacnw-1993 proposed",
+    "South Central": "scusa-1993 present",
+    "Southeast": "seusa-1993 present",
+    "Southern California": "socal-1993 present",
+    "South Pacific": "south-pacific-1993 present",
+    "West European": "werc-1993 present (swerc-1993 is the same contest: see swerc_1993_duplicate)"
+   }
+  }
+ },
+ "swerc_1993_duplicate": {
+  "question": "swerc-1993 is not a separate contest: it is the 1993 Western European Regional in Swansea (werc-1993)",
+  "evidence": [
+   "ETH call for participation, SWERC 1994 (comp.org.acm 1994-08-10, https://groups.google.com/g/comp.org.acm/c/1Gt2N7tXcwo/m/rlG3TDDBBwsJ): 'Last year, Europe was split into West and East'; Swansea hosted the West European Regional Contest, the East European Regional was held in Bulgaria; for 1994 West Europe was divided into a Southwestern (ETH Zurich) and a Northwestern region (Amsterdam, same dates)",
+   "ETH problem set archive page B_EU_SWERC/1993 (our copy swerc/swerc-1993/problemset/19980202-wayback-acc39d56/index.html) is titled 'Western and Southwestern European Regional Contest 1993' and holds Chess, Compress, Cube, Logic, Rename, Spin, Vertex = the seven problems of werc-1993 (nwerc93.pdf: 'Western European Regional at University College Swansea / Problem A Chess')",
+   "ETH 'Swansea 1993 Echo' (our copy swerc/swerc-1993/website/2026-09-07-wayback-24db6bf4/files/90ab46099f40b49c.html): the two ETH teams that won the Zurich local contest went to the 'Westeuropäische Regionalausscheidung 1993 in Swansea'"
+  ],
+  "swerc_1994_note": "swerc-1994 (season 1995, outside this area) is a real contest (ETH Zurich, 11-12 Nov 1994, contest day Saturday 12 Nov) that shared its set with werc-1994 (Amsterdam, same dates): problemsets swerc-1994 and werc-1994 list the same eight problems but are two set files"
+ },
+ "evidence_consulted": [
+  {
+   "url": "https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc",
+   "as_of": "20140630180351",
+   "used_for": "seusa-1982..1987",
+   "says": "1982-83 2nd/F17th; 1983-84 3rd/dna; 1984-85 1st/F16th; 1985-86 2nd/F4th; 1986-87 1st/F2nd; 1987-88 3rd/dna; 'Since our first contest in 1982, we have always finished in the top 3 in our region'"
+  },
+  {
+   "url": "https://www.cs.rice.edu/~greiner/icpc.html",
+   "as_of": "20081120131847",
+   "used_for": "scusa-1980,1982,1983,1985,1986",
+   "says": "South Central Regional: 1980 1st; 1982 2nd+3rd; 1983 1st; 1985 1st+3rd; 1986 2nd; 1987 3rd+4th; 1988 1st; 1991 1st; 1981, 1984, 1989, 1990 '?'"
+  },
+  {
+   "url": "https://www.thecrimson.com/article/1983/11/29/harvard-computer-team-wins-regional-programming/",
+   "used_for": "nena-1983",
+   "says": "Northeast regionals at the Coast Guard Academy in New London, 25 schools, Harvard 1st, RPI 2nd"
+  },
+  {
+   "url": "https://www.thecrimson.com/article/1988/11/7/computer-team-nabs-northeast-region-title/",
+   "used_for": "nena-1986, 1987, 1988",
+   "says": "Northeast Regional Scholastic Programming Contest at Western New England College, Springfield; Harvard won for the third year in a row"
+  },
+  {
+   "url": "https://groups.google.com/g/comp.org.acm/c/0tRp_87Je8k/m/1I0UkBTxhSEJ",
+   "used_for": "nena-1992, pacnw-1992, mausa-1992",
+   "says": "1992-12-05 Dragomir: Pacific: Berkeley, Stanford (non-confirmed officially); North East: Harvard, Maine; East Central: Waterloo, Oberlin; Western European: RU Leiden, TU Eindhoven; Mid-Atlantic: Virginia Tech, Maryland"
+  },
+  {
+   "url": "https://groups.google.com/g/comp.org.acm/c/P3ys4igw6Mk",
+   "used_for": "nena-1992, taiwan-1992, werc-1992, seusa-1992 (+ gny-1992 proposed)",
+   "says": "NorthEast: Harvard & Maine qualified, Brown/Cornell/Toronto/MIT/RPI not; Drew 5th time in 6 years; RU Leiden 1st, TU Eindhoven 2nd; Auburn and North Florida; Chiao-Tung first in the Taiwan region"
+  },
+  {
+   "url": "https://news.mit.edu/1994/programming-1207",
+   "used_for": "nena-1993",
+   "says": "MIT team 2nd in last year's regional, went to the world finals; 1994 regional at Oswego NY, 45 teams, MIT 1st and 2nd, Harvard 3rd (nena-1994, outside this area)"
+  },
+  {
+   "url": "https://scholar.lib.vt.edu/VA-news/ROA-Times/issues/1991/rt9103/910322/03220693.htm",
+   "as_of": "20191116003259",
+   "used_for": "mausa-1990",
+   "says": "UVA lost to Tech in the regional qualifying match held in the fall"
+  },
+  {
+   "url": "https://scholar.lib.vt.edu/VA-news/ROA-Times/issues/1992/rt9203/920307/03070105.htm",
+   "as_of": "20191115230013",
+   "used_for": "mausa-1991",
+   "says": "Tech won the regional competition in October at the University of Maryland; a dozen regional events"
+  },
+  {
+   "url": "https://digital.lib.ku.edu/islandora/object/ku-udk%3A26439",
+   "used_for": "ncna-1985",
+   "says": "University Daily Kansan 1985-11-18 p7: KU hosted the North Central Computer Programming Contest in Strong Hall; 20 teams; Nebraska, Northeast Missouri State, Kansas State"
+  },
+  {
+   "url": "https://nebnewspapers.unl.edu/lccn/sn96080312/1985-12-02/ed-1/seq-3.pdf",
+   "used_for": "ncna-1984, ncna-1985",
+   "says": "Lawrence, Kansas, Nov. 16; 20 teams from Kansas, Missouri, South Dakota, Illinois; UNL first; UNL second last year"
+  },
+  {
+   "url": "https://nebnewspapers.unl.edu/lccn/sn96080312/1983-02-22/ed-1/seq-1.pdf",
+   "used_for": "ncna-1982 (proposed)",
+   "says": "UNL placed second to Washington University of St. Louis in the area regionals last October; won the finals"
+  },
+  {
+   "url": "https://i.cs.hku.hk/~kao/spc/inter_comp.html",
+   "used_for": "ncna-1992, ncna-1993",
+   "says": "UNL: 1992-93 first in the North Central region; 1993-94 first again, Macalester second; 1994-95 second behind Macalester, Coe third"
+  },
+  {
+   "url": "https://groups.google.com/g/comp.org.acm/c/1Gt2N7tXcwo/m/rlG3TDDBBwsJ",
+   "used_for": "seerc-1993; swerc-1993 question",
+   "says": "Last year Europe split into West (Swansea) and East (Bulgaria)"
+  },
+  {
+   "url": "http://www.cs.otago.ac.nz/PC/nzcontest/history.html",
+   "as_of": "20020824023423",
+   "used_for": "socal-1989 source",
+   "says": "1989: New Zealand assigned to the Southern California region; Otago's Terminally Nocturnal won the NZ contest, then came first in the region, then won the 1990 finals; WF 1989 'New Zealand!' was a composite team entered by invitation"
+  }
+ ],
+ "looked_without_result": [
+  "Wayback CDX for acmicpc-pacnw.org/Standings: nothing before 1994",
+  "people.eecs.berkeley.edu/~hilfingr/programming-contest/pacific-northwest: nothing before 1994; its NZ.89-NZ.93 'New Zealand Contest' PDFs have no extractable text (not OCR'd)",
+  "sppcontests.org/archive: starts 1991",
+  "ETH ProblemSetArchive index (Wayback 20020604064935): every pre-1995 regional set it holds maps to a catalogue contest",
+  "the CMS dumps new_regionals-1977..1995.json: only the World Finals and socal-1989 (cms 9898)",
+  "icpc.global/community/history-icpc-YYYY: JavaScript app, no text; ciiwiki History pages exist only from 1993",
+  "ACM DL (SIGCSE Bulletin 'Results and problems from the 1992 ACM Scholastic Programming Contest Finals'): not reachable",
+  "usenetarchives.com: Cloudflare challenge from the device, client error from WebFetch",
+  "UBC and UMD team-history pages: nothing before 1996; NTHU, HKU contest pages: no Far East history 1990-1992"
+ ],
+ "out_of_area_findings": [
+  "nena-1994..1996 are missing (season 1995-1997): MIT News 1994-12-07 gives the 1994 northeast regional at Oswego NY, 45 teams, MIT 1st and 2nd, Harvard 3rd",
+  "swerc-1994: date 1994-11-12 (contest Saturday of 11-12 Nov 1994) and host ETH Zurich read from the 1994-08-10 call",
+  "seerc-1994 (Eastern European, fall 1994) is missing from the catalogue (series starts 1995)",
+  "locations.yaml: institution us-springfield-western-new-england (Western New England College, Massachusetts) hangs under us-springfield, which is Springfield, Missouri (us-mo) — nena-1988's site will display in Missouri until the tree is fixed"
+ ]
+}

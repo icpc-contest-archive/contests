@@ -1,0 +1,25 @@
+[
+ {
+  "op": "remove",
+  "path": [
+   "contests",
+   {
+    "id": "south-america-south-2014"
+   },
+   "sources",
+   {
+    "url": "http://icpc.baylor.edu/regionals/finder/southamerica-south-2014"
+   }
+  ],
+  "old": {
+   "url": "http://icpc.baylor.edu/regionals/finder/southamerica-south-2014",
+   "roles": [
+    "web"
+   ]
+  },
+  "reason": "a CMS finder page is not `web` (DEFINITIONS: 'Not web: … a CMS finder page'; ruling relayed 2026-11-23: a CMS page is never web) and holds no result rows (it is the CMS's contest info page: schedule, sites, sponsors, links to Teams and Standings), so it is not a source; the contest's CMS results are its /standings page",
+  "evidence": "opened https://icpc.global/regionals/finder/Bolivia-Preliminary-2025 in a browser 2026-11-23: contest info only (schedule, confirmed sites, billing, sponsors, 'See Teams' / 'See Standings' links), no result rows; the same app serves every /regionals/finder/<slug> address. The old icpc.baylor.edu finder had the same layout (Info / Standings tabs; see archive/south-america-south/south-america-south-2014/standings/20150309-wayback-48726516/page.html). Standings: https://icpc.global/regionals/finder/SouthAmerica-South-2015/standings (cms 2530): 165 rows, cited",
+  "file": "series/south-america-south.yaml",
+  "group": "B-cms-page-filed-web"
+ }
+]

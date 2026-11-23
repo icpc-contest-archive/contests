@@ -1,0 +1,4826 @@
+{
+ "scan": "data scan 2026-11-23 / missing-contests",
+ "ops_summary": {
+  "insert_contest": [
+   "bapc-prelims-2005",
+   "bapc-prelims-2006",
+   "bapc-prelims-2007",
+   "bapc-prelims-2008",
+   "brazil-first-phase-2004",
+   "seusa-1989",
+   "seusa-1991",
+   "seusa-1992",
+   "seusa-1997"
+  ],
+  "set": [
+   "brazil-first-phase-1997.next (2008 -> 2004)",
+   "seusa-1988.next (1990 -> 1989)",
+   "seusa-1990.next (1993 -> 1991)",
+   "seusa-1996.next (1998 -> 1997)",
+   "vietnam-national-2016.date 2016-10-30",
+   "vietnam-national-2016.sites"
+  ],
+  "append": [
+   "vietnam-national-2016 scoreboard source (DOMjudge final standings, Wayback 20161106062218)",
+   "vietnam-national-2016 provenance (date)"
+  ]
+ },
+ "known_candidates": [
+  {
+   "candidate": "Atlantic Canadian 2020-2026",
+   "verdict": "ran, NOT mainline from 2020",
+   "evidence": [
+    "https://scienceatlantic.ca/committees/compsci/icpc/ (\"ACPC Programming Competition (formerly ICPC Preliminary Round)\"; 2020 virtual edition listed as a second \"2019 (October 31, Virtual)\"; 2021 virtual Oct 23; 2022 Oct 14 Mount Allison; 2023 Oct 13 UPEI; 2024 Oct 4 Acadia; 2025 Oct 17 Cape Breton)",
+    "https://www.dal.ca/faculty/computerscience/news-events/news/2024/11/06/dalhousie_competitive_programming_team_to_compete_against_harvard__mit_this_weekend.html (\"The Atlantic competition formerly served as the ICPC round for the Atlantic Canadian region\")",
+    "no CMS record after NA-ACPC-2020 (cms 4079 = nena-atlantic-2019)"
+   ],
+   "proposal": "non-mainline registry entries atlantic-canada-2020..2026",
+   "kattis": {
+    "2021": "https://atlantic-canada21.kattis.com/contests/atlantic-canada21/standings",
+    "2022": "https://atlantic-canada22.kattis.com/contests/atlantic-canada22/standings",
+    "2023": "https://atlantic-canada23.kattis.com/contests/atlantic-canada23/standings",
+    "2024": "https://atlantic-canada24.kattis.com/contests/atlantic-canada24/standings",
+    "2025": "https://atlantic-canada25.kattis.com/contests/atlantic-canada25/standings",
+    "2026": "https://atlantic-canada26.kattis.com/contests/atlantic-canada26/standings"
+   }
+  },
+  {
+   "candidate": "alberta-2026",
+   "verdict": "season 2026-27 -> current-season agent; not inserted here",
+   "evidence": [
+    "reports/kattis-sites-2026-11-14.md: acpc26/acpc26 (12 problems)",
+    "problem archive source \"Alberta Collegiate Programming Contest 2026\" (18 problems)"
+   ],
+   "note": "alberta-2025.next is null; series has parent unknown (structure agent)"
+  },
+  {
+   "candidate": "Swedish Championships 2002-2004 (sweden-2002..2004)",
+   "verdict": "not missing: = nordic-2002..2004 (the joint Norwegian/Swedish championships, progsm/prognm pages)",
+   "action": "map problem-archive sources \"Norwegian/Swedish Championships 2002/2003/2004\" to nordic-2002/2003/2004 (problems area)"
+  },
+  {
+   "candidate": "nwerc-1993",
+   "verdict": "not missing: = werc-1993 (Swansea; ETH archive B_EU_NWRC/1993)",
+   "action": "map \"Northwestern European Regionals 1993\" to werc-1993"
+  },
+  {
+   "candidate": "swerc-1991",
+   "verdict": "no evidence of a 1991 SWERC; Europe had one ERC in 1991 (erc-1991, Gent); the ETH SWERC archive starts 1993",
+   "action": "report only; the single problem is probably mislabelled (ERC 1991?) — needs the problem name"
+  },
+  {
+   "candidate": "brazil-1999..2003, brazil-first-phase-1998..2003",
+   "verdict": "not missing: 1998-2003 the Maratona was the Brazilian sites of the South America regional (south-america-1998..2003); maratona.sbc.org.br/hist/<year>/ pages say \"Regional Sul-Americana do ICPC\"",
+   "note": "the hist pages carry problem sets for south-america-1998..2003 (sources agent)"
+  },
+  {
+   "candidate": "brazil-first-phase-2004",
+   "verdict": "MISSING -> inserted (op)",
+   "evidence": [
+    "https://maratona.sbc.org.br/hist/2004/index.html",
+    "https://maratona.sbc.org.br/hist/2004/res-primeirafase04/acm2004br.pdf"
+   ]
+  },
+  {
+   "candidate": "brazil-first-phase-2005/2006",
+   "verdict": "present"
+  },
+  {
+   "candidate": "ncna-2010",
+   "verdict": "present (cms 643)"
+  },
+  {
+   "candidate": "sa-2001",
+   "verdict": "present as south-america-2001 (\"sa-2001-pdf.zip\" is a problem-set file name in the Bolivian archive links)"
+  },
+  {
+   "candidate": "ACPC 2018",
+   "verdict": "present: acpc-2018 (Arab), nena-atlantic-2018, alberta-2018"
+  },
+  {
+   "candidate": "Calgary Collegiate Programming Contest 2017-2026",
+   "verdict": "no CMS record; a University of Calgary contest; looks non-mainline (not verified)",
+   "proposal": "non-mainline registry if wanted"
+  },
+  {
+   "candidate": "bapc-prelims-2005..2008 (from \"Benelux Algorithm Programming Contest Qualifier 2006\")",
+   "verdict": "MISSING -> inserted (ops)"
+  }
+ ],
+ "problem_sources_34": {
+  "map_to_existing": {
+   "Norwegian/Swedish Championships 2002/2003/2004": "nordic-2002/2003/2004",
+   "Northwestern European Regionals 1993": "werc-1993",
+   "Benelux Algorithm Programming Contest Qualifier 2006": "bapc-prelims-2006 (new)",
+   "Hong Kong Regional Online Preliminary 2016": "part of hong-kong-2016 (online prelim, CMS 3088 proposed structural)",
+   "ICPC SG Preliminary Contest 2015 / 2018": "part of singapore-2015 / singapore-2018 (online prelims, CMS 2915 / 3732 proposed structural)"
+  },
+  "non_mainline": [
+   "1996 ODU ACM Programming Contest 1993",
+   "Calgary Collegiate Programming Contest 2017-2026",
+   "CodeSprintLA 2020 (UCLA ACM-ICPC)",
+   "Italian Collegiate Programming Contest 2022",
+   "Swedish ICPC Qualifier 2009 (university selection, like kth-*)",
+   "UofAlberta ACM Programming Contest 2002",
+   "Texas Regional Programming Contest 1974 (pre-ICPC; = repo wf-1974, ruled a sheet error)"
+  ],
+  "not_icpc": [
+   "2022 China Collegiate Programming Contest (CCPC)",
+   "Google Code Jam 2008 / 2010 World Finals",
+   "Croatian Regional Competition in Informatics 2007/2008, Croatian Regional Contest 2008/2009 (high-school informatics)"
+  ],
+  "minor_provincial": [
+   "The 10th Shandong Provincial",
+   "The 14th Zhejiang Provincial",
+   "The 2019 ICPC China Shaanxi Provincial",
+   "The 2021 Sichuan Provincial",
+   "The 2017 ACM-ICPC Vietnam Northern Provincial"
+  ],
+  "needs_a_look": [
+   "1998 Taiwan National Collegiate Programming Contest, group A (taiwan-ncpc starts 2007)",
+   "2025 ICPC North America Central Division (1 problem; no Central division contest in the catalogue: east-na and south-na exist)",
+   "ICPC 2005 (1 problem; no contest named)",
+   "Southern California Regional Contest (1 problem; no year)",
+   "Southwestern European Regional Contest 1991 (1 problem)"
+  ]
+ },
+ "cms_unaccounted": [
+  {
+   "cms_id": 863,
+   "icpc_year": "2012",
+   "date": "2011-09-21",
+   "name": "The 2011 XVII Maraton de Programacion ACM-ICPC UCV-2011",
+   "teams": "1",
+   "parent": "840",
+   "parent_name": "The 2011 Venezuela Finals",
+   "class": "structural / other"
+  },
+  {
+   "cms_id": 2563,
+   "icpc_year": "2015",
+   "date": "2014-09-21",
+   "name": "2014 ACM-ICPC Thailand Central Group B Programming Contest",
+   "teams": "53",
+   "parent": "2549",
+   "parent_name": "The 2014 ACM-ICPC*Asia Provincial/Invitational/National (Non Asia-host) Contests",
+   "class": "Thailand sub-national contest (feeds thailand-national)"
+  },
+  {
+   "cms_id": 2568,
+   "icpc_year": "2015",
+   "date": "2014-09-20",
+   "name": "2014 ACM-ICPC Thailand Northern Programming Contest",
+   "teams": "60",
+   "parent": "2549",
+   "parent_name": "The 2014 ACM-ICPC*Asia Provincial/Invitational/National (Non Asia-host) Contests",
+   "class": "Thailand sub-national contest (feeds thailand-national)"
+  },
+  {
+   "cms_id": 2582,
+   "icpc_year": "2015",
+   "date": "2014-08-30",
+   "name": "2014 ACM-ICPC Thailand Southern Programming Contest",
+   "teams": "58",
+   "parent": "2549",
+   "parent_name": "The 2014 ACM-ICPC*Asia Provincial/Invitational/National (Non Asia-host) Contests",
+   "class": "Thailand sub-national contest (feeds thailand-national)"
+  },
+  {
+   "cms_id": 2587,
+   "icpc_year": "2015",
+   "date": "2014-09-21",
+   "name": "2014 ACM-ICPC Thailand Central Group A Programming Contest",
+   "teams": "57",
+   "parent": "2549",
+   "parent_name": "The 2014 ACM-ICPC*Asia Provincial/Invitational/National (Non Asia-host) Contests",
+   "class": "Thailand sub-national contest (feeds thailand-national)"
+  },
+  {
+   "cms_id": 2588,
+   "icpc_year": "2015",
+   "date": "2014-09-21",
+   "name": "2014 ACM-ICPC Thailand Northeastern Programming Contest",
+   "teams": "59",
+   "parent": "2549",
+   "parent_name": "The 2014 ACM-ICPC*Asia Provincial/Invitational/National (Non Asia-host) Contests",
+   "class": "Thailand sub-national contest (feeds thailand-national)"
+  },
+  {
+   "cms_id": 2923,
+   "icpc_year": "2016",
+   "date": "2015-09-26",
+   "name": "ACM-ICPC Taiwan Online Programming Contest",
+   "teams": "72",
+   "parent": "2921",
+   "parent_name": "The 2015 ACM-ICPC Asia Taipei Regional Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 2976,
+   "icpc_year": "2016",
+   "date": "2015-09-13",
+   "name": "The 2015 ACM-ICPC Thailand Southern Programming Contest",
+   "teams": "50",
+   "parent": "2951",
+   "parent_name": "The 2015 ACM-ICPC*Asia Provincial/Invitational/National Contests",
+   "class": "Thailand sub-national contest (feeds thailand-national)"
+  },
+  {
+   "cms_id": 2990,
+   "icpc_year": "2016",
+   "date": "2015-09-28",
+   "name": "ACM ICPC Maraton",
+   "teams": "32",
+   "parent": "2779",
+   "parent_name": "The 2015 CTU Open",
+   "class": "unknown \"Maraton\" filed under CTU Open"
+  },
+  {
+   "cms_id": 2991,
+   "icpc_year": "2016",
+   "date": "2015-09-13",
+   "name": "The 2015 ACM-ICPC Thailand Northeastern Programming Contest",
+   "teams": "60",
+   "parent": "2951",
+   "parent_name": "The 2015 ACM-ICPC*Asia Provincial/Invitational/National Contests",
+   "class": "Thailand sub-national contest (feeds thailand-national)"
+  },
+  {
+   "cms_id": 3041,
+   "icpc_year": "2017",
+   "date": "2016-10-19",
+   "name": "The 2016 ACM-ICPC Asia Taiwan Online Programming Contest",
+   "teams": "129",
+   "parent": "3040",
+   "parent_name": "The 2016 ACM-ICPC Asia Chung-Li Regional Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 3049,
+   "icpc_year": "2017",
+   "date": "2016-10-30",
+   "name": "Asia Nha Trang National Programming Contest",
+   "teams": "178",
+   "parent": "3048",
+   "parent_name": "The 2016 ACM-ICPC Asia Nha Trang Regional Contest",
+   "class": "MISSING CONTEST -> vietnam-national-2016 (op)"
+  },
+  {
+   "cms_id": 3067,
+   "icpc_year": "2017",
+   "date": "2016-09-24",
+   "name": "The 2016 ACM-ICPC Thailand Northeastern Programming Contest",
+   "teams": "64",
+   "parent": "3052",
+   "parent_name": "The 2016 Asia xProvincial & Invitational & National (Non-Regional Host) Contests",
+   "class": "Thailand sub-national contest (feeds thailand-national)"
+  },
+  {
+   "cms_id": 3070,
+   "icpc_year": "2017",
+   "date": "2016-09-10",
+   "name": "The 2016 ACM-ICPC Thailand Southern Programming Contest",
+   "teams": "65",
+   "parent": "3052",
+   "parent_name": "The 2016 Asia xProvincial & Invitational & National (Non-Regional Host) Contests",
+   "class": "Thailand sub-national contest (feeds thailand-national)"
+  },
+  {
+   "cms_id": 3072,
+   "icpc_year": "2017",
+   "date": "2016-07-01",
+   "name": "The 2016 ACM-ICPC Thailand Northern Programming Contest",
+   "teams": "60",
+   "parent": "3052",
+   "parent_name": "The 2016 Asia xProvincial & Invitational & National (Non-Regional Host) Contests",
+   "class": "Thailand sub-national contest (feeds thailand-national)"
+  },
+  {
+   "cms_id": 3077,
+   "icpc_year": "2017",
+   "date": "2016-09-11",
+   "name": "The 2016 ACM-ICPC Thailand Central Group B Programming Contest",
+   "teams": "54",
+   "parent": "3052",
+   "parent_name": "The 2016 Asia xProvincial & Invitational & National (Non-Regional Host) Contests",
+   "class": "Thailand sub-national contest (feeds thailand-national)"
+  },
+  {
+   "cms_id": 3080,
+   "icpc_year": "2017",
+   "date": "2016-09-11",
+   "name": "The 2016 ACM-ICPC Thailand Central Group A Programming Contest",
+   "teams": "102",
+   "parent": "3052",
+   "parent_name": "The 2016 Asia xProvincial & Invitational & National (Non-Regional Host) Contests",
+   "class": "Thailand sub-national contest (feeds thailand-national)"
+  },
+  {
+   "cms_id": 3114,
+   "icpc_year": "2017",
+   "date": "2016-09-21",
+   "name": "ACM ICPC Maraton",
+   "teams": "15",
+   "parent": "3113",
+   "parent_name": "The 2016 CTU Open",
+   "class": "unknown \"Maraton\" filed under CTU Open"
+  },
+  {
+   "cms_id": 3326,
+   "icpc_year": "2018",
+   "date": "2017-09-18",
+   "name": "ACM ICPC Maraton",
+   "teams": "1",
+   "parent": "3325",
+   "parent_name": "The 2017 CTU Open",
+   "class": "unknown \"Maraton\" filed under CTU Open"
+  },
+  {
+   "cms_id": 3412,
+   "icpc_year": "2018",
+   "date": "2017-08-15",
+   "name": "The 2017 ACM-ICPC Asia Hua-Lien Taiwan Online Programming Contest",
+   "teams": "103",
+   "parent": "3411",
+   "parent_name": "The 2017 ACM-ICPC Asia Hua-Lien Regional Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 3471,
+   "icpc_year": "2018",
+   "date": "2017-06-28",
+   "name": "The 2017 Asia Hua-Lien NCTU",
+   "teams": "34",
+   "parent": "3411",
+   "parent_name": "The 2017 ACM-ICPC Asia Hua-Lien Regional Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 3472,
+   "icpc_year": "2018",
+   "date": "2017-06-28",
+   "name": "The 2017 Asia Hua-Lien NCPU",
+   "teams": "54",
+   "parent": "3411",
+   "parent_name": "The 2017 ACM-ICPC Asia Hua-Lien Regional Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 3663,
+   "icpc_year": "2019",
+   "date": "2018-12-01",
+   "name": "ICPC Maraton",
+   "teams": "9",
+   "parent": "3662",
+   "parent_name": "The 2018 CTU Open",
+   "class": "unknown \"Maraton\" filed under CTU Open"
+  },
+  {
+   "cms_id": 3739,
+   "icpc_year": "2019",
+   "date": "2018-07-05",
+   "name": "The 2018 ICPC Asia Taipei National Contest for Technology Universities",
+   "teams": "36",
+   "parent": "3738",
+   "parent_name": "The 2018 ICPC Asia Taipei Regional Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 3740,
+   "icpc_year": "2019",
+   "date": "2018-07-05",
+   "name": "The 2018 ICPC Asia Taipei NCPU",
+   "teams": "50",
+   "parent": "3738",
+   "parent_name": "The 2018 ICPC Asia Taipei Regional Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 3741,
+   "icpc_year": "2019",
+   "date": "2018-09-15",
+   "name": "The 2018 ICPC Asia Taiwan Online Programming Contest",
+   "teams": "90",
+   "parent": "3738",
+   "parent_name": "The 2018 ICPC Asia Taipei Regional Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 4182,
+   "icpc_year": "2020",
+   "date": "2019-07-10",
+   "name": "The 2019 ICPC Asia Taipei National Contest for Technology Universities",
+   "teams": "31",
+   "parent": "4181",
+   "parent_name": "The 2019 ICPC Asia Taipei-Hsinchu Site Programming Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 4183,
+   "icpc_year": "2020",
+   "date": "2019-10-05",
+   "name": "The 2019 ICPC Asia Taiwan Online Programming Contest",
+   "teams": "98",
+   "parent": "4181",
+   "parent_name": "The 2019 ICPC Asia Taipei-Hsinchu Site Programming Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 4184,
+   "icpc_year": "2020",
+   "date": "2019-07-10",
+   "name": "The 2019 ICPC Taiwan National Contest for Private Universities",
+   "teams": "52",
+   "parent": "4181",
+   "parent_name": "The 2019 ICPC Asia Taipei-Hsinchu Site Programming Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 4194,
+   "icpc_year": "2020",
+   "date": "",
+   "name": "East Siberian Subregional Contest",
+   "teams": "0",
+   "parent": "4192",
+   "parent_name": "The 2019 East Siberian Regional Contest",
+   "class": "structural / other"
+  },
+  {
+   "cms_id": 4326,
+   "icpc_year": "2021",
+   "date": "2020-10-07",
+   "name": "The 2020 ICPC Asia Taiwan Online Programming Contest",
+   "teams": "146",
+   "parent": "4325",
+   "parent_name": "The 2020 ICPC Asia Taipei-Hsinchu Site Programming Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 4327,
+   "icpc_year": "2021",
+   "date": "2020-07-07",
+   "name": "The 2020 ICPC Taiwan National Contest for Private Universities",
+   "teams": "57",
+   "parent": "4325",
+   "parent_name": "The 2020 ICPC Asia Taipei-Hsinchu Site Programming Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 4328,
+   "icpc_year": "2021",
+   "date": "2020-07-07",
+   "name": "The 2020 ICPC Asia Taipei National Contest for Technology Universities",
+   "teams": "0",
+   "parent": "4325",
+   "parent_name": "The 2020 ICPC Asia Taipei-Hsinchu Site Programming Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 4605,
+   "icpc_year": "2022",
+   "date": "2021-08-19",
+   "name": "The 2021 ICPC Asia-Taipei National Contest for Technology Universities",
+   "teams": "22",
+   "parent": "4874",
+   "parent_name": "The 2021 ICPC Asia Taipei National Contest for Technology Universities",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 4606,
+   "icpc_year": "2022",
+   "date": "2021-08-19",
+   "name": "The 2021 ICPC-Taiwan National Contest for Private Universities",
+   "teams": "36",
+   "parent": "4875",
+   "parent_name": "The 2022 ICPC Taiwan Private University Programming Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 4873,
+   "icpc_year": "2022",
+   "date": "2021-10-23",
+   "name": "The 2021 ICPC Asia Taiwan Online Programming Contest",
+   "teams": "160",
+   "parent": "4872",
+   "parent_name": "The 2021 ICPC Asia Taipei Regional Programming Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 4875,
+   "icpc_year": "2022",
+   "date": "2022-06-29",
+   "name": "The 2022 ICPC Taiwan Private University Programming Contest",
+   "teams": "10",
+   "parent": "4872",
+   "parent_name": "The 2021 ICPC Asia Taipei Regional Programming Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 5573,
+   "icpc_year": "2023",
+   "date": "2022-12-06",
+   "name": "The 2022 ICPC Northern Eurasia Contests",
+   "teams": "0",
+   "parent": "5366",
+   "parent_name": "47th Annual World Championship of the International Collegiate Programming Contest",
+   "class": "structural / other"
+  },
+  {
+   "cms_id": 5627,
+   "icpc_year": "2023",
+   "date": "2022-10-22",
+   "name": "The 2022 ICPC Asia Taiwan Online Programming Contest",
+   "teams": "235",
+   "parent": "5626",
+   "parent_name": "The 2022 ICPC Asia Taoyuan Regional Programming Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 5628,
+   "icpc_year": "2023",
+   "date": "2022-06-29",
+   "name": "The 2022 ICPC Taiwan Private University Programming Contest",
+   "teams": "45",
+   "parent": "5626",
+   "parent_name": "The 2022 ICPC Asia Taoyuan Regional Programming Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 5630,
+   "icpc_year": "2023",
+   "date": "2022-06-29",
+   "name": "The 2022 ICPC Taiwan Technology University Programming Contest",
+   "teams": "21",
+   "parent": "5626",
+   "parent_name": "The 2022 ICPC Asia Taoyuan Regional Programming Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 6457,
+   "icpc_year": "2023",
+   "date": "2023-03-10",
+   "name": "The 2022 ICPC Asia Dhaka Regional",
+   "teams": "3",
+   "parent": "5643",
+   "parent_name": "The 2022 ICPC Asia Dhaka Regional Site Online Preliminary Contest",
+   "class": "Dhaka regional sub-entry"
+  },
+  {
+   "cms_id": 7505,
+   "icpc_year": "2024",
+   "date": "2023-06-29",
+   "name": "The 2023 ICPC Taiwan Private University Programming Contest",
+   "teams": "69",
+   "parent": "7504",
+   "parent_name": "The 2023 ICPC Asia Taoyuan Regional Programming Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 7507,
+   "icpc_year": "2024",
+   "date": "2023-09-16",
+   "name": "The 2023 ICPC Asia Taiwan Online Programming Contest",
+   "teams": "189",
+   "parent": "7504",
+   "parent_name": "The 2023 ICPC Asia Taoyuan Regional Programming Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 7508,
+   "icpc_year": "2024",
+   "date": "2023-06-29",
+   "name": "The 2023 ICPC Taiwan Technology University Programming Contest",
+   "teams": "36",
+   "parent": "7504",
+   "parent_name": "The 2023 ICPC Asia Taoyuan Regional Programming Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 8743,
+   "icpc_year": "2025",
+   "date": "2024-07-10",
+   "name": "The 2024 ICPC Taiwan Technology University Programming Contest",
+   "teams": "33",
+   "parent": "8742",
+   "parent_name": "The 2024 ICPC Asia Taichung Regional Programming Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 8744,
+   "icpc_year": "2025",
+   "date": "2024-09-07",
+   "name": "The 2024 ICPC Asia Taiwan Online Programming Contest",
+   "teams": "294",
+   "parent": "8742",
+   "parent_name": "The 2024 ICPC Asia Taichung Regional Programming Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 8745,
+   "icpc_year": "2025",
+   "date": "2024-07-10",
+   "name": "The 2024 ICPC Taiwan Private University Programming Contest",
+   "teams": "74",
+   "parent": "8742",
+   "parent_name": "The 2024 ICPC Asia Taichung Regional Programming Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 8864,
+   "icpc_year": "2025",
+   "date": "2024-12-06",
+   "name": "The 2024 ICPC Asia Dhaka Regional Onsite Contest",
+   "teams": "304",
+   "parent": "8861",
+   "parent_name": "The 2024 ICPC Asia Dhaka Regional Contest",
+   "class": "Dhaka regional sub-entry"
+  },
+  {
+   "cms_id": 9363,
+   "icpc_year": "2026",
+   "date": "2026-02-23",
+   "name": "The 2025-2026 ICPC ARC",
+   "teams": "6",
+   "parent": "9360",
+   "parent_name": "The 2025 ICPC Southwestern Europe Regional Contest",
+   "class": "local contest filed under SWERC 2025 (Artois)"
+  },
+  {
+   "cms_id": 9396,
+   "icpc_year": "2026",
+   "date": "2025-07-09",
+   "name": "The 2025 ICPC Taiwan Private University Programming Contest",
+   "teams": "82",
+   "parent": "9395",
+   "parent_name": "The 2025 ICPC Asia Taichung Regional Programming Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 9397,
+   "icpc_year": "2026",
+   "date": "2025-07-09",
+   "name": "The 2025 ICPC Taiwan Technology University Programming Contest",
+   "teams": "32",
+   "parent": "9395",
+   "parent_name": "The 2025 ICPC Asia Taichung Regional Programming Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  },
+  {
+   "cms_id": 9398,
+   "icpc_year": "2026",
+   "date": "2025-09-20",
+   "name": "The 2025 ICPC Asia Taiwan Online Programming Contest",
+   "teams": "228",
+   "parent": "9395",
+   "parent_name": "The 2025 ICPC Asia Taichung Regional Programming Contest",
+   "class": "taiwan-national (NCPU/NCTU) or Taiwan Online Programming Contest"
+  }
+ ],
+ "series_gaps_with_cms_hits": {
+  "algeria-2015": [],
+  "algeria-2016": [],
+  "algeria-2017": [],
+  "algeria-2019": [],
+  "australia-1999": [
+   "1121 [1999-09-18] The 1999 ACM South Pacific Programming Contest (90t) -> south-pacific-1999"
+  ],
+  "australia-2000": [
+   "1218 [2000-09-15] The 2000 ACM South Pacific Programming Contest (91t) -> south-pacific-2000"
+  ],
+  "australia-2001": [
+   "1236 [2002-09-13] The 2001 ACM South Pacific Programming Contest (87t) -> south-pacific-2001"
+  ],
+  "australia-2002": [
+   "1236 [2002-09-13] The 2001 ACM South Pacific Programming Contest (87t) -> south-pacific-2001",
+   "1133 [2002-09-21] The 2002 ACM South Pacific Programming Contest (98t) -> south-pacific-2002"
+  ],
+  "australia-2003": [
+   "1135 [2003-09-20] The 2003 ACM South Pacific Programming Contest (92t) -> south-pacific-2003"
+  ],
+  "australia-2004": [
+   "1211 [2004-09-18] The 2004 ACM South Pacific Programming Contest (96t) -> south-pacific-2004"
+  ],
+  "australia-2005": [
+   "1178 [2005-09-17] The 2005 ACM South Pacific Programming Contest (87t) -> south-pacific-2005"
+  ],
+  "australia-2006": [
+   "1264 [2006-09-16] The 2006 ACM South Pacific Programming Contest (80t) -> south-pacific-2006"
+  ],
+  "australia-2007": [
+   "1217 [2007-09-15] The 2007 ACM South Pacific Programming Contest (91t) -> south-pacific-2007"
+  ],
+  "australia-2008": [
+   "42 [2008-09-13] The 2008 South Pacific Regional Contest (3t) -> south-pacific-2008",
+   "43 [2008-09-13] The 2008 South Pacific Contest (92t) -> TRI:preliminary"
+  ],
+  "australia-2009": [
+   "491 [] The 2009 South Pacific Regional Contest (0t) -> TRI:structural",
+   "492 [2009-09-10] The 2009 South Pacific Contest (79t) -> south-pacific-2009"
+  ],
+  "australia-2010": [
+   "576 [] The 2010 South Pacific Regional Contest (0t) -> TRI:structural",
+   "577 [2010-09-11] The 2010 South Pacific Programming Contest (64t) -> south-pacific-2010"
+  ],
+  "australia-2011": [
+   "743 [] The 2011 South Pacific Regional Contest (0t) -> TRI:structural",
+   "744 [2011-09-10] The 2011 South Pacific Programming Contest (81t) -> south-pacific-2011"
+  ],
+  "australia-2012": [
+   "1398 [2012-09-15] The 2012 South Pacific Regional Contest (0t) -> TRI:preliminary",
+   "1535 [2012-08-01] Australian Programming Contest (0t) -> TRI:cancelled",
+   "1399 [2012-09-15] The 2012 South Pacific Programming Contest (89t) -> south-pacific-2012"
+  ],
+  "awc-2020": [
+   "4085 [] The 2019 ICPC Asia West Contests (0t) -> TRI:structural",
+   "4097 [] The 2019 ICPC Asia West Continent Provincials, National, and Invitational (0t) -> TRI:structural",
+   "4482 [] The 2020 ICPC Asia West Contests (0t) -> TRI:structural",
+   "4486 [] The 2020 ICPC Asia West Continent Provincials, National, and Invitational (0t) -> TRI:structural"
+  ],
+  "beijing-2009": [],
+  "beijing-2010": [],
+  "beijing-2012": [],
+  "beijing-2013": [],
+  "benin-2018": [],
+  "brazil-first-phase-1998": [],
+  "brazil-first-phase-1999": [],
+  "brazil-first-phase-2000": [],
+  "brazil-first-phase-2001": [],
+  "brazil-first-phase-2002": [],
+  "brazil-first-phase-2003": [],
+  "brazil-first-phase-2004": [
+   "968 [2004-11-12] The 2004 ACM-ICPC South America Contest outside Brazil (148t) -> south-america-2004",
+   "1227 [2004-10-02] The 2004 ACM-ICPC South America Contest within Brazil (186t) -> brazil-2004"
+  ],
+  "changchun-2008": [],
+  "changchun-2009": [],
+  "changchun-2010": [],
+  "changchun-2011": [],
+  "changchun-2014": [],
+  "chengdu-2006": [],
+  "chengdu-2009": [],
+  "chengdu-2014": [],
+  "chengdu-2015": [],
+  "chengdu-2016": [],
+  "chengdu-2017": [],
+  "chengdu-2018": [],
+  "chengdu-2019": [],
+  "chengdu-2020": [],
+  "chengdu-2021": [],
+  "chengdu-2022": [],
+  "chengdu-2023": [],
+  "chennai-2018": [
+   "3523 [2018-09-01] The 2018 ICPC India Chennai Provincial Programming Contest (95t) -> PROP:minor"
+  ],
+  "chennai-2019": [
+   "4100 [2019-11-09] The 2019 ICPC India Chennai Provincial Programming Contest (99t) -> PROP:minor"
+  ],
+  "chennai-2020": [],
+  "chennai-2021": [],
+  "chennai-2022": [],
+  "ctuo-2020": [
+   "4523 [] The 2020 CTU Open (0t) -> TRI:cancelled"
+  ],
+  "cyprus-2020": [
+   "4542 [] The 2020 Cyprus Collegiate Programming Contest (0t) -> TRI:cancelled"
+  ],
+  "cyprus-2021": [
+   "4911 [] The 2021 ICPC Cyprus Collegiate Programming Contest (0t) -> TRI:cancelled"
+  ],
+  "cyprus-2022": [
+   "5418 [] The 2022 ICPC Cyprus Collegiate Programming Contest (0t) -> TRI:cancelled"
+  ],
+  "cyprus-2023": [
+   "7584 [] The 2023 ICPC Cyprus Collegiate Programming Contest (0t) -> TRI:cancelled"
+  ],
+  "cyprus-2024": [],
+  "dalian-2012": [],
+  "dalian-2013": [],
+  "dalian-2014": [],
+  "dalian-2015": [],
+  "dhaka-2000": [],
+  "guangzhou-2004": [],
+  "guangzhou-2005": [],
+  "guangzhou-2006": [],
+  "guangzhou-2007": [],
+  "guangzhou-2008": [],
+  "guangzhou-2009": [],
+  "guangzhou-2010": [],
+  "guangzhou-2011": [],
+  "guangzhou-2012": [],
+  "guangzhou-2013": [],
+  "gwalior-2015": [],
+  "gwalior-2016": [],
+  "gwalior-2018": [
+   "3514 [2018-12-17] The 2018 ICPC Asia Gwalior-Pune Regional Contest (131t) -> gwalior-pune-2018",
+   "3515 [2018-10-23] Asia Gwalior-Pune First Round Online Programming Contest (1303t) -> PROP:structural"
+  ],
+  "gwalior-2019": [
+   "4105 [2019-12-14] The 2019 ICPC Asia Gwalior-Pune Regional Contest (134t) -> gwalior-pune-2019",
+   "4106 [2019-10-18] Asia Gwalior-Pune First Round Online Programming Contest (1982t) -> PROP:structural"
+  ],
+  "gwalior-2020": [
+   "4500 [2021-08-18] The 2020 ICPC Asia Gwalior-Pune Regional Contest (687t) -> gwalior-pune-2020",
+   "4501 [] Asia Gwalior-Pune First Round Online Programming Contest (0t) -> TRI:cancelled"
+  ],
+  "gwalior-2021": [
+   "4500 [2021-08-18] The 2020 ICPC Asia Gwalior-Pune Regional Contest (687t) -> gwalior-pune-2020",
+   "4830 [2022-10-03] The 2021 ICPC Asia Gwalior-Pune Regional Contest (82t) -> gwalior-pune-2021",
+   "4831 [2022-09-04] The 2021 ICPC Asia Gwalior-Pune First Round Online Programming Contest (541t) -> PROP:structural"
+  ],
+  "hangzhou-2006": [],
+  "hangzhou-2007": [],
+  "hangzhou-2009": [],
+  "hangzhou-2011": [],
+  "hangzhou-2014": [],
+  "hangzhou-2015": [],
+  "hangzhou-2016": [],
+  "hangzhou-2017": [],
+  "hangzhou-2018": [],
+  "hangzhou-2019": [],
+  "hangzhou-2020": [],
+  "hangzhou-2021": [],
+  "hefei-2010": [],
+  "hefei-2011": [],
+  "hefei-2012": [],
+  "hefei-2013": [],
+  "hefei-2014": [],
+  "hefei-2016": [],
+  "hefei-2017": [],
+  "hefei-2018": [],
+  "hefei-2019": [],
+  "hefei-2020": [],
+  "hefei-2021": [],
+  "hefei-2024": [],
+  "hefei-2025": [
+   "9230 [] The 2025 ICPC Asia Hefei Regional Contest (0t) -> TRI:cancelled"
+  ],
+  "hong-kong-2001": [],
+  "hong-kong-2002": [],
+  "hong-kong-2003": [],
+  "hong-kong-2004": [],
+  "hong-kong-2005": [],
+  "hong-kong-2006": [],
+  "hong-kong-2007": [],
+  "hong-kong-2008": [],
+  "hong-kong-2009": [],
+  "hong-kong-2010": [],
+  "hong-kong-2011": [],
+  "hong-kong-2012": [],
+  "hong-kong-2013": [],
+  "hong-kong-2014": [],
+  "hong-kong-2015": [],
+  "hong-kong-2020": [],
+  "hong-kong-2021": [],
+  "hong-kong-2023": [
+   "5546 [2023-01-14] The 2022 ICPC Asia Hong Kong Regional Contest (119t) -> hong-kong-2022"
+  ],
+  "jakarta-2011": [],
+  "jinan-2024": [],
+  "jinan-2025": [
+   "9219 [] The 2025 ICPC Asia Jinan Regional Contest (0t) -> TRI:cancelled"
+  ],
+  "kabul-2021": [
+   "4484 [2021-08-12] The 2020 ICPC Asia Kabul Regional Contest (79t) -> kabul-2020",
+   "4485 [2021-08-05] Kabul First Round Online Contest (75t) -> PROP:structural",
+   "4847 [] The 2021 ICPC Afghanistan Provincial 3 (0t) -> TRI:cancelled"
+  ],
+  "kabul-2022": [
+   "5654 [] The 2022 ICPC Afghanistan Provincial 3 (0t) -> TRI:cancelled"
+  ],
+  "kanpur-2003": [],
+  "kanpur-2005": [],
+  "kanpur-2009": [
+   "497 [2009-10-03] The 2009 ACM-ICPC Asia Gwalior-Kanpur Regional Contest (106t) -> gwalior-kanpur-2009"
+  ],
+  "kanpur-2014": [],
+  "kanpur-2015": [],
+  "kanpur-2016": [],
+  "kanpur-2017": [
+   "3441 [2017-12-23] The 2017 ACM-ICPC Asia Kolkata-Kanpur Contest (168t) -> kolkata-kanpur-2017",
+   "3482 [2017-11-05] Asia Kolkata-Kanpur Online Preliminary (820t) -> PROP:structural"
+  ],
+  "kanpur-2018": [
+   "3529 [2018-12-21] The 2018 ICPC Asia Kolkata-Kanpur Onsite Regional Contest (162t) -> kolkata-kanpur-2018",
+   "3530 [2018-10-23] Asia Kolkata-Kanpur Preliminary Online Contest 2018 (1252t) -> PROP:structural"
+  ],
+  "kharagpur-2015": [],
+  "kolkata-2006": [],
+  "kolkata-2007": [],
+  "kolkata-2008": [],
+  "kolkata-2009": [],
+  "kolkata-2010": [],
+  "kolkata-2011": [],
+  "kolkata-2012": [],
+  "kolkata-2013": [],
+  "kolkata-2014": [],
+  "kuala-lumpur-2009": [],
+  "kuala-lumpur-2012": [],
+  "kuala-lumpur-2013": [],
+  "kuala-lumpur-2015": [],
+  "kuala-lumpur-2016": [
+   "3069 [2016-10-07] The 2016 ACM-ICPC Malaysia AlKhawarizmi National Programming Contest (32t) -> malaysia-national-2016"
+  ],
+  "kuala-lumpur-2017": [
+   "3391 [2017-12-31] The 2017 ACM-ICPC Malaysia Provincial 12 (0t) -> TRI:cancelled"
+  ],
+  "kuala-lumpur-2018": [
+   "3750 [2018-05-11] The 2018 ICPC Malaysia National alKhawarizmi Programming Contest (43t) -> malaysia-national-2018"
+  ],
+  "kunming-2022": [
+   "4746 [2022-04-09] The 2021 ICPC Asia Kunming Regional  Contest (797t) -> kunming-2021",
+   "5539 [] The 2022 ICPC Asia Kunming Regional  Contest (0t) -> TRI:structural",
+   "5540 [] The 2022 ICPC Asia Kunming First Round Online Programming Contest (0t) -> TRI:cancelled"
+  ],
+  "kunming-2023": [
+   "7689 [] The 2023 ICPC Asia Kunming Regional  Contest (0t) -> TRI:structural",
+   "7690 [] The 2023 ICPC Asia Kunming First Round Online Programming Contest (0t) -> TRI:cancelled",
+   "8687 [2024-05-25] The 2024 ICPC China Kunming National Invitational Programming Contest - old (280t) -> PROP:minor"
+  ],
+  "kunming-2025": [
+   "9225 [] The 2025 ICPC Asia Kunming Regional  Contest (0t) -> TRI:cancelled",
+   "9201 [] The 2025 ICPC China Kunming National Invitational Programming Contest (0t) -> TRI:cancelled"
+  ],
+  "kuwait-2013": [],
+  "macau-2022": [
+   "4735 [2022-04-02] The 2021 ICPC Asia Macau Regional Contest (190t) -> macau-2021",
+   "5547 [] The 2022 ICPC Asia Macau International Invitational Contest (0t) -> TRI:cancelled"
+  ],
+  "malaysia-national-2015": [],
+  "malaysia-national-2017": [
+   "3391 [2017-12-31] The 2017 ACM-ICPC Malaysia Provincial 12 (0t) -> TRI:cancelled"
+  ],
+  "manila-2007": [],
+  "manila-2008": [],
+  "manila-2010": [],
+  "manila-2012": [],
+  "manila-2013": [],
+  "manila-2014": [
+   "2581 [2014-09-06] 2014 ACM-ICPC Philippines National Programming Contest (31t) -> philippines-national-2014",
+   "2566 [2014-09-26] 2014 ACM-ICPC Philippine Invitational-Northern Luzon Multi-Provincial Contest (15t) -> PROP:minor"
+  ],
+  "manila-2015": [
+   "2974 [2015-09-05] The 2015 ACM-ICPC Philippines National Programming Contest (16t) -> philippines-national-2015",
+   "2983 [2015-09-13] The 2015 ACM-ICPC Philippines Southern Luzon Invitational Programming Contest (13t) -> PROP:minor",
+   "2984 [2015-10-03] The 2015 ACM-ICPC Philippines Mindanao Invitational Programming Contest (18t) -> PROP:minor",
+   "2979 [2015-09-19] The 2015 ACM-ICPC Philippines Metro Manila Invitational Programming Contest (17t) -> PROP:minor",
+   "2978 [2015-09-05] The 2015 ACM-ICPC Philippines Visayas Invitational Programming Contest (15t) -> PROP:minor"
+  ],
+  "manila-2018": [
+   "3745 [2019-02-14] The 2019 ICPC Philippines Davao Region Invitational Programming Contest (28t) -> PROP:minor",
+   "3753 [2018-02-08] The 2018 ICPC Philippines Davao Region Invitational Programming Contest (18t) -> PROP:minor"
+  ],
+  "manila-2020": [
+   "4178 [2020-01-25] The 2019 ICPC Philippines National Programming Contest (0t) -> philippines-national-2019",
+   "4297 [2020-02-11] 2020 ICPC Philippines Davao Region Programming Contest (21t) -> TRI:preliminary",
+   "4311 [] The 2020 ICPC Philippines Provincial 6 (0t) -> TRI:cancelled"
+  ],
+  "manila-2021": [
+   "4865 [] The 2021 ICPC Philippines Provincial 6 (0t) -> TRI:structural",
+   "4312 [] The 2021 ICPC Philippines-Davao Region Programming Contest (0t) -> TRI:cancelled"
+  ],
+  "manila-2023": [
+   "7519 [] The 2023 ICPC Philippines Provincial 6 (0t) -> TRI:structural",
+   "7520 [] The 2023 ICPC Philippines-Dxxx Programming Contest (0t) -> TRI:cancelled"
+  ],
+  "manila-2024": [],
+  "mathura-2023": [
+   "5649 [2023-04-08] The 2022 ICPC Asia Mathura Kanpur Regional Contest (151t) -> mathura-2022",
+   "6423 [2023-03-18] ICPC Mathura Kanpur Preliminary Contest (1363t) -> PROP:structural"
+  ],
+  "mathura-2024": [],
+  "mathura-2025": [],
+  "morocco-2024": [],
+  "nanchang-2020": [],
+  "nanchang-2021": [],
+  "nanchang-2022": [],
+  "nanchang-2023": [],
+  "nanchang-2024": [],
+  "nanchang-2025": [
+   "9199 [2025-03-26] The 2025-2026 ICPC China Nanchang National Invitational Programming Contest (422t) -> PROP:minor",
+   "9419 [2025-03-26] The 2025 ICPC Nanchang Invitational Programming Contest (72t) -> PROP:minor"
+  ],
+  "nanjing-2008": [],
+  "nanjing-2009": [],
+  "nanjing-2010": [],
+  "nanjing-2011": [],
+  "nanjing-2012": [],
+  "nanjing-2014": [],
+  "nanjing-2015": [],
+  "nanjing-2016": [],
+  "nanjing-2017": [],
+  "nena-north-2010": [
+   "589 [2010-10-23] The 2010 South America/North Regional Contest (55t) -> south-america-north-2010",
+   "641 [] The 2010 North America Regional Contest (0t) -> TRI:structural",
+   "648 [2010-11-06] The 2010 Northeast North America Regional Contest (11t) -> nena-2010",
+   "643 [2010-11-06] The 2010 North Central NA Regional Contest (226t) -> ncna-2010",
+   "617 [2010-11-23] The 2010 Northeastern Europe Regional Contest (214t) -> neerc-2010"
+  ],
+  "nigeria-2018": [],
+  "nzpc-1999": [],
+  "oman-2015": [
+   "2790 [2015-05-23] The 2015 Romania Programming Contest (46t) -> romania-2015",
+   "2792 [] The 2015 Romania - Timisoara Subregion Contest (12t) -> PROP:structural",
+   "2794 [2015-04-19] The 2015 Romania - Bucharest Subregion Contest (78t) -> PROP:structural",
+   "2791 [] The 2015 Romania - Iasi Subregion Contest (10t) -> PROP:structural",
+   "2793 [] The 2015 Romania - Cluj Subregion Contest (14t) -> PROP:structural"
+  ],
+  "philippines-national-2016": [
+   "3079 [2016-10-01] The 2016 ACM-ICPC Philippines Southern Luzon Invitational Programming Contest (15t) -> PROP:minor"
+  ],
+  "philippines-national-2017": [
+   "3383 [2017-10-01] The 2017 ACM-ICPC Philippines Southern Luzon Invitational Programming Contest (7t) -> PROP:minor",
+   "3418 [2017-10-14] Asia Manila - Philippine National Programming Contest (Online) (55t) -> TRI:preliminary"
+  ],
+  "philippines-national-2018": [
+   "3745 [2019-02-14] The 2019 ICPC Philippines Davao Region Invitational Programming Contest (28t) -> PROP:minor",
+   "3753 [2018-02-08] The 2018 ICPC Philippines Davao Region Invitational Programming Contest (18t) -> PROP:minor"
+  ],
+  "poland-2020": [
+   "4526 [] The 2020 Polish Collegiate Programming Contest (0t) -> TRI:cancelled"
+  ],
+  "seusa-1989": [],
+  "seusa-1991": [],
+  "seusa-1992": [],
+  "seusa-1997": [],
+  "shanghai-2002": [],
+  "shanghai-2003": [],
+  "shanghai-2005": [],
+  "shanghai-2007": [],
+  "shanghai-2008": [],
+  "shanghai-2010": [],
+  "shanghai-2012": [],
+  "shanghai-2013": [],
+  "shanghai-2016": [],
+  "shanghai-2017": [],
+  "shanghai-2018": [
+   "3703 [2018-07-20] The 2018 ICPC China Shanghai Metropolitan Invitational Contest (94t) -> PROP:minor"
+  ],
+  "singapore-2002": [],
+  "singapore-2003": [],
+  "singapore-2004": [],
+  "singapore-2005": [],
+  "singapore-2006": [],
+  "singapore-2008": [],
+  "singapore-2009": [],
+  "singapore-2010": [],
+  "singapore-2011": [],
+  "singapore-2012": [],
+  "singapore-2013": [],
+  "singapore-2014": [],
+  "singapore-2016": [],
+  "singapore-2017": [],
+  "taiwan-ncpc-2008": [],
+  "taiwan-ncpc-2009": [],
+  "taiwan-ncpc-2010": [],
+  "taiwan-ncpc-2011": [],
+  "tehran-2021": [
+   "4841 [] The 2021 ICPC Asia Tehran Regional Contest (0t) -> TRI:structural",
+   "4842 [] The 2021 ICPC Asia Tehran - Online Regional Contest (0t) -> TRI:structural",
+   "4843 [] The 2021 ICPC Asia Tehran - Internet Online Programming Contest (0t) -> TRI:cancelled"
+  ],
+  "thailand-national-2017": [
+   "3409 [2017-12-31] Asia Bangkok- Thailand National On-site Programming Contest (0t) -> TRI:cancelled"
+  ],
+  "thailand-national-2018": [
+   "3736 [] Asia Chonburi- Thailand National On-site Programming Contest (0t) -> TRI:cancelled"
+  ],
+  "thailand-national-2019": [],
+  "thailand-national-2020": [],
+  "thailand-national-2021": [],
+  "thailand-national-2022": [],
+  "thailand-national-2023": [],
+  "thailand-2010": [],
+  "thailand-2020": [],
+  "thailand-2021": [],
+  "thailand-2022": [],
+  "thailand-2023": [],
+  "thailand-2024": [],
+  "tianjin-2011": [],
+  "togo-2018": [],
+  "torneo-chileno-2020": [
+   "4466 [] Torneo Chileno de Programación (0t) -> TRI:cancelled"
+  ],
+  "torneo-chileno-2021": [
+   "4713 [] The 2021 ICPC Torneo Chileno de Programación (0t) -> TRI:cancelled"
+  ],
+  "torneo-chileno-2022": [
+   "5525 [] The 2022 ICPC Torneo Chileno de Programación (0t) -> TRI:cancelled"
+  ],
+  "turkey-2011": [
+   "780 [] The 2011 Turkey Programming Contest (0t) -> TRI:cancelled"
+  ],
+  "turkey-2012": [
+   "1332 [] The 2012 Turkey Programming Contest (0t) -> TRI:cancelled"
+  ],
+  "turkey-2013": [],
+  "turkey-2014": [
+   "2654 [] The 2014 Turkey Programming Contest (0t) -> TRI:cancelled"
+  ],
+  "turkey-2015": [
+   "2787 [] The 2015 Turkey Programming Contest (0t) -> TRI:cancelled"
+  ],
+  "turkey-2016": [
+   "3131 [] The 2016 Turkey Programming Contest (0t) -> TRI:cancelled"
+  ],
+  "turkey-2017": [
+   "3304 [] The 2017 Turkey Programming Contest (0t) -> TRI:cancelled"
+  ],
+  "turkey-2018": [
+   "3651 [] The 2018 Turkey Programming Contest (0t) -> TRI:cancelled"
+  ],
+  "turkey-2024": [],
+  "turkey-2025": [],
+  "vietnam-national-2016": [
+   "3132 [] Moldova National Programming Contest (0t) -> TRI:cancelled",
+   "3221 [2016-06-24] 2016 Asia Yangon National Programming Contest (65t) -> TRI:preliminary",
+   "3048 [2016-12-01] The 2016 ACM-ICPC Asia Nha Trang Regional Contest (116t) -> vietnam-2016",
+   "3049 [2016-10-30] Asia Nha Trang National Programming Contest (178t) -> UNACCOUNTED",
+   "3075 [2016-07-01] The 2016 ACM-ICPC Taiwan NCTU National Programming Contest for Technology Universities (30t) -> taiwan-ncpc-2016",
+   "3059 [2016-10-02] The 2016 ACM-ICPC Vietnam Northern Provincial Contest (161t) -> PROP:minor",
+   "3078 [2016-03-19] The 2016 ACM-ICPC Pakistan National Programming Contest (24t) -> TRI:preliminary",
+   "3056 [2016-10-16] The 2016 ACM-ICPC Vietnam Central Provincial Contest (207t) -> PROP:minor",
+   "3074 [2016-10-09] The 2016 ACM-ICPC Vietnam Southern Provincial Contest (201t) -> PROP:minor",
+   "3069 [2016-10-07] The 2016 ACM-ICPC Malaysia AlKhawarizmi National Programming Contest (32t) -> malaysia-national-2016",
+   "3076 [2016-07-01] The 2016 ACM-ICPC Taiwan NCPU National Programming Contest for Private Universities (61t) -> taiwan-ncpc-2016"
+  ],
+  "vietnam-2009": [],
+  "vietnam-2011": [],
+  "vietnam-2014": [
+   "2572 [2014-07-15] 2014 ACM-ICPC Vietnam High School Programming Contest (0t) -> TRI:cancelled",
+   "2130 [2014-10-30] 2014 ACM-ICPC Vietnam National Programming Contest (107t) -> vietnam-national-2014",
+   "2717 [2014-09-27] 2014 Vietnam National First Round (174t) -> vietnam-national-2014"
+  ],
+  "wuhan-2010": [],
+  "wuhan-2011": [],
+  "wuhan-2012": [],
+  "wuhan-2013": [],
+  "wuhan-2014": [],
+  "wuhan-2015": [],
+  "wuhan-2016": [],
+  "wuhan-2017": [],
+  "wuhan-2018": [],
+  "wuhan-2019": [],
+  "wuhan-2020": [],
+  "wuhan-2021": [],
+  "wuhan-2022": [],
+  "wuhan-2023": [
+   "8669 [2024-05-01] The 2024 ICPC China Hubei(Wuhan) National Invitational Programming Contest (334t) -> PROP:minor"
+  ],
+  "wuhan-2024": [
+   "8669 [2024-05-01] The 2024 ICPC China Hubei(Wuhan) National Invitational Programming Contest (334t) -> PROP:minor",
+   "9065 [] The 2025 ICPC China Hubei(Wuhan) National Invitational Programming Contest (0t) -> TRI:cancelled"
+  ],
+  "xian-2003": [],
+  "xian-2004": [],
+  "xian-2005": [],
+  "xian-2007": [],
+  "xian-2008": [],
+  "xian-2009": [],
+  "xian-2010": [],
+  "xian-2011": [],
+  "xian-2012": [],
+  "xian-2013": [],
+  "xian-2015": [],
+  "xian-2016": [],
+  "xian-2018": [
+   "3702 [2018-05-19] The 2018 ICPC China Xian Invitational Programming Contest (355t) -> PROP:minor"
+  ],
+  "xian-2019": [
+   "4214 [2019-05-18] The 2019 ICPC China Xian National Invitational Programming Contest (353t) -> PROP:minor"
+  ],
+  "xian-2020": [],
+  "xian-2021": [],
+  "xian-2024": []
+ },
+ "codeforces_gym_unmapped_icpc_looking": [
+  {
+   "gym": 100017,
+   "url": "https://codeforces.com/gym/100017",
+   "name": "2011-2012 Third winter olympiad, Vologda, 31 January 2011",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100030,
+   "url": "https://codeforces.com/gym/100030",
+   "name": "2012, V Samara Regional Intercollegiate Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 100050,
+   "url": "https://codeforces.com/gym/100050",
+   "name": "2012 Russian Code Cup, Qualification 1",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100065,
+   "url": "https://codeforces.com/gym/100065",
+   "name": "2011-2012 internation open olympiad KPI-Open 2012, round 1",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100066,
+   "url": "https://codeforces.com/gym/100066",
+   "name": "2011-2012 internation open olympiad KPI-Open 2012, round 2",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100084,
+   "url": "https://codeforces.com/gym/100084",
+   "name": "2010-2011 ACM-ICPC Northeastern European Regional Contest (NEERC 10) (Deprecated, without interactive problem G)",
+   "class": "catalogue contest exists (missing source / held for ruling, not a missing contest)"
+  },
+  {
+   "gym": 100090,
+   "url": "https://codeforces.com/gym/100090",
+   "name": "2012, Samara SAU ACM ICPC Quarterfinal Qualification Contest",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 100142,
+   "url": "https://codeforces.com/gym/100142",
+   "name": "2008-2009 V International Zhautykov Olympiad",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100143,
+   "url": "https://codeforces.com/gym/100143",
+   "name": "2009-2010 VI International Zhautykov Olympiad",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100147,
+   "url": "https://codeforces.com/gym/100147",
+   "name": "2010-2011 VII International Zhautykov Olympiad",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100184,
+   "url": "https://codeforces.com/gym/100184",
+   "name": "2013 ACM-ICPC Ukraine, Round 1",
+   "class": "catalogue contest exists (missing source / held for ruling, not a missing contest)"
+  },
+  {
+   "gym": 100186,
+   "url": "https://codeforces.com/gym/100186",
+   "name": "III (XIV) Volga Region Open Team Student Programming Contest",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100187,
+   "url": "https://codeforces.com/gym/100187",
+   "name": "2013, VI Samara Regional Intercollegiate Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 100227,
+   "url": "https://codeforces.com/gym/100227",
+   "name": "2013-2014 CT S01E01: Extended 2000 ACM-ICPC East Central North America Regional Contest (ECNA 2000)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100228,
+   "url": "https://codeforces.com/gym/100228",
+   "name": "2013-2014 CT S01E02: Extended 2003 ACM-ICPC East Central North America Regional Contest (ECNA 2003)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100240,
+   "url": "https://codeforces.com/gym/100240",
+   "name": "2013-2014 CT S01E05: 2007 Nordic Collegiate Programming Contest (NCPC 2007) + Selected Problems from 2009 Google Code Jam World Finals (GCJ WF 2009)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100247,
+   "url": "https://codeforces.com/gym/100247",
+   "name": "2013, Samara SAU ACM ICPC Quarterfinal Qualification Contest",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 100248,
+   "url": "https://codeforces.com/gym/100248",
+   "name": "2013-2014 CT S01E06: 2002-2003 ACM-ICPC Northwestern European Regional Contest (NWERC 2002) + Some Problems from COCI and POI",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100263,
+   "url": "https://codeforces.com/gym/100263",
+   "name": "2013-2014 ACM-ICPC, University of Cambridge, Selection Contest",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 100268,
+   "url": "https://codeforces.com/gym/100268",
+   "name": "2013-2014 CT S01E08: 2013 ACM-ICPC Rocky Mountain Regional Contest (RMRC 2013) + GCJ 2009 WF C-D",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100274,
+   "url": "https://codeforces.com/gym/100274",
+   "name": "2013-2014 CT S01E09: 2011 German Collegiate Programming Contest (GCPC 2011) + GCJ 2009 R3 C-D",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100276,
+   "url": "https://codeforces.com/gym/100276",
+   "name": "2013-2014 Wide-Siberian Olympiad: Online round",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100279,
+   "url": "https://codeforces.com/gym/100279",
+   "name": "2012-2013 international open olympiad KPI-Open 2013, round 1",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100297,
+   "url": "https://codeforces.com/gym/100297",
+   "name": "2012-2013 international open olympiad KPI-Open 2013, round 2",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100418,
+   "url": "https://codeforces.com/gym/100418",
+   "name": "2013-2014 BSUIR Open Programming Championship. Final",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100419,
+   "url": "https://codeforces.com/gym/100419",
+   "name": "2013-2014 BSUIR Open Programming Championship 2014. Semifinal",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100425,
+   "url": "https://codeforces.com/gym/100425",
+   "name": "2014 VIII SFU Open Programming Contest. Team Final.",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100427,
+   "url": "https://codeforces.com/gym/100427",
+   "name": "2014 VIII SFU Open Programming Contest. Personal Final.",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100460,
+   "url": "https://codeforces.com/gym/100460",
+   "name": "2014, VII Samara Regional Intercollegiate Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 100463,
+   "url": "https://codeforces.com/gym/100463",
+   "name": "2011 Michigan Invitational Programming Contest",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 100482,
+   "url": "https://codeforces.com/gym/100482",
+   "name": "2013 KTU ACM ICPC Qualification Round",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 100484,
+   "url": "https://codeforces.com/gym/100484",
+   "name": "2014-2015 CT S02E01: Codeforces Trainings Season 2 Episode 1 (NEERC 99 + misc)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100488,
+   "url": "https://codeforces.com/gym/100488",
+   "name": "2014, Samara SAU ACM ICPC Quarterfinal Qualification Contest",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 100494,
+   "url": "https://codeforces.com/gym/100494",
+   "name": "2014-2015 CT S02E03: Codeforces Trainings Season 2 Episode 3 (NCPC 2008 + USACO DEC07 + GCJ 2008 Qual)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100495,
+   "url": "https://codeforces.com/gym/100495",
+   "name": "2014 KTU ACM ICPC Qualification Round",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 100506,
+   "url": "https://codeforces.com/gym/100506",
+   "name": "2014-2015 CT S02E06: Codeforces Trainings Season 2 Episode 6 - 2007 Benelux Algorithm Programming Contest (BAPC 2007)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100532,
+   "url": "https://codeforces.com/gym/100532",
+   "name": "2014-2015 CT S02E09: Codeforces Trainings Season 2 Episode 9 - 2006-2007 ACM-ICPC Northeastern European Regional Contest (NEERC 06)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100534,
+   "url": "https://codeforces.com/gym/100534",
+   "name": "2014-2015 CT S02E10: Codeforces Trainings Season 2 Episode 10 - 2014 Amirkabir University of Technology Annual Programming Contest (AUT APC 14)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100662,
+   "url": "https://codeforces.com/gym/100662",
+   "name": "2015 Google Code Jam Qualification Round (GCJ 15 Qualification)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100676,
+   "url": "https://codeforces.com/gym/100676",
+   "name": "2015 ACM Arabella Collegiate Programming Contest",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100694,
+   "url": "https://codeforces.com/gym/100694",
+   "name": "2015, VIII Samara Regional Intercollegiate Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 100703,
+   "url": "https://codeforces.com/gym/100703",
+   "name": "2015 V (XVI) Volga Region Open Team Student Programming Contest",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100712,
+   "url": "https://codeforces.com/gym/100712",
+   "name": "2015 ACM Amman Collegiate Programming Contest",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100778,
+   "url": "https://codeforces.com/gym/100778",
+   "name": "2015 Indian Summer KFU Programming Contest",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100796,
+   "url": "https://codeforces.com/gym/100796",
+   "name": "2015-2016 ACM ICPC Baltic Selection Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 100812,
+   "url": "https://codeforces.com/gym/100812",
+   "name": "2015, Samara SAU ACM ICPC Quarterfinal Qualification Contest",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 100819,
+   "url": "https://codeforces.com/gym/100819",
+   "name": "2015-2016 ACM-ICPC Pacific Northwest Regional Contest (Div. 2)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100834,
+   "url": "https://codeforces.com/gym/100834",
+   "name": "VIII Open Programming Championship of Kazan Federal University 2015",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100869,
+   "url": "https://codeforces.com/gym/100869",
+   "name": "2016 Facebook Hacker Cup, Qualification Round",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100883,
+   "url": "https://codeforces.com/gym/100883",
+   "name": "2015 Damascus Collegiate Programming Contest (DCPC 2015)",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 100935,
+   "url": "https://codeforces.com/gym/100935",
+   "name": "2015 Tishreen Collegiate Programming Contest",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 100947,
+   "url": "https://codeforces.com/gym/100947",
+   "name": "2015 AlBaath Collegiate Programming Contest",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 100952,
+   "url": "https://codeforces.com/gym/100952",
+   "name": "2015 HIAST Collegiate Programming Contest",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 100957,
+   "url": "https://codeforces.com/gym/100957",
+   "name": "2016 (IV) Olympiad of MISiS, Final Round",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 100971,
+   "url": "https://codeforces.com/gym/100971",
+   "name": "2016, IX Samara Regional Intercollegiate Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 100993,
+   "url": "https://codeforces.com/gym/100993",
+   "name": "2016 Russian Code Cup (RCC 16), 1st qualification round",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101002,
+   "url": "https://codeforces.com/gym/101002",
+   "name": "2016 North American Invitational Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 101010,
+   "url": "https://codeforces.com/gym/101010",
+   "name": "2016 Russian Code Cup (RCC 16), 2nd qualification round",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101016,
+   "url": "https://codeforces.com/gym/101016",
+   "name": "2016 Russian Code Cup (RCC 16), 3rd qualification round",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101020,
+   "url": "https://codeforces.com/gym/101020",
+   "name": "2015 Syrian Private Universities Collegiate Programming Contest",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 101061,
+   "url": "https://codeforces.com/gym/101061",
+   "name": "Higher Institute for Applied Sciences and Technology Collegiate Programming Contest 2016",
+   "class": "unclassified"
+  },
+  {
+   "gym": 101078,
+   "url": "https://codeforces.com/gym/101078",
+   "name": "2016-2017 CT S03E01: Codeforces Trainings Season 3 Episode 1 - 2010 Benelux Algorithm Programming Contest (BAPC 10)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101095,
+   "url": "https://codeforces.com/gym/101095",
+   "name": "2016-2017 CT S03E03: Codeforces Trainings Season 3 Episode 3 - 2007-2008 ACM-ICPC, Central European Regional Contest 2007 (CERC 07)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101096,
+   "url": "https://codeforces.com/gym/101096",
+   "name": "2016 International Olympiad of Metropolises, day 1",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101102,
+   "url": "https://codeforces.com/gym/101102",
+   "name": "2016 ACM Amman Collegiate Programming Contest",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101116,
+   "url": "https://codeforces.com/gym/101116",
+   "name": "2016-2017 CT S03E05: Codeforces Trainings Season 3 Episode 5 (2016 Stanford Local Programming Contest, Extended)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101149,
+   "url": "https://codeforces.com/gym/101149",
+   "name": "2016, Samara University ACM ICPC Quarterfinal Qualification Contest",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 101150,
+   "url": "https://codeforces.com/gym/101150",
+   "name": "2016-2017 CT S03E08: Codeforces Trainings Season 3 Episode 8 - 2005-2006 ACM-ICPC, Tokyo Regional Contest + 2010 Google Code Jam Qualification Round (CGJ 10, Q)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101191,
+   "url": "https://codeforces.com/gym/101191",
+   "name": "2014-2015 V BSUIR Open Programming Championship",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101192,
+   "url": "https://codeforces.com/gym/101192",
+   "name": "2015-2016 6th BSUIR Open Programming Contest. Semifinal",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101193,
+   "url": "https://codeforces.com/gym/101193",
+   "name": "2015-2016 6th BSUIR Open Programming Contest. Final",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101206,
+   "url": "https://codeforces.com/gym/101206",
+   "name": "CCPC 2016-2017, Finals",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 101212,
+   "url": "https://codeforces.com/gym/101212",
+   "name": "Bangladesh Olympiad in Informatics 2016",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101222,
+   "url": "https://codeforces.com/gym/101222",
+   "name": "2017 Facebook Hacker Cup, Qualification Round",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101241,
+   "url": "https://codeforces.com/gym/101241",
+   "name": "2013-2014 Wide-Siberian Olympiad: Onsite round",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101291,
+   "url": "https://codeforces.com/gym/101291",
+   "name": "2016-2017 ACM-ICPC Pacific Northwest Regional Contest (Div. 2)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101315,
+   "url": "https://codeforces.com/gym/101315",
+   "name": "Qualification Round of the Championship 2017",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 101319,
+   "url": "https://codeforces.com/gym/101319",
+   "name": "2016-2017 Moscow Open Olympiad in Informatics, day 1",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101320,
+   "url": "https://codeforces.com/gym/101320",
+   "name": "2016-2017 Moscow Open Olympiad in Informatics, second day",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101336,
+   "url": "https://codeforces.com/gym/101336",
+   "name": "2017 Russian Code Cup (RCC 17), 1st qualification round",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101341,
+   "url": "https://codeforces.com/gym/101341",
+   "name": "2017, X Samara Regional Intercollegiate Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 101343,
+   "url": "https://codeforces.com/gym/101343",
+   "name": "2017 JUST Programming Contest 2.0",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101350,
+   "url": "https://codeforces.com/gym/101350",
+   "name": "2017 ACM Arabella Collegiate Programming Contest",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101353,
+   "url": "https://codeforces.com/gym/101353",
+   "name": "2017 Bangladesh National High School Programming Contest ( National Round, Senior Group ), NHSPC 2017",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101355,
+   "url": "https://codeforces.com/gym/101355",
+   "name": "2017 Russian Code Cup (RCC 17), 2nd qualification round",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101372,
+   "url": "https://codeforces.com/gym/101372",
+   "name": "2017 Russian Code Cup (RCC 17), 3rd qualification round",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101439,
+   "url": "https://codeforces.com/gym/101439",
+   "name": "2017 Yandex.Algorithm - Qualification Round",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101445,
+   "url": "https://codeforces.com/gym/101445",
+   "name": "2016 (V) Olympiad of MISiS, Prefinal Round",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101446,
+   "url": "https://codeforces.com/gym/101446",
+   "name": "2017 (V) Olympiad of MISiS, Final Round",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101466,
+   "url": "https://codeforces.com/gym/101466",
+   "name": "2017 ACM-ICPC, Universidad Nacional de Colombia Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 101498,
+   "url": "https://codeforces.com/gym/101498",
+   "name": "2017 ACM Amman Collegiate Programming Contest",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101502,
+   "url": "https://codeforces.com/gym/101502",
+   "name": "2017 JUST Programming Contest 3.0",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101532,
+   "url": "https://codeforces.com/gym/101532",
+   "name": "2017 JUST Programming Contest 4.0",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101549,
+   "url": "https://codeforces.com/gym/101549",
+   "name": "2012 ACM-ICPC Asia Hatyai Regional Programming Contest",
+   "class": "catalogue contest exists (missing source / held for ruling, not a missing contest)"
+  },
+  {
+   "gym": 101573,
+   "url": "https://codeforces.com/gym/101573",
+   "name": "2017-2018 ACM-ICPC Квалификационный этап Четвертьфинала Московского подрегиона NEERC",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 101597,
+   "url": "https://codeforces.com/gym/101597",
+   "name": "ACM-ICPC-Swiss-Subregional 2017",
+   "class": "Swiss Subregional (EPFL/ETH internal selection; CMS rows triaged cancelled with 0 teams) -> non-mainline"
+  },
+  {
+   "gym": 101638,
+   "url": "https://codeforces.com/gym/101638",
+   "name": "Окружной этап Всероссийской олимпиады школьников по информатике - 2017-2018, Самара, I тур (правила ACM ICPC)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101639,
+   "url": "https://codeforces.com/gym/101639",
+   "name": "Окружной этап Всероссийской олимпиады школьников по информатике - 2017-2018, Самара, II тур (ACM ICPC правила)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101652,
+   "url": "https://codeforces.com/gym/101652",
+   "name": "2017-2018 ACM-ICPC Pacific Northwest Regional Contest (Div. 2)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101653,
+   "url": "https://codeforces.com/gym/101653",
+   "name": "2014-2015 ACM-ICPC Pacific Northwest Regional Contest (Div. 2)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101733,
+   "url": "https://codeforces.com/gym/101733",
+   "name": "2018 Yandex.Algorithm - Qualification Round",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101754,
+   "url": "https://codeforces.com/gym/101754",
+   "name": "Yandex.Algorithm 2018, second qualification round",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101755,
+   "url": "https://codeforces.com/gym/101755",
+   "name": "2018, XI Samara Regional Intercollegiate Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 101773,
+   "url": "https://codeforces.com/gym/101773",
+   "name": "Yandex.Algorithm 2018, third qualification round",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101778,
+   "url": "https://codeforces.com/gym/101778",
+   "name": "2018 JUST Programming Contest 1.0",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101790,
+   "url": "https://codeforces.com/gym/101790",
+   "name": "2018 Southern Russia Open Championship – XII SFU Olympiad «ContestSFedU-2018». Team Final.",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101801,
+   "url": "https://codeforces.com/gym/101801",
+   "name": "Tishreen-CPC 2018",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 101808,
+   "url": "https://codeforces.com/gym/101808",
+   "name": "ACM International Collegiate Programming Contest, Damascus University Collegiate Programming Contest(2018)",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 101810,
+   "url": "https://codeforces.com/gym/101810",
+   "name": "ACM International Collegiate Programming Contest, Amman Collegiate Programming Contest (2018)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101845,
+   "url": "https://codeforces.com/gym/101845",
+   "name": "2018 ACM-ICPC, Universidad Nacional de Colombia Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 101853,
+   "url": "https://codeforces.com/gym/101853",
+   "name": "ACM International Collegiate Programming Contest, JUST Collegiate Programming Contest (2018)",
+   "class": "unclassified"
+  },
+  {
+   "gym": 101859,
+   "url": "https://codeforces.com/gym/101859",
+   "name": "2018 Facebook Hacker Cup, Qualification Round",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 101915,
+   "url": "https://codeforces.com/gym/101915",
+   "name": "ACM International Collegiate Programming Contest, Tishreen Collegiate Programming Contest (2017)",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 101931,
+   "url": "https://codeforces.com/gym/101931",
+   "name": "Квалификационный этап Четвертьфинала Центрального подрегиона NEERC, ACM-ICPC 2018-2019",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 101962,
+   "url": "https://codeforces.com/gym/101962",
+   "name": "UFBA Practice Session for Brazilian ICPC Regionals - 2018",
+   "class": "unclassified"
+  },
+  {
+   "gym": 101968,
+   "url": "https://codeforces.com/gym/101968",
+   "name": "2018 AICCSA Programming Contest",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 101972,
+   "url": "https://codeforces.com/gym/101972",
+   "name": "ACM International Collegiate Programming Contest, Arabella Collegiate Programming Contest (2018)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102055,
+   "url": "https://codeforces.com/gym/102055",
+   "name": "2018 China Collegiate Programming Contest Final (CCPC-Final 2018)",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 102133,
+   "url": "https://codeforces.com/gym/102133",
+   "name": "2016-2017 7th BSUIR Open Programming Contest. Final",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102134,
+   "url": "https://codeforces.com/gym/102134",
+   "name": "2016-2017 7th BSUIR Open Programming Contest. Semifinal",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102135,
+   "url": "https://codeforces.com/gym/102135",
+   "name": "2017-2018 8th BSUIR Open Programming Contest. Semifinal",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102136,
+   "url": "https://codeforces.com/gym/102136",
+   "name": "2017-2018 8th BSUIR Open Programming Contest. Final",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102137,
+   "url": "https://codeforces.com/gym/102137",
+   "name": "2017-2018 8th BSUIR Open Programming Contest. School final",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102147,
+   "url": "https://codeforces.com/gym/102147",
+   "name": "2017-2018 Russian Olympiad in Informatics (ROI 2018), Day 1",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102152,
+   "url": "https://codeforces.com/gym/102152",
+   "name": "2019 JUST Programming Contest",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102154,
+   "url": "https://codeforces.com/gym/102154",
+   "name": "2017-2018 Russian Olympiad in Informatics (ROI 2018), Day 2",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102174,
+   "url": "https://codeforces.com/gym/102174",
+   "name": "The 14-th BIT Campus Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 102215,
+   "url": "https://codeforces.com/gym/102215",
+   "name": "2019, XII Samara Regional Intercollegiate Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 102218,
+   "url": "https://codeforces.com/gym/102218",
+   "name": "2019, XI Annual Programming Contest by ESCOM-IPN",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 102220,
+   "url": "https://codeforces.com/gym/102220",
+   "name": "The 13th Chinese Northeast Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 102222,
+   "url": "https://codeforces.com/gym/102222",
+   "name": "2018-2019 ACM-ICPC, China Multi-Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 102249,
+   "url": "https://codeforces.com/gym/102249",
+   "name": "2019 Facebook Hacker Cup, Qualification Round",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102257,
+   "url": "https://codeforces.com/gym/102257",
+   "name": "2019 Asia-Pacific Informatics Olympiad (APIO 19)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102263,
+   "url": "https://codeforces.com/gym/102263",
+   "name": "ArabellaCPC 2019",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102267,
+   "url": "https://codeforces.com/gym/102267",
+   "name": "The 2019 University of Jordan Collegiate Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 102279,
+   "url": "https://codeforces.com/gym/102279",
+   "name": "HCW 19 Team Round (ICPC format)",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 102282,
+   "url": "https://codeforces.com/gym/102282",
+   "name": "2011, Отборочный контест СГАУ на четвертьфинал ACM ICPC",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 102307,
+   "url": "https://codeforces.com/gym/102307",
+   "name": "2019 ICPC Universidad Nacional de Colombia Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 102309,
+   "url": "https://codeforces.com/gym/102309",
+   "name": "The 2019 “Orz Panda” Cup Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 102348,
+   "url": "https://codeforces.com/gym/102348",
+   "name": "ICPC 2019-2020 NERC (NEERC), Southern and Volga Russia Qualifier",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 102361,
+   "url": "https://codeforces.com/gym/102361",
+   "name": "2019 China Collegiate Programming Contest Qinhuangdao Onsite",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 102365,
+   "url": "https://codeforces.com/gym/102365",
+   "name": "UBC Programming Contest 2019 (UBCPC 2019)",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 102367,
+   "url": "https://codeforces.com/gym/102367",
+   "name": "Fall 2019 ICPC-style Waterloo Local Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 102375,
+   "url": "https://codeforces.com/gym/102375",
+   "name": "Квалификационный раунд Чемпионата Северо-Запада России и Москвы ICPC 2019",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 102386,
+   "url": "https://codeforces.com/gym/102386",
+   "name": "Квалификационный тур Уральского четвертьфинала Чемпионата мира по программированию 2019",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 102388,
+   "url": "https://codeforces.com/gym/102388",
+   "name": "SUFE ICPC Team Formation Test",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 102394,
+   "url": "https://codeforces.com/gym/102394",
+   "name": "The 2019 China Collegiate Programming Contest Harbin Site",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 102396,
+   "url": "https://codeforces.com/gym/102396",
+   "name": "2019-2020 Saint-Petersburg Open High School Programming Contest (SpbKOSHP 19)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102426,
+   "url": "https://codeforces.com/gym/102426",
+   "name": "The 7-th BIT Campus Programming Contest for Junior Grade Group",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102431,
+   "url": "https://codeforces.com/gym/102431",
+   "name": "2019 China Collegiate Programming Contest Final (CCPC-Final 2019)",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 102436,
+   "url": "https://codeforces.com/gym/102436",
+   "name": "Innopolis Open 2019-2020, qualification, contest 1",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 102439,
+   "url": "https://codeforces.com/gym/102439",
+   "name": "2018-2019 9th BSUIR Open Programming Championship. Semifinal",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102440,
+   "url": "https://codeforces.com/gym/102440",
+   "name": "2018-2019 9th BSUIR Open Programming Championship. Junior",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102441,
+   "url": "https://codeforces.com/gym/102441",
+   "name": "2018-2019 9th BSUIR Open Programming Championship. Final",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102443,
+   "url": "https://codeforces.com/gym/102443",
+   "name": "2019-2020 Russia Team Open, High School Programming Contest (VKOSHP 19)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102461,
+   "url": "https://codeforces.com/gym/102461",
+   "name": "Innopolis Open 2019-2020, qualification, contest 2",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 102503,
+   "url": "https://codeforces.com/gym/102503",
+   "name": "National Olympiad in Informatics - Philippines (NOI.PH) Online Eliminations 2020",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102566,
+   "url": "https://codeforces.com/gym/102566",
+   "name": "AGM 2020, Qualification Round",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 102569,
+   "url": "https://codeforces.com/gym/102569",
+   "name": "2020, XIII Samara Regional Intercollegiate Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 102599,
+   "url": "https://codeforces.com/gym/102599",
+   "name": "The fifth Lipetsk collegiate programming contest. Finals. 8-11 form",
+   "class": "unclassified"
+  },
+  {
+   "gym": 102640,
+   "url": "https://codeforces.com/gym/102640",
+   "name": "2020, XIII Samara Regional Intercollegiate Programming Contest (marathon problem)",
+   "class": "unclassified"
+  },
+  {
+   "gym": 102651,
+   "url": "https://codeforces.com/gym/102651",
+   "name": "Innopolis Open 2020-2021, qualification, contest 1",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 102672,
+   "url": "https://codeforces.com/gym/102672",
+   "name": "Selection of tasks from Internet olympiads season 2019-20",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102687,
+   "url": "https://codeforces.com/gym/102687",
+   "name": "2020 National Olympiad in Informatics - Philippines (NOI.PH) Online Finals, Day 1",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102688,
+   "url": "https://codeforces.com/gym/102688",
+   "name": "2020 National Olympiad in Informatics - Philippines (NOI.PH) Online Finals, Day 2",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102700,
+   "url": "https://codeforces.com/gym/102700",
+   "name": "2020 ICPC Universidad Nacional de Colombia Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 102760,
+   "url": "https://codeforces.com/gym/102760",
+   "name": "2020 KAIST 10th ICPC Mock Contest (XXI Open Cup. Grand Prix of Korea. Division 2)",
+   "class": "unclassified"
+  },
+  {
+   "gym": 102769,
+   "url": "https://codeforces.com/gym/102769",
+   "name": "2020 China Collegiate Programming Contest Qinhuangdao Site",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 102770,
+   "url": "https://codeforces.com/gym/102770",
+   "name": "The 17th Zhejiang Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 102775,
+   "url": "https://codeforces.com/gym/102775",
+   "name": "ICPC Central Russia Regional Contest (CRRC 20), Чемпионат Центральной России, квалификационный раунд",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 102777,
+   "url": "https://codeforces.com/gym/102777",
+   "name": "ICPC Central Russia Regional Contest (CRRC 19), Чемпионат Центральной России, квалификационный раунд",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 102791,
+   "url": "https://codeforces.com/gym/102791",
+   "name": "ICPC 2020-2021 NERC (NEERC), Southern and Volga Russia Qualifier",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 102798,
+   "url": "https://codeforces.com/gym/102798",
+   "name": "2020 China Collegiate Programming Contest, Weihai Site",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 102800,
+   "url": "https://codeforces.com/gym/102800",
+   "name": "The 14th Jilin Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 102801,
+   "url": "https://codeforces.com/gym/102801",
+   "name": "The 14th Chinese Northeast Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 102803,
+   "url": "https://codeforces.com/gym/102803",
+   "name": "The 15th Heilongjiang Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 102821,
+   "url": "https://codeforces.com/gym/102821",
+   "name": "2019 Sichuan Province Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 102822,
+   "url": "https://codeforces.com/gym/102822",
+   "name": "2020 China Collegiate Programming Contest - Mianyang Site",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 102823,
+   "url": "https://codeforces.com/gym/102823",
+   "name": "2018 China Collegiate Programming Contest - Guilin Site",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 102832,
+   "url": "https://codeforces.com/gym/102832",
+   "name": "2020 China Collegiate Programming Contest Changchun Onsite",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 102860,
+   "url": "https://codeforces.com/gym/102860",
+   "name": "2020-2021 Saint-Petersburg Open High School Programming Contest (SpbKOSHP 20)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102862,
+   "url": "https://codeforces.com/gym/102862",
+   "name": "LU ICPC Selection Contest 2020 and KFU Open Contest 2020",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102864,
+   "url": "https://codeforces.com/gym/102864",
+   "name": "The 15-th BIT Campus Programming Contest - Online Round",
+   "class": "unclassified"
+  },
+  {
+   "gym": 102870,
+   "url": "https://codeforces.com/gym/102870",
+   "name": "2020-2021 “Orz Panda” Cup Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 102875,
+   "url": "https://codeforces.com/gym/102875",
+   "name": "2020 Jiangsu Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 102878,
+   "url": "https://codeforces.com/gym/102878",
+   "name": "The 15-th BIT Campus Programming Contest - Onsite Round",
+   "class": "unclassified"
+  },
+  {
+   "gym": 102881,
+   "url": "https://codeforces.com/gym/102881",
+   "name": "ECPC 2019 Kickoff",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 102888,
+   "url": "https://codeforces.com/gym/102888",
+   "name": "The 15-th Beihang University Collegiate Programming Contest (BCPC 2020) - Preliminary",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 102889,
+   "url": "https://codeforces.com/gym/102889",
+   "name": "The 15-th Beihang University Collegiate Programming Contest (BCPC 2020) - Final",
+   "class": "unclassified"
+  },
+  {
+   "gym": 102890,
+   "url": "https://codeforces.com/gym/102890",
+   "name": "2020 ICPC Gran Premio de Mexico 3ra Fecha",
+   "class": "catalogue contest exists (missing source / held for ruling, not a missing contest)"
+  },
+  {
+   "gym": 102891,
+   "url": "https://codeforces.com/gym/102891",
+   "name": "2020 NHSPC (Taiwan National High School Programming Contest) Mock Contest - Day 2 (Div. 1)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102893,
+   "url": "https://codeforces.com/gym/102893",
+   "name": "2020-2021 Russia Team Open, High School Programming Contest (VKOSHP 20)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102894,
+   "url": "https://codeforces.com/gym/102894",
+   "name": "Municipal stage of the Russian Olympiad in Informatics (ROI), Smolensk",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102897,
+   "url": "https://codeforces.com/gym/102897",
+   "name": "The 3rd Hangzhou Normal University Freshman Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 102898,
+   "url": "https://codeforces.com/gym/102898",
+   "name": "Innopolis Open 2020-2021, qualification, contest 2",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 102899,
+   "url": "https://codeforces.com/gym/102899",
+   "name": "The 2nd Hangzhou Normal University Freshman Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 102906,
+   "url": "https://codeforces.com/gym/102906",
+   "name": "Russian Olympiad in Informatics 2020—2021, Municipal Stage, Saint Petersburg",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102911,
+   "url": "https://codeforces.com/gym/102911",
+   "name": "2021 Ateneo de Manila Senior High School Dagitab Programming Contest (Mirror)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 102966,
+   "url": "https://codeforces.com/gym/102966",
+   "name": "2020-2021 ICPC - Gran Premio de Mexico - Repechaje",
+   "class": "catalogue contest exists (missing source / held for ruling, not a missing contest)"
+  },
+  {
+   "gym": 102968,
+   "url": "https://codeforces.com/gym/102968",
+   "name": "AGM 2021, Qualification Round",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 103053,
+   "url": "https://codeforces.com/gym/103053",
+   "name": "Malaysian Computing Olympiad (MCO) 2021",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 103055,
+   "url": "https://codeforces.com/gym/103055",
+   "name": "The 18th Zhejiang Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 103061,
+   "url": "https://codeforces.com/gym/103061",
+   "name": "Harbin Engineering University Collegiate Programming Contest 2021",
+   "class": "unclassified"
+  },
+  {
+   "gym": 103104,
+   "url": "https://codeforces.com/gym/103104",
+   "name": "2021 Hubei Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 103107,
+   "url": "https://codeforces.com/gym/103107",
+   "name": "The 16th Heilongjiang Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 103115,
+   "url": "https://codeforces.com/gym/103115",
+   "name": "2021 Xinjiang Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 103117,
+   "url": "https://codeforces.com/gym/103117",
+   "name": "The 2021 Sichuan Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 103118,
+   "url": "https://codeforces.com/gym/103118",
+   "name": "2021 Shandong Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 103136,
+   "url": "https://codeforces.com/gym/103136",
+   "name": "Student programming contest in Penza",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 103145,
+   "url": "https://codeforces.com/gym/103145",
+   "name": "The 15th Chinese Northeast Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 103150,
+   "url": "https://codeforces.com/gym/103150",
+   "name": "EZ Programming Contest #1",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 103158,
+   "url": "https://codeforces.com/gym/103158",
+   "name": "ACPC Kickoff 2021",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 103186,
+   "url": "https://codeforces.com/gym/103186",
+   "name": "The 2021 Shanghai Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 103192,
+   "url": "https://codeforces.com/gym/103192",
+   "name": "The 9-th BIT Campus Programming Contest for Junior Grade Group",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 103214,
+   "url": "https://codeforces.com/gym/103214",
+   "name": "XXV Spain Olympiad in Informatics, Day 1",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 103218,
+   "url": "https://codeforces.com/gym/103218",
+   "name": "XXV Spain Olympiad in Informatics, Day 2",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 103256,
+   "url": "https://codeforces.com/gym/103256",
+   "name": "2021, XIII Donald Knuth Annual Programming Contest by ESCOM-IPN",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 103274,
+   "url": "https://codeforces.com/gym/103274",
+   "name": "2021 ICPC Gran Premio de Mexico 1ra Fecha",
+   "class": "catalogue contest exists (missing source / held for ruling, not a missing contest)"
+  },
+  {
+   "gym": 103306,
+   "url": "https://codeforces.com/gym/103306",
+   "name": "2021 ICPC Gran Premio de Mexico 2da Fecha",
+   "class": "catalogue contest exists (missing source / held for ruling, not a missing contest)"
+  },
+  {
+   "gym": 103328,
+   "url": "https://codeforces.com/gym/103328",
+   "name": "National Taiwan University NCPC Preliminary 2021",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 103366,
+   "url": "https://codeforces.com/gym/103366",
+   "name": "2021 Jiangxi Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 103369,
+   "url": "https://codeforces.com/gym/103369",
+   "name": "Moscow team olympiad 2021",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 103373,
+   "url": "https://codeforces.com/gym/103373",
+   "name": "2021 ICPC Asia Taiwan Online Programming Contest",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 103401,
+   "url": "https://codeforces.com/gym/103401",
+   "name": "The 16-th BIT Campus Programming Contest - Online Round",
+   "class": "unclassified"
+  },
+  {
+   "gym": 103409,
+   "url": "https://codeforces.com/gym/103409",
+   "name": "The 2021 CCPC Guilin Onsite (XXII Open Cup, Grand Prix of EDG)",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 103414,
+   "url": "https://codeforces.com/gym/103414",
+   "name": "2021-2022 Saint-Petersburg Open High School Programming Contest (SpbKOSHP 21)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 103415,
+   "url": "https://codeforces.com/gym/103415",
+   "name": "The 2021 CCPC Guangzhou Onsite",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 103426,
+   "url": "https://codeforces.com/gym/103426",
+   "name": "Innopolis Open 2021-2022. First qualification round",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 103428,
+   "url": "https://codeforces.com/gym/103428",
+   "name": "The 2021 CCPC Weihai Onsite",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 103433,
+   "url": "https://codeforces.com/gym/103433",
+   "name": "2018-2019 Russia Team Open, High School Programming Contest (VKOSHP 18)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 103447,
+   "url": "https://codeforces.com/gym/103447",
+   "name": "The 2021 China Collegiate Programming Contest (Harbin)",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 103448,
+   "url": "https://codeforces.com/gym/103448",
+   "name": "The 16-th Beihang University Collegiate Programming Contest (BCPC 2021) - Preliminary",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 103462,
+   "url": "https://codeforces.com/gym/103462",
+   "name": "The Hangzhou Normal U Qualification Trials for ZJPSC 2021",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 103463,
+   "url": "https://codeforces.com/gym/103463",
+   "name": "The Hangzhou Normal U Qualification Trials for ZJPSC 2020",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 103464,
+   "url": "https://codeforces.com/gym/103464",
+   "name": "The second stage of the Republican Olympiad in Informatics. Mogilev region, 2021.",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 103476,
+   "url": "https://codeforces.com/gym/103476",
+   "name": "Innopolis Open 2021-2022. Second qualification round.",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 103478,
+   "url": "https://codeforces.com/gym/103478",
+   "name": "The 16-th Beihang University Collegiate Programming Contest (BCPC 2021) - Final",
+   "class": "unclassified"
+  },
+  {
+   "gym": 103480,
+   "url": "https://codeforces.com/gym/103480",
+   "name": "The 4th Hangzhou Normal University Freshman Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 103483,
+   "url": "https://codeforces.com/gym/103483",
+   "name": "2021-2022 Russia Team Open, High School Programming Contest (VKOSHP XXII)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 103485,
+   "url": "https://codeforces.com/gym/103485",
+   "name": "Copa Do Matão, University Of São Paulo Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 103486,
+   "url": "https://codeforces.com/gym/103486",
+   "name": "The 15th Jilin Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 103488,
+   "url": "https://codeforces.com/gym/103488",
+   "name": "The 2021 Zhejiang University City College Freshman Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 103492,
+   "url": "https://codeforces.com/gym/103492",
+   "name": "China Collegiate Programming Contest 2021, Qualification Round (Online), Rematch",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 103495,
+   "url": "https://codeforces.com/gym/103495",
+   "name": "2021 Jiangsu Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 103566,
+   "url": "https://codeforces.com/gym/103566",
+   "name": "2021-2022 Olympiad Cognitive Technologies, Final Round",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 103567,
+   "url": "https://codeforces.com/gym/103567",
+   "name": "2021-2022 Olympiad Cognitive Technologies, Prefinal Round",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 103577,
+   "url": "https://codeforces.com/gym/103577",
+   "name": "2021 ICPC Universidad Nacional de Colombia Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 103604,
+   "url": "https://codeforces.com/gym/103604",
+   "name": "AGM 2022 Qualification Round",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 103637,
+   "url": "https://codeforces.com/gym/103637",
+   "name": "2019-2020 10th BSUIR Open Programming Championship. Semifinal",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 103660,
+   "url": "https://codeforces.com/gym/103660",
+   "name": "The 19th Zhejiang University City College Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 103687,
+   "url": "https://codeforces.com/gym/103687",
+   "name": "The 19th Zhejiang Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 103688,
+   "url": "https://codeforces.com/gym/103688",
+   "name": "The 17th Heilongjiang Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 103708,
+   "url": "https://codeforces.com/gym/103708",
+   "name": "2022 ICPC Gran Premio de Mexico 1ra Fecha",
+   "class": "catalogue contest exists (missing source / held for ruling, not a missing contest)"
+  },
+  {
+   "gym": 103729,
+   "url": "https://codeforces.com/gym/103729",
+   "name": "2022 Hubei Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 103743,
+   "url": "https://codeforces.com/gym/103743",
+   "name": "2022 Jiangsu Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 103765,
+   "url": "https://codeforces.com/gym/103765",
+   "name": "2022 Collegiate Programming Contest of Xiangtan University",
+   "class": "unclassified"
+  },
+  {
+   "gym": 103806,
+   "url": "https://codeforces.com/gym/103806",
+   "name": "XXVI Spain Olympiad in Informatics, Day 1",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 103808,
+   "url": "https://codeforces.com/gym/103808",
+   "name": "XXVI Spain Olympiad in Informatics, Day 2",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 103809,
+   "url": "https://codeforces.com/gym/103809",
+   "name": "XXVI Spain Olympiad in Informatics, Online Qualifier",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 103821,
+   "url": "https://codeforces.com/gym/103821",
+   "name": "(Aleppo + HAIST + SVU + Private) CPC 2022",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 103828,
+   "url": "https://codeforces.com/gym/103828",
+   "name": "(DCPC + TCPC + BCPC) 2022",
+   "class": "unclassified"
+  },
+  {
+   "gym": 103831,
+   "url": "https://codeforces.com/gym/103831",
+   "name": "2017 International olympiad Tuymaada",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 103833,
+   "url": "https://codeforces.com/gym/103833",
+   "name": "2018 International olympiad Tuymaada",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 103860,
+   "url": "https://codeforces.com/gym/103860",
+   "name": "The 7th China Collegiate Programming Contest, Finals (CCPC Finals 2021)",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 103931,
+   "url": "https://codeforces.com/gym/103931",
+   "name": "2022 Shanghai Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 103940,
+   "url": "https://codeforces.com/gym/103940",
+   "name": "2022 ICPC Gran Premio de Mexico 2da Fecha",
+   "class": "catalogue contest exists (missing source / held for ruling, not a missing contest)"
+  },
+  {
+   "gym": 103941,
+   "url": "https://codeforces.com/gym/103941",
+   "name": "2022 CCPC Henan Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 103964,
+   "url": "https://codeforces.com/gym/103964",
+   "name": "The 2015 China Collegiate Programming Contest (CCPC 2015)",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 103990,
+   "url": "https://codeforces.com/gym/103990",
+   "name": "2022 ICPC Asia Taiwan Online Programming Contest",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 103993,
+   "url": "https://codeforces.com/gym/103993",
+   "name": "ICPC 2022-2023 NERC (NEERC), Southern and Volga Russia Qualifier",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 104008,
+   "url": "https://codeforces.com/gym/104008",
+   "name": "2022 China Collegiate Programming Contest (CCPC) Guilin Site",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 104010,
+   "url": "https://codeforces.com/gym/104010",
+   "name": "2022-2023 Saint-Petersburg Open High School Programming Contest (SpbKOSHP 22)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104014,
+   "url": "https://codeforces.com/gym/104014",
+   "name": "2022-2023 ICPC NERC, квалификации Уральского региона и Северо-Запада России",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 104015,
+   "url": "https://codeforces.com/gym/104015",
+   "name": "ICPC 2021-2022 NERC (NEERC), Southern and Volga Russia Qualifier",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 104022,
+   "url": "https://codeforces.com/gym/104022",
+   "name": "The 2020 ICPC Asia Yinchuan Regional Programming Contest",
+   "class": "catalogue contest exists (missing source / held for ruling, not a missing contest)"
+  },
+  {
+   "gym": 104023,
+   "url": "https://codeforces.com/gym/104023",
+   "name": "2022 China Collegiate Programming Contest (CCPC) Weihai Site",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 104024,
+   "url": "https://codeforces.com/gym/104024",
+   "name": "The 16-th BIT Campus Programming Contest - Online Round(2022)",
+   "class": "unclassified"
+  },
+  {
+   "gym": 104025,
+   "url": "https://codeforces.com/gym/104025",
+   "name": "The 16-th BIT Campus Programming Contest - Onsite Round",
+   "class": "unclassified"
+  },
+  {
+   "gym": 104027,
+   "url": "https://codeforces.com/gym/104027",
+   "name": "The 10-th BIT Campus Programming Contest for Junior Grade Group",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104052,
+   "url": "https://codeforces.com/gym/104052",
+   "name": "Innopolis Open 2022-2023. First qualification round",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 104053,
+   "url": "https://codeforces.com/gym/104053",
+   "name": "2022 China Collegiate Programming Contest (CCPC) Guangzhou Onsite",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 104065,
+   "url": "https://codeforces.com/gym/104065",
+   "name": "2022 China Collegiate Programming Contest (CCPC) Mianyang Onsite",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 104068,
+   "url": "https://codeforces.com/gym/104068",
+   "name": "The 17-th Beihang University Collegiate Programming Contest (BCPC 2022) - Preliminary",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 104094,
+   "url": "https://codeforces.com/gym/104094",
+   "name": "2022-2023 Russia Team Open, High School Programming Contest (VKOSHP XXIII)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104095,
+   "url": "https://codeforces.com/gym/104095",
+   "name": "2020 CCPC Henan Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 104101,
+   "url": "https://codeforces.com/gym/104101",
+   "name": "The 2022 Zhejiang University City College Freshman Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 104103,
+   "url": "https://codeforces.com/gym/104103",
+   "name": "Innopolis Open 2022-2023. Second qualification round",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 104120,
+   "url": "https://codeforces.com/gym/104120",
+   "name": "2022 ICPC Gran Premio de Mexico Repechaje",
+   "class": "catalogue contest exists (missing source / held for ruling, not a missing contest)"
+  },
+  {
+   "gym": 104207,
+   "url": "https://codeforces.com/gym/104207",
+   "name": "2017 China Collegiate Programming Contest Final (CCPC-Final 2017)",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 104229,
+   "url": "https://codeforces.com/gym/104229",
+   "name": "European Girls Olympiad in Informatics 2022. Day 1",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104230,
+   "url": "https://codeforces.com/gym/104230",
+   "name": "European Girls Olympiad in Informatics 2022. Day 2",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104234,
+   "url": "https://codeforces.com/gym/104234",
+   "name": "OCPC 2023, Oleksandr Kulkov Contest 3",
+   "class": "unclassified"
+  },
+  {
+   "gym": 104235,
+   "url": "https://codeforces.com/gym/104235",
+   "name": "2022-2023 Olympiad Cognitive Technologies, Final Round",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104279,
+   "url": "https://codeforces.com/gym/104279",
+   "name": "21st UESTC Programming Contest - Preliminary",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 104282,
+   "url": "https://codeforces.com/gym/104282",
+   "name": "The 20th Hangzhou City University Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 104283,
+   "url": "https://codeforces.com/gym/104283",
+   "name": "Contest Based on Brain Craft Intra SUST Programming Contest 2023",
+   "class": "unclassified"
+  },
+  {
+   "gym": 104304,
+   "url": "https://codeforces.com/gym/104304",
+   "name": "The 17-th Beihang University Collegiate Programming Contest (BCPC 2022) - Final",
+   "class": "unclassified"
+  },
+  {
+   "gym": 104308,
+   "url": "https://codeforces.com/gym/104308",
+   "name": "Mirror of Independence Day Programming Contest 2023 by MIST Computer Club",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 104314,
+   "url": "https://codeforces.com/gym/104314",
+   "name": "XXV Interregional Programming Olympiad, Vologda SU, 2023",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104325,
+   "url": "https://codeforces.com/gym/104325",
+   "name": "AGM 2023 Qualification Round",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 104336,
+   "url": "https://codeforces.com/gym/104336",
+   "name": "II Olympiad of classes at the Mechanics and Mathematics Faculty of MSU in programming 2023.",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104337,
+   "url": "https://codeforces.com/gym/104337",
+   "name": "2023 Hubei Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 104339,
+   "url": "https://codeforces.com/gym/104339",
+   "name": "FAMCS Olympiad for scholars, Qualification (copy)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104353,
+   "url": "https://codeforces.com/gym/104353",
+   "name": "2023 Xiangtan University Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 104354,
+   "url": "https://codeforces.com/gym/104354",
+   "name": "2023 CCPC Henan Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 104355,
+   "url": "https://codeforces.com/gym/104355",
+   "name": "2023 Xian Jiaotong University Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 104363,
+   "url": "https://codeforces.com/gym/104363",
+   "name": "The 18th Heilongjiang Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 104366,
+   "url": "https://codeforces.com/gym/104366",
+   "name": "The 17th Chinese Northeast Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 104369,
+   "url": "https://codeforces.com/gym/104369",
+   "name": "The 2023 Guangdong Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 104377,
+   "url": "https://codeforces.com/gym/104377",
+   "name": "The 21st Sichuan University Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 104385,
+   "url": "https://codeforces.com/gym/104385",
+   "name": "2023 (ICPC) Jiangxi Provincial Contest -- Official Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 104390,
+   "url": "https://codeforces.com/gym/104390",
+   "name": "The Unofficial Mirror Contest of 19th Thailand Olympiad in Informatics Day 1",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104391,
+   "url": "https://codeforces.com/gym/104391",
+   "name": "The Unofficial Mirror Contest of 19th Thailand Olympiad in Informatics Day 2",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104393,
+   "url": "https://codeforces.com/gym/104393",
+   "name": "ICPC Masters Mexico LATAM 2023",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 104396,
+   "url": "https://codeforces.com/gym/104396",
+   "name": "2023 Jiangsu Collegiate Programming Contest, 2023 National Invitational of CCPC (Hunan), The 13th Xiangtan Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 104397,
+   "url": "https://codeforces.com/gym/104397",
+   "name": "The 21st UESTC Programming Contest Final",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 104400,
+   "url": "https://codeforces.com/gym/104400",
+   "name": "Hunan University 2023 the 19th Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 104412,
+   "url": "https://codeforces.com/gym/104412",
+   "name": "2023 ICPC Gran Premio de Mexico 2da Fecha",
+   "class": "catalogue contest exists (missing source / held for ruling, not a missing contest)"
+  },
+  {
+   "gym": 104417,
+   "url": "https://codeforces.com/gym/104417",
+   "name": "The 13th Shandong ICPC Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 104426,
+   "url": "https://codeforces.com/gym/104426",
+   "name": "Syrian Private Universities Collegiate Programming Contest 2023",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 104441,
+   "url": "https://codeforces.com/gym/104441",
+   "name": "Invitational stage of the All-Russian Olympiad in Informatics for schoolchildren",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104442,
+   "url": "https://codeforces.com/gym/104442",
+   "name": "AdaByron Regional Madrid 2023",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 104447,
+   "url": "https://codeforces.com/gym/104447",
+   "name": "Al-Baath Collegiate Programming Contest 2023",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 104453,
+   "url": "https://codeforces.com/gym/104453",
+   "name": "ICPC Central Russia Regional Qualyfing Round, 2021",
+   "class": "unclassified"
+  },
+  {
+   "gym": 104459,
+   "url": "https://codeforces.com/gym/104459",
+   "name": "The 10th Shandong Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 104460,
+   "url": "https://codeforces.com/gym/104460",
+   "name": "The 2019 ICPC China Shaanxi Provincial Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 104461,
+   "url": "https://codeforces.com/gym/104461",
+   "name": "The 14th Zhejiang Provincial Collegiate Programming Contest Sponsored by TuSimple",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 104468,
+   "url": "https://codeforces.com/gym/104468",
+   "name": "The 2023 Damascus University Collegiate Programming Contest",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 104487,
+   "url": "https://codeforces.com/gym/104487",
+   "name": "Tishreen + SVU CPC 2023",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 104493,
+   "url": "https://codeforces.com/gym/104493",
+   "name": "2023 ICPC HIAST Collegiate Programming Contest",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 104544,
+   "url": "https://codeforces.com/gym/104544",
+   "name": "Aleppo Collegiate Programming Contest 2023 V.2",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 104562,
+   "url": "https://codeforces.com/gym/104562",
+   "name": "2016 Google Code Jam Qualification Round (GCJ 16 Qualification)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104566,
+   "url": "https://codeforces.com/gym/104566",
+   "name": "The 2018 ACM-ICPC Asia Qingdao Regional Contest, Online (The 2nd Universal Cup. Stage 1: Qingdao)",
+   "class": "unclassified"
+  },
+  {
+   "gym": 104582,
+   "url": "https://codeforces.com/gym/104582",
+   "name": "2017 Google Code Jam Qualification Round (GCJ 17 Qualification Round)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104597,
+   "url": "https://codeforces.com/gym/104597",
+   "name": "XXVII Spain Olympiad in Informatics, Online Qualifier",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104604,
+   "url": "https://codeforces.com/gym/104604",
+   "name": "XXVII Spain Olympiad in Informatics, Day 1",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104605,
+   "url": "https://codeforces.com/gym/104605",
+   "name": "XXVII Spain Olympiad in Informatics, Day 2",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104619,
+   "url": "https://codeforces.com/gym/104619",
+   "name": "2023 ICPC Asia Taiwan Online Programming Contest",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 104635,
+   "url": "https://codeforces.com/gym/104635",
+   "name": "2019 Google Code Jam Qualification Round (GCJ 19 Qualification Round)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104642,
+   "url": "https://codeforces.com/gym/104642",
+   "name": "2018 Google Code Jam Qualification Round (GCJ 18 Qualification Round)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104651,
+   "url": "https://codeforces.com/gym/104651",
+   "name": "The 2023 CCPC Online Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 104660,
+   "url": "https://codeforces.com/gym/104660",
+   "name": "2020 Google Code Jam Qualification Round (GCJ 20 Qualification Round)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104663,
+   "url": "https://codeforces.com/gym/104663",
+   "name": "Replay of Ostad Presents Intra KUET Programming Contest 2023",
+   "class": "unclassified"
+  },
+  {
+   "gym": 104671,
+   "url": "https://codeforces.com/gym/104671",
+   "name": "2023 ICPC Columbia University Local Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 104681,
+   "url": "https://codeforces.com/gym/104681",
+   "name": "2021 Google Code Jam Qualification Round (GCJ 21 Qualification Round)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104730,
+   "url": "https://codeforces.com/gym/104730",
+   "name": "Moscow team school olympiad (MKOSHP) 2023",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104741,
+   "url": "https://codeforces.com/gym/104741",
+   "name": "The 10th Jimei University Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 104755,
+   "url": "https://codeforces.com/gym/104755",
+   "name": "LU ICPC Selection Contest 2023",
+   "class": "unclassified"
+  },
+  {
+   "gym": 104758,
+   "url": "https://codeforces.com/gym/104758",
+   "name": "The 2023 ICPC Masters Mexico Regional #ICPCMX2023 Edition",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 104760,
+   "url": "https://codeforces.com/gym/104760",
+   "name": "2023-2024 ICPC NERC (NEERC), Kyrgyzstan Qualification Contest",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 104768,
+   "url": "https://codeforces.com/gym/104768",
+   "name": "2023 China Collegiate Programming Contest (CCPC) Guilin Onsite (The 2nd Universal Cup. Stage 8: Guilin)",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 104770,
+   "url": "https://codeforces.com/gym/104770",
+   "name": "The XXXI Saint-Petersburg High School Programming Contest (SpbKOSHP 2023) | Qualification for the XXIV Russia Open High School Programming Contest (VKOSHP 2023)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104787,
+   "url": "https://codeforces.com/gym/104787",
+   "name": "The 2023 CCPC (Qinhuangdao) Onsite (The 2nd Universal Cup. Stage 9: Qinhuangdao)",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 104789,
+   "url": "https://codeforces.com/gym/104789",
+   "name": "Innopolis Open 2024. Qualification Round 1",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 104791,
+   "url": "https://codeforces.com/gym/104791",
+   "name": "The 2023 CCPC (Qinhuangdao) Onsite Warmup",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 104804,
+   "url": "https://codeforces.com/gym/104804",
+   "name": "Central Russia Regional Contest, 2022, Qualification Contest",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 104813,
+   "url": "https://codeforces.com/gym/104813",
+   "name": "The 9th CCPC (Harbin) Onsite(The 2nd Universal Cup. Stage 10: Harbin)",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 104819,
+   "url": "https://codeforces.com/gym/104819",
+   "name": "2023 Sun Yat-sen University Collegiate Programming Contest, Onsite",
+   "class": "unclassified"
+  },
+  {
+   "gym": 104823,
+   "url": "https://codeforces.com/gym/104823",
+   "name": "The 17-th BIT Campus Programming Contest - Online Round",
+   "class": "unclassified"
+  },
+  {
+   "gym": 104825,
+   "url": "https://codeforces.com/gym/104825",
+   "name": "The 17-th BIT Campus Programming Contest - Onsite Round",
+   "class": "unclassified"
+  },
+  {
+   "gym": 104828,
+   "url": "https://codeforces.com/gym/104828",
+   "name": "The 11-th BIT Campus Programming Contest for Junior Grade Group",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104833,
+   "url": "https://codeforces.com/gym/104833",
+   "name": "The 2023 Zhejiang SCI-TECH University Freshman Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 104851,
+   "url": "https://codeforces.com/gym/104851",
+   "name": "Municipal stage of the All-Russian School Olympiad in Informatics in the Vologda Region 2023, grades 7-8",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104852,
+   "url": "https://codeforces.com/gym/104852",
+   "name": "Municipal stage of the All-Russian School Olympiad in Informatics in the Vologda Region 2023, grades 9-11",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104854,
+   "url": "https://codeforces.com/gym/104854",
+   "name": "2023-2024 ICPC, Swiss Subregional",
+   "class": "Swiss Subregional (EPFL/ETH internal selection; CMS rows triaged cancelled with 0 teams) -> non-mainline"
+  },
+  {
+   "gym": 104872,
+   "url": "https://codeforces.com/gym/104872",
+   "name": "2023-2024 Russia Team Open, High School Programming Contest (VKOSHP XXIV)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104879,
+   "url": "https://codeforces.com/gym/104879",
+   "name": "Innopolis Open 2024. Qualification Round 1",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 104880,
+   "url": "https://codeforces.com/gym/104880",
+   "name": "The 18-th Beihang University Collegiate Programming Contest (BCPC 2023) - Preliminary",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 104883,
+   "url": "https://codeforces.com/gym/104883",
+   "name": "The 18-th Beihang University Collegiate Programming Contest (BCPC 2023) - Final",
+   "class": "unclassified"
+  },
+  {
+   "gym": 104895,
+   "url": "https://codeforces.com/gym/104895",
+   "name": "Open Olympiad in Informatics 2021-22, first day",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104896,
+   "url": "https://codeforces.com/gym/104896",
+   "name": "Open Olympiad in Informatics 2021-22, second day",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 104922,
+   "url": "https://codeforces.com/gym/104922",
+   "name": "Qualification stage of Open Olympiad 2023-2024",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105003,
+   "url": "https://codeforces.com/gym/105003",
+   "name": "XXVIII Spain Olympiad in Informatics, Online Qualifier",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105012,
+   "url": "https://codeforces.com/gym/105012",
+   "name": "Bay Area Programming Contest 2024",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 105013,
+   "url": "https://codeforces.com/gym/105013",
+   "name": "The 19th Southeast University Programming Contest (Summer)",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105046,
+   "url": "https://codeforces.com/gym/105046",
+   "name": "XXVIII Spain Olympiad in Informatics, Day 1",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105047,
+   "url": "https://codeforces.com/gym/105047",
+   "name": "XXVIII Spain Olympiad in Informatics, Day 2",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105056,
+   "url": "https://codeforces.com/gym/105056",
+   "name": "International Odoo Programming Contest 2024",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 105064,
+   "url": "https://codeforces.com/gym/105064",
+   "name": "ICPC-de-Tryst 2024",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 105069,
+   "url": "https://codeforces.com/gym/105069",
+   "name": "The 5th FanRuan Cup Southeast University Programming Contest （Winter）",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105085,
+   "url": "https://codeforces.com/gym/105085",
+   "name": "AdaByron Regional Madrid 2024",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 105122,
+   "url": "https://codeforces.com/gym/105122",
+   "name": "XXVI Interregional Programming Olympiad, Vologda SU, 2024",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105125,
+   "url": "https://codeforces.com/gym/105125",
+   "name": "MITIT 2024 Spring Invitational Qualification",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 105129,
+   "url": "https://codeforces.com/gym/105129",
+   "name": "Shorouk Academy 2024 Collegiate Programming Contest",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 105139,
+   "url": "https://codeforces.com/gym/105139",
+   "name": "The 2024 International Collegiate Programming Contest in Hubei Province, China",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105143,
+   "url": "https://codeforces.com/gym/105143",
+   "name": "2024 ICPC National Invitational Collegiate Programming Contest, Wuhan Site",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105158,
+   "url": "https://codeforces.com/gym/105158",
+   "name": "2024 National Invitational of CCPC (Zhengzhou), 2024 CCPC Henan Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105161,
+   "url": "https://codeforces.com/gym/105161",
+   "name": "2024 Jiangsu Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105163,
+   "url": "https://codeforces.com/gym/105163",
+   "name": "The 19th Heilongjiang Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105164,
+   "url": "https://codeforces.com/gym/105164",
+   "name": "2024 ICPC Gran Premio de Mexico 1ra Fecha",
+   "class": "catalogue contest exists (missing source / held for ruling, not a missing contest)"
+  },
+  {
+   "gym": 105167,
+   "url": "https://codeforces.com/gym/105167",
+   "name": "ETH Zurich Competitive Programming Contest Spring 2024",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 105168,
+   "url": "https://codeforces.com/gym/105168",
+   "name": "2024 Fujian Normal University Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105170,
+   "url": "https://codeforces.com/gym/105170",
+   "name": "The 2024 CCPC National Invitational Contest (Changchun) , The 17th Jilin Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105172,
+   "url": "https://codeforces.com/gym/105172",
+   "name": "The 20th Southeast University Programming Contest (Summer)",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105173,
+   "url": "https://codeforces.com/gym/105173",
+   "name": "The 2024 CCPC National Invitational Contest (Northeast), The 18th Northeast Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105174,
+   "url": "https://codeforces.com/gym/105174",
+   "name": "The 22nd Sichuan University Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105176,
+   "url": "https://codeforces.com/gym/105176",
+   "name": "2024 Xian Jiaotong University Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105182,
+   "url": "https://codeforces.com/gym/105182",
+   "name": "The 22nd UESTC Programming Contest - Final",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105184,
+   "url": "https://codeforces.com/gym/105184",
+   "name": "The 8th Hebei Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105190,
+   "url": "https://codeforces.com/gym/105190",
+   "name": "Al-Baath Collegiate Programming Contest 2024",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 105198,
+   "url": "https://codeforces.com/gym/105198",
+   "name": "ShellBeeHaken Presents Intra SUST Programming Contest 2024 - Replay",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105214,
+   "url": "https://codeforces.com/gym/105214",
+   "name": "OCPC Fall 2023 - Day 1: Jeroen Op de Beek Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105216,
+   "url": "https://codeforces.com/gym/105216",
+   "name": "2024 ICPC Gran Premio de Mexico 2da Fecha",
+   "class": "catalogue contest exists (missing source / held for ruling, not a missing contest)"
+  },
+  {
+   "gym": 105222,
+   "url": "https://codeforces.com/gym/105222",
+   "name": "The 2024 Sichuan Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105223,
+   "url": "https://codeforces.com/gym/105223",
+   "name": "HIAST Collegiate Programming Contest 2024",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 105229,
+   "url": "https://codeforces.com/gym/105229",
+   "name": "The 2024 Shanghai Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105230,
+   "url": "https://codeforces.com/gym/105230",
+   "name": "2024-2025 ICPC Bolivia Pre-National Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105231,
+   "url": "https://codeforces.com/gym/105231",
+   "name": "2024 (ICPC) Jiangxi Provincial Contest -- Official Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105242,
+   "url": "https://codeforces.com/gym/105242",
+   "name": "The 2024 Damascus University Collegiate Programming Contest (DCPC 2024)",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 105257,
+   "url": "https://codeforces.com/gym/105257",
+   "name": "2024 ICPC ShaanXi Provincial Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105259,
+   "url": "https://codeforces.com/gym/105259",
+   "name": "Western European Olympiad in Informatics 2024 Mirror",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105263,
+   "url": "https://codeforces.com/gym/105263",
+   "name": "XXIV Spain Olympiad in Informatics, Day 1",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105264,
+   "url": "https://codeforces.com/gym/105264",
+   "name": "The 2024 Syrian Virtual University Collegiate Programming Contest",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 105278,
+   "url": "https://codeforces.com/gym/105278",
+   "name": "2024 ICPC Universidad Nacional de Colombia Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105307,
+   "url": "https://codeforces.com/gym/105307",
+   "name": "ICPC 2024 Thailand - Chulalongkorn University Internal Round",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105314,
+   "url": "https://codeforces.com/gym/105314",
+   "name": "Robbing Balloons 2.0 Qualifications",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 105316,
+   "url": "https://codeforces.com/gym/105316",
+   "name": "2024 Aleppo Collegiate Programming Contest",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 105319,
+   "url": "https://codeforces.com/gym/105319",
+   "name": "Tishreen Collegiate Programming Contest 2024",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 105325,
+   "url": "https://codeforces.com/gym/105325",
+   "name": "XXIV Spain Olympiad in Informatics, Day 2",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105327,
+   "url": "https://codeforces.com/gym/105327",
+   "name": "2024-2025 ICPC Brazil Subregional Programming Contest",
+   "class": "catalogue contest exists (missing source / held for ruling, not a missing contest)"
+  },
+  {
+   "gym": 105336,
+   "url": "https://codeforces.com/gym/105336",
+   "name": "The 2024 CCPC Online Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105358,
+   "url": "https://codeforces.com/gym/105358",
+   "name": "The 2024 ICPC Asia EC Regionals Online Contest (II)",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 105363,
+   "url": "https://codeforces.com/gym/105363",
+   "name": "XXV Spain Olympiad in Informatics, Online Qualifier 1",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105364,
+   "url": "https://codeforces.com/gym/105364",
+   "name": "XXV Spain Olympiad in Informatics, Online Qualifier 2",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105381,
+   "url": "https://codeforces.com/gym/105381",
+   "name": "National Yang Ming Chiao Tung University 2024 Team Selection Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105383,
+   "url": "https://codeforces.com/gym/105383",
+   "name": "2024 ICPC Asia Taiwan Online Programming Contest",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 105385,
+   "url": "https://codeforces.com/gym/105385",
+   "name": "The 2024 CCPC Shandong Invitational Contest and Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105386,
+   "url": "https://codeforces.com/gym/105386",
+   "name": "The 2024 ICPC Kunming Invitational Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105388,
+   "url": "https://codeforces.com/gym/105388",
+   "name": "OCPC Potluck Contest 1 (The 3rd Universal Cup. Stage 6: Osijek)",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105401,
+   "url": "https://codeforces.com/gym/105401",
+   "name": "2024 KAIST 14th ICPC Mock Competition",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105403,
+   "url": "https://codeforces.com/gym/105403",
+   "name": "XXIV Spain Olympiad in Informatics, Online Qualifier 1",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105404,
+   "url": "https://codeforces.com/gym/105404",
+   "name": "XXIV Spain Olympiad in Informatics, Online Qualifier 2",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105408,
+   "url": "https://codeforces.com/gym/105408",
+   "name": "2024 ICPC Gran Premio de Mexico Repechaje",
+   "class": "catalogue contest exists (missing source / held for ruling, not a missing contest)"
+  },
+  {
+   "gym": 105424,
+   "url": "https://codeforces.com/gym/105424",
+   "name": "2023-2024 Квалификационный тур Уральского четвертьфинала ICPC",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 105437,
+   "url": "https://codeforces.com/gym/105437",
+   "name": "ICPC 2024-2025 NERC, Southern and Volga Russia Qualifier",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 105449,
+   "url": "https://codeforces.com/gym/105449",
+   "name": "Moscow team school olympiad (MKOSHP) 2024",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105455,
+   "url": "https://codeforces.com/gym/105455",
+   "name": "XXIII Spain Olympiad in Informatics, Day 1",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105456,
+   "url": "https://codeforces.com/gym/105456",
+   "name": "XXIII Spain Olympiad in Informatics, Day 2",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105457,
+   "url": "https://codeforces.com/gym/105457",
+   "name": "XXIII Spain Olympiad in Informatics, Online Qualifier 1",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105458,
+   "url": "https://codeforces.com/gym/105458",
+   "name": "XXIII Spain Olympiad in Informatics, Online Qualifier 2",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105459,
+   "url": "https://codeforces.com/gym/105459",
+   "name": "2024 China Collegiate Programming Contest (CCPC) Harbin Onsite (The 3rd Universal Cup. Stage 14: Harbin)",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105461,
+   "url": "https://codeforces.com/gym/105461",
+   "name": "2024-2025 ICPC, Swiss Subregional",
+   "class": "Swiss Subregional (EPFL/ETH internal selection; CMS rows triaged cancelled with 0 teams) -> non-mainline"
+  },
+  {
+   "gym": 105475,
+   "url": "https://codeforces.com/gym/105475",
+   "name": "XXII Spain Olympiad in Informatics, Day 1",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105476,
+   "url": "https://codeforces.com/gym/105476",
+   "name": "XXII Spain Olympiad in Informatics, Day 2",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105477,
+   "url": "https://codeforces.com/gym/105477",
+   "name": "XXII Spain Olympiad in Informatics, Online Qualifier 1",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105478,
+   "url": "https://codeforces.com/gym/105478",
+   "name": "XXII Spain Olympiad in Informatics, Online Qualifier 2",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105481,
+   "url": "https://codeforces.com/gym/105481",
+   "name": "2024 CCPC Liaoning Provincial Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105487,
+   "url": "https://codeforces.com/gym/105487",
+   "name": "2024 China Collegiate Programming Contest (CCPC) Female Onsite (2024年中国大学生程序设计竞赛女生专场)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105494,
+   "url": "https://codeforces.com/gym/105494",
+   "name": "2024-2025 ICPC NERC, Kyrgyzstan Qualification Contest",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 105498,
+   "url": "https://codeforces.com/gym/105498",
+   "name": "Khulna Regional Inter University Programming Contest (KRIUPC) MIRROR",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105530,
+   "url": "https://codeforces.com/gym/105530",
+   "name": "Metropolitan University Inter University Programming Contest - Sylhet Division 2024",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105532,
+   "url": "https://codeforces.com/gym/105532",
+   "name": "Aggie Competitive Programming Contest (ACPC) 2024",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 105540,
+   "url": "https://codeforces.com/gym/105540",
+   "name": "2024 China Collegiate Programming Contest (CCPC) Jinan Site (The 3rd Universal Cup. Stage 17: Jinan)",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105556,
+   "url": "https://codeforces.com/gym/105556",
+   "name": "The 6th FanRuan Cup Southeast University Programming Contest (Winter)",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105579,
+   "url": "https://codeforces.com/gym/105579",
+   "name": "Udmurtia High School Programming Contest (Qualification for VKOSHP 2012)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105580,
+   "url": "https://codeforces.com/gym/105580",
+   "name": "Open Udmurtia High School Programming Contest 2015",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105581,
+   "url": "https://codeforces.com/gym/105581",
+   "name": "Open Udmurtia Junior Programming Contest 2018",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105584,
+   "url": "https://codeforces.com/gym/105584",
+   "name": "The 2024 ICPC Asia Japan Online First-Round Contest",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 105613,
+   "url": "https://codeforces.com/gym/105613",
+   "name": "Qualifying round of the IX regional Olympiad for the Governors Prize 2024, grades 9-10, Vologda region",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105614,
+   "url": "https://codeforces.com/gym/105614",
+   "name": "Final round of the IX regional Olympiad for the Governors Prize 2024, grades 9-10, Vologda region",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105615,
+   "url": "https://codeforces.com/gym/105615",
+   "name": "The 19-th Beihang University Collegiate Programming Contest (BCPC 2024) - Preliminary",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 105617,
+   "url": "https://codeforces.com/gym/105617",
+   "name": "2024-2025 Russia Team Open, High School Programming Contest (VKOSHP XXV)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105629,
+   "url": "https://codeforces.com/gym/105629",
+   "name": "The 19-th Beihang University Collegiate Programming Contest (BCPC 2024) - Final",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105631,
+   "url": "https://codeforces.com/gym/105631",
+   "name": "SYSU Collegiate Programming Contest 2024 (SYSUCPC 2024), Final",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105632,
+   "url": "https://codeforces.com/gym/105632",
+   "name": "2024 China Collegiate Programming Contest (CCPC) Zhengzhou Onsite (The 3rd Universal Cup. Stage 22: Zhengzhou)",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105665,
+   "url": "https://codeforces.com/gym/105665",
+   "name": "AGM 2024 Qualification Round",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 105669,
+   "url": "https://codeforces.com/gym/105669",
+   "name": "Combinatorics Contest - Brazilian ICPC Summer School 2025",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105681,
+   "url": "https://codeforces.com/gym/105681",
+   "name": "Qualification stage of Open Olympiad 2024-2025",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105698,
+   "url": "https://codeforces.com/gym/105698",
+   "name": "OCPC 2024 Summer, Day 5: OCPC Potluck Contest 2",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105699,
+   "url": "https://codeforces.com/gym/105699",
+   "name": "OCPC 2024 Winter, Day 8: Borys Minaiev Contest 1 (The 3rd Universal Cup. Stage 27: London)",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105712,
+   "url": "https://codeforces.com/gym/105712",
+   "name": "Rutgers University Programming Contest Fall 2024",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105723,
+   "url": "https://codeforces.com/gym/105723",
+   "name": "MTB Presents AUST Inter University Programming Contest 2025",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105745,
+   "url": "https://codeforces.com/gym/105745",
+   "name": "AGM 2025 Qualification Round",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 105746,
+   "url": "https://codeforces.com/gym/105746",
+   "name": "Bangladesh Olympiad in Informatics 2025 National Round Day 1",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105747,
+   "url": "https://codeforces.com/gym/105747",
+   "name": "Bangladesh Olympiad in Informatics 2025 Preliminary Round",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105748,
+   "url": "https://codeforces.com/gym/105748",
+   "name": "Bangladesh Olympiad in Informatics 2025 National Round Day 2",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105755,
+   "url": "https://codeforces.com/gym/105755",
+   "name": "Bay Area Programming Contest 2025",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 105760,
+   "url": "https://codeforces.com/gym/105760",
+   "name": "2020 UCF Local Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105761,
+   "url": "https://codeforces.com/gym/105761",
+   "name": "2021 UCF Local Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105783,
+   "url": "https://codeforces.com/gym/105783",
+   "name": "XXIX Spain Olympiad in Informatics, Online Qualifier",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105788,
+   "url": "https://codeforces.com/gym/105788",
+   "name": "2024-2025 Qualifying stage of the regional Olympiad Turing Machine",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105792,
+   "url": "https://codeforces.com/gym/105792",
+   "name": "2024-2025 Regional Olympiad Final Turing Machine",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105803,
+   "url": "https://codeforces.com/gym/105803",
+   "name": "XXIX Spain Olympiad in Informatics, Day 1 (Mirror)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105804,
+   "url": "https://codeforces.com/gym/105804",
+   "name": "XXIX Spain Olympiad in Informatics, Day 2 (Mirror)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105813,
+   "url": "https://codeforces.com/gym/105813",
+   "name": "Rutgers University Programming Contest Spring 2025",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105822,
+   "url": "https://codeforces.com/gym/105822",
+   "name": "MITIT Spring 2025 Qualification Round 1",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 105837,
+   "url": "https://codeforces.com/gym/105837",
+   "name": "MITIT Spring 2025 Qualification Round 2",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 105838,
+   "url": "https://codeforces.com/gym/105838",
+   "name": "The 14th Huazhong Agricultural University Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105839,
+   "url": "https://codeforces.com/gym/105839",
+   "name": "XXVII Interregional Programming Olympiad, Vologda SU, 2025",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105847,
+   "url": "https://codeforces.com/gym/105847",
+   "name": "CPC External Problemset",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 105862,
+   "url": "https://codeforces.com/gym/105862",
+   "name": "ACPC Kickoff 2025",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 105869,
+   "url": "https://codeforces.com/gym/105869",
+   "name": "OCPC Fall 2024 Day 2 Jagiellonian Contest (The 3rd Universal Cup. Stage 35: Kraków)",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105873,
+   "url": "https://codeforces.com/gym/105873",
+   "name": "2025 ICPC Gran Premio de Mexico 1ra Fecha",
+   "class": "catalogue contest exists (missing source / held for ruling, not a missing contest)"
+  },
+  {
+   "gym": 105874,
+   "url": "https://codeforces.com/gym/105874",
+   "name": "Spring Lyceum Second school olympiad in informatics 2025",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 105876,
+   "url": "https://codeforces.com/gym/105876",
+   "name": "Replay of BU Intra Department Programming Contest 2025",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105884,
+   "url": "https://codeforces.com/gym/105884",
+   "name": "Betopia Group Presents DUET Inter University Programming Contest 2025",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105891,
+   "url": "https://codeforces.com/gym/105891",
+   "name": "The 13th Shaanxi Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105895,
+   "url": "https://codeforces.com/gym/105895",
+   "name": "The 21st Southeast University Programming Contest (Summer)",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105901,
+   "url": "https://codeforces.com/gym/105901",
+   "name": "2025 ICPC Wuhan Invitational Contest (The 3rd Universal Cup. Stage 37: Wuhan)",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105902,
+   "url": "https://codeforces.com/gym/105902",
+   "name": "2025 Fujian Normal University Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105909,
+   "url": "https://codeforces.com/gym/105909",
+   "name": "The 9th Hebei Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105910,
+   "url": "https://codeforces.com/gym/105910",
+   "name": "The 23rd Sichuan University Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105911,
+   "url": "https://codeforces.com/gym/105911",
+   "name": "2025 ICPC Nanchang Invitational and Jiangxi Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105922,
+   "url": "https://codeforces.com/gym/105922",
+   "name": "The 18th Jilin Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105924,
+   "url": "https://codeforces.com/gym/105924",
+   "name": "The 2025 CCPC National Invitational Contest (Northeast), The 19th Northeast Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105930,
+   "url": "https://codeforces.com/gym/105930",
+   "name": "The 15th Shandong CCPC Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105937,
+   "url": "https://codeforces.com/gym/105937",
+   "name": "2025 Xian Jiaotong University Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105941,
+   "url": "https://codeforces.com/gym/105941",
+   "name": "2025 National Invitational of CCPC (Zhengzhou), 2025 CCPC Henan Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105945,
+   "url": "https://codeforces.com/gym/105945",
+   "name": "The 2025 Jiangsu Collegiate Programming Contest, The 2025 Guangdong Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105949,
+   "url": "https://codeforces.com/gym/105949",
+   "name": "The 2025 Sichuan Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105973,
+   "url": "https://codeforces.com/gym/105973",
+   "name": "Uttara University Inter-University Programming Contest 2025",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105977,
+   "url": "https://codeforces.com/gym/105977",
+   "name": "2025 National Invitational of CCPC (Fujian), The 12th Fujian Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105979,
+   "url": "https://codeforces.com/gym/105979",
+   "name": "2025 ICPC Gran Premio de Mexico 2da Fecha",
+   "class": "catalogue contest exists (missing source / held for ruling, not a missing contest)"
+  },
+  {
+   "gym": 105981,
+   "url": "https://codeforces.com/gym/105981",
+   "name": "The 2025 Hunan University Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105986,
+   "url": "https://codeforces.com/gym/105986",
+   "name": "2025 Wuhan University of Technology Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 105992,
+   "url": "https://codeforces.com/gym/105992",
+   "name": "The 2025 Shanghai Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 105993,
+   "url": "https://codeforces.com/gym/105993",
+   "name": "Latakia and Tartus Collegiate Programming Contest 2025",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 106007,
+   "url": "https://codeforces.com/gym/106007",
+   "name": "The 2025 Aleppo Collegiate programming contest",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 106016,
+   "url": "https://codeforces.com/gym/106016",
+   "name": "The 2025 Homs Collegiate programming contest",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 106017,
+   "url": "https://codeforces.com/gym/106017",
+   "name": "2025 ICPC Universidad Nacional de Colombia Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 106020,
+   "url": "https://codeforces.com/gym/106020",
+   "name": "The 2025 Damascus University Collegiate Programming Contest",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 106030,
+   "url": "https://codeforces.com/gym/106030",
+   "name": "2024 China Collegiate Programming Contest (CCPC) Chongqing Onsite",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 106032,
+   "url": "https://codeforces.com/gym/106032",
+   "name": "The 2025 ICPC Syrian Private Universities Collegiate Programming Contest",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 106034,
+   "url": "https://codeforces.com/gym/106034",
+   "name": "ICPC Central Russia Regional Qualification Round, 2024",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 106045,
+   "url": "https://codeforces.com/gym/106045",
+   "name": "IUT Intra University Programming Contest 2025",
+   "class": "unclassified"
+  },
+  {
+   "gym": 106057,
+   "url": "https://codeforces.com/gym/106057",
+   "name": "CoU CSE Fest 2025 - Inter University Programming Contest (Divisional)",
+   "class": "unclassified"
+  },
+  {
+   "gym": 106059,
+   "url": "https://codeforces.com/gym/106059",
+   "name": "National Yang Ming Chiao Tung University 2025 Team Selection Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 106062,
+   "url": "https://codeforces.com/gym/106062",
+   "name": "2025 XVII Donald Knuth Annual Programming Contest by ESCOM-IPN",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 106063,
+   "url": "https://codeforces.com/gym/106063",
+   "name": "2025 ICPC Gran Premio de Mexico 3ra Fecha",
+   "class": "catalogue contest exists (missing source / held for ruling, not a missing contest)"
+  },
+  {
+   "gym": 106068,
+   "url": "https://codeforces.com/gym/106068",
+   "name": "2025 Aleppo and Idlib Private Universities Collegiate Programming Contest (APUCPC 2025)",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 106072,
+   "url": "https://codeforces.com/gym/106072",
+   "name": "The 2025 ICPC Asia EC Regionals Online Contest (II)",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 106082,
+   "url": "https://codeforces.com/gym/106082",
+   "name": "2022 UCF Local Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 106094,
+   "url": "https://codeforces.com/gym/106094",
+   "name": "SVU-HIAST CPC 2025",
+   "class": "Syrian university contests (minor in triage)"
+  },
+  {
+   "gym": 106100,
+   "url": "https://codeforces.com/gym/106100",
+   "name": "International MathCoding Narxoz open olympiad 2025",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 106107,
+   "url": "https://codeforces.com/gym/106107",
+   "name": "SCPC Teens 2025",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 106110,
+   "url": "https://codeforces.com/gym/106110",
+   "name": "2025-2026 ICPC NERC, Kyrgyzstan Qualification Contest",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 106114,
+   "url": "https://codeforces.com/gym/106114",
+   "name": "2025 Sun Yat-sen University Collegiate Programming Contest, Final",
+   "class": "unclassified"
+  },
+  {
+   "gym": 106118,
+   "url": "https://codeforces.com/gym/106118",
+   "name": "2025 ICPC, Chula Selection Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 106125,
+   "url": "https://codeforces.com/gym/106125",
+   "name": "Delft Algorithm Programming Contest 2025 (DAPC 2025)",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 106132,
+   "url": "https://codeforces.com/gym/106132",
+   "name": "National Yang Ming Chiao Tung University 2025 Individual Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 106136,
+   "url": "https://codeforces.com/gym/106136",
+   "name": "East China University of Science and Technology Programming Contest 2025",
+   "class": "unclassified"
+  },
+  {
+   "gym": 106139,
+   "url": "https://codeforces.com/gym/106139",
+   "name": "The 21st Hunan Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 106141,
+   "url": "https://codeforces.com/gym/106141",
+   "name": "Moscow team school olympiad (MKOSHP) 2025",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 106147,
+   "url": "https://codeforces.com/gym/106147",
+   "name": "Junior Balkan Olympiad in Informatics 2025. Day 1",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 106148,
+   "url": "https://codeforces.com/gym/106148",
+   "name": "Junior Balkan Olympiad in Informatics 2025. Day 2",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 106170,
+   "url": "https://codeforces.com/gym/106170",
+   "name": "Swiss Subregional 2025-2026",
+   "class": "Swiss Subregional (EPFL/ETH internal selection; CMS rows triaged cancelled with 0 teams) -> non-mainline"
+  },
+  {
+   "gym": 106174,
+   "url": "https://codeforces.com/gym/106174",
+   "name": "Final round of the X Vologda Regional Informatics Olympiad for the Governors Prize 2025, grades 9-10",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 106179,
+   "url": "https://codeforces.com/gym/106179",
+   "name": "ICPC India Online Prelims (2025 - 2026)",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 106184,
+   "url": "https://codeforces.com/gym/106184",
+   "name": "The 2025 China Collegiate Programming Contest (CCPC) Harbin Onsite Warmup",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 106185,
+   "url": "https://codeforces.com/gym/106185",
+   "name": "The 2025 ICPC Japan Online First Round Contest",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 106197,
+   "url": "https://codeforces.com/gym/106197",
+   "name": "Rutgers University Programming Contest Fall 2025 - Open Division",
+   "class": "unclassified"
+  },
+  {
+   "gym": 106208,
+   "url": "https://codeforces.com/gym/106208",
+   "name": "Inter University Programming Contest - MU CSE Fest 2025 - MIRROR",
+   "class": "unclassified"
+  },
+  {
+   "gym": 106235,
+   "url": "https://codeforces.com/gym/106235",
+   "name": "Algo Cup 2025 by csspace.io (Qualification Round)",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 106238,
+   "url": "https://codeforces.com/gym/106238",
+   "name": "The 7th FanRuan Cup Southeast University Programming Contest (Winter) Professional Group",
+   "class": "unclassified"
+  },
+  {
+   "gym": 106247,
+   "url": "https://codeforces.com/gym/106247",
+   "name": "Municipal stage of the All-Russian School Olympiad 2025, grades 9-11, Programming profile, Vologda and Krasnodar regions",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 106259,
+   "url": "https://codeforces.com/gym/106259",
+   "name": "CUET Inter University Programming Contest 2025",
+   "class": "unclassified"
+  },
+  {
+   "gym": 106267,
+   "url": "https://codeforces.com/gym/106267",
+   "name": "The 20-th Beihang University Collegiate Programming Contest (BCPC 2025) - Final",
+   "class": "unclassified"
+  },
+  {
+   "gym": 106272,
+   "url": "https://codeforces.com/gym/106272",
+   "name": "The 20-th Beihang University Collegiate Programming Contest (BCPC 2025) - Preliminary",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 106298,
+   "url": "https://codeforces.com/gym/106298",
+   "name": "OCPC 2024 Summer, Day 4: wuhudsm Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 106315,
+   "url": "https://codeforces.com/gym/106315",
+   "name": "ICPC Dhaka 2025 Online Preliminary - Replay Contest",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 106331,
+   "url": "https://codeforces.com/gym/106331",
+   "name": "Brazilian ICPC Summer School 2026 problems",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 106369,
+   "url": "https://codeforces.com/gym/106369",
+   "name": "2023 UCF Local Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 106380,
+   "url": "https://codeforces.com/gym/106380",
+   "name": "The 6th Liaoning Provincial Collegiate Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 106384,
+   "url": "https://codeforces.com/gym/106384",
+   "name": "CYCPC Round 2",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 106396,
+   "url": "https://codeforces.com/gym/106396",
+   "name": "Tiangong University 2025 ICPC Team Selection Contest II (Online Mirror)",
+   "class": "unclassified"
+  },
+  {
+   "gym": 106403,
+   "url": "https://codeforces.com/gym/106403",
+   "name": "Bay Area Programming Contest 2026 Novice Division",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 106404,
+   "url": "https://codeforces.com/gym/106404",
+   "name": "Bay Area Programming Contest 2026 Advanced Division",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 106414,
+   "url": "https://codeforces.com/gym/106414",
+   "name": "Rutgers University Programming Contest Spring 2026 - Open Division",
+   "class": "unclassified"
+  },
+  {
+   "gym": 106429,
+   "url": "https://codeforces.com/gym/106429",
+   "name": "MITIT Spring 2026 Invitationals Qualification Round 1",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 106433,
+   "url": "https://codeforces.com/gym/106433",
+   "name": "XXX Spain Olympiad in Informatics, online qualifier",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 106438,
+   "url": "https://codeforces.com/gym/106438",
+   "name": "IUT Eid Salami Programming Contest 2026 - Powered by Okkhor Technology (Online Mirror)",
+   "class": "not mainline (local / invitational / masters / kickoff)"
+  },
+  {
+   "gym": 106444,
+   "url": "https://codeforces.com/gym/106444",
+   "name": "OCPC 2025 Winter, Day 1: Limas Sultan Agung",
+   "class": "unclassified"
+  },
+  {
+   "gym": 106456,
+   "url": "https://codeforces.com/gym/106456",
+   "name": "The 15th Huazhong Agricultural University Programming Contest",
+   "class": "unclassified"
+  },
+  {
+   "gym": 106463,
+   "url": "https://codeforces.com/gym/106463",
+   "name": "MITIT Spring 2026 Invitationals Qualification Round 2",
+   "class": "online qualifier / preliminary (part-of-parent per Q5) or university qualifier"
+  },
+  {
+   "gym": 106467,
+   "url": "https://codeforces.com/gym/106467",
+   "name": "East China University of Science and Technology Programming Championship 2026",
+   "class": "unclassified"
+  },
+  {
+   "gym": 106478,
+   "url": "https://codeforces.com/gym/106478",
+   "name": "Midnight Code Cup MCC 2026 Qualification (Upsolving)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 106483,
+   "url": "https://codeforces.com/gym/106483",
+   "name": "Midnight Code Cup MCC 2025 Qualification (Upsolving)",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 106484,
+   "url": "https://codeforces.com/gym/106484",
+   "name": "2026 GBA International Programming Contest",
+   "class": "Chinese provincial / CCPC (non-mainline or minor in triage)"
+  },
+  {
+   "gym": 106487,
+   "url": "https://codeforces.com/gym/106487",
+   "name": "XXX Spain Olympiad in Informatics, Day 1",
+   "class": "not ICPC (olympiad / open / training / other)"
+  },
+  {
+   "gym": 106488,
+   "url": "https://codeforces.com/gym/106488",
+   "name": "XXX Spain Olympiad in Informatics, Day 2",
+   "class": "not ICPC (olympiad / open / training / other)"
+  }
+ ],
+ "new_series_proposal_nkp": {
+  "status": "proposal only — needs a ruling on whether the NKP gated the regional (NWERC/ERC/WERC)",
+  "evidence": [
+   "https://2005.bapc.eu/ (\"Benelux Algorithm Programming Contest ... Formerly known as 'Nederlands Kampioenschap Programmeren' or 'NKP'\")",
+   "https://2005.bapc.eu/contests.shtml.html (\"The results from the BAPC are usually used to decide which teams participate in the regional contest\")",
+   "https://chipcie.wisv.ch/archive/ (BAPC archive table lists NKP 1991-2004 with host and date; links per edition)"
+  ],
+  "series": {
+   "id": "nkp",
+   "name": "Nederlands Kampioenschap Programmeren",
+   "tier": "subregional",
+   "region": "Europe",
+   "naming": "season-start",
+   "lineage": [
+    {
+     "type": "continues-as",
+     "series": "bapc",
+     "year": 2005
+    }
+   ]
+  },
+  "contests_from_chipcie_archive_table": [
+   {
+    "id": "nkp-1991",
+    "location": "Leiden"
+   },
+   {
+    "id": "nkp-1992",
+    "location": "Nijmegen",
+    "date": "1992-10-24"
+   },
+   {
+    "id": "nkp-1993",
+    "location": "Delft",
+    "date": "1993-10-10"
+   },
+   {
+    "id": "nkp-1994",
+    "location": "Amsterdam (UvA)",
+    "date": "1994-10-08"
+   },
+   {
+    "id": "nkp-1995",
+    "location": "Twente",
+    "date": "1995-10-14"
+   },
+   {
+    "id": "nkp-1996",
+    "location": "Eindhoven",
+    "date": "1996-10-07"
+   },
+   {
+    "id": "nkp-1997",
+    "location": "Groningen",
+    "date": "1997-10-18"
+   },
+   {
+    "id": "nkp-1998",
+    "location": "Twente"
+   },
+   {
+    "id": "nkp-2000",
+    "location": "Groningen",
+    "date": "2000-10-07"
+   },
+   {
+    "id": "nkp-2001",
+    "location": "Delft",
+    "date": "2001-10-06"
+   },
+   {
+    "id": "nkp-2002",
+    "location": "Amsterdam (VU)",
+    "date": "2002-10-19"
+   },
+   {
+    "id": "nkp-2003",
+    "location": "Twente",
+    "date": "2003-10-16"
+   },
+   {
+    "id": "nkp-2004",
+    "location": "Utrecht",
+    "date": "2004-10-23"
+   }
+  ],
+  "notes": "dates are as the CHipCie table gives them (day and month, year from the row); 1999 is absent from the table; parents would be erc-1991, werc-1992..1994, nwerc-1995..2004 if the NKP gated the regional; nothing here was checked beyond the table"
+ },
+ "seusa_before_1988": {
+  "evidence": "https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc (Wayback 20140630180351): 1983-1984 Regionals 3rd; 1984-1985 Regionals 1st, Finals 16th; 1985-1986 Regionals 2nd, Finals 4th; 1986-1987 Regionals 1st, Finals 2nd; 1987-1988 Regionals 3rd",
+  "candidates": [
+   "seusa-1983",
+   "seusa-1984",
+   "seusa-1985",
+   "seusa-1986",
+   "seusa-1987"
+  ]
+ },
+ "early_era_counts": {
+  "note": "catalogue contests per season (WF included): 1977-1979: 1; 1980-1983: 2; 1984: 3; 1985-1987: 4; 1988: 5; 1989-1990: 6; 1991-1992: 7; 1993: 8; 1994: 13; 1995: 15; 1996: 18; 1997: 23; 1998: 26"
+ },
+ "current_season_handoff": {
+  "alberta-2026": "Kattis acpc26 (reports/kattis-sites-2026-11-14.md); problem archive \"Alberta Collegiate Programming Contest 2026\"",
+  "atlantic-canada-2026": "https://atlantic-canada26.kattis.com/contests/atlantic-canada26/standings (non-mainline)"
+ },
+ "misfiled_sources": [
+  {
+   "contest": "bapc-2005",
+   "url": "https://2005.bapc.eu/problems/prebapc/problemset_BAPC2005_qualifiers.pdf",
+   "should_be": "bapc-prelims-2005 (now also added there by op; remove from bapc-2005 when its capture pointers are moved)"
+  }
+ ],
+ "sites_to_move": [
+  {
+   "from": "brazil-2004",
+   "to": "brazil-first-phase-2004",
+   "what": "14 CMS sites dated 2004-10-02 (all but USP)"
+  },
+  {
+   "from": "brazil-2005",
+   "to": "brazil-first-phase-2005",
+   "what": "sites dated 2005-09-10"
+  }
+ ],
+ "gaps_not_resolved": [
+  "algeria-2015",
+  "algeria-2016",
+  "algeria-2017",
+  "algeria-2019",
+  "benin-2018",
+  "nigeria-2018",
+  "togo-2018",
+  "kuwait-2013",
+  "oman-2015",
+  "morocco-2024",
+  "nzpc-1999",
+  "nena-north-2010",
+  "taiwan-ncpc-2008..2011",
+  "turkey-2024",
+  "turkey-2025",
+  "malaysia-national-2015",
+  "malaysia-national-2017",
+  "dhaka-2000",
+  "jakarta-2011",
+  "vietnam-2009",
+  "vietnam-2011",
+  "vietnam-2014",
+  "tehran-2021 (CMS rows structural/cancelled)"
+ ]
+}
