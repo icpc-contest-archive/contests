@@ -11,7 +11,8 @@ Writes <out>/<contest>/pack.json and s<N>.txt (as tools/content_check_pack.py do
 also carries `earlier`, the earlier reader's verdict, when there is one), <out>/index.json and,
 once every pack exists, <out>/batches/bNNN.txt of about --batch-sources held sources each.
 Nothing in the catalogue is changed. With --all, a contest whose every held source already has a
-description of the copy we hold now (data/source-descriptions/) is left out.
+description of the copy we hold now (data/source-descriptions/) is left out. With --unread-only a pack
+holds only the sources not read yet (`other_sources` counts the rest of the contest's sources).
 """
 import argparse
 import json
@@ -97,6 +98,9 @@ def main() -> int:
     ap.add_argument("--budget", type=int, default=0, help="stop starting new work after this many seconds (rerun to resume)")
     ap.add_argument("--jobs", type=int, default=4)
     ap.add_argument("--batch-sources", type=int, default=18)
+    ap.add_argument("--unread-only", action="store_true",
+                    help="keep in each pack only the held sources no description round has read in the copy we hold now "
+                         "(a later round after new captures: the other sources keep the descriptions they have)")
     args = ap.parse_args()
     out = Path(args.out).resolve()
     out.mkdir(parents=True, exist_ok=True)
@@ -139,7 +143,17 @@ def main() -> int:
     for cid in pick:
         p = out / cid / "pack.json"
         if p.exists():
-            srcs = json.loads(p.read_text())["sources"]
+            pack = json.loads(p.read_text())
+            srcs = pack["sources"]
+            if args.unread_only:
+                keep = [x for x in srcs if x["copy"] and read.get((cid, norm_key(x["url"]))) != x["copy"]["path"]]
+                if len(keep) != len(srcs):
+                    for x in srcs:   # (the mount may refuse deletes) an emptied digest is a dropped one
+                        if x not in keep and x.get("copy") and x["copy"].get("digest") and (out / cid / x["copy"]["digest"]).exists():
+                            (out / cid / x["copy"]["digest"]).write_text("")
+                    pack["sources"], pack["other_sources"] = keep, len(srcs) - len(keep)
+                    p.write_text(json.dumps(pack, indent=1, ensure_ascii=False))
+                    srcs = keep
             index.append({"contest": cid, "sources": len(srcs), "with_copy": sum(1 for x in srcs if x["copy"]),
                           "first_reading": sum(1 for x in srcs if x["copy"] and not x.get("earlier")),
                           # held sources no description round has read in the copy we hold now
