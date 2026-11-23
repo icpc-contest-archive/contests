@@ -268,7 +268,9 @@ def main() -> int:
             # nothing about a set is publishable before every contest that uses it has run
             d = parse_date(c.get("date"))
             if c.get("status") == "upcoming" or (d and d > TODAY):
-                if probs or doc.get("repo") or any(doc.get(k) not in (None, "none") for k in ("statement", "data", "solutions", "package")):
+                # names, letters and even the number of problems count as problem data (ruling 2026-11-01)
+                if (probs or doc.get("repo") or doc.get("count") or e.get("labels") or e.get("letters") or e.get("divisions")
+                        or any(doc.get(k) not in (None, "none") for k in ("statement", "data", "solutions", "package"))):
                     err(f"problemsets/{sid_}.yaml: problem data on a contest that has not run yet ({m}, {c.get('date')}) — not publishable")
             letters = e.get("letters") or {}
             for letter, pid_ in letters.items():

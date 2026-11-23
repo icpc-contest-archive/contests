@@ -12,6 +12,9 @@ For every result-tier capture in data/archive-index.json:
     icpc_standings source
 `archived` is always a list: one address may hold several captures (catalogue.add_archived).
   - captures without a URL are left to render-time handling.
+  - a capture whose address another contest already cites, or whose path a source already
+    lists, never makes a new source: it was filed under this contest's folder before the
+    source was moved or removed (content check, data scan), and re-adding it would undo that.
 Problemset, judge-page and web-mirror captures are not written back (as before).
 
 Run from the contests repo root; validate afterwards.
@@ -27,7 +30,7 @@ ROOT = Path(__file__).resolve().parent.parent
 import sys  # noqa: E402
 sys.path.insert(0, str(ROOT / "tools"))
 from catalogue import add_archived, add_source, archived, by_role, cms_sources, dump_series, find_source, load_series  # noqa: E402
-from resources import unwrap  # noqa: E402
+from resources import norm_key, unwrap  # noqa: E402
 ART_KEY = {"scoreboard": "scoreboard", "frozen_scoreboard": "frozen_scoreboard",
            "standings": "standings", "rankings": "rankings",
            "external-standings": "standings"}
@@ -44,7 +47,15 @@ def main() -> int:
         by_contest.setdefault(cap["contest"], []).append(cap)
 
     stats = Counter()
-    for sid, doc in load_series().items():
+    series = load_series()
+    cited: dict[str, set[str]] = {}     # address key -> contests that cite it
+    listed: set[str] = set()           # capture paths some source already lists
+    for doc in series.values():
+        for c in doc["contests"]:
+            for s in c.get("sources") or []:
+                cited.setdefault(norm_key(s["url"]), set()).add(c["id"])
+                listed.update(archived(s))
+    for sid, doc in series.items():
         changed = False
         for c in doc["contests"]:
             for cap in by_contest.get(c["id"], []):
@@ -80,6 +91,9 @@ def main() -> int:
                     stats["archived added to existing source"
                           + (" (additional capture)" if len(archived(target)) > 1 else "")] += 1
                     changed = True
+                elif cap.get("url") and (cap["path"] in listed
+                                         or cited.get(norm_key(unwrap(cap["url"])[0]), set()) - {c["id"]}):
+                    stats["skipped: address cited by another contest (moved or removed here)"] += 1
                 elif cap.get("url"):
                     add_source(c, unwrap(cap["url"])[0], role, as_of=cap_ts(cap), archived=[cap["path"]],
                                note=f"from archived capture ({cap['artifact']})")
