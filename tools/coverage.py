@@ -100,7 +100,7 @@ def _share(n: int, total: int) -> str:
 
 
 class Coverage:
-    def __init__(self, series_docs: dict, sets: dict, held=None, web_held=None, placed=None):
+    def __init__(self, series_docs: dict, sets: dict, held=None, web_held=None, placed=None, copy_held=None):
         """`held(contest, source)`: do we hold a copy that is the document (default: any capture reference);
         `web_held(contest)`: do we hold the website (default: a held `web` source);
         `placed(contest)`: is it in the location tree (default: it has `sites`)."""
@@ -108,6 +108,8 @@ class Coverage:
         self.held = held or (lambda c, s: bool(archived(s)))
         self.web_held = web_held or (lambda c: any(self.held(c, s) for s in by_role(c, "web")))
         self.placed = placed or (lambda c: bool(c.get("sites")))
+        # `copy_held(url)`: do we hold a good copy of this address (default: no - only the site builder knows)
+        self.copy_held = copy_held or (lambda url: False)
         self.contests: dict = {c["id"]: c for doc in series_docs.values() for c in doc["contests"]}
         self._rec: dict = {}
         self._set: dict = {}
@@ -124,6 +126,12 @@ class Coverage:
                 "partial": held != "none" and is_partial(mine, held)}
 
     # ---- problems ----
+    def statement_copy(self, p: dict) -> bool:
+        """We hold a copy of this problem's statement taken from an online judge (ruled 2026-11-22: it
+        counts): the file `statement_url` names when the judge keeps the statement apart from the page,
+        else the problem's page there."""
+        return any(self.copy_held(j.get("statement_url") or j["url"]) for j in p.get("judges") or [] if j.get("url"))
+
     def _material(self, doc: dict, members: list[dict]) -> dict:
         """{component: state} for a set (or, with doc {}, for one contest that has no set)."""
         srcs = [(c, s) for c in members for s in sources(c)]
@@ -139,9 +147,11 @@ class Coverage:
             # the copy of a source on an online judge is the judge's list page, not the material
             mine = [s for c, s in giving if self.held(c, s) and not s.get("judge")]
             singles = [s for s in mine if "problemset" not in s["roles"]]
-            if arch == "full" or len(mine) > len(singles) or (total and len(singles) >= total):
+            # per problem: a statement file of its own among the contest's sources, or a copy from an online judge
+            per = len(singles) + (sum(1 for p in doc.get("problems") or [] if self.statement_copy(p)) if key == "statement" else 0)
+            if arch == "full" or len(mine) > len(singles) or (total and per >= total):
                 out[key] = "all"
-            elif arch == "partial" or mine:
+            elif arch == "partial" or mine or per:
                 out[key] = "some"
             elif giving:
                 out[key] = "link only"

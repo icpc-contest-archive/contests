@@ -291,6 +291,13 @@ def src_held(c: dict, s: dict) -> bool:
     return _HELD[k]
 
 
+def copy_held(url: str) -> bool:
+    """We hold a good copy of this address, whether or not a contest cites it (a problem's page or
+    statement file on an online judge)."""
+    L = RES.locs.get(lid(url))
+    return bool(L) and any(c.get("sha256") and not c.get("caveat") for R in (L.get("resources") or {}).values() for c in R.get("captures") or [])
+
+
 def rec(c: dict) -> dict:
     """The coverage record of a contest (coverage.Coverage.record)."""
     return COV.record(c)
@@ -1387,8 +1394,10 @@ def problem_judge_links(p: dict, sep: str = " ", by_id: bool = False, tips: bool
     parts = []
     for j in p.get("judges") or []:
         url, as_of = j["url"], j.get("as_of")
-        href = wayback_link(url, as_of) if as_of else url
-        tip = res_label(url, as_of, 200) + (f" — {judge_name(j['judge'])} id {j['id']}" if j.get("id") else "") + (" (Wayback snapshot)" if as_of else "")
+        closed = (JUDGES.get(j["judge"]) or {}).get("status") == "closed"
+        # a closed judge's own address leads nowhere: its link opens the Wayback Machine, at the snapshot when one is named
+        href = wayback_link(url, as_of) if as_of or closed else url
+        tip = res_label(url, as_of, 200) + (f" — {judge_name(j['judge'])} id {j['id']}" if j.get("id") else "") + (" (Wayback snapshot)" if as_of else " (Wayback Machine)" if closed else "")
         if by_id:
             parts.append(f'<a class="ext" href="{esc(href)}"' + (f' title="{esc(tip)}"' if tips else "") + f'>{esc(j.get("id") or "open")}</a>')
         else:
@@ -1407,11 +1416,14 @@ def problem_have(p: dict, doc: dict | None) -> dict[str, bool | None]:
     (statements held for every problem of the set => held for this one)."""
     if "have" in p:
         have = set(p.get("have") or [])
-        return {k: k in have for k, *_ in HAVE_KINDS}
-    out: dict[str, bool | None] = {}
-    for k, *_ in HAVE_KINDS:
-        st = (doc or {}).get(SET_KIND.get(k, ""))
-        out[k] = True if st == "full" else False if st == "none" else None
+        out = {k: k in have for k, *_ in HAVE_KINDS}
+    else:
+        out = {}
+        for k, *_ in HAVE_KINDS:
+            st = (doc or {}).get(SET_KIND.get(k, ""))
+            out[k] = True if st == "full" else False if st == "none" else None
+    if not out["statement"] and COV is not None and COV.statement_copy(p):
+        out["statement"] = True   # a copy of the statement from an online judge counts (ruled 2026-11-22)
     return out
 
 
@@ -3530,7 +3542,7 @@ def build(out: Path):
     _HELD.clear(); _ST.clear(); _TOK.clear(); _LOC_OF.clear()  # noqa: E702
     # a website is held when the contest has a `web` source and we hold a crawl of it (or a copy of the source):
     # a crawl seeded from a document that is not a website source (a PDF, a results page) is not a website
-    COV = CV.Coverage(series_docs, SETS, held=src_held, placed=lambda c: bool(held_at(c)[0]),
+    COV = CV.Coverage(series_docs, SETS, held=src_held, placed=lambda c: bool(held_at(c)[0]), copy_held=copy_held,
                       web_held=lambda c: bool(by_role(c, "web")) and (c["id"] in website_of or any(src_held(c, s) for s in by_role(c, "web"))))
 
     # ---- contests, series, seasons ----
