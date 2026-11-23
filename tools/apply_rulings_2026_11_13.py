@@ -14,6 +14,10 @@
 usage: apply_rulings_2026_11_13.py <harvest.json> <title-candidates.json> <categorized.json> [--dry-run]
 """
 from __future__ import annotations
+import sys as _sys
+from pathlib import Path as _Path
+_sys.path.insert(0, str(_Path(__file__).resolve().parent))
+import livearchive  # noqa: E402  (the Live Archive map; number - 1999 is wrong for 43 %)
 import collections, json, re, sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -103,7 +107,7 @@ def main() -> int:
     # 4. rmc-2001
     la = sorted((int(k), t.strip()) for k, (t, src) in harvest["UVALive"].items() if re.sub(r"\s+", " ", src).strip() == "Regionals 2001 >> North America - Rocky Mountain")
     sid = (where["rmc-2001"][1].get("problems") or {}).get("set") or "rmc-2001"
-    fill(sid, ["rmc-2001"], [(None, t, {"judge": "livearchive", "url": f"https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem={n - 1999}", "id": str(n)}) for n, t in la],
+    fill(sid, ["rmc-2001"], [(None, t, {"judge": "livearchive", "url": livearchive.page_url(n), "id": str(n)}) for n, t in la],
          "problem list from the ICPC Live Archive category 'Regionals 2001 >> North America - Rocky Mountain' as mirrored by vjudge.net; "
          "count corrected from 8 to 9 (the contest numbered its problems 0-8; ruling)", letters=False, count=len(la))
     # gyms

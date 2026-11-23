@@ -6,7 +6,9 @@ external/) and, for every `judge: livearchive` link of a problem:
   - `as_of`: the snapshot of the problem's page. Where the page was only saved under its address with a
     category in it, `url` becomes that address (the same page; it is what the snapshot answers to).
   - `statement_url`: the statement file, external/<nn>/<number>.pdf (else p<number>.pdf, else .html).
-Edits the files as text. --write to apply.
+The internal page number is taken from the Live Archive's own map (data/livearchive-problems.json) when
+it knows the problem, never kept from a link that opens another problem. Edits the files as text.
+--write to apply.
 
 --queue writes ../archive/topup-livearchive-statements-<day>.json for capture_urls.py --no-live: the
 statement file, at its snapshot, of every such problem whose set's statements we do not all hold and
@@ -19,6 +21,9 @@ import sys
 from collections import Counter
 from pathlib import Path
 from urllib.parse import parse_qsl, urlsplit
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import livearchive  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 ARCHIVE = ROOT.parent / "archive"
@@ -72,16 +77,28 @@ def main() -> int:
                     rest.append(lines[k])
                     k += 1
                 num = next((x.split("id:", 1)[1].strip().strip("'\"") for x in rest if x.strip().startswith("id:")), None)
+                # the page of the problem itself: the internal number in the address may be another problem's
+                # (it was once derived as number - 1999); the Live Archive's own map decides (tools/livearchive.py)
+                mapped = livearchive.internal(num) if num else None
+                if mapped is not None and str(mapped) != internal:
+                    stats["internal number corrected from the map"] += 1
+                    internal = str(mapped)
+                    m = PAGE.match(f"{ind}url: {livearchive.PAGE_URL.format(internal=internal)}")
                 page, fil = pages.get(internal), files.get(num or "")
                 url = page[2] if page and page[0] else m.group(2).split("&category=")[0] if not page else m.group(2)
                 if page and page[0] == 0:
                     url = f"https://{HOST}/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem={internal}"
+                if not page and any(x.strip().startswith("as_of:") for x in rest):
+                    url = m.group(2)   # keep the address the earlier pin answers to
                 new = [f"{ind}url: {url}"] + [x for x in rest if x.strip().startswith(("id:", "note:"))]
                 if page:
                     new.append(f"{ind}as_of: '{page[1]}'")
                     stats["page snapshot" + (" (address with its category)" if page[0] else "")] += 1
                 else:
-                    stats["no page snapshot"] += 1
+                    # a snapshot pinned earlier (found by another CDX query) stays: the listing is not complete
+                    kept = [x for x in rest if x.strip().startswith("as_of:")]
+                    new += kept
+                    stats["no page snapshot in the listing" + (" (earlier pin kept)" if kept else "")] += 1
                 if fil:
                     new.append(f"{ind}statement_url: {fil[2]}")
                     stats["statement file: " + ("pdf" if fil[0] < 2 else "html")] += 1

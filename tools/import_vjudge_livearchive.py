@@ -22,8 +22,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from catalogue import ROOT, dump_series, load_series, load_sets  # noqa: E402
 from mine_judge_links import dump_set, norm_title, pid  # noqa: E402
+import livearchive  # noqa: E402
 
-LA_URL = "https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem={n}"
 SITES = {  # Live Archive site -> series (contest id = <series>-<year>)
     "Africa/Middle East - South Africa": "south-africa", "Africa/Middle East - South African": "south-africa",
     "Africa/Middle East - Africa and Arab": "acpc", "Africa/Middle East - Arab and North Africa": "acpc",
@@ -103,13 +103,17 @@ def main() -> int:
             else:
                 setid = cid; s = sets[setid] = {"id": setid, "contests": [{"contest": cid}], "provenance": []}
                 c["problems"] = {"set": setid}; touched.add(ser)
-        link = lambda n: {"judge": "livearchive", "url": LA_URL.format(n=n - 1999), "id": str(n)}
+        # the page address comes from the Live Archive's own map (internal number != number - 1999 for 43 %);
+        # a problem the map does not know gets no link (tools/livearchive.py)
+        link = lambda n: {"judge": "livearchive", "url": livearchive.page_url(n), "id": str(n)}
         if s.get("problems"):
             by = collections.defaultdict(list)
             for p in s["problems"]: by[norm_title(p["name"])].append(p)
             got = 0
             for n, t in probs:
                 ps = by.get(norm_title(t)) or []
+                if livearchive.page_url(n) is None:
+                    rep["no link: problem not in data/livearchive-problems.json"].append(f"{cid}: {n} {t}"); continue
                 if len(ps) == 1 and not any(j["judge"] == "livearchive" for j in ps[0].get("judges") or []):
                     ps[0].setdefault("judges", []).append(link(n)); got += 1
             if got:
@@ -121,7 +125,7 @@ def main() -> int:
             rep["held back: repeated titles"].append(f"{cid} <- {line}"); continue
         if s.get("count") and len(probs) < s["count"]: s["complete"] = False
         elif not s.get("count"): s["count"] = len(probs)
-        s["problems"] = [{"id": pid(None, setid, None, t), "name": t, "judges": [link(n)]} for n, t in probs]
+        s["problems"] = [{"id": pid(None, setid, None, t), "name": t, "judges": [link(n)] if livearchive.page_url(n) else []} for n, t in probs]
         if not any("letters" in e for e in s["contests"]): s["letters"] = "unknown"
         s.setdefault("provenance", []).append(
             f"problem list from the ICPC Live Archive category '{src}' as mirrored by vjudge.net (UVALive), "

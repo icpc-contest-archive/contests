@@ -429,6 +429,13 @@ several contests: NCPC + UKIEPC 2013, shared North American sets):
   contest's judge *pages* are its `problemset` sources that carry `judge: <id>`; a
   problem's judge links are its `judges: [{judge, url, id?, as_of?}]` list. Both refer to
   the registry by id.
+- **Live Archive links** (`judge: livearchive`; the site is gone, links open its Wayback
+  snapshots, ruled 2026-11-22). `id` is the problem number everyone cites; the address carries
+  the Live Archive's internal page number, which is *not* `id - 1999` (that holds for 57 %).
+  The map between them is `data/livearchive-problems.json`, read off Wayback copies of the
+  Live Archive's 767 category pages plus single problem pages
+  (`tools/build_livearchive_map.py`); every tool that writes such a link takes the address from
+  it (`tools/livearchive.py`), and `validate.py` refuses a link whose page is another problem.
 
 **Shared sets.** A set sat by several contests has an id of its own and a `name`: `latam-<year>`
 for the Latin America regional (every site sits the same problems; a site with no list of its own

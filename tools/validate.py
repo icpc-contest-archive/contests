@@ -17,6 +17,7 @@ import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from resources import is_wrapper, norm_key  # noqa: E402
+import livearchive  # noqa: E402
 
 try:
     from jsonschema import Draft202012Validator
@@ -256,6 +257,8 @@ def main() -> int:
                 if j["judge"] not in judge_ids:
                     err(f"problemsets/{sid_}.yaml {p['id']}: unknown judge {j['judge']!r}")
                 check_locator(f"problemsets/{sid_}.yaml {p['id']}.judges", j["url"])
+                if j["judge"] == "livearchive" and (why := livearchive.check(j)):
+                    err(f"problemsets/{sid_}.yaml {p['id']}: Live Archive link opens another problem: {why}")
         members = [e["contest"] for e in doc["contests"]]
         for e in doc["contests"]:
             m = e["contest"]
