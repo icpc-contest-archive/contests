@@ -62,8 +62,8 @@ JUDGE_PLAIN = ("kattis", "timus", "codeforces", "hdu", "poj", "spoj", "spoj-br",
                "eolymp", "luogu", "bailian", "cats", "sgu", "loj")
 JUDGE_BROWSER = ("qoj", "aoj", "codechef", "nowcoder", "pintia", "hackerrank", "tlx", "omegaup", "dmoj",
                  "vnoj", "beecrowd")
-# LIVEARCHIVE: the recorded links put the Live Archive's problem numbers on onlinejudge.org, where the
-# same numbers are other (UVa) problems (checked 2026-11-22: 3 of 3). Not queued until the links are right.
+# LIVEARCHIVE: closed, and its statements are files apart from the problem pages: queued by
+# tools/pin_livearchive.py --queue (the statement file at its snapshot), not here.
 JUDGE_SKIP = ("livearchive",)
 
 
@@ -105,7 +105,7 @@ def source_queues(contests: dict, stats: Counter) -> dict[str, list]:
                 continue
             answers = live in ("live", "changed")
             snap = a["wb"].get("ts") if a["wb"]["word"] == "snapshot" else None
-            there = answers or live in ("blocked", "unverified")   # not confirmed gone
+            there = answers or live in ("blocked", "unverified", "not checked")   # not confirmed gone
             if not there and not snap:
                 continue
             if c.get("status") == "upcoming":
@@ -129,9 +129,9 @@ def source_queues(contests: dict, stats: Counter) -> dict[str, list]:
                 elif live == "blocked":
                     q["curl"].append(item)
                     stats["curl: host refuses our client"] += 1
-                elif answers:
+                elif answers or live == "not checked":   # a source just added: the capture is its first check
                     q["pages"].append(item)
-                    stats["pages: address answers"] += 1
+                    stats["pages: address answers" if answers else "pages: new source, never checked"] += 1
             elif "web" in s["roles"]:
                 if cid not in crawls:
                     crawls[cid] = crawled(cid)
@@ -173,6 +173,7 @@ def problem_queues(contests: dict, stats: Counter) -> dict[str, list]:
     registry = yaml.safe_load((ROOT / "judges.yaml").read_text())
     registry = registry["judges"] if isinstance(registry, dict) else registry
     closed = {j["id"] for j in registry if j.get("status") == "closed"}
+    closed -= set(JUDGE_SKIP)
     rank = {j: i for i, j in enumerate(JUDGE_PLAIN + tuple(sorted(closed)) + JUDGE_BROWSER)}
     q: dict[str, list] = {"problems": [], "problems-wayback": [], "problems-browser": []}
     seen = set()
