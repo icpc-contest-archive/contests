@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/bake_icpc_standings.py.
+# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
 series:
   id: neerc
   name: Northeastern Europe Regional Contest
@@ -39,7 +39,7 @@ contests:
     - solutions
     as_of: '19980202011125'
     url_state: dead
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://neerc.ifmo.ru/archive/1996/problems.zip
     roles:
     - problemset
@@ -47,14 +47,14 @@ contests:
     - statement
     as_of: '20250623144847'
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://nerc.itmo.ru/archive/1996/problems.zip
     roles:
     - problemset
     contains:
     - statement
-    url_state: changed
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=468
     roles:
     - problemset
@@ -63,14 +63,14 @@ contests:
     judge: livearchive
     as_of: '20211018181139'
     url_state: dead
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://open.kattis.com/problem-sources/North%20Eastern%20European%20Regionals%201996
     roles:
     - problemset
     judge: kattis
     note: Kattis problem-sources page (export source "North Eastern European Regionals 1996", 2026-11-02)
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   problems:
     set: neerc-1996
 - id: neerc-1997
@@ -101,14 +101,14 @@ contests:
     - statement
     as_of: '19980202011204'
     url_state: dead
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://nerc.itmo.ru/archive/1997/problems.zip
     roles:
     - problemset
     contains:
     - statement
-    url_state: changed
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=481
     roles:
     - problemset
@@ -117,7 +117,7 @@ contests:
     judge: livearchive
     as_of: '20211016115039'
     url_state: dead
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   problems:
     set: neerc-1997
   provenance:
@@ -179,7 +179,7 @@ contests:
     - package
     as_of: '20010214224946'
     url_state: dead
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: http://icpc.baylor.edu/past/icpc99/Regionals/NEERC98/Problems.htm
     roles:
     - problemset
@@ -195,14 +195,14 @@ contests:
     - statement
     as_of: '20250623144847'
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://nerc.itmo.ru/archive/1998/problems.zip
     roles:
     - problemset
     contains:
     - statement
-    url_state: changed
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=492
     roles:
     - problemset
@@ -211,7 +211,7 @@ contests:
     judge: livearchive
     as_of: '20211025074420'
     url_state: dead
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://www.acmicpc.net/category/detail/895
     roles:
     - problemset
@@ -219,8 +219,8 @@ contests:
     - statement
     judge: baekjoon
     as_of: '20201024092655'
-    url_state: dead
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   problems:
     set: neerc-1998
 - id: neerc-1999
@@ -302,7 +302,7 @@ contests:
     - data
     as_of: '20010214224741'
     url_state: dead
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: http://icpc.baylor.edu/past/icpc2000/regionals/NEERC99/Problems.html
     roles:
     - problemset
@@ -317,7 +317,7 @@ contests:
     contains:
     - statement
     url_state: changed
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=502
     roles:
     - problemset
@@ -326,7 +326,7 @@ contests:
     judge: livearchive
     as_of: '20211024130846'
     url_state: dead
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://www.acmicpc.net/category/detail/894
     roles:
     - problemset
@@ -334,8 +334,8 @@ contests:
     - names
     judge: baekjoon
     as_of: '20201021163346'
-    url_state: dead
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   problems:
     set: neerc-1999
   provenance:
@@ -420,7 +420,7 @@ contests:
     - names
     as_of: '20020513195656'
     url_state: dead
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: http://icpc.baylor.edu/past/icpc2001/regionals/NEERC00/Problems.pdf
     roles:
     - problemset
@@ -436,7 +436,7 @@ contests:
     - statement
     as_of: '20220906045952'
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=69
     roles:
     - problemset
@@ -445,7 +445,7 @@ contests:
     judge: livearchive
     as_of: '20211025075011'
     url_state: dead
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://www.acmicpc.net/category/detail/893
     roles:
     - problemset
@@ -453,8 +453,8 @@ contests:
     - names
     judge: baekjoon
     as_of: '20201026194407'
-    url_state: dead
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://acm.timus.ru/problemset.aspx?space=1&page=all
     roles:
     - problemset
@@ -464,8 +464,8 @@ contests:
     note: 'NEERC 2000 (judge hunt 2026-11-03: 8 problems in the Timus main problem set carry Source ''NEERC
       2000'' (no contest space exists; filter the listing by the Source column); 8/8 catalogue problem
       titles match)'
-    url_state: changed
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
     as_of: '20090221185752'
   problems:
     set: neerc-2000
@@ -552,7 +552,7 @@ contests:
     - package
     as_of: '20020806022138'
     url_state: dead
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: http://icpc.baylor.edu/past/icpc2002/Regionals/NEERC01/problems.html
     roles:
     - problemset
@@ -568,14 +568,14 @@ contests:
     - statement
     as_of: '20250623144847'
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://nerc.itmo.ru/archive/2001/problems-pdf.zip
     roles:
     - problemset
     contains:
     - statement
-    url_state: changed
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   - url: http://neerc.ifmo.ru/Regional/problems/index.html
     roles:
     - problemset
@@ -583,7 +583,7 @@ contests:
     - statement
     as_of: '20020203131235'
     url_state: dead
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=98
     roles:
     - problemset
@@ -592,7 +592,7 @@ contests:
     judge: livearchive
     as_of: '20211015204729'
     url_state: dead
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://www.acmicpc.net/category/detail/892
     roles:
     - problemset
@@ -600,8 +600,8 @@ contests:
     - statement
     judge: baekjoon
     as_of: '20201023090956'
-    url_state: dead
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://acm.timus.ru/problemset.aspx?space=1&page=all
     roles:
     - problemset
@@ -609,8 +609,8 @@ contests:
     - statement
     judge: timus
     as_of: '20090221185752'
-    url_state: changed
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
     note: 'NEERC 2001 (judge hunt 2026-11-03: 8 problems in the Timus main problem set carry Source ''NEERC
       2001'' (no contest space exists; filter the listing by the Source column); 8/8 catalogue problem
       titles match)'
@@ -693,7 +693,7 @@ contests:
     contains:
     - statement
     url_state: changed
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://www.acmicpc.net/category/detail/891
     roles:
     - problemset
@@ -701,8 +701,8 @@ contests:
     - names
     judge: baekjoon
     as_of: '20201019162755'
-    url_state: dead
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/100002
     roles:
     - problemset
@@ -710,8 +710,8 @@ contests:
     - statement
     judge: codeforces
     as_of: '20221226061401'
-    url_state: replaced
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://acm.timus.ru/problemset.aspx?space=1&page=all
     roles:
     - problemset
@@ -719,8 +719,8 @@ contests:
     - statement
     judge: timus
     as_of: '20090221185752'
-    url_state: changed
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
     note: 'NEERC 2002 (judge hunt 2026-11-03: 9 problems in the Timus main problem set carry Source ''NEERC
       2002'' (no contest space exists; filter the listing by the Source column); 9/9 catalogue problem
       titles match)'
@@ -803,7 +803,7 @@ contests:
     - statement
     as_of: '20181222142209'
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://nerc.itmo.ru/archive/2003/problems.pdf
     roles:
     - problemset
@@ -811,7 +811,7 @@ contests:
     - statement
     as_of: '20230322025016'
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: http://neerc.ifmo.ru/regional/problems/problems.ps
     roles:
     - problemset
@@ -819,7 +819,7 @@ contests:
     - statement
     as_of: '20040205225935'
     url_state: dead
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://www.acmicpc.net/category/detail/890
     roles:
     - problemset
@@ -827,8 +827,8 @@ contests:
     - names
     judge: baekjoon
     as_of: '20201024125246'
-    url_state: dead
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/101388
     roles:
     - problemset
@@ -836,8 +836,8 @@ contests:
     - statement
     judge: codeforces
     as_of: '20170706055756'
-    url_state: changed
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
     note: '2003-2004 ACM-ICPC Northeastern European Regional Contest (NEERC 03) (judge hunt 2026-11-03:
       name+year: ''2003-2004 ACM-ICPC Northeastern European Regional Contest (NEERC 03)'' -> season start
       2003)'
@@ -905,7 +905,7 @@ contests:
     - statement
     as_of: '20220122053356'
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://www.acmicpc.net/category/detail/889
     roles:
     - problemset
@@ -913,8 +913,8 @@ contests:
     - names
     judge: baekjoon
     as_of: '20201024154912'
-    url_state: dead
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/100536
     roles:
     - problemset
@@ -925,7 +925,7 @@ contests:
       name+year: ''2004-2005 ACM-ICPC Northeastern European Regional Contest (NEERC 04)'' -> season start
       2004)'
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   problems:
     set: neerc-2004
 - id: neerc-2005
@@ -992,6 +992,10 @@ contests:
     as_of: '20051203021312'
     note: restored with the snapshot of this edition by the data scan 2026-11-23 (urls); the copies we
       held were of a later edition
+    url_state: dead
+    url_checked: '2026-11-23'
+    archived:
+    - neerc/neerc-2005/external-standings/2026-04-15-external/content.html
   - url: https://nerc.itmo.ru/archive/2005/problems/problems.pdf
     roles:
     - problemset
@@ -999,7 +1003,7 @@ contests:
     - statement
     as_of: '20220122063411'
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://www.acmicpc.net/category/detail/21
     roles:
     - problemset
@@ -1007,8 +1011,8 @@ contests:
     - names
     judge: baekjoon
     as_of: '20191112032752'
-    url_state: dead
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/101334
     roles:
     - problemset
@@ -1016,8 +1020,8 @@ contests:
     - statement
     judge: codeforces
     as_of: '20170706044858'
-    url_state: changed
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
     note: '2005-2006 ACM-ICPC Northeastern European Regional Contest (NEERC 05) (judge hunt 2026-11-03:
       name+year: ''2005-2006 ACM-ICPC Northeastern European Regional Contest (NEERC 05)'' -> season start
       2005)'
@@ -1086,13 +1090,17 @@ contests:
     as_of: '20061206034210'
     note: restored with the snapshot of this edition by the data scan 2026-11-23 (urls); the copies we
       held were of a later edition
+    url_state: dead
+    url_checked: '2026-11-23'
+    archived:
+    - neerc/neerc-2006/external-standings/2026-04-15-external/content.html
   - url: https://neerc.ifmo.ru/archive/2006/problems/problems.pdf
     roles:
     - problemset
     contains:
     - statement
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://nerc.itmo.ru/archive/2006/problems/problems.pdf
     roles:
     - problemset
@@ -1100,7 +1108,7 @@ contests:
     - statement
     as_of: '20220122053027'
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://www.acmicpc.net/category/detail/20
     roles:
     - problemset
@@ -1108,8 +1116,8 @@ contests:
     - names
     judge: baekjoon
     as_of: '20201130143719'
-    url_state: dead
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/100287
     roles:
     - problemset
@@ -1117,7 +1125,7 @@ contests:
     - statement
     judge: codeforces
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
     note: '2006-2007 ACM-ICPC Northeastern European Regional Contest (NEERC 06) (judge hunt 2026-11-03:
       name+year: ''2006-2007 ACM-ICPC Northeastern European Regional Contest (NEERC 06)'' -> season start
       2006)'
@@ -1186,7 +1194,7 @@ contests:
     contains:
     - statement
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://nerc.itmo.ru/archive/2007/problems.pdf
     roles:
     - problemset
@@ -1194,7 +1202,7 @@ contests:
     - statement
     as_of: '20220122052903'
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://www.acmicpc.net/category/detail/19
     roles:
     - problemset
@@ -1202,8 +1210,8 @@ contests:
     - names
     judge: baekjoon
     as_of: '20171220211205'
-    url_state: dead
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/100273
     roles:
     - problemset
@@ -1211,8 +1219,8 @@ contests:
     - statement
     judge: codeforces
     as_of: '20260617123700'
-    url_state: replaced
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
     note: '2007-2008 ACM-ICPC Northeastern European Regional Contest (NEERC 07) (judge hunt 2026-11-03:
       name+year: ''2007-2008 ACM-ICPC Northeastern European Regional Contest (NEERC 07)'' -> season start
       2007)'
@@ -1258,7 +1266,7 @@ contests:
     contains:
     - statement
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://nerc.itmo.ru/archive/2008/problems.pdf
     roles:
     - problemset
@@ -1266,7 +1274,7 @@ contests:
     - statement
     as_of: '20220122062905'
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://www.acmicpc.net/category/detail/18
     roles:
     - problemset
@@ -1274,8 +1282,8 @@ contests:
     - names
     judge: baekjoon
     as_of: '20191210124324'
-    url_state: dead
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/100286
     roles:
     - problemset
@@ -1283,7 +1291,7 @@ contests:
     - statement
     judge: codeforces
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
     note: '2008-2009 ACM-ICPC Northeastern European Regional Contest (NEERC 08) (judge hunt 2026-11-03:
       name+year: ''2008-2009 ACM-ICPC Northeastern European Regional Contest (NEERC 08)'' -> season start
       2008)'
@@ -1329,7 +1337,7 @@ contests:
     contains:
     - statement
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://nerc.itmo.ru/archive/2009/problems.pdf
     roles:
     - problemset
@@ -1337,7 +1345,7 @@ contests:
     - statement
     as_of: '20220122052658'
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://www.acmicpc.net/category/detail/17
     roles:
     - problemset
@@ -1345,8 +1353,8 @@ contests:
     - names
     judge: baekjoon
     as_of: '20190716055537'
-    url_state: dead
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/100069
     roles:
     - problemset
@@ -1354,15 +1362,15 @@ contests:
     - statement
     judge: codeforces
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/101308
     roles:
     - problemset
     contains:
     - statement
     judge: codeforces
-    url_state: changed
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
     note: '2009-2010 ACM-ICPC Northeastern European Regional Contest (NEERC 09) (judge hunt 2026-11-03:
       name+year: ''2009-2010 ACM-ICPC Northeastern European Regional Contest (NEERC 09)'' -> season start
       2009)'
@@ -1411,7 +1419,7 @@ contests:
     - statement
     as_of: '20241013103955'
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://www.acmicpc.net/category/detail/16
     roles:
     - problemset
@@ -1419,8 +1427,8 @@ contests:
     - names
     judge: baekjoon
     as_of: '20190825021435'
-    url_state: dead
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/101309
     roles:
     - problemset
@@ -1428,8 +1436,8 @@ contests:
     - statement
     judge: codeforces
     as_of: '20170706033855'
-    url_state: changed
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
     note: '2010-2011 ACM-ICPC Northeastern European Regional Contest (NEERC 10) (judge hunt 2026-11-03:
       name+year: ''2010-2011 ACM-ICPC Northeastern European Regional Contest (NEERC 10)'' -> season start
       2010)'
@@ -1438,7 +1446,7 @@ contests:
     - problemset
     judge: dmoj
     url_state: live
-    url_checked: '2026-11-22'
+    url_checked: '2026-11-23'
     note: 'ICPC NEERC 2010 (judge hunt 2026-11-03: DMOJ problems named ''ICPC NEERC 2010 <letter> - <title>''
       in group ICPC: 8 problems, 5/7 catalogue titles match (partial set only))'
   problems:
@@ -1479,6 +1487,8 @@ contests:
     - scoreboard
     as_of: '20130901071433'
     note: 'found by the data scan 2026-11-23 (moved from neerc-2005: standings-with-time 2011-2012 NEERC)'
+    url_state: dead
+    url_checked: '2026-11-23'
   - url: https://icpc.global/regionals/finder/Northeastern-Europe-2012/standings
     roles:
     - standings
@@ -1491,7 +1501,7 @@ contests:
     contains:
     - statement
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://nerc.itmo.ru/archive/2011/neerc-2011.pdf
     roles:
     - problemset
@@ -1499,7 +1509,7 @@ contests:
     - statement
     as_of: '20220122063201'
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://www.acmicpc.net/category/detail/15
     roles:
     - problemset
@@ -1507,8 +1517,8 @@ contests:
     - names
     judge: baekjoon
     as_of: '20201124175251'
-    url_state: dead
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/100085
     roles:
     - problemset
@@ -1516,7 +1526,7 @@ contests:
     - statement
     judge: codeforces
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
     note: '2011-2012 ACM-ICPC Northeastern European Regional Contest (NEERC 11) (judge hunt 2026-11-03:
       name+year: ''2011-2012 ACM-ICPC Northeastern European Regional Contest (NEERC 11)'' -> season start
       2011)'
@@ -1566,7 +1576,7 @@ contests:
     contains:
     - statement
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://nerc.itmo.ru/archive/2012/problems.pdf
     roles:
     - problemset
@@ -1574,7 +1584,7 @@ contests:
     - statement
     as_of: '20220122053611'
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://www.acmicpc.net/category/detail/14
     roles:
     - problemset
@@ -1582,8 +1592,8 @@ contests:
     - statement
     judge: baekjoon
     as_of: '20201130134823'
-    url_state: dead
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/100134
     roles:
     - problemset
@@ -1591,7 +1601,7 @@ contests:
     - statement
     judge: codeforces
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
     note: '2012-2013 ACM-ICPC Northeastern European Regional Contest (NEERC 12) (judge hunt 2026-11-03:
       name+year: ''2012-2013 ACM-ICPC Northeastern European Regional Contest (NEERC 12)'' -> season start
       2012)'
@@ -1600,7 +1610,7 @@ contests:
     - editorial
     as_of: '20260613065416'
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
     note: found inside http://nerc.itmo.ru/ by the content check
   problems:
     set: neerc-2012
@@ -1648,7 +1658,7 @@ contests:
     - statement
     as_of: '20241013112025'
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://www.acmicpc.net/category/detail/1183
     roles:
     - problemset
@@ -1656,8 +1666,8 @@ contests:
     - statement
     judge: baekjoon
     as_of: '20201023090814'
-    url_state: dead
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/100307
     roles:
     - problemset
@@ -1665,7 +1675,7 @@ contests:
     - statement
     judge: codeforces
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
     note: '2013-2014 ACM-ICPC Northeastern European Regional Contest (NEERC 13) (judge hunt 2026-11-03:
       name+year: ''2013-2014 ACM-ICPC Northeastern European Regional Contest (NEERC 13)'' -> season start
       2013)'
@@ -1674,19 +1684,19 @@ contests:
     - problemset
     judge: qoj
     url_state: live
-    url_checked: '2026-11-22'
+    url_checked: '2026-11-23'
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Northern-Eurasia/ICPC-Northern-Eurasia-Finals/The-2013-Northeastern-Europe-Regional-Contest/tutorials_en.pdf
     roles:
     - editorial
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: http://nerc.itmo.ru/archive/2013/neerc-2013-review.pdf
     roles:
     - editorial
     as_of: '20260610213422'
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
     note: found inside http://nerc.itmo.ru/ by the content check
   problems:
     set: neerc-2013
@@ -1734,7 +1744,7 @@ contests:
     - statement
     as_of: '20241013110754'
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://www.acmicpc.net/category/detail/1320
     roles:
     - problemset
@@ -1742,8 +1752,8 @@ contests:
     - statement
     judge: baekjoon
     as_of: '20201020195531'
-    url_state: dead
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/100553
     roles:
     - problemset
@@ -1751,7 +1761,7 @@ contests:
     - statement
     judge: codeforces
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
     note: '2014-2015 ACM-ICPC Northeastern European Regional Contest (NEERC 14) (judge hunt 2026-11-03:
       name+year: ''2014-2015 ACM-ICPC Northeastern European Regional Contest (NEERC 14)'' -> season start
       2014)'
@@ -1761,19 +1771,19 @@ contests:
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
-    url_checked: '2026-11-22'
+    url_checked: '2026-11-23'
   - url: https://icpcarchive.github.io/Northern-Eurasia/ICPC-Northern-Eurasia-Finals/The-2014-Northeastern-Europe-Regional-Contest/tutorials_en.pdf
     roles:
     - editorial
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: http://nerc.itmo.ru/archive/2014/neerc-2014-review.pdf
     roles:
     - editorial
     as_of: '20260613064452'
     note: found inside http://nerc.itmo.ru/ by the content check
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   problems:
     set: neerc-2014
 - id: neerc-2015
@@ -1817,7 +1827,7 @@ contests:
     contains:
     - statement
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://nerc.itmo.ru/archive/2015/neerc-2015.pdf
     roles:
     - problemset
@@ -1825,7 +1835,7 @@ contests:
     - statement
     as_of: '20220122063444'
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://www.acmicpc.net/category/detail/1439
     roles:
     - problemset
@@ -1833,16 +1843,16 @@ contests:
     - statement
     judge: baekjoon
     as_of: '20201027071930'
-    url_state: dead
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/100851
     roles:
     - problemset
     contains:
     - statement
     judge: codeforces
-    url_state: changed
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
     note: '2015-2016 ACM-ICPC Northeastern European Regional Contest (NEERC 15) (judge hunt 2026-11-03:
       name+year: ''2015-2016 ACM-ICPC Northeastern European Regional Contest (NEERC 15)'' -> season start
       2015)'
@@ -1853,19 +1863,19 @@ contests:
     judge: qoj
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
-    url_checked: '2026-11-22'
+    url_checked: '2026-11-23'
   - url: https://icpcarchive.github.io/Northern-Eurasia/ICPC-Northern-Eurasia-Finals/The-2015-Northeastern-Europe-Regional-Contest/tutorials_en.pdf
     roles:
     - editorial
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: http://nerc.itmo.ru/archive/2015/neerc-2015-review.pdf
     roles:
     - editorial
     as_of: '20260613055524'
     note: found inside http://nerc.itmo.ru/ by the content check
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   problems:
     set: neerc-2015
 - id: neerc-2016
@@ -1902,6 +1912,8 @@ contests:
     - scoreboard
     as_of: '20240615101317'
     note: 'found by the data scan 2026-11-23 (moved from neerc-2007: 2016-2017 NEERC standings)'
+    url_state: dead
+    url_checked: '2026-11-23'
   - url: https://icpc.global/regionals/finder/Northeastern-Europe-2017/standings
     roles:
     - standings
@@ -1915,7 +1927,7 @@ contests:
     - statement
     as_of: '20241013111217'
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: https://www.acmicpc.net/category/detail/1585
     roles:
     - problemset
@@ -1923,8 +1935,8 @@ contests:
     - statement
     judge: baekjoon
     as_of: '20201124181459'
-    url_state: dead
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/101190
     roles:
     - problemset
@@ -1932,8 +1944,8 @@ contests:
     - statement
     judge: codeforces
     as_of: '20170706055813'
-    url_state: changed
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
     note: '2016-2017 ACM-ICPC Northeastern European Regional Contest (NEERC 16) (judge hunt 2026-11-03:
       name+year: ''2016-2017 ACM-ICPC Northeastern European Regional Contest (NEERC 16)'' -> season start
       2016)'
@@ -1942,19 +1954,19 @@ contests:
     - problemset
     judge: qoj
     url_state: live
-    url_checked: '2026-11-22'
+    url_checked: '2026-11-23'
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Northern-Eurasia/ICPC-Northern-Eurasia-Finals/The-2016-Northeastern-Europe-Regional-Contest/tutorials_en.pdf
     roles:
     - editorial
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   - url: http://nerc.itmo.ru/archive/2016/neerc-2016-review.pdf
     roles:
     - editorial
     as_of: '20260613063038'
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
     note: found inside http://nerc.itmo.ru/ by the content check
   problems:
     set: neerc-2016

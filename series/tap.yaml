@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/bake_icpc_standings.py.
+# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
 series:
   id: tap
   name: Torneo Argentino de Programación
@@ -83,7 +83,7 @@ contests:
     - report
     as_of: '20190815041141'
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   notes: '55 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: tap-2014
   season: 2015
@@ -119,7 +119,7 @@ contests:
     roles:
     - problemset
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   notes: '66 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   problems:
     set: tap-2014
@@ -171,7 +171,7 @@ contests:
     - tap/tap-2015/rankings/20151005-wayback-2cc442ed/page.html
     - tap/tap-2015/rankings/20261116-live-8b0ed47a/page.html
     url_state: replaced
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
     note: added by url-hunt 2026-09-01 (round9-research)
   notes: '87 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: tap-2016
@@ -213,8 +213,8 @@ contests:
     - problemset
     contains:
     - statement
-    url_state: replaced
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   problems:
     set: tap-2016
   notes: '83 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
@@ -259,8 +259,8 @@ contests:
     - problemset
     contains:
     - statement
-    url_state: replaced
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   problems:
     set: tap-2017
   notes: '79 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
@@ -312,8 +312,8 @@ contests:
     - problemset
     contains:
     - statement
-    url_state: replaced
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   problems:
     set: tap-2018
   notes: '110 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
@@ -366,8 +366,8 @@ contests:
     - problemset
     contains:
     - statement
-    url_state: replaced
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   problems:
     set: tap-2019
   notes: '115 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
@@ -418,6 +418,8 @@ contests:
     - tap/tap-2020/scoreboard/20210411-wayback-f0eabaee/page.html
     - tap/tap-2020/scoreboard/20261116-live-c9e00ebb/page.html
     note: added by the no-sources hunt 2026-11-16
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://icpc.global/regionals/finder/TAP-2021/standings
     roles:
     - standings
@@ -431,12 +433,16 @@ contests:
     - statement
     note: found by the data scan 2026-11-23 (Latin American shared set (first-phase booklet names the
       contests that used it))
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://aapc.org.ar/wp-content/uploads/2026/05/tap2020.pdf
     roles:
     - problemset
     contains:
     - statement
     note: found by the data scan 2026-11-23 (organisers past-editions page (aapc.org.ar))
+    url_state: live
+    url_checked: '2026-11-23'
   notes: '55 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: tap-2021
   season: 2022
@@ -482,6 +488,9 @@ contests:
     scope: Argentina
     note: found by the data scan 2026-11-23 (combined Latin American first-phase BOCA board on scorelatam.naquadah.com.br,
       Argentina section)
+    as_of: '20211205192848'
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://icpc.global/regionals/finder/TAP-2022/standings
     roles:
     - standings
@@ -494,8 +503,8 @@ contests:
     - problemset
     contains:
     - statement
-    url_state: replaced
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   problems:
     set: brazil-first-phase-2021
   notes: '43 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
@@ -536,6 +545,9 @@ contests:
     scope: Argentina
     note: found by the data scan 2026-11-23 (combined Latin American first-phase BOCA board on scorelatam.naquadah.com.br,
       Argentina section)
+    as_of: '20231208130809'
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://icpc.global/regionals/finder/TAP-2023/standings
     roles:
     - standings
@@ -548,8 +560,8 @@ contests:
     - problemset
     contains:
     - statement
-    url_state: replaced
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   problems:
     set: brazil-first-phase-2022
   notes: '94 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
@@ -598,7 +610,7 @@ contests:
     contains:
     - statement
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   notes: '123 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   problems:
     set: tap-2023
@@ -649,7 +661,7 @@ contests:
     contains:
     - statement
     url_state: live
-    url_checked: '2026-11-16'
+    url_checked: '2026-11-23'
   notes: '168 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
   problems:
     set: tap-2024
@@ -707,8 +719,8 @@ contests:
     - problemset
     contains:
     - statement
-    url_state: replaced
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
   problems:
     set: tap-2025
   notes: '191 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
@@ -759,8 +771,8 @@ contests:
     - statement
     judge: codeforces
     as_of: '20261102033050'
-    url_state: replaced
-    url_checked: '2026-11-16'
+    url_state: live
+    url_checked: '2026-11-23'
     note: '2026 Argentinian Programming Tournament (TAP) (judge hunt 2026-11-03: name+year: ''2026 Argentinian
       Programming Tournament (TAP)'' -> season start 2026)'
   - url: https://codeforces.com/gym/106682/problem/A
@@ -770,6 +782,8 @@ contests:
     contains:
     - statement
     judge: codeforces
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/106682/problem/B
     roles:
     - problem
@@ -777,6 +791,8 @@ contests:
     contains:
     - statement
     judge: codeforces
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/106682/problem/C
     roles:
     - problem
@@ -784,6 +800,8 @@ contests:
     contains:
     - statement
     judge: codeforces
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/106682/problem/D
     roles:
     - problem
@@ -791,6 +809,8 @@ contests:
     contains:
     - statement
     judge: codeforces
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/106682/problem/E
     roles:
     - problem
@@ -798,6 +818,8 @@ contests:
     contains:
     - statement
     judge: codeforces
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/106682/problem/F
     roles:
     - problem
@@ -805,6 +827,8 @@ contests:
     contains:
     - statement
     judge: codeforces
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/106682/problem/G
     roles:
     - problem
@@ -812,6 +836,8 @@ contests:
     contains:
     - statement
     judge: codeforces
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/106682/problem/H
     roles:
     - problem
@@ -819,6 +845,8 @@ contests:
     contains:
     - statement
     judge: codeforces
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/106682/problem/I
     roles:
     - problem
@@ -826,6 +854,8 @@ contests:
     contains:
     - statement
     judge: codeforces
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/106682/problem/J
     roles:
     - problem
@@ -833,6 +863,8 @@ contests:
     contains:
     - statement
     judge: codeforces
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/106682/problem/K
     roles:
     - problem
@@ -840,6 +872,8 @@ contests:
     contains:
     - statement
     judge: codeforces
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/106682/problem/L
     roles:
     - problem
@@ -847,6 +881,8 @@ contests:
     contains:
     - statement
     judge: codeforces
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/106682/problem/M
     roles:
     - problem
@@ -854,6 +890,8 @@ contests:
     contains:
     - statement
     judge: codeforces
+    url_state: live
+    url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/106682/problem/N
     roles:
     - problem
@@ -861,6 +899,8 @@ contests:
     contains:
     - statement
     judge: codeforces
+    url_state: live
+    url_checked: '2026-11-23'
   problems:
     set: tap-2026
   provenance:
