@@ -2938,7 +2938,10 @@ def share(cs: list[dict], f: dict) -> int:
 
 # ---- facets on a page: one colour vocabulary, one filter per answer ----
 FKEYS = [f[0] for f in CV.FACETS]
-GROUPS = list(dict.fromkeys(f[2] for f in CV.FACETS))   # Results, Problems, Problem metadata, Website, Metadata
+# the kinds of content in the one reading order every view uses: the panel's columns read top to bottom, left to right
+# (ruling of 2026-11-24: the panel and the matrices below it in the same order)
+GROUPS = ["Results", "Website", "Contest metadata", "Problem metadata", "Problems"]
+assert sorted(GROUPS) == sorted(dict.fromkeys(f[2] for f in CV.FACETS))
 _PM = {k: lab for k, lab in CV.PMETA}
 _MT = {k: lab for k, lab in CV.META}
 WEB_TOKEN = {a: a for a in CV.WEBSITE}
