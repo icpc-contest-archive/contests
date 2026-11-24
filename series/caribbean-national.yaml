@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/bake_icpc_standings.py.
 series:
   id: caribbean-national
   name: ICPC Caribbean National Contests
@@ -6,6 +6,52 @@ series:
   region: Latin America
   naming: season-start
 contests:
+- id: caribbean-national-2011
+  season: 2012
+  name: 2011 Caribbean National Contests of the ACM-ICPC
+  date: '2011-10-08'
+  cms_ids:
+  - 891
+  parent: caribbean-2011
+  next: caribbean-national-2012
+  sources:
+  - url: http://coj.uci.cu/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Caribbean-National-2012/standings
+    roles:
+    - standings
+    archived:
+    - caribbean-national/caribbean-national-2011/standings/api-20261124/standings.html
+    note: rendered from the icpc.global API standings archive (cms 891, 114 teams, DB fetch 2026-04-26)
+  provenance:
+  - name, date, the Caribbean Online Judge address and 114 teams with results from the ICPC CMS record
+    891, a subcontest of the 2011 Caribbean finals
+  - 'in the triage registry as non-mainline until 2026-11-24 (ruling): the national contests of 2010 to
+    2019 are mainline'
+- id: caribbean-national-2012
+  season: 2013
+  name: 2012 Caribbean National Contests of the ACM-ICPC
+  date: '2012-10-13'
+  cms_ids:
+  - 1434
+  parent: caribbean-2012
+  next: caribbean-national-2013
+  sources:
+  - url: http://coj.uci.cu/
+    roles:
+    - web
+  - url: https://icpc.global/regionals/finder/Caribbean-National-2013/standings
+    roles:
+    - standings
+    archived:
+    - caribbean-national/caribbean-national-2012/standings/api-20261124/standings.html
+    note: rendered from the icpc.global API standings archive (cms 1434, 92 teams, DB fetch 2026-04-26)
+  provenance:
+  - name, date, the Caribbean Online Judge address and 92 teams with results from the ICPC CMS record
+    1434, a subcontest of the 2012 Caribbean finals
+  - 'in the triage registry as non-mainline until 2026-11-24 (ruling): the national contests of 2010 to
+    2019 are mainline'
 - id: caribbean-national-2013
   season: 2014
   name: 2013 ACM-ICPC Caribbean National Contests
