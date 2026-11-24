@@ -1382,7 +1382,9 @@ def set_problems_in_order(doc: dict, cid: str | None = None) -> list[tuple[str |
         return [(None, p) for p in probs]
     inv = {pid: L for L, pid in set_letters(doc, use).items()}
     key = lambda L: (0, (len(L), L)) if L else (1, ("", ""))  # noqa: E731
-    return sorted(((inv.get(p["id"]), p) for p in probs), key=lambda t: key(t[0]))
+    out = sorted(((inv.get(p["id"]), p) for p in probs), key=lambda t: key(t[0]))
+    # a contest is never shown another contest's letters (ruling of 2026-11-24): in that order, but without letters
+    return [(None, p) for _L, p in out] if cid and use != cid else out
 
 
 def problem_name(pid: str) -> str:
@@ -1939,8 +1941,7 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
                     b.append("<p>Letters: " + " · ".join(f"<b>{esc(x)}</b>" for x in set_labels(pb, cid))
                              + ' <span class="small muted">— which problem had which letter is not known yet</span></p>')
                 elif not set_letters(pb, cid):
-                    b.append('<p class="note">The letters are not known for this contest'
-                             + (" (shown with another contest's letters)." if any(set_letters(pb, m) for m in set_members(pb)) else ".") + "</p>")
+                    b.append('<p class="note">The letters are not known for this contest.</p>')
         else:
             b.append('<p class="empty">' + R.U("problemset", "No problem set recorded yet; the sources below are where the problems can be found.", "") + "</p>")
         if psrc:
