@@ -1107,6 +1107,17 @@ def physical_sites(c: dict) -> list[dict]:
     return [s for s in c.get("sites") or [] if s.get("type") not in ("administrative", "online") and s.get("location") in LOC]
 
 
+def online_nodes(c: dict) -> list[str]:
+    """The places of a contest's online sites (teams that competed remotely from there)."""
+    return list(dict.fromkeys(s["location"] for s in c.get("sites") or [] if s.get("type") == "online" and s.get("location") in LOC))
+
+
+def located_at(c: dict) -> list[str]:
+    """Every node a contest is listed under on the location pages: where it was held, and the places of its
+    online sites too (ruling of 2026-11-24), which the location page marks online."""
+    return list(dict.fromkeys(held_at(c)[0] + online_nodes(c)))
+
+
 def held_at(c: dict) -> tuple[list[str], str]:
     """(node ids, how we know) — where a contest was held, as nodes of the location tree:
     'sites'    its physical sites;
@@ -1145,7 +1156,7 @@ def load_locations_tree(contests: dict) -> None:
     for k in LOC_KIDS.values():
         k.sort(key=lambda x: LOC[x]["name"])
     for cid, c in contests.items():
-        for nid in held_at(c)[0]:
+        for nid in located_at(c):
             LOC_DIRECT[nid].append(cid)
 
     def sub(nid):
@@ -1178,7 +1189,8 @@ def loc_link(nid: str, rel: str, label: str | None = None) -> str:
     n = LOC.get(nid)
     if not n:
         return esc(label or nid)
-    return f'<a href="{rel}location/{esc(nid)}.html" title="{esc(n["type"])}">{esc(label or n["name"])}</a>'
+    tip = n["type"] if not label or label == n["name"] else f'{n["name"]} ({n["type"]})'
+    return f'<a href="{rel}location/{esc(nid)}.html" title="{esc(tip)}">{esc(label or n["name"])}</a>'
 
 
 def loc_crumb(nid: str, rel: str, from_node: bool = True) -> str:
@@ -1199,10 +1211,13 @@ def city_and_country(nid: str) -> tuple[str | None, str | None]:
 
 def place_short(nid: str, rel: str) -> str:
     """`City, Country` for a node, both linked into the location tree (a region or country
-    node shows what it has)."""
+    node shows what it has); in a country whose states or provinces have a postal code (the US,
+    Canada, Australia) the code comes between them: `Springfield, MO, United States`."""
     city, country = city_and_country(nid)
     if city:
-        return loc_link(city, rel) + (", " + loc_link(country, rel) if country else "")
+        region = next((n for n in location_chain(LOC, city) if n["type"] == "region" and n.get("code")), None)
+        return (loc_link(city, rel) + (", " + loc_link(region["id"], rel, region["code"]) if region else "")
+                + (", " + loc_link(country, rel) if country else ""))
     n = LOC[nid]
     if n["type"] == "region" and country:
         return loc_link(nid, rel) + ", " + loc_link(country, rel)
@@ -2792,10 +2807,13 @@ def location_page(nid: str, rel: str) -> str:
     b.append(f'<h2 id="contests">Contests <span class="n">{len(cs)}</span></h2>')
     if cs:
         def at(c):
-            here = [x for x in held_at(c)[0] if x == nid or any(a["id"] == nid for a in location_chain(LOC, x))]
+            inside = lambda x: x == nid or any(a["id"] == nid for a in location_chain(LOC, x))  # noqa: E731
+            here = [x for x in located_at(c) if inside(x)]
+            only_online = not any(inside(x) for x in held_at(c)[0]) or held_at(c)[1] == "online"
             spots = [loc_link(x, rel) for x in dict.fromkeys(here) if x != nid]
             return ('<td class="small">' + (", ".join(spots[:3]) + (f" +{len(spots) - 3}" if len(spots) > 3 else "") if spots else '<span class="muted">here</span>')
-                    + (" " + chip("inferred", "n", INFERRED_TIP) if held_at(c)[1] == "inferred" else "") + "</td>")
+                    + (" " + chip("inferred", "n", INFERRED_TIP) if held_at(c)[1] == "inferred" else "")
+                    + (" " + chip("online", "n", "teams competed online from here") if only_online else "") + "</td>")
         b.append(key_line(rel, "results", "website", "held"))
         b.append(contest_table(cs, rel, ("contest+name", "date", "series", "season", "results", "problems", "website"),
                                extra=(th("location"), at)))
