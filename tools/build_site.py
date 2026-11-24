@@ -1637,7 +1637,7 @@ CONTEST_COLS = {
     "contest+name": (th("contest"), _c_contest_name),
     "season": (th("season", f=True, k="season"), lambda c, rel: f'<td class="nw" data-v="{c.get("season", "")}">{link_season(c.get("season"), rel)}</td>'),
     "date": (th("date"), lambda c, rel: f'<td class="nw" data-v="{esc(c.get("date", ""))}">{link_date(c.get("date"), rel)}</td>'),
-    "location": (th("location", f="country", k="country"), lambda c, rel: f'<td data-vs="{esc("|".join(place_countries(c)))}">{place_cell(c, rel)}</td>'),
+    "location": (th("location", f="location", k="country"), lambda c, rel: f'<td data-vs="{esc("|".join(place_countries(c)))}">{place_cell(c, rel)}</td>'),
     "series": (th("series", f=True, k="series"), lambda c, rel: f'<td class="nw">{link_series(SERIES_OF[c["id"]], rel)}</td>'),
     # series with its level and region underneath; the two hidden columns after it carry the filters
     "series+": (th("series", f=True, k="series"), lambda c, rel: (f'<td class="nw" data-v="{esc(SERIES_OF[c["id"]])}">{link_series(SERIES_OF[c["id"]], rel)}'
@@ -2094,10 +2094,12 @@ def season_page(season: int, members: list[str], rel: str) -> str:
                      + ' <span class="muted">— part of this season, but run well apart from the rest of it. The dates above are those of the '
                        "season's main run, from its first cluster of contests to the World Finals, so one early or late contest does not stretch them.</span></dd>")
     d.append(f'<dt>contests</dt><dd>{len(members)} — <a href="{esc(flt_href(rel, {"season": season}))}">open them as a table</a></dd>')
-    d.append("</dl>")
-    places = {n for c in cs for n in held_at(c)[0]}
+    places = {n for c in cs if did_run(c) for n in held_at(c)[0]}   # where the contests that ran were held: a fact, not a coverage number
     countries = {city_and_country(n)[1] for n in places} - {None}
-    body.append(group_nums(cs, rel, {"season": season}, f'<div class="pt"><b>{len(places)}</b><span class="tl-l">location{"s" if len(places) != 1 else ""} in {len(countries)} countr{"ies" if len(countries) != 1 else "y"}</span></div>'))
+    if places:
+        d.append(f"<dt>held in</dt><dd>{plural(len(places), 'location')} in {plural(len(countries), 'country', 'countries')}</dd>")
+    d.append("</dl>")
+    body.append(group_nums(cs, rel, {"season": season}))
     body += d
     body.append('<p class="tabs">Jump to: <a href="#coverage">coverage</a> <a href="#where">contest by contest</a> <a href="#hierarchy">who advances where</a></p>')
     by_r = [(r, sorted((c for c in cs if SERIES_REGION.get(SERIES_OF[c["id"]]) == r), key=lambda c: c["id"])) for r in REGIONS]
@@ -2199,7 +2201,7 @@ def calendar_index(rel: str) -> str:
     for y in sorted(CAL, reverse=True):
         dated, undated = CAL[y]["dated"], CAL[y]["undated"]
         months = Counter(int(c["date"][5:7]) for c in dated)
-        cells = "".join(f'<td class="hc" style="background:color-mix(in srgb,var(--held) {round(60 * months[m] / top)}%,var(--paper))">{months[m] or ""}</td>'
+        cells = "".join(f'<td class="hc" style="background:color-mix(in srgb,var(--muted) {round(45 * months[m] / top)}%,var(--paper))">{months[m] or ""}</td>'
                         for m in range(1, 13))
         nu = f'<a href="{y}.html#undated">{len(undated)}</a>' if undated else ""
         rows.append(f'<tr><td class="nw"><a href="{y}.html">{y}</a></td><td class="num" data-v="{len(dated)}"><a href="{y}.html">{len(dated)}</a></td>'
@@ -2453,7 +2455,7 @@ def problemset_index(rel: str) -> str:
                 + key_line(rel, "held")
                 + table([th("problem set"), th("contests", num=True, title="how many contests sat this set"), th("season", f=True), th("region", f=True),
                          th("problems", num=True), th("problem list", f=True, k="list"),
-                         th("held"), th("archive repo")]
+                         th("held"), th("problem archive")]
                         + [th(what, f=what, k=COMP_KEY[key], g=True, hid=True, o=STATE_ORDER) for key, _m, what in CV.COMPONENTS], rows, "flt"),
                 rel, "problemset/index.html")
 
@@ -2576,7 +2578,7 @@ def place_rows(url: str, a: dict) -> list[str]:
     what is known, and the link that opens it. No free text: every cell is a fixed word or a date."""
     live, wb, ours = a["live"], a["wb"], a["ours"]
     rows = []
-    for (key, _lab, full), p in zip(AV_PLACES, (live, wb, ours)):
+    for (key, lab, full), p in zip(AV_PLACES, (live, wb, ours)):
         if key == "live":
             what = p["tip"]   # when it was checked stays in the data (ruling of 2026-11-24: no check bookkeeping on the site)
             link = f'<a class="ext" href="{esc(url)}">open the address</a>'
@@ -2587,7 +2589,8 @@ def place_rows(url: str, a: dict) -> list[str]:
         else:
             what = (f'copy of {fmt_time(p["ts"])}' if p.get("ts") else "copy of an unknown time") if p["s"] == "yes" else p["tip"]
             link = open_copy(a["current"])
-        rows.append(f'<tr><th>{esc(full[0].upper() + full[1:])}</th><td>{chip(p["word"], AV_CLS[p["s"]], p["tip"])}</td>'
+        # the same word as everywhere (address · Wayback · archive), the long name as its hover; the answer drawn as the pill at the top of the page
+        rows.append(f'<tr><th title="{esc(full)}">{esc(lab)}</th><td><span class="pl {AV_Q[p["s"]]}" title="{esc(p["tip"])}">{esc(p["word"])}</span></td>'
                     f'<td class="small">{esc(what)}</td><td class="nw">{link}</td></tr>')
     return rows
 
@@ -2616,7 +2619,7 @@ def source_page(d: dict, rel: str) -> str:
                   + "".join(chip(x, "sc", "this source covers one part of the contest, not all of it") for x in scopes)
                   + ("".join(f" on {judge_link(j, rel)}" for j in judges if j in JUDGES)) + "</dd>")
     else:
-        fx.append('<dt>type</dt><dd class="muted">not recorded: no contest lists this address now</dd>')
+        fx.append('<dt>type</dt><dd class="muted">not a source of any contest: no contest cites this address now</dd>')
     if cits:
         fx.append(f'<dt>contest{"s" if len(cits) > 1 else ""}</dt><dd>' + ", ".join(contest_ref(c["contest"], rel) for c in cits) + "</dd>")
     if {"problemset", "problem", "editorial"} & set(roles):
@@ -2786,7 +2789,8 @@ def judge_index(probs: dict, pages: dict, rel: str) -> str:
 
 # ---- locations ----
 def loc_years(nid: str) -> tuple[int, int] | None:
-    ys = [int(c.rsplit("-", 1)[1]) for c in LOC_SUB.get(nid, ())]
+    """The first and last year contests were held here: the year of the date (the id's year where no date is known)."""
+    ys = [int(str(CONTESTS[c].get("date") or "")[:4] or c.rsplit("-", 1)[1]) for c in LOC_SUB.get(nid, ())]
     return (min(ys), max(ys)) if ys else None
 
 
@@ -3337,12 +3341,12 @@ def wanted_page(series_docs: dict) -> str:
             for r in REGIONS:
                 kr = share(by_r[r], f)
                 p = pct(kr, len(by_r[r]))
-                cells.append(f'<td class="num hw" style="background:color-mix(in srgb,var(--part) {round(p * .45)}%,var(--paper))" title="{kr} of {len(by_r[r])} contests in {esc(r)} ({p}%)">'
+                cells.append(f'<td class="num hw" style="background:color-mix(in srgb,var(--muted) {round(p * .45)}%,var(--paper))" title="{kr} of {len(by_r[r])} contests in {esc(r)} ({p}%)">'
                              + (n_link(kr, "", {"region": r, **f}) if kr else '<span class="muted">–</span>') + "</td>")
             rows.append(f'<tr><td' + (f' title="{esc(tip)}"' if tip else "") + f'>{n_link(k, "", f, esc(lab)) if k else esc(lab)}</td>'
                         f'<td class="num"><b>{n_link(k, "", f) if k else "–"}</b></td>' + "".join(cells) + "</tr>")
     body = ["<h1>Most wanted</h1>",
-            f'<p class="intro">What is wanted, of the {num(len(cs))} contests that ran, by region; darker means a larger share of that region\'s contests. '
+            f'<p class="intro">What is wanted, of the {num(len(cs))} contests that ran, by region; a darker grey means a larger share of that region\'s contests. '
             "Every label and every number opens the contest list filtered to exactly those contests; add a season or a series there to narrow it down. "
             f'<a href="coverage.html">Coverage</a> has the other side: what we hold. Know where any of this lives? <a href="about.html#contribute">Tell us.</a></p>',
             table(heads, rows, "nosort")]
