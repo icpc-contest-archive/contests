@@ -405,9 +405,9 @@ ROLE_LABEL = {"frozen_scoreboard": "frozen scoreboard", "teams": "team list",
               "problemset": "problem set", "web": "website",
               "web-mirror": "website", "external-standings": "standings"}   # the last two: the archive's names for copies ("not listed yet" rows)
 HELD_KINDS = (("statement", "St", "statements"), ("data", "D", "test data"),
-              ("solutions", "So", "solutions"), ("package", "P", "complete packages"))
+              ("solutions", "So", "solutions"), ("package", "P", "packages"))
 # what a problem set or problem source holds (`contains:`), in the words of a page
-CONTAINS = (("names", "problem names"), ("statement", "statements"), ("data", "test data"), ("solutions", "solutions"), ("package", "complete packages"))
+CONTAINS = (("names", "problem names"), ("statement", "statements"), ("data", "test data"), ("solutions", "solutions"), ("package", "packages"))
 
 
 def key_line(rel: str, *parts: str) -> str:
@@ -707,7 +707,7 @@ AV_PLACES = (("live", "address", "the address now"), ("wb", "Wayback", "the Wayb
 def plain_why(ev: str | None) -> str:
     """Why a fetched file is not the document, in words (the audit's own line stays in the data)."""
     ev = ev or ""
-    pre = "the site's front page is " if ev.startswith("site crawl front page") else ""
+    pre = "the website's front page is " if ev.startswith("site crawl front page") else ""
     if "generic-shared" in ev:
         return "the same page was served for unrelated contests — a generic page, not this document"
     if "type-mismatch" in ev:
@@ -1490,7 +1490,7 @@ def problem_judge_links(p: dict, sep: str = " ", by_id: bool = False, tips: bool
 
 
 HAVE_KINDS = (("statement", "St", "statement"), ("data", "D", "test data"), ("input_validator", "IV", "input validator"),
-              ("output_validator", "OV", "output validator"), ("solutions", "So", "solutions"), ("package", "P", "complete package"))
+              ("output_validator", "OV", "output validator"), ("solutions", "So", "solutions"), ("package", "P", "package"))
 SET_KIND = {"statement": "statement", "data": "data", "solutions": "solutions", "package": "package"}
 
 
@@ -2188,7 +2188,7 @@ def set_letter_cells(doc: dict) -> list[tuple[str, dict]]:
     for L, p in set_problems_in_order(doc):
         if len(with_letters) > 1:
             ls = [letter_of(doc, m, p["id"]) for m in with_letters]
-            L = " / ".join(x or "?" for x in ls) if len(set(ls)) > 1 else ls[0]
+            L = " · ".join(x or "?" for x in ls) if len(set(ls)) > 1 else ls[0]
         rows.append((L or "?", p))
     return rows
 
@@ -2273,7 +2273,7 @@ def problemset_page(sid: str, doc: dict, rel: str) -> str:
     if probs:
         b.append(f'<h2 id="problems">Problems <span class="n">{len(probs)}' + (f" of {total}" if state == "partial" and total else "") + "</span></h2>")
         if len(members) > 1 and len(with_letters) > 1 and not same_letters:
-            b.append('<p class="note">Several letters in the # column: the letter in ' + " / ".join(esc(m) for m in with_letters) + ".</p>")
+            b.append('<p class="note">Several letters in the # column: the letter in ' + " · ".join(esc(m) for m in with_letters) + ".</p>")
         b.append(key_line(rel, "have"))
         rows = []
         for L, p in set_letter_cells(doc):
@@ -2663,7 +2663,7 @@ def judge_page(jid: str, j: dict, probs: set, pages: list, rel: str) -> str:
          '<p class="status">' + R.U("status", judge_status(j), (j.get("status", "") + " " + str(j.get("closed") or "")).strip()) + "</p>",
          f'<div class="nums"><div><b>{num(ncon)}</b><span><a href="#contests">contests</a></span></div>'
          f'<div><b>{num(len(probs))}</b><span><a href="#problems">problems</a></span></div></div>',
-         '<dl class="facts">', "<dt>site</dt><dd>" + R.U("url", f'<a class="ext" href="{esc(wayback_link(j["url"]) if j.get("status") == "closed" else j["url"])}">{esc(j["url"])}</a>', j["url"]) + "</dd>"]
+         '<dl class="facts">', "<dt>website</dt><dd>" + R.U("url", f'<a class="ext" href="{esc(wayback_link(j["url"]) if j.get("status") == "closed" else j["url"])}">{esc(j["url"])}</a>', j["url"]) + "</dd>"]
     offers = [w for w in ("statements", "submissions") if j.get(w)]
     b.append('<dt class="rvo">offers</dt><dd class="rvo">' + R.U("offers", " and ".join(offers) or "neither", "+".join(offers) or "neither") + "</dd>")
     for key, lab in (("contest_url", "contest address"), ("problem_url", "problem address")):
@@ -3043,7 +3043,7 @@ COV_KEY = ('<p class="key ck"><b>Every bar counts contests.</b> <i class="sw q4"
 
 # ---- a contest's own coverage: what we hold of it, what is wanted ----
 WANT_WORD = {"results": "a scoreboard", "list": "the list of problems", "statement": "the statements", "data": "the test data", "solutions": "solutions",
-             "package": "complete packages", "editorial": "an editorial", "names": "the problem names", "letters": "the problem letters",
+             "package": "packages", "editorial": "an editorial", "names": "the problem names", "letters": "the problem letters",
              "short_names": "short names", "uuids": "UUIDs", "website": "a copy of the website", "name": "the contest's name", "date": "the full date",
              "location": "the location", "cms": "the CMS id"}
 
@@ -3517,7 +3517,7 @@ def about_page() -> str:
     ('<span class="m h">W</span>', "Website."),
     ('<span class="m h">filled</span> <span class="m k">outlined</span>', "Filled: we hold a copy (green; a result in the colour of its level). Outlined blue: link only."),
     ('<span class="m h">St</span><span class="m l">D</span><span class="m k">So</span><span class="m n">P</span><span class="m u">E</span>',
-     "Problems, what we hold of each kind of material: <b>St</b> statements, <b>D</b> test data, <b>So</b> solutions, <b>P</b> complete packages, <b>E</b> editorial. "
+     "Problems, what we hold of each kind of material: <b>St</b> statements, <b>D</b> test data, <b>So</b> solutions, <b>P</b> packages, <b>E</b> editorial. "
      "It counts wherever it comes from: the ICPC Problem Archive, or a source we hold a copy of. Filled green: for every problem. Amber: for some. "
      "Blue outline: link only — a source that has it is known, we hold no copy (a problem set's page on an online judge is this: our copy is the online judge's list, "
      "not the material; a problem's own page on a judge, when we hold it, counts as that problem's statement). "
