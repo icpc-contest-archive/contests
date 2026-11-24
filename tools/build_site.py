@@ -2743,20 +2743,20 @@ def judge_status(j: dict) -> str:
 
 
 def judge_page(jid: str, j: dict, probs: set, pages: list, rel: str) -> str:
-    ncon = len({c for c, _s in pages})
+    nm_ids = {x["id"] for x in NM}   # contests of the non-mainline registry are counted apart: "contests" means contests in the catalogue
+    ncon, nnm = len({c for c, _s in pages if c not in nm_ids}), len({c for c, _s in pages if c in nm_ids})
+    plus = f' <span class="small muted">+{nnm} non-mainline</span>' if nnm else ""
     b = [crumbs(f'<a href="{rel}judge/index.html">Online judges</a>'), f'<h1{R.at("judge", jid)}>{judge_mark(jid)}{R.U("name", esc(j.get("name") or jid), j.get("name") or "")}</h1>',
          '<p class="status">' + R.U("status", judge_status(j), (j.get("status", "") + " " + str(j.get("closed") or "")).strip()) + "</p>",
-         f'<div class="nums"><div><b>{num(ncon)}</b><span><a href="#contests">contests</a></span></div>'
+         f'<div class="nums"><div><b>{num(ncon)}</b><span><a href="#contests">contests</a>{plus}</span></div>'
          f'<div><b>{num(len(probs))}</b><span><a href="#problems">problems</a></span></div></div>',
          '<dl class="facts">', "<dt>website</dt><dd>" + R.U("url", f'<a class="ext" href="{esc(wayback_link(j["url"]) if j.get("status") == "closed" else j["url"])}">{esc(j["url"])}</a>', j["url"]) + "</dd>"]
-    offers = [w for w in ("statements", "submissions") if j.get(w)]
-    b.append('<dt class="rvo">offers</dt><dd class="rvo">' + R.U("offers", " and ".join(offers) or "neither", "+".join(offers) or "neither") + "</dd>")
     for key, lab in (("contest_url", "contest address"), ("problem_url", "problem address")):
         if j.get(key):
             b.append(f"<dt>{lab}</dt><dd><code>{esc(j[key])}</code></dd>")
     b.append("</dl>")
     nps = sum(1 for _c, s in pages if "problemset" in s["roles"])
-    b.append(f'<h2 id="contests">Contests <span class="n">{num(ncon)}</span></h2>'
+    b.append(f'<h2 id="contests">Contests <span class="n">{num(ncon)}</span>{plus}</h2>'
              '<p class="note">Contests that have a page on this online judge: the page of its problem set, or a problem\'s own page or statement that we hold a copy of'
              + (f" — {num(len(pages))} pages: {num(nps)} problem-set pages, {num(len(pages) - nps)} problem pages." if len(pages) != ncon else ".") + "</p>")
     if pages:
@@ -2790,7 +2790,8 @@ def judge_page(jid: str, j: dict, probs: set, pages: list, rel: str) -> str:
 def judge_index(probs: dict, pages: dict, rel: str) -> str:
     rows = []
     for jid, j in JUDGES.items():
-        nc, npr = len({c for c, _s in pages.get(jid, [])}), len(probs.get(jid, ()))
+        nm_ids = {x["id"] for x in NM}
+        nc, npr = len({c for c, _s in pages.get(jid, []) if c not in nm_ids}), len(probs.get(jid, ()))
         rows.append(f'<tr><td class="name">{judge_mark(jid)}{judge_link(jid, rel)}<span class="sub">{esc(re.sub(r"^https?://", "", j["url"]).rstrip("/"))}</span></td>'
                     f'<td class="nw" data-v="{esc(j.get("status", ""))}">{judge_status(j)}</td>'
                     f'<td class="num" data-v="{nc}"><a href="{rel}judge/{esc(jid)}.html#contests">{num(nc)}</a></td>'
@@ -3481,14 +3482,16 @@ def non_mainline_page() -> str:
     rows = []
     for c in sorted(NM, key=lambda c: c["id"]):
         pb = set_for(c)
-        srcs = " ".join(f'<a class="ext" href="{esc(s["url"])}">{esc(role_label(s["roles"][0]))}</a>' for s in sources(c))
-        rows.append(f'<tr><td class="name">{esc(c["id"])}<span class="sub">{esc(c.get("name", ""))}</span></td><td class="nw">{esc(c.get("date", ""))}</td>'
+        # each source to its own page, with the three places, like every other list of sources (ruling of 2026-11-24)
+        srcs = "<br>".join(role_chip(primary_role(s)) + " " + link_source(s["url"], "", host_label(s["url"], 40), source_time(s, c["id"]), c["id"])
+                           + " " + avail_marks(avail(s["url"], c["id"], s)) for s in sources(c))
+        rows.append(f'<tr><td class="name">{esc(c["id"])}<span class="sub">{esc(c.get("name", ""))}</span></td><td class="nw">{link_date(c.get("date"), "")}</td>'
                     f'<td class="small">{esc(c.get("reason", ""))}</td><td class="small">{srcs}</td>'
                     f'<td class="nw">{set_link(pb["id"], "") if pb else ""}</td><td class="nw">{cms_cell(c)}</td></tr>')
     return page("Non-mainline registry", "<h1>Non-mainline registry</h1>"
                 f'<p class="intro">{len(NM)} real contests outside the advancement hierarchy — university opens and the like — kept for reference. '
-                "They are not in the catalogue and have no contest page; their problem sets, where recorded, do.</p>"
-                + table([th("contest"), th("date"), th("why it is not in the catalogue"), th("sources"), th("problem set"), th("CMS id")], rows), "", "coverage.html")
+                "They are not in the catalogue and have no contest page; their sources and their problem sets, where recorded, do.</p>"
+                + key_line("", "available") + table([th("contest"), th("date"), th("why it is not in the catalogue"), th("sources"), th("problem set"), th("CMS id")], rows), "", "coverage.html")
 
 
 # ---- landing and about ----

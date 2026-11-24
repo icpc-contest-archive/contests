@@ -32,7 +32,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 ARCHIVE = ROOT.parent / "archive"
 sys.path.insert(0, str(ROOT / "tools"))
-from catalogue import archived, load_contests, primary_role, sources  # noqa: E402
+from catalogue import archived, load_contests, load_non_mainline, primary_role, sources  # noqa: E402
 from resources import canon_url, norm_key, ts_from, unwrap  # noqa: E402
 
 def lid(url: str) -> str:
@@ -111,7 +111,8 @@ def main() -> int:
     # one reference per source address: `kind` = the primary role (a problem set or problem on a judge -> judge-<judge>;
     # kept under the old name `field` for consumers), `roles` = every role the address serves.
     # also_at addresses reference the locator as `mirror` of the web source.
-    for c in load_contests().values():
+    # the contests of the non-mainline registry too: their sources get source pages like any other (ruling of 2026-11-24)
+    for c in list(load_contests().values()) + load_non_mainline():
         cid = c["id"]
 
         def ref(url, field, roles, e=None, as_of=None):
