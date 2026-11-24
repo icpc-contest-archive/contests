@@ -1479,9 +1479,11 @@ def problem_judge_links(p: dict, sep: str = " ", by_id: bool = False, tips: bool
     for j in p.get("judges") or []:
         url, as_of = j["url"], j.get("as_of")
         closed = (JUDGES.get(j["judge"]) or {}).get("status") == "closed"
-        # a closed judge's own address leads nowhere: its link opens the Wayback Machine, at the snapshot when one is named
-        href = wayback_link(url, as_of) if as_of or closed else url
-        tip = res_label(url, as_of, 200) + (f" — {judge_name(j['judge'])} id {j['id']}" if j.get("id") else "") + (" (Wayback snapshot)" if as_of else " (Wayback Machine)" if closed else "")
+        # a closed judge's own address leads nowhere: its link opens the Wayback Machine, at the snapshot when one is named;
+        # an open judge's link goes to the problem as it is now (a snapshot time in the data is kept for the day it closes)
+        href = wayback_link(url, as_of) if closed else url
+        tip = (res_label(url, as_of, 200) if closed else res_label(url, None, 200)) + (f" — {judge_name(j['judge'])} id {j['id']}" if j.get("id") else "") \
+            + ((" (Wayback snapshot)" if as_of else " (Wayback Machine)") if closed else "")
         if by_id:
             parts.append(f'<a class="ext" href="{esc(href)}"' + (f' title="{esc(tip)}"' if tips else "") + f'>{esc(j.get("id") or "open")}</a>')
         else:
@@ -3528,7 +3530,7 @@ def about_page() -> str:
      "The number before the marks is how many problems the contest had (how many are listed by name when that is not known; <i>set</i> when neither is)."),
     ('<span class="m u">src</span>', "No problem set is recorded for the contest, but a published set or a problem's page is known (on the web or on an online judge); "
      "the marks after it say what we hold of that material."),
-    (judge_mark("kattis") + judge_mark("codeforces") + judge_mark("baekjoon") + judge_mark("qoj"),
+    (judge_mark("kattis") + judge_mark("codeforces") + judge_mark("qoj") + judge_mark("livearchive"),
      "An online judge, shown by its logo (its short name where it has none); hover for the name. Beside a problem the logo opens the problem "
      "on that online judge. Grey: the online judge has closed, and the link goes to a Wayback snapshot."),
 ))

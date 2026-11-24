@@ -424,7 +424,7 @@ several contests: NCPC + UKIEPC 2013, shared North American sets):
   output_validator, solutions, package), `status: private`, `judges`, `notes`). When the
   list is present the holdings must agree with it (validate.py checks).
 - **Judges.** `judges.yaml` at the repo root is the registry of online judges (id, name,
-  url, `problem_url` pattern, status, `closed` date — Baekjoon closed 2026-04-28). A
+  url, `problem_url` pattern, status, `closed` date — the ICPC Live Archive closed; a closed judge's links open Wayback snapshots, an open judge's go to the problem as it is now). A
   contest's judge *pages* are its `problemset` sources that carry `judge: <id>`; a
   problem's judge links are its `judges: [{judge, url, id?, as_of?}]` list. Both refer to
   the registry by id.
