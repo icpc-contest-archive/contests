@@ -3765,6 +3765,11 @@ def build(out: Path):
         sn = str(e.get("short_name") or "")
         if re.fullmatch(r"[a-z0-9-]+-\d{4}", sn) and sn not in contests:
             stub(out / "contest" / f"{sn}.html", "../cms.html")
+    # ... and one that left it with no CMS id to its name leads to its series
+    rc = ROOT / "data" / "retired-contests.json"
+    for cid, sid in (json.loads(rc.read_text()) if rc.exists() else {}).items():
+        if cid not in contests and (out / "series" / f"{sid}.html").exists():
+            stub(out / "contest" / f"{cid}.html", f"../series/{sid}.html")
     (out / "non-mainline.html").write_text(non_mainline_page())
     (out / "index.html").write_text(landing_page(series_docs, contests))
     (out / "about.html").write_text(about_page())
