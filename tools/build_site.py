@@ -44,9 +44,11 @@ Optional inputs, used when present:
   data/website-index.json  — archived contest websites (tools/index_websites.py)
   data/resources.json      — the source/snapshot/capture graph (tools/build_resources.py)
 
-"local" links point at the local archive server (tools/serve.py, 127.0.0.1:8123)
-and only work while it is running; LOCAL_ARCHIVE_BASE overrides the host (serve.py
-sets it to "" so the links are same-origin when browsing locally).
+"local" links point at the local archive server (tools/serve.py) and only work while it
+is running. They are made only when LOCAL_ARCHIVE_BASE is set (serve.py sets it to "" so the
+links are same-origin; set it to a host to point elsewhere). A build without it, which is
+what the public site is, never links a copy that is not published: the page says
+"not published" instead (2026-11-24; before that 10,505 public pages linked 127.0.0.1).
 
   python3 tools/build_site.py [--out site] [--check-links]
 """
@@ -90,7 +92,8 @@ lid = site_resources.lid
 ASSETS = ROOT / "tools" / "site_assets"
 REPO = "https://github.com/icpc-contest-archive/contests"
 REPLAY_BASE = os.environ.get("REPLAY_BASE", "https://icpc-contest-archive.github.io/replay")
-LOCAL_BASE = os.environ.get("LOCAL_ARCHIVE_BASE", "http://127.0.0.1:8123")
+LOCAL = "LOCAL_ARCHIVE_BASE" in os.environ      # a build for the local archive server
+LOCAL_BASE = os.environ.get("LOCAL_ARCHIVE_BASE", "")
 LOCAL_TITLE = "local archive server — works only while tools/serve.py is running on this machine"
 
 # ---- regions and levels (series headers: `region`, `tier`) ----
@@ -511,7 +514,29 @@ def lost_locators(c) -> list:
     return out
 
 
+def local_archive_about(n_sites: int, n_raw: int) -> str:
+    """The About section on copies that are held and not published. The public site says what is
+    held back; a local build also says how its local links work."""
+    held = (f'<h2 id="local">Copies that are not published</h2>\n<p class="intro">The result pages we hold are published on the replay site. '
+            f'The rest of the archive is held and not published: full crawls of <b>{num(n_sites)}</b> contest websites, and our copies of problem sets, '
+            f'single problems, editorials, reports and online judges\' pages ({num(n_raw)} contests have copies in all). '
+            f'A source page marks such a copy <span class="muted">not published</span>; the Wayback Machine\'s snapshot, where there is one, is linked beside it.</p>')
+    if not LOCAL:
+        return held
+    return held + f"""
+<p class="intro">This is a local build: links <a class="local" href="{LOCAL_BASE}/" title="{LOCAL_TITLE}">marked like this</a> open those copies from a small server
+on this machine (<code>{LOCAL_BASE or "this host"}</code>). They work only with the <code>archive</code> repository checked out next to <code>contests</code> and the server running.</p>
+<pre><code>python3 tools/index_websites.py     # after new site crawls
+python3 tools/serve.py              # rebuilds the site with local links, serves on 127.0.0.1:8123</code></pre>
+<p class="intro"><b>Open our copy of the website</b> (on a source's page) plays a crawled site back page by page; pages that were not captured go to the Wayback Machine or to their address.</p>"""
+
+
 def local_link(path: str, label: str = "local") -> str:
+    """A link to a copy we hold but do not publish (a crawled website, a problem set, an online
+    judge's page, an editorial, a report). Only a build for the local archive server links it;
+    on the public site a reader cannot open the copy, so the page says so."""
+    if not LOCAL:
+        return '<span class="muted" title="We hold this copy, but it is not published on this site.">not published</span>'
     return f'<a class="local" href="{LOCAL_BASE}/{esc(path)}" title="{LOCAL_TITLE}">{label}</a>'
 
 
@@ -760,13 +785,14 @@ def index_extra_copies(contests: dict) -> None:
                                               "source": src, "fetch_url": ci.get("final_url") or ci["url"], "replay": REPLAY_LOOKUP.get((cid, norm_key(ci["url"])))}})
         site, webs = website_of.get(cid), by_role(c, "web")
         if site and webs:
-            e = next((w for w in webs if norm_key(w["url"]) == norm_key(site.get("seed_raw") or site.get("seed") or "")), webs[0])
-            Le = RES.locs.get(lid(e["url"])) or {}
-            filed = any((R.get("website") or {}).get("dir") == site["dir"] for R in (Le.get("resources") or {}).values())
-            junk = any(p.get("outcome") == "junk" and p.get("dir") == site["dir"] for p in Le.get("probes") or [])
-            # seeded from another spelling, or the graph files another contest's crawl of the address at that time
-            # (data/resources.json keeps one crawl per address and time: build_resources.py)
-            if lid(site.get("seed_raw") or site.get("seed") or "") != lid(e["url"]) or not (filed or junk):
+            # Only a web source that is the crawl's first address in another spelling gets the crawl here.
+            # Until 2026-11-24 a crawl seeded anywhere else fell to the contest's first web source, so 445
+            # sources showed a copy of another address as theirs (shanghai-2023: a crawl that starts at
+            # contest.ucup.ac/contest/1465 under .../contest/1522; 25 were crawls of facebook.com, t.me and
+            # the like). A cited address that is one of the crawl's pages is credited below, with that
+            # page's own time.
+            e = next((w for w in webs if norm_key(w["url"]) == norm_key(site.get("seed_raw") or site.get("seed") or "")), None)
+            if e and lid(site.get("seed_raw") or site.get("seed") or "") != lid(e["url"]):
                 EXTRA_HELD[lid(e["url"])].append({
                     "ts": site.get("wayback_timestamp") or re.sub(r"[^0-9]", "", str(site.get("fetched") or ""))[:14] or "unknown",
                     "via": "wayback" if site.get("mode") == "wayback" else "live", "contest": cid, "kind": "website",
@@ -2588,7 +2614,7 @@ def source_page(d: dict, rel: str) -> str:
     fx.append("</dl>")
     b += fx
 
-    b.append(source_descriptions.block(url, cits, rel, contest_ref, help_link))
+    b.append(source_descriptions.block(url, cits, rel, contest_ref, help_link, site_copy=any(x["kind"] == "website" for x in doc_copies(d))))
 
     # ---- the one place the address, the Wayback snapshot and our copy are opened ----
     b.append('<h2 id="where">Where to find it</h2>'
@@ -3534,7 +3560,7 @@ def about_page() -> str:
     body = f"""<h1>About</h1>
 <p class="lede">What is here, how to read it, and how to help.</p>
 <p class="tabs"><a href="#read">How to read this site</a> <a href="#status">Contest status</a> <a href="#coverage">Coverage</a> <a href="#marks">Marks</a>
-<a href="#status-set">Problem sets</a> <a href="#sources">Sources</a> <a href="#contribute">Contribute</a> <a href="#local">Local archive</a> <a href="#data">Data</a></p>
+<a href="#status-set">Problem sets</a> <a href="#sources">Sources</a> <a href="#contribute">Contribute</a> <a href="#local">Copies not published</a> <a href="#data">Data</a></p>
 
 <h2 id="read">How to read this site</h2>
 <p class="intro">The catalogue is a set of objects, each with a list page and a page of its own:</p>
@@ -3598,25 +3624,14 @@ each one's page links to the others.</p>
 <p class="intro">The same document can be found in up to <b>three places</b>, and every list of sources shows all three as one unit, always in this order and always under these names:</p>
 {places_dl}
 <p class="intro">Any combination occurs: a scoreboard can be live, in the Wayback Machine and in our archive all at once, or only in one of them. A source's own page is
-the only place where the three are opened: the address, the snapshot that shows the document, and our copy. Links <a class="local" href="#local">marked local</a> need the
-local archive server (below).</p>
+the only place where the three are opened: the address, the snapshot that shows the document, and our copy. {'Links <a class="local" href="#local">marked local</a> need the local archive server (below).' if LOCAL else 'A copy marked <span class="muted">not published</span> is held but cannot be opened here (<a href="#local">below</a>).'}</p>
 
 {source_descriptions.ABOUT}
 
 <h2 id="contribute">Contribute</h2>
 {R.about_text(REPO)}
 
-<h2 id="local">Local archive</h2>
-<p class="intro">Besides the result pages on the public replay site, this project holds a much larger private archive: copies of every result page as fetched and full
-crawls of <b>{num(n_sites)}</b> contest websites ({num(n_raw)} contests with copies in all). That is too big for GitHub Pages, so it is not published yet.
-Links <a class="local" href="{LOCAL_BASE}/" title="{LOCAL_TITLE}">marked like this</a> point at a small server on <b>your own machine</b>
-(<code>{LOCAL_BASE or "this host"}</code>). They work only with the <code>archive</code> repository checked out next to <code>contests</code> and the server running;
-for everyone else they fail to connect.</p>
-<pre><code># in your checkout of the contests repo (archive checked out alongside it)
-python3 tools/index_websites.py     # after new site crawls
-python3 tools/serve.py              # rebuilds the site with local links, serves on 127.0.0.1:8123</code></pre>
-<p class="intro">Then browse <code>http://127.0.0.1:8123/</code> — the same pages as the public site, with every local link live. <b>Open our copy of the website</b> (on a source's page) plays a crawled
-site back page by page; pages that were not captured go to the Wayback Machine or to their address.</p>
+{local_archive_about(n_sites, n_raw)}
 
 <h2 id="data">Data</h2>
 <p class="intro">The whole catalogue as one file is <a href="catalogue.json">catalogue.json</a>. Typeface: IBM Plex Sans (SIL Open Font License).</p>"""
@@ -3769,6 +3784,12 @@ def build(out: Path):
     (out / "wanted.html").write_text(wanted_page(series_docs))
     (out / "grid.html").write_text(grid_page(series_docs, contests))
     (out / "cms.html").write_text(cms_page(contests))
+    # a contest that left the catalogue for the CMS triage registry (never held, a camp, ...) keeps its
+    # old page address: it leads to the CMS id ledger, which says what became of the id
+    for e in (yaml.safe_load((ROOT / "registry" / "cms-triage.yaml").read_text()).get("excluded") or []):
+        sn = str(e.get("short_name") or "")
+        if re.fullmatch(r"[a-z0-9-]+-\d{4}", sn) and sn not in contests:
+            stub(out / "contest" / f"{sn}.html", "../cms.html")
     (out / "non-mainline.html").write_text(non_mainline_page())
     (out / "index.html").write_text(landing_page(series_docs, contests))
     (out / "about.html").write_text(about_page())
@@ -3825,6 +3846,13 @@ def build(out: Path):
             (sd / "index.html").write_text(source_page(d, "../../"))
         for k, to in DOC_ALIAS.items():   # an address whose every source names a time: its old page leads to the latest
             stub(out / "source" / k / "index.html", f"../{to}/index.html")
+        # a source id that was published and is no longer made (the time it named came from a copy that
+        # was another address's, 2026-11-24): its page leads to the address's source of today
+        rf = ROOT / "data" / "retired-source-ids.json"
+        for sid, url in (json.loads(rf.read_text()) if rf.exists() else {}).items():
+            k = lid(url)
+            if sid not in DOCS and sid not in DOC_ALIAS and DOCS_OF.get(k):
+                stub(out / "source" / sid / "index.html", f"../{DOC_ALIAS.get(k, k)}/index.html")
         for k, L in RES.locs.items():     # the old locator/ addresses
             if not DOCS_OF.get(k):
                 continue                  # not a source (a problem's page on an online judge): never had one
