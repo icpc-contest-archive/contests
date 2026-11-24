@@ -298,7 +298,8 @@ def main() -> int:
     cov = Coverage(series, load_sets())
     ran = [c for d in series.values() for c in d["contests"] if c.get("status") != "upcoming"]
     recs = [cov.record(c) for c in ran]
-    print(f"{len(ran)} contests ran")
+    print(f"{len(ran)} contests ran — counted as the catalogue points at copies (`archived:`); the site counts what the archive index "
+          "says of each copy, so its numbers differ (build_site.py is the reference)")
     print("results held  ", dict(Counter(r["results"] for r in recs)))
     print("results known ", dict(Counter(r["results_known"] for r in recs)))
     print("frozen        ", dict(Counter(r["frozen"] or "-" for r in recs)), " partial", sum(r["partial"] for r in recs))
