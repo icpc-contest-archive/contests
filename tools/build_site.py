@@ -394,7 +394,7 @@ def key_line(rel: str, *parts: str) -> str:
     if "website" in parts:
         bits.append("<b>W</b> website")
     if "results" in parts or "website" in parts:
-        bits.append('<span class="m h">filled</span> we hold a copy <span class="m k">outlined</span> link only <span class="m n">grey</span> the page is empty')
+        bits.append('<span class="m h">filled</span> we hold a copy <span class="m k">outlined</span> link only')
     if "held" in parts:
         bits.append('problems: <b>St</b> statements · <b>D</b> test data · <b>So</b> solutions · <b>P</b> packages · <b>E</b> editorial — '
                     '<span class="m h">all</span> <span class="m l">some</span> held, in the problem archive or in a source we hold a copy of · '
@@ -405,8 +405,8 @@ def key_line(rel: str, *parts: str) -> str:
     if "available" in parts:
         bits.append('where a source is found — at its <b>address</b> now · in the <b>Wayback</b> Machine · in our <b>archive</b>: '
                     '<span class="m h">there</span> <span class="m l">there, in doubt</span> <span class="m x">confirmed not there</span> '
-                    '<span class="m p">not done yet</span> <span class="m n">does not apply</span>')
-    return '<p class="key">' + " &nbsp;·&nbsp; ".join(bits) + " " + help_link("marks", rel) + "</p>"
+                    '<span class="m p">not done yet</span> <span class="m g">does not apply</span>')
+    return '<p class="key">' + " &nbsp;·&nbsp; ".join(bits) + " " + help_link("sources" if parts == ("available",) else "marks", rel) + "</p>"
 
 
 def load():
@@ -475,15 +475,16 @@ def role_chip(r: str) -> str:
 
 
 def lost_locators(c) -> list:
-    """Result/web sources of this contest that are gone from their address AND not in the
-    Wayback Machine: whatever we hold is the only copy; if we hold nothing, the material is
-    lost. An address that only refuses our fetcher (403, an untrusted certificate) is not gone."""
+    """Result/web sources of this contest that are gone from their address (dead or replaced) AND not in
+    the Wayback Machine, by the same answers as their address · Wayback · archive marks (avail): held
+    = ours is the only copy; archive `lost` = the material is lost. A bad copy is neither (its archive
+    mark says so); an address that only refuses our fetcher (403, an untrusted certificate) is not gone."""
     out = []
     for s in sources(c):
         if not ("web" in s["roles"] or any(r in s["roles"] for r in RESULT_KINDS)):
             continue
         a = avail(s["url"], c["id"], s)
-        if a["live"]["s"] == "no" and a["live"]["word"] == "dead" and a["wb"]["s"] == "no":
+        if a["lost"] or (a["live"]["s"] == "no" and a["wb"]["s"] == "no" and a["ours"]["s"] == "yes"):
             out.append((s["url"], a["wb"]["word"], a["ours"]["s"] == "yes"))
     return out
 
@@ -651,7 +652,7 @@ def cap_time(cap: dict):
 #   Wayback   snapshot              bad snapshot                             no snapshot · excluded      not checked           n/a
 #   archive   held                  bad copy                                 lost                        not captured          n/a
 # The label of a mark is the place and never changes; its colour is the answer.
-AV_CLS = {"yes": "h", "part": "l", "no": "x", "pending": "p", "na": "n"}       # .m and .chip classes
+AV_CLS = {"yes": "h", "part": "l", "no": "x", "pending": "p", "na": "g"}       # .m and .chip classes
 AV_Q = {"yes": "q4", "part": "q2", "no": "qr", "pending": "ql", "na": "qx"}    # pill classes: the colours of every coverage bar
 AV_PLACES = (("live", "address", "the address now"), ("wb", "Wayback", "the Wayback Machine"), ("ours", "archive", "our archive"))
 
@@ -682,7 +683,10 @@ def plain_why(ev: str | None) -> str:
         return "the front page could not be fetched"
     if re.search(r"\b(empty|tiny)\b", ev):
         return pre + "an empty file"
-    return ev
+    # anything else (the content check's reading, an audit line) stays in the data: say what it found, not how
+    if "another edition" in ev:
+        return pre + "of another edition of the contest" if pre else "another edition of the contest"
+    return pre + "another document" if pre else "another document"
 LIVE_WORD = {"live": "live", "changed": "changed", "blocked": "blocked", "unknown": "unverified", "replaced": "replaced", "dead": "dead"}
 LIVE_S = {"live": "yes", "changed": "part", "blocked": "part", "unknown": "part", "replaced": "no", "dead": "no"}
 BLOCKED = re.compile(r"HTTP (401|403|412|4[5-9]\d)|CERTIFICATE_VERIFY_FAILED")   # the server answered; our fetcher was turned away
@@ -1314,7 +1318,8 @@ STATE_TIP = {"all": "held for every problem", "some": "held for some problems", 
 def comp_marks(states: dict) -> str:
     """One mark per kind of problem material (coverage.COMPONENTS), from wherever we have it:
     the problem archive, or a source we hold a copy of."""
-    return "".join(f'<i class="m {STATE_CLS[states[k]]}" title="{what}: {STATE_TIP[states[k]]}">{letter}</i>' for k, letter, what in CV.COMPONENTS)
+    return "".join(f'<i class="m {STATE_CLS[states[k]]}" title="{what}: {"an editorial is held" if k == "editorial" and states[k] == "all" else STATE_TIP[states[k]]}">{letter}</i>'
+                   for k, letter, what in CV.COMPONENTS)
 
 
 def held_marks(pb: dict) -> str:
@@ -1332,7 +1337,8 @@ def problems_cell(c: dict, rel: str) -> str:
         lab = str(total) if total else ("set" if not listed else str(listed))
         return f'<a href="{rel}problemset/{esc(pb["id"])}.html" title="problem set {esc(pb["id"])}: {total or "?"} problems, {listed} listed by name">{lab}</a> ' + held_marks(pb)
     if c.get("status") != "upcoming" and (has_role(c, "problemset") or has_role(c, "problem")):
-        return '<span class="m k" title="a published problem set or a page on an online judge is known; nothing recorded about the problems yet">src</span>'
+        return ('<span class="m u" title="no problem set recorded; a published set or a page of one of its problems is known — the marks after it say what we hold of it">src</span> '
+                + comp_marks(rec(c)["problems"]))
     return ""
 
 
@@ -1577,9 +1583,9 @@ def status_chips(c: dict, cid: str, rel: str) -> str:
     gone = [u for u, _w, held in lost_locators(c) if not held]
     only = [u for u, _w, held in lost_locators(c) if held]
     if gone:
-        chips.append(chip(f"{len(gone)} lost", "x", "dead at its address, no Wayback snapshot, nothing held here: " + "; ".join(gone)))
+        chips.append(chip(f"{len(gone)} lost", "x", "gone from its address, not in the Wayback Machine, and no copy here: " + "; ".join(gone)))
     if only:
-        chips.append(chip(f"{len(only)} only here", "h", "dead at its address and not in the Wayback Machine — our copy is the only one: " + "; ".join(only)))
+        chips.append(chip(f"{len(only)} only here", "h", "gone from its address and not in the Wayback Machine — our copy is the only one: " + "; ".join(only)))
     return ('<p class="status">' + "".join(chips) + " " + help_link("status", rel) + "</p>" if chips else "") + contest_coverage(c, rel)
 
 
@@ -1820,7 +1826,7 @@ def series_page(sid: str, doc: dict, rel: str) -> str:
     b.append(group_nums(doc["contests"], rel, {"series": sid}))
     b.append('<p class="tabs">Jump to: <a href="#coverage">coverage</a> <a href="#where">edition by edition</a> <a href="#editions">editions</a></p>')
     b.append(coverage_section(doc["contests"], rel, {"series": sid}, "this series", "Edition by edition",
-                              "A column per edition, oldest first; a row per question. A square opens the contest, <i>n missing</i> opens those editions as a list.",
+                              "A column per edition, oldest first; a row per question. A square opens the contest, <i>n missing</i> opens those editions as a list. A faint outlined square has not run yet.",
                               edition_matrix(doc["contests"], rel, {"series": sid})))
     b.append(f'<h2 id="editions">Editions <span class="n">{len(doc["contests"])}</span></h2>')
     b.append(R.slot("contest", "add a missing contest", tag="p"))
@@ -1937,7 +1943,7 @@ def season_page(season: int, members: list[str], rel: str) -> str:
     body.append('<p class="tabs">Jump to: <a href="#coverage">coverage</a> <a href="#where">contest by contest</a> <a href="#hierarchy">who advances where</a></p>')
     by_r = [(r, sorted((c for c in cs if SERIES_REGION.get(SERIES_OF[c["id"]]) == r), key=lambda c: c["id"])) for r in REGIONS]
     body.append(coverage_section(cs, rel, {"season": season}, "this season's contests", "Contest by contest",
-                                 "A row per contest, a column per question. A square opens the contest.", contest_matrix(by_r, rel)))
+                                 "A row per contest, a column per question. A square opens the contest; a faint outlined one has not run yet.", contest_matrix(by_r, rel)))
     tree, unplaced, label = season_tree(season, members, rel)
     body.append('<h2 id="hierarchy">Who advances where</h2>')
     if tree:
@@ -2101,7 +2107,7 @@ def set_card(sid: str, doc: dict, rel: str) -> str:
             lab, sts, q = CV.FACET[key][1], CV.FACET[key][3], facet_q(key)
             a = s[key]
             cls = q[sts.index(a)]
-            pill = f'<span class="pl {cls}" title="{esc(lab)}: {esc(a)} — {Q_WORD[cls]}">{esc(lab if a == sts[0] else f"{lab}: {a}")}</span>'
+            pill = f'<span class="pl {cls}" title="{esc(lab)}: {esc(a)} — {q_word(key, cls)}">{esc(lab if a == sts[0] else f"{lab}: {a}")}</span>'
             pills.append(R.U("complete", pill, set_list_state(doc)) if key == "list" else pill)
         groups.append(f'<div class="cc-g"><b>{esc(g)}</b>' + "".join(pills) + "</div>")
     return '<div class="cc">' + "".join(groups) + " " + help_link("status", rel, "what the colours mean") + "</div>"
@@ -2174,7 +2180,7 @@ def problemset_page(sid: str, doc: dict, rel: str) -> str:
         b.append(table([th("#"), th("problem"), th("held"), th("online judge")], rows))
     else:
         b.append('<h2 id="problems">Problems</h2><p class="empty">The problems of this set are not listed by name yet'
-                 + (f" — {total} problems; only what the archive holds is recorded." if total else ".") + "</p>")
+                 + (f" — {total} problems." if total else ".") + "</p>")
     b.append(R.slot("member", "add a missing problem", tag="p"))
     # the letters contest by contest, only where they differ: contests that sat the set under the same letters need no table
     if len(with_letters) > 1 and not same_letters:
@@ -2227,8 +2233,10 @@ def problem_page(pid: str, ent: dict, rel: str) -> str:
         d.append("<dt>problem archive</dt><dd>" + "<br>".join(
             f'{repo_link(doc)} <span class="muted">(private) — the repository of problem set {set_link(s, rel)}; the problem is in it</span>' for s, doc in repos) + "</dd>")
     uuids = sorted({r["uuid"] for _s, r in rows if r.get("uuid")})
+    pkg = problem_have(next((r for _s, r in rows if "have" in r), p), first_doc)["package"]
     d.append("<dt>UUID</dt><dd>" + (", ".join(f"<code>{esc(u)}</code>" for u in uuids) if uuids
-                                    else '<span class="muted">none yet — the problem has no package in the archive</span>') + "</dd>")
+                                    else '<span class="muted">none — the problem has no package in the archive</span>' if pkg is False
+                                    else '<span class="muted">not recorded yet</span>') + "</dd>")
     shorts = sorted({r["short_name"] for _s, r in rows if r.get("short_name")})
     if shorts:
         d.append("<dt>short name</dt><dd>" + ", ".join(f"<code>{esc(x)}</code>" for x in shorts) + "</dd>")
@@ -2255,11 +2263,11 @@ def problemset_index(rel: str) -> str:
         rows.append(f'<tr><td class="name">{set_cell(sid, doc, rel)}</td>'
                     f'<td class="num">{len(doc["contests"])}</td>'
                     f'<td class="nw" data-v="{fc.get("season", "")}">{link_season(fc.get("season"), rel)}</td><td class="nw">{esc(set_region(doc))}</td>'
-                    f'<td class="num" data-v="{total or ""}">{count}</td><td class="nw">{ {"complete": "complete", "partial": "partial", "none": "none"}[state]}</td>'
+                    f'<td class="num" data-v="{total or ""}">{count}</td><td class="nw">{ {"complete": "listed", "partial": "partly listed", "none": "count only"}[state]}</td>'
                     f'<td class="nw">{held_marks(doc)}</td><td class="nw">{repo_link(doc)}</td>'
                     + "".join(f'<td class="hid" data-vs="{esc(toks(st, "missing" if st != "all" else ""))}"></td>'
                               for st in (COV.set_record(sid)[k] for k, *_ in CV.COMPONENTS)) + "</tr>")
-    n_listed = sum(1 for d in SETS.values() if d.get("problems"))
+    n_listed = sum(1 for d in SETS.values() if set_list_state(d) == "complete")
     shared = [sid for sid, d in SETS.items() if len(d["contests"]) > 1]
     return page("Problem sets", "<h1>Problem sets</h1>"
                 f'<p class="intro">{num(len(SETS))} problem sets. Most belong to the one contest of the same id; '
@@ -2267,8 +2275,8 @@ def problemset_index(rel: str) -> str:
                 "(sort by <b>contests</b> to see them). "
                 "<b>Held</b> is what we hold of the set, kind by kind, from the ICPC Problem Archive or from a source we hold a copy of; "
                 "the set's page says which, and where the set was published and where it can be solved are on the contest page. "
-                f"<b>Problems</b> is how many the contest had; <b>list</b> says whether we know them by name — complete for {num(n_listed)} sets, "
-                "partial when only some are listed, none when only the archive's holdings are recorded.</p>"
+                f"<b>Problems</b> is how many the contest had; <b>list</b> says whether we know them by name — <i>listed</i> (every one) for {num(n_listed)} sets, "
+                "<i>partly listed</i> when only some are, <i>count only</i> when none are and only the number and the holdings are recorded.</p>"
                 + key_line(rel, "held")
                 + table([th("problem set"), th("contests", num=True, title="how many contests sat this set"), th("season", f=True), th("region", f=True),
                          th("problems", num=True), th("list", f="problem list"),
@@ -2750,6 +2758,17 @@ WEB_TOKEN = {"have": "have", "no copy": "missing: no copy", "no address": "missi
 # what an answer looks like: q4 held ... q1 a little held (shades of one green), ql a link we hold no copy of,
 # q0 nothing (a hole), qu not recorded (hatched), qx there is none to have (not a hole)
 Q_WORD = {"q4": "held", "q3": "held", "q2": "partly held", "q1": "partly held", "ql": "known, no copy", "q0": "missing", "qu": "not recorded", "qx": "none exists"}
+Q_WORD_RECORDED = {"q4": "recorded", "q2": "partly recorded", "q1": "partly recorded", "ql": "a source is known, nothing recorded"}
+
+
+def q_word(key: str, cls: str) -> str:
+    """The word for an answer's colour in a pill's hover text: metadata is recorded, not held (GROUP_NOTE),
+    and a lower rung of the results ladder is a lesser result, not a part of one (COV_KEY)."""
+    if CV.FACET[key][2] in ("Problem metadata", "Contest metadata"):
+        return Q_WORD_RECORDED.get(cls, Q_WORD[cls])
+    if key == "results" and cls in ("q3", "q2", "q1"):
+        return "a lesser result"
+    return Q_WORD[cls]
 _ST: dict = {}
 
 
@@ -2848,7 +2867,7 @@ RESULT_NOTES = (   # said about a contest's results beside their level: (label, 
     ("frozen scoreboard held", {"also": "frozen scoreboard: held"}, "the scoreboard as it stood at the freeze: kept beside the result, it does not say how the contest ended"),
     ("frozen scoreboard, link only", {"also": "frozen scoreboard: link only"}, "a frozen scoreboard is known at an address; we hold no copy"),
     ("partial result", {"also": "partial result"}, "the result we hold covers only a part of the contest: one division, the top places"),
-    ("a source is lost", {"also": "lost source"}, "dead at its address, not in the Wayback Machine, no copy here"),
+    ("a source is lost", {"also": "lost source"}, "a result or website source gone from its address, not in the Wayback Machine, no copy here"),
 )
 
 
@@ -2929,13 +2948,13 @@ def contest_coverage(c: dict, rel: str) -> str:
             text = a if key in ("results", "website") else (lab if a == sts[0] else f"{lab}: {a}")
             if key == "website":
                 text = {"have": "held", "no copy": "address known, no copy", "no address": "no address known", "confirmed none": "had none"}[a]
-            pills.append(f'<a class="pl {cls}" href="{facet_anchor(key) or "#"}" title="{esc(lab)}: {esc(a)} — {Q_WORD[cls]}">{esc(text)}</a>')
+            pills.append(f'<a class="pl {cls}" href="{facet_anchor(key) or "#"}" title="{esc(lab)}: {esc(a)} — {q_word(key, cls)}">{esc(text)}</a>')
             if cls not in ("q4", "qx") and not (key in _PM and s["list"] in ("source only", "none")):
                 wanted.append("the website (no address known)" if key == "website" and a == "no address"
                               else WANT_WORD[key] + (f" (we hold {a})" if key == "results" and a != "none" else ""))
         if g == "Results":
             if r["fetch"]:
-                pills.append(f'<a class="pl ql" href="#results" title="a {TIER_LABEL[r["fetch"]]} is known at an address; we hold no copy of it yet">{TIER_LABEL[r["fetch"]]}: link only</a>')
+                pills.append(f'<a class="pl ql" href="#results" title="{TIER_LABEL[r["fetch"]]}: a better result than the one we hold is known at an address; we hold no copy of it yet">{TIER_LABEL[r["fetch"]]}: link only</a>')
             if r["frozen"]:
                 pills.append(f'<a class="pl {"q4" if r["frozen"] == "held" else "ql"}" href="#results" title="the scoreboard as it stood at the freeze; '
                              f'kept beside the result, not counted as one">frozen scoreboard{"" if r["frozen"] == "held" else ": link only"}</a>')
@@ -3076,9 +3095,10 @@ def coverage_page(series_docs: dict, contests: dict) -> str:
                           "A column per season, a row per question; each cell is that season's contests split by answer, held at the bottom. "
                           "A cell opens the contests of that season that are missing it.", season_strips(cs, "", {}), title="What we hold", hid="hold")
          + '<p class="note">A complete package counts as statement, test data and solutions too. Material counts wherever it comes from: the problem archive, '
-           "or a source we hold a copy of. A page on an online judge is a link, not a copy: what we hold of it is the judge's list of problems, not the statements.</p>"]
+           "or a source we hold a copy of. A problem set's page on an online judge is a link, not a copy: what we hold of it is the judge's list of problems, not the statements; "
+           "a problem's own page on a judge, when we hold it, counts as that problem's statement.</p>"]
 
-    b.append('<h2 id="region">By region</h2><p class="note">The percentage is the share in the best state; click a header to sort by it. Every segment opens its contests.</p>')
+    b.append('<h2 id="region">By region</h2><p class="note">The percentage is the share in the best answer; click a header to sort by it. Every segment opens its contests.</p>')
     by_reg = {r: [c for c in cs if SERIES_REGION.get(SERIES_OF[c["id"]]) == r] for r in REGIONS}
     rows = [(f'<td class="nw">{n_link(len(by_reg[r]), "", {"region": r}, esc(r))}</td>', by_reg[r], {"region": r}) for r in REGIONS]
     rows.append(('<td class="nw"><b>all</b></td>', cs, {}))
@@ -3107,7 +3127,7 @@ WANTED = (
         ("standings only", {"results": "standings"}, "totals per team — the per-problem scoreboard wanted"),
         ("better result known, not held", {"fetch": "any"}, "a source gives a higher level than the one we hold; a copy of it is wanted"),
         ("partial result", {"also": "partial result"}, "what we hold covers one division or the top places only"),
-        ("a source is lost", {"also": "lost source"}, "dead at its address, not in the Wayback Machine, no copy here: gone unless someone kept one"))),
+        ("a source is lost", {"also": "lost source"}, "a result or website source gone from its address, not in the Wayback Machine, no copy here: gone unless someone kept one"))),
     ("Website", (
         ("no address", {"website": "missing: no address"}, "no website address found yet (contests confirmed to have had none are not counted)"),
         ("address known, no copy", {"website": "missing: no copy"}, "the address is known; we hold no copy"))),
@@ -3206,7 +3226,7 @@ def grid_page(series_docs: dict, contests: dict) -> str:
               "sel.addEventListener('change',function(){paint(+sel.value);});"
               "var m=/^#by=(\\w+)/.exec(location.hash),i0=m?F.findIndex(function(f){return f[0]===m[1];}):0;if(i0<0)i0=0;sel.value=i0;paint(i0);})();</script>")
     return page("The grid", "<h1>The grid</h1><p class=\"intro\">Every contest on one screen: a row per series, a column per year. "
-                "Pick what the squares are coloured by — any of the questions coverage asks. Green is held, darker is more; white is a hole. "
+                "Pick what the squares are coloured by — any of the questions coverage asks. Green is held; lime, amber and orange are less, the further from green the less; white is a hole. "
                 "Click a square for the contest.</p>" + pick + "".join(g) + script, "", "coverage.html")
 
 
@@ -3232,12 +3252,13 @@ def cms_page(contests: dict) -> str:
                 continue
             cms_rows.setdefault(i, ("not judged", "", esc(str(e.get("Full name") or ""))))
     counts = Counter(st.split(":")[0] for st, _l, _n in cms_rows.values())
+    reasons = ", ".join(sorted({st.split(": ", 1)[1] for st, _l, _n in cms_rows.values() if st.startswith("excluded: ")}))
     rows = [f'<tr><td class="num">{i}</td><td class="nw">{link}</td><td class="nw" data-v="{esc(st)}">{chip(st, "h" if st == "in the catalogue" else "n")}</td>'
             f'<td class="small">{name}</td><td class="nw small">{cms_links(i).split(" ", 1)[1]}</td></tr>'
             for i, (st, link, name) in sorted(cms_rows.items())]
     return page("CMS id ledger", "<h1>CMS id ledger</h1>"
                 f'<p class="intro">Every contest id of the ICPC CMS this project has looked at: {num(len(cms_rows))} ids — {num(counts["in the catalogue"])} are contests in the catalogue, '
-                f'{num(counts["excluded"])} are excluded with a reason (cancelled, camp, challenge, junk, minor, structural), {num(counts["proposed"])} carry a proposed '
+                f'{num(counts["excluded"])} are excluded with a reason ({reasons}), {num(counts["proposed"])} carry a proposed '
                 f'class nobody has reviewed, and {num(counts["not judged"])} have not been judged at all.</p>'
                 + table([th("CMS id", num=True), th("contest"), th("status", f=True), th("name in the CMS"), th("in the CMS")], rows, "flt"), "", "coverage.html")
 
@@ -3316,6 +3337,7 @@ If you know where something lives, or see something wrong, <a href="about.html#c
 
 def about_page() -> str:
     n_sites = len(website_of)
+    n_shared = sum(1 for d in SETS.values() if len(d.get("contests") or []) > 1)
     n_raw = len(ARCHIVED_BY_CONTEST)
 
     def dl(items):
@@ -3323,14 +3345,15 @@ def about_page() -> str:
     places_dl = dl((
     ('<span class="m h">address</span>', "<b>The address now.</b> <i>live</i>: it still serves the document. In doubt: <i>changed</i> (it answers, but what it serves differs), "
      "<i>blocked</i> (the server turns our fetcher away; a browser may still get in), <i>unverified</i> (it answers; there was nothing to compare it against), "
-     "<i>empty</i>. Confirmed not there: <i>dead</i>, or <i>replaced</i> by something else. Dead is normal for an old contest and no cause for alarm when there is a copy."),
+     "<i>empty</i>. Confirmed not there: <i>dead</i>, or <i>replaced</i> by something else. Dead is normal for an old contest and no cause for alarm when there is a copy. "
+     "<i>not checked</i>: nobody has looked yet."),
     ('<span class="m h">Wayback</span>', "<b>The Wayback Machine.</b> <i>snapshot</i>: a snapshot shows the document; the source's page opens that snapshot, not the calendar. "
      "In doubt: <i>bad snapshot</i> (one exists, but it holds an error page or an empty shell). Confirmed not there: <i>no snapshot</i>, or <i>excluded</i>. "
-     "<i>n/a</i>: the page is an app, and a snapshot of it shows nothing."),
+     "<i>n/a</i>: the page is an app, and a snapshot of it shows nothing. <i>not checked</i>: nobody has looked yet."),
     ('<span class="m h">archive</span>', "<b>Our archive.</b> <i>held</i>: we hold a copy; the source's page opens the one that counts, the current one. "
      "In doubt: <i>bad copy</i> (we fetched it, but what came back is not the document). <i>not captured</i>: no copy yet, and there is still somewhere to take one from. "
-     "<i>lost</i>: gone from its address, not in the Wayback Machine, and no copy here. Gone unless someone kept one."),
-    ('<span class="m h">green</span> <span class="m l">amber</span> <span class="m x">red</span> <span class="m p">blue</span> <span class="m n">grey</span>',
+     "<i>lost</i>: gone from its address, not in the Wayback Machine, and no copy here. Gone unless someone kept one. <i>n/a</i>: the page is empty, there is nothing to hold."),
+    ('<span class="m h">green</span> <span class="m l">amber</span> <span class="m x">red</span> <span class="m p">blue</span> <span class="m g">grey</span>',
      "The label of a mark is the place and never changes; the colour is the answer, the same for all three: <b>green</b> it is there, <b>amber</b> something is there but "
      "it is in doubt and needs a look, <b>red</b> confirmed not there, <b>blue</b> not done yet (not checked, not captured: work of ours that is pending), <b>grey</b> does not apply."),
 ))
@@ -3338,7 +3361,7 @@ def about_page() -> str:
     ('<a href="season/index.html">Season</a>', "From the first regional to the World Finals it feeds. Shown as <i>2024–2025</i>. Its page is the advancement tree."),
     ('<a href="series/index.html">Series</a>', "A line of editions under one name (<i>nwerc</i>). Renamings and splits are recorded as lineage."),
     ('<a href="contest/index.html">Contest</a>', "One edition (<i>nwerc-2020</i>). The year in the id is the season label, not the date: a fall regional postponed to January keeps its number."),
-    ('<a href="problemset/index.html">Problem set</a>', "The problems a contest used; nearly always one set per contest, with the same id. Its page says what the ICPC Problem Archive holds."),
+    ('<a href="problemset/index.html">Problem set</a>', "The problems a contest used; nearly always one set per contest, with the same id. Its page says what we hold of it, and what of that the ICPC Problem Archive holds."),
     ('<a href="problem/index.html">Problem</a>', "One problem: where it appeared, what is held, where it can be solved."),
     ('<a href="source/index.html">Source</a>', "An address at a point in time — what it served for a contest — and where that can be found: at the address now, "
      "in the Wayback Machine, in our archive."),
@@ -3352,32 +3375,38 @@ def about_page() -> str:
     ('<span class="pl q3">standings</span> <span class="pl q2">test data: some</span> <span class="pl q1">team list</span>',
      "<b>Partly held, or a lesser result</b>: lime, amber, orange — the further from green, the less. For results these are the lower levels "
      "(standings, rankings, team list); elsewhere amber means we hold it for some of the problems."),
-    ('<span class="pl ql">editorial: link only</span>', "<b>Known at an address, no copy held.</b> A page on an online judge counts as this for statements and data: "
-     "what we hold of it is the judge's list of problems, not the material."),
+    ('<span class="pl ql">editorial: link only</span>', "<b>Known at an address, no copy held.</b> A problem set's page on an online judge counts as this for statements and data: "
+     "what we hold of it is the judge's list of problems, not the material. A problem's own page on a judge, when we hold it, counts as that problem's statement."),
     ('<span class="pl q0">packages: none</span>', "<b>Missing</b> — a hole. Everything white is something wanted."),
     ('<span class="pl qu">solutions: not recorded</span>', "A source is known, but what it holds has not been recorded yet."),
     ('<span class="pl qx">CMS id: none</span>', "<b>None exists</b>: looked, and there is none to have (no CMS entry; a contest that had no website). Not missing."),
     ('<span class="pl q4">frozen scoreboard</span>', "The scoreboard as it stood at the freeze. It is kept beside the result, not counted as one: it does not say how the contest ended."),
     ('<span class="pl q2">partial</span>', "The result we hold covers only a part of the contest: one division, the top places."),
+    ('<span class="pl ql">scoreboard: link only</span>', "Beside the result: a better result than the one we hold is known at an address, and we hold no copy of it yet."),
     ("<b>Wanted</b>", "Under the pills: everything that is not held and could be, in words."),
-    (chip("2 lost", "x"), "Sources that are dead at their address, have no Wayback snapshot, and were never captured here. Gone unless someone kept a copy."),
-    (chip("1 only here", "h"), "Dead at its address and not in the Wayback Machine, but we hold a copy — as far as we know the only one."),
+    (chip("2 lost", "x"), "Result or website sources that are gone from their address (dead, or replaced by something else), are not in the Wayback Machine, "
+     "and of which we hold no copy: their archive mark says <i>lost</i>. Gone unless someone kept one."),
+    (chip("1 only here", "h"), "A result or website source gone from its address and not in the Wayback Machine, but we hold a copy — as far as we know the only one."),
     (chip("upcoming", "n"), "The contest has not run yet. Nothing about its problems is published before it has."),
+    (chip("not listed yet", "n"), "Beside a row of the results: we hold a copy of a page about this contest that is not yet listed as one of its sources."),
 ))
     marks_dl = dl((
     ('<span class="m q4">S</span><span class="m q3">St</span><span class="m q2">R</span><span class="m q1">T</span><span class="m q4">F</span>',
      "Results: <b>S</b> scoreboard, <b>St</b> standings, <b>R</b> rankings, <b>T</b> team list, and beside them <b>F</b> frozen scoreboard. One mark per kind that exists; "
      "a mark we hold a copy of is filled in the colour of its level, the same colours as in every bar."),
     ('<span class="m h">W</span>', "Website."),
-    ('<span class="m h">filled</span> <span class="m k">outlined</span>', "Filled green: we hold a copy. Outlined blue: link only."),
+    ('<span class="m h">filled</span> <span class="m k">outlined</span>', "Filled: we hold a copy (green; a result in the colour of its level). Outlined blue: link only."),
     ('<span class="m h">St</span><span class="m l">D</span><span class="m k">So</span><span class="m n">P</span><span class="m u">E</span>',
      "Problems, what we hold of each kind of material: <b>St</b> statements, <b>D</b> test data, <b>So</b> solutions, <b>P</b> complete packages, <b>E</b> editorial. "
      "It counts wherever it comes from: the ICPC Problem Archive, or a source we hold a copy of. Filled green: for every problem. Amber: for some. "
-     "Blue outline: link only — a source that has it is known, we hold no copy (a page on an online judge is this: our copy is the judge's list, not the material). "
-     "Grey: none. Dashed: a source is known, but what it holds is not recorded. A complete package counts as statement, test data and solutions too. "
-     "On a single problem the marks say what the problem archive holds, with <b>IV</b>/<b>OV</b> for input and output validators. "
-     "The number before the marks is how many problems the contest had."),
-    ('<span class="m k">src</span>', "A published problem set or a page on an online judge is known, but nothing about the problems has been recorded yet."),
+     "Blue outline: link only — a source that has it is known, we hold no copy (a problem set's page on an online judge is this: our copy is the judge's list, "
+     "not the material; a problem's own page on a judge, when we hold it, counts as that problem's statement). "
+     "White, outlined: none held and none known — wanted. Dashed: a source is known, but what it holds is not recorded. A complete package counts as statement, test data and solutions too. "
+     "On a single problem the marks say what the problem archive holds (a statement also counts when we hold the problem's own page or statement file on an online judge), "
+     "with <b>IV</b>/<b>OV</b> for input and output validators. "
+     "The number before the marks is how many problems the contest had (how many are listed by name when that is not known; <i>set</i> when neither is)."),
+    ('<span class="m u">src</span>', "No problem set is recorded for the contest, but a published set or a problem's page is known (on the web or on an online judge); "
+     "the marks after it say what we hold of that material."),
     (judge_mark("kattis") + judge_mark("codeforces") + judge_mark("baekjoon") + judge_mark("qoj"),
      "An online judge, shown by its logo (its short name where it has none); hover for the name. Beside a problem the logo opens the problem "
      "on that judge. Grey: the judge has closed, and the link goes to a Wayback snapshot."),
@@ -3393,7 +3422,8 @@ def about_page() -> str:
 <p class="intro"><b>Every mention of an object links to its own page</b>, and looks the same wherever it appears. <b>A link stays on this site unless it is
 marked <a class="ext" href="#read">like this</a></b>. In particular the address of a source is never linked directly from a contest or a table: the link goes to the
 source's page, and that page is where you open the address as it is now, the Wayback Machine, or our archived copy. The exceptions are deliberate and marked:
-a problem's online-judge links go straight to the problem on the judge, and a contest's CMS links go to the CMS.
+a problem's online-judge links go straight to the problem on the judge, a contest's CMS links go to the CMS, and an online judge's own site,
+a problem set's repository in the (private) problem archive and a place's GeoNames entry are linked from their own pages.
 A date links to its day in the <a href="calendar/index.html">calendar</a>, where you can see what else ran that day and that weekend.</p>
 <p class="intro">A contest has <b>three kinds of content</b>, always in the same order: its <b>website</b>, its <b>results</b> and its <b>problems</b>.</p>
 <p class="intro"><b>One set of colours, everywhere</b> — every pill, mark, bar and square: <span class="pl q4">green</span> we hold it (it is there);
@@ -3402,7 +3432,8 @@ A date links to its day in the <a href="calendar/index.html">calendar</a>, where
 <span class="pl q0">white</span> missing, and wanted; <span class="pl qu">hatched</span> not recorded.</p>
 <p class="intro">A <b>location</b> is where the contest was held: its sites, as places in the location tree. The CMS also lists staff, guest and
 bookkeeping groups as "sites"; those are not places and are never shown. When no real site is recorded, the city the contest's CMS record points at is shown,
-marked <span class="chip n">inferred</span>. A source that covers only part of a contest says so beside its role, like
+marked <span class="chip n">inferred</span>; a site the CMS names that is not in the tree yet is marked <span class="chip n">not placed</span>, and teams that
+competed remotely <span class="chip n">online</span>. A source that covers only part of a contest says so beside its role, like
 <span class="chip sc">Division 1</span>.</p>
 <p class="intro">For spot checks, <a href="random.html">Random</a> in the header (or the key <b>r</b>) opens a page picked at random.</p>
 
@@ -3414,11 +3445,11 @@ in the colour of its answer. The same colours are used in every bar, square and 
 <h2 id="coverage">Coverage</h2>
 <p class="intro">Coverage asks the same questions of every contest that ran, in four kinds. <b>Results</b>: one level per contest, the best we hold.
 <b>Problems</b>: what the catalogue records about them (<i>problem metadata</i>: the list, names, letters, short names, UUIDs) and what we hold of them
-(statements, test data, solutions, packages, editorial), each on its own. <b>Website</b>: held or missing. <b>Contest metadata</b>: name, full date, location, CMS id.
+(statements, test data, solutions, packages, editorial), each on its own. <b>Website</b>: held; missing (an address with no copy, or no address known); or none, when the contest had no website of its own. <b>Contest metadata</b>: name, full date, location, CMS id.
 <b>Held always means we hold a copy</b>; an address we only know is a link. <b>Everything is counted in contests</b>: “statements: all” is the number of contests
 for which we hold every statement, not a number of problems; and recorded is not the same as held, so a contest whose statements we hold can still have
 its problems unlisted. What a contest advances to and the editions before and after it are not part of coverage: “none” is a valid answer there, so they
-are never missing — they can only be wrong, which is what review mode is for.</p>
+are never missing — they can only be wrong, and a correction is welcome (see <a href="#contribute">Contribute</a>).</p>
 <p class="intro">Wherever contests are counted — the <a href="coverage.html">whole archive</a>, a season, a series, a location — coverage is shown the same way and
 in the same order: the headline numbers, then a panel with a bar per question split by answer, then where it is missing along the group's own axis. <b>Every segment, every label under a bar, every square and every number is a link</b>: it opens the <a href="contest/index.html">contest list</a>
 filtered to exactly those contests. The filters are in the bar above that list, the coverage ones on its second line, and they combine; the page
@@ -3428,13 +3459,14 @@ season by season; in a table of series, seasons or countries each row carries th
 <a href="wanted.html">most wanted</a> counts what is missing by region, and <a href="grid.html">the grid</a> colours every contest by any one question.</p>
 
 <h2 id="marks">Marks</h2>
-<p class="intro">The small letters in tables. A mark links to the source it stands for.</p>
+<p class="intro">The small letters in tables. A result mark links to the source it stands for.</p>
 {marks_dl}
 
 <h2 id="status-set">Problem sets</h2>
-<p class="intro">A problem set is nearly always the set of one contest and carries the same id; two sets were shared by two contests. The contest page says where the set
-was published and where it can be solved; the set's page says what we hold of it, and what of that is in the ICPC Problem Archive (a private collection of problem packages). A set is
-<b>listed</b> when we know its problems by name — completely, partly, or not at all, in which case only the count and the holdings are recorded. What is held for a
+<p class="intro">A problem set is nearly always the set of one contest and carries the same id; {n_shared} were sat by several contests (a joint contest, or a regional whose sites all sat the same problems). The contest page says where the set
+was published and where it can be solved; the set's page says what we hold of it, and what of that is in the ICPC Problem Archive (a private collection of problem packages). A contest's problem list is
+<b>listed</b> when we know every problem by name, <b>partly listed</b> when we know some, <b>count only</b> when we know how many there were but not their names,
+<b>source only</b> when no set is recorded but a published set or a problem's page is known, and <b>none</b> when nothing is. What is held for a
 single problem is recorded for few sets; elsewhere a problem's marks follow from its set: held if the set holds that kind for every problem, not held if for none,
 dashed if for some. A <b>UUID</b> is the identity of a problem's package; a problem reused in another contest keeps it.</p>
 
@@ -3463,8 +3495,8 @@ for everyone else they fail to connect.</p>
 <pre><code># in your checkout of the contests repo (archive checked out alongside it)
 python3 tools/index_websites.py     # after new site crawls
 python3 tools/serve.py              # rebuilds the site with local links, serves on 127.0.0.1:8123</code></pre>
-<p class="intro">Then browse <code>http://127.0.0.1:8123/</code> — the same pages as the public site, with every local link live. <b>Archived website</b> plays a crawled
-site back page by page; pages that were not captured go to the Wayback Machine or the live site. <b>Raw</b> is a captured file exactly as fetched.</p>
+<p class="intro">Then browse <code>http://127.0.0.1:8123/</code> — the same pages as the public site, with every local link live. <b>Open the archived website</b> (on a source's page) plays a crawled
+site back page by page; pages that were not captured go to the Wayback Machine or the live site.</p>
 
 <h2 id="data">Data</h2>
 <p class="intro">The whole catalogue as one file is <a href="catalogue.json">catalogue.json</a>. Typeface: IBM Plex Sans (SIL Open Font License).</p>"""

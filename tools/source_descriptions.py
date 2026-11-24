@@ -31,7 +31,7 @@ LANG_NAMES = {"en": "English", "ru": "Russian", "zh": "Chinese", "es": "Spanish"
 ABOUT = """<p class="intro" id="descriptions">A source whose copy we hold can have a <b>description</b>: what the document is and what it contains, with the
 few facts the document states about itself (its title, its language, the contest date it gives, how many teams and problems it shows). Descriptions are written by an
 automated reader (a language model) that was given our copy and nothing else, and a sample of them is checked against the copies. They describe the copy, not the
-contest: where a document is wrong, so is its description. A description that misstates its document is an error of ours; tell us with a remark in review mode.</p>"""
+contest: where a document is wrong, so is its description. A description that misstates its document is an error of ours; tell us (see Contribute below).</p>"""
 
 _cache: dict | None = None
 

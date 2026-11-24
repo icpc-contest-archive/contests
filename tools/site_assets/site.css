@@ -1,5 +1,6 @@
 /* ICPC contest archive — one stylesheet for every page (copied to site/assets/ by tools/build_site.py).
-   The status colours are the scoreboard's: green = held, amber = known but not held, red = lost. */
+   One set of colours (DEFINITIONS.md, The site, rule 3): green held · amber partly, in doubt · blue known, no copy / not done yet ·
+   red lost · grey none exists, does not apply · white missing · hatched not recorded. */
 @font-face { font-family:"Plex Sans"; font-weight:400; font-display:swap; src:url(fonts/plex-sans-latin-400.woff2) format("woff2");
   unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
 @font-face { font-family:"Plex Sans"; font-weight:600; font-display:swap; src:url(fonts/plex-sans-latin-600.woff2) format("woff2");
@@ -104,16 +105,17 @@ a.help:hover { color:var(--link); border-color:var(--link); text-decoration:none
   font-size:.8em; font-weight:600; line-height:1.5; font-style:normal; border:1px solid transparent; }
 a.m:hover { text-decoration:none; filter:brightness(.92); }
 .m.h { background:var(--held); color:var(--paper); }                         /* held (all of it) */
-.m.l { border-color:var(--part); color:var(--part); background:var(--part-bg); } /* known, not held / held in part */
-.m.n { border-color:var(--line); color:var(--muted); opacity:.75; }           /* none */
+.m.l { border-color:var(--part); color:var(--part); background:var(--part-bg); } /* held in part, or in doubt */
+.m.n { border-color:var(--line); color:var(--muted); opacity:.75; }           /* none held: white, as .q0 */
 .m.u { border:1px dashed var(--line); color:var(--muted); opacity:.75; }      /* not recorded */
 .m.k { border-color:var(--link); color:var(--link); }
 .m.q4, .m.q3, .m.q2, .m.q1 { border-color:transparent; }   /* a held result, in the colour of its level */                         /* a source is known; we hold no copy */
 .m.x { background:var(--lost); color:var(--paper); }                         /* lost */
 .av { white-space:nowrap; } .av .m { cursor:default; font-weight:600; }
 .m.p { background:var(--ql); color:#17212b; }                                /* not done yet (pending): not checked, not captured */
+.m.g, .chip.g { background:var(--wash); color:var(--muted); }                 /* does not apply (n/a): grey, as .qx */
 /* the three places of a source: the label is the place, the colour the answer —
-   .h green there · .l amber in doubt · .x red confirmed not there · .p blue not done yet · .n grey does not apply */
+   .h green there · .l amber in doubt · .x red confirmed not there · .p blue not done yet · .g grey does not apply */
 .av .chip { margin-left:.2em; }
 .status .av .m { font-size:.92em; padding:.05em .5em; }
 .key { color:var(--muted); font-size:.86rem; margin:.4rem 0 .6rem; }
