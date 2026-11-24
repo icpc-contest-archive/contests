@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
+# Maintained in-repo; last bulk edit: tools/bake_icpc_standings.py.
 series:
   id: nerc
   name: ICPC Northern Eurasia Finals
@@ -274,17 +274,16 @@ contests:
     set: nerc-2019
 - id: nerc-2020
   season: 2021
-  name: 2020 Northern Eurasia Finals Online
-  date: '2020-12-13'
-  location: Tbilisi; Almaty; St Petersburg; Barnaul; Administrative Site Location (online component)
-  sites:
-  - location: ge-tbilisi
-  - location: kz-almaty
-  - location: ru-saint-petersburg
-  - location: ru-barnaul
-  - type: administrative
+  name: 2020-2021 Northern Eurasia Finals Offline
+  date: '2021-04-04'
+  location: St Petersburg; Minsk; Tbilisi; Riga
   cms_ids:
-  - 4551
+  - 4586
+  sites:
+  - location: ru-saint-petersburg
+  - location: by-minsk
+  - location: ge-tbilisi
+  - location: lv-riga
   parent: wf-2021
   next: nerc-2021
   sources:
@@ -300,32 +299,18 @@ contests:
     - nerc/nerc-2020/scoreboard/20260904-live-dd521919/standings.html
     url_state: replaced
     url_checked: '2026-11-16'
-  - url: https://icpc.global/regionals/finder/Northern-Eurasia-2021/standings
+  - url: https://icpc.global/regionals/finder/Northern-Eurasia-Contests-2021/standings
     roles:
     - standings
     archived:
-    - nerc/nerc-2020/standings/api-20261113/standings.html
-    note: rendered from the icpc.global API standings archive (cms 4551, 324 teams, DB fetch 2026-04-26)
-  - url: http://nerc.itmo.ru/archive/2020/nerc-2020-online-statement.pdf
-    roles:
-    - problemset
-    contains:
-    - statement
-    as_of: '20240618092437'
-    url_state: live
-    url_checked: '2026-11-23'
+    - nerc/nerc-2020/standings/api-20261124/standings.html
+    note: rendered from the icpc.global API standings archive (cms 4586, 48 teams, DB fetch 2026-04-26)
   - url: http://nerc.itmo.ru/archive/2020/nerc-2020-offline-statement.pdf
     roles:
     - problemset
     contains:
     - statement
     as_of: '20210514101727'
-    url_state: live
-    url_checked: '2026-11-23'
-  - url: https://www.acmicpc.net/category/detail/2397
-    roles:
-    - problemset
-    judge: baekjoon
     url_state: live
     url_checked: '2026-11-23'
   - url: https://www.acmicpc.net/category/detail/2575
@@ -335,17 +320,6 @@ contests:
     as_of: '20260618020737'
     url_state: live
     url_checked: '2026-11-23'
-  - url: https://codeforces.com/gym/102896
-    roles:
-    - problemset
-    contains:
-    - statement
-    judge: codeforces
-    url_state: live
-    url_checked: '2026-11-23'
-    note: 'Northern Eurasia Finals Online 2020 (judge hunt 2026-11-03: name+year: ''Northern Eurasia Finals
-      Online 2020'' -> season start 2020)'
-    as_of: '20201225021745'
   - url: https://codeforces.com/contest/1510
     roles:
     - problemset
@@ -358,13 +332,6 @@ contests:
       (judge hunt 2026-11-03: official online mirror round: ''2020-2021 ICPC, NERC, Northern Eurasia Onsite
       (Unrated, Online Mirror, ICPC Rules, Teams Preferred)'' -> nerc-2020)'
     as_of: '20211023133728'
-  - url: https://qoj.ac/contest/2862
-    roles:
-    - problemset
-    judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; online round)
-    url_state: live
-    url_checked: '2026-11-23'
   - url: https://qoj.ac/contest/639
     roles:
     - problemset
@@ -375,11 +342,6 @@ contests:
     as_of: '20221005130722'
     url_state: unknown
     url_checked: '2026-11-13'
-  - url: https://icpcarchive.github.io/Northern-Eurasia/ICPC-Northern-Eurasia-Finals/The-2020-ICPC-Northern-Eurasia-Finals-Online/tutorials_en.pdf
-    roles:
-    - editorial
-    url_state: live
-    url_checked: '2026-11-23'
   - url: https://icpcarchive.github.io/Northern-Eurasia/ICPC-Northern-Eurasia-Finals/The-2020-ICPC-Northern-Eurasia-Finals-Onsite/tutorials_en.pdf
     roles:
     - editorial
@@ -387,6 +349,12 @@ contests:
     url_checked: '2026-11-23'
   problems:
     set: nerc-2020
+  provenance:
+  - 'the onsite round of 3-4 April 2021 (ruling 2026-11-24): name from the ICPC CMS record 4586; date
+    and sites from the problem set, headed ''ICPC 2020-2021, NERC - Northern Eurasia Finals, Onsite''
+    and ''St. Petersburg, Minsk, Tbilisi, Riga - April 4th, 2021'' — http://nerc.itmo.ru/archive/2020/nerc-2020-offline-statement.pdf'
+  - until 2026-11-24 this entry was named and dated for the online round of 13 December 2020 (now nerc-online-2020)
+    and held both rounds
   notes: Online & offline (problem archive sheet)
 - id: nerc-2021
   season: 2022

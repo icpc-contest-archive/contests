@@ -25,6 +25,11 @@ CMS DB entry remains *considered*.
   page, not counted as contests anywhere (an online judge's page counts them apart). Their
   sources are in the resource graph like any other and have source pages (ruling of 2026-11-24).
 
+**Rounds are contests.** Two rounds of one event are two contests, since they have different problems
+(ruling of 2026-11-24): each has its own entry, date, results and problem set, and the earlier one
+advances to the later. The Northern Eurasia Finals of 2020-21 are `nerc-online-2020` (13 December
+2020) and `nerc-2020` (the onsite round of 4 April 2021).
+
 ## Naming
 
 `<contest-id>` = `<series>-<year>`, lowercase. The year follows ICPC season convention as
