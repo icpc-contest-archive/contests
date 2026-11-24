@@ -1564,14 +1564,25 @@ def ran_words(cs: list[dict]) -> str:
     return plural(st["n"], "contest") + " ran" + (f" +{st['upcoming']} upcoming" if st["upcoming"] else "")
 
 
-# the coverage columns of a table whose rows are groups of contests (series, seasons, countries):
-# one small bar per question, the same bars as everywhere else. One or two questions per kind of content.
-INDEX_FACETS = ("results", "list", "statement", "website", "date")
+# the coverage columns of every table whose rows are groups of contests (the series, season and location lists, the
+# regions and series on coverage.html): one small bar per question, the same bars everywhere (ruling of 2026-11-24)
+INDEX_FACETS = ("results", "list", "statement", "data", "solutions", "package", "editorial", "website", "date", "location")
+GROUP_FACETS = INDEX_FACETS
+
+
+def facet_label(k: str) -> str:
+    """A facet's name where its share is shown: the results share is the share at the best answer, the scoreboard."""
+    return "scoreboard" if k == "results" else CV.FACET[k][1]
+
+
+def can_have(c: dict, key: str) -> bool:
+    """Does this contest count in a facet's share? Not when its answer is none: there is none to have (grey)."""
+    return facet_q(key)[CV.FACET[key][3].index(st(c)[key])] != "qx"
 
 
 def group_heads(keys: tuple = INDEX_FACETS) -> list[str]:
-    return [th(esc(CV.FACET[k][1]), title=f"{CV.FACET[k][1]}: the contests of the row split by answer; the percentage is the share in the best one "
-                                          f"({CV.FACET[k][3][0]}). Sorts on that share; a segment opens its contests.") for k in keys]
+    return [th(esc(facet_label(k)), title=f"{CV.FACET[k][1]}: the contests of the row split by answer; the percentage is the share in the best one "
+                                          f"({CV.FACET[k][3][0]}), of the contests that can have it. Sorts on that share; a segment opens its contests.") for k in keys]
 
 
 def group_cells(cs: list[dict], rel: str, scope: dict | None, keys: tuple = INDEX_FACETS) -> str:
@@ -1582,7 +1593,7 @@ def group_cells(cs: list[dict], rel: str, scope: dict | None, keys: tuple = INDE
         return "".join('<td class="gb muted" data-v="">–</td>' for _k in keys)
     out = []
     for k in keys:
-        p = pct(sum(1 for c in cs if good(c, k)), n)
+        p = pct(sum(1 for c in cs if good(c, k)), sum(1 for c in cs if can_have(c, k)))
         out.append(f'<td class="gb" data-v="{p}">' + sbar(cs, k, rel, scope, "sm", False) + f'<span class="gp">{p}%</span></td>')
     return "".join(out)
 
@@ -3012,9 +3023,11 @@ def coverage_panel(cs: list[dict], rel: str, scope: dict | None) -> str:
         for key in keys:
             lab = CV.FACET[key][1]
             k = sum(1 for c in cs if good(c, key))
-            rows.append('<div class="fr">' + (f'<span class="fl">{esc(lab)}</span>' if len(keys) > 1 else "")
+            m = sum(1 for c in cs if can_have(c, key))   # none (there is none to have) is not counted against the share
+            rows.append('<div class="fr">' + (f'<span class="fl">{esc(facet_label(key))}</span>' if len(keys) > 1 or key == "results" else "")
                         + sbar(cs, key, rel, scope)
-                        + f'<span class="fp" title="{esc(lab)}: {esc(CV.FACET[key][3][0])} for {num(k)} of {num(n)} contest{"s" if n != 1 else ""}">{pct(k, n)}%</span></div>'
+                        + f'<span class="fp" title="{esc(lab)}: {esc(CV.FACET[key][3][0])} for {num(k)} of {num(m)} contest{"s" if m != 1 else ""}'
+                        + (f" ({num(n - m)} had none to have)" if m != n else "") + f'">{pct(k, m)}%</span></div>'
                         + schips(cs, key, rel, scope))
         if g == "Results":
             notes = []
@@ -3150,7 +3163,6 @@ def season_strips(cs: list[dict], rel: str, scope: dict) -> str:
     return f'<div class="tw"><table class="mx tl nosort"><thead>{head}</thead><tbody>' + "".join(body) + "</tbody></table></div>"
 
 
-GROUP_FACETS = ("results", "statement", "data", "solutions", "package", "editorial", "website", "date", "location")
 
 
 def group_bars(label: str, rows: list[tuple[str, list[dict], dict]], cls: str = "", extra_heads: list[str] | None = None) -> str:
@@ -3180,8 +3192,9 @@ def headline_tiles(cs: list[dict], rel: str, scope: dict | None) -> str:
     tiles = []
     for lab, have, miss in MEASURES:
         k, m = share(cs, have), share(cs, miss)
-        tiles.append(f'<div class="pt"><b>{n_link(k, rel, None if scope is None else {**scope, **have})} <i class="pc">{pct(k, n)}%</i></b>'
-                     f'<span class="tl-l">{esc(lab)}</span><span class="meter"><i style="width:{pct(k, n)}%"></i></span>'
+        d = n - (share(cs, {"website": "none"}) if "website" in have else 0)   # none (there is none to have) does not count against the share
+        tiles.append(f'<div class="pt"><b>{n_link(k, rel, None if scope is None else {**scope, **have})} <i class="pc">{pct(k, d)}%</i></b>'
+                     f'<span class="tl-l">{esc(lab)}</span><span class="meter"><i style="width:{pct(k, d)}%"></i></span>'
                      + (f'<span class="tm">{n_link(m, rel, None if scope is None else {**scope, **miss}, f"{num(m)} wanted")}</span>' if m else "") + "</div>")
     return "".join(tiles)
 
