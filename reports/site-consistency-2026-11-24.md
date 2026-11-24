@@ -177,3 +177,33 @@ Per-area reports, scanners and lists: `_qa-2026-11-24/findings/<area>/` (not in 
   - Location `gt-guatemala-city-url` is named "URL".
   - The location string "Africa and Arab" is shown as a place.
 - **Spelling:** source descriptions mix American and British spellings (organized 26 / organised 72, labeled 2 / labelled 1,008).
+
+## Rulings of 2026-11-24 and what was done
+
+Fredrik answered the questions above the same day: 1–11, 13, 14, 16, 19 and 20 agreed; 12 → (b); 17 → (a); 15 "these admin groups are not actually locations — we should not list them at all"; 18 "not even in the hover; keep the data, but avoid such notes on the site". The extra questions: aec-2024's source dropped ("obviously broken"); the 193 sets without `repo` left for now (some are held but not yet in the archive org); description spellings normalised; letters → (a).
+
+- **1, websites held through a crawl.** Each crawl's own first address became a `web` source of its contest where the crawl is that contest's site or edition page: 220 contests (32 own pages, 186 NEERC subregionals whose crawl is the NEERC season page with a section for them, 2 alternatives). 182 crawls were skipped: a generic front page (43), already cited (37), a file (30), a NEERC season page with nothing for that subregional (29), another edition (16), another contest (13), a results or report page (11), empty (3). Website *held* is now a held copy of one of the contest's web sources, the same answer as its Website section: "with the website" went from 1,736 to 1,556. List: `findings/websites/report.md`.
+- **2, Baekjoon** is `status: active`; an open judge's problem links go to the problem as it is now (the snapshot time stays in the data).
+- **3–5, the words of the answers.** *None* only ever means there is none to have (grey). A hole is *not held* (material, results) or *missing* (metadata) (white). *Wanted* is everything short of the best answer, with its own filter value (`statements=wanted`). Website answers: held · no copy · no address · none. *Link only* is the one label for blue, with one hover text.
+- **6–8.** A *none* answer is left out of a share (CMS id 99%). The results share is labelled *scoreboard*. Every group table carries the same ten bars.
+- **9.** *Sd* is standings; *St* only statements.
+- **10.** `url (at T)` everywhere; the website column's hover names the source with its time.
+- **11.** *Lost* counts sources of every type; a mark for a lost source is outlined red.
+- **12.** The 19 copies were triaged: turkey-2020…2023 got their inzva reports and turkey-2023 its algoleague leaderboard (a scoreboard, link only: our copies are an empty app shell); the rest were news items, other contests' pages or SEERC pages. Contest pages now list only the sources the catalogue cites.
+- **13–14.** Location pages count a contest's online sites, marked *online*; places in the US, Canada and Australia read `Springfield, MO, United States`.
+- **15.** 305 CMS group sites typed `administrative` (106 labels); 13 bare `{type: online}` markers keep naq-2015…2026 and vietnam-2021 "Online"; online rooms that are not places are never listed; the free-text location drops the contest's own group names, "unofficial" and "Africa and Arab"; five real venues that were typed administrative (gny-2008, nena-atlantic-2010/2011, nena-north-2011…2013) were untyped.
+- **16.** Problem set and problem pages have a Sources section; a judge logo opens the source page when we hold a copy of that judge page.
+- **17.** The 24 registry contests' 64 sources are in the resource graph and have source pages; non-mainline.html links them like any list of sources; online judge pages count catalogue contests, registry ones apart ("+21 non-mainline").
+- **18–19.** No check dates on the site; no link to the private repo's issues (Contribute says review mode is being set up).
+- **20.** Place years from dates; the season's places are a fact, not a tile; heat maps in grey; one reading order for the coverage groups (Results, Website, Contest metadata, Problem metadata, Problems); source page rows *address · Wayback · archive* with pill answers; "problem archive" column; the location filter labelled *location*; an address with no time whose checks disagree by season is a source per season; `coverage.py` says its numbers are not the site's.
+- **Data.** 44 contests got their problem count and letters from held scoreboards (`reports/scoreboard-letters-2026-11-24.md`). The four 2014 Latin America sites and ukiepc-2013 got their own letter maps (their problem set booklets); south-na-2025/2026 got `divisions` maps from their own Kattis pages; a contest is never shown another contest's letters. shenyang-2025's two Chinese titles got the English names of the contest's own set ("Collision Damage", "Leo"), the Chinese kept as other titles. Eight judge list pages typed `problem` are now `problemset`. Source descriptions use British spelling in our own text (organise, emphasise, finalise, judgement, labelled, towards …; quotations unchanged; *color*, *center*, *favor* left alone because they are often titles or file names).
+
+## Still open
+
+1. **NEERC season pages as subregional websites** (186 contests): the crawl is `neerc.ifmo.ru/archive/<year>.html`, the NEERC page of that season, which has a section for the subregional. Added as their website; drop them if a season page should not count.
+2. **Shared crawls** (26 contests cite the crawled address but the graph credits the crawl to one contest only). mcpc-2012 is clean (its `as_of` is the crawl's time) and would be fixed by crediting a shared crawl to every contest whose crawl it is; the other 25 are snapshots 4–28 years from the contest.
+3. **80 contests have a crawl but no `web` source** (nzpc-2015…2023, wf-1977…1990, south-pacific-1991…1997, romania-2017…2023 …). The same step could give them their crawl's address after the same screening.
+4. **central-america-2006** probably did not sit latam-2006: its own problem set (problems2006.pdf, "11th México and Central America ACM ICPC 2006") has six other problems. Give it its own set?
+5. **Sibling letter maps that mix divisions** in south-na-2025/2026 (scusa, seusa, mausa read off whichever division's board was captured).
+6. **Sites:** macau-2023's "not available" placeholders (Hong Kong in the CMS); vietnam-2022…2025 now read "not known" (host cities wanted); 62 real venues still unplaced (list in `findings/sites/report.md`) and three location nodes that are CMS groups (wf-2007, wf-2010).
+7. **Checks on the Mac** for the registry sources and the new website sources (no live or Wayback answer yet) — the commands are in the reply.
