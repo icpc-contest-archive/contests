@@ -268,9 +268,9 @@ document, the `ours` of a source. An address we only know is a link, never count
   has level none) and `partial` (the held level is reached only through sources with a `scope`:
   one division, the top places; two or more division scopes together count as the whole).
 - **Problems** — not a ladder: six kinds, each on its own. *Problem metadata* (the problem
-  list itself, then `names`, `letters`, `short_names`, `uuids`: all / some / none, from the set's
+  list itself, then `names`, `letters`, `short_names`, `uuids`: all / some / missing, from the set's
   problem list), and the material
-  `statement`, `data`, `solutions`, `package`, `editorial`, each **all / some / link only / none /
+  `statement`, `data`, `solutions`, `package`, `editorial`, each **all / some / link only / not held /
   not recorded**. A complete `package` implies statement, data and solutions (never editorial);
   that is derived, and `validate.py` refuses a set that says otherwise. Where the material comes
   from does not matter: a kind counts when the problem archive holds it (the set's `statement:` …
@@ -286,9 +286,10 @@ document, the `ours` of a source. An address we only know is a link, never count
   is not. `editorial` is have-or-not per set, from `editorial` sources.
   `contains:` was filled on 2026-11-15 from the content check's reading of our copies
   (`tools/fill_contains.py`); `[]` means read, and it holds none of these.
-- **Website** — have or missing. Have = the contest has a `web` source and we hold a crawl or a
-  copy of it. Missing has two reasons, because the work differs: `no copy` (the address is known)
-  and `no address`. `confirmed none` (`none: [web]`) is not missing.
+- **Website** — **held / no copy / no address / none**. Held = the contest has a `web` source
+  and we hold a copy of it (a crawl counts only for the addresses it holds: its first address, or
+  one of its pages). Wanted has two reasons, because the work differs: `no copy` (the address is
+  known) and `no address`. `none` (`none: [web]`: the contest had no website) is not wanted.
 - **Contest metadata** — a few kinds, each **have / missing / none**: `name`, `date` (the full
   date), `location` (placed in the location tree), `cms` (CMS id; `[]` = none). *none* means
   looked, and there is none: it is not missing. What a contest advances to (`parent`) and the
@@ -307,12 +308,16 @@ Results (1); Problem metadata (the problem list, names, letters, short names, UU
 date, location, CMS id) — each with its answers in order, best first. Every view on the site is
 drawn from that list with one colour vocabulary (`build_site.facet_q`), which the marks in tables
 share: held (green), partly held or a lesser result (lime, amber, orange: the further from green,
-the less), known at an address with no copy (blue), missing (white — a hole), a source known but
-its contents not recorded (hatched), none exists (grey — not a hole).
+the less), link only: known at an address with no copy (blue), a hole (white: *not held* for
+material, *missing* for metadata), a source known but its contents not recorded (hatched), *none*:
+there is none to have (grey — not a hole). The words are fixed (ruling of 2026-11-24): *none*
+always means there is none to have; *wanted* is everything short of the best answer, the
+worklist of a facet (a filter value of its own, `statements=wanted`). Website answers: held, no
+copy, no address, none.
 
 **Every category is a link, and it is a list of contests.** The contest list
 (`contest/index.html`) has a filter for every answer, addressable by name in the page address:
-`contest/index.html#f:status=ran&region=Europe&website=missing`. Names: `country`, `series`,
+`contest/index.html#f:status=ran&region=Europe&website=wanted`. Names: `country`, `series`,
 `region`, `level`, `season`, `era`, `status`, `loc` (a node of the location tree; set by links
 only), `results`, `fetch`, `also` (frozen scoreboard, partial result, lost source), `problems`
 (the list), `statements`, `data`, `solutions`, `packages`, `editorial`, `pmeta`, `website`, `meta`.

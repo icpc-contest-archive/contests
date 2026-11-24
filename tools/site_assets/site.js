@@ -5,7 +5,7 @@
 
   /* ---- tables: click a header to sort; tables marked .flt (or 30+ rows) get a filter bar ----
      th[data-f]  -> a drop-down of that column's values
-     th[data-k]  -> the filter's name in a link: page.html#f:season=2024&website=missing
+     th[data-k]  -> the filter's name in a link: page.html#f:season=2024&website=wanted
                     (a column number works too: #f:6=2024)
      th[data-g]  -> the drop-down goes on the second line of the bar ("Coverage")
      th[data-o]  -> the order of the values in the drop-down, separated by | (the rest follow, sorted)
@@ -73,7 +73,7 @@
       const rank = v => { const r = order.indexOf(v); return r < 0 ? order.length : r; };
       Array.from(cnt.keys()).sort((a, b) => rank(a) - rank(b) || a.localeCompare(b, undefined, {numeric: true})).forEach(v => {
         const o = document.createElement('option'); o.value = v || '—';
-        // on the Coverage line many filters share their values (all, some, missing): say whose it is
+        // on the Coverage line many filters share their values (all, some, wanted): say whose it is
         o.textContent = (th.dataset.g ? label + ': ' : '') + (v || '—') + ' (' + cnt.get(v) + ')'; sel.appendChild(o);
       });
       if (th.dataset.g) {

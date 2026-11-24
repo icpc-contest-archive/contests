@@ -14,14 +14,16 @@ A record:
     fetch          results_known when it is better than `results` (a copy is wanted), else ""
     frozen         "held" | "link only" | ""   a frozen scoreboard, beside the ladder, not on it
     partial        the held level is reached only through sources that cover a part of the contest
-    set            the problem list: "listed" | "partly listed" | "count only" | "source only" | "none"
-    problems       {statement, data, solutions, package, editorial: all | some | link only | none | not recorded}
-    pmeta          {names, letters, short_names, uuids: all | some | none}
-    website        "have" | "no copy" | "no address" | "confirmed none"
+    set            the problem list: "listed" | "partly listed" | "count only" | "source only" | "missing"
+    problems       {statement, data, solutions, package, editorial: all | some | link only | not held | not recorded}
+    pmeta          {names, letters, short_names, uuids: all | some | missing}
+    website        "held" | "no copy" | "no address" | "none"
     meta           {name, date, location, cms: have | missing | none}
 
-"Have" always means we hold a copy (ruling of 2026-11-15): a source we only know the address of
-is `link only` / `no copy` / `fetch`, never counted as held.
+"Held" always means we hold a copy (ruling of 2026-11-15): a source we only know the address of
+is `link only` / `no copy` / `fetch`, never counted as held. The words of the answers (ruling of
+2026-11-24): "none" always means there is none to have (grey, not wanted); a hole is "not held" for
+material and "missing" for metadata (white, wanted); "wanted" is everything short of the best answer.
 """
 from __future__ import annotations
 
@@ -34,20 +36,20 @@ from catalogue import RESULT_LADDER, archived, by_role, set_id_of, set_letters, 
 from resources import norm_key  # noqa: E402
 
 LEVELS = RESULT_LADDER + ("none",)
-LEVEL_LABEL = {"scoreboard": "scoreboard", "standings": "standings", "rankings": "rankings", "teams": "team list", "none": "none"}
+LEVEL_LABEL = {"scoreboard": "scoreboard", "standings": "standings", "rankings": "rankings", "teams": "team list", "none": "not held"}
 # (key, mark, plural label): the kinds of problem material. They are independent, except that a
 # complete package implies statement, data and solutions.
 COMPONENTS = (("statement", "St", "statements"), ("data", "D", "test data"), ("solutions", "So", "solutions"),
               ("package", "P", "packages"), ("editorial", "E", "editorial"))
 IN_PACKAGE = ("statement", "data", "solutions")
-STATES = ("all", "some", "link only", "none", "not recorded")
+STATES = ("all", "some", "link only", "not held", "not recorded")
 PMETA = (("names", "names"), ("letters", "letters"), ("short_names", "short names"), ("uuids", "UUIDs"))
 # Contest metadata that can be missing. What a contest advances to and the editions before and after it
 # are not here (ruling of 2026-11-15): "none" is a valid answer for them, so they are never missing,
 # only possibly wrong, and that is for fact-checking (review mode), not for coverage.
 META = (("name", "name"), ("date", "full date"), ("location", "location"), ("cms", "CMS id"))
-WEBSITE = ("have", "no copy", "no address", "confirmed none")
-SET_STATES = ("listed", "partly listed", "count only", "source only", "none")
+WEBSITE = ("held", "no copy", "no address", "none")
+SET_STATES = ("listed", "partly listed", "count only", "source only", "missing")
 DIVISION = re.compile(r"(?i)^\s*div(ision)?\.?\s*\w+\s*$")
 
 
@@ -97,7 +99,7 @@ def is_partial(srcs: list[dict], level: str) -> bool:
 
 
 def _share(n: int, total: int) -> str:
-    return "none" if not n else "all" if n >= total else "some"
+    return "missing" if not n else "all" if n >= total else "some"
 
 
 class Coverage:
@@ -177,9 +179,9 @@ class Coverage:
             elif giving:
                 out[key] = "link only"
             else:
-                out[key] = "not recorded" if unknown else "none"
+                out[key] = "not recorded" if unknown else "not held"
         eds = [(c, s) for c, s in srcs if "editorial" in s["roles"]]
-        out["editorial"] = "all" if any(self.held(c, s) for c, s in eds) else "link only" if eds else "none"
+        out["editorial"] = "all" if any(self.held(c, s) for c, s in eds) else "link only" if eds else "not held"
         return out
 
     def set_record(self, sid: str) -> dict:
@@ -196,31 +198,31 @@ class Coverage:
         doc = self.sets.get(sid) if sid else None
         if doc is None:
             has = any({"problemset", "problem"} & set(s["roles"]) for s in sources(c))
-            return {"set": "source only" if has else "none", "problems": self._material({}, [c]),
-                    "pmeta": {k: "none" for k, _l in PMETA}}
+            return {"set": "source only" if has else "missing", "problems": self._material({}, [c]),
+                    "pmeta": {k: "missing" for k, _l in PMETA}}
         probs = doc.get("problems") or []
         n = len(probs)
         letters = set(set_letters(doc, c["id"]).values())
         labels = next((m.get("labels") for m in doc.get("contests") or [] if m.get("contest") == c["id"]), None) or []
         state = set_list_state(doc)
-        pmeta = {"names": {"complete": "all", "partial": "some", "none": "none"}[state],
+        pmeta = {"names": {"complete": "all", "partial": "some", "none": "missing"}[state],
                  # the letters alone (`labels`, read off a scoreboard) count when the problems are not listed
                  "letters": ("all" if state == "complete" and all(p["id"] in letters for p in probs) else "some") if letters
-                 else ("all" if not probs and len(labels) == (doc.get("count") or len(labels)) else "some") if labels else "none",
+                 else ("all" if not probs and len(labels) == (doc.get("count") or len(labels)) else "some") if labels else "missing",
                  "short_names": _share(sum(1 for p in probs if p.get("short_name")), n) if state == "complete" or not n
-                 else ("some" if any(p.get("short_name") for p in probs) else "none"),
+                 else ("some" if any(p.get("short_name") for p in probs) else "missing"),
                  "uuids": _share(sum(1 for p in probs if p.get("uuid")), n) if state == "complete" or not n
-                 else ("some" if any(p.get("uuid") for p in probs) else "none")}
+                 else ("some" if any(p.get("uuid") for p in probs) else "missing")}
         return {"set": {"complete": "listed", "partial": "partly listed", "none": "count only"}[state],
                 "problems": self.set_record(sid), "pmeta": pmeta}
 
     # ---- website, metadata ----
     def website(self, c: dict) -> str:
         if self.web_held(c):
-            return "have"
+            return "held"
         if by_role(c, "web"):
             return "no copy"
-        return "confirmed none" if "web" in (c.get("none") or []) else "no address"
+        return "none" if "web" in (c.get("none") or []) else "no address"
 
     def meta(self, c: dict) -> dict:
         return {"name": "have" if c.get("name") else "missing",
@@ -244,7 +246,7 @@ class Coverage:
 #   group    the kind of content it belongs to
 #   states   its answers, best first
 #   good     how many of the first answers count as held (the headline share of the facet)
-THREE = ("all", "some", "none")
+THREE = ("all", "some", "missing")
 HAVE = ("have", "missing", "none")
 # Four kinds of content: results, problems, website, contest metadata. Problems come in two groups:
 # what the catalogue records about them (problem metadata) and the material we hold.
