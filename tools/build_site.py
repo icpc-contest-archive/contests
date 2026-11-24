@@ -73,7 +73,7 @@ import review_units as R  # noqa: E402  (review mode: the units a reader can con
 from resources import fmt_time, label as res_label, norm_key, unwrap, wayback_link  # noqa: E402
 from urllib.parse import quote  # noqa: E402
 from catalogue import (CMS_STANDINGS, RANK, RESULT_LADDER, archived, find_source, by_role, has_role, judge_sources,  # noqa: E402
-                       load_judges, load_locations, load_non_mainline, load_sets, location_chain,
+                       load_judges, load_locations, load_non_mainline, load_sets, location_chain, primary_role,
                        set_divisions, set_id_of, set_letters, set_of, sources)
 import coverage as CV  # noqa: E402  (the one coverage record per contest; every page reads it)
 from coverage import set_counts, set_list_state  # noqa: E402
@@ -130,7 +130,7 @@ def esc(s) -> str:
 
 
 RANDOM_KINDS = (("contest", "contest"), ("series", "series"), ("season", "season"), ("problemset", "problem set"),
-                ("problem", "problem"), ("source", "source"), ("location", "location"), ("judge", "judge"))
+                ("problem", "problem"), ("source", "source"), ("location", "location"), ("judge", "online judge"))
 
 
 def random_page() -> str:
@@ -1334,7 +1334,7 @@ def problems_cell(c: dict, rel: str) -> str:
     pb = set_for(c)
     if pb:
         total, listed = set_counts(pb)
-        lab = str(total) if total else ("set" if not listed else str(listed))
+        lab = str(total) if total else ("set" if not listed else f"{listed} listed")
         return f'<a href="{rel}problemset/{esc(pb["id"])}.html" title="problem set {esc(pb["id"])}: {total or "?"} problems, {listed} listed by name">{lab}</a> ' + held_marks(pb)
     if c.get("status") != "upcoming" and (has_role(c, "problemset") or has_role(c, "problem")):
         return ('<span class="m u" title="no problem set recorded; a published set or a page of one of its problems is known — the marks after it say what we hold of it">src</span> '
@@ -1428,6 +1428,15 @@ def problem_have(p: dict, doc: dict | None) -> dict[str, bool | None]:
         for k, *_ in HAVE_KINDS:
             st = (doc or {}).get(SET_KIND.get(k, ""))
             out[k] = True if st == "full" else False if st == "none" else None
+    if COV is not None and doc and doc.get("id") in SETS:
+        # what we hold of the whole set, from the archive or from a source we hold a copy of (the set card's pills):
+        # held for every problem => held for this one; held for some, archive none => which ones is not recorded
+        whole = COV.set_record(doc["id"])
+        for k in SET_KIND:
+            if whole[k] == "all":
+                out[k] = True
+            elif whole[k] == "some" and out[k] is False and "have" not in p:
+                out[k] = None
     if not out["statement"] and COV is not None and doc and p["id"] in COV.statements_held(doc):
         out["statement"] = True   # the problem has a held statement of its own among its contests' sources
     return out
@@ -1598,6 +1607,17 @@ def source_time(e: dict, cid: str | None) -> str | None:
     return e.get("as_of") or (doc_for(e["url"], cid) or {}).get("time")
 
 
+def source_problem(c: dict, e: dict, rel: str) -> str:
+    """The problem a per-problem source is about, linked, when it is in the problem list: by its letter in
+    the contest, else by its address (one of the problem's online-judge links: coverage.Coverage._problem_of)."""
+    doc = set_for(c) if "problem" in e.get("roles", ()) else {}
+    pid = COV._problem_of(doc, c, e) if doc and COV is not None else None
+    if not isinstance(pid, str):
+        return f' <b title="problem {esc(e["problem"])}">{esc(e["problem"])}</b> ' if e.get("problem") else ""
+    L = letter_of(doc, c["id"], pid)
+    return " " + (f"<b>{esc(L)}</b> " if L else "") + problem_link(pid, rel) + " "
+
+
 def source_table(cid: str, entries: list[dict], rel: str, kind: str, extra_rows: list[str] | None = None) -> str:
     """The sources of one kind on a contest page: the type of each (and which problem, which part
     of the contest, which online judge), the source (to its own page), and where it is found —
@@ -1607,8 +1627,7 @@ def source_table(cid: str, entries: list[dict], rel: str, kind: str, extra_rows:
     for e in entries:
         url = e["url"]
         roles = R.U("source", "".join(role_chip(r) for r in sorted(e["roles"], key=lambda r: RANK[r])), " ".join(sorted(e["roles"])), url)
-        if e.get("problem"):
-            roles += f'<b title="problem {esc(e["problem"])}">{esc(e["problem"])}</b> '
+        roles += source_problem(CONTESTS.get(cid) or {"id": cid}, e, rel)
         if e.get("scope"):
             roles += R.U("division", chip(e["scope"], "sc", "this source covers one part of the contest, not all of it"), e["scope"], url)
         if e.get("judge"):
@@ -1752,9 +1771,14 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
                          + ' <span class="small muted">— the problems are not listed by name yet</span></p>')
             if probs:
                 b.append('<p class="cols">' + "<br>".join(
-                    R.U("letter", f'<b>{esc(L or "?")}</b>', L or "", p["id"], p["name"]) + f' &nbsp;{problem_link(p["id"], rel, p["name"])}'
+                    R.U("letter", f'<b>{esc(L or "?")}</b>', (L or "") if set_letters(pb, cid) else "", p["id"], p["name"]) + f' &nbsp;{problem_link(p["id"], rel, p["name"])}'
                     + (" " + chip("private", "n", "kept private after the contest; name and uuid are public") if p.get("status") == "private" else "")
                     for L, p in probs) + "</p>")
+                dv = set_divisions(pb, cid)
+                if dv:
+                    b.append('<p class="note">' + ("Letters per division: " + " / ".join(f"{esc(n)} ({len(lm)} problems)" for n, lm in dv.items())
+                                                    + "; – where a problem was not in that division." if len(dv) > 1 else
+                                                    f"Letters in {esc(next(iter(dv)))} ({len(next(iter(dv.values())))} problems); the other divisions' letters are not known.") + "</p>")
                 if not set_letters(pb, cid):
                     b.append('<p class="note">The letters are not known for this contest'
                              + (" (shown with another contest's letters)." if any(set_letters(pb, m) for m in set_members(pb)) else ".") + "</p>")
@@ -2243,7 +2267,7 @@ def problem_page(pid: str, ent: dict, rel: str) -> str:
     others = sorted({o for _s, r in rows for o in r.get("other_names") or []})
     if others:
         d.append("<dt>other titles</dt><dd>" + ", ".join(esc(x) for x in others)
-                 + ' <span class="small muted">— the same problem under another title (a judge\'s, or the statement\'s where the name here is the archive package\'s)</span></dd>')
+                 + ' <span class="small muted">— the same problem under another title (an online judge\'s, or the statement\'s where the name here is the archive package\'s)</span></dd>')
     # `aliases` (ids merged into this one) are not shown: they are internal and only keep old addresses working
     d.append("</dl>")
     b += d
@@ -2451,11 +2475,13 @@ def source_page(d: dict, rel: str) -> str:
         fx.append("<dt>problem set</dt><dd>" + (", ".join(set_link(s, rel) for s in sets) if sets else '<span class="muted">none recorded yet</span>') + "</dd>")
         probs = []
         for c, e in ents:
-            if not e.get("problem"):
+            if "problem" not in e["roles"]:
                 continue
-            doc = set_for(c)
-            pid = set_letters(doc, c["id"]).get(e["problem"]) if doc else None
-            probs.append(f'<b>{esc(e["problem"])}</b> ' + (problem_link(pid, rel) if pid else '<span class="muted">not in the problem list yet</span>'))
+            x = source_problem(c, e, rel).strip()
+            if x and "problem/" not in x:
+                x += ' <span class="muted">not in the problem list yet</span>'
+            if x:
+                probs.append(x)
         if probs:
             fx.append("<dt>problem</dt><dd>" + ", ".join(dict.fromkeys(probs)) + "</dd>")
         held = {x for _c, e in ents for x in (e.get("contains") or [])}
@@ -2554,24 +2580,26 @@ def judge_page(jid: str, j: dict, probs: set, pages: list, rel: str) -> str:
          '<p class="status">' + R.U("status", judge_status(j), (j.get("status", "") + " " + str(j.get("closed") or "")).strip()) + "</p>",
          f'<div class="nums"><div><b>{num(ncon)}</b><span><a href="#contests">contests</a></span></div>'
          f'<div><b>{num(len(probs))}</b><span><a href="#problems">problems</a></span></div></div>',
-         '<dl class="facts">', "<dt>site</dt><dd>" + R.U("url", f'<a class="ext" href="{esc(j["url"])}">{esc(j["url"])}</a>', j["url"]) + "</dd>"]
+         '<dl class="facts">', "<dt>site</dt><dd>" + R.U("url", f'<a class="ext" href="{esc(wayback_link(j["url"]) if j.get("status") == "closed" else j["url"])}">{esc(j["url"])}</a>', j["url"]) + "</dd>"]
     offers = [w for w in ("statements", "submissions") if j.get(w)]
     b.append('<dt class="rvo">offers</dt><dd class="rvo">' + R.U("offers", " and ".join(offers) or "neither", "+".join(offers) or "neither") + "</dd>")
     for key, lab in (("contest_url", "contest address"), ("problem_url", "problem address")):
         if j.get(key):
             b.append(f"<dt>{lab}</dt><dd><code>{esc(j[key])}</code></dd>")
     b.append("</dl>")
+    nps = sum(1 for _c, s in pages if "problemset" in s["roles"])
     b.append(f'<h2 id="contests">Contests <span class="n">{ncon}</span></h2>'
-             '<p class="note">Contests that have a page on this online judge'
-             + (f" — {len(pages)} pages, since some contests have more than one." if len(pages) != ncon else ".") + "</p>")
+             '<p class="note">Contests that have a page on this online judge: the page of its problem set, or a problem\'s own page or statement that we hold a copy of'
+             + (f" — {len(pages)} pages: {nps} problem-set pages, {len(pages) - nps} problem pages." if len(pages) != ncon else ".") + "</p>")
     if pages:
         rows = []
         for cid, s in sorted(pages, key=lambda t: (t[0], t[1]["url"])):
             c = CONTESTS.get(cid) or {}
             rows.append(f'<tr><td class="nw">{contest_ref(cid, rel)}</td><td class="nw" data-v="{esc(c.get("date", ""))}">{link_date(c.get("date"), rel)}</td>'
+                        f'<td class="nw">{role_chip(primary_role(s))}{source_problem(c, s, rel)}</td>'
                         f'<td class="url">{link_source(s["url"], rel, res_label(s["url"], source_time(s, cid), 100), s.get("as_of"), cid)}</td>'
                         + avail_cell(s["url"], cid, s) + "</tr>")
-        b.append(table([th("contest"), th("date"), th("source"), AVAIL_TH], rows))
+        b.append(table([th("contest"), th("date"), th("type", f=True), th("source"), AVAIL_TH], rows))
     else:
         b.append('<p class="empty">No contest has a page on this online judge recorded.</p>')
     b.append(f'<h2 id="problems">Problems <span class="n">{len(probs)}</span></h2>'
@@ -3402,7 +3430,7 @@ def about_page() -> str:
      "Blue outline: link only — a source that has it is known, we hold no copy (a problem set's page on an online judge is this: our copy is the judge's list, "
      "not the material; a problem's own page on a judge, when we hold it, counts as that problem's statement). "
      "White, outlined: none held and none known — wanted. Dashed: a source is known, but what it holds is not recorded. A complete package counts as statement, test data and solutions too. "
-     "On a single problem the marks say what the problem archive holds (a statement also counts when we hold the problem's own page or statement file on an online judge), "
+     "On a single problem the marks say what we hold of that problem, from the same places (held for every problem of its set counts for each one; a statement also counts when we hold the problem's own page or statement file on an online judge), "
      "with <b>IV</b>/<b>OV</b> for input and output validators. "
      "The number before the marks is how many problems the contest had (how many are listed by name when that is not known; <i>set</i> when neither is)."),
     ('<span class="m u">src</span>', "No problem set is recorded for the contest, but a published set or a problem's page is known (on the web or on an online judge); "
@@ -3629,8 +3657,13 @@ def build(out: Path):
     stub(out / "judges" / "index.html", "../judge/index.html")
     stub(out / "problems" / "index.html", "../problemset/index.html")   # the old "holdings by contest" view
     stub(out / "problems" / "list.html", "../problem/index.html")
+    hide = ("provenance", "notes", "note", "statements", "submissions")   # not published: where the data comes from, remarks, judge "offers"
+    pub = lambda d: {k: v for k, v in d.items() if k not in hide}  # noqa: E731
     (out / "problems" / "problems.json").write_text(json.dumps(
-        {"generated": datetime.date.today().isoformat(), "sets": SETS, "judges": JUDGES}, ensure_ascii=False))
+        {"generated": datetime.date.today().isoformat(),
+         "sets": {sid: {**pub(d), "contests": [pub(m) for m in d.get("contests") or []], "problems": [pub(x) for x in d.get("problems") or []]}
+                  for sid, d in SETS.items()},
+         "judges": {jid: pub(j) for jid, j in JUDGES.items()}}, ensure_ascii=False))
     print(f"  problem sets: {len(SETS)} set pages, {len(PROBLEMS)} problem pages, {n_alias} redirects from merged ids, {len(JUDGES)} judges")
 
     # ---- locations ----
