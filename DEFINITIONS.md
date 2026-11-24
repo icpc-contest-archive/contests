@@ -583,8 +583,10 @@ address with its branch, not `HEAD`.
 2. **A link stays on the site unless marked ↗.** The address of a source is linked from
    its source page only (the address now, the Wayback snapshot that shows the document — never
    the calendar when a snapshot is known — and our copy).
-   Deliberate, marked exceptions: a problem's judge links, a contest's CMS links, a
-   judge's own site.
+   Deliberate, marked exceptions: a problem's judge links (unless the address is a source
+   of a contest, a copy of the problem's page we hold: then the logo opens that source's
+   page), a contest's CMS links, a judge's own site. Problem set and problem pages list the
+   sources their contests cite for them (ruling of 2026-11-24).
 3. **Three kinds of content per contest** — website, results, problems — always in that
    order and always present. **One set of colours everywhere** (every pill, mark, bar and
    square; ruling of 2026-11-16): green = we hold it / it is there; amber = partly, or in doubt;

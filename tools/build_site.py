@@ -1487,13 +1487,21 @@ def judge_closed_chip(jid: str) -> str:
                       "this online judge has shut down; its pages survive only in Wayback snapshots")
 
 
-def problem_judge_links(p: dict, sep: str = " ", by_id: bool = False, tips: bool = True) -> str:
+def problem_judge_links(p: dict, sep: str = " ", by_id: bool = False, tips: bool = True, rel: str | None = None) -> str:
     """A problem's online judges: each the judge's logo (or, on the judge's own page, the
     problem's id there), linking straight to the problem on the judge — the Wayback
-    snapshot for a judge that has closed."""
+    snapshot for a judge that has closed. With `rel`, a judge address that is a source of a
+    contest (a copy of the problem's page we hold) opens its source page instead (ruling of 2026-11-24)."""
     parts = []
     for j in p.get("judges") or []:
         url, as_of = j["url"], j.get("as_of")
+        d = doc_for(url) if rel is not None else None
+        if d and d.get("cits"):
+            tip = f"{judge_name(j['judge'])} — {res_label(url, d.get('time'), 200)}: its source page"
+            href = f"{rel}source/{d['id']}/index.html"
+            parts.append(f'<a href="{esc(href)}"' + (f' title="{esc(tip)}"' if tips else "") + f'>{esc(j.get("id") or "open")}</a>' if by_id
+                         else judge_mark(j["judge"], "a", f' href="{esc(href)}"', tip if tips else ""))
+            continue
         closed = (JUDGES.get(j["judge"]) or {}).get("status") == "closed"
         # a closed judge's own address leads nowhere: its link opens the Wayback Machine, at the snapshot when one is named;
         # an open judge's link goes to the problem as it is now (a snapshot time in the data is kept for the day it closes)
@@ -1740,6 +1748,37 @@ def source_table(cid: str, entries: list[dict], rel: str, kind: str, extra_rows:
     return table([th("type"), th("source"), AVAIL_TH], rows, "nosort")
 
 
+def material_sources(doc: dict, pid: str | None = None) -> list[tuple[str, dict]]:
+    """(contest, source) of the problem set, problem and editorial sources of the contests that sat a set; with `pid`,
+    only the per-problem sources about that problem."""
+    out = []
+    for m in set_members(doc):
+        c = CONTESTS.get(m)
+        if not c or not did_run(c):
+            continue
+        for e in sources(c):
+            roles = set(e["roles"])
+            if pid is None and roles & {"problemset", "problem", "editorial"}:
+                out.append((m, e))
+            elif pid is not None and "problem" in roles and "problemset" not in roles and COV._problem_of(doc, c, e) == pid:
+                out.append((m, e))
+    return out
+
+
+def sources_by_contest(pairs: list[tuple[str, dict]], rel: str) -> str:
+    """Sources of several contests in one table: the contest, the type (and problem, online judge), the source, the three places."""
+    rows = []
+    for cid, e in pairs:
+        url = e["url"]
+        roles = "".join(role_chip(r) for r in sorted(e["roles"], key=lambda r: RANK[r])) + source_problem(CONTESTS.get(cid) or {"id": cid}, e, rel)
+        if e.get("judge"):
+            roles += judge_link(e["judge"], rel, logo=True) + judge_closed_chip(e["judge"])
+        t = source_time(e, cid)
+        rows.append(f'<tr><td class="nw">{link_contest(cid, rel)}</td><td>{roles}</td><td class="url">{link_source(url, rel, res_label(url, t, 90), t, cid)}</td>'
+                    + avail_cell(url, cid, e) + "</tr>")
+    return table([th("contest"), th("type"), th("source"), AVAIL_TH], rows)
+
+
 def contest_page(cid: str, c: dict, rel: str) -> str:
     sid = SERIES_OF[cid]
     b = [crumbs(f'<a href="{rel}contest/index.html">Contests</a>', link_series(sid, rel)),
@@ -1753,7 +1792,7 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
     b.append(R.line("ran", "Has not run yet" if upcoming else "Took place", "upcoming" if upcoming else "yes"))
 
     # ---- facts ----
-    d = ['<dl class="facts">',
+    d = ['<dl class="facts" id="facts">',
          f"<dt>series</dt><dd>{R.U('series', link_series(sid, rel), sid)} <span class=\"muted\">{esc(level_of(sid))} · {esc(SERIES_REGION.get(sid, ''))}</span></dd>"]
     if c.get("season"):
         d.append(f"<dt>season</dt><dd>{R.U('season', link_season(c['season'], rel), c['season'])}</dd>")
@@ -2301,7 +2340,7 @@ def problemset_page(sid: str, doc: dict, rel: str) -> str:
             rows.append(f'<tr><td class="letter">{esc(L)}</td><td>{R.U("member", problem_link(p["id"], rel, p["name"]), p["id"], p["id"], p["name"])}'
                         + (" " + chip("private", "n", "kept private after the contest; name and UUID are public") if private else "") + "</td>"
                         + ("<td></td><td></td>" if private else
-                           f'<td class="nw">{problem_have_marks(p, doc)}</td><td>{problem_judge_links(p)}</td>') + "</tr>")
+                           f'<td class="nw">{problem_have_marks(p, doc)}</td><td>{problem_judge_links(p, rel=rel)}</td>') + "</tr>")
         b.append(table([th("#"), th("problem"), th("held"), th("online judge")], rows))
     else:
         b.append('<h2 id="problems">Problems</h2><p class="empty">The problems of this set are not listed by name yet'
@@ -2315,6 +2354,10 @@ def problemset_page(sid: str, doc: dict, rel: str) -> str:
             b.append(f"<p>{contest_ref(m, rel)}: " + (" · ".join(
                 f"<b>{esc(L)}</b> {problem_link(pid, rel)}"
                 for L, pid in sorted(lm.items(), key=lambda t: (len(t[0]), t[0]))) if lm else '<span class="muted">letters not known</span>') + "</p>")
+    srcs = material_sources(doc)
+    b.append(f'<h2 id="sources">Sources <span class="n">{len(srcs)}</span></h2>')
+    b.append(('<p class="note">The published set, the problems\' own pages and the editorials, as the contests that sat this set cite them.</p>'
+              + key_line(rel, "available") + sources_by_contest(srcs, rel)) if srcs else '<p class="empty">No source of the set is recorded.</p>')
     return page(sid, "\n".join(b), rel, "problemset/index.html")
 
 
@@ -2341,7 +2384,7 @@ def problem_page(pid: str, ent: dict, rel: str) -> str:
             for j in r.get("judges") or []:
                 if j["url"] not in seen:
                     seen.add(j["url"])
-                    jl.append(R.U("judge_link", problem_judge_links({"judges": [j]}) + (f' <span class="muted">id {esc(j["id"])}</span>' if j.get("id") else "")
+                    jl.append(R.U("judge_link", problem_judge_links({"judges": [j]}, rel=rel) + (f' <span class="muted">id {esc(j["id"])}</span>' if j.get("id") else "")
                                   + judge_closed_chip(j["judge"]) + f' <span class="small muted">· about {judge_link(j["judge"], rel)}</span>', j["url"], j["url"]))
         d.append("<dt>online judge</dt><dd>" + ("<br>".join(jl) if jl else '<span class="muted">none known</span>') + " " + R.slot("judge_link", "add a link") + "</dd>")
         have_row = next((r for _s, r in rows if "have" in r), None)
@@ -2374,6 +2417,9 @@ def problem_page(pid: str, ent: dict, rel: str) -> str:
     b += d
     if not private:
         b.append(key_line(rel, "have"))
+        srcs = [x for s_, _r in rows if s_ in SETS for x in material_sources(SETS[s_], pid)]
+        if srcs:   # the problem's own sources: its statement on an online judge or as a file, as the contests that used it cite them
+            b.append(f'<h2 id="sources">Sources <span class="n">{len(srcs)}</span></h2>' + key_line(rel, "available") + sources_by_contest(srcs, rel))
     return page(p["name"], "\n".join(b), rel, "problem/index.html")
 
 
@@ -2432,7 +2478,7 @@ def problem_index(rel: str) -> str:
                         f'<td class="letter">{esc(L)}</td>{tail}'
                         + ('<td data-vs="private"></td><td data-vs=""></td>' if private else
                            f'<td class="nw" data-vs="{esc(problem_have_value(p, doc))}">{problem_have_marks(p, doc, tips=False)}</td>'
-                           f'<td data-vs="{esc(judges or "none")}">{problem_judge_links(p, tips=False)}</td>') + "</tr>")
+                           f'<td data-vs="{esc(judges or "none")}">{problem_judge_links(p, tips=False, rel=rel)}</td>') + "</tr>")
     n_sets = sum(1 for d in SETS.values() if d.get("problems"))
     return page("Problems", "<h1>Problems</h1>"
                 f'<p class="intro">{num(n)} problems from the {num(n_sets)} problem sets that are listed by name ({num(len(PROBLEMS))} distinct problems — '
@@ -2713,7 +2759,7 @@ def judge_page(jid: str, j: dict, probs: set, pages: list, rel: str) -> str:
             jl = [jj for _s, rr in PROBLEMS[pid]["rows"] for jj in rr.get("judges") or [] if jj["judge"] == jid]
             jl = list({jj["url"]: jj for jj in jl}.values())
             rows.append(f'<tr><td>{problem_link(pid, rel, r["name"])}</td>'
-                        f'<td class="nw">{problem_judge_links({"judges": jl}, by_id=True)}</td>'
+                        f'<td class="nw">{problem_judge_links({"judges": jl}, by_id=True, rel=rel)}</td>'
                         f'<td>{", ".join(set_link(s, rel) for s, _r in PROBLEMS[pid]["rows"])}</td></tr>')
         b.append(table([th("problem"), th("on this online judge"), th("problem set")], rows))
     else:
@@ -2951,7 +2997,7 @@ def facet_missing(key: str) -> dict:
 def facet_anchor(key: str) -> str:
     """Where on a contest's page a facet is shown."""
     g = CV.FACET[key][2]
-    return {"Results": "#results", "Problems": "#problems", "Problem metadata": "#problems", "Website": "#website"}.get(g, "")
+    return {"Results": "#results", "Problems": "#problems", "Problem metadata": "#problems", "Website": "#website", "Contest metadata": "#facts"}.get(g, "")
 
 
 def st(c: dict) -> dict:
@@ -3086,7 +3132,7 @@ def contest_coverage(c: dict, rel: str) -> str:
             a = s[key]
             cls = q[sts.index(a)]
             text = a if key == "results" else (lab if a == sts[0] else f"{lab}: {a}")
-            pills.append(f'<a class="pl {cls}" href="{facet_anchor(key) or "#"}" title="{esc(lab)}: {esc(a)} — {q_word(key, cls)}">{esc(text)}</a>')
+            pills.append(f'<a class="pl {cls}" href="{facet_anchor(key) or "#"}" title="{esc(lab)}: {esc(a)}' + ("" if q_word(key, cls) == a else f" — {esc(q_word(key, cls))}") + f'">{esc(text)}</a>')
             if cls not in ("q4", "qx") and not (key in _PM and s["list"] in ("source only", "missing")):
                 wanted.append("the website (no address known)" if key == "website" and a == "no address"
                               else WANT_WORD[key] + (f" (we hold {a})" if key == "results" and a != TIER_LABEL["none"] else ""))
@@ -3566,7 +3612,7 @@ def about_page() -> str:
 <p class="intro"><b>Every mention of an object links to its own page</b>, and looks the same wherever it appears. <b>A link stays on this site unless it is
 marked <a class="ext" href="#read">like this</a></b>. In particular the address of a source is never linked directly from a contest or a table: the link goes to the
 source's page, and that page is where you open the address as it is now, the Wayback Machine, or our copy. The exceptions are deliberate and marked:
-a problem's online-judge links go straight to the problem on the online judge, a contest's CMS links go to the CMS, and an online judge's own site,
+a problem's online-judge links go straight to the problem on the online judge (unless we hold a copy of that page: then to its source page), a contest's CMS links go to the CMS, and an online judge's own site,
 a problem set's repository in the (private) problem archive and a place's GeoNames entry are linked from their own pages.
 A date links to its day in the <a href="calendar/index.html">calendar</a>, where you can see what else ran that day and that weekend.</p>
 <p class="intro">A contest has <b>three kinds of content</b>, always in the same order: its <b>website</b>, its <b>results</b> and its <b>problems</b>.</p>
