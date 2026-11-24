@@ -18,7 +18,9 @@ CMS DB entry remains *considered*.
   (challenge-style contests), `junk` (test/garbage entries), `minor` (real contests
   outside the mainline), `structural` (hierarchy nodes, not contests).
 - `registry/non-mainline.yaml` — real contests with no CMS id that exist outside the
-  hierarchy (university opens etc.). Reference material, not catalogue members.
+  hierarchy (university opens etc.). Reference material, not catalogue members: no contest
+  page, not counted as contests anywhere (an online judge's page counts them apart). Their
+  sources are in the resource graph like any other and have source pages (ruling of 2026-11-24).
 
 ## Naming
 
