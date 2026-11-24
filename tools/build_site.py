@@ -268,7 +268,12 @@ def help_link(anchor: str, rel: str, what: str = "what these mean") -> str:
 
 
 def pct(part: int, total: int) -> int:
-    return round(100 * part / total) if total else 0
+    """A share in whole percent, halves rounded up (round() rounds them to even: 12.5 -> 12 but 37.5 -> 38);
+    never 100 unless all, never 0 unless none (a "100%" beside "2 missing" contradicts itself)."""
+    if not total:
+        return 0
+    p = (200 * part + total) // (2 * total)
+    return 99 if p == 100 and part < total else 1 if p == 0 and part > 0 else p
 
 
 def pct_cell(part: int, total: int, rel: str = "", f: dict | None = None) -> str:
@@ -282,6 +287,10 @@ def pct_cell(part: int, total: int, rel: str = "", f: dict | None = None) -> str
 
 def num(n) -> str:
     return f"{n:,}"
+
+
+def plural(n: int, one: str, many: str | None = None) -> str:
+    return f"{num(n)} {one if n == 1 else (many or one + 's')}"
 
 
 def result_sources(c) -> list[dict]:
@@ -1494,6 +1503,12 @@ def count_cell(cs: list[dict], rel: str, scope: dict | None) -> str:
             + (f' <span class="small muted">+{st["upcoming"]}</span>' if st["upcoming"] else "") + "</td>")
 
 
+def ran_words(cs: list[dict]) -> str:
+    """'83 contests ran +40 upcoming': the words of the numbers strip (group_nums)."""
+    st = content_counts(cs)
+    return plural(st["n"], "contest") + " ran" + (f" +{st['upcoming']} upcoming" if st["upcoming"] else "")
+
+
 # the coverage columns of a table whose rows are groups of contests (series, seasons, countries):
 # one small bar per question, the same bars as everywhere else. One or two questions per kind of content.
 INDEX_FACETS = ("results", "list", "statement", "website", "date")
@@ -2097,7 +2112,9 @@ def calendar_index(rel: str) -> str:
         months = Counter(int(c["date"][5:7]) for c in dated)
         cells = "".join(f'<td class="hc" style="background:color-mix(in srgb,var(--held) {round(60 * months[m] / top)}%,var(--paper))">{months[m] or ""}</td>'
                         for m in range(1, 13))
-        rows.append(f'<tr><td class="nw"><a href="{y}.html">{y}</a></td><td class="num">{len(dated)}</td><td class="num">{len(undated) or ""}</td>{cells}</tr>')
+        nu = f'<a href="{y}.html#undated">{len(undated)}</a>' if undated else ""
+        rows.append(f'<tr><td class="nw"><a href="{y}.html">{y}</a></td><td class="num" data-v="{len(dated)}"><a href="{y}.html">{len(dated)}</a></td>'
+                    f'<td class="num" data-v="{len(undated) or ""}">{nu}</td>{cells}</tr>')
     n_dated = sum(len(v["dated"]) for v in CAL.values())
     n_all = n_dated + sum(len(v["undated"]) for v in CAL.values())
     return page("Calendar", "<h1>Calendar</h1>"
@@ -2321,7 +2338,8 @@ def problemset_index(rel: str) -> str:
                     f'<td class="nw">{held_marks(doc)}</td><td class="nw">{repo_link(doc)}</td>'
                     + "".join(f'<td class="hid" data-vs="{esc(toks(st, "missing" if st != "all" else ""))}"></td>'
                               for st in (COV.set_record(sid)[k] for k, *_ in CV.COMPONENTS)) + "</tr>")
-    n_listed = sum(1 for d in SETS.values() if set_list_state(d) == "complete")
+    n_state = Counter(set_list_state(d) for d in SETS.values())
+    lst = lambda st, word: f'<a href="#f:list={quote(word, safe="")}">{num(n_state[st])}</a>'  # noqa: E731
     shared = [sid for sid, d in SETS.items() if len(d["contests"]) > 1]
     return page("Problem sets", "<h1>Problem sets</h1>"
                 f'<p class="intro">{num(len(SETS))} problem sets. Most belong to the one contest of the same id; '
@@ -2329,11 +2347,12 @@ def problemset_index(rel: str) -> str:
                 "(sort by <b>contests</b> to see them). "
                 "<b>Held</b> is what we hold of the set, kind by kind, from the ICPC Problem Archive or from a source we hold a copy of; "
                 "the set's page says which, and where the set was published and where it can be solved are on the contest page. "
-                f"<b>Problems</b> is how many the contest had; <b>problem list</b> says whether we know them by name — <i>listed</i> (every one) for {num(n_listed)} sets, "
-                "<i>partly listed</i> when only some are, <i>count only</i> when none are and only the number and the holdings are recorded.</p>"
+                f"<b>Problems</b> is how many the contest had; <b>problem list</b> says whether we know them by name — <i>listed</i> (every one) for {lst('complete', 'listed')} sets, "
+                f"<i>partly listed</i> for {lst('partial', 'partly listed')} where only some are, <i>count only</i> for {lst('none', 'count only')} where none are "
+                "and only the number and the holdings are recorded.</p>"
                 + key_line(rel, "held")
                 + table([th("problem set"), th("contests", num=True, title="how many contests sat this set"), th("season", f=True), th("region", f=True),
-                         th("problems", num=True), th("problem list", f=True),
+                         th("problems", num=True), th("problem list", f=True, k="list"),
                          th("held"), th("archive repo")]
                         + [th(what, f=what, k=COMP_KEY[key], g=True, hid=True, o=STATE_ORDER) for key, _m, what in CV.COMPONENTS], rows, "flt"),
                 rel, "problemset/index.html")
@@ -2652,9 +2671,11 @@ def judge_page(jid: str, j: dict, probs: set, pages: list, rel: str) -> str:
 def judge_index(probs: dict, pages: dict, rel: str) -> str:
     rows = []
     for jid, j in JUDGES.items():
+        nc, npr = len({c for c, _s in pages.get(jid, [])}), len(probs.get(jid, ()))
         rows.append(f'<tr><td class="name">{judge_mark(jid)}{judge_link(jid, rel)}<span class="sub">{esc(re.sub(r"^https?://", "", j["url"]).rstrip("/"))}</span></td>'
                     f'<td class="nw" data-v="{esc(j.get("status", ""))}">{judge_status(j)}</td>'
-                    f'<td class="num">{num(len({c for c, _s in pages.get(jid, [])}))}</td><td class="num">{num(len(probs.get(jid, ())))}</td></tr>')
+                    f'<td class="num" data-v="{nc}"><a href="{rel}judge/{esc(jid)}.html#contests">{num(nc)}</a></td>'
+                    f'<td class="num" data-v="{npr}"><a href="{rel}judge/{esc(jid)}.html#problems">{num(npr)}</a></td></tr>')
     unknown = [x for x in sorted(set(probs) | set(pages)) if x not in JUDGES]
     return page("Online judges", "<h1>Online judges</h1>"
                 f'<p class="intro">{len(JUDGES)} online judges where ICPC problems can be solved, or could. <b>Contests</b> counts contests with a page on it; '
@@ -3294,8 +3315,9 @@ def grid_page(series_docs: dict, contests: dict) -> str:
 def cms_page(contests: dict) -> str:
     cms_rows = {}
     for cid, c in contests.items():
-        for i in (c.get("cms_ids") or []):
-            cms_rows[int(i)] = ("in the catalogue", link_contest(cid, "", False), esc(c.get("name") or ""))
+        for i in (c.get("cms_ids") or []):   # an id can be both a contest's and its part's (east-na-2023, nena-2023): list both
+            prev_link = cms_rows[int(i)][1] + ", " if int(i) in cms_rows else ""
+            cms_rows[int(i)] = ("in the catalogue", prev_link + link_contest(cid, "", False), esc(c.get("name") or ""))
     tri = yaml.safe_load((ROOT / "registry" / "cms-triage.yaml").read_text())
     for e in (tri.get("excluded") or []):
         cms_rows.setdefault(int(e["cms_id"]), (f'excluded: {e.get("reason")}', "", esc(str(e.get("name") or ""))))
@@ -3320,7 +3342,8 @@ def cms_page(contests: dict) -> str:
             f'<td class="small">{name}</td><td class="nw small">{cms_links(i).split(" ", 1)[1]}</td></tr>'
             for i, (st, link, name) in sorted(cms_rows.items())]
     return page("CMS id ledger", "<h1>CMS id ledger</h1>"
-                f'<p class="intro">Every contest id of the ICPC CMS this project has looked at: {num(len(cms_rows))} ids — {num(counts["in the catalogue"])} are contests in the catalogue, '
+                f'<p class="intro">Every contest id of the ICPC CMS this project has looked at: {num(len(cms_rows))} ids — {num(counts["in the catalogue"])} are the ids of '
+                f'{num(sum(1 for c in contests.values() if c.get("cms_ids")))} contests in the catalogue, '
                 f'{num(counts["excluded"])} are excluded with a reason ({reasons}), {num(counts["non-mainline registry"])} are contests of the <a href="non-mainline.html">non-mainline registry</a>, {num(counts["proposed"])} carry a proposed '
                 f'class nobody has reviewed, and {num(counts["not judged"])} have not been judged at all.</p>'
                 + table([th("CMS id", num=True), th("contest"), th("status", f=True), th("name in the CMS"), th("in the CMS")], rows, "flt"), "", "coverage.html")
@@ -3347,7 +3370,7 @@ def landing_page(series_docs: dict, contests: dict) -> str:
     dark = sum(1 for c in cs if did_run(c) and rec(c)["results"] == "none")
     n_caps = sum(len(R.get("captures") or []) for L in RES.locs.values() for R in L["resources"].values())
     tiles = [(len(BY_SEASON), "seasons", "season/index.html"), (len(series_docs), "series", "series/index.html"),
-             (st["n"], "contests", "contest/index.html"), (len(SETS), "problem sets", "problemset/index.html"),
+             (st["all"], "contests", "contest/index.html"), (len(SETS), "problem sets", "problemset/index.html"),
              (len(PROBLEMS), "problems", "problem/index.html"), (len(cited_docs()), "sources", "source/index.html"),
              (len(JUDGES), "online judges", "judge/index.html"), (len(LOC), "locations", "location/index.html")]
     seasons = [s for s in sorted(BY_SEASON, reverse=True) if any(contests[m].get("status") != "upcoming" for m in BY_SEASON[s])][:8]
@@ -3359,14 +3382,14 @@ def landing_page(series_docs: dict, contests: dict) -> str:
         if wf:
             where = place_cell(wf, "", 1)
             finals = " · finals " + link_contest(wf["id"], "") + (" in " + where if where else "")
-        srows.append("<li>" + link_season(s, "") + f' <span class="muted">{n_ran} contests{finals}</span></li>')
+        srows.append("<li>" + link_season(s, "") + f' <span class="muted">{n_link(n_ran, "", {"season": s}, plural(n_ran, "contest"))}{finals}</span></li>')
     rrows = []
     for r in REGIONS:
         n = sum(1 for c in cs if SERIES_REGION.get(SERIES_OF[c["id"]]) == r and c.get("status") != "upcoming")
-        rrows.append(f'<li>{n_link(n, "", {"region": r}, esc(r))} <span class="muted">{num(n)} contests</span></li>')
+        rrows.append(f'<li>{n_link(n, "", {"region": r}, esc(r))} <span class="muted">{n_link(n, "", {"region": r}, plural(n, "contest"))}</span></li>')
     tiles_html = "".join(f'<div><b>{num(n)}</b><span><a href="{h}">{lab}</a></span></div>' for n, lab, h in tiles)
     srows_html, rrows_html = "".join(srows), "".join(rrows)
-    nums_html = '<div class="pts">' + headline_tiles(cs, "", {}) + "</div>"
+    nums_html = group_nums(cs, "", {})
     dark_html = n_link(dark, "", {"results": "none"})
     body = f"""<h1>ICPC contest archive</h1>
 <p class="lede">ICPC contests back to 1977 — and where their websites,
@@ -3742,13 +3765,14 @@ def build(out: Path):
 
     def clean(d):
         return {k: v for k, v in d.items() if v not in (None, "", [])}
-    search = [clean({"t": "e", "id": str(s), "name": f"Season {s - 1}–{s}", "extra": f"{len(BY_SEASON[s])} contests"}) for s in sorted(BY_SEASON)]
+    search = [clean({"t": "e", "id": str(s), "name": f"Season {s - 1}–{s}", "extra": ran_words([CONTESTS[m] for m in BY_SEASON[s]])}) for s in sorted(BY_SEASON)]
     search += [clean({"t": "r", "id": sid, "name": doc["series"].get("name"), "aliases": doc["series"].get("aliases"),
                       "extra": f"{SERIES_REGION.get(sid, '')} · {len(doc['contests'])} editions"}) for sid, doc in series_docs.items()]
     search += [clean({"t": "c", "id": cid, "name": c.get("name"), "date": c.get("date"),
                       "cms": [str(i) for i in (c.get("cms_ids") or [])], "hosts": hosts_of(c)}) for cid, c in sorted(contests.items())]
     search += [clean({"t": "l", "id": nid, "name": n["name"], "aliases": n.get("aliases"),
-                      "extra": f'{n["type"]} · {", ".join(x["name"] for x in location_chain(LOC, nid)[1:])} · {len(LOC_SUB.get(nid, ()))} contests'}) for nid, n in LOC.items()]
+                      "extra": " · ".join(x for x in (n["type"], ", ".join(x["name"] for x in location_chain(LOC, nid)[1:]),
+                                                      ran_words([CONTESTS[c] for c in LOC_SUB.get(nid, ())])) if x)}) for nid, n in LOC.items()]
     search += [clean({"t": "j", "id": jid, "name": j.get("name"), "extra": j.get("status")}) for jid, j in JUDGES.items()]
     search += [clean({"t": "s", "id": sid, "name": doc.get("name"), "aliases": doc.get("aliases"),
                       "extra": "problem set of " + ", ".join(set_members(doc))}) for sid, doc in SETS.items()]

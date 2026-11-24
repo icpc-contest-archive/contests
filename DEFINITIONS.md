@@ -591,7 +591,8 @@ address with its branch, not `HEAD`.
 4. **One anatomy.** List page: title, one paragraph, key, filter bar, sortable table.
    Object page: breadcrumb, title, status chips, facts, sections. Tables of contests
    pick their columns from one set (`CONTEST_COLS`); groups of contests (a season, a
-   series, a location) show the same three counts with percentages.
+   series, a location, the whole archive) show the same numbers strip (`group_nums`): how many
+   contests ran (+ upcoming), then the six headline counts, each with its percentage.
 5. **One word per thing**: location, level, results, problems, website, online judge
    (never just "judge" in a label or heading), CMS id, type (of a source), address · Wayback ·
    archive (the three places).
