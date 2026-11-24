@@ -2517,7 +2517,7 @@ def place_rows(url: str, a: dict) -> list[str]:
     rows = []
     for (key, _lab, full), p in zip(AV_PLACES, (live, wb, ours)):
         if key == "live":
-            what = p["tip"] + (f' (checked {p["checked"]})' if p.get("checked") else "")
+            what = p["tip"]   # when it was checked stays in the data (ruling of 2026-11-24: no check bookkeeping on the site)
             link = f'<a class="ext" href="{esc(url)}">open the address</a>'
         elif key == "wb":
             what = f'snapshot of {fmt_time(p["ts"])}' if p["s"] == "yes" and p.get("ts") else p["tip"]
@@ -2629,8 +2629,7 @@ def source_list(rel: str, role: str | None = None) -> str:
         rows.append(f'<tr><td class="url"><a href="{rel}source/{sid}/index.html">{esc(doc_label(d))}</a></td>'
                     f'<td data-vs="{esc("|".join(role_label(r) for r in roles))}" class="small">{esc(", ".join(role_label(r) for r in roles))}</td>'
                     f'<td data-v="{len(cs)}" class="small">{", ".join(contest_ref(c, rel) for c in cs[:3])}{" +" + str(len(cs) - 3) if len(cs) > 3 else ""}</td>'
-                    f'<td class="nw" data-vs="{esc(avail_values(a))}">{avail_marks(a)}</td>'
-                    f'<td class="nw small">{esc(a["live"].get("checked") or "")}</td></tr>')
+                    f'<td class="nw" data-vs="{esc(avail_values(a))}">{avail_marks(a)}</td></tr>')
     title = f"{role_label(role).capitalize()} sources" if role else "Sources"
     return page(title, f"<h1>{esc(title)}</h1>"
                 f'<p class="intro">{"Sources of this type" if role else "Every source the catalogue knows"}: {num(len(rows))}. '
@@ -2638,7 +2637,7 @@ def source_list(rel: str, role: str | None = None) -> str:
                 "at its address now, in the Wayback Machine, in our archive — and every list shows the three together, in the same colours. "
                 "The address, the snapshot and our copy are opened from the source's own page.</p>"
                 '<p class="tabs">' + " ".join(tabs) + "</p>" + key_line(rel, "available")
-                + table([th("source"), th("type", f=True), th("contests"), AVAIL_TH, th("address checked")], rows, "flt"),
+                + table([th("source"), th("type", f=True), th("contests"), AVAIL_TH], rows, "flt"),
                 rel, "source/index.html")
 
 

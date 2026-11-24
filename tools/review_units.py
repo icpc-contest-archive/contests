@@ -157,13 +157,13 @@ def about_text(issues: str) -> str:
     """The Contribute paragraph of the About page."""
     lead = "If you ran, judged or took part in a contest, you may be the only person who still has its scoreboard, its problem set or its dates.\n"
     if not OPEN:
-        return (f'<p class="intro">{lead}To add a source, confirm that what we show is right, or correct something, '
-                f'<a class="ext" href="{issues}/issues/new">open an issue</a> and say which contest\n'
-                "(its id, such as <code>nwerc-2020</code>) and what you know — a link, a file, a date, a place. "
-                "Every claim is checked and recorded with where it came from.\n"
-                'The <a href="wanted.html">most wanted</a> list shows what is missing.</p>')
+        # no link to an issue tracker until the public reviews repo exists (ruling of 2026-11-24): the data repo is private
+        return (f'<p class="intro">{lead}A way to add a source, confirm that what we show is right, or correct something is being set up: '
+                "review mode on this site, where you mark a fact on the page and send your marks in one go. "
+                "Every claim will be checked before it is recorded.\n"
+                'Meanwhile the <a href="wanted.html">most wanted</a> list shows what is wanted.</p>')
     return (f'<p class="intro">{lead}<b>Review</b> in the header switches on review mode. Every fact on a page then has a ✓ to confirm it and a ✎ to '
             "correct it, and every list a + to add what is missing: a source, a file, a date, a place.\n"
             "Your marks stay in your browser while you go from page to page. <b>Submit review</b> then copies them all, and you paste them into one form "
             "on GitHub, which needs a GitHub account.\nEvery claim is checked and recorded with the GitHub name of who made it. "
-            'The <a href="wanted.html">most wanted</a> list shows what is missing.</p>')
+            'The <a href="wanted.html">most wanted</a> list shows what is wanted.</p>')
