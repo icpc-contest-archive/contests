@@ -203,6 +203,18 @@ def page(title: str, body: str, rel: str, nav: str | None = None) -> str:
 <script src="{rel}assets/site.js" defer></script></body></html>"""
 
 
+PRIVATE = ("provenance", "notes", "note")   # where data came from: kept in the repo, never published (ruling of 2026-11-16)
+
+
+def public(o):
+    """A copy of catalogue data without its notes and provenance, for the published dumps."""
+    if isinstance(o, dict):
+        return {k: public(v) for k, v in o.items() if k not in PRIVATE}
+    if isinstance(o, list):
+        return [public(x) for x in o]
+    return o
+
+
 def stub(path: Path, target: str) -> None:
     """A tiny meta-refresh page at an old address so existing links keep working."""
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -463,7 +475,7 @@ def link_source(url: str, rel: str, label: str | None = None, ts=None, cid: str 
     href = src_href(url, rel, ts, cid)
     if href:
         return f'<a href="{href}" title="{esc(res_label(url, ts, 200))}">{lab}</a>'
-    return f'<a class="ext" href="{esc(url)}" title="{esc(url)} — no source page yet (rebuild data/resources.json)">{lab}</a>'
+    return f'<a class="ext" href="{esc(url)}" title="{esc(url)}">{lab}</a>'
 
 
 def role_label(r: str) -> str:
@@ -1157,7 +1169,7 @@ def place_cell(c: dict, rel: str, maxn: int = 2) -> str:
     return ""
 
 
-NOT_A_PLACE = re.compile(r"(?i)^(administrative site( location)?|x+|online( contest \d+)?|internet|www|virtual reality|to be selected|any site|preliminary( site)?)$")
+NOT_A_PLACE = re.compile(r"(?i)^(administrative site( location)?|x+|online( contest \d+)?|internet|www|virtual reality|to be selected|any site|preliminary( site)?)( \(.*\))?$")
 
 
 def free_location(c: dict) -> str:
@@ -1190,7 +1202,7 @@ def site_line(s: dict, rel: str) -> str:
         parts.append(loc_crumb(nid, rel))
         if s.get("name") and s["name"] != LOC[nid]["name"] and s["name"] not in (LOC[nid].get("aliases") or []):
             parts.append(f'<span class="muted">— {esc(s["name"])}</span>')
-    elif s.get("name"):
+    elif s.get("name") and not NOT_A_PLACE.match(s["name"]):
         parts.append(f'{esc(s["name"])} ' + chip("not placed", "n", "this site label could not be placed in the location tree"))
     else:
         return ""
@@ -1279,7 +1291,7 @@ def contest_ref(cid: str, rel: str) -> str:
     if cid in CONTESTS:
         return link_contest(cid, rel)
     if any(c["id"] == cid for c in NM):
-        return f"{esc(cid)} " + chip("non-mainline", "n", "outside the advancement hierarchy (registry/non-mainline.yaml); no contest page")
+        return f"{esc(cid)} " + chip("non-mainline", "n", "outside the advancement hierarchy; no contest page")
     return f"{esc(cid)} " + chip("not catalogued", "n", "this id is not in the catalogue (stale pointer in an index)")
 
 
@@ -1568,7 +1580,9 @@ BOILERPLATE = re.compile(r"^(ICPC Problem Archive progress sheet|Baekjoon ICPC c
                          r"Kattis problem export|problem list from the )")
 
 
-STAMP = re.compile(r"\s*\[(?:existence hunt|url[- ]hunt|content check|judge hunt)[^\]]*\]")   # which pass of ours found a line
+STAMP = re.compile(r"\s*\[(?:existence hunt|url[- ]hunt|content check|judge hunt)[^\]]*\]"   # which pass of ours found a line
+                   r"|\s*\((?:data scan|description round|no-sources hunt|existence hunt|url[- ]hunt|content check|judge hunt) \d{4}-\d\d-\d\d\)"
+                   r"|(?<=\()(?:data scan|description round) \d{4}-\d\d-\d\d; ")
 BOOKKEEPING = re.compile(r"\bruling \d{4}-|misclass audit|icpc-history|icpc-nopii|master_contests|problem archive sheet|\btools/\w+\.py")
 
 
@@ -1779,7 +1793,10 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
                     b.append('<p class="note">' + ("Letters per division: " + " / ".join(f"{esc(n)} ({len(lm)} problems)" for n, lm in dv.items())
                                                     + "; – where a problem was not in that division." if len(dv) > 1 else
                                                     f"Letters in {esc(next(iter(dv)))} ({len(next(iter(dv.values())))} problems); the other divisions' letters are not known.") + "</p>")
-                if not set_letters(pb, cid):
+                if not set_letters(pb, cid) and set_labels(pb, cid):   # the letters were read off the scoreboard, not which is which
+                    b.append("<p>Letters: " + " · ".join(f"<b>{esc(x)}</b>" for x in set_labels(pb, cid))
+                             + ' <span class="small muted">— which problem had which letter is not known yet</span></p>')
+                elif not set_letters(pb, cid):
                     b.append('<p class="note">The letters are not known for this contest'
                              + (" (shown with another contest's letters)." if any(set_letters(pb, m) for m in set_members(pb)) else ".") + "</p>")
         else:
@@ -3334,8 +3351,8 @@ def landing_page(series_docs: dict, contests: dict) -> str:
     nums_html = '<div class="pts">' + headline_tiles(cs, "", {}) + "</div>"
     dark_html = n_link(dark, "", {"results": "none"})
     body = f"""<h1>ICPC contest archive</h1>
-<p class="lede">Every ICPC contest from which a team could advance toward a World Finals, back to 1977 — and where its website,
-its results and its problems can still be found: at the original address, in the Wayback Machine, or in this project's own archive.</p>
+<p class="lede">ICPC contests back to 1977 — and where their websites,
+their results and their problems can still be found: at the original address, in the Wayback Machine, or in this project's own archive.</p>
 <div class="nums">{tiles_html}</div>
 <p class="note">Search everything with the box at the top right (press <code>/</code>): contest and series ids, names, problems, places, CMS ids, website hosts.</p>
 <h2>What we hold</h2>
@@ -3692,7 +3709,7 @@ def build(out: Path):
     for sid, doc in series_docs.items():
         d2 = dict(doc)
         d2["series"] = {**doc["series"], "region": SERIES_REGION.get(sid, "Other")}
-        dump[sid] = d2
+        dump[sid] = public(d2)
     (out / "catalogue.json").write_text(json.dumps(
         {"generated": datetime.date.today().isoformat(), "series": dump}, ensure_ascii=False))
 
