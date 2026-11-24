@@ -2502,7 +2502,7 @@ def source_page(d: dict, rel: str) -> str:
     fx.append("</dl>")
     b += fx
 
-    b.append(source_descriptions.block(url, cits, rel, contest_ref, help_link))
+    b.append(source_descriptions.block(url, cits, rel, contest_ref, help_link, site_copy=any(x["kind"] == "website" for x in doc_copies(d))))
 
     # ---- the one place the address, the Wayback snapshot and our copy are opened ----
     b.append('<h2 id="where">Where to find it</h2>'
@@ -3632,6 +3632,12 @@ def build(out: Path):
     (out / "wanted.html").write_text(wanted_page(series_docs))
     (out / "grid.html").write_text(grid_page(series_docs, contests))
     (out / "cms.html").write_text(cms_page(contests))
+    # a contest that left the catalogue for the CMS triage registry (never held, a camp, ...) keeps its
+    # old page address: it leads to the CMS id ledger, which says what became of the id
+    for e in (yaml.safe_load((ROOT / "registry" / "cms-triage.yaml").read_text()).get("excluded") or []):
+        sn = str(e.get("short_name") or "")
+        if re.fullmatch(r"[a-z0-9-]+-\d{4}", sn) and sn not in contests:
+            stub(out / "contest" / f"{sn}.html", "../cms.html")
     (out / "non-mainline.html").write_text(non_mainline_page())
     (out / "index.html").write_text(landing_page(series_docs, contests))
     (out / "about.html").write_text(about_page())

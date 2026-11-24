@@ -73,14 +73,18 @@ def facts(e: dict) -> list[tuple[str, str]]:
     return fx
 
 
-def block(url: str, cits: list[dict], rel: str, contest_ref, help_link) -> str:
+def block(url: str, cits: list[dict], rel: str, contest_ref, help_link, site_copy: bool = True) -> str:
     """The description section of a source page. `cits` are the contests that cite the address
     (each a dict with `contest`). A document several contests cite is described once per copy
-    that was read: the same copy read for two contests is shown once, under the first."""
+    that was read: the same copy read for two contests is shown once, under the first.
+    `site_copy` says whether a crawled website is among the source's copies: a description read from
+    a crawl is not shown on a source that holds none (the crawl was of another address, 2026-11-24)."""
     D = load()
     seen, es = set(), []
     for c in cits:
         e = D.get((c["contest"], norm_key(url)))
+        if e and not site_copy and "/website/" in str(e.get("copy") or "") + "/":
+            continue
         if e and e.get("description") and e.get("copy") not in seen:
             seen.add(e.get("copy"))
             es.append((c, e))
