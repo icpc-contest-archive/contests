@@ -1267,14 +1267,20 @@ def place_cell(c: dict, rel: str, maxn: int = 2) -> str:
     return ""
 
 
-NOT_A_PLACE = re.compile(r"(?i)^(administrative site( location)?|x+|online( contest \d+)?|internet|www|virtual reality|to be selected|any site|preliminary( site)?)( \(.*\))?$")
+NOT_A_PLACE = re.compile(r"(?i)^(administrative site( location)?|x+|online( contest \d+)?|internet|www|virtual reality|to be selected|any site|preliminary( site)?"
+                         r"|unofficial|africa and arab)( \(.*\))?$")
 
 
 def free_location(c: dict) -> str:
     """The free-text location as recorded, without the parts that are CMS group labels rather
     than places (Administrative Site Location, xxxx, Online, …) and without repeats."""
     seen, out = set(), []
+    # the names of the contest's own CMS groups are bookkeeping too (ruling of 2026-11-24: never listed)
+    adm = [x["name"].lower() for x in c.get("sites") or [] if x.get("type") == "administrative" and x.get("name")]
     for part in re.split(r"\s*;\s*", c.get("location") or ""):
+        p = part.lower()
+        if any(a == p or a.startswith(p + " ") or p.endswith(" " + a) for a in adm):
+            continue
         if part and not NOT_A_PLACE.match(part) and part.lower() not in seen:
             seen.add(part.lower())
             out.append(part)
@@ -1300,7 +1306,8 @@ def site_line(s: dict, rel: str) -> str:
         parts.append(loc_crumb(nid, rel))
         if s.get("name") and s["name"] != LOC[nid]["name"] and s["name"] not in (LOC[nid].get("aliases") or []):
             parts.append(f'<span class="muted">— {esc(s["name"])}</span>')
-    elif s.get("name") and not NOT_A_PLACE.match(s["name"]):
+    elif s.get("name") and not s.get("type") and not NOT_A_PLACE.match(s["name"]):
+        # an online room or group that is not a place is not listed (ruling of 2026-11-24); the contest's location line says it ran online
         parts.append(f'{esc(s["name"])} ' + chip("not placed", "n", "this site label could not be placed in the location tree"))
     else:
         return ""
@@ -3791,7 +3798,7 @@ def build(out: Path):
     # a website is held when the contest has a `web` source and we hold a crawl of it (or a copy of the source):
     # a crawl seeded from a document that is not a website source (a PDF, a results page) is not a website
     COV = CV.Coverage(series_docs, SETS, held=src_held, placed=lambda c: bool(held_at(c)[0]),
-                      web_held=lambda c: bool(by_role(c, "web")) and (c["id"] in website_of or any(src_held(c, s) for s in by_role(c, "web"))))
+                      web_held=lambda c: any(src_held(c, s) for s in by_role(c, "web")))   # the card follows the Website section: a held copy of a web source
 
     # ---- contests, series, seasons ----
     for cid, c in contests.items():
