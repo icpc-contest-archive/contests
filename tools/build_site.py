@@ -2620,7 +2620,8 @@ def source_page(d: dict, rel: str) -> str:
     ents = doc_entries(d)
     a = avail(url, cits[0]["contest"] if cits else None)
     roles = doc_roles(d)
-    at = f' <span class="at">(at {esc(fmt_time(d["time"]))})</span>' if d["time"] else ""
+    at = (f' <span class="at">(at {esc(fmt_time(d["time"]))})</span>' if d["time"]
+          else f' <span class="at">({esc(doc_when(d))})</span>' if d.get("season") else "")
     b = [crumbs(f'<a href="{rel}source/index.html">Sources</a>', *[f'<a href="{rel}source/by-role/{r}.html">{esc(role_label(r))}</a>' for r in roles[:1]]),
          f"<h1{R.at('source', d['id'])}>{esc(url)}{at}</h1>",
          f'<div class="cc"><div class="cc-g"><b>Found at</b>{avail_pills(a)}</div> {help_link("sources", rel, "what the colours mean")}</div>',
