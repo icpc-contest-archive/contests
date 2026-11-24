@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: by hand, ruling of 2026-11-24 (the same event entered twice).
 series:
   id: south-america
   name: ACM-ICPC South America Contest outside Brazil
@@ -16,8 +16,78 @@ series:
     series: south-america-south
     year: 2008
 contests:
+- id: south-america-1996
+  season: 1997
+  name: I Consun 1996 (Maratona de Programação)
+  date: '1996-11-28'
+  location: Belo Horizonte, Universidade Federal de Minas Gerais
+  cms_ids: []
+  sites:
+  - location: br-belo-horizonte-universidade-federal-de-minas-gerais
+  parent: wf-1997
+  next: south-america-1997
+  sources:
+  - url: https://maratona.sbc.org.br/hist/1996/96_inicial.html
+    roles:
+    - web
+  - url: https://maratona.sbc.org.br/hist/1996/index.html
+    roles:
+    - scoreboard
+    - report
+    as_of: '20200718005034'
+    archived:
+    - brazil-first-phase/brazil-first-phase-1996/standings/20200718-wayback-db0dc48e/index.html
+    - brazil-first-phase/brazil-first-phase-1996/standings/20261023-live-cafb915f/index.html
+    - brazil-first-phase/brazil-first-phase-1996/scoreboard/20200718-wayback-db0dc48e/index.html
+    - brazil-first-phase/brazil-first-phase-1996/scoreboard/20261115-live-cafb915f/index.html
+    url_state: changed
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/1996/participantes.html
+    roles:
+    - rankings
+    archived:
+    - brazil-first-phase/brazil-first-phase-1996/rankings/20261023-live-b247da5d/participantes.html
+    url_state: live
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (existence-hunt-2026-10-22)
+  - url: https://maratona.sbc.org.br/hist/1996/probl.pdf
+    roles:
+    - problemset
+    contains:
+    - statement
+    url_state: live
+    url_checked: '2026-11-23'
+  problems:
+    set: south-america-1996
+  provenance:
+  - 'Maratona SBC history page 1996 (2021-03-22 (last modified)): Contest ''28 e 29 de novembro de 1996''
+    at UFMG, ''pela primeira vez''; results table of 11 universities, winner IC-Unicamp 3 problems/702;
+    only Brazilian/South American team invited to WF 2 March 1997 San Jose. Single event — https://maratona.sbc.org.br/hist/1996/index.html
+    [existence hunt 2026-10-22]'
+  - 'I CONSUN 1996 announcement page (1996): Best Programming Team category: registration 15/09/96-04/10/96,
+    ''Realizacao do Concurso: 28 e 29/11/96'', results and awards 02/12/96 at DCC-UFMG. Organisers DCC-UFMG,
+    IC-UNICAMP, SOFTEX 2000; no preliminary phase. — https://maratona.sbc.org.br/hist/1996/96_inicial.html
+    [existence hunt 2026-10-22]'
+  - 'I Consun 1996 classificacao final (2002-04-08 (last modified)): Final classification: 1 IC-Unicamp,
+    2 UnB, 3 IME-USP. — https://maratona.sbc.org.br/hist/1996/participantes.html [existence hunt 2026-10-22]'
+  - 'ICPC Caribe - Concursos Regionales ACM-ICPC de Sudamerica 1996-2003 (n/a): 1996 South America contest:
+    Nov 1996, one site only (UFMG), Regional Director Claudionor Jose Nunes Coelho, Brasil 13 teams, podium
+    IC-UNICAMP / UnB / IME-USP; ''Primer concurso sudamericano... clasificatorio''; only the c — https://www.icpccaribe.org/icpc-latam/concursos-regionales-acm-icpc-de-sudam%C3%A9rica-1996-2003
+    [existence hunt 2026-10-22]'
+  - date read from https://maratona.sbc.org.br/hist/1996/96_inicial.html (description round 2026-11-16)
+  - location Belo Horizonte, Universidade Federal de Minas Gerais read from https://maratona.sbc.org.br/hist/1996/index.html
+    (data scan 2026-11-23)
+  - 'The organisers say it was not an official ICPC regional, and that its winner was invited to the 1997
+    World Finals: ''Apesar de não ser uma regional oficial do ICPC, o organizador do evento entrou em
+    contato com o diretor executivo do ICPC e o vencedor da Maratona de Programação foi convidado para
+    participar das finais mundiais do ICPC em 1997.'' — https://maratona.sbc.org.br/hist/1996/index.html'
+  - 'filed as brazil-first-phase-1996 until 2026-11-24 (ruling): the event had no preliminary phase, and
+    the ICPC Caribe history lists it as the 1996 South America contest'
 - id: south-america-1997
   season: 1998
+  name: 1997 ACM South American Regional Collegiate Programming Contest
+  date: '1997-12-13'
   location: Campinas (IC-Unicamp), Brazil (single site, Dec 13)
   cms_ids: []
   sites:
@@ -31,6 +101,9 @@ contests:
   - url: http://maratona.ime.usp.br/hist/1997/
     roles:
     - web
+  - url: https://maratona.sbc.org.br/hist/1997/index.html
+    roles:
+    - web
   - url: https://maratona.sbc.org.br/hist/1997/result.html
     roles:
     - standings
@@ -38,6 +111,8 @@ contests:
       source of brazil-first-phase-1997); copy held)
     url_state: changed
     url_checked: '2026-11-23'
+    archived:
+    - brazil-first-phase/brazil-first-phase-1997/standings/20261023-live-44de29ad/result.html
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=479
     roles:
     - problemset
@@ -46,6 +121,13 @@ contests:
     judge: livearchive
     as_of: '20210924114914'
     url_state: dead
+    url_checked: '2026-11-23'
+  - url: https://maratona.sbc.org.br/hist/1997/contest_only.ps
+    roles:
+    - problemset
+    contains:
+    - statement
+    url_state: live
     url_checked: '2026-11-23'
   - url: https://icpcarchive.ecs.baylor.edu/external/55/5548.html
     roles:
@@ -103,6 +185,28 @@ contests:
     url_checked: '2026-11-23'
   problems:
     set: south-america-1997
+  provenance:
+  - 'Maratona SBC history page 1997 (2009-04-29 (last modified)): ''1997 - II Consun, Campinas'', ''12
+    a 14 de dezembro de 1997''; top-3 Brazilian teams PUC-RJ, UFPE, FURG; PUC-RJ ''o unico time brasileiro
+    (e sul-americano) classificado para as finais mundiais'' (Atlanta, 28 Feb 1998, 24th,  — https://maratona.sbc.org.br/hist/1997/index.html
+    [existence hunt 2026-10-22]'
+  - 'CONSUN''97 - Resultados (1997): Final ranking: 1 PUC-Rio 4/703, 2 UFPE 3/594, 3 Univ. de Buenos Aires
+    3/638, 4 FURG 2/405, 5 Unicamp 2/454, 6 UFV 2/485; 18 honourable mentions (incl. Chile''s Ricardo
+    Baeza-Yates team). IBM official sponsor. — https://maratona.sbc.org.br/hist/1997/result.html [existence
+    hunt 2026-10-22]'
+  - 'ICPC Caribe - Concursos Regionales ACM-ICPC de Sudamerica 1996-2003 (n/a): 1997: 13/12/1997, single
+    site IC-UNICAMP (Ricardo Dahab), 24 teams (BR 18, AR 2, CL 2, CO 1, VE 1); podium PUC-RIO 4 solved
+    (WF 1998 Atlanta), UFPE 3, UBA-FCEN 3; ''Por vez primera participan Argentina, Chile, Colombia y  —
+    https://www.icpccaribe.org/icpc-latam/concursos-regionales-acm-icpc-de-sudam%C3%A9rica-1996-2003 [existence
+    hunt 2026-10-22]'
+  - 'ICPC Latin America - LARs 1996-2023 (n/a): Lists ''The 1997 ACM Programming Contest South America''
+    -> maratona.sbc.org.br/hist/1997/index.html. — https://www.icpclatam.org/regionals/lars1996-2023 [existence
+    hunt 2026-10-22]'
+  - date read from https://maratona.sbc.org.br/hist/1997/contest_only.ps (description round 2026-11-16)
+  - location read from https://maratona.sbc.org.br/hist/1997/contest_only.ps (description round 2026-11-16)
+  - name and date read from the problem set, headed 'ACM South American Regional Collegiate Programming
+    Contest, Contest Session, December 13, 1997, Institute of Computing, University of Campinas' — https://maratona.sbc.org.br/hist/1997/contest_only.ps
+  - brazil-first-phase-1997 (the organisers' 'II Consun') was this contest (ruling 2026-11-24)
 - id: south-america-1998
   season: 1999
   name: 1998 ACM South America Programming Contest
