@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: by hand, ruling of 2026-11-24 (swerc-1993 is werc-1993).
 series:
   id: swerc
   name: ICPC Southwestern Europe Regional Contest
@@ -6,38 +6,13 @@ series:
   region: Europe
   naming: season-start
   lineage:
+  - type: continues-from
+    series: werc
+    year: 1994
   - type: continues-as
     series: mcerc
     year: 1999
 contests:
-- id: swerc-1993
-  season: 1994
-  cms_ids: []
-  parent: wf-1994
-  next: swerc-1994
-  sources:
-  - url: http://www.acm.inf.ethz.ch/SWERCHome.html
-    roles:
-    - web
-  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SWERC/1993/index.html
-    roles:
-    - problemset
-    contains:
-    - statement
-    as_of: '19980202011741'
-    url_state: dead
-    url_checked: '2026-11-23'
-  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=451
-    roles:
-    - problemset
-    contains:
-    - statement
-    judge: livearchive
-    as_of: '20210924114121'
-    url_state: dead
-    url_checked: '2026-11-23'
-  problems:
-    set: swerc-1993
 - id: swerc-1994
   season: 1995
   cms_ids: []
