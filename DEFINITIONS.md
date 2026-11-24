@@ -379,16 +379,16 @@ the same treatment; archive.today short links don't carry the URL and stay a `vi
 **Identifiers.** A locator's id is the first 12 hex digits of sha256 over its match key
 (`norm_key`: scheme-, www-, default-port-, case- and trailing-slash-insensitive), so it
 survives the usual URL drift; a resource's id is `<locator id>@<ts>`. The site has a page per
-source (`source/<id>/`: url, roles, health, references, its snapshot timeline with every capture;
+source (`source/<id>/`: the address and its time, its type and contests, the three places it can be found and the one copy that counts;
 the old `locator/<id>/` and `locator/<id>/<ts>.html` paths redirect there). `tools/build_resources.py` joins catalogue, archive index, website index,
 live-check verdicts and replay index into `data/resources.json`, which those pages render from.
 
 **Presentation.** A resource displays as **`url (time)`** at the precision known —
-`2011-01-02 18:36`, `2026-04-15`, `2011`; a bare locator displays as the URL. Link
-vocabulary on a result row: *live* = the locator as is; *wayback* = pinned to `as_of`
-(or the capture's snapshot) when known, the calendar otherwise; *archived (time)* = our
-capture; *raw* = the capture file untouched. Nothing ever links to a Wayback URL of a
-Wayback URL.
+`2011-01-02 18:36`, `2026-04-15`, `2011`; a bare locator displays as the URL. Everywhere
+but its own page a source links to its source page; that page opens the address as it is
+(*open the address*), the Wayback snapshot pinned to `as_of` (or the copy's snapshot) when
+known and the calendar otherwise (*open the snapshot*, *look for snapshots*), and our
+current copy (*open our copy*). Nothing ever links to a Wayback URL of a Wayback URL.
 
 ## Problems
 

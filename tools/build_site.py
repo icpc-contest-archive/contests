@@ -399,7 +399,8 @@ def web_state(c) -> str:
 TIERS = (("scoreboard", "S"), ("standings", "St"), ("rankings", "R"), ("teams", "T"), ("frozen_scoreboard", "F"))
 TIER_LABEL = CV.LEVEL_LABEL
 ROLE_LABEL = {"frozen_scoreboard": "frozen scoreboard", "teams": "team list",
-              "problemset": "problem set", "web": "website"}
+              "problemset": "problem set", "web": "website",
+              "web-mirror": "website", "external-standings": "standings"}   # the last two: the archive's names for copies ("not listed yet" rows)
 HELD_KINDS = (("statement", "St", "statements"), ("data", "D", "test data"),
               ("solutions", "So", "solutions"), ("package", "P", "complete packages"))
 # what a problem set or problem source holds (`contains:`), in the words of a page
@@ -619,7 +620,7 @@ def website_cell(c: dict, rel: str, n: int = 24) -> str:
     if not webs:
         return ""
     held = rec(c)["website"] == "have"
-    s = webs[0]
+    s = next((x for x in webs if src_held(c, x)), webs[0])   # the mark says held: link the source that is
     more = f' <span class="small muted" title="{len(webs)} website addresses">+{len(webs) - 1}</span>' if len(webs) > 1 else ""
     return (f'<span class="m {"h" if held else "k"}" title="website — {"we hold a copy" if held else "link only, no copy held"}">W</span>'
             + link_source(s["url"], rel, host_label(s["url"], n), s.get("as_of"), c["id"]) + more)
@@ -760,7 +761,12 @@ def index_extra_copies(contests: dict) -> None:
         site, webs = website_of.get(cid), by_role(c, "web")
         if site and webs:
             e = next((w for w in webs if norm_key(w["url"]) == norm_key(site.get("seed_raw") or site.get("seed") or "")), webs[0])
-            if lid(site.get("seed_raw") or site.get("seed") or "") != lid(e["url"]):
+            Le = RES.locs.get(lid(e["url"])) or {}
+            filed = any((R.get("website") or {}).get("dir") == site["dir"] for R in (Le.get("resources") or {}).values())
+            junk = any(p.get("outcome") == "junk" and p.get("dir") == site["dir"] for p in Le.get("probes") or [])
+            # seeded from another spelling, or the graph files another contest's crawl of the address at that time
+            # (data/resources.json keeps one crawl per address and time: build_resources.py)
+            if lid(site.get("seed_raw") or site.get("seed") or "") != lid(e["url"]) or not (filed or junk):
                 EXTRA_HELD[lid(e["url"])].append({
                     "ts": site.get("wayback_timestamp") or re.sub(r"[^0-9]", "", str(site.get("fetched") or ""))[:14] or "unknown",
                     "via": "wayback" if site.get("mode") == "wayback" else "live", "contest": cid, "kind": "website",
@@ -846,7 +852,7 @@ def index_docs() -> None:
     one contest is one source. An address several contests cite is one source per time it is meant
     at: contests that name the same time, and contests of one season (a joint contest, a shared
     problem set), mean the same document; a page reused year after year is a source per year."""
-    DOCS.clear(); DOCS_OF.clear(); DOC_FOR.clear(); DOC_ALIAS.clear()  # noqa: E702
+    DOCS.clear(); DOCS_OF.clear(); DOC_FOR.clear(); DOC_ALIAS.clear(); _DSTATE.clear()  # noqa: E702
     for k, L in RES.locs.items():
         cits = citations(k)
         if not cits and _problem_page_only(L):
@@ -944,6 +950,27 @@ def open_copy(x: dict | None) -> str:
     return local_link("archive/" + x["cap"]["path"], "open our copy")
 
 
+_DSTATE: dict = {}   # source id -> (state, checked) of its address
+
+
+def doc_state(d: dict, h: dict) -> tuple:
+    """The answer for a source's address, one per source: the newest check among the catalogue entries
+    of the contests that mean it (on a tie, the answer most of them give, then the address's own last
+    check), else the address's own last check. Several contests can cite one address and their
+    entries can disagree; the source's page and every list that shows it must say the same."""
+    if d["id"] not in _DSTATE:
+        got = [(str(e.get("url_checked") or ""), e["url_state"]) for _c, e in doc_entries(d) if e.get("url_state")] \
+            or [(str(c["checked"] or ""), c["state"]) for c in d["cits"] if c["state"]]
+        if not got:
+            _DSTATE[d["id"]] = (h.get("state"), h.get("checked"))
+        else:
+            when = max(ch for ch, _s in got)
+            top = Counter(st for ch, st in got if ch == when).most_common()
+            best = [st for st, n in top if n == top[0][1]]
+            _DSTATE[d["id"]] = (h.get("state") if len(best) > 1 and h.get("state") in best else best[0], when or h.get("checked"))
+    return _DSTATE[d["id"]]
+
+
 def _place(s: str, word: str, tip: str | None = None, **more) -> dict:
     return {"s": s, "word": word, "tip": tip or PLACE_TIP[word], **more}
 
@@ -953,7 +980,8 @@ def avail(url: str, cid: str | None = None, e: dict | None = None) -> dict:
     copy that counts}; each place is {"s": yes|part|no|pending|na, "word": its one word, "tip": the
     sentence behind it}; the address also has "checked", the Wayback entry "ts" (the snapshot to
     open), ours "ts" (the time its copy shows). `cid` picks the contest's own source when the
-    address has several; `e` is the catalogue entry when the caller has it (its verdict wins)."""
+    address has several; `e` is the catalogue entry when the caller has it (its `as_of` wins). The
+    answer for the address is the source's own (`doc_state`), the same on every page that lists it."""
     k = lid(url)
     L = RES.locs.get(k)
     d = doc_for(url, cid)
@@ -962,8 +990,7 @@ def avail(url: str, cid: str | None = None, e: dict | None = None) -> dict:
                 "ours": _place("pending", "not captured", ts=None), "lost": False, "copies": [], "current": None, "doc": None}
     cit = next((c for c in d["cits"] if c["contest"] == cid), None) or (d["cits"][0] if d["cits"] else None)
     h = L.get("health") or {}
-    st = (e or {}).get("url_state") or (cit or {}).get("state") or h.get("state")
-    when = (e or {}).get("url_checked") or (cit or {}).get("checked") or h.get("checked")
+    st, when = doc_state(d, h)   # one answer per source, whichever page lists it
     if st == "dead" and h.get("state") == "dead" and BLOCKED.search(h.get("evidence") or ""):
         st = "blocked"   # recorded as dead by the live check; shown as what it is
     live = _place(LIVE_S[st], LIVE_WORD[st], checked=when) if st in LIVE_S else _place("pending", "not checked", checked=None)
@@ -1779,8 +1806,9 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
             continue
         matched.add(e["path"])
         shown.add(norm_key(e["url"]))
+        t = (doc_for(e["url"], cid) or {}).get("time")   # the time of the source the row opens, as on every other row
         extra.append(f'<tr><td>{role_chip(e["artifact"])}{chip("not listed yet", "n", "we hold a copy; it is not yet listed as a source of this contest")}</td>'
-                     f'<td class="url">{link_source(e["url"], rel, res_label(e["url"], None, 90), None, cid)}</td>' + avail_cell(e["url"], cid) + "</tr>")
+                     f'<td class="url">{link_source(e["url"], rel, res_label(e["url"], t, 90), t, cid)}</td>' + avail_cell(e["url"], cid) + "</tr>")
     ev = evidence_lines(c)
     if res_entries or extra:
         b.append(source_table(cid, res_entries, rel, "results", extra))
@@ -2652,7 +2680,7 @@ def judge_page(jid: str, j: dict, probs: set, pages: list, rel: str) -> str:
             c = CONTESTS.get(cid) or {}
             rows.append(f'<tr><td class="nw">{contest_ref(cid, rel)}</td><td class="nw" data-v="{esc(c.get("date", ""))}">{link_date(c.get("date"), rel)}</td>'
                         f'<td class="nw">{role_chip(primary_role(s))}{source_problem(c, s, rel)}</td>'
-                        f'<td class="url">{link_source(s["url"], rel, res_label(s["url"], source_time(s, cid), 100), s.get("as_of"), cid)}</td>'
+                        f'<td class="url">{link_source(s["url"], rel, res_label(s["url"], source_time(s, cid), 90), s.get("as_of"), cid)}</td>'
                         + avail_cell(s["url"], cid, s) + "</tr>")
         b.append(table([th("contest"), th("date"), th("type", f=True), th("source"), AVAIL_TH], rows))
     else:
