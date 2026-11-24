@@ -929,7 +929,7 @@ def open_copy(x: dict | None) -> str:
         return ""
     if x["kind"] == "website":
         w = x["site"]
-        return local_link(f"site/{w['contest']}/{w['dir'].rsplit('/', 1)[-1]}/", "open the archived website")
+        return local_link(f"site/{w['contest']}/{w['dir'].rsplit('/', 1)[-1]}/", "open our copy of the website")
     if x["cap"].get("replay"):
         return f'<a class="ext" href="{replay_url(x["cap"]["replay"])}">open our copy</a>'
     return local_link("archive/" + x["cap"]["path"], "open our copy")
@@ -1786,7 +1786,7 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
             if probs:
                 b.append('<p class="cols">' + "<br>".join(
                     R.U("letter", f'<b>{esc(L or "?")}</b>', (L or "") if set_letters(pb, cid) else "", p["id"], p["name"]) + f' &nbsp;{problem_link(p["id"], rel, p["name"])}'
-                    + (" " + chip("private", "n", "kept private after the contest; name and uuid are public") if p.get("status") == "private" else "")
+                    + (" " + chip("private", "n", "kept private after the contest; name and UUID are public") if p.get("status") == "private" else "")
                     for L, p in probs) + "</p>")
                 dv = set_divisions(pb, cid)
                 if dv:
@@ -1872,7 +1872,7 @@ def series_page(sid: str, doc: dict, rel: str) -> str:
     b.append(f'<h2 id="editions">Editions <span class="n">{len(doc["contests"])}</span></h2>')
     b.append(R.slot("contest", "add a missing contest", tag="p"))
     b.append('<p class="note">The year in an id is the season label, not the date: here it names the '
-             + ("season's first half, so a fall contest postponed into the next year keeps its number." if s.get("naming") != "season-end" else "season's end.") + "</p>")
+             + ("season's first half, so an autumn contest postponed into the next year keeps its number." if s.get("naming") != "season-end" else "season's end.") + "</p>")
     b.append(key_line(rel, "results", "website", "held"))
     b.append(contest_table(list(reversed(doc["contests"])), rel,
                            ("contest", "season", "date", "location", "advances", "results", "problems", "website", "cms")))
@@ -1980,7 +1980,7 @@ def season_page(season: int, members: list[str], rel: str) -> str:
     body += d
     places = {n for c in cs for n in held_at(c)[0]}
     countries = {city_and_country(n)[1] for n in places} - {None}
-    body.append(group_nums(cs, rel, {"season": season}, f'<div class="pt"><b>{len(places)}</b><span class="tl-l">locations in {len(countries)} countries</span></div>'))
+    body.append(group_nums(cs, rel, {"season": season}, f'<div class="pt"><b>{len(places)}</b><span class="tl-l">location{"s" if len(places) != 1 else ""} in {len(countries)} countr{"ies" if len(countries) != 1 else "y"}</span></div>'))
     body.append('<p class="tabs">Jump to: <a href="#coverage">coverage</a> <a href="#where">contest by contest</a> <a href="#hierarchy">who advances where</a></p>')
     by_r = [(r, sorted((c for c in cs if SERIES_REGION.get(SERIES_OF[c["id"]]) == r), key=lambda c: c["id"])) for r in REGIONS]
     body.append(coverage_section(cs, rel, {"season": season}, "this season's contests", "Contest by contest",
@@ -2063,7 +2063,7 @@ def calendar_page(year: int, rel: str) -> str:
     b = [crumbs(f'<a href="{rel}calendar/index.html">Calendar</a>'), f"<h1>{year}</h1>"]
     if dated:
         busiest = per_day.most_common(1)[0]
-        b.append(f'<p class="lede">{len(dated)} contests on {len(per_day)} days'
+        b.append(f'<p class="lede">{len(dated)} contest{"s" if len(dated) != 1 else ""} on {len(per_day)} day{"s" if len(per_day) != 1 else ""}'
                  + (f"; the busiest was {busiest[0]} with {busiest[1]}" if busiest[1] > 2 else "") + ".</p>")
     b.append(f'<p class="tabs">{nav}</p>')
     if dated:
@@ -2090,7 +2090,7 @@ def calendar_index(rel: str) -> str:
     return page("Calendar", "<h1>Calendar</h1>"
                 f'<p class="intro">Every contest in date order, a page per calendar year: {num(n_dated)} of {num(n_all)} contests have a full date. '
                 "A date anywhere on this site links to its day here, so you can see what else ran that day and that weekend. "
-                "The months show when in the year contests are held — fall regionals, spring finals.</p>"
+                "The months show when in the year contests are held — autumn regionals, spring finals.</p>"
                 + table([th("year"), th("contests", num=True), th("no full date", num=True)] + [th(m, num=True) for m in MONTHS], rows, "heat"),
                 rel, "contest/index.html")
 
@@ -2215,7 +2215,7 @@ def problemset_page(sid: str, doc: dict, rel: str) -> str:
         for L, p in set_letter_cells(doc):
             private = p.get("status") == "private"
             rows.append(f'<tr><td class="letter">{esc(L)}</td><td>{R.U("member", problem_link(p["id"], rel, p["name"]), p["id"], p["id"], p["name"])}'
-                        + (" " + chip("private", "n", "kept private after the contest; name and uuid are public") if private else "") + "</td>"
+                        + (" " + chip("private", "n", "kept private after the contest; name and UUID are public") if private else "") + "</td>"
                         + ("<td></td><td></td>" if private else
                            f'<td class="nw">{problem_have_marks(p, doc)}</td><td>{problem_judge_links(p)}</td>') + "</tr>")
         b.append(table([th("#"), th("problem"), th("held"), th("online judge")], rows))
@@ -2244,7 +2244,7 @@ def problem_page(pid: str, ent: dict, rel: str) -> str:
     b = [crumbs(f'<a href="{rel}problem/index.html">Problems</a>', *[set_link(s, rel) for s, _r in rows[:3]]),
          f"<h1{R.at('problem', pid)}>{R.U('name', esc(p['name']), p['name'])}</h1>"]
     if private:
-        b.append('<p class="status">' + chip("private", "n", "kept private after the contest; only the name and uuid are public") + "</p>")
+        b.append('<p class="status">' + chip("private", "n", "kept private after the contest; only the name and UUID are public") + "</p>")
     d = ['<dl class="facts">']
     apps = []
     for sid, cid, L in ent["apps"]:
@@ -2276,7 +2276,7 @@ def problem_page(pid: str, ent: dict, rel: str) -> str:
     uuids = sorted({r["uuid"] for _s, r in rows if r.get("uuid")})
     pkg = problem_have(next((r for _s, r in rows if "have" in r), p), first_doc)["package"]
     d.append("<dt>UUID</dt><dd>" + (", ".join(f"<code>{esc(u)}</code>" for u in uuids) if uuids
-                                    else '<span class="muted">none — the problem has no package in the archive</span>' if pkg is False
+                                    else '<span class="muted">none — the problem has no package in the problem archive</span>' if pkg is False
                                     else '<span class="muted">not recorded yet</span>') + "</dd>")
     shorts = sorted({r["short_name"] for _s, r in rows if r.get("short_name")})
     if shorts:
@@ -2284,7 +2284,7 @@ def problem_page(pid: str, ent: dict, rel: str) -> str:
     others = sorted({o for _s, r in rows for o in r.get("other_names") or []})
     if others:
         d.append("<dt>other titles</dt><dd>" + ", ".join(esc(x) for x in others)
-                 + ' <span class="small muted">— the same problem under another title (an online judge\'s, or the statement\'s where the name here is the archive package\'s)</span></dd>')
+                 + ' <span class="small muted">— the same problem under another title (an online judge\'s, or the statement\'s where the name here is the problem archive package\'s)</span></dd>')
     # `aliases` (ids merged into this one) are not shown: they are internal and only keep old addresses working
     d.append("</dl>")
     b += d
@@ -2316,11 +2316,11 @@ def problemset_index(rel: str) -> str:
                 "(sort by <b>contests</b> to see them). "
                 "<b>Held</b> is what we hold of the set, kind by kind, from the ICPC Problem Archive or from a source we hold a copy of; "
                 "the set's page says which, and where the set was published and where it can be solved are on the contest page. "
-                f"<b>Problems</b> is how many the contest had; <b>list</b> says whether we know them by name — <i>listed</i> (every one) for {num(n_listed)} sets, "
+                f"<b>Problems</b> is how many the contest had; <b>problem list</b> says whether we know them by name — <i>listed</i> (every one) for {num(n_listed)} sets, "
                 "<i>partly listed</i> when only some are, <i>count only</i> when none are and only the number and the holdings are recorded.</p>"
                 + key_line(rel, "held")
                 + table([th("problem set"), th("contests", num=True, title="how many contests sat this set"), th("season", f=True), th("region", f=True),
-                         th("problems", num=True), th("list", f="problem list"),
+                         th("problems", num=True), th("problem list", f=True),
                          th("held"), th("archive repo")]
                         + [th(what, f=what, k=COMP_KEY[key], g=True, hid=True, o=STATE_ORDER) for key, _m, what in CV.COMPONENTS], rows, "flt"),
                 rel, "problemset/index.html")
@@ -2341,7 +2341,7 @@ def problem_index(rel: str) -> str:
             private = p.get("status") == "private"
             judges = "|".join(sorted({judge_name(j["judge"]) for j in p.get("judges") or []})) if not private else ""
             rows.append(f'<tr><td class="name">{problem_link(p["id"], rel, p["name"])}'
-                        + (" " + chip("private", "n", "kept private after the contest; name and uuid are public") if private else "") + "</td>"
+                        + (" " + chip("private", "n", "kept private after the contest; name and UUID are public") if private else "") + "</td>"
                         f'<td class="nw small"><code>{esc(p.get("uuid", ""))}</code></td><td class="small sn">{esc(p.get("short_name", ""))}</td>'
                         f'<td class="letter">{esc(L)}</td>{tail}'
                         + ('<td data-vs="private"></td><td data-vs=""></td>' if private else
@@ -2351,7 +2351,7 @@ def problem_index(rel: str) -> str:
     return page("Problems", "<h1>Problems</h1>"
                 f'<p class="intro">{num(n)} problems from the {num(n_sets)} problem sets that are listed by name ({num(len(PROBLEMS))} distinct problems — '
                 "one reused in a second set has a row in each). <b>#</b> is the letter the problem had in its contest; a <b>UUID</b> is the identity of the "
-                "problem's package in the archive, where there is one. Names of problems kept private after their contest are listed; nothing else about them is.</p>"
+                "problem's package in the problem archive, where there is one. Names of problems kept private after their contest are listed; nothing else about them is.</p>"
                 + key_line(rel, "have")
                 + table([th("name"), th("UUID"), th("short name"), th("#"), th("problem set"), th("season", f=True), '<th class="hid" data-f>region</th>',
                          th("held", f=True), th("online judge", f=True)], rows, "flt"),
@@ -2605,7 +2605,7 @@ def judge_page(jid: str, j: dict, probs: set, pages: list, rel: str) -> str:
             b.append(f"<dt>{lab}</dt><dd><code>{esc(j[key])}</code></dd>")
     b.append("</dl>")
     nps = sum(1 for _c, s in pages if "problemset" in s["roles"])
-    b.append(f'<h2 id="contests">Contests <span class="n">{ncon}</span></h2>'
+    b.append(f'<h2 id="contests">Contests <span class="n">{num(ncon)}</span></h2>'
              '<p class="note">Contests that have a page on this online judge: the page of its problem set, or a problem\'s own page or statement that we hold a copy of'
              + (f" — {len(pages)} pages: {nps} problem-set pages, {len(pages) - nps} problem pages." if len(pages) != ncon else ".") + "</p>")
     if pages:
@@ -2619,7 +2619,7 @@ def judge_page(jid: str, j: dict, probs: set, pages: list, rel: str) -> str:
         b.append(table([th("contest"), th("date"), th("type", f=True), th("source"), AVAIL_TH], rows))
     else:
         b.append('<p class="empty">No contest has a page on this online judge recorded.</p>')
-    b.append(f'<h2 id="problems">Problems <span class="n">{len(probs)}</span></h2>'
+    b.append(f'<h2 id="problems">Problems <span class="n">{num(len(probs))}</span></h2>'
              + ('<p class="note">Problems that link to this online judge.</p>' if probs else ""))
     if probs:
         rows = []
@@ -2641,7 +2641,7 @@ def judge_index(probs: dict, pages: dict, rel: str) -> str:
     for jid, j in JUDGES.items():
         rows.append(f'<tr><td class="name">{judge_mark(jid)}{judge_link(jid, rel)}<span class="sub">{esc(re.sub(r"^https?://", "", j["url"]).rstrip("/"))}</span></td>'
                     f'<td class="nw" data-v="{esc(j.get("status", ""))}">{judge_status(j)}</td>'
-                    f'<td class="num">{len({c for c, _s in pages.get(jid, [])})}</td><td class="num">{len(probs.get(jid, ()))}</td></tr>')
+                    f'<td class="num">{num(len({c for c, _s in pages.get(jid, [])}))}</td><td class="num">{num(len(probs.get(jid, ())))}</td></tr>')
     unknown = [x for x in sorted(set(probs) | set(pages)) if x not in JUDGES]
     return page("Online judges", "<h1>Online judges</h1>"
                 f'<p class="intro">{len(JUDGES)} online judges where ICPC problems can be solved, or could. <b>Contests</b> counts contests with a page on it; '
@@ -2725,7 +2725,7 @@ def location_page(nid: str, rel: str) -> str:
             return '<td class="small">' + (", ".join(spots[:3]) + (f" +{len(spots) - 3}" if len(spots) > 3 else "") if spots else '<span class="muted">here</span>') + "</td>"
         b.append(key_line(rel, "results", "website", "held"))
         b.append(contest_table(cs, rel, ("contest+name", "date", "series", "season", "results", "problems", "website"),
-                               extra=(th("held at"), at)))
+                               extra=(th("location"), at)))
     else:
         b.append('<p class="empty">No contest is recorded here or anywhere inside.</p>')
     return page(n["name"], "\n".join(b), rel, "location/index.html")
@@ -2941,7 +2941,7 @@ def coverage_panel(cs: list[dict], rel: str, scope: dict | None) -> str:
             k = sum(1 for c in cs if good(c, key))
             rows.append('<div class="fr">' + (f'<span class="fl">{esc(lab)}</span>' if len(keys) > 1 else "")
                         + sbar(cs, key, rel, scope)
-                        + f'<span class="fp" title="{esc(lab)}: {esc(CV.FACET[key][3][0])} for {num(k)} of {num(n)} contests">{pct(k, n)}%</span></div>'
+                        + f'<span class="fp" title="{esc(lab)}: {esc(CV.FACET[key][3][0])} for {num(k)} of {num(n)} contest{"s" if n != 1 else ""}">{pct(k, n)}%</span></div>'
                         + schips(cs, key, rel, scope))
         if g == "Results":
             notes = []
@@ -3120,7 +3120,7 @@ def group_nums(cs: list[dict], rel: str, scope: dict | None, extra: str = "") ->
     season, a series, a location): how many ran, then the six headline counts, each with its share and
     the list of what is missing. `scope`: what picks these contests in the contest list; `extra`: more tiles."""
     st = content_counts(cs)
-    first = (f'<div class="pt"><b>{n_link(st["n"], rel, scope)}</b><span class="tl-l">contests ran'
+    first = (f'<div class="pt"><b>{n_link(st["n"], rel, scope)}</b><span class="tl-l">{"contest" if st["n"] == 1 else "contests"} ran'
              + (f' <span class="muted">+{st["upcoming"]} upcoming</span>' if st["upcoming"] else "") + "</span></div>")
     return '<div class="pts">' + first + headline_tiles(cs, rel, scope) + extra + "</div>"
 
@@ -3140,7 +3140,7 @@ def coverage_page(series_docs: dict, contests: dict) -> str:
                           "A column per season, a row per question; each cell is that season's contests split by answer, held at the bottom. "
                           "A cell opens the contests of that season that are missing it.", season_strips(cs, "", {}), title="What we hold", hid="hold")
          + '<p class="note">A complete package counts as statement, test data and solutions too. Material counts wherever it comes from: the problem archive, '
-           "or a source we hold a copy of. A problem set's page on an online judge is a link, not a copy: what we hold of it is the judge's list of problems, not the statements; "
+           "or a source we hold a copy of. A problem set's page on an online judge is a link, not a copy: what we hold of it is the online judge's list of problems, not the statements; "
            "a problem's own page on a judge, when we hold it, counts as that problem's statement.</p>"]
 
     b.append('<h2 id="region">By region</h2><p class="note">The percentage is the share in the best answer; click a header to sort by it. Every segment opens its contests.</p>')
@@ -3177,7 +3177,7 @@ WANTED = (
         ("no address", {"website": "missing: no address"}, "no website address found yet (contests confirmed to have had none are not counted)"),
         ("address known, no copy", {"website": "missing: no copy"}, "the address is known; we hold no copy"))),
     ("Problems", (
-        ("no problem set recorded", {"problems": "no set"}, "neither a list of the problems nor the archive's holdings"),
+        ("no problem set recorded", {"problems": "no set"}, "neither a list of the problems nor the problem archive's holdings"),
         ("names not listed", {"pmeta": "names: none"}, "the problems are not listed by name"),
         ("letters not known", {"pmeta": "letters: none"}, "which problem had which letter is not known"))
         + tuple((f"{what} missing", {COMP_KEY[key]: "missing"}, f"we do not hold {what} for every problem") for key, _m, what in CV.COMPONENTS)),
@@ -3331,7 +3331,7 @@ def landing_page(series_docs: dict, contests: dict) -> str:
     tiles = [(len(BY_SEASON), "seasons", "season/index.html"), (len(series_docs), "series", "series/index.html"),
              (st["n"], "contests", "contest/index.html"), (len(SETS), "problem sets", "problemset/index.html"),
              (len(PROBLEMS), "problems", "problem/index.html"), (len(cited_docs()), "sources", "source/index.html"),
-             (len(JUDGES), "judges", "judge/index.html"), (len(LOC), "locations", "location/index.html")]
+             (len(JUDGES), "online judges", "judge/index.html"), (len(LOC), "locations", "location/index.html")]
     seasons = [s for s in sorted(BY_SEASON, reverse=True) if any(contests[m].get("status") != "upcoming" for m in BY_SEASON[s])][:8]
     srows = []
     for s in seasons:
@@ -3352,13 +3352,13 @@ def landing_page(series_docs: dict, contests: dict) -> str:
     dark_html = n_link(dark, "", {"results": "none"})
     body = f"""<h1>ICPC contest archive</h1>
 <p class="lede">ICPC contests back to 1977 — and where their websites,
-their results and their problems can still be found: at the original address, in the Wayback Machine, or in this project's own archive.</p>
+their results and their problems can still be found: at its address now, in the Wayback Machine, or in our archive.</p>
 <div class="nums">{tiles_html}</div>
 <p class="note">Search everything with the box at the top right (press <code>/</code>): contest and series ids, names, problems, places, CMS ids, website hosts.</p>
 <h2>What we hold</h2>
 {nums_html}
 <p class="note">Of the {num(st["n"])} contests that ran; a number opens the contests it counts, and <i>missing</i> the ones still wanted.
-We hold no result at all for {dark_html} of them, and {num(n_caps)} captures are stored in all.
+We hold no result at all for {dark_html} of them, and {num(n_caps)} copies are held in all.
 <a href="coverage.html">Coverage</a> breaks this down by region, season and series; <a href="wanted.html">most wanted</a> is the list of what is missing.</p>
 <h2>Start somewhere</h2>
 <div class="cols">
@@ -3405,7 +3405,7 @@ def about_page() -> str:
     objects_dl = dl((
     ('<a href="season/index.html">Season</a>', "From the first regional to the World Finals it feeds. Shown as <i>2024–2025</i>. Its page is the advancement tree."),
     ('<a href="series/index.html">Series</a>', "A line of editions under one name (<i>nwerc</i>). Renamings and splits are recorded as lineage."),
-    ('<a href="contest/index.html">Contest</a>', "One edition (<i>nwerc-2020</i>). The year in the id is the season label, not the date: a fall regional postponed to January keeps its number."),
+    ('<a href="contest/index.html">Contest</a>', "One edition (<i>nwerc-2020</i>). The year in the id is the season label, not the date: an autumn regional postponed to January keeps its number."),
     ('<a href="problemset/index.html">Problem set</a>', "The problems a contest used; nearly always one set per contest, with the same id. Its page says what we hold of it, and what of that the ICPC Problem Archive holds."),
     ('<a href="problem/index.html">Problem</a>', "One problem: where it appeared, what is held, where it can be solved."),
     ('<a href="source/index.html">Source</a>', "An address at a point in time — what it served for a contest — and where that can be found: at the address now, "
@@ -3421,7 +3421,7 @@ def about_page() -> str:
      "<b>Partly held, or a lesser result</b>: lime, amber, orange — the further from green, the less. For results these are the lower levels "
      "(standings, rankings, team list); elsewhere amber means we hold it for some of the problems."),
     ('<span class="pl ql">editorial: link only</span>', "<b>Known at an address, no copy held.</b> A problem set's page on an online judge counts as this for statements and data: "
-     "what we hold of it is the judge's list of problems, not the material. A problem's own page on a judge, when we hold it, counts as that problem's statement."),
+     "what we hold of it is the online judge's list of problems, not the material. A problem's own page on an online judge, when we hold it, counts as that problem's statement."),
     ('<span class="pl q0">packages: none</span>', "<b>Missing</b> — a hole. Everything white is something wanted."),
     ('<span class="pl qu">solutions: not recorded</span>', "A source is known, but what it holds has not been recorded yet."),
     ('<span class="pl qx">CMS id: none</span>', "<b>None exists</b>: looked, and there is none to have (no CMS entry; a contest that had no website). Not missing."),
@@ -3444,7 +3444,7 @@ def about_page() -> str:
     ('<span class="m h">St</span><span class="m l">D</span><span class="m k">So</span><span class="m n">P</span><span class="m u">E</span>',
      "Problems, what we hold of each kind of material: <b>St</b> statements, <b>D</b> test data, <b>So</b> solutions, <b>P</b> complete packages, <b>E</b> editorial. "
      "It counts wherever it comes from: the ICPC Problem Archive, or a source we hold a copy of. Filled green: for every problem. Amber: for some. "
-     "Blue outline: link only — a source that has it is known, we hold no copy (a problem set's page on an online judge is this: our copy is the judge's list, "
+     "Blue outline: link only — a source that has it is known, we hold no copy (a problem set's page on an online judge is this: our copy is the online judge's list, "
      "not the material; a problem's own page on a judge, when we hold it, counts as that problem's statement). "
      "White, outlined: none held and none known — wanted. Dashed: a source is known, but what it holds is not recorded. A complete package counts as statement, test data and solutions too. "
      "On a single problem the marks say what we hold of that problem, from the same places (held for every problem of its set counts for each one; a statement also counts when we hold the problem's own page or statement file on an online judge), "
@@ -3454,7 +3454,7 @@ def about_page() -> str:
      "the marks after it say what we hold of that material."),
     (judge_mark("kattis") + judge_mark("codeforces") + judge_mark("baekjoon") + judge_mark("qoj"),
      "An online judge, shown by its logo (its short name where it has none); hover for the name. Beside a problem the logo opens the problem "
-     "on that judge. Grey: the judge has closed, and the link goes to a Wayback snapshot."),
+     "on that online judge. Grey: the online judge has closed, and the link goes to a Wayback snapshot."),
 ))
     body = f"""<h1>About</h1>
 <p class="lede">What is here, how to read it, and how to help.</p>
@@ -3466,8 +3466,8 @@ def about_page() -> str:
 {objects_dl}
 <p class="intro"><b>Every mention of an object links to its own page</b>, and looks the same wherever it appears. <b>A link stays on this site unless it is
 marked <a class="ext" href="#read">like this</a></b>. In particular the address of a source is never linked directly from a contest or a table: the link goes to the
-source's page, and that page is where you open the address as it is now, the Wayback Machine, or our archived copy. The exceptions are deliberate and marked:
-a problem's online-judge links go straight to the problem on the judge, a contest's CMS links go to the CMS, and an online judge's own site,
+source's page, and that page is where you open the address as it is now, the Wayback Machine, or our copy. The exceptions are deliberate and marked:
+a problem's online-judge links go straight to the problem on the online judge, a contest's CMS links go to the CMS, and an online judge's own site,
 a problem set's repository in the (private) problem archive and a place's GeoNames entry are linked from their own pages.
 A date links to its day in the <a href="calendar/index.html">calendar</a>, where you can see what else ran that day and that weekend.</p>
 <p class="intro">A contest has <b>three kinds of content</b>, always in the same order: its <b>website</b>, its <b>results</b> and its <b>problems</b>.</p>
@@ -3478,7 +3478,7 @@ A date links to its day in the <a href="calendar/index.html">calendar</a>, where
 <p class="intro">A <b>location</b> is where the contest was held: its sites, as places in the location tree. The CMS also lists staff, guest and
 bookkeeping groups as "sites"; those are not places and are never shown. When no real site is recorded, the city the contest's CMS record points at is shown,
 marked <span class="chip n">inferred</span>; a site the CMS names that is not in the tree yet is marked <span class="chip n">not placed</span>, and teams that
-competed remotely <span class="chip n">online</span>. A source that covers only part of a contest says so beside its role, like
+competed remotely <span class="chip n">online</span>. A source that covers only part of a contest says so beside its type, like
 <span class="chip sc">Division 1</span>.</p>
 <p class="intro">For spot checks, <a href="random.html">Random</a> in the header (or the key <b>r</b>) opens a page picked at random.</p>
 
@@ -3532,16 +3532,16 @@ local archive server (below).</p>
 {R.about_text(REPO)}
 
 <h2 id="local">Local archive</h2>
-<p class="intro">Besides the result pages on the public replay site, this project holds a much larger private archive: raw captures of every result page and full
-crawls of <b>{n_sites}</b> contest websites ({n_raw} contests with raw captures in all). That is too big for GitHub Pages, so it is not published yet.
+<p class="intro">Besides the result pages on the public replay site, this project holds a much larger private archive: copies of every result page as fetched and full
+crawls of <b>{num(n_sites)}</b> contest websites ({num(n_raw)} contests with copies in all). That is too big for GitHub Pages, so it is not published yet.
 Links <a class="local" href="{LOCAL_BASE}/" title="{LOCAL_TITLE}">marked like this</a> point at a small server on <b>your own machine</b>
 (<code>{LOCAL_BASE or "this host"}</code>). They work only with the <code>archive</code> repository checked out next to <code>contests</code> and the server running;
 for everyone else they fail to connect.</p>
 <pre><code># in your checkout of the contests repo (archive checked out alongside it)
 python3 tools/index_websites.py     # after new site crawls
 python3 tools/serve.py              # rebuilds the site with local links, serves on 127.0.0.1:8123</code></pre>
-<p class="intro">Then browse <code>http://127.0.0.1:8123/</code> — the same pages as the public site, with every local link live. <b>Open the archived website</b> (on a source's page) plays a crawled
-site back page by page; pages that were not captured go to the Wayback Machine or the live site.</p>
+<p class="intro">Then browse <code>http://127.0.0.1:8123/</code> — the same pages as the public site, with every local link live. <b>Open our copy of the website</b> (on a source's page) plays a crawled
+site back page by page; pages that were not captured go to the Wayback Machine or to their address.</p>
 
 <h2 id="data">Data</h2>
 <p class="intro">The whole catalogue as one file is <a href="catalogue.json">catalogue.json</a>. Typeface: IBM Plex Sans (SIL Open Font License).</p>"""

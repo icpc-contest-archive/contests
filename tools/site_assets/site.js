@@ -47,7 +47,7 @@
     if (!(tbl.classList.contains('flt') || rows.length >= 30)) return;
     const bar = document.createElement('div'); bar.className = 'fbar';
     const box = document.createElement('input');
-    box.type = 'search'; box.placeholder = 'Filter ' + rows.length.toLocaleString() + ' rows'; box.autocomplete = 'off';
+    box.type = 'search'; box.placeholder = 'Filter ' + rows.length.toLocaleString('en-US') + ' rows'; box.autocomplete = 'off';
     box.setAttribute('aria-label', 'Filter rows');
     bar.appendChild(box);
     const sels = [];
@@ -149,7 +149,7 @@
   const q = document.getElementById('q'), out = document.getElementById('hits');
   if (!q || !out) return;
   const HREF = {c: 'contest/', r: 'series/', s: 'problemset/', p: 'problem/', l: 'location/', j: 'judge/', e: 'season/'};
-  const KIND = {c: 'contest', r: 'series', s: 'problem set', p: 'problem', l: 'location', j: 'judge', e: 'season'};
+  const KIND = {c: 'contest', r: 'series', s: 'problem set', p: 'problem', l: 'location', j: 'online judge', e: 'season'};
   const RANK = {e: 0, r: 1, c: 2, l: 3, j: 4, s: 5, p: 6};
   let idx = null, sel = -1;
   const load = () => idx || (idx = fetch(REL + 'search.json').then(r => r.json()));
@@ -252,7 +252,7 @@
   let kind = 'any';
   try { kind = sessionStorage.getItem('rnd') || 'any'; } catch (e) {}
   a.href = rel + 'random.html#' + kind;
-  if (kind !== 'any') a.title = 'Open a random ' + kind + ' page — press r (change the kind on the Random page)';
+  if (kind !== 'any') a.title = 'Open a random ' + ({problemset: 'problem set', judge: 'online judge'}[kind] || kind) + ' page — press r (change the kind on the Random page)';
   document.addEventListener('keydown', e => {
     if (e.key === 'r' && !e.ctrlKey && !e.metaKey && !e.altKey && !/^(INPUT|SELECT|TEXTAREA)$/.test(document.activeElement.tagName)) a.click();
   });

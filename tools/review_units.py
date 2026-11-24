@@ -79,8 +79,8 @@ UNITS: dict[str, dict[str, tuple[str, bool, str]]] = {
         "parent": ("Lies in", False, "the city, region or country it lies in"),
     },
     "judge": {
-        "name": ("Name", False, "the judge's name"),
-        "url": ("Address", False, "the judge's address"),
+        "name": ("Name", False, "the online judge's name"),
+        "url": ("Address", False, "the online judge's address"),
         "status": ("Open or closed", False, "active, or: closed YYYY-MM-DD"),
         "offers": ("Offers", False, "statements, submissions, both or neither"),
     },
