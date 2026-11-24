@@ -3493,7 +3493,7 @@ def non_mainline_page() -> str:
         # each source to its own page, with the three places, like every other list of sources (ruling of 2026-11-24)
         srcs = "<br>".join(role_chip(primary_role(s)) + " " + link_source(s["url"], "", host_label(s["url"], 40), source_time(s, c["id"]), c["id"])
                            + " " + avail_marks(avail(s["url"], c["id"], s)) for s in sources(c))
-        rows.append(f'<tr><td class="name">{esc(c["id"])}<span class="sub">{esc(c.get("name", ""))}</span></td><td class="nw">{link_date(c.get("date"), "")}</td>'
+        rows.append(f'<tr><td class="name">{esc(c["id"])}<span class="sub">{esc(c.get("name", ""))}</span></td><td class="nw">{esc(c.get("date", ""))}</td>'
                     f'<td class="small">{esc(c.get("reason", ""))}</td><td class="small">{srcs}</td>'
                     f'<td class="nw">{set_link(pb["id"], "") if pb else ""}</td><td class="nw">{cms_cell(c)}</td></tr>')
     return page("Non-mainline registry", "<h1>Non-mainline registry</h1>"
