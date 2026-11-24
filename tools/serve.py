@@ -12,8 +12,9 @@ Routes (all on 127.0.0.1:<port>):
   /site/<contest>/<url>     its crawl manifest with in-site links rewritten
   /health                   200 "ok" (CORS) — "is the local server up?"
 
-The public site links to this server at http://127.0.0.1:8123/… wherever an
-archived copy exists; those links only work while this is running.
+Only this local build links copies we hold but do not publish (the private archive's
+captures and the archived websites); the public site says "not published" there
+(since 2026-11-24 it no longer links to 127.0.0.1).
 """
 from __future__ import annotations
 
