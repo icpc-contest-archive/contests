@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: by hand, ruling of 2026-11-24 (swerc-1993 is werc-1993).
 series:
   id: werc
   name: Western European Regional Contest
@@ -12,6 +12,9 @@ series:
   - type: continues-as
     series: nwerc
     year: 1995
+  - type: continues-as
+    series: swerc
+    year: 1994
 contests:
 - id: werc-1992
   season: 1993
@@ -73,8 +76,13 @@ contests:
   location: University College Swansea
   cms_ids: []
   parent: wf-1994
-  next: werc-1994
+  next:
+  - werc-1994
+  - swerc-1994
   sources:
+  - url: http://www.acm.inf.ethz.ch/SWERCHome.html
+    roles:
+    - web
   - url: https://chipcie.wisv.ch/archive/1993/nwercpc/nwerc93.pdf
     roles:
     - problemset
@@ -90,6 +98,23 @@ contests:
     as_of: '19980202011356'
     url_state: dead
     url_checked: '2026-11-23'
+  - url: http://www.acm.inf.ethz.ch/ProblemSetArchive/B_EU_SWERC/1993/index.html
+    roles:
+    - problemset
+    contains:
+    - statement
+    as_of: '19980202011741'
+    url_state: dead
+    url_checked: '2026-11-23'
+  - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=451
+    roles:
+    - problemset
+    contains:
+    - statement
+    judge: livearchive
+    as_of: '20210924114121'
+    url_state: dead
+    url_checked: '2026-11-23'
   problems:
     set: werc-1993
   provenance:
@@ -102,6 +127,9 @@ contests:
     with 25 teams from nine countries.'' — https://www.bcs.org/articles-opinion-and-research/rising-to-the-challenge/
     [existence hunt 2026-10-22]'
   - location read from https://chipcie.wisv.ch/archive/1993/nwercpc/nwerc93.pdf (description round 2026-11-16)
+  - 'swerc-1993 was this contest (ruling 2026-11-24): ETH''s call for SWERC 1994 says Europe was split
+    into West and East in 1993, the West regional at Swansea, and West Europe into a Southwestern and
+    a Northwestern region only for 1994 — https://groups.google.com/g/comp.org.acm/c/1Gt2N7tXcwo/m/rlG3TDDBBwsJ'
 - id: werc-1994
   season: 1995
   name: 1994 Western European Regional Contest

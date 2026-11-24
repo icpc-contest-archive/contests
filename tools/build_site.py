@@ -3768,7 +3768,12 @@ def build(out: Path):
     # ... and one that left it with no CMS id to its name leads to its series
     rc = ROOT / "data" / "retired-contests.json"
     for cid, sid in (json.loads(rc.read_text()) if rc.exists() else {}).items():
-        if cid not in contests and (out / "series" / f"{sid}.html").exists():
+        if cid in contests:
+            continue
+        if sid.startswith("contest/"):          # merged into another contest: its page is that contest's
+            if sid[8:] in contests:
+                stub(out / "contest" / f"{cid}.html", f"{sid[8:]}.html")
+        elif (out / "series" / f"{sid}.html").exists():
             stub(out / "contest" / f"{cid}.html", f"../series/{sid}.html")
     (out / "non-mainline.html").write_text(non_mainline_page())
     (out / "index.html").write_text(landing_page(series_docs, contests))
