@@ -192,7 +192,7 @@ def page(title: str, body: str, rel: str, nav: str | None = None) -> str:
     links += R.header_link(rel)
     return f"""<!doctype html><html lang="en" data-rel="{rel}"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{esc(title)} — ICPC contest archive</title><link rel="icon" href="{rel}assets/favicon.svg">
+<title>{esc(title)}{"" if title == "ICPC contest archive" else " — ICPC contest archive"}</title><link rel="icon" href="{rel}assets/favicon.svg">
 <link rel="stylesheet" href="{rel}assets/site.css"></head><body>
 <header class="site"><a class="brand" href="{rel}index.html"><span class="logo"><i></i><i></i><i></i></span>ICPC contest archive</a>
 <nav>{links}</nav>
@@ -1119,11 +1119,11 @@ def loc_link(nid: str, rel: str, label: str | None = None) -> str:
 
 
 def loc_crumb(nid: str, rel: str, from_node: bool = True) -> str:
-    """institution › city › region › country, each linked (most specific first)."""
+    """institution, city, region, country, each linked (most specific first; › is kept for breadcrumbs, outermost first)."""
     chain = location_chain(LOC, nid)
     if not from_node:
         chain = chain[1:]
-    return " › ".join(loc_link(n["id"], rel) for n in chain)
+    return ", ".join(loc_link(n["id"], rel) for n in chain)
 
 
 def city_and_country(nid: str) -> tuple[str | None, str | None]:
@@ -1146,6 +1146,9 @@ def place_short(nid: str, rel: str) -> str:
     return loc_link(country or nid, rel)
 
 
+INFERRED_TIP = "no contest site is recorded; this is the city the contest's CMS record points at"
+
+
 def place_cell(c: dict, rel: str, maxn: int = 2) -> str:
     """The location cell of a contest row: `City, Country` per distinct place, linked; the
     free-text location (muted, no link) when the contest is not placed in the tree yet."""
@@ -1160,7 +1163,8 @@ def place_cell(c: dict, rel: str, maxn: int = 2) -> str:
     if out:
         more = f' <span class="small muted" title="{len(out)} places">+{len(out) - maxn} more</span>' if len(out) > maxn else ""
         pre = '<span class="muted">online · </span>' if how == "online" else ""
-        return pre + "; ".join(out[:maxn]) + more
+        post = " " + chip("inferred", "n", INFERRED_TIP) if how == "inferred" else ""
+        return pre + "; ".join(out[:maxn]) + more + post
     if any(s.get("type") == "online" for s in c.get("sites") or []):
         return '<span class="muted">online</span>'
     t = free_location(c)
@@ -1482,6 +1486,14 @@ def content_counts(cs: list[dict]) -> dict:
     return {"all": len(cs), "n": n, "upcoming": len(cs) - n}
 
 
+def count_cell(cs: list[dict], rel: str, scope: dict | None) -> str:
+    """The contest count of a group in a table of groups (seasons, series, locations): the contests that ran,
+    opening them (`scope`; None = no link), then the upcoming ones after a +."""
+    st = content_counts(cs)
+    return (f'<td class="num" data-v="{st["n"]}">{n_link(st["n"], rel, scope)}'
+            + (f' <span class="small muted">+{st["upcoming"]}</span>' if st["upcoming"] else "") + "</td>")
+
+
 # the coverage columns of a table whose rows are groups of contests (series, seasons, countries):
 # one small bar per question, the same bars as everywhere else. One or two questions per kind of content.
 INDEX_FACETS = ("results", "list", "statement", "website", "date")
@@ -1687,7 +1699,7 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
         lines.append("Online" + (", organised from " + "; ".join(dict.fromkeys(place_short(n, rel) for n in nodes[:3])) if nodes else ""))
     elif how == "inferred":
         lines.append("; ".join(place_short(n, rel) for n in nodes) + " "
-                     + chip("inferred", "n", "no contest site is recorded; this is the city the contest's CMS record points at"))
+                     + chip("inferred", "n", INFERRED_TIP))
     elif not nodes and free_location(c):
         lines.append(f'{esc(free_location(c))} <span class="small muted">— as recorded; not placed in the location tree yet</span>')
     elif not nodes and any(s.get("type") == "online" for s in all_sites):
@@ -1863,8 +1875,8 @@ def series_page(sid: str, doc: dict, rel: str) -> str:
     else:
         d.append(R.row("rotating_host", "host", "not recorded as rotating"))
     d.append("</dl>")
-    b += d
     b.append(group_nums(doc["contests"], rel, {"series": sid}))
+    b += d
     b.append('<p class="tabs">Jump to: <a href="#coverage">coverage</a> <a href="#where">edition by edition</a> <a href="#editions">editions</a></p>')
     b.append(coverage_section(doc["contests"], rel, {"series": sid}, "this series", "Edition by edition",
                               "A column per edition, oldest first; a row per question. A square opens the contest, <i>n missing</i> opens those editions as a list. A faint outlined square has not run yet.",
@@ -1875,7 +1887,7 @@ def series_page(sid: str, doc: dict, rel: str) -> str:
              + ("season's first half, so an autumn contest postponed into the next year keeps its number." if s.get("naming") != "season-end" else "season's end.") + "</p>")
     b.append(key_line(rel, "results", "website", "held"))
     b.append(contest_table(list(reversed(doc["contests"])), rel,
-                           ("contest", "season", "date", "location", "advances", "results", "problems", "website", "cms")))
+                           ("contest", "date", "location", "season", "advances", "results", "problems", "website", "cms")))
     return page(sid, "\n".join(b), rel, "series/index.html")
 
 
@@ -1887,11 +1899,11 @@ def series_index(series_docs: dict, rel: str) -> str:
         st = content_counts(doc["contests"])
         rows.append(f'<tr><td class="name">{link_series(sid, rel)}<span class="sub">{esc(doc["series"].get("name", ""))}</span></td>'
                     f'<td class="nw">{esc(SERIES_REGION.get(sid, ""))}</td><td class="nw">{esc(level_of(sid))}</td>'
-                    f'<td class="num">{st["n"]}</td><td class="nw" data-v="{y0}">{y0}–{y1}</td>'
+                    + count_cell(doc["contests"], rel, {"series": sid}) + f'<td class="nw" data-v="{y0}">{y0}–{y1}</td>'
                     + group_cells(doc["contests"], rel, {"series": sid}) + f'<td class="small">{lineage_chips(doc, rel)}</td></tr>')
     return page("Series", "<h1>Series</h1>"
                 f'<p class="intro">{len(series_docs)} series. A series is a line of editions under one name; when a contest was renamed or split, '
-                "the lineage column says what it continues from or as. The contest counts are editions that ran.</p>"
+                "the lineage column says what it continues from or as. The contest counts are editions that ran (upcoming ones after the +).</p>"
                 + table([th("series"), th("region", f=True), th("level", f=True), th("contests", num=True), th("years")] + group_heads() + [th("lineage")],
                         rows, "flt"), rel, "series/index.html")
 
@@ -1939,12 +1951,14 @@ def season_tree(season: int, members: list[str], rel: str, root: str | None = No
         meta = " · ".join(x for x in (link_date(c.get("date"), rel), place_cell(c, rel, 1)) if x)
         return link_contest(cid, rel) + f'<span class="meta">{meta} {result_marks(c, rel)}</span>'
 
-    def node(cid):
+    def node(cid, up=None):
         seen.add(cid)
+        also = [p for p in refs(CONTESTS[cid].get("parent")) if p in mset and p != up] if up else []
+        lab = label(cid) + (f' <span class="meta">also advances to {", ".join(link_contest(p, rel, False) for p in also)}</span>' if also else "")
         kids = sorted(k for k in CHILDREN.get(cid, []) if k in mset and k not in seen)
         if not kids:
-            return f'<div class="leaf">{label(cid)}</div>'
-        return f"<details open><summary>{label(cid)}</summary>" + "\n".join(node(k) for k in kids) + "</details>"
+            return f'<div class="leaf">{lab}</div>'
+        return f"<details open><summary>{lab}</summary>" + "\n".join(node(k, cid) for k in kids) + "</details>"
 
     wf_id = root or f"wf-{season}"
     tree = f'<div class="tree">{node(wf_id)}</div>' if wf_id in CONTESTS and wf_id in mset else ""
@@ -1965,22 +1979,22 @@ def season_page(season: int, members: list[str], rel: str) -> str:
         d.append('<dt>World Finals</dt><dd class="muted">none in the catalogue for this season</dd>')
     if win:
         start, end, early, late, _wf = win
-        d.append(f"<dt>dates</dt><dd>{esc(start)} to {esc(end)}" + ("" if _wf else ' <span class="muted">— no dated World Finals, so the season ends at its last contest</span>') + "</dd>")
+        d.append(f"<dt>dates</dt><dd>{link_date(start, rel)} to {link_date(end, rel)}" + ("" if _wf else ' <span class="muted">— no dated World Finals, so the season ends at its last contest</span>') + "</dd>")
         if early or late:
             foot = []
             if early:
-                foot.append("before them: " + ", ".join(f"{link_contest(m, rel, False)} ({esc(dd)})" for dd, m in early))
+                foot.append("before them: " + ", ".join(f"{link_contest(m, rel, False)} ({link_date(dd, rel)})" for dd, m in early))
             if late:
-                foot.append("after the World Finals: " + ", ".join(f"{link_contest(m, rel, False)} ({esc(dd)})" for dd, m in late))
+                foot.append("after the World Finals: " + ", ".join(f"{link_contest(m, rel, False)} ({link_date(dd, rel)})" for dd, m in late))
             d.append("<dt>outside these dates</dt><dd>" + "; ".join(foot)
                      + ' <span class="muted">— part of this season, but run well apart from the rest of it. The dates above are those of the '
                        "season's main run, from its first cluster of contests to the World Finals, so one early or late contest does not stretch them.</span></dd>")
     d.append(f'<dt>contests</dt><dd>{len(members)} — <a href="{esc(flt_href(rel, {"season": season}))}">open them as a table</a></dd>')
     d.append("</dl>")
-    body += d
     places = {n for c in cs for n in held_at(c)[0]}
     countries = {city_and_country(n)[1] for n in places} - {None}
     body.append(group_nums(cs, rel, {"season": season}, f'<div class="pt"><b>{len(places)}</b><span class="tl-l">location{"s" if len(places) != 1 else ""} in {len(countries)} countr{"ies" if len(countries) != 1 else "y"}</span></div>'))
+    body += d
     body.append('<p class="tabs">Jump to: <a href="#coverage">coverage</a> <a href="#where">contest by contest</a> <a href="#hierarchy">who advances where</a></p>')
     by_r = [(r, sorted((c for c in cs if SERIES_REGION.get(SERIES_OF[c["id"]]) == r), key=lambda c: c["id"])) for r in REGIONS]
     body.append(coverage_section(cs, rel, {"season": season}, "this season's contests", "Contest by contest",
@@ -2014,9 +2028,8 @@ def season_index(rel: str) -> str:
         rows.append(f'<tr><td class="nw" data-v="{season}">{link_season(season, rel)}</td>'
                     f'<td class="nw">{link_contest(wf["id"], rel) if wf else ""}</td>'
                     f'<td class="nw" data-v="{esc(wf.get("date", "")) if wf else ""}">{link_date(wf.get("date"), rel) if wf else ""}</td><td>{place_cell(wf, rel, 1) if wf else ""}</td>'
-                    f'<td class="nw small">{esc(win[0]) + " to " + esc(win[1]) if win else ""}</td>'
-                    f'<td class="num">{st["n"]}' + (f' <span class="small muted">+{st["upcoming"]}</span>' if st["upcoming"] else "") + "</td>"
-                    + group_cells(cs, rel, {"season": season}) + "</tr>")
+                    f'<td class="nw small">{link_date(win[0], rel) + " to " + link_date(win[1], rel) if win else ""}</td>'
+                    + count_cell(cs, rel, {"season": season}) + group_cells(cs, rel, {"season": season}) + "</tr>")
     return page("Seasons", "<h1>Seasons</h1>"
                 f'<p class="intro">{len(BY_SEASON)} seasons. A season runs from its first regional to the World Finals those regionals feed; '
                 "its page shows who advances where. The contest counts are contests that ran (upcoming ones after the +); "
@@ -2060,11 +2073,11 @@ def calendar_page(year: int, rel: str) -> str:
     i = years.index(year)
     nav = " ".join(x for x in (f'<a href="{years[i - 1]}.html">← {years[i - 1]}</a>' if i else "",
                                f'<a href="{years[i + 1]}.html">{years[i + 1]} →</a>' if i + 1 < len(years) else "") if x)
-    b = [crumbs(f'<a href="{rel}calendar/index.html">Calendar</a>'), f"<h1>{year}</h1>"]
+    b = [crumbs(f'<a href="{rel}calendar/index.html">Calendar</a>'), f"<h1>Calendar {year}</h1>"]
     if dated:
         busiest = per_day.most_common(1)[0]
         b.append(f'<p class="lede">{len(dated)} contest{"s" if len(dated) != 1 else ""} on {len(per_day)} day{"s" if len(per_day) != 1 else ""}'
-                 + (f"; the busiest was {busiest[0]} with {busiest[1]}" if busiest[1] > 2 else "") + ".</p>")
+                 + (f"; the busiest was {link_date(busiest[0], rel)} with {busiest[1]}" if busiest[1] > 2 else "") + ".</p>")
     b.append(f'<p class="tabs">{nav}</p>')
     if dated:
         b.append(key_line(rel, "results", "website", "held"))
@@ -2668,9 +2681,9 @@ def loc_row(nid: str, rel: str, within: str | None = None) -> str:
     kids = Counter(LOC[k]["type"] for k in LOC_KIDS.get(nid, []))
     below = ", ".join(f"{v} {'cities' if t == 'city' else t + 's'}" if v != 1 else f"1 {t}" for t, v in sorted(kids.items(), key=lambda kv: TYPE_ORDER[kv[0]]))
     return (f'<tr><td>{loc_link(nid, rel)}</td><td class="nw">{esc(n["type"])}</td>'
-            f'<td class="small">{" › ".join(loc_link(x["id"], rel) for x in chain)}</td>'
-            + ("" if within else f'<td class="nw small">{esc(country)}</td>')
-            + f'<td class="num">{len(LOC_SUB.get(nid, ()))}</td><td class="num">{len(set(LOC_DIRECT.get(nid, [])))}</td>'
+            f'<td class="small">{", ".join(loc_link(x["id"], rel) for x in chain)}</td>'
+            + ("" if within else f'<td class="hid">{esc(country)}</td>')
+            + count_cell([CONTESTS[c] for c in LOC_SUB.get(nid, ())], rel, {"loc": nid}) + count_cell([CONTESTS[c] for c in set(LOC_DIRECT.get(nid, []))], rel, None) +
             f'<td class="nw" data-v="{ys[0] if ys else ""}">{ys[0] if ys else ""}</td><td class="nw" data-v="{ys[1] if ys else ""}">{ys[1] if ys else ""}</td>'
             f'<td class="small muted">{below}</td></tr>')
 
@@ -2722,7 +2735,8 @@ def location_page(nid: str, rel: str) -> str:
         def at(c):
             here = [x for x in held_at(c)[0] if x == nid or any(a["id"] == nid for a in location_chain(LOC, x))]
             spots = [loc_link(x, rel) for x in dict.fromkeys(here) if x != nid]
-            return '<td class="small">' + (", ".join(spots[:3]) + (f" +{len(spots) - 3}" if len(spots) > 3 else "") if spots else '<span class="muted">here</span>') + "</td>"
+            return ('<td class="small">' + (", ".join(spots[:3]) + (f" +{len(spots) - 3}" if len(spots) > 3 else "") if spots else '<span class="muted">here</span>')
+                    + (" " + chip("inferred", "n", INFERRED_TIP) if held_at(c)[1] == "inferred" else "") + "</td>")
         b.append(key_line(rel, "results", "website", "held"))
         b.append(contest_table(cs, rel, ("contest+name", "date", "series", "season", "results", "problems", "website"),
                                extra=(th("location"), at)))
@@ -2744,7 +2758,7 @@ def location_index(rel: str) -> str:
         ys = loc_years(nid)
         desc = [k for k in LOC if any(x["id"] == nid for x in location_chain(LOC, k)[1:])]
         cities = sorted((k for k in desc if LOC[k]["type"] == "city"), key=lambda k: -len(LOC_SUB.get(k, ())))
-        crows.append(f'<tr><td class="nw">{loc_link(nid, rel)}</td><td class="num">{len(cs)}</td>'
+        crows.append(f'<tr><td class="nw">{loc_link(nid, rel)}</td>' + count_cell(cs, rel, {"loc": nid}) +
                      f'<td class="nw" data-v="{ys[0] if ys else ""}">{f"{ys[0]}–{ys[1]}" if ys else ""}</td>'
                      f'<td class="num">{len(cities)}</td><td class="num">{sum(1 for k in desc if LOC[k]["type"] == "institution")}</td>'
                      f'<td class="small">{", ".join(loc_link(k, rel) + f" <span class=muted>{len(LOC_SUB.get(k, ()))}</span>" for k in cities[:4] if LOC_SUB.get(k))}</td>'
@@ -2753,14 +2767,15 @@ def location_index(rel: str) -> str:
     return page("Locations", "<h1>Locations</h1>"
                 f'<p class="intro">Where contests were held, as one tree: {types["country"]} countries, {types["region"]} states and provinces, '
                 f'{num(types["city"])} cities and {num(types["institution"])} institutions. {num(n_placed)} of the {num(len(ran))} contests that ran are placed in it '
-                f"({pct(n_placed, len(ran))}%); the rest are known only by a line of text, or not at all. A contest counts for the place it was held and for everything that place is in.</p>"
+                f"({pct(n_placed, len(ran))}%); the rest are known only by a line of text, or not at all. A contest counts for the place it was held and for everything that place is in; "
+                "the counts are contests that ran (upcoming ones after the +).</p>"
                 f'<div class="nums"><div><b>{types["country"]}</b><span>countries</span></div><div><b>{types["region"]}</b><span>states and provinces</span></div>'
                 f'<div><b>{num(types["city"])}</b><span>cities</span></div><div><b>{num(types["institution"])}</b><span>institutions</span></div></div>'
                 f'<p class="tabs"><a href="#countries">Countries</a> <a href="#all">Every location</a></p>'
                 f'<h2 id="countries">Countries <span class="n">{len(countries)}</span></h2>'
                 + table([th("country"), th("contests", num=True), th("years"), th("cities", num=True), th("institutions", num=True), th("most often in")] + group_heads(), crows)
                 + f'<h2 id="all">Every location <span class="n">{num(len(LOC))}</span></h2>'
-                + table([th("location"), th("type", f=True), th("in"), th("country", f=True), th("contests", num=True, title="contests held here or anywhere inside"),
+                + table([th("location"), th("type", f=True), th("in"), th("country", f=True, hid=True), th("contests", num=True, title="contests held here or anywhere inside"),
                          th("exactly here", num=True, title="contests whose site is this very place"), th("first"), th("latest"), th("contains")], arows, "flt"),
                 rel, "location/index.html")
 
@@ -3060,7 +3075,7 @@ def season_strips(cs: list[dict], rel: str, scope: dict) -> str:
     for c in cs:
         by_s[season_of(c)].append(c)
     seasons = sorted(by_s)
-    head = '<tr><th></th>' + "".join(f'<th class="vy">{link_season(s, rel, str(s)) if s in BY_SEASON else s}</th>' for s in seasons) + "</tr>"
+    head = '<tr><th></th>' + "".join(f'<th class="vy">{link_season(s, rel) if s in BY_SEASON else s}</th>' for s in seasons) + "</tr>"
     body = []
     for g in GROUPS:
         body.append(f'<tr class="mg"><td colspan="{len(seasons) + 1}">{esc(g)}</td></tr>')
@@ -3288,6 +3303,9 @@ def cms_page(contests: dict) -> str:
     if prop_p.exists():
         for e in (yaml.safe_load(prop_p.read_text()).get("proposed") or []):
             cms_rows.setdefault(int(e["cms_id"]), (f'proposed: {e.get("reason")}', "", esc(str(e.get("name") or ""))))
+    for c in NM:   # real contests outside the hierarchy that have a CMS entry (registry/non-mainline.yaml)
+        for i in (c.get("cms_ids") or []):
+            cms_rows.setdefault(int(i), ("non-mainline registry", "", esc(str(c.get("name") or c["id"]))))
     wl_p = ROOT / "data" / "reconciliation-worklist.json"
     if wl_p.exists():
         for e in json.loads(wl_p.read_text()):
@@ -3303,7 +3321,7 @@ def cms_page(contests: dict) -> str:
             for i, (st, link, name) in sorted(cms_rows.items())]
     return page("CMS id ledger", "<h1>CMS id ledger</h1>"
                 f'<p class="intro">Every contest id of the ICPC CMS this project has looked at: {num(len(cms_rows))} ids — {num(counts["in the catalogue"])} are contests in the catalogue, '
-                f'{num(counts["excluded"])} are excluded with a reason ({reasons}), {num(counts["proposed"])} carry a proposed '
+                f'{num(counts["excluded"])} are excluded with a reason ({reasons}), {num(counts["non-mainline registry"])} are contests of the <a href="non-mainline.html">non-mainline registry</a>, {num(counts["proposed"])} carry a proposed '
                 f'class nobody has reviewed, and {num(counts["not judged"])} have not been judged at all.</p>'
                 + table([th("CMS id", num=True), th("contest"), th("status", f=True), th("name in the CMS"), th("in the CMS")], rows, "flt"), "", "coverage.html")
 
@@ -3340,12 +3358,12 @@ def landing_page(series_docs: dict, contests: dict) -> str:
         finals = ""
         if wf:
             where = place_cell(wf, "", 1)
-            finals = " · finals " + link_contest(wf["id"], "", False) + (" in " + where if where else "")
+            finals = " · finals " + link_contest(wf["id"], "") + (" in " + where if where else "")
         srows.append("<li>" + link_season(s, "") + f' <span class="muted">{n_ran} contests{finals}</span></li>')
     rrows = []
     for r in REGIONS:
         n = sum(1 for c in cs if SERIES_REGION.get(SERIES_OF[c["id"]]) == r and c.get("status") != "upcoming")
-        rrows.append(f'<li><a href="{esc(flt_href("", {"region": r}))}">{esc(r)}</a> <span class="muted">{num(n)} contests</span></li>')
+        rrows.append(f'<li>{n_link(n, "", {"region": r}, esc(r))} <span class="muted">{num(n)} contests</span></li>')
     tiles_html = "".join(f'<div><b>{num(n)}</b><span><a href="{h}">{lab}</a></span></div>' for n, lab, h in tiles)
     srows_html, rrows_html = "".join(srows), "".join(rrows)
     nums_html = '<div class="pts">' + headline_tiles(cs, "", {}) + "</div>"
