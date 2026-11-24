@@ -1715,10 +1715,10 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
     elif how == "inferred":
         lines.append("; ".join(place_short(n, rel) for n in nodes) + " "
                      + chip("inferred", "n", INFERRED_TIP))
-    elif not nodes and free_location(c):
-        lines.append(f'{esc(free_location(c))} <span class="small muted">— as recorded; not placed in the location tree yet</span>')
     elif not nodes and any(s.get("type") == "online" for s in all_sites):
         lines.append("Online")
+    elif not nodes and free_location(c):
+        lines.append(f'{esc(free_location(c))} <span class="small muted">— as recorded; not placed in the location tree yet</span>')
     if phys:
         lines.append("<br>".join(phys) if len(phys) <= 6 else f"<details><summary>{len(phys)} sites</summary>{'<br>'.join(phys)}</details>")
     if remote:
@@ -1772,11 +1772,13 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
                 seen.add(id(e))
                 res_entries.append(e)
     matched = {"a/" + p for e in sources(c) for p in archived(e)} | {REPLAY_LOOKUP.get((cid, norm_key(e["url"]))) for e in sources(c)}
+    shown = {norm_key(e["url"]) for e in sources(c)}   # an address the contest cites is listed once, as its source
     extra = []
     for e in REPLAY_BY_CONTEST.get(cid, []):  # replay pages the catalogue does not point at
-        if e["path"] in matched or e.get("at") in matched or e.get("artifact") == "problemset" or not e.get("url"):
+        if e["path"] in matched or e.get("at") in matched or e.get("artifact") == "problemset" or not e.get("url") or norm_key(e["url"]) in shown:
             continue
         matched.add(e["path"])
+        shown.add(norm_key(e["url"]))
         extra.append(f'<tr><td>{role_chip(e["artifact"])}{chip("not listed yet", "n", "we hold a copy; it is not yet listed as a source of this contest")}</td>'
                      f'<td class="url">{link_source(e["url"], rel, res_label(e["url"], None, 90), None, cid)}</td>' + avail_cell(e["url"], cid) + "</tr>")
     ev = evidence_lines(c)
@@ -1963,7 +1965,7 @@ def season_tree(season: int, members: list[str], rel: str, root: str | None = No
 
     def label(cid):
         c = CONTESTS[cid]
-        meta = " · ".join(x for x in (link_date(c.get("date"), rel), place_cell(c, rel, 1)) if x)
+        meta = " · ".join(x for x in (link_date(c.get("date"), rel), place_cell(c, rel)) if x)
         return link_contest(cid, rel) + f'<span class="meta">{meta} {result_marks(c, rel)}</span>'
 
     def node(cid, up=None):
@@ -2170,6 +2172,10 @@ def set_card(sid: str, doc: dict, rel: str) -> str:
     members = set_members(doc)
     fc = set_first_contest(doc)
     pr = COV.problems(fc if fc and set_id_of(fc) == sid else {"id": (members or [sid])[0], "problems": {"set": sid}, "sources": []})
+    sat = [CONTESTS[m] for m in members if m in CONTESTS and did_run(CONTESTS[m]) and set_id_of(CONTESTS[m]) == sid]
+    if len(sat) > 1:   # letters are per contest: the set has them all only when every contest that sat it has
+        ls = {COV.problems(m)["pmeta"]["letters"] for m in sat}
+        pr = {**pr, "pmeta": {**pr["pmeta"], "letters": ls.pop() if len(ls) == 1 else "some"}}   # a copy: the record is the first contest's too
     s = {"list": pr["set"], **pr["pmeta"], **pr["problems"]}
     groups = []
     for g in ("Problem metadata", "Problems"):
