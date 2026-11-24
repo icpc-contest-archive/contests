@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: nordic
   name: ICPC Nordic Collegiate Programming Contest
@@ -417,6 +417,8 @@ contests:
   location: NTNU; KTH - Royal Institute of Technology; Lund University; Linköping University; University
     of Helsinki; University of Bergen; Chalmers; Umeå University; Administrative Site Location; Reykjavik
     University; University of Aarhus; University of Oslo
+  cms_ids:
+  - 50
   sites:
   - location: se-umea-university
   - location: se-lund-university
@@ -431,8 +433,6 @@ contests:
   - location: no-trondheim-ntnu
   - location: fi-espoo-tkk
   - type: administrative
-  cms_ids:
-  - 50
   parent: nwerc-2008
   next: nordic-2009
   sources:
@@ -451,6 +451,7 @@ contests:
   - url: http://www.csc.kth.se/contest/ncpc/2008/standings/?icpc
     roles:
     - scoreboard
+    scope: ICPC-eligible teams only
     as_of: '20081006224651'
     archived:
     - nordic/nordic-2008/external-standings/2026-04-15-external/content.html
@@ -461,7 +462,6 @@ contests:
     url_state: live
     url_checked: '2026-11-16'
     note: from archived capture (external-standings)
-    scope: ICPC-eligible teams only
   - url: https://icpcarchive.github.io/Europe%20Subcontests/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)/2008%20Nordic%20Collegiate%20Programming%20Contest/problems.pdf
     roles:
     - problemset
@@ -490,7 +490,7 @@ contests:
     note: NCPC 2008
   - url: https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202008%2C%20adapted%20from%20Andrew%20Stankevich%20Contest%2017%2C%20Petrozavodsk%2C%20February%202%2C%202006
     roles:
-    - problem
+    - problemset
     contains:
     - statement
     judge: kattis
