@@ -16,7 +16,10 @@ CMS DB entry remains *considered*.
   with the reason: `cancelled` (no proof it happened; the CMS auto-copies contests across
   years, so ghost entries are common), `camp` (training camps), `challenge`
   (challenge-style contests), `junk` (test/garbage entries), `minor` (real contests
-  outside the mainline), `structural` (hierarchy nodes, not contests).
+  outside the mainline), `structural` (hierarchy nodes, not contests), `preliminary` (an online
+  first round or qualifier of a contest in the catalogue), `special` (contests for a particular
+  group: women's, teens', team-formation rounds), `non-mainline` (a family ruled out of the mainline
+  as a whole, such as the Caribbean qualifier from 2022).
 - `registry/non-mainline.yaml` — real contests with no CMS id that exist outside the
   hierarchy (university opens etc.). Reference material, not catalogue members.
 
