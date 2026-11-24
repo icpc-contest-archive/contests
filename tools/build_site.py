@@ -403,7 +403,7 @@ TIERS = (("scoreboard", "S"), ("standings", "Sd"), ("rankings", "R"), ("teams", 
 TIER_LABEL = CV.LEVEL_LABEL
 ROLE_LABEL = {"frozen_scoreboard": "frozen scoreboard", "teams": "team list",
               "problemset": "problem set", "web": "website",
-              "web-mirror": "website", "external-standings": "standings"}   # the last two: the archive's names for copies ("not listed yet" rows)
+              "web-mirror": "website", "external-standings": "standings"}   # the last two: the archive's names for copies
 HELD_KINDS = (("statement", "St", "statements"), ("data", "D", "test data"),
               ("solutions", "So", "solutions"), ("package", "P", "packages"))
 # what a problem set or problem source holds (`contains:`), in the words of a page
@@ -1817,19 +1817,10 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
             if id(e) not in seen:
                 seen.add(id(e))
                 res_entries.append(e)
-    matched = {"a/" + p for e in sources(c) for p in archived(e)} | {REPLAY_LOOKUP.get((cid, norm_key(e["url"]))) for e in sources(c)}
-    shown = {norm_key(e["url"]) for e in sources(c)}   # an address the contest cites is listed once, as its source
-    extra = []
-    for e in REPLAY_BY_CONTEST.get(cid, []):  # replay pages the catalogue does not point at
-        if e["path"] in matched or e.get("at") in matched or e.get("artifact") == "problemset" or not e.get("url") or norm_key(e["url"]) in shown:
-            continue
-        matched.add(e["path"])
-        shown.add(norm_key(e["url"]))
-        t = (doc_for(e["url"], cid) or {}).get("time")   # the time of the source the row opens, as on every other row
-        extra.append(f'<tr><td>{role_chip(e["artifact"])}{chip("not listed yet", "n", "we hold a copy; it is not yet listed as a source of this contest")}</td>'
-                     f'<td class="url">{link_source(e["url"], rel, res_label(e["url"], t, 90), t, cid)}</td>' + avail_cell(e["url"], cid) + "</tr>")
-    if res_entries or extra:
-        b.append(source_table(cid, res_entries, rel, "results", extra))
+    # only the sources the catalogue cites are listed: a copy the archive holds of an address the contest does not cite stays in the
+    # archive (the "not listed yet" rows were triaged once and dropped, ruling of 2026-11-24)
+    if res_entries:
+        b.append(source_table(cid, res_entries, rel, "results"))
     elif c.get("status") == "upcoming":
         b.append('<p class="empty">Not run yet.</p>')
     else:
@@ -3525,7 +3516,6 @@ def about_page() -> str:
      "and of which we hold no copy: their archive mark says <i>lost</i>. Gone unless someone kept one."),
     (chip("1 only here", "h"), "A source of any type gone from its address and not in the Wayback Machine, but we hold a copy — as far as we know the only one."),
     (chip("upcoming", "n"), "The contest has not run yet. Nothing about its problems is published before it has."),
-    (chip("not listed yet", "n"), "Beside a row of the results: we hold a copy of a page about this contest that is not yet listed as one of its sources."),
 ))
     marks_dl = dl((
     ('<span class="m q4">S</span><span class="m q3">Sd</span><span class="m q2">R</span><span class="m q1">T</span><span class="m q4">F</span>',
