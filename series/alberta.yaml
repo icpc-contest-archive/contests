@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: alberta
   name: ICPC Alberta Collegiate Programming Contest
@@ -278,16 +278,20 @@ contests:
   name: 2012 ICPC Alberta Contest
   date: '2012-10-13'
   location: Administrative Site Location; Calgary, Alberta
+  cms_ids:
+  - 1397
   sites:
   - location: ca-calgary-university
   - type: administrative
-  cms_ids:
-  - 1397
   next: alberta-2013
   sources:
   - url: http://psc.cpsc.ucalgary.ca/acpc/
     roles:
     - web
+  - url: http://psc.cpsc.ucalgary.ca/acpc/2012/
+    roles:
+    - web
+    as_of: '20191115004640'
   - url: http://psc.cpsc.ucalgary.ca/acpc/2012/contest/scores.php
     roles:
     - scoreboard
@@ -300,11 +304,11 @@ contests:
     roles:
     - scoreboard
     as_of: '20200702103207'
-    note: found inside http://psc.cpsc.ucalgary.ca/acpc/ by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - alberta/alberta-2012/scoreboard/20200702-wayback-65bcc31b/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://psc.cpsc.ucalgary.ca/acpc/ by the content check
   - url: https://onlinejudge.org/contests/316-032efa2f/
     roles:
     - problemset

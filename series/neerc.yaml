@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: neerc
   name: Northeastern Europe Regional Contest
@@ -257,6 +257,7 @@ contests:
     date: '1999-09-30'
   - name: NEERC'99 Sub Regionals
     date: '1999-09-24'
+    type: administrative
   parent: wf-2000
   next: neerc-2000
   sources:
@@ -769,6 +770,10 @@ contests:
   - url: http://neerc.ifmo.ru/
     roles:
     - web
+  - url: http://neerc.ifmo.ru/archive/2003.html
+    roles:
+    - web
+    as_of: '20210413210551'
   - url: https://nerc.itmo.ru/archive/2003/standings.html
     roles:
     - scoreboard
@@ -850,6 +855,8 @@ contests:
   location: Far Eastern SU; Belarus State University; Tashkent; Kazakhstan; St. Petersburg IFMO; Armenia;
     Bishkek; SouthUral State University; Novosibirsk STU; Saratov State University; Krasnoyarsk TU; Moscow
     State University
+  cms_ids:
+  - 967
   sites:
   - location: ru-chelyabinsk-susu
     name: Eastern Subregion
@@ -881,14 +888,16 @@ contests:
     name: Far Eastern Subregion
   - location: ru-rybinsk-rsatu
     name: Central Subregion
-  cms_ids:
-  - 967
   parent: wf-2005
   next: neerc-2005
   sources:
   - url: http://neerc.ifmo.ru/
     roles:
     - web
+  - url: http://neerc.ifmo.ru/archive/2004.html
+    roles:
+    - web
+    as_of: '20210413202951'
   - url: https://nerc.itmo.ru/archive/2004/standings.html
     roles:
     - scoreboard
@@ -921,11 +930,11 @@ contests:
     contains:
     - statement
     judge: codeforces
+    url_state: live
+    url_checked: '2026-11-23'
     note: '2004-2005 ACM-ICPC Northeastern European Regional Contest (NEERC 04) (judge hunt 2026-11-03:
       name+year: ''2004-2005 ACM-ICPC Northeastern European Regional Contest (NEERC 04)'' -> season start
       2004)'
-    url_state: live
-    url_checked: '2026-11-23'
   problems:
     set: neerc-2004
 - id: neerc-2005
@@ -977,6 +986,10 @@ contests:
   - url: http://neerc.ifmo.ru/
     roles:
     - web
+  - url: http://neerc.ifmo.ru/archive/2005.html
+    roles:
+    - web
+    as_of: '20210413210440'
   - url: https://nerc.itmo.ru/archive/2005/standings.html
     roles:
     - scoreboard
@@ -990,12 +1003,12 @@ contests:
     roles:
     - standings
     as_of: '20051203021312'
-    note: restored with the snapshot of this edition by the data scan 2026-11-23 (urls); the copies we
-      held were of a later edition
-    url_state: dead
-    url_checked: '2026-11-23'
     archived:
     - neerc/neerc-2005/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-23'
+    note: restored with the snapshot of this edition by the data scan 2026-11-23 (urls); the copies we
+      held were of a later edition
   - url: https://nerc.itmo.ru/archive/2005/problems/problems.pdf
     roles:
     - problemset
@@ -1075,6 +1088,10 @@ contests:
   - url: http://neerc.ifmo.ru
     roles:
     - web
+  - url: http://neerc.ifmo.ru/archive/2006.html
+    roles:
+    - web
+    as_of: '20210413202312'
   - url: https://nerc.itmo.ru/archive/2006/standings.html
     roles:
     - scoreboard
@@ -1088,12 +1105,12 @@ contests:
     roles:
     - standings
     as_of: '20061206034210'
-    note: restored with the snapshot of this edition by the data scan 2026-11-23 (urls); the copies we
-      held were of a later edition
-    url_state: dead
-    url_checked: '2026-11-23'
     archived:
     - neerc/neerc-2006/external-standings/2026-04-15-external/content.html
+    url_state: dead
+    url_checked: '2026-11-23'
+    note: restored with the snapshot of this edition by the data scan 2026-11-23 (urls); the copies we
+      held were of a later edition
   - url: https://neerc.ifmo.ru/archive/2006/problems/problems.pdf
     roles:
     - problemset
@@ -1179,6 +1196,10 @@ contests:
   - url: http://neerc.ifmo.ru
     roles:
     - web
+  - url: http://neerc.ifmo.ru/archive/2007.html
+    roles:
+    - web
+    as_of: '20210413210325'
   - url: https://nerc.itmo.ru/archive/2007/standings.html
     roles:
     - scoreboard
@@ -1231,19 +1252,23 @@ contests:
   name: 2008 Northeastern Europe Contest
   date: '2008-11-26'
   location: Tashkent; Batumi; Barnaul; St Petersburg
+  cms_ids:
+  - 24
   sites:
   - location: ru-barnaul
   - location: uz-tashkent
   - location: ge-batumi
   - location: ru-saint-petersburg
-  cms_ids:
-  - 24
   parent: wf-2009
   next: neerc-2009
   sources:
   - url: http://nerc.itmo.ru/
     roles:
     - web
+  - url: http://nerc.itmo.ru/archive/2008.html
+    roles:
+    - web
+    as_of: '20191118043239'
   - url: https://nerc.itmo.ru/archive/2008/standings.html
     roles:
     - scoreboard
@@ -1302,19 +1327,23 @@ contests:
   name: 2009 Northeastern Europe Contest
   date: '2009-11-11'
   location: St Petersburg; Barnaul; Tashkent; Tbilisi
+  cms_ids:
+  - 523
   sites:
   - location: ru-barnaul
   - location: uz-tashkent
   - location: ge-tbilisi
   - location: ru-saint-petersburg
-  cms_ids:
-  - 523
   parent: wf-2010
   next: neerc-2010
   sources:
   - url: http://nerc.itmo.ru/
     roles:
     - web
+  - url: http://nerc.itmo.ru/archive/2009.html
+    roles:
+    - web
+    as_of: '20191118033925'
   - url: https://nerc.itmo.ru/archive/2009/standings.html
     roles:
     - scoreboard
@@ -1369,12 +1398,12 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20170706060016'
     url_state: live
     url_checked: '2026-11-23'
     note: '2009-2010 ACM-ICPC Northeastern European Regional Contest (NEERC 09) (judge hunt 2026-11-03:
       name+year: ''2009-2010 ACM-ICPC Northeastern European Regional Contest (NEERC 09)'' -> season start
       2009)'
-    as_of: '20170706060016'
   problems:
     set: neerc-2009
 - id: neerc-2010
@@ -1396,6 +1425,10 @@ contests:
   - url: http://nerc.itmo.ru/
     roles:
     - web
+  - url: http://nerc.itmo.ru/archive/2010.html
+    roles:
+    - web
+    as_of: '20191118041317'
   - url: https://nerc.itmo.ru/archive/2010/standings.html
     roles:
     - scoreboard
@@ -1472,6 +1505,10 @@ contests:
   - url: http://nerc.itmo.ru/
     roles:
     - web
+  - url: http://nerc.itmo.ru/archive/2011.html
+    roles:
+    - web
+    as_of: '20191118031931'
   - url: https://nerc.itmo.ru/archive/2011/standings.html
     roles:
     - scoreboard
@@ -1486,9 +1523,9 @@ contests:
     roles:
     - scoreboard
     as_of: '20130901071433'
-    note: 'found by the data scan 2026-11-23 (moved from neerc-2005: standings-with-time 2011-2012 NEERC)'
     url_state: dead
     url_checked: '2026-11-23'
+    note: 'found by the data scan 2026-11-23 (moved from neerc-2005: standings-with-time 2011-2012 NEERC)'
   - url: https://icpc.global/regionals/finder/Northeastern-Europe-2012/standings
     roles:
     - standings
@@ -1554,6 +1591,10 @@ contests:
   - url: http://nerc.itmo.ru/
     roles:
     - web
+  - url: http://nerc.itmo.ru/archive/2012.html
+    roles:
+    - web
+    as_of: '20191118042033'
   - url: https://nerc.itmo.ru/archive/2012/standings.html
     roles:
     - scoreboard
@@ -1636,6 +1677,10 @@ contests:
   - url: http://nerc.itmo.ru/
     roles:
     - web
+  - url: http://nerc.itmo.ru/archive/2013.html
+    roles:
+    - web
+    as_of: '20191118032648'
   - url: https://nerc.itmo.ru/archive/2013/standings.html
     roles:
     - scoreboard
@@ -1707,20 +1752,24 @@ contests:
   name: 2014 Northeastern Europe Regional Contest
   date: '2014-12-07'
   location: Tbilisi; Barnaul; Tashkent; St Petersburg; Administrative Site Location
+  cms_ids:
+  - 2672
   sites:
   - location: ge-tbilisi
   - location: ru-barnaul
   - location: uz-tashkent
   - type: administrative
   - location: ru-saint-petersburg
-  cms_ids:
-  - 2672
   parent: wf-2015
   next: neerc-2015
   sources:
   - url: http://nerc.itmo.ru/
     roles:
     - web
+  - url: http://nerc.itmo.ru/archive/2014.html
+    roles:
+    - web
+    as_of: '20191118042735'
   - url: https://nerc.itmo.ru/archive/2014/standings.html
     roles:
     - scoreboard
@@ -1769,9 +1818,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-23'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Northern-Eurasia/ICPC-Northern-Eurasia-Finals/The-2014-Northeastern-Europe-Regional-Contest/tutorials_en.pdf
     roles:
     - editorial
@@ -1781,9 +1830,9 @@ contests:
     roles:
     - editorial
     as_of: '20260613064452'
-    note: found inside http://nerc.itmo.ru/ by the content check
     url_state: live
     url_checked: '2026-11-23'
+    note: found inside http://nerc.itmo.ru/ by the content check
   problems:
     set: neerc-2014
 - id: neerc-2015
@@ -1791,20 +1840,24 @@ contests:
   name: 2015 Northeastern Europe Regional Contest
   date: '2015-12-06'
   location: Barnaul; St Petersburg; Tbilisi; Tashkent; Administrative Site Location
+  cms_ids:
+  - 2752
   sites:
   - location: uz-tashkent
   - location: ge-tbilisi
   - location: ru-barnaul
   - location: ru-saint-petersburg
   - type: administrative
-  cms_ids:
-  - 2752
   parent: wf-2016
   next: neerc-2016
   sources:
   - url: http://nerc.itmo.ru/
     roles:
     - web
+  - url: http://nerc.itmo.ru/archive/2015.html
+    roles:
+    - web
+    as_of: '20191118033400'
   - url: https://nerc.itmo.ru/archive/2015/standings.html
     roles:
     - scoreboard
@@ -1851,19 +1904,19 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20160409015226'
     url_state: live
     url_checked: '2026-11-23'
     note: '2015-2016 ACM-ICPC Northeastern European Regional Contest (NEERC 15) (judge hunt 2026-11-03:
       name+year: ''2015-2016 ACM-ICPC Northeastern European Regional Contest (NEERC 15)'' -> season start
       2015)'
-    as_of: '20160409015226'
   - url: https://qoj.ac/contest/1100
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-23'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Northern-Eurasia/ICPC-Northern-Eurasia-Finals/The-2015-Northeastern-Europe-Regional-Contest/tutorials_en.pdf
     roles:
     - editorial
@@ -1873,9 +1926,9 @@ contests:
     roles:
     - editorial
     as_of: '20260613055524'
-    note: found inside http://nerc.itmo.ru/ by the content check
     url_state: live
     url_checked: '2026-11-23'
+    note: found inside http://nerc.itmo.ru/ by the content check
   problems:
     set: neerc-2015
 - id: neerc-2016
@@ -1897,6 +1950,10 @@ contests:
   - url: http://nerc.itmo.ru/
     roles:
     - web
+  - url: http://nerc.itmo.ru/archive/2016.html
+    roles:
+    - web
+    as_of: '20191118043435'
   - url: https://nerc.itmo.ru/archive/2016/standings.html
     roles:
     - scoreboard
@@ -1911,9 +1968,9 @@ contests:
     roles:
     - scoreboard
     as_of: '20240615101317'
-    note: 'found by the data scan 2026-11-23 (moved from neerc-2007: 2016-2017 NEERC standings)'
     url_state: dead
     url_checked: '2026-11-23'
+    note: 'found by the data scan 2026-11-23 (moved from neerc-2007: 2016-2017 NEERC standings)'
   - url: https://icpc.global/regionals/finder/Northeastern-Europe-2017/standings
     roles:
     - standings

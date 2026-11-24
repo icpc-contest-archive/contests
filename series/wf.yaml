@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: wf
   name: ACM Programming Contest World Finals
@@ -1022,6 +1022,7 @@ contests:
   sites:
   - location: nl-eindhoven
   - name: Africa
+    type: administrative
   - location: nl-eindhoven
     name: 1999 World Finals Staff
     type: administrative
@@ -1100,6 +1101,7 @@ contests:
   - location: us-orlando
   - location: us-orlando
     name: Africa and the Middle East
+    type: administrative
   - location: us-orlando
     name: 2000 World Finals Staff
     type: administrative
@@ -1182,6 +1184,7 @@ contests:
   - location: ca-vancouver
   - location: ca-vancouver
     name: Africa and the Middle East
+    type: administrative
   - location: ca-vancouver
     name: 2001 World Finals Staff
     type: administrative
@@ -1259,6 +1262,7 @@ contests:
   - location: us-honolulu
     name: Africa and the Middle East
     date: '2002-03-23'
+    type: administrative
   - location: us-honolulu
     name: 2002 World Finals Staff
     date: '2002-03-23'
@@ -1340,6 +1344,7 @@ contests:
   - location: us-beverly-hills
     name: Africa and the Middle East
     date: '2003-03-25'
+    type: administrative
   - location: us-beverly-hills
     name: 2003 World Finals Staff
     date: '2003-03-25'
@@ -1350,6 +1355,10 @@ contests:
   - url: http://icpc.baylor.edu/icpc/finals/
     roles:
     - web
+  - url: http://icpc.baylor.edu/dmt/tour2003.asp
+    roles:
+    - web
+    as_of: '20060901103821'
   - url: https://cphof.org/standings/icpc/2003
     roles:
     - standings
@@ -1416,6 +1425,10 @@ contests:
   - url: http://icpc.baylor.edu/icpc/finals
     roles:
     - web
+  - url: http://icpc.baylor.edu/dmt/tour2004.asp
+    roles:
+    - web
+    as_of: '20060901111015'
   - url: https://cphof.org/standings/icpc/2004
     roles:
     - standings
@@ -1481,6 +1494,7 @@ contests:
   - location: cn-shanghai
     name: Africa and the Middle East
     date: '2005-04-06'
+    type: administrative
   - location: cn-shanghai
     name: 2005 World Finals Staff
     date: '2005-04-06'
@@ -1491,6 +1505,10 @@ contests:
   - url: http://icpc.baylor.edu/icpc/finals/
     roles:
     - web
+  - url: http://icpc.baylor.edu/dmt/tour2005.asp
+    roles:
+    - web
+    as_of: '20060901103621'
   - url: https://cphof.org/standings/icpc/2005
     roles:
     - standings
@@ -1538,18 +1556,23 @@ contests:
   - location: us-san-antonio
     name: Baylor Alumni
     date: '2006-04-12'
+    type: administrative
   - location: us-san-antonio
     name: Baylor Student Hosts
     date: '2006-04-12'
+    type: administrative
   - location: us-san-antonio
     name: Baylor Competitive Learning Workshop
     date: '2006-04-12'
+    type: administrative
   - location: us-san-antonio
     name: Baylor Orchestra
     date: '2006-04-12'
+    type: administrative
   - location: us-san-antonio
     name: Africa and the Middle East
     date: '2006-04-12'
+    type: administrative
   - location: us-san-antonio
     name: 2006 World Finals Staff
     date: '2006-04-12'
@@ -1622,6 +1645,7 @@ contests:
   - location: jp-tokyo
   - location: jp-tokyo-acm-japan-chapter
     date: '2007-03-15'
+    type: administrative
   - location: jp-tokyo
     name: 2007 World Finals Staff
     date: '2007-03-15'
@@ -1629,8 +1653,10 @@ contests:
   - location: jp-tokyo
     name: Africa and the Middle East
     date: '2007-03-15'
+    type: administrative
   - location: jp-tokyo-ibm-research-lab
     date: '2007-03-15'
+    type: administrative
   parent: null
   next: wf-2008
   sources:
@@ -1690,17 +1716,19 @@ contests:
   name: 2008 ACM Programming Contest World Finals
   date: '2008-04-09'
   location: Banff, Canada
+  cms_ids:
+  - 960
   sites:
   - location: ca-banff
   - location: ca-banff
     name: U of Alberta Host
+    type: administrative
   - location: ca-banff
     name: Africa and the Middle East
+    type: administrative
   - location: ca-banff
     name: 2008 World Finals Staff
     type: administrative
-  cms_ids:
-  - 960
   parent: null
   next: wf-2009
   sources:
@@ -1772,9 +1800,11 @@ contests:
     type: administrative
   - name: Africa and the Middle East
     date: '2009-04-21'
+    type: administrative
   - location: se-stockholm
     name: IBM
     date: '2009-04-21'
+    type: administrative
   - location: se-stockholm-kth
     date: '2009-04-21'
   - type: administrative
@@ -1879,29 +1909,33 @@ contests:
   name: 34th Annual World Finals of the ACM International Collegiate Programming Contest
   date: '2010-02-05'
   location: Harbin, China
+  cms_ids:
+  - 490
   sites:
   - location: cn-harbin
   - location: cn-harbin
     name: Awards
+    type: administrative
   - location: cn-harbin
     name: Guests
     type: administrative
   - location: cn-harbin
     name: IBM
+    type: administrative
   - location: cn-harbin-heu-hosts
+    type: administrative
   - location: cn-harbin
     name: CLI Symposium
     type: administrative
   - location: cn-harbin
     name: Africa and the Middle East
+    type: administrative
   - location: cn-harbin
     name: ICPC Headquarters
     type: administrative
   - location: cn-harbin
     name: ICPC Staff
     type: administrative
-  cms_ids:
-  - 490
   parent: null
   next: wf-2011
   sources:
@@ -1967,9 +2001,9 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-23'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://www.acmicpc.net/category/detail/2057
     roles:
     - problem
@@ -2003,9 +2037,11 @@ contests:
   - location: us-orlando
     name: Africa and the Middle East
     date: '2011-05-30'
+    type: administrative
   - location: us-orlando
     name: IBM
     date: '2011-05-30'
+    type: administrative
   - location: us-orlando
     name: Egypt Volunteers
     date: '2011-05-30'
@@ -2155,9 +2191,11 @@ contests:
   - location: pl-warsaw
     name: IBM
     date: '2012-05-17'
+    type: administrative
   - location: pl-warsaw
     name: Africa and the Middle East
     date: '2012-05-17'
+    type: administrative
   - location: pl-warsaw
     name: Host Volunteers
     date: '2012-05-17'
@@ -2284,6 +2322,7 @@ contests:
   - location: ru-saint-petersburg
     name: IBM
     date: '2013-07-03'
+    type: administrative
   - location: ru-saint-petersburg
     name: CLICS+Live
     date: '2013-07-03'
@@ -2295,6 +2334,7 @@ contests:
   - location: ru-saint-petersburg
     name: Africa and the Middle East
     date: '2013-07-03'
+    type: administrative
   - location: ru-saint-petersburg
     name: Guests
     date: '2013-07-03'
@@ -2429,9 +2469,11 @@ contests:
     type: administrative
   - location: ru-yekaterinburg
     name: IBM
+    type: administrative
   - type: administrative
   - location: ru-yekaterinburg
     name: Africa and the Middle East
+    type: administrative
   - location: ru-yekaterinburg
     name: Guests
     type: administrative
@@ -2530,10 +2572,13 @@ contests:
   name: 39th Annual World Finals of the ACM International Collegiate Programming Contest
   date: '2015-05-20'
   location: Marrakech, Morocco
+  cms_ids:
+  - 2409
   sites:
   - location: ma-marrakesh
   - location: ma-marrakesh
     name: Africa and the Middle East
+    type: administrative
   - location: ma-marrakesh
     name: CLI Symposium
     type: administrative
@@ -2551,12 +2596,11 @@ contests:
     type: administrative
   - location: ma-marrakesh
     name: IBM
+    type: administrative
   - location: ma-marrakesh
     name: Host Student Volunteers
     type: administrative
   - type: administrative
-  cms_ids:
-  - 2409
   parent: null
   next: wf-2016
   sources:
@@ -2613,21 +2657,21 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2015 ACM-ICPC World Finals (judge hunt 2026-11-03: name+year: ''2015 ACM-ICPC World Finals''
-      -> 2015)'
     as_of: '20170706040006'
     url_state: live
     url_checked: '2026-11-23'
+    note: '2015 ACM-ICPC World Finals (judge hunt 2026-11-03: name+year: ''2015 ACM-ICPC World Finals''
+      -> 2015)'
   - url: https://qoj.ac/contest/280
     roles:
     - problemset
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221003150150'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: wf-2015
 - id: wf-2016
@@ -2752,12 +2796,15 @@ contests:
   name: 41st Annual World Finals of the ACM International Collegiate Programming Contest
   date: '2017-05-24'
   location: Rapid City, SD, USA
+  cms_ids:
+  - 3007
   sites:
   - location: us-rapid-city
   - name: Operations
     type: administrative
   - location: us-rapid-city
     name: Africa and the Middle East
+    type: administrative
   - location: us-rapid-city
     name: CLI Symposium
     type: administrative
@@ -2779,14 +2826,17 @@ contests:
     type: administrative
   - location: us-rapid-city
     name: IBM
-  cms_ids:
-  - 3007
+    type: administrative
   parent: null
   next: wf-2018
   sources:
   - url: http://icpc.baylor.edu
     roles:
     - web
+  - url: https://icpc.baylor.edu/community/history-icpc-2017
+    roles:
+    - web
+    as_of: '20171027104851'
   - url: https://zibada.guru/finals/2017/
     roles:
     - scoreboard
@@ -2860,21 +2910,21 @@ contests:
     contains:
     - statement
     judge: codeforces
-    note: '2017 ACM-ICPC World Finals (judge hunt 2026-11-03: name+year: ''2017 ACM-ICPC World Finals''
-      -> 2017)'
+    as_of: '20190409085157'
     url_state: live
     url_checked: '2026-11-23'
-    as_of: '20190409085157'
+    note: '2017 ACM-ICPC World Finals (judge hunt 2026-11-03: name+year: ''2017 ACM-ICPC World Finals''
+      -> 2017)'
   - url: https://qoj.ac/contest/414
     roles:
     - problemset
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221203233408'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: wf-2017
 - id: wf-2018
@@ -2882,10 +2932,13 @@ contests:
   name: 42nd Annual World Finals of the International Collegiate Programming Contest
   date: '2018-04-19'
   location: Beijing, China
+  cms_ids:
+  - 3241
   sites:
   - location: cn-beijing
   - location: cn-beijing
     name: Host Leaders
+    type: administrative
   - type: administrative
   - name: UPE
     type: administrative
@@ -2903,6 +2956,7 @@ contests:
     type: administrative
   - location: cn-beijing
     name: Host Sponsors
+    type: administrative
   - location: cn-beijing
     name: ICPC Sponsors
     type: administrative
@@ -2932,14 +2986,15 @@ contests:
     type: administrative
   - location: cn-beijing
     name: Africa and the Middle East
+    type: administrative
   - location: cn-beijing
     name: Operations
+    type: administrative
   - location: cn-beijing
     name: Contest Control System
+    type: administrative
   - name: ICPC Events
     type: administrative
-  cms_ids:
-  - 3241
   parent: null
   next: wf-2019
   sources:
@@ -3007,21 +3062,21 @@ contests:
     - statement
     - solutions
     judge: codeforces
-    note: '2018 ACM-ICPC World Finals (judge hunt 2026-11-03: name+year: ''2018 ACM-ICPC World Finals''
-      -> 2018)'
     as_of: '20200807000442'
     url_state: live
     url_checked: '2026-11-23'
+    note: '2018 ACM-ICPC World Finals (judge hunt 2026-11-03: name+year: ''2018 ACM-ICPC World Finals''
+      -> 2018)'
   - url: https://qoj.ac/contest/425
     roles:
     - problemset
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221005115826'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: wf-2018
 - id: wf-2019
@@ -3188,6 +3243,7 @@ contests:
     type: administrative
   - location: ru-moscow
     name: Host Volunteer
+    type: administrative
   - name: ICPCNews
     type: administrative
   - name: CLI Symposium
@@ -3210,6 +3266,7 @@ contests:
     type: administrative
   - location: ru-moscow
     name: Host Sponsors
+    type: administrative
   - name: ICPC Contest Control System, Analytics & Graphics
     type: administrative
   parent: null
@@ -3588,6 +3645,7 @@ contests:
   - name: Sponsors
     type: administrative
   - name: Africa and Arabia
+    type: administrative
   - name: ICPC Operations
     type: administrative
   - name: Host Leaders
@@ -3807,6 +3865,8 @@ contests:
   name: 49th Annual World Championship of the International Collegiate Programming Contest
   date: '2025-09-04'
   location: Baku, Azerbaijan
+  cms_ids:
+  - 8732
   sites:
   - location: az-baku
   - name: ICPC Staff
@@ -3846,14 +3906,13 @@ contests:
     type: administrative
   - location: az-baku
     name: Africa and Arabia
+    type: administrative
   - name: ICPC Operations
     type: administrative
   - name: Host Staff
     type: administrative
   - name: Host Guest
     type: administrative
-  cms_ids:
-  - 8732
   parent: null
   next: wf-2026
   sources:
@@ -3914,17 +3973,17 @@ contests:
     contains:
     - statement
     judge: kattis
+    as_of: '20250917101805'
     url_state: live
     url_checked: '2026-11-23'
     note: Kattis problem-sources page (export source "ICPC World Finals 2025", 2026-11-02)
-    as_of: '20250917101805'
   - url: https://qoj.ac/contest/2522
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-23'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: wf-2025
 - id: wf-2026

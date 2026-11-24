@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: ukiepc
   name: ICPC UK & Ireland Programming Contest
@@ -662,6 +662,8 @@ contests:
     London; University of Lincoln; Queens University Belfast (QUB only); DCU (DCU Only); Brunel University
     London; Other Universities; Edinburgh University (Edinburgh only); Nottingham, UK; University of Portsmouth
     (Portsmouth teams only)
+  cms_ids:
+  - 4509
   sites:
   - location: gb-nottingham
     name: University of Nottingham (Notts teams only)
@@ -677,7 +679,7 @@ contests:
   - location: gb-london-imperial
     type: online
   - name: Other Universities
-    type: online
+    type: administrative
   - location: gb-lincoln-university
   - location: gb-edinburgh-university
     type: online
@@ -690,8 +692,6 @@ contests:
     name: University of Portsmouth (Portsmouth teams only)
   - location: gb-coventry-warwick
     type: online
-  cms_ids:
-  - 4509
   parent: nwerc-2020
   next: ukiepc-2021
   sources:
@@ -737,18 +737,18 @@ contests:
     contains:
     - statement
     judge: kattis
-    note: Kattis problem-sources page (export source "United Kingdom and Ireland Programming Contest (UKIEPC)
-      2020", 2026-11-02)
+    as_of: '20231001054106'
     url_state: live
     url_checked: '2026-11-23'
-    as_of: '20231001054106'
+    note: Kattis problem-sources page (export source "United Kingdom and Ireland Programming Contest (UKIEPC)
+      2020", 2026-11-02)
   - url: https://qoj.ac/contest/2734
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-23'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Europe/Northwestern-Europe/UK-Ireland-Programming-Contest/The-2020-ICPC-UK-Ireland-Programming-Contest/tutorials_en.pdf
     roles:
     - editorial
@@ -764,6 +764,8 @@ contests:
     only); Edinburgh University (Edinburgh only); University of Hull (Hull teams only); Manchester Uni;
     Department of CS & Tech; DCU (DCU Only); University of Portsmouth; Administrative Site Location; Aberystwyth
     University (Online only - Aber only)
+  cms_ids:
+  - 4927
   sites:
   - type: administrative
   - location: gb-nottingham
@@ -783,7 +785,7 @@ contests:
   - location: ie-dublin-dcu
     type: administrative
   - name: General Registration (online)
-    type: online
+    type: administrative
   - location: gb-manchester-university
     type: administrative
   - location: gb-coventry-warwick
@@ -795,8 +797,6 @@ contests:
   - name: Aberystwyth University (Online - Aber teams only)
     type: online
   - location: gb-bath-university
-  cms_ids:
-  - 4927
   parent: nwerc-2021
   next: ukiepc-2022
   sources:
@@ -839,7 +839,7 @@ contests:
   sites:
   - type: administrative
   - name: General Registration (online)
-    type: online
+    type: administrative
   - location: ie-dublin-dcu
     type: administrative
   - location: gb-belfast-qub
@@ -899,6 +899,8 @@ contests:
     University of Hull (Hull teams only); University of Bristol (Bristol only); Queens University Belfast
     (QUB only); Newcastle Unviersity; Brunel University London; University of Sussex; Manchester Uni;
     General Registration (online)
+  cms_ids:
+  - 7597
   sites:
   - type: administrative
   - location: gb-belfast-qub
@@ -906,7 +908,7 @@ contests:
   - location: ie-dublin-dcu
     type: administrative
   - name: General Registration (online)
-    type: online
+    type: administrative
   - location: gb-manchester-university
     type: administrative
   - type: administrative
@@ -933,8 +935,6 @@ contests:
   - location: gb-liverpool-university
   - location: gb-newcastle-upon-tyne-newcastle
   - location: ie-cork-university-college
-  cms_ids:
-  - 7597
   parent: nwerc-2023
   next: ukiepc-2024
   sources:
@@ -994,17 +994,17 @@ contests:
     - statement
     - solutions
     judge: codeforces
-    note: '2023 United Kingdom and Ireland Programming Contest (UKIEPC 2023) (judge hunt 2026-11-03: name+year:
-      ''2023 United Kingdom and Ireland Programming Contest (UKIEPC 2023)'' -> season start 2023)'
     url_state: live
     url_checked: '2026-11-23'
+    note: '2023 United Kingdom and Ireland Programming Contest (UKIEPC 2023) (judge hunt 2026-11-03: name+year:
+      ''2023 United Kingdom and Ireland Programming Contest (UKIEPC 2023)'' -> season start 2023)'
   - url: https://qoj.ac/contest/1432
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-23'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Europe/Northwestern-Europe/UK-Ireland-Programming-Contest/The-2023-ICPC-UK-Ireland-Programming-Contest/tutorials.pdf
     roles:
     - editorial
@@ -1019,6 +1019,8 @@ contests:
   location: Edinburgh University; University of Warwick (Warwick only); Computer Science; Aberystwyth
     University (Aber only); University of Sussex; DCU (DCU Only); General Registration (online); Administrative
     Site Location; Imperial College London; University of Bristol (Bristol only); Nottingham, UK; 1
+  cms_ids:
+  - 9007
   sites:
   - type: administrative
   - location: gb-belfast-qub
@@ -1026,7 +1028,7 @@ contests:
   - location: ie-dublin-dcu
     type: administrative
   - name: General Registration (online)
-    type: online
+    type: administrative
   - location: gb-newcastle-upon-tyne-newcastle
   - location: gb-aberystwyth-university
     type: administrative
@@ -1060,8 +1062,6 @@ contests:
   - location: gb-aberdeen-university
   - location: gb-lancaster-university
   - location: gb-leeds-university
-  cms_ids:
-  - 9007
   parent: nwerc-2024
   next: ukiepc-2025
   sources:
@@ -1114,10 +1114,10 @@ contests:
     - statement
     - solutions
     judge: codeforces
-    note: '2024 United Kingdom and Ireland Programming Contest (UKIEPC 2024) (judge hunt 2026-11-03: name+year:
-      ''2024 United Kingdom and Ireland Programming Contest (UKIEPC 2024)'' -> season start 2024)'
     url_state: live
     url_checked: '2026-11-23'
+    note: '2024 United Kingdom and Ireland Programming Contest (UKIEPC 2024) (judge hunt 2026-11-03: name+year:
+      ''2024 United Kingdom and Ireland Programming Contest (UKIEPC 2024)'' -> season start 2024)'
   problems:
     set: ukiepc-2024
   provenance:

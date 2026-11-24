@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: south-pacific
   name: ICPC South Pacific Independent Regional Contest
@@ -772,6 +772,8 @@ contests:
   location: Melbourne, Victoria; Launceston, Tasmania; Adelaide, South Australia; Administration; Brisbane,
     Queensland; Perth, Western Australia; Auckland, New Zealand; Canberra, ACT; Uni of New South Wales;
     Dunedin, New Zealand
+  cms_ids:
+  - 1135
   sites:
   - location: au-melbourne
   - location: au-adelaide
@@ -785,14 +787,16 @@ contests:
   - type: administrative
   - location: nz-dunedin
   - location: au-canberra
-  cms_ids:
-  - 1135
   parent: wf-2004
   next: south-pacific-2004
   sources:
   - url: http://www.SPPContest.org
     roles:
     - web
+  - url: http://www.sppcontest.org/PlanningMeeting2003.html
+    roles:
+    - web
+    as_of: '20031213121025'
   - url: https://sppcontests.org/archive/2003-icpc-results/
     roles:
     - standings
@@ -816,11 +820,11 @@ contests:
     roles:
     - standings
     as_of: '20031008164848'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: unknown
-    url_checked: '2026-11-13'
     archived:
     - south-pacific/south-pacific-2003/standings/20031008-wayback-2c7cf547/page.html
+    url_state: unknown
+    url_checked: '2026-11-13'
+    note: added by url-hunt 2026-09-01 (cms-api)
   - url: https://www.cs.auckland.ac.nz/~mjd/prog_contest/problems/SPPC2003.pdf
     roles:
     - problemset
@@ -834,9 +838,9 @@ contests:
     - problemset
     contains:
     - statement
+    as_of: '20031008142942'
     url_state: dead
     url_checked: '2026-11-23'
-    as_of: '20031008142942'
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=176
     roles:
     - problemset
@@ -2320,6 +2324,8 @@ contests:
   name: 2020 ICPC South Pacific Independent Regional Contest
   date: '2020-10-17'
   location: Administrative Site Location
+  cms_ids:
+  - 4316
   sites:
   - type: administrative
   - location: fj-suva-usp
@@ -2349,14 +2355,16 @@ contests:
     name: Invercargill
   - location: nz-palmerston-north-massey
     name: Palmerston North
-  cms_ids:
-  - 4316
   parent: wf-2021
   next: south-pacific-2021
   sources:
   - url: http://130.216.216.249/
     roles:
     - web
+  - url: http://130.216.216.249/calendar-2020/
+    roles:
+    - web
+    as_of: '20201026131605'
   - url: https://sppcontests.org/wp-content/uploads/2024/07/2020_archive/2020_Regionals-Div1_Scoreboard.pdf
     roles:
     - scoreboard

@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: ncna
   name: ICPC North America North Central Regional Contest
@@ -2753,7 +2753,7 @@ contests:
   - type: administrative
   - location: us-beatrice
     name: Universal Registration Site
-    type: online
+    type: administrative
   parent: nadc-2021
   next: ncna-2021
   sources:
@@ -3033,6 +3033,8 @@ contests:
   date: '2023-11-04'
   location: Orange City, Iowa; Administrative Site Location; Houghton, MI; Marquette, MI; Indianola; Sioux
     Falls, SD; Ames, Iowa; St. Joseph, MN; Decorah; Lincoln, NE; Parkville, MO; Ontario
+  cms_ids:
+  - 7456
   sites:
   - type: administrative
   - location: ca-brandon-university
@@ -3072,14 +3074,16 @@ contests:
   - location: ca-sault-ste-marie-algoma-university
   - location: us-cedar-falls-uni
   - location: us-oshkosh-wisconsin
-  cms_ids:
-  - 7456
   parent: nac-2024
   next: ncna-2024
   sources:
   - url: https://na.icpc.global/ncna-home/
     roles:
     - web
+  - url: https://na.icpc.global/ncna/regionals2023-24/
+    roles:
+    - web
+    as_of: '20240916135030'
   - url: https://ncna23.kattis.com/contests/ncna23/standings
     roles:
     - scoreboard
@@ -3116,22 +3120,22 @@ contests:
     contains:
     - statement
     judge: kattis
+    as_of: '20241211085229'
     url_state: live
     url_checked: '2026-11-23'
     note: Kattis problem-sources page (export source "North Central North America Regional Contest 2023",
       2026-11-02)
-    as_of: '20241211085229'
   - url: https://open.kattis.com/problem-sources/North%20Central%20North%20America%20Regional%20Programming%20Contest%202023
     roles:
     - problemset
     contains:
     - statement
     judge: kattis
+    as_of: '20241204210449'
     url_state: live
     url_checked: '2026-11-23'
     note: Kattis problem-sources page (export source "North Central North America Regional Programming
       Contest 2023", 2026-11-02)
-    as_of: '20241204210449'
   problems:
     set: ncna-2023
 - id: ncna-2024

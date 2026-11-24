@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: tap
   name: Torneo Argentino de Programación
@@ -397,7 +397,7 @@ contests:
   - location: ar-neuquen
   - location: ar-chilecito
   - name: '**Virtual**'
-    type: online
+    type: administrative
   - location: ar-santa-fe-utn
     name: Santa fe (UTN)
   - location: ar-rosario
@@ -417,9 +417,9 @@ contests:
     archived:
     - tap/tap-2020/scoreboard/20210411-wayback-f0eabaee/page.html
     - tap/tap-2020/scoreboard/20261116-live-c9e00ebb/page.html
-    note: added by the no-sources hunt 2026-11-16
     url_state: live
     url_checked: '2026-11-23'
+    note: added by the no-sources hunt 2026-11-16
   - url: https://icpc.global/regionals/finder/TAP-2021/standings
     roles:
     - standings
@@ -431,18 +431,18 @@ contests:
     - problemset
     contains:
     - statement
-    note: found by the data scan 2026-11-23 (Latin American shared set (first-phase booklet names the
-      contests that used it))
     url_state: live
     url_checked: '2026-11-23'
+    note: found by the data scan 2026-11-23 (Latin American shared set (first-phase booklet names the
+      contests that used it))
   - url: https://aapc.org.ar/wp-content/uploads/2026/05/tap2020.pdf
     roles:
     - problemset
     contains:
     - statement
-    note: found by the data scan 2026-11-23 (organisers past-editions page (aapc.org.ar))
     url_state: live
     url_checked: '2026-11-23'
+    note: found by the data scan 2026-11-23 (organisers past-editions page (aapc.org.ar))
   notes: '55 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))'
 - id: tap-2021
   season: 2022
@@ -469,7 +469,7 @@ contests:
   - location: ar-neuquen
   - location: ar-chilecito
   - name: '**Virtual**'
-    type: online
+    type: administrative
   - location: ar-santa-fe-utn
     name: Santa fe (UTN)
   - location: ar-rosario
@@ -486,11 +486,11 @@ contests:
     roles:
     - scoreboard
     scope: Argentina
-    note: found by the data scan 2026-11-23 (combined Latin American first-phase BOCA board on scorelatam.naquadah.com.br,
-      Argentina section)
     as_of: '20211205192848'
     url_state: live
     url_checked: '2026-11-23'
+    note: found by the data scan 2026-11-23 (combined Latin American first-phase BOCA board on scorelatam.naquadah.com.br,
+      Argentina section)
   - url: https://icpc.global/regionals/finder/TAP-2022/standings
     roles:
     - standings

@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: mcpc
   name: ICPC North America Mid-Central Regional Contest
@@ -2799,6 +2799,8 @@ contests:
   location: Administrative Site Location; Microsite - At coaches school; Webster University; Louisville,
     KY; Bolivar, MO; University of Kentucky; Springfield, IL; Fort Smith, Arkansas; Purdue University
     Northwest; Highland Heights, Kentucky; Martin, TN; St. Louis
+  cms_ids:
+  - 7460
   sites:
   - type: administrative
   - location: us-springfield-il-uis
@@ -2817,14 +2819,16 @@ contests:
   - location: us-martin
     name: Tennessee Martin
   - location: us-lexington-kentucky
-  cms_ids:
-  - 7460
   parent: nac-2024
   next: mcpc-2024
   sources:
   - url: https://na.icpc.global/mcna/
     roles:
     - web
+  - url: https://na.icpc.global/mcna/about/
+    roles:
+    - web
+    as_of: '20240329112345'
   - url: https://mcpc23.kattis.com/contests/mcpc23/standings
     roles:
     - scoreboard
@@ -2860,17 +2864,17 @@ contests:
     - problemset
     scope: Division 1
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; Div. 1)
     url_state: live
     url_checked: '2026-11-23'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; Div. 1)
   - url: https://qoj.ac/contest/1754
     roles:
     - problemset
     scope: Division 2
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; Div. 2)
     url_state: live
     url_checked: '2026-11-23'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; Div. 2)
   problems:
     set: mcpc-2023
 - id: mcpc-2024

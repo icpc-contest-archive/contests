@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: germany
   name: ICPC German Collegiate Programming Contest
@@ -1555,10 +1555,13 @@ contests:
   date: '2025-07-05'
   location: Universitaet Mainz; Bochum; Trier; Potsdam; Passau; Karlsruhe; TU Dresden; Göttingen; Aachen;
     CPUlm; Dortmund; Administrative Site Location
+  cms_ids:
+  - 9375
   sites:
   - location: de
     name: Test
     date: '2025-01-01'
+    type: administrative
   - type: administrative
   - location: de-trier
   - location: de-passau
@@ -1589,13 +1592,12 @@ contests:
   - location: de
     name: Test2
     date: '2025-07-05'
+    type: administrative
   - location: de-aachen
     date: '2025-07-05'
   - location: de
     name: CPUlm
     date: '2025-07-05'
-  cms_ids:
-  - 9375
   parent: nwerc-2025
   next: germany-2026
   sources:
@@ -1635,27 +1637,27 @@ contests:
     contains:
     - statement
     judge: kattis
-    note: Kattis problem-sources page (export source "German Collegiate Programming Contest (GCPC) 2025",
-      2026-11-02)
     url_state: live
     url_checked: '2026-11-23'
+    note: Kattis problem-sources page (export source "German Collegiate Programming Contest (GCPC) 2025",
+      2026-11-02)
   - url: https://codeforces.com/gym/106129
     roles:
     - problemset
     contains:
     - statement
     judge: codeforces
-    note: '2025-2026 ICPC German Collegiate Programming Contest (GCPC 2025) (judge hunt 2026-11-03: name+year:
-      ''2025-2026 ICPC German Collegiate Programming Contest (GCPC 2025)'' -> season start 2025)'
     url_state: live
     url_checked: '2026-11-23'
+    note: '2025-2026 ICPC German Collegiate Programming Contest (GCPC 2025) (judge hunt 2026-11-03: name+year:
+      ''2025-2026 ICPC German Collegiate Programming Contest (GCPC 2025)'' -> season start 2025)'
   - url: https://qoj.ac/contest/2535
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-23'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://icpcarchive.github.io/Europe/Northwestern-Europe/German-Collegiate-Programming-Contest/The-2025-ICPC-German-Collegiate-Programming-Contest/tutorials_en.pdf
     roles:
     - editorial
@@ -1664,9 +1666,9 @@ contests:
   - url: https://2025.gcpc.nwerc.eu/solutions.pdf
     roles:
     - editorial
+    as_of: '20251015080519'
     url_state: live
     url_checked: '2026-11-23'
-    as_of: '20251015080519'
   problems:
     set: germany-2025
   provenance:
@@ -1681,6 +1683,7 @@ contests:
   - type: administrative
   - location: de
     name: Test
+    type: administrative
   - location: de-trier
   - location: de-passau
   - location: de-halle
@@ -1709,6 +1712,7 @@ contests:
   - location: de-bochum
   - location: de
     name: Test2
+    type: administrative
   - location: de-aachen
   - location: de
     name: CPUlm

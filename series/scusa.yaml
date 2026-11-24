@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: scusa
   name: ICPC North America South Central Regional Contest
@@ -2440,6 +2440,8 @@ contests:
   location: Administrative Site Location; Baylor University (BU); SCUSA Internet Site; Southeastern Louisiana
     University; Internet Division I; Division II; Each Coach's choice.; UH; LSU @ Baton Rouge, Louisiana;
     Oklahoma University and Southern Nazarene University; UTSA
+  cms_ids:
+  - 4685
   sites:
   - type: administrative
   - location: us-houston-university
@@ -2452,11 +2454,9 @@ contests:
   - name: SCUSA Internet Site
     type: online
   - name: Kathy Traxler
-    type: online
+    type: administrative
   - name: Division I
-    type: online
-  cms_ids:
-  - 4685
+    type: administrative
   parent: nac-2022
   next: scusa-2022
   sources:
@@ -2489,6 +2489,7 @@ contests:
     roles:
     - rankings
     - report
+    scope: top five of each division
     as_of: '20220705054538'
     archived:
     - scusa/scusa-2021/external-standings/2026-04-15-external/content.html
@@ -2497,7 +2498,6 @@ contests:
     url_state: dead
     url_checked: '2026-11-16'
     note: from archived capture (external-standings)
-    scope: top five of each division
   - url: https://www.acmicpc.net/category/816
     roles:
     - problemset
@@ -2529,10 +2529,10 @@ contests:
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; Div. 1)
     as_of: '20221203233648'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; Div. 1)
   - url: https://qoj.ac/contest/856
     roles:
     - problemset
@@ -2540,10 +2540,10 @@ contests:
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; Div. 2)
     as_of: '20221203233718'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; Div. 2)
   problems:
     set: scusa-2021
   notes: 2 divisions (problem archive sheet)

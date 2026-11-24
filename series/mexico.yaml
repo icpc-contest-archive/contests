@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: mexico
   name: ICPC Mexico Finals
@@ -15,6 +15,8 @@ contests:
   name: 2019 ICPC Mexico Finals
   date: '2019-11-09'
   location: ITESM Campus Monterrey; Tec de Monterrey Campus Monterrey; ITESO University
+  cms_ids:
+  - 4241
   sites:
   - location: mx-monterrey-itesm
     name: Mexico Site
@@ -26,8 +28,7 @@ contests:
   - location: mx-monterrey-tec
     name: Invitados - Café con Leche
     date: '2019-11-08'
-  cms_ids:
-  - 4241
+    type: administrative
   parent: wf-2020
   next: mexico-2020
   sources:
@@ -82,20 +83,20 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20200807004238'
     url_state: live
     url_checked: '2026-11-23'
     note: '2019-2020 ACM-ICPC Latin American Regional Programming Contest (judge hunt 2026-11-03: ICPC
       Latin America Regional 2019 is one shared problem set across all LA finals (Brazil, SA-South, SA-North,
       Mexico, Central America, Caribbean); gym named for the whole LA regional)'
-    as_of: '20200807004238'
   - url: https://qoj.ac/contest/2508
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; shared Latin America regional problem
-      set)
     url_state: live
     url_checked: '2026-11-23'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; shared Latin America regional problem
+      set)
   problems:
     set: latam-2019
 - id: mexico-2020
@@ -104,18 +105,18 @@ contests:
   date: '2021-07-10'
   location: Administrative Site Location; Universidad Autónoma de Zacatecas; Distributed Sites (Universities,
     Companies and other spaces)
+  cms_ids:
+  - 4479
   sites:
   - type: administrative
   - location: mx-zacatecas-uaz
     name: Invitados - Café con Leche
     date: '2021-03-13'
-    type: online
+    type: administrative
   - location: mx
     name: Mexico Site
     date: '2021-03-13'
     type: online
-  cms_ids:
-  - 4479
   parent: wf-2021
   next: mexico-2021
   sources:
@@ -167,12 +168,12 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20221025145359'
     url_state: live
     url_checked: '2026-11-23'
     note: '2020-2021 ACM-ICPC Latin American Regional Programming Contest (judge hunt 2026-11-03: ICPC
       Latin America Regional 2020 is one shared problem set across all LA finals (Brazil, SA-South, SA-North,
       Mexico, Central America, Caribbean); gym named for the whole LA regional)'
-    as_of: '20221025145359'
   problems:
     set: latam-2020
 - id: mexico-2021
@@ -183,6 +184,8 @@ contests:
     de Zacatecas; Universidad de Guanajuato DEMAT; Universidad Panamericana Bonaterra; Universidad Autónoma
     de Chihuahua; UNAM Facultad de Estudios Superiores Acatlán; ITESO University; Tec de Monterrey Campus
     Monterrey; UNAM FES Acatlán
+  cms_ids:
+  - 4704
   sites:
   - location: mx-naucalpan-de-juarez-unam-estudios-superiores-acatlan
     name: Estado de México
@@ -191,6 +194,7 @@ contests:
     type: administrative
   - location: mx-guadalajara-universidad-de-guadalajara-cucei
     name: Invitados - Café con Leche - Jalisco
+    type: administrative
   - location: mx-chihuahua-universidad-autonoma
     name: Chihuahua
   - location: mx-zacatecas-uaz
@@ -205,12 +209,13 @@ contests:
     name: Nuevo Leon
   - location: mx-zacatecas-uaz
     name: Invitados - Café con Leche - Zacatecas
+    type: administrative
   - location: mx-naucalpan-de-juarez-unam-fes-acatlan
     name: Invitados - Café con Leche - Estado de México
+    type: administrative
   - location: mx-guanajuato-demat
     name: Invitados - Café con Leche - Guanajuato
-  cms_ids:
-  - 4704
+    type: administrative
   parent: wf-2022
   next: mexico-2022
   sources:
@@ -254,12 +259,12 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20220617214853'
     url_state: live
     url_checked: '2026-11-23'
     note: '2021-2022 ACM-ICPC Latin American Regional Programming Contest (judge hunt 2026-11-03: ICPC
       Latin America Regional 2021 is one shared problem set across all LA finals (Brazil, SA-South, SA-North,
       Mexico, Central America, Caribbean); gym named for the whole LA regional)'
-    as_of: '20220617214853'
   - url: https://omegaup.com/arena/ICPCMX2021/
     roles:
     - problemset
@@ -275,130 +280,130 @@ contests:
     contains:
     - names
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; shared Latin America regional problem
-      set)
     as_of: '20221003155740'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; shared Latin America regional problem
+      set)
   - url: https://codeforces.com/gym/103640/problem/A
     roles:
     - problem
-    judge: codeforces
     problem: A
     contains:
     - statement
+    judge: codeforces
     url_state: live
     url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/103640/problem/B
     roles:
     - problem
-    judge: codeforces
     problem: B
     contains:
     - statement
+    judge: codeforces
     as_of: '20220814212647'
     url_state: live
     url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/103640/problem/C
     roles:
     - problem
-    judge: codeforces
     problem: C
     contains:
     - statement
+    judge: codeforces
     url_state: live
     url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/103640/problem/D
     roles:
     - problem
-    judge: codeforces
     problem: D
     contains:
     - statement
+    judge: codeforces
     url_state: live
     url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/103640/problem/E
     roles:
     - problem
-    judge: codeforces
     problem: E
     contains:
     - statement
+    judge: codeforces
     url_state: live
     url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/103640/problem/F
     roles:
     - problem
-    judge: codeforces
     problem: F
     contains:
     - statement
+    judge: codeforces
     as_of: '20220814212649'
     url_state: live
     url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/103640/problem/G
     roles:
     - problem
-    judge: codeforces
     problem: G
     contains:
     - statement
+    judge: codeforces
     url_state: live
     url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/103640/problem/H
     roles:
     - problem
-    judge: codeforces
     problem: H
     contains:
     - statement
+    judge: codeforces
     url_state: live
     url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/103640/problem/I
     roles:
     - problem
-    judge: codeforces
     problem: I
     contains:
     - statement
+    judge: codeforces
     as_of: '20220814212647'
     url_state: live
     url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/103640/problem/J
     roles:
     - problem
-    judge: codeforces
     problem: J
     contains:
     - statement
+    judge: codeforces
     url_state: live
     url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/103640/problem/K
     roles:
     - problem
-    judge: codeforces
     problem: K
     contains:
     - statement
+    judge: codeforces
     as_of: '20220814212653'
     url_state: live
     url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/103640/problem/L
     roles:
     - problem
-    judge: codeforces
     problem: L
     contains:
     - statement
+    judge: codeforces
     url_state: live
     url_checked: '2026-11-23'
   - url: https://codeforces.com/gym/103640/problem/M
     roles:
     - problem
-    judge: codeforces
     problem: M
     contains:
     - statement
+    judge: codeforces
     url_state: live
     url_checked: '2026-11-23'
   problems:
@@ -408,10 +413,13 @@ contests:
   name: 2022 ICPC Mexico Finals
   date: '2023-03-17'
   location: ITESO University
+  cms_ids:
+  - 5531
   sites:
   - location: mx-guadalajara-iteso
     name: Invitados - Café con Leche
     date: '2023-03-18'
+    type: administrative
   - location: mx-guadalajara-iteso
     name: Administrative Site
     date: '2023-03-18'
@@ -419,8 +427,6 @@ contests:
   - location: mx-guadalajara-iteso
     name: Mexico Site
     date: '2023-03-18'
-  cms_ids:
-  - 5531
   parent: wf-2023
   next: mexico-2023
   sources:
@@ -467,12 +473,12 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20230320021645'
     url_state: live
     url_checked: '2026-11-23'
     note: '2022-2023 ACM-ICPC Latin American Regional Programming Contest (judge hunt 2026-11-03: ICPC
       Latin America Regional 2022 is one shared problem set across all LA finals (Brazil, SA-South, SA-North,
       Mexico, Central America, Caribbean); gym named for the whole LA regional)'
-    as_of: '20230320021645'
   problems:
     set: latam-2022
 - id: mexico-2023
@@ -480,10 +486,13 @@ contests:
   name: 2023 ICPC Mexico Finals
   date: '2023-10-21'
   location: Tecnológico de Monterrey Campus Guadalajara; ITESO University
+  cms_ids:
+  - 7543
   sites:
   - location: mx-guadalajara-monterrey
     name: Invitados - Café con Leche
     date: '2023-10-20'
+    type: administrative
   - location: mx-guadalajara-iteso
     name: Administrative Site
     date: '2023-10-20'
@@ -491,8 +500,6 @@ contests:
   - location: mx-guadalajara-monterrey
     name: Mexico Site
     date: '2023-10-20'
-  cms_ids:
-  - 7543
   parent: lac-2024
   next: mexico-2024
   sources:
@@ -537,20 +544,20 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20231221072041'
     url_state: live
     url_checked: '2026-11-23'
     note: '2023-2024 ACM-ICPC Latin American Regional Programming Contest (judge hunt 2026-11-03: ICPC
       Latin America Regional 2023 is one shared problem set across all LA finals (Brazil, SA-South, SA-North,
       Mexico, Central America, Caribbean); gym named for the whole LA regional)'
-    as_of: '20231221072041'
   - url: https://qoj.ac/contest/2574
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; shared Latin America regional problem
-      set)
     url_state: live
     url_checked: '2026-11-23'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; shared Latin America regional problem
+      set)
   - url: https://icpcarchive.github.io/Latin-America/Latin-American-Regional-Contests/The-2023-ICPC-Latin-America-Regional-Contests/tutorials_en.pdf
     roles:
     - editorial
@@ -563,6 +570,8 @@ contests:
   name: 2024 ICPC Mexico Finals
   date: '2024-11-09'
   location: Tecnológico de Monterrey Campus Monterrey; ITESO University
+  cms_ids:
+  - 8953
   sites:
   - location: mx-guadalajara-iteso
     name: Administrative Site
@@ -571,11 +580,10 @@ contests:
   - location: mx-monterrey-tecnologico-campus
     name: Invitados - Café con Leche
     date: '2024-11-08'
+    type: administrative
   - location: mx-monterrey-tecnologico-campus
     name: Mexico Site
     date: '2024-11-08'
-  cms_ids:
-  - 8953
   parent: lac-2025
   next: mexico-2025
   sources:
@@ -631,15 +639,16 @@ contests:
   name: 2025 ICPC Mexico Finals
   date: '2025-11-07'
   location: ITESO University; Administrative Site Location
+  cms_ids:
+  - 9409
   sites:
   - type: administrative
   - location: mx-guadalajara-iteso
     name: Invitados - Café con Leche
+    type: administrative
   - location: mx-guadalajara-iteso
     name: Mexico Site
     date: '2025-11-08'
-  cms_ids:
-  - 9409
   parent: lac-2026
   next: mexico-2026
   sources:

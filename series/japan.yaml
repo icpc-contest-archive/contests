@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: japan
   name: ICPC Asia Yokohama Regional Contest
@@ -662,6 +662,8 @@ contests:
   name: 2005 ACM Asia Programming Contest - Tokyo
   date: '2005-11-04'
   location: Tokyo; Internet
+  cms_ids:
+  - 1087
   sites:
   - location: jp-tokyo
     name: Asia - Tokyo On Site Contest
@@ -670,8 +672,7 @@ contests:
     type: online
   - location: jp-tokyo
     name: Asia-Foreign Team Tokyo Registration Site
-  cms_ids:
-  - 1087
+    type: administrative
   parent: wf-2006
   next: japan-2006
   sources:
@@ -718,21 +719,21 @@ contests:
     roles:
     - problemset
     judge: aoj
+    url_state: dead
+    url_checked: '2026-11-23'
     note: 'ACM International Collegiate Programming Contest, Asia Regional 2005, Japan (judge hunt 2026-11-03:
       AOJ ICPC/Regional challenge year 2005 (one Japan regional per year); 7/8 catalogue problem titles
       matched among 9 AOJ problems)'
-    url_state: dead
-    url_checked: '2026-11-23'
   - url: https://qoj.ac/contest/140
     roles:
     - problemset
     contains:
     - statement
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     as_of: '20221129212238'
     url_state: unknown
     url_checked: '2026-11-13'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   problems:
     set: japan-2005
 - id: japan-2006
@@ -740,6 +741,8 @@ contests:
   name: 2006 ACM Asia Programming Contest - Yokohama
   date: '2006-11-05'
   location: Internet; Yokohama
+  cms_ids:
+  - 1126
   sites:
   - location: jp
     name: Japan Nationwide Programming Contest (Internet)
@@ -747,10 +750,9 @@ contests:
     type: online
   - location: jp-yokohama
     name: Non-Japan-based Team Yokohama Registration Site
+    type: administrative
   - location: jp-yokohama
     name: Asia Yokohama On Site Regional Contest
-  cms_ids:
-  - 1126
   parent: wf-2007
   next: japan-2007
   sources:
@@ -790,32 +792,32 @@ contests:
     roles:
     - problemset
     judge: aoj
+    url_state: dead
+    url_checked: '2026-11-23'
     note: 'ACM International Collegiate Programming Contest, Asia Regional 2006, Japan (judge hunt 2026-11-03:
       AOJ ICPC/Regional challenge year 2006 (one Japan regional per year); 4/5 catalogue problem titles
       matched among 9 AOJ problems)'
-    url_state: dead
-    url_checked: '2026-11-23'
   - url: https://qoj.ac/contest/3615
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-23'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: http://www.acm-japan.org/icpc2006/regional/problems.html
     roles:
     - problemset
     as_of: '20080807125233'
-    note: found inside http://www.acm-japan.org/icpc2006/ by the content check
     url_state: replaced
     url_checked: '2026-11-23'
+    note: found inside http://www.acm-japan.org/icpc2006/ by the content check
   - url: http://www.acm-japan.org/icpc2006/final/problems.pdf
     roles:
     - problemset
     as_of: '20080907144425'
-    note: found inside http://www.acm-japan.org/icpc2006/ by the content check
     url_state: replaced
     url_checked: '2026-11-23'
+    note: found inside http://www.acm-japan.org/icpc2006/ by the content check
   - url: https://icpcarchive.github.io/Asia-Pacific/Japan/The-2006-ACM-ICPC-Asia-Yokohama-Regional-Contest/statements_en.pdf
     roles:
     - problemset
@@ -827,90 +829,90 @@ contests:
   - url: https://www.acmicpc.net/problem/3905
     roles:
     - problem
-    judge: baekjoon
     problem: A
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191119225005'
     url_state: live
     url_checked: '2026-11-23'
   - url: https://www.acmicpc.net/problem/3906
     roles:
     - problem
-    judge: baekjoon
     problem: B
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191119225005'
     url_state: live
     url_checked: '2026-11-23'
   - url: https://www.acmicpc.net/problem/3911
     roles:
     - problem
-    judge: baekjoon
     problem: G
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191119225005'
     url_state: live
     url_checked: '2026-11-23'
   - url: https://www.acmicpc.net/problem/3913
     roles:
     - problem
-    judge: baekjoon
     problem: I
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191119225005'
     url_state: live
     url_checked: '2026-11-23'
   - url: https://www.acmicpc.net/problem/3908
     roles:
     - problem
-    judge: baekjoon
     problem: D
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191119225005'
     url_state: live
     url_checked: '2026-11-23'
   - url: https://www.acmicpc.net/problem/3909
     roles:
     - problem
-    judge: baekjoon
     problem: E
     contains:
     - statement
+    judge: baekjoon
     as_of: '20191119225005'
     url_state: live
     url_checked: '2026-11-23'
   - url: https://icpcarchive.ecs.baylor.edu/external/36/3623.pdf
     roles:
     - problem
-    judge: livearchive
     problem: H
     contains:
     - statement
+    judge: livearchive
     as_of: '20150309183557'
     url_state: dead
     url_checked: '2026-11-23'
   - url: https://icpcarchive.ecs.baylor.edu/external/36/3618.pdf
     roles:
     - problem
-    judge: livearchive
     problem: C
     contains:
     - statement
+    judge: livearchive
     as_of: '20150309183526'
     url_state: dead
     url_checked: '2026-11-23'
   - url: https://icpcarchive.ecs.baylor.edu/external/36/3621.pdf
     roles:
     - problem
-    judge: livearchive
     problem: F
     contains:
     - statement
+    judge: livearchive
     as_of: '20150309183547'
     url_state: dead
     url_checked: '2026-11-23'
@@ -928,6 +930,7 @@ contests:
     name: The 2007 ACM Asia Programming Contest - Tokyo
   - location: jp-tokyo
     name: Non-Japan-based Team Tokyo Registration Site
+    type: administrative
   - location: jp-tokyo
     name: Japan Nationwide Contest
     date: '2007-07-06'
@@ -1020,6 +1023,7 @@ contests:
     date: '2008-07-04'
   - location: jp-aizu-wakamatsu
     name: Non-Japan-Based Team Aizu Registration Site
+    type: administrative
   - location: jp-aizu-wakamatsu
     name: 'Final Round: The 2008 Aizu Regional Contest'
   - location: jp-aizu-wakamatsu
@@ -1115,6 +1119,8 @@ contests:
   name: 2009 ACM-ICPC Asia Tokyo Regional Contest
   date: '2009-11-08'
   location: Tokyo, Japan
+  cms_ids:
+  - 498
   sites:
   - location: jp-tokyo
     name: 'Final Round: The 2009 Tokyo Regional Contest'
@@ -1124,8 +1130,7 @@ contests:
   - location: jp-tokyo
     name: Non-Japan-Based Team Tokyo Registration Site
     date: '2009-09-11'
-  cms_ids:
-  - 498
+    type: administrative
   parent: wf-2010
   next: japan-2010
   sources:
@@ -1152,25 +1157,25 @@ contests:
     roles:
     - rankings
     as_of: '20180825053739'
-    note: found inside http://www.waseda.jp/assoc-icpc2009/en/index.html by the content check
-    url_state: dead
-    url_checked: '2026-11-16'
     archived:
     - japan/japan-2009/rankings/20180825-wayback-62b070cf/Domestic-Result-20090707.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://www.waseda.jp/assoc-icpc2009/en/index.html by the content check
   - url: http://www.waseda.jp:80/assoc-icpc2009/en/teams.html
     roles:
     - teams
     as_of: '20180902201359'
-    note: found inside http://www.waseda.jp/assoc-icpc2009/en/index.html by the content check
     url_state: dead
     url_checked: '2026-11-23'
+    note: found inside http://www.waseda.jp/assoc-icpc2009/en/index.html by the content check
   - url: http://www.waseda.jp/assoc-icpc2009/jp/registeredInfo.html
     roles:
     - teams
     as_of: '20160406155835'
-    note: found inside http://www.waseda.jp/assoc-icpc2009/en/index.html by the content check
     url_state: dead
     url_checked: '2026-11-23'
+    note: found inside http://www.waseda.jp/assoc-icpc2009/en/index.html by the content check
   - url: https://storage.googleapis.com/files.icpc.jp/regional2009/2009regional.pdf
     roles:
     - problemset
@@ -1211,16 +1216,16 @@ contests:
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-23'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: http://www.waseda.jp/assoc-icpc2009/contest/problems.pdf
     roles:
     - problemset
     as_of: '20130803114810'
-    note: found inside http://www.waseda.jp/assoc-icpc2009/en/index.html by the content check
     url_state: dead
     url_checked: '2026-11-23'
+    note: found inside http://www.waseda.jp/assoc-icpc2009/en/index.html by the content check
   problems:
     set: japan-2009
 - id: japan-2010
@@ -1234,6 +1239,7 @@ contests:
   - location: jp-tokyo
     name: Non-Japan-Based Team Registration Site
     date: '2010-10-04'
+    type: administrative
   - location: jp-tokyo
     name: Asia Tokyo On Site Regional Contest
   - location: jp-tokyo
@@ -1342,6 +1348,7 @@ contests:
     type: online
   - location: jp-fukuoka
     name: Non-Japan-Based Team Registration Site
+    type: administrative
   - location: jp-fukuoka
     name: Asia Fukuoka On Site Regional Contest
     date: '2011-11-12'

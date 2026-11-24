@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: cerc
   name: ICPC Central Europe Regional Contest
@@ -1689,6 +1689,8 @@ contests:
   name: 2016 Central Europe Regional Contest
   date: '2016-11-20'
   location: Administrative Site Location; Zagreb, Croatia
+  cms_ids:
+  - 3105
   sites:
   - type: administrative
   - location: hr-zagreb
@@ -1698,14 +1700,16 @@ contests:
     name: CERC 2016 unofficial
     date: '2016-11-18'
     type: administrative
-  cms_ids:
-  - 3105
   parent: wf-2017
   next: cerc-2017
   sources:
   - url: https://cerc.hsin.hr/2016/index.php?page=home
     roles:
     - web
+  - url: http://cerc.hsin.hr/2016/
+    roles:
+    - web
+    as_of: '20180129052544'
   - url: https://cerc.hsin.hr/2016/index.php?page=results
     roles:
     - scoreboard
@@ -1771,25 +1775,25 @@ contests:
     contains:
     - statement
     judge: codeforces
+    as_of: '20170706032534'
     url_state: live
     url_checked: '2026-11-23'
     note: '2016-2017 ACM-ICPC, Central Europe Regional Contest (CERC 16) (judge hunt 2026-11-03: name+year:
       ''2016-2017 ACM-ICPC, Central Europe Regional Contest (CERC 16)'' -> season start 2016)'
-    as_of: '20170706032534'
   - url: https://qoj.ac/contest/843
     roles:
     - problemset
     judge: qoj
-    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-23'
+    note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
   - url: https://cerc.hsin.hr/2016/tasks/cerc2016_presentation.pdf
     roles:
     - editorial
     as_of: '20240607205510'
-    note: found inside https://cerc.hsin.hr/2016/index.php?page=home by the content check
     url_state: live
     url_checked: '2026-11-23'
+    note: found inside https://cerc.hsin.hr/2016/index.php?page=home by the content check
   problems:
     set: cerc-2016
   provenance:
