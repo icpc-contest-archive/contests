@@ -423,7 +423,7 @@ def key_line(rel: str, *parts: str) -> str:
     if "held" in parts:
         bits.append('problems: <b>St</b> statements · <b>D</b> test data · <b>So</b> solutions · <b>P</b> packages · <b>E</b> editorial — '
                     '<span class="m h">all</span> <span class="m l">some</span> held, in the problem archive or in a source we hold a copy of · '
-                    '<span class="m k">link only</span> <span class="m n">none</span> <span class="m u">not recorded</span>')
+                    '<span class="m k">link only</span> <span class="m n">not held</span> <span class="m u">not recorded</span>')
     if "have" in parts:
         bits.append('<b>St</b> statement · <b>D</b> test data · <b>IV</b>/<b>OV</b> input/output validator · <b>So</b> solutions · <b>P</b> package — '
                     '<span class="m h">held</span> <span class="m n">not held</span> <span class="m u">not recorded</span>')
@@ -556,10 +556,10 @@ def result_marks(c: dict, rel: str) -> str:
             continue
         e = next((x for x in entries if src_held(c, x)), None)
         held = e is not None
-        e = e or entries[0]
-        lost = not held and all(avail(x["url"], c["id"], x)["lost"] for x in entries)   # gone everywhere: red, not blue
+        e = e or next((x for x in entries if not avail(x["url"], c["id"], x)["lost"]), entries[0])   # not held: open one that is not lost, if any
+        lost = not held and avail(e["url"], c["id"], e)["lost"]   # the mark has the colour of the source it opens: lost is red, not blue
         tip = role_label(key) + (" — we hold a copy" if held else " — lost: gone from its address, not in the Wayback Machine, and no copy here" if lost
-                                 else " — link only, no copy held")
+                                 else f" — {LINK_ONLY}")
         parts = list(dict.fromkeys(x["scope"] for x in entries if x.get("scope")))
         if parts:
             tip += " (" + ", ".join(parts) + ")"
@@ -585,6 +585,7 @@ def toks(*tokens: str) -> str:
     return "|".join(t for t in tokens if t)
 
 
+LINK_ONLY = "link only: known at an address; we hold no copy"   # the one hover text of blue, wherever it is drawn
 RESULT_ORDER = tuple(TIER_LABEL[k] for k in CV.LEVELS) + ("any result", "no scoreboard", "upcoming")
 STATE_ORDER = CV.STATES + ("wanted",)
 
@@ -645,10 +646,11 @@ def website_cell(c: dict, rel: str, n: int = 24) -> str:
     if not webs:
         return ""
     held = rec(c)["website"] == "held"
-    s = next((x for x in webs if src_held(c, x)), webs[0])   # the mark says held: link the source that is
+    # the mark says held: link the source that is; else one that is not lost, if any
+    s = next((x for x in webs if src_held(c, x)), None) or next((x for x in webs if not avail(x["url"], c["id"], x)["lost"]), webs[0])
     more = f' <span class="small muted" title="{len(webs)} website addresses">+{len(webs) - 1}</span>' if len(webs) > 1 else ""
-    lost = not held and all(avail(x["url"], c["id"], x)["lost"] for x in webs)   # gone everywhere: red, not blue
-    return (f'<span class="m {"h" if held else "kx" if lost else "k"}" title="website — {"we hold a copy" if held else "lost: gone from its address, not in the Wayback Machine, and no copy here" if lost else "link only, no copy held"}">W</span>'
+    lost = not held and avail(s["url"], c["id"], s)["lost"]   # the mark has the colour of the source it opens: lost is red, not blue
+    return (f'<span class="m {"h" if held else "kx" if lost else "k"}" title="website — {"we hold a copy" if held else "lost: gone from its address, not in the Wayback Machine, and no copy here" if lost else LINK_ONLY}">W</span>'
             + link_source(s["url"], rel, host_label(s["url"], n), source_time(s, c["id"]), c["id"]) + more)   # the hover names the source with its time
 
 
@@ -934,7 +936,7 @@ def index_docs() -> None:
 def doc_when(d: dict) -> str:
     """When a source is meant: its time; for an address with no time known, its season, or the address as it is now."""
     if d["time"]:
-        return fmt_time(d["time"])
+        return "at " + fmt_time(d["time"])
     return f"season {d['season'] - 1}–{d['season']}" if d.get("season") else "as it is now"
 
 
@@ -1278,6 +1280,7 @@ def free_location(c: dict) -> str:
     # the names of the contest's own CMS groups are bookkeeping too (ruling of 2026-11-24: never listed)
     adm = [x["name"].lower() for x in c.get("sites") or [] if x.get("type") == "administrative" and x.get("name")]
     for part in re.split(r"\s*;\s*", c.get("location") or ""):
+        part = re.sub(r"\s*\([^)]*\)|\*+", "", part).strip()   # remarks in parentheses ("(host not recovered)") and markup are notes, not places
         p = part.lower()
         if any(a == p or a.startswith(p + " ") or p.endswith(" " + a) for a in adm):
             continue
@@ -1615,7 +1618,7 @@ def ran_words(cs: list[dict]) -> str:
 
 # the coverage columns of every table whose rows are groups of contests (the series, season and location lists, the
 # regions and series on coverage.html): one small bar per question, the same bars everywhere (ruling of 2026-11-24)
-INDEX_FACETS = ("results", "list", "statement", "data", "solutions", "package", "editorial", "website", "date", "location")
+INDEX_FACETS = ("results", "website", "date", "location", "list", "statement", "data", "solutions", "package", "editorial")   # in the GROUPS order
 GROUP_FACETS = INDEX_FACETS
 
 
@@ -2444,8 +2447,10 @@ def problem_page(pid: str, ent: dict, rel: str) -> str:
     if not private:
         b.append(key_line(rel, "have"))
         srcs = [x for s_, _r in rows if s_ in SETS for x in material_sources(SETS[s_], pid)]
-        if srcs:   # the problem's own sources: its statement on an online judge or as a file, as the contests that used it cite them
-            b.append(f'<h2 id="sources">Sources <span class="n">{len(srcs)}</span></h2>' + key_line(rel, "available") + sources_by_contest(srcs, rel))
+        # the problem's own sources (its statement on an online judge or as a file, as the contests that used it cite them); always there, as on set pages
+        b.append(f'<h2 id="sources">Sources <span class="n">{len(srcs)}</span></h2>'
+                 + (key_line(rel, "available") + sources_by_contest(srcs, rel) if srcs else
+                    '<p class="empty">No source of this problem alone is recorded; the sources of its set are on the set\'s page.</p>'))
     return page(p["name"], "\n".join(b), rel, "problem/index.html")
 
 
@@ -2802,7 +2807,8 @@ def judge_index(probs: dict, pages: dict, rel: str) -> str:
         nc, npr = len({c for c, _s in pages.get(jid, []) if c not in nm_ids}), len(probs.get(jid, ()))
         rows.append(f'<tr><td class="name">{judge_mark(jid)}{judge_link(jid, rel)}<span class="sub">{esc(re.sub(r"^https?://", "", j["url"]).rstrip("/"))}</span></td>'
                     f'<td class="nw" data-v="{esc(j.get("status", ""))}">{judge_status(j)}</td>'
-                    f'<td class="num" data-v="{nc}"><a href="{rel}judge/{esc(jid)}.html#contests">{num(nc)}</a></td>'
+                    f'<td class="num" data-v="{nc}"><a href="{rel}judge/{esc(jid)}.html#contests">{num(nc)}</a>'
+                    + (f' <span class="small muted">+{nnm}</span>' if (nnm := len({c for c, _s in pages.get(jid, []) if c in nm_ids})) else "") + '</td>'
                     f'<td class="num" data-v="{npr}"><a href="{rel}judge/{esc(jid)}.html#problems">{num(npr)}</a></td></tr>')
     unknown = [x for x in sorted(set(probs) | set(pages)) if x not in JUDGES]
     return page("Online judges", "<h1>Online judges</h1>"
@@ -2814,6 +2820,11 @@ def judge_index(probs: dict, pages: dict, rel: str) -> str:
 
 
 # ---- locations ----
+def year_span(ys: tuple[int, int]) -> str:
+    """`2018–2024`, or one year when the first is the last."""
+    return str(ys[0]) if ys[0] == ys[1] else f"{ys[0]}–{ys[1]}"
+
+
 def loc_years(nid: str) -> tuple[int, int] | None:
     """The first and last year contests were held here: the year of the date (the id's year where no date is known)."""
     ys = [int(str(CONTESTS[c].get("date") or "")[:4] or c.rsplit("-", 1)[1]) for c in LOC_SUB.get(nid, ())]
@@ -2849,7 +2860,7 @@ def location_page(nid: str, rel: str) -> str:
          + (" in " + R.U("parent", ", ".join(esc(x["name"]) for x in chain), n.get("parent") or "") if chain else "") + "</p>"]
     st = content_counts(cs)
     series = Counter(SERIES_OF[c["id"]] for c in cs)
-    b.append(group_nums(cs, rel, {"loc": nid}, (f'<div class="pt"><b>{ys[0]}–{ys[1]}</b><span class="tl-l">first to latest</span></div>' if ys else "")
+    b.append(group_nums(cs, rel, {"loc": nid}, (f'<div class="pt"><b>{year_span(ys)}</b><span class="tl-l">first to latest</span></div>' if ys else "")
                         + f'<div class="pt"><b>{len(series)}</b><span class="tl-l">series</span></div>'))
     d = ['<dl class="facts">']
     d.append(("<dt>also written</dt><dd>" if n.get("aliases") else '<dt class="rvo">also written</dt><dd class="rvo">')
@@ -2912,7 +2923,7 @@ def location_index(rel: str) -> str:
         desc = [k for k in LOC if any(x["id"] == nid for x in location_chain(LOC, k)[1:])]
         cities = sorted((k for k in desc if LOC[k]["type"] == "city"), key=lambda k: -len(LOC_SUB.get(k, ())))
         crows.append(f'<tr><td class="nw">{loc_link(nid, rel)}</td>' + count_cell(cs, rel, {"loc": nid}) +
-                     f'<td class="nw" data-v="{ys[0] if ys else ""}">{f"{ys[0]}–{ys[1]}" if ys else ""}</td>'
+                     f'<td class="nw" data-v="{ys[0] if ys else ""}">{year_span(ys) if ys else ""}</td>'
                      f'<td class="num">{len(cities)}</td><td class="num">{sum(1 for k in desc if LOC[k]["type"] == "institution")}</td>'
                      f'<td class="small">{", ".join(loc_link(k, rel) + f" <span class=muted>{len(LOC_SUB.get(k, ()))}</span>" for k in cities[:4] if LOC_SUB.get(k))}</td>'
                      + group_cells(cs, rel, {"loc": nid}) + "</tr>")
@@ -3052,11 +3063,12 @@ def sbar(cs: list[dict], key: str, rel: str, scope: dict | None, cls: str = "", 
     cnt = Counter(st(c)[key] for c in cs)
     lab = CV.FACET[key][1]
     segs = []
+    m = sum(cnt[s] for s, q in zip(CV.FACET[key][3], facet_q(key)) if q != "qx")   # none (there is none to have) is not counted in a share
     for s, q in zip(CV.FACET[key][3], facet_q(key)):
         k = cnt[s]
         if not k:
             continue
-        tip = f"{lab}: {s} — {num(k)} of {num(n)} ({pct(k, n)}%)"
+        tip = f"{lab}: {s} — {num(k)}" + (" (not counted in the share)" if q == "qx" else f" of {num(m)} ({pct(k, m)}%)")
         txt = num(k) if inner and k / n >= .04 * len(num(k)) + .03 else ""   # only where the segment is wide enough for it
         if scope is None:
             segs.append(f'<i class="{q}" style="flex:{k}" title="{esc(tip)}">{txt}</i>')
@@ -3115,7 +3127,7 @@ def coverage_panel(cs: list[dict], rel: str, scope: dict | None) -> str:
             rows.append('<div class="fr">' + (f'<span class="fl">{esc(facet_label(key))}</span>' if len(keys) > 1 or key == "results" else "")
                         + sbar(cs, key, rel, scope)
                         + f'<span class="fp" title="{esc(lab)}: {esc(CV.FACET[key][3][0])} for {num(k)} of {num(m)} contest{"s" if m != 1 else ""}'
-                        + (f" ({num(n - m)} had none to have)" if m != n else "") + f'">{pct(k, m)}%</span></div>'
+                        + (f" ({num(n - m)} not counted: none, there is none to have)" if m != n else "") + f'">{pct(k, m)}%</span></div>'
                         + schips(cs, key, rel, scope))
         if g == "Results":
             notes = []
@@ -3167,7 +3179,7 @@ def contest_coverage(c: dict, rel: str) -> str:
             text = a if key == "results" else (lab if a == sts[0] else f"{lab}: {a}")
             pills.append(f'<a class="pl {cls}" href="{facet_anchor(key) or "#"}" title="{esc(lab)}: {esc(a)}' + ("" if q_word(key, cls) == a else f" — {esc(q_word(key, cls))}") + f'">{esc(text)}</a>')
             if cls not in ("q4", "qx") and not (key in _PM and s["list"] in ("source only", "missing")):
-                wanted.append("the website (no address known)" if key == "website" and a == "no address"
+                wanted.append("the website (no address)" if key == "website" and a == "no address"
                               else WANT_WORD[key] + (f" (we hold {a})" if key == "results" and a != TIER_LABEL["none"] else ""))
         if g == "Results":
             if r["fetch"]:
@@ -3210,17 +3222,18 @@ def edition_matrix(cs: list[dict], rel: str, scope: dict) -> str:
 
 
 def contest_matrix(groups: list[tuple[str, list[dict]]], rel: str) -> str:
-    """Many contests of one time (a season): a row per contest, a column per facet."""
+    """Many contests of one time (a season): a row per contest, a column per facet, in the one reading order (GROUPS)."""
+    facets = [f for g in GROUPS for f in CV.FACETS if f[2] == g]
     heads = '<tr><th></th>' + "".join(
-        f'<th class="vy{" gs" if i and CV.FACETS[i][2] != CV.FACETS[i - 1][2] else ""}">{esc(f[1])}</th>' for i, f in enumerate(CV.FACETS)) + "</tr>"
+        f'<th class="vy{" gs" if i and facets[i][2] != facets[i - 1][2] else ""}">{esc(f[1])}</th>' for i, f in enumerate(facets)) + "</tr>"
     body = []
     for name, cs in groups:
         if not cs:
             continue
         body.append(f'<tr class="mg"><td colspan="{len(CV.FACETS) + 1}">{esc(name)}</td></tr>')
         for c in cs:
-            cells = "".join(_mcell(c, f[0], rel).replace("<td>", '<td class="gs">', 1) if i and CV.FACETS[i][2] != CV.FACETS[i - 1][2] else _mcell(c, f[0], rel)
-                            for i, f in enumerate(CV.FACETS))
+            cells = "".join(_mcell(c, f[0], rel).replace("<td>", '<td class="gs">', 1) if i and facets[i][2] != facets[i - 1][2] else _mcell(c, f[0], rel)
+                            for i, f in enumerate(facets))
             body.append(f'<tr><td class="ml">{link_contest(c["id"], rel)}</td>{cells}</tr>')
     return f'<div class="tw"><table class="mx nosort">{"<thead>" + heads + "</thead>"}<tbody>' + "".join(body) + "</tbody></table></div>"
 
@@ -3346,7 +3359,7 @@ WANTED = (
         ("partial result", {"also": "partial result"}, "what we hold covers one division or the top places only"),
         ("a source is lost", {"also": "lost source"}, "a source of the contest, of any type, gone from its address, not in the Wayback Machine, no copy here: gone unless someone kept one"))),
     ("Website", (
-        ("no address", {"website": "no address"}, "no website address found yet (contests that had none are not counted)"),
+        ("no address", {"website": "no address"}, "no website address found yet (a contest whose answer is none, it had no website, is not counted)"),
         ("no copy", {"website": "no copy"}, "the address is known; we hold no copy"))),
     ("Problems", (
         ("no problem set recorded", {"problems": "no set"}, "neither a list of the problems nor the problem archive's holdings"),
