@@ -82,10 +82,9 @@ not the calendar date.
   type?: administrative|online}]`, one entry per site (see *Locations*). The free-text
   `location` string stays alongside until `sites` covers every contest.
 - `provenance` — free-text lines recording where the entry's facts came from: where a
-  date was read, proof that a contest with no results ran. The site shows these under
-  *Evidence* on the contest page; import stamps (`ICPC Problem Archive progress sheet
-  (…)`, `Baekjoon ICPC category tree …`) are about the problem set and are not shown
-  there.
+  date was read, proof that a contest with no results ran. Kept in the data, never shown
+  on the site or in its published dumps (ruling of 2026-11-16: where data comes from is
+  not published).
 - `notes` — remarks about the contest itself (no teams in the CMS, two divisions, a
   doubtful date). Remarks about its problem set go on the set.
 - Series headers carry `tier` (`world-finals` | `championship` | `regional` |

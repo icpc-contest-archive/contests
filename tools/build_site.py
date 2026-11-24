@@ -1656,27 +1656,6 @@ ARCHIVED_BY_CONTEST: dict = defaultdict(list)
 CHILDREN: dict = {}
 PREV: dict = {}
 SUBSETS: dict = {}
-BOILERPLATE = re.compile(r"^(ICPC Problem Archive progress sheet|Baekjoon ICPC category tree|online-judge pages|"
-                         r"Kattis problem export|problem list from the )")
-
-
-STAMP = re.compile(r"\s*\[(?:existence hunt|url[- ]hunt|content check|judge hunt)[^\]]*\]"   # which pass of ours found a line
-                   r"|\s*\((?:data scan|description round|no-sources hunt|existence hunt|url[- ]hunt|content check|judge hunt) \d{4}-\d\d-\d\d\)"
-                   r"|(?<=\()(?:data scan|description round) \d{4}-\d\d-\d\d; ")
-BOOKKEEPING = re.compile(r"\bruling \d{4}-|misclass audit|icpc-history|icpc-nopii|master_contests|problem archive sheet|\btools/\w+\.py")
-
-
-def evidence_lines(c: dict) -> list[str]:
-    """The hand-collected lines of `provenance` (where a date came from, proof that a dark
-    contest ran). Import stamps about the problem set are not evidence about the contest."""
-    out = []
-    for x in refs(c.get("provenance")):
-        x = STAMP.sub("", str(x)).strip()
-        if x and not BOILERPLATE.match(x) and not BOOKKEEPING.search(x):
-            out.append(x)
-    return out
-
-
 def status_chips(c: dict, cid: str, rel: str) -> str:
     """Under a contest's title: anything unusual as chips (upcoming, lost sources, copies only we hold),
     then its coverage card: every question coverage asks, answered for this contest, and what is wanted."""
@@ -1835,14 +1814,12 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
         t = (doc_for(e["url"], cid) or {}).get("time")   # the time of the source the row opens, as on every other row
         extra.append(f'<tr><td>{role_chip(e["artifact"])}{chip("not listed yet", "n", "we hold a copy; it is not yet listed as a source of this contest")}</td>'
                      f'<td class="url">{link_source(e["url"], rel, res_label(e["url"], t, 90), t, cid)}</td>' + avail_cell(e["url"], cid) + "</tr>")
-    ev = evidence_lines(c)
     if res_entries or extra:
         b.append(source_table(cid, res_entries, rel, "results", extra))
     elif c.get("status") == "upcoming":
         b.append('<p class="empty">Not run yet.</p>')
     else:
-        b.append('<p class="empty">' + R.U("none", "No results found — no scoreboard, standings, rankings or team list, not even in the ICPC CMS.", "", "results")
-                 + (" What we do know is under Evidence below." if ev else "") + "</p>")
+        b.append('<p class="empty">' + R.U("none", "No results found — no scoreboard, standings, rankings or team list, not even in the ICPC CMS.", "", "results") + "</p>")
     if not upcoming:
         b.append(R.slot("source", "add a result source", "results", tag="p"))
 
@@ -1893,9 +1870,6 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
     others = [s for s in sources(c) if not (set(s["roles"]) & (set(RESULT_KINDS) | {"web", "problemset", "problem", "editorial"}))]
     if others:
         b.append('<h2 id="other">Other sources</h2>' + source_table(cid, others, rel, "other"))
-    if ev:
-        b.append(f'<h2 id="evidence">Evidence</h2><p class="note">How we know what is said above — where a date came from, proof that the contest ran.</p>'
-                 '<ul class="plain small">' + "".join(f"<li>{esc(x)}</li>" for x in ev) + "</ul>")
     return page(cid, "\n".join(b), rel, "contest/index.html")
 
 
