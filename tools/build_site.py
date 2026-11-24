@@ -908,11 +908,20 @@ def index_docs() -> None:
             for c in cits:
                 t = times[c["contest"]] if c["as_of"] else of_season.get(season(c), times[c["contest"]])
                 groups.setdefault(t, []).append(c)
-        order = sorted(groups, key=lambda t: (t is None, t or ""))
+            # no time known, and the contests' checks disagree about the address: not one document — a source per season
+            # (ruling of 2026-11-24; a page reused year after year, such as a files page, answered differently per season)
+            untimed = groups.get(None) or []
+            if len({c["state"] for c in untimed if c["state"]}) > 1 and len({season(c) for c in untimed}) > 1:
+                for c in groups.pop(None):
+                    groups.setdefault(("season", season(c) or 0), []).append(c)
+        order = sorted(groups, key=lambda t: (t is None or isinstance(t, tuple), str(t or "")))
         docs = []
         for t in order:
-            sid = k if (len(order) == 1 or t is None) else hashlib.sha256(f"{L['key']}@{t}".encode()).hexdigest()[:12]
-            d = {"id": sid, "k": k, "url": L["url"], "time": t, "cits": groups[t]}
+            if isinstance(t, tuple):   # a season's own source of an address with no time known
+                sid, tm = hashlib.sha256(f"{L['key']}@season-{t[1]}".encode()).hexdigest()[:12], None
+            else:
+                sid, tm = (k if (len(order) == 1 or t is None) else hashlib.sha256(f"{L['key']}@{t}".encode()).hexdigest()[:12]), t
+            d = {"id": sid, "k": k, "url": L["url"], "time": tm, "cits": groups[t], "season": t[1] if isinstance(t, tuple) else None}
             DOCS[sid] = d
             docs.append(d)
             for c in groups[t]:
@@ -920,6 +929,13 @@ def index_docs() -> None:
         DOCS_OF[k] = docs
         if k not in DOCS:
             DOC_ALIAS[k] = docs[-1]["id"]
+
+
+def doc_when(d: dict) -> str:
+    """When a source is meant: its time; for an address with no time known, its season, or the address as it is now."""
+    if d["time"]:
+        return fmt_time(d["time"])
+    return f"season {d['season'] - 1}–{d['season']}" if d.get("season") else "as it is now"
 
 
 def doc_for(url: str, cid: str | None = None) -> dict | None:
@@ -2646,7 +2662,7 @@ def source_page(d: dict, rel: str) -> str:
     others = [o for o in DOCS_OF[k] if o["id"] != d["id"]]
     if others:
         fx.append('<dt>same address, other times</dt><dd>' + "<br>".join(
-            f'<a href="{rel}source/{o["id"]}/index.html">{esc(fmt_time(o["time"]) if o["time"] else "as it is now")}</a> <span class="muted">·</span> '
+            f'<a href="{rel}source/{o["id"]}/index.html">{esc(doc_when(o))}</a> <span class="muted">·</span> '
             + ", ".join(contest_ref(c["contest"], rel) for c in o["cits"][:4]) + (f' <span class="muted">+{len(o["cits"]) - 4}</span>' if len(o["cits"]) > 4 else "")
             for o in others) + "</dd>")
     same = same_as(k)
