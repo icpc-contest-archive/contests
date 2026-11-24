@@ -50,7 +50,7 @@ def main() -> int:
     p = ROOT / "data" / "replay-index.json"
     if p.exists():
         for e in json.loads(p.read_text())["pages"]:
-            replay[e["path"].removeprefix("a/")] = e["path"]
+            replay[e["path"].removeprefix("a/")] = e.get("at") or e["path"]   # `at`: a file published once, under another copy's path
     websites = []
     p = ROOT / "data" / "website-index.json"
     if p.exists():

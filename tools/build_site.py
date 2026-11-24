@@ -1708,7 +1708,7 @@ def contest_page(cid: str, c: dict, rel: str) -> str:
     matched = {"a/" + p for e in sources(c) for p in archived(e)} | {REPLAY_LOOKUP.get((cid, norm_key(e["url"]))) for e in sources(c)}
     extra = []
     for e in REPLAY_BY_CONTEST.get(cid, []):  # replay pages the catalogue does not point at
-        if e["path"] in matched or e.get("artifact") == "problemset" or not e.get("url"):
+        if e["path"] in matched or e.get("at") in matched or e.get("artifact") == "problemset" or not e.get("url"):
             continue
         matched.add(e["path"])
         extra.append(f'<tr><td>{role_chip(e["artifact"])}{chip("not listed yet", "n", "we hold a copy; it is not yet listed as a source of this contest")}</td>'
@@ -3512,13 +3512,14 @@ def build(out: Path):
     REPLAY_BY_CONTEST.clear()
     if aux["replay-index"]:
         for e in aux["replay-index"]["pages"]:
+            at = e.get("at") or e["path"]     # a file published once sits under another copy's path (bake.py)
             if e.get("repo") and e["repo"] != "replay":
-                REPLAY_REPO[e["path"]] = e["repo"]
+                REPLAY_REPO[e["path"]] = REPLAY_REPO[at] = e["repo"]
             if e.get("url"):
                 k = (e["contest"], norm_key(e["url"]))
-                REPLAY_LOOKUP[k] = e["path"]
+                REPLAY_LOOKUP[k] = at
                 if e.get("artifact") == "problemset":
-                    REPLAY_PROBLEMSET[k] = e["path"]
+                    REPLAY_PROBLEMSET[k] = at
             REPLAY_BY_CONTEST[e["contest"]].append(e)
     ARCHIVED_BY_CONTEST.clear()
     PROBLEMSET_CAPS.clear()
