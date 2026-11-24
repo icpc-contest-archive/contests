@@ -2673,7 +2673,7 @@ def judge_page(jid: str, j: dict, probs: set, pages: list, rel: str) -> str:
     nps = sum(1 for _c, s in pages if "problemset" in s["roles"])
     b.append(f'<h2 id="contests">Contests <span class="n">{num(ncon)}</span></h2>'
              '<p class="note">Contests that have a page on this online judge: the page of its problem set, or a problem\'s own page or statement that we hold a copy of'
-             + (f" — {len(pages)} pages: {nps} problem-set pages, {len(pages) - nps} problem pages." if len(pages) != ncon else ".") + "</p>")
+             + (f" — {num(len(pages))} pages: {num(nps)} problem-set pages, {num(len(pages) - nps)} problem pages." if len(pages) != ncon else ".") + "</p>")
     if pages:
         rows = []
         for cid, s in sorted(pages, key=lambda t: (t[0], t[1]["url"])):
@@ -3211,7 +3211,7 @@ def coverage_page(series_docs: dict, contests: dict) -> str:
                           "A cell opens the contests of that season that are missing it.", season_strips(cs, "", {}), title="What we hold", hid="hold")
          + '<p class="note">A complete package counts as statement, test data and solutions too. Material counts wherever it comes from: the problem archive, '
            "or a source we hold a copy of. A problem set's page on an online judge is a link, not a copy: what we hold of it is the online judge's list of problems, not the statements; "
-           "a problem's own page on a judge, when we hold it, counts as that problem's statement.</p>"]
+           "a problem's own page on an online judge, when we hold it, counts as that problem's statement.</p>"]
 
     b.append('<h2 id="region">By region</h2><p class="note">The percentage is the share in the best answer; click a header to sort by it. Every segment opens its contests.</p>')
     by_reg = {r: [c for c in cs if SERIES_REGION.get(SERIES_OF[c["id"]]) == r] for r in REGIONS}
@@ -3350,8 +3350,9 @@ def cms_page(contests: dict) -> str:
     cms_rows = {}
     for cid, c in contests.items():
         for i in (c.get("cms_ids") or []):   # an id can be both a contest's and its part's (east-na-2023, nena-2023): list both
-            prev_link = cms_rows[int(i)][1] + ", " if int(i) in cms_rows else ""
-            cms_rows[int(i)] = ("in the catalogue", prev_link + link_contest(cid, "", False), esc(c.get("name") or ""))
+            prev = cms_rows.get(int(i))
+            cms_rows[int(i)] = ("in the catalogue", (prev[1] + ", " if prev else "") + link_contest(cid, "", False),
+                                (prev[2] + "; " if prev else "") + esc(c.get("name") or ""))
     tri = yaml.safe_load((ROOT / "registry" / "cms-triage.yaml").read_text())
     for e in (tri.get("excluded") or []):
         cms_rows.setdefault(int(e["cms_id"]), (f'excluded: {e.get("reason")}', "", esc(str(e.get("name") or ""))))
@@ -3427,7 +3428,7 @@ def landing_page(series_docs: dict, contests: dict) -> str:
     dark_html = n_link(dark, "", {"results": "none"})
     body = f"""<h1>ICPC contest archive</h1>
 <p class="lede">ICPC contests back to 1977 — and where their websites,
-their results and their problems can still be found: at its address now, in the Wayback Machine, or in our archive.</p>
+their results and their problems can still be found: at their address now, in the Wayback Machine, or in our archive.</p>
 <div class="nums">{tiles_html}</div>
 <p class="note">Search everything with the box at the top right (press <code>/</code>): contest and series ids, names, problems, places, CMS ids, website hosts.</p>
 <h2>What we hold</h2>
@@ -3520,7 +3521,7 @@ def about_page() -> str:
      "Problems, what we hold of each kind of material: <b>St</b> statements, <b>D</b> test data, <b>So</b> solutions, <b>P</b> packages, <b>E</b> editorial. "
      "It counts wherever it comes from: the ICPC Problem Archive, or a source we hold a copy of. Filled green: for every problem. Amber: for some. "
      "Blue outline: link only — a source that has it is known, we hold no copy (a problem set's page on an online judge is this: our copy is the online judge's list, "
-     "not the material; a problem's own page on a judge, when we hold it, counts as that problem's statement). "
+     "not the material; a problem's own page on an online judge, when we hold it, counts as that problem's statement). "
      "White, outlined: none held and none known — wanted. Dashed: a source is known, but what it holds is not recorded. A complete package counts as statement, test data and solutions too. "
      "On a single problem the marks say what we hold of that problem, from the same places (held for every problem of its set counts for each one; a statement also counts when we hold the problem's own page or statement file on an online judge), "
      "with <b>IV</b>/<b>OV</b> for input and output validators. "
@@ -3796,7 +3797,7 @@ def build(out: Path):
         return {k: v for k, v in d.items() if v not in (None, "", [])}
     search = [clean({"t": "e", "id": str(s), "name": f"Season {s - 1}–{s}", "extra": ran_words([CONTESTS[m] for m in BY_SEASON[s]])}) for s in sorted(BY_SEASON)]
     search += [clean({"t": "r", "id": sid, "name": doc["series"].get("name"), "aliases": doc["series"].get("aliases"),
-                      "extra": f"{SERIES_REGION.get(sid, '')} · {len(doc['contests'])} editions"}) for sid, doc in series_docs.items()]
+                      "extra": f"{SERIES_REGION.get(sid, '')} · {plural(len(doc['contests']), 'edition')}"}) for sid, doc in series_docs.items()]
     search += [clean({"t": "c", "id": cid, "name": c.get("name"), "date": c.get("date"),
                       "cms": [str(i) for i in (c.get("cms_ids") or [])], "hosts": hosts_of(c)}) for cid, c in sorted(contests.items())]
     search += [clean({"t": "l", "id": nid, "name": n["name"], "aliases": n.get("aliases"),

@@ -103,8 +103,8 @@
         if (ok) for (const p of pins) if (p.value && !vals(r.cells[p.col]).includes(p.value)) { ok = false; break; }
         r.hidden = !ok; if (ok) n++;
       });
-      count.textContent = n === rows.length ? rows.length.toLocaleString() + ' rows'
-        : n.toLocaleString() + ' of ' + rows.length.toLocaleString() + ' rows';
+      count.textContent = n === rows.length ? rows.length.toLocaleString('en-US') + ' rows'
+        : n.toLocaleString('en-US') + ' of ' + rows.length.toLocaleString('en-US') + ' rows';
       pins.forEach(p => { p.btn.hidden = !p.value; p.btn.textContent = p.label + ': ' + p.value + ' \u00d7'; });
       clear.hidden = !(q || active.length || pins.some(p => p.value));
       if (useHash) {

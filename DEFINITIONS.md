@@ -453,10 +453,12 @@ The site renders a page per set (`problemset/<set-id>.html`), per problem
 (`problemset/`) and the judge registry (`judge/`). The two pages divide the facts: the
 **contest** page's Problems section says which set it used, lists the problems with this
 contest's letters, and lists the sources (published set, judge pages); the **set** page
-says what the problem archive holds, problem by problem. Per-problem holdings (`have`)
-are recorded for few sets; elsewhere a problem's holdings follow from its set where the
-set is all-or-nothing for a kind (`full` → held, `none` → not held, `partial` → not
-recorded).
+says what we hold, problem by problem, wherever it comes from (the problem archive, or a
+source we hold a copy of). Per-problem holdings (`have`) are recorded for few sets;
+elsewhere a problem's holdings follow from its set where the set is all-or-nothing for a
+kind: held for every problem (in the archive, or in a held problem-set source) → held,
+`none` → not held, `partial` → not recorded. A problem's own held statement copy (a
+`problem` source) counts as its statement.
 
 **Publication rule.** Nothing about a contest's problems — not the names, not the count —
 is public before the contest has run. `validate.py` fails the build when a contest that is
