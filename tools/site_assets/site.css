@@ -111,6 +111,7 @@ a.m:hover { text-decoration:none; filter:brightness(.92); }
 .m.k { border-color:var(--link); color:var(--link); }
 .m.q4, .m.q3, .m.q2, .m.q1 { border-color:transparent; }   /* a held result, in the colour of its level */                         /* a source is known; we hold no copy */
 .m.x { background:var(--lost); color:var(--paper); }                         /* lost */
+.m.kx { border-color:var(--lost); color:var(--lost); }                          /* link only, and the source is lost: red, as the colour rule says */
 .av { white-space:nowrap; } .av .m { cursor:default; font-weight:600; }
 .m.p { background:var(--ql); color:#17212b; }                                /* not done yet (pending): not checked, not captured */
 .m.g, .chip.g { background:var(--wash); color:var(--muted); }                 /* does not apply (n/a): grey, as .qx */
@@ -176,7 +177,7 @@ tbody tr:hover { background:var(--wash); }
 /* ---- coverage: an answer is a colour, the same wherever it is drawn (build_site.facet_q) ----
    q4 held (green) · q3 q2 q1 partly held or a lesser result (lime, amber, orange: the further from green, the less) ·
    ql known at an address, no copy (blue) · q0 missing (white: a hole) · qu a source is known, not what it holds (hatched) ·
-   qx none exists (grey: not a hole). The marks in tables use the same: .m.h held, .m.l partly, .m.k link only. */
+   qx none: there is none to have (grey: not a hole). The marks in tables use the same: .m.h held, .m.l partly, .m.k link only. */
 :root { --q3:#8fc15f; --q2:#ecbd4c; --q1:#ec9457; --ql:#8fb9ec; }
 @media (prefers-color-scheme: dark) { :root { --q3:#7fae55; --q2:#d6a63c; --q1:#d38246; --ql:#6f9fdd; } }
 .q4 { background:var(--held); color:#fff; }

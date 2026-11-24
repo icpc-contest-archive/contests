@@ -419,7 +419,7 @@ def key_line(rel: str, *parts: str) -> str:
     if "website" in parts:
         bits.append("<b>W</b> website")
     if "results" in parts or "website" in parts:
-        bits.append('<span class="m h">filled</span> we hold a copy <span class="m k">outlined</span> link only')
+        bits.append('<span class="m h">filled</span> we hold a copy <span class="m k">outlined</span> link only <span class="m kx">red</span> lost')
     if "held" in parts:
         bits.append('problems: <b>St</b> statements · <b>D</b> test data · <b>So</b> solutions · <b>P</b> packages · <b>E</b> editorial — '
                     '<span class="m h">all</span> <span class="m l">some</span> held, in the problem archive or in a source we hold a copy of · '
@@ -500,14 +500,12 @@ def role_chip(r: str) -> str:
 
 
 def lost_locators(c) -> list:
-    """Result/web sources of this contest that are gone from their address (dead or replaced) AND not in
+    """Sources of this contest, of any type (ruling of 2026-11-24), that are gone from their address (dead or replaced) AND not in
     the Wayback Machine, by the same answers as their address · Wayback · archive marks (avail): held
     = ours is the only copy; archive `lost` = the material is lost. A bad copy is neither (its archive
     mark says so); an address that only refuses our fetcher (403, an untrusted certificate) is not gone."""
     out = []
     for s in sources(c):
-        if not ("web" in s["roles"] or any(r in s["roles"] for r in RESULT_KINDS)):
-            continue
         a = avail(s["url"], c["id"], s)
         if a["lost"] or (a["live"]["s"] == "no" and a["wb"]["s"] == "no" and a["ours"]["s"] == "yes"):
             out.append((s["url"], a["wb"]["word"], a["ours"]["s"] == "yes"))
@@ -559,12 +557,14 @@ def result_marks(c: dict, rel: str) -> str:
         e = next((x for x in entries if src_held(c, x)), None)
         held = e is not None
         e = e or entries[0]
-        tip = role_label(key) + (" — we hold a copy" if held else " — link only, no copy held")
+        lost = not held and all(avail(x["url"], c["id"], x)["lost"] for x in entries)   # gone everywhere: red, not blue
+        tip = role_label(key) + (" — we hold a copy" if held else " — lost: gone from its address, not in the Wayback Machine, and no copy here" if lost
+                                 else " — link only, no copy held")
         parts = list(dict.fromkeys(x["scope"] for x in entries if x.get("scope")))
         if parts:
             tip += " (" + ", ".join(parts) + ")"
         href = src_href(e["url"], rel, e.get("as_of"), c["id"])
-        cls = MARK_Q[key] if held else "k"
+        cls = MARK_Q[key] if held else "kx" if lost else "k"
         out.append(f'<a class="m {cls}" href="{href}" title="{tip}">{letter}</a>' if href
                    else f'<span class="m {cls}" title="{tip}">{letter}</span>')
     return "".join(out)
@@ -647,7 +647,8 @@ def website_cell(c: dict, rel: str, n: int = 24) -> str:
     held = rec(c)["website"] == "held"
     s = next((x for x in webs if src_held(c, x)), webs[0])   # the mark says held: link the source that is
     more = f' <span class="small muted" title="{len(webs)} website addresses">+{len(webs) - 1}</span>' if len(webs) > 1 else ""
-    return (f'<span class="m {"h" if held else "k"}" title="website — {"we hold a copy" if held else "link only, no copy held"}">W</span>'
+    lost = not held and all(avail(x["url"], c["id"], x)["lost"] for x in webs)   # gone everywhere: red, not blue
+    return (f'<span class="m {"h" if held else "kx" if lost else "k"}" title="website — {"we hold a copy" if held else "lost: gone from its address, not in the Wayback Machine, and no copy here" if lost else "link only, no copy held"}">W</span>'
             + link_source(s["url"], rel, host_label(s["url"], n), source_time(s, c["id"]), c["id"]) + more)   # the hover names the source with its time
 
 
@@ -2996,7 +2997,7 @@ RESULT_NOTES = (   # said about a contest's results beside their level: (label, 
     ("frozen scoreboard held", {"also": "frozen scoreboard: held"}, "the scoreboard as it stood at the freeze: kept beside the result, it does not say how the contest ended"),
     ("frozen scoreboard, link only", {"also": "frozen scoreboard: link only"}, "a frozen scoreboard is known at an address; we hold no copy"),
     ("partial result", {"also": "partial result"}, "the result we hold covers only a part of the contest: one division, the top places"),
-    ("a source is lost", {"also": "lost source"}, "a result or website source gone from its address, not in the Wayback Machine, no copy here"),
+    ("a source is lost", {"also": "lost source"}, "a source of the contest, of any type, gone from its address, not in the Wayback Machine, no copy here"),
 )
 
 
@@ -3256,7 +3257,7 @@ WANTED = (
         ("standings only", {"results": "standings"}, "totals per team — the per-problem scoreboard wanted"),
         ("better result known, not held", {"fetch": "any"}, "a source gives a higher level than the one we hold; a copy of it is wanted"),
         ("partial result", {"also": "partial result"}, "what we hold covers one division or the top places only"),
-        ("a source is lost", {"also": "lost source"}, "a result or website source gone from its address, not in the Wayback Machine, no copy here: gone unless someone kept one"))),
+        ("a source is lost", {"also": "lost source"}, "a source of the contest, of any type, gone from its address, not in the Wayback Machine, no copy here: gone unless someone kept one"))),
     ("Website", (
         ("no address", {"website": "no address"}, "no website address found yet (contests that had none are not counted)"),
         ("no copy", {"website": "no copy"}, "the address is known; we hold no copy"))),
@@ -3520,9 +3521,9 @@ def about_page() -> str:
     ('<span class="pl q2">partial</span>', "The result we hold covers only a part of the contest: one division, the top places."),
     ('<span class="pl ql">scoreboard: link only</span>', "Beside the result: a better result than the one we hold is known at an address, and we hold no copy of it yet."),
     ("<b>Wanted</b>", "Under the pills: everything that is not held and could be, in words."),
-    (chip("2 lost", "x"), "Result or website sources that are gone from their address (dead, or replaced by something else), are not in the Wayback Machine, "
+    (chip("2 lost", "x"), "Sources of any type that are gone from their address (dead, or replaced by something else), are not in the Wayback Machine, "
      "and of which we hold no copy: their archive mark says <i>lost</i>. Gone unless someone kept one."),
-    (chip("1 only here", "h"), "A result or website source gone from its address and not in the Wayback Machine, but we hold a copy — as far as we know the only one."),
+    (chip("1 only here", "h"), "A source of any type gone from its address and not in the Wayback Machine, but we hold a copy — as far as we know the only one."),
     (chip("upcoming", "n"), "The contest has not run yet. Nothing about its problems is published before it has."),
     (chip("not listed yet", "n"), "Beside a row of the results: we hold a copy of a page about this contest that is not yet listed as one of its sources."),
 ))
@@ -3531,7 +3532,7 @@ def about_page() -> str:
      "Results: <b>S</b> scoreboard, <b>Sd</b> standings, <b>R</b> rankings, <b>T</b> team list, and beside them <b>F</b> frozen scoreboard. One mark per kind that exists; "
      "a mark we hold a copy of is filled in the colour of its level, the same colours as in every bar."),
     ('<span class="m h">W</span>', "Website."),
-    ('<span class="m h">filled</span> <span class="m k">outlined</span>', "Filled: we hold a copy (green; a result in the colour of its level). Outlined blue: link only."),
+    ('<span class="m h">filled</span> <span class="m k">outlined</span>', "Filled: we hold a copy (green; a result in the colour of its level). Outlined blue: link only. Outlined red: lost — gone from its address, not in the Wayback Machine, and no copy here."),
     ('<span class="m h">St</span><span class="m l">D</span><span class="m k">So</span><span class="m n">P</span><span class="m u">E</span>',
      "Problems, what we hold of each kind of material: <b>St</b> statements, <b>D</b> test data, <b>So</b> solutions, <b>P</b> packages, <b>E</b> editorial. "
      "It counts wherever it comes from: the ICPC Problem Archive, or a source we hold a copy of. Filled green: for every problem. Amber: for some. "
