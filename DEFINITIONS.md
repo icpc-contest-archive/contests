@@ -387,7 +387,7 @@ source (`source/<id>/`: the address and its time, its type and contests, the thr
 the old `locator/<id>/` and `locator/<id>/<ts>.html` paths redirect there). `tools/build_resources.py` joins catalogue, archive index, website index,
 live-check verdicts and replay index into `data/resources.json`, which those pages render from.
 
-**Presentation.** A resource displays as **`url (time)`** at the precision known —
+**Presentation.** A resource displays as **`url (at time)`** everywhere (ruling of 2026-11-24), at the precision known —
 `2011-01-02 18:36`, `2026-04-15`, `2011`; a bare locator displays as the URL. Everywhere
 but its own page a source links to its source page; that page opens the address as it is
 (*open the address*), the Wayback snapshot pinned to `as_of` (or the copy's snapshot) when

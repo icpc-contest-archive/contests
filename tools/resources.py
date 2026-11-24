@@ -123,6 +123,7 @@ def fmt_time(ts: str | None) -> str:
 
 
 def label(url: str, as_of: str | None = None, maxlen: int = 90) -> str:
-    """`<url> (<time>)` — the resource presentation; plain URL for a bare locator."""
+    """`<url> (at <time>)` — the resource presentation, the same as the first line of its source page;
+    plain URL for a bare locator."""
     url = url if len(url) <= maxlen else url[: maxlen - 1] + "…"
-    return f"{url} ({fmt_time(as_of)})" if as_of else url
+    return f"{url} (at {fmt_time(as_of)})" if as_of else url

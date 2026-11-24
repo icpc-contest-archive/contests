@@ -399,7 +399,7 @@ def web_state(c) -> str:
 
 
 # the marks of a results cell: the ladder, best first, then the frozen scoreboard beside it
-TIERS = (("scoreboard", "S"), ("standings", "St"), ("rankings", "R"), ("teams", "T"), ("frozen_scoreboard", "F"))
+TIERS = (("scoreboard", "S"), ("standings", "Sd"), ("rankings", "R"), ("teams", "T"), ("frozen_scoreboard", "F"))
 TIER_LABEL = CV.LEVEL_LABEL
 ROLE_LABEL = {"frozen_scoreboard": "frozen scoreboard", "teams": "team list",
               "problemset": "problem set", "web": "website",
@@ -414,7 +414,7 @@ def key_line(rel: str, *parts: str) -> str:
     """The key above a table. Parts: 'results', 'website', 'held', 'have', 'available'."""
     bits = []
     if "results" in parts:
-        bits.append('<span class="m q4">S</span> scoreboard <span class="m q3">St</span> standings <span class="m q2">R</span> rankings '
+        bits.append('<span class="m q4">S</span> scoreboard <span class="m q3">Sd</span> standings <span class="m q2">R</span> rankings '
                     '<span class="m q1">T</span> team list · <b>F</b> frozen scoreboard')
     if "website" in parts:
         bits.append("<b>W</b> website")
@@ -648,7 +648,7 @@ def website_cell(c: dict, rel: str, n: int = 24) -> str:
     s = next((x for x in webs if src_held(c, x)), webs[0])   # the mark says held: link the source that is
     more = f' <span class="small muted" title="{len(webs)} website addresses">+{len(webs) - 1}</span>' if len(webs) > 1 else ""
     return (f'<span class="m {"h" if held else "k"}" title="website — {"we hold a copy" if held else "link only, no copy held"}">W</span>'
-            + link_source(s["url"], rel, host_label(s["url"], n), s.get("as_of"), c["id"]) + more)
+            + link_source(s["url"], rel, host_label(s["url"], n), source_time(s, c["id"]), c["id"]) + more)   # the hover names the source with its time
 
 
 WEB_VALUES = {"held": "held", "no copy": "wanted|no copy", "no address": "wanted|no address", "none": "none"}
@@ -3527,8 +3527,8 @@ def about_page() -> str:
     (chip("not listed yet", "n"), "Beside a row of the results: we hold a copy of a page about this contest that is not yet listed as one of its sources."),
 ))
     marks_dl = dl((
-    ('<span class="m q4">S</span><span class="m q3">St</span><span class="m q2">R</span><span class="m q1">T</span><span class="m q4">F</span>',
-     "Results: <b>S</b> scoreboard, <b>St</b> standings, <b>R</b> rankings, <b>T</b> team list, and beside them <b>F</b> frozen scoreboard. One mark per kind that exists; "
+    ('<span class="m q4">S</span><span class="m q3">Sd</span><span class="m q2">R</span><span class="m q1">T</span><span class="m q4">F</span>',
+     "Results: <b>S</b> scoreboard, <b>Sd</b> standings, <b>R</b> rankings, <b>T</b> team list, and beside them <b>F</b> frozen scoreboard. One mark per kind that exists; "
      "a mark we hold a copy of is filled in the colour of its level, the same colours as in every bar."),
     ('<span class="m h">W</span>', "Website."),
     ('<span class="m h">filled</span> <span class="m k">outlined</span>', "Filled: we hold a copy (green; a result in the colour of its level). Outlined blue: link only."),
