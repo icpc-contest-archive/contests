@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/bake_icpc_standings.py.
+# Maintained in-repo; last bulk edit: by hand, ruling of 2026-11-24 (the NCPU and NCTU contests are not the NCPC).
 series:
   id: taiwan-ncpc
   name: Taiwan National Collegiate Programming Contest (MOE NCPC)
@@ -97,14 +97,10 @@ contests:
   location: Kaohsiung
   cms_ids:
   - 1908
-  - 1909
   sites:
   - location: tw-kaohsiung
     name: Taiwan National Group-A Programming Contest
-  - location: tw
-    name: Taiwan national NCPU
   parent: taiwan-2013
-  next: taiwan-ncpc-2014
   sources:
   - url: https://ncpc.ntnu.edu.tw/ncpc2013/
     roles:
@@ -119,14 +115,6 @@ contests:
     url_checked: '2026-11-23'
     archived:
     - taiwan-ncpc/taiwan-ncpc-2013/scoreboard/20131025-wayback-4f1d6a65/summary.html
-  - url: https://icpc.global/regionals/finder/Taiwan-Invitational-2014/standings
-    roles:
-    - standings
-    scope: Taiwan National NCPU Programming Contest
-    archived:
-    - taiwan-ncpc/taiwan-ncpc-2013/standings/api-20261123/standings.html
-    note: 'found by the data scan 2026-11-23 (ICPC CMS open API (cms 1909): standings rows exist but the
-      contest had no CMS standings source)'
   - url: https://ncpc.ntnu.edu.tw/files.html
     roles:
     - problemset
@@ -139,99 +127,6 @@ contests:
     set: taiwan-ncpc-2013
   notes: '78 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site))
     | merged duplicate-year row: Taiwan National NCPU Programming Contest'
-- id: taiwan-ncpc-2014
-  season: 2015
-  name: 2014 ACM-ICPC Taiwan NCPU National Programming Contest
-  date: '2014-06-25'
-  location: Taichung City, Taiwan
-  cms_ids:
-  - 2553
-  sites:
-  - location: tw
-    name: 2014 ACM-ICPC Taiwan NCPU National Programming Contest
-  next: taiwan-ncpc-2015
-  sources:
-  - url: https://ncpc.ntnu.edu.tw/files.html
-    roles:
-    - web
-  - url: https://ncpc.nsysu.edu.tw/
-    roles:
-    - web
-    url_state: replaced
-    url_checked: '2026-11-14'
-  - url: https://icpc.global/regionals/finder/Taiwan-NCPU-2015/standings
-    roles:
-    - standings
-    archived:
-    - taiwan-ncpc/taiwan-ncpc-2014/standings/api-20261123/standings.html
-    note: 'found by the data scan 2026-11-23 (ICPC CMS open API (cms 2553): standings rows exist but the
-      contest had no CMS standings source)'
-  notes: '55 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site));
-    parent ''apc'' from inventory unresolved - left unlinked'
-- id: taiwan-ncpc-2015
-  season: 2016
-  name: 2015 ACM-ICPC Taiwan NCPU National Programming Contest for Private Universities
-  date: '2015-07-04'
-  location: Taiwan
-  cms_ids:
-  - 2969
-  sites:
-  - location: tw-taoyuan
-    name: 2015 ACM-ICPC Taiwan National NCPU Programming Contest
-  next: taiwan-ncpc-2016
-  sources:
-  - url: https://icpc.global/regionals/finder/Taiwan-National-2016/standings
-    roles:
-    - standings
-    archived:
-    - taiwan-ncpc/taiwan-ncpc-2015/standings/api-20261123/standings.html
-    note: 'found by the data scan 2026-11-23 (ICPC CMS open API (cms 2969): standings rows exist but the
-      contest had no CMS standings source)'
-  - url: https://ncpc.ntnu.edu.tw/files.html
-    roles:
-    - problemset
-    url_state: live
-    url_checked: '2026-11-23'
-  notes: '81 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site));
-    parent ''apc'' from inventory unresolved - left unlinked'
-- id: taiwan-ncpc-2016
-  season: 2017
-  name: 2016 ACM-ICPC Taiwan NCTU National Programming Contest for Technology Universities
-  date: '2016-07-01'
-  location: Taiwan,Asia
-  cms_ids:
-  - 3075
-  - 3076
-  sites:
-  - location: tw
-    name: The 2016 ACM-ICPC Taiwan NCTU National Programming Contest
-  - location: tw
-    name: The 2016 ACM-ICPC Taiwan NCPU National Programming Contest for Private Universities
-  sources:
-  - url: https://icpc.global/regionals/finder/Taiwan-NCTU-2017/standings
-    roles:
-    - standings
-    scope: Taiwan NCTU National Programming Contest for Technology Universities
-    archived:
-    - taiwan-ncpc/taiwan-ncpc-2016/standings/api-20261123/standings.html
-    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 30 rows)
-  - url: https://icpc.global/regionals/finder/Taiwan-NCPU-National-2017/standings
-    roles:
-    - standings
-    scope: Taiwan NCPU National Programming Contest for Private Universities
-    archived:
-    - taiwan-ncpc/taiwan-ncpc-2016/standings/api-20261125-3076/standings.html
-    note: found by the data scan 2026-11-23 (icpc.global CMS standings, 61 rows)
-  - url: https://www.chinatimes.com/realtimenews/20160702004318-260405
-    roles:
-    - rankings
-    as_of: '20160703113030'
-    archived:
-    - taiwan-ncpc/taiwan-ncpc-2016/rankings/20160703-wayback-c54e8378/page.html
-    - taiwan-ncpc/taiwan-ncpc-2016/rankings/20261122-live-a404dd35/page.html
-    url_state: replaced
-    url_checked: '2026-11-22'
-    note: added by the no-sources hunt 2026-11-16
-  notes: '30 teams; from icpc-history master_contests (family ruling 2026-09-04; src: icpc-nopii.db (contest/api_contest/site));
-    parent ''apc'' from inventory unresolved - left unlinked | merged duplicate-year row: 2016 ACM-ICPC
-    Taiwan NCPU National Programming Contest for Private Universities'
+  provenance:
+  - the NCPU contest of 2013 (CMS 1909, for private universities) was filed here until 2026-11-24; it
+    is not the NCPC and is in the triage registry (ruling)
