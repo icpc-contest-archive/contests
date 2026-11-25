@@ -7,6 +7,13 @@ Finals, or performing well in it could advance a team toward a World Finals — 
 test is not in the catalogue; it is accounted for in the registries instead, so that every
 CMS DB entry remains *considered*.
 
+**Qualifiers.** "Advance a team" is meant broadly. From a contest called a qualifier, such as the
+North America Qualifier or the subregionals under NWERC, no team is itself qualified: universities
+use the result to choose which teams they send, and the regional above hands out places to
+universities by it. Such a contest is mainline, and its parent is the regional or regionals it
+serves (ruling of 2026-11-25). A contest whose pages say nothing of the kind, such as a prize contest
+of a province or a university, is not.
+
 ## The three stores
 
 - `series/<series>.yaml` — the catalogue. Mainline contests only: ones that ran, plus
