@@ -29,6 +29,9 @@ CMS DB entry remains *considered*.
 (ruling of 2026-11-24): each has its own entry, date, results and problem set, and the earlier one
 advances to the later. The Northern Eurasia Finals of 2020-21 are `nerc-online-2020` (13 December
 2020) and `nerc-2020` (the onsite round of 4 April 2021).
+One exception (same ruling): Egypt's qualification days from 2022 on are one contest a year,
+`egypt-qualification-YYYY`, with one CMS id, one sitting (`sites`) and one standings source per day.
+Each day seats a different group of universities, and the days are believed to share one problem set.
 
 ## Naming
 

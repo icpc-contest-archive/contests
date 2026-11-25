@@ -40,6 +40,7 @@ ARCHIVE = BASE / "archive"
 TOOL = "bake_icpc_standings.py/1.0"
 TODAY = datetime.date.today()
 STAMP = "api-" + TODAY.strftime("%Y%m%d")
+SLUG_ID = {v: k for k, v in json.loads((ROOT / "data" / "cms-shortnames.json").read_text()).items()}   # finder slug -> CMS id
 DUMPS = (("icpc_all_standings.json", "2026-04-26"), ("icpc_new_standings_from_db.json", "2026-04-26"),
          ("icpc_standings_topup.json", None))   # tools/topup_icpc_standings.py: each entry carries its own fetch date
 COLS = [("rank", "Rank"), ("teamName", "Team"), ("institution", "Institution"), ("problemsSolved", "Solved"),
@@ -99,50 +100,63 @@ def main() -> int:
             srcs = cms_sources(c)
             if not srcs:
                 continue
-            s = next((x for x in srcs if "icpc.global" in x["url"]), srcs[0])
-            if any("/api-" in p for x in srcs for p in archived(x)):
-                skipped += 1
-                continue
+            icpc = [x for x in srcs if "icpc.global" in x["url"]]
             ids = [str(x) for x in c.get("cms_ids") or []]
-            if not ids:
-                no_id += 1
-                continue
-            best = max((x for x in ids if x in data), key=lambda x: len(data[x]["standings"]), default=None)
-            if best is None:
-                no_rows += 1
-                asked = [v for e in empty.values() for k, v in e.items() if k in ids]
-                if len(asked) == len(ids):   # every id was asked and none has rows
-                    none_in_cms[c["id"]] = {"cms_ids": [int(x) for x in ids], "asked": max(v.get("fetched") or "" for v in asked), "url": s["url"]}
-                continue
+            if len(icpc) > 1 and len(ids) > 1:
+                # a contest of several CMS records, each with its own standings page (the sittings of one
+                # qualification, 2026-11-24): one copy per page, the page matched to its record by its slug
+                jobs = [(x, SLUG_ID.get(x["url"].rstrip("/").split("/")[-2])) for x in icpc]
+                jobs = [(x, i) for x, i in jobs if i in ids and i in data and not any("/api-" in q for q in archived(x))]
+                if not jobs:
+                    skipped += 1
+                    continue
+            else:
+                s = icpc[0] if icpc else srcs[0]
+                if any("/api-" in p for x in srcs for p in archived(x)):
+                    skipped += 1
+                    continue
+                if not ids:
+                    no_id += 1
+                    continue
+                best = max((x for x in ids if x in data), key=lambda x: len(data[x]["standings"]), default=None)
+                if best is None:
+                    no_rows += 1
+                    asked = [v for e in empty.values() for k, v in e.items() if k in ids]
+                    if len(asked) == len(ids):   # every id was asked and none has rows
+                        none_in_cms[c["id"]] = {"cms_ids": [int(x) for x in ids], "asked": max(v.get("fetched") or "" for v in asked), "url": s["url"]}
+                    continue
+                jobs = [(s, best)]
             if args.limit and done >= args.limit:
                 break
-            entry, fetched, cid = data[best], when[best], c["id"]
-            rel = f"{sid}/{cid}/standings/{STAMP}"
-            page = render(entry, cid, best, fetched)
-            sha = hashlib.sha256(page.encode()).hexdigest()
-            if args.write:
-                dest = ARCHIVE / rel
-                dest.mkdir(parents=True, exist_ok=True)
-                (dest / "standings.html").write_text(page, encoding="utf-8")
-                (dest / "standings.json").write_text(json.dumps(
-                    {"cms_id": int(best), "fetched": fetched, "name": entry.get("name"), "abbr": entry.get("abbr"),
-                     "year": entry.get("year"), "standings": entry["standings"]}, indent=1, ensure_ascii=False))
-                (dest / "manifest.json").write_text(json.dumps(
-                    {"schema_version": 1, "contest": cid, "artifact": "standings", "cms_id": int(best), "url": s["url"],
-                     "source": "icpc-api-archive", "fetched": fetched, "baked": TODAY.isoformat(), "content_file": "standings.html",
-                     "content_type": "text/html; charset=utf-8", "size": len(page.encode()), "sha256": sha,
-                     "teams": len(entry["standings"]), "tool": TOOL}, indent=1, ensure_ascii=False))
-                path = rel + "/standings.html"
-                if path not in have:
-                    idx["captures"].append({"contest": cid, "artifact": "standings", "path": path, "url": s["url"],
-                                            "source": "icpc-api-archive", "fetched": fetched, "sha256": sha,
-                                            "size": len(page.encode()), "content_type": "text/html; charset=utf-8"})
-                    have.add(path)
-                add_archived(s, path)
-                s.setdefault("note", f"rendered from the icpc.global API standings archive (cms {best}, {len(entry['standings'])} teams, DB fetch {fetched})")
-                c["sources"] = [normalise_source(x) if x is s else x for x in c["sources"]]   # key order of this one source only
-                touched[sid] = doc
-            done += 1
+            several = len(jobs) > 1 or (len(icpc) > 1 and len(ids) > 1)
+            for s, best in jobs:
+                entry, fetched, cid = data[best], when[best], c["id"]
+                rel = f"{sid}/{cid}/standings/{STAMP}" + (f"-{best}" if several else "")
+                page = render(entry, cid, best, fetched)
+                sha = hashlib.sha256(page.encode()).hexdigest()
+                if args.write:
+                    dest = ARCHIVE / rel
+                    dest.mkdir(parents=True, exist_ok=True)
+                    (dest / "standings.html").write_text(page, encoding="utf-8")
+                    (dest / "standings.json").write_text(json.dumps(
+                        {"cms_id": int(best), "fetched": fetched, "name": entry.get("name"), "abbr": entry.get("abbr"),
+                         "year": entry.get("year"), "standings": entry["standings"]}, indent=1, ensure_ascii=False))
+                    (dest / "manifest.json").write_text(json.dumps(
+                        {"schema_version": 1, "contest": cid, "artifact": "standings", "cms_id": int(best), "url": s["url"],
+                         "source": "icpc-api-archive", "fetched": fetched, "baked": TODAY.isoformat(), "content_file": "standings.html",
+                         "content_type": "text/html; charset=utf-8", "size": len(page.encode()), "sha256": sha,
+                         "teams": len(entry["standings"]), "tool": TOOL}, indent=1, ensure_ascii=False))
+                    path = rel + "/standings.html"
+                    if path not in have:
+                        idx["captures"].append({"contest": cid, "artifact": "standings", "path": path, "url": s["url"],
+                                                "source": "icpc-api-archive", "fetched": fetched, "sha256": sha,
+                                                "size": len(page.encode()), "content_type": "text/html; charset=utf-8"})
+                        have.add(path)
+                    add_archived(s, path)
+                    s.setdefault("note", f"rendered from the icpc.global API standings archive (cms {best}, {len(entry['standings'])} teams, DB fetch {fetched})")
+                    c["sources"] = [normalise_source(x) if x is s else x for x in c["sources"]]   # key order of this one source only
+                    touched[sid] = doc
+                done += 1
     print(f"baked: {done} | already held: {skipped} | CMS id without rows in the dumps: {no_rows} | no CMS id: {no_id}"
           + ("" if args.write else "  (dry run)"))
     if args.write and none_in_cms:
