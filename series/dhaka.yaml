@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: by hand, ruling of 2026-11-25 (pages that only link to results or problems).
 series:
   id: dhaka
   name: ICPC Asia Dhaka Regional Contest
@@ -372,6 +372,16 @@ contests:
     as_of: '20031011091545'
     url_state: dead
     url_checked: '2026-11-14'
+  - url: http://www.buet.ac.bd/acmicpc/standing.html
+    roles:
+    - web
+    as_of: '20040120221605'
+    note: added by url-hunt 2026-09-01 (cms-api)
+    url_state: dead
+    url_checked: '2026-11-16'
+    archived:
+    - dhaka/dhaka-2003/standings/20040120-wayback-559c1098/standing.html
+    scope: results menu
   - url: http://icpc.baylor.edu/icpc/regionals/ViewRegionalStandings.asp?ContestID=664
     roles:
     - standings
@@ -389,15 +399,17 @@ contests:
     url_state: dead
     url_checked: '2026-11-01'
     note: added by url-hunt 2026-09-01 (cdx-viewstandings)
-  - url: http://www.buet.ac.bd/acmicpc/standing.html
+  - url: http://www.buet.ac.bd/acmicpc/ranking.html
     roles:
     - standings
-    as_of: '20040120221605'
-    note: added by url-hunt 2026-09-01 (cms-api)
-    url_state: dead
-    url_checked: '2026-11-16'
-    archived:
-    - dhaka/dhaka-2003/standings/20040120-wayback-559c1098/standing.html
+    note: linked from http://www.buet.ac.bd/acmicpc/standing.html as 'Actual Scores'; not read yet (added
+      2026-11-25)
+  - url: http://www.buet.ac.bd/acmicpc/universityranking.html
+    roles:
+    - standings
+    note: linked from http://www.buet.ac.bd/acmicpc/standing.html as 'Official Final Ranking'; not read
+      yet (added 2026-11-25)
+    scope: university ranking
   - url: http://www.buet.ac.bd/acmicpc/problemset.html
     roles:
     - problemset
@@ -417,6 +429,9 @@ contests:
     url_checked: '2026-11-23'
   problems:
     set: dhaka-2003
+  provenance:
+  - 'http://www.buet.ac.bd/acmicpc/standing.html is now web (was standings): a menu of two links (data
+    scan question 2, ruling 2026-11-25)'
 - id: dhaka-2004
   season: 2005
   name: 2004 ACM Asia Programming Contest - Dhaka

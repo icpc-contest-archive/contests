@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: by hand, ruling of 2026-11-25 (sources whose page is not about the contest).
+# Maintained in-repo; last bulk edit: by hand, ruling of 2026-11-25 (pages that only link to results or problems).
 series:
   id: swerc
   name: ICPC Southwestern Europe Regional Contest
@@ -1390,16 +1390,9 @@ contests:
   parent: wf-2009
   next: swerc-2009
   sources:
-  - url: https://swerc.eu/2023/theme/cached/2008/
-    roles:
-    - scoreboard
-    archived:
-    - swerc/swerc-2008/scoreboard/2026-09-01-live-226b888b/page.html
-    url_state: live
-    url_checked: '2026-11-16'
   - url: http://icpc.informatik.uni-erlangen.de/swerc2008/results.php
     roles:
-    - rankings
+    - web
     as_of: '20190219060444'
     archived:
     - swerc/swerc-2008/external-standings/2026-04-15-external/content.html
@@ -1407,6 +1400,23 @@ contests:
     url_state: dead
     url_checked: '2026-11-16'
     note: from archived capture (external-standings)
+  - url: https://swerc.eu/2023/theme/cached/2008/
+    roles:
+    - scoreboard
+    archived:
+    - swerc/swerc-2008/scoreboard/2026-09-01-live-226b888b/page.html
+    url_state: live
+    url_checked: '2026-11-16'
+  - url: http://icpc.informatik.uni-erlangen.de/swerc2008/results/beforefreeze.html
+    roles:
+    - frozen_scoreboard
+    note: linked from http://icpc.informatik.uni-erlangen.de/swerc2008/results.php as 'Standings before
+      Freeze (after 4 hours)'; not read yet (added 2026-11-25)
+  - url: http://icpc.informatik.uni-erlangen.de/swerc2008/results/
+    roles:
+    - standings
+    note: linked from http://icpc.informatik.uni-erlangen.de/swerc2008/results.php as 'Final Standings';
+      not read yet (added 2026-11-25)
   - url: https://icpcarchive.github.io/Europe%20Contests/Southwestern%20Europe%20Regional%20Contest%20(SWERC)/2008%20Southwestern%20Europe%20Regional%20Contest/problems.pdf
     roles:
     - problemset
@@ -1439,6 +1449,13 @@ contests:
     url_state: live
     url_checked: '2026-11-23'
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+  - url: http://icpc.informatik.uni-erlangen.de/swerc2008/results/swerc08.pdf
+    roles:
+    - problemset
+    note: linked from http://icpc.informatik.uni-erlangen.de/swerc2008/results.php as 'Problemset (PDF)';
+      not read yet (added 2026-11-25)
+    contains:
+    - statement
   - url: http://icpc.informatik.uni-erlangen.de/swerc2008/results/solOutline.pdf
     roles:
     - editorial
@@ -1450,6 +1467,9 @@ contests:
   provenance:
   - location Friedrich-Alexander-University Erlangen-Nuremberg read from http://icpc.informatik.uni-erlangen.de/swerc2008/results.php
     (data scan 2026-11-23)
+  - 'http://icpc.informatik.uni-erlangen.de/swerc2008/results.php is now web (was rankings): a page of
+    links with no results of its own; the linked documents are the sources (data scan question 2, ruling
+    2026-11-25)'
 - id: swerc-2009
   season: 2010
   name: 2009 Southwestern Europe Regional Contest
@@ -3035,6 +3055,18 @@ contests:
   - url: https://swerc.eu/2023/
     roles:
     - web
+  - url: https://swerc.eu/2023/results/
+    roles:
+    - web
+    as_of: '20240203133803'
+    archived:
+    - swerc/swerc-2023/external-standings/2026-04-15-external/content.html
+    - swerc/swerc-2023/standings/20240203-wayback-96fe60c0/page.html
+    - swerc/swerc-2023/standings/20260901-live-9977f99f/page.html
+    - swerc/swerc-2023/standings/20261115-live-9977f99f/page.html
+    url_state: replaced
+    url_checked: '2026-11-16'
+    note: from archived capture (external-standings)
   - url: https://swerc.eu/2023/theme/scoreboard/domjudge.lip6.fr/public.html
     roles:
     - scoreboard
@@ -3052,18 +3084,6 @@ contests:
     url_checked: '2026-11-16'
     archived:
     - swerc/swerc-2023/scoreboard/20261115-live-e28a82de/page.html
-  - url: https://swerc.eu/2023/results/
-    roles:
-    - standings
-    as_of: '20240203133803'
-    archived:
-    - swerc/swerc-2023/external-standings/2026-04-15-external/content.html
-    - swerc/swerc-2023/standings/20240203-wayback-96fe60c0/page.html
-    - swerc/swerc-2023/standings/20260901-live-9977f99f/page.html
-    - swerc/swerc-2023/standings/20261115-live-9977f99f/page.html
-    url_state: replaced
-    url_checked: '2026-11-16'
-    note: from archived capture (external-standings)
   - url: https://icpc.global/regionals/finder/SWERC-2024/standings
     roles:
     - standings
@@ -3144,6 +3164,10 @@ contests:
     url_checked: '2026-11-23'
   problems:
     set: swerc-2023
+  provenance:
+  - 'https://swerc.eu/2023/results/ is now web (was standings): a page of links with no results of its
+    own; the linked documents are the sources (all of them sources already) (data scan question 2, ruling
+    2026-11-25)'
 - id: swerc-2024
   season: 2025
   name: 2024 ICPC Southwestern Europe Regional Contest

@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: by hand, ruling of 2026-11-25 (pages that only link to results or problems).
 series:
   id: wf
   name: ACM Programming Contest World Finals
@@ -3537,6 +3537,11 @@ contests:
     - wf/wf-2022/scoreboard/20261116-live-a1fb59b5/page.html
     url_state: live
     url_checked: '2026-11-16'
+  - url: https://icpc.global/worldfinals/scoreboard/2023/scoreboards/46/index.html
+    roles:
+    - scoreboard
+    note: 'linked from https://icpc.global/worldfinals/scoreboard/2023/scoreboards/index.html as ''46th:
+      Scoreboard''; not read yet (added 2026-11-25)'
   - url: https://cphof.org/standings/icpc/2022
     roles:
     - standings
@@ -3602,6 +3607,13 @@ contests:
     url_state: live
     url_checked: '2026-11-23'
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+  - url: https://icpc.global/worldfinals/scoreboard/2023/scoreboards/46/finals46.pdf
+    roles:
+    - problemset
+    note: 'linked from https://icpc.global/worldfinals/scoreboard/2023/scoreboards/index.html as ''46th:
+      Problemset''; not read yet (added 2026-11-25)'
+    contains:
+    - statement
   problems:
     set: wf-2022
   provenance:
@@ -3655,6 +3667,17 @@ contests:
   parent: null
   next: wf-2024
   sources:
+  - url: https://icpc.global/worldfinals/scoreboard/2023/scoreboards/index.html
+    roles:
+    - web
+    as_of: '20250424205401'
+    archived:
+    - wf/wf-2023/scoreboard/20250424-wayback-9bfa5979/index.html
+    - wf/wf-2023/scoreboard/20261116-live-72e172a5/index.html
+    url_state: live
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (web-search)
+    scope: index for the 46th and 47th World Finals
   - url: https://zibada.guru/finals/2023/
     roles:
     - scoreboard
@@ -3665,16 +3688,11 @@ contests:
     - wf/wf-2023/scoreboard/20261116-live-4ce5876a/page.html
     url_state: live
     url_checked: '2026-11-16'
-  - url: https://icpc.global/worldfinals/scoreboard/2023/scoreboards/index.html
+  - url: https://icpc.global/worldfinals/scoreboard/2023/scoreboards/47/index.html
     roles:
     - scoreboard
-    as_of: '20250424205401'
-    archived:
-    - wf/wf-2023/scoreboard/20250424-wayback-9bfa5979/index.html
-    - wf/wf-2023/scoreboard/20261116-live-72e172a5/index.html
-    url_state: live
-    url_checked: '2026-11-16'
-    note: added by url-hunt 2026-09-01 (web-search)
+    note: 'linked from https://icpc.global/worldfinals/scoreboard/2023/scoreboards/index.html as ''47th:
+      Scoreboard''; not read yet (added 2026-11-25)'
   - url: https://cphof.org/standings/icpc/2023
     roles:
     - standings
@@ -3749,10 +3767,20 @@ contests:
     url_state: live
     url_checked: '2026-11-23'
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
+  - url: https://icpc.global/worldfinals/scoreboard/2023/scoreboards/47/finals47.pdf
+    roles:
+    - problemset
+    note: 'linked from https://icpc.global/worldfinals/scoreboard/2023/scoreboards/index.html as ''47th:
+      Problemset''; not read yet (added 2026-11-25)'
+    contains:
+    - statement
   problems:
     set: wf-2023
   provenance:
   - date 2024-04-18 read from https://news.icpc.global/wf2023/ (data scan 2026-11-23)
+  - 'https://icpc.global/worldfinals/scoreboard/2023/scoreboards/index.html is now web (was scoreboard):
+    an index of the scoreboards and problem sets of the 46th and 47th World Finals (data scan question
+    2, ruling 2026-11-25)'
 - id: wf-2024
   season: 2024
   name: 48th Annual World Championship of the International Collegiate Programming Contest

@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: by hand, ruling of 2026-11-25 (pages that only link to results or problems).
 series:
   id: taiwan
   name: ICPC Asia Taichung Regional Programming Contest
@@ -1493,6 +1493,17 @@ contests:
   - url: http://icpc2011.chu.edu.tw
     roles:
     - web
+  - url: http://icpc2011.chu.edu.tw/contest-result.html
+    roles:
+    - web
+    as_of: '20140418135455'
+    archived:
+    - taiwan/taiwan-2011/external-standings/2026-04-15-external/content.html
+    - taiwan/taiwan-2011/standings/20111128-wayback-786e58a3/contest-result.html
+    - taiwan/taiwan-2011/standings/20140418-wayback-39dcb6c0/contest-result.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: from archived capture (external-standings)
   - url: http://icpc2011.chu.edu.tw/files/summary.html
     roles:
     - scoreboard
@@ -1509,17 +1520,6 @@ contests:
     - taiwan/taiwan-2011/standings/2026-09-01-wayback-e3013f11/contest_result.pdf
     url_state: dead
     url_checked: '2026-11-16'
-  - url: http://icpc2011.chu.edu.tw/contest-result.html
-    roles:
-    - standings
-    as_of: '20140418135455'
-    archived:
-    - taiwan/taiwan-2011/external-standings/2026-04-15-external/content.html
-    - taiwan/taiwan-2011/standings/20111128-wayback-786e58a3/contest-result.html
-    - taiwan/taiwan-2011/standings/20140418-wayback-39dcb6c0/contest-result.html
-    url_state: dead
-    url_checked: '2026-11-16'
-    note: from archived capture (external-standings)
   - url: https://icpc.global/regionals/finder/Hsinchu-2012/standings
     roles:
     - standings
@@ -1536,6 +1536,10 @@ contests:
     url_checked: '2026-11-23'
   problems:
     set: taiwan-2011
+  provenance:
+  - 'http://icpc2011.chu.edu.tw/contest-result.html is now web (was standings): a page of links with no
+    results of its own; the linked documents are the sources (both of them sources already) (data scan
+    question 2, ruling 2026-11-25)'
 - id: taiwan-2012
   season: 2013
   name: 2012 ACM-ICPC Asia Kaohsiung Regional Contest
