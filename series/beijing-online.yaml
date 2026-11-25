@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/bake_icpc_standings.py.
+# Maintained in-repo; last bulk edit: by hand, ruling of 2026-11-25 (a round's results belong to the round's own contest).
 series:
   id: beijing-online
   name: Asia Beijing First Round Online Programming Contest
@@ -6,6 +6,30 @@ series:
   region: Asia East
   naming: season-start
 contests:
+- id: beijing-online-2007
+  season: 2008
+  name: ACM-ICPC 2007 Beijing Online Preliminary Contest
+  cms_ids: []
+  parent: beijing-2007
+  next: beijing-online-2015
+  sources:
+  - url: http://icpc.buaa.edu.cn/pages/Result_CN.aspx
+    roles:
+    - standings
+    as_of: '20071021004748'
+    archived:
+    - beijing/beijing-2007/standings/20071021-wayback-579985ef/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside http://icpc.buaa.edu.cn/pages/ by the content check
+  provenance:
+  - 'the online preliminary of beijing-2007, called 网络预选赛 (wangluo yuxuansai, ''online preliminary'')
+    on the Beihang site: 441 teams, 8 problems; the schools in its first 50 got a place at the regional.
+    Its date is not on the page. Entered 2026-11-25 from the results filed on beijing-2007 (decision 27,
+    2026-11-25: a round''s results and problems belong to the round''s own contest)'
+  - 'http://icpc.buaa.edu.cn/pages/Result_CN.aspx came from beijing-2007, where it was filed as standings:
+    the results of the online preliminary (441 teams, solved and time) (decision 27, 2026-11-25: a round''s
+    results and problems belong to the round''s own contest)'
 - id: beijing-online-2015
   season: 2016
   name: Asia Beijing First Round Online Programming Contest
@@ -40,10 +64,23 @@ contests:
     archived:
     - beijing-online/beijing-online-2016/standings/api-20261124/standings.html
     note: rendered from the icpc.global API standings archive (cms 3045, 481 teams, DB fetch 2026-04-26)
+  - url: http://acm.pku.edu.cn:80/icpc_pku2016/schoolrank.txt
+    roles:
+    - standings
+    as_of: '20161012153429'
+    note: found inside http://acm.pku.edu.cn/icpc_pku2016/ by the content check
+    url_state: dead
+    url_checked: '2026-11-16'
+    archived:
+    - beijing/beijing-2016/standings/20161012-wayback-0d7bdc83/schoolrank.txt
+    scope: schools
   provenance:
   - name, date and the contest it advances to from the ICPC CMS record 3045; 481 teams in its ICPC standings
   - 'in the triage registry as a preliminary until 2026-11-24 (rulings: a round is a contest, and it enters
     the catalogue when we hold something of it)'
+  - 'http://acm.pku.edu.cn:80/icpc_pku2016/schoolrank.txt came from beijing-2016, where it was filed as
+    standings: the ranking of schools in the online round of 24 September 2016 (decision 27, 2026-11-25:
+    a round''s results and problems belong to the round''s own contest)'
 - id: beijing-online-2017
   season: 2018
   name: Asia Beijing First Round Online Programming Contest

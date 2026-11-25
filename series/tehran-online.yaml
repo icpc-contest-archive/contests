@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/bake_icpc_standings.py.
+# Maintained in-repo; last bulk edit: by hand, ruling of 2026-11-25 (a round's results belong to the round's own contest).
 series:
   id: tehran-online
   name: Iran Internet Programming Contest
@@ -6,6 +6,32 @@ series:
   region: Asia West
   naming: season-start
 contests:
+- id: tehran-online-2013
+  season: 2014
+  name: Asia  2013 Tehran - Internet Programming Contest
+  date: '2013-11-28'
+  cms_ids:
+  - 1925
+  parent: tehran-2013
+  next: tehran-online-2014
+  sources:
+  - url: https://icpc.ir/2013/iipc/standing.htm
+    roles:
+    - scoreboard
+    as_of: '20250630125942'
+    note: found inside https://icpc.ir/2013/ by the content check
+    url_state: dead
+    url_checked: '2026-11-16'
+    archived:
+    - tehran/tehran-2013/standings/20250630-wayback-3acb6504/standing.htm
+  provenance:
+  - 'name and date from the ICPC CMS record 1925 (in the triage registry as a preliminary until 2026-11-25);
+    the standings page we hold is headed ''11th Iran Nationwide Internet Contest'' and ''11th Iran Internet
+    ACM ICPC 2013'', 162 teams. The CMS has one internet contest for 2013, unlike 2014 and 2015 (decision
+    27, 2026-11-25: a round''s results and problems belong to the round''s own contest)'
+  - 'https://icpc.ir/2013/iipc/standing.htm came from tehran-2013, where it was filed as standings: the
+    standings of the 11th Iran Nationwide Internet Contest, with a cell per problem A to I (decision 27,
+    2026-11-25: a round''s results and problems belong to the round''s own contest)'
 - id: tehran-online-2014
   season: 2015
   name: Asia  2014 Tehran - Internet Programming Contest
@@ -143,6 +169,15 @@ contests:
     url_checked: '2026-11-23'
     archived:
     - tehran-online/tehran-online-2022/scoreboard/20230326-wayback-b628b19a/page.html
+  - url: https://icpc.ir/2022/iipc/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20230530132200'
+    note: found inside https://icpc.ir/2022/info by the content check
+    url_state: dead
+    url_checked: '2026-11-16'
+    archived:
+    - tehran/tehran-2022/scoreboard/20230530-wayback-5296e00b/page.html
   - url: https://qoj.ac/contest/1166
     roles:
     - problemset
@@ -161,6 +196,13 @@ contests:
     - statement
     url_state: live
     url_checked: '2026-11-23'
+  - url: https://icpc.ir/2022/iipc/P22.pdf
+    roles:
+    - problemset
+    as_of: '20240701074310'
+    note: found inside https://icpc.ir/2022/info by the content check
+    url_state: dead
+    url_checked: '2026-11-23'
   problems:
     set: tehran-online-2022
   provenance:
@@ -168,6 +210,12 @@ contests:
     of 2023. https://icpc.sharif.edu/2022 lists one online contest that year, the 19th Iran Internet Programming
     Contest on 16 March 2023, ahead of the regional of 27-28 April 2023 (tehran-2022); the QOJ page itself
     needs a login and was not read'
+  - 'https://icpc.ir/2022/iipc/scoreboard/ came from tehran-2022, where it was filed as scoreboard: the
+    scoreboard of the Iran Internet Programming Contest (IIPC) 2022, the online round before the regional
+    (decision 27, 2026-11-25: a round''s results and problems belong to the round''s own contest)'
+  - 'https://icpc.ir/2022/iipc/P22.pdf came from tehran-2022, where it was filed as problemset: the problem
+    set of the Iran Internet Programming Contest (IIPC) 2022 (decision 27, 2026-11-25: a round''s results
+    and problems belong to the round''s own contest)'
 - id: tehran-online-2023
   season: 2024
   name: 2023 ICPC Asia Tehran - Online Regional Contest
@@ -177,16 +225,38 @@ contests:
   parent: tehran-2023
   next: tehran-online-2024
   sources:
+  - url: https://icpc.ir/2023/iipc/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20250630162442'
+    archived:
+    - tehran/tehran-2023/scoreboard/20250630-wayback-e41fd099/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: found inside https://icpc.ir/2023/ by the content check
   - url: https://icpc.global/regionals/finder/Tehran-Online-2024/standings
     roles:
     - standings
     archived:
     - tehran-online/tehran-online-2023/standings/api-20261124/standings.html
     note: rendered from the icpc.global API standings archive (cms 7490, 484 teams, DB fetch 2026-04-26)
+  - url: https://icpc.ir/2023/iipc/P23.pdf
+    roles:
+    - problemset
+    as_of: '20240723210408'
+    url_state: dead
+    url_checked: '2026-11-23'
+    note: found inside https://icpc.ir/2023/ by the content check
   provenance:
   - name, date and the contest it advances to from the ICPC CMS record 7490; 484 teams in its ICPC standings
   - 'in the triage registry as a preliminary until 2026-11-24 (rulings: a round is a contest, and it enters
     the catalogue when we hold something of it)'
+  - 'https://icpc.ir/2023/iipc/scoreboard/ came from tehran-2023, where it was filed as scoreboard: the
+    scoreboard of the Iran Internet Programming Contest (IIPC) 2023, the online round before the regional
+    (decision 27, 2026-11-25: a round''s results and problems belong to the round''s own contest)'
+  - 'https://icpc.ir/2023/iipc/P23.pdf came from tehran-2023, where it was filed as problemset: the problem
+    set of the Iran Internet Programming Contest (IIPC) 2023 (decision 27, 2026-11-25: a round''s results
+    and problems belong to the round''s own contest)'
 - id: tehran-online-2024
   season: 2025
   name: 2024 ICPC Asia Tehran - Online Regional Contest
@@ -196,16 +266,38 @@ contests:
   parent: tehran-2024
   next: tehran-online-2025
   sources:
+  - url: https://icpc.ir/2024/iipc/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20250617063421'
+    note: found inside https://icpc.ir/2024/ by the content check
+    url_state: dead
+    url_checked: '2026-11-16'
+    archived:
+    - tehran/tehran-2024/scoreboard/20250617-wayback-e0564d0a/page.html
   - url: https://icpc.global/regionals/finder/Tehran-Online-2025/standings
     roles:
     - standings
     archived:
     - tehran-online/tehran-online-2024/standings/api-20261124/standings.html
     note: rendered from the icpc.global API standings archive (cms 8875, 607 teams, DB fetch 2026-04-26)
+  - url: https://icpc.ir/2024/iipc/P24.pdf
+    roles:
+    - problemset
+    as_of: '20250613195042'
+    note: found inside https://icpc.ir/2024/ by the content check
+    url_state: dead
+    url_checked: '2026-11-23'
   provenance:
   - name, date and the contest it advances to from the ICPC CMS record 8875; 607 teams in its ICPC standings
   - 'in the triage registry as a preliminary until 2026-11-24 (rulings: a round is a contest, and it enters
     the catalogue when we hold something of it)'
+  - 'https://icpc.ir/2024/iipc/scoreboard/ came from tehran-2024, where it was filed as scoreboard: the
+    scoreboard of the Iran Internet Programming Contest (IIPC) 2024, the online round before the regional
+    (decision 27, 2026-11-25: a round''s results and problems belong to the round''s own contest)'
+  - 'https://icpc.ir/2024/iipc/P24.pdf came from tehran-2024, where it was filed as problemset: the problem
+    set of the Iran Internet Programming Contest (IIPC) 2024 (decision 27, 2026-11-25: a round''s results
+    and problems belong to the round''s own contest)'
 - id: tehran-online-2025
   season: 2026
   name: 2025 ICPC Asia Tehran - Online Regional Contest
@@ -214,13 +306,35 @@ contests:
   - 9234
   parent: tehran-2025
   sources:
+  - url: https://icpc.ir/2025/iipc/scoreboard/
+    roles:
+    - scoreboard
+    as_of: '20260218124140'
+    note: found inside https://icpc.ir/2025/ by the content check
+    url_state: dead
+    url_checked: '2026-11-16'
+    archived:
+    - tehran/tehran-2025/scoreboard/20260218-wayback-2c20e422/page.html
   - url: https://icpc.global/regionals/finder/Tehran-Online-2026/standings
     roles:
     - standings
     archived:
     - tehran-online/tehran-online-2025/standings/api-20261124/standings.html
     note: rendered from the icpc.global API standings archive (cms 9234, 740 teams, DB fetch 2026-04-26)
+  - url: https://icpc.ir/2025/iipc/P25.pdf
+    roles:
+    - problemset
+    as_of: '20251203044122'
+    note: found inside https://icpc.ir/2025/ by the content check
+    url_state: dead
+    url_checked: '2026-11-23'
   provenance:
   - name, date and the contest it advances to from the ICPC CMS record 9234; 740 teams in its ICPC standings
   - 'in the triage registry as a preliminary until 2026-11-24 (rulings: a round is a contest, and it enters
     the catalogue when we hold something of it)'
+  - 'https://icpc.ir/2025/iipc/scoreboard/ came from tehran-2025, where it was filed as scoreboard: the
+    scoreboard of the Iran Internet Programming Contest (IIPC) 2025, the online round before the regional
+    (decision 27, 2026-11-25: a round''s results and problems belong to the round''s own contest)'
+  - 'https://icpc.ir/2025/iipc/P25.pdf came from tehran-2025, where it was filed as problemset: the problem
+    set of the Iran Internet Programming Contest (IIPC) 2025 (decision 27, 2026-11-25: a round''s results
+    and problems belong to the round''s own contest)'
