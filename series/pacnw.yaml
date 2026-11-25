@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
 series:
   id: pacnw
   name: ICPC North America Pacific Northwest Regional Contest
@@ -10,18 +10,18 @@ contests:
   season: 1993
   cms_ids: []
   parent: wf-1993
-  next: pacnw-1994
+  next: pacnw-1993
   sources:
   - url: https://groups.google.com/g/comp.org.acm/c/0tRp_87Je8k/m/1I0UkBTxhSEJ
     roles:
     - rankings
     scope: teams advancing
-    note: 'found by the data scan 2026-11-23 (comp.org.acm 1992-12-05, Dragomir: finals teams known so
-      far, ''Pacific: Berkeley, Stanford (non-confirmed officially)'')'
-    url_state: live
-    url_checked: '2026-11-23'
     archived:
     - pacnw/pacnw-1992/rankings/20261123-live-3407c138/page.html
+    url_state: live
+    url_checked: '2026-11-23'
+    note: 'found by the data scan 2026-11-23 (comp.org.acm 1992-12-05, Dragomir: finals teams known so
+      far, ''Pacific: Berkeley, Stanford (non-confirmed officially)'')'
   provenance:
   - 'ran: comp.org.acm, Dragomir, ''ACM programming contest'' 1992-12-05: "Pacific: Berkeley, Stanford
     (non-confirmed officially)" — https://groups.google.com/g/comp.org.acm/c/0tRp_87Je8k/m/1I0UkBTxhSEJ
@@ -29,6 +29,26 @@ contests:
   notes: 'added by the data scan 2026-11-23 (early-years): the 1992-93 region was called Pacific (RCD
     John Clevenger, CSU Sacramento — comp.org.acm 1992-07-08); Stanford (2nd) and UC Berkeley (4th) are
     in the wf-1993 standings. Date and host not found'
+- id: pacnw-1993
+  season: 1994
+  cms_ids: []
+  parent: wf-1994
+  next: pacnw-1994
+  sources:
+  - url: https://ciiwiki.ecs.baylor.edu/index.php/History_-_ICPC_1994
+    roles:
+    - report
+    scope: all regionals (count only)
+    as_of: '20211202222415'
+    note: 'found by the data scan 2026-11-23 (ciiwiki History - ICPC 1994: ''From 628 teams competing
+      in 15 regional contests around the world, 35 teams advanced'')'
+  provenance:
+  - 'inferred: fall 1993 had 15 regional contests — https://ciiwiki.ecs.baylor.edu/index.php/History_-_ICPC_1994
+    (Wayback 20211202222415) (data scan 2026-11-23)'
+  - 'inferred: wf-1994 (Cormack''s standings) has teams from the Pacific region: UC Berkeley (6th), Simon
+    Fraser (23rd) (data scan 2026-11-23)'
+  notes: 'added by the data scan 2026-11-23 (early-years, inferred edition): the 1992-93 region list has
+    a Pacific region; no document about the 1993 edition itself was found'
 - id: pacnw-1994
   season: 1995
   date: '1994-11-19'
