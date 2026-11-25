@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Apply the capture run's url-state verdicts to the catalogue.
 
-Reads the newest archive/reports/url-states-*.json and, per matching source (the
+Reads the newest archive/reports/url-states-*.json (or the report named on the command line) and, per matching source (the
 verdict's contest + catalogue_url, matched by address whatever roles it serves):
   - normalizes wayback-link entries: url -> raw origin URL, the snapshot
     timestamp moves into `as_of` (kept if already set)
@@ -33,11 +33,16 @@ def main() -> int:
     if not reports:
         print("no url-states report found")
         return 1
-    # the newest day's merged report (reconcile_states.py) beats that day's single-lane file
-    day = re.search(r"url-states-(\d{4}-\d{2}-\d{2})", reports[-1].name).group(1)
-    merged = reports[-1].with_name(f"url-states-{day}-merged.json")
-    if merged.exists():
-        reports[-1] = merged
+    if len(sys.argv) > 1:
+        # a report named on the command line: a second run of a day writes
+        # url-states-<day>-runHHMMSS.json, which is not the newest by name
+        reports = [Path(sys.argv[1]).resolve()]
+    else:
+        # the newest day's merged report (reconcile_states.py) beats that day's single-lane file
+        day = re.search(r"url-states-(\d{4}-\d{2}-\d{2})", reports[-1].name).group(1)
+        merged = reports[-1].with_name(f"url-states-{day}-merged.json")
+        if merged.exists():
+            reports[-1] = merged
     states = json.loads(reports[-1].read_text())
     # one address may have been checked under several kinds (pre-sources-model queues, or a
     # source serving several roles): the most recent verdict per source wins, ties going to
