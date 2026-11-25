@@ -3887,6 +3887,13 @@ def build(out: Path):
     for cid, sid in (json.loads(rc.read_text()) if rc.exists() else {}).items():
         if cid in contests:
             continue
+        if sid == "non-mainline":               # moved to the non-mainline registry: no page of its own any more
+            if cid.startswith("series/"):       # ... a whole series ("series/<id>")
+                if cid[7:] not in series_docs:
+                    stub(out / "series" / f"{cid[7:]}.html", "../non-mainline.html")
+            else:
+                stub(out / "contest" / f"{cid}.html", "../non-mainline.html")
+            continue
         if sid.startswith("contest/"):          # merged into another contest: its page is that contest's
             if sid[8:] in contests:
                 stub(out / "contest" / f"{cid}.html", f"{sid[8:]}.html")

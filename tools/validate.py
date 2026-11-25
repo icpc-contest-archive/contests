@@ -450,6 +450,7 @@ def main() -> int:
 
     # ---- source descriptions belong to a contest and one of its sources (DEFINITIONS.md, Source descriptions) ----
     n_described = 0
+    nm_by_id = {c["id"]: c for c in non_mainline["non_mainline_contests"]}
     for f in sorted((ROOT / "data" / "source-descriptions").glob("*/*.yaml")):
         where = f"source-descriptions/{f.parent.name}/{f.name}"
         doc = yaml.safe_load(f.read_text()) or {}
@@ -457,12 +458,15 @@ def main() -> int:
         if cid != f.stem:
             err(f"{where}: contest is {cid!r}, the file name says {f.stem}")
             continue
-        if cid not in contests:
-            err(f"{where}: no such contest in the catalogue")
+        if cid not in contests and cid not in nm_by_id:
+            err(f"{where}: no such contest in the catalogue or the non-mainline registry")
             continue
-        if series_of[cid] != f.parent.name:
-            err(f"{where}: {cid} belongs to series {series_of[cid]}")
-        held = {norm_key(s["url"]) for s in contests[cid].get("sources", []) if s.get("url")}
+        # a contest of the non-mainline registry keeps its descriptions (its sources have source pages);
+        # it has no series, so its folder is the id without the year
+        home = series_of[cid] if cid in contests else cid.rsplit("-", 1)[0]
+        if home != f.parent.name:
+            err(f"{where}: {cid} belongs to series {home}")
+        held = {norm_key(s["url"]) for s in (contests.get(cid) or nm_by_id[cid]).get("sources", []) if s.get("url")}
         seen_keys: set = set()
         for i, e in enumerate(doc.get("sources") or []):
             for field in ("url", "read", "rubric", "copy", "description"):
