@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: by hand, ruling of 2026-11-25 (national contests of countries with no regional advance to the regionals their schools entered).
 series:
   id: thailand-national
   name: ICPC Thailand National On-site Programming Contest
@@ -313,7 +313,10 @@ contests:
   date: '2024-09-08'
   location: Faculty of Engineering, Chulalongkorn University, Bangkok
   cms_ids: []
-  parent: awc-2024
+  parent:
+  - jakarta-2024
+  - japan-2024
+  - vietnam-2024
   next: thailand-national-2025
   sources:
   - url: https://icpc-2024.cp.eng.chula.ac.th/2024/contest/teams
@@ -491,6 +494,11 @@ contests:
     [existence hunt 2026-10-22]'
   - location read from https://icpc-2024.cp.eng.chula.ac.th/2024/contest/teams (description round 2026-11-16)
   - date 2024-09-08 read from https://icpc-2024.cp.eng.chula.ac.th/2024/contest/teams (data scan 2026-11-23)
+  - 'inferred: advances to jakarta-2024, japan-2024, vietnam-2024. The country had no regional that season;
+    an Asian regional is open to teams of other countries, and we hold no standings of this contest; Thai
+    schools are in the ICPC standings of jakarta-2024 (6 teams of 2 schools); japan-2024 (1 team of 1
+    school); vietnam-2024 (4 teams of 1 school). The match is by school, not by team (ruling 2026-11-25).
+    Until then the catalogue said awc-2024, the Asia West championship, which was a mistake'
   notes: 'Q10/D6 2026-09-07: the 2024 revival at Chulalongkorn (''onsite event for every team''); originally
     proposed as thailand-2024, landed here after dedupe check showed no thailand-national-2024 existed'
 - id: thailand-national-2025

@@ -35,6 +35,14 @@ One exception (same ruling): Egypt's qualification days from 2022 on are one con
 `egypt-qualification-YYYY`, with one CMS id, one sitting (`sites`) and one standings source per day.
 Each day seats a different group of universities, and the days are believed to share one problem set.
 
+**Asia's national contests.** In Asia a regional is open to teams of other countries: one region
+with no political boundaries until 2009, and from 2010 a result counts toward the World Finals only
+in the team's home sub-region (the Asia rules of 2001 to 2019). A national contest of a country that
+hosts a regional advances to that regional. One of a country with no regional that season advances
+to the regionals its schools entered, read from the standings and marked `inferred` in its
+provenance; where none is found the parent stays empty (ruling of 2026-11-25). Naming every Asian
+regional would state the rule, not where the teams went.
+
 ## Naming
 
 `<contest-id>` = `<series>-<year>`, lowercase. The year follows ICPC season convention as
