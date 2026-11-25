@@ -34,6 +34,18 @@ of a province or a university, is not.
   page, not counted as contests anywhere (an online judge's page counts them apart). Their
   sources are in the resource graph like any other and have source pages (ruling of 2026-11-24).
 
+**The date of a contest** is the day the contest itself ran, and a contest that ran always has one
+(ruling 2026-11-25). When its documents give only a span of days ("5-6 November", a three-day
+event), the day is taken in this order: a schedule, results header or report that names the contest
+day; else the day the same series used in neighbouring editions whose contest day is known (East
+Siberia: the middle day of three; the Atlantic Canadian preliminary: the Friday that opens the
+conference); else the last day of the span, or the second to last for a span of four days or more.
+A day chosen this way says so in the contest's provenance ("the contest day is not confirmed"), so
+that it can be confirmed or corrected when a source is read; `data/span-dates-2026-11-25.json` lists
+them. Local rounds held on different days are dated by the last of them. This is the catalogue's
+rule; a source description still reports only what its document says, and a span there gives no
+contest date.
+
 **Rounds are contests.** Two rounds of one event are two contests, since they have different problems
 (ruling of 2026-11-24): each has its own entry, date, results and problem set, and the earlier one
 advances to the later. The Northern Eurasia Finals of 2020-21 are `nerc-online-2020` (13 December
