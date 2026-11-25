@@ -20,8 +20,10 @@ CMS DB entry remains *considered*.
   first round or qualifier of a contest in the catalogue), `special` (contests for a particular
   group: women's, teens', team-formation rounds), `non-mainline` (a family ruled out of the mainline
   as a whole, such as the Caribbean qualifier from 2022).
-- `registry/non-mainline.yaml` — real contests with no CMS id that exist outside the
-  hierarchy (university opens etc.). Reference material, not catalogue members: no contest
+- `registry/non-mainline.yaml` — real contests that exist outside the hierarchy: university
+  opens, and prize contests of a province or a university from which no team advances (the Alberta
+  and Lethbridge contests, ruling of 2026-11-25). Some have a CMS record; the ledger lists those ids
+  as the registry's. Reference material, not catalogue members: no contest
   page, not counted as contests anywhere (an online judge's page counts them apart). Their
   sources are in the resource graph like any other and have source pages (ruling of 2026-11-24).
 
