@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: by hand, ruling of 2026-11-25 (sources whose page is not about the contest).
 series:
   id: seusa
   name: ICPC North America Southeast Regional Contest
@@ -225,16 +225,6 @@ contests:
   parent: wf-1991
   next: seusa-1991
   sources:
-  - url: https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc
-    roles:
-    - web
-    - rankings
-    as_of: '20140630180351'
-    archived:
-    - seusa/seusa-1990/rankings/20140630-wayback-54ecd414/page.html
-    url_state: dead
-    url_checked: '2026-11-16'
-    note: added by url-hunt 2026-09-01 (early-na-agent)
   - url: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=446
     roles:
     - problemset
@@ -316,8 +306,21 @@ contests:
     as_of: '20150309122839'
     url_state: dead
     url_checked: '2026-11-23'
+  - url: https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc
+    roles:
+    - report
+    as_of: '20140630180351'
+    archived:
+    - seusa/seusa-1990/rankings/20140630-wayback-54ecd414/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (early-na-agent)
+    scope: one university's placings
   problems:
     set: seusa-1990
+  provenance:
+  - 'https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc is now report (was web, rankings):
+    a team''s record page: its own placings only (data scan question 1, ruling 2026-11-25)'
 - id: seusa-1991
   season: 1992
   cms_ids: []
@@ -433,14 +436,16 @@ contests:
   sources:
   - url: https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc
     roles:
-    - web
-    - rankings
-    scope: UCF teams' places only
+    - report
+    scope: one university's placings
     url_state: dead
     url_checked: '2026-11-23'
     as_of: '20140630180351'
     archived:
     - seusa/seusa-1995/rankings/20140630-wayback-54ecd414/page.html
+  provenance:
+  - 'https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc is now report (was web, rankings):
+    a team''s record page: its own placings only (data scan question 1, ruling 2026-11-25)'
 - id: seusa-1996
   season: 1997
   location: UCF
@@ -448,16 +453,6 @@ contests:
   parent: wf-1997
   next: seusa-1997
   sources:
-  - url: https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc
-    roles:
-    - web
-    - rankings
-    as_of: '20140630180351'
-    archived:
-    - seusa/seusa-1996/rankings/20140630-wayback-54ecd414/page.html
-    url_state: dead
-    url_checked: '2026-11-16'
-    note: added by url-hunt 2026-09-01 (round9-research)
   - url: http://acm.win.tue.nl/icpc/archive/ProblemSetArchive/B_US_SouthEas/1996/index.html
     roles:
     - problemset
@@ -571,10 +566,22 @@ contests:
     as_of: '20150309122855'
     url_state: dead
     url_checked: '2026-11-23'
+  - url: https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc
+    roles:
+    - report
+    as_of: '20140630180351'
+    archived:
+    - seusa/seusa-1996/rankings/20140630-wayback-54ecd414/page.html
+    url_state: dead
+    url_checked: '2026-11-16'
+    note: added by url-hunt 2026-09-01 (round9-research)
+    scope: one university's placings
   problems:
     set: seusa-1996
   provenance:
   - ICPC Problem Archive progress sheet (2026-11-01)
+  - 'https://www.ucfprogrammingteam.org/index.php/records/team-record-icpc is now report (was web, rankings):
+    a team''s record page: its own placings only (data scan question 1, ruling 2026-11-25)'
 - id: seusa-1997
   season: 1998
   cms_ids: []
@@ -2559,6 +2566,16 @@ contests:
   - url: http://seusa.vanb.org/ser2015/
     roles:
     - web
+  - url: http://ser.cs.fit.edu/
+    roles:
+    - web
+    archived:
+    - seusa/seusa-2015/external-standings/2026-04-15-external/content.html
+    - seusa/seusa-2015/standings/20180425-wayback-046450e4/page.html
+    - seusa/seusa-2015/standings/20180425-wayback-64c820ed/page.html
+    url_state: replaced
+    url_checked: '2026-11-16'
+    note: from archived capture (external-standings)
   - url: http://seusa.vanb.org/ser2015/ser2015-results-div1.pdf
     roles:
     - scoreboard
@@ -2575,17 +2592,6 @@ contests:
     url_checked: '2026-11-16'
     archived:
     - seusa/seusa-2015/scoreboard/20261115-live-5f1667b9/ser2015-results-div2.pdf
-  - url: http://ser.cs.fit.edu/
-    roles:
-    - standings
-    as_of: '20180425075353'
-    archived:
-    - seusa/seusa-2015/external-standings/2026-04-15-external/content.html
-    - seusa/seusa-2015/standings/20180425-wayback-046450e4/page.html
-    - seusa/seusa-2015/standings/20180425-wayback-64c820ed/page.html
-    url_state: replaced
-    url_checked: '2026-11-16'
-    note: from archived capture (external-standings)
   - url: https://icpc.global/regionals/finder/Southeast-USA-2016/standings
     roles:
     - standings
@@ -2634,6 +2640,9 @@ contests:
   problems:
     set: seusa-2015
   notes: 2 divisions (problem archive sheet)
+  provenance:
+  - 'http://ser.cs.fit.edu/ is now web (was standings): the series'' home page; the pinned snapshot is
+    the 2018 front page (data scan question 1, ruling 2026-11-25)'
 - id: seusa-2016
   season: 2017
   name: 2016 Southeast USA Regional Contest

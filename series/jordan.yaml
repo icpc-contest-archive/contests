@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_url_states.py.
+# Maintained in-repo; last bulk edit: by hand, ruling of 2026-11-25 (sources whose page is not about the contest).
 series:
   id: jordan
   name: ICPC Jordanian Collegiate Programming Contest
@@ -60,17 +60,9 @@ contests:
   - url: http://jordan.acmacpc.org/
     roles:
     - web
-  - url: http://www.acmacpc.org/jordan/Archive/JCPC2012Resultssummary.html
-    roles:
-    - scoreboard
-    as_of: '20131118214849'
-    archived:
-    - jordan/jordan-2012/scoreboard/2026-09-01-wayback-bcd9e912/JCPC2012Resultssummary.html
-    url_state: dead
-    url_checked: '2026-11-16'
   - url: http://jordan.acmacpc.org/Archive/JCPCarchive.html
     roles:
-    - standings
+    - web
     as_of: '20131108050251'
     archived:
     - jordan/jordan-2012/external-standings/2026-04-15-external/content.html
@@ -79,6 +71,14 @@ contests:
     url_state: dead
     url_checked: '2026-11-16'
     note: from archived capture (external-standings)
+  - url: http://www.acmacpc.org/jordan/Archive/JCPC2012Resultssummary.html
+    roles:
+    - scoreboard
+    as_of: '20131118214849'
+    archived:
+    - jordan/jordan-2012/scoreboard/2026-09-01-wayback-bcd9e912/JCPC2012Resultssummary.html
+    url_state: dead
+    url_checked: '2026-11-16'
   - url: https://icpc.global/regionals/finder/JCPC-2013/standings
     roles:
     - standings
@@ -190,6 +190,8 @@ contests:
     set: jordan-2012
   provenance:
   - Baekjoon ICPC category tree via Wayback (2026-11-02); site closed 2026-04-28
+  - 'http://jordan.acmacpc.org/Archive/JCPCarchive.html is now web (was standings): an archive index that
+    links to the problem-set zip and the results (data scan question 1, ruling 2026-11-25)'
 - id: jordan-2013
   season: 2014
   name: 2013 Jordanian Collegiate Programming Contest

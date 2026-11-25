@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
+# Maintained in-repo; last bulk edit: by hand, ruling of 2026-11-25 (sources whose page is not about the contest).
 series:
   id: mausa
   name: ICPC North America Mid-Atlantic Regional Contest
@@ -2960,6 +2960,18 @@ contests:
   - url: https://sites.radford.edu/~acm/midatl/
     roles:
     - web
+  - url: https://nasouth24.kattis.com/
+    roles:
+    - web
+    archived:
+    - mausa/mausa-2024/external-standings/2026-04-15-external/content.html
+    - mausa/mausa-2024/standings/20260901-live-162a7021/page.html
+    - mausa/mausa-2024/standings/20261023-live-0ea22da4/page.html
+    - mausa/mausa-2024/standings/20261116-live-0ea22da4/page.html
+    url_state: live
+    url_checked: '2026-11-16'
+    note: from archived capture (external-standings)
+    scope: list of the contests on the site
   - url: https://nasouth24.kattis.com/contests/nasouth24d1/standings/mausa/all
     roles:
     - scoreboard
@@ -2978,17 +2990,6 @@ contests:
     - mausa/mausa-2024/scoreboard/20250401-wayback-6a6d29ca/page.html
     url_state: replaced
     url_checked: '2026-11-16'
-  - url: https://nasouth24.kattis.com/
-    roles:
-    - standings
-    archived:
-    - mausa/mausa-2024/external-standings/2026-04-15-external/content.html
-    - mausa/mausa-2024/standings/20260901-live-162a7021/page.html
-    - mausa/mausa-2024/standings/20261023-live-0ea22da4/page.html
-    - mausa/mausa-2024/standings/20261116-live-0ea22da4/page.html
-    url_state: live
-    url_checked: '2026-11-16'
-    note: from archived capture (external-standings)
   - url: https://icpc.global/regionals/finder/Mid-Atlantic-USA-2025/standings
     roles:
     - standings
@@ -3018,15 +3019,13 @@ contests:
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12; Div. 2)
     url_state: live
     url_checked: '2026-11-23'
-  - url: https://sites.radford.edu/~acm/midatl/problem-set-links.html
-    roles:
-    - problemset
-    as_of: '20241127015300'
-    note: found inside https://sites.radford.edu/~acm/midatl/ by the content check
-    url_state: dead
-    url_checked: '2026-11-23'
   problems:
     set: south-na-2024
+  provenance:
+  - 'https://nasouth24.kattis.com/ is now web (was standings): a list of the eight contests of the Kattis
+    site, not standings (data scan question 1, ruling 2026-11-25)'
+  - 'removed https://sites.radford.edu/~acm/midatl/problem-set-links.html (was problemset): links to earlier
+    problem sets, none of the edition (data scan question 1, ruling 2026-11-25)'
 - id: mausa-2025
   season: 2026
   name: 2025 ICPC North America Mid-Atlantic Regional Contest

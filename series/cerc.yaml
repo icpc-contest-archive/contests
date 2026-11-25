@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/apply_scan_ops.py.
+# Maintained in-repo; last bulk edit: by hand, ruling of 2026-11-25 (sources whose page is not about the contest).
 series:
   id: cerc
   name: ICPC Central Europe Regional Contest
@@ -318,6 +318,17 @@ contests:
     as_of: '20001205081100'
     url_state: changed
     url_checked: '2026-11-14'
+  - url: http://contest.felk.cvut.cz:80/00cerc/statistics.html
+    roles:
+    - web
+    as_of: '20020730214212'
+    archived:
+    - cerc/cerc-2000/standings/20020730-wayback-3279e0c1/statistics.html
+    - cerc/cerc-2000/standings/20261115-live-a214c37f/statistics.html
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside https://contest.felk.cvut.cz/00cerc/ by the content check
+    scope: 'statistics: submission outcomes per problem'
   - url: https://contest.felk.cvut.cz/00cerc/results.html
     roles:
     - scoreboard
@@ -329,16 +340,6 @@ contests:
     - cerc/cerc-2000/scoreboard/20261115-live-29e0abda/results.html
     url_state: live
     url_checked: '2026-11-16'
-  - url: http://contest.felk.cvut.cz:80/00cerc/statistics.html
-    roles:
-    - standings
-    as_of: '20020730214212'
-    archived:
-    - cerc/cerc-2000/standings/20020730-wayback-3279e0c1/statistics.html
-    - cerc/cerc-2000/standings/20261115-live-a214c37f/statistics.html
-    url_state: live
-    url_checked: '2026-11-16'
-    note: found inside https://contest.felk.cvut.cz/00cerc/ by the content check
   - url: http://icpc.baylor.edu/past/icpc2001/regionals/ViewRegionalStandings.asp?ContestID=452
     roles:
     - rankings
@@ -394,6 +395,8 @@ contests:
     set: cerc-2000
   provenance:
   - date 2000-11-11 read from https://contest.felk.cvut.cz/00cerc/ (data scan 2026-11-23)
+  - 'http://contest.felk.cvut.cz:80/00cerc/statistics.html is now web (was standings): submission outcomes
+    per problem, no standings (data scan question 1, ruling 2026-11-25)'
 - id: cerc-2001
   season: 2002
   name: 2001 ACM Central Europe Programming Contest
@@ -661,14 +664,14 @@ contests:
     as_of: '20041205110236'
   - url: http://icpc.cs.bme.hu/main.php?p=2
     roles:
-    - scoreboard
-    - problemset
+    - web
     as_of: '20090428015213'
     archived:
     - cerc/cerc-2004/scoreboard/2026-04-16-archive/2004-central-europe-programming-contest-2004.html
     url_state: dead
     url_checked: '2026-11-23'
     note: from archived capture (scoreboard)
+    scope: news list
   - url: http://icpc.cs.bme.hu/main.php?p=12
     roles:
     - scoreboard
@@ -692,6 +695,8 @@ contests:
     set: cerc-2004
   provenance:
   - ICPC Problem Archive progress sheet (2026-11-01)
+  - 'http://icpc.cs.bme.hu/main.php?p=2 is now web (was scoreboard, problemset): the organisers'' news
+    list of October 2004 to November 2006 (data scan question 1, ruling 2026-11-25)'
 - id: cerc-2005
   season: 2006
   name: 2005 ACM Central Europe Programming Contest
@@ -726,14 +731,14 @@ contests:
     as_of: '20060207104717'
   - url: http://icpc.cs.bme.hu/main.php?p=2
     roles:
-    - scoreboard
-    - problemset
+    - web
     as_of: '20090428015213'
     archived:
     - cerc/cerc-2005/scoreboard/2026-04-16-archive/2005-central-europe-programming-contest-2005.html
     url_state: dead
     url_checked: '2026-11-23'
     note: from archived capture (scoreboard)
+    scope: news list
   - url: http://icpc.cs.bme.hu/main.php?p=12
     roles:
     - scoreboard
@@ -756,6 +761,8 @@ contests:
     set: cerc-2005
   provenance:
   - ICPC Problem Archive progress sheet (2026-11-01)
+  - 'http://icpc.cs.bme.hu/main.php?p=2 is now web (was scoreboard, problemset): the organisers'' news
+    list of October 2004 to November 2006 (data scan question 1, ruling 2026-11-25)'
 - id: cerc-2006
   season: 2007
   name: 2006 ACM Central Europe Programming Contest
@@ -788,14 +795,14 @@ contests:
     as_of: '20090225181625'
   - url: http://icpc.cs.bme.hu/main.php?p=2
     roles:
-    - scoreboard
-    - problemset
+    - web
     as_of: '20090428015213'
     archived:
     - cerc/cerc-2006/scoreboard/2026-04-16-archive/2006-central-europe-programming-contest-2006.html
     url_state: dead
     url_checked: '2026-11-23'
     note: from archived capture (scoreboard)
+    scope: news list
   - url: http://icpc.cs.bme.hu/main.php?p=12
     roles:
     - scoreboard
@@ -817,6 +824,8 @@ contests:
     set: cerc-2006
   provenance:
   - ICPC Problem Archive progress sheet (2026-11-01)
+  - 'http://icpc.cs.bme.hu/main.php?p=2 is now web (was scoreboard, problemset): the organisers'' news
+    list of October 2004 to November 2006 (data scan question 1, ruling 2026-11-25)'
 - id: cerc-2007
   season: 2008
   name: 2007 ACM Central Europe Programming Contest
@@ -833,6 +842,17 @@ contests:
   - url: https://contest.felk.cvut.cz/07cerc/index.html
     roles:
     - web
+  - url: https://contest.felk.cvut.cz/07cerc/contest.html
+    roles:
+    - web
+    url_state: changed
+    url_checked: '2026-11-23'
+  - url: http://contest.felk.cvut.cz/07cerc/solved/
+    roles:
+    - web
+    note: found inside https://contest.felk.cvut.cz/07cerc/index.html by the content check
+    url_state: dead
+    url_checked: '2026-11-23'
   - url: https://contest.felk.cvut.cz/07cerc/rank.html
     roles:
     - standings
@@ -843,11 +863,6 @@ contests:
     - cerc/cerc-2007/standings/20260901-live-e5782acd/rank.html
     url_state: live
     url_checked: '2026-11-16'
-  - url: https://contest.felk.cvut.cz/07cerc/contest.html
-    roles:
-    - problemset
-    url_state: changed
-    url_checked: '2026-11-23'
   - url: https://www.acmicpc.net/category/detail/36
     roles:
     - problemset
@@ -865,16 +880,14 @@ contests:
     note: QOJ / Universal Cup (QOJ ICPC category tree 2026-11-12)
     url_state: live
     url_checked: '2026-11-23'
-  - url: http://contest.felk.cvut.cz/07cerc/solved/
-    roles:
-    - problemset
-    note: found inside https://contest.felk.cvut.cz/07cerc/index.html by the content check
-    url_state: dead
-    url_checked: '2026-11-23'
   problems:
     set: cerc-2007
   provenance:
   - ICPC Problem Archive progress sheet (2026-11-01)
+  - 'https://contest.felk.cvut.cz/07cerc/contest.html is now web (was problemset): a menu of three links
+    (data scan question 1, ruling 2026-11-25)'
+  - 'http://contest.felk.cvut.cz/07cerc/solved/ is now web (was problemset): a directory listing of folders
+    (data scan question 1, ruling 2026-11-25)'
 - id: cerc-2008
   season: 2009
   name: 2008 Central Europe Contest
@@ -961,6 +974,16 @@ contests:
   - url: http://cepc09.ii.uni.wroc.pl/index.html
     roles:
     - web
+  - url: http://cepc09.ii.uni.wroc.pl/ranking.html
+    roles:
+    - web
+    as_of: '20191216132433'
+    archived:
+    - cerc/cerc-2009/rankings/20191216-wayback-eb042cc3/ranking.html
+    - cerc/cerc-2009/rankings/20261116-live-a98a09e1/ranking.html
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside http://cepc09.ii.uni.wroc.pl/index.html by the content check
   - url: http://informatyka.wroc.pl/node/309
     roles:
     - scoreboard
@@ -979,16 +1002,6 @@ contests:
     archived:
     - cerc/cerc-2009/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 543, 71 teams, DB fetch 2026-04-26)
-  - url: http://cepc09.ii.uni.wroc.pl/ranking.html
-    roles:
-    - rankings
-    as_of: '20191216132433'
-    archived:
-    - cerc/cerc-2009/rankings/20191216-wayback-eb042cc3/ranking.html
-    - cerc/cerc-2009/rankings/20261116-live-a98a09e1/ranking.html
-    url_state: live
-    url_checked: '2026-11-16'
-    note: found inside http://cepc09.ii.uni.wroc.pl/index.html by the content check
   - url: http://cepc09.ii.uni.wroc.pl/problems.html
     roles:
     - problemset
@@ -1032,6 +1045,8 @@ contests:
     set: cerc-2009
   provenance:
   - ICPC Problem Archive progress sheet (2026-11-01)
+  - 'http://cepc09.ii.uni.wroc.pl/ranking.html is now web (was rankings): two sentences that link away
+    (data scan question 1, ruling 2026-11-25)'
 - id: cerc-2010
   season: 2011
   name: 2010 Central Europe Regional Contest
@@ -1150,6 +1165,17 @@ contests:
   - url: https://contest.felk.cvut.cz/11cerc/
     roles:
     - web
+  - url: http://contest.felk.cvut.cz:80/11cerc/solved/rank.pdf
+    roles:
+    - web
+    as_of: '20111119205347'
+    archived:
+    - cerc/cerc-2011/standings/20111119-wayback-624958eb/rank.pdf
+    - cerc/cerc-2011/standings/20261115-live-0d8295e2/rank.pdf
+    url_state: live
+    url_checked: '2026-11-16'
+    note: found inside https://contest.felk.cvut.cz/11cerc/ by the content check
+    scope: 'side event: CERC Cipher Contest, final rank'
   - url: https://contest.felk.cvut.cz/11cerc/rank.html
     roles:
     - scoreboard
@@ -1166,16 +1192,6 @@ contests:
     archived:
     - cerc/cerc-2011/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 768, 64 teams, DB fetch 2026-04-26)
-  - url: http://contest.felk.cvut.cz:80/11cerc/solved/rank.pdf
-    roles:
-    - standings
-    as_of: '20111119205347'
-    archived:
-    - cerc/cerc-2011/standings/20111119-wayback-624958eb/rank.pdf
-    - cerc/cerc-2011/standings/20261115-live-0d8295e2/rank.pdf
-    url_state: live
-    url_checked: '2026-11-16'
-    note: found inside https://contest.felk.cvut.cz/11cerc/ by the content check
   - url: https://contest.felk.cvut.cz/11cerc/solved.html
     roles:
     - problemset
@@ -1229,6 +1245,8 @@ contests:
     set: cerc-2011
   provenance:
   - ICPC Problem Archive progress sheet (2026-11-01)
+  - 'http://contest.felk.cvut.cz:80/11cerc/solved/rank.pdf is now web (was standings): the final rank
+    of a side event, the CERC Cipher Contest (data scan question 1, ruling 2026-11-25)'
 - id: cerc-2012
   season: 2013
   name: 2012 Central Europe Regional Contest

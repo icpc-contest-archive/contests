@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: by hand, ruling of 2026-11-25 (sources whose page is not about the contest).
 series:
   id: nwerc
   name: ICPC Northwestern Europe Regional Contest
@@ -2004,6 +2004,11 @@ contests:
   - url: https://people.bath.ac.uk/masjhd/NWERC/index.html
     roles:
     - web
+  - url: https://people.bath.ac.uk/masjhd/NWERC/news/index.html
+    roles:
+    - web
+    url_state: replaced
+    url_checked: '2026-11-23'
   - url: http://nwerc2017-scoreboard.bath.ac.uk/static/scoreboard/static.html
     roles:
     - scoreboard
@@ -2018,11 +2023,6 @@ contests:
     archived:
     - nwerc/nwerc-2017/standings/api-20261113/standings.html
     note: rendered from the icpc.global API standings archive (cms 3274, 118 teams, DB fetch 2026-04-26)
-  - url: https://people.bath.ac.uk/masjhd/NWERC/news/index.html
-    roles:
-    - problemset
-    url_state: replaced
-    url_checked: '2026-11-23'
   - url: https://open.kattis.com/problem-sources/Northwestern%20Europe%20Regional%20Contest%20(NWERC)%202017
     roles:
     - problemset
@@ -2080,6 +2080,8 @@ contests:
     set: nwerc-2017
   provenance:
   - ICPC Problem Archive progress sheet (2026-11-01)
+  - 'https://people.bath.ac.uk/masjhd/NWERC/news/index.html is now web (was problemset): the organisers''
+    news address; it was filed as a problem set (data scan question 1, ruling 2026-11-25)'
 - id: nwerc-2018
   season: 2019
   name: 2018 Northwestern Europe Regional Contest

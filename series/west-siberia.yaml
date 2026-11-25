@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: by hand, ruling of 2026-11-25 (sources whose page is not about the contest).
 series:
   id: west-siberia
   name: ICPC West Siberian Regional Contest
@@ -69,10 +69,14 @@ contests:
   sources:
   - url: https://www.kgeorgiy.info/papers/Vasilev_VN__Kazakov_MA__Korneev_GA__Parfenov_VG__Stankevich_AS_--_NEERC_2001.pdf
     roles:
-    - web
+    - report
+    scope: a paper on the 2001 Northern Eurasia semifinal that names the West Siberian group in a list
   provenance:
   - location Novosibirsk State Technical University read from https://www.kgeorgiy.info/papers/Vasilev_VN__Kazakov_MA__Korneev_GA__Parfenov_VG__Stankevich_AS_--_NEERC_2001.pdf
     (data scan 2026-11-23)
+  - 'https://www.kgeorgiy.info/papers/Vasilev_VN__Kazakov_MA__Korneev_GA__Parfenov_VG__Stankevich_AS_--_NEERC_2001.pdf
+    is now report (was web): a paper on the 2001 semifinal that names the subregion in a list; kept, because
+    it is the contest''s only source and its location was read from it (data scan question 1, ruling 2026-11-25)'
 - id: west-siberia-2002
   season: 2003
   name: 2002 West Siberian Subregional Contest
@@ -1289,18 +1293,9 @@ contests:
     - web
     as_of: '20240415165112'
     note: found by the data scan 2026-11-23 (Wayback CDX of the NERC subregion page)
-  - url: https://olymp.nstu.ru/contests/standing/1060?official=true
-    roles:
-    - scoreboard
-    as_of: '20231208184612'
-    archived:
-    - west-siberia/west-siberia-2023/scoreboard/2026-09-01-live-0712c994/page.html
-    - west-siberia/west-siberia-2023/scoreboard/20231208-wayback-9661b108/page.html
-    url_state: live
-    url_checked: '2026-11-16'
   - url: https://olymp.nstu.ru/
     roles:
-    - standings
+    - web
     as_of: '20231208200403'
     archived:
     - west-siberia/west-siberia-2023/external-standings/2026-04-15-external/content.html
@@ -1312,6 +1307,15 @@ contests:
     url_state: replaced
     url_checked: '2026-11-16'
     note: from archived capture (external-standings)
+  - url: https://olymp.nstu.ru/contests/standing/1060?official=true
+    roles:
+    - scoreboard
+    as_of: '20231208184612'
+    archived:
+    - west-siberia/west-siberia-2023/scoreboard/2026-09-01-live-0712c994/page.html
+    - west-siberia/west-siberia-2023/scoreboard/20231208-wayback-9661b108/page.html
+    url_state: live
+    url_checked: '2026-11-16'
   - url: https://icpc.global/regionals/finder/West-Siberian-Regional-2024/standings
     roles:
     - standings
@@ -1330,6 +1334,8 @@ contests:
     set: west-siberia-2023
   provenance:
   - date 2023-11-18 read from https://olymp.nstu.ru/contests (data scan 2026-11-23)
+  - 'https://olymp.nstu.ru/ is now web (was standings): the organisers'' news page (data scan question
+    1, ruling 2026-11-25)'
 - id: west-siberia-2024
   season: 2025
   name: 2024 ICPC West Siberian Regional Contest
@@ -1397,18 +1403,9 @@ contests:
     - web
     as_of: '20260118074956'
     note: found by the data scan 2026-11-23 (Wayback CDX of the NERC subregion page)
-  - url: https://olymp.nstu.ru/contests/standing/3064?official=true
-    roles:
-    - scoreboard
-    as_of: '20251208162413'
-    archived:
-    - west-siberia/west-siberia-2025/scoreboard/2026-09-01-live-856569c5/page.html
-    - west-siberia/west-siberia-2025/scoreboard/20251208-wayback-d69c418f/page.html
-    url_state: live
-    url_checked: '2026-11-16'
   - url: https://olymp.nstu.ru/
     roles:
-    - standings
+    - web
     as_of: '20251208170939'
     archived:
     - west-siberia/west-siberia-2025/external-standings/2026-04-15-external/content.html
@@ -1419,6 +1416,15 @@ contests:
     url_state: replaced
     url_checked: '2026-11-16'
     note: from archived capture (external-standings)
+  - url: https://olymp.nstu.ru/contests/standing/3064?official=true
+    roles:
+    - scoreboard
+    as_of: '20251208162413'
+    archived:
+    - west-siberia/west-siberia-2025/scoreboard/2026-09-01-live-856569c5/page.html
+    - west-siberia/west-siberia-2025/scoreboard/20251208-wayback-d69c418f/page.html
+    url_state: live
+    url_checked: '2026-11-16'
   - url: https://icpc.global/regionals/finder/West-Siberian-Regional-2026/standings
     roles:
     - standings
@@ -1435,6 +1441,9 @@ contests:
     url_checked: '2026-11-23'
   problems:
     set: west-siberia-2025
+  provenance:
+  - 'https://olymp.nstu.ru/ is now web (was standings): the organisers'' news page (data scan question
+    1, ruling 2026-11-25)'
 - id: west-siberia-2026
   season: 2027
   name: 2026 ICPC West Siberian Regional Contest

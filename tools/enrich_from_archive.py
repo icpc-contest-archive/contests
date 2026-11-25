@@ -15,6 +15,7 @@ For every result-tier capture in data/archive-index.json:
   - a capture whose address another contest already cites, or whose path a source already
     lists, never makes a new source: it was filed under this contest's folder before the
     source was moved or removed (content check, data scan), and re-adding it would undo that.
+  - a capture of an address that data/removed-sources.json lists for the contest never makes a source.
 Problemset, judge-page and web-mirror captures are not written back (as before).
 
 Run from the contests repo root; validate afterwards.
@@ -55,6 +56,11 @@ def main() -> int:
             for s in c.get("sources") or []:
                 cited.setdefault(norm_key(s["url"]), set()).add(c["id"])
                 listed.update(archived(s))
+    # sources taken off a contest by a ruling (data/removed-sources.json): a capture filed under the
+    # contest must not bring one back
+    rp = ROOT / "data" / "removed-sources.json"
+    removed = {cid: {norm_key(u) for u in urls} for cid, urls in (json.loads(rp.read_text()) if rp.exists() else {}).items()
+               if not cid.startswith("_")}
     for sid, doc in series.items():
         changed = False
         for c in doc["contests"]:
@@ -91,6 +97,8 @@ def main() -> int:
                     stats["archived added to existing source"
                           + (" (additional capture)" if len(archived(target)) > 1 else "")] += 1
                     changed = True
+                elif cap.get("url") and norm_key(unwrap(cap["url"])[0]) in removed.get(c["id"], ()):
+                    stats["skipped: source removed from this contest by a ruling"] += 1
                 elif cap.get("url") and (cap["path"] in listed
                                          or cited.get(norm_key(unwrap(cap["url"])[0]), set()) - {c["id"]}):
                     stats["skipped: address cited by another contest (moved or removed here)"] += 1
