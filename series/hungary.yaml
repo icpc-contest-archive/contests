@@ -1,4 +1,4 @@
-# Maintained in-repo; last bulk edit: tools/enrich_from_archive.py.
+# Maintained in-repo; last bulk edit: by hand, ruling of 2026-11-25 (thin or reused addresses).
 series:
   id: hungary
   name: ICPC Hungarian Programming Contest
@@ -305,9 +305,11 @@ contests:
   parent: cerc-2016
   next: hungary-2017
   sources:
-  - url: https://versenyek.inf.elte.hu/2016/
+  - url: https://versenyek.inf.elte.hu/2016/10/04/acm-verseny-2016/
     roles:
     - web
+    note: the organisers' notice of 4 October 2016 that the contest information is out; a page of our
+      crawl of the 2016 news archive
   - url: https://versenyek.inf.elte.hu/wp-content/uploads/2016/10/acm2016.pdf
     roles:
     - problemset
@@ -327,6 +329,10 @@ contests:
     note: added by url-hunt 2026-09-01 (wave3-elte)
   problems:
     set: hungary-2016
+  provenance:
+  - 'source replaced: https://versenyek.inf.elte.hu/2016/ (was web) is the yearly news archive of all
+    of ELTE''s competitions; the posts about this contest inside it are cited instead: https://versenyek.inf.elte.hu/2016/10/04/acm-verseny-2016/
+    (decision 29, 2026-11-25)'
 - id: hungary-2017
   season: 2018
   name: 2017 Hungarian ACM Programming Contest
@@ -412,9 +418,11 @@ contests:
   parent: cerc-2022
   next: hungary-2023
   sources:
-  - url: https://versenyek.inf.elte.hu/2022/
+  - url: https://versenyek.inf.elte.hu/2022/10/03/icpc/
     roles:
     - web
+    note: 'the organisers'' announcement of 3 October 2022: the contest is on 15 October at the faculty''s
+      ''Lovarda'' laboratory, 10:00 to 15:00; a page of our crawl of the 2022 news archive'
   - url: https://domjudge.cms.inf.elte.hu/public
     roles:
     - scoreboard
@@ -425,10 +433,20 @@ contests:
     - hungary/hungary-2022/scoreboard/20261020-live-e53ae157/page.html
     url_state: dead
     url_checked: '2026-11-23'
+  - url: https://versenyek.inf.elte.hu/2022/10/18/icpc-beszamolo/
+    roles:
+    - rankings
+    - report
+    scope: top 3
+    note: 'the organisers'' report of 18 October 2022: 36 teams from BME, ELTE and SZTE, 13 problems,
+      five hours; names the first three teams; a page of our crawl of the 2022 news archive'
   problems:
     set: hungary-2022
   provenance:
   - ICPC Problem Archive progress sheet (2026-11-01)
+  - 'source replaced: https://versenyek.inf.elte.hu/2022/ (was web) is the yearly news archive of all
+    of ELTE''s competitions; the posts about this contest inside it are cited instead: https://versenyek.inf.elte.hu/2022/10/03/icpc/,
+    https://versenyek.inf.elte.hu/2022/10/18/icpc-beszamolo/ (decision 29, 2026-11-25)'
   notes: The CMS lists no teams (problem archive sheet)
 - id: hungary-2023
   season: 2024

@@ -27,6 +27,8 @@ BODIES = ROOT.parent / "_series-sites" / RUN
 LOCK = threading.Lock()
 SOCIAL = re.compile(r"facebook\.com|t\.me/|twitter\.com|//x\.com/|instagram\.com|vk\.com|youtube\.com|linkedin\.com|weibo\.|telegram")
 PAUSE = [0.0]
+# decision 29 (2026-11-25): addresses cited by one edition that name it, asked about at any time, not only in the window
+NAMES_ITS_EDITION = re.compile(r"^icpc\.bubt\.edu\.bd/\d{4}$|^icpc\.kateb\.edu\.af/blogs/")
 
 
 def get(url, timeout=40):
@@ -136,7 +138,8 @@ def study(addr, jobs, contests):
     for j in jobs:
         start, day, end = j["window"]
         year = j["year"]
-        inw = [r for r in rows if start <= r[0][:8] <= end]
+        # any_time: an address that names its edition (a year in the path, a post about it) may show it at any time
+        inw = list(rows) if j.get("any_time") else [r for r in rows if start <= r[0][:8] <= end]
         after = sorted([r for r in inw if r[0][:8] >= day], key=lambda r: r[0])
         before = sorted([r for r in inw if r[0][:8] < day], key=lambda r: r[0], reverse=True)
         # the first three after the contest, the last before it, then the middle and the end of the window
@@ -165,7 +168,8 @@ def make_jobs(contests):
                 by[norm_key(s["url"])].append((cid, s["url"]))
     jobs, skipped = [], Counter()
     for addr, cites in sorted(by.items()):
-        if len({cid for cid, _ in cites}) < 2:
+        named = bool(NAMES_ITS_EDITION.search(addr))
+        if len({cid for cid, _ in cites}) < 2 and not named:
             continue
         for cid, url in cites:
             c = contests[cid]
@@ -177,7 +181,7 @@ def make_jobs(contests):
                 continue
             start, day, end, year = window(c, contests)
             jobs.append({"address": addr, "contest": cid, "url": url, "window": [start, day, end], "year": year,
-                         "dated": bool(c.get("date"))})
+                         "dated": bool(c.get("date")), **({"any_time": True} if named else {})})
     return jobs, skipped
 
 
