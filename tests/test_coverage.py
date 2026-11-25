@@ -58,28 +58,28 @@ class ProblemTests(unittest.TestCase):
 
     def test_no_set_no_source(self):
         r = self.rec([])
-        self.assertEqual(r["set"], "none")
-        self.assertEqual(set(r["problems"].values()), {"none"})
+        self.assertEqual(r["set"], "missing")
+        self.assertEqual(set(r["problems"].values()), {"not held"})
 
     def test_archive_holdings(self):
         r = self.rec([], {"count": 10, "statement": "full", "data": "partial", "solutions": "none", "package": "none"})
         p = r["problems"]
-        self.assertEqual((p["statement"], p["data"], p["solutions"], p["package"]), ("all", "some", "none", "none"))
+        self.assertEqual((p["statement"], p["data"], p["solutions"], p["package"]), ("all", "some", "not held", "not held"))
         self.assertEqual(r["set"], "count only")
 
     def test_a_package_implies_statement_data_solutions_not_editorial(self):
         p = self.rec([], {"count": 10, "package": "full"})["problems"]
-        self.assertEqual((p["statement"], p["data"], p["solutions"], p["package"], p["editorial"]), ("all", "all", "all", "all", "none"))
+        self.assertEqual((p["statement"], p["data"], p["solutions"], p["package"], p["editorial"]), ("all", "all", "all", "all", "not held"))
         p = self.rec([src("a", ["problemset"], True, contains=["package"])])["problems"]
         self.assertEqual((p["statement"], p["data"], p["solutions"], p["package"]), ("all", "all", "all", "all"))
 
     def test_a_held_source_counts_wherever_it_comes_from(self):
         p = self.rec([src("a", ["problemset"], True, contains=["statement"])], {"count": 10, "statement": "none"})["problems"]
-        self.assertEqual((p["statement"], p["data"]), ("all", "none"))
+        self.assertEqual((p["statement"], p["data"]), ("all", "not held"))
 
     def test_link_only_and_not_recorded(self):
         p = self.rec([src("a", ["problemset"], False, contains=["statement", "data"])])["problems"]
-        self.assertEqual((p["statement"], p["data"], p["solutions"]), ("link only", "link only", "none"))
+        self.assertEqual((p["statement"], p["data"], p["solutions"]), ("link only", "link only", "not held"))
         p = self.rec([src("a", ["problemset"], True)])["problems"]   # held, but nobody recorded what it holds
         self.assertEqual(p["statement"], "not recorded")
 
@@ -114,10 +114,10 @@ class WebsiteAndMetadataTests(unittest.TestCase):
     def test_website(self):
         def w(c):
             return cov([c]).record(c)["website"]
-        self.assertEqual(w({"id": "s-2001", "sources": [src("a", ["web"], True)]}), "have")
+        self.assertEqual(w({"id": "s-2001", "sources": [src("a", ["web"], True)]}), "held")
         self.assertEqual(w({"id": "s-2001", "sources": [src("a", ["web"])]}), "no copy")
         self.assertEqual(w({"id": "s-2001"}), "no address")
-        self.assertEqual(w({"id": "s-2001", "none": ["web"]}), "confirmed none")
+        self.assertEqual(w({"id": "s-2001", "none": ["web"]}), "none")
 
     def test_metadata(self):
         a = {"id": "s-2001", "name": "First", "date": "2001-11-03", "cms_ids": [], "parent": None, "next": "s-2002", "sites": [{"location": "se"}]}
@@ -146,7 +146,7 @@ class FacetTests(unittest.TestCase):
         c = {"id": "s-2001", "problems": {"set": "s-2001"}, "sources": []}
         sets = {"s-2001": {"id": "s-2001", "count": 3, "contests": [{"contest": "s-2001", "labels": ["A", "B", "C"]}]}}
         r = cov([c], sets).record(c)
-        self.assertEqual((r["set"], r["pmeta"]["letters"], r["pmeta"]["names"]), ("count only", "all", "none"))
+        self.assertEqual((r["set"], r["pmeta"]["letters"], r["pmeta"]["names"]), ("count only", "all", "missing"))
 
     def test_a_list_as_long_as_its_count_is_complete_whatever_the_flag_says(self):
         doc = {"id": "x", "count": 2, "complete": False, "problems": [{"id": "p-1", "name": "a"}, {"id": "p-2", "name": "b"}]}
