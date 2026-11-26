@@ -489,7 +489,11 @@ several contests: NCPC + UKIEPC 2013, shared North American sets):
 **Shared sets.** A set sat by several contests has an id of its own and a `name`: `latam-<year>`
 for the Latin America regional (every site sits the same problems; a site with no list of its own
 is a member without letters), otherwise the member series joined in alphabetical order
-(`nordic-ukiepc-2013`, `scusa-seusa-2020`). When separate sets turn out to be one,
+(`nordic-ukiepc-2013`, `scusa-seusa-2020`). The set the Northern Eurasia regionals share is the
+Northwestern Russia regional's and keeps that contest's id, `north-russia-<year>`, with no `name`
+(ruling of 2026-11-25). A problem list that turns out to be another contest's (a qualification's, an
+online round's) moves to that contest's set; where the contest is not in the catalogue the list is
+taken off and kept in `data/problem-lists-of-other-contests-2026-11-26.json` (ruling of 2026-11-26). When separate sets turn out to be one,
 `tools/merge_problemsets.py` merges them: the set's `aliases` keep the ids of the sets it replaces
 and each problem's `aliases` the problem ids it replaces. The site redirects those addresses, and
 `validate.py` refuses an alias that is also a live id. The first merge (2026-11-12) turned 87 sets
