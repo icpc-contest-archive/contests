@@ -493,7 +493,12 @@ is a member without letters), otherwise the member series joined in alphabetical
 Northwestern Russia regional's and keeps that contest's id, `north-russia-<year>`, with no `name`
 (ruling of 2026-11-25). A problem list that turns out to be another contest's (a qualification's, an
 online round's) moves to that contest's set; where the contest is not in the catalogue the list is
-taken off and kept in `data/problem-lists-of-other-contests-2026-11-26.json` (ruling of 2026-11-26). When separate sets turn out to be one,
+taken off and kept in `data/problem-lists-of-other-contests-2026-11-26.json` (ruling of 2026-11-26). A lighter
+version of that set, sat by some of the regionals on the same day, is a set of its own,
+`north-russia-light-<year>` (2007, 2017): it has the same titles, but several of its problems are
+different problems, so the same titles do not show the same set. Problems whose statements are the
+same keep one id in both sets. A contest placed on the full set by a standings header alone carries a
+`note` saying that it is not confirmed which of the two it sat (ruling of 2026-11-26). When separate sets turn out to be one,
 `tools/merge_problemsets.py` merges them: the set's `aliases` keep the ids of the sets it replaces
 and each problem's `aliases` the problem ids it replaces. The site redirects those addresses, and
 `validate.py` refuses an alias that is also a live id. The first merge (2026-11-12) turned 87 sets
