@@ -42,7 +42,10 @@ Siberia: the middle day of three; the Atlantic Canadian preliminary: the Friday 
 conference); else the last day of the span, or the second to last for a span of four days or more.
 A day chosen this way says so in the contest's provenance ("the contest day is not confirmed"), so
 that it can be confirmed or corrected when a source is read; `data/span-dates-2026-11-25.json` lists
-them. Local rounds held on different days are dated by the last of them. This is the catalogue's
+them. Local rounds held on different days are dated by the last of them. A contest that sat a shared problem
+set takes the day of the set's session (the day on the set's cover, or the day its other members
+hold) when its own documents state no day or put it a day or two off; a member whose own document
+names another day keeps it and is listed for a look (`data/shared-set-dates-2026-11-25.json`). This is the catalogue's
 rule; a source description still reports only what its document says, and a span there gives no
 contest date.
 
