@@ -499,6 +499,14 @@ and each problem's `aliases` the problem ids it replaces. The site redirects tho
 `validate.py` refuses an alias that is also a live id. The first merge (2026-11-12) turned 87 sets
 into 20; `reports/problemset-merge-2026-11-12.md` lists them and what was left alone.
 
+**Shared problems.** Sets that stay separate (different letters, different contests) can still share
+a problem. It then has one problem id and one row in each set: the rows carry the same judge links,
+each keeps its set's title, and the other titles are under `other_names`. Two rows are the same
+problem when they have the same uuid or point at the same page of an online judge; where the titles
+differ, two judges must agree. `tools/unify_shared_problems.py` does this (ruling of 2026-11-26; 335
+problems the first time) and lists what it left alone in `data/shared-problems-2026-11-26.json`;
+`validate.py` refuses rows of one id that disagree.
+
 `tools/fill_letters.py` gives a problem its letter when the set is complete and exactly one letter
 and one problem are left; nothing else about letters is inferred.
 

@@ -244,6 +244,7 @@ def main() -> int:
             err(f"{cid}: links to set {sid_} but the set does not list it under contests")
     pid_owner: dict[str, set] = defaultdict(set)
     uuid_owner: dict[str, set] = defaultdict(set)
+    pid_rows: dict[str, list] = defaultdict(list)
     for sid_, doc in sets.items():
         probs = doc.get("problems") or []
         ids = [p["id"] for p in probs]
@@ -251,6 +252,7 @@ def main() -> int:
             err(f"problemsets/{sid_}.yaml: duplicate problem id")
         for p in probs:
             pid_owner[p["id"]].add((p.get("uuid"), p["name"]))
+            pid_rows[p["id"]].append((sid_, p))
             if p.get("uuid"):
                 uuid_owner[p["uuid"]].add(p["id"])
             for j in p.get("judges") or []:
@@ -350,6 +352,18 @@ def main() -> int:
     for u, ids_ in uuid_owner.items():
         if len(ids_) > 1:
             err(f"uuid {u} appears under two problem ids {sorted(ids_)} — merge them (aliases)")
+    # a problem that several sets share has one row per set; the rows agree (ruling of 2026-11-26):
+    # the same judge links, and a set's own title is listed under `other_names` by the others
+    for i, rws in pid_rows.items():
+        if len(rws) < 2:
+            continue
+        links = {frozenset((j["judge"], j["url"]) for j in r.get("judges") or []) for _s, r in rws}
+        if len(links) > 1:
+            err(f"problem id {i} has different judge links in {sorted(s_ for s_, _r in rws)} — run tools/unify_shared_problems.py")
+        for s_, r in rws:
+            missing = {q["name"] for _t, q in rws} - {r["name"]} - set(r.get("other_names") or [])
+            if missing:
+                err(f"problemsets/{s_}.yaml {i}: other_names lacks {sorted(missing)}, the title in another set")
 
     # ---- locations: locations.yaml tree + contest sites (DEFINITIONS.md, Locations) ----
     loc_path = ROOT / "locations.yaml"
