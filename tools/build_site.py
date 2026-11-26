@@ -42,6 +42,7 @@ Optional inputs, used when present:
   data/archive-index.json  — captures held by the (private) archive repo
   data/replay-index.json   — pages baked into the public replay shard(s)
   data/website-index.json  — archived contest websites (tools/index_websites.py)
+  data/series-site-windows.json — the days on which a copy of a series' site shows an edition (decision 26)
   data/resources.json      — the source/snapshot/capture graph (tools/build_resources.py)
 
 "local" links point at the local archive server (tools/serve.py) and only work while it
@@ -439,6 +440,11 @@ def load():
     p = ROOT / "data" / "cms-shortnames.json"
     if p.exists():
         CMS_SLUGS = {int(k): v for k, v in json.loads(p.read_text()).items()}
+    p = ROOT / "data" / "series-site-windows.json"
+    if p.exists():
+        for kk, w in json.loads(p.read_text())["windows"].items():
+            cid, key = kk.split("\t", 1)
+            SITE_WINDOWS[(cid, key)] = (w[0], w[1])
     series_docs = {}
     for f in sorted((ROOT / "series").glob("*.yaml")):
         series_docs[f.stem] = yaml.safe_load(f.read_text())
@@ -859,13 +865,25 @@ DOC_FOR: dict = {}   # (address id, contest id) -> source id
 DOC_ALIAS: dict = {}  # address id -> source id, for an address whose every source names a time (the old page address leads to the latest)
 
 
+SITE_WINDOWS: dict = {}   # (contest, address key) -> (first day, last day): data/series-site-windows.json
+
+
+def in_season(k: str, contests, ts: str) -> bool:
+    """A series' site is overwritten every season, so a copy of it shows an edition only when it was
+    taken in that edition's window (decision 26, 2026-11-25). True for a copy of any other address."""
+    key = (RES.locs.get(k) or {}).get("key")
+    wins = [w for w in (SITE_WINDOWS.get((c, key)) for c in contests) if w]
+    return not wins or (ts != "unknown" and any(w[0] <= str(ts)[:8] <= w[1] for w in wins))
+
+
 def _cit_time(k: str, c: dict) -> str | None:
     """The time a citation means the address at: the catalogue's `as_of`, else the Wayback snapshot
     its own copy was taken from, else None (the address as it is)."""
     if c["as_of"]:
         return str(c["as_of"])
     own = sorted(x["ts"] for x in copies(k) if x["via"] == "wayback" and x["ts"] != "unknown"
-                 and (x["contest"] == c["contest"] or (x.get("cap") and x["cap"]["path"] in c["archived"])))
+                 and (x["contest"] == c["contest"] or (x.get("cap") and x["cap"]["path"] in c["archived"]))
+                 and in_season(k, [c["contest"]], x["ts"]))
     return own[0] if own else None
 
 
@@ -952,10 +970,10 @@ def doc_for(url: str, cid: str | None = None) -> dict | None:
 def doc_copies(d: dict) -> list[dict]:
     """The copies we hold of one source: every copy of the address when it is its only source, else
     the copies captured for the contests that mean this source."""
-    cs = copies(d["k"])
+    mine = {c["contest"] for c in d["cits"]}
+    cs = [x for x in copies(d["k"]) if in_season(d["k"], mine, x["ts"])]   # a series' site: only copies of the edition's season
     if len(DOCS_OF[d["k"]]) == 1:
         return cs
-    mine = {c["contest"] for c in d["cits"]}
     paths = {p for c in d["cits"] for p in c["archived"]}
     return [x for x in cs if x["contest"] in mine or (x.get("cap") and x["cap"]["path"] in paths)]
 

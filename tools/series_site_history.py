@@ -199,6 +199,12 @@ def main():
     if a.jobs:
         jobs, skipped = make_jobs(contests)
         jp.write_text(json.dumps({"generated": RUN, "skipped": dict(skipped), "jobs": jobs}, indent=1, ensure_ascii=False) + "\n")
+        wp = ROOT / "data" / "series-site-windows.json"   # read by tools/build_site.py; a citation once listed stays listed
+        doc = json.loads(wp.read_text()) if wp.exists() else {"about": "", "windows": {}}
+        for j in jobs:
+            if not j.get("any_time"):
+                doc["windows"][f"{j['contest']}\t{j['address']}"] = [j["window"][0], j["window"][2]]
+        wp.write_text(json.dumps(doc, indent=0, ensure_ascii=False))
         print(len(jobs), "citations of", len({j["address"] for j in jobs}), "addresses ->", jp.relative_to(ROOT), "| skipped:", dict(skipped))
         return 0
     jobs = json.loads(jp.read_text())["jobs"]
