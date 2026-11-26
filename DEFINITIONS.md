@@ -45,7 +45,13 @@ that it can be confirmed or corrected when a source is read; `data/span-dates-20
 them. Local rounds held on different days are dated by the last of them. A contest that sat a shared problem
 set takes the day of the set's session (the day on the set's cover, or the day its other members
 hold) when its own documents state no day or put it a day or two off; a member whose own document
-names another day keeps it and is listed for a look (`data/shared-set-dates-2026-11-25.json`). This is the catalogue's
+names another day keeps it and is listed for a look (`data/shared-set-dates-2026-11-25.json`). Where a document names the contest day and the catalogue held another (ruling of 2026-11-26): a
+document of the contest itself wins (the statement's cover or running header, the organisers'
+schedule or report, the judge's start time read in the local time of the site); a third party's
+page (a judge's mirror, a note on a problem archive, a participant's post) changes the day only
+where no document of the contest says otherwise, and the day is then marked not confirmed; a gap
+of a week or more is looked into before anything changes (`data/printed-dates-2026-11-26.json`).
+This is the catalogue's
 rule; a source description still reports only what its document says, and a span there gives no
 contest date.
 
