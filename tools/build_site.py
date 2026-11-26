@@ -2455,7 +2455,7 @@ def problem_page(pid: str, ent: dict, rel: str) -> str:
     shorts = sorted({r["short_name"] for _s, r in rows if r.get("short_name")})
     if shorts:
         d.append("<dt>short name</dt><dd>" + ", ".join(f"<code>{esc(x)}</code>" for x in shorts) + "</dd>")
-    others = sorted({o for _s, r in rows for o in r.get("other_names") or []})
+    others = sorted({o for _s, r in rows for o in r.get("other_names") or []} - {p["name"]})
     if others:
         d.append("<dt>other titles</dt><dd>" + ", ".join(esc(x) for x in others)
                  + ' <span class="small muted">— the same problem under another title (an online judge\'s, or the statement\'s where the name here is the problem archive package\'s)</span></dd>')
