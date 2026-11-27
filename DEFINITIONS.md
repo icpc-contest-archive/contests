@@ -518,6 +518,14 @@ differ, two judges must agree. `tools/unify_shared_problems.py` does this (rulin
 problems the first time) and lists what it left alone in `data/shared-problems-2026-11-26.json`;
 `validate.py` refuses rows of one id that disagree.
 
+**Judge links and sources.** A problem's link to an online judge is a `problem` source of its
+contests when we hold a copy of the page or of the statement file behind it (ruling of 2026-11-23,
+`tools/problem_sources_from_judge_copies.py`). A problem we hold no statement of, and that has no
+source of its own, gets one of its judge links as a source to be captured (ruling of 2026-11-27,
+`tools/problem_sources_for_missing_statements.py`); its other links stay links. The statement file
+of a whole set kept on a judge (a Codeforces gym's attached PDF) is a `problemset` source, and a
+held copy of it counts as the set's statements; the judge's page that lists the set does not.
+
 `tools/fill_letters.py` gives a problem its letter when the set is complete and exactly one letter
 and one problem are left; nothing else about letters is inferred.
 
