@@ -217,6 +217,12 @@ def main() -> int:
     contests = load_contests()
     stats: Counter = Counter()
     queues = {**source_queues(contests, stats), **problem_queues(contests, stats)}
+    # a problem's page that is also a source (tools/problem_sources_for_missing_statements.py) is fetched once, as the source
+    cited = {i.get("raw_url") for name in ("pages", "curl", "browser") for i in queues[name]}
+    for name in ("problems", "problems-wayback", "problems-browser"):
+        kept = [i for i in queues[name] if i["raw_url"] not in cited]
+        stats["problems: left to the source queues (the page is a source)"] += len(queues[name]) - len(kept)
+        queues[name] = kept
     for name, queue in queues.items():
         out = OUT / f"topup-{name}-{today}.json"
         out.write_text(json.dumps({"generated": today, "queue": queue}, indent=1))

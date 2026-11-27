@@ -30,6 +30,7 @@ from __future__ import annotations
 import re
 import sys
 from pathlib import Path
+from urllib.parse import urlsplit
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from catalogue import RESULT_LADDER, archived, by_role, set_id_of, set_letters, sources  # noqa: E402
@@ -133,8 +134,12 @@ class Coverage:
     def _counts(s: dict) -> bool:
         """Does a held copy of this source give its material? Not when it is a problem set on an online
         judge: that copy is the judge's list page. A problem's own page or statement file on a judge
-        does (ruled 2026-11-22/23: where the material comes from does not matter)."""
-        return not s.get("judge") or "problemset" not in s["roles"]
+        does (ruled 2026-11-22/23: where the material comes from does not matter), and so does the set's
+        statement file kept there."""
+        if not s.get("judge") or "problemset" not in s["roles"]:
+            return True
+        # the set's statement file kept on a judge (a Codeforces gym's attached PDF) is the material itself (2026-11-27)
+        return bool(re.search(r"\.(pdf|ps|zip|docx?|tgz|tar\.gz)$", urlsplit(s["url"]).path, re.I))
 
     def _problem_of(self, doc: dict, c: dict, s: dict):
         """The problem a per-problem source is about: by its address (one of the problem's judge links),
